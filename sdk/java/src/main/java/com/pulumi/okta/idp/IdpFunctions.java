@@ -7,6 +7,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
+import com.pulumi.deployment.InvokeOutputOptions;
 import com.pulumi.okta.Utilities;
 import com.pulumi.okta.idp.inputs.GetMetadataSamlArgs;
 import com.pulumi.okta.idp.inputs.GetMetadataSamlPlainArgs;
@@ -231,6 +232,48 @@ public final class IdpFunctions {
      * 
      */
     public static Output<GetMetadataSamlResult> getMetadataSaml(GetMetadataSamlArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("okta:idp/getMetadataSaml:getMetadataSaml", TypeShape.of(GetMetadataSamlResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Get SAML IdP metadata from Okta.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.idp.IdpFunctions;
+     * import com.pulumi.okta.idp.inputs.GetMetadataSamlArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = IdpFunctions.getMetadataSaml(GetMetadataSamlArgs.builder()
+     *             .idpId("<idp id>")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetMetadataSamlResult> getMetadataSaml(GetMetadataSamlArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("okta:idp/getMetadataSaml:getMetadataSaml", TypeShape.of(GetMetadataSamlResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -524,6 +567,48 @@ public final class IdpFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetOidcResult> getOidc(GetOidcArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("okta:idp/getOidc:getOidc", TypeShape.of(GetOidcResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Get a OIDC IdP from Okta.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.idp.IdpFunctions;
+     * import com.pulumi.okta.idp.inputs.GetOidcArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = IdpFunctions.getOidc(GetOidcArgs.builder()
+     *             .name("Example Provider")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetOidcResult> getOidcPlain(GetOidcPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("okta:idp/getOidc:getOidc", TypeShape.of(GetOidcResult.class), args, Utilities.withVersion(options));
     }
@@ -776,6 +861,48 @@ public final class IdpFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetSamlResult> getSaml(GetSamlArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("okta:idp/getSaml:getSaml", TypeShape.of(GetSamlResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Get a SAML IdP from Okta.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.idp.IdpFunctions;
+     * import com.pulumi.okta.idp.inputs.GetSamlArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = IdpFunctions.getSaml(GetSamlArgs.builder()
+     *             .name("Example App")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetSamlResult> getSamlPlain(GetSamlPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("okta:idp/getSaml:getSaml", TypeShape.of(GetSamlResult.class), args, Utilities.withVersion(options));
     }
@@ -987,6 +1114,48 @@ public final class IdpFunctions {
      * 
      */
     public static Output<GetSocialResult> getSocial(GetSocialArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("okta:idp/getSocial:getSocial", TypeShape.of(GetSocialResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Get a social IdP from Okta.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.idp.IdpFunctions;
+     * import com.pulumi.okta.idp.inputs.GetSocialArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = IdpFunctions.getSocial(GetSocialArgs.builder()
+     *             .name("My Facebook IdP")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetSocialResult> getSocial(GetSocialArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("okta:idp/getSocial:getSocial", TypeShape.of(GetSocialResult.class), args, Utilities.withVersion(options));
     }
     /**

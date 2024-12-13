@@ -7,6 +7,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
+import com.pulumi.deployment.InvokeOutputOptions;
 import com.pulumi.okta.Utilities;
 import com.pulumi.okta.policy.inputs.GetDefaultPolicyArgs;
 import com.pulumi.okta.policy.inputs.GetDefaultPolicyPlainArgs;
@@ -190,6 +191,50 @@ public final class PolicyFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetDefaultPolicyResult> getDefaultPolicy(GetDefaultPolicyArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("okta:policy/getDefaultPolicy:getDefaultPolicy", TypeShape.of(GetDefaultPolicyResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve a default policy from Okta. This
+     * same thing can be achieved using the `okta.policy.getPolicy` with default
+     * names, this is simply a shortcut.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.policy.PolicyFunctions;
+     * import com.pulumi.okta.policy.inputs.GetDefaultPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = PolicyFunctions.getDefaultPolicy(GetDefaultPolicyArgs.builder()
+     *             .type("PASSWORD")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetDefaultPolicyResult> getDefaultPolicyPlain(GetDefaultPolicyPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("okta:policy/getDefaultPolicy:getDefaultPolicy", TypeShape.of(GetDefaultPolicyResult.class), args, Utilities.withVersion(options));
     }
@@ -320,6 +365,49 @@ public final class PolicyFunctions {
      * 
      */
     public static Output<GetPolicyResult> getPolicy(GetPolicyArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("okta:policy/getPolicy:getPolicy", TypeShape.of(GetPolicyResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Get a policy from Okta.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.policy.PolicyFunctions;
+     * import com.pulumi.okta.policy.inputs.GetPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = PolicyFunctions.getPolicy(GetPolicyArgs.builder()
+     *             .name("Password Policy Example")
+     *             .type("PASSWORD")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetPolicyResult> getPolicy(GetPolicyArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("okta:policy/getPolicy:getPolicy", TypeShape.of(GetPolicyResult.class), args, Utilities.withVersion(options));
     }
     /**

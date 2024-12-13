@@ -74,6 +74,38 @@ namespace Pulumi.Okta
         /// </summary>
         public static Output<GetAppSignonPolicyResult> Invoke(GetAppSignonPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAppSignonPolicyResult>("okta:index/getAppSignonPolicy:getAppSignonPolicy", args ?? new GetAppSignonPolicyInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a sign-on policy for the application.
+        /// 
+        /// &gt; **WARNING:** This feature is only available as a part of the 
+        /// Identity Engine. Contact support 
+        /// for further information.
+        /// 
+        /// &gt; Inside the product a sign-on policy is referenced as an _authentication
+        /// policy_, in the public API the policy is of type
+        /// [`ACCESS_POLICY`](https://developer.okta.com/docs/reference/api/policy/#policy-object).
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Okta = Pulumi.Okta;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Okta.GetAppSignonPolicy.Invoke(new()
+        ///     {
+        ///         AppId = "app_id",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetAppSignonPolicyResult> Invoke(GetAppSignonPolicyInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAppSignonPolicyResult>("okta:index/getAppSignonPolicy:getAppSignonPolicy", args ?? new GetAppSignonPolicyInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -56,6 +56,29 @@ namespace Pulumi.Okta.Group
         /// </summary>
         public static Output<GetEveryoneGroupResult> Invoke(GetEveryoneGroupInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEveryoneGroupResult>("okta:group/getEveryoneGroup:getEveryoneGroup", args ?? new GetEveryoneGroupInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to retrieve the `Everyone` group from Okta. The 
+        /// same can be achieved with the `okta.group.Group` data
+        /// source with `name = "Everyone"`. This is simply a shortcut.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Okta = Pulumi.Okta;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Okta.Group.GetEveryoneGroup.Invoke();
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetEveryoneGroupResult> Invoke(GetEveryoneGroupInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetEveryoneGroupResult>("okta:group/getEveryoneGroup:getEveryoneGroup", args ?? new GetEveryoneGroupInvokeArgs(), options.WithDefaults());
     }
 
 

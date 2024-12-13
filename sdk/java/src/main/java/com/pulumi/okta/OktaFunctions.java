@@ -7,6 +7,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
+import com.pulumi.deployment.InvokeOutputOptions;
 import com.pulumi.okta.Utilities;
 import com.pulumi.okta.inputs.GetAppGroupAssignmentsArgs;
 import com.pulumi.okta.inputs.GetAppGroupAssignmentsPlainArgs;
@@ -256,6 +257,48 @@ public final class OktaFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetAppGroupAssignmentsResult> getAppGroupAssignments(GetAppGroupAssignmentsArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("okta:index/getAppGroupAssignments:getAppGroupAssignments", TypeShape.of(GetAppGroupAssignmentsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Get a set of groups assigned to an Okta application.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetAppGroupAssignmentsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = OktaFunctions.getAppGroupAssignments(GetAppGroupAssignmentsArgs.builder()
+     *             .id(testOktaAppOauth.id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetAppGroupAssignmentsResult> getAppGroupAssignmentsPlain(GetAppGroupAssignmentsPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("okta:index/getAppGroupAssignments:getAppGroupAssignments", TypeShape.of(GetAppGroupAssignmentsResult.class), args, Utilities.withVersion(options));
     }
@@ -407,6 +450,56 @@ public final class OktaFunctions {
      * 
      */
     public static Output<GetAppSignonPolicyResult> getAppSignonPolicy(GetAppSignonPolicyArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("okta:index/getAppSignonPolicy:getAppSignonPolicy", TypeShape.of(GetAppSignonPolicyResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Get a sign-on policy for the application.
+     * 
+     * &gt; **WARNING:** This feature is only available as a part of the
+     * Identity Engine. Contact support
+     * for further information.
+     * 
+     * &gt; Inside the product a sign-on policy is referenced as an _authentication
+     * policy_, in the public API the policy is of type
+     * [`ACCESS_POLICY`](https://developer.okta.com/docs/reference/api/policy/#policy-object).
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetAppSignonPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OktaFunctions.getAppSignonPolicy(GetAppSignonPolicyArgs.builder()
+     *             .appId("app_id")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetAppSignonPolicyResult> getAppSignonPolicy(GetAppSignonPolicyArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("okta:index/getAppSignonPolicy:getAppSignonPolicy", TypeShape.of(GetAppSignonPolicyResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -624,6 +717,48 @@ public final class OktaFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetAppUserAssignmentsResult> getAppUserAssignments(GetAppUserAssignmentsArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("okta:index/getAppUserAssignments:getAppUserAssignments", TypeShape.of(GetAppUserAssignmentsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Get a set of users assigned to an Okta application.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetAppUserAssignmentsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = OktaFunctions.getAppUserAssignments(GetAppUserAssignmentsArgs.builder()
+     *             .id(testOktaAppOauth.id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetAppUserAssignmentsResult> getAppUserAssignmentsPlain(GetAppUserAssignmentsPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("okta:index/getAppUserAssignments:getAppUserAssignments", TypeShape.of(GetAppUserAssignmentsResult.class), args, Utilities.withVersion(options));
     }
@@ -640,6 +775,9 @@ public final class OktaFunctions {
         return getAppsPlain(args, InvokeOptions.Empty);
     }
     public static Output<GetAppsResult> getApps(GetAppsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("okta:index/getApps:getApps", TypeShape.of(GetAppsResult.class), args, Utilities.withVersion(options));
+    }
+    public static Output<GetAppsResult> getApps(GetAppsArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("okta:index/getApps:getApps", TypeShape.of(GetAppsResult.class), args, Utilities.withVersion(options));
     }
     public static CompletableFuture<GetAppsResult> getAppsPlain(GetAppsPlainArgs args, InvokeOptions options) {
@@ -814,6 +952,49 @@ public final class OktaFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetAuthServerClaimResult> getAuthServerClaim(GetAuthServerClaimArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("okta:index/getAuthServerClaim:getAuthServerClaim", TypeShape.of(GetAuthServerClaimResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Get authorization server claim from Okta.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetAuthServerClaimArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = OktaFunctions.getAuthServerClaim(GetAuthServerClaimArgs.builder()
+     *             .authServerId("default")
+     *             .name("birthdate")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetAuthServerClaimResult> getAuthServerClaimPlain(GetAuthServerClaimPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("okta:index/getAuthServerClaim:getAuthServerClaim", TypeShape.of(GetAuthServerClaimResult.class), args, Utilities.withVersion(options));
     }
@@ -941,6 +1122,48 @@ public final class OktaFunctions {
      * 
      */
     public static Output<GetAuthServerClaimsResult> getAuthServerClaims(GetAuthServerClaimsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("okta:index/getAuthServerClaims:getAuthServerClaims", TypeShape.of(GetAuthServerClaimsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Get a list of authorization server claims from Okta.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetAuthServerClaimsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = OktaFunctions.getAuthServerClaims(GetAuthServerClaimsArgs.builder()
+     *             .authServerId("default")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetAuthServerClaimsResult> getAuthServerClaims(GetAuthServerClaimsArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("okta:index/getAuthServerClaims:getAuthServerClaims", TypeShape.of(GetAuthServerClaimsResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -1282,6 +1505,56 @@ public final class OktaFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetAuthenticatorResult> getAuthenticator(GetAuthenticatorArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("okta:index/getAuthenticator:getAuthenticator", TypeShape.of(GetAuthenticatorResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Get an authenticator by key, name of ID.
+     * 
+     * &gt; **WARNING:** This feature is only available as a part of the
+     * Identity Engine. Contact support
+     * for further information.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetAuthenticatorArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = OktaFunctions.getAuthenticator(GetAuthenticatorArgs.builder()
+     *             .key("security_question")
+     *             .build());
+     * 
+     *         final var test1 = OktaFunctions.getAuthenticator(GetAuthenticatorArgs.builder()
+     *             .name("Okta Verify")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetAuthenticatorResult> getAuthenticatorPlain(GetAuthenticatorPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("okta:index/getAuthenticator:getAuthenticator", TypeShape.of(GetAuthenticatorResult.class), args, Utilities.withVersion(options));
     }
@@ -1493,6 +1766,48 @@ public final class OktaFunctions {
      * 
      */
     public static Output<GetBehaviourResult> getBehaviour(GetBehaviourArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("okta:index/getBehaviour:getBehaviour", TypeShape.of(GetBehaviourResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Get a behavior by name or ID.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetBehaviourArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OktaFunctions.getBehaviour(GetBehaviourArgs.builder()
+     *             .label("New City")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetBehaviourResult> getBehaviour(GetBehaviourArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("okta:index/getBehaviour:getBehaviour", TypeShape.of(GetBehaviourResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -1786,6 +2101,48 @@ public final class OktaFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetBehavioursResult> getBehaviours(GetBehavioursArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("okta:index/getBehaviours:getBehaviours", TypeShape.of(GetBehavioursResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Get a behaviors by search criteria.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetBehavioursArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OktaFunctions.getBehaviours(GetBehavioursArgs.builder()
+     *             .q("New")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetBehavioursResult> getBehavioursPlain(GetBehavioursPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("okta:index/getBehaviours:getBehaviours", TypeShape.of(GetBehavioursResult.class), args, Utilities.withVersion(options));
     }
@@ -1808,6 +2165,13 @@ public final class OktaFunctions {
      * 
      */
     public static Output<GetBrandResult> getBrand(GetBrandArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("okta:index/getBrand:getBrand", TypeShape.of(GetBrandResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Get a single Brand from Okta.
+     * 
+     */
+    public static Output<GetBrandResult> getBrand(GetBrandArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("okta:index/getBrand:getBrand", TypeShape.of(GetBrandResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -2048,6 +2412,45 @@ public final class OktaFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetBrandsResult> getBrands(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("okta:index/getBrands:getBrands", TypeShape.of(GetBrandsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Get the brands belonging to an Okta organization.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = OktaFunctions.getBrands();
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetBrandsResult> getBrandsPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("okta:index/getBrands:getBrands", TypeShape.of(GetBrandsResult.class), args, Utilities.withVersion(options));
     }
@@ -2070,6 +2473,13 @@ public final class OktaFunctions {
      * 
      */
     public static Output<GetDefaultSigninPageResult> getDefaultSigninPage(GetDefaultSigninPageArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("okta:index/getDefaultSigninPage:getDefaultSigninPage", TypeShape.of(GetDefaultSigninPageResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieve the default signin page of a brand
+     * 
+     */
+    public static Output<GetDefaultSigninPageResult> getDefaultSigninPage(GetDefaultSigninPageArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("okta:index/getDefaultSigninPage:getDefaultSigninPage", TypeShape.of(GetDefaultSigninPageResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -2112,6 +2522,13 @@ public final class OktaFunctions {
      * 
      */
     public static Output<GetDeviceAssurancePolicyResult> getDeviceAssurancePolicy(GetDeviceAssurancePolicyArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("okta:index/getDeviceAssurancePolicy:getDeviceAssurancePolicy", TypeShape.of(GetDeviceAssurancePolicyResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Get a policy assurance from Okta.
+     * 
+     */
+    public static Output<GetDeviceAssurancePolicyResult> getDeviceAssurancePolicy(GetDeviceAssurancePolicyArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("okta:index/getDeviceAssurancePolicy:getDeviceAssurancePolicy", TypeShape.of(GetDeviceAssurancePolicyResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -2326,6 +2743,58 @@ public final class OktaFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetDomainResult> getDomain(GetDomainArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("okta:index/getDomain:getDomain", TypeShape.of(GetDomainResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Get a domain from Okta.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.Domain;
+     * import com.pulumi.okta.DomainArgs;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetDomainArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var example = new Domain("example", DomainArgs.builder()
+     *             .name("www.example.com")
+     *             .build());
+     * 
+     *         final var by-name = OktaFunctions.getDomain(GetDomainArgs.builder()
+     *             .domainIdOrName("www.example.com")
+     *             .build());
+     * 
+     *         final var by-id = OktaFunctions.getDomain(GetDomainArgs.builder()
+     *             .domainIdOrName(example.id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetDomainResult> getDomainPlain(GetDomainPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("okta:index/getDomain:getDomain", TypeShape.of(GetDomainResult.class), args, Utilities.withVersion(options));
     }
@@ -2354,6 +2823,13 @@ public final class OktaFunctions {
      * Get the email customization of an email template belonging to a brand in an Okta organization.
      * 
      */
+    public static Output<GetEmailCustomizationResult> getEmailCustomization(GetEmailCustomizationArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("okta:index/getEmailCustomization:getEmailCustomization", TypeShape.of(GetEmailCustomizationResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Get the email customization of an email template belonging to a brand in an Okta organization.
+     * 
+     */
     public static CompletableFuture<GetEmailCustomizationResult> getEmailCustomizationPlain(GetEmailCustomizationPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("okta:index/getEmailCustomization:getEmailCustomization", TypeShape.of(GetEmailCustomizationResult.class), args, Utilities.withVersion(options));
     }
@@ -2376,6 +2852,13 @@ public final class OktaFunctions {
      * 
      */
     public static Output<GetEmailCustomizationsResult> getEmailCustomizations(GetEmailCustomizationsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("okta:index/getEmailCustomizations:getEmailCustomizations", TypeShape.of(GetEmailCustomizationsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Get the email customizations of an email template belonging to a brand in an Okta organization.
+     * 
+     */
+    public static Output<GetEmailCustomizationsResult> getEmailCustomizations(GetEmailCustomizationsArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("okta:index/getEmailCustomizations:getEmailCustomizations", TypeShape.of(GetEmailCustomizationsResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -2634,6 +3117,48 @@ public final class OktaFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetGroupsResult> getGroups(GetGroupsArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("okta:index/getGroups:getGroups", TypeShape.of(GetGroupsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Get a list of groups from Okta.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetGroupsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OktaFunctions.getGroups(GetGroupsArgs.builder()
+     *             .q("Engineering - ")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetGroupsResult> getGroupsPlain(GetGroupsPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("okta:index/getGroups:getGroups", TypeShape.of(GetGroupsResult.class), args, Utilities.withVersion(options));
     }
@@ -2670,6 +3195,13 @@ public final class OktaFunctions {
      * 
      */
     public static Output<GetLogStreamResult> getLogStream(GetLogStreamArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("okta:index/getLogStream:getLogStream", TypeShape.of(GetLogStreamResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Log Streams
+     * 
+     */
+    public static Output<GetLogStreamResult> getLogStream(GetLogStreamArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("okta:index/getLogStream:getLogStream", TypeShape.of(GetLogStreamResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -2928,6 +3460,48 @@ public final class OktaFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetNetworkZoneResult> getNetworkZone(GetNetworkZoneArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("okta:index/getNetworkZone:getNetworkZone", TypeShape.of(GetNetworkZoneResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Gets Okta Network Zone.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetNetworkZoneArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OktaFunctions.getNetworkZone(GetNetworkZoneArgs.builder()
+     *             .name("Block Antarctica")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetNetworkZoneResult> getNetworkZonePlain(GetNetworkZonePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("okta:index/getNetworkZone:getNetworkZone", TypeShape.of(GetNetworkZoneResult.class), args, Utilities.withVersion(options));
     }
@@ -2964,6 +3538,13 @@ public final class OktaFunctions {
      * 
      */
     public static Output<GetOrgMetadataResult> getOrgMetadata(GetOrgMetadataArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("okta:index/getOrgMetadata:getOrgMetadata", TypeShape.of(GetOrgMetadataResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieves the well-known org metadata, which includes the id, configured custom domains, authentication pipeline, and various other org settings.
+     * 
+     */
+    public static Output<GetOrgMetadataResult> getOrgMetadata(GetOrgMetadataArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("okta:index/getOrgMetadata:getOrgMetadata", TypeShape.of(GetOrgMetadataResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -3142,6 +3723,49 @@ public final class OktaFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetRoleSubscriptionResult> getRoleSubscription(GetRoleSubscriptionArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("okta:index/getRoleSubscription:getRoleSubscription", TypeShape.of(GetRoleSubscriptionResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Get subscriptions of a Role with a specific type
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetRoleSubscriptionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OktaFunctions.getRoleSubscription(GetRoleSubscriptionArgs.builder()
+     *             .notificationType("APP_IMPORT")
+     *             .roleType("SUPER_ADMIN")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetRoleSubscriptionResult> getRoleSubscriptionPlain(GetRoleSubscriptionPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("okta:index/getRoleSubscription:getRoleSubscription", TypeShape.of(GetRoleSubscriptionResult.class), args, Utilities.withVersion(options));
     }
@@ -3164,6 +3788,13 @@ public final class OktaFunctions {
      * 
      */
     public static Output<GetTemplateResult> getTemplate(GetTemplateArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("okta:index/getTemplate:getTemplate", TypeShape.of(GetTemplateResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Get a single Email Template for a Brand belonging to an Okta organization.
+     * 
+     */
+    public static Output<GetTemplateResult> getTemplate(GetTemplateArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("okta:index/getTemplate:getTemplate", TypeShape.of(GetTemplateResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -3198,6 +3829,13 @@ public final class OktaFunctions {
      * Get the email templates belonging to a brand in an Okta organization.
      * 
      */
+    public static Output<GetTemplatesResult> getTemplates(GetTemplatesArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("okta:index/getTemplates:getTemplates", TypeShape.of(GetTemplatesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Get the email templates belonging to a brand in an Okta organization.
+     * 
+     */
     public static CompletableFuture<GetTemplatesResult> getTemplatesPlain(GetTemplatesPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("okta:index/getTemplates:getTemplates", TypeShape.of(GetTemplatesResult.class), args, Utilities.withVersion(options));
     }
@@ -3226,6 +3864,13 @@ public final class OktaFunctions {
      * Get a single Theme of a Brand of an Okta Organization.
      * 
      */
+    public static Output<GetThemeResult> getTheme(GetThemeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("okta:index/getTheme:getTheme", TypeShape.of(GetThemeResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Get a single Theme of a Brand of an Okta Organization.
+     * 
+     */
     public static CompletableFuture<GetThemeResult> getThemePlain(GetThemePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("okta:index/getTheme:getTheme", TypeShape.of(GetThemeResult.class), args, Utilities.withVersion(options));
     }
@@ -3248,6 +3893,13 @@ public final class OktaFunctions {
      * 
      */
     public static Output<GetThemesResult> getThemes(GetThemesArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("okta:index/getThemes:getThemes", TypeShape.of(GetThemesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Get Themes of a Brand of an Okta Organization.
+     * 
+     */
+    public static Output<GetThemesResult> getThemes(GetThemesArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("okta:index/getThemes:getThemes", TypeShape.of(GetThemesResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -3494,6 +4146,46 @@ public final class OktaFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetTrustedOriginsResult> getTrustedOrigins(GetTrustedOriginsArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("okta:index/getTrustedOrigins:getTrustedOrigins", TypeShape.of(GetTrustedOriginsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Get List of Trusted Origins using filters.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetTrustedOriginsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = OktaFunctions.getTrustedOrigins();
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetTrustedOriginsResult> getTrustedOriginsPlain(GetTrustedOriginsPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("okta:index/getTrustedOrigins:getTrustedOrigins", TypeShape.of(GetTrustedOriginsResult.class), args, Utilities.withVersion(options));
     }
@@ -3642,6 +4334,55 @@ public final class OktaFunctions {
      * 
      */
     public static Output<GetUserSecurityQuestionsResult> getUserSecurityQuestions(GetUserSecurityQuestionsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("okta:index/getUserSecurityQuestions:getUserSecurityQuestions", TypeShape.of(GetUserSecurityQuestionsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.user.User;
+     * import com.pulumi.okta.user.UserArgs;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetUserSecurityQuestionsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
+     *         Pulumi.run(App::stack);
+     *     }}{@code
+     * 
+     *     public static void stack(Context ctx) }{{@code
+     *         var exampleUser = new User("exampleUser", UserArgs.builder()
+     *             .firstName("John")
+     *             .lastName("Smith")
+     *             .login("john.smith}{@literal @}{@code example.com")
+     *             .email("john.smith}{@literal @}{@code example.com")
+     *             .build());
+     * 
+     *         final var example = OktaFunctions.getUserSecurityQuestions(GetUserSecurityQuestionsArgs.builder()
+     *             .userId(exampleUser.id())
+     *             .build());
+     * 
+     *     }}{@code
+     * }}{@code
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetUserSecurityQuestionsResult> getUserSecurityQuestions(GetUserSecurityQuestionsArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("okta:index/getUserSecurityQuestions:getUserSecurityQuestions", TypeShape.of(GetUserSecurityQuestionsResult.class), args, Utilities.withVersion(options));
     }
     /**

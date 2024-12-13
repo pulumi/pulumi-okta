@@ -73,21 +73,11 @@ type LookupAppSignonPolicyResult struct {
 }
 
 func LookupAppSignonPolicyOutput(ctx *pulumi.Context, args LookupAppSignonPolicyOutputArgs, opts ...pulumi.InvokeOption) LookupAppSignonPolicyResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupAppSignonPolicyResultOutput, error) {
 			args := v.(LookupAppSignonPolicyArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupAppSignonPolicyResult
-			secret, err := ctx.InvokePackageRaw("okta:index/getAppSignonPolicy:getAppSignonPolicy", args, &rv, "", opts...)
-			if err != nil {
-				return LookupAppSignonPolicyResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupAppSignonPolicyResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupAppSignonPolicyResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("okta:index/getAppSignonPolicy:getAppSignonPolicy", args, LookupAppSignonPolicyResultOutput{}, options).(LookupAppSignonPolicyResultOutput), nil
 		}).(LookupAppSignonPolicyResultOutput)
 }
 

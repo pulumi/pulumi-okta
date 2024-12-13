@@ -93,21 +93,11 @@ type GetNetworkZoneResult struct {
 }
 
 func GetNetworkZoneOutput(ctx *pulumi.Context, args GetNetworkZoneOutputArgs, opts ...pulumi.InvokeOption) GetNetworkZoneResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetNetworkZoneResultOutput, error) {
 			args := v.(GetNetworkZoneArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv GetNetworkZoneResult
-			secret, err := ctx.InvokePackageRaw("okta:index/getNetworkZone:getNetworkZone", args, &rv, "", opts...)
-			if err != nil {
-				return GetNetworkZoneResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(GetNetworkZoneResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(GetNetworkZoneResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("okta:index/getNetworkZone:getNetworkZone", args, GetNetworkZoneResultOutput{}, options).(GetNetworkZoneResultOutput), nil
 		}).(GetNetworkZoneResultOutput)
 }
 

@@ -78,6 +78,40 @@ namespace Pulumi.Okta
         /// </summary>
         public static Output<GetDomainResult> Invoke(GetDomainInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDomainResult>("okta:index/getDomain:getDomain", args ?? new GetDomainInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a domain from Okta.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Okta = Pulumi.Okta;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = new Okta.Domain("example", new()
+        ///     {
+        ///         Name = "www.example.com",
+        ///     });
+        /// 
+        ///     var by_name = Okta.GetDomain.Invoke(new()
+        ///     {
+        ///         DomainIdOrName = "www.example.com",
+        ///     });
+        /// 
+        ///     var by_id = Okta.GetDomain.Invoke(new()
+        ///     {
+        ///         DomainIdOrName = example.Id,
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetDomainResult> Invoke(GetDomainInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDomainResult>("okta:index/getDomain:getDomain", args ?? new GetDomainInvokeArgs(), options.WithDefaults());
     }
 
 

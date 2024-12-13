@@ -22,6 +22,12 @@ namespace Pulumi.Okta
         /// </summary>
         public static Output<GetTemplatesResult> Invoke(GetTemplatesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTemplatesResult>("okta:index/getTemplates:getTemplates", args ?? new GetTemplatesInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get the email templates belonging to a brand in an Okta organization.
+        /// </summary>
+        public static Output<GetTemplatesResult> Invoke(GetTemplatesInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetTemplatesResult>("okta:index/getTemplates:getTemplates", args ?? new GetTemplatesInvokeArgs(), options.WithDefaults());
     }
 
 

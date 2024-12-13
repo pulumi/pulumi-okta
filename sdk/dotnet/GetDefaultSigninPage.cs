@@ -22,6 +22,12 @@ namespace Pulumi.Okta
         /// </summary>
         public static Output<GetDefaultSigninPageResult> Invoke(GetDefaultSigninPageInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDefaultSigninPageResult>("okta:index/getDefaultSigninPage:getDefaultSigninPage", args ?? new GetDefaultSigninPageInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieve the default signin page of a brand
+        /// </summary>
+        public static Output<GetDefaultSigninPageResult> Invoke(GetDefaultSigninPageInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDefaultSigninPageResult>("okta:index/getDefaultSigninPage:getDefaultSigninPage", args ?? new GetDefaultSigninPageInvokeArgs(), options.WithDefaults());
     }
 
 

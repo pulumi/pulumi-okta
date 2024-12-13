@@ -22,6 +22,12 @@ namespace Pulumi.Okta
         /// </summary>
         public static Output<GetThemesResult> Invoke(GetThemesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetThemesResult>("okta:index/getThemes:getThemes", args ?? new GetThemesInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get Themes of a Brand of an Okta Organization.
+        /// </summary>
+        public static Output<GetThemesResult> Invoke(GetThemesInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetThemesResult>("okta:index/getThemes:getThemes", args ?? new GetThemesInvokeArgs(), options.WithDefaults());
     }
 
 

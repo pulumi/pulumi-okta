@@ -58,6 +58,30 @@ namespace Pulumi.Okta.Idp
         /// </summary>
         public static Output<GetSamlResult> Invoke(GetSamlInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSamlResult>("okta:idp/getSaml:getSaml", args ?? new GetSamlInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a SAML IdP from Okta.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Okta = Pulumi.Okta;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Okta.Idp.GetSaml.Invoke(new()
+        ///     {
+        ///         Name = "Example App",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetSamlResult> Invoke(GetSamlInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSamlResult>("okta:idp/getSaml:getSaml", args ?? new GetSamlInvokeArgs(), options.WithDefaults());
     }
 
 

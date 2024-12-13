@@ -62,6 +62,32 @@ namespace Pulumi.Okta.Policy
         /// </summary>
         public static Output<GetDefaultPolicyResult> Invoke(GetDefaultPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDefaultPolicyResult>("okta:policy/getDefaultPolicy:getDefaultPolicy", args ?? new GetDefaultPolicyInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to retrieve a default policy from Okta. This 
+        /// same thing can be achieved using the `okta.policy.getPolicy` with default 
+        /// names, this is simply a shortcut.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Okta = Pulumi.Okta;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Okta.Policy.GetDefaultPolicy.Invoke(new()
+        ///     {
+        ///         Type = "PASSWORD",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetDefaultPolicyResult> Invoke(GetDefaultPolicyInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDefaultPolicyResult>("okta:policy/getDefaultPolicy:getDefaultPolicy", args ?? new GetDefaultPolicyInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -52,6 +52,27 @@ namespace Pulumi.Okta
         /// </summary>
         public static Output<GetBrandsResult> Invoke(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBrandsResult>("okta:index/getBrands:getBrands", InvokeArgs.Empty, options.WithDefaults());
+
+        /// <summary>
+        /// Get the brands belonging to an Okta organization.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Okta = Pulumi.Okta;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Okta.GetBrands.Invoke();
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetBrandsResult> Invoke(InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetBrandsResult>("okta:index/getBrands:getBrands", InvokeArgs.Empty, options.WithDefaults());
     }
 
 

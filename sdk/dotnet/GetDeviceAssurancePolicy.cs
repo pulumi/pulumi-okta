@@ -22,6 +22,12 @@ namespace Pulumi.Okta
         /// </summary>
         public static Output<GetDeviceAssurancePolicyResult> Invoke(GetDeviceAssurancePolicyInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDeviceAssurancePolicyResult>("okta:index/getDeviceAssurancePolicy:getDeviceAssurancePolicy", args ?? new GetDeviceAssurancePolicyInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a policy assurance from Okta.
+        /// </summary>
+        public static Output<GetDeviceAssurancePolicyResult> Invoke(GetDeviceAssurancePolicyInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDeviceAssurancePolicyResult>("okta:index/getDeviceAssurancePolicy:getDeviceAssurancePolicy", args ?? new GetDeviceAssurancePolicyInvokeArgs(), options.WithDefaults());
     }
 
 
