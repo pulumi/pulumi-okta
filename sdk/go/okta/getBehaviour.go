@@ -45,21 +45,11 @@ type LookupBehaviourResult struct {
 }
 
 func LookupBehaviourOutput(ctx *pulumi.Context, args LookupBehaviourOutputArgs, opts ...pulumi.InvokeOption) LookupBehaviourResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupBehaviourResultOutput, error) {
 			args := v.(LookupBehaviourArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupBehaviourResult
-			secret, err := ctx.InvokePackageRaw("okta:index/getBehaviour:getBehaviour", args, &rv, "", opts...)
-			if err != nil {
-				return LookupBehaviourResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupBehaviourResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupBehaviourResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("okta:index/getBehaviour:getBehaviour", args, LookupBehaviourResultOutput{}, options).(LookupBehaviourResultOutput), nil
 		}).(LookupBehaviourResultOutput)
 }
 

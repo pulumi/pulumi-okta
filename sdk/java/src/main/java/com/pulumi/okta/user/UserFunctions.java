@@ -7,6 +7,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
+import com.pulumi.deployment.InvokeOutputOptions;
 import com.pulumi.okta.Utilities;
 import com.pulumi.okta.user.inputs.GetUserArgs;
 import com.pulumi.okta.user.inputs.GetUserPlainArgs;
@@ -55,6 +56,13 @@ public final class UserFunctions {
      * 
      */
     public static Output<GetUserResult> getUser(GetUserArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("okta:user/getUser:getUser", TypeShape.of(GetUserResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Get a single users from Okta.
+     * 
+     */
+    public static Output<GetUserResult> getUser(GetUserArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("okta:user/getUser:getUser", TypeShape.of(GetUserResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -272,6 +280,48 @@ public final class UserFunctions {
      * 
      */
     public static Output<GetUserProfileMappingSourceResult> getUserProfileMappingSource(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("okta:user/getUserProfileMappingSource:getUserProfileMappingSource", TypeShape.of(GetUserProfileMappingSourceResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Get the base user Profile Mapping source or target from Okta.
+     * 
+     * &gt; **NOTE:** If using this resource with OAuth2 scopes, this resource
+     * requires `okta.profileMappings.read` scope.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.user.UserFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = UserFunctions.getUserProfileMappingSource();
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetUserProfileMappingSourceResult> getUserProfileMappingSource(InvokeArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("okta:user/getUserProfileMappingSource:getUserProfileMappingSource", TypeShape.of(GetUserProfileMappingSourceResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -565,6 +615,48 @@ public final class UserFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetUserTypeResult> getUserType(GetUserTypeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("okta:user/getUserType:getUserType", TypeShape.of(GetUserTypeResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Get a user type from Okta.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.user.UserFunctions;
+     * import com.pulumi.okta.user.inputs.GetUserTypeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = UserFunctions.getUserType(GetUserTypeArgs.builder()
+     *             .name("example")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetUserTypeResult> getUserTypePlain(GetUserTypePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("okta:user/getUserType:getUserType", TypeShape.of(GetUserTypeResult.class), args, Utilities.withVersion(options));
     }
@@ -601,6 +693,13 @@ public final class UserFunctions {
      * 
      */
     public static Output<GetUsersResult> getUsers(GetUsersArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("okta:user/getUsers:getUsers", TypeShape.of(GetUsersResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Get a list of users from Okta.
+     * 
+     */
+    public static Output<GetUsersResult> getUsers(GetUsersArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("okta:user/getUsers:getUsers", TypeShape.of(GetUsersResult.class), args, Utilities.withVersion(options));
     }
     /**

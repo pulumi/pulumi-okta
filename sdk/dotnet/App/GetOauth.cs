@@ -58,6 +58,30 @@ namespace Pulumi.Okta.App
         /// </summary>
         public static Output<GetOauthResult> Invoke(GetOauthInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOauthResult>("okta:app/getOauth:getOauth", args ?? new GetOauthInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a OIDC application from Okta.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Okta = Pulumi.Okta;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Okta.App.GetOauth.Invoke(new()
+        ///     {
+        ///         Label = "Example App",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetOauthResult> Invoke(GetOauthInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetOauthResult>("okta:app/getOauth:getOauth", args ?? new GetOauthInvokeArgs(), options.WithDefaults());
     }
 
 

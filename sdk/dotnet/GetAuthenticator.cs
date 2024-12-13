@@ -76,6 +76,39 @@ namespace Pulumi.Okta
         /// </summary>
         public static Output<GetAuthenticatorResult> Invoke(GetAuthenticatorInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAuthenticatorResult>("okta:index/getAuthenticator:getAuthenticator", args ?? new GetAuthenticatorInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get an authenticator by key, name of ID.
+        /// 
+        /// &gt; **WARNING:** This feature is only available as a part of the 
+        /// Identity Engine. Contact support 
+        /// for further information.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Okta = Pulumi.Okta;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Okta.GetAuthenticator.Invoke(new()
+        ///     {
+        ///         Key = "security_question",
+        ///     });
+        /// 
+        ///     var test1 = Okta.GetAuthenticator.Invoke(new()
+        ///     {
+        ///         Name = "Okta Verify",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetAuthenticatorResult> Invoke(GetAuthenticatorInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAuthenticatorResult>("okta:index/getAuthenticator:getAuthenticator", args ?? new GetAuthenticatorInvokeArgs(), options.WithDefaults());
     }
 
 

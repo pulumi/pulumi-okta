@@ -55,21 +55,11 @@ type LookupEmailCustomizationResult struct {
 }
 
 func LookupEmailCustomizationOutput(ctx *pulumi.Context, args LookupEmailCustomizationOutputArgs, opts ...pulumi.InvokeOption) LookupEmailCustomizationResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupEmailCustomizationResultOutput, error) {
 			args := v.(LookupEmailCustomizationArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupEmailCustomizationResult
-			secret, err := ctx.InvokePackageRaw("okta:index/getEmailCustomization:getEmailCustomization", args, &rv, "", opts...)
-			if err != nil {
-				return LookupEmailCustomizationResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupEmailCustomizationResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupEmailCustomizationResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("okta:index/getEmailCustomization:getEmailCustomization", args, LookupEmailCustomizationResultOutput{}, options).(LookupEmailCustomizationResultOutput), nil
 		}).(LookupEmailCustomizationResultOutput)
 }
 

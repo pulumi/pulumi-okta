@@ -58,6 +58,30 @@ namespace Pulumi.Okta
         /// </summary>
         public static Output<GetBehavioursResult> Invoke(GetBehavioursInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBehavioursResult>("okta:index/getBehaviours:getBehaviours", args ?? new GetBehavioursInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a behaviors by search criteria.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Okta = Pulumi.Okta;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Okta.GetBehaviours.Invoke(new()
+        ///     {
+        ///         Q = "New",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetBehavioursResult> Invoke(GetBehavioursInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetBehavioursResult>("okta:index/getBehaviours:getBehaviours", args ?? new GetBehavioursInvokeArgs(), options.WithDefaults());
     }
 
 

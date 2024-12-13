@@ -58,6 +58,30 @@ namespace Pulumi.Okta.Auth
         /// </summary>
         public static Output<GetServerScopesResult> Invoke(GetServerScopesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServerScopesResult>("okta:auth/getServerScopes:getServerScopes", args ?? new GetServerScopesInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a list of authorization server scopes from Okta.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Okta = Pulumi.Okta;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Okta.Auth.GetServerScopes.Invoke(new()
+        ///     {
+        ///         AuthServerId = "default",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetServerScopesResult> Invoke(GetServerScopesInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetServerScopesResult>("okta:auth/getServerScopes:getServerScopes", args ?? new GetServerScopesInvokeArgs(), options.WithDefaults());
     }
 
 

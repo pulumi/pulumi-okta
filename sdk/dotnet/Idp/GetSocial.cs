@@ -58,6 +58,30 @@ namespace Pulumi.Okta.Idp
         /// </summary>
         public static Output<GetSocialResult> Invoke(GetSocialInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSocialResult>("okta:idp/getSocial:getSocial", args ?? new GetSocialInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a social IdP from Okta.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Okta = Pulumi.Okta;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Okta.Idp.GetSocial.Invoke(new()
+        ///     {
+        ///         Name = "My Facebook IdP",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetSocialResult> Invoke(GetSocialInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSocialResult>("okta:idp/getSocial:getSocial", args ?? new GetSocialInvokeArgs(), options.WithDefaults());
     }
 
 

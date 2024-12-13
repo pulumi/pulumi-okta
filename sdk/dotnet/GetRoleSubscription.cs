@@ -60,6 +60,31 @@ namespace Pulumi.Okta
         /// </summary>
         public static Output<GetRoleSubscriptionResult> Invoke(GetRoleSubscriptionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRoleSubscriptionResult>("okta:index/getRoleSubscription:getRoleSubscription", args ?? new GetRoleSubscriptionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get subscriptions of a Role with a specific type
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Okta = Pulumi.Okta;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Okta.GetRoleSubscription.Invoke(new()
+        ///     {
+        ///         NotificationType = "APP_IMPORT",
+        ///         RoleType = "SUPER_ADMIN",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetRoleSubscriptionResult> Invoke(GetRoleSubscriptionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRoleSubscriptionResult>("okta:index/getRoleSubscription:getRoleSubscription", args ?? new GetRoleSubscriptionInvokeArgs(), options.WithDefaults());
     }
 
 
