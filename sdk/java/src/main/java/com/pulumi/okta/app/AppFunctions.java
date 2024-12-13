@@ -7,6 +7,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
+import com.pulumi.deployment.InvokeOutputOptions;
 import com.pulumi.okta.Utilities;
 import com.pulumi.okta.app.inputs.GetAppArgs;
 import com.pulumi.okta.app.inputs.GetAppPlainArgs;
@@ -272,6 +273,48 @@ public final class AppFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetAppResult> getApp(GetAppArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("okta:app/getApp:getApp", TypeShape.of(GetAppResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Get an application of any kind from Okta.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.app.AppFunctions;
+     * import com.pulumi.okta.app.inputs.GetAppArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AppFunctions.getApp(GetAppArgs.builder()
+     *             .label("Example App")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetAppResult> getAppPlain(GetAppPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("okta:app/getApp:getApp", TypeShape.of(GetAppResult.class), args, Utilities.withVersion(options));
     }
@@ -402,6 +445,49 @@ public final class AppFunctions {
      * 
      */
     public static Output<GetMetadataSamlResult> getMetadataSaml(GetMetadataSamlArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("okta:app/getMetadataSaml:getMetadataSaml", TypeShape.of(GetMetadataSamlResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Get a SAML application&#39;s metadata from Okta.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.app.AppFunctions;
+     * import com.pulumi.okta.app.inputs.GetMetadataSamlArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AppFunctions.getMetadataSaml(GetMetadataSamlArgs.builder()
+     *             .appId("<app id>")
+     *             .keyId("<cert key id>")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetMetadataSamlResult> getMetadataSaml(GetMetadataSamlArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("okta:app/getMetadataSaml:getMetadataSaml", TypeShape.of(GetMetadataSamlResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -696,6 +782,48 @@ public final class AppFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetOauthResult> getOauth(GetOauthArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("okta:app/getOauth:getOauth", TypeShape.of(GetOauthResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Get a OIDC application from Okta.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.app.AppFunctions;
+     * import com.pulumi.okta.app.inputs.GetOauthArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = AppFunctions.getOauth(GetOauthArgs.builder()
+     *             .label("Example App")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetOauthResult> getOauthPlain(GetOauthPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("okta:app/getOauth:getOauth", TypeShape.of(GetOauthResult.class), args, Utilities.withVersion(options));
     }
@@ -907,6 +1035,48 @@ public final class AppFunctions {
      * 
      */
     public static Output<GetSamlResult> getSaml(GetSamlArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("okta:app/getSaml:getSaml", TypeShape.of(GetSamlResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Get a SAML application from Okta.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.app.AppFunctions;
+     * import com.pulumi.okta.app.inputs.GetSamlArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AppFunctions.getSaml(GetSamlArgs.builder()
+     *             .label("Example App")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetSamlResult> getSaml(GetSamlArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("okta:app/getSaml:getSaml", TypeShape.of(GetSamlResult.class), args, Utilities.withVersion(options));
     }
     /**

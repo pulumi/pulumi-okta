@@ -182,21 +182,11 @@ type LookupSamlResult struct {
 }
 
 func LookupSamlOutput(ctx *pulumi.Context, args LookupSamlOutputArgs, opts ...pulumi.InvokeOption) LookupSamlResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupSamlResultOutput, error) {
 			args := v.(LookupSamlArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupSamlResult
-			secret, err := ctx.InvokePackageRaw("okta:app/getSaml:getSaml", args, &rv, "", opts...)
-			if err != nil {
-				return LookupSamlResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupSamlResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupSamlResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("okta:app/getSaml:getSaml", args, LookupSamlResultOutput{}, options).(LookupSamlResultOutput), nil
 		}).(LookupSamlResultOutput)
 }
 

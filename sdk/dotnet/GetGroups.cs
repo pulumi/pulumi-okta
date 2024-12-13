@@ -58,6 +58,30 @@ namespace Pulumi.Okta
         /// </summary>
         public static Output<GetGroupsResult> Invoke(GetGroupsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGroupsResult>("okta:index/getGroups:getGroups", args ?? new GetGroupsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a list of groups from Okta.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Okta = Pulumi.Okta;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Okta.GetGroups.Invoke(new()
+        ///     {
+        ///         Q = "Engineering - ",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetGroupsResult> Invoke(GetGroupsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetGroupsResult>("okta:index/getGroups:getGroups", args ?? new GetGroupsInvokeArgs(), options.WithDefaults());
     }
 
 

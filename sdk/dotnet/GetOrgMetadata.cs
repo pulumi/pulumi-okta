@@ -22,6 +22,12 @@ namespace Pulumi.Okta
         /// </summary>
         public static Output<GetOrgMetadataResult> Invoke(GetOrgMetadataInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOrgMetadataResult>("okta:index/getOrgMetadata:getOrgMetadata", args ?? new GetOrgMetadataInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves the well-known org metadata, which includes the id, configured custom domains, authentication pipeline, and various other org settings.
+        /// </summary>
+        public static Output<GetOrgMetadataResult> Invoke(GetOrgMetadataInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetOrgMetadataResult>("okta:index/getOrgMetadata:getOrgMetadata", args ?? new GetOrgMetadataInvokeArgs(), options.WithDefaults());
     }
 
 

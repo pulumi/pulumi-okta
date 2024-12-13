@@ -74,21 +74,11 @@ type LookupServerPolicyResult struct {
 }
 
 func LookupServerPolicyOutput(ctx *pulumi.Context, args LookupServerPolicyOutputArgs, opts ...pulumi.InvokeOption) LookupServerPolicyResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupServerPolicyResultOutput, error) {
 			args := v.(LookupServerPolicyArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupServerPolicyResult
-			secret, err := ctx.InvokePackageRaw("okta:auth/getServerPolicy:getServerPolicy", args, &rv, "", opts...)
-			if err != nil {
-				return LookupServerPolicyResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupServerPolicyResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupServerPolicyResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("okta:auth/getServerPolicy:getServerPolicy", args, LookupServerPolicyResultOutput{}, options).(LookupServerPolicyResultOutput), nil
 		}).(LookupServerPolicyResultOutput)
 }
 

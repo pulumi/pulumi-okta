@@ -43,21 +43,11 @@ type GetOrgMetadataResult struct {
 }
 
 func GetOrgMetadataOutput(ctx *pulumi.Context, args GetOrgMetadataOutputArgs, opts ...pulumi.InvokeOption) GetOrgMetadataResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetOrgMetadataResultOutput, error) {
 			args := v.(GetOrgMetadataArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv GetOrgMetadataResult
-			secret, err := ctx.InvokePackageRaw("okta:index/getOrgMetadata:getOrgMetadata", args, &rv, "", opts...)
-			if err != nil {
-				return GetOrgMetadataResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(GetOrgMetadataResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(GetOrgMetadataResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("okta:index/getOrgMetadata:getOrgMetadata", args, GetOrgMetadataResultOutput{}, options).(GetOrgMetadataResultOutput), nil
 		}).(GetOrgMetadataResultOutput)
 }
 

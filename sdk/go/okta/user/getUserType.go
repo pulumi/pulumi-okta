@@ -69,21 +69,11 @@ type LookupUserTypeResult struct {
 }
 
 func LookupUserTypeOutput(ctx *pulumi.Context, args LookupUserTypeOutputArgs, opts ...pulumi.InvokeOption) LookupUserTypeResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupUserTypeResultOutput, error) {
 			args := v.(LookupUserTypeArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupUserTypeResult
-			secret, err := ctx.InvokePackageRaw("okta:user/getUserType:getUserType", args, &rv, "", opts...)
-			if err != nil {
-				return LookupUserTypeResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupUserTypeResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupUserTypeResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("okta:user/getUserType:getUserType", args, LookupUserTypeResultOutput{}, options).(LookupUserTypeResultOutput), nil
 		}).(LookupUserTypeResultOutput)
 }
 

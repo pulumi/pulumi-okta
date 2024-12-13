@@ -22,6 +22,12 @@ namespace Pulumi.Okta
         /// </summary>
         public static Output<GetBrandResult> Invoke(GetBrandInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBrandResult>("okta:index/getBrand:getBrand", args ?? new GetBrandInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a single Brand from Okta.
+        /// </summary>
+        public static Output<GetBrandResult> Invoke(GetBrandInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetBrandResult>("okta:index/getBrand:getBrand", args ?? new GetBrandInvokeArgs(), options.WithDefaults());
     }
 
 

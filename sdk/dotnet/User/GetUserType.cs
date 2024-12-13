@@ -58,6 +58,30 @@ namespace Pulumi.Okta.User
         /// </summary>
         public static Output<GetUserTypeResult> Invoke(GetUserTypeInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetUserTypeResult>("okta:user/getUserType:getUserType", args ?? new GetUserTypeInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a user type from Okta.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Okta = Pulumi.Okta;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Okta.User.GetUserType.Invoke(new()
+        ///     {
+        ///         Name = "example",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetUserTypeResult> Invoke(GetUserTypeInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetUserTypeResult>("okta:user/getUserType:getUserType", args ?? new GetUserTypeInvokeArgs(), options.WithDefaults());
     }
 
 

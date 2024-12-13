@@ -117,21 +117,11 @@ type GetAppResult struct {
 }
 
 func GetAppOutput(ctx *pulumi.Context, args GetAppOutputArgs, opts ...pulumi.InvokeOption) GetAppResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetAppResultOutput, error) {
 			args := v.(GetAppArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv GetAppResult
-			secret, err := ctx.InvokePackageRaw("okta:app/getApp:getApp", args, &rv, "", opts...)
-			if err != nil {
-				return GetAppResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(GetAppResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(GetAppResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("okta:app/getApp:getApp", args, GetAppResultOutput{}, options).(GetAppResultOutput), nil
 		}).(GetAppResultOutput)
 }
 

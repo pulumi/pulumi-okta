@@ -65,21 +65,11 @@ type GetDefaultPolicyResult struct {
 }
 
 func GetDefaultPolicyOutput(ctx *pulumi.Context, args GetDefaultPolicyOutputArgs, opts ...pulumi.InvokeOption) GetDefaultPolicyResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetDefaultPolicyResultOutput, error) {
 			args := v.(GetDefaultPolicyArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv GetDefaultPolicyResult
-			secret, err := ctx.InvokePackageRaw("okta:policy/getDefaultPolicy:getDefaultPolicy", args, &rv, "", opts...)
-			if err != nil {
-				return GetDefaultPolicyResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(GetDefaultPolicyResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(GetDefaultPolicyResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("okta:policy/getDefaultPolicy:getDefaultPolicy", args, GetDefaultPolicyResultOutput{}, options).(GetDefaultPolicyResultOutput), nil
 		}).(GetDefaultPolicyResultOutput)
 }
 

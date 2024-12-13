@@ -60,6 +60,31 @@ namespace Pulumi.Okta
         /// </summary>
         public static Output<GetAuthServerClaimResult> Invoke(GetAuthServerClaimInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAuthServerClaimResult>("okta:index/getAuthServerClaim:getAuthServerClaim", args ?? new GetAuthServerClaimInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get authorization server claim from Okta.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Okta = Pulumi.Okta;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Okta.GetAuthServerClaim.Invoke(new()
+        ///     {
+        ///         AuthServerId = "default",
+        ///         Name = "birthdate",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetAuthServerClaimResult> Invoke(GetAuthServerClaimInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAuthServerClaimResult>("okta:index/getAuthServerClaim:getAuthServerClaim", args ?? new GetAuthServerClaimInvokeArgs(), options.WithDefaults());
     }
 
 

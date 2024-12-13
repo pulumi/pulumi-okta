@@ -58,6 +58,30 @@ namespace Pulumi.Okta.Idp
         /// </summary>
         public static Output<GetOidcResult> Invoke(GetOidcInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOidcResult>("okta:idp/getOidc:getOidc", args ?? new GetOidcInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a OIDC IdP from Okta.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Okta = Pulumi.Okta;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Okta.Idp.GetOidc.Invoke(new()
+        ///     {
+        ///         Name = "Example Provider",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetOidcResult> Invoke(GetOidcInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetOidcResult>("okta:idp/getOidc:getOidc", args ?? new GetOidcInvokeArgs(), options.WithDefaults());
     }
 
 

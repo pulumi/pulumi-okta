@@ -58,6 +58,30 @@ namespace Pulumi.Okta
         /// </summary>
         public static Output<GetNetworkZoneResult> Invoke(GetNetworkZoneInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkZoneResult>("okta:index/getNetworkZone:getNetworkZone", args ?? new GetNetworkZoneInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets Okta Network Zone.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Okta = Pulumi.Okta;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Okta.GetNetworkZone.Invoke(new()
+        ///     {
+        ///         Name = "Block Antarctica",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetNetworkZoneResult> Invoke(GetNetworkZoneInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetNetworkZoneResult>("okta:index/getNetworkZone:getNetworkZone", args ?? new GetNetworkZoneInvokeArgs(), options.WithDefaults());
     }
 
 

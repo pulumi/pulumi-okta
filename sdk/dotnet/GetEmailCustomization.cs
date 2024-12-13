@@ -22,6 +22,12 @@ namespace Pulumi.Okta
         /// </summary>
         public static Output<GetEmailCustomizationResult> Invoke(GetEmailCustomizationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEmailCustomizationResult>("okta:index/getEmailCustomization:getEmailCustomization", args ?? new GetEmailCustomizationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get the email customization of an email template belonging to a brand in an Okta organization.
+        /// </summary>
+        public static Output<GetEmailCustomizationResult> Invoke(GetEmailCustomizationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetEmailCustomizationResult>("okta:index/getEmailCustomization:getEmailCustomization", args ?? new GetEmailCustomizationInvokeArgs(), options.WithDefaults());
     }
 
 

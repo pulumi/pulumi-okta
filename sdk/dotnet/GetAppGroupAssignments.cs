@@ -58,6 +58,30 @@ namespace Pulumi.Okta
         /// </summary>
         public static Output<GetAppGroupAssignmentsResult> Invoke(GetAppGroupAssignmentsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAppGroupAssignmentsResult>("okta:index/getAppGroupAssignments:getAppGroupAssignments", args ?? new GetAppGroupAssignmentsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a set of groups assigned to an Okta application.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Okta = Pulumi.Okta;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Okta.GetAppGroupAssignments.Invoke(new()
+        ///     {
+        ///         Id = testOktaAppOauth.Id,
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetAppGroupAssignmentsResult> Invoke(GetAppGroupAssignmentsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAppGroupAssignmentsResult>("okta:index/getAppGroupAssignments:getAppGroupAssignments", args ?? new GetAppGroupAssignmentsInvokeArgs(), options.WithDefaults());
     }
 
 

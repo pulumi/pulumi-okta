@@ -79,21 +79,11 @@ type GetMetadataSamlResult struct {
 }
 
 func GetMetadataSamlOutput(ctx *pulumi.Context, args GetMetadataSamlOutputArgs, opts ...pulumi.InvokeOption) GetMetadataSamlResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetMetadataSamlResultOutput, error) {
 			args := v.(GetMetadataSamlArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv GetMetadataSamlResult
-			secret, err := ctx.InvokePackageRaw("okta:idp/getMetadataSaml:getMetadataSaml", args, &rv, "", opts...)
-			if err != nil {
-				return GetMetadataSamlResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(GetMetadataSamlResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(GetMetadataSamlResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("okta:idp/getMetadataSaml:getMetadataSaml", args, GetMetadataSamlResultOutput{}, options).(GetMetadataSamlResultOutput), nil
 		}).(GetMetadataSamlResultOutput)
 }
 

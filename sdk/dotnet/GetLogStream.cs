@@ -22,6 +22,12 @@ namespace Pulumi.Okta
         /// </summary>
         public static Output<GetLogStreamResult> Invoke(GetLogStreamInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLogStreamResult>("okta:index/getLogStream:getLogStream", args ?? new GetLogStreamInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Log Streams
+        /// </summary>
+        public static Output<GetLogStreamResult> Invoke(GetLogStreamInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetLogStreamResult>("okta:index/getLogStream:getLogStream", args ?? new GetLogStreamInvokeArgs(), options.WithDefaults());
     }
 
 
