@@ -42,6 +42,14 @@ export class AppSignonPolicy extends pulumi.CustomResource {
     }
 
     /**
+     * Default rules of the policy set to `DENY` or not. If `false`, it is set to `DENY`. **WARNING** setting this attribute to false change the OKTA default behavior. Use at your own risk. This is only apply during creation, so import or update will not work
+     */
+    public readonly catchAll!: pulumi.Output<boolean>;
+    /**
+     * Default rules id of the policy
+     */
+    public /*out*/ readonly defaultRuleId!: pulumi.Output<string>;
+    /**
      * Description of the policy.
      */
     public readonly description!: pulumi.Output<string>;
@@ -63,6 +71,8 @@ export class AppSignonPolicy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AppSignonPolicyState | undefined;
+            resourceInputs["catchAll"] = state ? state.catchAll : undefined;
+            resourceInputs["defaultRuleId"] = state ? state.defaultRuleId : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
         } else {
@@ -70,8 +80,10 @@ export class AppSignonPolicy extends pulumi.CustomResource {
             if ((!args || args.description === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'description'");
             }
+            resourceInputs["catchAll"] = args ? args.catchAll : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["defaultRuleId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(AppSignonPolicy.__pulumiType, name, resourceInputs, opts);
@@ -82,6 +94,14 @@ export class AppSignonPolicy extends pulumi.CustomResource {
  * Input properties used for looking up and filtering AppSignonPolicy resources.
  */
 export interface AppSignonPolicyState {
+    /**
+     * Default rules of the policy set to `DENY` or not. If `false`, it is set to `DENY`. **WARNING** setting this attribute to false change the OKTA default behavior. Use at your own risk. This is only apply during creation, so import or update will not work
+     */
+    catchAll?: pulumi.Input<boolean>;
+    /**
+     * Default rules id of the policy
+     */
+    defaultRuleId?: pulumi.Input<string>;
     /**
      * Description of the policy.
      */
@@ -96,6 +116,10 @@ export interface AppSignonPolicyState {
  * The set of arguments for constructing a AppSignonPolicy resource.
  */
 export interface AppSignonPolicyArgs {
+    /**
+     * Default rules of the policy set to `DENY` or not. If `false`, it is set to `DENY`. **WARNING** setting this attribute to false change the OKTA default behavior. Use at your own risk. This is only apply during creation, so import or update will not work
+     */
+    catchAll?: pulumi.Input<boolean>;
     /**
      * Description of the policy.
      */

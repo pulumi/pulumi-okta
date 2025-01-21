@@ -184,7 +184,7 @@ require (
 	github.com/nxadm/tail v1.4.11 // indirect
 	github.com/oklog/run v1.1.0 // indirect
 	github.com/okta/okta-sdk-golang/v4 v4.1.2 // indirect
-	github.com/okta/okta-sdk-golang/v5 v5.0.2 // indirect
+	github.com/okta/okta-sdk-golang/v5 v5.0.4 // indirect
 	github.com/olekukonko/tablewriter v0.0.5 // indirect
 	github.com/opentofu/registry-address v0.0.0-20230922120653-901b9ae4061a // indirect
 	github.com/opentracing/basictracer-go v1.1.0 // indirect

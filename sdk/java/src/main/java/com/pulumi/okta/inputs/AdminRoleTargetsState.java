@@ -62,14 +62,14 @@ public final class AdminRoleTargetsState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Type of the role that is assigned to the user and supports optional targets. See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types)
+     * Type of the role that is assigned to the user and supports optional targets. See [API Docs](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#standard-roles)
      * 
      */
     @Import(name="roleType")
     private @Nullable Output<String> roleType;
 
     /**
-     * @return Type of the role that is assigned to the user and supports optional targets. See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types)
+     * @return Type of the role that is assigned to the user and supports optional targets. See [API Docs](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#standard-roles)
      * 
      */
     public Optional<Output<String>> roleType() {
@@ -203,7 +203,7 @@ public final class AdminRoleTargetsState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param roleType Type of the role that is assigned to the user and supports optional targets. See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types)
+         * @param roleType Type of the role that is assigned to the user and supports optional targets. See [API Docs](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#standard-roles)
          * 
          * @return builder
          * 
@@ -214,7 +214,7 @@ public final class AdminRoleTargetsState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param roleType Type of the role that is assigned to the user and supports optional targets. See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types)
+         * @param roleType Type of the role that is assigned to the user and supports optional targets. See [API Docs](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#standard-roles)
          * 
          * @return builder
          * 

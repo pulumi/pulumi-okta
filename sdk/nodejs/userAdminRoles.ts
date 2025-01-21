@@ -60,7 +60,7 @@ export class UserAdminRoles extends pulumi.CustomResource {
     }
 
     /**
-     * The list of Okta user admin roles, e.g. `['APP_ADMIN', 'USER_ADMIN']` See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
+     * The list of Okta user admin roles, e.g. `['APP_ADMIN', 'USER_ADMIN']` See [API Docs](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#standard-roles).
      */
     public readonly adminRoles!: pulumi.Output<string[]>;
     /**
@@ -110,7 +110,7 @@ export class UserAdminRoles extends pulumi.CustomResource {
  */
 export interface UserAdminRolesState {
     /**
-     * The list of Okta user admin roles, e.g. `['APP_ADMIN', 'USER_ADMIN']` See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
+     * The list of Okta user admin roles, e.g. `['APP_ADMIN', 'USER_ADMIN']` See [API Docs](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#standard-roles).
      */
     adminRoles?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -128,7 +128,7 @@ export interface UserAdminRolesState {
  */
 export interface UserAdminRolesArgs {
     /**
-     * The list of Okta user admin roles, e.g. `['APP_ADMIN', 'USER_ADMIN']` See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
+     * The list of Okta user admin roles, e.g. `['APP_ADMIN', 'USER_ADMIN']` See [API Docs](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#standard-roles).
      */
     adminRoles: pulumi.Input<pulumi.Input<string>[]>;
     /**

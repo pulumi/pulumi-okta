@@ -108,6 +108,10 @@ export class PolicyRuleProfileEnrollment extends pulumi.CustomResource {
      */
     public readonly emailVerification!: pulumi.Output<boolean | undefined>;
     /**
+     * Enrolls authenticator types
+     */
+    public readonly enrollAuthenticatorTypes!: pulumi.Output<string[] | undefined>;
+    /**
      * ID of a Registration Inline Hook
      */
     public readonly inlineHookId!: pulumi.Output<string | undefined>;
@@ -163,6 +167,7 @@ export class PolicyRuleProfileEnrollment extends pulumi.CustomResource {
             const state = argsOrState as PolicyRuleProfileEnrollmentState | undefined;
             resourceInputs["access"] = state ? state.access : undefined;
             resourceInputs["emailVerification"] = state ? state.emailVerification : undefined;
+            resourceInputs["enrollAuthenticatorTypes"] = state ? state.enrollAuthenticatorTypes : undefined;
             resourceInputs["inlineHookId"] = state ? state.inlineHookId : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["policyId"] = state ? state.policyId : undefined;
@@ -182,6 +187,7 @@ export class PolicyRuleProfileEnrollment extends pulumi.CustomResource {
             }
             resourceInputs["access"] = args ? args.access : undefined;
             resourceInputs["emailVerification"] = args ? args.emailVerification : undefined;
+            resourceInputs["enrollAuthenticatorTypes"] = args ? args.enrollAuthenticatorTypes : undefined;
             resourceInputs["inlineHookId"] = args ? args.inlineHookId : undefined;
             resourceInputs["policyId"] = args ? args.policyId : undefined;
             resourceInputs["profileAttributes"] = args ? args.profileAttributes : undefined;
@@ -209,6 +215,10 @@ export interface PolicyRuleProfileEnrollmentState {
      * Indicates whether email verification should occur before access is granted. Default: `true`.
      */
     emailVerification?: pulumi.Input<boolean>;
+    /**
+     * Enrolls authenticator types
+     */
+    enrollAuthenticatorTypes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * ID of a Registration Inline Hook
      */
@@ -263,6 +273,10 @@ export interface PolicyRuleProfileEnrollmentArgs {
      * Indicates whether email verification should occur before access is granted. Default: `true`.
      */
     emailVerification?: pulumi.Input<boolean>;
+    /**
+     * Enrolls authenticator types
+     */
+    enrollAuthenticatorTypes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * ID of a Registration Inline Hook
      */

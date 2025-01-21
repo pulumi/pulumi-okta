@@ -67,7 +67,7 @@ namespace Pulumi.Okta
         public Output<string> RoleId { get; private set; } = null!;
 
         /// <summary>
-        /// Type of the role that is assigned to the user and supports optional targets. See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types)
+        /// Type of the role that is assigned to the user and supports optional targets. See [API Docs](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#standard-roles)
         /// </summary>
         [Output("roleType")]
         public Output<string> RoleType { get; private set; } = null!;
@@ -149,7 +149,7 @@ namespace Pulumi.Okta
         }
 
         /// <summary>
-        /// Type of the role that is assigned to the user and supports optional targets. See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types)
+        /// Type of the role that is assigned to the user and supports optional targets. See [API Docs](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#standard-roles)
         /// </summary>
         [Input("roleType", required: true)]
         public Input<string> RoleType { get; set; } = null!;
@@ -199,7 +199,7 @@ namespace Pulumi.Okta
         public Input<string>? RoleId { get; set; }
 
         /// <summary>
-        /// Type of the role that is assigned to the user and supports optional targets. See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types)
+        /// Type of the role that is assigned to the user and supports optional targets. See [API Docs](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#standard-roles)
         /// </summary>
         [Input("roleType")]
         public Input<string>? RoleType { get; set; }

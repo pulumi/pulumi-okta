@@ -33,8 +33,9 @@ type Role struct {
 	RoleId pulumi.StringPtrOutput `pulumi:"roleId"`
 	// Admin role assigned to the group. It can be any one of the following values: "API_ADMIN", "APP_ADMIN", "CUSTOM",
 	// "GROUP_MEMBERSHIP_ADMIN", "HELP_DESK_ADMIN", "MOBILE_ADMIN", "ORG_ADMIN", "READ_ONLY_ADMIN", "REPORT_ADMIN",
-	// "SUPER_ADMIN", "USER_ADMIN" . See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types). -
-	// "USER_ADMIN" is the Group Administrator.
+	// "SUPER_ADMIN", "USER_ADMIN" . See [API
+	// Docs](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#standard-roles). - "USER_ADMIN" is the
+	// Group Administrator.
 	RoleType pulumi.StringOutput `pulumi:"roleType"`
 	// A list of app names (name represents set of app instances, like 'salesforce' or 'facebook'), or a combination of app
 	// name and app instance ID (like 'facebook.0oapsqQ6dv19pqyEo0g3') you would like as the targets of the admin role. - Only
@@ -92,8 +93,9 @@ type roleState struct {
 	RoleId *string `pulumi:"roleId"`
 	// Admin role assigned to the group. It can be any one of the following values: "API_ADMIN", "APP_ADMIN", "CUSTOM",
 	// "GROUP_MEMBERSHIP_ADMIN", "HELP_DESK_ADMIN", "MOBILE_ADMIN", "ORG_ADMIN", "READ_ONLY_ADMIN", "REPORT_ADMIN",
-	// "SUPER_ADMIN", "USER_ADMIN" . See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types). -
-	// "USER_ADMIN" is the Group Administrator.
+	// "SUPER_ADMIN", "USER_ADMIN" . See [API
+	// Docs](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#standard-roles). - "USER_ADMIN" is the
+	// Group Administrator.
 	RoleType *string `pulumi:"roleType"`
 	// A list of app names (name represents set of app instances, like 'salesforce' or 'facebook'), or a combination of app
 	// name and app instance ID (like 'facebook.0oapsqQ6dv19pqyEo0g3') you would like as the targets of the admin role. - Only
@@ -116,8 +118,9 @@ type RoleState struct {
 	RoleId pulumi.StringPtrInput
 	// Admin role assigned to the group. It can be any one of the following values: "API_ADMIN", "APP_ADMIN", "CUSTOM",
 	// "GROUP_MEMBERSHIP_ADMIN", "HELP_DESK_ADMIN", "MOBILE_ADMIN", "ORG_ADMIN", "READ_ONLY_ADMIN", "REPORT_ADMIN",
-	// "SUPER_ADMIN", "USER_ADMIN" . See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types). -
-	// "USER_ADMIN" is the Group Administrator.
+	// "SUPER_ADMIN", "USER_ADMIN" . See [API
+	// Docs](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#standard-roles). - "USER_ADMIN" is the
+	// Group Administrator.
 	RoleType pulumi.StringPtrInput
 	// A list of app names (name represents set of app instances, like 'salesforce' or 'facebook'), or a combination of app
 	// name and app instance ID (like 'facebook.0oapsqQ6dv19pqyEo0g3') you would like as the targets of the admin role. - Only
@@ -144,8 +147,9 @@ type roleArgs struct {
 	RoleId *string `pulumi:"roleId"`
 	// Admin role assigned to the group. It can be any one of the following values: "API_ADMIN", "APP_ADMIN", "CUSTOM",
 	// "GROUP_MEMBERSHIP_ADMIN", "HELP_DESK_ADMIN", "MOBILE_ADMIN", "ORG_ADMIN", "READ_ONLY_ADMIN", "REPORT_ADMIN",
-	// "SUPER_ADMIN", "USER_ADMIN" . See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types). -
-	// "USER_ADMIN" is the Group Administrator.
+	// "SUPER_ADMIN", "USER_ADMIN" . See [API
+	// Docs](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#standard-roles). - "USER_ADMIN" is the
+	// Group Administrator.
 	RoleType string `pulumi:"roleType"`
 	// A list of app names (name represents set of app instances, like 'salesforce' or 'facebook'), or a combination of app
 	// name and app instance ID (like 'facebook.0oapsqQ6dv19pqyEo0g3') you would like as the targets of the admin role. - Only
@@ -169,8 +173,9 @@ type RoleArgs struct {
 	RoleId pulumi.StringPtrInput
 	// Admin role assigned to the group. It can be any one of the following values: "API_ADMIN", "APP_ADMIN", "CUSTOM",
 	// "GROUP_MEMBERSHIP_ADMIN", "HELP_DESK_ADMIN", "MOBILE_ADMIN", "ORG_ADMIN", "READ_ONLY_ADMIN", "REPORT_ADMIN",
-	// "SUPER_ADMIN", "USER_ADMIN" . See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types). -
-	// "USER_ADMIN" is the Group Administrator.
+	// "SUPER_ADMIN", "USER_ADMIN" . See [API
+	// Docs](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#standard-roles). - "USER_ADMIN" is the
+	// Group Administrator.
 	RoleType pulumi.StringInput
 	// A list of app names (name represents set of app instances, like 'salesforce' or 'facebook'), or a combination of app
 	// name and app instance ID (like 'facebook.0oapsqQ6dv19pqyEo0g3') you would like as the targets of the admin role. - Only
@@ -291,8 +296,9 @@ func (o RoleOutput) RoleId() pulumi.StringPtrOutput {
 
 // Admin role assigned to the group. It can be any one of the following values: "API_ADMIN", "APP_ADMIN", "CUSTOM",
 // "GROUP_MEMBERSHIP_ADMIN", "HELP_DESK_ADMIN", "MOBILE_ADMIN", "ORG_ADMIN", "READ_ONLY_ADMIN", "REPORT_ADMIN",
-// "SUPER_ADMIN", "USER_ADMIN" . See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types). -
-// "USER_ADMIN" is the Group Administrator.
+// "SUPER_ADMIN", "USER_ADMIN" . See [API
+// Docs](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#standard-roles). - "USER_ADMIN" is the
+// Group Administrator.
 func (o RoleOutput) RoleType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Role) pulumi.StringOutput { return v.RoleType }).(pulumi.StringOutput)
 }

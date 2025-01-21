@@ -112,14 +112,14 @@ public class AdminRoleTargets extends com.pulumi.resources.CustomResource {
         return this.roleId;
     }
     /**
-     * Type of the role that is assigned to the user and supports optional targets. See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types)
+     * Type of the role that is assigned to the user and supports optional targets. See [API Docs](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#standard-roles)
      * 
      */
     @Export(name="roleType", refs={String.class}, tree="[0]")
     private Output<String> roleType;
 
     /**
-     * @return Type of the role that is assigned to the user and supports optional targets. See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types)
+     * @return Type of the role that is assigned to the user and supports optional targets. See [API Docs](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#standard-roles)
      * 
      */
     public Output<String> roleType() {

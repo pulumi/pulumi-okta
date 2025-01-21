@@ -62,7 +62,7 @@ type AdminRoleTargets struct {
 	Groups pulumi.StringArrayOutput `pulumi:"groups"`
 	// ID of a role
 	RoleId pulumi.StringOutput `pulumi:"roleId"`
-	// Type of the role that is assigned to the user and supports optional targets. See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types)
+	// Type of the role that is assigned to the user and supports optional targets. See [API Docs](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#standard-roles)
 	RoleType pulumi.StringOutput `pulumi:"roleType"`
 	// User associated with the role
 	UserId pulumi.StringOutput `pulumi:"userId"`
@@ -110,7 +110,7 @@ type adminRoleTargetsState struct {
 	Groups []string `pulumi:"groups"`
 	// ID of a role
 	RoleId *string `pulumi:"roleId"`
-	// Type of the role that is assigned to the user and supports optional targets. See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types)
+	// Type of the role that is assigned to the user and supports optional targets. See [API Docs](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#standard-roles)
 	RoleType *string `pulumi:"roleType"`
 	// User associated with the role
 	UserId *string `pulumi:"userId"`
@@ -123,7 +123,7 @@ type AdminRoleTargetsState struct {
 	Groups pulumi.StringArrayInput
 	// ID of a role
 	RoleId pulumi.StringPtrInput
-	// Type of the role that is assigned to the user and supports optional targets. See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types)
+	// Type of the role that is assigned to the user and supports optional targets. See [API Docs](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#standard-roles)
 	RoleType pulumi.StringPtrInput
 	// User associated with the role
 	UserId pulumi.StringPtrInput
@@ -138,7 +138,7 @@ type adminRoleTargetsArgs struct {
 	Apps []string `pulumi:"apps"`
 	// List of group IDs. Conflicts with apps
 	Groups []string `pulumi:"groups"`
-	// Type of the role that is assigned to the user and supports optional targets. See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types)
+	// Type of the role that is assigned to the user and supports optional targets. See [API Docs](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#standard-roles)
 	RoleType string `pulumi:"roleType"`
 	// User associated with the role
 	UserId string `pulumi:"userId"`
@@ -150,7 +150,7 @@ type AdminRoleTargetsArgs struct {
 	Apps pulumi.StringArrayInput
 	// List of group IDs. Conflicts with apps
 	Groups pulumi.StringArrayInput
-	// Type of the role that is assigned to the user and supports optional targets. See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types)
+	// Type of the role that is assigned to the user and supports optional targets. See [API Docs](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#standard-roles)
 	RoleType pulumi.StringInput
 	// User associated with the role
 	UserId pulumi.StringInput
@@ -258,7 +258,7 @@ func (o AdminRoleTargetsOutput) RoleId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AdminRoleTargets) pulumi.StringOutput { return v.RoleId }).(pulumi.StringOutput)
 }
 
-// Type of the role that is assigned to the user and supports optional targets. See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types)
+// Type of the role that is assigned to the user and supports optional targets. See [API Docs](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#standard-roles)
 func (o AdminRoleTargetsOutput) RoleType() pulumi.StringOutput {
 	return o.ApplyT(func(v *AdminRoleTargets) pulumi.StringOutput { return v.RoleType }).(pulumi.StringOutput)
 }

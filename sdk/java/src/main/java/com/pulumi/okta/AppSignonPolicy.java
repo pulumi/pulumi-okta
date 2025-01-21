@@ -10,6 +10,7 @@ import com.pulumi.core.internal.Codegen;
 import com.pulumi.okta.AppSignonPolicyArgs;
 import com.pulumi.okta.Utilities;
 import com.pulumi.okta.inputs.AppSignonPolicyState;
+import java.lang.Boolean;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -25,6 +26,34 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="okta:index/appSignonPolicy:AppSignonPolicy")
 public class AppSignonPolicy extends com.pulumi.resources.CustomResource {
+    /**
+     * Default rules of the policy set to `DENY` or not. If `false`, it is set to `DENY`. **WARNING** setting this attribute to false change the OKTA default behavior. Use at your own risk. This is only apply during creation, so import or update will not work
+     * 
+     */
+    @Export(name="catchAll", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> catchAll;
+
+    /**
+     * @return Default rules of the policy set to `DENY` or not. If `false`, it is set to `DENY`. **WARNING** setting this attribute to false change the OKTA default behavior. Use at your own risk. This is only apply during creation, so import or update will not work
+     * 
+     */
+    public Output<Boolean> catchAll() {
+        return this.catchAll;
+    }
+    /**
+     * Default rules id of the policy
+     * 
+     */
+    @Export(name="defaultRuleId", refs={String.class}, tree="[0]")
+    private Output<String> defaultRuleId;
+
+    /**
+     * @return Default rules id of the policy
+     * 
+     */
+    public Output<String> defaultRuleId() {
+        return this.defaultRuleId;
+    }
     /**
      * Description of the policy.
      * 

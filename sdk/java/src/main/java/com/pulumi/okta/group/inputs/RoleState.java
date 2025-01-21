@@ -82,8 +82,9 @@ public final class RoleState extends com.pulumi.resources.ResourceArgs {
     /**
      * Admin role assigned to the group. It can be any one of the following values: &#34;API_ADMIN&#34;, &#34;APP_ADMIN&#34;, &#34;CUSTOM&#34;,
      * &#34;GROUP_MEMBERSHIP_ADMIN&#34;, &#34;HELP_DESK_ADMIN&#34;, &#34;MOBILE_ADMIN&#34;, &#34;ORG_ADMIN&#34;, &#34;READ_ONLY_ADMIN&#34;, &#34;REPORT_ADMIN&#34;,
-     * &#34;SUPER_ADMIN&#34;, &#34;USER_ADMIN&#34; . See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types). -
-     * &#34;USER_ADMIN&#34; is the Group Administrator.
+     * &#34;SUPER_ADMIN&#34;, &#34;USER_ADMIN&#34; . See [API
+     * Docs](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#standard-roles). - &#34;USER_ADMIN&#34; is the
+     * Group Administrator.
      * 
      */
     @Import(name="roleType")
@@ -92,8 +93,9 @@ public final class RoleState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return Admin role assigned to the group. It can be any one of the following values: &#34;API_ADMIN&#34;, &#34;APP_ADMIN&#34;, &#34;CUSTOM&#34;,
      * &#34;GROUP_MEMBERSHIP_ADMIN&#34;, &#34;HELP_DESK_ADMIN&#34;, &#34;MOBILE_ADMIN&#34;, &#34;ORG_ADMIN&#34;, &#34;READ_ONLY_ADMIN&#34;, &#34;REPORT_ADMIN&#34;,
-     * &#34;SUPER_ADMIN&#34;, &#34;USER_ADMIN&#34; . See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types). -
-     * &#34;USER_ADMIN&#34; is the Group Administrator.
+     * &#34;SUPER_ADMIN&#34;, &#34;USER_ADMIN&#34; . See [API
+     * Docs](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#standard-roles). - &#34;USER_ADMIN&#34; is the
+     * Group Administrator.
      * 
      */
     public Optional<Output<String>> roleType() {
@@ -255,8 +257,9 @@ public final class RoleState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param roleType Admin role assigned to the group. It can be any one of the following values: &#34;API_ADMIN&#34;, &#34;APP_ADMIN&#34;, &#34;CUSTOM&#34;,
          * &#34;GROUP_MEMBERSHIP_ADMIN&#34;, &#34;HELP_DESK_ADMIN&#34;, &#34;MOBILE_ADMIN&#34;, &#34;ORG_ADMIN&#34;, &#34;READ_ONLY_ADMIN&#34;, &#34;REPORT_ADMIN&#34;,
-         * &#34;SUPER_ADMIN&#34;, &#34;USER_ADMIN&#34; . See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types). -
-         * &#34;USER_ADMIN&#34; is the Group Administrator.
+         * &#34;SUPER_ADMIN&#34;, &#34;USER_ADMIN&#34; . See [API
+         * Docs](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#standard-roles). - &#34;USER_ADMIN&#34; is the
+         * Group Administrator.
          * 
          * @return builder
          * 
@@ -269,8 +272,9 @@ public final class RoleState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param roleType Admin role assigned to the group. It can be any one of the following values: &#34;API_ADMIN&#34;, &#34;APP_ADMIN&#34;, &#34;CUSTOM&#34;,
          * &#34;GROUP_MEMBERSHIP_ADMIN&#34;, &#34;HELP_DESK_ADMIN&#34;, &#34;MOBILE_ADMIN&#34;, &#34;ORG_ADMIN&#34;, &#34;READ_ONLY_ADMIN&#34;, &#34;REPORT_ADMIN&#34;,
-         * &#34;SUPER_ADMIN&#34;, &#34;USER_ADMIN&#34; . See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types). -
-         * &#34;USER_ADMIN&#34; is the Group Administrator.
+         * &#34;SUPER_ADMIN&#34;, &#34;USER_ADMIN&#34; . See [API
+         * Docs](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#standard-roles). - &#34;USER_ADMIN&#34; is the
+         * Group Administrator.
          * 
          * @return builder
          * 

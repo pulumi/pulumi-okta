@@ -42,7 +42,7 @@
             "respectSchemaVersion": true
         },
         "nodejs": {
-            "packageDescription": "A Pulumi package for creating and managing okta resources.. Based on terraform-provider-okta: version v4.12.0",
+            "packageDescription": "A Pulumi package for creating and managing okta resources.. Based on terraform-provider-okta: version v4.13.0",
             "readme": "\u003e This provider is a derived work of the [Terraform Provider](https://github.com/okta/terraform-provider-okta)\n\u003e distributed under [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/). If you encounter a bug or missing feature,\n\u003e first check the [`pulumi-okta` repo](https://github.com/pulumi/pulumi-okta/issues); however, if that doesn't turn up anything,\n\u003e please consult the source [`terraform-provider-okta` repo](https://github.com/okta/terraform-provider-okta/issues).",
             "devDependencies": {
                 "@types/mime": "^2.0.0",
@@ -7487,7 +7487,7 @@
                 },
                 "roleType": {
                     "type": "string",
-                    "description": "Admin role assigned to the group. It can be any one of the following values: \"API_ADMIN\", \"APP_ADMIN\", \"CUSTOM\",\n\"GROUP_MEMBERSHIP_ADMIN\", \"HELP_DESK_ADMIN\", \"MOBILE_ADMIN\", \"ORG_ADMIN\", \"READ_ONLY_ADMIN\", \"REPORT_ADMIN\",\n\"SUPER_ADMIN\", \"USER_ADMIN\" . See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types). -\n\"USER_ADMIN\" is the Group Administrator.\n"
+                    "description": "Admin role assigned to the group. It can be any one of the following values: \"API_ADMIN\", \"APP_ADMIN\", \"CUSTOM\",\n\"GROUP_MEMBERSHIP_ADMIN\", \"HELP_DESK_ADMIN\", \"MOBILE_ADMIN\", \"ORG_ADMIN\", \"READ_ONLY_ADMIN\", \"REPORT_ADMIN\",\n\"SUPER_ADMIN\", \"USER_ADMIN\" . See [API\nDocs](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#standard-roles). - \"USER_ADMIN\" is the\nGroup Administrator.\n"
                 },
                 "targetAppLists": {
                     "type": "array",
@@ -7528,7 +7528,7 @@
                 },
                 "roleType": {
                     "type": "string",
-                    "description": "Admin role assigned to the group. It can be any one of the following values: \"API_ADMIN\", \"APP_ADMIN\", \"CUSTOM\",\n\"GROUP_MEMBERSHIP_ADMIN\", \"HELP_DESK_ADMIN\", \"MOBILE_ADMIN\", \"ORG_ADMIN\", \"READ_ONLY_ADMIN\", \"REPORT_ADMIN\",\n\"SUPER_ADMIN\", \"USER_ADMIN\" . See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types). -\n\"USER_ADMIN\" is the Group Administrator.\n",
+                    "description": "Admin role assigned to the group. It can be any one of the following values: \"API_ADMIN\", \"APP_ADMIN\", \"CUSTOM\",\n\"GROUP_MEMBERSHIP_ADMIN\", \"HELP_DESK_ADMIN\", \"MOBILE_ADMIN\", \"ORG_ADMIN\", \"READ_ONLY_ADMIN\", \"REPORT_ADMIN\",\n\"SUPER_ADMIN\", \"USER_ADMIN\" . See [API\nDocs](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#standard-roles). - \"USER_ADMIN\" is the\nGroup Administrator.\n",
                     "willReplaceOnChanges": true
                 },
                 "targetAppLists": {
@@ -7572,7 +7572,7 @@
                     },
                     "roleType": {
                         "type": "string",
-                        "description": "Admin role assigned to the group. It can be any one of the following values: \"API_ADMIN\", \"APP_ADMIN\", \"CUSTOM\",\n\"GROUP_MEMBERSHIP_ADMIN\", \"HELP_DESK_ADMIN\", \"MOBILE_ADMIN\", \"ORG_ADMIN\", \"READ_ONLY_ADMIN\", \"REPORT_ADMIN\",\n\"SUPER_ADMIN\", \"USER_ADMIN\" . See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types). -\n\"USER_ADMIN\" is the Group Administrator.\n",
+                        "description": "Admin role assigned to the group. It can be any one of the following values: \"API_ADMIN\", \"APP_ADMIN\", \"CUSTOM\",\n\"GROUP_MEMBERSHIP_ADMIN\", \"HELP_DESK_ADMIN\", \"MOBILE_ADMIN\", \"ORG_ADMIN\", \"READ_ONLY_ADMIN\", \"REPORT_ADMIN\",\n\"SUPER_ADMIN\", \"USER_ADMIN\" . See [API\nDocs](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#standard-roles). - \"USER_ADMIN\" is the\nGroup Administrator.\n",
                         "willReplaceOnChanges": true
                     },
                     "targetAppLists": {
@@ -9355,7 +9355,7 @@
                 },
                 "roleType": {
                     "type": "string",
-                    "description": "Type of the role that is assigned to the user and supports optional targets. See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types)\n"
+                    "description": "Type of the role that is assigned to the user and supports optional targets. See [API Docs](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#standard-roles)\n"
                 },
                 "userId": {
                     "type": "string",
@@ -9384,7 +9384,7 @@
                 },
                 "roleType": {
                     "type": "string",
-                    "description": "Type of the role that is assigned to the user and supports optional targets. See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types)\n",
+                    "description": "Type of the role that is assigned to the user and supports optional targets. See [API Docs](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#standard-roles)\n",
                     "willReplaceOnChanges": true
                 },
                 "userId": {
@@ -9420,7 +9420,7 @@
                     },
                     "roleType": {
                         "type": "string",
-                        "description": "Type of the role that is assigned to the user and supports optional targets. See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types)\n",
+                        "description": "Type of the role that is assigned to the user and supports optional targets. See [API Docs](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#standard-roles)\n",
                         "willReplaceOnChanges": true
                     },
                     "userId": {
@@ -9964,6 +9964,14 @@
         "okta:index/appSignonPolicy:AppSignonPolicy": {
             "description": "## Example Usage\n\n## Import\n\n```sh\n$ pulumi import okta:index/appSignonPolicy:AppSignonPolicy example \u003cpolicy_id\u003e\n```\n\n",
             "properties": {
+                "catchAll": {
+                    "type": "boolean",
+                    "description": "Default rules of the policy set to `DENY` or not. If `false`, it is set to `DENY`. **WARNING** setting this attribute to false change the OKTA default behavior. Use at your own risk. This is only apply during creation, so import or update will not work\n"
+                },
+                "defaultRuleId": {
+                    "type": "string",
+                    "description": "Default rules id of the policy\n"
+                },
                 "description": {
                     "type": "string",
                     "description": "Description of the policy.\n"
@@ -9974,10 +9982,16 @@
                 }
             },
             "required": [
+                "catchAll",
+                "defaultRuleId",
                 "description",
                 "name"
             ],
             "inputProperties": {
+                "catchAll": {
+                    "type": "boolean",
+                    "description": "Default rules of the policy set to `DENY` or not. If `false`, it is set to `DENY`. **WARNING** setting this attribute to false change the OKTA default behavior. Use at your own risk. This is only apply during creation, so import or update will not work\n"
+                },
                 "description": {
                     "type": "string",
                     "description": "Description of the policy.\n"
@@ -9993,6 +10007,14 @@
             "stateInputs": {
                 "description": "Input properties used for looking up and filtering AppSignonPolicy resources.\n",
                 "properties": {
+                    "catchAll": {
+                        "type": "boolean",
+                        "description": "Default rules of the policy set to `DENY` or not. If `false`, it is set to `DENY`. **WARNING** setting this attribute to false change the OKTA default behavior. Use at your own risk. This is only apply during creation, so import or update will not work\n"
+                    },
+                    "defaultRuleId": {
+                        "type": "string",
+                        "description": "Default rules id of the policy\n"
+                    },
                     "description": {
                         "type": "string",
                         "description": "Description of the policy.\n"
@@ -12383,6 +12405,65 @@
                 "type": "object"
             }
         },
+        "okta:index/emailTemplateSettings:EmailTemplateSettings": {
+            "description": "Manages email template settings\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst example = new okta.EmailTemplateSettings(\"example\", {\n    brandId: \"\u003cbrand id\u003e\",\n    templateName: \"ForgotPassword\",\n    recipients: \"ADMINS_ONLY\",\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample = okta.EmailTemplateSettings(\"example\",\n    brand_id=\"\u003cbrand id\u003e\",\n    template_name=\"ForgotPassword\",\n    recipients=\"ADMINS_ONLY\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new Okta.EmailTemplateSettings(\"example\", new()\n    {\n        BrandId = \"\u003cbrand id\u003e\",\n        TemplateName = \"ForgotPassword\",\n        Recipients = \"ADMINS_ONLY\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v4/go/okta\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := okta.NewEmailTemplateSettings(ctx, \"example\", \u0026okta.EmailTemplateSettingsArgs{\n\t\t\tBrandId:      pulumi.String(\"\u003cbrand id\u003e\"),\n\t\t\tTemplateName: pulumi.String(\"ForgotPassword\"),\n\t\t\tRecipients:   pulumi.String(\"ADMINS_ONLY\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.okta.EmailTemplateSettings;\nimport com.pulumi.okta.EmailTemplateSettingsArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new EmailTemplateSettings(\"example\", EmailTemplateSettingsArgs.builder()\n            .brandId(\"\u003cbrand id\u003e\")\n            .templateName(\"ForgotPassword\")\n            .recipients(\"ADMINS_ONLY\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: okta:EmailTemplateSettings\n    properties:\n      brandId: \u003cbrand id\u003e\n      templateName: ForgotPassword\n      recipients: ADMINS_ONLY\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n```sh\n$ pulumi import okta:index/emailTemplateSettings:EmailTemplateSettings example \u003cbrand_id\u003e/\u003ctemplate_name\u003e\n```\n\n",
+            "properties": {
+                "brandId": {
+                    "type": "string",
+                    "description": "The ID of the brand.\n"
+                },
+                "recipients": {
+                    "type": "string",
+                    "description": "The recipients the emails of this template will be sent to - Valid values: `ALL_USERS`, `ADMINS_ONLY`, `NO_USERS`\n"
+                },
+                "templateName": {
+                    "type": "string",
+                    "description": "Email template name - Example values: `AccountLockout`,`ADForgotPassword`,`ADForgotPasswordDenied`,`ADSelfServiceUnlock`,`ADUserActivation`,`AuthenticatorEnrolled`,`AuthenticatorReset`,`ChangeEmailConfirmation`,`EmailChallenge`,`EmailChangeConfirmation`,`EmailFactorVerification`,`ForgotPassword`,`ForgotPasswordDenied`,`IGAReviewerEndNotification`,`IGAReviewerNotification`,`IGAReviewerPendingNotification`,`IGAReviewerReassigned`,`LDAPForgotPassword`,`LDAPForgotPasswordDenied`,`LDAPSelfServiceUnlock`,`LDAPUserActivation`,`MyAccountChangeConfirmation`,`NewSignOnNotification`,`OktaVerifyActivation`,`PasswordChanged`,`PasswordResetByAdmin`,`PendingEmailChange`,`RegistrationActivation`,`RegistrationEmailVerification`,`SelfServiceUnlock`,`SelfServiceUnlockOnUnlockedAccount`,`UserActivation`\n"
+                }
+            },
+            "required": [
+                "brandId",
+                "recipients",
+                "templateName"
+            ],
+            "inputProperties": {
+                "brandId": {
+                    "type": "string",
+                    "description": "The ID of the brand.\n"
+                },
+                "recipients": {
+                    "type": "string",
+                    "description": "The recipients the emails of this template will be sent to - Valid values: `ALL_USERS`, `ADMINS_ONLY`, `NO_USERS`\n"
+                },
+                "templateName": {
+                    "type": "string",
+                    "description": "Email template name - Example values: `AccountLockout`,`ADForgotPassword`,`ADForgotPasswordDenied`,`ADSelfServiceUnlock`,`ADUserActivation`,`AuthenticatorEnrolled`,`AuthenticatorReset`,`ChangeEmailConfirmation`,`EmailChallenge`,`EmailChangeConfirmation`,`EmailFactorVerification`,`ForgotPassword`,`ForgotPasswordDenied`,`IGAReviewerEndNotification`,`IGAReviewerNotification`,`IGAReviewerPendingNotification`,`IGAReviewerReassigned`,`LDAPForgotPassword`,`LDAPForgotPasswordDenied`,`LDAPSelfServiceUnlock`,`LDAPUserActivation`,`MyAccountChangeConfirmation`,`NewSignOnNotification`,`OktaVerifyActivation`,`PasswordChanged`,`PasswordResetByAdmin`,`PendingEmailChange`,`RegistrationActivation`,`RegistrationEmailVerification`,`SelfServiceUnlock`,`SelfServiceUnlockOnUnlockedAccount`,`UserActivation`\n"
+                }
+            },
+            "requiredInputs": [
+                "brandId",
+                "recipients",
+                "templateName"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering EmailTemplateSettings resources.\n",
+                "properties": {
+                    "brandId": {
+                        "type": "string",
+                        "description": "The ID of the brand.\n"
+                    },
+                    "recipients": {
+                        "type": "string",
+                        "description": "The recipients the emails of this template will be sent to - Valid values: `ALL_USERS`, `ADMINS_ONLY`, `NO_USERS`\n"
+                    },
+                    "templateName": {
+                        "type": "string",
+                        "description": "Email template name - Example values: `AccountLockout`,`ADForgotPassword`,`ADForgotPasswordDenied`,`ADSelfServiceUnlock`,`ADUserActivation`,`AuthenticatorEnrolled`,`AuthenticatorReset`,`ChangeEmailConfirmation`,`EmailChallenge`,`EmailChangeConfirmation`,`EmailFactorVerification`,`ForgotPassword`,`ForgotPasswordDenied`,`IGAReviewerEndNotification`,`IGAReviewerNotification`,`IGAReviewerPendingNotification`,`IGAReviewerReassigned`,`LDAPForgotPassword`,`LDAPForgotPasswordDenied`,`LDAPSelfServiceUnlock`,`LDAPUserActivation`,`MyAccountChangeConfirmation`,`NewSignOnNotification`,`OktaVerifyActivation`,`PasswordChanged`,`PasswordResetByAdmin`,`PendingEmailChange`,`RegistrationActivation`,`RegistrationEmailVerification`,`SelfServiceUnlock`,`SelfServiceUnlockOnUnlockedAccount`,`UserActivation`\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
         "okta:index/eventHook:EventHook": {
             "description": "Creates an event hook. This resource allows you to create and configure an event hook.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst example = new okta.EventHook(\"example\", {\n    name: \"example\",\n    events: [\n        \"user.lifecycle.create\",\n        \"user.lifecycle.delete.initiated\",\n    ],\n    channel: {\n        type: \"HTTP\",\n        version: \"1.0.0\",\n        uri: \"https://example.com/test\",\n    },\n    auth: {\n        type: \"HEADER\",\n        key: \"Authorization\",\n        value: \"123\",\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample = okta.EventHook(\"example\",\n    name=\"example\",\n    events=[\n        \"user.lifecycle.create\",\n        \"user.lifecycle.delete.initiated\",\n    ],\n    channel={\n        \"type\": \"HTTP\",\n        \"version\": \"1.0.0\",\n        \"uri\": \"https://example.com/test\",\n    },\n    auth={\n        \"type\": \"HEADER\",\n        \"key\": \"Authorization\",\n        \"value\": \"123\",\n    })\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new Okta.EventHook(\"example\", new()\n    {\n        Name = \"example\",\n        Events = new[]\n        {\n            \"user.lifecycle.create\",\n            \"user.lifecycle.delete.initiated\",\n        },\n        Channel = \n        {\n            { \"type\", \"HTTP\" },\n            { \"version\", \"1.0.0\" },\n            { \"uri\", \"https://example.com/test\" },\n        },\n        Auth = \n        {\n            { \"type\", \"HEADER\" },\n            { \"key\", \"Authorization\" },\n            { \"value\", \"123\" },\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v4/go/okta\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := okta.NewEventHook(ctx, \"example\", \u0026okta.EventHookArgs{\n\t\t\tName: pulumi.String(\"example\"),\n\t\t\tEvents: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"user.lifecycle.create\"),\n\t\t\t\tpulumi.String(\"user.lifecycle.delete.initiated\"),\n\t\t\t},\n\t\t\tChannel: pulumi.StringMap{\n\t\t\t\t\"type\":    pulumi.String(\"HTTP\"),\n\t\t\t\t\"version\": pulumi.String(\"1.0.0\"),\n\t\t\t\t\"uri\":     pulumi.String(\"https://example.com/test\"),\n\t\t\t},\n\t\t\tAuth: pulumi.StringMap{\n\t\t\t\t\"type\":  pulumi.String(\"HEADER\"),\n\t\t\t\t\"key\":   pulumi.String(\"Authorization\"),\n\t\t\t\t\"value\": pulumi.String(\"123\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.okta.EventHook;\nimport com.pulumi.okta.EventHookArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new EventHook(\"example\", EventHookArgs.builder()\n            .name(\"example\")\n            .events(            \n                \"user.lifecycle.create\",\n                \"user.lifecycle.delete.initiated\")\n            .channel(Map.ofEntries(\n                Map.entry(\"type\", \"HTTP\"),\n                Map.entry(\"version\", \"1.0.0\"),\n                Map.entry(\"uri\", \"https://example.com/test\")\n            ))\n            .auth(Map.ofEntries(\n                Map.entry(\"type\", \"HEADER\"),\n                Map.entry(\"key\", \"Authorization\"),\n                Map.entry(\"value\", \"123\")\n            ))\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: okta:EventHook\n    properties:\n      name: example\n      events:\n        - user.lifecycle.create\n        - user.lifecycle.delete.initiated\n      channel:\n        type: HTTP\n        version: 1.0.0\n        uri: https://example.com/test\n      auth:\n        type: HEADER\n        key: Authorization\n        value: '123'\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n```sh\n$ pulumi import okta:index/eventHook:EventHook example \u003chook_id\u003e\n```\n\n",
             "properties": {
@@ -14489,6 +14570,13 @@
                     "type": "boolean",
                     "description": "Indicates whether email verification should occur before access is granted. Default: `true`.\n"
                 },
+                "enrollAuthenticatorTypes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Enrolls authenticator types\n"
+                },
                 "inlineHookId": {
                     "type": "string",
                     "description": "ID of a Registration Inline Hook\n"
@@ -14544,6 +14632,13 @@
                     "type": "boolean",
                     "description": "Indicates whether email verification should occur before access is granted. Default: `true`.\n"
                 },
+                "enrollAuthenticatorTypes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Enrolls authenticator types\n"
+                },
                 "inlineHookId": {
                     "type": "string",
                     "description": "ID of a Registration Inline Hook\n"
@@ -14591,6 +14686,13 @@
                     "emailVerification": {
                         "type": "boolean",
                         "description": "Indicates whether email verification should occur before access is granted. Default: `true`.\n"
+                    },
+                    "enrollAuthenticatorTypes": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Enrolls authenticator types\n"
                     },
                     "inlineHookId": {
                         "type": "string",
@@ -15361,7 +15463,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "The list of Okta user admin roles, e.g. `['APP_ADMIN', 'USER_ADMIN']` See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).\n"
+                    "description": "The list of Okta user admin roles, e.g. `['APP_ADMIN', 'USER_ADMIN']` See [API Docs](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#standard-roles).\n"
                 },
                 "disableNotifications": {
                     "type": "boolean",
@@ -15382,7 +15484,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "The list of Okta user admin roles, e.g. `['APP_ADMIN', 'USER_ADMIN']` See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).\n"
+                    "description": "The list of Okta user admin roles, e.g. `['APP_ADMIN', 'USER_ADMIN']` See [API Docs](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#standard-roles).\n"
                 },
                 "disableNotifications": {
                     "type": "boolean",
@@ -15406,7 +15508,7 @@
                         "items": {
                             "type": "string"
                         },
-                        "description": "The list of Okta user admin roles, e.g. `['APP_ADMIN', 'USER_ADMIN']` See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).\n"
+                        "description": "The list of Okta user admin roles, e.g. `['APP_ADMIN', 'USER_ADMIN']` See [API Docs](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#standard-roles).\n"
                     },
                     "disableNotifications": {
                         "type": "boolean",

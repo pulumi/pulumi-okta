@@ -52,7 +52,7 @@ namespace Pulumi.Okta
     public partial class UserAdminRoles : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The list of Okta user admin roles, e.g. `['APP_ADMIN', 'USER_ADMIN']` See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
+        /// The list of Okta user admin roles, e.g. `['APP_ADMIN', 'USER_ADMIN']` See [API Docs](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#standard-roles).
         /// </summary>
         [Output("adminRoles")]
         public Output<ImmutableArray<string>> AdminRoles { get; private set; } = null!;
@@ -119,7 +119,7 @@ namespace Pulumi.Okta
         private InputList<string>? _adminRoles;
 
         /// <summary>
-        /// The list of Okta user admin roles, e.g. `['APP_ADMIN', 'USER_ADMIN']` See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
+        /// The list of Okta user admin roles, e.g. `['APP_ADMIN', 'USER_ADMIN']` See [API Docs](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#standard-roles).
         /// </summary>
         public InputList<string> AdminRoles
         {
@@ -151,7 +151,7 @@ namespace Pulumi.Okta
         private InputList<string>? _adminRoles;
 
         /// <summary>
-        /// The list of Okta user admin roles, e.g. `['APP_ADMIN', 'USER_ADMIN']` See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
+        /// The list of Okta user admin roles, e.g. `['APP_ADMIN', 'USER_ADMIN']` See [API Docs](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#standard-roles).
         /// </summary>
         public InputList<string> AdminRoles
         {

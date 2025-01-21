@@ -19,14 +19,14 @@ public final class UserAdminRolesArgs extends com.pulumi.resources.ResourceArgs 
     public static final UserAdminRolesArgs Empty = new UserAdminRolesArgs();
 
     /**
-     * The list of Okta user admin roles, e.g. `[&#39;APP_ADMIN&#39;, &#39;USER_ADMIN&#39;]` See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
+     * The list of Okta user admin roles, e.g. `[&#39;APP_ADMIN&#39;, &#39;USER_ADMIN&#39;]` See [API Docs](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#standard-roles).
      * 
      */
     @Import(name="adminRoles", required=true)
     private Output<List<String>> adminRoles;
 
     /**
-     * @return The list of Okta user admin roles, e.g. `[&#39;APP_ADMIN&#39;, &#39;USER_ADMIN&#39;]` See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
+     * @return The list of Okta user admin roles, e.g. `[&#39;APP_ADMIN&#39;, &#39;USER_ADMIN&#39;]` See [API Docs](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#standard-roles).
      * 
      */
     public Output<List<String>> adminRoles() {
@@ -90,7 +90,7 @@ public final class UserAdminRolesArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param adminRoles The list of Okta user admin roles, e.g. `[&#39;APP_ADMIN&#39;, &#39;USER_ADMIN&#39;]` See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
+         * @param adminRoles The list of Okta user admin roles, e.g. `[&#39;APP_ADMIN&#39;, &#39;USER_ADMIN&#39;]` See [API Docs](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#standard-roles).
          * 
          * @return builder
          * 
@@ -101,7 +101,7 @@ public final class UserAdminRolesArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param adminRoles The list of Okta user admin roles, e.g. `[&#39;APP_ADMIN&#39;, &#39;USER_ADMIN&#39;]` See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
+         * @param adminRoles The list of Okta user admin roles, e.g. `[&#39;APP_ADMIN&#39;, &#39;USER_ADMIN&#39;]` See [API Docs](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#standard-roles).
          * 
          * @return builder
          * 
@@ -111,7 +111,7 @@ public final class UserAdminRolesArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param adminRoles The list of Okta user admin roles, e.g. `[&#39;APP_ADMIN&#39;, &#39;USER_ADMIN&#39;]` See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types).
+         * @param adminRoles The list of Okta user admin roles, e.g. `[&#39;APP_ADMIN&#39;, &#39;USER_ADMIN&#39;]` See [API Docs](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#standard-roles).
          * 
          * @return builder
          * 

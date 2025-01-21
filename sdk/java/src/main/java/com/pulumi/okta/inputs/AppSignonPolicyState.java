@@ -5,6 +5,7 @@ package com.pulumi.okta.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -14,6 +15,36 @@ import javax.annotation.Nullable;
 public final class AppSignonPolicyState extends com.pulumi.resources.ResourceArgs {
 
     public static final AppSignonPolicyState Empty = new AppSignonPolicyState();
+
+    /**
+     * Default rules of the policy set to `DENY` or not. If `false`, it is set to `DENY`. **WARNING** setting this attribute to false change the OKTA default behavior. Use at your own risk. This is only apply during creation, so import or update will not work
+     * 
+     */
+    @Import(name="catchAll")
+    private @Nullable Output<Boolean> catchAll;
+
+    /**
+     * @return Default rules of the policy set to `DENY` or not. If `false`, it is set to `DENY`. **WARNING** setting this attribute to false change the OKTA default behavior. Use at your own risk. This is only apply during creation, so import or update will not work
+     * 
+     */
+    public Optional<Output<Boolean>> catchAll() {
+        return Optional.ofNullable(this.catchAll);
+    }
+
+    /**
+     * Default rules id of the policy
+     * 
+     */
+    @Import(name="defaultRuleId")
+    private @Nullable Output<String> defaultRuleId;
+
+    /**
+     * @return Default rules id of the policy
+     * 
+     */
+    public Optional<Output<String>> defaultRuleId() {
+        return Optional.ofNullable(this.defaultRuleId);
+    }
 
     /**
      * Description of the policy.
@@ -48,6 +79,8 @@ public final class AppSignonPolicyState extends com.pulumi.resources.ResourceArg
     private AppSignonPolicyState() {}
 
     private AppSignonPolicyState(AppSignonPolicyState $) {
+        this.catchAll = $.catchAll;
+        this.defaultRuleId = $.defaultRuleId;
         this.description = $.description;
         this.name = $.name;
     }
@@ -68,6 +101,48 @@ public final class AppSignonPolicyState extends com.pulumi.resources.ResourceArg
 
         public Builder(AppSignonPolicyState defaults) {
             $ = new AppSignonPolicyState(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param catchAll Default rules of the policy set to `DENY` or not. If `false`, it is set to `DENY`. **WARNING** setting this attribute to false change the OKTA default behavior. Use at your own risk. This is only apply during creation, so import or update will not work
+         * 
+         * @return builder
+         * 
+         */
+        public Builder catchAll(@Nullable Output<Boolean> catchAll) {
+            $.catchAll = catchAll;
+            return this;
+        }
+
+        /**
+         * @param catchAll Default rules of the policy set to `DENY` or not. If `false`, it is set to `DENY`. **WARNING** setting this attribute to false change the OKTA default behavior. Use at your own risk. This is only apply during creation, so import or update will not work
+         * 
+         * @return builder
+         * 
+         */
+        public Builder catchAll(Boolean catchAll) {
+            return catchAll(Output.of(catchAll));
+        }
+
+        /**
+         * @param defaultRuleId Default rules id of the policy
+         * 
+         * @return builder
+         * 
+         */
+        public Builder defaultRuleId(@Nullable Output<String> defaultRuleId) {
+            $.defaultRuleId = defaultRuleId;
+            return this;
+        }
+
+        /**
+         * @param defaultRuleId Default rules id of the policy
+         * 
+         * @return builder
+         * 
+         */
+        public Builder defaultRuleId(String defaultRuleId) {
+            return defaultRuleId(Output.of(defaultRuleId));
         }
 
         /**

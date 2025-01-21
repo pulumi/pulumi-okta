@@ -49,8 +49,9 @@ namespace Pulumi.Okta.Group
         /// <summary>
         /// Admin role assigned to the group. It can be any one of the following values: "API_ADMIN", "APP_ADMIN", "CUSTOM",
         /// "GROUP_MEMBERSHIP_ADMIN", "HELP_DESK_ADMIN", "MOBILE_ADMIN", "ORG_ADMIN", "READ_ONLY_ADMIN", "REPORT_ADMIN",
-        /// "SUPER_ADMIN", "USER_ADMIN" . See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types). -
-        /// "USER_ADMIN" is the Group Administrator.
+        /// "SUPER_ADMIN", "USER_ADMIN" . See [API
+        /// Docs](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#standard-roles). - "USER_ADMIN" is the
+        /// Group Administrator.
         /// </summary>
         [Output("roleType")]
         public Output<string> RoleType { get; private set; } = null!;
@@ -144,8 +145,9 @@ namespace Pulumi.Okta.Group
         /// <summary>
         /// Admin role assigned to the group. It can be any one of the following values: "API_ADMIN", "APP_ADMIN", "CUSTOM",
         /// "GROUP_MEMBERSHIP_ADMIN", "HELP_DESK_ADMIN", "MOBILE_ADMIN", "ORG_ADMIN", "READ_ONLY_ADMIN", "REPORT_ADMIN",
-        /// "SUPER_ADMIN", "USER_ADMIN" . See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types). -
-        /// "USER_ADMIN" is the Group Administrator.
+        /// "SUPER_ADMIN", "USER_ADMIN" . See [API
+        /// Docs](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#standard-roles). - "USER_ADMIN" is the
+        /// Group Administrator.
         /// </summary>
         [Input("roleType", required: true)]
         public Input<string> RoleType { get; set; } = null!;
@@ -213,8 +215,9 @@ namespace Pulumi.Okta.Group
         /// <summary>
         /// Admin role assigned to the group. It can be any one of the following values: "API_ADMIN", "APP_ADMIN", "CUSTOM",
         /// "GROUP_MEMBERSHIP_ADMIN", "HELP_DESK_ADMIN", "MOBILE_ADMIN", "ORG_ADMIN", "READ_ONLY_ADMIN", "REPORT_ADMIN",
-        /// "SUPER_ADMIN", "USER_ADMIN" . See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types). -
-        /// "USER_ADMIN" is the Group Administrator.
+        /// "SUPER_ADMIN", "USER_ADMIN" . See [API
+        /// Docs](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#standard-roles). - "USER_ADMIN" is the
+        /// Group Administrator.
         /// </summary>
         [Input("roleType")]
         public Input<string>? RoleType { get; set; }

@@ -71,6 +71,7 @@
         "emailDomainVerification.ts",
         "emailSender.ts",
         "emailSenderVerification.ts",
+        "emailTemplateSettings.ts",
         "eventHook.ts",
         "eventHookVerification.ts",
         "factor/factor.ts",

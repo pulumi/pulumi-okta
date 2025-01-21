@@ -50,6 +50,21 @@ public final class PolicyRuleProfileEnrollmentArgs extends com.pulumi.resources.
     }
 
     /**
+     * Enrolls authenticator types
+     * 
+     */
+    @Import(name="enrollAuthenticatorTypes")
+    private @Nullable Output<List<String>> enrollAuthenticatorTypes;
+
+    /**
+     * @return Enrolls authenticator types
+     * 
+     */
+    public Optional<Output<List<String>>> enrollAuthenticatorTypes() {
+        return Optional.ofNullable(this.enrollAuthenticatorTypes);
+    }
+
+    /**
      * ID of a Registration Inline Hook
      * 
      */
@@ -167,6 +182,7 @@ public final class PolicyRuleProfileEnrollmentArgs extends com.pulumi.resources.
     private PolicyRuleProfileEnrollmentArgs(PolicyRuleProfileEnrollmentArgs $) {
         this.access = $.access;
         this.emailVerification = $.emailVerification;
+        this.enrollAuthenticatorTypes = $.enrollAuthenticatorTypes;
         this.inlineHookId = $.inlineHookId;
         this.policyId = $.policyId;
         this.profileAttributes = $.profileAttributes;
@@ -234,6 +250,37 @@ public final class PolicyRuleProfileEnrollmentArgs extends com.pulumi.resources.
          */
         public Builder emailVerification(Boolean emailVerification) {
             return emailVerification(Output.of(emailVerification));
+        }
+
+        /**
+         * @param enrollAuthenticatorTypes Enrolls authenticator types
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enrollAuthenticatorTypes(@Nullable Output<List<String>> enrollAuthenticatorTypes) {
+            $.enrollAuthenticatorTypes = enrollAuthenticatorTypes;
+            return this;
+        }
+
+        /**
+         * @param enrollAuthenticatorTypes Enrolls authenticator types
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enrollAuthenticatorTypes(List<String> enrollAuthenticatorTypes) {
+            return enrollAuthenticatorTypes(Output.of(enrollAuthenticatorTypes));
+        }
+
+        /**
+         * @param enrollAuthenticatorTypes Enrolls authenticator types
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enrollAuthenticatorTypes(String... enrollAuthenticatorTypes) {
+            return enrollAuthenticatorTypes(List.of(enrollAuthenticatorTypes));
         }
 
         /**

@@ -25,6 +25,7 @@ class PolicyRuleProfileEnrollmentArgs:
                  unknown_user_action: pulumi.Input[str],
                  access: Optional[pulumi.Input[str]] = None,
                  email_verification: Optional[pulumi.Input[bool]] = None,
+                 enroll_authenticator_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  inline_hook_id: Optional[pulumi.Input[str]] = None,
                  profile_attributes: Optional[pulumi.Input[Sequence[pulumi.Input['PolicyRuleProfileEnrollmentProfileAttributeArgs']]]] = None,
                  progressive_profiling_action: Optional[pulumi.Input[str]] = None,
@@ -36,6 +37,7 @@ class PolicyRuleProfileEnrollmentArgs:
         :param pulumi.Input[str] unknown_user_action: Which action should be taken if this User is new. Valid values are: `DENY`, `REGISTER`
         :param pulumi.Input[str] access: Allow or deny access based on the rule conditions. Valid values are: `ALLOW`, `DENY`. Default: `ALLOW`.
         :param pulumi.Input[bool] email_verification: Indicates whether email verification should occur before access is granted. Default: `true`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] enroll_authenticator_types: Enrolls authenticator types
         :param pulumi.Input[str] inline_hook_id: ID of a Registration Inline Hook
         :param pulumi.Input[Sequence[pulumi.Input['PolicyRuleProfileEnrollmentProfileAttributeArgs']]] profile_attributes: A list of attributes to prompt the user during registration or progressive profiling. Where defined on the User schema,
                these attributes are persisted in the User profile. Non-schema attributes may also be added, which aren't persisted to
@@ -52,6 +54,8 @@ class PolicyRuleProfileEnrollmentArgs:
             pulumi.set(__self__, "access", access)
         if email_verification is not None:
             pulumi.set(__self__, "email_verification", email_verification)
+        if enroll_authenticator_types is not None:
+            pulumi.set(__self__, "enroll_authenticator_types", enroll_authenticator_types)
         if inline_hook_id is not None:
             pulumi.set(__self__, "inline_hook_id", inline_hook_id)
         if profile_attributes is not None:
@@ -110,6 +114,18 @@ class PolicyRuleProfileEnrollmentArgs:
     @email_verification.setter
     def email_verification(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "email_verification", value)
+
+    @property
+    @pulumi.getter(name="enrollAuthenticatorTypes")
+    def enroll_authenticator_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Enrolls authenticator types
+        """
+        return pulumi.get(self, "enroll_authenticator_types")
+
+    @enroll_authenticator_types.setter
+    def enroll_authenticator_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "enroll_authenticator_types", value)
 
     @property
     @pulumi.getter(name="inlineHookId")
@@ -181,6 +197,7 @@ class _PolicyRuleProfileEnrollmentState:
     def __init__(__self__, *,
                  access: Optional[pulumi.Input[str]] = None,
                  email_verification: Optional[pulumi.Input[bool]] = None,
+                 enroll_authenticator_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  inline_hook_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  policy_id: Optional[pulumi.Input[str]] = None,
@@ -194,6 +211,7 @@ class _PolicyRuleProfileEnrollmentState:
         Input properties used for looking up and filtering PolicyRuleProfileEnrollment resources.
         :param pulumi.Input[str] access: Allow or deny access based on the rule conditions. Valid values are: `ALLOW`, `DENY`. Default: `ALLOW`.
         :param pulumi.Input[bool] email_verification: Indicates whether email verification should occur before access is granted. Default: `true`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] enroll_authenticator_types: Enrolls authenticator types
         :param pulumi.Input[str] inline_hook_id: ID of a Registration Inline Hook
         :param pulumi.Input[str] name: Name of the rule
         :param pulumi.Input[str] policy_id: ID of the policy
@@ -212,6 +230,8 @@ class _PolicyRuleProfileEnrollmentState:
             pulumi.set(__self__, "access", access)
         if email_verification is not None:
             pulumi.set(__self__, "email_verification", email_verification)
+        if enroll_authenticator_types is not None:
+            pulumi.set(__self__, "enroll_authenticator_types", enroll_authenticator_types)
         if inline_hook_id is not None:
             pulumi.set(__self__, "inline_hook_id", inline_hook_id)
         if name is not None:
@@ -254,6 +274,18 @@ class _PolicyRuleProfileEnrollmentState:
     @email_verification.setter
     def email_verification(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "email_verification", value)
+
+    @property
+    @pulumi.getter(name="enrollAuthenticatorTypes")
+    def enroll_authenticator_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Enrolls authenticator types
+        """
+        return pulumi.get(self, "enroll_authenticator_types")
+
+    @enroll_authenticator_types.setter
+    def enroll_authenticator_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "enroll_authenticator_types", value)
 
     @property
     @pulumi.getter(name="inlineHookId")
@@ -375,6 +407,7 @@ class PolicyRuleProfileEnrollment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access: Optional[pulumi.Input[str]] = None,
                  email_verification: Optional[pulumi.Input[bool]] = None,
+                 enroll_authenticator_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  inline_hook_id: Optional[pulumi.Input[str]] = None,
                  policy_id: Optional[pulumi.Input[str]] = None,
                  profile_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PolicyRuleProfileEnrollmentProfileAttributeArgs', 'PolicyRuleProfileEnrollmentProfileAttributeArgsDict']]]]] = None,
@@ -449,6 +482,7 @@ class PolicyRuleProfileEnrollment(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] access: Allow or deny access based on the rule conditions. Valid values are: `ALLOW`, `DENY`. Default: `ALLOW`.
         :param pulumi.Input[bool] email_verification: Indicates whether email verification should occur before access is granted. Default: `true`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] enroll_authenticator_types: Enrolls authenticator types
         :param pulumi.Input[str] inline_hook_id: ID of a Registration Inline Hook
         :param pulumi.Input[str] policy_id: ID of the policy
         :param pulumi.Input[Sequence[pulumi.Input[Union['PolicyRuleProfileEnrollmentProfileAttributeArgs', 'PolicyRuleProfileEnrollmentProfileAttributeArgsDict']]]] profile_attributes: A list of attributes to prompt the user during registration or progressive profiling. Where defined on the User schema,
@@ -546,6 +580,7 @@ class PolicyRuleProfileEnrollment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access: Optional[pulumi.Input[str]] = None,
                  email_verification: Optional[pulumi.Input[bool]] = None,
+                 enroll_authenticator_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  inline_hook_id: Optional[pulumi.Input[str]] = None,
                  policy_id: Optional[pulumi.Input[str]] = None,
                  profile_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PolicyRuleProfileEnrollmentProfileAttributeArgs', 'PolicyRuleProfileEnrollmentProfileAttributeArgsDict']]]]] = None,
@@ -564,6 +599,7 @@ class PolicyRuleProfileEnrollment(pulumi.CustomResource):
 
             __props__.__dict__["access"] = access
             __props__.__dict__["email_verification"] = email_verification
+            __props__.__dict__["enroll_authenticator_types"] = enroll_authenticator_types
             __props__.__dict__["inline_hook_id"] = inline_hook_id
             if policy_id is None and not opts.urn:
                 raise TypeError("Missing required property 'policy_id'")
@@ -589,6 +625,7 @@ class PolicyRuleProfileEnrollment(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             access: Optional[pulumi.Input[str]] = None,
             email_verification: Optional[pulumi.Input[bool]] = None,
+            enroll_authenticator_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             inline_hook_id: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             policy_id: Optional[pulumi.Input[str]] = None,
@@ -607,6 +644,7 @@ class PolicyRuleProfileEnrollment(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] access: Allow or deny access based on the rule conditions. Valid values are: `ALLOW`, `DENY`. Default: `ALLOW`.
         :param pulumi.Input[bool] email_verification: Indicates whether email verification should occur before access is granted. Default: `true`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] enroll_authenticator_types: Enrolls authenticator types
         :param pulumi.Input[str] inline_hook_id: ID of a Registration Inline Hook
         :param pulumi.Input[str] name: Name of the rule
         :param pulumi.Input[str] policy_id: ID of the policy
@@ -627,6 +665,7 @@ class PolicyRuleProfileEnrollment(pulumi.CustomResource):
 
         __props__.__dict__["access"] = access
         __props__.__dict__["email_verification"] = email_verification
+        __props__.__dict__["enroll_authenticator_types"] = enroll_authenticator_types
         __props__.__dict__["inline_hook_id"] = inline_hook_id
         __props__.__dict__["name"] = name
         __props__.__dict__["policy_id"] = policy_id
@@ -653,6 +692,14 @@ class PolicyRuleProfileEnrollment(pulumi.CustomResource):
         Indicates whether email verification should occur before access is granted. Default: `true`.
         """
         return pulumi.get(self, "email_verification")
+
+    @property
+    @pulumi.getter(name="enrollAuthenticatorTypes")
+    def enroll_authenticator_types(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        Enrolls authenticator types
+        """
+        return pulumi.get(self, "enroll_authenticator_types")
 
     @property
     @pulumi.getter(name="inlineHookId")

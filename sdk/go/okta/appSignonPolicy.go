@@ -22,6 +22,10 @@ import (
 type AppSignonPolicy struct {
 	pulumi.CustomResourceState
 
+	// Default rules of the policy set to `DENY` or not. If `false`, it is set to `DENY`. **WARNING** setting this attribute to false change the OKTA default behavior. Use at your own risk. This is only apply during creation, so import or update will not work
+	CatchAll pulumi.BoolOutput `pulumi:"catchAll"`
+	// Default rules id of the policy
+	DefaultRuleId pulumi.StringOutput `pulumi:"defaultRuleId"`
 	// Description of the policy.
 	Description pulumi.StringOutput `pulumi:"description"`
 	// Name of the policy.
@@ -61,6 +65,10 @@ func GetAppSignonPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AppSignonPolicy resources.
 type appSignonPolicyState struct {
+	// Default rules of the policy set to `DENY` or not. If `false`, it is set to `DENY`. **WARNING** setting this attribute to false change the OKTA default behavior. Use at your own risk. This is only apply during creation, so import or update will not work
+	CatchAll *bool `pulumi:"catchAll"`
+	// Default rules id of the policy
+	DefaultRuleId *string `pulumi:"defaultRuleId"`
 	// Description of the policy.
 	Description *string `pulumi:"description"`
 	// Name of the policy.
@@ -68,6 +76,10 @@ type appSignonPolicyState struct {
 }
 
 type AppSignonPolicyState struct {
+	// Default rules of the policy set to `DENY` or not. If `false`, it is set to `DENY`. **WARNING** setting this attribute to false change the OKTA default behavior. Use at your own risk. This is only apply during creation, so import or update will not work
+	CatchAll pulumi.BoolPtrInput
+	// Default rules id of the policy
+	DefaultRuleId pulumi.StringPtrInput
 	// Description of the policy.
 	Description pulumi.StringPtrInput
 	// Name of the policy.
@@ -79,6 +91,8 @@ func (AppSignonPolicyState) ElementType() reflect.Type {
 }
 
 type appSignonPolicyArgs struct {
+	// Default rules of the policy set to `DENY` or not. If `false`, it is set to `DENY`. **WARNING** setting this attribute to false change the OKTA default behavior. Use at your own risk. This is only apply during creation, so import or update will not work
+	CatchAll *bool `pulumi:"catchAll"`
 	// Description of the policy.
 	Description string `pulumi:"description"`
 	// Name of the policy.
@@ -87,6 +101,8 @@ type appSignonPolicyArgs struct {
 
 // The set of arguments for constructing a AppSignonPolicy resource.
 type AppSignonPolicyArgs struct {
+	// Default rules of the policy set to `DENY` or not. If `false`, it is set to `DENY`. **WARNING** setting this attribute to false change the OKTA default behavior. Use at your own risk. This is only apply during creation, so import or update will not work
+	CatchAll pulumi.BoolPtrInput
 	// Description of the policy.
 	Description pulumi.StringInput
 	// Name of the policy.
@@ -178,6 +194,16 @@ func (o AppSignonPolicyOutput) ToAppSignonPolicyOutput() AppSignonPolicyOutput {
 
 func (o AppSignonPolicyOutput) ToAppSignonPolicyOutputWithContext(ctx context.Context) AppSignonPolicyOutput {
 	return o
+}
+
+// Default rules of the policy set to `DENY` or not. If `false`, it is set to `DENY`. **WARNING** setting this attribute to false change the OKTA default behavior. Use at your own risk. This is only apply during creation, so import or update will not work
+func (o AppSignonPolicyOutput) CatchAll() pulumi.BoolOutput {
+	return o.ApplyT(func(v *AppSignonPolicy) pulumi.BoolOutput { return v.CatchAll }).(pulumi.BoolOutput)
+}
+
+// Default rules id of the policy
+func (o AppSignonPolicyOutput) DefaultRuleId() pulumi.StringOutput {
+	return o.ApplyT(func(v *AppSignonPolicy) pulumi.StringOutput { return v.DefaultRuleId }).(pulumi.StringOutput)
 }
 
 // Description of the policy.
