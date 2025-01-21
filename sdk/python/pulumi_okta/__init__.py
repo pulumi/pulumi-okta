@@ -32,6 +32,7 @@ from .email_domain import *
 from .email_domain_verification import *
 from .email_sender import *
 from .email_sender_verification import *
+from .email_template_settings import *
 from .event_hook import *
 from .event_hook_verification import *
 from .factor_totp import *
@@ -581,6 +582,14 @@ _utilities.register(
   "fqn": "pulumi_okta",
   "classes": {
    "okta:index/emailSenderVerification:EmailSenderVerification": "EmailSenderVerification"
+  }
+ },
+ {
+  "pkg": "okta",
+  "mod": "index/emailTemplateSettings",
+  "fqn": "pulumi_okta",
+  "classes": {
+   "okta:index/emailTemplateSettings:EmailTemplateSettings": "EmailTemplateSettings"
   }
  },
  {

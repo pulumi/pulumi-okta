@@ -73,7 +73,7 @@ export class AdminRoleTargets extends pulumi.CustomResource {
      */
     public /*out*/ readonly roleId!: pulumi.Output<string>;
     /**
-     * Type of the role that is assigned to the user and supports optional targets. See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types)
+     * Type of the role that is assigned to the user and supports optional targets. See [API Docs](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#standard-roles)
      */
     public readonly roleType!: pulumi.Output<string>;
     /**
@@ -135,7 +135,7 @@ export interface AdminRoleTargetsState {
      */
     roleId?: pulumi.Input<string>;
     /**
-     * Type of the role that is assigned to the user and supports optional targets. See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types)
+     * Type of the role that is assigned to the user and supports optional targets. See [API Docs](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#standard-roles)
      */
     roleType?: pulumi.Input<string>;
     /**
@@ -157,7 +157,7 @@ export interface AdminRoleTargetsArgs {
      */
     groups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Type of the role that is assigned to the user and supports optional targets. See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types)
+     * Type of the role that is assigned to the user and supports optional targets. See [API Docs](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#standard-roles)
      */
     roleType: pulumi.Input<string>;
     /**

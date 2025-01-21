@@ -110,6 +110,8 @@ type PolicyRuleProfileEnrollment struct {
 	Access pulumi.StringPtrOutput `pulumi:"access"`
 	// Indicates whether email verification should occur before access is granted. Default: `true`.
 	EmailVerification pulumi.BoolPtrOutput `pulumi:"emailVerification"`
+	// Enrolls authenticator types
+	EnrollAuthenticatorTypes pulumi.StringArrayOutput `pulumi:"enrollAuthenticatorTypes"`
 	// ID of a Registration Inline Hook
 	InlineHookId pulumi.StringPtrOutput `pulumi:"inlineHookId"`
 	// Name of the rule
@@ -174,6 +176,8 @@ type policyRuleProfileEnrollmentState struct {
 	Access *string `pulumi:"access"`
 	// Indicates whether email verification should occur before access is granted. Default: `true`.
 	EmailVerification *bool `pulumi:"emailVerification"`
+	// Enrolls authenticator types
+	EnrollAuthenticatorTypes []string `pulumi:"enrollAuthenticatorTypes"`
 	// ID of a Registration Inline Hook
 	InlineHookId *string `pulumi:"inlineHookId"`
 	// Name of the rule
@@ -203,6 +207,8 @@ type PolicyRuleProfileEnrollmentState struct {
 	Access pulumi.StringPtrInput
 	// Indicates whether email verification should occur before access is granted. Default: `true`.
 	EmailVerification pulumi.BoolPtrInput
+	// Enrolls authenticator types
+	EnrollAuthenticatorTypes pulumi.StringArrayInput
 	// ID of a Registration Inline Hook
 	InlineHookId pulumi.StringPtrInput
 	// Name of the rule
@@ -236,6 +242,8 @@ type policyRuleProfileEnrollmentArgs struct {
 	Access *string `pulumi:"access"`
 	// Indicates whether email verification should occur before access is granted. Default: `true`.
 	EmailVerification *bool `pulumi:"emailVerification"`
+	// Enrolls authenticator types
+	EnrollAuthenticatorTypes []string `pulumi:"enrollAuthenticatorTypes"`
 	// ID of a Registration Inline Hook
 	InlineHookId *string `pulumi:"inlineHookId"`
 	// ID of the policy
@@ -262,6 +270,8 @@ type PolicyRuleProfileEnrollmentArgs struct {
 	Access pulumi.StringPtrInput
 	// Indicates whether email verification should occur before access is granted. Default: `true`.
 	EmailVerification pulumi.BoolPtrInput
+	// Enrolls authenticator types
+	EnrollAuthenticatorTypes pulumi.StringArrayInput
 	// ID of a Registration Inline Hook
 	InlineHookId pulumi.StringPtrInput
 	// ID of the policy
@@ -377,6 +387,11 @@ func (o PolicyRuleProfileEnrollmentOutput) Access() pulumi.StringPtrOutput {
 // Indicates whether email verification should occur before access is granted. Default: `true`.
 func (o PolicyRuleProfileEnrollmentOutput) EmailVerification() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *PolicyRuleProfileEnrollment) pulumi.BoolPtrOutput { return v.EmailVerification }).(pulumi.BoolPtrOutput)
+}
+
+// Enrolls authenticator types
+func (o PolicyRuleProfileEnrollmentOutput) EnrollAuthenticatorTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *PolicyRuleProfileEnrollment) pulumi.StringArrayOutput { return v.EnrollAuthenticatorTypes }).(pulumi.StringArrayOutput)
 }
 
 // ID of a Registration Inline Hook

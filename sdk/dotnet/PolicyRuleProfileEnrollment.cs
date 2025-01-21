@@ -110,6 +110,12 @@ namespace Pulumi.Okta
         public Output<bool?> EmailVerification { get; private set; } = null!;
 
         /// <summary>
+        /// Enrolls authenticator types
+        /// </summary>
+        [Output("enrollAuthenticatorTypes")]
+        public Output<ImmutableArray<string>> EnrollAuthenticatorTypes { get; private set; } = null!;
+
+        /// <summary>
         /// ID of a Registration Inline Hook
         /// </summary>
         [Output("inlineHookId")]
@@ -225,6 +231,18 @@ namespace Pulumi.Okta
         [Input("emailVerification")]
         public Input<bool>? EmailVerification { get; set; }
 
+        [Input("enrollAuthenticatorTypes")]
+        private InputList<string>? _enrollAuthenticatorTypes;
+
+        /// <summary>
+        /// Enrolls authenticator types
+        /// </summary>
+        public InputList<string> EnrollAuthenticatorTypes
+        {
+            get => _enrollAuthenticatorTypes ?? (_enrollAuthenticatorTypes = new InputList<string>());
+            set => _enrollAuthenticatorTypes = value;
+        }
+
         /// <summary>
         /// ID of a Registration Inline Hook
         /// </summary>
@@ -296,6 +314,18 @@ namespace Pulumi.Okta
         /// </summary>
         [Input("emailVerification")]
         public Input<bool>? EmailVerification { get; set; }
+
+        [Input("enrollAuthenticatorTypes")]
+        private InputList<string>? _enrollAuthenticatorTypes;
+
+        /// <summary>
+        /// Enrolls authenticator types
+        /// </summary>
+        public InputList<string> EnrollAuthenticatorTypes
+        {
+            get => _enrollAuthenticatorTypes ?? (_enrollAuthenticatorTypes = new InputList<string>());
+            set => _enrollAuthenticatorTypes = value;
+        }
 
         /// <summary>
         /// ID of a Registration Inline Hook

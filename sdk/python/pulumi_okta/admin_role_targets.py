@@ -25,7 +25,7 @@ class AdminRoleTargetsArgs:
                  groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a AdminRoleTargets resource.
-        :param pulumi.Input[str] role_type: Type of the role that is assigned to the user and supports optional targets. See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types)
+        :param pulumi.Input[str] role_type: Type of the role that is assigned to the user and supports optional targets. See [API Docs](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#standard-roles)
         :param pulumi.Input[str] user_id: User associated with the role
         :param pulumi.Input[Sequence[pulumi.Input[str]]] apps: List of app names (name represents set of app instances) or a combination of app name and app instance ID (like 'salesforce' or 'facebook.0oapsqQ6dv19pqyEo0g3')
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: List of group IDs. Conflicts with apps
@@ -41,7 +41,7 @@ class AdminRoleTargetsArgs:
     @pulumi.getter(name="roleType")
     def role_type(self) -> pulumi.Input[str]:
         """
-        Type of the role that is assigned to the user and supports optional targets. See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types)
+        Type of the role that is assigned to the user and supports optional targets. See [API Docs](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#standard-roles)
         """
         return pulumi.get(self, "role_type")
 
@@ -99,7 +99,7 @@ class _AdminRoleTargetsState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] apps: List of app names (name represents set of app instances) or a combination of app name and app instance ID (like 'salesforce' or 'facebook.0oapsqQ6dv19pqyEo0g3')
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: List of group IDs. Conflicts with apps
         :param pulumi.Input[str] role_id: ID of a role
-        :param pulumi.Input[str] role_type: Type of the role that is assigned to the user and supports optional targets. See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types)
+        :param pulumi.Input[str] role_type: Type of the role that is assigned to the user and supports optional targets. See [API Docs](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#standard-roles)
         :param pulumi.Input[str] user_id: User associated with the role
         """
         if apps is not None:
@@ -153,7 +153,7 @@ class _AdminRoleTargetsState:
     @pulumi.getter(name="roleType")
     def role_type(self) -> Optional[pulumi.Input[str]]:
         """
-        Type of the role that is assigned to the user and supports optional targets. See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types)
+        Type of the role that is assigned to the user and supports optional targets. See [API Docs](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#standard-roles)
         """
         return pulumi.get(self, "role_type")
 
@@ -215,7 +215,7 @@ class AdminRoleTargets(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] apps: List of app names (name represents set of app instances) or a combination of app name and app instance ID (like 'salesforce' or 'facebook.0oapsqQ6dv19pqyEo0g3')
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: List of group IDs. Conflicts with apps
-        :param pulumi.Input[str] role_type: Type of the role that is assigned to the user and supports optional targets. See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types)
+        :param pulumi.Input[str] role_type: Type of the role that is assigned to the user and supports optional targets. See [API Docs](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#standard-roles)
         :param pulumi.Input[str] user_id: User associated with the role
         """
         ...
@@ -313,7 +313,7 @@ class AdminRoleTargets(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] apps: List of app names (name represents set of app instances) or a combination of app name and app instance ID (like 'salesforce' or 'facebook.0oapsqQ6dv19pqyEo0g3')
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: List of group IDs. Conflicts with apps
         :param pulumi.Input[str] role_id: ID of a role
-        :param pulumi.Input[str] role_type: Type of the role that is assigned to the user and supports optional targets. See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types)
+        :param pulumi.Input[str] role_type: Type of the role that is assigned to the user and supports optional targets. See [API Docs](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#standard-roles)
         :param pulumi.Input[str] user_id: User associated with the role
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -355,7 +355,7 @@ class AdminRoleTargets(pulumi.CustomResource):
     @pulumi.getter(name="roleType")
     def role_type(self) -> pulumi.Output[str]:
         """
-        Type of the role that is assigned to the user and supports optional targets. See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types)
+        Type of the role that is assigned to the user and supports optional targets. See [API Docs](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#standard-roles)
         """
         return pulumi.get(self, "role_type")
 

@@ -140,6 +140,11 @@ export type EmailSenderVerification = import("./emailSenderVerification").EmailS
 export const EmailSenderVerification: typeof import("./emailSenderVerification").EmailSenderVerification = null as any;
 utilities.lazyLoad(exports, ["EmailSenderVerification"], () => require("./emailSenderVerification"));
 
+export { EmailTemplateSettingsArgs, EmailTemplateSettingsState } from "./emailTemplateSettings";
+export type EmailTemplateSettings = import("./emailTemplateSettings").EmailTemplateSettings;
+export const EmailTemplateSettings: typeof import("./emailTemplateSettings").EmailTemplateSettings = null as any;
+utilities.lazyLoad(exports, ["EmailTemplateSettings"], () => require("./emailTemplateSettings"));
+
 export { EventHookArgs, EventHookState } from "./eventHook";
 export type EventHook = import("./eventHook").EventHook;
 export const EventHook: typeof import("./eventHook").EventHook = null as any;
@@ -515,6 +520,8 @@ const _module = {
                 return new EmailSender(name, <any>undefined, { urn })
             case "okta:index/emailSenderVerification:EmailSenderVerification":
                 return new EmailSenderVerification(name, <any>undefined, { urn })
+            case "okta:index/emailTemplateSettings:EmailTemplateSettings":
+                return new EmailTemplateSettings(name, <any>undefined, { urn })
             case "okta:index/eventHook:EventHook":
                 return new EventHook(name, <any>undefined, { urn })
             case "okta:index/eventHookVerification:EventHookVerification":
@@ -605,6 +612,7 @@ pulumi.runtime.registerResourceModule("okta", "index/emailDomain", _module)
 pulumi.runtime.registerResourceModule("okta", "index/emailDomainVerification", _module)
 pulumi.runtime.registerResourceModule("okta", "index/emailSender", _module)
 pulumi.runtime.registerResourceModule("okta", "index/emailSenderVerification", _module)
+pulumi.runtime.registerResourceModule("okta", "index/emailTemplateSettings", _module)
 pulumi.runtime.registerResourceModule("okta", "index/eventHook", _module)
 pulumi.runtime.registerResourceModule("okta", "index/eventHookVerification", _module)
 pulumi.runtime.registerResourceModule("okta", "index/factorTotp", _module)

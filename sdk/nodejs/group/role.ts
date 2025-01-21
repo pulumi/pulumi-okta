@@ -61,8 +61,9 @@ export class Role extends pulumi.CustomResource {
     /**
      * Admin role assigned to the group. It can be any one of the following values: "API_ADMIN", "APP_ADMIN", "CUSTOM",
      * "GROUP_MEMBERSHIP_ADMIN", "HELP_DESK_ADMIN", "MOBILE_ADMIN", "ORG_ADMIN", "READ_ONLY_ADMIN", "REPORT_ADMIN",
-     * "SUPER_ADMIN", "USER_ADMIN" . See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types). -
-     * "USER_ADMIN" is the Group Administrator.
+     * "SUPER_ADMIN", "USER_ADMIN" . See [API
+     * Docs](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#standard-roles). - "USER_ADMIN" is the
+     * Group Administrator.
      */
     public readonly roleType!: pulumi.Output<string>;
     /**
@@ -142,8 +143,9 @@ export interface RoleState {
     /**
      * Admin role assigned to the group. It can be any one of the following values: "API_ADMIN", "APP_ADMIN", "CUSTOM",
      * "GROUP_MEMBERSHIP_ADMIN", "HELP_DESK_ADMIN", "MOBILE_ADMIN", "ORG_ADMIN", "READ_ONLY_ADMIN", "REPORT_ADMIN",
-     * "SUPER_ADMIN", "USER_ADMIN" . See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types). -
-     * "USER_ADMIN" is the Group Administrator.
+     * "SUPER_ADMIN", "USER_ADMIN" . See [API
+     * Docs](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#standard-roles). - "USER_ADMIN" is the
+     * Group Administrator.
      */
     roleType?: pulumi.Input<string>;
     /**
@@ -183,8 +185,9 @@ export interface RoleArgs {
     /**
      * Admin role assigned to the group. It can be any one of the following values: "API_ADMIN", "APP_ADMIN", "CUSTOM",
      * "GROUP_MEMBERSHIP_ADMIN", "HELP_DESK_ADMIN", "MOBILE_ADMIN", "ORG_ADMIN", "READ_ONLY_ADMIN", "REPORT_ADMIN",
-     * "SUPER_ADMIN", "USER_ADMIN" . See [API Docs](https://developer.okta.com/docs/reference/api/roles/#role-types). -
-     * "USER_ADMIN" is the Group Administrator.
+     * "SUPER_ADMIN", "USER_ADMIN" . See [API
+     * Docs](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#standard-roles). - "USER_ADMIN" is the
+     * Group Administrator.
      */
     roleType: pulumi.Input<string>;
     /**

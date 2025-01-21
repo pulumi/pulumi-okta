@@ -20,13 +20,17 @@ __all__ = ['AppSignonPolicyArgs', 'AppSignonPolicy']
 class AppSignonPolicyArgs:
     def __init__(__self__, *,
                  description: pulumi.Input[str],
+                 catch_all: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a AppSignonPolicy resource.
         :param pulumi.Input[str] description: Description of the policy.
+        :param pulumi.Input[bool] catch_all: Default rules of the policy set to `DENY` or not. If `false`, it is set to `DENY`. **WARNING** setting this attribute to false change the OKTA default behavior. Use at your own risk. This is only apply during creation, so import or update will not work
         :param pulumi.Input[str] name: Name of the policy.
         """
         pulumi.set(__self__, "description", description)
+        if catch_all is not None:
+            pulumi.set(__self__, "catch_all", catch_all)
         if name is not None:
             pulumi.set(__self__, "name", name)
 
@@ -41,6 +45,18 @@ class AppSignonPolicyArgs:
     @description.setter
     def description(self, value: pulumi.Input[str]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="catchAll")
+    def catch_all(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Default rules of the policy set to `DENY` or not. If `false`, it is set to `DENY`. **WARNING** setting this attribute to false change the OKTA default behavior. Use at your own risk. This is only apply during creation, so import or update will not work
+        """
+        return pulumi.get(self, "catch_all")
+
+    @catch_all.setter
+    def catch_all(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "catch_all", value)
 
     @property
     @pulumi.getter
@@ -58,17 +74,49 @@ class AppSignonPolicyArgs:
 @pulumi.input_type
 class _AppSignonPolicyState:
     def __init__(__self__, *,
+                 catch_all: Optional[pulumi.Input[bool]] = None,
+                 default_rule_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering AppSignonPolicy resources.
+        :param pulumi.Input[bool] catch_all: Default rules of the policy set to `DENY` or not. If `false`, it is set to `DENY`. **WARNING** setting this attribute to false change the OKTA default behavior. Use at your own risk. This is only apply during creation, so import or update will not work
+        :param pulumi.Input[str] default_rule_id: Default rules id of the policy
         :param pulumi.Input[str] description: Description of the policy.
         :param pulumi.Input[str] name: Name of the policy.
         """
+        if catch_all is not None:
+            pulumi.set(__self__, "catch_all", catch_all)
+        if default_rule_id is not None:
+            pulumi.set(__self__, "default_rule_id", default_rule_id)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if name is not None:
             pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="catchAll")
+    def catch_all(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Default rules of the policy set to `DENY` or not. If `false`, it is set to `DENY`. **WARNING** setting this attribute to false change the OKTA default behavior. Use at your own risk. This is only apply during creation, so import or update will not work
+        """
+        return pulumi.get(self, "catch_all")
+
+    @catch_all.setter
+    def catch_all(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "catch_all", value)
+
+    @property
+    @pulumi.getter(name="defaultRuleId")
+    def default_rule_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Default rules id of the policy
+        """
+        return pulumi.get(self, "default_rule_id")
+
+    @default_rule_id.setter
+    def default_rule_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default_rule_id", value)
 
     @property
     @pulumi.getter
@@ -100,6 +148,7 @@ class AppSignonPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 catch_all: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -114,6 +163,7 @@ class AppSignonPolicy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] catch_all: Default rules of the policy set to `DENY` or not. If `false`, it is set to `DENY`. **WARNING** setting this attribute to false change the OKTA default behavior. Use at your own risk. This is only apply during creation, so import or update will not work
         :param pulumi.Input[str] description: Description of the policy.
         :param pulumi.Input[str] name: Name of the policy.
         """
@@ -147,6 +197,7 @@ class AppSignonPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 catch_all: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -158,10 +209,12 @@ class AppSignonPolicy(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AppSignonPolicyArgs.__new__(AppSignonPolicyArgs)
 
+            __props__.__dict__["catch_all"] = catch_all
             if description is None and not opts.urn:
                 raise TypeError("Missing required property 'description'")
             __props__.__dict__["description"] = description
             __props__.__dict__["name"] = name
+            __props__.__dict__["default_rule_id"] = None
         super(AppSignonPolicy, __self__).__init__(
             'okta:index/appSignonPolicy:AppSignonPolicy',
             resource_name,
@@ -172,6 +225,8 @@ class AppSignonPolicy(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            catch_all: Optional[pulumi.Input[bool]] = None,
+            default_rule_id: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None) -> 'AppSignonPolicy':
         """
@@ -181,6 +236,8 @@ class AppSignonPolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] catch_all: Default rules of the policy set to `DENY` or not. If `false`, it is set to `DENY`. **WARNING** setting this attribute to false change the OKTA default behavior. Use at your own risk. This is only apply during creation, so import or update will not work
+        :param pulumi.Input[str] default_rule_id: Default rules id of the policy
         :param pulumi.Input[str] description: Description of the policy.
         :param pulumi.Input[str] name: Name of the policy.
         """
@@ -188,9 +245,27 @@ class AppSignonPolicy(pulumi.CustomResource):
 
         __props__ = _AppSignonPolicyState.__new__(_AppSignonPolicyState)
 
+        __props__.__dict__["catch_all"] = catch_all
+        __props__.__dict__["default_rule_id"] = default_rule_id
         __props__.__dict__["description"] = description
         __props__.__dict__["name"] = name
         return AppSignonPolicy(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="catchAll")
+    def catch_all(self) -> pulumi.Output[bool]:
+        """
+        Default rules of the policy set to `DENY` or not. If `false`, it is set to `DENY`. **WARNING** setting this attribute to false change the OKTA default behavior. Use at your own risk. This is only apply during creation, so import or update will not work
+        """
+        return pulumi.get(self, "catch_all")
+
+    @property
+    @pulumi.getter(name="defaultRuleId")
+    def default_rule_id(self) -> pulumi.Output[str]:
+        """
+        Default rules id of the policy
+        """
+        return pulumi.get(self, "default_rule_id")
 
     @property
     @pulumi.getter

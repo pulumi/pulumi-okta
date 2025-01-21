@@ -149,6 +149,20 @@ public class PolicyRuleProfileEnrollment extends com.pulumi.resources.CustomReso
         return Codegen.optional(this.emailVerification);
     }
     /**
+     * Enrolls authenticator types
+     * 
+     */
+    @Export(name="enrollAuthenticatorTypes", refs={List.class,String.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<String>> enrollAuthenticatorTypes;
+
+    /**
+     * @return Enrolls authenticator types
+     * 
+     */
+    public Output<Optional<List<String>>> enrollAuthenticatorTypes() {
+        return Codegen.optional(this.enrollAuthenticatorTypes);
+    }
+    /**
      * ID of a Registration Inline Hook
      * 
      */
