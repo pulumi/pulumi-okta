@@ -401,6 +401,10 @@
                 "current": "okta:index/emailSenderVerification:EmailSenderVerification",
                 "majorVersion": 4
             },
+            "okta_email_template_settings": {
+                "current": "okta:index/emailTemplateSettings:EmailTemplateSettings",
+                "majorVersion": 4
+            },
             "okta_event_hook": {
                 "current": "okta:index/eventHook:EventHook",
                 "majorVersion": 4,
@@ -779,6 +783,9 @@
                 "current": "okta:index/policyRuleProfileEnrollment:PolicyRuleProfileEnrollment",
                 "majorVersion": 4,
                 "fields": {
+                    "enroll_authenticator_types": {
+                        "maxItemsOne": false
+                    },
                     "profile_attributes": {
                         "maxItemsOne": false
                     }
@@ -1494,7 +1501,7 @@
             "okta:index/appOauthApiScope:AppOauthApiScope": 0,
             "okta:index/appSamlAppSettings:AppSamlAppSettings": 0,
             "okta:index/appSharedCredentials:AppSharedCredentials": 0,
-            "okta:index/appSignonPolicy:AppSignonPolicy": 0,
+            "okta:index/appSignonPolicy:AppSignonPolicy": 1,
             "okta:index/appSignonPolicyRule:AppSignonPolicyRule": 0,
             "okta:index/appUserBaseSchemaProperty:AppUserBaseSchemaProperty": 0,
             "okta:index/appUserSchemaProperty:AppUserSchemaProperty": 0,
@@ -1514,6 +1521,7 @@
             "okta:index/emailDomainVerification:EmailDomainVerification": 0,
             "okta:index/emailSender:EmailSender": 0,
             "okta:index/emailSenderVerification:EmailSenderVerification": 0,
+            "okta:index/emailTemplateSettings:EmailTemplateSettings": 1,
             "okta:index/eventHook:EventHook": 0,
             "okta:index/eventHookVerification:EventHookVerification": 0,
             "okta:index/factorTotp:FactorTotp": 0,
