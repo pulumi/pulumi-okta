@@ -42,7 +42,7 @@
             "respectSchemaVersion": true
         },
         "nodejs": {
-            "packageDescription": "A Pulumi package for creating and managing okta resources.. Based on terraform-provider-okta: version v4.13.1",
+            "packageDescription": "A Pulumi package for creating and managing okta resources.. Based on terraform-provider-okta: version v4.14.0",
             "readme": "\u003e This provider is a derived work of the [Terraform Provider](https://github.com/okta/terraform-provider-okta)\n\u003e distributed under [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/). If you encounter a bug or missing feature,\n\u003e first check the [`pulumi-okta` repo](https://github.com/pulumi/pulumi-okta/issues); however, if that doesn't turn up anything,\n\u003e please consult the source [`terraform-provider-okta` repo](https://github.com/okta/terraform-provider-okta/issues).",
             "devDependencies": {
                 "@types/mime": "^2.0.0",
@@ -3560,7 +3560,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "List of OAuth 2.0 response type strings.\n"
+                    "description": "List of OAuth 2.0 response type strings. Valid values are any combination of: `code`, `token`, and `id_token`.\n"
                 },
                 "signOnMode": {
                     "type": "string",
@@ -3572,7 +3572,7 @@
                 },
                 "tokenEndpointAuthMethod": {
                     "type": "string",
-                    "description": "Requested authentication method for the token endpoint.\n"
+                    "description": "Requested authentication method for the token endpoint, valid values include:  'client*secret*basic', 'client*secret*post', 'client*secret*jwt', 'private*key*jwt', 'none', etc.\n"
                 },
                 "tosUri": {
                     "type": "string",
@@ -3782,7 +3782,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "List of OAuth 2.0 response type strings.\n"
+                    "description": "List of OAuth 2.0 response type strings. Valid values are any combination of: `code`, `token`, and `id_token`.\n"
                 },
                 "status": {
                     "type": "string",
@@ -3790,7 +3790,7 @@
                 },
                 "tokenEndpointAuthMethod": {
                     "type": "string",
-                    "description": "Requested authentication method for the token endpoint.\n"
+                    "description": "Requested authentication method for the token endpoint, valid values include:  'client*secret*basic', 'client*secret*post', 'client*secret*jwt', 'private*key*jwt', 'none', etc.\n"
                 },
                 "tosUri": {
                     "type": "string",
@@ -4007,7 +4007,7 @@
                         "items": {
                             "type": "string"
                         },
-                        "description": "List of OAuth 2.0 response type strings.\n"
+                        "description": "List of OAuth 2.0 response type strings. Valid values are any combination of: `code`, `token`, and `id_token`.\n"
                     },
                     "signOnMode": {
                         "type": "string",
@@ -4019,7 +4019,7 @@
                     },
                     "tokenEndpointAuthMethod": {
                         "type": "string",
-                        "description": "Requested authentication method for the token endpoint.\n"
+                        "description": "Requested authentication method for the token endpoint, valid values include:  'client*secret*basic', 'client*secret*post', 'client*secret*jwt', 'private*key*jwt', 'none', etc.\n"
                     },
                     "tosUri": {
                         "type": "string",
@@ -20814,7 +20814,7 @@
                         "type": "string"
                     },
                     "wildcardRedirect": {
-                        "description": "Indicates if the client is allowed to use wildcard matching of redirect_uris\n",
+                        "description": "Indicates if the client is allowed to use wildcard matching of redirect_uris. Some valid values include: \"SUBDOMAIN\", \"DISABLED\".\n",
                         "type": "string"
                     }
                 },
