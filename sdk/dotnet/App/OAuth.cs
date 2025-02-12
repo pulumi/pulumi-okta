@@ -274,7 +274,7 @@ namespace Pulumi.Okta.App
         public Output<string?> RefreshTokenRotation { get; private set; } = null!;
 
         /// <summary>
-        /// List of OAuth 2.0 response type strings.
+        /// List of OAuth 2.0 response type strings. Valid values are any combination of: `code`, `token`, and `id_token`.
         /// </summary>
         [Output("responseTypes")]
         public Output<ImmutableArray<string>> ResponseTypes { get; private set; } = null!;
@@ -292,7 +292,7 @@ namespace Pulumi.Okta.App
         public Output<string?> Status { get; private set; } = null!;
 
         /// <summary>
-        /// Requested authentication method for the token endpoint.
+        /// Requested authentication method for the token endpoint, valid values include:  'client*secret*basic', 'client*secret*post', 'client*secret*jwt', 'private*key*jwt', 'none', etc.
         /// </summary>
         [Output("tokenEndpointAuthMethod")]
         public Output<string?> TokenEndpointAuthMethod { get; private set; } = null!;
@@ -650,7 +650,7 @@ namespace Pulumi.Okta.App
         private InputList<string>? _responseTypes;
 
         /// <summary>
-        /// List of OAuth 2.0 response type strings.
+        /// List of OAuth 2.0 response type strings. Valid values are any combination of: `code`, `token`, and `id_token`.
         /// </summary>
         public InputList<string> ResponseTypes
         {
@@ -665,7 +665,7 @@ namespace Pulumi.Okta.App
         public Input<string>? Status { get; set; }
 
         /// <summary>
-        /// Requested authentication method for the token endpoint.
+        /// Requested authentication method for the token endpoint, valid values include:  'client*secret*basic', 'client*secret*post', 'client*secret*jwt', 'private*key*jwt', 'none', etc.
         /// </summary>
         [Input("tokenEndpointAuthMethod")]
         public Input<string>? TokenEndpointAuthMethod { get; set; }
@@ -1008,7 +1008,7 @@ namespace Pulumi.Okta.App
         private InputList<string>? _responseTypes;
 
         /// <summary>
-        /// List of OAuth 2.0 response type strings.
+        /// List of OAuth 2.0 response type strings. Valid values are any combination of: `code`, `token`, and `id_token`.
         /// </summary>
         public InputList<string> ResponseTypes
         {
@@ -1029,7 +1029,7 @@ namespace Pulumi.Okta.App
         public Input<string>? Status { get; set; }
 
         /// <summary>
-        /// Requested authentication method for the token endpoint.
+        /// Requested authentication method for the token endpoint, valid values include:  'client*secret*basic', 'client*secret*post', 'client*secret*jwt', 'private*key*jwt', 'none', etc.
         /// </summary>
         [Input("tokenEndpointAuthMethod")]
         public Input<string>? TokenEndpointAuthMethod { get; set; }

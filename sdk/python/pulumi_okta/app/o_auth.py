@@ -109,9 +109,9 @@ class OAuthArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] redirect_uris: List of URIs for use in the redirect-based flow. This is required for all application types except service. Note: see okta*app*oauth*redirect*uri for appending to this list in a decentralized way.
         :param pulumi.Input[int] refresh_token_leeway: *Early Access Property* Grace period for token rotation, required with grant types refresh_token
         :param pulumi.Input[str] refresh_token_rotation: *Early Access Property* Refresh token rotation behavior, required with grant types refresh_token
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] response_types: List of OAuth 2.0 response type strings.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] response_types: List of OAuth 2.0 response type strings. Valid values are any combination of: `code`, `token`, and `id_token`.
         :param pulumi.Input[str] status: Status of application. By default, it is `ACTIVE`
-        :param pulumi.Input[str] token_endpoint_auth_method: Requested authentication method for the token endpoint.
+        :param pulumi.Input[str] token_endpoint_auth_method: Requested authentication method for the token endpoint, valid values include:  'client*secret*basic', 'client*secret*post', 'client*secret*jwt', 'private*key*jwt', 'none', etc.
         :param pulumi.Input[str] tos_uri: URI to web page providing client tos (terms of service).
         :param pulumi.Input[str] user_name_template: Username template. Default: `${source.login}`
         :param pulumi.Input[str] user_name_template_push_status: Push username on update. Valid values: `PUSH` and `DONT_PUSH`
@@ -659,7 +659,7 @@ class OAuthArgs:
     @pulumi.getter(name="responseTypes")
     def response_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of OAuth 2.0 response type strings.
+        List of OAuth 2.0 response type strings. Valid values are any combination of: `code`, `token`, and `id_token`.
         """
         return pulumi.get(self, "response_types")
 
@@ -683,7 +683,7 @@ class OAuthArgs:
     @pulumi.getter(name="tokenEndpointAuthMethod")
     def token_endpoint_auth_method(self) -> Optional[pulumi.Input[str]]:
         """
-        Requested authentication method for the token endpoint.
+        Requested authentication method for the token endpoint, valid values include:  'client*secret*basic', 'client*secret*post', 'client*secret*jwt', 'private*key*jwt', 'none', etc.
         """
         return pulumi.get(self, "token_endpoint_auth_method")
 
@@ -861,10 +861,10 @@ class _OAuthState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] redirect_uris: List of URIs for use in the redirect-based flow. This is required for all application types except service. Note: see okta*app*oauth*redirect*uri for appending to this list in a decentralized way.
         :param pulumi.Input[int] refresh_token_leeway: *Early Access Property* Grace period for token rotation, required with grant types refresh_token
         :param pulumi.Input[str] refresh_token_rotation: *Early Access Property* Refresh token rotation behavior, required with grant types refresh_token
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] response_types: List of OAuth 2.0 response type strings.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] response_types: List of OAuth 2.0 response type strings. Valid values are any combination of: `code`, `token`, and `id_token`.
         :param pulumi.Input[str] sign_on_mode: Sign on mode of application.
         :param pulumi.Input[str] status: Status of application. By default, it is `ACTIVE`
-        :param pulumi.Input[str] token_endpoint_auth_method: Requested authentication method for the token endpoint.
+        :param pulumi.Input[str] token_endpoint_auth_method: Requested authentication method for the token endpoint, valid values include:  'client*secret*basic', 'client*secret*post', 'client*secret*jwt', 'private*key*jwt', 'none', etc.
         :param pulumi.Input[str] tos_uri: URI to web page providing client tos (terms of service).
         :param pulumi.Input[str] type: The type of client application.
         :param pulumi.Input[str] user_name_template: Username template. Default: `${source.login}`
@@ -1447,7 +1447,7 @@ class _OAuthState:
     @pulumi.getter(name="responseTypes")
     def response_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of OAuth 2.0 response type strings.
+        List of OAuth 2.0 response type strings. Valid values are any combination of: `code`, `token`, and `id_token`.
         """
         return pulumi.get(self, "response_types")
 
@@ -1483,7 +1483,7 @@ class _OAuthState:
     @pulumi.getter(name="tokenEndpointAuthMethod")
     def token_endpoint_auth_method(self) -> Optional[pulumi.Input[str]]:
         """
-        Requested authentication method for the token endpoint.
+        Requested authentication method for the token endpoint, valid values include:  'client*secret*basic', 'client*secret*post', 'client*secret*jwt', 'private*key*jwt', 'none', etc.
         """
         return pulumi.get(self, "token_endpoint_auth_method")
 
@@ -1695,9 +1695,9 @@ class OAuth(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] redirect_uris: List of URIs for use in the redirect-based flow. This is required for all application types except service. Note: see okta*app*oauth*redirect*uri for appending to this list in a decentralized way.
         :param pulumi.Input[int] refresh_token_leeway: *Early Access Property* Grace period for token rotation, required with grant types refresh_token
         :param pulumi.Input[str] refresh_token_rotation: *Early Access Property* Refresh token rotation behavior, required with grant types refresh_token
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] response_types: List of OAuth 2.0 response type strings.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] response_types: List of OAuth 2.0 response type strings. Valid values are any combination of: `code`, `token`, and `id_token`.
         :param pulumi.Input[str] status: Status of application. By default, it is `ACTIVE`
-        :param pulumi.Input[str] token_endpoint_auth_method: Requested authentication method for the token endpoint.
+        :param pulumi.Input[str] token_endpoint_auth_method: Requested authentication method for the token endpoint, valid values include:  'client*secret*basic', 'client*secret*post', 'client*secret*jwt', 'private*key*jwt', 'none', etc.
         :param pulumi.Input[str] tos_uri: URI to web page providing client tos (terms of service).
         :param pulumi.Input[str] type: The type of client application.
         :param pulumi.Input[str] user_name_template: Username template. Default: `${source.login}`
@@ -1973,10 +1973,10 @@ class OAuth(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] redirect_uris: List of URIs for use in the redirect-based flow. This is required for all application types except service. Note: see okta*app*oauth*redirect*uri for appending to this list in a decentralized way.
         :param pulumi.Input[int] refresh_token_leeway: *Early Access Property* Grace period for token rotation, required with grant types refresh_token
         :param pulumi.Input[str] refresh_token_rotation: *Early Access Property* Refresh token rotation behavior, required with grant types refresh_token
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] response_types: List of OAuth 2.0 response type strings.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] response_types: List of OAuth 2.0 response type strings. Valid values are any combination of: `code`, `token`, and `id_token`.
         :param pulumi.Input[str] sign_on_mode: Sign on mode of application.
         :param pulumi.Input[str] status: Status of application. By default, it is `ACTIVE`
-        :param pulumi.Input[str] token_endpoint_auth_method: Requested authentication method for the token endpoint.
+        :param pulumi.Input[str] token_endpoint_auth_method: Requested authentication method for the token endpoint, valid values include:  'client*secret*basic', 'client*secret*post', 'client*secret*jwt', 'private*key*jwt', 'none', etc.
         :param pulumi.Input[str] tos_uri: URI to web page providing client tos (terms of service).
         :param pulumi.Input[str] type: The type of client application.
         :param pulumi.Input[str] user_name_template: Username template. Default: `${source.login}`
@@ -2358,7 +2358,7 @@ class OAuth(pulumi.CustomResource):
     @pulumi.getter(name="responseTypes")
     def response_types(self) -> pulumi.Output[Sequence[str]]:
         """
-        List of OAuth 2.0 response type strings.
+        List of OAuth 2.0 response type strings. Valid values are any combination of: `code`, `token`, and `id_token`.
         """
         return pulumi.get(self, "response_types")
 
@@ -2382,7 +2382,7 @@ class OAuth(pulumi.CustomResource):
     @pulumi.getter(name="tokenEndpointAuthMethod")
     def token_endpoint_auth_method(self) -> pulumi.Output[Optional[str]]:
         """
-        Requested authentication method for the token endpoint.
+        Requested authentication method for the token endpoint, valid values include:  'client*secret*basic', 'client*secret*post', 'client*secret*jwt', 'private*key*jwt', 'none', etc.
         """
         return pulumi.get(self, "token_endpoint_auth_method")
 

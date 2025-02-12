@@ -155,7 +155,7 @@ public final class GetOauthResult {
      */
     private String type;
     /**
-     * @return Indicates if the client is allowed to use wildcard matching of redirect_uris
+     * @return Indicates if the client is allowed to use wildcard matching of redirect_uris. Some valid values include: &#34;SUBDOMAIN&#34;, &#34;DISABLED&#34;.
      * 
      */
     private String wildcardRedirect;
@@ -352,7 +352,7 @@ public final class GetOauthResult {
         return this.type;
     }
     /**
-     * @return Indicates if the client is allowed to use wildcard matching of redirect_uris
+     * @return Indicates if the client is allowed to use wildcard matching of redirect_uris. Some valid values include: &#34;SUBDOMAIN&#34;, &#34;DISABLED&#34;.
      * 
      */
     public String wildcardRedirect() {

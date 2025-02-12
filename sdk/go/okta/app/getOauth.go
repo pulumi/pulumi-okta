@@ -138,7 +138,7 @@ type GetOauthResult struct {
 	Status string `pulumi:"status"`
 	// The type of OAuth application.
 	Type string `pulumi:"type"`
-	// Indicates if the client is allowed to use wildcard matching of redirect_uris
+	// Indicates if the client is allowed to use wildcard matching of redirect_uris. Some valid values include: "SUBDOMAIN", "DISABLED".
 	WildcardRedirect string `pulumi:"wildcardRedirect"`
 }
 
@@ -335,7 +335,7 @@ func (o GetOauthResultOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GetOauthResult) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// Indicates if the client is allowed to use wildcard matching of redirect_uris
+// Indicates if the client is allowed to use wildcard matching of redirect_uris. Some valid values include: "SUBDOMAIN", "DISABLED".
 func (o GetOauthResultOutput) WildcardRedirect() pulumi.StringOutput {
 	return o.ApplyT(func(v GetOauthResult) string { return v.WildcardRedirect }).(pulumi.StringOutput)
 }

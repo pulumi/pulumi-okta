@@ -319,7 +319,7 @@ class GetOauthResult:
     @pulumi.getter(name="wildcardRedirect")
     def wildcard_redirect(self) -> str:
         """
-        Indicates if the client is allowed to use wildcard matching of redirect_uris
+        Indicates if the client is allowed to use wildcard matching of redirect_uris. Some valid values include: "SUBDOMAIN", "DISABLED".
         """
         return pulumi.get(self, "wildcard_redirect")
 

@@ -562,14 +562,14 @@ public final class OAuthArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * List of OAuth 2.0 response type strings.
+     * List of OAuth 2.0 response type strings. Valid values are any combination of: `code`, `token`, and `id_token`.
      * 
      */
     @Import(name="responseTypes")
     private @Nullable Output<List<String>> responseTypes;
 
     /**
-     * @return List of OAuth 2.0 response type strings.
+     * @return List of OAuth 2.0 response type strings. Valid values are any combination of: `code`, `token`, and `id_token`.
      * 
      */
     public Optional<Output<List<String>>> responseTypes() {
@@ -592,14 +592,14 @@ public final class OAuthArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Requested authentication method for the token endpoint.
+     * Requested authentication method for the token endpoint, valid values include:  &#39;client*secret*basic&#39;, &#39;client*secret*post&#39;, &#39;client*secret*jwt&#39;, &#39;private*key*jwt&#39;, &#39;none&#39;, etc.
      * 
      */
     @Import(name="tokenEndpointAuthMethod")
     private @Nullable Output<String> tokenEndpointAuthMethod;
 
     /**
-     * @return Requested authentication method for the token endpoint.
+     * @return Requested authentication method for the token endpoint, valid values include:  &#39;client*secret*basic&#39;, &#39;client*secret*post&#39;, &#39;client*secret*jwt&#39;, &#39;private*key*jwt&#39;, &#39;none&#39;, etc.
      * 
      */
     public Optional<Output<String>> tokenEndpointAuthMethod() {
@@ -1577,7 +1577,7 @@ public final class OAuthArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param responseTypes List of OAuth 2.0 response type strings.
+         * @param responseTypes List of OAuth 2.0 response type strings. Valid values are any combination of: `code`, `token`, and `id_token`.
          * 
          * @return builder
          * 
@@ -1588,7 +1588,7 @@ public final class OAuthArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param responseTypes List of OAuth 2.0 response type strings.
+         * @param responseTypes List of OAuth 2.0 response type strings. Valid values are any combination of: `code`, `token`, and `id_token`.
          * 
          * @return builder
          * 
@@ -1598,7 +1598,7 @@ public final class OAuthArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param responseTypes List of OAuth 2.0 response type strings.
+         * @param responseTypes List of OAuth 2.0 response type strings. Valid values are any combination of: `code`, `token`, and `id_token`.
          * 
          * @return builder
          * 
@@ -1629,7 +1629,7 @@ public final class OAuthArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tokenEndpointAuthMethod Requested authentication method for the token endpoint.
+         * @param tokenEndpointAuthMethod Requested authentication method for the token endpoint, valid values include:  &#39;client*secret*basic&#39;, &#39;client*secret*post&#39;, &#39;client*secret*jwt&#39;, &#39;private*key*jwt&#39;, &#39;none&#39;, etc.
          * 
          * @return builder
          * 
@@ -1640,7 +1640,7 @@ public final class OAuthArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tokenEndpointAuthMethod Requested authentication method for the token endpoint.
+         * @param tokenEndpointAuthMethod Requested authentication method for the token endpoint, valid values include:  &#39;client*secret*basic&#39;, &#39;client*secret*post&#39;, &#39;client*secret*jwt&#39;, &#39;private*key*jwt&#39;, &#39;none&#39;, etc.
          * 
          * @return builder
          * 
