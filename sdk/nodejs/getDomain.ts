@@ -16,10 +16,10 @@ import * as utilities from "./utilities";
  * import * as okta from "@pulumi/okta";
  *
  * const example = new okta.Domain("example", {name: "www.example.com"});
- * const by-name = okta.getDomain({
+ * const by_name = okta.getDomain({
  *     domainIdOrName: "www.example.com",
  * });
- * const by-id = okta.getDomainOutput({
+ * const by_id = okta.getDomainOutput({
  *     domainIdOrName: example.id,
  * });
  * ```
@@ -84,10 +84,10 @@ export interface GetDomainResult {
  * import * as okta from "@pulumi/okta";
  *
  * const example = new okta.Domain("example", {name: "www.example.com"});
- * const by-name = okta.getDomain({
+ * const by_name = okta.getDomain({
  *     domainIdOrName: "www.example.com",
  * });
- * const by-id = okta.getDomainOutput({
+ * const by_id = okta.getDomainOutput({
  *     domainIdOrName: example.id,
  * });
  * ```
