@@ -188,7 +188,7 @@ export interface GetOauthResult {
      */
     readonly type: string;
     /**
-     * Indicates if the client is allowed to use wildcard matching of redirect_uris
+     * Indicates if the client is allowed to use wildcard matching of redirect_uris. Some valid values include: "SUBDOMAIN", "DISABLED".
      */
     readonly wildcardRedirect: string;
 }

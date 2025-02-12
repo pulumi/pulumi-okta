@@ -218,7 +218,7 @@ export class OAuth extends pulumi.CustomResource {
      */
     public readonly refreshTokenRotation!: pulumi.Output<string | undefined>;
     /**
-     * List of OAuth 2.0 response type strings.
+     * List of OAuth 2.0 response type strings. Valid values are any combination of: `code`, `token`, and `idToken`.
      */
     public readonly responseTypes!: pulumi.Output<string[]>;
     /**
@@ -230,7 +230,7 @@ export class OAuth extends pulumi.CustomResource {
      */
     public readonly status!: pulumi.Output<string | undefined>;
     /**
-     * Requested authentication method for the token endpoint.
+     * Requested authentication method for the token endpoint, valid values include:  'client*secret*basic', 'client*secret*post', 'client*secret*jwt', 'private*key*jwt', 'none', etc.
      */
     public readonly tokenEndpointAuthMethod!: pulumi.Output<string | undefined>;
     /**
@@ -553,7 +553,7 @@ export interface OAuthState {
      */
     refreshTokenRotation?: pulumi.Input<string>;
     /**
-     * List of OAuth 2.0 response type strings.
+     * List of OAuth 2.0 response type strings. Valid values are any combination of: `code`, `token`, and `idToken`.
      */
     responseTypes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -565,7 +565,7 @@ export interface OAuthState {
      */
     status?: pulumi.Input<string>;
     /**
-     * Requested authentication method for the token endpoint.
+     * Requested authentication method for the token endpoint, valid values include:  'client*secret*basic', 'client*secret*post', 'client*secret*jwt', 'private*key*jwt', 'none', etc.
      */
     tokenEndpointAuthMethod?: pulumi.Input<string>;
     /**
@@ -748,7 +748,7 @@ export interface OAuthArgs {
      */
     refreshTokenRotation?: pulumi.Input<string>;
     /**
-     * List of OAuth 2.0 response type strings.
+     * List of OAuth 2.0 response type strings. Valid values are any combination of: `code`, `token`, and `idToken`.
      */
     responseTypes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -756,7 +756,7 @@ export interface OAuthArgs {
      */
     status?: pulumi.Input<string>;
     /**
-     * Requested authentication method for the token endpoint.
+     * Requested authentication method for the token endpoint, valid values include:  'client*secret*basic', 'client*secret*post', 'client*secret*jwt', 'private*key*jwt', 'none', etc.
      */
     tokenEndpointAuthMethod?: pulumi.Input<string>;
     /**

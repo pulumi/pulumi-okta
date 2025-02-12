@@ -595,14 +595,14 @@ public class OAuth extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.refreshTokenRotation);
     }
     /**
-     * List of OAuth 2.0 response type strings.
+     * List of OAuth 2.0 response type strings. Valid values are any combination of: `code`, `token`, and `id_token`.
      * 
      */
     @Export(name="responseTypes", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> responseTypes;
 
     /**
-     * @return List of OAuth 2.0 response type strings.
+     * @return List of OAuth 2.0 response type strings. Valid values are any combination of: `code`, `token`, and `id_token`.
      * 
      */
     public Output<List<String>> responseTypes() {
@@ -637,14 +637,14 @@ public class OAuth extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.status);
     }
     /**
-     * Requested authentication method for the token endpoint.
+     * Requested authentication method for the token endpoint, valid values include:  &#39;client*secret*basic&#39;, &#39;client*secret*post&#39;, &#39;client*secret*jwt&#39;, &#39;private*key*jwt&#39;, &#39;none&#39;, etc.
      * 
      */
     @Export(name="tokenEndpointAuthMethod", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> tokenEndpointAuthMethod;
 
     /**
-     * @return Requested authentication method for the token endpoint.
+     * @return Requested authentication method for the token endpoint, valid values include:  &#39;client*secret*basic&#39;, &#39;client*secret*post&#39;, &#39;client*secret*jwt&#39;, &#39;private*key*jwt&#39;, &#39;none&#39;, etc.
      * 
      */
     public Output<Optional<String>> tokenEndpointAuthMethod() {

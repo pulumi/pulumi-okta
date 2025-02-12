@@ -299,7 +299,7 @@ namespace Pulumi.Okta.App
         /// </summary>
         public readonly string Type;
         /// <summary>
-        /// Indicates if the client is allowed to use wildcard matching of redirect_uris
+        /// Indicates if the client is allowed to use wildcard matching of redirect_uris. Some valid values include: "SUBDOMAIN", "DISABLED".
         /// </summary>
         public readonly string WildcardRedirect;
 

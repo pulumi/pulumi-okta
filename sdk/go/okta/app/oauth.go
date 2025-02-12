@@ -120,13 +120,13 @@ type OAuth struct {
 	RefreshTokenLeeway pulumi.IntPtrOutput `pulumi:"refreshTokenLeeway"`
 	// *Early Access Property* Refresh token rotation behavior, required with grant types refresh_token
 	RefreshTokenRotation pulumi.StringPtrOutput `pulumi:"refreshTokenRotation"`
-	// List of OAuth 2.0 response type strings.
+	// List of OAuth 2.0 response type strings. Valid values are any combination of: `code`, `token`, and `idToken`.
 	ResponseTypes pulumi.StringArrayOutput `pulumi:"responseTypes"`
 	// Sign on mode of application.
 	SignOnMode pulumi.StringOutput `pulumi:"signOnMode"`
 	// Status of application. By default, it is `ACTIVE`
 	Status pulumi.StringPtrOutput `pulumi:"status"`
-	// Requested authentication method for the token endpoint.
+	// Requested authentication method for the token endpoint, valid values include:  'client*secret*basic', 'client*secret*post', 'client*secret*jwt', 'private*key*jwt', 'none', etc.
 	TokenEndpointAuthMethod pulumi.StringPtrOutput `pulumi:"tokenEndpointAuthMethod"`
 	// URI to web page providing client tos (terms of service).
 	TosUri pulumi.StringPtrOutput `pulumi:"tosUri"`
@@ -269,13 +269,13 @@ type oauthState struct {
 	RefreshTokenLeeway *int `pulumi:"refreshTokenLeeway"`
 	// *Early Access Property* Refresh token rotation behavior, required with grant types refresh_token
 	RefreshTokenRotation *string `pulumi:"refreshTokenRotation"`
-	// List of OAuth 2.0 response type strings.
+	// List of OAuth 2.0 response type strings. Valid values are any combination of: `code`, `token`, and `idToken`.
 	ResponseTypes []string `pulumi:"responseTypes"`
 	// Sign on mode of application.
 	SignOnMode *string `pulumi:"signOnMode"`
 	// Status of application. By default, it is `ACTIVE`
 	Status *string `pulumi:"status"`
-	// Requested authentication method for the token endpoint.
+	// Requested authentication method for the token endpoint, valid values include:  'client*secret*basic', 'client*secret*post', 'client*secret*jwt', 'private*key*jwt', 'none', etc.
 	TokenEndpointAuthMethod *string `pulumi:"tokenEndpointAuthMethod"`
 	// URI to web page providing client tos (terms of service).
 	TosUri *string `pulumi:"tosUri"`
@@ -375,13 +375,13 @@ type OAuthState struct {
 	RefreshTokenLeeway pulumi.IntPtrInput
 	// *Early Access Property* Refresh token rotation behavior, required with grant types refresh_token
 	RefreshTokenRotation pulumi.StringPtrInput
-	// List of OAuth 2.0 response type strings.
+	// List of OAuth 2.0 response type strings. Valid values are any combination of: `code`, `token`, and `idToken`.
 	ResponseTypes pulumi.StringArrayInput
 	// Sign on mode of application.
 	SignOnMode pulumi.StringPtrInput
 	// Status of application. By default, it is `ACTIVE`
 	Status pulumi.StringPtrInput
-	// Requested authentication method for the token endpoint.
+	// Requested authentication method for the token endpoint, valid values include:  'client*secret*basic', 'client*secret*post', 'client*secret*jwt', 'private*key*jwt', 'none', etc.
 	TokenEndpointAuthMethod pulumi.StringPtrInput
 	// URI to web page providing client tos (terms of service).
 	TosUri pulumi.StringPtrInput
@@ -479,11 +479,11 @@ type oauthArgs struct {
 	RefreshTokenLeeway *int `pulumi:"refreshTokenLeeway"`
 	// *Early Access Property* Refresh token rotation behavior, required with grant types refresh_token
 	RefreshTokenRotation *string `pulumi:"refreshTokenRotation"`
-	// List of OAuth 2.0 response type strings.
+	// List of OAuth 2.0 response type strings. Valid values are any combination of: `code`, `token`, and `idToken`.
 	ResponseTypes []string `pulumi:"responseTypes"`
 	// Status of application. By default, it is `ACTIVE`
 	Status *string `pulumi:"status"`
-	// Requested authentication method for the token endpoint.
+	// Requested authentication method for the token endpoint, valid values include:  'client*secret*basic', 'client*secret*post', 'client*secret*jwt', 'private*key*jwt', 'none', etc.
 	TokenEndpointAuthMethod *string `pulumi:"tokenEndpointAuthMethod"`
 	// URI to web page providing client tos (terms of service).
 	TosUri *string `pulumi:"tosUri"`
@@ -578,11 +578,11 @@ type OAuthArgs struct {
 	RefreshTokenLeeway pulumi.IntPtrInput
 	// *Early Access Property* Refresh token rotation behavior, required with grant types refresh_token
 	RefreshTokenRotation pulumi.StringPtrInput
-	// List of OAuth 2.0 response type strings.
+	// List of OAuth 2.0 response type strings. Valid values are any combination of: `code`, `token`, and `idToken`.
 	ResponseTypes pulumi.StringArrayInput
 	// Status of application. By default, it is `ACTIVE`
 	Status pulumi.StringPtrInput
-	// Requested authentication method for the token endpoint.
+	// Requested authentication method for the token endpoint, valid values include:  'client*secret*basic', 'client*secret*post', 'client*secret*jwt', 'private*key*jwt', 'none', etc.
 	TokenEndpointAuthMethod pulumi.StringPtrInput
 	// URI to web page providing client tos (terms of service).
 	TosUri pulumi.StringPtrInput
@@ -886,7 +886,7 @@ func (o OAuthOutput) RefreshTokenRotation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OAuth) pulumi.StringPtrOutput { return v.RefreshTokenRotation }).(pulumi.StringPtrOutput)
 }
 
-// List of OAuth 2.0 response type strings.
+// List of OAuth 2.0 response type strings. Valid values are any combination of: `code`, `token`, and `idToken`.
 func (o OAuthOutput) ResponseTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *OAuth) pulumi.StringArrayOutput { return v.ResponseTypes }).(pulumi.StringArrayOutput)
 }
@@ -901,7 +901,7 @@ func (o OAuthOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OAuth) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }
 
-// Requested authentication method for the token endpoint.
+// Requested authentication method for the token endpoint, valid values include:  'client*secret*basic', 'client*secret*post', 'client*secret*jwt', 'private*key*jwt', 'none', etc.
 func (o OAuthOutput) TokenEndpointAuthMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OAuth) pulumi.StringPtrOutput { return v.TokenEndpointAuthMethod }).(pulumi.StringPtrOutput)
 }
