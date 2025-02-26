@@ -28,7 +28,11 @@ var programs = []string{
 	"test-programs/policy_rulepassword",
 	"test-programs/auth_server",
 	"test-programs/auth_serverscope",
-	"test-programs/index_userschemaproperty",
+
+	// This test races with TestAccUserTs test, in case the userschema property is defined,
+	// the TestAccUserTs test sporadically fails.
+	// "test-programs/index_userschemaproperty",
+
 	"test-programs/app_oauth",
 	"test-programs/user",
 }
