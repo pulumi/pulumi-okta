@@ -42,7 +42,7 @@
             "respectSchemaVersion": true
         },
         "nodejs": {
-            "packageDescription": "A Pulumi package for creating and managing okta resources.. Based on terraform-provider-okta: version v4.14.0",
+            "packageDescription": "A Pulumi package for creating and managing okta resources.. Based on terraform-provider-okta: version v4.14.1",
             "readme": "\u003e This provider is a derived work of the [Terraform Provider](https://github.com/okta/terraform-provider-okta)\n\u003e distributed under [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/). If you encounter a bug or missing feature,\n\u003e first check the [`pulumi-okta` repo](https://github.com/pulumi/pulumi-okta/issues); however, if that doesn't turn up anything,\n\u003e please consult the source [`terraform-provider-okta` repo](https://github.com/okta/terraform-provider-okta/issues).",
             "devDependencies": {
                 "@types/mime": "^2.0.0",
@@ -95,7 +95,7 @@
             },
             "maxApiCapacity": {
                 "type": "integer",
-                "description": "(Experimental) sets what percentage of capacity the provider can use of the total rate limit capacity while making calls\nto the Okta management API endpoints. Okta API operates in one minute buckets. See Okta Management API Rate Limits:\nhttps://developer.okta.com/docs/reference/rl-global-mgmt/\n"
+                "description": "Sets what percentage of capacity the provider can use of the total rate limit capacity while making calls to the Okta\nmanagement API endpoints. Okta API operates in one minute buckets. See Okta Management API Rate Limits:\nhttps://developer.okta.com/docs/reference/rl-global-mgmt/\n"
             },
             "maxRetries": {
                 "type": "integer",
@@ -2348,7 +2348,7 @@
             },
             "maxApiCapacity": {
                 "type": "integer",
-                "description": "(Experimental) sets what percentage of capacity the provider can use of the total rate limit capacity while making calls\nto the Okta management API endpoints. Okta API operates in one minute buckets. See Okta Management API Rate Limits:\nhttps://developer.okta.com/docs/reference/rl-global-mgmt/\n"
+                "description": "Sets what percentage of capacity the provider can use of the total rate limit capacity while making calls to the Okta\nmanagement API endpoints. Okta API operates in one minute buckets. See Okta Management API Rate Limits:\nhttps://developer.okta.com/docs/reference/rl-global-mgmt/\n"
             },
             "maxRetries": {
                 "type": "integer",
@@ -2424,7 +2424,7 @@
             },
             "maxApiCapacity": {
                 "type": "integer",
-                "description": "(Experimental) sets what percentage of capacity the provider can use of the total rate limit capacity while making calls\nto the Okta management API endpoints. Okta API operates in one minute buckets. See Okta Management API Rate Limits:\nhttps://developer.okta.com/docs/reference/rl-global-mgmt/\n"
+                "description": "Sets what percentage of capacity the provider can use of the total rate limit capacity while making calls to the Okta\nmanagement API endpoints. Okta API operates in one minute buckets. See Okta Management API Rate Limits:\nhttps://developer.okta.com/docs/reference/rl-global-mgmt/\n"
             },
             "maxRetries": {
                 "type": "integer",
@@ -9966,11 +9966,11 @@
             "properties": {
                 "catchAll": {
                     "type": "boolean",
-                    "description": "Default rules of the policy set to `DENY` or not. If `false`, it is set to `DENY`. **WARNING** setting this attribute to false change the OKTA default behavior. Use at your own risk. This is only apply during creation, so import or update will not work\n"
+                    "description": "If false, the default rule of the policy is set access to `DENY`. Otherwise default behavior of the default rule is to leave access at `ALLOW`.  **WARNING** setting this attribute to false changes policy rule's default behavior. Use at your own risk. This is only applied during creation and does not affect import or update.\n"
                 },
                 "defaultRuleId": {
                     "type": "string",
-                    "description": "Default rules id of the policy\n"
+                    "description": "Default rule (system=true) id of the policy\n"
                 },
                 "description": {
                     "type": "string",
@@ -9990,7 +9990,7 @@
             "inputProperties": {
                 "catchAll": {
                     "type": "boolean",
-                    "description": "Default rules of the policy set to `DENY` or not. If `false`, it is set to `DENY`. **WARNING** setting this attribute to false change the OKTA default behavior. Use at your own risk. This is only apply during creation, so import or update will not work\n"
+                    "description": "If false, the default rule of the policy is set access to `DENY`. Otherwise default behavior of the default rule is to leave access at `ALLOW`.  **WARNING** setting this attribute to false changes policy rule's default behavior. Use at your own risk. This is only applied during creation and does not affect import or update.\n"
                 },
                 "description": {
                     "type": "string",
@@ -10009,11 +10009,11 @@
                 "properties": {
                     "catchAll": {
                         "type": "boolean",
-                        "description": "Default rules of the policy set to `DENY` or not. If `false`, it is set to `DENY`. **WARNING** setting this attribute to false change the OKTA default behavior. Use at your own risk. This is only apply during creation, so import or update will not work\n"
+                        "description": "If false, the default rule of the policy is set access to `DENY`. Otherwise default behavior of the default rule is to leave access at `ALLOW`.  **WARNING** setting this attribute to false changes policy rule's default behavior. Use at your own risk. This is only applied during creation and does not affect import or update.\n"
                     },
                     "defaultRuleId": {
                         "type": "string",
-                        "description": "Default rules id of the policy\n"
+                        "description": "Default rule (system=true) id of the policy\n"
                     },
                     "description": {
                         "type": "string",
