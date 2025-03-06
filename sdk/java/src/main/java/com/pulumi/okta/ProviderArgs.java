@@ -124,8 +124,8 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * (Experimental) sets what percentage of capacity the provider can use of the total rate limit capacity while making calls
-     * to the Okta management API endpoints. Okta API operates in one minute buckets. See Okta Management API Rate Limits:
+     * Sets what percentage of capacity the provider can use of the total rate limit capacity while making calls to the Okta
+     * management API endpoints. Okta API operates in one minute buckets. See Okta Management API Rate Limits:
      * https://developer.okta.com/docs/reference/rl-global-mgmt/
      * 
      */
@@ -133,8 +133,8 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<Integer> maxApiCapacity;
 
     /**
-     * @return (Experimental) sets what percentage of capacity the provider can use of the total rate limit capacity while making calls
-     * to the Okta management API endpoints. Okta API operates in one minute buckets. See Okta Management API Rate Limits:
+     * @return Sets what percentage of capacity the provider can use of the total rate limit capacity while making calls to the Okta
+     * management API endpoints. Okta API operates in one minute buckets. See Okta Management API Rate Limits:
      * https://developer.okta.com/docs/reference/rl-global-mgmt/
      * 
      */
@@ -469,8 +469,8 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param maxApiCapacity (Experimental) sets what percentage of capacity the provider can use of the total rate limit capacity while making calls
-         * to the Okta management API endpoints. Okta API operates in one minute buckets. See Okta Management API Rate Limits:
+         * @param maxApiCapacity Sets what percentage of capacity the provider can use of the total rate limit capacity while making calls to the Okta
+         * management API endpoints. Okta API operates in one minute buckets. See Okta Management API Rate Limits:
          * https://developer.okta.com/docs/reference/rl-global-mgmt/
          * 
          * @return builder
@@ -482,8 +482,8 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param maxApiCapacity (Experimental) sets what percentage of capacity the provider can use of the total rate limit capacity while making calls
-         * to the Okta management API endpoints. Okta API operates in one minute buckets. See Okta Management API Rate Limits:
+         * @param maxApiCapacity Sets what percentage of capacity the provider can use of the total rate limit capacity while making calls to the Okta
+         * management API endpoints. Okta API operates in one minute buckets. See Okta Management API Rate Limits:
          * https://developer.okta.com/docs/reference/rl-global-mgmt/
          * 
          * @return builder

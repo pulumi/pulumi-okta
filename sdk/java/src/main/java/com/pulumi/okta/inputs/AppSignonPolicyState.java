@@ -17,14 +17,14 @@ public final class AppSignonPolicyState extends com.pulumi.resources.ResourceArg
     public static final AppSignonPolicyState Empty = new AppSignonPolicyState();
 
     /**
-     * Default rules of the policy set to `DENY` or not. If `false`, it is set to `DENY`. **WARNING** setting this attribute to false change the OKTA default behavior. Use at your own risk. This is only apply during creation, so import or update will not work
+     * If false, the default rule of the policy is set access to `DENY`. Otherwise default behavior of the default rule is to leave access at `ALLOW`.  **WARNING** setting this attribute to false changes policy rule&#39;s default behavior. Use at your own risk. This is only applied during creation and does not affect import or update.
      * 
      */
     @Import(name="catchAll")
     private @Nullable Output<Boolean> catchAll;
 
     /**
-     * @return Default rules of the policy set to `DENY` or not. If `false`, it is set to `DENY`. **WARNING** setting this attribute to false change the OKTA default behavior. Use at your own risk. This is only apply during creation, so import or update will not work
+     * @return If false, the default rule of the policy is set access to `DENY`. Otherwise default behavior of the default rule is to leave access at `ALLOW`.  **WARNING** setting this attribute to false changes policy rule&#39;s default behavior. Use at your own risk. This is only applied during creation and does not affect import or update.
      * 
      */
     public Optional<Output<Boolean>> catchAll() {
@@ -32,14 +32,14 @@ public final class AppSignonPolicyState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Default rules id of the policy
+     * Default rule (system=true) id of the policy
      * 
      */
     @Import(name="defaultRuleId")
     private @Nullable Output<String> defaultRuleId;
 
     /**
-     * @return Default rules id of the policy
+     * @return Default rule (system=true) id of the policy
      * 
      */
     public Optional<Output<String>> defaultRuleId() {
@@ -104,7 +104,7 @@ public final class AppSignonPolicyState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param catchAll Default rules of the policy set to `DENY` or not. If `false`, it is set to `DENY`. **WARNING** setting this attribute to false change the OKTA default behavior. Use at your own risk. This is only apply during creation, so import or update will not work
+         * @param catchAll If false, the default rule of the policy is set access to `DENY`. Otherwise default behavior of the default rule is to leave access at `ALLOW`.  **WARNING** setting this attribute to false changes policy rule&#39;s default behavior. Use at your own risk. This is only applied during creation and does not affect import or update.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class AppSignonPolicyState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param catchAll Default rules of the policy set to `DENY` or not. If `false`, it is set to `DENY`. **WARNING** setting this attribute to false change the OKTA default behavior. Use at your own risk. This is only apply during creation, so import or update will not work
+         * @param catchAll If false, the default rule of the policy is set access to `DENY`. Otherwise default behavior of the default rule is to leave access at `ALLOW`.  **WARNING** setting this attribute to false changes policy rule&#39;s default behavior. Use at your own risk. This is only applied during creation and does not affect import or update.
          * 
          * @return builder
          * 
@@ -125,7 +125,7 @@ public final class AppSignonPolicyState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param defaultRuleId Default rules id of the policy
+         * @param defaultRuleId Default rule (system=true) id of the policy
          * 
          * @return builder
          * 
@@ -136,7 +136,7 @@ public final class AppSignonPolicyState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param defaultRuleId Default rules id of the policy
+         * @param defaultRuleId Default rule (system=true) id of the policy
          * 
          * @return builder
          * 

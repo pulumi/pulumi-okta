@@ -18,14 +18,14 @@ public final class AppSignonPolicyArgs extends com.pulumi.resources.ResourceArgs
     public static final AppSignonPolicyArgs Empty = new AppSignonPolicyArgs();
 
     /**
-     * Default rules of the policy set to `DENY` or not. If `false`, it is set to `DENY`. **WARNING** setting this attribute to false change the OKTA default behavior. Use at your own risk. This is only apply during creation, so import or update will not work
+     * If false, the default rule of the policy is set access to `DENY`. Otherwise default behavior of the default rule is to leave access at `ALLOW`.  **WARNING** setting this attribute to false changes policy rule&#39;s default behavior. Use at your own risk. This is only applied during creation and does not affect import or update.
      * 
      */
     @Import(name="catchAll")
     private @Nullable Output<Boolean> catchAll;
 
     /**
-     * @return Default rules of the policy set to `DENY` or not. If `false`, it is set to `DENY`. **WARNING** setting this attribute to false change the OKTA default behavior. Use at your own risk. This is only apply during creation, so import or update will not work
+     * @return If false, the default rule of the policy is set access to `DENY`. Otherwise default behavior of the default rule is to leave access at `ALLOW`.  **WARNING** setting this attribute to false changes policy rule&#39;s default behavior. Use at your own risk. This is only applied during creation and does not affect import or update.
      * 
      */
     public Optional<Output<Boolean>> catchAll() {
@@ -89,7 +89,7 @@ public final class AppSignonPolicyArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param catchAll Default rules of the policy set to `DENY` or not. If `false`, it is set to `DENY`. **WARNING** setting this attribute to false change the OKTA default behavior. Use at your own risk. This is only apply during creation, so import or update will not work
+         * @param catchAll If false, the default rule of the policy is set access to `DENY`. Otherwise default behavior of the default rule is to leave access at `ALLOW`.  **WARNING** setting this attribute to false changes policy rule&#39;s default behavior. Use at your own risk. This is only applied during creation and does not affect import or update.
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class AppSignonPolicyArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param catchAll Default rules of the policy set to `DENY` or not. If `false`, it is set to `DENY`. **WARNING** setting this attribute to false change the OKTA default behavior. Use at your own risk. This is only apply during creation, so import or update will not work
+         * @param catchAll If false, the default rule of the policy is set access to `DENY`. Otherwise default behavior of the default rule is to leave access at `ALLOW`.  **WARNING** setting this attribute to false changes policy rule&#39;s default behavior. Use at your own risk. This is only applied during creation and does not affect import or update.
          * 
          * @return builder
          * 

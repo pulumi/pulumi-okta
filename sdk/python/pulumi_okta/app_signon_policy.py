@@ -25,7 +25,7 @@ class AppSignonPolicyArgs:
         """
         The set of arguments for constructing a AppSignonPolicy resource.
         :param pulumi.Input[str] description: Description of the policy.
-        :param pulumi.Input[bool] catch_all: Default rules of the policy set to `DENY` or not. If `false`, it is set to `DENY`. **WARNING** setting this attribute to false change the OKTA default behavior. Use at your own risk. This is only apply during creation, so import or update will not work
+        :param pulumi.Input[bool] catch_all: If false, the default rule of the policy is set access to `DENY`. Otherwise default behavior of the default rule is to leave access at `ALLOW`.  **WARNING** setting this attribute to false changes policy rule's default behavior. Use at your own risk. This is only applied during creation and does not affect import or update.
         :param pulumi.Input[str] name: Name of the policy.
         """
         pulumi.set(__self__, "description", description)
@@ -50,7 +50,7 @@ class AppSignonPolicyArgs:
     @pulumi.getter(name="catchAll")
     def catch_all(self) -> Optional[pulumi.Input[bool]]:
         """
-        Default rules of the policy set to `DENY` or not. If `false`, it is set to `DENY`. **WARNING** setting this attribute to false change the OKTA default behavior. Use at your own risk. This is only apply during creation, so import or update will not work
+        If false, the default rule of the policy is set access to `DENY`. Otherwise default behavior of the default rule is to leave access at `ALLOW`.  **WARNING** setting this attribute to false changes policy rule's default behavior. Use at your own risk. This is only applied during creation and does not affect import or update.
         """
         return pulumi.get(self, "catch_all")
 
@@ -80,8 +80,8 @@ class _AppSignonPolicyState:
                  name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering AppSignonPolicy resources.
-        :param pulumi.Input[bool] catch_all: Default rules of the policy set to `DENY` or not. If `false`, it is set to `DENY`. **WARNING** setting this attribute to false change the OKTA default behavior. Use at your own risk. This is only apply during creation, so import or update will not work
-        :param pulumi.Input[str] default_rule_id: Default rules id of the policy
+        :param pulumi.Input[bool] catch_all: If false, the default rule of the policy is set access to `DENY`. Otherwise default behavior of the default rule is to leave access at `ALLOW`.  **WARNING** setting this attribute to false changes policy rule's default behavior. Use at your own risk. This is only applied during creation and does not affect import or update.
+        :param pulumi.Input[str] default_rule_id: Default rule (system=true) id of the policy
         :param pulumi.Input[str] description: Description of the policy.
         :param pulumi.Input[str] name: Name of the policy.
         """
@@ -98,7 +98,7 @@ class _AppSignonPolicyState:
     @pulumi.getter(name="catchAll")
     def catch_all(self) -> Optional[pulumi.Input[bool]]:
         """
-        Default rules of the policy set to `DENY` or not. If `false`, it is set to `DENY`. **WARNING** setting this attribute to false change the OKTA default behavior. Use at your own risk. This is only apply during creation, so import or update will not work
+        If false, the default rule of the policy is set access to `DENY`. Otherwise default behavior of the default rule is to leave access at `ALLOW`.  **WARNING** setting this attribute to false changes policy rule's default behavior. Use at your own risk. This is only applied during creation and does not affect import or update.
         """
         return pulumi.get(self, "catch_all")
 
@@ -110,7 +110,7 @@ class _AppSignonPolicyState:
     @pulumi.getter(name="defaultRuleId")
     def default_rule_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Default rules id of the policy
+        Default rule (system=true) id of the policy
         """
         return pulumi.get(self, "default_rule_id")
 
@@ -163,7 +163,7 @@ class AppSignonPolicy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] catch_all: Default rules of the policy set to `DENY` or not. If `false`, it is set to `DENY`. **WARNING** setting this attribute to false change the OKTA default behavior. Use at your own risk. This is only apply during creation, so import or update will not work
+        :param pulumi.Input[bool] catch_all: If false, the default rule of the policy is set access to `DENY`. Otherwise default behavior of the default rule is to leave access at `ALLOW`.  **WARNING** setting this attribute to false changes policy rule's default behavior. Use at your own risk. This is only applied during creation and does not affect import or update.
         :param pulumi.Input[str] description: Description of the policy.
         :param pulumi.Input[str] name: Name of the policy.
         """
@@ -236,8 +236,8 @@ class AppSignonPolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] catch_all: Default rules of the policy set to `DENY` or not. If `false`, it is set to `DENY`. **WARNING** setting this attribute to false change the OKTA default behavior. Use at your own risk. This is only apply during creation, so import or update will not work
-        :param pulumi.Input[str] default_rule_id: Default rules id of the policy
+        :param pulumi.Input[bool] catch_all: If false, the default rule of the policy is set access to `DENY`. Otherwise default behavior of the default rule is to leave access at `ALLOW`.  **WARNING** setting this attribute to false changes policy rule's default behavior. Use at your own risk. This is only applied during creation and does not affect import or update.
+        :param pulumi.Input[str] default_rule_id: Default rule (system=true) id of the policy
         :param pulumi.Input[str] description: Description of the policy.
         :param pulumi.Input[str] name: Name of the policy.
         """
@@ -255,7 +255,7 @@ class AppSignonPolicy(pulumi.CustomResource):
     @pulumi.getter(name="catchAll")
     def catch_all(self) -> pulumi.Output[bool]:
         """
-        Default rules of the policy set to `DENY` or not. If `false`, it is set to `DENY`. **WARNING** setting this attribute to false change the OKTA default behavior. Use at your own risk. This is only apply during creation, so import or update will not work
+        If false, the default rule of the policy is set access to `DENY`. Otherwise default behavior of the default rule is to leave access at `ALLOW`.  **WARNING** setting this attribute to false changes policy rule's default behavior. Use at your own risk. This is only applied during creation and does not affect import or update.
         """
         return pulumi.get(self, "catch_all")
 
@@ -263,7 +263,7 @@ class AppSignonPolicy(pulumi.CustomResource):
     @pulumi.getter(name="defaultRuleId")
     def default_rule_id(self) -> pulumi.Output[str]:
         """
-        Default rules id of the policy
+        Default rule (system=true) id of the policy
         """
         return pulumi.get(self, "default_rule_id")
 

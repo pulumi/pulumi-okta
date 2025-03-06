@@ -22,13 +22,13 @@ namespace Pulumi.Okta
     public partial class AppSignonPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Default rules of the policy set to `DENY` or not. If `false`, it is set to `DENY`. **WARNING** setting this attribute to false change the OKTA default behavior. Use at your own risk. This is only apply during creation, so import or update will not work
+        /// If false, the default rule of the policy is set access to `DENY`. Otherwise default behavior of the default rule is to leave access at `ALLOW`.  **WARNING** setting this attribute to false changes policy rule's default behavior. Use at your own risk. This is only applied during creation and does not affect import or update.
         /// </summary>
         [Output("catchAll")]
         public Output<bool> CatchAll { get; private set; } = null!;
 
         /// <summary>
-        /// Default rules id of the policy
+        /// Default rule (system=true) id of the policy
         /// </summary>
         [Output("defaultRuleId")]
         public Output<string> DefaultRuleId { get; private set; } = null!;
@@ -92,7 +92,7 @@ namespace Pulumi.Okta
     public sealed class AppSignonPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Default rules of the policy set to `DENY` or not. If `false`, it is set to `DENY`. **WARNING** setting this attribute to false change the OKTA default behavior. Use at your own risk. This is only apply during creation, so import or update will not work
+        /// If false, the default rule of the policy is set access to `DENY`. Otherwise default behavior of the default rule is to leave access at `ALLOW`.  **WARNING** setting this attribute to false changes policy rule's default behavior. Use at your own risk. This is only applied during creation and does not affect import or update.
         /// </summary>
         [Input("catchAll")]
         public Input<bool>? CatchAll { get; set; }
@@ -118,13 +118,13 @@ namespace Pulumi.Okta
     public sealed class AppSignonPolicyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Default rules of the policy set to `DENY` or not. If `false`, it is set to `DENY`. **WARNING** setting this attribute to false change the OKTA default behavior. Use at your own risk. This is only apply during creation, so import or update will not work
+        /// If false, the default rule of the policy is set access to `DENY`. Otherwise default behavior of the default rule is to leave access at `ALLOW`.  **WARNING** setting this attribute to false changes policy rule's default behavior. Use at your own risk. This is only applied during creation and does not affect import or update.
         /// </summary>
         [Input("catchAll")]
         public Input<bool>? CatchAll { get; set; }
 
         /// <summary>
-        /// Default rules id of the policy
+        /// Default rule (system=true) id of the policy
         /// </summary>
         [Input("defaultRuleId")]
         public Input<string>? DefaultRuleId { get; set; }
