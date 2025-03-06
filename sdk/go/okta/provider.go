@@ -82,8 +82,8 @@ type providerArgs struct {
 	HttpProxy *string `pulumi:"httpProxy"`
 	// providers log level. Minimum is 1 (TRACE), and maximum is 5 (ERROR)
 	LogLevel *int `pulumi:"logLevel"`
-	// (Experimental) sets what percentage of capacity the provider can use of the total rate limit capacity while making calls
-	// to the Okta management API endpoints. Okta API operates in one minute buckets. See Okta Management API Rate Limits:
+	// Sets what percentage of capacity the provider can use of the total rate limit capacity while making calls to the Okta
+	// management API endpoints. Okta API operates in one minute buckets. See Okta Management API Rate Limits:
 	// https://developer.okta.com/docs/reference/rl-global-mgmt/
 	MaxApiCapacity *int `pulumi:"maxApiCapacity"`
 	// maximum number of retries to attempt before erroring out.
@@ -124,8 +124,8 @@ type ProviderArgs struct {
 	HttpProxy pulumi.StringPtrInput
 	// providers log level. Minimum is 1 (TRACE), and maximum is 5 (ERROR)
 	LogLevel pulumi.IntPtrInput
-	// (Experimental) sets what percentage of capacity the provider can use of the total rate limit capacity while making calls
-	// to the Okta management API endpoints. Okta API operates in one minute buckets. See Okta Management API Rate Limits:
+	// Sets what percentage of capacity the provider can use of the total rate limit capacity while making calls to the Okta
+	// management API endpoints. Okta API operates in one minute buckets. See Okta Management API Rate Limits:
 	// https://developer.okta.com/docs/reference/rl-global-mgmt/
 	MaxApiCapacity pulumi.IntPtrInput
 	// maximum number of retries to attempt before erroring out.

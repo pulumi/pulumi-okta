@@ -163,8 +163,8 @@ namespace Pulumi.Okta
         public Input<int>? LogLevel { get; set; }
 
         /// <summary>
-        /// (Experimental) sets what percentage of capacity the provider can use of the total rate limit capacity while making calls
-        /// to the Okta management API endpoints. Okta API operates in one minute buckets. See Okta Management API Rate Limits:
+        /// Sets what percentage of capacity the provider can use of the total rate limit capacity while making calls to the Okta
+        /// management API endpoints. Okta API operates in one minute buckets. See Okta Management API Rate Limits:
         /// https://developer.okta.com/docs/reference/rl-global-mgmt/
         /// </summary>
         [Input("maxApiCapacity", json: true)]

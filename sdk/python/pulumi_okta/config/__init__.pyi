@@ -51,8 +51,8 @@ providers log level. Minimum is 1 (TRACE), and maximum is 5 (ERROR)
 
 maxApiCapacity: Optional[int]
 """
-(Experimental) sets what percentage of capacity the provider can use of the total rate limit capacity while making calls
-to the Okta management API endpoints. Okta API operates in one minute buckets. See Okta Management API Rate Limits:
+Sets what percentage of capacity the provider can use of the total rate limit capacity while making calls to the Okta
+management API endpoints. Okta API operates in one minute buckets. See Okta Management API Rate Limits:
 https://developer.okta.com/docs/reference/rl-global-mgmt/
 """
 

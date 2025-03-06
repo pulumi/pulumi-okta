@@ -42,11 +42,11 @@ export class AppSignonPolicy extends pulumi.CustomResource {
     }
 
     /**
-     * Default rules of the policy set to `DENY` or not. If `false`, it is set to `DENY`. **WARNING** setting this attribute to false change the OKTA default behavior. Use at your own risk. This is only apply during creation, so import or update will not work
+     * If false, the default rule of the policy is set access to `DENY`. Otherwise default behavior of the default rule is to leave access at `ALLOW`.  **WARNING** setting this attribute to false changes policy rule's default behavior. Use at your own risk. This is only applied during creation and does not affect import or update.
      */
     public readonly catchAll!: pulumi.Output<boolean>;
     /**
-     * Default rules id of the policy
+     * Default rule (system=true) id of the policy
      */
     public /*out*/ readonly defaultRuleId!: pulumi.Output<string>;
     /**
@@ -95,11 +95,11 @@ export class AppSignonPolicy extends pulumi.CustomResource {
  */
 export interface AppSignonPolicyState {
     /**
-     * Default rules of the policy set to `DENY` or not. If `false`, it is set to `DENY`. **WARNING** setting this attribute to false change the OKTA default behavior. Use at your own risk. This is only apply during creation, so import or update will not work
+     * If false, the default rule of the policy is set access to `DENY`. Otherwise default behavior of the default rule is to leave access at `ALLOW`.  **WARNING** setting this attribute to false changes policy rule's default behavior. Use at your own risk. This is only applied during creation and does not affect import or update.
      */
     catchAll?: pulumi.Input<boolean>;
     /**
-     * Default rules id of the policy
+     * Default rule (system=true) id of the policy
      */
     defaultRuleId?: pulumi.Input<string>;
     /**
@@ -117,7 +117,7 @@ export interface AppSignonPolicyState {
  */
 export interface AppSignonPolicyArgs {
     /**
-     * Default rules of the policy set to `DENY` or not. If `false`, it is set to `DENY`. **WARNING** setting this attribute to false change the OKTA default behavior. Use at your own risk. This is only apply during creation, so import or update will not work
+     * If false, the default rule of the policy is set access to `DENY`. Otherwise default behavior of the default rule is to leave access at `ALLOW`.  **WARNING** setting this attribute to false changes policy rule's default behavior. Use at your own risk. This is only applied during creation and does not affect import or update.
      */
     catchAll?: pulumi.Input<boolean>;
     /**

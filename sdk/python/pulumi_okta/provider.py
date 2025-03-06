@@ -45,8 +45,8 @@ class ProviderArgs:
         :param pulumi.Input[str] client_id: API Token granting privileges to Okta API.
         :param pulumi.Input[str] http_proxy: Alternate HTTP proxy of scheme://hostname or scheme://hostname:port format
         :param pulumi.Input[int] log_level: providers log level. Minimum is 1 (TRACE), and maximum is 5 (ERROR)
-        :param pulumi.Input[int] max_api_capacity: (Experimental) sets what percentage of capacity the provider can use of the total rate limit capacity while making calls
-               to the Okta management API endpoints. Okta API operates in one minute buckets. See Okta Management API Rate Limits:
+        :param pulumi.Input[int] max_api_capacity: Sets what percentage of capacity the provider can use of the total rate limit capacity while making calls to the Okta
+               management API endpoints. Okta API operates in one minute buckets. See Okta Management API Rate Limits:
                https://developer.okta.com/docs/reference/rl-global-mgmt/
         :param pulumi.Input[int] max_retries: maximum number of retries to attempt before erroring out.
         :param pulumi.Input[int] max_wait_seconds: maximum seconds to wait when rate limit is hit. We use exponential backoffs when backoff is enabled.
@@ -183,8 +183,8 @@ class ProviderArgs:
     @pulumi.getter(name="maxApiCapacity")
     def max_api_capacity(self) -> Optional[pulumi.Input[int]]:
         """
-        (Experimental) sets what percentage of capacity the provider can use of the total rate limit capacity while making calls
-        to the Okta management API endpoints. Okta API operates in one minute buckets. See Okta Management API Rate Limits:
+        Sets what percentage of capacity the provider can use of the total rate limit capacity while making calls to the Okta
+        management API endpoints. Okta API operates in one minute buckets. See Okta Management API Rate Limits:
         https://developer.okta.com/docs/reference/rl-global-mgmt/
         """
         return pulumi.get(self, "max_api_capacity")
@@ -342,8 +342,8 @@ class Provider(pulumi.ProviderResource):
         :param pulumi.Input[str] client_id: API Token granting privileges to Okta API.
         :param pulumi.Input[str] http_proxy: Alternate HTTP proxy of scheme://hostname or scheme://hostname:port format
         :param pulumi.Input[int] log_level: providers log level. Minimum is 1 (TRACE), and maximum is 5 (ERROR)
-        :param pulumi.Input[int] max_api_capacity: (Experimental) sets what percentage of capacity the provider can use of the total rate limit capacity while making calls
-               to the Okta management API endpoints. Okta API operates in one minute buckets. See Okta Management API Rate Limits:
+        :param pulumi.Input[int] max_api_capacity: Sets what percentage of capacity the provider can use of the total rate limit capacity while making calls to the Okta
+               management API endpoints. Okta API operates in one minute buckets. See Okta Management API Rate Limits:
                https://developer.okta.com/docs/reference/rl-global-mgmt/
         :param pulumi.Input[int] max_retries: maximum number of retries to attempt before erroring out.
         :param pulumi.Input[int] max_wait_seconds: maximum seconds to wait when rate limit is hit. We use exponential backoffs when backoff is enabled.
