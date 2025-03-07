@@ -14,6 +14,7 @@ namespace Pulumi.Okta.Inline
     /// 
     /// ## Example Usage
     /// 
+    /// ### HTTP Auth
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -44,6 +45,50 @@ namespace Pulumi.Okta.Inline
     /// });
     /// ```
     /// 
+    /// ### OAuth2.0 Auth
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Okta = Pulumi.Okta;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Okta.Inline.Hook("example", new()
+    ///     {
+    ///         Name = "example",
+    ///         Version = "1.0.0",
+    ///         Type = "com.okta.saml.tokens.transform",
+    ///         Status = "ACTIVE",
+    ///         ChannelJson = @"{
+    ///         ""type"": ""OAUTH"",
+    ///         ""version"": ""1.0.0"",
+    ///         ""config"": {
+    ///             ""headers"": [
+    ///                 {
+    ///                     ""key"": ""Field 1"",
+    ///                     ""value"": ""Value 1""
+    ///                 },
+    ///                 {
+    ///                     ""key"": ""Field 2"",
+    ///                     ""value"": ""Value 2""
+    ///                 }
+    ///             ],
+    ///             ""method"": ""POST"",
+    ///             ""authType"": ""client_secret_post"",
+    ///             ""uri"": ""https://example.com/service"",
+    ///             ""clientId"": ""abc123"",
+    ///             ""clientSecret"": ""fake-secret"",
+    ///             ""tokenUrl"": ""https://example.com/token"",
+    ///             ""scope"": ""api""
+    ///         }
+    /// }
+    /// ",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// ```sh
@@ -57,7 +102,13 @@ namespace Pulumi.Okta.Inline
         public Output<ImmutableDictionary<string, string>?> Auth { get; private set; } = null!;
 
         [Output("channel")]
-        public Output<ImmutableDictionary<string, string>> Channel { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Channel { get; private set; } = null!;
+
+        /// <summary>
+        /// true channel object for the inline hook API contract
+        /// </summary>
+        [Output("channelJson")]
+        public Output<string?> ChannelJson { get; private set; } = null!;
 
         /// <summary>
         /// Map of headers to send along in inline hook request.
@@ -143,13 +194,19 @@ namespace Pulumi.Okta.Inline
             set => _auth = value;
         }
 
-        [Input("channel", required: true)]
+        [Input("channel")]
         private InputMap<string>? _channel;
         public InputMap<string> Channel
         {
             get => _channel ?? (_channel = new InputMap<string>());
             set => _channel = value;
         }
+
+        /// <summary>
+        /// true channel object for the inline hook API contract
+        /// </summary>
+        [Input("channelJson")]
+        public Input<string>? ChannelJson { get; set; }
 
         [Input("headers")]
         private InputList<Inputs.HookHeaderArgs>? _headers;
@@ -210,6 +267,12 @@ namespace Pulumi.Okta.Inline
             get => _channel ?? (_channel = new InputMap<string>());
             set => _channel = value;
         }
+
+        /// <summary>
+        /// true channel object for the inline hook API contract
+        /// </summary>
+        [Input("channelJson")]
+        public Input<string>? ChannelJson { get; set; }
 
         [Input("headers")]
         private InputList<Inputs.HookHeaderGetArgs>? _headers;

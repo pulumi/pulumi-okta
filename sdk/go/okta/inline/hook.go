@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// ### HTTP Auth
 // ```go
 // package main
 //
@@ -52,6 +53,60 @@ import (
 //
 // ```
 //
+// ### OAuth2.0 Auth
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/inline"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := inline.NewHook(ctx, "example", &inline.HookArgs{
+//				Name:    pulumi.String("example"),
+//				Version: pulumi.String("1.0.0"),
+//				Type:    pulumi.String("com.okta.saml.tokens.transform"),
+//				Status:  pulumi.String("ACTIVE"),
+//				ChannelJson: pulumi.String(`{
+//	        "type": "OAUTH",
+//	        "version": "1.0.0",
+//	        "config": {
+//	            "headers": [
+//	                {
+//	                    "key": "Field 1",
+//	                    "value": "Value 1"
+//	                },
+//	                {
+//	                    "key": "Field 2",
+//	                    "value": "Value 2"
+//	                }
+//	            ],
+//	            "method": "POST",
+//	            "authType": "client_secret_post",
+//	            "uri": "https://example.com/service",
+//	            "clientId": "abc123",
+//	            "clientSecret": "fake-secret",
+//	            "tokenUrl": "https://example.com/token",
+//	            "scope": "api"
+//	        }
+//	}
+//
+// `),
+//
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // ```sh
@@ -62,6 +117,8 @@ type Hook struct {
 
 	Auth    pulumi.StringMapOutput `pulumi:"auth"`
 	Channel pulumi.StringMapOutput `pulumi:"channel"`
+	// true channel object for the inline hook API contract
+	ChannelJson pulumi.StringPtrOutput `pulumi:"channelJson"`
 	// Map of headers to send along in inline hook request.
 	Headers HookHeaderArrayOutput `pulumi:"headers"`
 	// The inline hook display name.
@@ -81,9 +138,6 @@ func NewHook(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Channel == nil {
-		return nil, errors.New("invalid value for required argument 'Channel'")
-	}
 	if args.Type == nil {
 		return nil, errors.New("invalid value for required argument 'Type'")
 	}
@@ -115,6 +169,8 @@ func GetHook(ctx *pulumi.Context,
 type hookState struct {
 	Auth    map[string]string `pulumi:"auth"`
 	Channel map[string]string `pulumi:"channel"`
+	// true channel object for the inline hook API contract
+	ChannelJson *string `pulumi:"channelJson"`
 	// Map of headers to send along in inline hook request.
 	Headers []HookHeader `pulumi:"headers"`
 	// The inline hook display name.
@@ -130,6 +186,8 @@ type hookState struct {
 type HookState struct {
 	Auth    pulumi.StringMapInput
 	Channel pulumi.StringMapInput
+	// true channel object for the inline hook API contract
+	ChannelJson pulumi.StringPtrInput
 	// Map of headers to send along in inline hook request.
 	Headers HookHeaderArrayInput
 	// The inline hook display name.
@@ -149,6 +207,8 @@ func (HookState) ElementType() reflect.Type {
 type hookArgs struct {
 	Auth    map[string]string `pulumi:"auth"`
 	Channel map[string]string `pulumi:"channel"`
+	// true channel object for the inline hook API contract
+	ChannelJson *string `pulumi:"channelJson"`
 	// Map of headers to send along in inline hook request.
 	Headers []HookHeader `pulumi:"headers"`
 	// The inline hook display name.
@@ -165,6 +225,8 @@ type hookArgs struct {
 type HookArgs struct {
 	Auth    pulumi.StringMapInput
 	Channel pulumi.StringMapInput
+	// true channel object for the inline hook API contract
+	ChannelJson pulumi.StringPtrInput
 	// Map of headers to send along in inline hook request.
 	Headers HookHeaderArrayInput
 	// The inline hook display name.
@@ -270,6 +332,11 @@ func (o HookOutput) Auth() pulumi.StringMapOutput {
 
 func (o HookOutput) Channel() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Hook) pulumi.StringMapOutput { return v.Channel }).(pulumi.StringMapOutput)
+}
+
+// true channel object for the inline hook API contract
+func (o HookOutput) ChannelJson() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Hook) pulumi.StringPtrOutput { return v.ChannelJson }).(pulumi.StringPtrOutput)
 }
 
 // Map of headers to send along in inline hook request.

@@ -33,6 +33,21 @@ public final class HookState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * true channel object for the inline hook API contract
+     * 
+     */
+    @Import(name="channelJson")
+    private @Nullable Output<String> channelJson;
+
+    /**
+     * @return true channel object for the inline hook API contract
+     * 
+     */
+    public Optional<Output<String>> channelJson() {
+        return Optional.ofNullable(this.channelJson);
+    }
+
+    /**
      * Map of headers to send along in inline hook request.
      * 
      */
@@ -112,6 +127,7 @@ public final class HookState extends com.pulumi.resources.ResourceArgs {
     private HookState(HookState $) {
         this.auth = $.auth;
         this.channel = $.channel;
+        this.channelJson = $.channelJson;
         this.headers = $.headers;
         this.name = $.name;
         this.status = $.status;
@@ -153,6 +169,27 @@ public final class HookState extends com.pulumi.resources.ResourceArgs {
 
         public Builder channel(Map<String,String> channel) {
             return channel(Output.of(channel));
+        }
+
+        /**
+         * @param channelJson true channel object for the inline hook API contract
+         * 
+         * @return builder
+         * 
+         */
+        public Builder channelJson(@Nullable Output<String> channelJson) {
+            $.channelJson = channelJson;
+            return this;
+        }
+
+        /**
+         * @param channelJson true channel object for the inline hook API contract
+         * 
+         * @return builder
+         * 
+         */
+        public Builder channelJson(String channelJson) {
+            return channelJson(Output.of(channelJson));
         }
 
         /**

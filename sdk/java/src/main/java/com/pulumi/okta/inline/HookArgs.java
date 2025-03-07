@@ -26,11 +26,26 @@ public final class HookArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.auth);
     }
 
-    @Import(name="channel", required=true)
-    private Output<Map<String,String>> channel;
+    @Import(name="channel")
+    private @Nullable Output<Map<String,String>> channel;
 
-    public Output<Map<String,String>> channel() {
-        return this.channel;
+    public Optional<Output<Map<String,String>>> channel() {
+        return Optional.ofNullable(this.channel);
+    }
+
+    /**
+     * true channel object for the inline hook API contract
+     * 
+     */
+    @Import(name="channelJson")
+    private @Nullable Output<String> channelJson;
+
+    /**
+     * @return true channel object for the inline hook API contract
+     * 
+     */
+    public Optional<Output<String>> channelJson() {
+        return Optional.ofNullable(this.channelJson);
     }
 
     /**
@@ -113,6 +128,7 @@ public final class HookArgs extends com.pulumi.resources.ResourceArgs {
     private HookArgs(HookArgs $) {
         this.auth = $.auth;
         this.channel = $.channel;
+        this.channelJson = $.channelJson;
         this.headers = $.headers;
         this.name = $.name;
         this.status = $.status;
@@ -147,13 +163,34 @@ public final class HookArgs extends com.pulumi.resources.ResourceArgs {
             return auth(Output.of(auth));
         }
 
-        public Builder channel(Output<Map<String,String>> channel) {
+        public Builder channel(@Nullable Output<Map<String,String>> channel) {
             $.channel = channel;
             return this;
         }
 
         public Builder channel(Map<String,String> channel) {
             return channel(Output.of(channel));
+        }
+
+        /**
+         * @param channelJson true channel object for the inline hook API contract
+         * 
+         * @return builder
+         * 
+         */
+        public Builder channelJson(@Nullable Output<String> channelJson) {
+            $.channelJson = channelJson;
+            return this;
+        }
+
+        /**
+         * @param channelJson true channel object for the inline hook API contract
+         * 
+         * @return builder
+         * 
+         */
+        public Builder channelJson(String channelJson) {
+            return channelJson(Output.of(channelJson));
         }
 
         /**
@@ -272,9 +309,6 @@ public final class HookArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public HookArgs build() {
-            if ($.channel == null) {
-                throw new MissingRequiredPropertyException("HookArgs", "channel");
-            }
             if ($.type == null) {
                 throw new MissingRequiredPropertyException("HookArgs", "type");
             }
