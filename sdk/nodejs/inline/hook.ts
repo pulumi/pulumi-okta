@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * ### HTTP Auth
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
@@ -29,6 +30,43 @@ import * as utilities from "../utilities";
  *         type: "HEADER",
  *         value: "secret",
  *     },
+ * });
+ * ```
+ *
+ * ### OAuth2.0 Auth
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const example = new okta.inline.Hook("example", {
+ *     name: "example",
+ *     version: "1.0.0",
+ *     type: "com.okta.saml.tokens.transform",
+ *     status: "ACTIVE",
+ *     channelJson: `{
+ *         "type": "OAUTH",
+ *         "version": "1.0.0",
+ *         "config": {
+ *             "headers": [
+ *                 {
+ *                     "key": "Field 1",
+ *                     "value": "Value 1"
+ *                 },
+ *                 {
+ *                     "key": "Field 2",
+ *                     "value": "Value 2"
+ *                 }
+ *             ],
+ *             "method": "POST",
+ *             "authType": "client_secret_post",
+ *             "uri": "https://example.com/service",
+ *             "clientId": "abc123",
+ *             "clientSecret": "fake-secret",
+ *             "tokenUrl": "https://example.com/token",
+ *             "scope": "api"
+ *         }
+ * }
+ * `,
  * });
  * ```
  *
@@ -67,7 +105,11 @@ export class Hook extends pulumi.CustomResource {
     }
 
     public readonly auth!: pulumi.Output<{[key: string]: string} | undefined>;
-    public readonly channel!: pulumi.Output<{[key: string]: string}>;
+    public readonly channel!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * true channel object for the inline hook API contract
+     */
+    public readonly channelJson!: pulumi.Output<string | undefined>;
     /**
      * Map of headers to send along in inline hook request.
      */
@@ -104,6 +146,7 @@ export class Hook extends pulumi.CustomResource {
             const state = argsOrState as HookState | undefined;
             resourceInputs["auth"] = state ? state.auth : undefined;
             resourceInputs["channel"] = state ? state.channel : undefined;
+            resourceInputs["channelJson"] = state ? state.channelJson : undefined;
             resourceInputs["headers"] = state ? state.headers : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
@@ -111,9 +154,6 @@ export class Hook extends pulumi.CustomResource {
             resourceInputs["version"] = state ? state.version : undefined;
         } else {
             const args = argsOrState as HookArgs | undefined;
-            if ((!args || args.channel === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'channel'");
-            }
             if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
@@ -122,6 +162,7 @@ export class Hook extends pulumi.CustomResource {
             }
             resourceInputs["auth"] = args ? args.auth : undefined;
             resourceInputs["channel"] = args ? args.channel : undefined;
+            resourceInputs["channelJson"] = args ? args.channelJson : undefined;
             resourceInputs["headers"] = args ? args.headers : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["status"] = args ? args.status : undefined;
@@ -139,6 +180,10 @@ export class Hook extends pulumi.CustomResource {
 export interface HookState {
     auth?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     channel?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * true channel object for the inline hook API contract
+     */
+    channelJson?: pulumi.Input<string>;
     /**
      * Map of headers to send along in inline hook request.
      */
@@ -166,7 +211,11 @@ export interface HookState {
  */
 export interface HookArgs {
     auth?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    channel: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    channel?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * true channel object for the inline hook API contract
+     */
+    channelJson?: pulumi.Input<string>;
     /**
      * Map of headers to send along in inline hook request.
      */

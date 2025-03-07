@@ -21,10 +21,11 @@ __all__ = ['HookArgs', 'Hook']
 @pulumi.input_type
 class HookArgs:
     def __init__(__self__, *,
-                 channel: pulumi.Input[Mapping[str, pulumi.Input[str]]],
                  type: pulumi.Input[str],
                  version: pulumi.Input[str],
                  auth: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 channel: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 channel_json: Optional[pulumi.Input[str]] = None,
                  headers: Optional[pulumi.Input[Sequence[pulumi.Input['HookHeaderArgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None):
@@ -32,30 +33,25 @@ class HookArgs:
         The set of arguments for constructing a Hook resource.
         :param pulumi.Input[str] type: The type of hook to create. [See here for supported types](https://developer.okta.com/docs/reference/api/inline-hooks/#supported-inline-hook-types).
         :param pulumi.Input[str] version: The version of the hook. The currently-supported version is `1.0.0`.
+        :param pulumi.Input[str] channel_json: true channel object for the inline hook API contract
         :param pulumi.Input[Sequence[pulumi.Input['HookHeaderArgs']]] headers: Map of headers to send along in inline hook request.
         :param pulumi.Input[str] name: The inline hook display name.
         :param pulumi.Input[str] status: Default to `ACTIVE`
         """
-        pulumi.set(__self__, "channel", channel)
         pulumi.set(__self__, "type", type)
         pulumi.set(__self__, "version", version)
         if auth is not None:
             pulumi.set(__self__, "auth", auth)
+        if channel is not None:
+            pulumi.set(__self__, "channel", channel)
+        if channel_json is not None:
+            pulumi.set(__self__, "channel_json", channel_json)
         if headers is not None:
             pulumi.set(__self__, "headers", headers)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if status is not None:
             pulumi.set(__self__, "status", status)
-
-    @property
-    @pulumi.getter
-    def channel(self) -> pulumi.Input[Mapping[str, pulumi.Input[str]]]:
-        return pulumi.get(self, "channel")
-
-    @channel.setter
-    def channel(self, value: pulumi.Input[Mapping[str, pulumi.Input[str]]]):
-        pulumi.set(self, "channel", value)
 
     @property
     @pulumi.getter
@@ -89,6 +85,27 @@ class HookArgs:
     @auth.setter
     def auth(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "auth", value)
+
+    @property
+    @pulumi.getter
+    def channel(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        return pulumi.get(self, "channel")
+
+    @channel.setter
+    def channel(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "channel", value)
+
+    @property
+    @pulumi.getter(name="channelJson")
+    def channel_json(self) -> Optional[pulumi.Input[str]]:
+        """
+        true channel object for the inline hook API contract
+        """
+        return pulumi.get(self, "channel_json")
+
+    @channel_json.setter
+    def channel_json(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "channel_json", value)
 
     @property
     @pulumi.getter
@@ -132,6 +149,7 @@ class _HookState:
     def __init__(__self__, *,
                  auth: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  channel: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 channel_json: Optional[pulumi.Input[str]] = None,
                  headers: Optional[pulumi.Input[Sequence[pulumi.Input['HookHeaderArgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
@@ -139,6 +157,7 @@ class _HookState:
                  version: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Hook resources.
+        :param pulumi.Input[str] channel_json: true channel object for the inline hook API contract
         :param pulumi.Input[Sequence[pulumi.Input['HookHeaderArgs']]] headers: Map of headers to send along in inline hook request.
         :param pulumi.Input[str] name: The inline hook display name.
         :param pulumi.Input[str] status: Default to `ACTIVE`
@@ -149,6 +168,8 @@ class _HookState:
             pulumi.set(__self__, "auth", auth)
         if channel is not None:
             pulumi.set(__self__, "channel", channel)
+        if channel_json is not None:
+            pulumi.set(__self__, "channel_json", channel_json)
         if headers is not None:
             pulumi.set(__self__, "headers", headers)
         if name is not None:
@@ -177,6 +198,18 @@ class _HookState:
     @channel.setter
     def channel(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "channel", value)
+
+    @property
+    @pulumi.getter(name="channelJson")
+    def channel_json(self) -> Optional[pulumi.Input[str]]:
+        """
+        true channel object for the inline hook API contract
+        """
+        return pulumi.get(self, "channel_json")
+
+    @channel_json.setter
+    def channel_json(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "channel_json", value)
 
     @property
     @pulumi.getter
@@ -246,6 +279,7 @@ class Hook(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auth: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  channel: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 channel_json: Optional[pulumi.Input[str]] = None,
                  headers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['HookHeaderArgs', 'HookHeaderArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
@@ -257,6 +291,7 @@ class Hook(pulumi.CustomResource):
 
         ## Example Usage
 
+        ### HTTP Auth
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -277,6 +312,42 @@ class Hook(pulumi.CustomResource):
             })
         ```
 
+        ### OAuth2.0 Auth
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        example = okta.inline.Hook("example",
+            name="example",
+            version="1.0.0",
+            type="com.okta.saml.tokens.transform",
+            status="ACTIVE",
+            channel_json=\"\"\"{
+                "type": "OAUTH",
+                "version": "1.0.0",
+                "config": {
+                    "headers": [
+                        {
+                            "key": "Field 1",
+                            "value": "Value 1"
+                        },
+                        {
+                            "key": "Field 2",
+                            "value": "Value 2"
+                        }
+                    ],
+                    "method": "POST",
+                    "authType": "client_secret_post",
+                    "uri": "https://example.com/service",
+                    "clientId": "abc123",
+                    "clientSecret": "fake-secret",
+                    "tokenUrl": "https://example.com/token",
+                    "scope": "api"
+                }
+        }
+        \"\"\")
+        ```
+
         ## Import
 
         ```sh
@@ -285,6 +356,7 @@ class Hook(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] channel_json: true channel object for the inline hook API contract
         :param pulumi.Input[Sequence[pulumi.Input[Union['HookHeaderArgs', 'HookHeaderArgsDict']]]] headers: Map of headers to send along in inline hook request.
         :param pulumi.Input[str] name: The inline hook display name.
         :param pulumi.Input[str] status: Default to `ACTIVE`
@@ -302,6 +374,7 @@ class Hook(pulumi.CustomResource):
 
         ## Example Usage
 
+        ### HTTP Auth
         ```python
         import pulumi
         import pulumi_okta as okta
@@ -320,6 +393,42 @@ class Hook(pulumi.CustomResource):
                 "type": "HEADER",
                 "value": "secret",
             })
+        ```
+
+        ### OAuth2.0 Auth
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        example = okta.inline.Hook("example",
+            name="example",
+            version="1.0.0",
+            type="com.okta.saml.tokens.transform",
+            status="ACTIVE",
+            channel_json=\"\"\"{
+                "type": "OAUTH",
+                "version": "1.0.0",
+                "config": {
+                    "headers": [
+                        {
+                            "key": "Field 1",
+                            "value": "Value 1"
+                        },
+                        {
+                            "key": "Field 2",
+                            "value": "Value 2"
+                        }
+                    ],
+                    "method": "POST",
+                    "authType": "client_secret_post",
+                    "uri": "https://example.com/service",
+                    "clientId": "abc123",
+                    "clientSecret": "fake-secret",
+                    "tokenUrl": "https://example.com/token",
+                    "scope": "api"
+                }
+        }
+        \"\"\")
         ```
 
         ## Import
@@ -345,6 +454,7 @@ class Hook(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auth: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  channel: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 channel_json: Optional[pulumi.Input[str]] = None,
                  headers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['HookHeaderArgs', 'HookHeaderArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
@@ -360,9 +470,8 @@ class Hook(pulumi.CustomResource):
             __props__ = HookArgs.__new__(HookArgs)
 
             __props__.__dict__["auth"] = auth
-            if channel is None and not opts.urn:
-                raise TypeError("Missing required property 'channel'")
             __props__.__dict__["channel"] = channel
+            __props__.__dict__["channel_json"] = channel_json
             __props__.__dict__["headers"] = headers
             __props__.__dict__["name"] = name
             __props__.__dict__["status"] = status
@@ -384,6 +493,7 @@ class Hook(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             auth: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             channel: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            channel_json: Optional[pulumi.Input[str]] = None,
             headers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['HookHeaderArgs', 'HookHeaderArgsDict']]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
             status: Optional[pulumi.Input[str]] = None,
@@ -396,6 +506,7 @@ class Hook(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] channel_json: true channel object for the inline hook API contract
         :param pulumi.Input[Sequence[pulumi.Input[Union['HookHeaderArgs', 'HookHeaderArgsDict']]]] headers: Map of headers to send along in inline hook request.
         :param pulumi.Input[str] name: The inline hook display name.
         :param pulumi.Input[str] status: Default to `ACTIVE`
@@ -408,6 +519,7 @@ class Hook(pulumi.CustomResource):
 
         __props__.__dict__["auth"] = auth
         __props__.__dict__["channel"] = channel
+        __props__.__dict__["channel_json"] = channel_json
         __props__.__dict__["headers"] = headers
         __props__.__dict__["name"] = name
         __props__.__dict__["status"] = status
@@ -422,8 +534,16 @@ class Hook(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def channel(self) -> pulumi.Output[Mapping[str, str]]:
+    def channel(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         return pulumi.get(self, "channel")
+
+    @property
+    @pulumi.getter(name="channelJson")
+    def channel_json(self) -> pulumi.Output[Optional[str]]:
+        """
+        true channel object for the inline hook API contract
+        """
+        return pulumi.get(self, "channel_json")
 
     @property
     @pulumi.getter

@@ -22,6 +22,7 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
+ * ### HTTP Auth
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>
  * {@code
@@ -67,6 +68,68 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ### OAuth2.0 Auth
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.okta.inline.Hook;
+ * import com.pulumi.okta.inline.HookArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Hook("example", HookArgs.builder()
+ *             .name("example")
+ *             .version("1.0.0")
+ *             .type("com.okta.saml.tokens.transform")
+ *             .status("ACTIVE")
+ *             .channelJson("""
+ * {
+ *         "type": "OAUTH",
+ *         "version": "1.0.0",
+ *         "config": {
+ *             "headers": [
+ *                 {
+ *                     "key": "Field 1",
+ *                     "value": "Value 1"
+ *                 },
+ *                 {
+ *                     "key": "Field 2",
+ *                     "value": "Value 2"
+ *                 }
+ *             ],
+ *             "method": "POST",
+ *             "authType": "client_secret_post",
+ *             "uri": "https://example.com/service",
+ *             "clientId": "abc123",
+ *             "clientSecret": "fake-secret",
+ *             "tokenUrl": "https://example.com/token",
+ *             "scope": "api"
+ *         }
+ * }
+ *             """)
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Import
  * 
  * ```sh
@@ -83,10 +146,24 @@ public class Hook extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.auth);
     }
     @Export(name="channel", refs={Map.class,String.class}, tree="[0,1,1]")
-    private Output<Map<String,String>> channel;
+    private Output</* @Nullable */ Map<String,String>> channel;
 
-    public Output<Map<String,String>> channel() {
-        return this.channel;
+    public Output<Optional<Map<String,String>>> channel() {
+        return Codegen.optional(this.channel);
+    }
+    /**
+     * true channel object for the inline hook API contract
+     * 
+     */
+    @Export(name="channelJson", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> channelJson;
+
+    /**
+     * @return true channel object for the inline hook API contract
+     * 
+     */
+    public Output<Optional<String>> channelJson() {
+        return Codegen.optional(this.channelJson);
     }
     /**
      * Map of headers to send along in inline hook request.
