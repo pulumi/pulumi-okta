@@ -1564,36 +1564,6 @@ public final class OktaFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.okta.OktaFunctions;
-     * import com.pulumi.okta.inputs.GetBehaviourArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = OktaFunctions.getBehaviour(GetBehaviourArgs.builder()
-     *             .label("New City")
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1606,36 +1576,6 @@ public final class OktaFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.okta.OktaFunctions;
-     * import com.pulumi.okta.inputs.GetBehaviourArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = OktaFunctions.getBehaviour(GetBehaviourArgs.builder()
-     *             .label("New City")
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1648,36 +1588,6 @@ public final class OktaFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.okta.OktaFunctions;
-     * import com.pulumi.okta.inputs.GetBehaviourArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = OktaFunctions.getBehaviour(GetBehaviourArgs.builder()
-     *             .label("New City")
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1690,36 +1600,6 @@ public final class OktaFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.okta.OktaFunctions;
-     * import com.pulumi.okta.inputs.GetBehaviourArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = OktaFunctions.getBehaviour(GetBehaviourArgs.builder()
-     *             .label("New City")
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1732,36 +1612,6 @@ public final class OktaFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.okta.OktaFunctions;
-     * import com.pulumi.okta.inputs.GetBehaviourArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = OktaFunctions.getBehaviour(GetBehaviourArgs.builder()
-     *             .label("New City")
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1774,36 +1624,6 @@ public final class OktaFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.okta.OktaFunctions;
-     * import com.pulumi.okta.inputs.GetBehaviourArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = OktaFunctions.getBehaviour(GetBehaviourArgs.builder()
-     *             .label("New City")
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1816,36 +1636,6 @@ public final class OktaFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.okta.OktaFunctions;
-     * import com.pulumi.okta.inputs.GetBehaviourArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = OktaFunctions.getBehaviour(GetBehaviourArgs.builder()
-     *             .label("New City")
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -2208,7 +1998,7 @@ public final class OktaFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = OktaFunctions.getBrands();
+     *         final var test = OktaFunctions.getBrands(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -2247,7 +2037,7 @@ public final class OktaFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = OktaFunctions.getBrands();
+     *         final var test = OktaFunctions.getBrands(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -2286,7 +2076,7 @@ public final class OktaFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = OktaFunctions.getBrands();
+     *         final var test = OktaFunctions.getBrands(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -2325,7 +2115,7 @@ public final class OktaFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = OktaFunctions.getBrands();
+     *         final var test = OktaFunctions.getBrands(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -2364,7 +2154,7 @@ public final class OktaFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = OktaFunctions.getBrands();
+     *         final var test = OktaFunctions.getBrands(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -2403,7 +2193,7 @@ public final class OktaFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = OktaFunctions.getBrands();
+     *         final var test = OktaFunctions.getBrands(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -2442,7 +2232,7 @@ public final class OktaFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = OktaFunctions.getBrands();
+     *         final var test = OktaFunctions.getBrands(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -3937,7 +3727,8 @@ public final class OktaFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var all = OktaFunctions.getTrustedOrigins();
+     *         final var all = OktaFunctions.getTrustedOrigins(GetTrustedOriginsArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -3977,7 +3768,8 @@ public final class OktaFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var all = OktaFunctions.getTrustedOrigins();
+     *         final var all = OktaFunctions.getTrustedOrigins(GetTrustedOriginsArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -4017,7 +3809,8 @@ public final class OktaFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var all = OktaFunctions.getTrustedOrigins();
+     *         final var all = OktaFunctions.getTrustedOrigins(GetTrustedOriginsArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -4057,7 +3850,8 @@ public final class OktaFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var all = OktaFunctions.getTrustedOrigins();
+     *         final var all = OktaFunctions.getTrustedOrigins(GetTrustedOriginsArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -4097,7 +3891,8 @@ public final class OktaFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var all = OktaFunctions.getTrustedOrigins();
+     *         final var all = OktaFunctions.getTrustedOrigins(GetTrustedOriginsArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -4137,7 +3932,8 @@ public final class OktaFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var all = OktaFunctions.getTrustedOrigins();
+     *         final var all = OktaFunctions.getTrustedOrigins(GetTrustedOriginsArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -4177,7 +3973,8 @@ public final class OktaFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var all = OktaFunctions.getTrustedOrigins();
+     *         final var all = OktaFunctions.getTrustedOrigins(GetTrustedOriginsArgs.builder()
+     *             .build());
      * 
      *     }
      * }

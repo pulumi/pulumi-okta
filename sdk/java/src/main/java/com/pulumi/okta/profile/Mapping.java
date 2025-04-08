@@ -47,11 +47,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var user = UserFunctions.getUserProfileMappingSource();
+ *         final var user = UserFunctions.getUserProfileMappingSource(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
  * 
  *         var example = new Mapping("example", MappingArgs.builder()
  *             .sourceId("<source id>")
- *             .targetId(user.applyValue(getUserProfileMappingSourceResult -> getUserProfileMappingSourceResult.id()))
+ *             .targetId(user.id())
  *             .deleteWhenAbsent(true)
  *             .mappings(            
  *                 MappingMappingArgs.builder()
