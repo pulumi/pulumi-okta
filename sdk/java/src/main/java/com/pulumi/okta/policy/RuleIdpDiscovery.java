@@ -66,7 +66,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var example = new RuleIdpDiscovery("example", RuleIdpDiscoveryArgs.builder()
- *             .policyId(idpDiscoveryPolicy.applyValue(getPolicyResult -> getPolicyResult.id()))
+ *             .policyId(idpDiscoveryPolicy.id())
  *             .name("example")
  *             .idpId("<idp id>")
  *             .idpType("OIDC")

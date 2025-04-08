@@ -51,7 +51,8 @@ public final class GroupFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = GroupFunctions.getEveryoneGroup();
+     *         final var example = GroupFunctions.getEveryoneGroup(GetEveryoneGroupArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -93,7 +94,8 @@ public final class GroupFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = GroupFunctions.getEveryoneGroup();
+     *         final var example = GroupFunctions.getEveryoneGroup(GetEveryoneGroupArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -135,7 +137,8 @@ public final class GroupFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = GroupFunctions.getEveryoneGroup();
+     *         final var example = GroupFunctions.getEveryoneGroup(GetEveryoneGroupArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -177,7 +180,8 @@ public final class GroupFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = GroupFunctions.getEveryoneGroup();
+     *         final var example = GroupFunctions.getEveryoneGroup(GetEveryoneGroupArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -219,7 +223,8 @@ public final class GroupFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = GroupFunctions.getEveryoneGroup();
+     *         final var example = GroupFunctions.getEveryoneGroup(GetEveryoneGroupArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -261,7 +266,8 @@ public final class GroupFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = GroupFunctions.getEveryoneGroup();
+     *         final var example = GroupFunctions.getEveryoneGroup(GetEveryoneGroupArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -303,7 +309,8 @@ public final class GroupFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = GroupFunctions.getEveryoneGroup();
+     *         final var example = GroupFunctions.getEveryoneGroup(GetEveryoneGroupArgs.builder()
+     *             .build());
      * 
      *     }
      * }
