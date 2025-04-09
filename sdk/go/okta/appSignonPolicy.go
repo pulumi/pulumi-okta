@@ -30,6 +30,8 @@ type AppSignonPolicy struct {
 	Description pulumi.StringOutput `pulumi:"description"`
 	// Name of the policy.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Specifies the order in which this policy is evaluated in relation to the other policies.
+	Priority pulumi.IntOutput `pulumi:"priority"`
 }
 
 // NewAppSignonPolicy registers a new resource with the given unique name, arguments, and options.
@@ -73,6 +75,8 @@ type appSignonPolicyState struct {
 	Description *string `pulumi:"description"`
 	// Name of the policy.
 	Name *string `pulumi:"name"`
+	// Specifies the order in which this policy is evaluated in relation to the other policies.
+	Priority *int `pulumi:"priority"`
 }
 
 type AppSignonPolicyState struct {
@@ -84,6 +88,8 @@ type AppSignonPolicyState struct {
 	Description pulumi.StringPtrInput
 	// Name of the policy.
 	Name pulumi.StringPtrInput
+	// Specifies the order in which this policy is evaluated in relation to the other policies.
+	Priority pulumi.IntPtrInput
 }
 
 func (AppSignonPolicyState) ElementType() reflect.Type {
@@ -97,6 +103,8 @@ type appSignonPolicyArgs struct {
 	Description string `pulumi:"description"`
 	// Name of the policy.
 	Name *string `pulumi:"name"`
+	// Specifies the order in which this policy is evaluated in relation to the other policies.
+	Priority *int `pulumi:"priority"`
 }
 
 // The set of arguments for constructing a AppSignonPolicy resource.
@@ -107,6 +115,8 @@ type AppSignonPolicyArgs struct {
 	Description pulumi.StringInput
 	// Name of the policy.
 	Name pulumi.StringPtrInput
+	// Specifies the order in which this policy is evaluated in relation to the other policies.
+	Priority pulumi.IntPtrInput
 }
 
 func (AppSignonPolicyArgs) ElementType() reflect.Type {
@@ -214,6 +224,11 @@ func (o AppSignonPolicyOutput) Description() pulumi.StringOutput {
 // Name of the policy.
 func (o AppSignonPolicyOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *AppSignonPolicy) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Specifies the order in which this policy is evaluated in relation to the other policies.
+func (o AppSignonPolicyOutput) Priority() pulumi.IntOutput {
+	return o.ApplyT(func(v *AppSignonPolicy) pulumi.IntOutput { return v.Priority }).(pulumi.IntOutput)
 }
 
 type AppSignonPolicyArrayOutput struct{ *pulumi.OutputState }

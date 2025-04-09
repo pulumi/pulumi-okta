@@ -57,6 +57,10 @@ export class AppSignonPolicy extends pulumi.CustomResource {
      * Name of the policy.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Specifies the order in which this policy is evaluated in relation to the other policies.
+     */
+    public readonly priority!: pulumi.Output<number>;
 
     /**
      * Create a AppSignonPolicy resource with the given unique name, arguments, and options.
@@ -75,6 +79,7 @@ export class AppSignonPolicy extends pulumi.CustomResource {
             resourceInputs["defaultRuleId"] = state ? state.defaultRuleId : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["priority"] = state ? state.priority : undefined;
         } else {
             const args = argsOrState as AppSignonPolicyArgs | undefined;
             if ((!args || args.description === undefined) && !opts.urn) {
@@ -83,6 +88,7 @@ export class AppSignonPolicy extends pulumi.CustomResource {
             resourceInputs["catchAll"] = args ? args.catchAll : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["priority"] = args ? args.priority : undefined;
             resourceInputs["defaultRuleId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -110,6 +116,10 @@ export interface AppSignonPolicyState {
      * Name of the policy.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Specifies the order in which this policy is evaluated in relation to the other policies.
+     */
+    priority?: pulumi.Input<number>;
 }
 
 /**
@@ -128,4 +138,8 @@ export interface AppSignonPolicyArgs {
      * Name of the policy.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Specifies the order in which this policy is evaluated in relation to the other policies.
+     */
+    priority?: pulumi.Input<number>;
 }

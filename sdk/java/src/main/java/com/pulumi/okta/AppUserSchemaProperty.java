@@ -32,6 +32,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.okta.AppUserSchemaProperty;
  * import com.pulumi.okta.AppUserSchemaPropertyArgs;
+ * import com.pulumi.okta.inputs.AppUserSchemaPropertyArrayOneOfArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -53,6 +54,18 @@ import javax.annotation.Nullable;
  *             .description("My custom property name")
  *             .master("OKTA")
  *             .scope("SELF")
+ *             .arrayEnums(            
+ *                 "1",
+ *                 "2")
+ *             .arrayOneOfs(            
+ *                 AppUserSchemaPropertyArrayOneOfArgs.builder()
+ *                     .const_("1")
+ *                     .title("one")
+ *                     .build(),
+ *                 AppUserSchemaPropertyArrayOneOfArgs.builder()
+ *                     .const_("2")
+ *                     .title("two")
+ *                     .build())
  *             .build());
  * 
  *     }

@@ -29,6 +29,24 @@ namespace Pulumi.Okta
     ///         Description = "My custom property name",
     ///         Master = "OKTA",
     ///         Scope = "SELF",
+    ///         ArrayEnums = new[]
+    ///         {
+    ///             "1",
+    ///             "2",
+    ///         },
+    ///         ArrayOneOfs = new[]
+    ///         {
+    ///             new Okta.Inputs.AppUserSchemaPropertyArrayOneOfArgs
+    ///             {
+    ///                 Const = "1",
+    ///                 Title = "one",
+    ///             },
+    ///             new Okta.Inputs.AppUserSchemaPropertyArrayOneOfArgs
+    ///             {
+    ///                 Const = "2",
+    ///                 Title = "two",
+    ///             },
+    ///         },
     ///     });
     /// 
     /// });

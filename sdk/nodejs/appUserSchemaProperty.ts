@@ -21,6 +21,20 @@ import * as utilities from "./utilities";
  *     description: "My custom property name",
  *     master: "OKTA",
  *     scope: "SELF",
+ *     arrayEnums: [
+ *         "1",
+ *         "2",
+ *     ],
+ *     arrayOneOfs: [
+ *         {
+ *             "const": "1",
+ *             title: "one",
+ *         },
+ *         {
+ *             "const": "2",
+ *             title: "two",
+ *         },
+ *     ],
  * });
  * ```
  *

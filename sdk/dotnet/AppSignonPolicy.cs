@@ -45,6 +45,12 @@ namespace Pulumi.Okta
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies the order in which this policy is evaluated in relation to the other policies.
+        /// </summary>
+        [Output("priority")]
+        public Output<int> Priority { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a AppSignonPolicy resource with the given unique name, arguments, and options.
@@ -109,6 +115,12 @@ namespace Pulumi.Okta
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Specifies the order in which this policy is evaluated in relation to the other policies.
+        /// </summary>
+        [Input("priority")]
+        public Input<int>? Priority { get; set; }
+
         public AppSignonPolicyArgs()
         {
         }
@@ -140,6 +152,12 @@ namespace Pulumi.Okta
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Specifies the order in which this policy is evaluated in relation to the other policies.
+        /// </summary>
+        [Input("priority")]
+        public Input<int>? Priority { get; set; }
 
         public AppSignonPolicyState()
         {

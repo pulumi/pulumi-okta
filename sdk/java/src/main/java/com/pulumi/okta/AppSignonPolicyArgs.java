@@ -7,6 +7,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -62,12 +63,28 @@ public final class AppSignonPolicyArgs extends com.pulumi.resources.ResourceArgs
         return Optional.ofNullable(this.name);
     }
 
+    /**
+     * Specifies the order in which this policy is evaluated in relation to the other policies.
+     * 
+     */
+    @Import(name="priority")
+    private @Nullable Output<Integer> priority;
+
+    /**
+     * @return Specifies the order in which this policy is evaluated in relation to the other policies.
+     * 
+     */
+    public Optional<Output<Integer>> priority() {
+        return Optional.ofNullable(this.priority);
+    }
+
     private AppSignonPolicyArgs() {}
 
     private AppSignonPolicyArgs(AppSignonPolicyArgs $) {
         this.catchAll = $.catchAll;
         this.description = $.description;
         this.name = $.name;
+        this.priority = $.priority;
     }
 
     public static Builder builder() {
@@ -149,6 +166,27 @@ public final class AppSignonPolicyArgs extends com.pulumi.resources.ResourceArgs
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param priority Specifies the order in which this policy is evaluated in relation to the other policies.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder priority(@Nullable Output<Integer> priority) {
+            $.priority = priority;
+            return this;
+        }
+
+        /**
+         * @param priority Specifies the order in which this policy is evaluated in relation to the other policies.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder priority(Integer priority) {
+            return priority(Output.of(priority));
         }
 
         public AppSignonPolicyArgs build() {
