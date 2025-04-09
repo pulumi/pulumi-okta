@@ -102,7 +102,7 @@ public final class UserFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = UserFunctions.getUserProfileMappingSource();
+     *         final var example = UserFunctions.getUserProfileMappingSource(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -144,7 +144,7 @@ public final class UserFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = UserFunctions.getUserProfileMappingSource();
+     *         final var example = UserFunctions.getUserProfileMappingSource(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -186,7 +186,7 @@ public final class UserFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = UserFunctions.getUserProfileMappingSource();
+     *         final var example = UserFunctions.getUserProfileMappingSource(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -228,7 +228,7 @@ public final class UserFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = UserFunctions.getUserProfileMappingSource();
+     *         final var example = UserFunctions.getUserProfileMappingSource(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -270,7 +270,7 @@ public final class UserFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = UserFunctions.getUserProfileMappingSource();
+     *         final var example = UserFunctions.getUserProfileMappingSource(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -312,7 +312,7 @@ public final class UserFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = UserFunctions.getUserProfileMappingSource();
+     *         final var example = UserFunctions.getUserProfileMappingSource(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -354,7 +354,7 @@ public final class UserFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = UserFunctions.getUserProfileMappingSource();
+     *         final var example = UserFunctions.getUserProfileMappingSource(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
