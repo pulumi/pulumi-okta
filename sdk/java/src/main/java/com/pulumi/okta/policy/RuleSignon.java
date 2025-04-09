@@ -69,7 +69,7 @@ import javax.annotation.Nullable;
  *             .policyId(exampleOktaPolicySignon.id())
  *             .status("ACTIVE")
  *             .riscLevel("HIGH")
- *             .behaviors(newCity.applyValue(getBehaviourResult -> getBehaviourResult.id()))
+ *             .behaviors(newCity.id())
  *             .factorSequences(            
  *                 RuleSignonFactorSequenceArgs.builder()
  *                     .primaryCriteriaFactorType("token:hotp")

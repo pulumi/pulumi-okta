@@ -70,8 +70,8 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var assignment = new AccessPolicyAssignment("assignment", AccessPolicyAssignmentArgs.builder()
- *             .appId(example.applyValue(getAppResult -> getAppResult.id()))
- *             .policyId(access.applyValue(getPolicyResult -> getPolicyResult.id()))
+ *             .appId(example.id())
+ *             .policyId(access.id())
  *             .build());
  * 
  *     }
