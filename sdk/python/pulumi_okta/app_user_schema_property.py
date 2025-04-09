@@ -759,7 +759,21 @@ class AppUserSchemaProperty(pulumi.CustomResource):
             type="string",
             description="My custom property name",
             master="OKTA",
-            scope="SELF")
+            scope="SELF",
+            array_enums=[
+                "1",
+                "2",
+            ],
+            array_one_ofs=[
+                {
+                    "const": "1",
+                    "title": "one",
+                },
+                {
+                    "const": "2",
+                    "title": "two",
+                },
+            ])
         ```
 
         ## Import
@@ -816,7 +830,21 @@ class AppUserSchemaProperty(pulumi.CustomResource):
             type="string",
             description="My custom property name",
             master="OKTA",
-            scope="SELF")
+            scope="SELF",
+            array_enums=[
+                "1",
+                "2",
+            ],
+            array_one_ofs=[
+                {
+                    "const": "1",
+                    "title": "one",
+                },
+                {
+                    "const": "2",
+                    "title": "two",
+                },
+            ])
         ```
 
         ## Import

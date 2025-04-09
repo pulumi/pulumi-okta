@@ -6,6 +6,7 @@ package com.pulumi.okta.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -76,6 +77,21 @@ public final class AppSignonPolicyState extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.name);
     }
 
+    /**
+     * Specifies the order in which this policy is evaluated in relation to the other policies.
+     * 
+     */
+    @Import(name="priority")
+    private @Nullable Output<Integer> priority;
+
+    /**
+     * @return Specifies the order in which this policy is evaluated in relation to the other policies.
+     * 
+     */
+    public Optional<Output<Integer>> priority() {
+        return Optional.ofNullable(this.priority);
+    }
+
     private AppSignonPolicyState() {}
 
     private AppSignonPolicyState(AppSignonPolicyState $) {
@@ -83,6 +99,7 @@ public final class AppSignonPolicyState extends com.pulumi.resources.ResourceArg
         this.defaultRuleId = $.defaultRuleId;
         this.description = $.description;
         this.name = $.name;
+        this.priority = $.priority;
     }
 
     public static Builder builder() {
@@ -185,6 +202,27 @@ public final class AppSignonPolicyState extends com.pulumi.resources.ResourceArg
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param priority Specifies the order in which this policy is evaluated in relation to the other policies.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder priority(@Nullable Output<Integer> priority) {
+            $.priority = priority;
+            return this;
+        }
+
+        /**
+         * @param priority Specifies the order in which this policy is evaluated in relation to the other policies.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder priority(Integer priority) {
+            return priority(Output.of(priority));
         }
 
         public AppSignonPolicyState build() {

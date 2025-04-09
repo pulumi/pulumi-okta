@@ -34,6 +34,20 @@ import (
 //				Description: pulumi.String("My custom property name"),
 //				Master:      pulumi.String("OKTA"),
 //				Scope:       pulumi.String("SELF"),
+//				ArrayEnums: pulumi.StringArray{
+//					pulumi.String("1"),
+//					pulumi.String("2"),
+//				},
+//				ArrayOneOfs: okta.AppUserSchemaPropertyArrayOneOfArray{
+//					&okta.AppUserSchemaPropertyArrayOneOfArgs{
+//						Const: pulumi.String("1"),
+//						Title: pulumi.String("one"),
+//					},
+//					&okta.AppUserSchemaPropertyArrayOneOfArgs{
+//						Const: pulumi.String("2"),
+//						Title: pulumi.String("two"),
+//					},
+//				},
 //			})
 //			if err != nil {
 //				return err

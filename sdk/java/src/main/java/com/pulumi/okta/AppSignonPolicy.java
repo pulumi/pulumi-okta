@@ -11,6 +11,7 @@ import com.pulumi.okta.AppSignonPolicyArgs;
 import com.pulumi.okta.Utilities;
 import com.pulumi.okta.inputs.AppSignonPolicyState;
 import java.lang.Boolean;
+import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -81,6 +82,20 @@ public class AppSignonPolicy extends com.pulumi.resources.CustomResource {
      */
     public Output<String> name() {
         return this.name;
+    }
+    /**
+     * Specifies the order in which this policy is evaluated in relation to the other policies.
+     * 
+     */
+    @Export(name="priority", refs={Integer.class}, tree="[0]")
+    private Output<Integer> priority;
+
+    /**
+     * @return Specifies the order in which this policy is evaluated in relation to the other policies.
+     * 
+     */
+    public Output<Integer> priority() {
+        return this.priority;
     }
 
     /**
