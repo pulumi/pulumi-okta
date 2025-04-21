@@ -30,8 +30,10 @@ import (
 	pfbridge "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/pf/tfbridge"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
 	tks "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge/tokens"
+	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge/tokens/fallbackstrat"
 	shimv2 "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim/sdk-v2"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/tokens"
+	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
 
 	"github.com/pulumi/pulumi-okta/provider/v4/pkg/version"
 )
@@ -314,20 +316,29 @@ func Provider() tfbridge.ProviderInfo {
 		}, MetadataInfo: tfbridge.NewProviderMetadata(metadata),
 	}
 
-	prov.MustComputeTokens(tks.KnownModules("okta_", "index", []string{
-		"app_",
-		"auth_",
-		"factor_",
-		"group_",
-		"idp_",
-		"inline_",
-		"network_",
-		"policy_",
-		"profile_",
-		"template_",
-		"trusted_origin_",
-		"user_",
-	}, tks.MakeStandard(mainPkg)))
+	strategy, err := fallbackstrat.KnownModulesWithInferredFallback(
+		&prov,
+		"okta_",
+		"index",
+		[]string{
+			"app_",
+			"auth_",
+			"factor_",
+			"group_",
+			"idp_",
+			"inline_",
+			"network_",
+			"policy_",
+			"profile_",
+			"template_",
+			"trusted_origin_",
+			"user_",
+		},
+		tks.MakeStandard(mainPkg),
+	)
+	contract.AssertNoErrorf(err, "failed to create fallback strategy")
+
+	prov.MustComputeTokens(strategy)
 
 	prov.MustApplyAutoAliases()
 	prov.SetAutonaming(255, "-")
