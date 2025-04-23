@@ -161,6 +161,9 @@ class _SamlKeyState:
 
 
 class SamlKey(pulumi.CustomResource):
+
+    pulumi_type = "okta:idp/samlKey:SamlKey"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

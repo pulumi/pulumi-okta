@@ -257,6 +257,9 @@ class _BehaviourState:
 
 
 class Behaviour(pulumi.CustomResource):
+
+    pulumi_type = "okta:index/behaviour:Behaviour"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

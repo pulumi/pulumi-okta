@@ -563,6 +563,9 @@ warnings.warn("""okta.auth/serverpolicyclaim.ServerPolicyClaim has been deprecat
 class ServerPolicyClaim(pulumi.CustomResource):
     warnings.warn("""okta.auth/serverpolicyclaim.ServerPolicyClaim has been deprecated in favor of okta.auth/serverpolicyrule.ServerPolicyRule""", DeprecationWarning)
 
+
+    pulumi_type = "okta:auth/serverPolicyClaim:ServerPolicyClaim"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

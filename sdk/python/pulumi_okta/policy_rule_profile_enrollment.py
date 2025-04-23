@@ -402,6 +402,9 @@ class _PolicyRuleProfileEnrollmentState:
 
 
 class PolicyRuleProfileEnrollment(pulumi.CustomResource):
+
+    pulumi_type = "okta:index/policyRuleProfileEnrollment:PolicyRuleProfileEnrollment"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

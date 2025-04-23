@@ -194,6 +194,9 @@ class _SignonState:
 
 
 class Signon(pulumi.CustomResource):
+
+    pulumi_type = "okta:policy/signon:Signon"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

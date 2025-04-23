@@ -352,6 +352,9 @@ class _AdminRoleCustomState:
 
 
 class AdminRoleCustom(pulumi.CustomResource):
+
+    pulumi_type = "okta:index/adminRoleCustom:AdminRoleCustom"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

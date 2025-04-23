@@ -287,6 +287,9 @@ class _UserBaseSchemaPropertyState:
 
 
 class UserBaseSchemaProperty(pulumi.CustomResource):
+
+    pulumi_type = "okta:index/userBaseSchemaProperty:UserBaseSchemaProperty"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

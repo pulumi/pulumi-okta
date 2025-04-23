@@ -976,6 +976,9 @@ class _SocialState:
 
 
 class Social(pulumi.CustomResource):
+
+    pulumi_type = "okta:idp/social:Social"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

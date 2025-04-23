@@ -305,6 +305,9 @@ class _ServerScopeState:
 
 
 class ServerScope(pulumi.CustomResource):
+
+    pulumi_type = "okta:auth/serverScope:ServerScope"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

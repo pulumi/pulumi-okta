@@ -1578,6 +1578,9 @@ class _OAuthState:
 
 
 class OAuth(pulumi.CustomResource):
+
+    pulumi_type = "okta:app/oAuth:OAuth"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

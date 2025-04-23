@@ -226,6 +226,9 @@ class _FactorTotpState:
 
 
 class FactorTotp(pulumi.CustomResource):
+
+    pulumi_type = "okta:index/factorTotp:FactorTotp"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

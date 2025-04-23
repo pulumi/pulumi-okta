@@ -416,6 +416,9 @@ class _RuleMfaState:
 
 
 class RuleMfa(pulumi.CustomResource):
+
+    pulumi_type = "okta:policy/ruleMfa:RuleMfa"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

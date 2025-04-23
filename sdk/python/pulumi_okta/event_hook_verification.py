@@ -65,6 +65,9 @@ class _EventHookVerificationState:
 
 
 class EventHookVerification(pulumi.CustomResource):
+
+    pulumi_type = "okta:index/eventHookVerification:EventHookVerification"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

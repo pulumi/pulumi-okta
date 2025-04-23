@@ -722,6 +722,9 @@ class _DeviceAssuranceMacosState:
 
 
 class DeviceAssuranceMacos(pulumi.CustomResource):
+
+    pulumi_type = "okta:policy/deviceAssuranceMacos:DeviceAssuranceMacos"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

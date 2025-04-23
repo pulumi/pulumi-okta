@@ -1006,6 +1006,9 @@ class _SecurePasswordStoreState:
 
 
 class SecurePasswordStore(pulumi.CustomResource):
+
+    pulumi_type = "okta:app/securePasswordStore:SecurePasswordStore"
+
     @overload
     def __init__(__self__,
                  resource_name: str,
