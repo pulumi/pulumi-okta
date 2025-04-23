@@ -115,6 +115,9 @@
                     "acs_endpoints": {
                         "maxItemsOne": false
                     },
+                    "acs_endpoints_indices": {
+                        "maxItemsOne": false
+                    },
                     "attribute_statements": {
                         "maxItemsOne": false,
                         "elem": {
@@ -160,6 +163,9 @@
                 "current": "okta:index/appSignonPolicyRule:AppSignonPolicyRule",
                 "majorVersion": 4,
                 "fields": {
+                    "chains": {
+                        "maxItemsOne": false
+                    },
                     "constraints": {
                         "maxItemsOne": false
                     },

@@ -37,6 +37,8 @@ type Saml struct {
 	AccessibilitySelfService pulumi.BoolPtrOutput `pulumi:"accessibilitySelfService"`
 	// An array of ACS endpoints. You can configure a maximum of 100 endpoints.
 	AcsEndpoints pulumi.StringArrayOutput `pulumi:"acsEndpoints"`
+	// ACS endpoints along with custom index as a set of maps called `acsEndpointsIndices` in JSON format
+	AcsEndpointsIndices SamlAcsEndpointsIndexArrayOutput `pulumi:"acsEndpointsIndices"`
 	// Application notes for admins.
 	AdminNote pulumi.StringPtrOutput `pulumi:"adminNote"`
 	// Displays specific appLinks for the app. The value for each application link should be boolean.
@@ -200,6 +202,8 @@ type samlState struct {
 	AccessibilitySelfService *bool `pulumi:"accessibilitySelfService"`
 	// An array of ACS endpoints. You can configure a maximum of 100 endpoints.
 	AcsEndpoints []string `pulumi:"acsEndpoints"`
+	// ACS endpoints along with custom index as a set of maps called `acsEndpointsIndices` in JSON format
+	AcsEndpointsIndices []SamlAcsEndpointsIndex `pulumi:"acsEndpointsIndices"`
 	// Application notes for admins.
 	AdminNote *string `pulumi:"adminNote"`
 	// Displays specific appLinks for the app. The value for each application link should be boolean.
@@ -331,6 +335,8 @@ type SamlState struct {
 	AccessibilitySelfService pulumi.BoolPtrInput
 	// An array of ACS endpoints. You can configure a maximum of 100 endpoints.
 	AcsEndpoints pulumi.StringArrayInput
+	// ACS endpoints along with custom index as a set of maps called `acsEndpointsIndices` in JSON format
+	AcsEndpointsIndices SamlAcsEndpointsIndexArrayInput
 	// Application notes for admins.
 	AdminNote pulumi.StringPtrInput
 	// Displays specific appLinks for the app. The value for each application link should be boolean.
@@ -466,6 +472,8 @@ type samlArgs struct {
 	AccessibilitySelfService *bool `pulumi:"accessibilitySelfService"`
 	// An array of ACS endpoints. You can configure a maximum of 100 endpoints.
 	AcsEndpoints []string `pulumi:"acsEndpoints"`
+	// ACS endpoints along with custom index as a set of maps called `acsEndpointsIndices` in JSON format
+	AcsEndpointsIndices []SamlAcsEndpointsIndex `pulumi:"acsEndpointsIndices"`
 	// Application notes for admins.
 	AdminNote *string `pulumi:"adminNote"`
 	// Displays specific appLinks for the app. The value for each application link should be boolean.
@@ -570,6 +578,8 @@ type SamlArgs struct {
 	AccessibilitySelfService pulumi.BoolPtrInput
 	// An array of ACS endpoints. You can configure a maximum of 100 endpoints.
 	AcsEndpoints pulumi.StringArrayInput
+	// ACS endpoints along with custom index as a set of maps called `acsEndpointsIndices` in JSON format
+	AcsEndpointsIndices SamlAcsEndpointsIndexArrayInput
 	// Application notes for admins.
 	AdminNote pulumi.StringPtrInput
 	// Displays specific appLinks for the app. The value for each application link should be boolean.
@@ -769,6 +779,11 @@ func (o SamlOutput) AccessibilitySelfService() pulumi.BoolPtrOutput {
 // An array of ACS endpoints. You can configure a maximum of 100 endpoints.
 func (o SamlOutput) AcsEndpoints() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Saml) pulumi.StringArrayOutput { return v.AcsEndpoints }).(pulumi.StringArrayOutput)
+}
+
+// ACS endpoints along with custom index as a set of maps called `acsEndpointsIndices` in JSON format
+func (o SamlOutput) AcsEndpointsIndices() SamlAcsEndpointsIndexArrayOutput {
+	return o.ApplyT(func(v *Saml) SamlAcsEndpointsIndexArrayOutput { return v.AcsEndpointsIndices }).(SamlAcsEndpointsIndexArrayOutput)
 }
 
 // Application notes for admins.

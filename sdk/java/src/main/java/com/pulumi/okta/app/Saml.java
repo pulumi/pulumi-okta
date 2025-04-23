@@ -10,6 +10,7 @@ import com.pulumi.core.internal.Codegen;
 import com.pulumi.okta.Utilities;
 import com.pulumi.okta.app.SamlArgs;
 import com.pulumi.okta.app.inputs.SamlState;
+import com.pulumi.okta.app.outputs.SamlAcsEndpointsIndex;
 import com.pulumi.okta.app.outputs.SamlAttributeStatement;
 import com.pulumi.okta.app.outputs.SamlKey;
 import java.lang.Boolean;
@@ -93,6 +94,20 @@ public class Saml extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<List<String>>> acsEndpoints() {
         return Codegen.optional(this.acsEndpoints);
+    }
+    /**
+     * ACS endpoints along with custom index as a set of maps called `acs_endpoints_indices` in JSON format
+     * 
+     */
+    @Export(name="acsEndpointsIndices", refs={List.class,SamlAcsEndpointsIndex.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<SamlAcsEndpointsIndex>> acsEndpointsIndices;
+
+    /**
+     * @return ACS endpoints along with custom index as a set of maps called `acs_endpoints_indices` in JSON format
+     * 
+     */
+    public Output<Optional<List<SamlAcsEndpointsIndex>>> acsEndpointsIndices() {
+        return Codegen.optional(this.acsEndpointsIndices);
     }
     /**
      * Application notes for admins.

@@ -50,6 +50,8 @@ func GetGroups(ctx *pulumi.Context, args *GetGroupsArgs, opts ...pulumi.InvokeOp
 
 // A collection of arguments for invoking getGroups.
 type GetGroupsArgs struct {
+	// The maximum number of groups returned by the Okta API, between 1 and 10000.
+	Limit *int `pulumi:"limit"`
 	// Searches the name property of groups for matching value
 	Q *string `pulumi:"q"`
 	// Searches for groups with a supported filtering expression for all attributes except for '*embedded', '*links', and 'objectClass'
@@ -62,6 +64,8 @@ type GetGroupsResult struct {
 	Groups []GetGroupsGroup `pulumi:"groups"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
+	// The maximum number of groups returned by the Okta API, between 1 and 10000.
+	Limit *int `pulumi:"limit"`
 	// Searches the name property of groups for matching value
 	Q *string `pulumi:"q"`
 	// Searches for groups with a supported filtering expression for all attributes except for '*embedded', '*links', and 'objectClass'
@@ -80,6 +84,8 @@ func GetGroupsOutput(ctx *pulumi.Context, args GetGroupsOutputArgs, opts ...pulu
 
 // A collection of arguments for invoking getGroups.
 type GetGroupsOutputArgs struct {
+	// The maximum number of groups returned by the Okta API, between 1 and 10000.
+	Limit pulumi.IntPtrInput `pulumi:"limit"`
 	// Searches the name property of groups for matching value
 	Q pulumi.StringPtrInput `pulumi:"q"`
 	// Searches for groups with a supported filtering expression for all attributes except for '*embedded', '*links', and 'objectClass'
@@ -113,6 +119,11 @@ func (o GetGroupsResultOutput) Groups() GetGroupsGroupArrayOutput {
 // The provider-assigned unique ID for this managed resource.
 func (o GetGroupsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetGroupsResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The maximum number of groups returned by the Okta API, between 1 and 10000.
+func (o GetGroupsResultOutput) Limit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetGroupsResult) *int { return v.Limit }).(pulumi.IntPtrOutput)
 }
 
 // Searches the name property of groups for matching value

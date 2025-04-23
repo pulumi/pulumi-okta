@@ -5986,7 +5986,9 @@ type GetGroupsGroup struct {
 	Id string `pulumi:"id"`
 	// Group name.
 	Name string `pulumi:"name"`
-	// Group type.
+	// The ID of the application the Group is sourced/imported from (only present for groups of type APP_GROUP).
+	Source string `pulumi:"source"`
+	// Group type, either 'APP_GROUP' or 'OKTA_GROUP'.
 	Type string `pulumi:"type"`
 }
 
@@ -6010,7 +6012,9 @@ type GetGroupsGroupArgs struct {
 	Id pulumi.StringInput `pulumi:"id"`
 	// Group name.
 	Name pulumi.StringInput `pulumi:"name"`
-	// Group type.
+	// The ID of the application the Group is sourced/imported from (only present for groups of type APP_GROUP).
+	Source pulumi.StringInput `pulumi:"source"`
+	// Group type, either 'APP_GROUP' or 'OKTA_GROUP'.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -6085,7 +6089,12 @@ func (o GetGroupsGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetGroupsGroup) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Group type.
+// The ID of the application the Group is sourced/imported from (only present for groups of type APP_GROUP).
+func (o GetGroupsGroupOutput) Source() pulumi.StringOutput {
+	return o.ApplyT(func(v GetGroupsGroup) string { return v.Source }).(pulumi.StringOutput)
+}
+
+// Group type, either 'APP_GROUP' or 'OKTA_GROUP'.
 func (o GetGroupsGroupOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GetGroupsGroup) string { return v.Type }).(pulumi.StringOutput)
 }

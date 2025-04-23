@@ -42,7 +42,7 @@
             "respectSchemaVersion": true
         },
         "nodejs": {
-            "packageDescription": "A Pulumi package for creating and managing okta resources.. Based on terraform-provider-okta: version v4.16.0",
+            "packageDescription": "A Pulumi package for creating and managing okta resources.. Based on terraform-provider-okta: version v4.17.0",
             "readme": "\u003e This provider is a derived work of the [Terraform Provider](https://github.com/okta/terraform-provider-okta)\n\u003e distributed under [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/). If you encounter a bug or missing feature,\n\u003e first check the [`pulumi-okta` repo](https://github.com/pulumi/pulumi-okta/issues); however, if that doesn't turn up anything,\n\u003e please consult the source [`terraform-provider-okta` repo](https://github.com/okta/terraform-provider-okta/issues).",
             "devDependencies": {
                 "@types/mime": "^2.0.0",
@@ -211,6 +211,21 @@
             "required": [
                 "kid",
                 "kty"
+            ]
+        },
+        "okta:app/SamlAcsEndpointsIndex:SamlAcsEndpointsIndex": {
+            "properties": {
+                "index": {
+                    "type": "integer"
+                },
+                "url": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "index",
+                "url"
             ]
         },
         "okta:app/SamlAttributeStatement:SamlAttributeStatement": {
@@ -1645,9 +1660,13 @@
                     "type": "string",
                     "description": "Group name.\n"
                 },
+                "source": {
+                    "type": "string",
+                    "description": "The ID of the application the Group is sourced/imported from (only present for groups of type APP_GROUP).\n"
+                },
                 "type": {
                     "type": "string",
-                    "description": "Group type.\n"
+                    "description": "Group type, either 'APP_GROUP' or 'OKTA_GROUP'.\n"
                 }
             },
             "type": "object",
@@ -1656,6 +1675,7 @@
                 "description",
                 "id",
                 "name",
+                "source",
                 "type"
             ],
             "language": {
@@ -4257,6 +4277,13 @@
                     },
                     "description": "An array of ACS endpoints. You can configure a maximum of 100 endpoints.\n"
                 },
+                "acsEndpointsIndices": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/okta:app/SamlAcsEndpointsIndex:SamlAcsEndpointsIndex"
+                    },
+                    "description": "ACS endpoints along with custom index as a set of maps called `acs_endpoints_indices` in JSON format\n"
+                },
                 "adminNote": {
                     "type": "string",
                     "description": "Application notes for admins.\n"
@@ -4528,6 +4555,13 @@
                     },
                     "description": "An array of ACS endpoints. You can configure a maximum of 100 endpoints.\n"
                 },
+                "acsEndpointsIndices": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/okta:app/SamlAcsEndpointsIndex:SamlAcsEndpointsIndex"
+                    },
+                    "description": "ACS endpoints along with custom index as a set of maps called `acs_endpoints_indices` in JSON format\n"
+                },
                 "adminNote": {
                     "type": "string",
                     "description": "Application notes for admins.\n"
@@ -4724,6 +4758,13 @@
                             "type": "string"
                         },
                         "description": "An array of ACS endpoints. You can configure a maximum of 100 endpoints.\n"
+                    },
+                    "acsEndpointsIndices": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/okta:app/SamlAcsEndpointsIndex:SamlAcsEndpointsIndex"
+                        },
+                        "description": "ACS endpoints along with custom index as a set of maps called `acs_endpoints_indices` in JSON format\n"
                     },
                     "adminNote": {
                         "type": "string",
@@ -10047,6 +10088,13 @@
                     "type": "string",
                     "description": "Allow or deny access based on the rule conditions: ALLOW or DENY\n"
                 },
+                "chains": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Use with verification method = `AUTH_METHOD_CHAIN` only\n"
+                },
                 "constraints": {
                     "type": "array",
                     "items": {
@@ -10191,6 +10239,13 @@
                     "type": "string",
                     "description": "Allow or deny access based on the rule conditions: ALLOW or DENY\n"
                 },
+                "chains": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Use with verification method = `AUTH_METHOD_CHAIN` only\n"
+                },
                 "constraints": {
                     "type": "array",
                     "items": {
@@ -10330,6 +10385,13 @@
                     "access": {
                         "type": "string",
                         "description": "Allow or deny access based on the rule conditions: ALLOW or DENY\n"
+                    },
+                    "chains": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Use with verification method = `AUTH_METHOD_CHAIN` only\n"
                     },
                     "constraints": {
                         "type": "array",
@@ -22866,6 +22928,10 @@
             "inputs": {
                 "description": "A collection of arguments for invoking getGroups.\n",
                 "properties": {
+                    "limit": {
+                        "type": "integer",
+                        "description": "The maximum number of groups returned by the Okta API, between 1 and 10000.\n"
+                    },
                     "q": {
                         "type": "string",
                         "description": "Searches the name property of groups for matching value\n"
@@ -22892,6 +22958,10 @@
                     "id": {
                         "description": "The provider-assigned unique ID for this managed resource.\n",
                         "type": "string"
+                    },
+                    "limit": {
+                        "description": "The maximum number of groups returned by the Okta API, between 1 and 10000.\n",
+                        "type": "integer"
                     },
                     "q": {
                         "description": "Searches the name property of groups for matching value\n",

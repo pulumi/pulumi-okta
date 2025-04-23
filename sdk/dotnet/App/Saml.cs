@@ -53,6 +53,12 @@ namespace Pulumi.Okta.App
         public Output<ImmutableArray<string>> AcsEndpoints { get; private set; } = null!;
 
         /// <summary>
+        /// ACS endpoints along with custom index as a set of maps called `acs_endpoints_indices` in JSON format
+        /// </summary>
+        [Output("acsEndpointsIndices")]
+        public Output<ImmutableArray<Outputs.SamlAcsEndpointsIndex>> AcsEndpointsIndices { get; private set; } = null!;
+
+        /// <summary>
         /// Application notes for admins.
         /// </summary>
         [Output("adminNote")]
@@ -470,6 +476,18 @@ namespace Pulumi.Okta.App
             set => _acsEndpoints = value;
         }
 
+        [Input("acsEndpointsIndices")]
+        private InputList<Inputs.SamlAcsEndpointsIndexArgs>? _acsEndpointsIndices;
+
+        /// <summary>
+        /// ACS endpoints along with custom index as a set of maps called `acs_endpoints_indices` in JSON format
+        /// </summary>
+        public InputList<Inputs.SamlAcsEndpointsIndexArgs> AcsEndpointsIndices
+        {
+            get => _acsEndpointsIndices ?? (_acsEndpointsIndices = new InputList<Inputs.SamlAcsEndpointsIndexArgs>());
+            set => _acsEndpointsIndices = value;
+        }
+
         /// <summary>
         /// Application notes for admins.
         /// </summary>
@@ -769,6 +787,18 @@ namespace Pulumi.Okta.App
         {
             get => _acsEndpoints ?? (_acsEndpoints = new InputList<string>());
             set => _acsEndpoints = value;
+        }
+
+        [Input("acsEndpointsIndices")]
+        private InputList<Inputs.SamlAcsEndpointsIndexGetArgs>? _acsEndpointsIndices;
+
+        /// <summary>
+        /// ACS endpoints along with custom index as a set of maps called `acs_endpoints_indices` in JSON format
+        /// </summary>
+        public InputList<Inputs.SamlAcsEndpointsIndexGetArgs> AcsEndpointsIndices
+        {
+            get => _acsEndpointsIndices ?? (_acsEndpointsIndices = new InputList<Inputs.SamlAcsEndpointsIndexGetArgs>());
+            set => _acsEndpointsIndices = value;
         }
 
         /// <summary>

@@ -18,6 +18,7 @@ from .. import _utilities
 __all__ = [
     'OAuthGroupsClaim',
     'OAuthJwk',
+    'SamlAcsEndpointsIndex',
     'SamlAttributeStatement',
     'SamlKey',
     'GetSamlAttributeStatementResult',
@@ -181,6 +182,25 @@ class OAuthJwk(dict):
         Y coordinate of the elliptic curve point
         """
         return pulumi.get(self, "y")
+
+
+@pulumi.output_type
+class SamlAcsEndpointsIndex(dict):
+    def __init__(__self__, *,
+                 index: builtins.int,
+                 url: builtins.str):
+        pulumi.set(__self__, "index", index)
+        pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter
+    def index(self) -> builtins.int:
+        return pulumi.get(self, "index")
+
+    @property
+    @pulumi.getter
+    def url(self) -> builtins.str:
+        return pulumi.get(self, "url")
 
 
 @pulumi.output_type

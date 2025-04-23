@@ -34,6 +34,12 @@ namespace Pulumi.Okta
         public Output<string?> Access { get; private set; } = null!;
 
         /// <summary>
+        /// Use with verification method = `AUTH_METHOD_CHAIN` only
+        /// </summary>
+        [Output("chains")]
+        public Output<ImmutableArray<string>> Chains { get; private set; } = null!;
+
+        /// <summary>
         /// An array that contains nested Authenticator Constraint objects that are organized by the Authenticator class
         /// </summary>
         [Output("constraints")]
@@ -231,6 +237,18 @@ namespace Pulumi.Okta
         /// </summary>
         [Input("access")]
         public Input<string>? Access { get; set; }
+
+        [Input("chains")]
+        private InputList<string>? _chains;
+
+        /// <summary>
+        /// Use with verification method = `AUTH_METHOD_CHAIN` only
+        /// </summary>
+        public InputList<string> Chains
+        {
+            get => _chains ?? (_chains = new InputList<string>());
+            set => _chains = value;
+        }
 
         [Input("constraints")]
         private InputList<string>? _constraints;
@@ -451,6 +469,18 @@ namespace Pulumi.Okta
         /// </summary>
         [Input("access")]
         public Input<string>? Access { get; set; }
+
+        [Input("chains")]
+        private InputList<string>? _chains;
+
+        /// <summary>
+        /// Use with verification method = `AUTH_METHOD_CHAIN` only
+        /// </summary>
+        public InputList<string> Chains
+        {
+            get => _chains ?? (_chains = new InputList<string>());
+            set => _chains = value;
+        }
 
         [Input("constraints")]
         private InputList<string>? _constraints;

@@ -30,7 +30,11 @@ namespace Pulumi.Okta.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Group type.
+        /// The ID of the application the Group is sourced/imported from (only present for groups of type APP_GROUP).
+        /// </summary>
+        public readonly string Source;
+        /// <summary>
+        /// Group type, either 'APP_GROUP' or 'OKTA_GROUP'.
         /// </summary>
         public readonly string Type;
 
@@ -44,12 +48,15 @@ namespace Pulumi.Okta.Outputs
 
             string name,
 
+            string source,
+
             string type)
         {
             CustomProfileAttributes = customProfileAttributes;
             Description = description;
             Id = id;
             Name = name;
+            Source = source;
             Type = type;
         }
     }

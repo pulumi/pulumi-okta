@@ -24,6 +24,7 @@ class AppSignonPolicyRuleArgs:
     def __init__(__self__, *,
                  policy_id: pulumi.Input[builtins.str],
                  access: Optional[pulumi.Input[builtins.str]] = None,
+                 chains: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  constraints: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  custom_expression: Optional[pulumi.Input[builtins.str]] = None,
                  device_assurances_includeds: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
@@ -51,6 +52,7 @@ class AppSignonPolicyRuleArgs:
         The set of arguments for constructing a AppSignonPolicyRule resource.
         :param pulumi.Input[builtins.str] policy_id: ID of the policy
         :param pulumi.Input[builtins.str] access: Allow or deny access based on the rule conditions: ALLOW or DENY
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] chains: Use with verification method = `AUTH_METHOD_CHAIN` only
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] constraints: An array that contains nested Authenticator Constraint objects that are organized by the Authenticator class
         :param pulumi.Input[builtins.str] custom_expression: This is an optional advanced setting. If the expression is formatted incorrectly or conflicts with conditions set above, the rule may not match any users.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] device_assurances_includeds: List of device assurance IDs to include
@@ -77,6 +79,8 @@ class AppSignonPolicyRuleArgs:
         pulumi.set(__self__, "policy_id", policy_id)
         if access is not None:
             pulumi.set(__self__, "access", access)
+        if chains is not None:
+            pulumi.set(__self__, "chains", chains)
         if constraints is not None:
             pulumi.set(__self__, "constraints", constraints)
         if custom_expression is not None:
@@ -147,6 +151,18 @@ class AppSignonPolicyRuleArgs:
     @access.setter
     def access(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "access", value)
+
+    @property
+    @pulumi.getter
+    def chains(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
+        """
+        Use with verification method = `AUTH_METHOD_CHAIN` only
+        """
+        return pulumi.get(self, "chains")
+
+    @chains.setter
+    def chains(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "chains", value)
 
     @property
     @pulumi.getter
@@ -426,6 +442,7 @@ class AppSignonPolicyRuleArgs:
 class _AppSignonPolicyRuleState:
     def __init__(__self__, *,
                  access: Optional[pulumi.Input[builtins.str]] = None,
+                 chains: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  constraints: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  custom_expression: Optional[pulumi.Input[builtins.str]] = None,
                  device_assurances_includeds: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
@@ -454,6 +471,7 @@ class _AppSignonPolicyRuleState:
         """
         Input properties used for looking up and filtering AppSignonPolicyRule resources.
         :param pulumi.Input[builtins.str] access: Allow or deny access based on the rule conditions: ALLOW or DENY
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] chains: Use with verification method = `AUTH_METHOD_CHAIN` only
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] constraints: An array that contains nested Authenticator Constraint objects that are organized by the Authenticator class
         :param pulumi.Input[builtins.str] custom_expression: This is an optional advanced setting. If the expression is formatted incorrectly or conflicts with conditions set above, the rule may not match any users.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] device_assurances_includeds: List of device assurance IDs to include
@@ -481,6 +499,8 @@ class _AppSignonPolicyRuleState:
         """
         if access is not None:
             pulumi.set(__self__, "access", access)
+        if chains is not None:
+            pulumi.set(__self__, "chains", chains)
         if constraints is not None:
             pulumi.set(__self__, "constraints", constraints)
         if custom_expression is not None:
@@ -543,6 +563,18 @@ class _AppSignonPolicyRuleState:
     @access.setter
     def access(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "access", value)
+
+    @property
+    @pulumi.getter
+    def chains(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
+        """
+        Use with verification method = `AUTH_METHOD_CHAIN` only
+        """
+        return pulumi.get(self, "chains")
+
+    @chains.setter
+    def chains(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "chains", value)
 
     @property
     @pulumi.getter
@@ -848,6 +880,7 @@ class AppSignonPolicyRule(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access: Optional[pulumi.Input[builtins.str]] = None,
+                 chains: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  constraints: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  custom_expression: Optional[pulumi.Input[builtins.str]] = None,
                  device_assurances_includeds: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
@@ -891,6 +924,7 @@ class AppSignonPolicyRule(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] access: Allow or deny access based on the rule conditions: ALLOW or DENY
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] chains: Use with verification method = `AUTH_METHOD_CHAIN` only
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] constraints: An array that contains nested Authenticator Constraint objects that are organized by the Authenticator class
         :param pulumi.Input[builtins.str] custom_expression: This is an optional advanced setting. If the expression is formatted incorrectly or conflicts with conditions set above, the rule may not match any users.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] device_assurances_includeds: List of device assurance IDs to include
@@ -952,6 +986,7 @@ class AppSignonPolicyRule(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access: Optional[pulumi.Input[builtins.str]] = None,
+                 chains: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  constraints: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  custom_expression: Optional[pulumi.Input[builtins.str]] = None,
                  device_assurances_includeds: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
@@ -986,6 +1021,7 @@ class AppSignonPolicyRule(pulumi.CustomResource):
             __props__ = AppSignonPolicyRuleArgs.__new__(AppSignonPolicyRuleArgs)
 
             __props__.__dict__["access"] = access
+            __props__.__dict__["chains"] = chains
             __props__.__dict__["constraints"] = constraints
             __props__.__dict__["custom_expression"] = custom_expression
             __props__.__dict__["device_assurances_includeds"] = device_assurances_includeds
@@ -1024,6 +1060,7 @@ class AppSignonPolicyRule(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             access: Optional[pulumi.Input[builtins.str]] = None,
+            chains: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
             constraints: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
             custom_expression: Optional[pulumi.Input[builtins.str]] = None,
             device_assurances_includeds: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
@@ -1057,6 +1094,7 @@ class AppSignonPolicyRule(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] access: Allow or deny access based on the rule conditions: ALLOW or DENY
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] chains: Use with verification method = `AUTH_METHOD_CHAIN` only
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] constraints: An array that contains nested Authenticator Constraint objects that are organized by the Authenticator class
         :param pulumi.Input[builtins.str] custom_expression: This is an optional advanced setting. If the expression is formatted incorrectly or conflicts with conditions set above, the rule may not match any users.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] device_assurances_includeds: List of device assurance IDs to include
@@ -1087,6 +1125,7 @@ class AppSignonPolicyRule(pulumi.CustomResource):
         __props__ = _AppSignonPolicyRuleState.__new__(_AppSignonPolicyRuleState)
 
         __props__.__dict__["access"] = access
+        __props__.__dict__["chains"] = chains
         __props__.__dict__["constraints"] = constraints
         __props__.__dict__["custom_expression"] = custom_expression
         __props__.__dict__["device_assurances_includeds"] = device_assurances_includeds
@@ -1121,6 +1160,14 @@ class AppSignonPolicyRule(pulumi.CustomResource):
         Allow or deny access based on the rule conditions: ALLOW or DENY
         """
         return pulumi.get(self, "access")
+
+    @property
+    @pulumi.getter
+    def chains(self) -> pulumi.Output[Optional[Sequence[builtins.str]]]:
+        """
+        Use with verification method = `AUTH_METHOD_CHAIN` only
+        """
+        return pulumi.get(self, "chains")
 
     @property
     @pulumi.getter

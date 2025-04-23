@@ -4,6 +4,7 @@
 package com.pulumi.okta.inputs;
 
 import com.pulumi.core.annotations.Import;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -13,6 +14,21 @@ import javax.annotation.Nullable;
 public final class GetGroupsPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetGroupsPlainArgs Empty = new GetGroupsPlainArgs();
+
+    /**
+     * The maximum number of groups returned by the Okta API, between 1 and 10000.
+     * 
+     */
+    @Import(name="limit")
+    private @Nullable Integer limit;
+
+    /**
+     * @return The maximum number of groups returned by the Okta API, between 1 and 10000.
+     * 
+     */
+    public Optional<Integer> limit() {
+        return Optional.ofNullable(this.limit);
+    }
 
     /**
      * Searches the name property of groups for matching value
@@ -54,6 +70,7 @@ public final class GetGroupsPlainArgs extends com.pulumi.resources.InvokeArgs {
     private GetGroupsPlainArgs() {}
 
     private GetGroupsPlainArgs(GetGroupsPlainArgs $) {
+        this.limit = $.limit;
         this.q = $.q;
         this.search = $.search;
         this.type = $.type;
@@ -75,6 +92,17 @@ public final class GetGroupsPlainArgs extends com.pulumi.resources.InvokeArgs {
 
         public Builder(GetGroupsPlainArgs defaults) {
             $ = new GetGroupsPlainArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param limit The maximum number of groups returned by the Okta API, between 1 and 10000.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder limit(@Nullable Integer limit) {
+            $.limit = limit;
+            return this;
         }
 
         /**
