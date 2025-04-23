@@ -54,6 +54,10 @@ export class AppSignonPolicyRule extends pulumi.CustomResource {
      */
     public readonly access!: pulumi.Output<string | undefined>;
     /**
+     * Use with verification method = `AUTH_METHOD_CHAIN` only
+     */
+    public readonly chains!: pulumi.Output<string[] | undefined>;
+    /**
      * An array that contains nested Authenticator Constraint objects that are organized by the Authenticator class
      */
     public readonly constraints!: pulumi.Output<string[] | undefined>;
@@ -165,6 +169,7 @@ export class AppSignonPolicyRule extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as AppSignonPolicyRuleState | undefined;
             resourceInputs["access"] = state ? state.access : undefined;
+            resourceInputs["chains"] = state ? state.chains : undefined;
             resourceInputs["constraints"] = state ? state.constraints : undefined;
             resourceInputs["customExpression"] = state ? state.customExpression : undefined;
             resourceInputs["deviceAssurancesIncludeds"] = state ? state.deviceAssurancesIncludeds : undefined;
@@ -196,6 +201,7 @@ export class AppSignonPolicyRule extends pulumi.CustomResource {
                 throw new Error("Missing required property 'policyId'");
             }
             resourceInputs["access"] = args ? args.access : undefined;
+            resourceInputs["chains"] = args ? args.chains : undefined;
             resourceInputs["constraints"] = args ? args.constraints : undefined;
             resourceInputs["customExpression"] = args ? args.customExpression : undefined;
             resourceInputs["deviceAssurancesIncludeds"] = args ? args.deviceAssurancesIncludeds : undefined;
@@ -235,6 +241,10 @@ export interface AppSignonPolicyRuleState {
      * Allow or deny access based on the rule conditions: ALLOW or DENY
      */
     access?: pulumi.Input<string>;
+    /**
+     * Use with verification method = `AUTH_METHOD_CHAIN` only
+     */
+    chains?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * An array that contains nested Authenticator Constraint objects that are organized by the Authenticator class
      */
@@ -342,6 +352,10 @@ export interface AppSignonPolicyRuleArgs {
      * Allow or deny access based on the rule conditions: ALLOW or DENY
      */
     access?: pulumi.Input<string>;
+    /**
+     * Use with verification method = `AUTH_METHOD_CHAIN` only
+     */
+    chains?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * An array that contains nested Authenticator Constraint objects that are organized by the Authenticator class
      */

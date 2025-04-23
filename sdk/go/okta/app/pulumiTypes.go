@@ -368,6 +368,106 @@ func (o OAuthJwkArrayOutput) Index(i pulumi.IntInput) OAuthJwkOutput {
 	}).(OAuthJwkOutput)
 }
 
+type SamlAcsEndpointsIndex struct {
+	Index int    `pulumi:"index"`
+	Url   string `pulumi:"url"`
+}
+
+// SamlAcsEndpointsIndexInput is an input type that accepts SamlAcsEndpointsIndexArgs and SamlAcsEndpointsIndexOutput values.
+// You can construct a concrete instance of `SamlAcsEndpointsIndexInput` via:
+//
+//	SamlAcsEndpointsIndexArgs{...}
+type SamlAcsEndpointsIndexInput interface {
+	pulumi.Input
+
+	ToSamlAcsEndpointsIndexOutput() SamlAcsEndpointsIndexOutput
+	ToSamlAcsEndpointsIndexOutputWithContext(context.Context) SamlAcsEndpointsIndexOutput
+}
+
+type SamlAcsEndpointsIndexArgs struct {
+	Index pulumi.IntInput    `pulumi:"index"`
+	Url   pulumi.StringInput `pulumi:"url"`
+}
+
+func (SamlAcsEndpointsIndexArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SamlAcsEndpointsIndex)(nil)).Elem()
+}
+
+func (i SamlAcsEndpointsIndexArgs) ToSamlAcsEndpointsIndexOutput() SamlAcsEndpointsIndexOutput {
+	return i.ToSamlAcsEndpointsIndexOutputWithContext(context.Background())
+}
+
+func (i SamlAcsEndpointsIndexArgs) ToSamlAcsEndpointsIndexOutputWithContext(ctx context.Context) SamlAcsEndpointsIndexOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SamlAcsEndpointsIndexOutput)
+}
+
+// SamlAcsEndpointsIndexArrayInput is an input type that accepts SamlAcsEndpointsIndexArray and SamlAcsEndpointsIndexArrayOutput values.
+// You can construct a concrete instance of `SamlAcsEndpointsIndexArrayInput` via:
+//
+//	SamlAcsEndpointsIndexArray{ SamlAcsEndpointsIndexArgs{...} }
+type SamlAcsEndpointsIndexArrayInput interface {
+	pulumi.Input
+
+	ToSamlAcsEndpointsIndexArrayOutput() SamlAcsEndpointsIndexArrayOutput
+	ToSamlAcsEndpointsIndexArrayOutputWithContext(context.Context) SamlAcsEndpointsIndexArrayOutput
+}
+
+type SamlAcsEndpointsIndexArray []SamlAcsEndpointsIndexInput
+
+func (SamlAcsEndpointsIndexArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SamlAcsEndpointsIndex)(nil)).Elem()
+}
+
+func (i SamlAcsEndpointsIndexArray) ToSamlAcsEndpointsIndexArrayOutput() SamlAcsEndpointsIndexArrayOutput {
+	return i.ToSamlAcsEndpointsIndexArrayOutputWithContext(context.Background())
+}
+
+func (i SamlAcsEndpointsIndexArray) ToSamlAcsEndpointsIndexArrayOutputWithContext(ctx context.Context) SamlAcsEndpointsIndexArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SamlAcsEndpointsIndexArrayOutput)
+}
+
+type SamlAcsEndpointsIndexOutput struct{ *pulumi.OutputState }
+
+func (SamlAcsEndpointsIndexOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SamlAcsEndpointsIndex)(nil)).Elem()
+}
+
+func (o SamlAcsEndpointsIndexOutput) ToSamlAcsEndpointsIndexOutput() SamlAcsEndpointsIndexOutput {
+	return o
+}
+
+func (o SamlAcsEndpointsIndexOutput) ToSamlAcsEndpointsIndexOutputWithContext(ctx context.Context) SamlAcsEndpointsIndexOutput {
+	return o
+}
+
+func (o SamlAcsEndpointsIndexOutput) Index() pulumi.IntOutput {
+	return o.ApplyT(func(v SamlAcsEndpointsIndex) int { return v.Index }).(pulumi.IntOutput)
+}
+
+func (o SamlAcsEndpointsIndexOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v SamlAcsEndpointsIndex) string { return v.Url }).(pulumi.StringOutput)
+}
+
+type SamlAcsEndpointsIndexArrayOutput struct{ *pulumi.OutputState }
+
+func (SamlAcsEndpointsIndexArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SamlAcsEndpointsIndex)(nil)).Elem()
+}
+
+func (o SamlAcsEndpointsIndexArrayOutput) ToSamlAcsEndpointsIndexArrayOutput() SamlAcsEndpointsIndexArrayOutput {
+	return o
+}
+
+func (o SamlAcsEndpointsIndexArrayOutput) ToSamlAcsEndpointsIndexArrayOutputWithContext(ctx context.Context) SamlAcsEndpointsIndexArrayOutput {
+	return o
+}
+
+func (o SamlAcsEndpointsIndexArrayOutput) Index(i pulumi.IntInput) SamlAcsEndpointsIndexOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SamlAcsEndpointsIndex {
+		return vs[0].([]SamlAcsEndpointsIndex)[vs[1].(int)]
+	}).(SamlAcsEndpointsIndexOutput)
+}
+
 type SamlAttributeStatement struct {
 	// Type of group attribute filter. Valid values are: `STARTS_WITH`, `EQUALS`, `CONTAINS`, or `REGEX`
 	FilterType *string `pulumi:"filterType"`
@@ -829,6 +929,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OAuthGroupsClaimPtrInput)(nil)).Elem(), OAuthGroupsClaimArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OAuthJwkInput)(nil)).Elem(), OAuthJwkArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OAuthJwkArrayInput)(nil)).Elem(), OAuthJwkArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SamlAcsEndpointsIndexInput)(nil)).Elem(), SamlAcsEndpointsIndexArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SamlAcsEndpointsIndexArrayInput)(nil)).Elem(), SamlAcsEndpointsIndexArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SamlAttributeStatementInput)(nil)).Elem(), SamlAttributeStatementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SamlAttributeStatementArrayInput)(nil)).Elem(), SamlAttributeStatementArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SamlKeyInput)(nil)).Elem(), SamlKeyArgs{})
@@ -839,6 +941,8 @@ func init() {
 	pulumi.RegisterOutputType(OAuthGroupsClaimPtrOutput{})
 	pulumi.RegisterOutputType(OAuthJwkOutput{})
 	pulumi.RegisterOutputType(OAuthJwkArrayOutput{})
+	pulumi.RegisterOutputType(SamlAcsEndpointsIndexOutput{})
+	pulumi.RegisterOutputType(SamlAcsEndpointsIndexArrayOutput{})
 	pulumi.RegisterOutputType(SamlAttributeStatementOutput{})
 	pulumi.RegisterOutputType(SamlAttributeStatementArrayOutput{})
 	pulumi.RegisterOutputType(SamlKeyOutput{})

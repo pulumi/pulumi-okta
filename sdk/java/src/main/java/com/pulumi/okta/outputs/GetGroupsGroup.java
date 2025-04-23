@@ -31,7 +31,12 @@ public final class GetGroupsGroup {
      */
     private String name;
     /**
-     * @return Group type.
+     * @return The ID of the application the Group is sourced/imported from (only present for groups of type APP_GROUP).
+     * 
+     */
+    private String source;
+    /**
+     * @return Group type, either &#39;APP_GROUP&#39; or &#39;OKTA_GROUP&#39;.
      * 
      */
     private String type;
@@ -66,7 +71,14 @@ public final class GetGroupsGroup {
         return this.name;
     }
     /**
-     * @return Group type.
+     * @return The ID of the application the Group is sourced/imported from (only present for groups of type APP_GROUP).
+     * 
+     */
+    public String source() {
+        return this.source;
+    }
+    /**
+     * @return Group type, either &#39;APP_GROUP&#39; or &#39;OKTA_GROUP&#39;.
      * 
      */
     public String type() {
@@ -86,6 +98,7 @@ public final class GetGroupsGroup {
         private String description;
         private String id;
         private String name;
+        private String source;
         private String type;
         public Builder() {}
         public Builder(GetGroupsGroup defaults) {
@@ -94,6 +107,7 @@ public final class GetGroupsGroup {
     	      this.description = defaults.description;
     	      this.id = defaults.id;
     	      this.name = defaults.name;
+    	      this.source = defaults.source;
     	      this.type = defaults.type;
         }
 
@@ -130,6 +144,14 @@ public final class GetGroupsGroup {
             return this;
         }
         @CustomType.Setter
+        public Builder source(String source) {
+            if (source == null) {
+              throw new MissingRequiredPropertyException("GetGroupsGroup", "source");
+            }
+            this.source = source;
+            return this;
+        }
+        @CustomType.Setter
         public Builder type(String type) {
             if (type == null) {
               throw new MissingRequiredPropertyException("GetGroupsGroup", "type");
@@ -143,6 +165,7 @@ public final class GetGroupsGroup {
             _resultValue.description = description;
             _resultValue.id = id;
             _resultValue.name = name;
+            _resultValue.source = source;
             _resultValue.type = type;
             return _resultValue;
         }

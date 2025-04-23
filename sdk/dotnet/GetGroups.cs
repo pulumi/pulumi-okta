@@ -88,6 +88,12 @@ namespace Pulumi.Okta
     public sealed class GetGroupsArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
+        /// The maximum number of groups returned by the Okta API, between 1 and 10000.
+        /// </summary>
+        [Input("limit")]
+        public int? Limit { get; set; }
+
+        /// <summary>
         /// Searches the name property of groups for matching value
         /// </summary>
         [Input("q")]
@@ -110,6 +116,12 @@ namespace Pulumi.Okta
 
     public sealed class GetGroupsInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The maximum number of groups returned by the Okta API, between 1 and 10000.
+        /// </summary>
+        [Input("limit")]
+        public Input<int>? Limit { get; set; }
+
         /// <summary>
         /// Searches the name property of groups for matching value
         /// </summary>
@@ -141,6 +153,10 @@ namespace Pulumi.Okta
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// The maximum number of groups returned by the Okta API, between 1 and 10000.
+        /// </summary>
+        public readonly int? Limit;
+        /// <summary>
         /// Searches the name property of groups for matching value
         /// </summary>
         public readonly string? Q;
@@ -156,6 +172,8 @@ namespace Pulumi.Okta
 
             string id,
 
+            int? limit,
+
             string? q,
 
             string? search,
@@ -164,6 +182,7 @@ namespace Pulumi.Okta
         {
             Groups = groups;
             Id = id;
+            Limit = limit;
             Q = q;
             Search = search;
             Type = type;

@@ -24,6 +24,7 @@ export function getGroups(args?: GetGroupsArgs, opts?: pulumi.InvokeOptions): Pr
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("okta:index/getGroups:getGroups", {
+        "limit": args.limit,
         "q": args.q,
         "search": args.search,
         "type": args.type,
@@ -34,6 +35,10 @@ export function getGroups(args?: GetGroupsArgs, opts?: pulumi.InvokeOptions): Pr
  * A collection of arguments for invoking getGroups.
  */
 export interface GetGroupsArgs {
+    /**
+     * The maximum number of groups returned by the Okta API, between 1 and 10000.
+     */
+    limit?: number;
     /**
      * Searches the name property of groups for matching value
      */
@@ -54,6 +59,10 @@ export interface GetGroupsResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * The maximum number of groups returned by the Okta API, between 1 and 10000.
+     */
+    readonly limit?: number;
     /**
      * Searches the name property of groups for matching value
      */
@@ -82,6 +91,7 @@ export function getGroupsOutput(args?: GetGroupsOutputArgs, opts?: pulumi.Invoke
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("okta:index/getGroups:getGroups", {
+        "limit": args.limit,
         "q": args.q,
         "search": args.search,
         "type": args.type,
@@ -92,6 +102,10 @@ export function getGroupsOutput(args?: GetGroupsOutputArgs, opts?: pulumi.Invoke
  * A collection of arguments for invoking getGroups.
  */
 export interface GetGroupsOutputArgs {
+    /**
+     * The maximum number of groups returned by the Okta API, between 1 and 10000.
+     */
+    limit?: pulumi.Input<number>;
     /**
      * Searches the name property of groups for matching value
      */

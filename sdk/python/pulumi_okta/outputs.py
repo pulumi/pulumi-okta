@@ -2293,18 +2293,21 @@ class GetGroupsGroupResult(dict):
                  description: builtins.str,
                  id: builtins.str,
                  name: builtins.str,
+                 source: builtins.str,
                  type: builtins.str):
         """
         :param builtins.str custom_profile_attributes: Raw JSON containing all custom profile attributes. Likely only useful on groups of type
         :param builtins.str description: Group description.
         :param builtins.str id: Group ID.
         :param builtins.str name: Group name.
-        :param builtins.str type: Group type.
+        :param builtins.str source: The ID of the application the Group is sourced/imported from (only present for groups of type APP_GROUP).
+        :param builtins.str type: Group type, either 'APP_GROUP' or 'OKTA_GROUP'.
         """
         pulumi.set(__self__, "custom_profile_attributes", custom_profile_attributes)
         pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "source", source)
         pulumi.set(__self__, "type", type)
 
     @property
@@ -2341,9 +2344,17 @@ class GetGroupsGroupResult(dict):
 
     @property
     @pulumi.getter
+    def source(self) -> builtins.str:
+        """
+        The ID of the application the Group is sourced/imported from (only present for groups of type APP_GROUP).
+        """
+        return pulumi.get(self, "source")
+
+    @property
+    @pulumi.getter
     def type(self) -> builtins.str:
         """
-        Group type.
+        Group type, either 'APP_GROUP' or 'OKTA_GROUP'.
         """
         return pulumi.get(self, "type")
 

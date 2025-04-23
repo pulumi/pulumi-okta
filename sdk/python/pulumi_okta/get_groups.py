@@ -28,13 +28,16 @@ class GetGroupsResult:
     """
     A collection of values returned by getGroups.
     """
-    def __init__(__self__, groups=None, id=None, q=None, search=None, type=None):
+    def __init__(__self__, groups=None, id=None, limit=None, q=None, search=None, type=None):
         if groups and not isinstance(groups, list):
             raise TypeError("Expected argument 'groups' to be a list")
         pulumi.set(__self__, "groups", groups)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if limit and not isinstance(limit, int):
+            raise TypeError("Expected argument 'limit' to be a int")
+        pulumi.set(__self__, "limit", limit)
         if q and not isinstance(q, str):
             raise TypeError("Expected argument 'q' to be a str")
         pulumi.set(__self__, "q", q)
@@ -57,6 +60,14 @@ class GetGroupsResult:
         The provider-assigned unique ID for this managed resource.
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def limit(self) -> Optional[builtins.int]:
+        """
+        The maximum number of groups returned by the Okta API, between 1 and 10000.
+        """
+        return pulumi.get(self, "limit")
 
     @property
     @pulumi.getter
@@ -88,12 +99,14 @@ class AwaitableGetGroupsResult(GetGroupsResult):
         return GetGroupsResult(
             groups=self.groups,
             id=self.id,
+            limit=self.limit,
             q=self.q,
             search=self.search,
             type=self.type)
 
 
-def get_groups(q: Optional[builtins.str] = None,
+def get_groups(limit: Optional[builtins.int] = None,
+               q: Optional[builtins.str] = None,
                search: Optional[builtins.str] = None,
                type: Optional[builtins.str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGroupsResult:
@@ -110,10 +123,12 @@ def get_groups(q: Optional[builtins.str] = None,
     ```
 
 
+    :param builtins.int limit: The maximum number of groups returned by the Okta API, between 1 and 10000.
     :param builtins.str q: Searches the name property of groups for matching value
     :param builtins.str search: Searches for groups with a supported filtering expression for all attributes except for '*embedded', '*links', and 'objectClass'
     """
     __args__ = dict()
+    __args__['limit'] = limit
     __args__['q'] = q
     __args__['search'] = search
     __args__['type'] = type
@@ -123,10 +138,12 @@ def get_groups(q: Optional[builtins.str] = None,
     return AwaitableGetGroupsResult(
         groups=pulumi.get(__ret__, 'groups'),
         id=pulumi.get(__ret__, 'id'),
+        limit=pulumi.get(__ret__, 'limit'),
         q=pulumi.get(__ret__, 'q'),
         search=pulumi.get(__ret__, 'search'),
         type=pulumi.get(__ret__, 'type'))
-def get_groups_output(q: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+def get_groups_output(limit: Optional[pulumi.Input[Optional[builtins.int]]] = None,
+                      q: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                       search: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                       type: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGroupsResult]:
@@ -143,10 +160,12 @@ def get_groups_output(q: Optional[pulumi.Input[Optional[builtins.str]]] = None,
     ```
 
 
+    :param builtins.int limit: The maximum number of groups returned by the Okta API, between 1 and 10000.
     :param builtins.str q: Searches the name property of groups for matching value
     :param builtins.str search: Searches for groups with a supported filtering expression for all attributes except for '*embedded', '*links', and 'objectClass'
     """
     __args__ = dict()
+    __args__['limit'] = limit
     __args__['q'] = q
     __args__['search'] = search
     __args__['type'] = type
@@ -155,6 +174,7 @@ def get_groups_output(q: Optional[pulumi.Input[Optional[builtins.str]]] = None,
     return __ret__.apply(lambda __response__: GetGroupsResult(
         groups=pulumi.get(__response__, 'groups'),
         id=pulumi.get(__response__, 'id'),
+        limit=pulumi.get(__response__, 'limit'),
         q=pulumi.get(__response__, 'q'),
         search=pulumi.get(__response__, 'search'),
         type=pulumi.get(__response__, 'type')))

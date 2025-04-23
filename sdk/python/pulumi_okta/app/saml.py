@@ -27,6 +27,7 @@ class SamlArgs:
                  accessibility_login_redirect_url: Optional[pulumi.Input[builtins.str]] = None,
                  accessibility_self_service: Optional[pulumi.Input[builtins.bool]] = None,
                  acs_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 acs_endpoints_indices: Optional[pulumi.Input[Sequence[pulumi.Input['SamlAcsEndpointsIndexArgs']]]] = None,
                  admin_note: Optional[pulumi.Input[builtins.str]] = None,
                  app_links_json: Optional[pulumi.Input[builtins.str]] = None,
                  app_settings_json: Optional[pulumi.Input[builtins.str]] = None,
@@ -75,6 +76,7 @@ class SamlArgs:
         :param pulumi.Input[builtins.str] accessibility_login_redirect_url: Custom login page URL
         :param pulumi.Input[builtins.bool] accessibility_self_service: Enable self service. Default is `false`
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] acs_endpoints: An array of ACS endpoints. You can configure a maximum of 100 endpoints.
+        :param pulumi.Input[Sequence[pulumi.Input['SamlAcsEndpointsIndexArgs']]] acs_endpoints_indices: ACS endpoints along with custom index as a set of maps called `acs_endpoints_indices` in JSON format
         :param pulumi.Input[builtins.str] admin_note: Application notes for admins.
         :param pulumi.Input[builtins.str] app_links_json: Displays specific appLinks for the app. The value for each application link should be boolean.
         :param pulumi.Input[builtins.str] app_settings_json: Application settings in JSON format
@@ -134,6 +136,8 @@ class SamlArgs:
             pulumi.set(__self__, "accessibility_self_service", accessibility_self_service)
         if acs_endpoints is not None:
             pulumi.set(__self__, "acs_endpoints", acs_endpoints)
+        if acs_endpoints_indices is not None:
+            pulumi.set(__self__, "acs_endpoints_indices", acs_endpoints_indices)
         if admin_note is not None:
             pulumi.set(__self__, "admin_note", admin_note)
         if app_links_json is not None:
@@ -276,6 +280,18 @@ class SamlArgs:
     @acs_endpoints.setter
     def acs_endpoints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "acs_endpoints", value)
+
+    @property
+    @pulumi.getter(name="acsEndpointsIndices")
+    def acs_endpoints_indices(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SamlAcsEndpointsIndexArgs']]]]:
+        """
+        ACS endpoints along with custom index as a set of maps called `acs_endpoints_indices` in JSON format
+        """
+        return pulumi.get(self, "acs_endpoints_indices")
+
+    @acs_endpoints_indices.setter
+    def acs_endpoints_indices(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SamlAcsEndpointsIndexArgs']]]]):
+        pulumi.set(self, "acs_endpoints_indices", value)
 
     @property
     @pulumi.getter(name="adminNote")
@@ -783,6 +799,7 @@ class _SamlState:
                  accessibility_login_redirect_url: Optional[pulumi.Input[builtins.str]] = None,
                  accessibility_self_service: Optional[pulumi.Input[builtins.bool]] = None,
                  acs_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 acs_endpoints_indices: Optional[pulumi.Input[Sequence[pulumi.Input['SamlAcsEndpointsIndexArgs']]]] = None,
                  admin_note: Optional[pulumi.Input[builtins.str]] = None,
                  app_links_json: Optional[pulumi.Input[builtins.str]] = None,
                  app_settings_json: Optional[pulumi.Input[builtins.str]] = None,
@@ -845,6 +862,7 @@ class _SamlState:
         :param pulumi.Input[builtins.str] accessibility_login_redirect_url: Custom login page URL
         :param pulumi.Input[builtins.bool] accessibility_self_service: Enable self service. Default is `false`
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] acs_endpoints: An array of ACS endpoints. You can configure a maximum of 100 endpoints.
+        :param pulumi.Input[Sequence[pulumi.Input['SamlAcsEndpointsIndexArgs']]] acs_endpoints_indices: ACS endpoints along with custom index as a set of maps called `acs_endpoints_indices` in JSON format
         :param pulumi.Input[builtins.str] admin_note: Application notes for admins.
         :param pulumi.Input[builtins.str] app_links_json: Displays specific appLinks for the app. The value for each application link should be boolean.
         :param pulumi.Input[builtins.str] app_settings_json: Application settings in JSON format
@@ -918,6 +936,8 @@ class _SamlState:
             pulumi.set(__self__, "accessibility_self_service", accessibility_self_service)
         if acs_endpoints is not None:
             pulumi.set(__self__, "acs_endpoints", acs_endpoints)
+        if acs_endpoints_indices is not None:
+            pulumi.set(__self__, "acs_endpoints_indices", acs_endpoints_indices)
         if admin_note is not None:
             pulumi.set(__self__, "admin_note", admin_note)
         if app_links_json is not None:
@@ -1078,6 +1098,18 @@ class _SamlState:
     @acs_endpoints.setter
     def acs_endpoints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "acs_endpoints", value)
+
+    @property
+    @pulumi.getter(name="acsEndpointsIndices")
+    def acs_endpoints_indices(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SamlAcsEndpointsIndexArgs']]]]:
+        """
+        ACS endpoints along with custom index as a set of maps called `acs_endpoints_indices` in JSON format
+        """
+        return pulumi.get(self, "acs_endpoints_indices")
+
+    @acs_endpoints_indices.setter
+    def acs_endpoints_indices(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SamlAcsEndpointsIndexArgs']]]]):
+        pulumi.set(self, "acs_endpoints_indices", value)
 
     @property
     @pulumi.getter(name="adminNote")
@@ -1767,6 +1799,7 @@ class Saml(pulumi.CustomResource):
                  accessibility_login_redirect_url: Optional[pulumi.Input[builtins.str]] = None,
                  accessibility_self_service: Optional[pulumi.Input[builtins.bool]] = None,
                  acs_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 acs_endpoints_indices: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SamlAcsEndpointsIndexArgs', 'SamlAcsEndpointsIndexArgsDict']]]]] = None,
                  admin_note: Optional[pulumi.Input[builtins.str]] = None,
                  app_links_json: Optional[pulumi.Input[builtins.str]] = None,
                  app_settings_json: Optional[pulumi.Input[builtins.str]] = None,
@@ -1832,6 +1865,7 @@ class Saml(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] accessibility_login_redirect_url: Custom login page URL
         :param pulumi.Input[builtins.bool] accessibility_self_service: Enable self service. Default is `false`
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] acs_endpoints: An array of ACS endpoints. You can configure a maximum of 100 endpoints.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SamlAcsEndpointsIndexArgs', 'SamlAcsEndpointsIndexArgsDict']]]] acs_endpoints_indices: ACS endpoints along with custom index as a set of maps called `acs_endpoints_indices` in JSON format
         :param pulumi.Input[builtins.str] admin_note: Application notes for admins.
         :param pulumi.Input[builtins.str] app_links_json: Displays specific appLinks for the app. The value for each application link should be boolean.
         :param pulumi.Input[builtins.str] app_settings_json: Application settings in JSON format
@@ -1924,6 +1958,7 @@ class Saml(pulumi.CustomResource):
                  accessibility_login_redirect_url: Optional[pulumi.Input[builtins.str]] = None,
                  accessibility_self_service: Optional[pulumi.Input[builtins.bool]] = None,
                  acs_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 acs_endpoints_indices: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SamlAcsEndpointsIndexArgs', 'SamlAcsEndpointsIndexArgsDict']]]]] = None,
                  admin_note: Optional[pulumi.Input[builtins.str]] = None,
                  app_links_json: Optional[pulumi.Input[builtins.str]] = None,
                  app_settings_json: Optional[pulumi.Input[builtins.str]] = None,
@@ -1979,6 +2014,7 @@ class Saml(pulumi.CustomResource):
             __props__.__dict__["accessibility_login_redirect_url"] = accessibility_login_redirect_url
             __props__.__dict__["accessibility_self_service"] = accessibility_self_service
             __props__.__dict__["acs_endpoints"] = acs_endpoints
+            __props__.__dict__["acs_endpoints_indices"] = acs_endpoints_indices
             __props__.__dict__["admin_note"] = admin_note
             __props__.__dict__["app_links_json"] = app_links_json
             __props__.__dict__["app_settings_json"] = app_settings_json
@@ -2051,6 +2087,7 @@ class Saml(pulumi.CustomResource):
             accessibility_login_redirect_url: Optional[pulumi.Input[builtins.str]] = None,
             accessibility_self_service: Optional[pulumi.Input[builtins.bool]] = None,
             acs_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+            acs_endpoints_indices: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SamlAcsEndpointsIndexArgs', 'SamlAcsEndpointsIndexArgsDict']]]]] = None,
             admin_note: Optional[pulumi.Input[builtins.str]] = None,
             app_links_json: Optional[pulumi.Input[builtins.str]] = None,
             app_settings_json: Optional[pulumi.Input[builtins.str]] = None,
@@ -2118,6 +2155,7 @@ class Saml(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] accessibility_login_redirect_url: Custom login page URL
         :param pulumi.Input[builtins.bool] accessibility_self_service: Enable self service. Default is `false`
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] acs_endpoints: An array of ACS endpoints. You can configure a maximum of 100 endpoints.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SamlAcsEndpointsIndexArgs', 'SamlAcsEndpointsIndexArgsDict']]]] acs_endpoints_indices: ACS endpoints along with custom index as a set of maps called `acs_endpoints_indices` in JSON format
         :param pulumi.Input[builtins.str] admin_note: Application notes for admins.
         :param pulumi.Input[builtins.str] app_links_json: Displays specific appLinks for the app. The value for each application link should be boolean.
         :param pulumi.Input[builtins.str] app_settings_json: Application settings in JSON format
@@ -2191,6 +2229,7 @@ class Saml(pulumi.CustomResource):
         __props__.__dict__["accessibility_login_redirect_url"] = accessibility_login_redirect_url
         __props__.__dict__["accessibility_self_service"] = accessibility_self_service
         __props__.__dict__["acs_endpoints"] = acs_endpoints
+        __props__.__dict__["acs_endpoints_indices"] = acs_endpoints_indices
         __props__.__dict__["admin_note"] = admin_note
         __props__.__dict__["app_links_json"] = app_links_json
         __props__.__dict__["app_settings_json"] = app_settings_json
@@ -2280,6 +2319,14 @@ class Saml(pulumi.CustomResource):
         An array of ACS endpoints. You can configure a maximum of 100 endpoints.
         """
         return pulumi.get(self, "acs_endpoints")
+
+    @property
+    @pulumi.getter(name="acsEndpointsIndices")
+    def acs_endpoints_indices(self) -> pulumi.Output[Optional[Sequence['outputs.SamlAcsEndpointsIndex']]]:
+        """
+        ACS endpoints along with custom index as a set of maps called `acs_endpoints_indices` in JSON format
+        """
+        return pulumi.get(self, "acs_endpoints_indices")
 
     @property
     @pulumi.getter(name="adminNote")

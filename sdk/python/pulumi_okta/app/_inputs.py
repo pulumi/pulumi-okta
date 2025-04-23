@@ -20,6 +20,8 @@ __all__ = [
     'OAuthGroupsClaimArgsDict',
     'OAuthJwkArgs',
     'OAuthJwkArgsDict',
+    'SamlAcsEndpointsIndexArgs',
+    'SamlAcsEndpointsIndexArgsDict',
     'SamlAttributeStatementArgs',
     'SamlAttributeStatementArgsDict',
     'SamlKeyArgs',
@@ -265,6 +267,40 @@ class OAuthJwkArgs:
     @y.setter
     def y(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "y", value)
+
+
+if not MYPY:
+    class SamlAcsEndpointsIndexArgsDict(TypedDict):
+        index: pulumi.Input[builtins.int]
+        url: pulumi.Input[builtins.str]
+elif False:
+    SamlAcsEndpointsIndexArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class SamlAcsEndpointsIndexArgs:
+    def __init__(__self__, *,
+                 index: pulumi.Input[builtins.int],
+                 url: pulumi.Input[builtins.str]):
+        pulumi.set(__self__, "index", index)
+        pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter
+    def index(self) -> pulumi.Input[builtins.int]:
+        return pulumi.get(self, "index")
+
+    @index.setter
+    def index(self, value: pulumi.Input[builtins.int]):
+        pulumi.set(self, "index", value)
+
+    @property
+    @pulumi.getter
+    def url(self) -> pulumi.Input[builtins.str]:
+        return pulumi.get(self, "url")
+
+    @url.setter
+    def url(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "url", value)
 
 
 if not MYPY:

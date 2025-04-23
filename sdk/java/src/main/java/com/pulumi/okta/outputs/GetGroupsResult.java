@@ -6,6 +6,7 @@ package com.pulumi.okta.outputs;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.okta.outputs.GetGroupsGroup;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -20,6 +21,11 @@ public final class GetGroupsResult {
      * 
      */
     private String id;
+    /**
+     * @return The maximum number of groups returned by the Okta API, between 1 and 10000.
+     * 
+     */
+    private @Nullable Integer limit;
     /**
      * @return Searches the name property of groups for matching value
      * 
@@ -42,6 +48,13 @@ public final class GetGroupsResult {
      */
     public String id() {
         return this.id;
+    }
+    /**
+     * @return The maximum number of groups returned by the Okta API, between 1 and 10000.
+     * 
+     */
+    public Optional<Integer> limit() {
+        return Optional.ofNullable(this.limit);
     }
     /**
      * @return Searches the name property of groups for matching value
@@ -72,6 +85,7 @@ public final class GetGroupsResult {
     public static final class Builder {
         private List<GetGroupsGroup> groups;
         private String id;
+        private @Nullable Integer limit;
         private @Nullable String q;
         private @Nullable String search;
         private @Nullable String type;
@@ -80,6 +94,7 @@ public final class GetGroupsResult {
     	      Objects.requireNonNull(defaults);
     	      this.groups = defaults.groups;
     	      this.id = defaults.id;
+    	      this.limit = defaults.limit;
     	      this.q = defaults.q;
     	      this.search = defaults.search;
     	      this.type = defaults.type;
@@ -105,6 +120,12 @@ public final class GetGroupsResult {
             return this;
         }
         @CustomType.Setter
+        public Builder limit(@Nullable Integer limit) {
+
+            this.limit = limit;
+            return this;
+        }
+        @CustomType.Setter
         public Builder q(@Nullable String q) {
 
             this.q = q;
@@ -126,6 +147,7 @@ public final class GetGroupsResult {
             final var _resultValue = new GetGroupsResult();
             _resultValue.groups = groups;
             _resultValue.id = id;
+            _resultValue.limit = limit;
             _resultValue.q = q;
             _resultValue.search = search;
             _resultValue.type = type;

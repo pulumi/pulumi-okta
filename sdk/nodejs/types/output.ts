@@ -412,7 +412,11 @@ export interface GetGroupsGroup {
      */
     name: string;
     /**
-     * Group type.
+     * The ID of the application the Group is sourced/imported from (only present for groups of type APP_GROUP).
+     */
+    source: string;
+    /**
+     * Group type, either 'APP_GROUP' or 'OKTA_GROUP'.
      */
     type: string;
 }
@@ -771,6 +775,11 @@ export namespace app {
          * Y coordinate of the elliptic curve point
          */
         y?: string;
+    }
+
+    export interface SamlAcsEndpointsIndex {
+        index: number;
+        url: string;
     }
 
     export interface SamlAttributeStatement {

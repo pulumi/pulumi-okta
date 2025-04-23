@@ -67,6 +67,10 @@ export class Saml extends pulumi.CustomResource {
      */
     public readonly acsEndpoints!: pulumi.Output<string[] | undefined>;
     /**
+     * ACS endpoints along with custom index as a set of maps called `acsEndpointsIndices` in JSON format
+     */
+    public readonly acsEndpointsIndices!: pulumi.Output<outputs.app.SamlAcsEndpointsIndex[] | undefined>;
+    /**
      * Application notes for admins.
      */
     public readonly adminNote!: pulumi.Output<string | undefined>;
@@ -314,6 +318,7 @@ export class Saml extends pulumi.CustomResource {
             resourceInputs["accessibilityLoginRedirectUrl"] = state ? state.accessibilityLoginRedirectUrl : undefined;
             resourceInputs["accessibilitySelfService"] = state ? state.accessibilitySelfService : undefined;
             resourceInputs["acsEndpoints"] = state ? state.acsEndpoints : undefined;
+            resourceInputs["acsEndpointsIndices"] = state ? state.acsEndpointsIndices : undefined;
             resourceInputs["adminNote"] = state ? state.adminNote : undefined;
             resourceInputs["appLinksJson"] = state ? state.appLinksJson : undefined;
             resourceInputs["appSettingsJson"] = state ? state.appSettingsJson : undefined;
@@ -379,6 +384,7 @@ export class Saml extends pulumi.CustomResource {
             resourceInputs["accessibilityLoginRedirectUrl"] = args ? args.accessibilityLoginRedirectUrl : undefined;
             resourceInputs["accessibilitySelfService"] = args ? args.accessibilitySelfService : undefined;
             resourceInputs["acsEndpoints"] = args ? args.acsEndpoints : undefined;
+            resourceInputs["acsEndpointsIndices"] = args ? args.acsEndpointsIndices : undefined;
             resourceInputs["adminNote"] = args ? args.adminNote : undefined;
             resourceInputs["appLinksJson"] = args ? args.appLinksJson : undefined;
             resourceInputs["appSettingsJson"] = args ? args.appSettingsJson : undefined;
@@ -461,6 +467,10 @@ export interface SamlState {
      * An array of ACS endpoints. You can configure a maximum of 100 endpoints.
      */
     acsEndpoints?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * ACS endpoints along with custom index as a set of maps called `acsEndpointsIndices` in JSON format
+     */
+    acsEndpointsIndices?: pulumi.Input<pulumi.Input<inputs.app.SamlAcsEndpointsIndex>[]>;
     /**
      * Application notes for admins.
      */
@@ -713,6 +723,10 @@ export interface SamlArgs {
      * An array of ACS endpoints. You can configure a maximum of 100 endpoints.
      */
     acsEndpoints?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * ACS endpoints along with custom index as a set of maps called `acsEndpointsIndices` in JSON format
+     */
+    acsEndpointsIndices?: pulumi.Input<pulumi.Input<inputs.app.SamlAcsEndpointsIndex>[]>;
     /**
      * Application notes for admins.
      */

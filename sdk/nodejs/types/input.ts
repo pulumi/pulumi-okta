@@ -564,6 +564,11 @@ export namespace app {
         y?: pulumi.Input<string>;
     }
 
+    export interface SamlAcsEndpointsIndex {
+        index: pulumi.Input<number>;
+        url: pulumi.Input<string>;
+    }
+
     export interface SamlAttributeStatement {
         /**
          * Type of group attribute filter. Valid values are: `STARTS_WITH`, `EQUALS`, `CONTAINS`, or `REGEX`

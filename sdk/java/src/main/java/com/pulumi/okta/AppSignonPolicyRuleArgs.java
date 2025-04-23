@@ -36,6 +36,21 @@ public final class AppSignonPolicyRuleArgs extends com.pulumi.resources.Resource
     }
 
     /**
+     * Use with verification method = `AUTH_METHOD_CHAIN` only
+     * 
+     */
+    @Import(name="chains")
+    private @Nullable Output<List<String>> chains;
+
+    /**
+     * @return Use with verification method = `AUTH_METHOD_CHAIN` only
+     * 
+     */
+    public Optional<Output<List<String>>> chains() {
+        return Optional.ofNullable(this.chains);
+    }
+
+    /**
      * An array that contains nested Authenticator Constraint objects that are organized by the Authenticator class
      * 
      */
@@ -391,6 +406,7 @@ public final class AppSignonPolicyRuleArgs extends com.pulumi.resources.Resource
 
     private AppSignonPolicyRuleArgs(AppSignonPolicyRuleArgs $) {
         this.access = $.access;
+        this.chains = $.chains;
         this.constraints = $.constraints;
         this.customExpression = $.customExpression;
         this.deviceAssurancesIncludeds = $.deviceAssurancesIncludeds;
@@ -454,6 +470,37 @@ public final class AppSignonPolicyRuleArgs extends com.pulumi.resources.Resource
          */
         public Builder access(String access) {
             return access(Output.of(access));
+        }
+
+        /**
+         * @param chains Use with verification method = `AUTH_METHOD_CHAIN` only
+         * 
+         * @return builder
+         * 
+         */
+        public Builder chains(@Nullable Output<List<String>> chains) {
+            $.chains = chains;
+            return this;
+        }
+
+        /**
+         * @param chains Use with verification method = `AUTH_METHOD_CHAIN` only
+         * 
+         * @return builder
+         * 
+         */
+        public Builder chains(List<String> chains) {
+            return chains(Output.of(chains));
+        }
+
+        /**
+         * @param chains Use with verification method = `AUTH_METHOD_CHAIN` only
+         * 
+         * @return builder
+         * 
+         */
+        public Builder chains(String... chains) {
+            return chains(List.of(chains));
         }
 
         /**

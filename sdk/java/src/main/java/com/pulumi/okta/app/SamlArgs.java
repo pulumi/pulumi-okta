@@ -6,6 +6,7 @@ package com.pulumi.okta.app;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import com.pulumi.okta.app.inputs.SamlAcsEndpointsIndexArgs;
 import com.pulumi.okta.app.inputs.SamlAttributeStatementArgs;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -78,6 +79,21 @@ public final class SamlArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<List<String>>> acsEndpoints() {
         return Optional.ofNullable(this.acsEndpoints);
+    }
+
+    /**
+     * ACS endpoints along with custom index as a set of maps called `acs_endpoints_indices` in JSON format
+     * 
+     */
+    @Import(name="acsEndpointsIndices")
+    private @Nullable Output<List<SamlAcsEndpointsIndexArgs>> acsEndpointsIndices;
+
+    /**
+     * @return ACS endpoints along with custom index as a set of maps called `acs_endpoints_indices` in JSON format
+     * 
+     */
+    public Optional<Output<List<SamlAcsEndpointsIndexArgs>>> acsEndpointsIndices() {
+        return Optional.ofNullable(this.acsEndpointsIndices);
     }
 
     /**
@@ -727,6 +743,7 @@ public final class SamlArgs extends com.pulumi.resources.ResourceArgs {
         this.accessibilityLoginRedirectUrl = $.accessibilityLoginRedirectUrl;
         this.accessibilitySelfService = $.accessibilitySelfService;
         this.acsEndpoints = $.acsEndpoints;
+        this.acsEndpointsIndices = $.acsEndpointsIndices;
         this.adminNote = $.adminNote;
         this.appLinksJson = $.appLinksJson;
         this.appSettingsJson = $.appSettingsJson;
@@ -881,6 +898,37 @@ public final class SamlArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder acsEndpoints(String... acsEndpoints) {
             return acsEndpoints(List.of(acsEndpoints));
+        }
+
+        /**
+         * @param acsEndpointsIndices ACS endpoints along with custom index as a set of maps called `acs_endpoints_indices` in JSON format
+         * 
+         * @return builder
+         * 
+         */
+        public Builder acsEndpointsIndices(@Nullable Output<List<SamlAcsEndpointsIndexArgs>> acsEndpointsIndices) {
+            $.acsEndpointsIndices = acsEndpointsIndices;
+            return this;
+        }
+
+        /**
+         * @param acsEndpointsIndices ACS endpoints along with custom index as a set of maps called `acs_endpoints_indices` in JSON format
+         * 
+         * @return builder
+         * 
+         */
+        public Builder acsEndpointsIndices(List<SamlAcsEndpointsIndexArgs> acsEndpointsIndices) {
+            return acsEndpointsIndices(Output.of(acsEndpointsIndices));
+        }
+
+        /**
+         * @param acsEndpointsIndices ACS endpoints along with custom index as a set of maps called `acs_endpoints_indices` in JSON format
+         * 
+         * @return builder
+         * 
+         */
+        public Builder acsEndpointsIndices(SamlAcsEndpointsIndexArgs... acsEndpointsIndices) {
+            return acsEndpointsIndices(List.of(acsEndpointsIndices));
         }
 
         /**

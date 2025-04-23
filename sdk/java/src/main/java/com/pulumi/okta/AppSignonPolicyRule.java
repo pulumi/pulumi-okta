@@ -51,6 +51,20 @@ public class AppSignonPolicyRule extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.access);
     }
     /**
+     * Use with verification method = `AUTH_METHOD_CHAIN` only
+     * 
+     */
+    @Export(name="chains", refs={List.class,String.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<String>> chains;
+
+    /**
+     * @return Use with verification method = `AUTH_METHOD_CHAIN` only
+     * 
+     */
+    public Output<Optional<List<String>>> chains() {
+        return Codegen.optional(this.chains);
+    }
+    /**
      * An array that contains nested Authenticator Constraint objects that are organized by the Authenticator class
      * 
      */

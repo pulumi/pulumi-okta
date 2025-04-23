@@ -5,6 +5,7 @@ package com.pulumi.okta.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -14,6 +15,21 @@ import javax.annotation.Nullable;
 public final class GetGroupsArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetGroupsArgs Empty = new GetGroupsArgs();
+
+    /**
+     * The maximum number of groups returned by the Okta API, between 1 and 10000.
+     * 
+     */
+    @Import(name="limit")
+    private @Nullable Output<Integer> limit;
+
+    /**
+     * @return The maximum number of groups returned by the Okta API, between 1 and 10000.
+     * 
+     */
+    public Optional<Output<Integer>> limit() {
+        return Optional.ofNullable(this.limit);
+    }
 
     /**
      * Searches the name property of groups for matching value
@@ -55,6 +71,7 @@ public final class GetGroupsArgs extends com.pulumi.resources.InvokeArgs {
     private GetGroupsArgs() {}
 
     private GetGroupsArgs(GetGroupsArgs $) {
+        this.limit = $.limit;
         this.q = $.q;
         this.search = $.search;
         this.type = $.type;
@@ -76,6 +93,27 @@ public final class GetGroupsArgs extends com.pulumi.resources.InvokeArgs {
 
         public Builder(GetGroupsArgs defaults) {
             $ = new GetGroupsArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param limit The maximum number of groups returned by the Okta API, between 1 and 10000.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder limit(@Nullable Output<Integer> limit) {
+            $.limit = limit;
+            return this;
+        }
+
+        /**
+         * @param limit The maximum number of groups returned by the Okta API, between 1 and 10000.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder limit(Integer limit) {
+            return limit(Output.of(limit));
         }
 
         /**
