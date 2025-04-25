@@ -65,6 +65,9 @@ class _EmailSenderVerificationState:
 
 
 class EmailSenderVerification(pulumi.CustomResource):
+
+    pulumi_type = "okta:index/emailSenderVerification:EmailSenderVerification"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

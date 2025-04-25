@@ -497,6 +497,9 @@ class _AuthenticatorState:
 
 
 class Authenticator(pulumi.CustomResource):
+
+    pulumi_type = "okta:index/authenticator:Authenticator"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

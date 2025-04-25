@@ -1039,6 +1039,9 @@ class _SamlState:
 
 
 class Saml(pulumi.CustomResource):
+
+    pulumi_type = "okta:idp/saml:Saml"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

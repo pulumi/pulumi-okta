@@ -290,6 +290,9 @@ class _AuthServerDefaultState:
 
 
 class AuthServerDefault(pulumi.CustomResource):
+
+    pulumi_type = "okta:index/authServerDefault:AuthServerDefault"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

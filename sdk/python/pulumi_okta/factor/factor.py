@@ -97,6 +97,9 @@ class _FactorState:
 
 
 class Factor(pulumi.CustomResource):
+
+    pulumi_type = "okta:factor/factor:Factor"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

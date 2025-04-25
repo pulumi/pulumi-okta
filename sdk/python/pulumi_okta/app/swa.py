@@ -849,6 +849,9 @@ class _SwaState:
 
 
 class Swa(pulumi.CustomResource):
+
+    pulumi_type = "okta:app/swa:Swa"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

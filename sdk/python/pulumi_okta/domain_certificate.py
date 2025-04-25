@@ -189,6 +189,9 @@ class _DomainCertificateState:
 
 
 class DomainCertificate(pulumi.CustomResource):
+
+    pulumi_type = "okta:index/domainCertificate:DomainCertificate"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

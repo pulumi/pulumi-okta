@@ -274,6 +274,9 @@ class _HookState:
 
 
 class Hook(pulumi.CustomResource):
+
+    pulumi_type = "okta:inline/hook:Hook"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -545,6 +545,9 @@ class _OrgConfigurationState:
 
 
 class OrgConfiguration(pulumi.CustomResource):
+
+    pulumi_type = "okta:index/orgConfiguration:OrgConfiguration"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

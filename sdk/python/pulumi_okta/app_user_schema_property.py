@@ -720,6 +720,9 @@ class _AppUserSchemaPropertyState:
 
 
 class AppUserSchemaProperty(pulumi.CustomResource):
+
+    pulumi_type = "okta:index/appUserSchemaProperty:AppUserSchemaProperty"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

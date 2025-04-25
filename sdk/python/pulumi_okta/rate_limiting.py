@@ -128,6 +128,9 @@ class _RateLimitingState:
 
 
 class RateLimiting(pulumi.CustomResource):
+
+    pulumi_type = "okta:index/rateLimiting:RateLimiting"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -386,6 +386,9 @@ class _RulePasswordState:
 
 
 class RulePassword(pulumi.CustomResource):
+
+    pulumi_type = "okta:policy/rulePassword:RulePassword"
+
     @overload
     def __init__(__self__,
                  resource_name: str,
