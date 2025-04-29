@@ -417,6 +417,9 @@ class _ZoneState:
 
 
 class Zone(pulumi.CustomResource):
+
+    pulumi_type = "okta:network/zone:Zone"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

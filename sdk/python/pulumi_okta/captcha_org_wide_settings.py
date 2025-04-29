@@ -98,6 +98,9 @@ class _CaptchaOrgWideSettingsState:
 
 
 class CaptchaOrgWideSettings(pulumi.CustomResource):
+
+    pulumi_type = "okta:index/captchaOrgWideSettings:CaptchaOrgWideSettings"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

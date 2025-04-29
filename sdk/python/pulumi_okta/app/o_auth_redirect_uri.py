@@ -96,6 +96,9 @@ class _OAuthRedirectUriState:
 
 
 class OAuthRedirectUri(pulumi.CustomResource):
+
+    pulumi_type = "okta:app/oAuthRedirectUri:OAuthRedirectUri"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

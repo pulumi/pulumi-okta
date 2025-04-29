@@ -159,6 +159,9 @@ class _CaptchaState:
 
 
 class Captcha(pulumi.CustomResource):
+
+    pulumi_type = "okta:index/captcha:Captcha"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

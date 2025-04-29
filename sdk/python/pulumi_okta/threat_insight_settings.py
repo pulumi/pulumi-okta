@@ -97,6 +97,9 @@ class _ThreatInsightSettingsState:
 
 
 class ThreatInsightSettings(pulumi.CustomResource):
+
+    pulumi_type = "okta:index/threatInsightSettings:ThreatInsightSettings"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

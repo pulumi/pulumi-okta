@@ -96,6 +96,9 @@ class _AppSamlAppSettingsState:
 
 
 class AppSamlAppSettings(pulumi.CustomResource):
+
+    pulumi_type = "okta:index/appSamlAppSettings:AppSamlAppSettings"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

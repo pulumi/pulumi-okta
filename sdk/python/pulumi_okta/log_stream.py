@@ -155,6 +155,9 @@ class _LogStreamState:
 
 
 class LogStream(pulumi.CustomResource):
+
+    pulumi_type = "okta:index/logStream:LogStream"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

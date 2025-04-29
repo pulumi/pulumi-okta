@@ -96,6 +96,9 @@ class _TrustedServerState:
 
 
 class TrustedServer(pulumi.CustomResource):
+
+    pulumi_type = "okta:index/trustedServer:TrustedServer"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

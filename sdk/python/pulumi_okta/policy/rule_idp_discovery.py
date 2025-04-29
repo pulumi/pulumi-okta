@@ -560,6 +560,9 @@ class _RuleIdpDiscoveryState:
 
 
 class RuleIdpDiscovery(pulumi.CustomResource):
+
+    pulumi_type = "okta:policy/ruleIdpDiscovery:RuleIdpDiscovery"
+
     @overload
     def __init__(__self__,
                  resource_name: str,
