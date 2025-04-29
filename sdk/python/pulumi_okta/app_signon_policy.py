@@ -177,6 +177,9 @@ class _AppSignonPolicyState:
 
 
 class AppSignonPolicy(pulumi.CustomResource):
+
+    pulumi_type = "okta:index/appSignonPolicy:AppSignonPolicy"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

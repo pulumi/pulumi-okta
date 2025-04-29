@@ -898,6 +898,9 @@ class _PolicyPasswordDefaultState:
 
 
 class PolicyPasswordDefault(pulumi.CustomResource):
+
+    pulumi_type = "okta:index/policyPasswordDefault:PolicyPasswordDefault"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

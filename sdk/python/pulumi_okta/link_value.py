@@ -128,6 +128,9 @@ class _LinkValueState:
 
 
 class LinkValue(pulumi.CustomResource):
+
+    pulumi_type = "okta:index/linkValue:LinkValue"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

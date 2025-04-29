@@ -844,6 +844,9 @@ class _RuleSignonState:
 
 
 class RuleSignon(pulumi.CustomResource):
+
+    pulumi_type = "okta:policy/ruleSignon:RuleSignon"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -258,6 +258,9 @@ class _MappingState:
 
 
 class Mapping(pulumi.CustomResource):
+
+    pulumi_type = "okta:profile/mapping:Mapping"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

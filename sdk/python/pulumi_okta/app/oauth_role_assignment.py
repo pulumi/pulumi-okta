@@ -192,6 +192,9 @@ class _OauthRoleAssignmentState:
 
 
 class OauthRoleAssignment(pulumi.CustomResource):
+
+    pulumi_type = "okta:app/oauthRoleAssignment:OauthRoleAssignment"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -849,6 +849,9 @@ class _AutoLoginState:
 
 
 class AutoLogin(pulumi.CustomResource):
+
+    pulumi_type = "okta:app/autoLogin:AutoLogin"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

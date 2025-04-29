@@ -242,6 +242,9 @@ class _DeviceAssuranceIosState:
 
 
 class DeviceAssuranceIos(pulumi.CustomResource):
+
+    pulumi_type = "okta:policy/deviceAssuranceIos:DeviceAssuranceIos"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

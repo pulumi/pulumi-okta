@@ -319,6 +319,9 @@ class _ServerClaimState:
 
 
 class ServerClaim(pulumi.CustomResource):
+
+    pulumi_type = "okta:auth/serverClaim:ServerClaim"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

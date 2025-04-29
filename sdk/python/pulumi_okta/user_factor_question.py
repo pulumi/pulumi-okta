@@ -159,6 +159,9 @@ class _UserFactorQuestionState:
 
 
 class UserFactorQuestion(pulumi.CustomResource):
+
+    pulumi_type = "okta:index/userFactorQuestion:UserFactorQuestion"
+
     @overload
     def __init__(__self__,
                  resource_name: str,
