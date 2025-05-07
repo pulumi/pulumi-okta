@@ -869,6 +869,9 @@
                 "fields": {
                     "resources": {
                         "maxItemsOne": false
+                    },
+                    "resources_orn": {
+                        "maxItemsOne": false
                     }
                 }
             },

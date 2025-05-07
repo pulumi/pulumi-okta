@@ -42,7 +42,7 @@
             "respectSchemaVersion": true
         },
         "nodejs": {
-            "packageDescription": "A Pulumi package for creating and managing okta resources.. Based on terraform-provider-okta: version v4.17.0",
+            "packageDescription": "A Pulumi package for creating and managing okta resources.. Based on terraform-provider-okta: version v4.18.0",
             "readme": "\u003e This provider is a derived work of the [Terraform Provider](https://github.com/okta/terraform-provider-okta)\n\u003e distributed under [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/). If you encounter a bug or missing feature,\n\u003e first check the [`pulumi-okta` repo](https://github.com/pulumi/pulumi-okta/issues); however, if that doesn't turn up anything,\n\u003e please consult the source [`terraform-provider-okta` repo](https://github.com/okta/terraform-provider-okta/issues).",
             "devDependencies": {
                 "@types/mime": "^2.0.0",
@@ -8298,6 +8298,10 @@
                     },
                     "description": "Whitelist of Okta Group identifiers that are allowed for the `APPEND` or `SYNC` `groups_action`.\n"
                 },
+                "honorPersistentNameId": {
+                    "type": "boolean",
+                    "description": "Determines if the IdP should persist account linking when the incoming assertion NameID format is\nurn:oasis:names:tc:SAML:2.0:nameid-format:persistent\n"
+                },
                 "issuer": {
                     "type": "string",
                     "description": "URI that identifies the issuer.\n"
@@ -8448,6 +8452,10 @@
                     },
                     "description": "Whitelist of Okta Group identifiers that are allowed for the `APPEND` or `SYNC` `groups_action`.\n"
                 },
+                "honorPersistentNameId": {
+                    "type": "boolean",
+                    "description": "Determines if the IdP should persist account linking when the incoming assertion NameID format is\nurn:oasis:names:tc:SAML:2.0:nameid-format:persistent\n"
+                },
                 "issuer": {
                     "type": "string",
                     "description": "URI that identifies the issuer.\n"
@@ -8594,6 +8602,10 @@
                             "type": "string"
                         },
                         "description": "Whitelist of Okta Group identifiers that are allowed for the `APPEND` or `SYNC` `groups_action`.\n"
+                    },
+                    "honorPersistentNameId": {
+                        "type": "boolean",
+                        "description": "Determines if the IdP should persist account linking when the incoming assertion NameID format is\nurn:oasis:names:tc:SAML:2.0:nameid-format:persistent\n"
                     },
                     "issuer": {
                         "type": "string",
@@ -13826,6 +13838,12 @@
                         "type": "string"
                     }
                 },
+                "smartCardIdp": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
+                },
                 "status": {
                     "type": "string",
                     "description": "Default policy status\n"
@@ -13974,6 +13992,12 @@
                     }
                 },
                 "securityQuestion": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
+                },
+                "smartCardIdp": {
                     "type": "object",
                     "additionalProperties": {
                         "type": "string"
@@ -14134,6 +14158,12 @@
                         }
                     },
                     "securityQuestion": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        }
+                    },
+                    "smartCardIdp": {
                         "type": "object",
                         "additionalProperties": {
                             "type": "string"
@@ -14964,6 +14994,13 @@
                         "type": "string"
                     },
                     "description": "The endpoints that reference the resources to be included in the new Resource Set. At least one endpoint must be specified when creating resource set.\n"
+                },
+                "resourcesOrns": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The orn(Okta Resource Name) of the resources to be included in the new Resource Set. At least one orn must be specified when creating resource set.\n"
                 }
             },
             "required": [
@@ -14985,6 +15022,13 @@
                         "type": "string"
                     },
                     "description": "The endpoints that reference the resources to be included in the new Resource Set. At least one endpoint must be specified when creating resource set.\n"
+                },
+                "resourcesOrns": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The orn(Okta Resource Name) of the resources to be included in the new Resource Set. At least one orn must be specified when creating resource set.\n"
                 }
             },
             "requiredInputs": [
@@ -15008,6 +15052,13 @@
                             "type": "string"
                         },
                         "description": "The endpoints that reference the resources to be included in the new Resource Set. At least one endpoint must be specified when creating resource set.\n"
+                    },
+                    "resourcesOrns": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "The orn(Okta Resource Name) of the resources to be included in the new Resource Set. At least one orn must be specified when creating resource set.\n"
                     }
                 },
                 "type": "object"
@@ -15018,7 +15069,7 @@
             "properties": {
                 "notificationType": {
                     "type": "string",
-                    "description": "Type of the notification. Valid values: - 'CONNECTOR_AGENT' - Disconnects and reconnects: On-prem provisioning, on-prem\nMFA agents, and RADIUS server agent. - 'USER_LOCKED_OUT' - User lockouts. - 'APP_IMPORT' - App user import status. -\n'LDAP_AGENT' - Disconnects and reconnects: LDAP agent. - 'AD_AGENT' - Disconnects and reconnects: AD agent. -\n'OKTA_ANNOUNCEMENT' - Okta release notes and announcements. - 'OKTA_ISSUE' - Trust incidents and updates. -\n'OKTA_UPDATE' - Scheduled system updates. - 'IWA_AGENT' - Disconnects and reconnects: IWA agent. - 'USER_DEPROVISION' -\nUser deprovisions. - 'REPORT_SUSPICIOUS_ACTIVITY' - User reporting of suspicious activity. - 'RATELIMIT_NOTIFICATION' -\nRate limit warning and violation. - 'AGENT_AUTO_UPDATE_NOTIFICATION' - Agent auto-update notifications: AD Agent.\n"
+                    "description": "Type of the notification. Valid values: - 'CONNECTOR_AGENT' - Disconnects and reconnects: On-prem provisioning, on-prem\nMFA agents, and RADIUS server agent. - 'USER_LOCKED_OUT' - User lockouts. - 'APP_IMPORT' - App user import status. -\n'LDAP_AGENT' - Disconnects and reconnects: LDAP agent. - 'AD_AGENT' - Disconnects and reconnects: AD agent. -\n'OKTA_ANNOUNCEMENT' - Okta release notes and announcements. - 'OKTA_UPDATE' - Scheduled system updates. - 'IWA_AGENT' -\nDisconnects and reconnects: IWA agent. - 'USER_DEPROVISION' - User deprovisions. - 'REPORT_SUSPICIOUS_ACTIVITY' - User\nreporting of suspicious activity. - 'RATELIMIT_NOTIFICATION' - Rate limit warning and violation. -\n'AGENT_AUTO_UPDATE_NOTIFICATION' - Agent auto-update notifications: AD Agent.\n"
                 },
                 "roleType": {
                     "type": "string",
@@ -15036,7 +15087,7 @@
             "inputProperties": {
                 "notificationType": {
                     "type": "string",
-                    "description": "Type of the notification. Valid values: - 'CONNECTOR_AGENT' - Disconnects and reconnects: On-prem provisioning, on-prem\nMFA agents, and RADIUS server agent. - 'USER_LOCKED_OUT' - User lockouts. - 'APP_IMPORT' - App user import status. -\n'LDAP_AGENT' - Disconnects and reconnects: LDAP agent. - 'AD_AGENT' - Disconnects and reconnects: AD agent. -\n'OKTA_ANNOUNCEMENT' - Okta release notes and announcements. - 'OKTA_ISSUE' - Trust incidents and updates. -\n'OKTA_UPDATE' - Scheduled system updates. - 'IWA_AGENT' - Disconnects and reconnects: IWA agent. - 'USER_DEPROVISION' -\nUser deprovisions. - 'REPORT_SUSPICIOUS_ACTIVITY' - User reporting of suspicious activity. - 'RATELIMIT_NOTIFICATION' -\nRate limit warning and violation. - 'AGENT_AUTO_UPDATE_NOTIFICATION' - Agent auto-update notifications: AD Agent.\n",
+                    "description": "Type of the notification. Valid values: - 'CONNECTOR_AGENT' - Disconnects and reconnects: On-prem provisioning, on-prem\nMFA agents, and RADIUS server agent. - 'USER_LOCKED_OUT' - User lockouts. - 'APP_IMPORT' - App user import status. -\n'LDAP_AGENT' - Disconnects and reconnects: LDAP agent. - 'AD_AGENT' - Disconnects and reconnects: AD agent. -\n'OKTA_ANNOUNCEMENT' - Okta release notes and announcements. - 'OKTA_UPDATE' - Scheduled system updates. - 'IWA_AGENT' -\nDisconnects and reconnects: IWA agent. - 'USER_DEPROVISION' - User deprovisions. - 'REPORT_SUSPICIOUS_ACTIVITY' - User\nreporting of suspicious activity. - 'RATELIMIT_NOTIFICATION' - Rate limit warning and violation. -\n'AGENT_AUTO_UPDATE_NOTIFICATION' - Agent auto-update notifications: AD Agent.\n",
                     "willReplaceOnChanges": true
                 },
                 "roleType": {
@@ -15058,7 +15109,7 @@
                 "properties": {
                     "notificationType": {
                         "type": "string",
-                        "description": "Type of the notification. Valid values: - 'CONNECTOR_AGENT' - Disconnects and reconnects: On-prem provisioning, on-prem\nMFA agents, and RADIUS server agent. - 'USER_LOCKED_OUT' - User lockouts. - 'APP_IMPORT' - App user import status. -\n'LDAP_AGENT' - Disconnects and reconnects: LDAP agent. - 'AD_AGENT' - Disconnects and reconnects: AD agent. -\n'OKTA_ANNOUNCEMENT' - Okta release notes and announcements. - 'OKTA_ISSUE' - Trust incidents and updates. -\n'OKTA_UPDATE' - Scheduled system updates. - 'IWA_AGENT' - Disconnects and reconnects: IWA agent. - 'USER_DEPROVISION' -\nUser deprovisions. - 'REPORT_SUSPICIOUS_ACTIVITY' - User reporting of suspicious activity. - 'RATELIMIT_NOTIFICATION' -\nRate limit warning and violation. - 'AGENT_AUTO_UPDATE_NOTIFICATION' - Agent auto-update notifications: AD Agent.\n",
+                        "description": "Type of the notification. Valid values: - 'CONNECTOR_AGENT' - Disconnects and reconnects: On-prem provisioning, on-prem\nMFA agents, and RADIUS server agent. - 'USER_LOCKED_OUT' - User lockouts. - 'APP_IMPORT' - App user import status. -\n'LDAP_AGENT' - Disconnects and reconnects: LDAP agent. - 'AD_AGENT' - Disconnects and reconnects: AD agent. -\n'OKTA_ANNOUNCEMENT' - Okta release notes and announcements. - 'OKTA_UPDATE' - Scheduled system updates. - 'IWA_AGENT' -\nDisconnects and reconnects: IWA agent. - 'USER_DEPROVISION' - User deprovisions. - 'REPORT_SUSPICIOUS_ACTIVITY' - User\nreporting of suspicious activity. - 'RATELIMIT_NOTIFICATION' - Rate limit warning and violation. -\n'AGENT_AUTO_UPDATE_NOTIFICATION' - Agent auto-update notifications: AD Agent.\n",
                         "willReplaceOnChanges": true
                     },
                     "roleType": {
@@ -17899,6 +17950,12 @@
                         "type": "string"
                     }
                 },
+                "smartCardIdp": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
+                },
                 "status": {
                     "type": "string",
                     "description": "Policy Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`\n"
@@ -18067,6 +18124,12 @@
                         "type": "string"
                     }
                 },
+                "smartCardIdp": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
+                },
                 "status": {
                     "type": "string",
                     "description": "Policy Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`\n"
@@ -18229,6 +18292,12 @@
                         }
                     },
                     "securityQuestion": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        }
+                    },
+                    "smartCardIdp": {
                         "type": "object",
                         "additionalProperties": {
                             "type": "string"
@@ -19969,7 +20038,7 @@
                 },
                 "customProfileAttributes": {
                     "type": "string",
-                    "description": "JSON formatted custom attributes for a user. It must be JSON due to various types Okta allows.\n"
+                    "description": "JSON formatted custom attributes for a user. It must be JSON due to various types Okta allows. You must first add the custom property to the user profile schema before you reference it. You can use the Profile Editor in the Admin Console or the [Schemas](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UISchema/#tag/UISchema) API to manage schema extensions.\n"
                 },
                 "customProfileAttributesToIgnores": {
                     "type": "array",
@@ -20157,7 +20226,7 @@
                 },
                 "customProfileAttributes": {
                     "type": "string",
-                    "description": "JSON formatted custom attributes for a user. It must be JSON due to various types Okta allows.\n"
+                    "description": "JSON formatted custom attributes for a user. It must be JSON due to various types Okta allows. You must first add the custom property to the user profile schema before you reference it. You can use the Profile Editor in the Admin Console or the [Schemas](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UISchema/#tag/UISchema) API to manage schema extensions.\n"
                 },
                 "customProfileAttributesToIgnores": {
                     "type": "array",
@@ -20341,7 +20410,7 @@
                     },
                     "customProfileAttributes": {
                         "type": "string",
-                        "description": "JSON formatted custom attributes for a user. It must be JSON due to various types Okta allows.\n"
+                        "description": "JSON formatted custom attributes for a user. It must be JSON due to various types Okta allows. You must first add the custom property to the user profile schema before you reference it. You can use the Profile Editor in the Admin Console or the [Schemas](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UISchema/#tag/UISchema) API to manage schema extensions.\n"
                     },
                     "customProfileAttributesToIgnores": {
                         "type": "array",
@@ -22166,7 +22235,12 @@
                     },
                     "labelPrefix": {
                         "type": "string",
-                        "description": "Searches for applications whose label or name property begins with this value.\n"
+                        "description": "Searches for applications whose label or name property begins with this value. **Warning:** This might not work as intended and will be removed in the future release. Use `q` instead.\n",
+                        "deprecationMessage": "Use `q` instead. This attribute will be removed in a future version."
+                    },
+                    "q": {
+                        "type": "string",
+                        "description": "Searches for apps with name or label properties that starts with the `q` value.\n"
                     },
                     "useOptimization": {
                         "type": "boolean",
@@ -22202,7 +22276,12 @@
                         "type": "string"
                     },
                     "labelPrefix": {
-                        "description": "Searches for applications whose label or name property begins with this value.\n",
+                        "deprecationMessage": "Use `q` instead. This attribute will be removed in a future version.",
+                        "description": "Searches for applications whose label or name property begins with this value. **Warning:** This might not work as intended and will be removed in the future release. Use `q` instead.\n",
+                        "type": "string"
+                    },
+                    "q": {
+                        "description": "Searches for apps with name or label properties that starts with the `q` value.\n",
                         "type": "string"
                     },
                     "useOptimization": {
