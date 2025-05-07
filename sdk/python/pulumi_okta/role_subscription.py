@@ -28,10 +28,10 @@ class RoleSubscriptionArgs:
         :param pulumi.Input[builtins.str] notification_type: Type of the notification. Valid values: - 'CONNECTOR_AGENT' - Disconnects and reconnects: On-prem provisioning, on-prem
                MFA agents, and RADIUS server agent. - 'USER_LOCKED_OUT' - User lockouts. - 'APP_IMPORT' - App user import status. -
                'LDAP_AGENT' - Disconnects and reconnects: LDAP agent. - 'AD_AGENT' - Disconnects and reconnects: AD agent. -
-               'OKTA_ANNOUNCEMENT' - Okta release notes and announcements. - 'OKTA_ISSUE' - Trust incidents and updates. -
-               'OKTA_UPDATE' - Scheduled system updates. - 'IWA_AGENT' - Disconnects and reconnects: IWA agent. - 'USER_DEPROVISION' -
-               User deprovisions. - 'REPORT_SUSPICIOUS_ACTIVITY' - User reporting of suspicious activity. - 'RATELIMIT_NOTIFICATION' -
-               Rate limit warning and violation. - 'AGENT_AUTO_UPDATE_NOTIFICATION' - Agent auto-update notifications: AD Agent.
+               'OKTA_ANNOUNCEMENT' - Okta release notes and announcements. - 'OKTA_UPDATE' - Scheduled system updates. - 'IWA_AGENT' -
+               Disconnects and reconnects: IWA agent. - 'USER_DEPROVISION' - User deprovisions. - 'REPORT_SUSPICIOUS_ACTIVITY' - User
+               reporting of suspicious activity. - 'RATELIMIT_NOTIFICATION' - Rate limit warning and violation. -
+               'AGENT_AUTO_UPDATE_NOTIFICATION' - Agent auto-update notifications: AD Agent.
         :param pulumi.Input[builtins.str] role_type: Type of the role. Valid values: 'API_ADMIN', 'APP_ADMIN', 'CUSTOM', 'GROUP_MEMBERSHIP_ADMIN', 'HELP_DESK_ADMIN',
                'MOBILE_ADMIN', 'ORG_ADMIN', 'READ_ONLY_ADMIN', 'REPORT_ADMIN', 'SUPER_ADMIN', 'USER_ADMIN' . See [API
                docs](https://developer.okta.com/docs/reference/api/admin-notifications/#role-types).
@@ -49,10 +49,10 @@ class RoleSubscriptionArgs:
         Type of the notification. Valid values: - 'CONNECTOR_AGENT' - Disconnects and reconnects: On-prem provisioning, on-prem
         MFA agents, and RADIUS server agent. - 'USER_LOCKED_OUT' - User lockouts. - 'APP_IMPORT' - App user import status. -
         'LDAP_AGENT' - Disconnects and reconnects: LDAP agent. - 'AD_AGENT' - Disconnects and reconnects: AD agent. -
-        'OKTA_ANNOUNCEMENT' - Okta release notes and announcements. - 'OKTA_ISSUE' - Trust incidents and updates. -
-        'OKTA_UPDATE' - Scheduled system updates. - 'IWA_AGENT' - Disconnects and reconnects: IWA agent. - 'USER_DEPROVISION' -
-        User deprovisions. - 'REPORT_SUSPICIOUS_ACTIVITY' - User reporting of suspicious activity. - 'RATELIMIT_NOTIFICATION' -
-        Rate limit warning and violation. - 'AGENT_AUTO_UPDATE_NOTIFICATION' - Agent auto-update notifications: AD Agent.
+        'OKTA_ANNOUNCEMENT' - Okta release notes and announcements. - 'OKTA_UPDATE' - Scheduled system updates. - 'IWA_AGENT' -
+        Disconnects and reconnects: IWA agent. - 'USER_DEPROVISION' - User deprovisions. - 'REPORT_SUSPICIOUS_ACTIVITY' - User
+        reporting of suspicious activity. - 'RATELIMIT_NOTIFICATION' - Rate limit warning and violation. -
+        'AGENT_AUTO_UPDATE_NOTIFICATION' - Agent auto-update notifications: AD Agent.
         """
         return pulumi.get(self, "notification_type")
 
@@ -98,10 +98,10 @@ class _RoleSubscriptionState:
         :param pulumi.Input[builtins.str] notification_type: Type of the notification. Valid values: - 'CONNECTOR_AGENT' - Disconnects and reconnects: On-prem provisioning, on-prem
                MFA agents, and RADIUS server agent. - 'USER_LOCKED_OUT' - User lockouts. - 'APP_IMPORT' - App user import status. -
                'LDAP_AGENT' - Disconnects and reconnects: LDAP agent. - 'AD_AGENT' - Disconnects and reconnects: AD agent. -
-               'OKTA_ANNOUNCEMENT' - Okta release notes and announcements. - 'OKTA_ISSUE' - Trust incidents and updates. -
-               'OKTA_UPDATE' - Scheduled system updates. - 'IWA_AGENT' - Disconnects and reconnects: IWA agent. - 'USER_DEPROVISION' -
-               User deprovisions. - 'REPORT_SUSPICIOUS_ACTIVITY' - User reporting of suspicious activity. - 'RATELIMIT_NOTIFICATION' -
-               Rate limit warning and violation. - 'AGENT_AUTO_UPDATE_NOTIFICATION' - Agent auto-update notifications: AD Agent.
+               'OKTA_ANNOUNCEMENT' - Okta release notes and announcements. - 'OKTA_UPDATE' - Scheduled system updates. - 'IWA_AGENT' -
+               Disconnects and reconnects: IWA agent. - 'USER_DEPROVISION' - User deprovisions. - 'REPORT_SUSPICIOUS_ACTIVITY' - User
+               reporting of suspicious activity. - 'RATELIMIT_NOTIFICATION' - Rate limit warning and violation. -
+               'AGENT_AUTO_UPDATE_NOTIFICATION' - Agent auto-update notifications: AD Agent.
         :param pulumi.Input[builtins.str] role_type: Type of the role. Valid values: 'API_ADMIN', 'APP_ADMIN', 'CUSTOM', 'GROUP_MEMBERSHIP_ADMIN', 'HELP_DESK_ADMIN',
                'MOBILE_ADMIN', 'ORG_ADMIN', 'READ_ONLY_ADMIN', 'REPORT_ADMIN', 'SUPER_ADMIN', 'USER_ADMIN' . See [API
                docs](https://developer.okta.com/docs/reference/api/admin-notifications/#role-types).
@@ -121,10 +121,10 @@ class _RoleSubscriptionState:
         Type of the notification. Valid values: - 'CONNECTOR_AGENT' - Disconnects and reconnects: On-prem provisioning, on-prem
         MFA agents, and RADIUS server agent. - 'USER_LOCKED_OUT' - User lockouts. - 'APP_IMPORT' - App user import status. -
         'LDAP_AGENT' - Disconnects and reconnects: LDAP agent. - 'AD_AGENT' - Disconnects and reconnects: AD agent. -
-        'OKTA_ANNOUNCEMENT' - Okta release notes and announcements. - 'OKTA_ISSUE' - Trust incidents and updates. -
-        'OKTA_UPDATE' - Scheduled system updates. - 'IWA_AGENT' - Disconnects and reconnects: IWA agent. - 'USER_DEPROVISION' -
-        User deprovisions. - 'REPORT_SUSPICIOUS_ACTIVITY' - User reporting of suspicious activity. - 'RATELIMIT_NOTIFICATION' -
-        Rate limit warning and violation. - 'AGENT_AUTO_UPDATE_NOTIFICATION' - Agent auto-update notifications: AD Agent.
+        'OKTA_ANNOUNCEMENT' - Okta release notes and announcements. - 'OKTA_UPDATE' - Scheduled system updates. - 'IWA_AGENT' -
+        Disconnects and reconnects: IWA agent. - 'USER_DEPROVISION' - User deprovisions. - 'REPORT_SUSPICIOUS_ACTIVITY' - User
+        reporting of suspicious activity. - 'RATELIMIT_NOTIFICATION' - Rate limit warning and violation. -
+        'AGENT_AUTO_UPDATE_NOTIFICATION' - Agent auto-update notifications: AD Agent.
         """
         return pulumi.get(self, "notification_type")
 
@@ -201,10 +201,10 @@ class RoleSubscription(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] notification_type: Type of the notification. Valid values: - 'CONNECTOR_AGENT' - Disconnects and reconnects: On-prem provisioning, on-prem
                MFA agents, and RADIUS server agent. - 'USER_LOCKED_OUT' - User lockouts. - 'APP_IMPORT' - App user import status. -
                'LDAP_AGENT' - Disconnects and reconnects: LDAP agent. - 'AD_AGENT' - Disconnects and reconnects: AD agent. -
-               'OKTA_ANNOUNCEMENT' - Okta release notes and announcements. - 'OKTA_ISSUE' - Trust incidents and updates. -
-               'OKTA_UPDATE' - Scheduled system updates. - 'IWA_AGENT' - Disconnects and reconnects: IWA agent. - 'USER_DEPROVISION' -
-               User deprovisions. - 'REPORT_SUSPICIOUS_ACTIVITY' - User reporting of suspicious activity. - 'RATELIMIT_NOTIFICATION' -
-               Rate limit warning and violation. - 'AGENT_AUTO_UPDATE_NOTIFICATION' - Agent auto-update notifications: AD Agent.
+               'OKTA_ANNOUNCEMENT' - Okta release notes and announcements. - 'OKTA_UPDATE' - Scheduled system updates. - 'IWA_AGENT' -
+               Disconnects and reconnects: IWA agent. - 'USER_DEPROVISION' - User deprovisions. - 'REPORT_SUSPICIOUS_ACTIVITY' - User
+               reporting of suspicious activity. - 'RATELIMIT_NOTIFICATION' - Rate limit warning and violation. -
+               'AGENT_AUTO_UPDATE_NOTIFICATION' - Agent auto-update notifications: AD Agent.
         :param pulumi.Input[builtins.str] role_type: Type of the role. Valid values: 'API_ADMIN', 'APP_ADMIN', 'CUSTOM', 'GROUP_MEMBERSHIP_ADMIN', 'HELP_DESK_ADMIN',
                'MOBILE_ADMIN', 'ORG_ADMIN', 'READ_ONLY_ADMIN', 'REPORT_ADMIN', 'SUPER_ADMIN', 'USER_ADMIN' . See [API
                docs](https://developer.okta.com/docs/reference/api/admin-notifications/#role-types).
@@ -298,10 +298,10 @@ class RoleSubscription(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] notification_type: Type of the notification. Valid values: - 'CONNECTOR_AGENT' - Disconnects and reconnects: On-prem provisioning, on-prem
                MFA agents, and RADIUS server agent. - 'USER_LOCKED_OUT' - User lockouts. - 'APP_IMPORT' - App user import status. -
                'LDAP_AGENT' - Disconnects and reconnects: LDAP agent. - 'AD_AGENT' - Disconnects and reconnects: AD agent. -
-               'OKTA_ANNOUNCEMENT' - Okta release notes and announcements. - 'OKTA_ISSUE' - Trust incidents and updates. -
-               'OKTA_UPDATE' - Scheduled system updates. - 'IWA_AGENT' - Disconnects and reconnects: IWA agent. - 'USER_DEPROVISION' -
-               User deprovisions. - 'REPORT_SUSPICIOUS_ACTIVITY' - User reporting of suspicious activity. - 'RATELIMIT_NOTIFICATION' -
-               Rate limit warning and violation. - 'AGENT_AUTO_UPDATE_NOTIFICATION' - Agent auto-update notifications: AD Agent.
+               'OKTA_ANNOUNCEMENT' - Okta release notes and announcements. - 'OKTA_UPDATE' - Scheduled system updates. - 'IWA_AGENT' -
+               Disconnects and reconnects: IWA agent. - 'USER_DEPROVISION' - User deprovisions. - 'REPORT_SUSPICIOUS_ACTIVITY' - User
+               reporting of suspicious activity. - 'RATELIMIT_NOTIFICATION' - Rate limit warning and violation. -
+               'AGENT_AUTO_UPDATE_NOTIFICATION' - Agent auto-update notifications: AD Agent.
         :param pulumi.Input[builtins.str] role_type: Type of the role. Valid values: 'API_ADMIN', 'APP_ADMIN', 'CUSTOM', 'GROUP_MEMBERSHIP_ADMIN', 'HELP_DESK_ADMIN',
                'MOBILE_ADMIN', 'ORG_ADMIN', 'READ_ONLY_ADMIN', 'REPORT_ADMIN', 'SUPER_ADMIN', 'USER_ADMIN' . See [API
                docs](https://developer.okta.com/docs/reference/api/admin-notifications/#role-types).
@@ -323,10 +323,10 @@ class RoleSubscription(pulumi.CustomResource):
         Type of the notification. Valid values: - 'CONNECTOR_AGENT' - Disconnects and reconnects: On-prem provisioning, on-prem
         MFA agents, and RADIUS server agent. - 'USER_LOCKED_OUT' - User lockouts. - 'APP_IMPORT' - App user import status. -
         'LDAP_AGENT' - Disconnects and reconnects: LDAP agent. - 'AD_AGENT' - Disconnects and reconnects: AD agent. -
-        'OKTA_ANNOUNCEMENT' - Okta release notes and announcements. - 'OKTA_ISSUE' - Trust incidents and updates. -
-        'OKTA_UPDATE' - Scheduled system updates. - 'IWA_AGENT' - Disconnects and reconnects: IWA agent. - 'USER_DEPROVISION' -
-        User deprovisions. - 'REPORT_SUSPICIOUS_ACTIVITY' - User reporting of suspicious activity. - 'RATELIMIT_NOTIFICATION' -
-        Rate limit warning and violation. - 'AGENT_AUTO_UPDATE_NOTIFICATION' - Agent auto-update notifications: AD Agent.
+        'OKTA_ANNOUNCEMENT' - Okta release notes and announcements. - 'OKTA_UPDATE' - Scheduled system updates. - 'IWA_AGENT' -
+        Disconnects and reconnects: IWA agent. - 'USER_DEPROVISION' - User deprovisions. - 'REPORT_SUSPICIOUS_ACTIVITY' - User
+        reporting of suspicious activity. - 'RATELIMIT_NOTIFICATION' - Rate limit warning and violation. -
+        'AGENT_AUTO_UPDATE_NOTIFICATION' - Agent auto-update notifications: AD Agent.
         """
         return pulumi.get(self, "notification_type")
 

@@ -40,6 +40,7 @@ class PolicyMfaDefaultArgs:
                  phone_number: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  rsa_token: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  security_question: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 smart_card_idp: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  symantec_vip: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  webauthn: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  yubikey_token: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
@@ -90,6 +91,8 @@ class PolicyMfaDefaultArgs:
             pulumi.set(__self__, "rsa_token", rsa_token)
         if security_question is not None:
             pulumi.set(__self__, "security_question", security_question)
+        if smart_card_idp is not None:
+            pulumi.set(__self__, "smart_card_idp", smart_card_idp)
         if symantec_vip is not None:
             pulumi.set(__self__, "symantec_vip", symantec_vip)
         if webauthn is not None:
@@ -282,6 +285,15 @@ class PolicyMfaDefaultArgs:
         pulumi.set(self, "security_question", value)
 
     @property
+    @pulumi.getter(name="smartCardIdp")
+    def smart_card_idp(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
+        return pulumi.get(self, "smart_card_idp")
+
+    @smart_card_idp.setter
+    def smart_card_idp(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "smart_card_idp", value)
+
+    @property
     @pulumi.getter(name="symantecVip")
     def symantec_vip(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         return pulumi.get(self, "symantec_vip")
@@ -336,6 +348,7 @@ class _PolicyMfaDefaultState:
                  priority: Optional[pulumi.Input[builtins.int]] = None,
                  rsa_token: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  security_question: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 smart_card_idp: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  status: Optional[pulumi.Input[builtins.str]] = None,
                  symantec_vip: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  webauthn: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -400,6 +413,8 @@ class _PolicyMfaDefaultState:
             pulumi.set(__self__, "rsa_token", rsa_token)
         if security_question is not None:
             pulumi.set(__self__, "security_question", security_question)
+        if smart_card_idp is not None:
+            pulumi.set(__self__, "smart_card_idp", smart_card_idp)
         if status is not None:
             pulumi.set(__self__, "status", status)
         if symantec_vip is not None:
@@ -642,6 +657,15 @@ class _PolicyMfaDefaultState:
         pulumi.set(self, "security_question", value)
 
     @property
+    @pulumi.getter(name="smartCardIdp")
+    def smart_card_idp(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
+        return pulumi.get(self, "smart_card_idp")
+
+    @smart_card_idp.setter
+    def smart_card_idp(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "smart_card_idp", value)
+
+    @property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -709,6 +733,7 @@ class PolicyMfaDefault(pulumi.CustomResource):
                  phone_number: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  rsa_token: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  security_question: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 smart_card_idp: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  symantec_vip: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  webauthn: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  yubikey_token: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -830,6 +855,7 @@ class PolicyMfaDefault(pulumi.CustomResource):
                  phone_number: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  rsa_token: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  security_question: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 smart_card_idp: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  symantec_vip: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  webauthn: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  yubikey_token: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -862,6 +888,7 @@ class PolicyMfaDefault(pulumi.CustomResource):
             __props__.__dict__["phone_number"] = phone_number
             __props__.__dict__["rsa_token"] = rsa_token
             __props__.__dict__["security_question"] = security_question
+            __props__.__dict__["smart_card_idp"] = smart_card_idp
             __props__.__dict__["symantec_vip"] = symantec_vip
             __props__.__dict__["webauthn"] = webauthn
             __props__.__dict__["yubikey_token"] = yubikey_token
@@ -904,6 +931,7 @@ class PolicyMfaDefault(pulumi.CustomResource):
             priority: Optional[pulumi.Input[builtins.int]] = None,
             rsa_token: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             security_question: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+            smart_card_idp: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             status: Optional[pulumi.Input[builtins.str]] = None,
             symantec_vip: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             webauthn: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -950,6 +978,7 @@ class PolicyMfaDefault(pulumi.CustomResource):
         __props__.__dict__["priority"] = priority
         __props__.__dict__["rsa_token"] = rsa_token
         __props__.__dict__["security_question"] = security_question
+        __props__.__dict__["smart_card_idp"] = smart_card_idp
         __props__.__dict__["status"] = status
         __props__.__dict__["symantec_vip"] = symantec_vip
         __props__.__dict__["webauthn"] = webauthn
@@ -1091,6 +1120,11 @@ class PolicyMfaDefault(pulumi.CustomResource):
     @pulumi.getter(name="securityQuestion")
     def security_question(self) -> pulumi.Output[Optional[Mapping[str, builtins.str]]]:
         return pulumi.get(self, "security_question")
+
+    @property
+    @pulumi.getter(name="smartCardIdp")
+    def smart_card_idp(self) -> pulumi.Output[Optional[Mapping[str, builtins.str]]]:
+        return pulumi.get(self, "smart_card_idp")
 
     @property
     @pulumi.getter

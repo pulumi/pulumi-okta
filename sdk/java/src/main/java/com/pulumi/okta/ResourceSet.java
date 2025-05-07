@@ -77,6 +77,20 @@ public class ResourceSet extends com.pulumi.resources.CustomResource {
     public Output<Optional<List<String>>> resources() {
         return Codegen.optional(this.resources);
     }
+    /**
+     * The orn(Okta Resource Name) of the resources to be included in the new Resource Set. At least one orn must be specified when creating resource set.
+     * 
+     */
+    @Export(name="resourcesOrns", refs={List.class,String.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<String>> resourcesOrns;
+
+    /**
+     * @return The orn(Okta Resource Name) of the resources to be included in the new Resource Set. At least one orn must be specified when creating resource set.
+     * 
+     */
+    public Output<Optional<List<String>>> resourcesOrns() {
+        return Codegen.optional(this.resourcesOrns);
+    }
 
     /**
      *

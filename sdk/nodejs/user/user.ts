@@ -106,7 +106,7 @@ export class User extends pulumi.CustomResource {
      */
     public readonly countryCode!: pulumi.Output<string | undefined>;
     /**
-     * JSON formatted custom attributes for a user. It must be JSON due to various types Okta allows.
+     * JSON formatted custom attributes for a user. It must be JSON due to various types Okta allows. You must first add the custom property to the user profile schema before you reference it. You can use the Profile Editor in the Admin Console or the [Schemas](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UISchema/#tag/UISchema) API to manage schema extensions.
      */
     public readonly customProfileAttributes!: pulumi.Output<string>;
     public readonly customProfileAttributesToIgnores!: pulumi.Output<string[] | undefined>;
@@ -403,7 +403,7 @@ export interface UserState {
      */
     countryCode?: pulumi.Input<string>;
     /**
-     * JSON formatted custom attributes for a user. It must be JSON due to various types Okta allows.
+     * JSON formatted custom attributes for a user. It must be JSON due to various types Okta allows. You must first add the custom property to the user profile schema before you reference it. You can use the Profile Editor in the Admin Console or the [Schemas](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UISchema/#tag/UISchema) API to manage schema extensions.
      */
     customProfileAttributes?: pulumi.Input<string>;
     customProfileAttributesToIgnores?: pulumi.Input<pulumi.Input<string>[]>;
@@ -580,7 +580,7 @@ export interface UserArgs {
      */
     countryCode?: pulumi.Input<string>;
     /**
-     * JSON formatted custom attributes for a user. It must be JSON due to various types Okta allows.
+     * JSON formatted custom attributes for a user. It must be JSON due to various types Okta allows. You must first add the custom property to the user profile schema before you reference it. You can use the Profile Editor in the Admin Console or the [Schemas](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UISchema/#tag/UISchema) API to manage schema extensions.
      */
     customProfileAttributes?: pulumi.Input<string>;
     customProfileAttributesToIgnores?: pulumi.Input<pulumi.Input<string>[]>;

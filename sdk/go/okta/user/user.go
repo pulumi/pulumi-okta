@@ -96,7 +96,7 @@ type User struct {
 	CostCenter pulumi.StringPtrOutput `pulumi:"costCenter"`
 	// User country code
 	CountryCode pulumi.StringPtrOutput `pulumi:"countryCode"`
-	// JSON formatted custom attributes for a user. It must be JSON due to various types Okta allows.
+	// JSON formatted custom attributes for a user. It must be JSON due to various types Okta allows. You must first add the custom property to the user profile schema before you reference it. You can use the Profile Editor in the Admin Console or the [Schemas](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UISchema/#tag/UISchema) API to manage schema extensions.
 	CustomProfileAttributes          pulumi.StringOutput      `pulumi:"customProfileAttributes"`
 	CustomProfileAttributesToIgnores pulumi.StringArrayOutput `pulumi:"customProfileAttributesToIgnores"`
 	// User department
@@ -242,7 +242,7 @@ type userState struct {
 	CostCenter *string `pulumi:"costCenter"`
 	// User country code
 	CountryCode *string `pulumi:"countryCode"`
-	// JSON formatted custom attributes for a user. It must be JSON due to various types Okta allows.
+	// JSON formatted custom attributes for a user. It must be JSON due to various types Okta allows. You must first add the custom property to the user profile schema before you reference it. You can use the Profile Editor in the Admin Console or the [Schemas](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UISchema/#tag/UISchema) API to manage schema extensions.
 	CustomProfileAttributes          *string  `pulumi:"customProfileAttributes"`
 	CustomProfileAttributesToIgnores []string `pulumi:"customProfileAttributesToIgnores"`
 	// User department
@@ -332,7 +332,7 @@ type UserState struct {
 	CostCenter pulumi.StringPtrInput
 	// User country code
 	CountryCode pulumi.StringPtrInput
-	// JSON formatted custom attributes for a user. It must be JSON due to various types Okta allows.
+	// JSON formatted custom attributes for a user. It must be JSON due to various types Okta allows. You must first add the custom property to the user profile schema before you reference it. You can use the Profile Editor in the Admin Console or the [Schemas](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UISchema/#tag/UISchema) API to manage schema extensions.
 	CustomProfileAttributes          pulumi.StringPtrInput
 	CustomProfileAttributesToIgnores pulumi.StringArrayInput
 	// User department
@@ -426,7 +426,7 @@ type userArgs struct {
 	CostCenter *string `pulumi:"costCenter"`
 	// User country code
 	CountryCode *string `pulumi:"countryCode"`
-	// JSON formatted custom attributes for a user. It must be JSON due to various types Okta allows.
+	// JSON formatted custom attributes for a user. It must be JSON due to various types Okta allows. You must first add the custom property to the user profile schema before you reference it. You can use the Profile Editor in the Admin Console or the [Schemas](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UISchema/#tag/UISchema) API to manage schema extensions.
 	CustomProfileAttributes          *string  `pulumi:"customProfileAttributes"`
 	CustomProfileAttributesToIgnores []string `pulumi:"customProfileAttributesToIgnores"`
 	// User department
@@ -515,7 +515,7 @@ type UserArgs struct {
 	CostCenter pulumi.StringPtrInput
 	// User country code
 	CountryCode pulumi.StringPtrInput
-	// JSON formatted custom attributes for a user. It must be JSON due to various types Okta allows.
+	// JSON formatted custom attributes for a user. It must be JSON due to various types Okta allows. You must first add the custom property to the user profile schema before you reference it. You can use the Profile Editor in the Admin Console or the [Schemas](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UISchema/#tag/UISchema) API to manage schema extensions.
 	CustomProfileAttributes          pulumi.StringPtrInput
 	CustomProfileAttributesToIgnores pulumi.StringArrayInput
 	// User department
@@ -698,7 +698,7 @@ func (o UserOutput) CountryCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.CountryCode }).(pulumi.StringPtrOutput)
 }
 
-// JSON formatted custom attributes for a user. It must be JSON due to various types Okta allows.
+// JSON formatted custom attributes for a user. It must be JSON due to various types Okta allows. You must first add the custom property to the user profile schema before you reference it. You can use the Profile Editor in the Admin Console or the [Schemas](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UISchema/#tag/UISchema) API to manage schema extensions.
 func (o UserOutput) CustomProfileAttributes() pulumi.StringOutput {
 	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.CustomProfileAttributes }).(pulumi.StringOutput)
 }

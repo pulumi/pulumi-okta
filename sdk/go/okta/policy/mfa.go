@@ -51,6 +51,7 @@ type Mfa struct {
 	Priority         pulumi.IntPtrOutput    `pulumi:"priority"`
 	RsaToken         pulumi.StringMapOutput `pulumi:"rsaToken"`
 	SecurityQuestion pulumi.StringMapOutput `pulumi:"securityQuestion"`
+	SmartCardIdp     pulumi.StringMapOutput `pulumi:"smartCardIdp"`
 	// Policy Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
 	Status       pulumi.StringPtrOutput `pulumi:"status"`
 	SymantecVip  pulumi.StringMapOutput `pulumi:"symantecVip"`
@@ -118,6 +119,7 @@ type mfaState struct {
 	Priority         *int              `pulumi:"priority"`
 	RsaToken         map[string]string `pulumi:"rsaToken"`
 	SecurityQuestion map[string]string `pulumi:"securityQuestion"`
+	SmartCardIdp     map[string]string `pulumi:"smartCardIdp"`
 	// Policy Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
 	Status       *string           `pulumi:"status"`
 	SymantecVip  map[string]string `pulumi:"symantecVip"`
@@ -156,6 +158,7 @@ type MfaState struct {
 	Priority         pulumi.IntPtrInput
 	RsaToken         pulumi.StringMapInput
 	SecurityQuestion pulumi.StringMapInput
+	SmartCardIdp     pulumi.StringMapInput
 	// Policy Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
 	Status       pulumi.StringPtrInput
 	SymantecVip  pulumi.StringMapInput
@@ -198,6 +201,7 @@ type mfaArgs struct {
 	Priority         *int              `pulumi:"priority"`
 	RsaToken         map[string]string `pulumi:"rsaToken"`
 	SecurityQuestion map[string]string `pulumi:"securityQuestion"`
+	SmartCardIdp     map[string]string `pulumi:"smartCardIdp"`
 	// Policy Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
 	Status       *string           `pulumi:"status"`
 	SymantecVip  map[string]string `pulumi:"symantecVip"`
@@ -237,6 +241,7 @@ type MfaArgs struct {
 	Priority         pulumi.IntPtrInput
 	RsaToken         pulumi.StringMapInput
 	SecurityQuestion pulumi.StringMapInput
+	SmartCardIdp     pulumi.StringMapInput
 	// Policy Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
 	Status       pulumi.StringPtrInput
 	SymantecVip  pulumi.StringMapInput
@@ -431,6 +436,10 @@ func (o MfaOutput) RsaToken() pulumi.StringMapOutput {
 
 func (o MfaOutput) SecurityQuestion() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Mfa) pulumi.StringMapOutput { return v.SecurityQuestion }).(pulumi.StringMapOutput)
+}
+
+func (o MfaOutput) SmartCardIdp() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Mfa) pulumi.StringMapOutput { return v.SmartCardIdp }).(pulumi.StringMapOutput)
 }
 
 // Policy Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`

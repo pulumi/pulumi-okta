@@ -140,6 +140,23 @@ public final class SamlArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Determines if the IdP should persist account linking when the incoming assertion NameID format is
+     * urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
+     * 
+     */
+    @Import(name="honorPersistentNameId")
+    private @Nullable Output<Boolean> honorPersistentNameId;
+
+    /**
+     * @return Determines if the IdP should persist account linking when the incoming assertion NameID format is
+     * urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
+     * 
+     */
+    public Optional<Output<Boolean>> honorPersistentNameId() {
+        return Optional.ofNullable(this.honorPersistentNameId);
+    }
+
+    /**
      * URI that identifies the issuer.
      * 
      */
@@ -480,6 +497,7 @@ public final class SamlArgs extends com.pulumi.resources.ResourceArgs {
         this.groupsAssignments = $.groupsAssignments;
         this.groupsAttribute = $.groupsAttribute;
         this.groupsFilters = $.groupsFilters;
+        this.honorPersistentNameId = $.honorPersistentNameId;
         this.issuer = $.issuer;
         this.issuerMode = $.issuerMode;
         this.kid = $.kid;
@@ -718,6 +736,29 @@ public final class SamlArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder groupsFilters(String... groupsFilters) {
             return groupsFilters(List.of(groupsFilters));
+        }
+
+        /**
+         * @param honorPersistentNameId Determines if the IdP should persist account linking when the incoming assertion NameID format is
+         * urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
+         * 
+         * @return builder
+         * 
+         */
+        public Builder honorPersistentNameId(@Nullable Output<Boolean> honorPersistentNameId) {
+            $.honorPersistentNameId = honorPersistentNameId;
+            return this;
+        }
+
+        /**
+         * @param honorPersistentNameId Determines if the IdP should persist account linking when the incoming assertion NameID format is
+         * urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
+         * 
+         * @return builder
+         * 
+         */
+        public Builder honorPersistentNameId(Boolean honorPersistentNameId) {
+            return honorPersistentNameId(Output.of(honorPersistentNameId));
         }
 
         /**

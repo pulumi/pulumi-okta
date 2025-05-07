@@ -112,6 +112,7 @@ export class PolicyMfaDefault extends pulumi.CustomResource {
     public /*out*/ readonly priority!: pulumi.Output<number>;
     public readonly rsaToken!: pulumi.Output<{[key: string]: string} | undefined>;
     public readonly securityQuestion!: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly smartCardIdp!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Default policy status
      */
@@ -157,6 +158,7 @@ export class PolicyMfaDefault extends pulumi.CustomResource {
             resourceInputs["priority"] = state ? state.priority : undefined;
             resourceInputs["rsaToken"] = state ? state.rsaToken : undefined;
             resourceInputs["securityQuestion"] = state ? state.securityQuestion : undefined;
+            resourceInputs["smartCardIdp"] = state ? state.smartCardIdp : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
             resourceInputs["symantecVip"] = state ? state.symantecVip : undefined;
             resourceInputs["webauthn"] = state ? state.webauthn : undefined;
@@ -183,6 +185,7 @@ export class PolicyMfaDefault extends pulumi.CustomResource {
             resourceInputs["phoneNumber"] = args ? args.phoneNumber : undefined;
             resourceInputs["rsaToken"] = args ? args.rsaToken : undefined;
             resourceInputs["securityQuestion"] = args ? args.securityQuestion : undefined;
+            resourceInputs["smartCardIdp"] = args ? args.smartCardIdp : undefined;
             resourceInputs["symantecVip"] = args ? args.symantecVip : undefined;
             resourceInputs["webauthn"] = args ? args.webauthn : undefined;
             resourceInputs["yubikeyToken"] = args ? args.yubikeyToken : undefined;
@@ -243,6 +246,7 @@ export interface PolicyMfaDefaultState {
     priority?: pulumi.Input<number>;
     rsaToken?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     securityQuestion?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    smartCardIdp?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Default policy status
      */
@@ -282,6 +286,7 @@ export interface PolicyMfaDefaultArgs {
     phoneNumber?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     rsaToken?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     securityQuestion?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    smartCardIdp?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     symantecVip?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     webauthn?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     yubikeyToken?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;

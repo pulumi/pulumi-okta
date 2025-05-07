@@ -28,7 +28,7 @@ class GetAppsResult:
     """
     A collection of values returned by getApps.
     """
-    def __init__(__self__, active_only=None, apps=None, id=None, include_non_deleted=None, label=None, label_prefix=None, use_optimization=None):
+    def __init__(__self__, active_only=None, apps=None, id=None, include_non_deleted=None, label=None, label_prefix=None, q=None, use_optimization=None):
         if active_only and not isinstance(active_only, bool):
             raise TypeError("Expected argument 'active_only' to be a bool")
         pulumi.set(__self__, "active_only", active_only)
@@ -47,6 +47,9 @@ class GetAppsResult:
         if label_prefix and not isinstance(label_prefix, str):
             raise TypeError("Expected argument 'label_prefix' to be a str")
         pulumi.set(__self__, "label_prefix", label_prefix)
+        if q and not isinstance(q, str):
+            raise TypeError("Expected argument 'q' to be a str")
+        pulumi.set(__self__, "q", q)
         if use_optimization and not isinstance(use_optimization, bool):
             raise TypeError("Expected argument 'use_optimization' to be a bool")
         pulumi.set(__self__, "use_optimization", use_optimization)
@@ -93,11 +96,20 @@ class GetAppsResult:
 
     @property
     @pulumi.getter(name="labelPrefix")
+    @_utilities.deprecated("""Use `q` instead. This attribute will be removed in a future version.""")
     def label_prefix(self) -> Optional[builtins.str]:
         """
-        Searches for applications whose label or name property begins with this value.
+        Searches for applications whose label or name property begins with this value. **Warning:** This might not work as intended and will be removed in the future release. Use `q` instead.
         """
         return pulumi.get(self, "label_prefix")
+
+    @property
+    @pulumi.getter
+    def q(self) -> Optional[builtins.str]:
+        """
+        Searches for apps with name or label properties that starts with the `q` value.
+        """
+        return pulumi.get(self, "q")
 
     @property
     @pulumi.getter(name="useOptimization")
@@ -120,6 +132,7 @@ class AwaitableGetAppsResult(GetAppsResult):
             include_non_deleted=self.include_non_deleted,
             label=self.label,
             label_prefix=self.label_prefix,
+            q=self.q,
             use_optimization=self.use_optimization)
 
 
@@ -127,6 +140,7 @@ def get_apps(active_only: Optional[builtins.bool] = None,
              include_non_deleted: Optional[builtins.bool] = None,
              label: Optional[builtins.str] = None,
              label_prefix: Optional[builtins.str] = None,
+             q: Optional[builtins.str] = None,
              use_optimization: Optional[builtins.bool] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAppsResult:
     """
@@ -135,7 +149,8 @@ def get_apps(active_only: Optional[builtins.bool] = None,
     :param builtins.bool active_only: Search only active applications.
     :param builtins.bool include_non_deleted: Specifies whether to include non-active, but not deleted apps in the results.
     :param builtins.str label: Searches for applications whose label or name property matches this value exactly.
-    :param builtins.str label_prefix: Searches for applications whose label or name property begins with this value.
+    :param builtins.str label_prefix: Searches for applications whose label or name property begins with this value. **Warning:** This might not work as intended and will be removed in the future release. Use `q` instead.
+    :param builtins.str q: Searches for apps with name or label properties that starts with the `q` value.
     :param builtins.bool use_optimization: Specifies whether to use query optimization. If you specify `useOptimization=true` in the request query, the response contains a subset of app instance properties.
     """
     __args__ = dict()
@@ -143,6 +158,7 @@ def get_apps(active_only: Optional[builtins.bool] = None,
     __args__['includeNonDeleted'] = include_non_deleted
     __args__['label'] = label
     __args__['labelPrefix'] = label_prefix
+    __args__['q'] = q
     __args__['useOptimization'] = use_optimization
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('okta:index/getApps:getApps', __args__, opts=opts, typ=GetAppsResult).value
@@ -154,11 +170,13 @@ def get_apps(active_only: Optional[builtins.bool] = None,
         include_non_deleted=pulumi.get(__ret__, 'include_non_deleted'),
         label=pulumi.get(__ret__, 'label'),
         label_prefix=pulumi.get(__ret__, 'label_prefix'),
+        q=pulumi.get(__ret__, 'q'),
         use_optimization=pulumi.get(__ret__, 'use_optimization'))
 def get_apps_output(active_only: Optional[pulumi.Input[Optional[builtins.bool]]] = None,
                     include_non_deleted: Optional[pulumi.Input[Optional[builtins.bool]]] = None,
                     label: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                     label_prefix: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                    q: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                     use_optimization: Optional[pulumi.Input[Optional[builtins.bool]]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAppsResult]:
     """
@@ -167,7 +185,8 @@ def get_apps_output(active_only: Optional[pulumi.Input[Optional[builtins.bool]]]
     :param builtins.bool active_only: Search only active applications.
     :param builtins.bool include_non_deleted: Specifies whether to include non-active, but not deleted apps in the results.
     :param builtins.str label: Searches for applications whose label or name property matches this value exactly.
-    :param builtins.str label_prefix: Searches for applications whose label or name property begins with this value.
+    :param builtins.str label_prefix: Searches for applications whose label or name property begins with this value. **Warning:** This might not work as intended and will be removed in the future release. Use `q` instead.
+    :param builtins.str q: Searches for apps with name or label properties that starts with the `q` value.
     :param builtins.bool use_optimization: Specifies whether to use query optimization. If you specify `useOptimization=true` in the request query, the response contains a subset of app instance properties.
     """
     __args__ = dict()
@@ -175,6 +194,7 @@ def get_apps_output(active_only: Optional[pulumi.Input[Optional[builtins.bool]]]
     __args__['includeNonDeleted'] = include_non_deleted
     __args__['label'] = label
     __args__['labelPrefix'] = label_prefix
+    __args__['q'] = q
     __args__['useOptimization'] = use_optimization
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('okta:index/getApps:getApps', __args__, opts=opts, typ=GetAppsResult)
@@ -185,4 +205,5 @@ def get_apps_output(active_only: Optional[pulumi.Input[Optional[builtins.bool]]]
         include_non_deleted=pulumi.get(__response__, 'include_non_deleted'),
         label=pulumi.get(__response__, 'label'),
         label_prefix=pulumi.get(__response__, 'label_prefix'),
+        q=pulumi.get(__response__, 'q'),
         use_optimization=pulumi.get(__response__, 'use_optimization')))

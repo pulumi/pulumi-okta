@@ -98,6 +98,7 @@ type PolicyMfaDefault struct {
 	Priority         pulumi.IntOutput       `pulumi:"priority"`
 	RsaToken         pulumi.StringMapOutput `pulumi:"rsaToken"`
 	SecurityQuestion pulumi.StringMapOutput `pulumi:"securityQuestion"`
+	SmartCardIdp     pulumi.StringMapOutput `pulumi:"smartCardIdp"`
 	// Default policy status
 	Status       pulumi.StringOutput    `pulumi:"status"`
 	SymantecVip  pulumi.StringMapOutput `pulumi:"symantecVip"`
@@ -165,6 +166,7 @@ type policyMfaDefaultState struct {
 	Priority         *int              `pulumi:"priority"`
 	RsaToken         map[string]string `pulumi:"rsaToken"`
 	SecurityQuestion map[string]string `pulumi:"securityQuestion"`
+	SmartCardIdp     map[string]string `pulumi:"smartCardIdp"`
 	// Default policy status
 	Status       *string           `pulumi:"status"`
 	SymantecVip  map[string]string `pulumi:"symantecVip"`
@@ -203,6 +205,7 @@ type PolicyMfaDefaultState struct {
 	Priority         pulumi.IntPtrInput
 	RsaToken         pulumi.StringMapInput
 	SecurityQuestion pulumi.StringMapInput
+	SmartCardIdp     pulumi.StringMapInput
 	// Default policy status
 	Status       pulumi.StringPtrInput
 	SymantecVip  pulumi.StringMapInput
@@ -237,6 +240,7 @@ type policyMfaDefaultArgs struct {
 	PhoneNumber      map[string]string `pulumi:"phoneNumber"`
 	RsaToken         map[string]string `pulumi:"rsaToken"`
 	SecurityQuestion map[string]string `pulumi:"securityQuestion"`
+	SmartCardIdp     map[string]string `pulumi:"smartCardIdp"`
 	SymantecVip      map[string]string `pulumi:"symantecVip"`
 	Webauthn         map[string]string `pulumi:"webauthn"`
 	YubikeyToken     map[string]string `pulumi:"yubikeyToken"`
@@ -266,6 +270,7 @@ type PolicyMfaDefaultArgs struct {
 	PhoneNumber      pulumi.StringMapInput
 	RsaToken         pulumi.StringMapInput
 	SecurityQuestion pulumi.StringMapInput
+	SmartCardIdp     pulumi.StringMapInput
 	SymantecVip      pulumi.StringMapInput
 	Webauthn         pulumi.StringMapInput
 	YubikeyToken     pulumi.StringMapInput
@@ -458,6 +463,10 @@ func (o PolicyMfaDefaultOutput) RsaToken() pulumi.StringMapOutput {
 
 func (o PolicyMfaDefaultOutput) SecurityQuestion() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *PolicyMfaDefault) pulumi.StringMapOutput { return v.SecurityQuestion }).(pulumi.StringMapOutput)
+}
+
+func (o PolicyMfaDefaultOutput) SmartCardIdp() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *PolicyMfaDefault) pulumi.StringMapOutput { return v.SmartCardIdp }).(pulumi.StringMapOutput)
 }
 
 // Default policy status

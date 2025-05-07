@@ -103,6 +103,13 @@ namespace Pulumi.Okta.Idp
         public Output<ImmutableArray<string>> GroupsFilters { get; private set; } = null!;
 
         /// <summary>
+        /// Determines if the IdP should persist account linking when the incoming assertion NameID format is
+        /// urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
+        /// </summary>
+        [Output("honorPersistentNameId")]
+        public Output<bool?> HonorPersistentNameId { get; private set; } = null!;
+
+        /// <summary>
         /// URI that identifies the issuer.
         /// </summary>
         [Output("issuer")]
@@ -353,6 +360,13 @@ namespace Pulumi.Okta.Idp
         }
 
         /// <summary>
+        /// Determines if the IdP should persist account linking when the incoming assertion NameID format is
+        /// urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
+        /// </summary>
+        [Input("honorPersistentNameId")]
+        public Input<bool>? HonorPersistentNameId { get; set; }
+
+        /// <summary>
         /// URI that identifies the issuer.
         /// </summary>
         [Input("issuer", required: true)]
@@ -569,6 +583,13 @@ namespace Pulumi.Okta.Idp
             get => _groupsFilters ?? (_groupsFilters = new InputList<string>());
             set => _groupsFilters = value;
         }
+
+        /// <summary>
+        /// Determines if the IdP should persist account linking when the incoming assertion NameID format is
+        /// urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
+        /// </summary>
+        [Input("honorPersistentNameId")]
+        public Input<bool>? HonorPersistentNameId { get; set; }
 
         /// <summary>
         /// URI that identifies the issuer.

@@ -150,6 +150,9 @@ namespace Pulumi.Okta
         [Output("securityQuestion")]
         public Output<ImmutableDictionary<string, string>?> SecurityQuestion { get; private set; } = null!;
 
+        [Output("smartCardIdp")]
+        public Output<ImmutableDictionary<string, string>?> SmartCardIdp { get; private set; } = null!;
+
         /// <summary>
         /// Default policy status
         /// </summary>
@@ -370,6 +373,14 @@ namespace Pulumi.Okta
             set => _securityQuestion = value;
         }
 
+        [Input("smartCardIdp")]
+        private InputMap<string>? _smartCardIdp;
+        public InputMap<string> SmartCardIdp
+        {
+            get => _smartCardIdp ?? (_smartCardIdp = new InputMap<string>());
+            set => _smartCardIdp = value;
+        }
+
         [Input("symantecVip")]
         private InputMap<string>? _symantecVip;
         public InputMap<string> SymantecVip
@@ -583,6 +594,14 @@ namespace Pulumi.Okta
         {
             get => _securityQuestion ?? (_securityQuestion = new InputMap<string>());
             set => _securityQuestion = value;
+        }
+
+        [Input("smartCardIdp")]
+        private InputMap<string>? _smartCardIdp;
+        public InputMap<string> SmartCardIdp
+        {
+            get => _smartCardIdp ?? (_smartCardIdp = new InputMap<string>());
+            set => _smartCardIdp = value;
         }
 
         /// <summary>
