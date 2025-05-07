@@ -61,6 +61,10 @@ export class ResourceSet extends pulumi.CustomResource {
      * The endpoints that reference the resources to be included in the new Resource Set. At least one endpoint must be specified when creating resource set.
      */
     public readonly resources!: pulumi.Output<string[] | undefined>;
+    /**
+     * The orn(Okta Resource Name) of the resources to be included in the new Resource Set. At least one orn must be specified when creating resource set.
+     */
+    public readonly resourcesOrns!: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a ResourceSet resource with the given unique name, arguments, and options.
@@ -78,6 +82,7 @@ export class ResourceSet extends pulumi.CustomResource {
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["label"] = state ? state.label : undefined;
             resourceInputs["resources"] = state ? state.resources : undefined;
+            resourceInputs["resourcesOrns"] = state ? state.resourcesOrns : undefined;
         } else {
             const args = argsOrState as ResourceSetArgs | undefined;
             if ((!args || args.description === undefined) && !opts.urn) {
@@ -89,6 +94,7 @@ export class ResourceSet extends pulumi.CustomResource {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["label"] = args ? args.label : undefined;
             resourceInputs["resources"] = args ? args.resources : undefined;
+            resourceInputs["resourcesOrns"] = args ? args.resourcesOrns : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ResourceSet.__pulumiType, name, resourceInputs, opts);
@@ -111,6 +117,10 @@ export interface ResourceSetState {
      * The endpoints that reference the resources to be included in the new Resource Set. At least one endpoint must be specified when creating resource set.
      */
     resources?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The orn(Okta Resource Name) of the resources to be included in the new Resource Set. At least one orn must be specified when creating resource set.
+     */
+    resourcesOrns?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 /**
@@ -129,4 +139,8 @@ export interface ResourceSetArgs {
      * The endpoints that reference the resources to be included in the new Resource Set. At least one endpoint must be specified when creating resource set.
      */
     resources?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The orn(Okta Resource Name) of the resources to be included in the new Resource Set. At least one orn must be specified when creating resource set.
+     */
+    resourcesOrns?: pulumi.Input<pulumi.Input<string>[]>;
 }

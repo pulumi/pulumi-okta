@@ -61,18 +61,41 @@ public final class GetAppsPlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * Searches for applications whose label or name property begins with this value.
+     * Searches for applications whose label or name property begins with this value. **Warning:** This might not work as intended and will be removed in the future release. Use `q` instead.
+     * 
+     * @deprecated
+     * Use `q` instead. This attribute will be removed in a future version.
      * 
      */
+    @Deprecated /* Use `q` instead. This attribute will be removed in a future version. */
     @Import(name="labelPrefix")
     private @Nullable String labelPrefix;
 
     /**
-     * @return Searches for applications whose label or name property begins with this value.
+     * @return Searches for applications whose label or name property begins with this value. **Warning:** This might not work as intended and will be removed in the future release. Use `q` instead.
+     * 
+     * @deprecated
+     * Use `q` instead. This attribute will be removed in a future version.
      * 
      */
+    @Deprecated /* Use `q` instead. This attribute will be removed in a future version. */
     public Optional<String> labelPrefix() {
         return Optional.ofNullable(this.labelPrefix);
+    }
+
+    /**
+     * Searches for apps with name or label properties that starts with the `q` value.
+     * 
+     */
+    @Import(name="q")
+    private @Nullable String q;
+
+    /**
+     * @return Searches for apps with name or label properties that starts with the `q` value.
+     * 
+     */
+    public Optional<String> q() {
+        return Optional.ofNullable(this.q);
     }
 
     /**
@@ -97,6 +120,7 @@ public final class GetAppsPlainArgs extends com.pulumi.resources.InvokeArgs {
         this.includeNonDeleted = $.includeNonDeleted;
         this.label = $.label;
         this.labelPrefix = $.labelPrefix;
+        this.q = $.q;
         this.useOptimization = $.useOptimization;
     }
 
@@ -152,13 +176,28 @@ public final class GetAppsPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param labelPrefix Searches for applications whose label or name property begins with this value.
+         * @param labelPrefix Searches for applications whose label or name property begins with this value. **Warning:** This might not work as intended and will be removed in the future release. Use `q` instead.
+         * 
+         * @return builder
+         * 
+         * @deprecated
+         * Use `q` instead. This attribute will be removed in a future version.
+         * 
+         */
+        @Deprecated /* Use `q` instead. This attribute will be removed in a future version. */
+        public Builder labelPrefix(@Nullable String labelPrefix) {
+            $.labelPrefix = labelPrefix;
+            return this;
+        }
+
+        /**
+         * @param q Searches for apps with name or label properties that starts with the `q` value.
          * 
          * @return builder
          * 
          */
-        public Builder labelPrefix(@Nullable String labelPrefix) {
-            $.labelPrefix = labelPrefix;
+        public Builder q(@Nullable String q) {
+            $.q = q;
             return this;
         }
 

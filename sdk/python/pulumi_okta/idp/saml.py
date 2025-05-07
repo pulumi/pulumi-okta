@@ -31,6 +31,7 @@ class SamlArgs:
                  groups_assignments: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  groups_attribute: Optional[pulumi.Input[builtins.str]] = None,
                  groups_filters: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 honor_persistent_name_id: Optional[pulumi.Input[builtins.bool]] = None,
                  issuer_mode: Optional[pulumi.Input[builtins.str]] = None,
                  max_clock_skew: Optional[pulumi.Input[builtins.int]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
@@ -63,6 +64,8 @@ class SamlArgs:
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] groups_assignments: List of Okta Group IDs to add an IdP user as a member with the `ASSIGN` `groups_action`.
         :param pulumi.Input[builtins.str] groups_attribute: IdP user profile attribute name (case-insensitive) for an array value that contains group memberships.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] groups_filters: Whitelist of Okta Group identifiers that are allowed for the `APPEND` or `SYNC` `groups_action`.
+        :param pulumi.Input[builtins.bool] honor_persistent_name_id: Determines if the IdP should persist account linking when the incoming assertion NameID format is
+               urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
         :param pulumi.Input[builtins.str] issuer_mode: Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL
         :param pulumi.Input[builtins.int] max_clock_skew: Maximum allowable clock-skew when processing messages from the IdP.
         :param pulumi.Input[builtins.str] name: Name of the IdP
@@ -102,6 +105,8 @@ class SamlArgs:
             pulumi.set(__self__, "groups_attribute", groups_attribute)
         if groups_filters is not None:
             pulumi.set(__self__, "groups_filters", groups_filters)
+        if honor_persistent_name_id is not None:
+            pulumi.set(__self__, "honor_persistent_name_id", honor_persistent_name_id)
         if issuer_mode is not None:
             pulumi.set(__self__, "issuer_mode", issuer_mode)
         if max_clock_skew is not None:
@@ -272,6 +277,19 @@ class SamlArgs:
     @groups_filters.setter
     def groups_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "groups_filters", value)
+
+    @property
+    @pulumi.getter(name="honorPersistentNameId")
+    def honor_persistent_name_id(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        Determines if the IdP should persist account linking when the incoming assertion NameID format is
+        urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
+        """
+        return pulumi.get(self, "honor_persistent_name_id")
+
+    @honor_persistent_name_id.setter
+    def honor_persistent_name_id(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "honor_persistent_name_id", value)
 
     @property
     @pulumi.getter(name="issuerMode")
@@ -515,6 +533,7 @@ class _SamlState:
                  groups_assignments: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  groups_attribute: Optional[pulumi.Input[builtins.str]] = None,
                  groups_filters: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 honor_persistent_name_id: Optional[pulumi.Input[builtins.bool]] = None,
                  issuer: Optional[pulumi.Input[builtins.str]] = None,
                  issuer_mode: Optional[pulumi.Input[builtins.str]] = None,
                  kid: Optional[pulumi.Input[builtins.str]] = None,
@@ -549,6 +568,8 @@ class _SamlState:
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] groups_assignments: List of Okta Group IDs to add an IdP user as a member with the `ASSIGN` `groups_action`.
         :param pulumi.Input[builtins.str] groups_attribute: IdP user profile attribute name (case-insensitive) for an array value that contains group memberships.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] groups_filters: Whitelist of Okta Group identifiers that are allowed for the `APPEND` or `SYNC` `groups_action`.
+        :param pulumi.Input[builtins.bool] honor_persistent_name_id: Determines if the IdP should persist account linking when the incoming assertion NameID format is
+               urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
         :param pulumi.Input[builtins.str] issuer: URI that identifies the issuer.
         :param pulumi.Input[builtins.str] issuer_mode: Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL
         :param pulumi.Input[builtins.str] kid: The ID of the signing key.
@@ -592,6 +613,8 @@ class _SamlState:
             pulumi.set(__self__, "groups_attribute", groups_attribute)
         if groups_filters is not None:
             pulumi.set(__self__, "groups_filters", groups_filters)
+        if honor_persistent_name_id is not None:
+            pulumi.set(__self__, "honor_persistent_name_id", honor_persistent_name_id)
         if issuer is not None:
             pulumi.set(__self__, "issuer", issuer)
         if issuer_mode is not None:
@@ -754,6 +777,19 @@ class _SamlState:
     @groups_filters.setter
     def groups_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "groups_filters", value)
+
+    @property
+    @pulumi.getter(name="honorPersistentNameId")
+    def honor_persistent_name_id(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        Determines if the IdP should persist account linking when the incoming assertion NameID format is
+        urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
+        """
+        return pulumi.get(self, "honor_persistent_name_id")
+
+    @honor_persistent_name_id.setter
+    def honor_persistent_name_id(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "honor_persistent_name_id", value)
 
     @property
     @pulumi.getter
@@ -1054,6 +1090,7 @@ class Saml(pulumi.CustomResource):
                  groups_assignments: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  groups_attribute: Optional[pulumi.Input[builtins.str]] = None,
                  groups_filters: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 honor_persistent_name_id: Optional[pulumi.Input[builtins.bool]] = None,
                  issuer: Optional[pulumi.Input[builtins.str]] = None,
                  issuer_mode: Optional[pulumi.Input[builtins.str]] = None,
                  kid: Optional[pulumi.Input[builtins.str]] = None,
@@ -1115,6 +1152,8 @@ class Saml(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] groups_assignments: List of Okta Group IDs to add an IdP user as a member with the `ASSIGN` `groups_action`.
         :param pulumi.Input[builtins.str] groups_attribute: IdP user profile attribute name (case-insensitive) for an array value that contains group memberships.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] groups_filters: Whitelist of Okta Group identifiers that are allowed for the `APPEND` or `SYNC` `groups_action`.
+        :param pulumi.Input[builtins.bool] honor_persistent_name_id: Determines if the IdP should persist account linking when the incoming assertion NameID format is
+               urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
         :param pulumi.Input[builtins.str] issuer: URI that identifies the issuer.
         :param pulumi.Input[builtins.str] issuer_mode: Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL
         :param pulumi.Input[builtins.str] kid: The ID of the signing key.
@@ -1195,6 +1234,7 @@ class Saml(pulumi.CustomResource):
                  groups_assignments: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  groups_attribute: Optional[pulumi.Input[builtins.str]] = None,
                  groups_filters: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 honor_persistent_name_id: Optional[pulumi.Input[builtins.bool]] = None,
                  issuer: Optional[pulumi.Input[builtins.str]] = None,
                  issuer_mode: Optional[pulumi.Input[builtins.str]] = None,
                  kid: Optional[pulumi.Input[builtins.str]] = None,
@@ -1234,6 +1274,7 @@ class Saml(pulumi.CustomResource):
             __props__.__dict__["groups_assignments"] = groups_assignments
             __props__.__dict__["groups_attribute"] = groups_attribute
             __props__.__dict__["groups_filters"] = groups_filters
+            __props__.__dict__["honor_persistent_name_id"] = honor_persistent_name_id
             if issuer is None and not opts.urn:
                 raise TypeError("Missing required property 'issuer'")
             __props__.__dict__["issuer"] = issuer
@@ -1286,6 +1327,7 @@ class Saml(pulumi.CustomResource):
             groups_assignments: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
             groups_attribute: Optional[pulumi.Input[builtins.str]] = None,
             groups_filters: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+            honor_persistent_name_id: Optional[pulumi.Input[builtins.bool]] = None,
             issuer: Optional[pulumi.Input[builtins.str]] = None,
             issuer_mode: Optional[pulumi.Input[builtins.str]] = None,
             kid: Optional[pulumi.Input[builtins.str]] = None,
@@ -1325,6 +1367,8 @@ class Saml(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] groups_assignments: List of Okta Group IDs to add an IdP user as a member with the `ASSIGN` `groups_action`.
         :param pulumi.Input[builtins.str] groups_attribute: IdP user profile attribute name (case-insensitive) for an array value that contains group memberships.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] groups_filters: Whitelist of Okta Group identifiers that are allowed for the `APPEND` or `SYNC` `groups_action`.
+        :param pulumi.Input[builtins.bool] honor_persistent_name_id: Determines if the IdP should persist account linking when the incoming assertion NameID format is
+               urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
         :param pulumi.Input[builtins.str] issuer: URI that identifies the issuer.
         :param pulumi.Input[builtins.str] issuer_mode: Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL
         :param pulumi.Input[builtins.str] kid: The ID of the signing key.
@@ -1362,6 +1406,7 @@ class Saml(pulumi.CustomResource):
         __props__.__dict__["groups_assignments"] = groups_assignments
         __props__.__dict__["groups_attribute"] = groups_attribute
         __props__.__dict__["groups_filters"] = groups_filters
+        __props__.__dict__["honor_persistent_name_id"] = honor_persistent_name_id
         __props__.__dict__["issuer"] = issuer
         __props__.__dict__["issuer_mode"] = issuer_mode
         __props__.__dict__["kid"] = kid
@@ -1461,6 +1506,15 @@ class Saml(pulumi.CustomResource):
         Whitelist of Okta Group identifiers that are allowed for the `APPEND` or `SYNC` `groups_action`.
         """
         return pulumi.get(self, "groups_filters")
+
+    @property
+    @pulumi.getter(name="honorPersistentNameId")
+    def honor_persistent_name_id(self) -> pulumi.Output[Optional[builtins.bool]]:
+        """
+        Determines if the IdP should persist account linking when the incoming assertion NameID format is
+        urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
+        """
+        return pulumi.get(self, "honor_persistent_name_id")
 
     @property
     @pulumi.getter

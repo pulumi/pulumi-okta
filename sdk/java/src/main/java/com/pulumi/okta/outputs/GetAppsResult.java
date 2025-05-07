@@ -41,10 +41,19 @@ public final class GetAppsResult {
      */
     private @Nullable String label;
     /**
-     * @return Searches for applications whose label or name property begins with this value.
+     * @return Searches for applications whose label or name property begins with this value. **Warning:** This might not work as intended and will be removed in the future release. Use `q` instead.
+     * 
+     * @deprecated
+     * Use `q` instead. This attribute will be removed in a future version.
      * 
      */
+    @Deprecated /* Use `q` instead. This attribute will be removed in a future version. */
     private @Nullable String labelPrefix;
+    /**
+     * @return Searches for apps with name or label properties that starts with the `q` value.
+     * 
+     */
+    private @Nullable String q;
     /**
      * @return Specifies whether to use query optimization. If you specify `useOptimization=true` in the request query, the response contains a subset of app instance properties.
      * 
@@ -88,11 +97,22 @@ public final class GetAppsResult {
         return Optional.ofNullable(this.label);
     }
     /**
-     * @return Searches for applications whose label or name property begins with this value.
+     * @return Searches for applications whose label or name property begins with this value. **Warning:** This might not work as intended and will be removed in the future release. Use `q` instead.
+     * 
+     * @deprecated
+     * Use `q` instead. This attribute will be removed in a future version.
      * 
      */
+    @Deprecated /* Use `q` instead. This attribute will be removed in a future version. */
     public Optional<String> labelPrefix() {
         return Optional.ofNullable(this.labelPrefix);
+    }
+    /**
+     * @return Searches for apps with name or label properties that starts with the `q` value.
+     * 
+     */
+    public Optional<String> q() {
+        return Optional.ofNullable(this.q);
     }
     /**
      * @return Specifies whether to use query optimization. If you specify `useOptimization=true` in the request query, the response contains a subset of app instance properties.
@@ -117,6 +137,7 @@ public final class GetAppsResult {
         private @Nullable Boolean includeNonDeleted;
         private @Nullable String label;
         private @Nullable String labelPrefix;
+        private @Nullable String q;
         private @Nullable Boolean useOptimization;
         public Builder() {}
         public Builder(GetAppsResult defaults) {
@@ -127,6 +148,7 @@ public final class GetAppsResult {
     	      this.includeNonDeleted = defaults.includeNonDeleted;
     	      this.label = defaults.label;
     	      this.labelPrefix = defaults.labelPrefix;
+    	      this.q = defaults.q;
     	      this.useOptimization = defaults.useOptimization;
         }
 
@@ -174,6 +196,12 @@ public final class GetAppsResult {
             return this;
         }
         @CustomType.Setter
+        public Builder q(@Nullable String q) {
+
+            this.q = q;
+            return this;
+        }
+        @CustomType.Setter
         public Builder useOptimization(@Nullable Boolean useOptimization) {
 
             this.useOptimization = useOptimization;
@@ -187,6 +215,7 @@ public final class GetAppsResult {
             _resultValue.includeNonDeleted = includeNonDeleted;
             _resultValue.label = label;
             _resultValue.labelPrefix = labelPrefix;
+            _resultValue.q = q;
             _resultValue.useOptimization = useOptimization;
             return _resultValue;
         }

@@ -36,6 +36,8 @@ type ResourceSet struct {
 	Label pulumi.StringOutput `pulumi:"label"`
 	// The endpoints that reference the resources to be included in the new Resource Set. At least one endpoint must be specified when creating resource set.
 	Resources pulumi.StringArrayOutput `pulumi:"resources"`
+	// The orn(Okta Resource Name) of the resources to be included in the new Resource Set. At least one orn must be specified when creating resource set.
+	ResourcesOrns pulumi.StringArrayOutput `pulumi:"resourcesOrns"`
 }
 
 // NewResourceSet registers a new resource with the given unique name, arguments, and options.
@@ -80,6 +82,8 @@ type resourceSetState struct {
 	Label *string `pulumi:"label"`
 	// The endpoints that reference the resources to be included in the new Resource Set. At least one endpoint must be specified when creating resource set.
 	Resources []string `pulumi:"resources"`
+	// The orn(Okta Resource Name) of the resources to be included in the new Resource Set. At least one orn must be specified when creating resource set.
+	ResourcesOrns []string `pulumi:"resourcesOrns"`
 }
 
 type ResourceSetState struct {
@@ -89,6 +93,8 @@ type ResourceSetState struct {
 	Label pulumi.StringPtrInput
 	// The endpoints that reference the resources to be included in the new Resource Set. At least one endpoint must be specified when creating resource set.
 	Resources pulumi.StringArrayInput
+	// The orn(Okta Resource Name) of the resources to be included in the new Resource Set. At least one orn must be specified when creating resource set.
+	ResourcesOrns pulumi.StringArrayInput
 }
 
 func (ResourceSetState) ElementType() reflect.Type {
@@ -102,6 +108,8 @@ type resourceSetArgs struct {
 	Label string `pulumi:"label"`
 	// The endpoints that reference the resources to be included in the new Resource Set. At least one endpoint must be specified when creating resource set.
 	Resources []string `pulumi:"resources"`
+	// The orn(Okta Resource Name) of the resources to be included in the new Resource Set. At least one orn must be specified when creating resource set.
+	ResourcesOrns []string `pulumi:"resourcesOrns"`
 }
 
 // The set of arguments for constructing a ResourceSet resource.
@@ -112,6 +120,8 @@ type ResourceSetArgs struct {
 	Label pulumi.StringInput
 	// The endpoints that reference the resources to be included in the new Resource Set. At least one endpoint must be specified when creating resource set.
 	Resources pulumi.StringArrayInput
+	// The orn(Okta Resource Name) of the resources to be included in the new Resource Set. At least one orn must be specified when creating resource set.
+	ResourcesOrns pulumi.StringArrayInput
 }
 
 func (ResourceSetArgs) ElementType() reflect.Type {
@@ -214,6 +224,11 @@ func (o ResourceSetOutput) Label() pulumi.StringOutput {
 // The endpoints that reference the resources to be included in the new Resource Set. At least one endpoint must be specified when creating resource set.
 func (o ResourceSetOutput) Resources() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ResourceSet) pulumi.StringArrayOutput { return v.Resources }).(pulumi.StringArrayOutput)
+}
+
+// The orn(Okta Resource Name) of the resources to be included in the new Resource Set. At least one orn must be specified when creating resource set.
+func (o ResourceSetOutput) ResourcesOrns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ResourceSet) pulumi.StringArrayOutput { return v.ResourcesOrns }).(pulumi.StringArrayOutput)
 }
 
 type ResourceSetArrayOutput struct{ *pulumi.OutputState }

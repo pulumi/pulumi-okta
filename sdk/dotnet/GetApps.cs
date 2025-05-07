@@ -43,10 +43,16 @@ namespace Pulumi.Okta
         public string? Label { get; set; }
 
         /// <summary>
-        /// Searches for applications whose label or name property begins with this value.
+        /// Searches for applications whose label or name property begins with this value. **Warning:** This might not work as intended and will be removed in the future release. Use `q` instead.
         /// </summary>
         [Input("labelPrefix")]
         public string? LabelPrefix { get; set; }
+
+        /// <summary>
+        /// Searches for apps with name or label properties that starts with the `q` value.
+        /// </summary>
+        [Input("q")]
+        public string? Q { get; set; }
 
         /// <summary>
         /// Specifies whether to use query optimization. If you specify `useOptimization=true` in the request query, the response contains a subset of app instance properties.
@@ -81,10 +87,16 @@ namespace Pulumi.Okta
         public Input<string>? Label { get; set; }
 
         /// <summary>
-        /// Searches for applications whose label or name property begins with this value.
+        /// Searches for applications whose label or name property begins with this value. **Warning:** This might not work as intended and will be removed in the future release. Use `q` instead.
         /// </summary>
         [Input("labelPrefix")]
         public Input<string>? LabelPrefix { get; set; }
+
+        /// <summary>
+        /// Searches for apps with name or label properties that starts with the `q` value.
+        /// </summary>
+        [Input("q")]
+        public Input<string>? Q { get; set; }
 
         /// <summary>
         /// Specifies whether to use query optimization. If you specify `useOptimization=true` in the request query, the response contains a subset of app instance properties.
@@ -123,9 +135,13 @@ namespace Pulumi.Okta
         /// </summary>
         public readonly string? Label;
         /// <summary>
-        /// Searches for applications whose label or name property begins with this value.
+        /// Searches for applications whose label or name property begins with this value. **Warning:** This might not work as intended and will be removed in the future release. Use `q` instead.
         /// </summary>
         public readonly string? LabelPrefix;
+        /// <summary>
+        /// Searches for apps with name or label properties that starts with the `q` value.
+        /// </summary>
+        public readonly string? Q;
         /// <summary>
         /// Specifies whether to use query optimization. If you specify `useOptimization=true` in the request query, the response contains a subset of app instance properties.
         /// </summary>
@@ -145,6 +161,8 @@ namespace Pulumi.Okta
 
             string? labelPrefix,
 
+            string? q,
+
             bool? useOptimization)
         {
             ActiveOnly = activeOnly;
@@ -153,6 +171,7 @@ namespace Pulumi.Okta
             IncludeNonDeleted = includeNonDeleted;
             Label = label;
             LabelPrefix = labelPrefix;
+            Q = q;
             UseOptimization = useOptimization;
         }
     }

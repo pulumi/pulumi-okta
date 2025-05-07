@@ -14,6 +14,7 @@ export function getApps(args?: GetAppsArgs, opts?: pulumi.InvokeOptions): Promis
         "includeNonDeleted": args.includeNonDeleted,
         "label": args.label,
         "labelPrefix": args.labelPrefix,
+        "q": args.q,
         "useOptimization": args.useOptimization,
     }, opts);
 }
@@ -35,9 +36,15 @@ export interface GetAppsArgs {
      */
     label?: string;
     /**
-     * Searches for applications whose label or name property begins with this value.
+     * Searches for applications whose label or name property begins with this value. **Warning:** This might not work as intended and will be removed in the future release. Use `q` instead.
+     *
+     * @deprecated Use `q` instead. This attribute will be removed in a future version.
      */
     labelPrefix?: string;
+    /**
+     * Searches for apps with name or label properties that starts with the `q` value.
+     */
+    q?: string;
     /**
      * Specifies whether to use query optimization. If you specify `useOptimization=true` in the request query, the response contains a subset of app instance properties.
      */
@@ -69,9 +76,15 @@ export interface GetAppsResult {
      */
     readonly label?: string;
     /**
-     * Searches for applications whose label or name property begins with this value.
+     * Searches for applications whose label or name property begins with this value. **Warning:** This might not work as intended and will be removed in the future release. Use `q` instead.
+     *
+     * @deprecated Use `q` instead. This attribute will be removed in a future version.
      */
     readonly labelPrefix?: string;
+    /**
+     * Searches for apps with name or label properties that starts with the `q` value.
+     */
+    readonly q?: string;
     /**
      * Specifies whether to use query optimization. If you specify `useOptimization=true` in the request query, the response contains a subset of app instance properties.
      */
@@ -85,6 +98,7 @@ export function getAppsOutput(args?: GetAppsOutputArgs, opts?: pulumi.InvokeOutp
         "includeNonDeleted": args.includeNonDeleted,
         "label": args.label,
         "labelPrefix": args.labelPrefix,
+        "q": args.q,
         "useOptimization": args.useOptimization,
     }, opts);
 }
@@ -106,9 +120,15 @@ export interface GetAppsOutputArgs {
      */
     label?: pulumi.Input<string>;
     /**
-     * Searches for applications whose label or name property begins with this value.
+     * Searches for applications whose label or name property begins with this value. **Warning:** This might not work as intended and will be removed in the future release. Use `q` instead.
+     *
+     * @deprecated Use `q` instead. This attribute will be removed in a future version.
      */
     labelPrefix?: pulumi.Input<string>;
+    /**
+     * Searches for apps with name or label properties that starts with the `q` value.
+     */
+    q?: pulumi.Input<string>;
     /**
      * Specifies whether to use query optimization. If you specify `useOptimization=true` in the request query, the response contains a subset of app instance properties.
      */

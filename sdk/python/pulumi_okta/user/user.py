@@ -73,7 +73,7 @@ class UserArgs:
         :param pulumi.Input[builtins.str] city: User city
         :param pulumi.Input[builtins.str] cost_center: User cost center
         :param pulumi.Input[builtins.str] country_code: User country code
-        :param pulumi.Input[builtins.str] custom_profile_attributes: JSON formatted custom attributes for a user. It must be JSON due to various types Okta allows.
+        :param pulumi.Input[builtins.str] custom_profile_attributes: JSON formatted custom attributes for a user. It must be JSON due to various types Okta allows. You must first add the custom property to the user profile schema before you reference it. You can use the Profile Editor in the Admin Console or the [Schemas](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UISchema/#tag/UISchema) API to manage schema extensions.
         :param pulumi.Input[builtins.str] department: User department
         :param pulumi.Input[builtins.str] display_name: User display name, suitable to show end users
         :param pulumi.Input[builtins.str] division: User division
@@ -280,7 +280,7 @@ class UserArgs:
     @pulumi.getter(name="customProfileAttributes")
     def custom_profile_attributes(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        JSON formatted custom attributes for a user. It must be JSON due to various types Okta allows.
+        JSON formatted custom attributes for a user. It must be JSON due to various types Okta allows. You must first add the custom property to the user profile schema before you reference it. You can use the Profile Editor in the Admin Console or the [Schemas](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UISchema/#tag/UISchema) API to manage schema extensions.
         """
         return pulumi.get(self, "custom_profile_attributes")
 
@@ -746,7 +746,7 @@ class _UserState:
         :param pulumi.Input[builtins.str] city: User city
         :param pulumi.Input[builtins.str] cost_center: User cost center
         :param pulumi.Input[builtins.str] country_code: User country code
-        :param pulumi.Input[builtins.str] custom_profile_attributes: JSON formatted custom attributes for a user. It must be JSON due to various types Okta allows.
+        :param pulumi.Input[builtins.str] custom_profile_attributes: JSON formatted custom attributes for a user. It must be JSON due to various types Okta allows. You must first add the custom property to the user profile schema before you reference it. You can use the Profile Editor in the Admin Console or the [Schemas](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UISchema/#tag/UISchema) API to manage schema extensions.
         :param pulumi.Input[builtins.str] department: User department
         :param pulumi.Input[builtins.str] display_name: User display name, suitable to show end users
         :param pulumi.Input[builtins.str] division: User division
@@ -916,7 +916,7 @@ class _UserState:
     @pulumi.getter(name="customProfileAttributes")
     def custom_profile_attributes(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        JSON formatted custom attributes for a user. It must be JSON due to various types Okta allows.
+        JSON formatted custom attributes for a user. It must be JSON due to various types Okta allows. You must first add the custom property to the user profile schema before you reference it. You can use the Profile Editor in the Admin Console or the [Schemas](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UISchema/#tag/UISchema) API to manage schema extensions.
         """
         return pulumi.get(self, "custom_profile_attributes")
 
@@ -1504,7 +1504,7 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] city: User city
         :param pulumi.Input[builtins.str] cost_center: User cost center
         :param pulumi.Input[builtins.str] country_code: User country code
-        :param pulumi.Input[builtins.str] custom_profile_attributes: JSON formatted custom attributes for a user. It must be JSON due to various types Okta allows.
+        :param pulumi.Input[builtins.str] custom_profile_attributes: JSON formatted custom attributes for a user. It must be JSON due to various types Okta allows. You must first add the custom property to the user profile schema before you reference it. You can use the Profile Editor in the Admin Console or the [Schemas](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UISchema/#tag/UISchema) API to manage schema extensions.
         :param pulumi.Input[builtins.str] department: User department
         :param pulumi.Input[builtins.str] display_name: User display name, suitable to show end users
         :param pulumi.Input[builtins.str] division: User division
@@ -1788,7 +1788,7 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] city: User city
         :param pulumi.Input[builtins.str] cost_center: User cost center
         :param pulumi.Input[builtins.str] country_code: User country code
-        :param pulumi.Input[builtins.str] custom_profile_attributes: JSON formatted custom attributes for a user. It must be JSON due to various types Okta allows.
+        :param pulumi.Input[builtins.str] custom_profile_attributes: JSON formatted custom attributes for a user. It must be JSON due to various types Okta allows. You must first add the custom property to the user profile schema before you reference it. You can use the Profile Editor in the Admin Console or the [Schemas](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UISchema/#tag/UISchema) API to manage schema extensions.
         :param pulumi.Input[builtins.str] department: User department
         :param pulumi.Input[builtins.str] display_name: User display name, suitable to show end users
         :param pulumi.Input[builtins.str] division: User division
@@ -1905,7 +1905,7 @@ class User(pulumi.CustomResource):
     @pulumi.getter(name="customProfileAttributes")
     def custom_profile_attributes(self) -> pulumi.Output[builtins.str]:
         """
-        JSON formatted custom attributes for a user. It must be JSON due to various types Okta allows.
+        JSON formatted custom attributes for a user. It must be JSON due to various types Okta allows. You must first add the custom property to the user profile schema before you reference it. You can use the Profile Editor in the Admin Console or the [Schemas](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UISchema/#tag/UISchema) API to manage schema extensions.
         """
         return pulumi.get(self, "custom_profile_attributes")
 

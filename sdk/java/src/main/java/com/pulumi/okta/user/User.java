@@ -147,14 +147,14 @@ public class User extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.countryCode);
     }
     /**
-     * JSON formatted custom attributes for a user. It must be JSON due to various types Okta allows.
+     * JSON formatted custom attributes for a user. It must be JSON due to various types Okta allows. You must first add the custom property to the user profile schema before you reference it. You can use the Profile Editor in the Admin Console or the [Schemas](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UISchema/#tag/UISchema) API to manage schema extensions.
      * 
      */
     @Export(name="customProfileAttributes", refs={String.class}, tree="[0]")
     private Output<String> customProfileAttributes;
 
     /**
-     * @return JSON formatted custom attributes for a user. It must be JSON due to various types Okta allows.
+     * @return JSON formatted custom attributes for a user. It must be JSON due to various types Okta allows. You must first add the custom property to the user profile schema before you reference it. You can use the Profile Editor in the Admin Console or the [Schemas](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UISchema/#tag/UISchema) API to manage schema extensions.
      * 
      */
     public Output<String> customProfileAttributes() {

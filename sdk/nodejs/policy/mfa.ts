@@ -83,6 +83,7 @@ export class Mfa extends pulumi.CustomResource {
     public readonly priority!: pulumi.Output<number | undefined>;
     public readonly rsaToken!: pulumi.Output<{[key: string]: string} | undefined>;
     public readonly securityQuestion!: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly smartCardIdp!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Policy Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
      */
@@ -128,6 +129,7 @@ export class Mfa extends pulumi.CustomResource {
             resourceInputs["priority"] = state ? state.priority : undefined;
             resourceInputs["rsaToken"] = state ? state.rsaToken : undefined;
             resourceInputs["securityQuestion"] = state ? state.securityQuestion : undefined;
+            resourceInputs["smartCardIdp"] = state ? state.smartCardIdp : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
             resourceInputs["symantecVip"] = state ? state.symantecVip : undefined;
             resourceInputs["webauthn"] = state ? state.webauthn : undefined;
@@ -158,6 +160,7 @@ export class Mfa extends pulumi.CustomResource {
             resourceInputs["priority"] = args ? args.priority : undefined;
             resourceInputs["rsaToken"] = args ? args.rsaToken : undefined;
             resourceInputs["securityQuestion"] = args ? args.securityQuestion : undefined;
+            resourceInputs["smartCardIdp"] = args ? args.smartCardIdp : undefined;
             resourceInputs["status"] = args ? args.status : undefined;
             resourceInputs["symantecVip"] = args ? args.symantecVip : undefined;
             resourceInputs["webauthn"] = args ? args.webauthn : undefined;
@@ -214,6 +217,7 @@ export interface MfaState {
     priority?: pulumi.Input<number>;
     rsaToken?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     securityQuestion?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    smartCardIdp?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Policy Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
      */
@@ -269,6 +273,7 @@ export interface MfaArgs {
     priority?: pulumi.Input<number>;
     rsaToken?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     securityQuestion?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    smartCardIdp?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Policy Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
      */

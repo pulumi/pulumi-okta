@@ -239,6 +239,13 @@ public final class PolicyMfaDefaultState extends com.pulumi.resources.ResourceAr
         return Optional.ofNullable(this.securityQuestion);
     }
 
+    @Import(name="smartCardIdp")
+    private @Nullable Output<Map<String,String>> smartCardIdp;
+
+    public Optional<Output<Map<String,String>>> smartCardIdp() {
+        return Optional.ofNullable(this.smartCardIdp);
+    }
+
     /**
      * Default policy status
      * 
@@ -302,6 +309,7 @@ public final class PolicyMfaDefaultState extends com.pulumi.resources.ResourceAr
         this.priority = $.priority;
         this.rsaToken = $.rsaToken;
         this.securityQuestion = $.securityQuestion;
+        this.smartCardIdp = $.smartCardIdp;
         this.status = $.status;
         this.symantecVip = $.symantecVip;
         this.webauthn = $.webauthn;
@@ -620,6 +628,15 @@ public final class PolicyMfaDefaultState extends com.pulumi.resources.ResourceAr
 
         public Builder securityQuestion(Map<String,String> securityQuestion) {
             return securityQuestion(Output.of(securityQuestion));
+        }
+
+        public Builder smartCardIdp(@Nullable Output<Map<String,String>> smartCardIdp) {
+            $.smartCardIdp = smartCardIdp;
+            return this;
+        }
+
+        public Builder smartCardIdp(Map<String,String> smartCardIdp) {
+            return smartCardIdp(Output.of(smartCardIdp));
         }
 
         /**

@@ -65,14 +65,14 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * JSON formatted custom attributes for a user. It must be JSON due to various types Okta allows.
+     * JSON formatted custom attributes for a user. It must be JSON due to various types Okta allows. You must first add the custom property to the user profile schema before you reference it. You can use the Profile Editor in the Admin Console or the [Schemas](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UISchema/#tag/UISchema) API to manage schema extensions.
      * 
      */
     @Import(name="customProfileAttributes")
     private @Nullable Output<String> customProfileAttributes;
 
     /**
-     * @return JSON formatted custom attributes for a user. It must be JSON due to various types Okta allows.
+     * @return JSON formatted custom attributes for a user. It must be JSON due to various types Okta allows. You must first add the custom property to the user profile schema before you reference it. You can use the Profile Editor in the Admin Console or the [Schemas](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UISchema/#tag/UISchema) API to manage schema extensions.
      * 
      */
     public Optional<Output<String>> customProfileAttributes() {
@@ -778,7 +778,7 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customProfileAttributes JSON formatted custom attributes for a user. It must be JSON due to various types Okta allows.
+         * @param customProfileAttributes JSON formatted custom attributes for a user. It must be JSON due to various types Okta allows. You must first add the custom property to the user profile schema before you reference it. You can use the Profile Editor in the Admin Console or the [Schemas](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UISchema/#tag/UISchema) API to manage schema extensions.
          * 
          * @return builder
          * 
@@ -789,7 +789,7 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customProfileAttributes JSON formatted custom attributes for a user. It must be JSON due to various types Okta allows.
+         * @param customProfileAttributes JSON formatted custom attributes for a user. It must be JSON due to various types Okta allows. You must first add the custom property to the user profile schema before you reference it. You can use the Profile Editor in the Admin Console or the [Schemas](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UISchema/#tag/UISchema) API to manage schema extensions.
          * 
          * @return builder
          * 

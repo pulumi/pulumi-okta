@@ -62,18 +62,41 @@ public final class GetAppsArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * Searches for applications whose label or name property begins with this value.
+     * Searches for applications whose label or name property begins with this value. **Warning:** This might not work as intended and will be removed in the future release. Use `q` instead.
+     * 
+     * @deprecated
+     * Use `q` instead. This attribute will be removed in a future version.
      * 
      */
+    @Deprecated /* Use `q` instead. This attribute will be removed in a future version. */
     @Import(name="labelPrefix")
     private @Nullable Output<String> labelPrefix;
 
     /**
-     * @return Searches for applications whose label or name property begins with this value.
+     * @return Searches for applications whose label or name property begins with this value. **Warning:** This might not work as intended and will be removed in the future release. Use `q` instead.
+     * 
+     * @deprecated
+     * Use `q` instead. This attribute will be removed in a future version.
      * 
      */
+    @Deprecated /* Use `q` instead. This attribute will be removed in a future version. */
     public Optional<Output<String>> labelPrefix() {
         return Optional.ofNullable(this.labelPrefix);
+    }
+
+    /**
+     * Searches for apps with name or label properties that starts with the `q` value.
+     * 
+     */
+    @Import(name="q")
+    private @Nullable Output<String> q;
+
+    /**
+     * @return Searches for apps with name or label properties that starts with the `q` value.
+     * 
+     */
+    public Optional<Output<String>> q() {
+        return Optional.ofNullable(this.q);
     }
 
     /**
@@ -98,6 +121,7 @@ public final class GetAppsArgs extends com.pulumi.resources.InvokeArgs {
         this.includeNonDeleted = $.includeNonDeleted;
         this.label = $.label;
         this.labelPrefix = $.labelPrefix;
+        this.q = $.q;
         this.useOptimization = $.useOptimization;
     }
 
@@ -183,24 +207,53 @@ public final class GetAppsArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param labelPrefix Searches for applications whose label or name property begins with this value.
+         * @param labelPrefix Searches for applications whose label or name property begins with this value. **Warning:** This might not work as intended and will be removed in the future release. Use `q` instead.
          * 
          * @return builder
          * 
+         * @deprecated
+         * Use `q` instead. This attribute will be removed in a future version.
+         * 
          */
+        @Deprecated /* Use `q` instead. This attribute will be removed in a future version. */
         public Builder labelPrefix(@Nullable Output<String> labelPrefix) {
             $.labelPrefix = labelPrefix;
             return this;
         }
 
         /**
-         * @param labelPrefix Searches for applications whose label or name property begins with this value.
+         * @param labelPrefix Searches for applications whose label or name property begins with this value. **Warning:** This might not work as intended and will be removed in the future release. Use `q` instead.
+         * 
+         * @return builder
+         * 
+         * @deprecated
+         * Use `q` instead. This attribute will be removed in a future version.
+         * 
+         */
+        @Deprecated /* Use `q` instead. This attribute will be removed in a future version. */
+        public Builder labelPrefix(String labelPrefix) {
+            return labelPrefix(Output.of(labelPrefix));
+        }
+
+        /**
+         * @param q Searches for apps with name or label properties that starts with the `q` value.
          * 
          * @return builder
          * 
          */
-        public Builder labelPrefix(String labelPrefix) {
-            return labelPrefix(Output.of(labelPrefix));
+        public Builder q(@Nullable Output<String> q) {
+            $.q = q;
+            return this;
+        }
+
+        /**
+         * @param q Searches for apps with name or label properties that starts with the `q` value.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder q(String q) {
+            return q(Output.of(q));
         }
 
         /**

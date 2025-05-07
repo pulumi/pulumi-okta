@@ -266,6 +266,12 @@ public class PolicyMfaDefault extends com.pulumi.resources.CustomResource {
     public Output<Optional<Map<String,String>>> securityQuestion() {
         return Codegen.optional(this.securityQuestion);
     }
+    @Export(name="smartCardIdp", refs={Map.class,String.class}, tree="[0,1,1]")
+    private Output</* @Nullable */ Map<String,String>> smartCardIdp;
+
+    public Output<Optional<Map<String,String>>> smartCardIdp() {
+        return Codegen.optional(this.smartCardIdp);
+    }
     /**
      * Default policy status
      * 

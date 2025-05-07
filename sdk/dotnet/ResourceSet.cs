@@ -47,6 +47,12 @@ namespace Pulumi.Okta
         [Output("resources")]
         public Output<ImmutableArray<string>> Resources { get; private set; } = null!;
 
+        /// <summary>
+        /// The orn(Okta Resource Name) of the resources to be included in the new Resource Set. At least one orn must be specified when creating resource set.
+        /// </summary>
+        [Output("resourcesOrns")]
+        public Output<ImmutableArray<string>> ResourcesOrns { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a ResourceSet resource with the given unique name, arguments, and options.
@@ -117,6 +123,18 @@ namespace Pulumi.Okta
             set => _resources = value;
         }
 
+        [Input("resourcesOrns")]
+        private InputList<string>? _resourcesOrns;
+
+        /// <summary>
+        /// The orn(Okta Resource Name) of the resources to be included in the new Resource Set. At least one orn must be specified when creating resource set.
+        /// </summary>
+        public InputList<string> ResourcesOrns
+        {
+            get => _resourcesOrns ?? (_resourcesOrns = new InputList<string>());
+            set => _resourcesOrns = value;
+        }
+
         public ResourceSetArgs()
         {
         }
@@ -147,6 +165,18 @@ namespace Pulumi.Okta
         {
             get => _resources ?? (_resources = new InputList<string>());
             set => _resources = value;
+        }
+
+        [Input("resourcesOrns")]
+        private InputList<string>? _resourcesOrns;
+
+        /// <summary>
+        /// The orn(Okta Resource Name) of the resources to be included in the new Resource Set. At least one orn must be specified when creating resource set.
+        /// </summary>
+        public InputList<string> ResourcesOrns
+        {
+            get => _resourcesOrns ?? (_resourcesOrns = new InputList<string>());
+            set => _resourcesOrns = value;
         }
 
         public ResourceSetState()

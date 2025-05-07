@@ -61,12 +61,28 @@ public final class ResourceSetState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.resources);
     }
 
+    /**
+     * The orn(Okta Resource Name) of the resources to be included in the new Resource Set. At least one orn must be specified when creating resource set.
+     * 
+     */
+    @Import(name="resourcesOrns")
+    private @Nullable Output<List<String>> resourcesOrns;
+
+    /**
+     * @return The orn(Okta Resource Name) of the resources to be included in the new Resource Set. At least one orn must be specified when creating resource set.
+     * 
+     */
+    public Optional<Output<List<String>>> resourcesOrns() {
+        return Optional.ofNullable(this.resourcesOrns);
+    }
+
     private ResourceSetState() {}
 
     private ResourceSetState(ResourceSetState $) {
         this.description = $.description;
         this.label = $.label;
         this.resources = $.resources;
+        this.resourcesOrns = $.resourcesOrns;
     }
 
     public static Builder builder() {
@@ -158,6 +174,37 @@ public final class ResourceSetState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder resources(String... resources) {
             return resources(List.of(resources));
+        }
+
+        /**
+         * @param resourcesOrns The orn(Okta Resource Name) of the resources to be included in the new Resource Set. At least one orn must be specified when creating resource set.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder resourcesOrns(@Nullable Output<List<String>> resourcesOrns) {
+            $.resourcesOrns = resourcesOrns;
+            return this;
+        }
+
+        /**
+         * @param resourcesOrns The orn(Okta Resource Name) of the resources to be included in the new Resource Set. At least one orn must be specified when creating resource set.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder resourcesOrns(List<String> resourcesOrns) {
+            return resourcesOrns(Output.of(resourcesOrns));
+        }
+
+        /**
+         * @param resourcesOrns The orn(Okta Resource Name) of the resources to be included in the new Resource Set. At least one orn must be specified when creating resource set.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder resourcesOrns(String... resourcesOrns) {
+            return resourcesOrns(List.of(resourcesOrns));
         }
 
         public ResourceSetState build() {

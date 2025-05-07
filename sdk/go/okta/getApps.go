@@ -29,8 +29,12 @@ type GetAppsArgs struct {
 	IncludeNonDeleted *bool `pulumi:"includeNonDeleted"`
 	// Searches for applications whose label or name property matches this value exactly.
 	Label *string `pulumi:"label"`
-	// Searches for applications whose label or name property begins with this value.
+	// Searches for applications whose label or name property begins with this value. **Warning:** This might not work as intended and will be removed in the future release. Use `q` instead.
+	//
+	// Deprecated: Use `q` instead. This attribute will be removed in a future version.
 	LabelPrefix *string `pulumi:"labelPrefix"`
+	// Searches for apps with name or label properties that starts with the `q` value.
+	Q *string `pulumi:"q"`
 	// Specifies whether to use query optimization. If you specify `useOptimization=true` in the request query, the response contains a subset of app instance properties.
 	UseOptimization *bool `pulumi:"useOptimization"`
 }
@@ -47,8 +51,12 @@ type GetAppsResult struct {
 	IncludeNonDeleted *bool `pulumi:"includeNonDeleted"`
 	// Searches for applications whose label or name property matches this value exactly.
 	Label *string `pulumi:"label"`
-	// Searches for applications whose label or name property begins with this value.
+	// Searches for applications whose label or name property begins with this value. **Warning:** This might not work as intended and will be removed in the future release. Use `q` instead.
+	//
+	// Deprecated: Use `q` instead. This attribute will be removed in a future version.
 	LabelPrefix *string `pulumi:"labelPrefix"`
+	// Searches for apps with name or label properties that starts with the `q` value.
+	Q *string `pulumi:"q"`
 	// Specifies whether to use query optimization. If you specify `useOptimization=true` in the request query, the response contains a subset of app instance properties.
 	UseOptimization *bool `pulumi:"useOptimization"`
 }
@@ -70,8 +78,12 @@ type GetAppsOutputArgs struct {
 	IncludeNonDeleted pulumi.BoolPtrInput `pulumi:"includeNonDeleted"`
 	// Searches for applications whose label or name property matches this value exactly.
 	Label pulumi.StringPtrInput `pulumi:"label"`
-	// Searches for applications whose label or name property begins with this value.
+	// Searches for applications whose label or name property begins with this value. **Warning:** This might not work as intended and will be removed in the future release. Use `q` instead.
+	//
+	// Deprecated: Use `q` instead. This attribute will be removed in a future version.
 	LabelPrefix pulumi.StringPtrInput `pulumi:"labelPrefix"`
+	// Searches for apps with name or label properties that starts with the `q` value.
+	Q pulumi.StringPtrInput `pulumi:"q"`
 	// Specifies whether to use query optimization. If you specify `useOptimization=true` in the request query, the response contains a subset of app instance properties.
 	UseOptimization pulumi.BoolPtrInput `pulumi:"useOptimization"`
 }
@@ -120,9 +132,16 @@ func (o GetAppsResultOutput) Label() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetAppsResult) *string { return v.Label }).(pulumi.StringPtrOutput)
 }
 
-// Searches for applications whose label or name property begins with this value.
+// Searches for applications whose label or name property begins with this value. **Warning:** This might not work as intended and will be removed in the future release. Use `q` instead.
+//
+// Deprecated: Use `q` instead. This attribute will be removed in a future version.
 func (o GetAppsResultOutput) LabelPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetAppsResult) *string { return v.LabelPrefix }).(pulumi.StringPtrOutput)
+}
+
+// Searches for apps with name or label properties that starts with the `q` value.
+func (o GetAppsResultOutput) Q() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetAppsResult) *string { return v.Q }).(pulumi.StringPtrOutput)
 }
 
 // Specifies whether to use query optimization. If you specify `useOptimization=true` in the request query, the response contains a subset of app instance properties.

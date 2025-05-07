@@ -96,6 +96,11 @@ export class Saml extends pulumi.CustomResource {
      */
     public readonly groupsFilters!: pulumi.Output<string[] | undefined>;
     /**
+     * Determines if the IdP should persist account linking when the incoming assertion NameID format is
+     * urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
+     */
+    public readonly honorPersistentNameId!: pulumi.Output<boolean | undefined>;
+    /**
      * URI that identifies the issuer.
      */
     public readonly issuer!: pulumi.Output<string>;
@@ -209,6 +214,7 @@ export class Saml extends pulumi.CustomResource {
             resourceInputs["groupsAssignments"] = state ? state.groupsAssignments : undefined;
             resourceInputs["groupsAttribute"] = state ? state.groupsAttribute : undefined;
             resourceInputs["groupsFilters"] = state ? state.groupsFilters : undefined;
+            resourceInputs["honorPersistentNameId"] = state ? state.honorPersistentNameId : undefined;
             resourceInputs["issuer"] = state ? state.issuer : undefined;
             resourceInputs["issuerMode"] = state ? state.issuerMode : undefined;
             resourceInputs["kid"] = state ? state.kid : undefined;
@@ -252,6 +258,7 @@ export class Saml extends pulumi.CustomResource {
             resourceInputs["groupsAssignments"] = args ? args.groupsAssignments : undefined;
             resourceInputs["groupsAttribute"] = args ? args.groupsAttribute : undefined;
             resourceInputs["groupsFilters"] = args ? args.groupsFilters : undefined;
+            resourceInputs["honorPersistentNameId"] = args ? args.honorPersistentNameId : undefined;
             resourceInputs["issuer"] = args ? args.issuer : undefined;
             resourceInputs["issuerMode"] = args ? args.issuerMode : undefined;
             resourceInputs["kid"] = args ? args.kid : undefined;
@@ -322,6 +329,11 @@ export interface SamlState {
      * Whitelist of Okta Group identifiers that are allowed for the `APPEND` or `SYNC` `groupsAction`.
      */
     groupsFilters?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Determines if the IdP should persist account linking when the incoming assertion NameID format is
+     * urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
+     */
+    honorPersistentNameId?: pulumi.Input<boolean>;
     /**
      * URI that identifies the issuer.
      */
@@ -450,6 +462,11 @@ export interface SamlArgs {
      * Whitelist of Okta Group identifiers that are allowed for the `APPEND` or `SYNC` `groupsAction`.
      */
     groupsFilters?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Determines if the IdP should persist account linking when the incoming assertion NameID format is
+     * urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
+     */
+    honorPersistentNameId?: pulumi.Input<boolean>;
     /**
      * URI that identifies the issuer.
      */

@@ -22,17 +22,21 @@ class ResourceSetArgs:
     def __init__(__self__, *,
                  description: pulumi.Input[builtins.str],
                  label: pulumi.Input[builtins.str],
-                 resources: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None):
+                 resources: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 resources_orns: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a ResourceSet resource.
         :param pulumi.Input[builtins.str] description: A description of the Resource Set
         :param pulumi.Input[builtins.str] label: Unique name given to the Resource Set
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] resources: The endpoints that reference the resources to be included in the new Resource Set. At least one endpoint must be specified when creating resource set.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] resources_orns: The orn(Okta Resource Name) of the resources to be included in the new Resource Set. At least one orn must be specified when creating resource set.
         """
         pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "label", label)
         if resources is not None:
             pulumi.set(__self__, "resources", resources)
+        if resources_orns is not None:
+            pulumi.set(__self__, "resources_orns", resources_orns)
 
     @property
     @pulumi.getter
@@ -70,18 +74,32 @@ class ResourceSetArgs:
     def resources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "resources", value)
 
+    @property
+    @pulumi.getter(name="resourcesOrns")
+    def resources_orns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
+        """
+        The orn(Okta Resource Name) of the resources to be included in the new Resource Set. At least one orn must be specified when creating resource set.
+        """
+        return pulumi.get(self, "resources_orns")
+
+    @resources_orns.setter
+    def resources_orns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "resources_orns", value)
+
 
 @pulumi.input_type
 class _ResourceSetState:
     def __init__(__self__, *,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  label: Optional[pulumi.Input[builtins.str]] = None,
-                 resources: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None):
+                 resources: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 resources_orns: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering ResourceSet resources.
         :param pulumi.Input[builtins.str] description: A description of the Resource Set
         :param pulumi.Input[builtins.str] label: Unique name given to the Resource Set
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] resources: The endpoints that reference the resources to be included in the new Resource Set. At least one endpoint must be specified when creating resource set.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] resources_orns: The orn(Okta Resource Name) of the resources to be included in the new Resource Set. At least one orn must be specified when creating resource set.
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -89,6 +107,8 @@ class _ResourceSetState:
             pulumi.set(__self__, "label", label)
         if resources is not None:
             pulumi.set(__self__, "resources", resources)
+        if resources_orns is not None:
+            pulumi.set(__self__, "resources_orns", resources_orns)
 
     @property
     @pulumi.getter
@@ -126,6 +146,18 @@ class _ResourceSetState:
     def resources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "resources", value)
 
+    @property
+    @pulumi.getter(name="resourcesOrns")
+    def resources_orns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
+        """
+        The orn(Okta Resource Name) of the resources to be included in the new Resource Set. At least one orn must be specified when creating resource set.
+        """
+        return pulumi.get(self, "resources_orns")
+
+    @resources_orns.setter
+    def resources_orns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "resources_orns", value)
+
 
 class ResourceSet(pulumi.CustomResource):
 
@@ -138,6 +170,7 @@ class ResourceSet(pulumi.CustomResource):
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  label: Optional[pulumi.Input[builtins.str]] = None,
                  resources: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 resources_orns: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         """
         Manages Resource Sets as custom collections of resources. This resource allows the creation and manipulation of Okta Resource Sets as custom collections of Okta resources. You can use Okta Resource Sets to assign Custom Roles to administrators who are scoped to the designated resources.
@@ -161,6 +194,7 @@ class ResourceSet(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] description: A description of the Resource Set
         :param pulumi.Input[builtins.str] label: Unique name given to the Resource Set
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] resources: The endpoints that reference the resources to be included in the new Resource Set. At least one endpoint must be specified when creating resource set.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] resources_orns: The orn(Okta Resource Name) of the resources to be included in the new Resource Set. At least one orn must be specified when creating resource set.
         """
         ...
     @overload
@@ -203,6 +237,7 @@ class ResourceSet(pulumi.CustomResource):
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  label: Optional[pulumi.Input[builtins.str]] = None,
                  resources: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 resources_orns: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -219,6 +254,7 @@ class ResourceSet(pulumi.CustomResource):
                 raise TypeError("Missing required property 'label'")
             __props__.__dict__["label"] = label
             __props__.__dict__["resources"] = resources
+            __props__.__dict__["resources_orns"] = resources_orns
         super(ResourceSet, __self__).__init__(
             'okta:index/resourceSet:ResourceSet',
             resource_name,
@@ -231,7 +267,8 @@ class ResourceSet(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             description: Optional[pulumi.Input[builtins.str]] = None,
             label: Optional[pulumi.Input[builtins.str]] = None,
-            resources: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None) -> 'ResourceSet':
+            resources: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+            resources_orns: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None) -> 'ResourceSet':
         """
         Get an existing ResourceSet resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -242,6 +279,7 @@ class ResourceSet(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] description: A description of the Resource Set
         :param pulumi.Input[builtins.str] label: Unique name given to the Resource Set
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] resources: The endpoints that reference the resources to be included in the new Resource Set. At least one endpoint must be specified when creating resource set.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] resources_orns: The orn(Okta Resource Name) of the resources to be included in the new Resource Set. At least one orn must be specified when creating resource set.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -250,6 +288,7 @@ class ResourceSet(pulumi.CustomResource):
         __props__.__dict__["description"] = description
         __props__.__dict__["label"] = label
         __props__.__dict__["resources"] = resources
+        __props__.__dict__["resources_orns"] = resources_orns
         return ResourceSet(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -275,4 +314,12 @@ class ResourceSet(pulumi.CustomResource):
         The endpoints that reference the resources to be included in the new Resource Set. At least one endpoint must be specified when creating resource set.
         """
         return pulumi.get(self, "resources")
+
+    @property
+    @pulumi.getter(name="resourcesOrns")
+    def resources_orns(self) -> pulumi.Output[Optional[Sequence[builtins.str]]]:
+        """
+        The orn(Okta Resource Name) of the resources to be included in the new Resource Set. At least one orn must be specified when creating resource set.
+        """
+        return pulumi.get(self, "resources_orns")
 

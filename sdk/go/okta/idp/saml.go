@@ -75,6 +75,9 @@ type Saml struct {
 	GroupsAttribute pulumi.StringPtrOutput `pulumi:"groupsAttribute"`
 	// Whitelist of Okta Group identifiers that are allowed for the `APPEND` or `SYNC` `groupsAction`.
 	GroupsFilters pulumi.StringArrayOutput `pulumi:"groupsFilters"`
+	// Determines if the IdP should persist account linking when the incoming assertion NameID format is
+	// urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
+	HonorPersistentNameId pulumi.BoolPtrOutput `pulumi:"honorPersistentNameId"`
 	// URI that identifies the issuer.
 	Issuer pulumi.StringOutput `pulumi:"issuer"`
 	// Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL
@@ -180,6 +183,9 @@ type samlState struct {
 	GroupsAttribute *string `pulumi:"groupsAttribute"`
 	// Whitelist of Okta Group identifiers that are allowed for the `APPEND` or `SYNC` `groupsAction`.
 	GroupsFilters []string `pulumi:"groupsFilters"`
+	// Determines if the IdP should persist account linking when the incoming assertion NameID format is
+	// urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
+	HonorPersistentNameId *bool `pulumi:"honorPersistentNameId"`
 	// URI that identifies the issuer.
 	Issuer *string `pulumi:"issuer"`
 	// Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL
@@ -247,6 +253,9 @@ type SamlState struct {
 	GroupsAttribute pulumi.StringPtrInput
 	// Whitelist of Okta Group identifiers that are allowed for the `APPEND` or `SYNC` `groupsAction`.
 	GroupsFilters pulumi.StringArrayInput
+	// Determines if the IdP should persist account linking when the incoming assertion NameID format is
+	// urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
+	HonorPersistentNameId pulumi.BoolPtrInput
 	// URI that identifies the issuer.
 	Issuer pulumi.StringPtrInput
 	// Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL
@@ -316,6 +325,9 @@ type samlArgs struct {
 	GroupsAttribute *string `pulumi:"groupsAttribute"`
 	// Whitelist of Okta Group identifiers that are allowed for the `APPEND` or `SYNC` `groupsAction`.
 	GroupsFilters []string `pulumi:"groupsFilters"`
+	// Determines if the IdP should persist account linking when the incoming assertion NameID format is
+	// urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
+	HonorPersistentNameId *bool `pulumi:"honorPersistentNameId"`
 	// URI that identifies the issuer.
 	Issuer string `pulumi:"issuer"`
 	// Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL
@@ -380,6 +392,9 @@ type SamlArgs struct {
 	GroupsAttribute pulumi.StringPtrInput
 	// Whitelist of Okta Group identifiers that are allowed for the `APPEND` or `SYNC` `groupsAction`.
 	GroupsFilters pulumi.StringArrayInput
+	// Determines if the IdP should persist account linking when the incoming assertion NameID format is
+	// urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
+	HonorPersistentNameId pulumi.BoolPtrInput
 	// URI that identifies the issuer.
 	Issuer pulumi.StringInput
 	// Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL
@@ -559,6 +574,12 @@ func (o SamlOutput) GroupsAttribute() pulumi.StringPtrOutput {
 // Whitelist of Okta Group identifiers that are allowed for the `APPEND` or `SYNC` `groupsAction`.
 func (o SamlOutput) GroupsFilters() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Saml) pulumi.StringArrayOutput { return v.GroupsFilters }).(pulumi.StringArrayOutput)
+}
+
+// Determines if the IdP should persist account linking when the incoming assertion NameID format is
+// urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
+func (o SamlOutput) HonorPersistentNameId() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Saml) pulumi.BoolPtrOutput { return v.HonorPersistentNameId }).(pulumi.BoolPtrOutput)
 }
 
 // URI that identifies the issuer.

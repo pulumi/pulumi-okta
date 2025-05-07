@@ -99,7 +99,7 @@ namespace Pulumi.Okta.User
         public Output<string?> CountryCode { get; private set; } = null!;
 
         /// <summary>
-        /// JSON formatted custom attributes for a user. It must be JSON due to various types Okta allows.
+        /// JSON formatted custom attributes for a user. It must be JSON due to various types Okta allows. You must first add the custom property to the user profile schema before you reference it. You can use the Profile Editor in the Admin Console or the [Schemas](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UISchema/#tag/UISchema) API to manage schema extensions.
         /// </summary>
         [Output("customProfileAttributes")]
         public Output<string> CustomProfileAttributes { get; private set; } = null!;
@@ -406,7 +406,7 @@ namespace Pulumi.Okta.User
         public Input<string>? CountryCode { get; set; }
 
         /// <summary>
-        /// JSON formatted custom attributes for a user. It must be JSON due to various types Okta allows.
+        /// JSON formatted custom attributes for a user. It must be JSON due to various types Okta allows. You must first add the custom property to the user profile schema before you reference it. You can use the Profile Editor in the Admin Console or the [Schemas](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UISchema/#tag/UISchema) API to manage schema extensions.
         /// </summary>
         [Input("customProfileAttributes")]
         public Input<string>? CustomProfileAttributes { get; set; }
@@ -698,7 +698,7 @@ namespace Pulumi.Okta.User
         public Input<string>? CountryCode { get; set; }
 
         /// <summary>
-        /// JSON formatted custom attributes for a user. It must be JSON due to various types Okta allows.
+        /// JSON formatted custom attributes for a user. It must be JSON due to various types Okta allows. You must first add the custom property to the user profile schema before you reference it. You can use the Profile Editor in the Admin Console or the [Schemas](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UISchema/#tag/UISchema) API to manage schema extensions.
         /// </summary>
         [Input("customProfileAttributes")]
         public Input<string>? CustomProfileAttributes { get; set; }

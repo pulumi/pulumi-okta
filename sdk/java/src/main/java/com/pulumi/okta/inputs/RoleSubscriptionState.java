@@ -19,10 +19,10 @@ public final class RoleSubscriptionState extends com.pulumi.resources.ResourceAr
      * Type of the notification. Valid values: - &#39;CONNECTOR_AGENT&#39; - Disconnects and reconnects: On-prem provisioning, on-prem
      * MFA agents, and RADIUS server agent. - &#39;USER_LOCKED_OUT&#39; - User lockouts. - &#39;APP_IMPORT&#39; - App user import status. -
      * &#39;LDAP_AGENT&#39; - Disconnects and reconnects: LDAP agent. - &#39;AD_AGENT&#39; - Disconnects and reconnects: AD agent. -
-     * &#39;OKTA_ANNOUNCEMENT&#39; - Okta release notes and announcements. - &#39;OKTA_ISSUE&#39; - Trust incidents and updates. -
-     * &#39;OKTA_UPDATE&#39; - Scheduled system updates. - &#39;IWA_AGENT&#39; - Disconnects and reconnects: IWA agent. - &#39;USER_DEPROVISION&#39; -
-     * User deprovisions. - &#39;REPORT_SUSPICIOUS_ACTIVITY&#39; - User reporting of suspicious activity. - &#39;RATELIMIT_NOTIFICATION&#39; -
-     * Rate limit warning and violation. - &#39;AGENT_AUTO_UPDATE_NOTIFICATION&#39; - Agent auto-update notifications: AD Agent.
+     * &#39;OKTA_ANNOUNCEMENT&#39; - Okta release notes and announcements. - &#39;OKTA_UPDATE&#39; - Scheduled system updates. - &#39;IWA_AGENT&#39; -
+     * Disconnects and reconnects: IWA agent. - &#39;USER_DEPROVISION&#39; - User deprovisions. - &#39;REPORT_SUSPICIOUS_ACTIVITY&#39; - User
+     * reporting of suspicious activity. - &#39;RATELIMIT_NOTIFICATION&#39; - Rate limit warning and violation. -
+     * &#39;AGENT_AUTO_UPDATE_NOTIFICATION&#39; - Agent auto-update notifications: AD Agent.
      * 
      */
     @Import(name="notificationType")
@@ -32,10 +32,10 @@ public final class RoleSubscriptionState extends com.pulumi.resources.ResourceAr
      * @return Type of the notification. Valid values: - &#39;CONNECTOR_AGENT&#39; - Disconnects and reconnects: On-prem provisioning, on-prem
      * MFA agents, and RADIUS server agent. - &#39;USER_LOCKED_OUT&#39; - User lockouts. - &#39;APP_IMPORT&#39; - App user import status. -
      * &#39;LDAP_AGENT&#39; - Disconnects and reconnects: LDAP agent. - &#39;AD_AGENT&#39; - Disconnects and reconnects: AD agent. -
-     * &#39;OKTA_ANNOUNCEMENT&#39; - Okta release notes and announcements. - &#39;OKTA_ISSUE&#39; - Trust incidents and updates. -
-     * &#39;OKTA_UPDATE&#39; - Scheduled system updates. - &#39;IWA_AGENT&#39; - Disconnects and reconnects: IWA agent. - &#39;USER_DEPROVISION&#39; -
-     * User deprovisions. - &#39;REPORT_SUSPICIOUS_ACTIVITY&#39; - User reporting of suspicious activity. - &#39;RATELIMIT_NOTIFICATION&#39; -
-     * Rate limit warning and violation. - &#39;AGENT_AUTO_UPDATE_NOTIFICATION&#39; - Agent auto-update notifications: AD Agent.
+     * &#39;OKTA_ANNOUNCEMENT&#39; - Okta release notes and announcements. - &#39;OKTA_UPDATE&#39; - Scheduled system updates. - &#39;IWA_AGENT&#39; -
+     * Disconnects and reconnects: IWA agent. - &#39;USER_DEPROVISION&#39; - User deprovisions. - &#39;REPORT_SUSPICIOUS_ACTIVITY&#39; - User
+     * reporting of suspicious activity. - &#39;RATELIMIT_NOTIFICATION&#39; - Rate limit warning and violation. -
+     * &#39;AGENT_AUTO_UPDATE_NOTIFICATION&#39; - Agent auto-update notifications: AD Agent.
      * 
      */
     public Optional<Output<String>> notificationType() {
@@ -106,10 +106,10 @@ public final class RoleSubscriptionState extends com.pulumi.resources.ResourceAr
          * @param notificationType Type of the notification. Valid values: - &#39;CONNECTOR_AGENT&#39; - Disconnects and reconnects: On-prem provisioning, on-prem
          * MFA agents, and RADIUS server agent. - &#39;USER_LOCKED_OUT&#39; - User lockouts. - &#39;APP_IMPORT&#39; - App user import status. -
          * &#39;LDAP_AGENT&#39; - Disconnects and reconnects: LDAP agent. - &#39;AD_AGENT&#39; - Disconnects and reconnects: AD agent. -
-         * &#39;OKTA_ANNOUNCEMENT&#39; - Okta release notes and announcements. - &#39;OKTA_ISSUE&#39; - Trust incidents and updates. -
-         * &#39;OKTA_UPDATE&#39; - Scheduled system updates. - &#39;IWA_AGENT&#39; - Disconnects and reconnects: IWA agent. - &#39;USER_DEPROVISION&#39; -
-         * User deprovisions. - &#39;REPORT_SUSPICIOUS_ACTIVITY&#39; - User reporting of suspicious activity. - &#39;RATELIMIT_NOTIFICATION&#39; -
-         * Rate limit warning and violation. - &#39;AGENT_AUTO_UPDATE_NOTIFICATION&#39; - Agent auto-update notifications: AD Agent.
+         * &#39;OKTA_ANNOUNCEMENT&#39; - Okta release notes and announcements. - &#39;OKTA_UPDATE&#39; - Scheduled system updates. - &#39;IWA_AGENT&#39; -
+         * Disconnects and reconnects: IWA agent. - &#39;USER_DEPROVISION&#39; - User deprovisions. - &#39;REPORT_SUSPICIOUS_ACTIVITY&#39; - User
+         * reporting of suspicious activity. - &#39;RATELIMIT_NOTIFICATION&#39; - Rate limit warning and violation. -
+         * &#39;AGENT_AUTO_UPDATE_NOTIFICATION&#39; - Agent auto-update notifications: AD Agent.
          * 
          * @return builder
          * 
@@ -123,10 +123,10 @@ public final class RoleSubscriptionState extends com.pulumi.resources.ResourceAr
          * @param notificationType Type of the notification. Valid values: - &#39;CONNECTOR_AGENT&#39; - Disconnects and reconnects: On-prem provisioning, on-prem
          * MFA agents, and RADIUS server agent. - &#39;USER_LOCKED_OUT&#39; - User lockouts. - &#39;APP_IMPORT&#39; - App user import status. -
          * &#39;LDAP_AGENT&#39; - Disconnects and reconnects: LDAP agent. - &#39;AD_AGENT&#39; - Disconnects and reconnects: AD agent. -
-         * &#39;OKTA_ANNOUNCEMENT&#39; - Okta release notes and announcements. - &#39;OKTA_ISSUE&#39; - Trust incidents and updates. -
-         * &#39;OKTA_UPDATE&#39; - Scheduled system updates. - &#39;IWA_AGENT&#39; - Disconnects and reconnects: IWA agent. - &#39;USER_DEPROVISION&#39; -
-         * User deprovisions. - &#39;REPORT_SUSPICIOUS_ACTIVITY&#39; - User reporting of suspicious activity. - &#39;RATELIMIT_NOTIFICATION&#39; -
-         * Rate limit warning and violation. - &#39;AGENT_AUTO_UPDATE_NOTIFICATION&#39; - Agent auto-update notifications: AD Agent.
+         * &#39;OKTA_ANNOUNCEMENT&#39; - Okta release notes and announcements. - &#39;OKTA_UPDATE&#39; - Scheduled system updates. - &#39;IWA_AGENT&#39; -
+         * Disconnects and reconnects: IWA agent. - &#39;USER_DEPROVISION&#39; - User deprovisions. - &#39;REPORT_SUSPICIOUS_ACTIVITY&#39; - User
+         * reporting of suspicious activity. - &#39;RATELIMIT_NOTIFICATION&#39; - Rate limit warning and violation. -
+         * &#39;AGENT_AUTO_UPDATE_NOTIFICATION&#39; - Agent auto-update notifications: AD Agent.
          * 
          * @return builder
          * 
