@@ -196,10 +196,8 @@ class _CustomizedSigninPageState:
         pulumi.set(self, "widget_version", value)
 
 
+@pulumi.type_token("okta:index/customizedSigninPage:CustomizedSigninPage")
 class CustomizedSigninPage(pulumi.CustomResource):
-
-    pulumi_type = "okta:index/customizedSigninPage:CustomizedSigninPage"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

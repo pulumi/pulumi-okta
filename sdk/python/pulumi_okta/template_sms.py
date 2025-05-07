@@ -129,10 +129,8 @@ class _TemplateSmsState:
         pulumi.set(self, "type", value)
 
 
+@pulumi.type_token("okta:index/templateSms:TemplateSms")
 class TemplateSms(pulumi.CustomResource):
-
-    pulumi_type = "okta:index/templateSms:TemplateSms"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

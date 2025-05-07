@@ -158,10 +158,8 @@ class _UserFactorQuestionState:
         pulumi.set(self, "user_id", value)
 
 
+@pulumi.type_token("okta:index/userFactorQuestion:UserFactorQuestion")
 class UserFactorQuestion(pulumi.CustomResource):
-
-    pulumi_type = "okta:index/userFactorQuestion:UserFactorQuestion"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

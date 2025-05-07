@@ -385,10 +385,8 @@ class _RulePasswordState:
         pulumi.set(self, "users_excludeds", value)
 
 
+@pulumi.type_token("okta:policy/rulePassword:RulePassword")
 class RulePassword(pulumi.CustomResource):
-
-    pulumi_type = "okta:policy/rulePassword:RulePassword"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

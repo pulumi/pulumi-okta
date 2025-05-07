@@ -705,10 +705,8 @@ class _PolicyMfaDefaultState:
         pulumi.set(self, "yubikey_token", value)
 
 
+@pulumi.type_token("okta:index/policyMfaDefault:PolicyMfaDefault")
 class PolicyMfaDefault(pulumi.CustomResource):
-
-    pulumi_type = "okta:index/policyMfaDefault:PolicyMfaDefault"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

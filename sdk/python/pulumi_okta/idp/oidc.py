@@ -1103,10 +1103,8 @@ class _OidcState:
         pulumi.set(self, "username_template", value)
 
 
+@pulumi.type_token("okta:idp/oidc:Oidc")
 class Oidc(pulumi.CustomResource):
-
-    pulumi_type = "okta:idp/oidc:Oidc"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

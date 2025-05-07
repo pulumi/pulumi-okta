@@ -127,10 +127,8 @@ class _AdminRoleCustomAssignmentsState:
         pulumi.set(self, "resource_set_id", value)
 
 
+@pulumi.type_token("okta:index/adminRoleCustomAssignments:AdminRoleCustomAssignments")
 class AdminRoleCustomAssignments(pulumi.CustomResource):
-
-    pulumi_type = "okta:index/adminRoleCustomAssignments:AdminRoleCustomAssignments"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

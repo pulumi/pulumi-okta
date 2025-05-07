@@ -351,10 +351,8 @@ class _AdminRoleCustomState:
         pulumi.set(self, "permissions", value)
 
 
+@pulumi.type_token("okta:index/adminRoleCustom:AdminRoleCustom")
 class AdminRoleCustom(pulumi.CustomResource):
-
-    pulumi_type = "okta:index/adminRoleCustom:AdminRoleCustom"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

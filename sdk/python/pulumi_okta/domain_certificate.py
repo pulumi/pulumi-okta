@@ -24,7 +24,7 @@ class DomainCertificateArgs:
                  certificate_chain: pulumi.Input[builtins.str],
                  domain_id: pulumi.Input[builtins.str],
                  private_key: pulumi.Input[builtins.str],
-                 type: pulumi.Input[builtins.str]):
+                 type: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a DomainCertificate resource.
         :param pulumi.Input[builtins.str] certificate: Certificate content
@@ -37,7 +37,8 @@ class DomainCertificateArgs:
         pulumi.set(__self__, "certificate_chain", certificate_chain)
         pulumi.set(__self__, "domain_id", domain_id)
         pulumi.set(__self__, "private_key", private_key)
-        pulumi.set(__self__, "type", type)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
@@ -89,14 +90,14 @@ class DomainCertificateArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Input[builtins.str]:
+    def type(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         Certificate type. Valid value is `PEM`
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: pulumi.Input[builtins.str]):
+    def type(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "type", value)
 
 
@@ -188,10 +189,8 @@ class _DomainCertificateState:
         pulumi.set(self, "type", value)
 
 
+@pulumi.type_token("okta:index/domainCertificate:DomainCertificate")
 class DomainCertificate(pulumi.CustomResource):
-
-    pulumi_type = "okta:index/domainCertificate:DomainCertificate"
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -367,8 +366,6 @@ class DomainCertificate(pulumi.CustomResource):
             if private_key is None and not opts.urn:
                 raise TypeError("Missing required property 'private_key'")
             __props__.__dict__["private_key"] = private_key
-            if type is None and not opts.urn:
-                raise TypeError("Missing required property 'type'")
             __props__.__dict__["type"] = type
         super(DomainCertificate, __self__).__init__(
             'okta:index/domainCertificate:DomainCertificate',

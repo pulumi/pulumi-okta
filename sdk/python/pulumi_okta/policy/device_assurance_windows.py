@@ -913,10 +913,8 @@ class _DeviceAssuranceWindowsState:
         pulumi.set(self, "tpsp_windows_user_domain", value)
 
 
+@pulumi.type_token("okta:policy/deviceAssuranceWindows:DeviceAssuranceWindows")
 class DeviceAssuranceWindows(pulumi.CustomResource):
-
-    pulumi_type = "okta:policy/deviceAssuranceWindows:DeviceAssuranceWindows"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

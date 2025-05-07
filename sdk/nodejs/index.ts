@@ -360,10 +360,8 @@ export type PreviewSigninPage = import("./previewSigninPage").PreviewSigninPage;
 export const PreviewSigninPage: typeof import("./previewSigninPage").PreviewSigninPage = null as any;
 utilities.lazyLoad(exports, ["PreviewSigninPage"], () => require("./previewSigninPage"));
 
-export { ProviderArgs } from "./provider";
-export type Provider = import("./provider").Provider;
-export const Provider: typeof import("./provider").Provider = null as any;
-utilities.lazyLoad(exports, ["Provider"], () => require("./provider"));
+export * from "./provider";
+import { Provider } from "./provider";
 
 export { RateLimitingArgs, RateLimitingState } from "./rateLimiting";
 export type RateLimiting = import("./rateLimiting").RateLimiting;

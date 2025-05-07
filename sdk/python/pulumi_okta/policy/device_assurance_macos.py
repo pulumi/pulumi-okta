@@ -721,10 +721,8 @@ class _DeviceAssuranceMacosState:
         pulumi.set(self, "tpsp_site_isolation_enabled", value)
 
 
+@pulumi.type_token("okta:policy/deviceAssuranceMacos:DeviceAssuranceMacos")
 class DeviceAssuranceMacos(pulumi.CustomResource):
-
-    pulumi_type = "okta:policy/deviceAssuranceMacos:DeviceAssuranceMacos"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

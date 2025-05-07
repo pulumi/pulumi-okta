@@ -256,10 +256,8 @@ class _BehaviourState:
         pulumi.set(self, "velocity", value)
 
 
+@pulumi.type_token("okta:index/behaviour:Behaviour")
 class Behaviour(pulumi.CustomResource):
-
-    pulumi_type = "okta:index/behaviour:Behaviour"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

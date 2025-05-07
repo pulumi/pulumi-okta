@@ -95,10 +95,8 @@ class _OAuthPostLogoutRedirectUriState:
         pulumi.set(self, "uri", value)
 
 
+@pulumi.type_token("okta:app/oAuthPostLogoutRedirectUri:OAuthPostLogoutRedirectUri")
 class OAuthPostLogoutRedirectUri(pulumi.CustomResource):
-
-    pulumi_type = "okta:app/oAuthPostLogoutRedirectUri:OAuthPostLogoutRedirectUri"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

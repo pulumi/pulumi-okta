@@ -559,10 +559,8 @@ class _RuleIdpDiscoveryState:
         pulumi.set(self, "user_identifier_type", value)
 
 
+@pulumi.type_token("okta:policy/ruleIdpDiscovery:RuleIdpDiscovery")
 class RuleIdpDiscovery(pulumi.CustomResource):
-
-    pulumi_type = "okta:policy/ruleIdpDiscovery:RuleIdpDiscovery"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

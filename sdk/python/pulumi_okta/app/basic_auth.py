@@ -526,10 +526,8 @@ class _BasicAuthState:
         pulumi.set(self, "url", value)
 
 
+@pulumi.type_token("okta:app/basicAuth:BasicAuth")
 class BasicAuth(pulumi.CustomResource):
-
-    pulumi_type = "okta:app/basicAuth:BasicAuth"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

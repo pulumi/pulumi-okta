@@ -159,10 +159,8 @@ class _OriginState:
         pulumi.set(self, "scopes", value)
 
 
+@pulumi.type_token("okta:trustedorigin/origin:Origin")
 class Origin(pulumi.CustomResource):
-
-    pulumi_type = "okta:trustedorigin/origin:Origin"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

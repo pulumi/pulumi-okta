@@ -191,10 +191,8 @@ class _EmailDomainState:
         pulumi.set(self, "validation_status", value)
 
 
+@pulumi.type_token("okta:index/emailDomain:EmailDomain")
 class EmailDomain(pulumi.CustomResource):
-
-    pulumi_type = "okta:index/emailDomain:EmailDomain"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

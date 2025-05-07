@@ -141,9 +141,6 @@ export class DomainCertificate extends pulumi.CustomResource {
             if ((!args || args.privateKey === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'privateKey'");
             }
-            if ((!args || args.type === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'type'");
-            }
             resourceInputs["certificate"] = args ? args.certificate : undefined;
             resourceInputs["certificateChain"] = args ? args.certificateChain : undefined;
             resourceInputs["domainId"] = args ? args.domainId : undefined;
@@ -204,5 +201,5 @@ export interface DomainCertificateArgs {
     /**
      * Certificate type. Valid value is `PEM`
      */
-    type: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
 }

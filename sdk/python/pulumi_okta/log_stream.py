@@ -154,10 +154,8 @@ class _LogStreamState:
         pulumi.set(self, "type", value)
 
 
+@pulumi.type_token("okta:index/logStream:LogStream")
 class LogStream(pulumi.CustomResource):
-
-    pulumi_type = "okta:index/logStream:LogStream"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -415,10 +415,8 @@ class _RuleMfaState:
         pulumi.set(self, "users_excludeds", value)
 
 
+@pulumi.type_token("okta:policy/ruleMfa:RuleMfa")
 class RuleMfa(pulumi.CustomResource):
-
-    pulumi_type = "okta:policy/ruleMfa:RuleMfa"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

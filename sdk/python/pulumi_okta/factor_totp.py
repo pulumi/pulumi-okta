@@ -225,10 +225,8 @@ class _FactorTotpState:
         pulumi.set(self, "time_step", value)
 
 
+@pulumi.type_token("okta:index/factorTotp:FactorTotp")
 class FactorTotp(pulumi.CustomResource):
-
-    pulumi_type = "okta:index/factorTotp:FactorTotp"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

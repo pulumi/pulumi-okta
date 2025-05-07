@@ -975,10 +975,8 @@ class _SocialState:
         pulumi.set(self, "username_template", value)
 
 
+@pulumi.type_token("okta:idp/social:Social")
 class Social(pulumi.CustomResource):
-
-    pulumi_type = "okta:idp/social:Social"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

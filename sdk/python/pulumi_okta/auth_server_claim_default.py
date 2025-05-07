@@ -224,10 +224,8 @@ class _AuthServerClaimDefaultState:
         pulumi.set(self, "value_type", value)
 
 
+@pulumi.type_token("okta:index/authServerClaimDefault:AuthServerClaimDefault")
 class AuthServerClaimDefault(pulumi.CustomResource):
-
-    pulumi_type = "okta:index/authServerClaimDefault:AuthServerClaimDefault"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

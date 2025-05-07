@@ -64,10 +64,8 @@ class _EventHookVerificationState:
         pulumi.set(self, "event_hook_id", value)
 
 
+@pulumi.type_token("okta:index/eventHookVerification:EventHookVerification")
 class EventHookVerification(pulumi.CustomResource):
-
-    pulumi_type = "okta:index/eventHookVerification:EventHookVerification"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

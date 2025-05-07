@@ -95,10 +95,8 @@ class _TrustedServerState:
         pulumi.set(self, "trusteds", value)
 
 
+@pulumi.type_token("okta:index/trustedServer:TrustedServer")
 class TrustedServer(pulumi.CustomResource):
-
-    pulumi_type = "okta:index/trustedServer:TrustedServer"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -273,10 +273,8 @@ class _HookState:
         pulumi.set(self, "version", value)
 
 
+@pulumi.type_token("okta:inline/hook:Hook")
 class Hook(pulumi.CustomResource):
-
-    pulumi_type = "okta:inline/hook:Hook"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

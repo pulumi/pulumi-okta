@@ -912,10 +912,8 @@ class _AppSharedCredentialsState:
         pulumi.set(self, "username_field", value)
 
 
+@pulumi.type_token("okta:index/appSharedCredentials:AppSharedCredentials")
 class AppSharedCredentials(pulumi.CustomResource):
-
-    pulumi_type = "okta:index/appSharedCredentials:AppSharedCredentials"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

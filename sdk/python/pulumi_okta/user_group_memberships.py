@@ -95,10 +95,8 @@ class _UserGroupMembershipsState:
         pulumi.set(self, "user_id", value)
 
 
+@pulumi.type_token("okta:index/userGroupMemberships:UserGroupMemberships")
 class UserGroupMemberships(pulumi.CustomResource):
-
-    pulumi_type = "okta:index/userGroupMemberships:UserGroupMemberships"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

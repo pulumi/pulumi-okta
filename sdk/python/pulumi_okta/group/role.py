@@ -287,10 +287,8 @@ class _RoleState:
         pulumi.set(self, "target_group_lists", value)
 
 
+@pulumi.type_token("okta:group/role:Role")
 class Role(pulumi.CustomResource):
-
-    pulumi_type = "okta:group/role:Role"
-
     @overload
     def __init__(__self__,
                  resource_name: str,
