@@ -64,10 +64,8 @@ class _DomainVerificationState:
         pulumi.set(self, "domain_id", value)
 
 
+@pulumi.type_token("okta:index/domainVerification:DomainVerification")
 class DomainVerification(pulumi.CustomResource):
-
-    pulumi_type = "okta:index/domainVerification:DomainVerification"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -126,10 +126,8 @@ class _AppOauthApiScopeState:
         pulumi.set(self, "scopes", value)
 
 
+@pulumi.type_token("okta:index/appOauthApiScope:AppOauthApiScope")
 class AppOauthApiScope(pulumi.CustomResource):
-
-    pulumi_type = "okta:index/appOauthApiScope:AppOauthApiScope"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

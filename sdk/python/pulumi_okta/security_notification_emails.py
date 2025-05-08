@@ -193,10 +193,8 @@ class _SecurityNotificationEmailsState:
         pulumi.set(self, "send_email_for_password_changed_enabled", value)
 
 
+@pulumi.type_token("okta:index/securityNotificationEmails:SecurityNotificationEmails")
 class SecurityNotificationEmails(pulumi.CustomResource):
-
-    pulumi_type = "okta:index/securityNotificationEmails:SecurityNotificationEmails"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

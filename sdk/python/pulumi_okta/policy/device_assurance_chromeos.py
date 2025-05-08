@@ -593,10 +593,8 @@ class _DeviceAssuranceChromeosState:
         pulumi.set(self, "tpsp_site_isolation_enabled", value)
 
 
+@pulumi.type_token("okta:policy/deviceAssuranceChromeos:DeviceAssuranceChromeos")
 class DeviceAssuranceChromeos(pulumi.CustomResource):
-
-    pulumi_type = "okta:policy/deviceAssuranceChromeos:DeviceAssuranceChromeos"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

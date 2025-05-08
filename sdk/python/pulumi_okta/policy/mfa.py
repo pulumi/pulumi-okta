@@ -785,10 +785,8 @@ class _MfaState:
         pulumi.set(self, "yubikey_token", value)
 
 
+@pulumi.type_token("okta:policy/mfa:Mfa")
 class Mfa(pulumi.CustomResource):
-
-    pulumi_type = "okta:policy/mfa:Mfa"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

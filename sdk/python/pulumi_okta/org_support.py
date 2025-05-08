@@ -97,10 +97,8 @@ class _OrgSupportState:
         pulumi.set(self, "status", value)
 
 
+@pulumi.type_token("okta:index/orgSupport:OrgSupport")
 class OrgSupport(pulumi.CustomResource):
-
-    pulumi_type = "okta:index/orgSupport:OrgSupport"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -158,10 +158,8 @@ class _CaptchaState:
         pulumi.set(self, "type", value)
 
 
+@pulumi.type_token("okta:index/captcha:Captcha")
 class Captcha(pulumi.CustomResource):
-
-    pulumi_type = "okta:index/captcha:Captcha"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

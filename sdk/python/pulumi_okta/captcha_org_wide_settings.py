@@ -97,10 +97,8 @@ class _CaptchaOrgWideSettingsState:
         pulumi.set(self, "enabled_fors", value)
 
 
+@pulumi.type_token("okta:index/captchaOrgWideSettings:CaptchaOrgWideSettings")
 class CaptchaOrgWideSettings(pulumi.CustomResource):
-
-    pulumi_type = "okta:index/captchaOrgWideSettings:CaptchaOrgWideSettings"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

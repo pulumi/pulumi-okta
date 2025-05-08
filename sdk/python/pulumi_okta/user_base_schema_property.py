@@ -286,10 +286,8 @@ class _UserBaseSchemaPropertyState:
         pulumi.set(self, "user_type", value)
 
 
+@pulumi.type_token("okta:index/userBaseSchemaProperty:UserBaseSchemaProperty")
 class UserBaseSchemaProperty(pulumi.CustomResource):
-
-    pulumi_type = "okta:index/userBaseSchemaProperty:UserBaseSchemaProperty"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

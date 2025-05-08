@@ -64,10 +64,8 @@ class _EmailDomainVerificationState:
         pulumi.set(self, "email_domain_id", value)
 
 
+@pulumi.type_token("okta:index/emailDomainVerification:EmailDomainVerification")
 class EmailDomainVerification(pulumi.CustomResource):
-
-    pulumi_type = "okta:index/emailDomainVerification:EmailDomainVerification"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

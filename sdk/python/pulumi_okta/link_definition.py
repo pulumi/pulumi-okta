@@ -219,10 +219,8 @@ class _LinkDefinitionState:
         pulumi.set(self, "primary_title", value)
 
 
+@pulumi.type_token("okta:index/linkDefinition:LinkDefinition")
 class LinkDefinition(pulumi.CustomResource):
-
-    pulumi_type = "okta:index/linkDefinition:LinkDefinition"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

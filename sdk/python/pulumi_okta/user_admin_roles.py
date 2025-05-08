@@ -127,10 +127,8 @@ class _UserAdminRolesState:
         pulumi.set(self, "user_id", value)
 
 
+@pulumi.type_token("okta:index/userAdminRoles:UserAdminRoles")
 class UserAdminRoles(pulumi.CustomResource):
-
-    pulumi_type = "okta:index/userAdminRoles:UserAdminRoles"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

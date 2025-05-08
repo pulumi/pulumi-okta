@@ -255,10 +255,8 @@ class _RuleState:
         pulumi.set(self, "users_excludeds", value)
 
 
+@pulumi.type_token("okta:group/rule:Rule")
 class Rule(pulumi.CustomResource):
-
-    pulumi_type = "okta:group/rule:Rule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

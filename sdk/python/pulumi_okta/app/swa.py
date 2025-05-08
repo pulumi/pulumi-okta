@@ -848,10 +848,8 @@ class _SwaState:
         pulumi.set(self, "username_field", value)
 
 
+@pulumi.type_token("okta:app/swa:Swa")
 class Swa(pulumi.CustomResource):
-
-    pulumi_type = "okta:app/swa:Swa"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -127,10 +127,8 @@ class _UserTypeState:
         pulumi.set(self, "name", value)
 
 
+@pulumi.type_token("okta:user/userType:UserType")
 class UserType(pulumi.CustomResource):
-
-    pulumi_type = "okta:user/userType:UserType"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

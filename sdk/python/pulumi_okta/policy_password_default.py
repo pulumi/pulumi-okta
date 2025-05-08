@@ -897,10 +897,8 @@ class _PolicyPasswordDefaultState:
         pulumi.set(self, "status", value)
 
 
+@pulumi.type_token("okta:index/policyPasswordDefault:PolicyPasswordDefault")
 class PolicyPasswordDefault(pulumi.CustomResource):
-
-    pulumi_type = "okta:index/policyPasswordDefault:PolicyPasswordDefault"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

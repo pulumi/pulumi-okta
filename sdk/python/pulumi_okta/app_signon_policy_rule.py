@@ -874,10 +874,8 @@ class _AppSignonPolicyRuleState:
         pulumi.set(self, "users_includeds", value)
 
 
+@pulumi.type_token("okta:index/appSignonPolicyRule:AppSignonPolicyRule")
 class AppSignonPolicyRule(pulumi.CustomResource):
-
-    pulumi_type = "okta:index/appSignonPolicyRule:AppSignonPolicyRule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -190,10 +190,8 @@ class _OwnerState:
         pulumi.set(self, "type", value)
 
 
+@pulumi.type_token("okta:group/owner:Owner")
 class Owner(pulumi.CustomResource):
-
-    pulumi_type = "okta:group/owner:Owner"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

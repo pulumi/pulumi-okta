@@ -1790,10 +1790,8 @@ class _SamlState:
         pulumi.set(self, "user_name_template_type", value)
 
 
+@pulumi.type_token("okta:app/saml:Saml")
 class Saml(pulumi.CustomResource):
-
-    pulumi_type = "okta:app/saml:Saml"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

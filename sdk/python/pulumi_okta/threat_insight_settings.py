@@ -96,10 +96,8 @@ class _ThreatInsightSettingsState:
         pulumi.set(self, "network_excludes", value)
 
 
+@pulumi.type_token("okta:index/threatInsightSettings:ThreatInsightSettings")
 class ThreatInsightSettings(pulumi.CustomResource):
-
-    pulumi_type = "okta:index/threatInsightSettings:ThreatInsightSettings"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

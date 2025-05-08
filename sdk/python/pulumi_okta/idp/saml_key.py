@@ -160,10 +160,8 @@ class _SamlKeyState:
         pulumi.set(self, "x5t_s256", value)
 
 
+@pulumi.type_token("okta:idp/samlKey:SamlKey")
 class SamlKey(pulumi.CustomResource):
-
-    pulumi_type = "okta:idp/samlKey:SamlKey"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

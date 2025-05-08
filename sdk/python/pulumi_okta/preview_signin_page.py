@@ -196,10 +196,8 @@ class _PreviewSigninPageState:
         pulumi.set(self, "widget_version", value)
 
 
+@pulumi.type_token("okta:index/previewSigninPage:PreviewSigninPage")
 class PreviewSigninPage(pulumi.CustomResource):
-
-    pulumi_type = "okta:index/previewSigninPage:PreviewSigninPage"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

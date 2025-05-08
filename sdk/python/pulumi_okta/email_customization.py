@@ -279,10 +279,8 @@ class _EmailCustomizationState:
         pulumi.set(self, "template_name", value)
 
 
+@pulumi.type_token("okta:index/emailCustomization:EmailCustomization")
 class EmailCustomization(pulumi.CustomResource):
-
-    pulumi_type = "okta:index/emailCustomization:EmailCustomization"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

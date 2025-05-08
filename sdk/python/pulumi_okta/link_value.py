@@ -127,10 +127,8 @@ class _LinkValueState:
         pulumi.set(self, "primary_user_id", value)
 
 
+@pulumi.type_token("okta:index/linkValue:LinkValue")
 class LinkValue(pulumi.CustomResource):
-
-    pulumi_type = "okta:index/linkValue:LinkValue"
-
     @overload
     def __init__(__self__,
                  resource_name: str,
