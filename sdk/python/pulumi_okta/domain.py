@@ -163,10 +163,8 @@ class _DomainState:
         pulumi.set(self, "validation_status", value)
 
 
+@pulumi.type_token("okta:index/domain:Domain")
 class Domain(pulumi.CustomResource):
-
-    pulumi_type = "okta:index/domain:Domain"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

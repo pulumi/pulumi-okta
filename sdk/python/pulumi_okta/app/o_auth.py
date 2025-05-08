@@ -1577,10 +1577,8 @@ class _OAuthState:
         pulumi.set(self, "wildcard_redirect", value)
 
 
+@pulumi.type_token("okta:app/oAuth:OAuth")
 class OAuth(pulumi.CustomResource):
-
-    pulumi_type = "okta:app/oAuth:OAuth"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

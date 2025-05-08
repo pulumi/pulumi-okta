@@ -159,10 +159,8 @@ class _ResourceSetState:
         pulumi.set(self, "resources_orns", value)
 
 
+@pulumi.type_token("okta:index/resourceSet:ResourceSet")
 class ResourceSet(pulumi.CustomResource):
-
-    pulumi_type = "okta:index/resourceSet:ResourceSet"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -257,10 +257,8 @@ class _MappingState:
         pulumi.set(self, "target_type", value)
 
 
+@pulumi.type_token("okta:profile/mapping:Mapping")
 class Mapping(pulumi.CustomResource):
-
-    pulumi_type = "okta:profile/mapping:Mapping"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

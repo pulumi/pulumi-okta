@@ -644,10 +644,8 @@ class _GroupSchemaPropertyState:
         pulumi.set(self, "unique", value)
 
 
+@pulumi.type_token("okta:index/groupSchemaProperty:GroupSchemaProperty")
 class GroupSchemaProperty(pulumi.CustomResource):
-
-    pulumi_type = "okta:index/groupSchemaProperty:GroupSchemaProperty"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

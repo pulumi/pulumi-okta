@@ -191,10 +191,8 @@ class _GroupAssignmentState:
         pulumi.set(self, "retain_assignment", value)
 
 
+@pulumi.type_token("okta:app/groupAssignment:GroupAssignment")
 class GroupAssignment(pulumi.CustomResource):
-
-    pulumi_type = "okta:app/groupAssignment:GroupAssignment"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

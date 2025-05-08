@@ -377,10 +377,8 @@ class _BrandState:
         pulumi.set(self, "remove_powered_by_okta", value)
 
 
+@pulumi.type_token("okta:index/brand:Brand")
 class Brand(pulumi.CustomResource):
-
-    pulumi_type = "okta:index/brand:Brand"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

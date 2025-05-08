@@ -512,10 +512,8 @@ class _ThemeState:
         pulumi.set(self, "theme_id", value)
 
 
+@pulumi.type_token("okta:index/theme:Theme")
 class Theme(pulumi.CustomResource):
-
-    pulumi_type = "okta:index/theme:Theme"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

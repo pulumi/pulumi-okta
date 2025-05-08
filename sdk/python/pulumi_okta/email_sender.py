@@ -160,10 +160,8 @@ class _EmailSenderState:
         pulumi.set(self, "subdomain", value)
 
 
+@pulumi.type_token("okta:index/emailSender:EmailSender")
 class EmailSender(pulumi.CustomResource):
-
-    pulumi_type = "okta:index/emailSender:EmailSender"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

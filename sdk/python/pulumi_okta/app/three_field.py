@@ -938,10 +938,8 @@ class _ThreeFieldState:
         pulumi.set(self, "username_selector", value)
 
 
+@pulumi.type_token("okta:app/threeField:ThreeField")
 class ThreeField(pulumi.CustomResource):
-
-    pulumi_type = "okta:app/threeField:ThreeField"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

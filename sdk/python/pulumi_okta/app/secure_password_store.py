@@ -1005,10 +1005,8 @@ class _SecurePasswordStoreState:
         pulumi.set(self, "username_field", value)
 
 
+@pulumi.type_token("okta:app/securePasswordStore:SecurePasswordStore")
 class SecurePasswordStore(pulumi.CustomResource):
-
-    pulumi_type = "okta:app/securePasswordStore:SecurePasswordStore"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

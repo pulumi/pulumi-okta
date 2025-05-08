@@ -191,10 +191,8 @@ class _OauthRoleAssignmentState:
         pulumi.set(self, "type", value)
 
 
+@pulumi.type_token("okta:app/oauthRoleAssignment:OauthRoleAssignment")
 class OauthRoleAssignment(pulumi.CustomResource):
-
-    pulumi_type = "okta:app/oauthRoleAssignment:OauthRoleAssignment"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

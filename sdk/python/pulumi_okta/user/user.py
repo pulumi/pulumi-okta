@@ -1391,10 +1391,8 @@ class _UserState:
         pulumi.set(self, "zip_code", value)
 
 
+@pulumi.type_token("okta:user/user:User")
 class User(pulumi.CustomResource):
-
-    pulumi_type = "okta:user/user:User"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

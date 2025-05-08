@@ -95,10 +95,8 @@ class _AccessPolicyAssignmentState:
         pulumi.set(self, "policy_id", value)
 
 
+@pulumi.type_token("okta:app/accessPolicyAssignment:AccessPolicyAssignment")
 class AccessPolicyAssignment(pulumi.CustomResource):
-
-    pulumi_type = "okta:app/accessPolicyAssignment:AccessPolicyAssignment"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

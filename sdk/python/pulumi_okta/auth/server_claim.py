@@ -318,10 +318,8 @@ class _ServerClaimState:
         pulumi.set(self, "value_type", value)
 
 
+@pulumi.type_token("okta:auth/serverClaim:ServerClaim")
 class ServerClaim(pulumi.CustomResource):
-
-    pulumi_type = "okta:auth/serverClaim:ServerClaim"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

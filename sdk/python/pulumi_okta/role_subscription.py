@@ -159,10 +159,8 @@ class _RoleSubscriptionState:
         pulumi.set(self, "status", value)
 
 
+@pulumi.type_token("okta:index/roleSubscription:RoleSubscription")
 class RoleSubscription(pulumi.CustomResource):
-
-    pulumi_type = "okta:index/roleSubscription:RoleSubscription"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

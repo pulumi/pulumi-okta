@@ -288,10 +288,8 @@ class _ServerState:
         pulumi.set(self, "status", value)
 
 
+@pulumi.type_token("okta:auth/server:Server")
 class Server(pulumi.CustomResource):
-
-    pulumi_type = "okta:auth/server:Server"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

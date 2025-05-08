@@ -97,10 +97,8 @@ class _PolicyProfileEnrollmentState:
         pulumi.set(self, "status", value)
 
 
+@pulumi.type_token("okta:index/policyProfileEnrollment:PolicyProfileEnrollment")
 class PolicyProfileEnrollment(pulumi.CustomResource):
-
-    pulumi_type = "okta:index/policyProfileEnrollment:PolicyProfileEnrollment"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

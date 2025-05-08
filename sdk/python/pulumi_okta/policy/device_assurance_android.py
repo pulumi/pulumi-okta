@@ -305,10 +305,8 @@ class _DeviceAssuranceAndroidState:
         pulumi.set(self, "secure_hardware_present", value)
 
 
+@pulumi.type_token("okta:policy/deviceAssuranceAndroid:DeviceAssuranceAndroid")
 class DeviceAssuranceAndroid(pulumi.CustomResource):
-
-    pulumi_type = "okta:policy/deviceAssuranceAndroid:DeviceAssuranceAndroid"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

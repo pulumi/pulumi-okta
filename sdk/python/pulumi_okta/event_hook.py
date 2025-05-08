@@ -237,10 +237,8 @@ class _EventHookState:
         pulumi.set(self, "status", value)
 
 
+@pulumi.type_token("okta:index/eventHook:EventHook")
 class EventHook(pulumi.CustomResource):
-
-    pulumi_type = "okta:index/eventHook:EventHook"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

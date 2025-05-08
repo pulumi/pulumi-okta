@@ -559,10 +559,8 @@ class _BookmarkState:
         pulumi.set(self, "url", value)
 
 
+@pulumi.type_token("okta:app/bookmark:Bookmark")
 class Bookmark(pulumi.CustomResource):
-
-    pulumi_type = "okta:app/bookmark:Bookmark"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -557,10 +557,8 @@ class _ServerPolicyRuleState:
         pulumi.set(self, "user_whitelists", value)
 
 
+@pulumi.type_token("okta:auth/serverPolicyRule:ServerPolicyRule")
 class ServerPolicyRule(pulumi.CustomResource):
-
-    pulumi_type = "okta:auth/serverPolicyRule:ServerPolicyRule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

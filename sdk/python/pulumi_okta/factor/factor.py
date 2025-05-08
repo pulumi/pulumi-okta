@@ -96,10 +96,8 @@ class _FactorState:
         pulumi.set(self, "provider_id", value)
 
 
+@pulumi.type_token("okta:factor/factor:Factor")
 class Factor(pulumi.CustomResource):
-
-    pulumi_type = "okta:factor/factor:Factor"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

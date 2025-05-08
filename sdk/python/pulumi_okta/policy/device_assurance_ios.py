@@ -241,10 +241,8 @@ class _DeviceAssuranceIosState:
         pulumi.set(self, "screenlock_types", value)
 
 
+@pulumi.type_token("okta:policy/deviceAssuranceIos:DeviceAssuranceIos")
 class DeviceAssuranceIos(pulumi.CustomResource):
-
-    pulumi_type = "okta:policy/deviceAssuranceIos:DeviceAssuranceIos"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

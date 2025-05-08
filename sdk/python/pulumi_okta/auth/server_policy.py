@@ -221,10 +221,8 @@ class _ServerPolicyState:
         pulumi.set(self, "status", value)
 
 
+@pulumi.type_token("okta:auth/serverPolicy:ServerPolicy")
 class ServerPolicy(pulumi.CustomResource):
-
-    pulumi_type = "okta:auth/serverPolicy:ServerPolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,
