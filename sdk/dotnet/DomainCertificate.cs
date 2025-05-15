@@ -182,8 +182,8 @@ namespace Pulumi.Okta
         /// <summary>
         /// Certificate type. Valid value is `PEM`
         /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
+        [Input("type")]
+        public Input<string>? Type { get; set; }
 
         public DomainCertificateArgs()
         {

@@ -126,9 +126,6 @@ func NewDomainCertificate(ctx *pulumi.Context,
 	if args.PrivateKey == nil {
 		return nil, errors.New("invalid value for required argument 'PrivateKey'")
 	}
-	if args.Type == nil {
-		return nil, errors.New("invalid value for required argument 'Type'")
-	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DomainCertificate
 	err := ctx.RegisterResource("okta:index/domainCertificate:DomainCertificate", name, args, &resource, opts...)
@@ -191,7 +188,7 @@ type domainCertificateArgs struct {
 	// Certificate private key
 	PrivateKey string `pulumi:"privateKey"`
 	// Certificate type. Valid value is `PEM`
-	Type string `pulumi:"type"`
+	Type *string `pulumi:"type"`
 }
 
 // The set of arguments for constructing a DomainCertificate resource.
@@ -205,7 +202,7 @@ type DomainCertificateArgs struct {
 	// Certificate private key
 	PrivateKey pulumi.StringInput
 	// Certificate type. Valid value is `PEM`
-	Type pulumi.StringInput
+	Type pulumi.StringPtrInput
 }
 
 func (DomainCertificateArgs) ElementType() reflect.Type {
