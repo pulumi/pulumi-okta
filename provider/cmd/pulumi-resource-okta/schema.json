@@ -12066,8 +12066,7 @@
                 "certificate",
                 "certificateChain",
                 "domainId",
-                "privateKey",
-                "type"
+                "privateKey"
             ],
             "stateInputs": {
                 "description": "Input properties used for looking up and filtering DomainCertificate resources.\n",
