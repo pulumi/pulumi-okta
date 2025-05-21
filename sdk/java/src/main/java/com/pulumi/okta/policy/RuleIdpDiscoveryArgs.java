@@ -7,6 +7,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.okta.policy.inputs.RuleIdpDiscoveryAppExcludeArgs;
 import com.pulumi.okta.policy.inputs.RuleIdpDiscoveryAppIncludeArgs;
+import com.pulumi.okta.policy.inputs.RuleIdpDiscoveryIdpProviderArgs;
 import com.pulumi.okta.policy.inputs.RuleIdpDiscoveryPlatformIncludeArgs;
 import com.pulumi.okta.policy.inputs.RuleIdpDiscoveryUserIdentifierPatternArgs;
 import java.lang.Integer;
@@ -57,36 +58,11 @@ public final class RuleIdpDiscoveryArgs extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.appIncludes);
     }
 
-    /**
-     * The identifier for the Idp the rule should route to if all conditions are met.
-     * 
-     */
-    @Import(name="idpId")
-    private @Nullable Output<String> idpId;
+    @Import(name="idpProviders")
+    private @Nullable Output<List<RuleIdpDiscoveryIdpProviderArgs>> idpProviders;
 
-    /**
-     * @return The identifier for the Idp the rule should route to if all conditions are met.
-     * 
-     */
-    public Optional<Output<String>> idpId() {
-        return Optional.ofNullable(this.idpId);
-    }
-
-    /**
-     * Type of Idp. One of: `SAML2`, `IWA`, `AgentlessDSSO`, `X509`, `FACEBOOK`, `GOOGLE`, `LINKEDIN`, `MICROSOFT`, `OIDC`.
-     * Default: `OKTA`
-     * 
-     */
-    @Import(name="idpType")
-    private @Nullable Output<String> idpType;
-
-    /**
-     * @return Type of Idp. One of: `SAML2`, `IWA`, `AgentlessDSSO`, `X509`, `FACEBOOK`, `GOOGLE`, `LINKEDIN`, `MICROSOFT`, `OIDC`.
-     * Default: `OKTA`
-     * 
-     */
-    public Optional<Output<String>> idpType() {
-        return Optional.ofNullable(this.idpType);
+    public Optional<Output<List<RuleIdpDiscoveryIdpProviderArgs>>> idpProviders() {
+        return Optional.ofNullable(this.idpProviders);
     }
 
     /**
@@ -273,8 +249,7 @@ public final class RuleIdpDiscoveryArgs extends com.pulumi.resources.ResourceArg
     private RuleIdpDiscoveryArgs(RuleIdpDiscoveryArgs $) {
         this.appExcludes = $.appExcludes;
         this.appIncludes = $.appIncludes;
-        this.idpId = $.idpId;
-        this.idpType = $.idpType;
+        this.idpProviders = $.idpProviders;
         this.name = $.name;
         this.networkConnection = $.networkConnection;
         this.networkExcludes = $.networkExcludes;
@@ -377,48 +352,17 @@ public final class RuleIdpDiscoveryArgs extends com.pulumi.resources.ResourceArg
             return appIncludes(List.of(appIncludes));
         }
 
-        /**
-         * @param idpId The identifier for the Idp the rule should route to if all conditions are met.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder idpId(@Nullable Output<String> idpId) {
-            $.idpId = idpId;
+        public Builder idpProviders(@Nullable Output<List<RuleIdpDiscoveryIdpProviderArgs>> idpProviders) {
+            $.idpProviders = idpProviders;
             return this;
         }
 
-        /**
-         * @param idpId The identifier for the Idp the rule should route to if all conditions are met.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder idpId(String idpId) {
-            return idpId(Output.of(idpId));
+        public Builder idpProviders(List<RuleIdpDiscoveryIdpProviderArgs> idpProviders) {
+            return idpProviders(Output.of(idpProviders));
         }
 
-        /**
-         * @param idpType Type of Idp. One of: `SAML2`, `IWA`, `AgentlessDSSO`, `X509`, `FACEBOOK`, `GOOGLE`, `LINKEDIN`, `MICROSOFT`, `OIDC`.
-         * Default: `OKTA`
-         * 
-         * @return builder
-         * 
-         */
-        public Builder idpType(@Nullable Output<String> idpType) {
-            $.idpType = idpType;
-            return this;
-        }
-
-        /**
-         * @param idpType Type of Idp. One of: `SAML2`, `IWA`, `AgentlessDSSO`, `X509`, `FACEBOOK`, `GOOGLE`, `LINKEDIN`, `MICROSOFT`, `OIDC`.
-         * Default: `OKTA`
-         * 
-         * @return builder
-         * 
-         */
-        public Builder idpType(String idpType) {
-            return idpType(Output.of(idpType));
+        public Builder idpProviders(RuleIdpDiscoveryIdpProviderArgs... idpProviders) {
+            return idpProviders(List.of(idpProviders));
         }
 
         /**

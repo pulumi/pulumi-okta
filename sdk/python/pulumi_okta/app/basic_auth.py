@@ -29,11 +29,19 @@ class BasicAuthArgs:
                  admin_note: Optional[pulumi.Input[builtins.str]] = None,
                  app_links_json: Optional[pulumi.Input[builtins.str]] = None,
                  auto_submit_toolbar: Optional[pulumi.Input[builtins.bool]] = None,
+                 credentials_scheme: Optional[pulumi.Input[builtins.str]] = None,
                  enduser_note: Optional[pulumi.Input[builtins.str]] = None,
                  hide_ios: Optional[pulumi.Input[builtins.bool]] = None,
                  hide_web: Optional[pulumi.Input[builtins.bool]] = None,
                  logo: Optional[pulumi.Input[builtins.str]] = None,
-                 status: Optional[pulumi.Input[builtins.str]] = None):
+                 reveal_password: Optional[pulumi.Input[builtins.bool]] = None,
+                 shared_password: Optional[pulumi.Input[builtins.str]] = None,
+                 shared_username: Optional[pulumi.Input[builtins.str]] = None,
+                 status: Optional[pulumi.Input[builtins.str]] = None,
+                 user_name_template: Optional[pulumi.Input[builtins.str]] = None,
+                 user_name_template_push_status: Optional[pulumi.Input[builtins.str]] = None,
+                 user_name_template_suffix: Optional[pulumi.Input[builtins.str]] = None,
+                 user_name_template_type: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a BasicAuth resource.
         :param pulumi.Input[builtins.str] auth_url: The URL of the authenticating site for this app.
@@ -45,11 +53,21 @@ class BasicAuthArgs:
         :param pulumi.Input[builtins.str] admin_note: Application notes for admins.
         :param pulumi.Input[builtins.str] app_links_json: Displays specific appLinks for the app. The value for each application link should be boolean.
         :param pulumi.Input[builtins.bool] auto_submit_toolbar: Display auto submit toolbar
+        :param pulumi.Input[builtins.str] credentials_scheme: Application credentials scheme. One of: `EDIT_USERNAME_AND_PASSWORD`, `ADMIN_SETS_CREDENTIALS`, `EDIT_PASSWORD_ONLY`,
+               `EXTERNAL_PASSWORD_SYNC`, or `SHARED_USERNAME_AND_PASSWORD`
         :param pulumi.Input[builtins.str] enduser_note: Application notes for end users.
         :param pulumi.Input[builtins.bool] hide_ios: Do not display application icon on mobile app
         :param pulumi.Input[builtins.bool] hide_web: Do not display application icon to users
         :param pulumi.Input[builtins.str] logo: Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+        :param pulumi.Input[builtins.bool] reveal_password: Allow user to reveal password. Default is false. It can not be set to true if credentials_scheme is
+               "ADMIN_SETS_CREDENTIALS", "SHARED_USERNAME_AND_PASSWORD" or "EXTERNAL_PASSWORD_SYNC".
+        :param pulumi.Input[builtins.str] shared_password: Shared password, required for certain schemes.
+        :param pulumi.Input[builtins.str] shared_username: Shared username, required for certain schemes.
         :param pulumi.Input[builtins.str] status: Status of application. By default, it is `ACTIVE`
+        :param pulumi.Input[builtins.str] user_name_template: Username template. Default: `${source.login}`
+        :param pulumi.Input[builtins.str] user_name_template_push_status: Push username on update. Valid values: `PUSH`, `DONT_PUSH` and `NOT_CONFIGURED`
+        :param pulumi.Input[builtins.str] user_name_template_suffix: Username template suffix
+        :param pulumi.Input[builtins.str] user_name_template_type: Username template type. Default: `BUILT_IN`. Valid values: `NONE`, `CUSTOM`, `BUILT_IN`
         """
         pulumi.set(__self__, "auth_url", auth_url)
         pulumi.set(__self__, "label", label)
@@ -66,6 +84,8 @@ class BasicAuthArgs:
             pulumi.set(__self__, "app_links_json", app_links_json)
         if auto_submit_toolbar is not None:
             pulumi.set(__self__, "auto_submit_toolbar", auto_submit_toolbar)
+        if credentials_scheme is not None:
+            pulumi.set(__self__, "credentials_scheme", credentials_scheme)
         if enduser_note is not None:
             pulumi.set(__self__, "enduser_note", enduser_note)
         if hide_ios is not None:
@@ -74,8 +94,22 @@ class BasicAuthArgs:
             pulumi.set(__self__, "hide_web", hide_web)
         if logo is not None:
             pulumi.set(__self__, "logo", logo)
+        if reveal_password is not None:
+            pulumi.set(__self__, "reveal_password", reveal_password)
+        if shared_password is not None:
+            pulumi.set(__self__, "shared_password", shared_password)
+        if shared_username is not None:
+            pulumi.set(__self__, "shared_username", shared_username)
         if status is not None:
             pulumi.set(__self__, "status", status)
+        if user_name_template is not None:
+            pulumi.set(__self__, "user_name_template", user_name_template)
+        if user_name_template_push_status is not None:
+            pulumi.set(__self__, "user_name_template_push_status", user_name_template_push_status)
+        if user_name_template_suffix is not None:
+            pulumi.set(__self__, "user_name_template_suffix", user_name_template_suffix)
+        if user_name_template_type is not None:
+            pulumi.set(__self__, "user_name_template_type", user_name_template_type)
 
     @property
     @pulumi.getter(name="authUrl")
@@ -186,6 +220,19 @@ class BasicAuthArgs:
         pulumi.set(self, "auto_submit_toolbar", value)
 
     @property
+    @pulumi.getter(name="credentialsScheme")
+    def credentials_scheme(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Application credentials scheme. One of: `EDIT_USERNAME_AND_PASSWORD`, `ADMIN_SETS_CREDENTIALS`, `EDIT_PASSWORD_ONLY`,
+        `EXTERNAL_PASSWORD_SYNC`, or `SHARED_USERNAME_AND_PASSWORD`
+        """
+        return pulumi.get(self, "credentials_scheme")
+
+    @credentials_scheme.setter
+    def credentials_scheme(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "credentials_scheme", value)
+
+    @property
     @pulumi.getter(name="enduserNote")
     def enduser_note(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -234,6 +281,43 @@ class BasicAuthArgs:
         pulumi.set(self, "logo", value)
 
     @property
+    @pulumi.getter(name="revealPassword")
+    def reveal_password(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        Allow user to reveal password. Default is false. It can not be set to true if credentials_scheme is
+        "ADMIN_SETS_CREDENTIALS", "SHARED_USERNAME_AND_PASSWORD" or "EXTERNAL_PASSWORD_SYNC".
+        """
+        return pulumi.get(self, "reveal_password")
+
+    @reveal_password.setter
+    def reveal_password(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "reveal_password", value)
+
+    @property
+    @pulumi.getter(name="sharedPassword")
+    def shared_password(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Shared password, required for certain schemes.
+        """
+        return pulumi.get(self, "shared_password")
+
+    @shared_password.setter
+    def shared_password(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "shared_password", value)
+
+    @property
+    @pulumi.getter(name="sharedUsername")
+    def shared_username(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Shared username, required for certain schemes.
+        """
+        return pulumi.get(self, "shared_username")
+
+    @shared_username.setter
+    def shared_username(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "shared_username", value)
+
+    @property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -244,6 +328,54 @@ class BasicAuthArgs:
     @status.setter
     def status(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "status", value)
+
+    @property
+    @pulumi.getter(name="userNameTemplate")
+    def user_name_template(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Username template. Default: `${source.login}`
+        """
+        return pulumi.get(self, "user_name_template")
+
+    @user_name_template.setter
+    def user_name_template(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "user_name_template", value)
+
+    @property
+    @pulumi.getter(name="userNameTemplatePushStatus")
+    def user_name_template_push_status(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Push username on update. Valid values: `PUSH`, `DONT_PUSH` and `NOT_CONFIGURED`
+        """
+        return pulumi.get(self, "user_name_template_push_status")
+
+    @user_name_template_push_status.setter
+    def user_name_template_push_status(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "user_name_template_push_status", value)
+
+    @property
+    @pulumi.getter(name="userNameTemplateSuffix")
+    def user_name_template_suffix(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Username template suffix
+        """
+        return pulumi.get(self, "user_name_template_suffix")
+
+    @user_name_template_suffix.setter
+    def user_name_template_suffix(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "user_name_template_suffix", value)
+
+    @property
+    @pulumi.getter(name="userNameTemplateType")
+    def user_name_template_type(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Username template type. Default: `BUILT_IN`. Valid values: `NONE`, `CUSTOM`, `BUILT_IN`
+        """
+        return pulumi.get(self, "user_name_template_type")
+
+    @user_name_template_type.setter
+    def user_name_template_type(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "user_name_template_type", value)
 
 
 @pulumi.input_type
@@ -256,6 +388,7 @@ class _BasicAuthState:
                  app_links_json: Optional[pulumi.Input[builtins.str]] = None,
                  auth_url: Optional[pulumi.Input[builtins.str]] = None,
                  auto_submit_toolbar: Optional[pulumi.Input[builtins.bool]] = None,
+                 credentials_scheme: Optional[pulumi.Input[builtins.str]] = None,
                  enduser_note: Optional[pulumi.Input[builtins.str]] = None,
                  hide_ios: Optional[pulumi.Input[builtins.bool]] = None,
                  hide_web: Optional[pulumi.Input[builtins.bool]] = None,
@@ -263,9 +396,16 @@ class _BasicAuthState:
                  logo: Optional[pulumi.Input[builtins.str]] = None,
                  logo_url: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 reveal_password: Optional[pulumi.Input[builtins.bool]] = None,
+                 shared_password: Optional[pulumi.Input[builtins.str]] = None,
+                 shared_username: Optional[pulumi.Input[builtins.str]] = None,
                  sign_on_mode: Optional[pulumi.Input[builtins.str]] = None,
                  status: Optional[pulumi.Input[builtins.str]] = None,
-                 url: Optional[pulumi.Input[builtins.str]] = None):
+                 url: Optional[pulumi.Input[builtins.str]] = None,
+                 user_name_template: Optional[pulumi.Input[builtins.str]] = None,
+                 user_name_template_push_status: Optional[pulumi.Input[builtins.str]] = None,
+                 user_name_template_suffix: Optional[pulumi.Input[builtins.str]] = None,
+                 user_name_template_type: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering BasicAuth resources.
         :param pulumi.Input[builtins.str] accessibility_error_redirect_url: Custom error page URL
@@ -275,6 +415,8 @@ class _BasicAuthState:
         :param pulumi.Input[builtins.str] app_links_json: Displays specific appLinks for the app. The value for each application link should be boolean.
         :param pulumi.Input[builtins.str] auth_url: The URL of the authenticating site for this app.
         :param pulumi.Input[builtins.bool] auto_submit_toolbar: Display auto submit toolbar
+        :param pulumi.Input[builtins.str] credentials_scheme: Application credentials scheme. One of: `EDIT_USERNAME_AND_PASSWORD`, `ADMIN_SETS_CREDENTIALS`, `EDIT_PASSWORD_ONLY`,
+               `EXTERNAL_PASSWORD_SYNC`, or `SHARED_USERNAME_AND_PASSWORD`
         :param pulumi.Input[builtins.str] enduser_note: Application notes for end users.
         :param pulumi.Input[builtins.bool] hide_ios: Do not display application icon on mobile app
         :param pulumi.Input[builtins.bool] hide_web: Do not display application icon to users
@@ -282,9 +424,17 @@ class _BasicAuthState:
         :param pulumi.Input[builtins.str] logo: Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
         :param pulumi.Input[builtins.str] logo_url: URL of the application's logo
         :param pulumi.Input[builtins.str] name: Name of the app.
+        :param pulumi.Input[builtins.bool] reveal_password: Allow user to reveal password. Default is false. It can not be set to true if credentials_scheme is
+               "ADMIN_SETS_CREDENTIALS", "SHARED_USERNAME_AND_PASSWORD" or "EXTERNAL_PASSWORD_SYNC".
+        :param pulumi.Input[builtins.str] shared_password: Shared password, required for certain schemes.
+        :param pulumi.Input[builtins.str] shared_username: Shared username, required for certain schemes.
         :param pulumi.Input[builtins.str] sign_on_mode: Sign on mode of application.
         :param pulumi.Input[builtins.str] status: Status of application. By default, it is `ACTIVE`
         :param pulumi.Input[builtins.str] url: The URL of the sign-in page for this app.
+        :param pulumi.Input[builtins.str] user_name_template: Username template. Default: `${source.login}`
+        :param pulumi.Input[builtins.str] user_name_template_push_status: Push username on update. Valid values: `PUSH`, `DONT_PUSH` and `NOT_CONFIGURED`
+        :param pulumi.Input[builtins.str] user_name_template_suffix: Username template suffix
+        :param pulumi.Input[builtins.str] user_name_template_type: Username template type. Default: `BUILT_IN`. Valid values: `NONE`, `CUSTOM`, `BUILT_IN`
         """
         if accessibility_error_redirect_url is not None:
             pulumi.set(__self__, "accessibility_error_redirect_url", accessibility_error_redirect_url)
@@ -300,6 +450,8 @@ class _BasicAuthState:
             pulumi.set(__self__, "auth_url", auth_url)
         if auto_submit_toolbar is not None:
             pulumi.set(__self__, "auto_submit_toolbar", auto_submit_toolbar)
+        if credentials_scheme is not None:
+            pulumi.set(__self__, "credentials_scheme", credentials_scheme)
         if enduser_note is not None:
             pulumi.set(__self__, "enduser_note", enduser_note)
         if hide_ios is not None:
@@ -314,12 +466,26 @@ class _BasicAuthState:
             pulumi.set(__self__, "logo_url", logo_url)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if reveal_password is not None:
+            pulumi.set(__self__, "reveal_password", reveal_password)
+        if shared_password is not None:
+            pulumi.set(__self__, "shared_password", shared_password)
+        if shared_username is not None:
+            pulumi.set(__self__, "shared_username", shared_username)
         if sign_on_mode is not None:
             pulumi.set(__self__, "sign_on_mode", sign_on_mode)
         if status is not None:
             pulumi.set(__self__, "status", status)
         if url is not None:
             pulumi.set(__self__, "url", url)
+        if user_name_template is not None:
+            pulumi.set(__self__, "user_name_template", user_name_template)
+        if user_name_template_push_status is not None:
+            pulumi.set(__self__, "user_name_template_push_status", user_name_template_push_status)
+        if user_name_template_suffix is not None:
+            pulumi.set(__self__, "user_name_template_suffix", user_name_template_suffix)
+        if user_name_template_type is not None:
+            pulumi.set(__self__, "user_name_template_type", user_name_template_type)
 
     @property
     @pulumi.getter(name="accessibilityErrorRedirectUrl")
@@ -406,6 +572,19 @@ class _BasicAuthState:
         pulumi.set(self, "auto_submit_toolbar", value)
 
     @property
+    @pulumi.getter(name="credentialsScheme")
+    def credentials_scheme(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Application credentials scheme. One of: `EDIT_USERNAME_AND_PASSWORD`, `ADMIN_SETS_CREDENTIALS`, `EDIT_PASSWORD_ONLY`,
+        `EXTERNAL_PASSWORD_SYNC`, or `SHARED_USERNAME_AND_PASSWORD`
+        """
+        return pulumi.get(self, "credentials_scheme")
+
+    @credentials_scheme.setter
+    def credentials_scheme(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "credentials_scheme", value)
+
+    @property
     @pulumi.getter(name="enduserNote")
     def enduser_note(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -490,6 +669,43 @@ class _BasicAuthState:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="revealPassword")
+    def reveal_password(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        Allow user to reveal password. Default is false. It can not be set to true if credentials_scheme is
+        "ADMIN_SETS_CREDENTIALS", "SHARED_USERNAME_AND_PASSWORD" or "EXTERNAL_PASSWORD_SYNC".
+        """
+        return pulumi.get(self, "reveal_password")
+
+    @reveal_password.setter
+    def reveal_password(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "reveal_password", value)
+
+    @property
+    @pulumi.getter(name="sharedPassword")
+    def shared_password(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Shared password, required for certain schemes.
+        """
+        return pulumi.get(self, "shared_password")
+
+    @shared_password.setter
+    def shared_password(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "shared_password", value)
+
+    @property
+    @pulumi.getter(name="sharedUsername")
+    def shared_username(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Shared username, required for certain schemes.
+        """
+        return pulumi.get(self, "shared_username")
+
+    @shared_username.setter
+    def shared_username(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "shared_username", value)
+
+    @property
     @pulumi.getter(name="signOnMode")
     def sign_on_mode(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -525,6 +741,54 @@ class _BasicAuthState:
     def url(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "url", value)
 
+    @property
+    @pulumi.getter(name="userNameTemplate")
+    def user_name_template(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Username template. Default: `${source.login}`
+        """
+        return pulumi.get(self, "user_name_template")
+
+    @user_name_template.setter
+    def user_name_template(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "user_name_template", value)
+
+    @property
+    @pulumi.getter(name="userNameTemplatePushStatus")
+    def user_name_template_push_status(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Push username on update. Valid values: `PUSH`, `DONT_PUSH` and `NOT_CONFIGURED`
+        """
+        return pulumi.get(self, "user_name_template_push_status")
+
+    @user_name_template_push_status.setter
+    def user_name_template_push_status(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "user_name_template_push_status", value)
+
+    @property
+    @pulumi.getter(name="userNameTemplateSuffix")
+    def user_name_template_suffix(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Username template suffix
+        """
+        return pulumi.get(self, "user_name_template_suffix")
+
+    @user_name_template_suffix.setter
+    def user_name_template_suffix(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "user_name_template_suffix", value)
+
+    @property
+    @pulumi.getter(name="userNameTemplateType")
+    def user_name_template_type(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Username template type. Default: `BUILT_IN`. Valid values: `NONE`, `CUSTOM`, `BUILT_IN`
+        """
+        return pulumi.get(self, "user_name_template_type")
+
+    @user_name_template_type.setter
+    def user_name_template_type(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "user_name_template_type", value)
+
 
 @pulumi.type_token("okta:app/basicAuth:BasicAuth")
 class BasicAuth(pulumi.CustomResource):
@@ -539,13 +803,21 @@ class BasicAuth(pulumi.CustomResource):
                  app_links_json: Optional[pulumi.Input[builtins.str]] = None,
                  auth_url: Optional[pulumi.Input[builtins.str]] = None,
                  auto_submit_toolbar: Optional[pulumi.Input[builtins.bool]] = None,
+                 credentials_scheme: Optional[pulumi.Input[builtins.str]] = None,
                  enduser_note: Optional[pulumi.Input[builtins.str]] = None,
                  hide_ios: Optional[pulumi.Input[builtins.bool]] = None,
                  hide_web: Optional[pulumi.Input[builtins.bool]] = None,
                  label: Optional[pulumi.Input[builtins.str]] = None,
                  logo: Optional[pulumi.Input[builtins.str]] = None,
+                 reveal_password: Optional[pulumi.Input[builtins.bool]] = None,
+                 shared_password: Optional[pulumi.Input[builtins.str]] = None,
+                 shared_username: Optional[pulumi.Input[builtins.str]] = None,
                  status: Optional[pulumi.Input[builtins.str]] = None,
                  url: Optional[pulumi.Input[builtins.str]] = None,
+                 user_name_template: Optional[pulumi.Input[builtins.str]] = None,
+                 user_name_template_push_status: Optional[pulumi.Input[builtins.str]] = None,
+                 user_name_template_suffix: Optional[pulumi.Input[builtins.str]] = None,
+                 user_name_template_type: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
         This resource allows you to create and configure an Auto Login Okta Application.
@@ -580,13 +852,23 @@ class BasicAuth(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] app_links_json: Displays specific appLinks for the app. The value for each application link should be boolean.
         :param pulumi.Input[builtins.str] auth_url: The URL of the authenticating site for this app.
         :param pulumi.Input[builtins.bool] auto_submit_toolbar: Display auto submit toolbar
+        :param pulumi.Input[builtins.str] credentials_scheme: Application credentials scheme. One of: `EDIT_USERNAME_AND_PASSWORD`, `ADMIN_SETS_CREDENTIALS`, `EDIT_PASSWORD_ONLY`,
+               `EXTERNAL_PASSWORD_SYNC`, or `SHARED_USERNAME_AND_PASSWORD`
         :param pulumi.Input[builtins.str] enduser_note: Application notes for end users.
         :param pulumi.Input[builtins.bool] hide_ios: Do not display application icon on mobile app
         :param pulumi.Input[builtins.bool] hide_web: Do not display application icon to users
         :param pulumi.Input[builtins.str] label: The Application's display name.
         :param pulumi.Input[builtins.str] logo: Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
+        :param pulumi.Input[builtins.bool] reveal_password: Allow user to reveal password. Default is false. It can not be set to true if credentials_scheme is
+               "ADMIN_SETS_CREDENTIALS", "SHARED_USERNAME_AND_PASSWORD" or "EXTERNAL_PASSWORD_SYNC".
+        :param pulumi.Input[builtins.str] shared_password: Shared password, required for certain schemes.
+        :param pulumi.Input[builtins.str] shared_username: Shared username, required for certain schemes.
         :param pulumi.Input[builtins.str] status: Status of application. By default, it is `ACTIVE`
         :param pulumi.Input[builtins.str] url: The URL of the sign-in page for this app.
+        :param pulumi.Input[builtins.str] user_name_template: Username template. Default: `${source.login}`
+        :param pulumi.Input[builtins.str] user_name_template_push_status: Push username on update. Valid values: `PUSH`, `DONT_PUSH` and `NOT_CONFIGURED`
+        :param pulumi.Input[builtins.str] user_name_template_suffix: Username template suffix
+        :param pulumi.Input[builtins.str] user_name_template_type: Username template type. Default: `BUILT_IN`. Valid values: `NONE`, `CUSTOM`, `BUILT_IN`
         """
         ...
     @overload
@@ -640,13 +922,21 @@ class BasicAuth(pulumi.CustomResource):
                  app_links_json: Optional[pulumi.Input[builtins.str]] = None,
                  auth_url: Optional[pulumi.Input[builtins.str]] = None,
                  auto_submit_toolbar: Optional[pulumi.Input[builtins.bool]] = None,
+                 credentials_scheme: Optional[pulumi.Input[builtins.str]] = None,
                  enduser_note: Optional[pulumi.Input[builtins.str]] = None,
                  hide_ios: Optional[pulumi.Input[builtins.bool]] = None,
                  hide_web: Optional[pulumi.Input[builtins.bool]] = None,
                  label: Optional[pulumi.Input[builtins.str]] = None,
                  logo: Optional[pulumi.Input[builtins.str]] = None,
+                 reveal_password: Optional[pulumi.Input[builtins.bool]] = None,
+                 shared_password: Optional[pulumi.Input[builtins.str]] = None,
+                 shared_username: Optional[pulumi.Input[builtins.str]] = None,
                  status: Optional[pulumi.Input[builtins.str]] = None,
                  url: Optional[pulumi.Input[builtins.str]] = None,
+                 user_name_template: Optional[pulumi.Input[builtins.str]] = None,
+                 user_name_template_push_status: Optional[pulumi.Input[builtins.str]] = None,
+                 user_name_template_suffix: Optional[pulumi.Input[builtins.str]] = None,
+                 user_name_template_type: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -665,6 +955,7 @@ class BasicAuth(pulumi.CustomResource):
                 raise TypeError("Missing required property 'auth_url'")
             __props__.__dict__["auth_url"] = auth_url
             __props__.__dict__["auto_submit_toolbar"] = auto_submit_toolbar
+            __props__.__dict__["credentials_scheme"] = credentials_scheme
             __props__.__dict__["enduser_note"] = enduser_note
             __props__.__dict__["hide_ios"] = hide_ios
             __props__.__dict__["hide_web"] = hide_web
@@ -672,10 +963,17 @@ class BasicAuth(pulumi.CustomResource):
                 raise TypeError("Missing required property 'label'")
             __props__.__dict__["label"] = label
             __props__.__dict__["logo"] = logo
+            __props__.__dict__["reveal_password"] = reveal_password
+            __props__.__dict__["shared_password"] = shared_password
+            __props__.__dict__["shared_username"] = shared_username
             __props__.__dict__["status"] = status
             if url is None and not opts.urn:
                 raise TypeError("Missing required property 'url'")
             __props__.__dict__["url"] = url
+            __props__.__dict__["user_name_template"] = user_name_template
+            __props__.__dict__["user_name_template_push_status"] = user_name_template_push_status
+            __props__.__dict__["user_name_template_suffix"] = user_name_template_suffix
+            __props__.__dict__["user_name_template_type"] = user_name_template_type
             __props__.__dict__["logo_url"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["sign_on_mode"] = None
@@ -696,6 +994,7 @@ class BasicAuth(pulumi.CustomResource):
             app_links_json: Optional[pulumi.Input[builtins.str]] = None,
             auth_url: Optional[pulumi.Input[builtins.str]] = None,
             auto_submit_toolbar: Optional[pulumi.Input[builtins.bool]] = None,
+            credentials_scheme: Optional[pulumi.Input[builtins.str]] = None,
             enduser_note: Optional[pulumi.Input[builtins.str]] = None,
             hide_ios: Optional[pulumi.Input[builtins.bool]] = None,
             hide_web: Optional[pulumi.Input[builtins.bool]] = None,
@@ -703,9 +1002,16 @@ class BasicAuth(pulumi.CustomResource):
             logo: Optional[pulumi.Input[builtins.str]] = None,
             logo_url: Optional[pulumi.Input[builtins.str]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
+            reveal_password: Optional[pulumi.Input[builtins.bool]] = None,
+            shared_password: Optional[pulumi.Input[builtins.str]] = None,
+            shared_username: Optional[pulumi.Input[builtins.str]] = None,
             sign_on_mode: Optional[pulumi.Input[builtins.str]] = None,
             status: Optional[pulumi.Input[builtins.str]] = None,
-            url: Optional[pulumi.Input[builtins.str]] = None) -> 'BasicAuth':
+            url: Optional[pulumi.Input[builtins.str]] = None,
+            user_name_template: Optional[pulumi.Input[builtins.str]] = None,
+            user_name_template_push_status: Optional[pulumi.Input[builtins.str]] = None,
+            user_name_template_suffix: Optional[pulumi.Input[builtins.str]] = None,
+            user_name_template_type: Optional[pulumi.Input[builtins.str]] = None) -> 'BasicAuth':
         """
         Get an existing BasicAuth resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -720,6 +1026,8 @@ class BasicAuth(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] app_links_json: Displays specific appLinks for the app. The value for each application link should be boolean.
         :param pulumi.Input[builtins.str] auth_url: The URL of the authenticating site for this app.
         :param pulumi.Input[builtins.bool] auto_submit_toolbar: Display auto submit toolbar
+        :param pulumi.Input[builtins.str] credentials_scheme: Application credentials scheme. One of: `EDIT_USERNAME_AND_PASSWORD`, `ADMIN_SETS_CREDENTIALS`, `EDIT_PASSWORD_ONLY`,
+               `EXTERNAL_PASSWORD_SYNC`, or `SHARED_USERNAME_AND_PASSWORD`
         :param pulumi.Input[builtins.str] enduser_note: Application notes for end users.
         :param pulumi.Input[builtins.bool] hide_ios: Do not display application icon on mobile app
         :param pulumi.Input[builtins.bool] hide_web: Do not display application icon to users
@@ -727,9 +1035,17 @@ class BasicAuth(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] logo: Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
         :param pulumi.Input[builtins.str] logo_url: URL of the application's logo
         :param pulumi.Input[builtins.str] name: Name of the app.
+        :param pulumi.Input[builtins.bool] reveal_password: Allow user to reveal password. Default is false. It can not be set to true if credentials_scheme is
+               "ADMIN_SETS_CREDENTIALS", "SHARED_USERNAME_AND_PASSWORD" or "EXTERNAL_PASSWORD_SYNC".
+        :param pulumi.Input[builtins.str] shared_password: Shared password, required for certain schemes.
+        :param pulumi.Input[builtins.str] shared_username: Shared username, required for certain schemes.
         :param pulumi.Input[builtins.str] sign_on_mode: Sign on mode of application.
         :param pulumi.Input[builtins.str] status: Status of application. By default, it is `ACTIVE`
         :param pulumi.Input[builtins.str] url: The URL of the sign-in page for this app.
+        :param pulumi.Input[builtins.str] user_name_template: Username template. Default: `${source.login}`
+        :param pulumi.Input[builtins.str] user_name_template_push_status: Push username on update. Valid values: `PUSH`, `DONT_PUSH` and `NOT_CONFIGURED`
+        :param pulumi.Input[builtins.str] user_name_template_suffix: Username template suffix
+        :param pulumi.Input[builtins.str] user_name_template_type: Username template type. Default: `BUILT_IN`. Valid values: `NONE`, `CUSTOM`, `BUILT_IN`
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -742,6 +1058,7 @@ class BasicAuth(pulumi.CustomResource):
         __props__.__dict__["app_links_json"] = app_links_json
         __props__.__dict__["auth_url"] = auth_url
         __props__.__dict__["auto_submit_toolbar"] = auto_submit_toolbar
+        __props__.__dict__["credentials_scheme"] = credentials_scheme
         __props__.__dict__["enduser_note"] = enduser_note
         __props__.__dict__["hide_ios"] = hide_ios
         __props__.__dict__["hide_web"] = hide_web
@@ -749,9 +1066,16 @@ class BasicAuth(pulumi.CustomResource):
         __props__.__dict__["logo"] = logo
         __props__.__dict__["logo_url"] = logo_url
         __props__.__dict__["name"] = name
+        __props__.__dict__["reveal_password"] = reveal_password
+        __props__.__dict__["shared_password"] = shared_password
+        __props__.__dict__["shared_username"] = shared_username
         __props__.__dict__["sign_on_mode"] = sign_on_mode
         __props__.__dict__["status"] = status
         __props__.__dict__["url"] = url
+        __props__.__dict__["user_name_template"] = user_name_template
+        __props__.__dict__["user_name_template_push_status"] = user_name_template_push_status
+        __props__.__dict__["user_name_template_suffix"] = user_name_template_suffix
+        __props__.__dict__["user_name_template_type"] = user_name_template_type
         return BasicAuth(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -811,6 +1135,15 @@ class BasicAuth(pulumi.CustomResource):
         return pulumi.get(self, "auto_submit_toolbar")
 
     @property
+    @pulumi.getter(name="credentialsScheme")
+    def credentials_scheme(self) -> pulumi.Output[Optional[builtins.str]]:
+        """
+        Application credentials scheme. One of: `EDIT_USERNAME_AND_PASSWORD`, `ADMIN_SETS_CREDENTIALS`, `EDIT_PASSWORD_ONLY`,
+        `EXTERNAL_PASSWORD_SYNC`, or `SHARED_USERNAME_AND_PASSWORD`
+        """
+        return pulumi.get(self, "credentials_scheme")
+
+    @property
     @pulumi.getter(name="enduserNote")
     def enduser_note(self) -> pulumi.Output[Optional[builtins.str]]:
         """
@@ -867,6 +1200,31 @@ class BasicAuth(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="revealPassword")
+    def reveal_password(self) -> pulumi.Output[Optional[builtins.bool]]:
+        """
+        Allow user to reveal password. Default is false. It can not be set to true if credentials_scheme is
+        "ADMIN_SETS_CREDENTIALS", "SHARED_USERNAME_AND_PASSWORD" or "EXTERNAL_PASSWORD_SYNC".
+        """
+        return pulumi.get(self, "reveal_password")
+
+    @property
+    @pulumi.getter(name="sharedPassword")
+    def shared_password(self) -> pulumi.Output[Optional[builtins.str]]:
+        """
+        Shared password, required for certain schemes.
+        """
+        return pulumi.get(self, "shared_password")
+
+    @property
+    @pulumi.getter(name="sharedUsername")
+    def shared_username(self) -> pulumi.Output[Optional[builtins.str]]:
+        """
+        Shared username, required for certain schemes.
+        """
+        return pulumi.get(self, "shared_username")
+
+    @property
     @pulumi.getter(name="signOnMode")
     def sign_on_mode(self) -> pulumi.Output[builtins.str]:
         """
@@ -889,4 +1247,36 @@ class BasicAuth(pulumi.CustomResource):
         The URL of the sign-in page for this app.
         """
         return pulumi.get(self, "url")
+
+    @property
+    @pulumi.getter(name="userNameTemplate")
+    def user_name_template(self) -> pulumi.Output[Optional[builtins.str]]:
+        """
+        Username template. Default: `${source.login}`
+        """
+        return pulumi.get(self, "user_name_template")
+
+    @property
+    @pulumi.getter(name="userNameTemplatePushStatus")
+    def user_name_template_push_status(self) -> pulumi.Output[Optional[builtins.str]]:
+        """
+        Push username on update. Valid values: `PUSH`, `DONT_PUSH` and `NOT_CONFIGURED`
+        """
+        return pulumi.get(self, "user_name_template_push_status")
+
+    @property
+    @pulumi.getter(name="userNameTemplateSuffix")
+    def user_name_template_suffix(self) -> pulumi.Output[Optional[builtins.str]]:
+        """
+        Username template suffix
+        """
+        return pulumi.get(self, "user_name_template_suffix")
+
+    @property
+    @pulumi.getter(name="userNameTemplateType")
+    def user_name_template_type(self) -> pulumi.Output[Optional[builtins.str]]:
+        """
+        Username template type. Default: `BUILT_IN`. Valid values: `NONE`, `CUSTOM`, `BUILT_IN`
+        """
+        return pulumi.get(self, "user_name_template_type")
 

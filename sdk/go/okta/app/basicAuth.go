@@ -67,6 +67,9 @@ type BasicAuth struct {
 	AuthUrl pulumi.StringOutput `pulumi:"authUrl"`
 	// Display auto submit toolbar
 	AutoSubmitToolbar pulumi.BoolPtrOutput `pulumi:"autoSubmitToolbar"`
+	// Application credentials scheme. One of: `EDIT_USERNAME_AND_PASSWORD`, `ADMIN_SETS_CREDENTIALS`, `EDIT_PASSWORD_ONLY`,
+	// `EXTERNAL_PASSWORD_SYNC`, or `SHARED_USERNAME_AND_PASSWORD`
+	CredentialsScheme pulumi.StringPtrOutput `pulumi:"credentialsScheme"`
 	// Application notes for end users.
 	EnduserNote pulumi.StringPtrOutput `pulumi:"enduserNote"`
 	// Do not display application icon on mobile app
@@ -81,12 +84,27 @@ type BasicAuth struct {
 	LogoUrl pulumi.StringOutput `pulumi:"logoUrl"`
 	// Name of the app.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Allow user to reveal password. Default is false. It can not be set to true if credentialsScheme is
+	// "ADMIN_SETS_CREDENTIALS", "SHARED_USERNAME_AND_PASSWORD" or "EXTERNAL_PASSWORD_SYNC".
+	RevealPassword pulumi.BoolPtrOutput `pulumi:"revealPassword"`
+	// Shared password, required for certain schemes.
+	SharedPassword pulumi.StringPtrOutput `pulumi:"sharedPassword"`
+	// Shared username, required for certain schemes.
+	SharedUsername pulumi.StringPtrOutput `pulumi:"sharedUsername"`
 	// Sign on mode of application.
 	SignOnMode pulumi.StringOutput `pulumi:"signOnMode"`
 	// Status of application. By default, it is `ACTIVE`
 	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// The URL of the sign-in page for this app.
 	Url pulumi.StringOutput `pulumi:"url"`
+	// Username template. Default: `${source.login}`
+	UserNameTemplate pulumi.StringPtrOutput `pulumi:"userNameTemplate"`
+	// Push username on update. Valid values: `PUSH`, `DONT_PUSH` and `NOT_CONFIGURED`
+	UserNameTemplatePushStatus pulumi.StringPtrOutput `pulumi:"userNameTemplatePushStatus"`
+	// Username template suffix
+	UserNameTemplateSuffix pulumi.StringPtrOutput `pulumi:"userNameTemplateSuffix"`
+	// Username template type. Default: `BUILT_IN`. Valid values: `NONE`, `CUSTOM`, `BUILT_IN`
+	UserNameTemplateType pulumi.StringPtrOutput `pulumi:"userNameTemplateType"`
 }
 
 // NewBasicAuth registers a new resource with the given unique name, arguments, and options.
@@ -142,6 +160,9 @@ type basicAuthState struct {
 	AuthUrl *string `pulumi:"authUrl"`
 	// Display auto submit toolbar
 	AutoSubmitToolbar *bool `pulumi:"autoSubmitToolbar"`
+	// Application credentials scheme. One of: `EDIT_USERNAME_AND_PASSWORD`, `ADMIN_SETS_CREDENTIALS`, `EDIT_PASSWORD_ONLY`,
+	// `EXTERNAL_PASSWORD_SYNC`, or `SHARED_USERNAME_AND_PASSWORD`
+	CredentialsScheme *string `pulumi:"credentialsScheme"`
 	// Application notes for end users.
 	EnduserNote *string `pulumi:"enduserNote"`
 	// Do not display application icon on mobile app
@@ -156,12 +177,27 @@ type basicAuthState struct {
 	LogoUrl *string `pulumi:"logoUrl"`
 	// Name of the app.
 	Name *string `pulumi:"name"`
+	// Allow user to reveal password. Default is false. It can not be set to true if credentialsScheme is
+	// "ADMIN_SETS_CREDENTIALS", "SHARED_USERNAME_AND_PASSWORD" or "EXTERNAL_PASSWORD_SYNC".
+	RevealPassword *bool `pulumi:"revealPassword"`
+	// Shared password, required for certain schemes.
+	SharedPassword *string `pulumi:"sharedPassword"`
+	// Shared username, required for certain schemes.
+	SharedUsername *string `pulumi:"sharedUsername"`
 	// Sign on mode of application.
 	SignOnMode *string `pulumi:"signOnMode"`
 	// Status of application. By default, it is `ACTIVE`
 	Status *string `pulumi:"status"`
 	// The URL of the sign-in page for this app.
 	Url *string `pulumi:"url"`
+	// Username template. Default: `${source.login}`
+	UserNameTemplate *string `pulumi:"userNameTemplate"`
+	// Push username on update. Valid values: `PUSH`, `DONT_PUSH` and `NOT_CONFIGURED`
+	UserNameTemplatePushStatus *string `pulumi:"userNameTemplatePushStatus"`
+	// Username template suffix
+	UserNameTemplateSuffix *string `pulumi:"userNameTemplateSuffix"`
+	// Username template type. Default: `BUILT_IN`. Valid values: `NONE`, `CUSTOM`, `BUILT_IN`
+	UserNameTemplateType *string `pulumi:"userNameTemplateType"`
 }
 
 type BasicAuthState struct {
@@ -179,6 +215,9 @@ type BasicAuthState struct {
 	AuthUrl pulumi.StringPtrInput
 	// Display auto submit toolbar
 	AutoSubmitToolbar pulumi.BoolPtrInput
+	// Application credentials scheme. One of: `EDIT_USERNAME_AND_PASSWORD`, `ADMIN_SETS_CREDENTIALS`, `EDIT_PASSWORD_ONLY`,
+	// `EXTERNAL_PASSWORD_SYNC`, or `SHARED_USERNAME_AND_PASSWORD`
+	CredentialsScheme pulumi.StringPtrInput
 	// Application notes for end users.
 	EnduserNote pulumi.StringPtrInput
 	// Do not display application icon on mobile app
@@ -193,12 +232,27 @@ type BasicAuthState struct {
 	LogoUrl pulumi.StringPtrInput
 	// Name of the app.
 	Name pulumi.StringPtrInput
+	// Allow user to reveal password. Default is false. It can not be set to true if credentialsScheme is
+	// "ADMIN_SETS_CREDENTIALS", "SHARED_USERNAME_AND_PASSWORD" or "EXTERNAL_PASSWORD_SYNC".
+	RevealPassword pulumi.BoolPtrInput
+	// Shared password, required for certain schemes.
+	SharedPassword pulumi.StringPtrInput
+	// Shared username, required for certain schemes.
+	SharedUsername pulumi.StringPtrInput
 	// Sign on mode of application.
 	SignOnMode pulumi.StringPtrInput
 	// Status of application. By default, it is `ACTIVE`
 	Status pulumi.StringPtrInput
 	// The URL of the sign-in page for this app.
 	Url pulumi.StringPtrInput
+	// Username template. Default: `${source.login}`
+	UserNameTemplate pulumi.StringPtrInput
+	// Push username on update. Valid values: `PUSH`, `DONT_PUSH` and `NOT_CONFIGURED`
+	UserNameTemplatePushStatus pulumi.StringPtrInput
+	// Username template suffix
+	UserNameTemplateSuffix pulumi.StringPtrInput
+	// Username template type. Default: `BUILT_IN`. Valid values: `NONE`, `CUSTOM`, `BUILT_IN`
+	UserNameTemplateType pulumi.StringPtrInput
 }
 
 func (BasicAuthState) ElementType() reflect.Type {
@@ -220,6 +274,9 @@ type basicAuthArgs struct {
 	AuthUrl string `pulumi:"authUrl"`
 	// Display auto submit toolbar
 	AutoSubmitToolbar *bool `pulumi:"autoSubmitToolbar"`
+	// Application credentials scheme. One of: `EDIT_USERNAME_AND_PASSWORD`, `ADMIN_SETS_CREDENTIALS`, `EDIT_PASSWORD_ONLY`,
+	// `EXTERNAL_PASSWORD_SYNC`, or `SHARED_USERNAME_AND_PASSWORD`
+	CredentialsScheme *string `pulumi:"credentialsScheme"`
 	// Application notes for end users.
 	EnduserNote *string `pulumi:"enduserNote"`
 	// Do not display application icon on mobile app
@@ -230,10 +287,25 @@ type basicAuthArgs struct {
 	Label string `pulumi:"label"`
 	// Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
 	Logo *string `pulumi:"logo"`
+	// Allow user to reveal password. Default is false. It can not be set to true if credentialsScheme is
+	// "ADMIN_SETS_CREDENTIALS", "SHARED_USERNAME_AND_PASSWORD" or "EXTERNAL_PASSWORD_SYNC".
+	RevealPassword *bool `pulumi:"revealPassword"`
+	// Shared password, required for certain schemes.
+	SharedPassword *string `pulumi:"sharedPassword"`
+	// Shared username, required for certain schemes.
+	SharedUsername *string `pulumi:"sharedUsername"`
 	// Status of application. By default, it is `ACTIVE`
 	Status *string `pulumi:"status"`
 	// The URL of the sign-in page for this app.
 	Url string `pulumi:"url"`
+	// Username template. Default: `${source.login}`
+	UserNameTemplate *string `pulumi:"userNameTemplate"`
+	// Push username on update. Valid values: `PUSH`, `DONT_PUSH` and `NOT_CONFIGURED`
+	UserNameTemplatePushStatus *string `pulumi:"userNameTemplatePushStatus"`
+	// Username template suffix
+	UserNameTemplateSuffix *string `pulumi:"userNameTemplateSuffix"`
+	// Username template type. Default: `BUILT_IN`. Valid values: `NONE`, `CUSTOM`, `BUILT_IN`
+	UserNameTemplateType *string `pulumi:"userNameTemplateType"`
 }
 
 // The set of arguments for constructing a BasicAuth resource.
@@ -252,6 +324,9 @@ type BasicAuthArgs struct {
 	AuthUrl pulumi.StringInput
 	// Display auto submit toolbar
 	AutoSubmitToolbar pulumi.BoolPtrInput
+	// Application credentials scheme. One of: `EDIT_USERNAME_AND_PASSWORD`, `ADMIN_SETS_CREDENTIALS`, `EDIT_PASSWORD_ONLY`,
+	// `EXTERNAL_PASSWORD_SYNC`, or `SHARED_USERNAME_AND_PASSWORD`
+	CredentialsScheme pulumi.StringPtrInput
 	// Application notes for end users.
 	EnduserNote pulumi.StringPtrInput
 	// Do not display application icon on mobile app
@@ -262,10 +337,25 @@ type BasicAuthArgs struct {
 	Label pulumi.StringInput
 	// Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
 	Logo pulumi.StringPtrInput
+	// Allow user to reveal password. Default is false. It can not be set to true if credentialsScheme is
+	// "ADMIN_SETS_CREDENTIALS", "SHARED_USERNAME_AND_PASSWORD" or "EXTERNAL_PASSWORD_SYNC".
+	RevealPassword pulumi.BoolPtrInput
+	// Shared password, required for certain schemes.
+	SharedPassword pulumi.StringPtrInput
+	// Shared username, required for certain schemes.
+	SharedUsername pulumi.StringPtrInput
 	// Status of application. By default, it is `ACTIVE`
 	Status pulumi.StringPtrInput
 	// The URL of the sign-in page for this app.
 	Url pulumi.StringInput
+	// Username template. Default: `${source.login}`
+	UserNameTemplate pulumi.StringPtrInput
+	// Push username on update. Valid values: `PUSH`, `DONT_PUSH` and `NOT_CONFIGURED`
+	UserNameTemplatePushStatus pulumi.StringPtrInput
+	// Username template suffix
+	UserNameTemplateSuffix pulumi.StringPtrInput
+	// Username template type. Default: `BUILT_IN`. Valid values: `NONE`, `CUSTOM`, `BUILT_IN`
+	UserNameTemplateType pulumi.StringPtrInput
 }
 
 func (BasicAuthArgs) ElementType() reflect.Type {
@@ -390,6 +480,12 @@ func (o BasicAuthOutput) AutoSubmitToolbar() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BasicAuth) pulumi.BoolPtrOutput { return v.AutoSubmitToolbar }).(pulumi.BoolPtrOutput)
 }
 
+// Application credentials scheme. One of: `EDIT_USERNAME_AND_PASSWORD`, `ADMIN_SETS_CREDENTIALS`, `EDIT_PASSWORD_ONLY`,
+// `EXTERNAL_PASSWORD_SYNC`, or `SHARED_USERNAME_AND_PASSWORD`
+func (o BasicAuthOutput) CredentialsScheme() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BasicAuth) pulumi.StringPtrOutput { return v.CredentialsScheme }).(pulumi.StringPtrOutput)
+}
+
 // Application notes for end users.
 func (o BasicAuthOutput) EnduserNote() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BasicAuth) pulumi.StringPtrOutput { return v.EnduserNote }).(pulumi.StringPtrOutput)
@@ -425,6 +521,22 @@ func (o BasicAuthOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *BasicAuth) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// Allow user to reveal password. Default is false. It can not be set to true if credentialsScheme is
+// "ADMIN_SETS_CREDENTIALS", "SHARED_USERNAME_AND_PASSWORD" or "EXTERNAL_PASSWORD_SYNC".
+func (o BasicAuthOutput) RevealPassword() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BasicAuth) pulumi.BoolPtrOutput { return v.RevealPassword }).(pulumi.BoolPtrOutput)
+}
+
+// Shared password, required for certain schemes.
+func (o BasicAuthOutput) SharedPassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BasicAuth) pulumi.StringPtrOutput { return v.SharedPassword }).(pulumi.StringPtrOutput)
+}
+
+// Shared username, required for certain schemes.
+func (o BasicAuthOutput) SharedUsername() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BasicAuth) pulumi.StringPtrOutput { return v.SharedUsername }).(pulumi.StringPtrOutput)
+}
+
 // Sign on mode of application.
 func (o BasicAuthOutput) SignOnMode() pulumi.StringOutput {
 	return o.ApplyT(func(v *BasicAuth) pulumi.StringOutput { return v.SignOnMode }).(pulumi.StringOutput)
@@ -438,6 +550,26 @@ func (o BasicAuthOutput) Status() pulumi.StringPtrOutput {
 // The URL of the sign-in page for this app.
 func (o BasicAuthOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v *BasicAuth) pulumi.StringOutput { return v.Url }).(pulumi.StringOutput)
+}
+
+// Username template. Default: `${source.login}`
+func (o BasicAuthOutput) UserNameTemplate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BasicAuth) pulumi.StringPtrOutput { return v.UserNameTemplate }).(pulumi.StringPtrOutput)
+}
+
+// Push username on update. Valid values: `PUSH`, `DONT_PUSH` and `NOT_CONFIGURED`
+func (o BasicAuthOutput) UserNameTemplatePushStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BasicAuth) pulumi.StringPtrOutput { return v.UserNameTemplatePushStatus }).(pulumi.StringPtrOutput)
+}
+
+// Username template suffix
+func (o BasicAuthOutput) UserNameTemplateSuffix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BasicAuth) pulumi.StringPtrOutput { return v.UserNameTemplateSuffix }).(pulumi.StringPtrOutput)
+}
+
+// Username template type. Default: `BUILT_IN`. Valid values: `NONE`, `CUSTOM`, `BUILT_IN`
+func (o BasicAuthOutput) UserNameTemplateType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BasicAuth) pulumi.StringPtrOutput { return v.UserNameTemplateType }).(pulumi.StringPtrOutput)
 }
 
 type BasicAuthArrayOutput struct{ *pulumi.OutputState }

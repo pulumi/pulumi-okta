@@ -17,81 +17,6 @@ namespace Pulumi.Okta.Policy
     /// you are requesting' contact support and
     /// request feature flag 'ADVANCED_SSO' be applied to your org.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Okta = Pulumi.Okta;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     //## All Okta orgs contain only one IdP Discovery Policy
-    ///     var idpDiscoveryPolicy = Okta.Policy.GetPolicy.Invoke(new()
-    ///     {
-    ///         Name = "Idp Discovery Policy",
-    ///         Type = "IDP_DISCOVERY",
-    ///     });
-    /// 
-    ///     var example = new Okta.Policy.RuleIdpDiscovery("example", new()
-    ///     {
-    ///         PolicyId = idpDiscoveryPolicy.Apply(getPolicyResult =&gt; getPolicyResult.Id),
-    ///         Name = "example",
-    ///         IdpId = "&lt;idp id&gt;",
-    ///         IdpType = "OIDC",
-    ///         NetworkConnection = "ANYWHERE",
-    ///         Priority = 1,
-    ///         Status = "ACTIVE",
-    ///         UserIdentifierType = "ATTRIBUTE",
-    ///         UserIdentifierAttribute = "company",
-    ///         AppExcludes = new[]
-    ///         {
-    ///             new Okta.Policy.Inputs.RuleIdpDiscoveryAppExcludeArgs
-    ///             {
-    ///                 Id = "&lt;app id&gt;",
-    ///                 Type = "APP",
-    ///             },
-    ///             new Okta.Policy.Inputs.RuleIdpDiscoveryAppExcludeArgs
-    ///             {
-    ///                 Name = "yahoo_mail",
-    ///                 Type = "APP_TYPE",
-    ///             },
-    ///         },
-    ///         AppIncludes = new[]
-    ///         {
-    ///             new Okta.Policy.Inputs.RuleIdpDiscoveryAppIncludeArgs
-    ///             {
-    ///                 Id = "&lt;app id&gt;",
-    ///                 Type = "APP",
-    ///             },
-    ///             new Okta.Policy.Inputs.RuleIdpDiscoveryAppIncludeArgs
-    ///             {
-    ///                 Name = "&lt;app type name&gt;",
-    ///                 Type = "APP_TYPE",
-    ///             },
-    ///         },
-    ///         PlatformIncludes = new[]
-    ///         {
-    ///             new Okta.Policy.Inputs.RuleIdpDiscoveryPlatformIncludeArgs
-    ///             {
-    ///                 Type = "MOBILE",
-    ///                 OsType = "OSX",
-    ///             },
-    ///         },
-    ///         UserIdentifierPatterns = new[]
-    ///         {
-    ///             new Okta.Policy.Inputs.RuleIdpDiscoveryUserIdentifierPatternArgs
-    ///             {
-    ///                 MatchType = "EQUALS",
-    ///                 Value = "Articulate",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// ```sh
@@ -116,18 +41,8 @@ namespace Pulumi.Okta.Policy
         [Output("appIncludes")]
         public Output<ImmutableArray<Outputs.RuleIdpDiscoveryAppInclude>> AppIncludes { get; private set; } = null!;
 
-        /// <summary>
-        /// The identifier for the Idp the rule should route to if all conditions are met.
-        /// </summary>
-        [Output("idpId")]
-        public Output<string?> IdpId { get; private set; } = null!;
-
-        /// <summary>
-        /// Type of Idp. One of: `SAML2`, `IWA`, `AgentlessDSSO`, `X509`, `FACEBOOK`, `GOOGLE`, `LINKEDIN`, `MICROSOFT`, `OIDC`.
-        /// Default: `OKTA`
-        /// </summary>
-        [Output("idpType")]
-        public Output<string?> IdpType { get; private set; } = null!;
+        [Output("idpProviders")]
+        public Output<ImmutableArray<Outputs.RuleIdpDiscoveryIdpProvider>> IdpProviders { get; private set; } = null!;
 
         /// <summary>
         /// Policy Rule Name
@@ -275,18 +190,13 @@ namespace Pulumi.Okta.Policy
             set => _appIncludes = value;
         }
 
-        /// <summary>
-        /// The identifier for the Idp the rule should route to if all conditions are met.
-        /// </summary>
-        [Input("idpId")]
-        public Input<string>? IdpId { get; set; }
-
-        /// <summary>
-        /// Type of Idp. One of: `SAML2`, `IWA`, `AgentlessDSSO`, `X509`, `FACEBOOK`, `GOOGLE`, `LINKEDIN`, `MICROSOFT`, `OIDC`.
-        /// Default: `OKTA`
-        /// </summary>
-        [Input("idpType")]
-        public Input<string>? IdpType { get; set; }
+        [Input("idpProviders")]
+        private InputList<Inputs.RuleIdpDiscoveryIdpProviderArgs>? _idpProviders;
+        public InputList<Inputs.RuleIdpDiscoveryIdpProviderArgs> IdpProviders
+        {
+            get => _idpProviders ?? (_idpProviders = new InputList<Inputs.RuleIdpDiscoveryIdpProviderArgs>());
+            set => _idpProviders = value;
+        }
 
         /// <summary>
         /// Policy Rule Name
@@ -420,18 +330,13 @@ namespace Pulumi.Okta.Policy
             set => _appIncludes = value;
         }
 
-        /// <summary>
-        /// The identifier for the Idp the rule should route to if all conditions are met.
-        /// </summary>
-        [Input("idpId")]
-        public Input<string>? IdpId { get; set; }
-
-        /// <summary>
-        /// Type of Idp. One of: `SAML2`, `IWA`, `AgentlessDSSO`, `X509`, `FACEBOOK`, `GOOGLE`, `LINKEDIN`, `MICROSOFT`, `OIDC`.
-        /// Default: `OKTA`
-        /// </summary>
-        [Input("idpType")]
-        public Input<string>? IdpType { get; set; }
+        [Input("idpProviders")]
+        private InputList<Inputs.RuleIdpDiscoveryIdpProviderGetArgs>? _idpProviders;
+        public InputList<Inputs.RuleIdpDiscoveryIdpProviderGetArgs> IdpProviders
+        {
+            get => _idpProviders ?? (_idpProviders = new InputList<Inputs.RuleIdpDiscoveryIdpProviderGetArgs>());
+            set => _idpProviders = value;
+        }
 
         /// <summary>
         /// Policy Rule Name

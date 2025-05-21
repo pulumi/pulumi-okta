@@ -87,6 +87,13 @@ namespace Pulumi.Okta.App
         public Output<bool?> AutoSubmitToolbar { get; private set; } = null!;
 
         /// <summary>
+        /// Application credentials scheme. One of: `EDIT_USERNAME_AND_PASSWORD`, `ADMIN_SETS_CREDENTIALS`, `EDIT_PASSWORD_ONLY`,
+        /// `EXTERNAL_PASSWORD_SYNC`, or `SHARED_USERNAME_AND_PASSWORD`
+        /// </summary>
+        [Output("credentialsScheme")]
+        public Output<string?> CredentialsScheme { get; private set; } = null!;
+
+        /// <summary>
         /// Application notes for end users.
         /// </summary>
         [Output("enduserNote")]
@@ -129,6 +136,25 @@ namespace Pulumi.Okta.App
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// Allow user to reveal password. Default is false. It can not be set to true if credentials_scheme is
+        /// "ADMIN_SETS_CREDENTIALS", "SHARED_USERNAME_AND_PASSWORD" or "EXTERNAL_PASSWORD_SYNC".
+        /// </summary>
+        [Output("revealPassword")]
+        public Output<bool?> RevealPassword { get; private set; } = null!;
+
+        /// <summary>
+        /// Shared password, required for certain schemes.
+        /// </summary>
+        [Output("sharedPassword")]
+        public Output<string?> SharedPassword { get; private set; } = null!;
+
+        /// <summary>
+        /// Shared username, required for certain schemes.
+        /// </summary>
+        [Output("sharedUsername")]
+        public Output<string?> SharedUsername { get; private set; } = null!;
+
+        /// <summary>
         /// Sign on mode of application.
         /// </summary>
         [Output("signOnMode")]
@@ -145,6 +171,30 @@ namespace Pulumi.Okta.App
         /// </summary>
         [Output("url")]
         public Output<string> Url { get; private set; } = null!;
+
+        /// <summary>
+        /// Username template. Default: `${source.login}`
+        /// </summary>
+        [Output("userNameTemplate")]
+        public Output<string?> UserNameTemplate { get; private set; } = null!;
+
+        /// <summary>
+        /// Push username on update. Valid values: `PUSH`, `DONT_PUSH` and `NOT_CONFIGURED`
+        /// </summary>
+        [Output("userNameTemplatePushStatus")]
+        public Output<string?> UserNameTemplatePushStatus { get; private set; } = null!;
+
+        /// <summary>
+        /// Username template suffix
+        /// </summary>
+        [Output("userNameTemplateSuffix")]
+        public Output<string?> UserNameTemplateSuffix { get; private set; } = null!;
+
+        /// <summary>
+        /// Username template type. Default: `BUILT_IN`. Valid values: `NONE`, `CUSTOM`, `BUILT_IN`
+        /// </summary>
+        [Output("userNameTemplateType")]
+        public Output<string?> UserNameTemplateType { get; private set; } = null!;
 
 
         /// <summary>
@@ -235,6 +285,13 @@ namespace Pulumi.Okta.App
         public Input<bool>? AutoSubmitToolbar { get; set; }
 
         /// <summary>
+        /// Application credentials scheme. One of: `EDIT_USERNAME_AND_PASSWORD`, `ADMIN_SETS_CREDENTIALS`, `EDIT_PASSWORD_ONLY`,
+        /// `EXTERNAL_PASSWORD_SYNC`, or `SHARED_USERNAME_AND_PASSWORD`
+        /// </summary>
+        [Input("credentialsScheme")]
+        public Input<string>? CredentialsScheme { get; set; }
+
+        /// <summary>
         /// Application notes for end users.
         /// </summary>
         [Input("enduserNote")]
@@ -265,6 +322,25 @@ namespace Pulumi.Okta.App
         public Input<string>? Logo { get; set; }
 
         /// <summary>
+        /// Allow user to reveal password. Default is false. It can not be set to true if credentials_scheme is
+        /// "ADMIN_SETS_CREDENTIALS", "SHARED_USERNAME_AND_PASSWORD" or "EXTERNAL_PASSWORD_SYNC".
+        /// </summary>
+        [Input("revealPassword")]
+        public Input<bool>? RevealPassword { get; set; }
+
+        /// <summary>
+        /// Shared password, required for certain schemes.
+        /// </summary>
+        [Input("sharedPassword")]
+        public Input<string>? SharedPassword { get; set; }
+
+        /// <summary>
+        /// Shared username, required for certain schemes.
+        /// </summary>
+        [Input("sharedUsername")]
+        public Input<string>? SharedUsername { get; set; }
+
+        /// <summary>
         /// Status of application. By default, it is `ACTIVE`
         /// </summary>
         [Input("status")]
@@ -275,6 +351,30 @@ namespace Pulumi.Okta.App
         /// </summary>
         [Input("url", required: true)]
         public Input<string> Url { get; set; } = null!;
+
+        /// <summary>
+        /// Username template. Default: `${source.login}`
+        /// </summary>
+        [Input("userNameTemplate")]
+        public Input<string>? UserNameTemplate { get; set; }
+
+        /// <summary>
+        /// Push username on update. Valid values: `PUSH`, `DONT_PUSH` and `NOT_CONFIGURED`
+        /// </summary>
+        [Input("userNameTemplatePushStatus")]
+        public Input<string>? UserNameTemplatePushStatus { get; set; }
+
+        /// <summary>
+        /// Username template suffix
+        /// </summary>
+        [Input("userNameTemplateSuffix")]
+        public Input<string>? UserNameTemplateSuffix { get; set; }
+
+        /// <summary>
+        /// Username template type. Default: `BUILT_IN`. Valid values: `NONE`, `CUSTOM`, `BUILT_IN`
+        /// </summary>
+        [Input("userNameTemplateType")]
+        public Input<string>? UserNameTemplateType { get; set; }
 
         public BasicAuthArgs()
         {
@@ -327,6 +427,13 @@ namespace Pulumi.Okta.App
         public Input<bool>? AutoSubmitToolbar { get; set; }
 
         /// <summary>
+        /// Application credentials scheme. One of: `EDIT_USERNAME_AND_PASSWORD`, `ADMIN_SETS_CREDENTIALS`, `EDIT_PASSWORD_ONLY`,
+        /// `EXTERNAL_PASSWORD_SYNC`, or `SHARED_USERNAME_AND_PASSWORD`
+        /// </summary>
+        [Input("credentialsScheme")]
+        public Input<string>? CredentialsScheme { get; set; }
+
+        /// <summary>
         /// Application notes for end users.
         /// </summary>
         [Input("enduserNote")]
@@ -369,6 +476,25 @@ namespace Pulumi.Okta.App
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// Allow user to reveal password. Default is false. It can not be set to true if credentials_scheme is
+        /// "ADMIN_SETS_CREDENTIALS", "SHARED_USERNAME_AND_PASSWORD" or "EXTERNAL_PASSWORD_SYNC".
+        /// </summary>
+        [Input("revealPassword")]
+        public Input<bool>? RevealPassword { get; set; }
+
+        /// <summary>
+        /// Shared password, required for certain schemes.
+        /// </summary>
+        [Input("sharedPassword")]
+        public Input<string>? SharedPassword { get; set; }
+
+        /// <summary>
+        /// Shared username, required for certain schemes.
+        /// </summary>
+        [Input("sharedUsername")]
+        public Input<string>? SharedUsername { get; set; }
+
+        /// <summary>
         /// Sign on mode of application.
         /// </summary>
         [Input("signOnMode")]
@@ -385,6 +511,30 @@ namespace Pulumi.Okta.App
         /// </summary>
         [Input("url")]
         public Input<string>? Url { get; set; }
+
+        /// <summary>
+        /// Username template. Default: `${source.login}`
+        /// </summary>
+        [Input("userNameTemplate")]
+        public Input<string>? UserNameTemplate { get; set; }
+
+        /// <summary>
+        /// Push username on update. Valid values: `PUSH`, `DONT_PUSH` and `NOT_CONFIGURED`
+        /// </summary>
+        [Input("userNameTemplatePushStatus")]
+        public Input<string>? UserNameTemplatePushStatus { get; set; }
+
+        /// <summary>
+        /// Username template suffix
+        /// </summary>
+        [Input("userNameTemplateSuffix")]
+        public Input<string>? UserNameTemplateSuffix { get; set; }
+
+        /// <summary>
+        /// Username template type. Default: `BUILT_IN`. Valid values: `NONE`, `CUSTOM`, `BUILT_IN`
+        /// </summary>
+        [Input("userNameTemplateType")]
+        public Input<string>? UserNameTemplateType { get; set; }
 
         public BasicAuthState()
         {

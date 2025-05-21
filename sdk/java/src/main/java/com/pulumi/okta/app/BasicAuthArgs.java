@@ -123,6 +123,23 @@ public final class BasicAuthArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Application credentials scheme. One of: `EDIT_USERNAME_AND_PASSWORD`, `ADMIN_SETS_CREDENTIALS`, `EDIT_PASSWORD_ONLY`,
+     * `EXTERNAL_PASSWORD_SYNC`, or `SHARED_USERNAME_AND_PASSWORD`
+     * 
+     */
+    @Import(name="credentialsScheme")
+    private @Nullable Output<String> credentialsScheme;
+
+    /**
+     * @return Application credentials scheme. One of: `EDIT_USERNAME_AND_PASSWORD`, `ADMIN_SETS_CREDENTIALS`, `EDIT_PASSWORD_ONLY`,
+     * `EXTERNAL_PASSWORD_SYNC`, or `SHARED_USERNAME_AND_PASSWORD`
+     * 
+     */
+    public Optional<Output<String>> credentialsScheme() {
+        return Optional.ofNullable(this.credentialsScheme);
+    }
+
+    /**
      * Application notes for end users.
      * 
      */
@@ -198,6 +215,53 @@ public final class BasicAuthArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Allow user to reveal password. Default is false. It can not be set to true if credentials_scheme is
+     * &#34;ADMIN_SETS_CREDENTIALS&#34;, &#34;SHARED_USERNAME_AND_PASSWORD&#34; or &#34;EXTERNAL_PASSWORD_SYNC&#34;.
+     * 
+     */
+    @Import(name="revealPassword")
+    private @Nullable Output<Boolean> revealPassword;
+
+    /**
+     * @return Allow user to reveal password. Default is false. It can not be set to true if credentials_scheme is
+     * &#34;ADMIN_SETS_CREDENTIALS&#34;, &#34;SHARED_USERNAME_AND_PASSWORD&#34; or &#34;EXTERNAL_PASSWORD_SYNC&#34;.
+     * 
+     */
+    public Optional<Output<Boolean>> revealPassword() {
+        return Optional.ofNullable(this.revealPassword);
+    }
+
+    /**
+     * Shared password, required for certain schemes.
+     * 
+     */
+    @Import(name="sharedPassword")
+    private @Nullable Output<String> sharedPassword;
+
+    /**
+     * @return Shared password, required for certain schemes.
+     * 
+     */
+    public Optional<Output<String>> sharedPassword() {
+        return Optional.ofNullable(this.sharedPassword);
+    }
+
+    /**
+     * Shared username, required for certain schemes.
+     * 
+     */
+    @Import(name="sharedUsername")
+    private @Nullable Output<String> sharedUsername;
+
+    /**
+     * @return Shared username, required for certain schemes.
+     * 
+     */
+    public Optional<Output<String>> sharedUsername() {
+        return Optional.ofNullable(this.sharedUsername);
+    }
+
+    /**
      * Status of application. By default, it is `ACTIVE`
      * 
      */
@@ -227,6 +291,66 @@ public final class BasicAuthArgs extends com.pulumi.resources.ResourceArgs {
         return this.url;
     }
 
+    /**
+     * Username template. Default: `${source.login}`
+     * 
+     */
+    @Import(name="userNameTemplate")
+    private @Nullable Output<String> userNameTemplate;
+
+    /**
+     * @return Username template. Default: `${source.login}`
+     * 
+     */
+    public Optional<Output<String>> userNameTemplate() {
+        return Optional.ofNullable(this.userNameTemplate);
+    }
+
+    /**
+     * Push username on update. Valid values: `PUSH`, `DONT_PUSH` and `NOT_CONFIGURED`
+     * 
+     */
+    @Import(name="userNameTemplatePushStatus")
+    private @Nullable Output<String> userNameTemplatePushStatus;
+
+    /**
+     * @return Push username on update. Valid values: `PUSH`, `DONT_PUSH` and `NOT_CONFIGURED`
+     * 
+     */
+    public Optional<Output<String>> userNameTemplatePushStatus() {
+        return Optional.ofNullable(this.userNameTemplatePushStatus);
+    }
+
+    /**
+     * Username template suffix
+     * 
+     */
+    @Import(name="userNameTemplateSuffix")
+    private @Nullable Output<String> userNameTemplateSuffix;
+
+    /**
+     * @return Username template suffix
+     * 
+     */
+    public Optional<Output<String>> userNameTemplateSuffix() {
+        return Optional.ofNullable(this.userNameTemplateSuffix);
+    }
+
+    /**
+     * Username template type. Default: `BUILT_IN`. Valid values: `NONE`, `CUSTOM`, `BUILT_IN`
+     * 
+     */
+    @Import(name="userNameTemplateType")
+    private @Nullable Output<String> userNameTemplateType;
+
+    /**
+     * @return Username template type. Default: `BUILT_IN`. Valid values: `NONE`, `CUSTOM`, `BUILT_IN`
+     * 
+     */
+    public Optional<Output<String>> userNameTemplateType() {
+        return Optional.ofNullable(this.userNameTemplateType);
+    }
+
     private BasicAuthArgs() {}
 
     private BasicAuthArgs(BasicAuthArgs $) {
@@ -237,13 +361,21 @@ public final class BasicAuthArgs extends com.pulumi.resources.ResourceArgs {
         this.appLinksJson = $.appLinksJson;
         this.authUrl = $.authUrl;
         this.autoSubmitToolbar = $.autoSubmitToolbar;
+        this.credentialsScheme = $.credentialsScheme;
         this.enduserNote = $.enduserNote;
         this.hideIos = $.hideIos;
         this.hideWeb = $.hideWeb;
         this.label = $.label;
         this.logo = $.logo;
+        this.revealPassword = $.revealPassword;
+        this.sharedPassword = $.sharedPassword;
+        this.sharedUsername = $.sharedUsername;
         this.status = $.status;
         this.url = $.url;
+        this.userNameTemplate = $.userNameTemplate;
+        this.userNameTemplatePushStatus = $.userNameTemplatePushStatus;
+        this.userNameTemplateSuffix = $.userNameTemplateSuffix;
+        this.userNameTemplateType = $.userNameTemplateType;
     }
 
     public static Builder builder() {
@@ -412,6 +544,29 @@ public final class BasicAuthArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param credentialsScheme Application credentials scheme. One of: `EDIT_USERNAME_AND_PASSWORD`, `ADMIN_SETS_CREDENTIALS`, `EDIT_PASSWORD_ONLY`,
+         * `EXTERNAL_PASSWORD_SYNC`, or `SHARED_USERNAME_AND_PASSWORD`
+         * 
+         * @return builder
+         * 
+         */
+        public Builder credentialsScheme(@Nullable Output<String> credentialsScheme) {
+            $.credentialsScheme = credentialsScheme;
+            return this;
+        }
+
+        /**
+         * @param credentialsScheme Application credentials scheme. One of: `EDIT_USERNAME_AND_PASSWORD`, `ADMIN_SETS_CREDENTIALS`, `EDIT_PASSWORD_ONLY`,
+         * `EXTERNAL_PASSWORD_SYNC`, or `SHARED_USERNAME_AND_PASSWORD`
+         * 
+         * @return builder
+         * 
+         */
+        public Builder credentialsScheme(String credentialsScheme) {
+            return credentialsScheme(Output.of(credentialsScheme));
+        }
+
+        /**
          * @param enduserNote Application notes for end users.
          * 
          * @return builder
@@ -517,6 +672,71 @@ public final class BasicAuthArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param revealPassword Allow user to reveal password. Default is false. It can not be set to true if credentials_scheme is
+         * &#34;ADMIN_SETS_CREDENTIALS&#34;, &#34;SHARED_USERNAME_AND_PASSWORD&#34; or &#34;EXTERNAL_PASSWORD_SYNC&#34;.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder revealPassword(@Nullable Output<Boolean> revealPassword) {
+            $.revealPassword = revealPassword;
+            return this;
+        }
+
+        /**
+         * @param revealPassword Allow user to reveal password. Default is false. It can not be set to true if credentials_scheme is
+         * &#34;ADMIN_SETS_CREDENTIALS&#34;, &#34;SHARED_USERNAME_AND_PASSWORD&#34; or &#34;EXTERNAL_PASSWORD_SYNC&#34;.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder revealPassword(Boolean revealPassword) {
+            return revealPassword(Output.of(revealPassword));
+        }
+
+        /**
+         * @param sharedPassword Shared password, required for certain schemes.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sharedPassword(@Nullable Output<String> sharedPassword) {
+            $.sharedPassword = sharedPassword;
+            return this;
+        }
+
+        /**
+         * @param sharedPassword Shared password, required for certain schemes.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sharedPassword(String sharedPassword) {
+            return sharedPassword(Output.of(sharedPassword));
+        }
+
+        /**
+         * @param sharedUsername Shared username, required for certain schemes.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sharedUsername(@Nullable Output<String> sharedUsername) {
+            $.sharedUsername = sharedUsername;
+            return this;
+        }
+
+        /**
+         * @param sharedUsername Shared username, required for certain schemes.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sharedUsername(String sharedUsername) {
+            return sharedUsername(Output.of(sharedUsername));
+        }
+
+        /**
          * @param status Status of application. By default, it is `ACTIVE`
          * 
          * @return builder
@@ -556,6 +776,90 @@ public final class BasicAuthArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder url(String url) {
             return url(Output.of(url));
+        }
+
+        /**
+         * @param userNameTemplate Username template. Default: `${source.login}`
+         * 
+         * @return builder
+         * 
+         */
+        public Builder userNameTemplate(@Nullable Output<String> userNameTemplate) {
+            $.userNameTemplate = userNameTemplate;
+            return this;
+        }
+
+        /**
+         * @param userNameTemplate Username template. Default: `${source.login}`
+         * 
+         * @return builder
+         * 
+         */
+        public Builder userNameTemplate(String userNameTemplate) {
+            return userNameTemplate(Output.of(userNameTemplate));
+        }
+
+        /**
+         * @param userNameTemplatePushStatus Push username on update. Valid values: `PUSH`, `DONT_PUSH` and `NOT_CONFIGURED`
+         * 
+         * @return builder
+         * 
+         */
+        public Builder userNameTemplatePushStatus(@Nullable Output<String> userNameTemplatePushStatus) {
+            $.userNameTemplatePushStatus = userNameTemplatePushStatus;
+            return this;
+        }
+
+        /**
+         * @param userNameTemplatePushStatus Push username on update. Valid values: `PUSH`, `DONT_PUSH` and `NOT_CONFIGURED`
+         * 
+         * @return builder
+         * 
+         */
+        public Builder userNameTemplatePushStatus(String userNameTemplatePushStatus) {
+            return userNameTemplatePushStatus(Output.of(userNameTemplatePushStatus));
+        }
+
+        /**
+         * @param userNameTemplateSuffix Username template suffix
+         * 
+         * @return builder
+         * 
+         */
+        public Builder userNameTemplateSuffix(@Nullable Output<String> userNameTemplateSuffix) {
+            $.userNameTemplateSuffix = userNameTemplateSuffix;
+            return this;
+        }
+
+        /**
+         * @param userNameTemplateSuffix Username template suffix
+         * 
+         * @return builder
+         * 
+         */
+        public Builder userNameTemplateSuffix(String userNameTemplateSuffix) {
+            return userNameTemplateSuffix(Output.of(userNameTemplateSuffix));
+        }
+
+        /**
+         * @param userNameTemplateType Username template type. Default: `BUILT_IN`. Valid values: `NONE`, `CUSTOM`, `BUILT_IN`
+         * 
+         * @return builder
+         * 
+         */
+        public Builder userNameTemplateType(@Nullable Output<String> userNameTemplateType) {
+            $.userNameTemplateType = userNameTemplateType;
+            return this;
+        }
+
+        /**
+         * @param userNameTemplateType Username template type. Default: `BUILT_IN`. Valid values: `NONE`, `CUSTOM`, `BUILT_IN`
+         * 
+         * @return builder
+         * 
+         */
+        public Builder userNameTemplateType(String userNameTemplateType) {
+            return userNameTemplateType(Output.of(userNameTemplateType));
         }
 
         public BasicAuthArgs build() {

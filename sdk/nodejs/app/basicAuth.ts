@@ -86,6 +86,11 @@ export class BasicAuth extends pulumi.CustomResource {
      */
     public readonly autoSubmitToolbar!: pulumi.Output<boolean | undefined>;
     /**
+     * Application credentials scheme. One of: `EDIT_USERNAME_AND_PASSWORD`, `ADMIN_SETS_CREDENTIALS`, `EDIT_PASSWORD_ONLY`,
+     * `EXTERNAL_PASSWORD_SYNC`, or `SHARED_USERNAME_AND_PASSWORD`
+     */
+    public readonly credentialsScheme!: pulumi.Output<string | undefined>;
+    /**
      * Application notes for end users.
      */
     public readonly enduserNote!: pulumi.Output<string | undefined>;
@@ -114,6 +119,19 @@ export class BasicAuth extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
+     * Allow user to reveal password. Default is false. It can not be set to true if credentialsScheme is
+     * "ADMIN_SETS_CREDENTIALS", "SHARED_USERNAME_AND_PASSWORD" or "EXTERNAL_PASSWORD_SYNC".
+     */
+    public readonly revealPassword!: pulumi.Output<boolean | undefined>;
+    /**
+     * Shared password, required for certain schemes.
+     */
+    public readonly sharedPassword!: pulumi.Output<string | undefined>;
+    /**
+     * Shared username, required for certain schemes.
+     */
+    public readonly sharedUsername!: pulumi.Output<string | undefined>;
+    /**
      * Sign on mode of application.
      */
     public /*out*/ readonly signOnMode!: pulumi.Output<string>;
@@ -125,6 +143,22 @@ export class BasicAuth extends pulumi.CustomResource {
      * The URL of the sign-in page for this app.
      */
     public readonly url!: pulumi.Output<string>;
+    /**
+     * Username template. Default: `${source.login}`
+     */
+    public readonly userNameTemplate!: pulumi.Output<string | undefined>;
+    /**
+     * Push username on update. Valid values: `PUSH`, `DONT_PUSH` and `NOT_CONFIGURED`
+     */
+    public readonly userNameTemplatePushStatus!: pulumi.Output<string | undefined>;
+    /**
+     * Username template suffix
+     */
+    public readonly userNameTemplateSuffix!: pulumi.Output<string | undefined>;
+    /**
+     * Username template type. Default: `BUILT_IN`. Valid values: `NONE`, `CUSTOM`, `BUILT_IN`
+     */
+    public readonly userNameTemplateType!: pulumi.Output<string | undefined>;
 
     /**
      * Create a BasicAuth resource with the given unique name, arguments, and options.
@@ -146,6 +180,7 @@ export class BasicAuth extends pulumi.CustomResource {
             resourceInputs["appLinksJson"] = state ? state.appLinksJson : undefined;
             resourceInputs["authUrl"] = state ? state.authUrl : undefined;
             resourceInputs["autoSubmitToolbar"] = state ? state.autoSubmitToolbar : undefined;
+            resourceInputs["credentialsScheme"] = state ? state.credentialsScheme : undefined;
             resourceInputs["enduserNote"] = state ? state.enduserNote : undefined;
             resourceInputs["hideIos"] = state ? state.hideIos : undefined;
             resourceInputs["hideWeb"] = state ? state.hideWeb : undefined;
@@ -153,9 +188,16 @@ export class BasicAuth extends pulumi.CustomResource {
             resourceInputs["logo"] = state ? state.logo : undefined;
             resourceInputs["logoUrl"] = state ? state.logoUrl : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["revealPassword"] = state ? state.revealPassword : undefined;
+            resourceInputs["sharedPassword"] = state ? state.sharedPassword : undefined;
+            resourceInputs["sharedUsername"] = state ? state.sharedUsername : undefined;
             resourceInputs["signOnMode"] = state ? state.signOnMode : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
             resourceInputs["url"] = state ? state.url : undefined;
+            resourceInputs["userNameTemplate"] = state ? state.userNameTemplate : undefined;
+            resourceInputs["userNameTemplatePushStatus"] = state ? state.userNameTemplatePushStatus : undefined;
+            resourceInputs["userNameTemplateSuffix"] = state ? state.userNameTemplateSuffix : undefined;
+            resourceInputs["userNameTemplateType"] = state ? state.userNameTemplateType : undefined;
         } else {
             const args = argsOrState as BasicAuthArgs | undefined;
             if ((!args || args.authUrl === undefined) && !opts.urn) {
@@ -174,13 +216,21 @@ export class BasicAuth extends pulumi.CustomResource {
             resourceInputs["appLinksJson"] = args ? args.appLinksJson : undefined;
             resourceInputs["authUrl"] = args ? args.authUrl : undefined;
             resourceInputs["autoSubmitToolbar"] = args ? args.autoSubmitToolbar : undefined;
+            resourceInputs["credentialsScheme"] = args ? args.credentialsScheme : undefined;
             resourceInputs["enduserNote"] = args ? args.enduserNote : undefined;
             resourceInputs["hideIos"] = args ? args.hideIos : undefined;
             resourceInputs["hideWeb"] = args ? args.hideWeb : undefined;
             resourceInputs["label"] = args ? args.label : undefined;
             resourceInputs["logo"] = args ? args.logo : undefined;
+            resourceInputs["revealPassword"] = args ? args.revealPassword : undefined;
+            resourceInputs["sharedPassword"] = args ? args.sharedPassword : undefined;
+            resourceInputs["sharedUsername"] = args ? args.sharedUsername : undefined;
             resourceInputs["status"] = args ? args.status : undefined;
             resourceInputs["url"] = args ? args.url : undefined;
+            resourceInputs["userNameTemplate"] = args ? args.userNameTemplate : undefined;
+            resourceInputs["userNameTemplatePushStatus"] = args ? args.userNameTemplatePushStatus : undefined;
+            resourceInputs["userNameTemplateSuffix"] = args ? args.userNameTemplateSuffix : undefined;
+            resourceInputs["userNameTemplateType"] = args ? args.userNameTemplateType : undefined;
             resourceInputs["logoUrl"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["signOnMode"] = undefined /*out*/;
@@ -223,6 +273,11 @@ export interface BasicAuthState {
      */
     autoSubmitToolbar?: pulumi.Input<boolean>;
     /**
+     * Application credentials scheme. One of: `EDIT_USERNAME_AND_PASSWORD`, `ADMIN_SETS_CREDENTIALS`, `EDIT_PASSWORD_ONLY`,
+     * `EXTERNAL_PASSWORD_SYNC`, or `SHARED_USERNAME_AND_PASSWORD`
+     */
+    credentialsScheme?: pulumi.Input<string>;
+    /**
      * Application notes for end users.
      */
     enduserNote?: pulumi.Input<string>;
@@ -251,6 +306,19 @@ export interface BasicAuthState {
      */
     name?: pulumi.Input<string>;
     /**
+     * Allow user to reveal password. Default is false. It can not be set to true if credentialsScheme is
+     * "ADMIN_SETS_CREDENTIALS", "SHARED_USERNAME_AND_PASSWORD" or "EXTERNAL_PASSWORD_SYNC".
+     */
+    revealPassword?: pulumi.Input<boolean>;
+    /**
+     * Shared password, required for certain schemes.
+     */
+    sharedPassword?: pulumi.Input<string>;
+    /**
+     * Shared username, required for certain schemes.
+     */
+    sharedUsername?: pulumi.Input<string>;
+    /**
      * Sign on mode of application.
      */
     signOnMode?: pulumi.Input<string>;
@@ -262,6 +330,22 @@ export interface BasicAuthState {
      * The URL of the sign-in page for this app.
      */
     url?: pulumi.Input<string>;
+    /**
+     * Username template. Default: `${source.login}`
+     */
+    userNameTemplate?: pulumi.Input<string>;
+    /**
+     * Push username on update. Valid values: `PUSH`, `DONT_PUSH` and `NOT_CONFIGURED`
+     */
+    userNameTemplatePushStatus?: pulumi.Input<string>;
+    /**
+     * Username template suffix
+     */
+    userNameTemplateSuffix?: pulumi.Input<string>;
+    /**
+     * Username template type. Default: `BUILT_IN`. Valid values: `NONE`, `CUSTOM`, `BUILT_IN`
+     */
+    userNameTemplateType?: pulumi.Input<string>;
 }
 
 /**
@@ -297,6 +381,11 @@ export interface BasicAuthArgs {
      */
     autoSubmitToolbar?: pulumi.Input<boolean>;
     /**
+     * Application credentials scheme. One of: `EDIT_USERNAME_AND_PASSWORD`, `ADMIN_SETS_CREDENTIALS`, `EDIT_PASSWORD_ONLY`,
+     * `EXTERNAL_PASSWORD_SYNC`, or `SHARED_USERNAME_AND_PASSWORD`
+     */
+    credentialsScheme?: pulumi.Input<string>;
+    /**
      * Application notes for end users.
      */
     enduserNote?: pulumi.Input<string>;
@@ -317,6 +406,19 @@ export interface BasicAuthArgs {
      */
     logo?: pulumi.Input<string>;
     /**
+     * Allow user to reveal password. Default is false. It can not be set to true if credentialsScheme is
+     * "ADMIN_SETS_CREDENTIALS", "SHARED_USERNAME_AND_PASSWORD" or "EXTERNAL_PASSWORD_SYNC".
+     */
+    revealPassword?: pulumi.Input<boolean>;
+    /**
+     * Shared password, required for certain schemes.
+     */
+    sharedPassword?: pulumi.Input<string>;
+    /**
+     * Shared username, required for certain schemes.
+     */
+    sharedUsername?: pulumi.Input<string>;
+    /**
      * Status of application. By default, it is `ACTIVE`
      */
     status?: pulumi.Input<string>;
@@ -324,4 +426,20 @@ export interface BasicAuthArgs {
      * The URL of the sign-in page for this app.
      */
     url: pulumi.Input<string>;
+    /**
+     * Username template. Default: `${source.login}`
+     */
+    userNameTemplate?: pulumi.Input<string>;
+    /**
+     * Push username on update. Valid values: `PUSH`, `DONT_PUSH` and `NOT_CONFIGURED`
+     */
+    userNameTemplatePushStatus?: pulumi.Input<string>;
+    /**
+     * Username template suffix
+     */
+    userNameTemplateSuffix?: pulumi.Input<string>;
+    /**
+     * Username template type. Default: `BUILT_IN`. Valid values: `NONE`, `CUSTOM`, `BUILT_IN`
+     */
+    userNameTemplateType?: pulumi.Input<string>;
 }

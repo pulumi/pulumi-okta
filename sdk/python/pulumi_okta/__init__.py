@@ -33,6 +33,7 @@ from .email_domain import *
 from .email_domain_verification import *
 from .email_sender import *
 from .email_sender_verification import *
+from .email_smtp_server import *
 from .email_template_settings import *
 from .event_hook import *
 from .event_hook_verification import *
@@ -53,6 +54,7 @@ from .get_device_assurance_policy import *
 from .get_domain import *
 from .get_email_customization import *
 from .get_email_customizations import *
+from .get_email_smtp_server import *
 from .get_groups import *
 from .get_log_stream import *
 from .get_network_zone import *
@@ -583,6 +585,14 @@ _utilities.register(
   "fqn": "pulumi_okta",
   "classes": {
    "okta:index/emailSenderVerification:EmailSenderVerification": "EmailSenderVerification"
+  }
+ },
+ {
+  "pkg": "okta",
+  "mod": "index/emailSmtpServer",
+  "fqn": "pulumi_okta",
+  "classes": {
+   "okta:index/emailSmtpServer:EmailSmtpServer": "EmailSmtpServer"
   }
  },
  {

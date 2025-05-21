@@ -12,6 +12,7 @@ import com.pulumi.okta.policy.RuleIdpDiscoveryArgs;
 import com.pulumi.okta.policy.inputs.RuleIdpDiscoveryState;
 import com.pulumi.okta.policy.outputs.RuleIdpDiscoveryAppExclude;
 import com.pulumi.okta.policy.outputs.RuleIdpDiscoveryAppInclude;
+import com.pulumi.okta.policy.outputs.RuleIdpDiscoveryIdpProvider;
 import com.pulumi.okta.policy.outputs.RuleIdpDiscoveryPlatformInclude;
 import com.pulumi.okta.policy.outputs.RuleIdpDiscoveryUserIdentifierPattern;
 import java.lang.Integer;
@@ -27,87 +28,6 @@ import javax.annotation.Nullable;
  * &gt; If you receive the error &#39;You do not have permission to access the feature
  * you are requesting&#39; contact support and
  * request feature flag &#39;ADVANCED_SSO&#39; be applied to your org.
- * 
- * ## Example Usage
- * 
- * &lt;!--Start PulumiCodeChooser --&gt;
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.okta.policy.PolicyFunctions;
- * import com.pulumi.okta.policy.inputs.GetPolicyArgs;
- * import com.pulumi.okta.policy.RuleIdpDiscovery;
- * import com.pulumi.okta.policy.RuleIdpDiscoveryArgs;
- * import com.pulumi.okta.policy.inputs.RuleIdpDiscoveryAppExcludeArgs;
- * import com.pulumi.okta.policy.inputs.RuleIdpDiscoveryAppIncludeArgs;
- * import com.pulumi.okta.policy.inputs.RuleIdpDiscoveryPlatformIncludeArgs;
- * import com.pulumi.okta.policy.inputs.RuleIdpDiscoveryUserIdentifierPatternArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         //## All Okta orgs contain only one IdP Discovery Policy
- *         final var idpDiscoveryPolicy = PolicyFunctions.getPolicy(GetPolicyArgs.builder()
- *             .name("Idp Discovery Policy")
- *             .type("IDP_DISCOVERY")
- *             .build());
- * 
- *         var example = new RuleIdpDiscovery("example", RuleIdpDiscoveryArgs.builder()
- *             .policyId(idpDiscoveryPolicy.id())
- *             .name("example")
- *             .idpId("<idp id>")
- *             .idpType("OIDC")
- *             .networkConnection("ANYWHERE")
- *             .priority(1)
- *             .status("ACTIVE")
- *             .userIdentifierType("ATTRIBUTE")
- *             .userIdentifierAttribute("company")
- *             .appExcludes(            
- *                 RuleIdpDiscoveryAppExcludeArgs.builder()
- *                     .id("<app id>")
- *                     .type("APP")
- *                     .build(),
- *                 RuleIdpDiscoveryAppExcludeArgs.builder()
- *                     .name("yahoo_mail")
- *                     .type("APP_TYPE")
- *                     .build())
- *             .appIncludes(            
- *                 RuleIdpDiscoveryAppIncludeArgs.builder()
- *                     .id("<app id>")
- *                     .type("APP")
- *                     .build(),
- *                 RuleIdpDiscoveryAppIncludeArgs.builder()
- *                     .name("<app type name>")
- *                     .type("APP_TYPE")
- *                     .build())
- *             .platformIncludes(RuleIdpDiscoveryPlatformIncludeArgs.builder()
- *                 .type("MOBILE")
- *                 .osType("OSX")
- *                 .build())
- *             .userIdentifierPatterns(RuleIdpDiscoveryUserIdentifierPatternArgs.builder()
- *                 .matchType("EQUALS")
- *                 .value("Articulate")
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
@@ -152,35 +72,11 @@ public class RuleIdpDiscovery extends com.pulumi.resources.CustomResource {
     public Output<Optional<List<RuleIdpDiscoveryAppInclude>>> appIncludes() {
         return Codegen.optional(this.appIncludes);
     }
-    /**
-     * The identifier for the Idp the rule should route to if all conditions are met.
-     * 
-     */
-    @Export(name="idpId", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> idpId;
+    @Export(name="idpProviders", refs={List.class,RuleIdpDiscoveryIdpProvider.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<RuleIdpDiscoveryIdpProvider>> idpProviders;
 
-    /**
-     * @return The identifier for the Idp the rule should route to if all conditions are met.
-     * 
-     */
-    public Output<Optional<String>> idpId() {
-        return Codegen.optional(this.idpId);
-    }
-    /**
-     * Type of Idp. One of: `SAML2`, `IWA`, `AgentlessDSSO`, `X509`, `FACEBOOK`, `GOOGLE`, `LINKEDIN`, `MICROSOFT`, `OIDC`.
-     * Default: `OKTA`
-     * 
-     */
-    @Export(name="idpType", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> idpType;
-
-    /**
-     * @return Type of Idp. One of: `SAML2`, `IWA`, `AgentlessDSSO`, `X509`, `FACEBOOK`, `GOOGLE`, `LINKEDIN`, `MICROSOFT`, `OIDC`.
-     * Default: `OKTA`
-     * 
-     */
-    public Output<Optional<String>> idpType() {
-        return Codegen.optional(this.idpType);
+    public Output<Optional<List<RuleIdpDiscoveryIdpProvider>>> idpProviders() {
+        return Codegen.optional(this.idpProviders);
     }
     /**
      * Policy Rule Name

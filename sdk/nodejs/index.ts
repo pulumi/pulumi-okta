@@ -140,6 +140,11 @@ export type EmailSenderVerification = import("./emailSenderVerification").EmailS
 export const EmailSenderVerification: typeof import("./emailSenderVerification").EmailSenderVerification = null as any;
 utilities.lazyLoad(exports, ["EmailSenderVerification"], () => require("./emailSenderVerification"));
 
+export { EmailSmtpServerArgs, EmailSmtpServerState } from "./emailSmtpServer";
+export type EmailSmtpServer = import("./emailSmtpServer").EmailSmtpServer;
+export const EmailSmtpServer: typeof import("./emailSmtpServer").EmailSmtpServer = null as any;
+utilities.lazyLoad(exports, ["EmailSmtpServer"], () => require("./emailSmtpServer"));
+
 export { EmailTemplateSettingsArgs, EmailTemplateSettingsState } from "./emailTemplateSettings";
 export type EmailTemplateSettings = import("./emailTemplateSettings").EmailTemplateSettings;
 export const EmailTemplateSettings: typeof import("./emailTemplateSettings").EmailTemplateSettings = null as any;
@@ -239,6 +244,11 @@ export { GetEmailCustomizationsArgs, GetEmailCustomizationsResult, GetEmailCusto
 export const getEmailCustomizations: typeof import("./getEmailCustomizations").getEmailCustomizations = null as any;
 export const getEmailCustomizationsOutput: typeof import("./getEmailCustomizations").getEmailCustomizationsOutput = null as any;
 utilities.lazyLoad(exports, ["getEmailCustomizations","getEmailCustomizationsOutput"], () => require("./getEmailCustomizations"));
+
+export { GetEmailSmtpServerArgs, GetEmailSmtpServerResult, GetEmailSmtpServerOutputArgs } from "./getEmailSmtpServer";
+export const getEmailSmtpServer: typeof import("./getEmailSmtpServer").getEmailSmtpServer = null as any;
+export const getEmailSmtpServerOutput: typeof import("./getEmailSmtpServer").getEmailSmtpServerOutput = null as any;
+utilities.lazyLoad(exports, ["getEmailSmtpServer","getEmailSmtpServerOutput"], () => require("./getEmailSmtpServer"));
 
 export { GetGroupsArgs, GetGroupsResult, GetGroupsOutputArgs } from "./getGroups";
 export const getGroups: typeof import("./getGroups").getGroups = null as any;
@@ -518,6 +528,8 @@ const _module = {
                 return new EmailSender(name, <any>undefined, { urn })
             case "okta:index/emailSenderVerification:EmailSenderVerification":
                 return new EmailSenderVerification(name, <any>undefined, { urn })
+            case "okta:index/emailSmtpServer:EmailSmtpServer":
+                return new EmailSmtpServer(name, <any>undefined, { urn })
             case "okta:index/emailTemplateSettings:EmailTemplateSettings":
                 return new EmailTemplateSettings(name, <any>undefined, { urn })
             case "okta:index/eventHook:EventHook":
@@ -610,6 +622,7 @@ pulumi.runtime.registerResourceModule("okta", "index/emailDomain", _module)
 pulumi.runtime.registerResourceModule("okta", "index/emailDomainVerification", _module)
 pulumi.runtime.registerResourceModule("okta", "index/emailSender", _module)
 pulumi.runtime.registerResourceModule("okta", "index/emailSenderVerification", _module)
+pulumi.runtime.registerResourceModule("okta", "index/emailSmtpServer", _module)
 pulumi.runtime.registerResourceModule("okta", "index/emailTemplateSettings", _module)
 pulumi.runtime.registerResourceModule("okta", "index/eventHook", _module)
 pulumi.runtime.registerResourceModule("okta", "index/eventHookVerification", _module)
