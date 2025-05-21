@@ -407,6 +407,10 @@
                 "current": "okta:index/emailSenderVerification:EmailSenderVerification",
                 "majorVersion": 4
             },
+            "okta_email_smtp_server": {
+                "current": "okta:index/emailSmtpServer:EmailSmtpServer",
+                "majorVersion": 4
+            },
             "okta_email_template_settings": {
                 "current": "okta:index/emailTemplateSettings:EmailTemplateSettings",
                 "majorVersion": 4
@@ -733,6 +737,9 @@
                         "maxItemsOne": false
                     },
                     "app_include": {
+                        "maxItemsOne": false
+                    },
+                    "idp_providers": {
                         "maxItemsOne": false
                     },
                     "network_excludes": {
@@ -1242,6 +1249,10 @@
                     }
                 }
             },
+            "okta_email_smtp_server": {
+                "current": "okta:index/getEmailSmtpServer:getEmailSmtpServer",
+                "majorVersion": 4
+            },
             "okta_email_template": {
                 "current": "okta:index/getTemplate:getTemplate",
                 "majorVersion": 4
@@ -1530,6 +1541,7 @@
             "okta:index/emailDomainVerification:EmailDomainVerification": 0,
             "okta:index/emailSender:EmailSender": 0,
             "okta:index/emailSenderVerification:EmailSenderVerification": 0,
+            "okta:index/emailSmtpServer:EmailSmtpServer": 0,
             "okta:index/emailTemplateSettings:EmailTemplateSettings": 1,
             "okta:index/eventHook:EventHook": 0,
             "okta:index/eventHookVerification:EventHookVerification": 0,
@@ -1610,6 +1622,7 @@
             "okta:index/getDomain:getDomain": 0,
             "okta:index/getEmailCustomization:getEmailCustomization": 0,
             "okta:index/getEmailCustomizations:getEmailCustomizations": 0,
+            "okta:index/getEmailSmtpServer:getEmailSmtpServer": 0,
             "okta:index/getGroups:getGroups": 0,
             "okta:index/getLogStream:getLogStream": 1,
             "okta:index/getNetworkZone:getNetworkZone": 0,

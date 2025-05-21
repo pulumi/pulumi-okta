@@ -166,6 +166,22 @@ public class BasicAuth extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.autoSubmitToolbar);
     }
     /**
+     * Application credentials scheme. One of: `EDIT_USERNAME_AND_PASSWORD`, `ADMIN_SETS_CREDENTIALS`, `EDIT_PASSWORD_ONLY`,
+     * `EXTERNAL_PASSWORD_SYNC`, or `SHARED_USERNAME_AND_PASSWORD`
+     * 
+     */
+    @Export(name="credentialsScheme", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> credentialsScheme;
+
+    /**
+     * @return Application credentials scheme. One of: `EDIT_USERNAME_AND_PASSWORD`, `ADMIN_SETS_CREDENTIALS`, `EDIT_PASSWORD_ONLY`,
+     * `EXTERNAL_PASSWORD_SYNC`, or `SHARED_USERNAME_AND_PASSWORD`
+     * 
+     */
+    public Output<Optional<String>> credentialsScheme() {
+        return Codegen.optional(this.credentialsScheme);
+    }
+    /**
      * Application notes for end users.
      * 
      */
@@ -264,6 +280,50 @@ public class BasicAuth extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
+     * Allow user to reveal password. Default is false. It can not be set to true if credentials_scheme is
+     * &#34;ADMIN_SETS_CREDENTIALS&#34;, &#34;SHARED_USERNAME_AND_PASSWORD&#34; or &#34;EXTERNAL_PASSWORD_SYNC&#34;.
+     * 
+     */
+    @Export(name="revealPassword", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> revealPassword;
+
+    /**
+     * @return Allow user to reveal password. Default is false. It can not be set to true if credentials_scheme is
+     * &#34;ADMIN_SETS_CREDENTIALS&#34;, &#34;SHARED_USERNAME_AND_PASSWORD&#34; or &#34;EXTERNAL_PASSWORD_SYNC&#34;.
+     * 
+     */
+    public Output<Optional<Boolean>> revealPassword() {
+        return Codegen.optional(this.revealPassword);
+    }
+    /**
+     * Shared password, required for certain schemes.
+     * 
+     */
+    @Export(name="sharedPassword", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> sharedPassword;
+
+    /**
+     * @return Shared password, required for certain schemes.
+     * 
+     */
+    public Output<Optional<String>> sharedPassword() {
+        return Codegen.optional(this.sharedPassword);
+    }
+    /**
+     * Shared username, required for certain schemes.
+     * 
+     */
+    @Export(name="sharedUsername", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> sharedUsername;
+
+    /**
+     * @return Shared username, required for certain schemes.
+     * 
+     */
+    public Output<Optional<String>> sharedUsername() {
+        return Codegen.optional(this.sharedUsername);
+    }
+    /**
      * Sign on mode of application.
      * 
      */
@@ -304,6 +364,62 @@ public class BasicAuth extends com.pulumi.resources.CustomResource {
      */
     public Output<String> url() {
         return this.url;
+    }
+    /**
+     * Username template. Default: `${source.login}`
+     * 
+     */
+    @Export(name="userNameTemplate", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> userNameTemplate;
+
+    /**
+     * @return Username template. Default: `${source.login}`
+     * 
+     */
+    public Output<Optional<String>> userNameTemplate() {
+        return Codegen.optional(this.userNameTemplate);
+    }
+    /**
+     * Push username on update. Valid values: `PUSH`, `DONT_PUSH` and `NOT_CONFIGURED`
+     * 
+     */
+    @Export(name="userNameTemplatePushStatus", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> userNameTemplatePushStatus;
+
+    /**
+     * @return Push username on update. Valid values: `PUSH`, `DONT_PUSH` and `NOT_CONFIGURED`
+     * 
+     */
+    public Output<Optional<String>> userNameTemplatePushStatus() {
+        return Codegen.optional(this.userNameTemplatePushStatus);
+    }
+    /**
+     * Username template suffix
+     * 
+     */
+    @Export(name="userNameTemplateSuffix", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> userNameTemplateSuffix;
+
+    /**
+     * @return Username template suffix
+     * 
+     */
+    public Output<Optional<String>> userNameTemplateSuffix() {
+        return Codegen.optional(this.userNameTemplateSuffix);
+    }
+    /**
+     * Username template type. Default: `BUILT_IN`. Valid values: `NONE`, `CUSTOM`, `BUILT_IN`
+     * 
+     */
+    @Export(name="userNameTemplateType", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> userNameTemplateType;
+
+    /**
+     * @return Username template type. Default: `BUILT_IN`. Valid values: `NONE`, `CUSTOM`, `BUILT_IN`
+     * 
+     */
+    public Output<Optional<String>> userNameTemplateType() {
+        return Codegen.optional(this.userNameTemplateType);
     }
 
     /**

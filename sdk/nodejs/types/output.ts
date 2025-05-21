@@ -914,6 +914,17 @@ export namespace policy {
         type: string;
     }
 
+    export interface RuleIdpDiscoveryIdpProvider {
+        /**
+         * The identifier for the Idp the rule should route to if all conditions are met.
+         */
+        id?: string;
+        /**
+         * Type of IdP. One of: `AMAZON`, `APPLE`, `DISCORD`, `FACEBOOK`, `GITHUB`, `GITLAB`, `GOOGLE`, `IDV_CLEAR`, `IDV_INCODE`, `IDV_PERSONA`, `LINKEDIN`, `LOGINGOV`, `LOGINGOV_SANDBOX`, `MICROSOFT`, `OIDC`, `PAYPAL`, `PAYPAL_SANDBOX`, `SALESFORCE`, `SAML2`, `SPOTIFY`, `X509`, `XERO`, `YAHOO`, `YAHOOJP`, Default: `OKTA`
+         */
+        type?: string;
+    }
+
     export interface RuleIdpDiscoveryPlatformInclude {
         /**
          * Only available with OTHER OS type

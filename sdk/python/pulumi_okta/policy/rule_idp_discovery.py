@@ -24,8 +24,7 @@ class RuleIdpDiscoveryArgs:
     def __init__(__self__, *,
                  app_excludes: Optional[pulumi.Input[Sequence[pulumi.Input['RuleIdpDiscoveryAppExcludeArgs']]]] = None,
                  app_includes: Optional[pulumi.Input[Sequence[pulumi.Input['RuleIdpDiscoveryAppIncludeArgs']]]] = None,
-                 idp_id: Optional[pulumi.Input[builtins.str]] = None,
-                 idp_type: Optional[pulumi.Input[builtins.str]] = None,
+                 idp_providers: Optional[pulumi.Input[Sequence[pulumi.Input['RuleIdpDiscoveryIdpProviderArgs']]]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  network_connection: Optional[pulumi.Input[builtins.str]] = None,
                  network_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
@@ -44,9 +43,6 @@ class RuleIdpDiscoveryArgs:
                include. - 'name' - (Optional) Use if the 'type' is 'APP_TYPE' to indicate the type of application(s) to include in
                instances where an entire group (i.e. 'yahoo_mail') of applications should be included. - 'type' - (Required) One of:
                'APP', 'APP_TYPE'
-        :param pulumi.Input[builtins.str] idp_id: The identifier for the Idp the rule should route to if all conditions are met.
-        :param pulumi.Input[builtins.str] idp_type: Type of Idp. One of: `SAML2`, `IWA`, `AgentlessDSSO`, `X509`, `FACEBOOK`, `GOOGLE`, `LINKEDIN`, `MICROSOFT`, `OIDC`.
-               Default: `OKTA`
         :param pulumi.Input[builtins.str] name: Policy Rule Name
         :param pulumi.Input[builtins.str] network_connection: Network selection mode: `ANYWHERE`, `ZONE`, `ON_NETWORK`, or `OFF_NETWORK`. Default: `ANYWHERE`
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] network_excludes: Required if `network_connection` = `ZONE`. Indicates the network zones to exclude.
@@ -70,10 +66,8 @@ class RuleIdpDiscoveryArgs:
             pulumi.set(__self__, "app_excludes", app_excludes)
         if app_includes is not None:
             pulumi.set(__self__, "app_includes", app_includes)
-        if idp_id is not None:
-            pulumi.set(__self__, "idp_id", idp_id)
-        if idp_type is not None:
-            pulumi.set(__self__, "idp_type", idp_type)
+        if idp_providers is not None:
+            pulumi.set(__self__, "idp_providers", idp_providers)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if network_connection is not None:
@@ -125,29 +119,13 @@ class RuleIdpDiscoveryArgs:
         pulumi.set(self, "app_includes", value)
 
     @property
-    @pulumi.getter(name="idpId")
-    def idp_id(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        The identifier for the Idp the rule should route to if all conditions are met.
-        """
-        return pulumi.get(self, "idp_id")
+    @pulumi.getter(name="idpProviders")
+    def idp_providers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleIdpDiscoveryIdpProviderArgs']]]]:
+        return pulumi.get(self, "idp_providers")
 
-    @idp_id.setter
-    def idp_id(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "idp_id", value)
-
-    @property
-    @pulumi.getter(name="idpType")
-    def idp_type(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        Type of Idp. One of: `SAML2`, `IWA`, `AgentlessDSSO`, `X509`, `FACEBOOK`, `GOOGLE`, `LINKEDIN`, `MICROSOFT`, `OIDC`.
-        Default: `OKTA`
-        """
-        return pulumi.get(self, "idp_type")
-
-    @idp_type.setter
-    def idp_type(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "idp_type", value)
+    @idp_providers.setter
+    def idp_providers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RuleIdpDiscoveryIdpProviderArgs']]]]):
+        pulumi.set(self, "idp_providers", value)
 
     @property
     @pulumi.getter
@@ -294,8 +272,7 @@ class _RuleIdpDiscoveryState:
     def __init__(__self__, *,
                  app_excludes: Optional[pulumi.Input[Sequence[pulumi.Input['RuleIdpDiscoveryAppExcludeArgs']]]] = None,
                  app_includes: Optional[pulumi.Input[Sequence[pulumi.Input['RuleIdpDiscoveryAppIncludeArgs']]]] = None,
-                 idp_id: Optional[pulumi.Input[builtins.str]] = None,
-                 idp_type: Optional[pulumi.Input[builtins.str]] = None,
+                 idp_providers: Optional[pulumi.Input[Sequence[pulumi.Input['RuleIdpDiscoveryIdpProviderArgs']]]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  network_connection: Optional[pulumi.Input[builtins.str]] = None,
                  network_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
@@ -314,9 +291,6 @@ class _RuleIdpDiscoveryState:
                include. - 'name' - (Optional) Use if the 'type' is 'APP_TYPE' to indicate the type of application(s) to include in
                instances where an entire group (i.e. 'yahoo_mail') of applications should be included. - 'type' - (Required) One of:
                'APP', 'APP_TYPE'
-        :param pulumi.Input[builtins.str] idp_id: The identifier for the Idp the rule should route to if all conditions are met.
-        :param pulumi.Input[builtins.str] idp_type: Type of Idp. One of: `SAML2`, `IWA`, `AgentlessDSSO`, `X509`, `FACEBOOK`, `GOOGLE`, `LINKEDIN`, `MICROSOFT`, `OIDC`.
-               Default: `OKTA`
         :param pulumi.Input[builtins.str] name: Policy Rule Name
         :param pulumi.Input[builtins.str] network_connection: Network selection mode: `ANYWHERE`, `ZONE`, `ON_NETWORK`, or `OFF_NETWORK`. Default: `ANYWHERE`
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] network_excludes: Required if `network_connection` = `ZONE`. Indicates the network zones to exclude.
@@ -340,10 +314,8 @@ class _RuleIdpDiscoveryState:
             pulumi.set(__self__, "app_excludes", app_excludes)
         if app_includes is not None:
             pulumi.set(__self__, "app_includes", app_includes)
-        if idp_id is not None:
-            pulumi.set(__self__, "idp_id", idp_id)
-        if idp_type is not None:
-            pulumi.set(__self__, "idp_type", idp_type)
+        if idp_providers is not None:
+            pulumi.set(__self__, "idp_providers", idp_providers)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if network_connection is not None:
@@ -395,29 +367,13 @@ class _RuleIdpDiscoveryState:
         pulumi.set(self, "app_includes", value)
 
     @property
-    @pulumi.getter(name="idpId")
-    def idp_id(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        The identifier for the Idp the rule should route to if all conditions are met.
-        """
-        return pulumi.get(self, "idp_id")
+    @pulumi.getter(name="idpProviders")
+    def idp_providers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleIdpDiscoveryIdpProviderArgs']]]]:
+        return pulumi.get(self, "idp_providers")
 
-    @idp_id.setter
-    def idp_id(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "idp_id", value)
-
-    @property
-    @pulumi.getter(name="idpType")
-    def idp_type(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        Type of Idp. One of: `SAML2`, `IWA`, `AgentlessDSSO`, `X509`, `FACEBOOK`, `GOOGLE`, `LINKEDIN`, `MICROSOFT`, `OIDC`.
-        Default: `OKTA`
-        """
-        return pulumi.get(self, "idp_type")
-
-    @idp_type.setter
-    def idp_type(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "idp_type", value)
+    @idp_providers.setter
+    def idp_providers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RuleIdpDiscoveryIdpProviderArgs']]]]):
+        pulumi.set(self, "idp_providers", value)
 
     @property
     @pulumi.getter
@@ -567,8 +523,7 @@ class RuleIdpDiscovery(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RuleIdpDiscoveryAppExcludeArgs', 'RuleIdpDiscoveryAppExcludeArgsDict']]]]] = None,
                  app_includes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RuleIdpDiscoveryAppIncludeArgs', 'RuleIdpDiscoveryAppIncludeArgsDict']]]]] = None,
-                 idp_id: Optional[pulumi.Input[builtins.str]] = None,
-                 idp_type: Optional[pulumi.Input[builtins.str]] = None,
+                 idp_providers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RuleIdpDiscoveryIdpProviderArgs', 'RuleIdpDiscoveryIdpProviderArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  network_connection: Optional[pulumi.Input[builtins.str]] = None,
                  network_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
@@ -589,55 +544,6 @@ class RuleIdpDiscovery(pulumi.CustomResource):
         you are requesting' contact support and
         request feature flag 'ADVANCED_SSO' be applied to your org.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_okta as okta
-
-        ### All Okta orgs contain only one IdP Discovery Policy
-        idp_discovery_policy = okta.policy.get_policy(name="Idp Discovery Policy",
-            type="IDP_DISCOVERY")
-        example = okta.policy.RuleIdpDiscovery("example",
-            policy_id=idp_discovery_policy.id,
-            name="example",
-            idp_id="<idp id>",
-            idp_type="OIDC",
-            network_connection="ANYWHERE",
-            priority=1,
-            status="ACTIVE",
-            user_identifier_type="ATTRIBUTE",
-            user_identifier_attribute="company",
-            app_excludes=[
-                {
-                    "id": "<app id>",
-                    "type": "APP",
-                },
-                {
-                    "name": "yahoo_mail",
-                    "type": "APP_TYPE",
-                },
-            ],
-            app_includes=[
-                {
-                    "id": "<app id>",
-                    "type": "APP",
-                },
-                {
-                    "name": "<app type name>",
-                    "type": "APP_TYPE",
-                },
-            ],
-            platform_includes=[{
-                "type": "MOBILE",
-                "os_type": "OSX",
-            }],
-            user_identifier_patterns=[{
-                "match_type": "EQUALS",
-                "value": "Articulate",
-            }])
-        ```
-
         ## Import
 
         ```sh
@@ -651,9 +557,6 @@ class RuleIdpDiscovery(pulumi.CustomResource):
                include. - 'name' - (Optional) Use if the 'type' is 'APP_TYPE' to indicate the type of application(s) to include in
                instances where an entire group (i.e. 'yahoo_mail') of applications should be included. - 'type' - (Required) One of:
                'APP', 'APP_TYPE'
-        :param pulumi.Input[builtins.str] idp_id: The identifier for the Idp the rule should route to if all conditions are met.
-        :param pulumi.Input[builtins.str] idp_type: Type of Idp. One of: `SAML2`, `IWA`, `AgentlessDSSO`, `X509`, `FACEBOOK`, `GOOGLE`, `LINKEDIN`, `MICROSOFT`, `OIDC`.
-               Default: `OKTA`
         :param pulumi.Input[builtins.str] name: Policy Rule Name
         :param pulumi.Input[builtins.str] network_connection: Network selection mode: `ANYWHERE`, `ZONE`, `ON_NETWORK`, or `OFF_NETWORK`. Default: `ANYWHERE`
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] network_excludes: Required if `network_connection` = `ZONE`. Indicates the network zones to exclude.
@@ -687,55 +590,6 @@ class RuleIdpDiscovery(pulumi.CustomResource):
         you are requesting' contact support and
         request feature flag 'ADVANCED_SSO' be applied to your org.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_okta as okta
-
-        ### All Okta orgs contain only one IdP Discovery Policy
-        idp_discovery_policy = okta.policy.get_policy(name="Idp Discovery Policy",
-            type="IDP_DISCOVERY")
-        example = okta.policy.RuleIdpDiscovery("example",
-            policy_id=idp_discovery_policy.id,
-            name="example",
-            idp_id="<idp id>",
-            idp_type="OIDC",
-            network_connection="ANYWHERE",
-            priority=1,
-            status="ACTIVE",
-            user_identifier_type="ATTRIBUTE",
-            user_identifier_attribute="company",
-            app_excludes=[
-                {
-                    "id": "<app id>",
-                    "type": "APP",
-                },
-                {
-                    "name": "yahoo_mail",
-                    "type": "APP_TYPE",
-                },
-            ],
-            app_includes=[
-                {
-                    "id": "<app id>",
-                    "type": "APP",
-                },
-                {
-                    "name": "<app type name>",
-                    "type": "APP_TYPE",
-                },
-            ],
-            platform_includes=[{
-                "type": "MOBILE",
-                "os_type": "OSX",
-            }],
-            user_identifier_patterns=[{
-                "match_type": "EQUALS",
-                "value": "Articulate",
-            }])
-        ```
-
         ## Import
 
         ```sh
@@ -759,8 +613,7 @@ class RuleIdpDiscovery(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RuleIdpDiscoveryAppExcludeArgs', 'RuleIdpDiscoveryAppExcludeArgsDict']]]]] = None,
                  app_includes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RuleIdpDiscoveryAppIncludeArgs', 'RuleIdpDiscoveryAppIncludeArgsDict']]]]] = None,
-                 idp_id: Optional[pulumi.Input[builtins.str]] = None,
-                 idp_type: Optional[pulumi.Input[builtins.str]] = None,
+                 idp_providers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RuleIdpDiscoveryIdpProviderArgs', 'RuleIdpDiscoveryIdpProviderArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  network_connection: Optional[pulumi.Input[builtins.str]] = None,
                  network_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
@@ -783,8 +636,7 @@ class RuleIdpDiscovery(pulumi.CustomResource):
 
             __props__.__dict__["app_excludes"] = app_excludes
             __props__.__dict__["app_includes"] = app_includes
-            __props__.__dict__["idp_id"] = idp_id
-            __props__.__dict__["idp_type"] = idp_type
+            __props__.__dict__["idp_providers"] = idp_providers
             __props__.__dict__["name"] = name
             __props__.__dict__["network_connection"] = network_connection
             __props__.__dict__["network_excludes"] = network_excludes
@@ -808,8 +660,7 @@ class RuleIdpDiscovery(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             app_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RuleIdpDiscoveryAppExcludeArgs', 'RuleIdpDiscoveryAppExcludeArgsDict']]]]] = None,
             app_includes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RuleIdpDiscoveryAppIncludeArgs', 'RuleIdpDiscoveryAppIncludeArgsDict']]]]] = None,
-            idp_id: Optional[pulumi.Input[builtins.str]] = None,
-            idp_type: Optional[pulumi.Input[builtins.str]] = None,
+            idp_providers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RuleIdpDiscoveryIdpProviderArgs', 'RuleIdpDiscoveryIdpProviderArgsDict']]]]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
             network_connection: Optional[pulumi.Input[builtins.str]] = None,
             network_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
@@ -833,9 +684,6 @@ class RuleIdpDiscovery(pulumi.CustomResource):
                include. - 'name' - (Optional) Use if the 'type' is 'APP_TYPE' to indicate the type of application(s) to include in
                instances where an entire group (i.e. 'yahoo_mail') of applications should be included. - 'type' - (Required) One of:
                'APP', 'APP_TYPE'
-        :param pulumi.Input[builtins.str] idp_id: The identifier for the Idp the rule should route to if all conditions are met.
-        :param pulumi.Input[builtins.str] idp_type: Type of Idp. One of: `SAML2`, `IWA`, `AgentlessDSSO`, `X509`, `FACEBOOK`, `GOOGLE`, `LINKEDIN`, `MICROSOFT`, `OIDC`.
-               Default: `OKTA`
         :param pulumi.Input[builtins.str] name: Policy Rule Name
         :param pulumi.Input[builtins.str] network_connection: Network selection mode: `ANYWHERE`, `ZONE`, `ON_NETWORK`, or `OFF_NETWORK`. Default: `ANYWHERE`
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] network_excludes: Required if `network_connection` = `ZONE`. Indicates the network zones to exclude.
@@ -861,8 +709,7 @@ class RuleIdpDiscovery(pulumi.CustomResource):
 
         __props__.__dict__["app_excludes"] = app_excludes
         __props__.__dict__["app_includes"] = app_includes
-        __props__.__dict__["idp_id"] = idp_id
-        __props__.__dict__["idp_type"] = idp_type
+        __props__.__dict__["idp_providers"] = idp_providers
         __props__.__dict__["name"] = name
         __props__.__dict__["network_connection"] = network_connection
         __props__.__dict__["network_excludes"] = network_excludes
@@ -896,21 +743,9 @@ class RuleIdpDiscovery(pulumi.CustomResource):
         return pulumi.get(self, "app_includes")
 
     @property
-    @pulumi.getter(name="idpId")
-    def idp_id(self) -> pulumi.Output[Optional[builtins.str]]:
-        """
-        The identifier for the Idp the rule should route to if all conditions are met.
-        """
-        return pulumi.get(self, "idp_id")
-
-    @property
-    @pulumi.getter(name="idpType")
-    def idp_type(self) -> pulumi.Output[Optional[builtins.str]]:
-        """
-        Type of Idp. One of: `SAML2`, `IWA`, `AgentlessDSSO`, `X509`, `FACEBOOK`, `GOOGLE`, `LINKEDIN`, `MICROSOFT`, `OIDC`.
-        Default: `OKTA`
-        """
-        return pulumi.get(self, "idp_type")
+    @pulumi.getter(name="idpProviders")
+    def idp_providers(self) -> pulumi.Output[Optional[Sequence['outputs.RuleIdpDiscoveryIdpProvider']]]:
+        return pulumi.get(self, "idp_providers")
 
     @property
     @pulumi.getter

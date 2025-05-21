@@ -75,6 +75,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &EmailSender{}
 	case "okta:index/emailSenderVerification:EmailSenderVerification":
 		r = &EmailSenderVerification{}
+	case "okta:index/emailSmtpServer:EmailSmtpServer":
+		r = &EmailSmtpServer{}
 	case "okta:index/emailTemplateSettings:EmailTemplateSettings":
 		r = &EmailTemplateSettings{}
 	case "okta:index/eventHook:EventHook":
@@ -299,6 +301,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"okta",
 		"index/emailSenderVerification",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"okta",
+		"index/emailSmtpServer",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

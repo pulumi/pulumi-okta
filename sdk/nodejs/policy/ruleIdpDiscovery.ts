@@ -14,58 +14,6 @@ import * as utilities from "../utilities";
  * you are requesting' contact support and
  * request feature flag 'ADVANCED_SSO' be applied to your org.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as okta from "@pulumi/okta";
- *
- * //## All Okta orgs contain only one IdP Discovery Policy
- * const idpDiscoveryPolicy = okta.policy.getPolicy({
- *     name: "Idp Discovery Policy",
- *     type: "IDP_DISCOVERY",
- * });
- * const example = new okta.policy.RuleIdpDiscovery("example", {
- *     policyId: idpDiscoveryPolicy.then(idpDiscoveryPolicy => idpDiscoveryPolicy.id),
- *     name: "example",
- *     idpId: "<idp id>",
- *     idpType: "OIDC",
- *     networkConnection: "ANYWHERE",
- *     priority: 1,
- *     status: "ACTIVE",
- *     userIdentifierType: "ATTRIBUTE",
- *     userIdentifierAttribute: "company",
- *     appExcludes: [
- *         {
- *             id: "<app id>",
- *             type: "APP",
- *         },
- *         {
- *             name: "yahoo_mail",
- *             type: "APP_TYPE",
- *         },
- *     ],
- *     appIncludes: [
- *         {
- *             id: "<app id>",
- *             type: "APP",
- *         },
- *         {
- *             name: "<app type name>",
- *             type: "APP_TYPE",
- *         },
- *     ],
- *     platformIncludes: [{
- *         type: "MOBILE",
- *         osType: "OSX",
- *     }],
- *     userIdentifierPatterns: [{
- *         matchType: "EQUALS",
- *         value: "Articulate",
- *     }],
- * });
- * ```
- *
  * ## Import
  *
  * ```sh
@@ -111,15 +59,7 @@ export class RuleIdpDiscovery extends pulumi.CustomResource {
      * 'APP', 'APP_TYPE'
      */
     public readonly appIncludes!: pulumi.Output<outputs.policy.RuleIdpDiscoveryAppInclude[] | undefined>;
-    /**
-     * The identifier for the Idp the rule should route to if all conditions are met.
-     */
-    public readonly idpId!: pulumi.Output<string | undefined>;
-    /**
-     * Type of Idp. One of: `SAML2`, `IWA`, `AgentlessDSSO`, `X509`, `FACEBOOK`, `GOOGLE`, `LINKEDIN`, `MICROSOFT`, `OIDC`.
-     * Default: `OKTA`
-     */
-    public readonly idpType!: pulumi.Output<string | undefined>;
+    public readonly idpProviders!: pulumi.Output<outputs.policy.RuleIdpDiscoveryIdpProvider[] | undefined>;
     /**
      * Policy Rule Name
      */
@@ -187,8 +127,7 @@ export class RuleIdpDiscovery extends pulumi.CustomResource {
             const state = argsOrState as RuleIdpDiscoveryState | undefined;
             resourceInputs["appExcludes"] = state ? state.appExcludes : undefined;
             resourceInputs["appIncludes"] = state ? state.appIncludes : undefined;
-            resourceInputs["idpId"] = state ? state.idpId : undefined;
-            resourceInputs["idpType"] = state ? state.idpType : undefined;
+            resourceInputs["idpProviders"] = state ? state.idpProviders : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["networkConnection"] = state ? state.networkConnection : undefined;
             resourceInputs["networkExcludes"] = state ? state.networkExcludes : undefined;
@@ -204,8 +143,7 @@ export class RuleIdpDiscovery extends pulumi.CustomResource {
             const args = argsOrState as RuleIdpDiscoveryArgs | undefined;
             resourceInputs["appExcludes"] = args ? args.appExcludes : undefined;
             resourceInputs["appIncludes"] = args ? args.appIncludes : undefined;
-            resourceInputs["idpId"] = args ? args.idpId : undefined;
-            resourceInputs["idpType"] = args ? args.idpType : undefined;
+            resourceInputs["idpProviders"] = args ? args.idpProviders : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["networkConnection"] = args ? args.networkConnection : undefined;
             resourceInputs["networkExcludes"] = args ? args.networkExcludes : undefined;
@@ -238,15 +176,7 @@ export interface RuleIdpDiscoveryState {
      * 'APP', 'APP_TYPE'
      */
     appIncludes?: pulumi.Input<pulumi.Input<inputs.policy.RuleIdpDiscoveryAppInclude>[]>;
-    /**
-     * The identifier for the Idp the rule should route to if all conditions are met.
-     */
-    idpId?: pulumi.Input<string>;
-    /**
-     * Type of Idp. One of: `SAML2`, `IWA`, `AgentlessDSSO`, `X509`, `FACEBOOK`, `GOOGLE`, `LINKEDIN`, `MICROSOFT`, `OIDC`.
-     * Default: `OKTA`
-     */
-    idpType?: pulumi.Input<string>;
+    idpProviders?: pulumi.Input<pulumi.Input<inputs.policy.RuleIdpDiscoveryIdpProvider>[]>;
     /**
      * Policy Rule Name
      */
@@ -315,15 +245,7 @@ export interface RuleIdpDiscoveryArgs {
      * 'APP', 'APP_TYPE'
      */
     appIncludes?: pulumi.Input<pulumi.Input<inputs.policy.RuleIdpDiscoveryAppInclude>[]>;
-    /**
-     * The identifier for the Idp the rule should route to if all conditions are met.
-     */
-    idpId?: pulumi.Input<string>;
-    /**
-     * Type of Idp. One of: `SAML2`, `IWA`, `AgentlessDSSO`, `X509`, `FACEBOOK`, `GOOGLE`, `LINKEDIN`, `MICROSOFT`, `OIDC`.
-     * Default: `OKTA`
-     */
-    idpType?: pulumi.Input<string>;
+    idpProviders?: pulumi.Input<pulumi.Input<inputs.policy.RuleIdpDiscoveryIdpProvider>[]>;
     /**
      * Policy Rule Name
      */

@@ -39,6 +39,8 @@ import com.pulumi.okta.inputs.GetEmailCustomizationArgs;
 import com.pulumi.okta.inputs.GetEmailCustomizationPlainArgs;
 import com.pulumi.okta.inputs.GetEmailCustomizationsArgs;
 import com.pulumi.okta.inputs.GetEmailCustomizationsPlainArgs;
+import com.pulumi.okta.inputs.GetEmailSmtpServerArgs;
+import com.pulumi.okta.inputs.GetEmailSmtpServerPlainArgs;
 import com.pulumi.okta.inputs.GetGroupsArgs;
 import com.pulumi.okta.inputs.GetGroupsPlainArgs;
 import com.pulumi.okta.inputs.GetLogStreamArgs;
@@ -77,6 +79,7 @@ import com.pulumi.okta.outputs.GetDeviceAssurancePolicyResult;
 import com.pulumi.okta.outputs.GetDomainResult;
 import com.pulumi.okta.outputs.GetEmailCustomizationResult;
 import com.pulumi.okta.outputs.GetEmailCustomizationsResult;
+import com.pulumi.okta.outputs.GetEmailSmtpServerResult;
 import com.pulumi.okta.outputs.GetGroupsResult;
 import com.pulumi.okta.outputs.GetLogStreamResult;
 import com.pulumi.okta.outputs.GetNetworkZoneResult;
@@ -2657,6 +2660,21 @@ public final class OktaFunctions {
      */
     public static CompletableFuture<GetEmailCustomizationsResult> getEmailCustomizationsPlain(GetEmailCustomizationsPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("okta:index/getEmailCustomizations:getEmailCustomizations", TypeShape.of(GetEmailCustomizationsResult.class), args, Utilities.withVersion(options));
+    }
+    public static Output<GetEmailSmtpServerResult> getEmailSmtpServer(GetEmailSmtpServerArgs args) {
+        return getEmailSmtpServer(args, InvokeOptions.Empty);
+    }
+    public static CompletableFuture<GetEmailSmtpServerResult> getEmailSmtpServerPlain(GetEmailSmtpServerPlainArgs args) {
+        return getEmailSmtpServerPlain(args, InvokeOptions.Empty);
+    }
+    public static Output<GetEmailSmtpServerResult> getEmailSmtpServer(GetEmailSmtpServerArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("okta:index/getEmailSmtpServer:getEmailSmtpServer", TypeShape.of(GetEmailSmtpServerResult.class), args, Utilities.withVersion(options));
+    }
+    public static Output<GetEmailSmtpServerResult> getEmailSmtpServer(GetEmailSmtpServerArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("okta:index/getEmailSmtpServer:getEmailSmtpServer", TypeShape.of(GetEmailSmtpServerResult.class), args, Utilities.withVersion(options));
+    }
+    public static CompletableFuture<GetEmailSmtpServerResult> getEmailSmtpServerPlain(GetEmailSmtpServerPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("okta:index/getEmailSmtpServer:getEmailSmtpServer", TypeShape.of(GetEmailSmtpServerResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Get a list of groups from Okta.

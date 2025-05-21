@@ -18,80 +18,6 @@ import (
 // you are requesting' contact support and
 // request feature flag 'ADVANCED_SSO' be applied to your org.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/policy"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			// ## All Okta orgs contain only one IdP Discovery Policy
-//			idpDiscoveryPolicy, err := policy.GetPolicy(ctx, &policy.GetPolicyArgs{
-//				Name: "Idp Discovery Policy",
-//				Type: "IDP_DISCOVERY",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = policy.NewRuleIdpDiscovery(ctx, "example", &policy.RuleIdpDiscoveryArgs{
-//				PolicyId:                pulumi.String(idpDiscoveryPolicy.Id),
-//				Name:                    pulumi.String("example"),
-//				IdpId:                   pulumi.String("<idp id>"),
-//				IdpType:                 pulumi.String("OIDC"),
-//				NetworkConnection:       pulumi.String("ANYWHERE"),
-//				Priority:                pulumi.Int(1),
-//				Status:                  pulumi.String("ACTIVE"),
-//				UserIdentifierType:      pulumi.String("ATTRIBUTE"),
-//				UserIdentifierAttribute: pulumi.String("company"),
-//				AppExcludes: policy.RuleIdpDiscoveryAppExcludeArray{
-//					&policy.RuleIdpDiscoveryAppExcludeArgs{
-//						Id:   pulumi.String("<app id>"),
-//						Type: pulumi.String("APP"),
-//					},
-//					&policy.RuleIdpDiscoveryAppExcludeArgs{
-//						Name: pulumi.String("yahoo_mail"),
-//						Type: pulumi.String("APP_TYPE"),
-//					},
-//				},
-//				AppIncludes: policy.RuleIdpDiscoveryAppIncludeArray{
-//					&policy.RuleIdpDiscoveryAppIncludeArgs{
-//						Id:   pulumi.String("<app id>"),
-//						Type: pulumi.String("APP"),
-//					},
-//					&policy.RuleIdpDiscoveryAppIncludeArgs{
-//						Name: pulumi.String("<app type name>"),
-//						Type: pulumi.String("APP_TYPE"),
-//					},
-//				},
-//				PlatformIncludes: policy.RuleIdpDiscoveryPlatformIncludeArray{
-//					&policy.RuleIdpDiscoveryPlatformIncludeArgs{
-//						Type:   pulumi.String("MOBILE"),
-//						OsType: pulumi.String("OSX"),
-//					},
-//				},
-//				UserIdentifierPatterns: policy.RuleIdpDiscoveryUserIdentifierPatternArray{
-//					&policy.RuleIdpDiscoveryUserIdentifierPatternArgs{
-//						MatchType: pulumi.String("EQUALS"),
-//						Value:     pulumi.String("Articulate"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // ```sh
@@ -106,12 +32,8 @@ type RuleIdpDiscovery struct {
 	// include. - 'name' - (Optional) Use if the 'type' is 'APP_TYPE' to indicate the type of application(s) to include in
 	// instances where an entire group (i.e. 'yahoo_mail') of applications should be included. - 'type' - (Required) One of:
 	// 'APP', 'APP_TYPE'
-	AppIncludes RuleIdpDiscoveryAppIncludeArrayOutput `pulumi:"appIncludes"`
-	// The identifier for the Idp the rule should route to if all conditions are met.
-	IdpId pulumi.StringPtrOutput `pulumi:"idpId"`
-	// Type of Idp. One of: `SAML2`, `IWA`, `AgentlessDSSO`, `X509`, `FACEBOOK`, `GOOGLE`, `LINKEDIN`, `MICROSOFT`, `OIDC`.
-	// Default: `OKTA`
-	IdpType pulumi.StringPtrOutput `pulumi:"idpType"`
+	AppIncludes  RuleIdpDiscoveryAppIncludeArrayOutput  `pulumi:"appIncludes"`
+	IdpProviders RuleIdpDiscoveryIdpProviderArrayOutput `pulumi:"idpProviders"`
 	// Policy Rule Name
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Network selection mode: `ANYWHERE`, `ZONE`, `ON_NETWORK`, or `OFF_NETWORK`. Default: `ANYWHERE`
@@ -179,12 +101,8 @@ type ruleIdpDiscoveryState struct {
 	// include. - 'name' - (Optional) Use if the 'type' is 'APP_TYPE' to indicate the type of application(s) to include in
 	// instances where an entire group (i.e. 'yahoo_mail') of applications should be included. - 'type' - (Required) One of:
 	// 'APP', 'APP_TYPE'
-	AppIncludes []RuleIdpDiscoveryAppInclude `pulumi:"appIncludes"`
-	// The identifier for the Idp the rule should route to if all conditions are met.
-	IdpId *string `pulumi:"idpId"`
-	// Type of Idp. One of: `SAML2`, `IWA`, `AgentlessDSSO`, `X509`, `FACEBOOK`, `GOOGLE`, `LINKEDIN`, `MICROSOFT`, `OIDC`.
-	// Default: `OKTA`
-	IdpType *string `pulumi:"idpType"`
+	AppIncludes  []RuleIdpDiscoveryAppInclude  `pulumi:"appIncludes"`
+	IdpProviders []RuleIdpDiscoveryIdpProvider `pulumi:"idpProviders"`
 	// Policy Rule Name
 	Name *string `pulumi:"name"`
 	// Network selection mode: `ANYWHERE`, `ZONE`, `ON_NETWORK`, or `OFF_NETWORK`. Default: `ANYWHERE`
@@ -223,12 +141,8 @@ type RuleIdpDiscoveryState struct {
 	// include. - 'name' - (Optional) Use if the 'type' is 'APP_TYPE' to indicate the type of application(s) to include in
 	// instances where an entire group (i.e. 'yahoo_mail') of applications should be included. - 'type' - (Required) One of:
 	// 'APP', 'APP_TYPE'
-	AppIncludes RuleIdpDiscoveryAppIncludeArrayInput
-	// The identifier for the Idp the rule should route to if all conditions are met.
-	IdpId pulumi.StringPtrInput
-	// Type of Idp. One of: `SAML2`, `IWA`, `AgentlessDSSO`, `X509`, `FACEBOOK`, `GOOGLE`, `LINKEDIN`, `MICROSOFT`, `OIDC`.
-	// Default: `OKTA`
-	IdpType pulumi.StringPtrInput
+	AppIncludes  RuleIdpDiscoveryAppIncludeArrayInput
+	IdpProviders RuleIdpDiscoveryIdpProviderArrayInput
 	// Policy Rule Name
 	Name pulumi.StringPtrInput
 	// Network selection mode: `ANYWHERE`, `ZONE`, `ON_NETWORK`, or `OFF_NETWORK`. Default: `ANYWHERE`
@@ -271,12 +185,8 @@ type ruleIdpDiscoveryArgs struct {
 	// include. - 'name' - (Optional) Use if the 'type' is 'APP_TYPE' to indicate the type of application(s) to include in
 	// instances where an entire group (i.e. 'yahoo_mail') of applications should be included. - 'type' - (Required) One of:
 	// 'APP', 'APP_TYPE'
-	AppIncludes []RuleIdpDiscoveryAppInclude `pulumi:"appIncludes"`
-	// The identifier for the Idp the rule should route to if all conditions are met.
-	IdpId *string `pulumi:"idpId"`
-	// Type of Idp. One of: `SAML2`, `IWA`, `AgentlessDSSO`, `X509`, `FACEBOOK`, `GOOGLE`, `LINKEDIN`, `MICROSOFT`, `OIDC`.
-	// Default: `OKTA`
-	IdpType *string `pulumi:"idpType"`
+	AppIncludes  []RuleIdpDiscoveryAppInclude  `pulumi:"appIncludes"`
+	IdpProviders []RuleIdpDiscoveryIdpProvider `pulumi:"idpProviders"`
 	// Policy Rule Name
 	Name *string `pulumi:"name"`
 	// Network selection mode: `ANYWHERE`, `ZONE`, `ON_NETWORK`, or `OFF_NETWORK`. Default: `ANYWHERE`
@@ -316,12 +226,8 @@ type RuleIdpDiscoveryArgs struct {
 	// include. - 'name' - (Optional) Use if the 'type' is 'APP_TYPE' to indicate the type of application(s) to include in
 	// instances where an entire group (i.e. 'yahoo_mail') of applications should be included. - 'type' - (Required) One of:
 	// 'APP', 'APP_TYPE'
-	AppIncludes RuleIdpDiscoveryAppIncludeArrayInput
-	// The identifier for the Idp the rule should route to if all conditions are met.
-	IdpId pulumi.StringPtrInput
-	// Type of Idp. One of: `SAML2`, `IWA`, `AgentlessDSSO`, `X509`, `FACEBOOK`, `GOOGLE`, `LINKEDIN`, `MICROSOFT`, `OIDC`.
-	// Default: `OKTA`
-	IdpType pulumi.StringPtrInput
+	AppIncludes  RuleIdpDiscoveryAppIncludeArrayInput
+	IdpProviders RuleIdpDiscoveryIdpProviderArrayInput
 	// Policy Rule Name
 	Name pulumi.StringPtrInput
 	// Network selection mode: `ANYWHERE`, `ZONE`, `ON_NETWORK`, or `OFF_NETWORK`. Default: `ANYWHERE`
@@ -453,15 +359,8 @@ func (o RuleIdpDiscoveryOutput) AppIncludes() RuleIdpDiscoveryAppIncludeArrayOut
 	return o.ApplyT(func(v *RuleIdpDiscovery) RuleIdpDiscoveryAppIncludeArrayOutput { return v.AppIncludes }).(RuleIdpDiscoveryAppIncludeArrayOutput)
 }
 
-// The identifier for the Idp the rule should route to if all conditions are met.
-func (o RuleIdpDiscoveryOutput) IdpId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RuleIdpDiscovery) pulumi.StringPtrOutput { return v.IdpId }).(pulumi.StringPtrOutput)
-}
-
-// Type of Idp. One of: `SAML2`, `IWA`, `AgentlessDSSO`, `X509`, `FACEBOOK`, `GOOGLE`, `LINKEDIN`, `MICROSOFT`, `OIDC`.
-// Default: `OKTA`
-func (o RuleIdpDiscoveryOutput) IdpType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RuleIdpDiscovery) pulumi.StringPtrOutput { return v.IdpType }).(pulumi.StringPtrOutput)
+func (o RuleIdpDiscoveryOutput) IdpProviders() RuleIdpDiscoveryIdpProviderArrayOutput {
+	return o.ApplyT(func(v *RuleIdpDiscovery) RuleIdpDiscoveryIdpProviderArrayOutput { return v.IdpProviders }).(RuleIdpDiscoveryIdpProviderArrayOutput)
 }
 
 // Policy Rule Name

@@ -42,7 +42,7 @@
             "respectSchemaVersion": true
         },
         "nodejs": {
-            "packageDescription": "A Pulumi package for creating and managing okta resources.. Based on terraform-provider-okta: version v4.18.0",
+            "packageDescription": "A Pulumi package for creating and managing okta resources.. Based on terraform-provider-okta: version v4.19.0",
             "readme": "\u003e This provider is a derived work of the [Terraform Provider](https://github.com/okta/terraform-provider-okta)\n\u003e distributed under [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/). If you encounter a bug or missing feature,\n\u003e first check the [`pulumi-okta` repo](https://github.com/pulumi/pulumi-okta/issues); however, if that doesn't turn up anything,\n\u003e please consult the source [`terraform-provider-okta` repo](https://github.com/okta/terraform-provider-okta/issues).",
             "devDependencies": {
                 "@types/mime": "^2.0.0",
@@ -1977,6 +1977,19 @@
                 "type"
             ]
         },
+        "okta:policy/RuleIdpDiscoveryIdpProvider:RuleIdpDiscoveryIdpProvider": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The identifier for the Idp the rule should route to if all conditions are met.\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "Type of IdP. One of: `AMAZON`, `APPLE`, `DISCORD`, `FACEBOOK`, `GITHUB`, `GITLAB`, `GOOGLE`, `IDV_CLEAR`, `IDV_INCODE`, `IDV_PERSONA`, `LINKEDIN`, `LOGINGOV`, `LOGINGOV_SANDBOX`, `MICROSOFT`, `OIDC`, `PAYPAL`, `PAYPAL_SANDBOX`, `SALESFORCE`, `SAML2`, `SPOTIFY`, `X509`, `XERO`, `YAHOO`, `YAHOOJP`, Default: `OKTA`\n"
+                }
+            },
+            "type": "object"
+        },
         "okta:policy/RuleIdpDiscoveryPlatformInclude:RuleIdpDiscoveryPlatformInclude": {
             "properties": {
                 "osExpression": {
@@ -2902,6 +2915,10 @@
                     "type": "boolean",
                     "description": "Display auto submit toolbar\n"
                 },
+                "credentialsScheme": {
+                    "type": "string",
+                    "description": "Application credentials scheme. One of: `EDIT_USERNAME_AND_PASSWORD`, `ADMIN_SETS_CREDENTIALS`, `EDIT_PASSWORD_ONLY`,\n`EXTERNAL_PASSWORD_SYNC`, or `SHARED_USERNAME_AND_PASSWORD`\n"
+                },
                 "enduserNote": {
                     "type": "string",
                     "description": "Application notes for end users.\n"
@@ -2930,6 +2947,18 @@
                     "type": "string",
                     "description": "Name of the app.\n"
                 },
+                "revealPassword": {
+                    "type": "boolean",
+                    "description": "Allow user to reveal password. Default is false. It can not be set to true if credentials_scheme is\n\"ADMIN_SETS_CREDENTIALS\", \"SHARED_USERNAME_AND_PASSWORD\" or \"EXTERNAL_PASSWORD_SYNC\".\n"
+                },
+                "sharedPassword": {
+                    "type": "string",
+                    "description": "Shared password, required for certain schemes.\n"
+                },
+                "sharedUsername": {
+                    "type": "string",
+                    "description": "Shared username, required for certain schemes.\n"
+                },
                 "signOnMode": {
                     "type": "string",
                     "description": "Sign on mode of application.\n"
@@ -2941,6 +2970,22 @@
                 "url": {
                     "type": "string",
                     "description": "The URL of the sign-in page for this app.\n"
+                },
+                "userNameTemplate": {
+                    "type": "string",
+                    "description": "Username template. Default: `${source.login}`\n"
+                },
+                "userNameTemplatePushStatus": {
+                    "type": "string",
+                    "description": "Push username on update. Valid values: `PUSH`, `DONT_PUSH` and `NOT_CONFIGURED`\n"
+                },
+                "userNameTemplateSuffix": {
+                    "type": "string",
+                    "description": "Username template suffix\n"
+                },
+                "userNameTemplateType": {
+                    "type": "string",
+                    "description": "Username template type. Default: `BUILT_IN`. Valid values: `NONE`, `CUSTOM`, `BUILT_IN`\n"
                 }
             },
             "required": [
@@ -2980,6 +3025,10 @@
                     "type": "boolean",
                     "description": "Display auto submit toolbar\n"
                 },
+                "credentialsScheme": {
+                    "type": "string",
+                    "description": "Application credentials scheme. One of: `EDIT_USERNAME_AND_PASSWORD`, `ADMIN_SETS_CREDENTIALS`, `EDIT_PASSWORD_ONLY`,\n`EXTERNAL_PASSWORD_SYNC`, or `SHARED_USERNAME_AND_PASSWORD`\n"
+                },
                 "enduserNote": {
                     "type": "string",
                     "description": "Application notes for end users.\n"
@@ -3000,6 +3049,18 @@
                     "type": "string",
                     "description": "Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.\n"
                 },
+                "revealPassword": {
+                    "type": "boolean",
+                    "description": "Allow user to reveal password. Default is false. It can not be set to true if credentials_scheme is\n\"ADMIN_SETS_CREDENTIALS\", \"SHARED_USERNAME_AND_PASSWORD\" or \"EXTERNAL_PASSWORD_SYNC\".\n"
+                },
+                "sharedPassword": {
+                    "type": "string",
+                    "description": "Shared password, required for certain schemes.\n"
+                },
+                "sharedUsername": {
+                    "type": "string",
+                    "description": "Shared username, required for certain schemes.\n"
+                },
                 "status": {
                     "type": "string",
                     "description": "Status of application. By default, it is `ACTIVE`\n"
@@ -3007,6 +3068,22 @@
                 "url": {
                     "type": "string",
                     "description": "The URL of the sign-in page for this app.\n"
+                },
+                "userNameTemplate": {
+                    "type": "string",
+                    "description": "Username template. Default: `${source.login}`\n"
+                },
+                "userNameTemplatePushStatus": {
+                    "type": "string",
+                    "description": "Push username on update. Valid values: `PUSH`, `DONT_PUSH` and `NOT_CONFIGURED`\n"
+                },
+                "userNameTemplateSuffix": {
+                    "type": "string",
+                    "description": "Username template suffix\n"
+                },
+                "userNameTemplateType": {
+                    "type": "string",
+                    "description": "Username template type. Default: `BUILT_IN`. Valid values: `NONE`, `CUSTOM`, `BUILT_IN`\n"
                 }
             },
             "requiredInputs": [
@@ -3045,6 +3122,10 @@
                         "type": "boolean",
                         "description": "Display auto submit toolbar\n"
                     },
+                    "credentialsScheme": {
+                        "type": "string",
+                        "description": "Application credentials scheme. One of: `EDIT_USERNAME_AND_PASSWORD`, `ADMIN_SETS_CREDENTIALS`, `EDIT_PASSWORD_ONLY`,\n`EXTERNAL_PASSWORD_SYNC`, or `SHARED_USERNAME_AND_PASSWORD`\n"
+                    },
                     "enduserNote": {
                         "type": "string",
                         "description": "Application notes for end users.\n"
@@ -3073,6 +3154,18 @@
                         "type": "string",
                         "description": "Name of the app.\n"
                     },
+                    "revealPassword": {
+                        "type": "boolean",
+                        "description": "Allow user to reveal password. Default is false. It can not be set to true if credentials_scheme is\n\"ADMIN_SETS_CREDENTIALS\", \"SHARED_USERNAME_AND_PASSWORD\" or \"EXTERNAL_PASSWORD_SYNC\".\n"
+                    },
+                    "sharedPassword": {
+                        "type": "string",
+                        "description": "Shared password, required for certain schemes.\n"
+                    },
+                    "sharedUsername": {
+                        "type": "string",
+                        "description": "Shared username, required for certain schemes.\n"
+                    },
                     "signOnMode": {
                         "type": "string",
                         "description": "Sign on mode of application.\n"
@@ -3084,6 +3177,22 @@
                     "url": {
                         "type": "string",
                         "description": "The URL of the sign-in page for this app.\n"
+                    },
+                    "userNameTemplate": {
+                        "type": "string",
+                        "description": "Username template. Default: `${source.login}`\n"
+                    },
+                    "userNameTemplatePushStatus": {
+                        "type": "string",
+                        "description": "Push username on update. Valid values: `PUSH`, `DONT_PUSH` and `NOT_CONFIGURED`\n"
+                    },
+                    "userNameTemplateSuffix": {
+                        "type": "string",
+                        "description": "Username template suffix\n"
+                    },
+                    "userNameTemplateType": {
+                        "type": "string",
+                        "description": "Username template type. Default: `BUILT_IN`. Valid values: `NONE`, `CUSTOM`, `BUILT_IN`\n"
                     }
                 },
                 "type": "object"
@@ -12495,6 +12604,104 @@
                 "type": "object"
             }
         },
+        "okta:index/emailSmtpServer:EmailSmtpServer": {
+            "properties": {
+                "alias": {
+                    "type": "string",
+                    "description": "Human-readable name for your SMTP server.\n"
+                },
+                "enabled": {
+                    "type": "boolean",
+                    "description": "If true, routes all email traffic through your SMTP server.\n"
+                },
+                "host": {
+                    "type": "string",
+                    "description": "Hostname or IP address of your SMTP server.\n"
+                },
+                "password": {
+                    "type": "string",
+                    "description": "User name of the email domain.\n"
+                },
+                "port": {
+                    "type": "integer",
+                    "description": "Port number of your SMTP server.\n"
+                },
+                "username": {
+                    "type": "string",
+                    "description": "Display name of the email domain.\n"
+                }
+            },
+            "required": [
+                "alias",
+                "host",
+                "password",
+                "port",
+                "username"
+            ],
+            "inputProperties": {
+                "alias": {
+                    "type": "string",
+                    "description": "Human-readable name for your SMTP server.\n"
+                },
+                "enabled": {
+                    "type": "boolean",
+                    "description": "If true, routes all email traffic through your SMTP server.\n"
+                },
+                "host": {
+                    "type": "string",
+                    "description": "Hostname or IP address of your SMTP server.\n"
+                },
+                "password": {
+                    "type": "string",
+                    "description": "User name of the email domain.\n"
+                },
+                "port": {
+                    "type": "integer",
+                    "description": "Port number of your SMTP server.\n"
+                },
+                "username": {
+                    "type": "string",
+                    "description": "Display name of the email domain.\n"
+                }
+            },
+            "requiredInputs": [
+                "alias",
+                "host",
+                "password",
+                "port",
+                "username"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering EmailSmtpServer resources.\n",
+                "properties": {
+                    "alias": {
+                        "type": "string",
+                        "description": "Human-readable name for your SMTP server.\n"
+                    },
+                    "enabled": {
+                        "type": "boolean",
+                        "description": "If true, routes all email traffic through your SMTP server.\n"
+                    },
+                    "host": {
+                        "type": "string",
+                        "description": "Hostname or IP address of your SMTP server.\n"
+                    },
+                    "password": {
+                        "type": "string",
+                        "description": "User name of the email domain.\n"
+                    },
+                    "port": {
+                        "type": "integer",
+                        "description": "Port number of your SMTP server.\n"
+                    },
+                    "username": {
+                        "type": "string",
+                        "description": "Display name of the email domain.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
         "okta:index/emailTemplateSettings:EmailTemplateSettings": {
             "description": "Manages email template settings\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst example = new okta.EmailTemplateSettings(\"example\", {\n    brandId: \"\u003cbrand id\u003e\",\n    templateName: \"ForgotPassword\",\n    recipients: \"ADMINS_ONLY\",\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample = okta.EmailTemplateSettings(\"example\",\n    brand_id=\"\u003cbrand id\u003e\",\n    template_name=\"ForgotPassword\",\n    recipients=\"ADMINS_ONLY\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new Okta.EmailTemplateSettings(\"example\", new()\n    {\n        BrandId = \"\u003cbrand id\u003e\",\n        TemplateName = \"ForgotPassword\",\n        Recipients = \"ADMINS_ONLY\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v4/go/okta\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := okta.NewEmailTemplateSettings(ctx, \"example\", \u0026okta.EmailTemplateSettingsArgs{\n\t\t\tBrandId:      pulumi.String(\"\u003cbrand id\u003e\"),\n\t\t\tTemplateName: pulumi.String(\"ForgotPassword\"),\n\t\t\tRecipients:   pulumi.String(\"ADMINS_ONLY\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.okta.EmailTemplateSettings;\nimport com.pulumi.okta.EmailTemplateSettingsArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new EmailTemplateSettings(\"example\", EmailTemplateSettingsArgs.builder()\n            .brandId(\"\u003cbrand id\u003e\")\n            .templateName(\"ForgotPassword\")\n            .recipients(\"ADMINS_ONLY\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: okta:EmailTemplateSettings\n    properties:\n      brandId: \u003cbrand id\u003e\n      templateName: ForgotPassword\n      recipients: ADMINS_ONLY\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n```sh\n$ pulumi import okta:index/emailTemplateSettings:EmailTemplateSettings example \u003cbrand_id\u003e/\u003ctemplate_name\u003e\n```\n\n",
             "properties": {
@@ -18727,7 +18934,7 @@
             }
         },
         "okta:policy/ruleIdpDiscovery:RuleIdpDiscovery": {
-            "description": "Creates an IdP Discovery Policy Rule.\n\t\t\nThis resource allows you to create and configure an IdP Discovery Policy Rule.\n\u003e If you receive the error 'You do not have permission to access the feature\nyou are requesting' contact support and\nrequest feature flag 'ADVANCED_SSO' be applied to your org.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\n//## All Okta orgs contain only one IdP Discovery Policy\nconst idpDiscoveryPolicy = okta.policy.getPolicy({\n    name: \"Idp Discovery Policy\",\n    type: \"IDP_DISCOVERY\",\n});\nconst example = new okta.policy.RuleIdpDiscovery(\"example\", {\n    policyId: idpDiscoveryPolicy.then(idpDiscoveryPolicy =\u003e idpDiscoveryPolicy.id),\n    name: \"example\",\n    idpId: \"\u003cidp id\u003e\",\n    idpType: \"OIDC\",\n    networkConnection: \"ANYWHERE\",\n    priority: 1,\n    status: \"ACTIVE\",\n    userIdentifierType: \"ATTRIBUTE\",\n    userIdentifierAttribute: \"company\",\n    appExcludes: [\n        {\n            id: \"\u003capp id\u003e\",\n            type: \"APP\",\n        },\n        {\n            name: \"yahoo_mail\",\n            type: \"APP_TYPE\",\n        },\n    ],\n    appIncludes: [\n        {\n            id: \"\u003capp id\u003e\",\n            type: \"APP\",\n        },\n        {\n            name: \"\u003capp type name\u003e\",\n            type: \"APP_TYPE\",\n        },\n    ],\n    platformIncludes: [{\n        type: \"MOBILE\",\n        osType: \"OSX\",\n    }],\n    userIdentifierPatterns: [{\n        matchType: \"EQUALS\",\n        value: \"Articulate\",\n    }],\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\n### All Okta orgs contain only one IdP Discovery Policy\nidp_discovery_policy = okta.policy.get_policy(name=\"Idp Discovery Policy\",\n    type=\"IDP_DISCOVERY\")\nexample = okta.policy.RuleIdpDiscovery(\"example\",\n    policy_id=idp_discovery_policy.id,\n    name=\"example\",\n    idp_id=\"\u003cidp id\u003e\",\n    idp_type=\"OIDC\",\n    network_connection=\"ANYWHERE\",\n    priority=1,\n    status=\"ACTIVE\",\n    user_identifier_type=\"ATTRIBUTE\",\n    user_identifier_attribute=\"company\",\n    app_excludes=[\n        {\n            \"id\": \"\u003capp id\u003e\",\n            \"type\": \"APP\",\n        },\n        {\n            \"name\": \"yahoo_mail\",\n            \"type\": \"APP_TYPE\",\n        },\n    ],\n    app_includes=[\n        {\n            \"id\": \"\u003capp id\u003e\",\n            \"type\": \"APP\",\n        },\n        {\n            \"name\": \"\u003capp type name\u003e\",\n            \"type\": \"APP_TYPE\",\n        },\n    ],\n    platform_includes=[{\n        \"type\": \"MOBILE\",\n        \"os_type\": \"OSX\",\n    }],\n    user_identifier_patterns=[{\n        \"match_type\": \"EQUALS\",\n        \"value\": \"Articulate\",\n    }])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    //## All Okta orgs contain only one IdP Discovery Policy\n    var idpDiscoveryPolicy = Okta.Policy.GetPolicy.Invoke(new()\n    {\n        Name = \"Idp Discovery Policy\",\n        Type = \"IDP_DISCOVERY\",\n    });\n\n    var example = new Okta.Policy.RuleIdpDiscovery(\"example\", new()\n    {\n        PolicyId = idpDiscoveryPolicy.Apply(getPolicyResult =\u003e getPolicyResult.Id),\n        Name = \"example\",\n        IdpId = \"\u003cidp id\u003e\",\n        IdpType = \"OIDC\",\n        NetworkConnection = \"ANYWHERE\",\n        Priority = 1,\n        Status = \"ACTIVE\",\n        UserIdentifierType = \"ATTRIBUTE\",\n        UserIdentifierAttribute = \"company\",\n        AppExcludes = new[]\n        {\n            new Okta.Policy.Inputs.RuleIdpDiscoveryAppExcludeArgs\n            {\n                Id = \"\u003capp id\u003e\",\n                Type = \"APP\",\n            },\n            new Okta.Policy.Inputs.RuleIdpDiscoveryAppExcludeArgs\n            {\n                Name = \"yahoo_mail\",\n                Type = \"APP_TYPE\",\n            },\n        },\n        AppIncludes = new[]\n        {\n            new Okta.Policy.Inputs.RuleIdpDiscoveryAppIncludeArgs\n            {\n                Id = \"\u003capp id\u003e\",\n                Type = \"APP\",\n            },\n            new Okta.Policy.Inputs.RuleIdpDiscoveryAppIncludeArgs\n            {\n                Name = \"\u003capp type name\u003e\",\n                Type = \"APP_TYPE\",\n            },\n        },\n        PlatformIncludes = new[]\n        {\n            new Okta.Policy.Inputs.RuleIdpDiscoveryPlatformIncludeArgs\n            {\n                Type = \"MOBILE\",\n                OsType = \"OSX\",\n            },\n        },\n        UserIdentifierPatterns = new[]\n        {\n            new Okta.Policy.Inputs.RuleIdpDiscoveryUserIdentifierPatternArgs\n            {\n                MatchType = \"EQUALS\",\n                Value = \"Articulate\",\n            },\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/policy\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t// ## All Okta orgs contain only one IdP Discovery Policy\n\t\tidpDiscoveryPolicy, err := policy.GetPolicy(ctx, \u0026policy.GetPolicyArgs{\n\t\t\tName: \"Idp Discovery Policy\",\n\t\t\tType: \"IDP_DISCOVERY\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = policy.NewRuleIdpDiscovery(ctx, \"example\", \u0026policy.RuleIdpDiscoveryArgs{\n\t\t\tPolicyId:                pulumi.String(idpDiscoveryPolicy.Id),\n\t\t\tName:                    pulumi.String(\"example\"),\n\t\t\tIdpId:                   pulumi.String(\"\u003cidp id\u003e\"),\n\t\t\tIdpType:                 pulumi.String(\"OIDC\"),\n\t\t\tNetworkConnection:       pulumi.String(\"ANYWHERE\"),\n\t\t\tPriority:                pulumi.Int(1),\n\t\t\tStatus:                  pulumi.String(\"ACTIVE\"),\n\t\t\tUserIdentifierType:      pulumi.String(\"ATTRIBUTE\"),\n\t\t\tUserIdentifierAttribute: pulumi.String(\"company\"),\n\t\t\tAppExcludes: policy.RuleIdpDiscoveryAppExcludeArray{\n\t\t\t\t\u0026policy.RuleIdpDiscoveryAppExcludeArgs{\n\t\t\t\t\tId:   pulumi.String(\"\u003capp id\u003e\"),\n\t\t\t\t\tType: pulumi.String(\"APP\"),\n\t\t\t\t},\n\t\t\t\t\u0026policy.RuleIdpDiscoveryAppExcludeArgs{\n\t\t\t\t\tName: pulumi.String(\"yahoo_mail\"),\n\t\t\t\t\tType: pulumi.String(\"APP_TYPE\"),\n\t\t\t\t},\n\t\t\t},\n\t\t\tAppIncludes: policy.RuleIdpDiscoveryAppIncludeArray{\n\t\t\t\t\u0026policy.RuleIdpDiscoveryAppIncludeArgs{\n\t\t\t\t\tId:   pulumi.String(\"\u003capp id\u003e\"),\n\t\t\t\t\tType: pulumi.String(\"APP\"),\n\t\t\t\t},\n\t\t\t\t\u0026policy.RuleIdpDiscoveryAppIncludeArgs{\n\t\t\t\t\tName: pulumi.String(\"\u003capp type name\u003e\"),\n\t\t\t\t\tType: pulumi.String(\"APP_TYPE\"),\n\t\t\t\t},\n\t\t\t},\n\t\t\tPlatformIncludes: policy.RuleIdpDiscoveryPlatformIncludeArray{\n\t\t\t\t\u0026policy.RuleIdpDiscoveryPlatformIncludeArgs{\n\t\t\t\t\tType:   pulumi.String(\"MOBILE\"),\n\t\t\t\t\tOsType: pulumi.String(\"OSX\"),\n\t\t\t\t},\n\t\t\t},\n\t\t\tUserIdentifierPatterns: policy.RuleIdpDiscoveryUserIdentifierPatternArray{\n\t\t\t\t\u0026policy.RuleIdpDiscoveryUserIdentifierPatternArgs{\n\t\t\t\t\tMatchType: pulumi.String(\"EQUALS\"),\n\t\t\t\t\tValue:     pulumi.String(\"Articulate\"),\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.okta.policy.PolicyFunctions;\nimport com.pulumi.okta.policy.inputs.GetPolicyArgs;\nimport com.pulumi.okta.policy.RuleIdpDiscovery;\nimport com.pulumi.okta.policy.RuleIdpDiscoveryArgs;\nimport com.pulumi.okta.policy.inputs.RuleIdpDiscoveryAppExcludeArgs;\nimport com.pulumi.okta.policy.inputs.RuleIdpDiscoveryAppIncludeArgs;\nimport com.pulumi.okta.policy.inputs.RuleIdpDiscoveryPlatformIncludeArgs;\nimport com.pulumi.okta.policy.inputs.RuleIdpDiscoveryUserIdentifierPatternArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        //## All Okta orgs contain only one IdP Discovery Policy\n        final var idpDiscoveryPolicy = PolicyFunctions.getPolicy(GetPolicyArgs.builder()\n            .name(\"Idp Discovery Policy\")\n            .type(\"IDP_DISCOVERY\")\n            .build());\n\n        var example = new RuleIdpDiscovery(\"example\", RuleIdpDiscoveryArgs.builder()\n            .policyId(idpDiscoveryPolicy.id())\n            .name(\"example\")\n            .idpId(\"\u003cidp id\u003e\")\n            .idpType(\"OIDC\")\n            .networkConnection(\"ANYWHERE\")\n            .priority(1)\n            .status(\"ACTIVE\")\n            .userIdentifierType(\"ATTRIBUTE\")\n            .userIdentifierAttribute(\"company\")\n            .appExcludes(            \n                RuleIdpDiscoveryAppExcludeArgs.builder()\n                    .id(\"\u003capp id\u003e\")\n                    .type(\"APP\")\n                    .build(),\n                RuleIdpDiscoveryAppExcludeArgs.builder()\n                    .name(\"yahoo_mail\")\n                    .type(\"APP_TYPE\")\n                    .build())\n            .appIncludes(            \n                RuleIdpDiscoveryAppIncludeArgs.builder()\n                    .id(\"\u003capp id\u003e\")\n                    .type(\"APP\")\n                    .build(),\n                RuleIdpDiscoveryAppIncludeArgs.builder()\n                    .name(\"\u003capp type name\u003e\")\n                    .type(\"APP_TYPE\")\n                    .build())\n            .platformIncludes(RuleIdpDiscoveryPlatformIncludeArgs.builder()\n                .type(\"MOBILE\")\n                .osType(\"OSX\")\n                .build())\n            .userIdentifierPatterns(RuleIdpDiscoveryUserIdentifierPatternArgs.builder()\n                .matchType(\"EQUALS\")\n                .value(\"Articulate\")\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: okta:policy:RuleIdpDiscovery\n    properties:\n      policyId: ${idpDiscoveryPolicy.id}\n      name: example\n      idpId: \u003cidp id\u003e\n      idpType: OIDC\n      networkConnection: ANYWHERE\n      priority: 1\n      status: ACTIVE\n      userIdentifierType: ATTRIBUTE\n      userIdentifierAttribute: company\n      appExcludes:\n        - id: \u003capp id\u003e\n          type: APP\n        - name: yahoo_mail\n          type: APP_TYPE\n      appIncludes:\n        - id: \u003capp id\u003e\n          type: APP\n        - name: \u003capp type name\u003e\n          type: APP_TYPE\n      platformIncludes:\n        - type: MOBILE\n          osType: OSX\n      userIdentifierPatterns:\n        - matchType: EQUALS\n          value: Articulate\nvariables:\n  ### All Okta orgs contain only one IdP Discovery Policy\n  idpDiscoveryPolicy:\n    fn::invoke:\n      function: okta:policy:getPolicy\n      arguments:\n        name: Idp Discovery Policy\n        type: IDP_DISCOVERY\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n```sh\n$ pulumi import okta:policy/ruleIdpDiscovery:RuleIdpDiscovery example \u003cpolicy_id\u003e/\u003crule_id\u003e\n```\n\n",
+            "description": "Creates an IdP Discovery Policy Rule.\n\t\t\nThis resource allows you to create and configure an IdP Discovery Policy Rule.\n\u003e If you receive the error 'You do not have permission to access the feature\nyou are requesting' contact support and\nrequest feature flag 'ADVANCED_SSO' be applied to your org.\n\n## Import\n\n```sh\n$ pulumi import okta:policy/ruleIdpDiscovery:RuleIdpDiscovery example \u003cpolicy_id\u003e/\u003crule_id\u003e\n```\n\n",
             "properties": {
                 "appExcludes": {
                     "type": "array",
@@ -18743,13 +18950,11 @@
                     },
                     "description": "Applications to include in discovery rule. - 'id' - (Optional) Use if 'type' is 'APP' to indicate the application id to\ninclude. - 'name' - (Optional) Use if the 'type' is 'APP_TYPE' to indicate the type of application(s) to include in\ninstances where an entire group (i.e. 'yahoo_mail') of applications should be included. - 'type' - (Required) One of:\n'APP', 'APP_TYPE'\n"
                 },
-                "idpId": {
-                    "type": "string",
-                    "description": "The identifier for the Idp the rule should route to if all conditions are met.\n"
-                },
-                "idpType": {
-                    "type": "string",
-                    "description": "Type of Idp. One of: `SAML2`, `IWA`, `AgentlessDSSO`, `X509`, `FACEBOOK`, `GOOGLE`, `LINKEDIN`, `MICROSOFT`, `OIDC`.\nDefault: `OKTA`\n"
+                "idpProviders": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/okta:policy/RuleIdpDiscoveryIdpProvider:RuleIdpDiscoveryIdpProvider"
+                    }
                 },
                 "name": {
                     "type": "string",
@@ -18826,13 +19031,11 @@
                     },
                     "description": "Applications to include in discovery rule. - 'id' - (Optional) Use if 'type' is 'APP' to indicate the application id to\ninclude. - 'name' - (Optional) Use if the 'type' is 'APP_TYPE' to indicate the type of application(s) to include in\ninstances where an entire group (i.e. 'yahoo_mail') of applications should be included. - 'type' - (Required) One of:\n'APP', 'APP_TYPE'\n"
                 },
-                "idpId": {
-                    "type": "string",
-                    "description": "The identifier for the Idp the rule should route to if all conditions are met.\n"
-                },
-                "idpType": {
-                    "type": "string",
-                    "description": "Type of Idp. One of: `SAML2`, `IWA`, `AgentlessDSSO`, `X509`, `FACEBOOK`, `GOOGLE`, `LINKEDIN`, `MICROSOFT`, `OIDC`.\nDefault: `OKTA`\n"
+                "idpProviders": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/okta:policy/RuleIdpDiscoveryIdpProvider:RuleIdpDiscoveryIdpProvider"
+                    }
                 },
                 "name": {
                     "type": "string",
@@ -18910,13 +19113,11 @@
                         },
                         "description": "Applications to include in discovery rule. - 'id' - (Optional) Use if 'type' is 'APP' to indicate the application id to\ninclude. - 'name' - (Optional) Use if the 'type' is 'APP_TYPE' to indicate the type of application(s) to include in\ninstances where an entire group (i.e. 'yahoo_mail') of applications should be included. - 'type' - (Required) One of:\n'APP', 'APP_TYPE'\n"
                     },
-                    "idpId": {
-                        "type": "string",
-                        "description": "The identifier for the Idp the rule should route to if all conditions are met.\n"
-                    },
-                    "idpType": {
-                        "type": "string",
-                        "description": "Type of Idp. One of: `SAML2`, `IWA`, `AgentlessDSSO`, `X509`, `FACEBOOK`, `GOOGLE`, `LINKEDIN`, `MICROSOFT`, `OIDC`.\nDefault: `OKTA`\n"
+                    "idpProviders": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/okta:policy/RuleIdpDiscoveryIdpProvider:RuleIdpDiscoveryIdpProvider"
+                        }
                     },
                     "name": {
                         "type": "string",
@@ -23001,6 +23202,52 @@
                     "emailCustomizations",
                     "templateName",
                     "id"
+                ],
+                "type": "object"
+            }
+        },
+        "okta:index/getEmailSmtpServer:getEmailSmtpServer": {
+            "inputs": {
+                "description": "A collection of arguments for invoking getEmailSmtpServer.\n",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "id"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getEmailSmtpServer.\n",
+                "properties": {
+                    "alias": {
+                        "type": "string"
+                    },
+                    "enabled": {
+                        "type": "boolean"
+                    },
+                    "host": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "string"
+                    },
+                    "port": {
+                        "type": "integer"
+                    },
+                    "username": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "alias",
+                    "enabled",
+                    "host",
+                    "id",
+                    "port",
+                    "username"
                 ],
                 "type": "object"
             }

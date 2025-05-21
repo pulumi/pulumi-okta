@@ -225,6 +225,112 @@ func (o RuleIdpDiscoveryAppIncludeArrayOutput) Index(i pulumi.IntInput) RuleIdpD
 	}).(RuleIdpDiscoveryAppIncludeOutput)
 }
 
+type RuleIdpDiscoveryIdpProvider struct {
+	// The identifier for the Idp the rule should route to if all conditions are met.
+	Id *string `pulumi:"id"`
+	// Type of IdP. One of: `AMAZON`, `APPLE`, `DISCORD`, `FACEBOOK`, `GITHUB`, `GITLAB`, `GOOGLE`, `IDV_CLEAR`, `IDV_INCODE`, `IDV_PERSONA`, `LINKEDIN`, `LOGINGOV`, `LOGINGOV_SANDBOX`, `MICROSOFT`, `OIDC`, `PAYPAL`, `PAYPAL_SANDBOX`, `SALESFORCE`, `SAML2`, `SPOTIFY`, `X509`, `XERO`, `YAHOO`, `YAHOOJP`, Default: `OKTA`
+	Type *string `pulumi:"type"`
+}
+
+// RuleIdpDiscoveryIdpProviderInput is an input type that accepts RuleIdpDiscoveryIdpProviderArgs and RuleIdpDiscoveryIdpProviderOutput values.
+// You can construct a concrete instance of `RuleIdpDiscoveryIdpProviderInput` via:
+//
+//	RuleIdpDiscoveryIdpProviderArgs{...}
+type RuleIdpDiscoveryIdpProviderInput interface {
+	pulumi.Input
+
+	ToRuleIdpDiscoveryIdpProviderOutput() RuleIdpDiscoveryIdpProviderOutput
+	ToRuleIdpDiscoveryIdpProviderOutputWithContext(context.Context) RuleIdpDiscoveryIdpProviderOutput
+}
+
+type RuleIdpDiscoveryIdpProviderArgs struct {
+	// The identifier for the Idp the rule should route to if all conditions are met.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Type of IdP. One of: `AMAZON`, `APPLE`, `DISCORD`, `FACEBOOK`, `GITHUB`, `GITLAB`, `GOOGLE`, `IDV_CLEAR`, `IDV_INCODE`, `IDV_PERSONA`, `LINKEDIN`, `LOGINGOV`, `LOGINGOV_SANDBOX`, `MICROSOFT`, `OIDC`, `PAYPAL`, `PAYPAL_SANDBOX`, `SALESFORCE`, `SAML2`, `SPOTIFY`, `X509`, `XERO`, `YAHOO`, `YAHOOJP`, Default: `OKTA`
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (RuleIdpDiscoveryIdpProviderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleIdpDiscoveryIdpProvider)(nil)).Elem()
+}
+
+func (i RuleIdpDiscoveryIdpProviderArgs) ToRuleIdpDiscoveryIdpProviderOutput() RuleIdpDiscoveryIdpProviderOutput {
+	return i.ToRuleIdpDiscoveryIdpProviderOutputWithContext(context.Background())
+}
+
+func (i RuleIdpDiscoveryIdpProviderArgs) ToRuleIdpDiscoveryIdpProviderOutputWithContext(ctx context.Context) RuleIdpDiscoveryIdpProviderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleIdpDiscoveryIdpProviderOutput)
+}
+
+// RuleIdpDiscoveryIdpProviderArrayInput is an input type that accepts RuleIdpDiscoveryIdpProviderArray and RuleIdpDiscoveryIdpProviderArrayOutput values.
+// You can construct a concrete instance of `RuleIdpDiscoveryIdpProviderArrayInput` via:
+//
+//	RuleIdpDiscoveryIdpProviderArray{ RuleIdpDiscoveryIdpProviderArgs{...} }
+type RuleIdpDiscoveryIdpProviderArrayInput interface {
+	pulumi.Input
+
+	ToRuleIdpDiscoveryIdpProviderArrayOutput() RuleIdpDiscoveryIdpProviderArrayOutput
+	ToRuleIdpDiscoveryIdpProviderArrayOutputWithContext(context.Context) RuleIdpDiscoveryIdpProviderArrayOutput
+}
+
+type RuleIdpDiscoveryIdpProviderArray []RuleIdpDiscoveryIdpProviderInput
+
+func (RuleIdpDiscoveryIdpProviderArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RuleIdpDiscoveryIdpProvider)(nil)).Elem()
+}
+
+func (i RuleIdpDiscoveryIdpProviderArray) ToRuleIdpDiscoveryIdpProviderArrayOutput() RuleIdpDiscoveryIdpProviderArrayOutput {
+	return i.ToRuleIdpDiscoveryIdpProviderArrayOutputWithContext(context.Background())
+}
+
+func (i RuleIdpDiscoveryIdpProviderArray) ToRuleIdpDiscoveryIdpProviderArrayOutputWithContext(ctx context.Context) RuleIdpDiscoveryIdpProviderArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleIdpDiscoveryIdpProviderArrayOutput)
+}
+
+type RuleIdpDiscoveryIdpProviderOutput struct{ *pulumi.OutputState }
+
+func (RuleIdpDiscoveryIdpProviderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleIdpDiscoveryIdpProvider)(nil)).Elem()
+}
+
+func (o RuleIdpDiscoveryIdpProviderOutput) ToRuleIdpDiscoveryIdpProviderOutput() RuleIdpDiscoveryIdpProviderOutput {
+	return o
+}
+
+func (o RuleIdpDiscoveryIdpProviderOutput) ToRuleIdpDiscoveryIdpProviderOutputWithContext(ctx context.Context) RuleIdpDiscoveryIdpProviderOutput {
+	return o
+}
+
+// The identifier for the Idp the rule should route to if all conditions are met.
+func (o RuleIdpDiscoveryIdpProviderOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RuleIdpDiscoveryIdpProvider) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// Type of IdP. One of: `AMAZON`, `APPLE`, `DISCORD`, `FACEBOOK`, `GITHUB`, `GITLAB`, `GOOGLE`, `IDV_CLEAR`, `IDV_INCODE`, `IDV_PERSONA`, `LINKEDIN`, `LOGINGOV`, `LOGINGOV_SANDBOX`, `MICROSOFT`, `OIDC`, `PAYPAL`, `PAYPAL_SANDBOX`, `SALESFORCE`, `SAML2`, `SPOTIFY`, `X509`, `XERO`, `YAHOO`, `YAHOOJP`, Default: `OKTA`
+func (o RuleIdpDiscoveryIdpProviderOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RuleIdpDiscoveryIdpProvider) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type RuleIdpDiscoveryIdpProviderArrayOutput struct{ *pulumi.OutputState }
+
+func (RuleIdpDiscoveryIdpProviderArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RuleIdpDiscoveryIdpProvider)(nil)).Elem()
+}
+
+func (o RuleIdpDiscoveryIdpProviderArrayOutput) ToRuleIdpDiscoveryIdpProviderArrayOutput() RuleIdpDiscoveryIdpProviderArrayOutput {
+	return o
+}
+
+func (o RuleIdpDiscoveryIdpProviderArrayOutput) ToRuleIdpDiscoveryIdpProviderArrayOutputWithContext(ctx context.Context) RuleIdpDiscoveryIdpProviderArrayOutput {
+	return o
+}
+
+func (o RuleIdpDiscoveryIdpProviderArrayOutput) Index(i pulumi.IntInput) RuleIdpDiscoveryIdpProviderOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RuleIdpDiscoveryIdpProvider {
+		return vs[0].([]RuleIdpDiscoveryIdpProvider)[vs[1].(int)]
+	}).(RuleIdpDiscoveryIdpProviderOutput)
+}
+
 type RuleIdpDiscoveryPlatformInclude struct {
 	// Only available with OTHER OS type
 	OsExpression *string `pulumi:"osExpression"`
@@ -871,6 +977,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleIdpDiscoveryAppExcludeArrayInput)(nil)).Elem(), RuleIdpDiscoveryAppExcludeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleIdpDiscoveryAppIncludeInput)(nil)).Elem(), RuleIdpDiscoveryAppIncludeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleIdpDiscoveryAppIncludeArrayInput)(nil)).Elem(), RuleIdpDiscoveryAppIncludeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleIdpDiscoveryIdpProviderInput)(nil)).Elem(), RuleIdpDiscoveryIdpProviderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleIdpDiscoveryIdpProviderArrayInput)(nil)).Elem(), RuleIdpDiscoveryIdpProviderArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleIdpDiscoveryPlatformIncludeInput)(nil)).Elem(), RuleIdpDiscoveryPlatformIncludeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleIdpDiscoveryPlatformIncludeArrayInput)(nil)).Elem(), RuleIdpDiscoveryPlatformIncludeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleIdpDiscoveryUserIdentifierPatternInput)(nil)).Elem(), RuleIdpDiscoveryUserIdentifierPatternArgs{})
@@ -887,6 +995,8 @@ func init() {
 	pulumi.RegisterOutputType(RuleIdpDiscoveryAppExcludeArrayOutput{})
 	pulumi.RegisterOutputType(RuleIdpDiscoveryAppIncludeOutput{})
 	pulumi.RegisterOutputType(RuleIdpDiscoveryAppIncludeArrayOutput{})
+	pulumi.RegisterOutputType(RuleIdpDiscoveryIdpProviderOutput{})
+	pulumi.RegisterOutputType(RuleIdpDiscoveryIdpProviderArrayOutput{})
 	pulumi.RegisterOutputType(RuleIdpDiscoveryPlatformIncludeOutput{})
 	pulumi.RegisterOutputType(RuleIdpDiscoveryPlatformIncludeArrayOutput{})
 	pulumi.RegisterOutputType(RuleIdpDiscoveryUserIdentifierPatternOutput{})

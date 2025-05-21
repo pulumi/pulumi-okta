@@ -19,6 +19,7 @@ from . import outputs
 __all__ = [
     'RuleIdpDiscoveryAppExclude',
     'RuleIdpDiscoveryAppInclude',
+    'RuleIdpDiscoveryIdpProvider',
     'RuleIdpDiscoveryPlatformInclude',
     'RuleIdpDiscoveryUserIdentifierPattern',
     'RuleMfaAppExclude',
@@ -81,6 +82,37 @@ class RuleIdpDiscoveryAppInclude(dict):
     @pulumi.getter
     def name(self) -> Optional[builtins.str]:
         return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class RuleIdpDiscoveryIdpProvider(dict):
+    def __init__(__self__, *,
+                 id: Optional[builtins.str] = None,
+                 type: Optional[builtins.str] = None):
+        """
+        :param builtins.str id: The identifier for the Idp the rule should route to if all conditions are met.
+        :param builtins.str type: Type of IdP. One of: `AMAZON`, `APPLE`, `DISCORD`, `FACEBOOK`, `GITHUB`, `GITLAB`, `GOOGLE`, `IDV_CLEAR`, `IDV_INCODE`, `IDV_PERSONA`, `LINKEDIN`, `LOGINGOV`, `LOGINGOV_SANDBOX`, `MICROSOFT`, `OIDC`, `PAYPAL`, `PAYPAL_SANDBOX`, `SALESFORCE`, `SAML2`, `SPOTIFY`, `X509`, `XERO`, `YAHOO`, `YAHOOJP`, Default: `OKTA`
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[builtins.str]:
+        """
+        The identifier for the Idp the rule should route to if all conditions are met.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[builtins.str]:
+        """
+        Type of IdP. One of: `AMAZON`, `APPLE`, `DISCORD`, `FACEBOOK`, `GITHUB`, `GITLAB`, `GOOGLE`, `IDV_CLEAR`, `IDV_INCODE`, `IDV_PERSONA`, `LINKEDIN`, `LOGINGOV`, `LOGINGOV_SANDBOX`, `MICROSOFT`, `OIDC`, `PAYPAL`, `PAYPAL_SANDBOX`, `SALESFORCE`, `SAML2`, `SPOTIFY`, `X509`, `XERO`, `YAHOO`, `YAHOOJP`, Default: `OKTA`
+        """
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type
