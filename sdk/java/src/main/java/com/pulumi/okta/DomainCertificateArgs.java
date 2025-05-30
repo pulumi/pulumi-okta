@@ -8,6 +8,8 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class DomainCertificateArgs extends com.pulumi.resources.ResourceArgs {
@@ -78,15 +80,15 @@ public final class DomainCertificateArgs extends com.pulumi.resources.ResourceAr
      * Certificate type. Valid value is `PEM`
      * 
      */
-    @Import(name="type", required=true)
-    private Output<String> type;
+    @Import(name="type")
+    private @Nullable Output<String> type;
 
     /**
      * @return Certificate type. Valid value is `PEM`
      * 
      */
-    public Output<String> type() {
-        return this.type;
+    public Optional<Output<String>> type() {
+        return Optional.ofNullable(this.type);
     }
 
     private DomainCertificateArgs() {}
@@ -207,7 +209,7 @@ public final class DomainCertificateArgs extends com.pulumi.resources.ResourceAr
          * @return builder
          * 
          */
-        public Builder type(Output<String> type) {
+        public Builder type(@Nullable Output<String> type) {
             $.type = type;
             return this;
         }
@@ -234,9 +236,6 @@ public final class DomainCertificateArgs extends com.pulumi.resources.ResourceAr
             }
             if ($.privateKey == null) {
                 throw new MissingRequiredPropertyException("DomainCertificateArgs", "privateKey");
-            }
-            if ($.type == null) {
-                throw new MissingRequiredPropertyException("DomainCertificateArgs", "type");
             }
             return $;
         }
