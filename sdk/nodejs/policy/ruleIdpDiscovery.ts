@@ -59,7 +59,7 @@ export class RuleIdpDiscovery extends pulumi.CustomResource {
      * 'APP', 'APP_TYPE'
      */
     public readonly appIncludes!: pulumi.Output<outputs.policy.RuleIdpDiscoveryAppInclude[] | undefined>;
-    public readonly idpProviders!: pulumi.Output<outputs.policy.RuleIdpDiscoveryIdpProvider[] | undefined>;
+    public readonly idpProviders!: pulumi.Output<outputs.policy.RuleIdpDiscoveryIdpProvider[]>;
     /**
      * Policy Rule Name
      */

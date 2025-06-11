@@ -73,10 +73,10 @@ public class RuleIdpDiscovery extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.appIncludes);
     }
     @Export(name="idpProviders", refs={List.class,RuleIdpDiscoveryIdpProvider.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<RuleIdpDiscoveryIdpProvider>> idpProviders;
+    private Output<List<RuleIdpDiscoveryIdpProvider>> idpProviders;
 
-    public Output<Optional<List<RuleIdpDiscoveryIdpProvider>>> idpProviders() {
-        return Codegen.optional(this.idpProviders);
+    public Output<List<RuleIdpDiscoveryIdpProvider>> idpProviders() {
+        return this.idpProviders;
     }
     /**
      * Policy Rule Name
