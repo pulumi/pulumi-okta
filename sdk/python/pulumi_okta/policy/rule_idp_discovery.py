@@ -744,7 +744,7 @@ class RuleIdpDiscovery(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="idpProviders")
-    def idp_providers(self) -> pulumi.Output[Optional[Sequence['outputs.RuleIdpDiscoveryIdpProvider']]]:
+    def idp_providers(self) -> pulumi.Output[Sequence['outputs.RuleIdpDiscoveryIdpProvider']]:
         return pulumi.get(self, "idp_providers")
 
     @property
