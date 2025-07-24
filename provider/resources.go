@@ -22,14 +22,15 @@ import (
 	"strings"
 	"unicode"
 
+	oktafwprovider "github.com/okta/terraform-provider-okta/okta/fwprovider"
+	pfbridge "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/pf/tfbridge"
+
 	// embed is used to store bridge-metadata.json in the compiled binary
 	_ "embed"
 
-	okfwprovider "github.com/okta/terraform-provider-okta/okta/fwprovider"
 	okta "github.com/okta/terraform-provider-okta/okta/provider"
 
 	oktaversion "github.com/okta/terraform-provider-okta/okta/version"
-	pfbridge "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/pf/tfbridge"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
 	tks "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge/tokens"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge/tokens/fallbackstrat"
@@ -90,10 +91,12 @@ var metadata []byte
 // Provider returns additional overlaid schema and metadata associated with the provider.
 func Provider() tfbridge.ProviderInfo {
 	ctx := context.Background()
+
 	p := pfbridge.MuxShimWithPF(ctx,
 		shimv2.NewProvider(okta.Provider()),
-		okfwprovider.NewFrameworkProvider(oktaversion.OktaTerraformProviderVersion, okta.Provider()),
+		oktafwprovider.NewFrameworkProvider(oktaversion.OktaTerraformProviderVersion, okta.Provider()),
 	)
+
 	prov := tfbridge.ProviderInfo{
 		P:           p,
 		Name:        "okta",
@@ -353,14 +356,19 @@ func Provider() tfbridge.ProviderInfo {
 		"okta_policy_device_assurance_macos",
 		"okta_policy_device_assurance_windows",
 		"okta_preview_signin_page",
-		"okta_auth_server_policy_rule_legacy",
 	} {
+		if prov.Resources[r] == nil {
+			contract.Failf("Resources[%s] does not exist", r)
+		}
 		prov.Resources[r].Docs = &tfbridge.DocInfo{AllowMissing: true}
 	}
 
 	for _, d := range []string{
 		"okta_default_signin_page",
 	} {
+		if prov.DataSources[d] == nil {
+			contract.Failf("Data Source[%s] does not exist", d)
+		}
 		prov.DataSources[d].Docs = &tfbridge.DocInfo{AllowMissing: true}
 	}
 

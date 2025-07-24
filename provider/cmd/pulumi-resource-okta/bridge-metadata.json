@@ -3,7 +3,7 @@
         "resources": {
             "okta_admin_role_custom": {
                 "current": "okta:index/adminRoleCustom:AdminRoleCustom",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "permissions": {
                         "maxItemsOne": false
@@ -12,7 +12,7 @@
             },
             "okta_admin_role_custom_assignments": {
                 "current": "okta:index/adminRoleCustomAssignments:AdminRoleCustomAssignments",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "members": {
                         "maxItemsOne": false
@@ -21,7 +21,7 @@
             },
             "okta_admin_role_targets": {
                 "current": "okta:index/adminRoleTargets:AdminRoleTargets",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "apps": {
                         "maxItemsOne": false
@@ -33,27 +33,27 @@
             },
             "okta_app_access_policy_assignment": {
                 "current": "okta:app/accessPolicyAssignment:AccessPolicyAssignment",
-                "majorVersion": 4
+                "majorVersion": 5
             },
             "okta_app_auto_login": {
                 "current": "okta:app/autoLogin:AutoLogin",
-                "majorVersion": 4
+                "majorVersion": 5
             },
             "okta_app_basic_auth": {
                 "current": "okta:app/basicAuth:BasicAuth",
-                "majorVersion": 4
+                "majorVersion": 5
             },
             "okta_app_bookmark": {
                 "current": "okta:app/bookmark:Bookmark",
-                "majorVersion": 4
+                "majorVersion": 5
             },
             "okta_app_group_assignment": {
                 "current": "okta:app/groupAssignment:GroupAssignment",
-                "majorVersion": 4
+                "majorVersion": 5
             },
             "okta_app_group_assignments": {
                 "current": "okta:index/appGroupAssignments:AppGroupAssignments",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "group": {
                         "maxItemsOne": false
@@ -62,7 +62,7 @@
             },
             "okta_app_oauth": {
                 "current": "okta:app/oAuth:OAuth",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "grant_types": {
                         "maxItemsOne": false
@@ -89,7 +89,7 @@
             },
             "okta_app_oauth_api_scope": {
                 "current": "okta:index/appOauthApiScope:AppOauthApiScope",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "scopes": {
                         "maxItemsOne": false
@@ -98,19 +98,19 @@
             },
             "okta_app_oauth_post_logout_redirect_uri": {
                 "current": "okta:app/oAuthPostLogoutRedirectUri:OAuthPostLogoutRedirectUri",
-                "majorVersion": 4
+                "majorVersion": 5
             },
             "okta_app_oauth_redirect_uri": {
                 "current": "okta:app/oAuthRedirectUri:OAuthRedirectUri",
-                "majorVersion": 4
+                "majorVersion": 5
             },
             "okta_app_oauth_role_assignment": {
                 "current": "okta:app/oauthRoleAssignment:OauthRoleAssignment",
-                "majorVersion": 4
+                "majorVersion": 5
             },
             "okta_app_saml": {
                 "current": "okta:app/saml:Saml",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "acs_endpoints": {
                         "maxItemsOne": false
@@ -145,23 +145,23 @@
             },
             "okta_app_saml_app_settings": {
                 "current": "okta:index/appSamlAppSettings:AppSamlAppSettings",
-                "majorVersion": 4
+                "majorVersion": 5
             },
             "okta_app_secure_password_store": {
                 "current": "okta:app/securePasswordStore:SecurePasswordStore",
-                "majorVersion": 4
+                "majorVersion": 5
             },
             "okta_app_shared_credentials": {
                 "current": "okta:index/appSharedCredentials:AppSharedCredentials",
-                "majorVersion": 4
+                "majorVersion": 5
             },
             "okta_app_signon_policy": {
                 "current": "okta:index/appSignonPolicy:AppSignonPolicy",
-                "majorVersion": 4
+                "majorVersion": 5
             },
             "okta_app_signon_policy_rule": {
                 "current": "okta:index/appSignonPolicyRule:AppSignonPolicyRule",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "chains": {
                         "maxItemsOne": false
@@ -203,23 +203,23 @@
             },
             "okta_app_swa": {
                 "current": "okta:app/swa:Swa",
-                "majorVersion": 4
+                "majorVersion": 5
             },
             "okta_app_three_field": {
                 "current": "okta:app/threeField:ThreeField",
-                "majorVersion": 4
+                "majorVersion": 5
             },
             "okta_app_user": {
                 "current": "okta:app/user:User",
-                "majorVersion": 4
+                "majorVersion": 5
             },
             "okta_app_user_base_schema_property": {
                 "current": "okta:index/appUserBaseSchemaProperty:AppUserBaseSchemaProperty",
-                "majorVersion": 4
+                "majorVersion": 5
             },
             "okta_app_user_schema_property": {
                 "current": "okta:index/appUserSchemaProperty:AppUserSchemaProperty",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "array_enum": {
                         "maxItemsOne": false
@@ -237,7 +237,7 @@
             },
             "okta_auth_server": {
                 "current": "okta:auth/server:Server",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "audiences": {
                         "maxItemsOne": false
@@ -246,7 +246,7 @@
             },
             "okta_auth_server_claim": {
                 "current": "okta:auth/serverClaim:ServerClaim",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "scopes": {
                         "maxItemsOne": false
@@ -255,7 +255,7 @@
             },
             "okta_auth_server_claim_default": {
                 "current": "okta:index/authServerClaimDefault:AuthServerClaimDefault",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "scopes": {
                         "maxItemsOne": false
@@ -264,7 +264,7 @@
             },
             "okta_auth_server_default": {
                 "current": "okta:index/authServerDefault:AuthServerDefault",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "audiences": {
                         "maxItemsOne": false
@@ -273,7 +273,7 @@
             },
             "okta_auth_server_policy": {
                 "current": "okta:auth/serverPolicy:ServerPolicy",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "client_whitelist": {
                         "maxItemsOne": false
@@ -289,7 +289,7 @@
                         "majorVersion": 4
                     }
                 ],
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "grant_type_whitelist": {
                         "maxItemsOne": false
@@ -313,27 +313,27 @@
             },
             "okta_auth_server_scope": {
                 "current": "okta:auth/serverScope:ServerScope",
-                "majorVersion": 4
+                "majorVersion": 5
             },
             "okta_authenticator": {
                 "current": "okta:index/authenticator:Authenticator",
-                "majorVersion": 4
+                "majorVersion": 5
             },
             "okta_behavior": {
                 "current": "okta:index/behaviour:Behaviour",
-                "majorVersion": 4
+                "majorVersion": 5
             },
             "okta_brand": {
                 "current": "okta:index/brand:Brand",
-                "majorVersion": 4
+                "majorVersion": 5
             },
             "okta_captcha": {
                 "current": "okta:index/captcha:Captcha",
-                "majorVersion": 4
+                "majorVersion": 5
             },
             "okta_captcha_org_wide_settings": {
                 "current": "okta:index/captchaOrgWideSettings:CaptchaOrgWideSettings",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "enabled_for": {
                         "maxItemsOne": false
@@ -342,7 +342,7 @@
             },
             "okta_customized_signin_page": {
                 "current": "okta:index/customizedSigninPage:CustomizedSigninPage",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "content_security_policy_setting": {
                         "fields": {
@@ -355,7 +355,7 @@
             },
             "okta_domain": {
                 "current": "okta:index/domain:Domain",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "dns_records": {
                         "maxItemsOne": false,
@@ -371,19 +371,19 @@
             },
             "okta_domain_certificate": {
                 "current": "okta:index/domainCertificate:DomainCertificate",
-                "majorVersion": 4
+                "majorVersion": 5
             },
             "okta_domain_verification": {
                 "current": "okta:index/domainVerification:DomainVerification",
-                "majorVersion": 4
+                "majorVersion": 5
             },
             "okta_email_customization": {
                 "current": "okta:index/emailCustomization:EmailCustomization",
-                "majorVersion": 4
+                "majorVersion": 5
             },
             "okta_email_domain": {
                 "current": "okta:index/emailDomain:EmailDomain",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "dns_validation_records": {
                         "maxItemsOne": false
@@ -392,11 +392,11 @@
             },
             "okta_email_domain_verification": {
                 "current": "okta:index/emailDomainVerification:EmailDomainVerification",
-                "majorVersion": 4
+                "majorVersion": 5
             },
             "okta_email_sender": {
                 "current": "okta:index/emailSender:EmailSender",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "dns_records": {
                         "maxItemsOne": false
@@ -405,19 +405,19 @@
             },
             "okta_email_sender_verification": {
                 "current": "okta:index/emailSenderVerification:EmailSenderVerification",
-                "majorVersion": 4
+                "majorVersion": 5
             },
             "okta_email_smtp_server": {
                 "current": "okta:index/emailSmtpServer:EmailSmtpServer",
-                "majorVersion": 4
+                "majorVersion": 5
             },
             "okta_email_template_settings": {
                 "current": "okta:index/emailTemplateSettings:EmailTemplateSettings",
-                "majorVersion": 4
+                "majorVersion": 5
             },
             "okta_event_hook": {
                 "current": "okta:index/eventHook:EventHook",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "events": {
                         "maxItemsOne": false
@@ -429,23 +429,27 @@
             },
             "okta_event_hook_verification": {
                 "current": "okta:index/eventHookVerification:EventHookVerification",
-                "majorVersion": 4
+                "majorVersion": 5
             },
             "okta_factor": {
                 "current": "okta:factor/factor:Factor",
-                "majorVersion": 4
+                "majorVersion": 5
             },
             "okta_factor_totp": {
                 "current": "okta:index/factorTotp:FactorTotp",
-                "majorVersion": 4
+                "majorVersion": 5
+            },
+            "okta_feature": {
+                "current": "okta:index/feature:Feature",
+                "majorVersion": 5
             },
             "okta_group": {
                 "current": "okta:group/group:Group",
-                "majorVersion": 4
+                "majorVersion": 5
             },
             "okta_group_memberships": {
                 "current": "okta:index/groupMemberships:GroupMemberships",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "users": {
                         "maxItemsOne": false
@@ -454,11 +458,11 @@
             },
             "okta_group_owner": {
                 "current": "okta:group/owner:Owner",
-                "majorVersion": 4
+                "majorVersion": 5
             },
             "okta_group_role": {
                 "current": "okta:group/role:Role",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "target_app_list": {
                         "maxItemsOne": false
@@ -470,7 +474,7 @@
             },
             "okta_group_rule": {
                 "current": "okta:group/rule:Rule",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "group_assignments": {
                         "maxItemsOne": false
@@ -482,7 +486,7 @@
             },
             "okta_group_schema_property": {
                 "current": "okta:index/groupSchemaProperty:GroupSchemaProperty",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "array_enum": {
                         "maxItemsOne": false
@@ -503,7 +507,7 @@
             },
             "okta_idp_oidc": {
                 "current": "okta:idp/oidc:Oidc",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "account_link_group_include": {
                         "maxItemsOne": false
@@ -521,7 +525,7 @@
             },
             "okta_idp_saml": {
                 "current": "okta:idp/saml:Saml",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "account_link_group_include": {
                         "maxItemsOne": false
@@ -539,7 +543,7 @@
             },
             "okta_idp_saml_key": {
                 "current": "okta:idp/samlKey:SamlKey",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "x5c": {
                         "maxItemsOne": false
@@ -548,7 +552,7 @@
             },
             "okta_idp_social": {
                 "current": "okta:idp/social:Social",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "account_link_group_include": {
                         "maxItemsOne": false
@@ -566,7 +570,7 @@
             },
             "okta_inline_hook": {
                 "current": "okta:inline/hook:Hook",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "headers": {
                         "maxItemsOne": false
@@ -575,11 +579,11 @@
             },
             "okta_link_definition": {
                 "current": "okta:index/linkDefinition:LinkDefinition",
-                "majorVersion": 4
+                "majorVersion": 5
             },
             "okta_link_value": {
                 "current": "okta:index/linkValue:LinkValue",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "associated_user_ids": {
                         "maxItemsOne": false
@@ -588,11 +592,11 @@
             },
             "okta_log_stream": {
                 "current": "okta:index/logStream:LogStream",
-                "majorVersion": 4
+                "majorVersion": 5
             },
             "okta_network_zone": {
                 "current": "okta:network/zone:Zone",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "asns": {
                         "maxItemsOne": false
@@ -619,15 +623,15 @@
             },
             "okta_org_configuration": {
                 "current": "okta:index/orgConfiguration:OrgConfiguration",
-                "majorVersion": 4
+                "majorVersion": 5
             },
             "okta_org_support": {
                 "current": "okta:index/orgSupport:OrgSupport",
-                "majorVersion": 4
+                "majorVersion": 5
             },
             "okta_policy_device_assurance_android": {
                 "current": "okta:policy/deviceAssuranceAndroid:DeviceAssuranceAndroid",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "disk_encryption_type": {
                         "maxItemsOne": false
@@ -639,11 +643,11 @@
             },
             "okta_policy_device_assurance_chromeos": {
                 "current": "okta:policy/deviceAssuranceChromeos:DeviceAssuranceChromeos",
-                "majorVersion": 4
+                "majorVersion": 5
             },
             "okta_policy_device_assurance_ios": {
                 "current": "okta:policy/deviceAssuranceIos:DeviceAssuranceIos",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "screenlock_type": {
                         "maxItemsOne": false
@@ -652,7 +656,7 @@
             },
             "okta_policy_device_assurance_macos": {
                 "current": "okta:policy/deviceAssuranceMacos:DeviceAssuranceMacos",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "disk_encryption_type": {
                         "maxItemsOne": false
@@ -664,7 +668,7 @@
             },
             "okta_policy_device_assurance_windows": {
                 "current": "okta:policy/deviceAssuranceWindows:DeviceAssuranceWindows",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "disk_encryption_type": {
                         "maxItemsOne": false
@@ -676,7 +680,7 @@
             },
             "okta_policy_mfa": {
                 "current": "okta:policy/mfa:Mfa",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "external_idps": {
                         "maxItemsOne": false
@@ -688,7 +692,7 @@
             },
             "okta_policy_mfa_default": {
                 "current": "okta:index/policyMfaDefault:PolicyMfaDefault",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "external_idps": {
                         "maxItemsOne": false
@@ -697,7 +701,7 @@
             },
             "okta_policy_password": {
                 "current": "okta:policy/password:Password",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "groups_included": {
                         "maxItemsOne": false
@@ -709,7 +713,7 @@
             },
             "okta_policy_password_default": {
                 "current": "okta:index/policyPasswordDefault:PolicyPasswordDefault",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "password_lockout_notification_channels": {
                         "maxItemsOne": false
@@ -718,11 +722,11 @@
             },
             "okta_policy_profile_enrollment": {
                 "current": "okta:index/policyProfileEnrollment:PolicyProfileEnrollment",
-                "majorVersion": 4
+                "majorVersion": 5
             },
             "okta_policy_profile_enrollment_apps": {
                 "current": "okta:index/policyProfileEnrollmentApps:PolicyProfileEnrollmentApps",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "apps": {
                         "maxItemsOne": false
@@ -731,7 +735,7 @@
             },
             "okta_policy_rule_idp_discovery": {
                 "current": "okta:policy/ruleIdpDiscovery:RuleIdpDiscovery",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "app_exclude": {
                         "maxItemsOne": false
@@ -758,7 +762,7 @@
             },
             "okta_policy_rule_mfa": {
                 "current": "okta:policy/ruleMfa:RuleMfa",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "app_exclude": {
                         "maxItemsOne": false
@@ -779,7 +783,7 @@
             },
             "okta_policy_rule_password": {
                 "current": "okta:policy/rulePassword:RulePassword",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "network_excludes": {
                         "maxItemsOne": false
@@ -794,7 +798,7 @@
             },
             "okta_policy_rule_profile_enrollment": {
                 "current": "okta:index/policyRuleProfileEnrollment:PolicyRuleProfileEnrollment",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "enroll_authenticator_types": {
                         "maxItemsOne": false
@@ -806,7 +810,7 @@
             },
             "okta_policy_rule_signon": {
                 "current": "okta:policy/ruleSignon:RuleSignon",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "behaviors": {
                         "maxItemsOne": false
@@ -837,7 +841,7 @@
             },
             "okta_policy_signon": {
                 "current": "okta:policy/signon:Signon",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "groups_included": {
                         "maxItemsOne": false
@@ -846,7 +850,7 @@
             },
             "okta_preview_signin_page": {
                 "current": "okta:index/previewSigninPage:PreviewSigninPage",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "content_security_policy_setting": {
                         "fields": {
@@ -859,7 +863,7 @@
             },
             "okta_profile_mapping": {
                 "current": "okta:profile/mapping:Mapping",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "mappings": {
                         "maxItemsOne": false
@@ -868,11 +872,11 @@
             },
             "okta_rate_limiting": {
                 "current": "okta:index/rateLimiting:RateLimiting",
-                "majorVersion": 4
+                "majorVersion": 5
             },
             "okta_resource_set": {
                 "current": "okta:index/resourceSet:ResourceSet",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "resources": {
                         "maxItemsOne": false
@@ -884,15 +888,15 @@
             },
             "okta_role_subscription": {
                 "current": "okta:index/roleSubscription:RoleSubscription",
-                "majorVersion": 4
+                "majorVersion": 5
             },
             "okta_security_notification_emails": {
                 "current": "okta:index/securityNotificationEmails:SecurityNotificationEmails",
-                "majorVersion": 4
+                "majorVersion": 5
             },
             "okta_template_sms": {
                 "current": "okta:index/templateSms:TemplateSms",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "translations": {
                         "maxItemsOne": false
@@ -901,11 +905,11 @@
             },
             "okta_theme": {
                 "current": "okta:index/theme:Theme",
-                "majorVersion": 4
+                "majorVersion": 5
             },
             "okta_threat_insight_settings": {
                 "current": "okta:index/threatInsightSettings:ThreatInsightSettings",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "network_excludes": {
                         "maxItemsOne": false
@@ -914,7 +918,7 @@
             },
             "okta_trusted_origin": {
                 "current": "okta:trustedorigin/origin:Origin",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "scopes": {
                         "maxItemsOne": false
@@ -923,7 +927,7 @@
             },
             "okta_trusted_server": {
                 "current": "okta:index/trustedServer:TrustedServer",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "trusted": {
                         "maxItemsOne": false
@@ -932,7 +936,7 @@
             },
             "okta_user": {
                 "current": "okta:user/user:User",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "custom_profile_attributes_to_ignore": {
                         "maxItemsOne": false
@@ -944,7 +948,7 @@
             },
             "okta_user_admin_roles": {
                 "current": "okta:index/userAdminRoles:UserAdminRoles",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "admin_roles": {
                         "maxItemsOne": false
@@ -953,15 +957,15 @@
             },
             "okta_user_base_schema_property": {
                 "current": "okta:index/userBaseSchemaProperty:UserBaseSchemaProperty",
-                "majorVersion": 4
+                "majorVersion": 5
             },
             "okta_user_factor_question": {
                 "current": "okta:index/userFactorQuestion:UserFactorQuestion",
-                "majorVersion": 4
+                "majorVersion": 5
             },
             "okta_user_group_memberships": {
                 "current": "okta:index/userGroupMemberships:UserGroupMemberships",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "groups": {
                         "maxItemsOne": false
@@ -970,7 +974,7 @@
             },
             "okta_user_schema_property": {
                 "current": "okta:index/userSchemaProperty:UserSchemaProperty",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "array_enum": {
                         "maxItemsOne": false
@@ -991,13 +995,13 @@
             },
             "okta_user_type": {
                 "current": "okta:user/userType:UserType",
-                "majorVersion": 4
+                "majorVersion": 5
             }
         },
         "datasources": {
             "okta_app": {
                 "current": "okta:app/getApp:getApp",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "groups": {
                         "maxItemsOne": false
@@ -1009,7 +1013,7 @@
             },
             "okta_app_group_assignments": {
                 "current": "okta:index/getAppGroupAssignments:getAppGroupAssignments",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "groups": {
                         "maxItemsOne": false
@@ -1018,11 +1022,11 @@
             },
             "okta_app_metadata_saml": {
                 "current": "okta:app/getMetadataSaml:getMetadataSaml",
-                "majorVersion": 4
+                "majorVersion": 5
             },
             "okta_app_oauth": {
                 "current": "okta:app/getOauth:getOauth",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "grant_types": {
                         "maxItemsOne": false
@@ -1043,7 +1047,7 @@
             },
             "okta_app_saml": {
                 "current": "okta:app/getSaml:getSaml",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "acs_endpoints": {
                         "maxItemsOne": false
@@ -1071,11 +1075,11 @@
             },
             "okta_app_signon_policy": {
                 "current": "okta:index/getAppSignonPolicy:getAppSignonPolicy",
-                "majorVersion": 4
+                "majorVersion": 5
             },
             "okta_app_user_assignments": {
                 "current": "okta:index/getAppUserAssignments:getAppUserAssignments",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "users": {
                         "maxItemsOne": false
@@ -1084,7 +1088,7 @@
             },
             "okta_apps": {
                 "current": "okta:index/getApps:getApps",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "apps": {
                         "maxItemsOne": false,
@@ -1100,7 +1104,7 @@
             },
             "okta_auth_server": {
                 "current": "okta:auth/getServer:getServer",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "audiences": {
                         "maxItemsOne": false
@@ -1109,7 +1113,7 @@
             },
             "okta_auth_server_claim": {
                 "current": "okta:index/getAuthServerClaim:getAuthServerClaim",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "scopes": {
                         "maxItemsOne": false
@@ -1118,7 +1122,7 @@
             },
             "okta_auth_server_claims": {
                 "current": "okta:index/getAuthServerClaims:getAuthServerClaims",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "claims": {
                         "maxItemsOne": false,
@@ -1134,7 +1138,7 @@
             },
             "okta_auth_server_policy": {
                 "current": "okta:auth/getServerPolicy:getServerPolicy",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "assigned_clients": {
                         "maxItemsOne": false
@@ -1143,7 +1147,7 @@
             },
             "okta_auth_server_scopes": {
                 "current": "okta:auth/getServerScopes:getServerScopes",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "scopes": {
                         "maxItemsOne": false
@@ -1152,15 +1156,15 @@
             },
             "okta_authenticator": {
                 "current": "okta:index/getAuthenticator:getAuthenticator",
-                "majorVersion": 4
+                "majorVersion": 5
             },
             "okta_behavior": {
                 "current": "okta:index/getBehaviour:getBehaviour",
-                "majorVersion": 4
+                "majorVersion": 5
             },
             "okta_behaviors": {
                 "current": "okta:index/getBehaviours:getBehaviours",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "behaviors": {
                         "maxItemsOne": false
@@ -1169,11 +1173,11 @@
             },
             "okta_brand": {
                 "current": "okta:index/getBrand:getBrand",
-                "majorVersion": 4
+                "majorVersion": 5
             },
             "okta_brands": {
                 "current": "okta:index/getBrands:getBrands",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "brands": {
                         "maxItemsOne": false
@@ -1182,11 +1186,11 @@
             },
             "okta_default_policy": {
                 "current": "okta:policy/getDefaultPolicy:getDefaultPolicy",
-                "majorVersion": 4
+                "majorVersion": 5
             },
             "okta_default_signin_page": {
                 "current": "okta:index/getDefaultSigninPage:getDefaultSigninPage",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "content_security_policy_setting": {
                         "fields": {
@@ -1199,7 +1203,7 @@
             },
             "okta_device_assurance_policy": {
                 "current": "okta:index/getDeviceAssurancePolicy:getDeviceAssurancePolicy",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "disk_encryption_type": {
                         "fields": {
@@ -1222,7 +1226,7 @@
             },
             "okta_domain": {
                 "current": "okta:index/getDomain:getDomain",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "dns_records": {
                         "maxItemsOne": false,
@@ -1238,11 +1242,11 @@
             },
             "okta_email_customization": {
                 "current": "okta:index/getEmailCustomization:getEmailCustomization",
-                "majorVersion": 4
+                "majorVersion": 5
             },
             "okta_email_customizations": {
                 "current": "okta:index/getEmailCustomizations:getEmailCustomizations",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "email_customizations": {
                         "maxItemsOne": false
@@ -1251,15 +1255,15 @@
             },
             "okta_email_smtp_server": {
                 "current": "okta:index/getEmailSmtpServer:getEmailSmtpServer",
-                "majorVersion": 4
+                "majorVersion": 5
             },
             "okta_email_template": {
                 "current": "okta:index/getTemplate:getTemplate",
-                "majorVersion": 4
+                "majorVersion": 5
             },
             "okta_email_templates": {
                 "current": "okta:index/getTemplates:getTemplates",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "email_templates": {
                         "maxItemsOne": false
@@ -1268,11 +1272,20 @@
             },
             "okta_everyone_group": {
                 "current": "okta:group/getEveryoneGroup:getEveryoneGroup",
-                "majorVersion": 4
+                "majorVersion": 5
+            },
+            "okta_features": {
+                "current": "okta:index/getFeatures:getFeatures",
+                "majorVersion": 5,
+                "fields": {
+                    "features": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "okta_group": {
                 "current": "okta:group/getGroup:getGroup",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "users": {
                         "maxItemsOne": false
@@ -1281,7 +1294,7 @@
             },
             "okta_group_rule": {
                 "current": "okta:group/getRule:getRule",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "group_assignments": {
                         "maxItemsOne": false
@@ -1293,7 +1306,7 @@
             },
             "okta_groups": {
                 "current": "okta:index/getGroups:getGroups",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "groups": {
                         "maxItemsOne": false
@@ -1302,11 +1315,11 @@
             },
             "okta_idp_metadata_saml": {
                 "current": "okta:idp/getMetadataSaml:getMetadataSaml",
-                "majorVersion": 4
+                "majorVersion": 5
             },
             "okta_idp_oidc": {
                 "current": "okta:idp/getOidc:getOidc",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "scopes": {
                         "maxItemsOne": false
@@ -1315,7 +1328,7 @@
             },
             "okta_idp_saml": {
                 "current": "okta:idp/getSaml:getSaml",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "subject_format": {
                         "maxItemsOne": false
@@ -1324,7 +1337,7 @@
             },
             "okta_idp_social": {
                 "current": "okta:idp/getSocial:getSocial",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "account_link_group_include": {
                         "maxItemsOne": false
@@ -1342,11 +1355,11 @@
             },
             "okta_log_stream": {
                 "current": "okta:index/getLogStream:getLogStream",
-                "majorVersion": 4
+                "majorVersion": 5
             },
             "okta_network_zone": {
                 "current": "okta:index/getNetworkZone:getNetworkZone",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "asns": {
                         "maxItemsOne": false
@@ -1373,23 +1386,23 @@
             },
             "okta_org_metadata": {
                 "current": "okta:index/getOrgMetadata:getOrgMetadata",
-                "majorVersion": 4
+                "majorVersion": 5
             },
             "okta_policy": {
                 "current": "okta:policy/getPolicy:getPolicy",
-                "majorVersion": 4
+                "majorVersion": 5
             },
             "okta_role_subscription": {
                 "current": "okta:index/getRoleSubscription:getRoleSubscription",
-                "majorVersion": 4
+                "majorVersion": 5
             },
             "okta_theme": {
                 "current": "okta:index/getTheme:getTheme",
-                "majorVersion": 4
+                "majorVersion": 5
             },
             "okta_themes": {
                 "current": "okta:index/getThemes:getThemes",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "themes": {
                         "maxItemsOne": false
@@ -1398,7 +1411,7 @@
             },
             "okta_trusted_origins": {
                 "current": "okta:index/getTrustedOrigins:getTrustedOrigins",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "trusted_origins": {
                         "maxItemsOne": false,
@@ -1414,7 +1427,7 @@
             },
             "okta_user": {
                 "current": "okta:user/getUser:getUser",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "admin_roles": {
                         "maxItemsOne": false
@@ -1432,11 +1445,11 @@
             },
             "okta_user_profile_mapping_source": {
                 "current": "okta:user/getUserProfileMappingSource:getUserProfileMappingSource",
-                "majorVersion": 4
+                "majorVersion": 5
             },
             "okta_user_security_questions": {
                 "current": "okta:index/getUserSecurityQuestions:getUserSecurityQuestions",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "questions": {
                         "maxItemsOne": false
@@ -1445,11 +1458,11 @@
             },
             "okta_user_type": {
                 "current": "okta:user/getUserType:getUserType",
-                "majorVersion": 4
+                "majorVersion": 5
             },
             "okta_users": {
                 "current": "okta:user/getUsers:getUsers",
-                "majorVersion": 4,
+                "majorVersion": 5,
                 "fields": {
                     "search": {
                         "maxItemsOne": false
@@ -1477,7 +1490,7 @@
     "auto-settings": {
         "resources": {
             "okta_auth_server_policy_rule": {
-                "aliases": [
+                "renames": [
                     "okta:auth/serverPolicyClaim:ServerPolicyClaim"
                 ]
             }
@@ -1502,7 +1515,6 @@
             "okta:auth/server:Server": 0,
             "okta:auth/serverClaim:ServerClaim": 0,
             "okta:auth/serverPolicy:ServerPolicy": 0,
-            "okta:auth/serverPolicyClaim:ServerPolicyClaim": 0,
             "okta:auth/serverPolicyRule:ServerPolicyRule": 0,
             "okta:auth/serverScope:ServerScope": 0,
             "okta:factor/factor:Factor": 0,
@@ -1546,6 +1558,7 @@
             "okta:index/eventHook:EventHook": 0,
             "okta:index/eventHookVerification:EventHookVerification": 0,
             "okta:index/factorTotp:FactorTotp": 0,
+            "okta:index/feature:Feature": 1,
             "okta:index/groupMemberships:GroupMemberships": 0,
             "okta:index/groupSchemaProperty:GroupSchemaProperty": 0,
             "okta:index/linkDefinition:LinkDefinition": 0,
@@ -1623,6 +1636,7 @@
             "okta:index/getEmailCustomization:getEmailCustomization": 0,
             "okta:index/getEmailCustomizations:getEmailCustomizations": 0,
             "okta:index/getEmailSmtpServer:getEmailSmtpServer": 0,
+            "okta:index/getFeatures:getFeatures": 1,
             "okta:index/getGroups:getGroups": 0,
             "okta:index/getLogStream:getLogStream": 1,
             "okta:index/getNetworkZone:getNetworkZone": 0,
