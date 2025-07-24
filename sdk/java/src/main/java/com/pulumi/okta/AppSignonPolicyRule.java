@@ -51,14 +51,14 @@ public class AppSignonPolicyRule extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.access);
     }
     /**
-     * Use with verification method = `AUTH_METHOD_CHAIN` only
+     * Authentication method chains. Only supports 5 items in the array. Each chain can support maximum 3 steps. To be used only with verification method type `AUTH_METHOD_CHAIN`.
      * 
      */
     @Export(name="chains", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> chains;
 
     /**
-     * @return Use with verification method = `AUTH_METHOD_CHAIN` only
+     * @return Authentication method chains. Only supports 5 items in the array. Each chain can support maximum 3 steps. To be used only with verification method type `AUTH_METHOD_CHAIN`.
      * 
      */
     public Output<Optional<List<String>>> chains() {

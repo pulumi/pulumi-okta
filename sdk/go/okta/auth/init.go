@@ -7,7 +7,7 @@ import (
 	"fmt"
 
 	"github.com/blang/semver"
-	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
+	"github.com/pulumi/pulumi-okta/sdk/v5/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -27,8 +27,6 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ServerClaim{}
 	case "okta:auth/serverPolicy:ServerPolicy":
 		r = &ServerPolicy{}
-	case "okta:auth/serverPolicyClaim:ServerPolicyClaim":
-		r = &ServerPolicyClaim{}
 	case "okta:auth/serverPolicyRule:ServerPolicyRule":
 		r = &ServerPolicyRule{}
 	case "okta:auth/serverScope:ServerScope":
@@ -59,11 +57,6 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"okta",
 		"auth/serverPolicy",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"okta",
-		"auth/serverPolicyClaim",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

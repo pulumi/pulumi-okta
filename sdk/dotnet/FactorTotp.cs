@@ -17,6 +17,10 @@ namespace Pulumi.Okta
     /// Once saved, the settings cannot be changed (except for the 'name' field). Any other change would force resource
     /// recreation.
     /// 
+    /// &gt; IMPORTANT: Okta API does not allow deletion of the TOTP factors through the
+    /// API. This provider will print a warning if it attempts to destroy the resource
+    /// receives a 501 not implemented error from the API instead of outright failing.
+    /// 
     /// ## Example Usage
     /// 
     /// ```csharp

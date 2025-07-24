@@ -96,14 +96,14 @@ public class Saml extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.acsEndpoints);
     }
     /**
-     * ACS endpoints along with custom index as a set of maps called `acs_endpoints_indices` in JSON format
+     * ACS endpoints along with custom index as a set of maps called `acs_endpoints_indices` in JSON format.
      * 
      */
     @Export(name="acsEndpointsIndices", refs={List.class,SamlAcsEndpointsIndex.class}, tree="[0,1]")
     private Output</* @Nullable */ List<SamlAcsEndpointsIndex>> acsEndpointsIndices;
 
     /**
-     * @return ACS endpoints along with custom index as a set of maps called `acs_endpoints_indices` in JSON format
+     * @return ACS endpoints along with custom index as a set of maps called `acs_endpoints_indices` in JSON format.
      * 
      */
     public Output<Optional<List<SamlAcsEndpointsIndex>>> acsEndpointsIndices() {

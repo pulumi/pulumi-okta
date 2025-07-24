@@ -176,6 +176,20 @@ public class Oidc extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.deprovisionedAction);
     }
     /**
+     * Optional regular expression pattern used to filter untrusted IdP usernames.
+     * 
+     */
+    @Export(name="filter", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> filter;
+
+    /**
+     * @return Optional regular expression pattern used to filter untrusted IdP usernames.
+     * 
+     */
+    public Output<Optional<String>> filter() {
+        return Codegen.optional(this.filter);
+    }
+    /**
      * Provisioning action for IdP user&#39;s group memberships. It can be `NONE`, `SYNC`, `APPEND`, or `ASSIGN`. Default: `NONE`
      * 
      */

@@ -36,14 +36,14 @@ public final class AppSignonPolicyRuleArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * Use with verification method = `AUTH_METHOD_CHAIN` only
+     * Authentication method chains. Only supports 5 items in the array. Each chain can support maximum 3 steps. To be used only with verification method type `AUTH_METHOD_CHAIN`.
      * 
      */
     @Import(name="chains")
     private @Nullable Output<List<String>> chains;
 
     /**
-     * @return Use with verification method = `AUTH_METHOD_CHAIN` only
+     * @return Authentication method chains. Only supports 5 items in the array. Each chain can support maximum 3 steps. To be used only with verification method type `AUTH_METHOD_CHAIN`.
      * 
      */
     public Optional<Output<List<String>>> chains() {
@@ -473,7 +473,7 @@ public final class AppSignonPolicyRuleArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param chains Use with verification method = `AUTH_METHOD_CHAIN` only
+         * @param chains Authentication method chains. Only supports 5 items in the array. Each chain can support maximum 3 steps. To be used only with verification method type `AUTH_METHOD_CHAIN`.
          * 
          * @return builder
          * 
@@ -484,7 +484,7 @@ public final class AppSignonPolicyRuleArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param chains Use with verification method = `AUTH_METHOD_CHAIN` only
+         * @param chains Authentication method chains. Only supports 5 items in the array. Each chain can support maximum 3 steps. To be used only with verification method type `AUTH_METHOD_CHAIN`.
          * 
          * @return builder
          * 
@@ -494,7 +494,7 @@ public final class AppSignonPolicyRuleArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param chains Use with verification method = `AUTH_METHOD_CHAIN` only
+         * @param chains Authentication method chains. Only supports 5 items in the array. Each chain can support maximum 3 steps. To be used only with verification method type `AUTH_METHOD_CHAIN`.
          * 
          * @return builder
          * 

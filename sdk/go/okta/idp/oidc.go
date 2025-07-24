@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
+	"github.com/pulumi/pulumi-okta/sdk/v5/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/idp"
+//	"github.com/pulumi/pulumi-okta/sdk/v5/go/okta/idp"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -77,6 +77,8 @@ type Oidc struct {
 	ClientSecret pulumi.StringOutput `pulumi:"clientSecret"`
 	// Action for a previously deprovisioned IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`
 	DeprovisionedAction pulumi.StringPtrOutput `pulumi:"deprovisionedAction"`
+	// Optional regular expression pattern used to filter untrusted IdP usernames.
+	Filter pulumi.StringPtrOutput `pulumi:"filter"`
 	// Provisioning action for IdP user's group memberships. It can be `NONE`, `SYNC`, `APPEND`, or `ASSIGN`. Default: `NONE`
 	GroupsAction pulumi.StringPtrOutput `pulumi:"groupsAction"`
 	// List of Okta Group IDs to add an IdP user as a member with the `ASSIGN` `groupsAction`.
@@ -215,6 +217,8 @@ type oidcState struct {
 	ClientSecret *string `pulumi:"clientSecret"`
 	// Action for a previously deprovisioned IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`
 	DeprovisionedAction *string `pulumi:"deprovisionedAction"`
+	// Optional regular expression pattern used to filter untrusted IdP usernames.
+	Filter *string `pulumi:"filter"`
 	// Provisioning action for IdP user's group memberships. It can be `NONE`, `SYNC`, `APPEND`, or `ASSIGN`. Default: `NONE`
 	GroupsAction *string `pulumi:"groupsAction"`
 	// List of Okta Group IDs to add an IdP user as a member with the `ASSIGN` `groupsAction`.
@@ -287,6 +291,8 @@ type OidcState struct {
 	ClientSecret pulumi.StringPtrInput
 	// Action for a previously deprovisioned IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`
 	DeprovisionedAction pulumi.StringPtrInput
+	// Optional regular expression pattern used to filter untrusted IdP usernames.
+	Filter pulumi.StringPtrInput
 	// Provisioning action for IdP user's group memberships. It can be `NONE`, `SYNC`, `APPEND`, or `ASSIGN`. Default: `NONE`
 	GroupsAction pulumi.StringPtrInput
 	// List of Okta Group IDs to add an IdP user as a member with the `ASSIGN` `groupsAction`.
@@ -363,6 +369,8 @@ type oidcArgs struct {
 	ClientSecret string `pulumi:"clientSecret"`
 	// Action for a previously deprovisioned IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`
 	DeprovisionedAction *string `pulumi:"deprovisionedAction"`
+	// Optional regular expression pattern used to filter untrusted IdP usernames.
+	Filter *string `pulumi:"filter"`
 	// Provisioning action for IdP user's group memberships. It can be `NONE`, `SYNC`, `APPEND`, or `ASSIGN`. Default: `NONE`
 	GroupsAction *string `pulumi:"groupsAction"`
 	// List of Okta Group IDs to add an IdP user as a member with the `ASSIGN` `groupsAction`.
@@ -432,6 +440,8 @@ type OidcArgs struct {
 	ClientSecret pulumi.StringInput
 	// Action for a previously deprovisioned IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`
 	DeprovisionedAction pulumi.StringPtrInput
+	// Optional regular expression pattern used to filter untrusted IdP usernames.
+	Filter pulumi.StringPtrInput
 	// Provisioning action for IdP user's group memberships. It can be `NONE`, `SYNC`, `APPEND`, or `ASSIGN`. Default: `NONE`
 	GroupsAction pulumi.StringPtrInput
 	// List of Okta Group IDs to add an IdP user as a member with the `ASSIGN` `groupsAction`.
@@ -605,6 +615,11 @@ func (o OidcOutput) ClientSecret() pulumi.StringOutput {
 // Action for a previously deprovisioned IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`
 func (o OidcOutput) DeprovisionedAction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Oidc) pulumi.StringPtrOutput { return v.DeprovisionedAction }).(pulumi.StringPtrOutput)
+}
+
+// Optional regular expression pattern used to filter untrusted IdP usernames.
+func (o OidcOutput) Filter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Oidc) pulumi.StringPtrOutput { return v.Filter }).(pulumi.StringPtrOutput)
 }
 
 // Provisioning action for IdP user's group memberships. It can be `NONE`, `SYNC`, `APPEND`, or `ASSIGN`. Default: `NONE`

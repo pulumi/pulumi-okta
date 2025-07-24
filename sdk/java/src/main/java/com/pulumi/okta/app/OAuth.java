@@ -133,14 +133,14 @@ public class OAuth extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.appSettingsJson);
     }
     /**
-     * The ID of the associated app*signon*policy. If this property is removed from the application the default sign-on-policy will be associated with this application.
+     * The ID of the associated app*signon*policy. If this property is removed from the application the default sign-on-policy will be associated with this application. From now on, there is no need to attach authentication_policy for applications of type `SERVICE` in the upcoming release.
      * 
      */
     @Export(name="authenticationPolicy", refs={String.class}, tree="[0]")
     private Output<String> authenticationPolicy;
 
     /**
-     * @return The ID of the associated app*signon*policy. If this property is removed from the application the default sign-on-policy will be associated with this application.
+     * @return The ID of the associated app*signon*policy. If this property is removed from the application the default sign-on-policy will be associated with this application. From now on, there is no need to attach authentication_policy for applications of type `SERVICE` in the upcoming release.
      * 
      */
     public Output<String> authenticationPolicy() {

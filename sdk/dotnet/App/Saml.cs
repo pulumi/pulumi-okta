@@ -53,7 +53,7 @@ namespace Pulumi.Okta.App
         public Output<ImmutableArray<string>> AcsEndpoints { get; private set; } = null!;
 
         /// <summary>
-        /// ACS endpoints along with custom index as a set of maps called `acs_endpoints_indices` in JSON format
+        /// ACS endpoints along with custom index as a set of maps called `acs_endpoints_indices` in JSON format.
         /// </summary>
         [Output("acsEndpointsIndices")]
         public Output<ImmutableArray<Outputs.SamlAcsEndpointsIndex>> AcsEndpointsIndices { get; private set; } = null!;
@@ -480,7 +480,7 @@ namespace Pulumi.Okta.App
         private InputList<Inputs.SamlAcsEndpointsIndexArgs>? _acsEndpointsIndices;
 
         /// <summary>
-        /// ACS endpoints along with custom index as a set of maps called `acs_endpoints_indices` in JSON format
+        /// ACS endpoints along with custom index as a set of maps called `acs_endpoints_indices` in JSON format.
         /// </summary>
         public InputList<Inputs.SamlAcsEndpointsIndexArgs> AcsEndpointsIndices
         {
@@ -793,7 +793,7 @@ namespace Pulumi.Okta.App
         private InputList<Inputs.SamlAcsEndpointsIndexGetArgs>? _acsEndpointsIndices;
 
         /// <summary>
-        /// ACS endpoints along with custom index as a set of maps called `acs_endpoints_indices` in JSON format
+        /// ACS endpoints along with custom index as a set of maps called `acs_endpoints_indices` in JSON format.
         /// </summary>
         public InputList<Inputs.SamlAcsEndpointsIndexGetArgs> AcsEndpointsIndices
         {

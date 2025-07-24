@@ -41,6 +41,8 @@ import com.pulumi.okta.inputs.GetEmailCustomizationsArgs;
 import com.pulumi.okta.inputs.GetEmailCustomizationsPlainArgs;
 import com.pulumi.okta.inputs.GetEmailSmtpServerArgs;
 import com.pulumi.okta.inputs.GetEmailSmtpServerPlainArgs;
+import com.pulumi.okta.inputs.GetFeaturesArgs;
+import com.pulumi.okta.inputs.GetFeaturesPlainArgs;
 import com.pulumi.okta.inputs.GetGroupsArgs;
 import com.pulumi.okta.inputs.GetGroupsPlainArgs;
 import com.pulumi.okta.inputs.GetLogStreamArgs;
@@ -80,6 +82,7 @@ import com.pulumi.okta.outputs.GetDomainResult;
 import com.pulumi.okta.outputs.GetEmailCustomizationResult;
 import com.pulumi.okta.outputs.GetEmailCustomizationsResult;
 import com.pulumi.okta.outputs.GetEmailSmtpServerResult;
+import com.pulumi.okta.outputs.GetFeaturesResult;
 import com.pulumi.okta.outputs.GetGroupsResult;
 import com.pulumi.okta.outputs.GetLogStreamResult;
 import com.pulumi.okta.outputs.GetNetworkZoneResult;
@@ -2675,6 +2678,300 @@ public final class OktaFunctions {
     }
     public static CompletableFuture<GetEmailSmtpServerResult> getEmailSmtpServerPlain(GetEmailSmtpServerPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("okta:index/getEmailSmtpServer:getEmailSmtpServer", TypeShape.of(GetEmailSmtpServerResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Get a list of features from Okta.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetFeaturesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OktaFunctions.getFeatures(GetFeaturesArgs.builder()
+     *             .label("Android Device Trust")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetFeaturesResult> getFeatures() {
+        return getFeatures(GetFeaturesArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Get a list of features from Okta.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetFeaturesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OktaFunctions.getFeatures(GetFeaturesArgs.builder()
+     *             .label("Android Device Trust")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetFeaturesResult> getFeaturesPlain() {
+        return getFeaturesPlain(GetFeaturesPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Get a list of features from Okta.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetFeaturesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OktaFunctions.getFeatures(GetFeaturesArgs.builder()
+     *             .label("Android Device Trust")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetFeaturesResult> getFeatures(GetFeaturesArgs args) {
+        return getFeatures(args, InvokeOptions.Empty);
+    }
+    /**
+     * Get a list of features from Okta.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetFeaturesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OktaFunctions.getFeatures(GetFeaturesArgs.builder()
+     *             .label("Android Device Trust")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetFeaturesResult> getFeaturesPlain(GetFeaturesPlainArgs args) {
+        return getFeaturesPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Get a list of features from Okta.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetFeaturesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OktaFunctions.getFeatures(GetFeaturesArgs.builder()
+     *             .label("Android Device Trust")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetFeaturesResult> getFeatures(GetFeaturesArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("okta:index/getFeatures:getFeatures", TypeShape.of(GetFeaturesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Get a list of features from Okta.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetFeaturesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OktaFunctions.getFeatures(GetFeaturesArgs.builder()
+     *             .label("Android Device Trust")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetFeaturesResult> getFeatures(GetFeaturesArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("okta:index/getFeatures:getFeatures", TypeShape.of(GetFeaturesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Get a list of features from Okta.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetFeaturesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OktaFunctions.getFeatures(GetFeaturesArgs.builder()
+     *             .label("Android Device Trust")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetFeaturesResult> getFeaturesPlain(GetFeaturesPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("okta:index/getFeatures:getFeatures", TypeShape.of(GetFeaturesResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Get a list of groups from Okta.

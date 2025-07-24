@@ -144,6 +144,11 @@ export interface EventHookHeader {
     value?: string;
 }
 
+export interface FeatureStage {
+    state: string;
+    value: string;
+}
+
 export interface GetAppsApp {
     adminNote: string;
     created: string;
@@ -392,6 +397,20 @@ export interface GetEmailCustomizationsEmailCustomization {
      * The subject of the customization
      */
     subject: string;
+}
+
+export interface GetFeaturesFeature {
+    description: string;
+    id: string;
+    name: string;
+    stage: outputs.GetFeaturesFeatureStage;
+    status: string;
+    type: string;
+}
+
+export interface GetFeaturesFeatureStage {
+    state: string;
+    value: string;
 }
 
 export interface GetGroupsGroup {

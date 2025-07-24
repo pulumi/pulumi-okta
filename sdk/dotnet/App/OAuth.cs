@@ -75,7 +75,7 @@ namespace Pulumi.Okta.App
         public Output<string?> AppSettingsJson { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the associated app*signon*policy. If this property is removed from the application the default sign-on-policy will be associated with this application.
+        /// The ID of the associated app*signon*policy. If this property is removed from the application the default sign-on-policy will be associated with this application. From now on, there is no need to attach authentication_policy for applications of type `SERVICE` in the upcoming release.
         /// </summary>
         [Output("authenticationPolicy")]
         public Output<string> AuthenticationPolicy { get; private set; } = null!;
@@ -427,7 +427,7 @@ namespace Pulumi.Okta.App
         public Input<string>? AppSettingsJson { get; set; }
 
         /// <summary>
-        /// The ID of the associated app*signon*policy. If this property is removed from the application the default sign-on-policy will be associated with this application.
+        /// The ID of the associated app*signon*policy. If this property is removed from the application the default sign-on-policy will be associated with this application. From now on, there is no need to attach authentication_policy for applications of type `SERVICE` in the upcoming release.
         /// </summary>
         [Input("authenticationPolicy")]
         public Input<string>? AuthenticationPolicy { get; set; }
@@ -757,7 +757,7 @@ namespace Pulumi.Okta.App
         public Input<string>? AppSettingsJson { get; set; }
 
         /// <summary>
-        /// The ID of the associated app*signon*policy. If this property is removed from the application the default sign-on-policy will be associated with this application.
+        /// The ID of the associated app*signon*policy. If this property is removed from the application the default sign-on-policy will be associated with this application. From now on, there is no need to attach authentication_policy for applications of type `SERVICE` in the upcoming release.
         /// </summary>
         [Input("authenticationPolicy")]
         public Input<string>? AuthenticationPolicy { get; set; }

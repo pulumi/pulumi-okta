@@ -112,14 +112,14 @@ public final class OAuthArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ID of the associated app*signon*policy. If this property is removed from the application the default sign-on-policy will be associated with this application.
+     * The ID of the associated app*signon*policy. If this property is removed from the application the default sign-on-policy will be associated with this application. From now on, there is no need to attach authentication_policy for applications of type `SERVICE` in the upcoming release.
      * 
      */
     @Import(name="authenticationPolicy")
     private @Nullable Output<String> authenticationPolicy;
 
     /**
-     * @return The ID of the associated app*signon*policy. If this property is removed from the application the default sign-on-policy will be associated with this application.
+     * @return The ID of the associated app*signon*policy. If this property is removed from the application the default sign-on-policy will be associated with this application. From now on, there is no need to attach authentication_policy for applications of type `SERVICE` in the upcoming release.
      * 
      */
     public Optional<Output<String>> authenticationPolicy() {
@@ -907,7 +907,7 @@ public final class OAuthArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param authenticationPolicy The ID of the associated app*signon*policy. If this property is removed from the application the default sign-on-policy will be associated with this application.
+         * @param authenticationPolicy The ID of the associated app*signon*policy. If this property is removed from the application the default sign-on-policy will be associated with this application. From now on, there is no need to attach authentication_policy for applications of type `SERVICE` in the upcoming release.
          * 
          * @return builder
          * 
@@ -918,7 +918,7 @@ public final class OAuthArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param authenticationPolicy The ID of the associated app*signon*policy. If this property is removed from the application the default sign-on-policy will be associated with this application.
+         * @param authenticationPolicy The ID of the associated app*signon*policy. If this property is removed from the application the default sign-on-policy will be associated with this application. From now on, there is no need to attach authentication_policy for applications of type `SERVICE` in the upcoming release.
          * 
          * @return builder
          * 

@@ -26,6 +26,7 @@ __all__ = [
     'EmailDomainDnsValidationRecord',
     'EmailSenderDnsRecord',
     'EventHookHeader',
+    'FeatureStage',
     'GroupSchemaPropertyArrayOneOf',
     'GroupSchemaPropertyMasterOverridePriority',
     'GroupSchemaPropertyOneOf',
@@ -57,6 +58,8 @@ __all__ = [
     'GetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersionResult',
     'GetDomainDnsRecordResult',
     'GetEmailCustomizationsEmailCustomizationResult',
+    'GetFeaturesFeatureResult',
+    'GetFeaturesFeatureStageResult',
     'GetGroupsGroupResult',
     'GetLogStreamSettingsResult',
     'GetOrgMetadataDomainsResult',
@@ -726,6 +729,25 @@ class EventHookHeader(dict):
     @_builtins.property
     @pulumi.getter
     def value(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class FeatureStage(dict):
+    def __init__(__self__, *,
+                 state: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "state", state)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def state(self) -> _builtins.str:
+        return pulumi.get(self, "state")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
         return pulumi.get(self, "value")
 
 
@@ -2283,6 +2305,72 @@ class GetEmailCustomizationsEmailCustomizationResult(dict):
         The subject of the customization
         """
         return pulumi.get(self, "subject")
+
+
+@pulumi.output_type
+class GetFeaturesFeatureResult(dict):
+    def __init__(__self__, *,
+                 description: _builtins.str,
+                 id: _builtins.str,
+                 name: _builtins.str,
+                 stage: 'outputs.GetFeaturesFeatureStageResult',
+                 status: _builtins.str,
+                 type: _builtins.str):
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "stage", stage)
+        pulumi.set(__self__, "status", status)
+        pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.str:
+        return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def stage(self) -> 'outputs.GetFeaturesFeatureStageResult':
+        return pulumi.get(self, "stage")
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> _builtins.str:
+        return pulumi.get(self, "status")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class GetFeaturesFeatureStageResult(dict):
+    def __init__(__self__, *,
+                 state: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "state", state)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def state(self) -> _builtins.str:
+        return pulumi.get(self, "state")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type

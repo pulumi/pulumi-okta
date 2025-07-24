@@ -35,6 +35,8 @@ __all__ = [
     'EmailSenderDnsRecordArgsDict',
     'EventHookHeaderArgs',
     'EventHookHeaderArgsDict',
+    'FeatureStageArgs',
+    'FeatureStageArgsDict',
     'GroupSchemaPropertyArrayOneOfArgs',
     'GroupSchemaPropertyArrayOneOfArgsDict',
     'GroupSchemaPropertyMasterOverridePriorityArgs',
@@ -940,6 +942,40 @@ class EventHookHeaderArgs:
 
     @value.setter
     def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class FeatureStageArgsDict(TypedDict):
+        state: pulumi.Input[_builtins.str]
+        value: pulumi.Input[_builtins.str]
+elif False:
+    FeatureStageArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class FeatureStageArgs:
+    def __init__(__self__, *,
+                 state: pulumi.Input[_builtins.str],
+                 value: pulumi.Input[_builtins.str]):
+        pulumi.set(__self__, "state", state)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def state(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "state")
+
+    @state.setter
+    def state(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "state", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "value", value)
 
 

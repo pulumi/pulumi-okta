@@ -54,7 +54,7 @@ export class AppSignonPolicyRule extends pulumi.CustomResource {
      */
     public readonly access!: pulumi.Output<string | undefined>;
     /**
-     * Use with verification method = `AUTH_METHOD_CHAIN` only
+     * Authentication method chains. Only supports 5 items in the array. Each chain can support maximum 3 steps. To be used only with verification method type `AUTH_METHOD_CHAIN`.
      */
     public readonly chains!: pulumi.Output<string[] | undefined>;
     /**
@@ -242,7 +242,7 @@ export interface AppSignonPolicyRuleState {
      */
     access?: pulumi.Input<string>;
     /**
-     * Use with verification method = `AUTH_METHOD_CHAIN` only
+     * Authentication method chains. Only supports 5 items in the array. Each chain can support maximum 3 steps. To be used only with verification method type `AUTH_METHOD_CHAIN`.
      */
     chains?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -353,7 +353,7 @@ export interface AppSignonPolicyRuleArgs {
      */
     access?: pulumi.Input<string>;
     /**
-     * Use with verification method = `AUTH_METHOD_CHAIN` only
+     * Authentication method chains. Only supports 5 items in the array. Each chain can support maximum 3 steps. To be used only with verification method type `AUTH_METHOD_CHAIN`.
      */
     chains?: pulumi.Input<pulumi.Input<string>[]>;
     /**

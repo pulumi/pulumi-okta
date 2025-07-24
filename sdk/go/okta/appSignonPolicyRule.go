@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
+	"github.com/pulumi/pulumi-okta/sdk/v5/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -30,7 +30,7 @@ type AppSignonPolicyRule struct {
 
 	// Allow or deny access based on the rule conditions: ALLOW or DENY
 	Access pulumi.StringPtrOutput `pulumi:"access"`
-	// Use with verification method = `AUTH_METHOD_CHAIN` only
+	// Authentication method chains. Only supports 5 items in the array. Each chain can support maximum 3 steps. To be used only with verification method type `AUTH_METHOD_CHAIN`.
 	Chains pulumi.StringArrayOutput `pulumi:"chains"`
 	// An array that contains nested Authenticator Constraint objects that are organized by the Authenticator class
 	Constraints pulumi.StringArrayOutput `pulumi:"constraints"`
@@ -118,7 +118,7 @@ func GetAppSignonPolicyRule(ctx *pulumi.Context,
 type appSignonPolicyRuleState struct {
 	// Allow or deny access based on the rule conditions: ALLOW or DENY
 	Access *string `pulumi:"access"`
-	// Use with verification method = `AUTH_METHOD_CHAIN` only
+	// Authentication method chains. Only supports 5 items in the array. Each chain can support maximum 3 steps. To be used only with verification method type `AUTH_METHOD_CHAIN`.
 	Chains []string `pulumi:"chains"`
 	// An array that contains nested Authenticator Constraint objects that are organized by the Authenticator class
 	Constraints []string `pulumi:"constraints"`
@@ -174,7 +174,7 @@ type appSignonPolicyRuleState struct {
 type AppSignonPolicyRuleState struct {
 	// Allow or deny access based on the rule conditions: ALLOW or DENY
 	Access pulumi.StringPtrInput
-	// Use with verification method = `AUTH_METHOD_CHAIN` only
+	// Authentication method chains. Only supports 5 items in the array. Each chain can support maximum 3 steps. To be used only with verification method type `AUTH_METHOD_CHAIN`.
 	Chains pulumi.StringArrayInput
 	// An array that contains nested Authenticator Constraint objects that are organized by the Authenticator class
 	Constraints pulumi.StringArrayInput
@@ -234,7 +234,7 @@ func (AppSignonPolicyRuleState) ElementType() reflect.Type {
 type appSignonPolicyRuleArgs struct {
 	// Allow or deny access based on the rule conditions: ALLOW or DENY
 	Access *string `pulumi:"access"`
-	// Use with verification method = `AUTH_METHOD_CHAIN` only
+	// Authentication method chains. Only supports 5 items in the array. Each chain can support maximum 3 steps. To be used only with verification method type `AUTH_METHOD_CHAIN`.
 	Chains []string `pulumi:"chains"`
 	// An array that contains nested Authenticator Constraint objects that are organized by the Authenticator class
 	Constraints []string `pulumi:"constraints"`
@@ -289,7 +289,7 @@ type appSignonPolicyRuleArgs struct {
 type AppSignonPolicyRuleArgs struct {
 	// Allow or deny access based on the rule conditions: ALLOW or DENY
 	Access pulumi.StringPtrInput
-	// Use with verification method = `AUTH_METHOD_CHAIN` only
+	// Authentication method chains. Only supports 5 items in the array. Each chain can support maximum 3 steps. To be used only with verification method type `AUTH_METHOD_CHAIN`.
 	Chains pulumi.StringArrayInput
 	// An array that contains nested Authenticator Constraint objects that are organized by the Authenticator class
 	Constraints pulumi.StringArrayInput
@@ -432,7 +432,7 @@ func (o AppSignonPolicyRuleOutput) Access() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AppSignonPolicyRule) pulumi.StringPtrOutput { return v.Access }).(pulumi.StringPtrOutput)
 }
 
-// Use with verification method = `AUTH_METHOD_CHAIN` only
+// Authentication method chains. Only supports 5 items in the array. Each chain can support maximum 3 steps. To be used only with verification method type `AUTH_METHOD_CHAIN`.
 func (o AppSignonPolicyRuleOutput) Chains() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AppSignonPolicyRule) pulumi.StringArrayOutput { return v.Chains }).(pulumi.StringArrayOutput)
 }

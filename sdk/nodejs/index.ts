@@ -165,6 +165,11 @@ export type FactorTotp = import("./factorTotp").FactorTotp;
 export const FactorTotp: typeof import("./factorTotp").FactorTotp = null as any;
 utilities.lazyLoad(exports, ["FactorTotp"], () => require("./factorTotp"));
 
+export { FeatureArgs, FeatureState } from "./feature";
+export type Feature = import("./feature").Feature;
+export const Feature: typeof import("./feature").Feature = null as any;
+utilities.lazyLoad(exports, ["Feature"], () => require("./feature"));
+
 export { GetAppGroupAssignmentsArgs, GetAppGroupAssignmentsResult, GetAppGroupAssignmentsOutputArgs } from "./getAppGroupAssignments";
 export const getAppGroupAssignments: typeof import("./getAppGroupAssignments").getAppGroupAssignments = null as any;
 export const getAppGroupAssignmentsOutput: typeof import("./getAppGroupAssignments").getAppGroupAssignmentsOutput = null as any;
@@ -249,6 +254,11 @@ export { GetEmailSmtpServerArgs, GetEmailSmtpServerResult, GetEmailSmtpServerOut
 export const getEmailSmtpServer: typeof import("./getEmailSmtpServer").getEmailSmtpServer = null as any;
 export const getEmailSmtpServerOutput: typeof import("./getEmailSmtpServer").getEmailSmtpServerOutput = null as any;
 utilities.lazyLoad(exports, ["getEmailSmtpServer","getEmailSmtpServerOutput"], () => require("./getEmailSmtpServer"));
+
+export { GetFeaturesArgs, GetFeaturesResult, GetFeaturesOutputArgs } from "./getFeatures";
+export const getFeatures: typeof import("./getFeatures").getFeatures = null as any;
+export const getFeaturesOutput: typeof import("./getFeatures").getFeaturesOutput = null as any;
+utilities.lazyLoad(exports, ["getFeatures","getFeaturesOutput"], () => require("./getFeatures"));
 
 export { GetGroupsArgs, GetGroupsResult, GetGroupsOutputArgs } from "./getGroups";
 export const getGroups: typeof import("./getGroups").getGroups = null as any;
@@ -538,6 +548,8 @@ const _module = {
                 return new EventHookVerification(name, <any>undefined, { urn })
             case "okta:index/factorTotp:FactorTotp":
                 return new FactorTotp(name, <any>undefined, { urn })
+            case "okta:index/feature:Feature":
+                return new Feature(name, <any>undefined, { urn })
             case "okta:index/groupMemberships:GroupMemberships":
                 return new GroupMemberships(name, <any>undefined, { urn })
             case "okta:index/groupSchemaProperty:GroupSchemaProperty":
@@ -627,6 +639,7 @@ pulumi.runtime.registerResourceModule("okta", "index/emailTemplateSettings", _mo
 pulumi.runtime.registerResourceModule("okta", "index/eventHook", _module)
 pulumi.runtime.registerResourceModule("okta", "index/eventHookVerification", _module)
 pulumi.runtime.registerResourceModule("okta", "index/factorTotp", _module)
+pulumi.runtime.registerResourceModule("okta", "index/feature", _module)
 pulumi.runtime.registerResourceModule("okta", "index/groupMemberships", _module)
 pulumi.runtime.registerResourceModule("okta", "index/groupSchemaProperty", _module)
 pulumi.runtime.registerResourceModule("okta", "index/linkDefinition", _module)

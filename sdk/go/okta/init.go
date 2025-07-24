@@ -7,7 +7,7 @@ import (
 	"fmt"
 
 	"github.com/blang/semver"
-	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
+	"github.com/pulumi/pulumi-okta/sdk/v5/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -85,6 +85,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &EventHookVerification{}
 	case "okta:index/factorTotp:FactorTotp":
 		r = &FactorTotp{}
+	case "okta:index/feature:Feature":
+		r = &Feature{}
 	case "okta:index/groupMemberships:GroupMemberships":
 		r = &GroupMemberships{}
 	case "okta:index/groupSchemaProperty:GroupSchemaProperty":
@@ -326,6 +328,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"okta",
 		"index/factorTotp",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"okta",
+		"index/feature",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

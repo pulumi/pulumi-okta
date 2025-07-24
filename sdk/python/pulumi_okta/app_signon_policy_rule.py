@@ -51,7 +51,7 @@ class AppSignonPolicyRuleArgs:
         The set of arguments for constructing a AppSignonPolicyRule resource.
         :param pulumi.Input[_builtins.str] policy_id: ID of the policy
         :param pulumi.Input[_builtins.str] access: Allow or deny access based on the rule conditions: ALLOW or DENY
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] chains: Use with verification method = `AUTH_METHOD_CHAIN` only
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] chains: Authentication method chains. Only supports 5 items in the array. Each chain can support maximum 3 steps. To be used only with verification method type `AUTH_METHOD_CHAIN`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] constraints: An array that contains nested Authenticator Constraint objects that are organized by the Authenticator class
         :param pulumi.Input[_builtins.str] custom_expression: This is an optional advanced setting. If the expression is formatted incorrectly or conflicts with conditions set above, the rule may not match any users.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] device_assurances_includeds: List of device assurance IDs to include
@@ -155,7 +155,7 @@ class AppSignonPolicyRuleArgs:
     @pulumi.getter
     def chains(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        Use with verification method = `AUTH_METHOD_CHAIN` only
+        Authentication method chains. Only supports 5 items in the array. Each chain can support maximum 3 steps. To be used only with verification method type `AUTH_METHOD_CHAIN`.
         """
         return pulumi.get(self, "chains")
 
@@ -470,7 +470,7 @@ class _AppSignonPolicyRuleState:
         """
         Input properties used for looking up and filtering AppSignonPolicyRule resources.
         :param pulumi.Input[_builtins.str] access: Allow or deny access based on the rule conditions: ALLOW or DENY
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] chains: Use with verification method = `AUTH_METHOD_CHAIN` only
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] chains: Authentication method chains. Only supports 5 items in the array. Each chain can support maximum 3 steps. To be used only with verification method type `AUTH_METHOD_CHAIN`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] constraints: An array that contains nested Authenticator Constraint objects that are organized by the Authenticator class
         :param pulumi.Input[_builtins.str] custom_expression: This is an optional advanced setting. If the expression is formatted incorrectly or conflicts with conditions set above, the rule may not match any users.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] device_assurances_includeds: List of device assurance IDs to include
@@ -567,7 +567,7 @@ class _AppSignonPolicyRuleState:
     @pulumi.getter
     def chains(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        Use with verification method = `AUTH_METHOD_CHAIN` only
+        Authentication method chains. Only supports 5 items in the array. Each chain can support maximum 3 steps. To be used only with verification method type `AUTH_METHOD_CHAIN`.
         """
         return pulumi.get(self, "chains")
 
@@ -924,7 +924,7 @@ class AppSignonPolicyRule(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] access: Allow or deny access based on the rule conditions: ALLOW or DENY
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] chains: Use with verification method = `AUTH_METHOD_CHAIN` only
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] chains: Authentication method chains. Only supports 5 items in the array. Each chain can support maximum 3 steps. To be used only with verification method type `AUTH_METHOD_CHAIN`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] constraints: An array that contains nested Authenticator Constraint objects that are organized by the Authenticator class
         :param pulumi.Input[_builtins.str] custom_expression: This is an optional advanced setting. If the expression is formatted incorrectly or conflicts with conditions set above, the rule may not match any users.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] device_assurances_includeds: List of device assurance IDs to include
@@ -1094,7 +1094,7 @@ class AppSignonPolicyRule(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] access: Allow or deny access based on the rule conditions: ALLOW or DENY
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] chains: Use with verification method = `AUTH_METHOD_CHAIN` only
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] chains: Authentication method chains. Only supports 5 items in the array. Each chain can support maximum 3 steps. To be used only with verification method type `AUTH_METHOD_CHAIN`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] constraints: An array that contains nested Authenticator Constraint objects that are organized by the Authenticator class
         :param pulumi.Input[_builtins.str] custom_expression: This is an optional advanced setting. If the expression is formatted incorrectly or conflicts with conditions set above, the rule may not match any users.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] device_assurances_includeds: List of device assurance IDs to include
@@ -1165,7 +1165,7 @@ class AppSignonPolicyRule(pulumi.CustomResource):
     @pulumi.getter
     def chains(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
         """
-        Use with verification method = `AUTH_METHOD_CHAIN` only
+        Authentication method chains. Only supports 5 items in the array. Each chain can support maximum 3 steps. To be used only with verification method type `AUTH_METHOD_CHAIN`.
         """
         return pulumi.get(self, "chains")
 

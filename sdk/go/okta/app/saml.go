@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
+	"github.com/pulumi/pulumi-okta/sdk/v5/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -37,7 +37,7 @@ type Saml struct {
 	AccessibilitySelfService pulumi.BoolPtrOutput `pulumi:"accessibilitySelfService"`
 	// An array of ACS endpoints. You can configure a maximum of 100 endpoints.
 	AcsEndpoints pulumi.StringArrayOutput `pulumi:"acsEndpoints"`
-	// ACS endpoints along with custom index as a set of maps called `acsEndpointsIndices` in JSON format
+	// ACS endpoints along with custom index as a set of maps called `acsEndpointsIndices` in JSON format.
 	AcsEndpointsIndices SamlAcsEndpointsIndexArrayOutput `pulumi:"acsEndpointsIndices"`
 	// Application notes for admins.
 	AdminNote pulumi.StringPtrOutput `pulumi:"adminNote"`
@@ -202,7 +202,7 @@ type samlState struct {
 	AccessibilitySelfService *bool `pulumi:"accessibilitySelfService"`
 	// An array of ACS endpoints. You can configure a maximum of 100 endpoints.
 	AcsEndpoints []string `pulumi:"acsEndpoints"`
-	// ACS endpoints along with custom index as a set of maps called `acsEndpointsIndices` in JSON format
+	// ACS endpoints along with custom index as a set of maps called `acsEndpointsIndices` in JSON format.
 	AcsEndpointsIndices []SamlAcsEndpointsIndex `pulumi:"acsEndpointsIndices"`
 	// Application notes for admins.
 	AdminNote *string `pulumi:"adminNote"`
@@ -335,7 +335,7 @@ type SamlState struct {
 	AccessibilitySelfService pulumi.BoolPtrInput
 	// An array of ACS endpoints. You can configure a maximum of 100 endpoints.
 	AcsEndpoints pulumi.StringArrayInput
-	// ACS endpoints along with custom index as a set of maps called `acsEndpointsIndices` in JSON format
+	// ACS endpoints along with custom index as a set of maps called `acsEndpointsIndices` in JSON format.
 	AcsEndpointsIndices SamlAcsEndpointsIndexArrayInput
 	// Application notes for admins.
 	AdminNote pulumi.StringPtrInput
@@ -472,7 +472,7 @@ type samlArgs struct {
 	AccessibilitySelfService *bool `pulumi:"accessibilitySelfService"`
 	// An array of ACS endpoints. You can configure a maximum of 100 endpoints.
 	AcsEndpoints []string `pulumi:"acsEndpoints"`
-	// ACS endpoints along with custom index as a set of maps called `acsEndpointsIndices` in JSON format
+	// ACS endpoints along with custom index as a set of maps called `acsEndpointsIndices` in JSON format.
 	AcsEndpointsIndices []SamlAcsEndpointsIndex `pulumi:"acsEndpointsIndices"`
 	// Application notes for admins.
 	AdminNote *string `pulumi:"adminNote"`
@@ -578,7 +578,7 @@ type SamlArgs struct {
 	AccessibilitySelfService pulumi.BoolPtrInput
 	// An array of ACS endpoints. You can configure a maximum of 100 endpoints.
 	AcsEndpoints pulumi.StringArrayInput
-	// ACS endpoints along with custom index as a set of maps called `acsEndpointsIndices` in JSON format
+	// ACS endpoints along with custom index as a set of maps called `acsEndpointsIndices` in JSON format.
 	AcsEndpointsIndices SamlAcsEndpointsIndexArrayInput
 	// Application notes for admins.
 	AdminNote pulumi.StringPtrInput
@@ -781,7 +781,7 @@ func (o SamlOutput) AcsEndpoints() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Saml) pulumi.StringArrayOutput { return v.AcsEndpoints }).(pulumi.StringArrayOutput)
 }
 
-// ACS endpoints along with custom index as a set of maps called `acsEndpointsIndices` in JSON format
+// ACS endpoints along with custom index as a set of maps called `acsEndpointsIndices` in JSON format.
 func (o SamlOutput) AcsEndpointsIndices() SamlAcsEndpointsIndexArrayOutput {
 	return o.ApplyT(func(v *Saml) SamlAcsEndpointsIndexArrayOutput { return v.AcsEndpointsIndices }).(SamlAcsEndpointsIndexArrayOutput)
 }

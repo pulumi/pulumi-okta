@@ -125,6 +125,21 @@ public final class OidcArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Optional regular expression pattern used to filter untrusted IdP usernames.
+     * 
+     */
+    @Import(name="filter")
+    private @Nullable Output<String> filter;
+
+    /**
+     * @return Optional regular expression pattern used to filter untrusted IdP usernames.
+     * 
+     */
+    public Optional<Output<String>> filter() {
+        return Optional.ofNullable(this.filter);
+    }
+
+    /**
      * Provisioning action for IdP user&#39;s group memberships. It can be `NONE`, `SYNC`, `APPEND`, or `ASSIGN`. Default: `NONE`
      * 
      */
@@ -516,6 +531,7 @@ public final class OidcArgs extends com.pulumi.resources.ResourceArgs {
         this.clientId = $.clientId;
         this.clientSecret = $.clientSecret;
         this.deprovisionedAction = $.deprovisionedAction;
+        this.filter = $.filter;
         this.groupsAction = $.groupsAction;
         this.groupsAssignments = $.groupsAssignments;
         this.groupsAttribute = $.groupsAttribute;
@@ -717,6 +733,27 @@ public final class OidcArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder deprovisionedAction(String deprovisionedAction) {
             return deprovisionedAction(Output.of(deprovisionedAction));
+        }
+
+        /**
+         * @param filter Optional regular expression pattern used to filter untrusted IdP usernames.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder filter(@Nullable Output<String> filter) {
+            $.filter = filter;
+            return this;
+        }
+
+        /**
+         * @param filter Optional regular expression pattern used to filter untrusted IdP usernames.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder filter(String filter) {
+            return filter(Output.of(filter));
         }
 
         /**

@@ -82,14 +82,14 @@ public final class SamlState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * ACS endpoints along with custom index as a set of maps called `acs_endpoints_indices` in JSON format
+     * ACS endpoints along with custom index as a set of maps called `acs_endpoints_indices` in JSON format.
      * 
      */
     @Import(name="acsEndpointsIndices")
     private @Nullable Output<List<SamlAcsEndpointsIndexArgs>> acsEndpointsIndices;
 
     /**
-     * @return ACS endpoints along with custom index as a set of maps called `acs_endpoints_indices` in JSON format
+     * @return ACS endpoints along with custom index as a set of maps called `acs_endpoints_indices` in JSON format.
      * 
      */
     public Optional<Output<List<SamlAcsEndpointsIndexArgs>>> acsEndpointsIndices() {
@@ -1125,7 +1125,7 @@ public final class SamlState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param acsEndpointsIndices ACS endpoints along with custom index as a set of maps called `acs_endpoints_indices` in JSON format
+         * @param acsEndpointsIndices ACS endpoints along with custom index as a set of maps called `acs_endpoints_indices` in JSON format.
          * 
          * @return builder
          * 
@@ -1136,7 +1136,7 @@ public final class SamlState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param acsEndpointsIndices ACS endpoints along with custom index as a set of maps called `acs_endpoints_indices` in JSON format
+         * @param acsEndpointsIndices ACS endpoints along with custom index as a set of maps called `acs_endpoints_indices` in JSON format.
          * 
          * @return builder
          * 
@@ -1146,7 +1146,7 @@ public final class SamlState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param acsEndpointsIndices ACS endpoints along with custom index as a set of maps called `acs_endpoints_indices` in JSON format
+         * @param acsEndpointsIndices ACS endpoints along with custom index as a set of maps called `acs_endpoints_indices` in JSON format.
          * 
          * @return builder
          * 

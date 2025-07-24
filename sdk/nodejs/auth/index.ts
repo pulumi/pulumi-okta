@@ -35,11 +35,6 @@ export type ServerPolicy = import("./serverPolicy").ServerPolicy;
 export const ServerPolicy: typeof import("./serverPolicy").ServerPolicy = null as any;
 utilities.lazyLoad(exports, ["ServerPolicy"], () => require("./serverPolicy"));
 
-export { ServerPolicyClaimArgs, ServerPolicyClaimState } from "./serverPolicyClaim";
-export type ServerPolicyClaim = import("./serverPolicyClaim").ServerPolicyClaim;
-export const ServerPolicyClaim: typeof import("./serverPolicyClaim").ServerPolicyClaim = null as any;
-utilities.lazyLoad(exports, ["ServerPolicyClaim"], () => require("./serverPolicyClaim"));
-
 export { ServerPolicyRuleArgs, ServerPolicyRuleState } from "./serverPolicyRule";
 export type ServerPolicyRule = import("./serverPolicyRule").ServerPolicyRule;
 export const ServerPolicyRule: typeof import("./serverPolicyRule").ServerPolicyRule = null as any;
@@ -61,8 +56,6 @@ const _module = {
                 return new ServerClaim(name, <any>undefined, { urn })
             case "okta:auth/serverPolicy:ServerPolicy":
                 return new ServerPolicy(name, <any>undefined, { urn })
-            case "okta:auth/serverPolicyClaim:ServerPolicyClaim":
-                return new ServerPolicyClaim(name, <any>undefined, { urn })
             case "okta:auth/serverPolicyRule:ServerPolicyRule":
                 return new ServerPolicyRule(name, <any>undefined, { urn })
             case "okta:auth/serverScope:ServerScope":
@@ -75,6 +68,5 @@ const _module = {
 pulumi.runtime.registerResourceModule("okta", "auth/server", _module)
 pulumi.runtime.registerResourceModule("okta", "auth/serverClaim", _module)
 pulumi.runtime.registerResourceModule("okta", "auth/serverPolicy", _module)
-pulumi.runtime.registerResourceModule("okta", "auth/serverPolicyClaim", _module)
 pulumi.runtime.registerResourceModule("okta", "auth/serverPolicyRule", _module)
 pulumi.runtime.registerResourceModule("okta", "auth/serverScope", _module)

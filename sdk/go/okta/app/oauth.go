@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
+	"github.com/pulumi/pulumi-okta/sdk/v5/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -51,7 +51,7 @@ type OAuth struct {
 	AppLinksJson pulumi.StringPtrOutput `pulumi:"appLinksJson"`
 	// Application settings in JSON format
 	AppSettingsJson pulumi.StringPtrOutput `pulumi:"appSettingsJson"`
-	// The ID of the associated app*signon*policy. If this property is removed from the application the default sign-on-policy will be associated with this application.
+	// The ID of the associated app*signon*policy. If this property is removed from the application the default sign-on-policy will be associated with this application. From now on, there is no need to attach authenticationPolicy for applications of type `SERVICE` in the upcoming release.
 	AuthenticationPolicy pulumi.StringOutput `pulumi:"authenticationPolicy"`
 	// Requested key rotation mode. If
 	// 			auto*key*rotation isn't specified, the client automatically opts in for Okta's
@@ -200,7 +200,7 @@ type oauthState struct {
 	AppLinksJson *string `pulumi:"appLinksJson"`
 	// Application settings in JSON format
 	AppSettingsJson *string `pulumi:"appSettingsJson"`
-	// The ID of the associated app*signon*policy. If this property is removed from the application the default sign-on-policy will be associated with this application.
+	// The ID of the associated app*signon*policy. If this property is removed from the application the default sign-on-policy will be associated with this application. From now on, there is no need to attach authenticationPolicy for applications of type `SERVICE` in the upcoming release.
 	AuthenticationPolicy *string `pulumi:"authenticationPolicy"`
 	// Requested key rotation mode. If
 	// 			auto*key*rotation isn't specified, the client automatically opts in for Okta's
@@ -306,7 +306,7 @@ type OAuthState struct {
 	AppLinksJson pulumi.StringPtrInput
 	// Application settings in JSON format
 	AppSettingsJson pulumi.StringPtrInput
-	// The ID of the associated app*signon*policy. If this property is removed from the application the default sign-on-policy will be associated with this application.
+	// The ID of the associated app*signon*policy. If this property is removed from the application the default sign-on-policy will be associated with this application. From now on, there is no need to attach authenticationPolicy for applications of type `SERVICE` in the upcoming release.
 	AuthenticationPolicy pulumi.StringPtrInput
 	// Requested key rotation mode. If
 	// 			auto*key*rotation isn't specified, the client automatically opts in for Okta's
@@ -416,7 +416,7 @@ type oauthArgs struct {
 	AppLinksJson *string `pulumi:"appLinksJson"`
 	// Application settings in JSON format
 	AppSettingsJson *string `pulumi:"appSettingsJson"`
-	// The ID of the associated app*signon*policy. If this property is removed from the application the default sign-on-policy will be associated with this application.
+	// The ID of the associated app*signon*policy. If this property is removed from the application the default sign-on-policy will be associated with this application. From now on, there is no need to attach authenticationPolicy for applications of type `SERVICE` in the upcoming release.
 	AuthenticationPolicy *string `pulumi:"authenticationPolicy"`
 	// Requested key rotation mode. If
 	// 			auto*key*rotation isn't specified, the client automatically opts in for Okta's
@@ -515,7 +515,7 @@ type OAuthArgs struct {
 	AppLinksJson pulumi.StringPtrInput
 	// Application settings in JSON format
 	AppSettingsJson pulumi.StringPtrInput
-	// The ID of the associated app*signon*policy. If this property is removed from the application the default sign-on-policy will be associated with this application.
+	// The ID of the associated app*signon*policy. If this property is removed from the application the default sign-on-policy will be associated with this application. From now on, there is no need to attach authenticationPolicy for applications of type `SERVICE` in the upcoming release.
 	AuthenticationPolicy pulumi.StringPtrInput
 	// Requested key rotation mode. If
 	// 			auto*key*rotation isn't specified, the client automatically opts in for Okta's
@@ -717,7 +717,7 @@ func (o OAuthOutput) AppSettingsJson() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OAuth) pulumi.StringPtrOutput { return v.AppSettingsJson }).(pulumi.StringPtrOutput)
 }
 
-// The ID of the associated app*signon*policy. If this property is removed from the application the default sign-on-policy will be associated with this application.
+// The ID of the associated app*signon*policy. If this property is removed from the application the default sign-on-policy will be associated with this application. From now on, there is no need to attach authenticationPolicy for applications of type `SERVICE` in the upcoming release.
 func (o OAuthOutput) AuthenticationPolicy() pulumi.StringOutput {
 	return o.ApplyT(func(v *OAuth) pulumi.StringOutput { return v.AuthenticationPolicy }).(pulumi.StringOutput)
 }
