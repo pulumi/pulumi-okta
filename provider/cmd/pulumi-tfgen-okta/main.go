@@ -17,7 +17,7 @@ package main
 import (
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/pf/tfgen"
 
-	okta "github.com/pulumi/pulumi-okta/provider/v4"
+	okta "github.com/pulumi/pulumi-okta/provider/v5"
 )
 
 func main() {

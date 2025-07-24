@@ -25,8 +25,10 @@ import (
 	// embed is used to store bridge-metadata.json in the compiled binary
 	_ "embed"
 
-	"github.com/okta/terraform-provider-okta/okta"
+	okfwprovider "github.com/okta/terraform-provider-okta/okta/fwprovider"
+	okta "github.com/okta/terraform-provider-okta/okta/provider"
 
+	oktaversion "github.com/okta/terraform-provider-okta/okta/version"
 	pfbridge "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/pf/tfbridge"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
 	tks "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge/tokens"
@@ -35,7 +37,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/common/tokens"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
 
-	"github.com/pulumi/pulumi-okta/provider/v4/pkg/version"
+	"github.com/pulumi/pulumi-okta/provider/v5/pkg/version"
 )
 
 // all of the token components used below.
@@ -90,7 +92,7 @@ func Provider() tfbridge.ProviderInfo {
 	ctx := context.Background()
 	p := pfbridge.MuxShimWithPF(ctx,
 		shimv2.NewProvider(okta.Provider()),
-		okta.NewFrameworkProvider(okta.OktaTerraformProviderVersion),
+		okfwprovider.NewFrameworkProvider(oktaversion.OktaTerraformProviderVersion, okta.Provider()),
 	)
 	prov := tfbridge.ProviderInfo{
 		P:           p,
@@ -114,7 +116,7 @@ func Provider() tfbridge.ProviderInfo {
 		},
 		UpstreamRepoPath:  "./upstream",
 		Version:           version.Version,
-		TFProviderVersion: okta.OktaTerraformProviderVersion,
+		TFProviderVersion: oktaversion.OktaTerraformProviderVersion,
 		DocRules: &tfbridge.DocRuleInfo{
 			EditRules: editRules,
 		},
