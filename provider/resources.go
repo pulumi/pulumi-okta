@@ -91,11 +91,9 @@ var metadata []byte
 // Provider returns additional overlaid schema and metadata associated with the provider.
 func Provider() tfbridge.ProviderInfo {
 	ctx := context.Background()
-
-	p := pfbridge.MuxShimWithPF(ctx,
-		shimv2.NewProvider(okta.Provider()),
-		oktafwprovider.NewFrameworkProvider(oktaversion.OktaTerraformProviderVersion, okta.Provider()),
-	)
+	basicProvider := okta.Provider()
+	fwProvider := oktafwprovider.NewFrameworkProvider(oktaversion.OktaTerraformProviderVersion, basicProvider)
+	p := pfbridge.MuxShimWithDisjointgPF(ctx, shimv2.NewProvider(basicProvider), fwProvider)
 
 	prov := tfbridge.ProviderInfo{
 		P:           p,
