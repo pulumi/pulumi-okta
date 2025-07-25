@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
+	"github.com/pulumi/pulumi-okta/sdk/v5/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -1518,6 +1518,154 @@ func (o EventHookHeaderArrayOutput) Index(i pulumi.IntInput) EventHookHeaderOutp
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EventHookHeader {
 		return vs[0].([]EventHookHeader)[vs[1].(int)]
 	}).(EventHookHeaderOutput)
+}
+
+type FeatureStage struct {
+	State string `pulumi:"state"`
+	Value string `pulumi:"value"`
+}
+
+// FeatureStageInput is an input type that accepts FeatureStageArgs and FeatureStageOutput values.
+// You can construct a concrete instance of `FeatureStageInput` via:
+//
+//	FeatureStageArgs{...}
+type FeatureStageInput interface {
+	pulumi.Input
+
+	ToFeatureStageOutput() FeatureStageOutput
+	ToFeatureStageOutputWithContext(context.Context) FeatureStageOutput
+}
+
+type FeatureStageArgs struct {
+	State pulumi.StringInput `pulumi:"state"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (FeatureStageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FeatureStage)(nil)).Elem()
+}
+
+func (i FeatureStageArgs) ToFeatureStageOutput() FeatureStageOutput {
+	return i.ToFeatureStageOutputWithContext(context.Background())
+}
+
+func (i FeatureStageArgs) ToFeatureStageOutputWithContext(ctx context.Context) FeatureStageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeatureStageOutput)
+}
+
+func (i FeatureStageArgs) ToFeatureStagePtrOutput() FeatureStagePtrOutput {
+	return i.ToFeatureStagePtrOutputWithContext(context.Background())
+}
+
+func (i FeatureStageArgs) ToFeatureStagePtrOutputWithContext(ctx context.Context) FeatureStagePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeatureStageOutput).ToFeatureStagePtrOutputWithContext(ctx)
+}
+
+// FeatureStagePtrInput is an input type that accepts FeatureStageArgs, FeatureStagePtr and FeatureStagePtrOutput values.
+// You can construct a concrete instance of `FeatureStagePtrInput` via:
+//
+//	        FeatureStageArgs{...}
+//
+//	or:
+//
+//	        nil
+type FeatureStagePtrInput interface {
+	pulumi.Input
+
+	ToFeatureStagePtrOutput() FeatureStagePtrOutput
+	ToFeatureStagePtrOutputWithContext(context.Context) FeatureStagePtrOutput
+}
+
+type featureStagePtrType FeatureStageArgs
+
+func FeatureStagePtr(v *FeatureStageArgs) FeatureStagePtrInput {
+	return (*featureStagePtrType)(v)
+}
+
+func (*featureStagePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FeatureStage)(nil)).Elem()
+}
+
+func (i *featureStagePtrType) ToFeatureStagePtrOutput() FeatureStagePtrOutput {
+	return i.ToFeatureStagePtrOutputWithContext(context.Background())
+}
+
+func (i *featureStagePtrType) ToFeatureStagePtrOutputWithContext(ctx context.Context) FeatureStagePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeatureStagePtrOutput)
+}
+
+type FeatureStageOutput struct{ *pulumi.OutputState }
+
+func (FeatureStageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FeatureStage)(nil)).Elem()
+}
+
+func (o FeatureStageOutput) ToFeatureStageOutput() FeatureStageOutput {
+	return o
+}
+
+func (o FeatureStageOutput) ToFeatureStageOutputWithContext(ctx context.Context) FeatureStageOutput {
+	return o
+}
+
+func (o FeatureStageOutput) ToFeatureStagePtrOutput() FeatureStagePtrOutput {
+	return o.ToFeatureStagePtrOutputWithContext(context.Background())
+}
+
+func (o FeatureStageOutput) ToFeatureStagePtrOutputWithContext(ctx context.Context) FeatureStagePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FeatureStage) *FeatureStage {
+		return &v
+	}).(FeatureStagePtrOutput)
+}
+
+func (o FeatureStageOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v FeatureStage) string { return v.State }).(pulumi.StringOutput)
+}
+
+func (o FeatureStageOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v FeatureStage) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type FeatureStagePtrOutput struct{ *pulumi.OutputState }
+
+func (FeatureStagePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FeatureStage)(nil)).Elem()
+}
+
+func (o FeatureStagePtrOutput) ToFeatureStagePtrOutput() FeatureStagePtrOutput {
+	return o
+}
+
+func (o FeatureStagePtrOutput) ToFeatureStagePtrOutputWithContext(ctx context.Context) FeatureStagePtrOutput {
+	return o
+}
+
+func (o FeatureStagePtrOutput) Elem() FeatureStageOutput {
+	return o.ApplyT(func(v *FeatureStage) FeatureStage {
+		if v != nil {
+			return *v
+		}
+		var ret FeatureStage
+		return ret
+	}).(FeatureStageOutput)
+}
+
+func (o FeatureStagePtrOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FeatureStage) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.State
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o FeatureStagePtrOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FeatureStage) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Value
+	}).(pulumi.StringPtrOutput)
 }
 
 type GroupSchemaPropertyArrayOneOf struct {
@@ -5977,6 +6125,185 @@ func (o GetEmailCustomizationsEmailCustomizationArrayOutput) Index(i pulumi.IntI
 	}).(GetEmailCustomizationsEmailCustomizationOutput)
 }
 
+type GetFeaturesFeature struct {
+	Description string                  `pulumi:"description"`
+	Id          string                  `pulumi:"id"`
+	Name        string                  `pulumi:"name"`
+	Stage       GetFeaturesFeatureStage `pulumi:"stage"`
+	Status      string                  `pulumi:"status"`
+	Type        string                  `pulumi:"type"`
+}
+
+// GetFeaturesFeatureInput is an input type that accepts GetFeaturesFeatureArgs and GetFeaturesFeatureOutput values.
+// You can construct a concrete instance of `GetFeaturesFeatureInput` via:
+//
+//	GetFeaturesFeatureArgs{...}
+type GetFeaturesFeatureInput interface {
+	pulumi.Input
+
+	ToGetFeaturesFeatureOutput() GetFeaturesFeatureOutput
+	ToGetFeaturesFeatureOutputWithContext(context.Context) GetFeaturesFeatureOutput
+}
+
+type GetFeaturesFeatureArgs struct {
+	Description pulumi.StringInput           `pulumi:"description"`
+	Id          pulumi.StringInput           `pulumi:"id"`
+	Name        pulumi.StringInput           `pulumi:"name"`
+	Stage       GetFeaturesFeatureStageInput `pulumi:"stage"`
+	Status      pulumi.StringInput           `pulumi:"status"`
+	Type        pulumi.StringInput           `pulumi:"type"`
+}
+
+func (GetFeaturesFeatureArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFeaturesFeature)(nil)).Elem()
+}
+
+func (i GetFeaturesFeatureArgs) ToGetFeaturesFeatureOutput() GetFeaturesFeatureOutput {
+	return i.ToGetFeaturesFeatureOutputWithContext(context.Background())
+}
+
+func (i GetFeaturesFeatureArgs) ToGetFeaturesFeatureOutputWithContext(ctx context.Context) GetFeaturesFeatureOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFeaturesFeatureOutput)
+}
+
+// GetFeaturesFeatureArrayInput is an input type that accepts GetFeaturesFeatureArray and GetFeaturesFeatureArrayOutput values.
+// You can construct a concrete instance of `GetFeaturesFeatureArrayInput` via:
+//
+//	GetFeaturesFeatureArray{ GetFeaturesFeatureArgs{...} }
+type GetFeaturesFeatureArrayInput interface {
+	pulumi.Input
+
+	ToGetFeaturesFeatureArrayOutput() GetFeaturesFeatureArrayOutput
+	ToGetFeaturesFeatureArrayOutputWithContext(context.Context) GetFeaturesFeatureArrayOutput
+}
+
+type GetFeaturesFeatureArray []GetFeaturesFeatureInput
+
+func (GetFeaturesFeatureArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFeaturesFeature)(nil)).Elem()
+}
+
+func (i GetFeaturesFeatureArray) ToGetFeaturesFeatureArrayOutput() GetFeaturesFeatureArrayOutput {
+	return i.ToGetFeaturesFeatureArrayOutputWithContext(context.Background())
+}
+
+func (i GetFeaturesFeatureArray) ToGetFeaturesFeatureArrayOutputWithContext(ctx context.Context) GetFeaturesFeatureArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFeaturesFeatureArrayOutput)
+}
+
+type GetFeaturesFeatureOutput struct{ *pulumi.OutputState }
+
+func (GetFeaturesFeatureOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFeaturesFeature)(nil)).Elem()
+}
+
+func (o GetFeaturesFeatureOutput) ToGetFeaturesFeatureOutput() GetFeaturesFeatureOutput {
+	return o
+}
+
+func (o GetFeaturesFeatureOutput) ToGetFeaturesFeatureOutputWithContext(ctx context.Context) GetFeaturesFeatureOutput {
+	return o
+}
+
+func (o GetFeaturesFeatureOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFeaturesFeature) string { return v.Description }).(pulumi.StringOutput)
+}
+
+func (o GetFeaturesFeatureOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFeaturesFeature) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetFeaturesFeatureOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFeaturesFeature) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GetFeaturesFeatureOutput) Stage() GetFeaturesFeatureStageOutput {
+	return o.ApplyT(func(v GetFeaturesFeature) GetFeaturesFeatureStage { return v.Stage }).(GetFeaturesFeatureStageOutput)
+}
+
+func (o GetFeaturesFeatureOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFeaturesFeature) string { return v.Status }).(pulumi.StringOutput)
+}
+
+func (o GetFeaturesFeatureOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFeaturesFeature) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetFeaturesFeatureArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFeaturesFeatureArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFeaturesFeature)(nil)).Elem()
+}
+
+func (o GetFeaturesFeatureArrayOutput) ToGetFeaturesFeatureArrayOutput() GetFeaturesFeatureArrayOutput {
+	return o
+}
+
+func (o GetFeaturesFeatureArrayOutput) ToGetFeaturesFeatureArrayOutputWithContext(ctx context.Context) GetFeaturesFeatureArrayOutput {
+	return o
+}
+
+func (o GetFeaturesFeatureArrayOutput) Index(i pulumi.IntInput) GetFeaturesFeatureOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFeaturesFeature {
+		return vs[0].([]GetFeaturesFeature)[vs[1].(int)]
+	}).(GetFeaturesFeatureOutput)
+}
+
+type GetFeaturesFeatureStage struct {
+	State string `pulumi:"state"`
+	Value string `pulumi:"value"`
+}
+
+// GetFeaturesFeatureStageInput is an input type that accepts GetFeaturesFeatureStageArgs and GetFeaturesFeatureStageOutput values.
+// You can construct a concrete instance of `GetFeaturesFeatureStageInput` via:
+//
+//	GetFeaturesFeatureStageArgs{...}
+type GetFeaturesFeatureStageInput interface {
+	pulumi.Input
+
+	ToGetFeaturesFeatureStageOutput() GetFeaturesFeatureStageOutput
+	ToGetFeaturesFeatureStageOutputWithContext(context.Context) GetFeaturesFeatureStageOutput
+}
+
+type GetFeaturesFeatureStageArgs struct {
+	State pulumi.StringInput `pulumi:"state"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetFeaturesFeatureStageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFeaturesFeatureStage)(nil)).Elem()
+}
+
+func (i GetFeaturesFeatureStageArgs) ToGetFeaturesFeatureStageOutput() GetFeaturesFeatureStageOutput {
+	return i.ToGetFeaturesFeatureStageOutputWithContext(context.Background())
+}
+
+func (i GetFeaturesFeatureStageArgs) ToGetFeaturesFeatureStageOutputWithContext(ctx context.Context) GetFeaturesFeatureStageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFeaturesFeatureStageOutput)
+}
+
+type GetFeaturesFeatureStageOutput struct{ *pulumi.OutputState }
+
+func (GetFeaturesFeatureStageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFeaturesFeatureStage)(nil)).Elem()
+}
+
+func (o GetFeaturesFeatureStageOutput) ToGetFeaturesFeatureStageOutput() GetFeaturesFeatureStageOutput {
+	return o
+}
+
+func (o GetFeaturesFeatureStageOutput) ToGetFeaturesFeatureStageOutputWithContext(ctx context.Context) GetFeaturesFeatureStageOutput {
+	return o
+}
+
+func (o GetFeaturesFeatureStageOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFeaturesFeatureStage) string { return v.State }).(pulumi.StringOutput)
+}
+
+func (o GetFeaturesFeatureStageOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFeaturesFeatureStage) string { return v.Value }).(pulumi.StringOutput)
+}
+
 type GetGroupsGroup struct {
 	// Raw JSON containing all custom profile attributes. Likely only useful on groups of type
 	CustomProfileAttributes string `pulumi:"customProfileAttributes"`
@@ -7239,6 +7566,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EmailSenderDnsRecordArrayInput)(nil)).Elem(), EmailSenderDnsRecordArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventHookHeaderInput)(nil)).Elem(), EventHookHeaderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventHookHeaderArrayInput)(nil)).Elem(), EventHookHeaderArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FeatureStageInput)(nil)).Elem(), FeatureStageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FeatureStagePtrInput)(nil)).Elem(), FeatureStageArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupSchemaPropertyArrayOneOfInput)(nil)).Elem(), GroupSchemaPropertyArrayOneOfArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupSchemaPropertyArrayOneOfArrayInput)(nil)).Elem(), GroupSchemaPropertyArrayOneOfArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupSchemaPropertyMasterOverridePriorityInput)(nil)).Elem(), GroupSchemaPropertyMasterOverridePriorityArgs{})
@@ -7294,6 +7623,9 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainDnsRecordArrayInput)(nil)).Elem(), GetDomainDnsRecordArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEmailCustomizationsEmailCustomizationInput)(nil)).Elem(), GetEmailCustomizationsEmailCustomizationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEmailCustomizationsEmailCustomizationArrayInput)(nil)).Elem(), GetEmailCustomizationsEmailCustomizationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFeaturesFeatureInput)(nil)).Elem(), GetFeaturesFeatureArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFeaturesFeatureArrayInput)(nil)).Elem(), GetFeaturesFeatureArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFeaturesFeatureStageInput)(nil)).Elem(), GetFeaturesFeatureStageArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetGroupsGroupInput)(nil)).Elem(), GetGroupsGroupArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetGroupsGroupArrayInput)(nil)).Elem(), GetGroupsGroupArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLogStreamSettingsInput)(nil)).Elem(), GetLogStreamSettingsArgs{})
@@ -7330,6 +7662,8 @@ func init() {
 	pulumi.RegisterOutputType(EmailSenderDnsRecordArrayOutput{})
 	pulumi.RegisterOutputType(EventHookHeaderOutput{})
 	pulumi.RegisterOutputType(EventHookHeaderArrayOutput{})
+	pulumi.RegisterOutputType(FeatureStageOutput{})
+	pulumi.RegisterOutputType(FeatureStagePtrOutput{})
 	pulumi.RegisterOutputType(GroupSchemaPropertyArrayOneOfOutput{})
 	pulumi.RegisterOutputType(GroupSchemaPropertyArrayOneOfArrayOutput{})
 	pulumi.RegisterOutputType(GroupSchemaPropertyMasterOverridePriorityOutput{})
@@ -7385,6 +7719,9 @@ func init() {
 	pulumi.RegisterOutputType(GetDomainDnsRecordArrayOutput{})
 	pulumi.RegisterOutputType(GetEmailCustomizationsEmailCustomizationOutput{})
 	pulumi.RegisterOutputType(GetEmailCustomizationsEmailCustomizationArrayOutput{})
+	pulumi.RegisterOutputType(GetFeaturesFeatureOutput{})
+	pulumi.RegisterOutputType(GetFeaturesFeatureArrayOutput{})
+	pulumi.RegisterOutputType(GetFeaturesFeatureStageOutput{})
 	pulumi.RegisterOutputType(GetGroupsGroupOutput{})
 	pulumi.RegisterOutputType(GetGroupsGroupArrayOutput{})
 	pulumi.RegisterOutputType(GetLogStreamSettingsOutput{})

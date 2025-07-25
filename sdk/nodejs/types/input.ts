@@ -144,6 +144,11 @@ export interface EventHookHeader {
     value?: pulumi.Input<string>;
 }
 
+export interface FeatureStage {
+    state: pulumi.Input<string>;
+    value: pulumi.Input<string>;
+}
+
 export interface GetDefaultSigninPageContentSecurityPolicySetting {
     /**
      * enforced or report_only

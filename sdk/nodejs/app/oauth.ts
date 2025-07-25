@@ -85,7 +85,7 @@ export class OAuth extends pulumi.CustomResource {
      */
     public readonly appSettingsJson!: pulumi.Output<string | undefined>;
     /**
-     * The ID of the associated app*signon*policy. If this property is removed from the application the default sign-on-policy will be associated with this application.
+     * The ID of the associated app*signon*policy. If this property is removed from the application the default sign-on-policy will be associated with this application. From now on, there is no need to attach authenticationPolicy for applications of type `SERVICE` in the upcoming release.
      */
     public readonly authenticationPolicy!: pulumi.Output<string>;
     /**
@@ -420,7 +420,7 @@ export interface OAuthState {
      */
     appSettingsJson?: pulumi.Input<string>;
     /**
-     * The ID of the associated app*signon*policy. If this property is removed from the application the default sign-on-policy will be associated with this application.
+     * The ID of the associated app*signon*policy. If this property is removed from the application the default sign-on-policy will be associated with this application. From now on, there is no need to attach authenticationPolicy for applications of type `SERVICE` in the upcoming release.
      */
     authenticationPolicy?: pulumi.Input<string>;
     /**
@@ -627,7 +627,7 @@ export interface OAuthArgs {
      */
     appSettingsJson?: pulumi.Input<string>;
     /**
-     * The ID of the associated app*signon*policy. If this property is removed from the application the default sign-on-policy will be associated with this application.
+     * The ID of the associated app*signon*policy. If this property is removed from the application the default sign-on-policy will be associated with this application. From now on, there is no need to attach authenticationPolicy for applications of type `SERVICE` in the upcoming release.
      */
     authenticationPolicy?: pulumi.Input<string>;
     /**

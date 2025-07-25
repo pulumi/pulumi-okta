@@ -12,7 +12,6 @@ from .get_server_scopes import *
 from .server import *
 from .server_claim import *
 from .server_policy import *
-from .server_policy_claim import *
 from .server_policy_rule import *
 from .server_scope import *
 from . import outputs

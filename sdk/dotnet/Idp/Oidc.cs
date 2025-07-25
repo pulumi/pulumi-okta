@@ -98,6 +98,12 @@ namespace Pulumi.Okta.Idp
         public Output<string?> DeprovisionedAction { get; private set; } = null!;
 
         /// <summary>
+        /// Optional regular expression pattern used to filter untrusted IdP usernames.
+        /// </summary>
+        [Output("filter")]
+        public Output<string?> Filter { get; private set; } = null!;
+
+        /// <summary>
         /// Provisioning action for IdP user's group memberships. It can be `NONE`, `SYNC`, `APPEND`, or `ASSIGN`. Default: `NONE`
         /// </summary>
         [Output("groupsAction")]
@@ -371,6 +377,12 @@ namespace Pulumi.Okta.Idp
         public Input<string>? DeprovisionedAction { get; set; }
 
         /// <summary>
+        /// Optional regular expression pattern used to filter untrusted IdP usernames.
+        /// </summary>
+        [Input("filter")]
+        public Input<string>? Filter { get; set; }
+
+        /// <summary>
         /// Provisioning action for IdP user's group memberships. It can be `NONE`, `SYNC`, `APPEND`, or `ASSIGN`. Default: `NONE`
         /// </summary>
         [Input("groupsAction")]
@@ -606,6 +618,12 @@ namespace Pulumi.Okta.Idp
         /// </summary>
         [Input("deprovisionedAction")]
         public Input<string>? DeprovisionedAction { get; set; }
+
+        /// <summary>
+        /// Optional regular expression pattern used to filter untrusted IdP usernames.
+        /// </summary>
+        [Input("filter")]
+        public Input<string>? Filter { get; set; }
 
         /// <summary>
         /// Provisioning action for IdP user's group memberships. It can be `NONE`, `SYNC`, `APPEND`, or `ASSIGN`. Default: `NONE`

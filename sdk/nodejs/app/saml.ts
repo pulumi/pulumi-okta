@@ -67,7 +67,7 @@ export class Saml extends pulumi.CustomResource {
      */
     public readonly acsEndpoints!: pulumi.Output<string[] | undefined>;
     /**
-     * ACS endpoints along with custom index as a set of maps called `acsEndpointsIndices` in JSON format
+     * ACS endpoints along with custom index as a set of maps called `acsEndpointsIndices` in JSON format.
      */
     public readonly acsEndpointsIndices!: pulumi.Output<outputs.app.SamlAcsEndpointsIndex[] | undefined>;
     /**
@@ -468,7 +468,7 @@ export interface SamlState {
      */
     acsEndpoints?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * ACS endpoints along with custom index as a set of maps called `acsEndpointsIndices` in JSON format
+     * ACS endpoints along with custom index as a set of maps called `acsEndpointsIndices` in JSON format.
      */
     acsEndpointsIndices?: pulumi.Input<pulumi.Input<inputs.app.SamlAcsEndpointsIndex>[]>;
     /**
@@ -724,7 +724,7 @@ export interface SamlArgs {
      */
     acsEndpoints?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * ACS endpoints along with custom index as a set of maps called `acsEndpointsIndices` in JSON format
+     * ACS endpoints along with custom index as a set of maps called `acsEndpointsIndices` in JSON format.
      */
     acsEndpointsIndices?: pulumi.Input<pulumi.Input<inputs.app.SamlAcsEndpointsIndex>[]>;
     /**

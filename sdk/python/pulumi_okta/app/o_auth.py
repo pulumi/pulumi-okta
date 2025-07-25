@@ -77,7 +77,7 @@ class OAuthArgs:
         :param pulumi.Input[_builtins.str] admin_note: Application notes for admins.
         :param pulumi.Input[_builtins.str] app_links_json: Displays specific appLinks for the app. The value for each application link should be boolean.
         :param pulumi.Input[_builtins.str] app_settings_json: Application settings in JSON format
-        :param pulumi.Input[_builtins.str] authentication_policy: The ID of the associated app*signon*policy. If this property is removed from the application the default sign-on-policy will be associated with this application.
+        :param pulumi.Input[_builtins.str] authentication_policy: The ID of the associated app*signon*policy. If this property is removed from the application the default sign-on-policy will be associated with this application. From now on, there is no need to attach authentication_policy for applications of type `SERVICE` in the upcoming release.
         :param pulumi.Input[_builtins.bool] auto_key_rotation: Requested key rotation mode. If
                			auto*key*rotation isn't specified, the client automatically opts in for Okta's
                			key rotation. You can update this property via the API or via the administrator
@@ -310,7 +310,7 @@ class OAuthArgs:
     @pulumi.getter(name="authenticationPolicy")
     def authentication_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The ID of the associated app*signon*policy. If this property is removed from the application the default sign-on-policy will be associated with this application.
+        The ID of the associated app*signon*policy. If this property is removed from the application the default sign-on-policy will be associated with this application. From now on, there is no need to attach authentication_policy for applications of type `SERVICE` in the upcoming release.
         """
         return pulumi.get(self, "authentication_policy")
 
@@ -825,7 +825,7 @@ class _OAuthState:
         :param pulumi.Input[_builtins.str] admin_note: Application notes for admins.
         :param pulumi.Input[_builtins.str] app_links_json: Displays specific appLinks for the app. The value for each application link should be boolean.
         :param pulumi.Input[_builtins.str] app_settings_json: Application settings in JSON format
-        :param pulumi.Input[_builtins.str] authentication_policy: The ID of the associated app*signon*policy. If this property is removed from the application the default sign-on-policy will be associated with this application.
+        :param pulumi.Input[_builtins.str] authentication_policy: The ID of the associated app*signon*policy. If this property is removed from the application the default sign-on-policy will be associated with this application. From now on, there is no need to attach authentication_policy for applications of type `SERVICE` in the upcoming release.
         :param pulumi.Input[_builtins.bool] auto_key_rotation: Requested key rotation mode. If
                			auto*key*rotation isn't specified, the client automatically opts in for Okta's
                			key rotation. You can update this property via the API or via the administrator
@@ -1050,7 +1050,7 @@ class _OAuthState:
     @pulumi.getter(name="authenticationPolicy")
     def authentication_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The ID of the associated app*signon*policy. If this property is removed from the application the default sign-on-policy will be associated with this application.
+        The ID of the associated app*signon*policy. If this property is removed from the application the default sign-on-policy will be associated with this application. From now on, there is no need to attach authentication_policy for applications of type `SERVICE` in the upcoming release.
         """
         return pulumi.get(self, "authentication_policy")
 
@@ -1663,7 +1663,7 @@ class OAuth(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] admin_note: Application notes for admins.
         :param pulumi.Input[_builtins.str] app_links_json: Displays specific appLinks for the app. The value for each application link should be boolean.
         :param pulumi.Input[_builtins.str] app_settings_json: Application settings in JSON format
-        :param pulumi.Input[_builtins.str] authentication_policy: The ID of the associated app*signon*policy. If this property is removed from the application the default sign-on-policy will be associated with this application.
+        :param pulumi.Input[_builtins.str] authentication_policy: The ID of the associated app*signon*policy. If this property is removed from the application the default sign-on-policy will be associated with this application. From now on, there is no need to attach authentication_policy for applications of type `SERVICE` in the upcoming release.
         :param pulumi.Input[_builtins.bool] auto_key_rotation: Requested key rotation mode. If
                			auto*key*rotation isn't specified, the client automatically opts in for Okta's
                			key rotation. You can update this property via the API or via the administrator
@@ -1938,7 +1938,7 @@ class OAuth(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] admin_note: Application notes for admins.
         :param pulumi.Input[_builtins.str] app_links_json: Displays specific appLinks for the app. The value for each application link should be boolean.
         :param pulumi.Input[_builtins.str] app_settings_json: Application settings in JSON format
-        :param pulumi.Input[_builtins.str] authentication_policy: The ID of the associated app*signon*policy. If this property is removed from the application the default sign-on-policy will be associated with this application.
+        :param pulumi.Input[_builtins.str] authentication_policy: The ID of the associated app*signon*policy. If this property is removed from the application the default sign-on-policy will be associated with this application. From now on, there is no need to attach authentication_policy for applications of type `SERVICE` in the upcoming release.
         :param pulumi.Input[_builtins.bool] auto_key_rotation: Requested key rotation mode. If
                			auto*key*rotation isn't specified, the client automatically opts in for Okta's
                			key rotation. You can update this property via the API or via the administrator
@@ -2094,7 +2094,7 @@ class OAuth(pulumi.CustomResource):
     @pulumi.getter(name="authenticationPolicy")
     def authentication_policy(self) -> pulumi.Output[_builtins.str]:
         """
-        The ID of the associated app*signon*policy. If this property is removed from the application the default sign-on-policy will be associated with this application.
+        The ID of the associated app*signon*policy. If this property is removed from the application the default sign-on-policy will be associated with this application. From now on, there is no need to attach authentication_policy for applications of type `SERVICE` in the upcoming release.
         """
         return pulumi.get(self, "authentication_policy")
 

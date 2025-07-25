@@ -38,6 +38,7 @@ from .email_template_settings import *
 from .event_hook import *
 from .event_hook_verification import *
 from .factor_totp import *
+from .feature import *
 from .get_app_group_assignments import *
 from .get_app_signon_policy import *
 from .get_app_user_assignments import *
@@ -55,6 +56,7 @@ from .get_domain import *
 from .get_email_customization import *
 from .get_email_customizations import *
 from .get_email_smtp_server import *
+from .get_features import *
 from .get_groups import *
 from .get_log_stream import *
 from .get_network_zone import *
@@ -273,14 +275,6 @@ _utilities.register(
   "fqn": "pulumi_okta.auth",
   "classes": {
    "okta:auth/serverPolicy:ServerPolicy": "ServerPolicy"
-  }
- },
- {
-  "pkg": "okta",
-  "mod": "auth/serverPolicyClaim",
-  "fqn": "pulumi_okta.auth",
-  "classes": {
-   "okta:auth/serverPolicyClaim:ServerPolicyClaim": "ServerPolicyClaim"
   }
  },
  {
@@ -625,6 +619,14 @@ _utilities.register(
   "fqn": "pulumi_okta",
   "classes": {
    "okta:index/factorTotp:FactorTotp": "FactorTotp"
+  }
+ },
+ {
+  "pkg": "okta",
+  "mod": "index/feature",
+  "fqn": "pulumi_okta",
+  "classes": {
+   "okta:index/feature:Feature": "Feature"
   }
  },
  {

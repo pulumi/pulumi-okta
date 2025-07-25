@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta/internal"
+	"github.com/pulumi/pulumi-okta/sdk/v5/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -19,6 +19,10 @@ import (
 // Once saved, the settings cannot be changed (except for the 'name' field). Any other change would force resource
 // recreation.
 //
+// > IMPORTANT: Okta API does not allow deletion of the TOTP factors through the
+// API. This provider will print a warning if it attempts to destroy the resource
+// receives a 501 not implemented error from the API instead of outright failing.
+//
 // ## Example Usage
 //
 // ```go
@@ -26,7 +30,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-okta/sdk/v4/go/okta"
+//	"github.com/pulumi/pulumi-okta/sdk/v5/go/okta"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )

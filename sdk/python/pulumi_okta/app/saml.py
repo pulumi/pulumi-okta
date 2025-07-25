@@ -75,7 +75,7 @@ class SamlArgs:
         :param pulumi.Input[_builtins.str] accessibility_login_redirect_url: Custom login page URL
         :param pulumi.Input[_builtins.bool] accessibility_self_service: Enable self service. Default is `false`
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] acs_endpoints: An array of ACS endpoints. You can configure a maximum of 100 endpoints.
-        :param pulumi.Input[Sequence[pulumi.Input['SamlAcsEndpointsIndexArgs']]] acs_endpoints_indices: ACS endpoints along with custom index as a set of maps called `acs_endpoints_indices` in JSON format
+        :param pulumi.Input[Sequence[pulumi.Input['SamlAcsEndpointsIndexArgs']]] acs_endpoints_indices: ACS endpoints along with custom index as a set of maps called `acs_endpoints_indices` in JSON format.
         :param pulumi.Input[_builtins.str] admin_note: Application notes for admins.
         :param pulumi.Input[_builtins.str] app_links_json: Displays specific appLinks for the app. The value for each application link should be boolean.
         :param pulumi.Input[_builtins.str] app_settings_json: Application settings in JSON format
@@ -284,7 +284,7 @@ class SamlArgs:
     @pulumi.getter(name="acsEndpointsIndices")
     def acs_endpoints_indices(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SamlAcsEndpointsIndexArgs']]]]:
         """
-        ACS endpoints along with custom index as a set of maps called `acs_endpoints_indices` in JSON format
+        ACS endpoints along with custom index as a set of maps called `acs_endpoints_indices` in JSON format.
         """
         return pulumi.get(self, "acs_endpoints_indices")
 
@@ -861,7 +861,7 @@ class _SamlState:
         :param pulumi.Input[_builtins.str] accessibility_login_redirect_url: Custom login page URL
         :param pulumi.Input[_builtins.bool] accessibility_self_service: Enable self service. Default is `false`
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] acs_endpoints: An array of ACS endpoints. You can configure a maximum of 100 endpoints.
-        :param pulumi.Input[Sequence[pulumi.Input['SamlAcsEndpointsIndexArgs']]] acs_endpoints_indices: ACS endpoints along with custom index as a set of maps called `acs_endpoints_indices` in JSON format
+        :param pulumi.Input[Sequence[pulumi.Input['SamlAcsEndpointsIndexArgs']]] acs_endpoints_indices: ACS endpoints along with custom index as a set of maps called `acs_endpoints_indices` in JSON format.
         :param pulumi.Input[_builtins.str] admin_note: Application notes for admins.
         :param pulumi.Input[_builtins.str] app_links_json: Displays specific appLinks for the app. The value for each application link should be boolean.
         :param pulumi.Input[_builtins.str] app_settings_json: Application settings in JSON format
@@ -1102,7 +1102,7 @@ class _SamlState:
     @pulumi.getter(name="acsEndpointsIndices")
     def acs_endpoints_indices(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SamlAcsEndpointsIndexArgs']]]]:
         """
-        ACS endpoints along with custom index as a set of maps called `acs_endpoints_indices` in JSON format
+        ACS endpoints along with custom index as a set of maps called `acs_endpoints_indices` in JSON format.
         """
         return pulumi.get(self, "acs_endpoints_indices")
 
@@ -1865,7 +1865,7 @@ class Saml(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] accessibility_login_redirect_url: Custom login page URL
         :param pulumi.Input[_builtins.bool] accessibility_self_service: Enable self service. Default is `false`
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] acs_endpoints: An array of ACS endpoints. You can configure a maximum of 100 endpoints.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['SamlAcsEndpointsIndexArgs', 'SamlAcsEndpointsIndexArgsDict']]]] acs_endpoints_indices: ACS endpoints along with custom index as a set of maps called `acs_endpoints_indices` in JSON format
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SamlAcsEndpointsIndexArgs', 'SamlAcsEndpointsIndexArgsDict']]]] acs_endpoints_indices: ACS endpoints along with custom index as a set of maps called `acs_endpoints_indices` in JSON format.
         :param pulumi.Input[_builtins.str] admin_note: Application notes for admins.
         :param pulumi.Input[_builtins.str] app_links_json: Displays specific appLinks for the app. The value for each application link should be boolean.
         :param pulumi.Input[_builtins.str] app_settings_json: Application settings in JSON format
@@ -2155,7 +2155,7 @@ class Saml(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] accessibility_login_redirect_url: Custom login page URL
         :param pulumi.Input[_builtins.bool] accessibility_self_service: Enable self service. Default is `false`
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] acs_endpoints: An array of ACS endpoints. You can configure a maximum of 100 endpoints.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['SamlAcsEndpointsIndexArgs', 'SamlAcsEndpointsIndexArgsDict']]]] acs_endpoints_indices: ACS endpoints along with custom index as a set of maps called `acs_endpoints_indices` in JSON format
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SamlAcsEndpointsIndexArgs', 'SamlAcsEndpointsIndexArgsDict']]]] acs_endpoints_indices: ACS endpoints along with custom index as a set of maps called `acs_endpoints_indices` in JSON format.
         :param pulumi.Input[_builtins.str] admin_note: Application notes for admins.
         :param pulumi.Input[_builtins.str] app_links_json: Displays specific appLinks for the app. The value for each application link should be boolean.
         :param pulumi.Input[_builtins.str] app_settings_json: Application settings in JSON format
@@ -2324,7 +2324,7 @@ class Saml(pulumi.CustomResource):
     @pulumi.getter(name="acsEndpointsIndices")
     def acs_endpoints_indices(self) -> pulumi.Output[Optional[Sequence['outputs.SamlAcsEndpointsIndex']]]:
         """
-        ACS endpoints along with custom index as a set of maps called `acs_endpoints_indices` in JSON format
+        ACS endpoints along with custom index as a set of maps called `acs_endpoints_indices` in JSON format.
         """
         return pulumi.get(self, "acs_endpoints_indices")
 

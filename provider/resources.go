@@ -25,7 +25,9 @@ import (
 	// embed is used to store bridge-metadata.json in the compiled binary
 	_ "embed"
 
-	"github.com/okta/terraform-provider-okta/okta"
+	oktafwprovider "github.com/okta/terraform-provider-okta/okta/fwprovider"
+	okta "github.com/okta/terraform-provider-okta/okta/provider"
+	oktaversion "github.com/okta/terraform-provider-okta/okta/version"
 
 	pfbridge "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/pf/tfbridge"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
@@ -35,7 +37,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/common/tokens"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
 
-	"github.com/pulumi/pulumi-okta/provider/v4/pkg/version"
+	"github.com/pulumi/pulumi-okta/provider/v5/pkg/version"
 )
 
 // all of the token components used below.
@@ -88,10 +90,10 @@ var metadata []byte
 // Provider returns additional overlaid schema and metadata associated with the provider.
 func Provider() tfbridge.ProviderInfo {
 	ctx := context.Background()
-	p := pfbridge.MuxShimWithPF(ctx,
-		shimv2.NewProvider(okta.Provider()),
-		okta.NewFrameworkProvider(okta.OktaTerraformProviderVersion),
-	)
+	basicProvider := okta.Provider()
+	fwProvider := oktafwprovider.NewFrameworkProvider(oktaversion.OktaTerraformProviderVersion, basicProvider)
+	p := pfbridge.MuxShimWithDisjointgPF(ctx, shimv2.NewProvider(basicProvider), fwProvider)
+
 	prov := tfbridge.ProviderInfo{
 		P:           p,
 		Name:        "okta",
@@ -114,7 +116,7 @@ func Provider() tfbridge.ProviderInfo {
 		},
 		UpstreamRepoPath:  "./upstream",
 		Version:           version.Version,
-		TFProviderVersion: okta.OktaTerraformProviderVersion,
+		TFProviderVersion: oktaversion.OktaTerraformProviderVersion,
 		DocRules: &tfbridge.DocRuleInfo{
 			EditRules: editRules,
 		},
@@ -351,14 +353,19 @@ func Provider() tfbridge.ProviderInfo {
 		"okta_policy_device_assurance_macos",
 		"okta_policy_device_assurance_windows",
 		"okta_preview_signin_page",
-		"okta_auth_server_policy_rule_legacy",
 	} {
+		if prov.Resources[r] == nil {
+			contract.Failf("Resources[%s] does not exist", r)
+		}
 		prov.Resources[r].Docs = &tfbridge.DocInfo{AllowMissing: true}
 	}
 
 	for _, d := range []string{
 		"okta_default_signin_page",
 	} {
+		if prov.DataSources[d] == nil {
+			contract.Failf("Data Source[%s] does not exist", d)
+		}
 		prov.DataSources[d].Docs = &tfbridge.DocInfo{AllowMissing: true}
 	}
 

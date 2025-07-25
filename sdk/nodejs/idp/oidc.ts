@@ -94,6 +94,10 @@ export class Oidc extends pulumi.CustomResource {
      */
     public readonly deprovisionedAction!: pulumi.Output<string | undefined>;
     /**
+     * Optional regular expression pattern used to filter untrusted IdP usernames.
+     */
+    public readonly filter!: pulumi.Output<string | undefined>;
+    /**
      * Provisioning action for IdP user's group memberships. It can be `NONE`, `SYNC`, `APPEND`, or `ASSIGN`. Default: `NONE`
      */
     public readonly groupsAction!: pulumi.Output<string | undefined>;
@@ -223,6 +227,7 @@ export class Oidc extends pulumi.CustomResource {
             resourceInputs["clientId"] = state ? state.clientId : undefined;
             resourceInputs["clientSecret"] = state ? state.clientSecret : undefined;
             resourceInputs["deprovisionedAction"] = state ? state.deprovisionedAction : undefined;
+            resourceInputs["filter"] = state ? state.filter : undefined;
             resourceInputs["groupsAction"] = state ? state.groupsAction : undefined;
             resourceInputs["groupsAssignments"] = state ? state.groupsAssignments : undefined;
             resourceInputs["groupsAttribute"] = state ? state.groupsAttribute : undefined;
@@ -290,6 +295,7 @@ export class Oidc extends pulumi.CustomResource {
             resourceInputs["clientId"] = args ? args.clientId : undefined;
             resourceInputs["clientSecret"] = args?.clientSecret ? pulumi.secret(args.clientSecret) : undefined;
             resourceInputs["deprovisionedAction"] = args ? args.deprovisionedAction : undefined;
+            resourceInputs["filter"] = args ? args.filter : undefined;
             resourceInputs["groupsAction"] = args ? args.groupsAction : undefined;
             resourceInputs["groupsAssignments"] = args ? args.groupsAssignments : undefined;
             resourceInputs["groupsAttribute"] = args ? args.groupsAttribute : undefined;
@@ -358,6 +364,10 @@ export interface OidcState {
      * Action for a previously deprovisioned IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`
      */
     deprovisionedAction?: pulumi.Input<string>;
+    /**
+     * Optional regular expression pattern used to filter untrusted IdP usernames.
+     */
+    filter?: pulumi.Input<string>;
     /**
      * Provisioning action for IdP user's group memberships. It can be `NONE`, `SYNC`, `APPEND`, or `ASSIGN`. Default: `NONE`
      */
@@ -501,6 +511,10 @@ export interface OidcArgs {
      * Action for a previously deprovisioned IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`
      */
     deprovisionedAction?: pulumi.Input<string>;
+    /**
+     * Optional regular expression pattern used to filter untrusted IdP usernames.
+     */
+    filter?: pulumi.Input<string>;
     /**
      * Provisioning action for IdP user's group memberships. It can be `NONE`, `SYNC`, `APPEND`, or `ASSIGN`. Default: `NONE`
      */

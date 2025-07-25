@@ -32,6 +32,7 @@ class OidcArgs:
                  account_link_action: Optional[pulumi.Input[_builtins.str]] = None,
                  account_link_group_includes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  deprovisioned_action: Optional[pulumi.Input[_builtins.str]] = None,
+                 filter: Optional[pulumi.Input[_builtins.str]] = None,
                  groups_action: Optional[pulumi.Input[_builtins.str]] = None,
                  groups_assignments: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  groups_attribute: Optional[pulumi.Input[_builtins.str]] = None,
@@ -67,6 +68,7 @@ class OidcArgs:
         :param pulumi.Input[_builtins.str] account_link_action: Specifies the account linking action for an IdP user. Default: `AUTO`
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] account_link_group_includes: Group memberships to determine link candidates.
         :param pulumi.Input[_builtins.str] deprovisioned_action: Action for a previously deprovisioned IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`
+        :param pulumi.Input[_builtins.str] filter: Optional regular expression pattern used to filter untrusted IdP usernames.
         :param pulumi.Input[_builtins.str] groups_action: Provisioning action for IdP user's group memberships. It can be `NONE`, `SYNC`, `APPEND`, or `ASSIGN`. Default: `NONE`
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] groups_assignments: List of Okta Group IDs to add an IdP user as a member with the `ASSIGN` `groups_action`.
         :param pulumi.Input[_builtins.str] groups_attribute: IdP user profile attribute name (case-insensitive) for an array value that contains group memberships.
@@ -103,6 +105,8 @@ class OidcArgs:
             pulumi.set(__self__, "account_link_group_includes", account_link_group_includes)
         if deprovisioned_action is not None:
             pulumi.set(__self__, "deprovisioned_action", deprovisioned_action)
+        if filter is not None:
+            pulumi.set(__self__, "filter", filter)
         if groups_action is not None:
             pulumi.set(__self__, "groups_action", groups_action)
         if groups_assignments is not None:
@@ -299,6 +303,18 @@ class OidcArgs:
     @deprovisioned_action.setter
     def deprovisioned_action(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "deprovisioned_action", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def filter(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Optional regular expression pattern used to filter untrusted IdP usernames.
+        """
+        return pulumi.get(self, "filter")
+
+    @filter.setter
+    def filter(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "filter", value)
 
     @_builtins.property
     @pulumi.getter(name="groupsAction")
@@ -548,6 +564,7 @@ class _OidcState:
                  client_id: Optional[pulumi.Input[_builtins.str]] = None,
                  client_secret: Optional[pulumi.Input[_builtins.str]] = None,
                  deprovisioned_action: Optional[pulumi.Input[_builtins.str]] = None,
+                 filter: Optional[pulumi.Input[_builtins.str]] = None,
                  groups_action: Optional[pulumi.Input[_builtins.str]] = None,
                  groups_assignments: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  groups_attribute: Optional[pulumi.Input[_builtins.str]] = None,
@@ -585,6 +602,7 @@ class _OidcState:
         :param pulumi.Input[_builtins.str] client_id: Unique identifier issued by AS for the Okta IdP instance.
         :param pulumi.Input[_builtins.str] client_secret: Client secret issued by AS for the Okta IdP instance.
         :param pulumi.Input[_builtins.str] deprovisioned_action: Action for a previously deprovisioned IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`
+        :param pulumi.Input[_builtins.str] filter: Optional regular expression pattern used to filter untrusted IdP usernames.
         :param pulumi.Input[_builtins.str] groups_action: Provisioning action for IdP user's group memberships. It can be `NONE`, `SYNC`, `APPEND`, or `ASSIGN`. Default: `NONE`
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] groups_assignments: List of Okta Group IDs to add an IdP user as a member with the `ASSIGN` `groups_action`.
         :param pulumi.Input[_builtins.str] groups_attribute: IdP user profile attribute name (case-insensitive) for an array value that contains group memberships.
@@ -627,6 +645,8 @@ class _OidcState:
             pulumi.set(__self__, "client_secret", client_secret)
         if deprovisioned_action is not None:
             pulumi.set(__self__, "deprovisioned_action", deprovisioned_action)
+        if filter is not None:
+            pulumi.set(__self__, "filter", filter)
         if groups_action is not None:
             pulumi.set(__self__, "groups_action", groups_action)
         if groups_assignments is not None:
@@ -767,6 +787,18 @@ class _OidcState:
     @deprovisioned_action.setter
     def deprovisioned_action(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "deprovisioned_action", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def filter(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Optional regular expression pattern used to filter untrusted IdP usernames.
+        """
+        return pulumi.get(self, "filter")
+
+    @filter.setter
+    def filter(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "filter", value)
 
     @_builtins.property
     @pulumi.getter(name="groupsAction")
@@ -1115,6 +1147,7 @@ class Oidc(pulumi.CustomResource):
                  client_id: Optional[pulumi.Input[_builtins.str]] = None,
                  client_secret: Optional[pulumi.Input[_builtins.str]] = None,
                  deprovisioned_action: Optional[pulumi.Input[_builtins.str]] = None,
+                 filter: Optional[pulumi.Input[_builtins.str]] = None,
                  groups_action: Optional[pulumi.Input[_builtins.str]] = None,
                  groups_assignments: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  groups_attribute: Optional[pulumi.Input[_builtins.str]] = None,
@@ -1183,6 +1216,7 @@ class Oidc(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] client_id: Unique identifier issued by AS for the Okta IdP instance.
         :param pulumi.Input[_builtins.str] client_secret: Client secret issued by AS for the Okta IdP instance.
         :param pulumi.Input[_builtins.str] deprovisioned_action: Action for a previously deprovisioned IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`
+        :param pulumi.Input[_builtins.str] filter: Optional regular expression pattern used to filter untrusted IdP usernames.
         :param pulumi.Input[_builtins.str] groups_action: Provisioning action for IdP user's group memberships. It can be `NONE`, `SYNC`, `APPEND`, or `ASSIGN`. Default: `NONE`
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] groups_assignments: List of Okta Group IDs to add an IdP user as a member with the `ASSIGN` `groups_action`.
         :param pulumi.Input[_builtins.str] groups_attribute: IdP user profile attribute name (case-insensitive) for an array value that contains group memberships.
@@ -1269,6 +1303,7 @@ class Oidc(pulumi.CustomResource):
                  client_id: Optional[pulumi.Input[_builtins.str]] = None,
                  client_secret: Optional[pulumi.Input[_builtins.str]] = None,
                  deprovisioned_action: Optional[pulumi.Input[_builtins.str]] = None,
+                 filter: Optional[pulumi.Input[_builtins.str]] = None,
                  groups_action: Optional[pulumi.Input[_builtins.str]] = None,
                  groups_assignments: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  groups_attribute: Optional[pulumi.Input[_builtins.str]] = None,
@@ -1319,6 +1354,7 @@ class Oidc(pulumi.CustomResource):
                 raise TypeError("Missing required property 'client_secret'")
             __props__.__dict__["client_secret"] = None if client_secret is None else pulumi.Output.secret(client_secret)
             __props__.__dict__["deprovisioned_action"] = deprovisioned_action
+            __props__.__dict__["filter"] = filter
             __props__.__dict__["groups_action"] = groups_action
             __props__.__dict__["groups_assignments"] = groups_assignments
             __props__.__dict__["groups_attribute"] = groups_attribute
@@ -1378,6 +1414,7 @@ class Oidc(pulumi.CustomResource):
             client_id: Optional[pulumi.Input[_builtins.str]] = None,
             client_secret: Optional[pulumi.Input[_builtins.str]] = None,
             deprovisioned_action: Optional[pulumi.Input[_builtins.str]] = None,
+            filter: Optional[pulumi.Input[_builtins.str]] = None,
             groups_action: Optional[pulumi.Input[_builtins.str]] = None,
             groups_assignments: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
             groups_attribute: Optional[pulumi.Input[_builtins.str]] = None,
@@ -1420,6 +1457,7 @@ class Oidc(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] client_id: Unique identifier issued by AS for the Okta IdP instance.
         :param pulumi.Input[_builtins.str] client_secret: Client secret issued by AS for the Okta IdP instance.
         :param pulumi.Input[_builtins.str] deprovisioned_action: Action for a previously deprovisioned IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`
+        :param pulumi.Input[_builtins.str] filter: Optional regular expression pattern used to filter untrusted IdP usernames.
         :param pulumi.Input[_builtins.str] groups_action: Provisioning action for IdP user's group memberships. It can be `NONE`, `SYNC`, `APPEND`, or `ASSIGN`. Default: `NONE`
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] groups_assignments: List of Okta Group IDs to add an IdP user as a member with the `ASSIGN` `groups_action`.
         :param pulumi.Input[_builtins.str] groups_attribute: IdP user profile attribute name (case-insensitive) for an array value that contains group memberships.
@@ -1459,6 +1497,7 @@ class Oidc(pulumi.CustomResource):
         __props__.__dict__["client_id"] = client_id
         __props__.__dict__["client_secret"] = client_secret
         __props__.__dict__["deprovisioned_action"] = deprovisioned_action
+        __props__.__dict__["filter"] = filter
         __props__.__dict__["groups_action"] = groups_action
         __props__.__dict__["groups_assignments"] = groups_assignments
         __props__.__dict__["groups_attribute"] = groups_attribute
@@ -1544,6 +1583,14 @@ class Oidc(pulumi.CustomResource):
         Action for a previously deprovisioned IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`
         """
         return pulumi.get(self, "deprovisioned_action")
+
+    @_builtins.property
+    @pulumi.getter
+    def filter(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Optional regular expression pattern used to filter untrusted IdP usernames.
+        """
+        return pulumi.get(self, "filter")
 
     @_builtins.property
     @pulumi.getter(name="groupsAction")
