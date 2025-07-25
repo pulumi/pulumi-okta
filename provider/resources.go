@@ -22,8 +22,6 @@ import (
 	"strings"
 	"unicode"
 
-	pfbridge "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/pf/tfbridge"
-
 	// embed is used to store bridge-metadata.json in the compiled binary
 	_ "embed"
 
@@ -31,6 +29,7 @@ import (
 	okta "github.com/okta/terraform-provider-okta/okta/provider"
 	oktaversion "github.com/okta/terraform-provider-okta/okta/version"
 
+	pfbridge "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/pf/tfbridge"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
 	tks "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge/tokens"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge/tokens/fallbackstrat"
