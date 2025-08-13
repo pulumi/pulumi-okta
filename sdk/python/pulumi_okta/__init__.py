@@ -61,6 +61,8 @@ from .get_groups import *
 from .get_log_stream import *
 from .get_network_zone import *
 from .get_org_metadata import *
+from .get_realm import *
+from .get_realm_assignment import *
 from .get_role_subscription import *
 from .get_template import *
 from .get_templates import *
@@ -83,6 +85,8 @@ from .policy_rule_profile_enrollment import *
 from .preview_signin_page import *
 from .provider import *
 from .rate_limiting import *
+from .realm import *
+from .realm_assignment import *
 from .resource_set import *
 from .role_subscription import *
 from .security_notification_emails import *
@@ -739,6 +743,22 @@ _utilities.register(
   "fqn": "pulumi_okta",
   "classes": {
    "okta:index/rateLimiting:RateLimiting": "RateLimiting"
+  }
+ },
+ {
+  "pkg": "okta",
+  "mod": "index/realm",
+  "fqn": "pulumi_okta",
+  "classes": {
+   "okta:index/realm:Realm": "Realm"
+  }
+ },
+ {
+  "pkg": "okta",
+  "mod": "index/realmAssignment",
+  "fqn": "pulumi_okta",
+  "classes": {
+   "okta:index/realmAssignment:RealmAssignment": "RealmAssignment"
   }
  },
  {

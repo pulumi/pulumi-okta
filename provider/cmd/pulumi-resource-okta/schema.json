@@ -42,7 +42,7 @@
             "respectSchemaVersion": true
         },
         "nodejs": {
-            "packageDescription": "A Pulumi package for creating and managing okta resources.. Based on terraform-provider-okta: version v5.2.0",
+            "packageDescription": "A Pulumi package for creating and managing okta resources.. Based on terraform-provider-okta: version v5.3.0",
             "readme": "\u003e This provider is a derived work of the [Terraform Provider](https://github.com/okta/terraform-provider-okta)\n\u003e distributed under [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/). If you encounter a bug or missing feature,\n\u003e first check the [`pulumi-okta` repo](https://github.com/pulumi/pulumi-okta/issues); however, if that doesn't turn up anything,\n\u003e please consult the source [`terraform-provider-okta` repo](https://github.com/okta/terraform-provider-okta/issues).",
             "devDependencies": {
                 "@types/mime": "^2.0.0",
@@ -15087,6 +15087,162 @@
                 "type": "object"
             }
         },
+        "okta:index/realm:Realm": {
+            "properties": {
+                "isDefault": {
+                    "type": "boolean",
+                    "description": "Indicates whether the realm is the default realm.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the Okta Realm.\n"
+                },
+                "realmType": {
+                    "type": "string",
+                    "description": "The realm type. Valid values: `PARTNER` and `DEFAULT`\n"
+                }
+            },
+            "required": [
+                "isDefault",
+                "name",
+                "realmType"
+            ],
+            "inputProperties": {
+                "name": {
+                    "type": "string",
+                    "description": "The name of the Okta Realm.\n"
+                },
+                "realmType": {
+                    "type": "string",
+                    "description": "The realm type. Valid values: `PARTNER` and `DEFAULT`\n"
+                }
+            },
+            "requiredInputs": [
+                "realmType"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Realm resources.\n",
+                "properties": {
+                    "isDefault": {
+                        "type": "boolean",
+                        "description": "Indicates whether the realm is the default realm.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The name of the Okta Realm.\n"
+                    },
+                    "realmType": {
+                        "type": "string",
+                        "description": "The realm type. Valid values: `PARTNER` and `DEFAULT`\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "okta:index/realmAssignment:RealmAssignment": {
+            "properties": {
+                "conditionExpression": {
+                    "type": "string",
+                    "description": "Condition expression for the Realm Assignment in Okta Expression Language. Example: `user.profile.role ==\"Manager\"` or\n`user.profile.state.contains(\"example\")`.\n"
+                },
+                "isDefault": {
+                    "type": "boolean",
+                    "description": "Indicates whether the realm assignment is the default.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the Okta Realm Assignment.\n"
+                },
+                "priority": {
+                    "type": "integer",
+                    "description": "The Priority of the Realm Assignment. The lower the number, the higher the priority.\n"
+                },
+                "profileSourceId": {
+                    "type": "string",
+                    "description": "The ID of the Profile Source.\n"
+                },
+                "realmId": {
+                    "type": "string",
+                    "description": "The ID of the Realm asscociated with the Realm Assignment.\n"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "Defines whether the Realm Assignment is active or not. Valid values: `ACTIVE` and `INACTIVE`.\n"
+                }
+            },
+            "required": [
+                "isDefault",
+                "name",
+                "priority",
+                "profileSourceId",
+                "realmId",
+                "status"
+            ],
+            "inputProperties": {
+                "conditionExpression": {
+                    "type": "string",
+                    "description": "Condition expression for the Realm Assignment in Okta Expression Language. Example: `user.profile.role ==\"Manager\"` or\n`user.profile.state.contains(\"example\")`.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the Okta Realm Assignment.\n"
+                },
+                "priority": {
+                    "type": "integer",
+                    "description": "The Priority of the Realm Assignment. The lower the number, the higher the priority.\n"
+                },
+                "profileSourceId": {
+                    "type": "string",
+                    "description": "The ID of the Profile Source.\n"
+                },
+                "realmId": {
+                    "type": "string",
+                    "description": "The ID of the Realm asscociated with the Realm Assignment.\n"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "Defines whether the Realm Assignment is active or not. Valid values: `ACTIVE` and `INACTIVE`.\n"
+                }
+            },
+            "requiredInputs": [
+                "profileSourceId",
+                "realmId"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering RealmAssignment resources.\n",
+                "properties": {
+                    "conditionExpression": {
+                        "type": "string",
+                        "description": "Condition expression for the Realm Assignment in Okta Expression Language. Example: `user.profile.role ==\"Manager\"` or\n`user.profile.state.contains(\"example\")`.\n"
+                    },
+                    "isDefault": {
+                        "type": "boolean",
+                        "description": "Indicates whether the realm assignment is the default.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The name of the Okta Realm Assignment.\n"
+                    },
+                    "priority": {
+                        "type": "integer",
+                        "description": "The Priority of the Realm Assignment. The lower the number, the higher the priority.\n"
+                    },
+                    "profileSourceId": {
+                        "type": "string",
+                        "description": "The ID of the Profile Source.\n"
+                    },
+                    "realmId": {
+                        "type": "string",
+                        "description": "The ID of the Realm asscociated with the Realm Assignment.\n"
+                    },
+                    "status": {
+                        "type": "string",
+                        "description": "Defines whether the Realm Assignment is active or not. Valid values: `ACTIVE` and `INACTIVE`.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
         "okta:index/resourceSet:ResourceSet": {
             "description": "Manages Resource Sets as custom collections of resources. This resource allows the creation and manipulation of Okta Resource Sets as custom collections of Okta resources. You can use Okta Resource Sets to assign Custom Roles to administrators who are scoped to the designated resources. \nThe 'resources' field supports the following:\n\t- Apps\n\t- Groups\n\t- All Users within a Group\n\t- All Users within the org\n\t- All Groups within the org\n\t- All Apps within the org\n\t- All Apps of the same type\n\n## Import\n\n```sh\n$ pulumi import okta:index/resourceSet:ResourceSet example \u003cresource_set_id\u003e\n```\n\n",
             "properties": {
@@ -23473,6 +23629,96 @@
                 "required": [
                     "id",
                     "pipeline"
+                ],
+                "type": "object"
+            }
+        },
+        "okta:index/getRealm:getRealm": {
+            "inputs": {
+                "description": "A collection of arguments for invoking getRealm.\n",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "realmType": {
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "outputs": {
+                "description": "A collection of values returned by getRealm.\n",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "isDefault": {
+                        "type": "boolean"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "realmType": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "id",
+                    "isDefault",
+                    "name"
+                ],
+                "type": "object"
+            }
+        },
+        "okta:index/getRealmAssignment:getRealmAssignment": {
+            "inputs": {
+                "description": "A collection of arguments for invoking getRealmAssignment.\n",
+                "properties": {
+                    "name": {
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "outputs": {
+                "description": "A collection of values returned by getRealmAssignment.\n",
+                "properties": {
+                    "conditionExpression": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "string"
+                    },
+                    "isDefault": {
+                        "type": "boolean"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "priority": {
+                        "type": "integer"
+                    },
+                    "profileSourceId": {
+                        "type": "string"
+                    },
+                    "realmId": {
+                        "type": "string"
+                    },
+                    "status": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "conditionExpression",
+                    "id",
+                    "isDefault",
+                    "priority",
+                    "profileSourceId",
+                    "realmId",
+                    "status"
                 ],
                 "type": "object"
             }
