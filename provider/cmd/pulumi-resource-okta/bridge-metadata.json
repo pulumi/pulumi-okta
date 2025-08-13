@@ -874,6 +874,14 @@
                 "current": "okta:index/rateLimiting:RateLimiting",
                 "majorVersion": 5
             },
+            "okta_realm": {
+                "current": "okta:index/realm:Realm",
+                "majorVersion": 5
+            },
+            "okta_realm_assignment": {
+                "current": "okta:index/realmAssignment:RealmAssignment",
+                "majorVersion": 5
+            },
             "okta_resource_set": {
                 "current": "okta:index/resourceSet:ResourceSet",
                 "majorVersion": 5,
@@ -1392,6 +1400,14 @@
                 "current": "okta:policy/getPolicy:getPolicy",
                 "majorVersion": 5
             },
+            "okta_realm": {
+                "current": "okta:index/getRealm:getRealm",
+                "majorVersion": 5
+            },
+            "okta_realm_assignment": {
+                "current": "okta:index/getRealmAssignment:getRealmAssignment",
+                "majorVersion": 5
+            },
             "okta_role_subscription": {
                 "current": "okta:index/getRoleSubscription:getRoleSubscription",
                 "majorVersion": 5
@@ -1573,6 +1589,8 @@
             "okta:index/policyRuleProfileEnrollment:PolicyRuleProfileEnrollment": 0,
             "okta:index/previewSigninPage:PreviewSigninPage": 1,
             "okta:index/rateLimiting:RateLimiting": 0,
+            "okta:index/realm:Realm": 1,
+            "okta:index/realmAssignment:RealmAssignment": 1,
             "okta:index/resourceSet:ResourceSet": 0,
             "okta:index/roleSubscription:RoleSubscription": 0,
             "okta:index/securityNotificationEmails:SecurityNotificationEmails": 0,
@@ -1641,6 +1659,8 @@
             "okta:index/getLogStream:getLogStream": 1,
             "okta:index/getNetworkZone:getNetworkZone": 0,
             "okta:index/getOrgMetadata:getOrgMetadata": 1,
+            "okta:index/getRealm:getRealm": 1,
+            "okta:index/getRealmAssignment:getRealmAssignment": 1,
             "okta:index/getRoleSubscription:getRoleSubscription": 0,
             "okta:index/getTemplate:getTemplate": 0,
             "okta:index/getTemplates:getTemplates": 0,
