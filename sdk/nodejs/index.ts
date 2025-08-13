@@ -280,6 +280,16 @@ export const getOrgMetadata: typeof import("./getOrgMetadata").getOrgMetadata = 
 export const getOrgMetadataOutput: typeof import("./getOrgMetadata").getOrgMetadataOutput = null as any;
 utilities.lazyLoad(exports, ["getOrgMetadata","getOrgMetadataOutput"], () => require("./getOrgMetadata"));
 
+export { GetRealmArgs, GetRealmResult, GetRealmOutputArgs } from "./getRealm";
+export const getRealm: typeof import("./getRealm").getRealm = null as any;
+export const getRealmOutput: typeof import("./getRealm").getRealmOutput = null as any;
+utilities.lazyLoad(exports, ["getRealm","getRealmOutput"], () => require("./getRealm"));
+
+export { GetRealmAssignmentArgs, GetRealmAssignmentResult, GetRealmAssignmentOutputArgs } from "./getRealmAssignment";
+export const getRealmAssignment: typeof import("./getRealmAssignment").getRealmAssignment = null as any;
+export const getRealmAssignmentOutput: typeof import("./getRealmAssignment").getRealmAssignmentOutput = null as any;
+utilities.lazyLoad(exports, ["getRealmAssignment","getRealmAssignmentOutput"], () => require("./getRealmAssignment"));
+
 export { GetRoleSubscriptionArgs, GetRoleSubscriptionResult, GetRoleSubscriptionOutputArgs } from "./getRoleSubscription";
 export const getRoleSubscription: typeof import("./getRoleSubscription").getRoleSubscription = null as any;
 export const getRoleSubscriptionOutput: typeof import("./getRoleSubscription").getRoleSubscriptionOutput = null as any;
@@ -387,6 +397,16 @@ export { RateLimitingArgs, RateLimitingState } from "./rateLimiting";
 export type RateLimiting = import("./rateLimiting").RateLimiting;
 export const RateLimiting: typeof import("./rateLimiting").RateLimiting = null as any;
 utilities.lazyLoad(exports, ["RateLimiting"], () => require("./rateLimiting"));
+
+export { RealmArgs, RealmState } from "./realm";
+export type Realm = import("./realm").Realm;
+export const Realm: typeof import("./realm").Realm = null as any;
+utilities.lazyLoad(exports, ["Realm"], () => require("./realm"));
+
+export { RealmAssignmentArgs, RealmAssignmentState } from "./realmAssignment";
+export type RealmAssignment = import("./realmAssignment").RealmAssignment;
+export const RealmAssignment: typeof import("./realmAssignment").RealmAssignment = null as any;
+utilities.lazyLoad(exports, ["RealmAssignment"], () => require("./realmAssignment"));
 
 export { ResourceSetArgs, ResourceSetState } from "./resourceSet";
 export type ResourceSet = import("./resourceSet").ResourceSet;
@@ -578,6 +598,10 @@ const _module = {
                 return new PreviewSigninPage(name, <any>undefined, { urn })
             case "okta:index/rateLimiting:RateLimiting":
                 return new RateLimiting(name, <any>undefined, { urn })
+            case "okta:index/realm:Realm":
+                return new Realm(name, <any>undefined, { urn })
+            case "okta:index/realmAssignment:RealmAssignment":
+                return new RealmAssignment(name, <any>undefined, { urn })
             case "okta:index/resourceSet:ResourceSet":
                 return new ResourceSet(name, <any>undefined, { urn })
             case "okta:index/roleSubscription:RoleSubscription":
@@ -654,6 +678,8 @@ pulumi.runtime.registerResourceModule("okta", "index/policyProfileEnrollmentApps
 pulumi.runtime.registerResourceModule("okta", "index/policyRuleProfileEnrollment", _module)
 pulumi.runtime.registerResourceModule("okta", "index/previewSigninPage", _module)
 pulumi.runtime.registerResourceModule("okta", "index/rateLimiting", _module)
+pulumi.runtime.registerResourceModule("okta", "index/realm", _module)
+pulumi.runtime.registerResourceModule("okta", "index/realmAssignment", _module)
 pulumi.runtime.registerResourceModule("okta", "index/resourceSet", _module)
 pulumi.runtime.registerResourceModule("okta", "index/roleSubscription", _module)
 pulumi.runtime.registerResourceModule("okta", "index/securityNotificationEmails", _module)

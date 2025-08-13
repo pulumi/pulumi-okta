@@ -51,6 +51,10 @@ import com.pulumi.okta.inputs.GetNetworkZoneArgs;
 import com.pulumi.okta.inputs.GetNetworkZonePlainArgs;
 import com.pulumi.okta.inputs.GetOrgMetadataArgs;
 import com.pulumi.okta.inputs.GetOrgMetadataPlainArgs;
+import com.pulumi.okta.inputs.GetRealmArgs;
+import com.pulumi.okta.inputs.GetRealmAssignmentArgs;
+import com.pulumi.okta.inputs.GetRealmAssignmentPlainArgs;
+import com.pulumi.okta.inputs.GetRealmPlainArgs;
 import com.pulumi.okta.inputs.GetRoleSubscriptionArgs;
 import com.pulumi.okta.inputs.GetRoleSubscriptionPlainArgs;
 import com.pulumi.okta.inputs.GetTemplateArgs;
@@ -87,6 +91,8 @@ import com.pulumi.okta.outputs.GetGroupsResult;
 import com.pulumi.okta.outputs.GetLogStreamResult;
 import com.pulumi.okta.outputs.GetNetworkZoneResult;
 import com.pulumi.okta.outputs.GetOrgMetadataResult;
+import com.pulumi.okta.outputs.GetRealmAssignmentResult;
+import com.pulumi.okta.outputs.GetRealmResult;
 import com.pulumi.okta.outputs.GetRoleSubscriptionResult;
 import com.pulumi.okta.outputs.GetTemplateResult;
 import com.pulumi.okta.outputs.GetTemplatesResult;
@@ -3658,6 +3664,48 @@ public final class OktaFunctions {
      */
     public static CompletableFuture<GetOrgMetadataResult> getOrgMetadataPlain(GetOrgMetadataPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("okta:index/getOrgMetadata:getOrgMetadata", TypeShape.of(GetOrgMetadataResult.class), args, Utilities.withVersion(options));
+    }
+    public static Output<GetRealmResult> getRealm() {
+        return getRealm(GetRealmArgs.Empty, InvokeOptions.Empty);
+    }
+    public static CompletableFuture<GetRealmResult> getRealmPlain() {
+        return getRealmPlain(GetRealmPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    public static Output<GetRealmResult> getRealm(GetRealmArgs args) {
+        return getRealm(args, InvokeOptions.Empty);
+    }
+    public static CompletableFuture<GetRealmResult> getRealmPlain(GetRealmPlainArgs args) {
+        return getRealmPlain(args, InvokeOptions.Empty);
+    }
+    public static Output<GetRealmResult> getRealm(GetRealmArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("okta:index/getRealm:getRealm", TypeShape.of(GetRealmResult.class), args, Utilities.withVersion(options));
+    }
+    public static Output<GetRealmResult> getRealm(GetRealmArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("okta:index/getRealm:getRealm", TypeShape.of(GetRealmResult.class), args, Utilities.withVersion(options));
+    }
+    public static CompletableFuture<GetRealmResult> getRealmPlain(GetRealmPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("okta:index/getRealm:getRealm", TypeShape.of(GetRealmResult.class), args, Utilities.withVersion(options));
+    }
+    public static Output<GetRealmAssignmentResult> getRealmAssignment() {
+        return getRealmAssignment(GetRealmAssignmentArgs.Empty, InvokeOptions.Empty);
+    }
+    public static CompletableFuture<GetRealmAssignmentResult> getRealmAssignmentPlain() {
+        return getRealmAssignmentPlain(GetRealmAssignmentPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    public static Output<GetRealmAssignmentResult> getRealmAssignment(GetRealmAssignmentArgs args) {
+        return getRealmAssignment(args, InvokeOptions.Empty);
+    }
+    public static CompletableFuture<GetRealmAssignmentResult> getRealmAssignmentPlain(GetRealmAssignmentPlainArgs args) {
+        return getRealmAssignmentPlain(args, InvokeOptions.Empty);
+    }
+    public static Output<GetRealmAssignmentResult> getRealmAssignment(GetRealmAssignmentArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("okta:index/getRealmAssignment:getRealmAssignment", TypeShape.of(GetRealmAssignmentResult.class), args, Utilities.withVersion(options));
+    }
+    public static Output<GetRealmAssignmentResult> getRealmAssignment(GetRealmAssignmentArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("okta:index/getRealmAssignment:getRealmAssignment", TypeShape.of(GetRealmAssignmentResult.class), args, Utilities.withVersion(options));
+    }
+    public static CompletableFuture<GetRealmAssignmentResult> getRealmAssignmentPlain(GetRealmAssignmentPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("okta:index/getRealmAssignment:getRealmAssignment", TypeShape.of(GetRealmAssignmentResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Get subscriptions of a Role with a specific type

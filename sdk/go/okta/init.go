@@ -115,6 +115,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &PreviewSigninPage{}
 	case "okta:index/rateLimiting:RateLimiting":
 		r = &RateLimiting{}
+	case "okta:index/realm:Realm":
+		r = &Realm{}
+	case "okta:index/realmAssignment:RealmAssignment":
+		r = &RealmAssignment{}
 	case "okta:index/resourceSet:ResourceSet":
 		r = &ResourceSet{}
 	case "okta:index/roleSubscription:RoleSubscription":
@@ -403,6 +407,16 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"okta",
 		"index/rateLimiting",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"okta",
+		"index/realm",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"okta",
+		"index/realmAssignment",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
