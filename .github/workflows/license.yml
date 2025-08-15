@@ -7,7 +7,6 @@ on:
     inputs: {}
 
 env:
-  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   OKTA_API_TOKEN: ${{ secrets.OKTA_API_TOKEN }}
   OKTA_BASE_URL: ${{ secrets.OKTA_BASE_URL }}
   OKTA_ORG_NAME: ${{ secrets.OKTA_ORG_NAME }}
@@ -32,6 +31,8 @@ jobs:
           cache-go: false
       - run: make prepare_local_workspace
         continue-on-error: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - uses: pulumi/license-check-action@main
         with:
           module-path: provider
