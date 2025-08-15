@@ -37,7 +37,6 @@ on:
         required: false
 
 env:
-  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   OKTA_API_TOKEN: ${{ secrets.OKTA_API_TOKEN }}
   OKTA_BASE_URL: ${{ secrets.OKTA_BASE_URL }}
   OKTA_ORG_NAME: ${{ secrets.OKTA_ORG_NAME }}

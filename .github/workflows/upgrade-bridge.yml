@@ -62,7 +62,6 @@ permissions:
 
 env:
   GH_TOKEN: ${{ secrets.PULUMI_PROVIDER_AUTOMATION_TOKEN || secrets.PULUMI_BOT_TOKEN || secrets.GITHUB_TOKEN }}
-  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   OKTA_API_TOKEN: ${{ secrets.OKTA_API_TOKEN }}
   OKTA_BASE_URL: ${{ secrets.OKTA_BASE_URL }}
   OKTA_ORG_NAME: ${{ secrets.OKTA_ORG_NAME }}
