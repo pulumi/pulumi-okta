@@ -24558,7 +24558,7 @@
                 "properties": {
                     "__self__": {
                         "type": "ref",
-                        "$ref": "#/resources/pulumi:providers:okta"
+                        "$ref": "#/provider"
                     }
                 },
                 "type": "pulumi:providers:okta/terraformConfig",
