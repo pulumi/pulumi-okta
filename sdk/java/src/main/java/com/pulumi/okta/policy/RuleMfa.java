@@ -31,40 +31,40 @@ import javax.annotation.Nullable;
 @ResourceType(type="okta:policy/ruleMfa:RuleMfa")
 public class RuleMfa extends com.pulumi.resources.CustomResource {
     /**
-     * Applications to exclude in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations. - &#39;id&#39;
-     * - (Optional) Use if &#39;type&#39; is &#39;APP&#39; to indicate the application id to include. - &#39;name&#39; - (Optional) Use if the &#39;type&#39;
-     *   is &#39;APP_TYPE&#39; to indicate the type of application(s) to include in instances where an entire group (i.e. &#39;yahoo_mail&#39;)
-     *   of applications should be included. - &#39;type&#39; - (Required) One of: &#39;APP&#39;, &#39;APP_TYPE&#39;
+     * Applications to exclude in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations.
+     * 	- &#39;id&#39; - (Optional) Use if &#39;type&#39; is &#39;APP&#39; to indicate the application id to include.
+     * 	- &#39;name&#39; - (Optional) Use if the &#39;type&#39; is &#39;APP_TYPE&#39; to indicate the type of application(s) to include in instances where an entire group (i.e. &#39;yahoo_mail&#39;) of applications should be included.
+     * 	- &#39;type&#39; - (Required) One of: &#39;APP&#39;, &#39;APP_TYPE&#39;
      * 
      */
     @Export(name="appExcludes", refs={List.class,RuleMfaAppExclude.class}, tree="[0,1]")
     private Output</* @Nullable */ List<RuleMfaAppExclude>> appExcludes;
 
     /**
-     * @return Applications to exclude in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations. - &#39;id&#39;
-     * - (Optional) Use if &#39;type&#39; is &#39;APP&#39; to indicate the application id to include. - &#39;name&#39; - (Optional) Use if the &#39;type&#39;
-     *   is &#39;APP_TYPE&#39; to indicate the type of application(s) to include in instances where an entire group (i.e. &#39;yahoo_mail&#39;)
-     *   of applications should be included. - &#39;type&#39; - (Required) One of: &#39;APP&#39;, &#39;APP_TYPE&#39;
+     * @return Applications to exclude in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations.
+     * 	- &#39;id&#39; - (Optional) Use if &#39;type&#39; is &#39;APP&#39; to indicate the application id to include.
+     * 	- &#39;name&#39; - (Optional) Use if the &#39;type&#39; is &#39;APP_TYPE&#39; to indicate the type of application(s) to include in instances where an entire group (i.e. &#39;yahoo_mail&#39;) of applications should be included.
+     * 	- &#39;type&#39; - (Required) One of: &#39;APP&#39;, &#39;APP_TYPE&#39;
      * 
      */
     public Output<Optional<List<RuleMfaAppExclude>>> appExcludes() {
         return Codegen.optional(this.appExcludes);
     }
     /**
-     * Applications to include in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations. - &#39;id&#39;
-     * - (Optional) Use if &#39;type&#39; is &#39;APP&#39; to indicate the application id to include. - &#39;name&#39; - (Optional) Use if the &#39;type&#39;
-     *   is &#39;APP_TYPE&#39; to indicate the type of application(s) to include in instances where an entire group (i.e. &#39;yahoo_mail&#39;)
-     *   of applications should be included. - &#39;type&#39; - (Required) One of: &#39;APP&#39;, &#39;APP_TYPE&#39;
+     * Applications to include in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations.
+     * 	- &#39;id&#39; - (Optional) Use if &#39;type&#39; is &#39;APP&#39; to indicate the application id to include.
+     * 	- &#39;name&#39; - (Optional) Use if the &#39;type&#39; is &#39;APP_TYPE&#39; to indicate the type of application(s) to include in instances where an entire group (i.e. &#39;yahoo_mail&#39;) of applications should be included.
+     * 	- &#39;type&#39; - (Required) One of: &#39;APP&#39;, &#39;APP_TYPE&#39;
      * 
      */
     @Export(name="appIncludes", refs={List.class,RuleMfaAppInclude.class}, tree="[0,1]")
     private Output</* @Nullable */ List<RuleMfaAppInclude>> appIncludes;
 
     /**
-     * @return Applications to include in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations. - &#39;id&#39;
-     * - (Optional) Use if &#39;type&#39; is &#39;APP&#39; to indicate the application id to include. - &#39;name&#39; - (Optional) Use if the &#39;type&#39;
-     *   is &#39;APP_TYPE&#39; to indicate the type of application(s) to include in instances where an entire group (i.e. &#39;yahoo_mail&#39;)
-     *   of applications should be included. - &#39;type&#39; - (Required) One of: &#39;APP&#39;, &#39;APP_TYPE&#39;
+     * @return Applications to include in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations.
+     * 	- &#39;id&#39; - (Optional) Use if &#39;type&#39; is &#39;APP&#39; to indicate the application id to include.
+     * 	- &#39;name&#39; - (Optional) Use if the &#39;type&#39; is &#39;APP_TYPE&#39; to indicate the type of application(s) to include in instances where an entire group (i.e. &#39;yahoo_mail&#39;) of applications should be included.
+     * 	- &#39;type&#39; - (Required) One of: &#39;APP&#39;, &#39;APP_TYPE&#39;
      * 
      */
     public Output<Optional<List<RuleMfaAppInclude>>> appIncludes() {
@@ -155,16 +155,14 @@ public class RuleMfa extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.policyId);
     }
     /**
-     * Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if
-     * an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
+     * Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
      * 
      */
     @Export(name="priority", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> priority;
 
     /**
-     * @return Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if
-     * an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
+     * @return Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
      * 
      */
     public Output<Optional<Integer>> priority() {

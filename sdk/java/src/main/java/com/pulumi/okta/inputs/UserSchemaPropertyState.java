@@ -37,16 +37,18 @@ public final class UserSchemaPropertyState extends com.pulumi.resources.Resource
     }
 
     /**
-     * Display name and value an enum array can be set to. - &#39;const&#39; - (Required) value mapping to member of &#39;enum&#39;. - &#39;title&#39;
-     * - (Required) display name for the enum value.
+     * Display name and value an enum array can be set to.
+     * 	- &#39;const&#39; - (Required) value mapping to member of &#39;enum&#39;.
+     * 	- &#39;title&#39; - (Required) display name for the enum value.
      * 
      */
     @Import(name="arrayOneOfs")
     private @Nullable Output<List<UserSchemaPropertyArrayOneOfArgs>> arrayOneOfs;
 
     /**
-     * @return Display name and value an enum array can be set to. - &#39;const&#39; - (Required) value mapping to member of &#39;enum&#39;. - &#39;title&#39;
-     * - (Required) display name for the enum value.
+     * @return Display name and value an enum array can be set to.
+     * 	- &#39;const&#39; - (Required) value mapping to member of &#39;enum&#39;.
+     * 	- &#39;title&#39; - (Required) display name for the enum value.
      * 
      */
     public Optional<Output<List<UserSchemaPropertyArrayOneOfArgs>>> arrayOneOfs() {
@@ -159,16 +161,18 @@ public final class UserSchemaPropertyState extends com.pulumi.resources.Resource
     }
 
     /**
-     * Prioritized list of profile sources (required when &#39;master&#39; is &#39;OVERRIDE&#39;). - &#39;type&#39; - (Optional) - Type of profile
-     * source. - &#39;value&#39; - (Required) - ID of profile source.
+     * Prioritized list of profile sources (required when &#39;master&#39; is &#39;OVERRIDE&#39;).
+     * 	- &#39;type&#39; - (Optional) - Type of profile source.
+     * 	- &#39;value&#39; - (Required) - ID of profile source.
      * 
      */
     @Import(name="masterOverridePriorities")
     private @Nullable Output<List<UserSchemaPropertyMasterOverridePriorityArgs>> masterOverridePriorities;
 
     /**
-     * @return Prioritized list of profile sources (required when &#39;master&#39; is &#39;OVERRIDE&#39;). - &#39;type&#39; - (Optional) - Type of profile
-     * source. - &#39;value&#39; - (Required) - ID of profile source.
+     * @return Prioritized list of profile sources (required when &#39;master&#39; is &#39;OVERRIDE&#39;).
+     * 	- &#39;type&#39; - (Optional) - Type of profile source.
+     * 	- &#39;value&#39; - (Required) - ID of profile source.
      * 
      */
     public Optional<Output<List<UserSchemaPropertyMasterOverridePriorityArgs>>> masterOverridePriorities() {
@@ -206,16 +210,18 @@ public final class UserSchemaPropertyState extends com.pulumi.resources.Resource
     }
 
     /**
-     * Array of maps containing a mapping for display name to enum value. - &#39;const&#39; - (Required) value mapping to member of
-     * &#39;enum&#39;. - &#39;title&#39; - (Required) display name for the enum value.
+     * Array of maps containing a mapping for display name to enum value.
+     * 	- &#39;const&#39; - (Required) value mapping to member of &#39;enum&#39;.
+     * 	- &#39;title&#39; - (Required) display name for the enum value.
      * 
      */
     @Import(name="oneOfs")
     private @Nullable Output<List<UserSchemaPropertyOneOfArgs>> oneOfs;
 
     /**
-     * @return Array of maps containing a mapping for display name to enum value. - &#39;const&#39; - (Required) value mapping to member of
-     * &#39;enum&#39;. - &#39;title&#39; - (Required) display name for the enum value.
+     * @return Array of maps containing a mapping for display name to enum value.
+     * 	- &#39;const&#39; - (Required) value mapping to member of &#39;enum&#39;.
+     * 	- &#39;title&#39; - (Required) display name for the enum value.
      * 
      */
     public Optional<Output<List<UserSchemaPropertyOneOfArgs>>> oneOfs() {
@@ -418,8 +424,9 @@ public final class UserSchemaPropertyState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param arrayOneOfs Display name and value an enum array can be set to. - &#39;const&#39; - (Required) value mapping to member of &#39;enum&#39;. - &#39;title&#39;
-         * - (Required) display name for the enum value.
+         * @param arrayOneOfs Display name and value an enum array can be set to.
+         * 	- &#39;const&#39; - (Required) value mapping to member of &#39;enum&#39;.
+         * 	- &#39;title&#39; - (Required) display name for the enum value.
          * 
          * @return builder
          * 
@@ -430,8 +437,9 @@ public final class UserSchemaPropertyState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param arrayOneOfs Display name and value an enum array can be set to. - &#39;const&#39; - (Required) value mapping to member of &#39;enum&#39;. - &#39;title&#39;
-         * - (Required) display name for the enum value.
+         * @param arrayOneOfs Display name and value an enum array can be set to.
+         * 	- &#39;const&#39; - (Required) value mapping to member of &#39;enum&#39;.
+         * 	- &#39;title&#39; - (Required) display name for the enum value.
          * 
          * @return builder
          * 
@@ -441,8 +449,9 @@ public final class UserSchemaPropertyState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param arrayOneOfs Display name and value an enum array can be set to. - &#39;const&#39; - (Required) value mapping to member of &#39;enum&#39;. - &#39;title&#39;
-         * - (Required) display name for the enum value.
+         * @param arrayOneOfs Display name and value an enum array can be set to.
+         * 	- &#39;const&#39; - (Required) value mapping to member of &#39;enum&#39;.
+         * 	- &#39;title&#39; - (Required) display name for the enum value.
          * 
          * @return builder
          * 
@@ -609,8 +618,9 @@ public final class UserSchemaPropertyState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param masterOverridePriorities Prioritized list of profile sources (required when &#39;master&#39; is &#39;OVERRIDE&#39;). - &#39;type&#39; - (Optional) - Type of profile
-         * source. - &#39;value&#39; - (Required) - ID of profile source.
+         * @param masterOverridePriorities Prioritized list of profile sources (required when &#39;master&#39; is &#39;OVERRIDE&#39;).
+         * 	- &#39;type&#39; - (Optional) - Type of profile source.
+         * 	- &#39;value&#39; - (Required) - ID of profile source.
          * 
          * @return builder
          * 
@@ -621,8 +631,9 @@ public final class UserSchemaPropertyState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param masterOverridePriorities Prioritized list of profile sources (required when &#39;master&#39; is &#39;OVERRIDE&#39;). - &#39;type&#39; - (Optional) - Type of profile
-         * source. - &#39;value&#39; - (Required) - ID of profile source.
+         * @param masterOverridePriorities Prioritized list of profile sources (required when &#39;master&#39; is &#39;OVERRIDE&#39;).
+         * 	- &#39;type&#39; - (Optional) - Type of profile source.
+         * 	- &#39;value&#39; - (Required) - ID of profile source.
          * 
          * @return builder
          * 
@@ -632,8 +643,9 @@ public final class UserSchemaPropertyState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param masterOverridePriorities Prioritized list of profile sources (required when &#39;master&#39; is &#39;OVERRIDE&#39;). - &#39;type&#39; - (Optional) - Type of profile
-         * source. - &#39;value&#39; - (Required) - ID of profile source.
+         * @param masterOverridePriorities Prioritized list of profile sources (required when &#39;master&#39; is &#39;OVERRIDE&#39;).
+         * 	- &#39;type&#39; - (Optional) - Type of profile source.
+         * 	- &#39;value&#39; - (Required) - ID of profile source.
          * 
          * @return builder
          * 
@@ -685,8 +697,9 @@ public final class UserSchemaPropertyState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param oneOfs Array of maps containing a mapping for display name to enum value. - &#39;const&#39; - (Required) value mapping to member of
-         * &#39;enum&#39;. - &#39;title&#39; - (Required) display name for the enum value.
+         * @param oneOfs Array of maps containing a mapping for display name to enum value.
+         * 	- &#39;const&#39; - (Required) value mapping to member of &#39;enum&#39;.
+         * 	- &#39;title&#39; - (Required) display name for the enum value.
          * 
          * @return builder
          * 
@@ -697,8 +710,9 @@ public final class UserSchemaPropertyState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param oneOfs Array of maps containing a mapping for display name to enum value. - &#39;const&#39; - (Required) value mapping to member of
-         * &#39;enum&#39;. - &#39;title&#39; - (Required) display name for the enum value.
+         * @param oneOfs Array of maps containing a mapping for display name to enum value.
+         * 	- &#39;const&#39; - (Required) value mapping to member of &#39;enum&#39;.
+         * 	- &#39;title&#39; - (Required) display name for the enum value.
          * 
          * @return builder
          * 
@@ -708,8 +722,9 @@ public final class UserSchemaPropertyState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param oneOfs Array of maps containing a mapping for display name to enum value. - &#39;const&#39; - (Required) value mapping to member of
-         * &#39;enum&#39;. - &#39;title&#39; - (Required) display name for the enum value.
+         * @param oneOfs Array of maps containing a mapping for display name to enum value.
+         * 	- &#39;const&#39; - (Required) value mapping to member of &#39;enum&#39;.
+         * 	- &#39;title&#39; - (Required) display name for the enum value.
          * 
          * @return builder
          * 

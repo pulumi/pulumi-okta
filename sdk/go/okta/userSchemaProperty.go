@@ -58,8 +58,9 @@ type UserSchemaProperty struct {
 
 	// Array of values that an array property's items can be set to.
 	ArrayEnums pulumi.StringArrayOutput `pulumi:"arrayEnums"`
-	// Display name and value an enum array can be set to. - 'const' - (Required) value mapping to member of 'enum'. - 'title'
-	// - (Required) display name for the enum value.
+	// Display name and value an enum array can be set to.
+	// 	- 'const' - (Required) value mapping to member of 'enum'.
+	// 	- 'title' - (Required) display name for the enum value.
 	ArrayOneOfs UserSchemaPropertyArrayOneOfArrayOutput `pulumi:"arrayOneOfs"`
 	// The type of the array elements if `type` is set to `array`
 	ArrayType pulumi.StringPtrOutput `pulumi:"arrayType"`
@@ -75,15 +76,17 @@ type UserSchemaProperty struct {
 	Index pulumi.StringOutput `pulumi:"index"`
 	// Master priority for the user schema property. It can be set to `PROFILE_MASTER`, `OVERRIDE` or `OKTA`.
 	Master pulumi.StringPtrOutput `pulumi:"master"`
-	// Prioritized list of profile sources (required when 'master' is 'OVERRIDE'). - 'type' - (Optional) - Type of profile
-	// source. - 'value' - (Required) - ID of profile source.
+	// Prioritized list of profile sources (required when 'master' is 'OVERRIDE').
+	// 	- 'type' - (Optional) - Type of profile source.
+	// 	- 'value' - (Required) - ID of profile source.
 	MasterOverridePriorities UserSchemaPropertyMasterOverridePriorityArrayOutput `pulumi:"masterOverridePriorities"`
 	// The maximum length of the user property value. Only applies to type `string`
 	MaxLength pulumi.IntPtrOutput `pulumi:"maxLength"`
 	// The minimum length of the user property value. Only applies to type `string`
 	MinLength pulumi.IntPtrOutput `pulumi:"minLength"`
-	// Array of maps containing a mapping for display name to enum value. - 'const' - (Required) value mapping to member of
-	// 'enum'. - 'title' - (Required) display name for the enum value.
+	// Array of maps containing a mapping for display name to enum value.
+	// 	- 'const' - (Required) value mapping to member of 'enum'.
+	// 	- 'title' - (Required) display name for the enum value.
 	OneOfs UserSchemaPropertyOneOfArrayOutput `pulumi:"oneOfs"`
 	// The validation pattern to use for the subschema. Must be in form of '.+', or '[<pattern>]+' if present.'
 	Pattern pulumi.StringPtrOutput `pulumi:"pattern"`
@@ -144,8 +147,9 @@ func GetUserSchemaProperty(ctx *pulumi.Context,
 type userSchemaPropertyState struct {
 	// Array of values that an array property's items can be set to.
 	ArrayEnums []string `pulumi:"arrayEnums"`
-	// Display name and value an enum array can be set to. - 'const' - (Required) value mapping to member of 'enum'. - 'title'
-	// - (Required) display name for the enum value.
+	// Display name and value an enum array can be set to.
+	// 	- 'const' - (Required) value mapping to member of 'enum'.
+	// 	- 'title' - (Required) display name for the enum value.
 	ArrayOneOfs []UserSchemaPropertyArrayOneOf `pulumi:"arrayOneOfs"`
 	// The type of the array elements if `type` is set to `array`
 	ArrayType *string `pulumi:"arrayType"`
@@ -161,15 +165,17 @@ type userSchemaPropertyState struct {
 	Index *string `pulumi:"index"`
 	// Master priority for the user schema property. It can be set to `PROFILE_MASTER`, `OVERRIDE` or `OKTA`.
 	Master *string `pulumi:"master"`
-	// Prioritized list of profile sources (required when 'master' is 'OVERRIDE'). - 'type' - (Optional) - Type of profile
-	// source. - 'value' - (Required) - ID of profile source.
+	// Prioritized list of profile sources (required when 'master' is 'OVERRIDE').
+	// 	- 'type' - (Optional) - Type of profile source.
+	// 	- 'value' - (Required) - ID of profile source.
 	MasterOverridePriorities []UserSchemaPropertyMasterOverridePriority `pulumi:"masterOverridePriorities"`
 	// The maximum length of the user property value. Only applies to type `string`
 	MaxLength *int `pulumi:"maxLength"`
 	// The minimum length of the user property value. Only applies to type `string`
 	MinLength *int `pulumi:"minLength"`
-	// Array of maps containing a mapping for display name to enum value. - 'const' - (Required) value mapping to member of
-	// 'enum'. - 'title' - (Required) display name for the enum value.
+	// Array of maps containing a mapping for display name to enum value.
+	// 	- 'const' - (Required) value mapping to member of 'enum'.
+	// 	- 'title' - (Required) display name for the enum value.
 	OneOfs []UserSchemaPropertyOneOf `pulumi:"oneOfs"`
 	// The validation pattern to use for the subschema. Must be in form of '.+', or '[<pattern>]+' if present.'
 	Pattern *string `pulumi:"pattern"`
@@ -192,8 +198,9 @@ type userSchemaPropertyState struct {
 type UserSchemaPropertyState struct {
 	// Array of values that an array property's items can be set to.
 	ArrayEnums pulumi.StringArrayInput
-	// Display name and value an enum array can be set to. - 'const' - (Required) value mapping to member of 'enum'. - 'title'
-	// - (Required) display name for the enum value.
+	// Display name and value an enum array can be set to.
+	// 	- 'const' - (Required) value mapping to member of 'enum'.
+	// 	- 'title' - (Required) display name for the enum value.
 	ArrayOneOfs UserSchemaPropertyArrayOneOfArrayInput
 	// The type of the array elements if `type` is set to `array`
 	ArrayType pulumi.StringPtrInput
@@ -209,15 +216,17 @@ type UserSchemaPropertyState struct {
 	Index pulumi.StringPtrInput
 	// Master priority for the user schema property. It can be set to `PROFILE_MASTER`, `OVERRIDE` or `OKTA`.
 	Master pulumi.StringPtrInput
-	// Prioritized list of profile sources (required when 'master' is 'OVERRIDE'). - 'type' - (Optional) - Type of profile
-	// source. - 'value' - (Required) - ID of profile source.
+	// Prioritized list of profile sources (required when 'master' is 'OVERRIDE').
+	// 	- 'type' - (Optional) - Type of profile source.
+	// 	- 'value' - (Required) - ID of profile source.
 	MasterOverridePriorities UserSchemaPropertyMasterOverridePriorityArrayInput
 	// The maximum length of the user property value. Only applies to type `string`
 	MaxLength pulumi.IntPtrInput
 	// The minimum length of the user property value. Only applies to type `string`
 	MinLength pulumi.IntPtrInput
-	// Array of maps containing a mapping for display name to enum value. - 'const' - (Required) value mapping to member of
-	// 'enum'. - 'title' - (Required) display name for the enum value.
+	// Array of maps containing a mapping for display name to enum value.
+	// 	- 'const' - (Required) value mapping to member of 'enum'.
+	// 	- 'title' - (Required) display name for the enum value.
 	OneOfs UserSchemaPropertyOneOfArrayInput
 	// The validation pattern to use for the subschema. Must be in form of '.+', or '[<pattern>]+' if present.'
 	Pattern pulumi.StringPtrInput
@@ -244,8 +253,9 @@ func (UserSchemaPropertyState) ElementType() reflect.Type {
 type userSchemaPropertyArgs struct {
 	// Array of values that an array property's items can be set to.
 	ArrayEnums []string `pulumi:"arrayEnums"`
-	// Display name and value an enum array can be set to. - 'const' - (Required) value mapping to member of 'enum'. - 'title'
-	// - (Required) display name for the enum value.
+	// Display name and value an enum array can be set to.
+	// 	- 'const' - (Required) value mapping to member of 'enum'.
+	// 	- 'title' - (Required) display name for the enum value.
 	ArrayOneOfs []UserSchemaPropertyArrayOneOf `pulumi:"arrayOneOfs"`
 	// The type of the array elements if `type` is set to `array`
 	ArrayType *string `pulumi:"arrayType"`
@@ -261,15 +271,17 @@ type userSchemaPropertyArgs struct {
 	Index string `pulumi:"index"`
 	// Master priority for the user schema property. It can be set to `PROFILE_MASTER`, `OVERRIDE` or `OKTA`.
 	Master *string `pulumi:"master"`
-	// Prioritized list of profile sources (required when 'master' is 'OVERRIDE'). - 'type' - (Optional) - Type of profile
-	// source. - 'value' - (Required) - ID of profile source.
+	// Prioritized list of profile sources (required when 'master' is 'OVERRIDE').
+	// 	- 'type' - (Optional) - Type of profile source.
+	// 	- 'value' - (Required) - ID of profile source.
 	MasterOverridePriorities []UserSchemaPropertyMasterOverridePriority `pulumi:"masterOverridePriorities"`
 	// The maximum length of the user property value. Only applies to type `string`
 	MaxLength *int `pulumi:"maxLength"`
 	// The minimum length of the user property value. Only applies to type `string`
 	MinLength *int `pulumi:"minLength"`
-	// Array of maps containing a mapping for display name to enum value. - 'const' - (Required) value mapping to member of
-	// 'enum'. - 'title' - (Required) display name for the enum value.
+	// Array of maps containing a mapping for display name to enum value.
+	// 	- 'const' - (Required) value mapping to member of 'enum'.
+	// 	- 'title' - (Required) display name for the enum value.
 	OneOfs []UserSchemaPropertyOneOf `pulumi:"oneOfs"`
 	// The validation pattern to use for the subschema. Must be in form of '.+', or '[<pattern>]+' if present.'
 	Pattern *string `pulumi:"pattern"`
@@ -293,8 +305,9 @@ type userSchemaPropertyArgs struct {
 type UserSchemaPropertyArgs struct {
 	// Array of values that an array property's items can be set to.
 	ArrayEnums pulumi.StringArrayInput
-	// Display name and value an enum array can be set to. - 'const' - (Required) value mapping to member of 'enum'. - 'title'
-	// - (Required) display name for the enum value.
+	// Display name and value an enum array can be set to.
+	// 	- 'const' - (Required) value mapping to member of 'enum'.
+	// 	- 'title' - (Required) display name for the enum value.
 	ArrayOneOfs UserSchemaPropertyArrayOneOfArrayInput
 	// The type of the array elements if `type` is set to `array`
 	ArrayType pulumi.StringPtrInput
@@ -310,15 +323,17 @@ type UserSchemaPropertyArgs struct {
 	Index pulumi.StringInput
 	// Master priority for the user schema property. It can be set to `PROFILE_MASTER`, `OVERRIDE` or `OKTA`.
 	Master pulumi.StringPtrInput
-	// Prioritized list of profile sources (required when 'master' is 'OVERRIDE'). - 'type' - (Optional) - Type of profile
-	// source. - 'value' - (Required) - ID of profile source.
+	// Prioritized list of profile sources (required when 'master' is 'OVERRIDE').
+	// 	- 'type' - (Optional) - Type of profile source.
+	// 	- 'value' - (Required) - ID of profile source.
 	MasterOverridePriorities UserSchemaPropertyMasterOverridePriorityArrayInput
 	// The maximum length of the user property value. Only applies to type `string`
 	MaxLength pulumi.IntPtrInput
 	// The minimum length of the user property value. Only applies to type `string`
 	MinLength pulumi.IntPtrInput
-	// Array of maps containing a mapping for display name to enum value. - 'const' - (Required) value mapping to member of
-	// 'enum'. - 'title' - (Required) display name for the enum value.
+	// Array of maps containing a mapping for display name to enum value.
+	// 	- 'const' - (Required) value mapping to member of 'enum'.
+	// 	- 'title' - (Required) display name for the enum value.
 	OneOfs UserSchemaPropertyOneOfArrayInput
 	// The validation pattern to use for the subschema. Must be in form of '.+', or '[<pattern>]+' if present.'
 	Pattern pulumi.StringPtrInput
@@ -430,8 +445,9 @@ func (o UserSchemaPropertyOutput) ArrayEnums() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *UserSchemaProperty) pulumi.StringArrayOutput { return v.ArrayEnums }).(pulumi.StringArrayOutput)
 }
 
-// Display name and value an enum array can be set to. - 'const' - (Required) value mapping to member of 'enum'. - 'title'
-// - (Required) display name for the enum value.
+// Display name and value an enum array can be set to.
+//   - 'const' - (Required) value mapping to member of 'enum'.
+//   - 'title' - (Required) display name for the enum value.
 func (o UserSchemaPropertyOutput) ArrayOneOfs() UserSchemaPropertyArrayOneOfArrayOutput {
 	return o.ApplyT(func(v *UserSchemaProperty) UserSchemaPropertyArrayOneOfArrayOutput { return v.ArrayOneOfs }).(UserSchemaPropertyArrayOneOfArrayOutput)
 }
@@ -471,8 +487,9 @@ func (o UserSchemaPropertyOutput) Master() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserSchemaProperty) pulumi.StringPtrOutput { return v.Master }).(pulumi.StringPtrOutput)
 }
 
-// Prioritized list of profile sources (required when 'master' is 'OVERRIDE'). - 'type' - (Optional) - Type of profile
-// source. - 'value' - (Required) - ID of profile source.
+// Prioritized list of profile sources (required when 'master' is 'OVERRIDE').
+//   - 'type' - (Optional) - Type of profile source.
+//   - 'value' - (Required) - ID of profile source.
 func (o UserSchemaPropertyOutput) MasterOverridePriorities() UserSchemaPropertyMasterOverridePriorityArrayOutput {
 	return o.ApplyT(func(v *UserSchemaProperty) UserSchemaPropertyMasterOverridePriorityArrayOutput {
 		return v.MasterOverridePriorities
@@ -489,8 +506,9 @@ func (o UserSchemaPropertyOutput) MinLength() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *UserSchemaProperty) pulumi.IntPtrOutput { return v.MinLength }).(pulumi.IntPtrOutput)
 }
 
-// Array of maps containing a mapping for display name to enum value. - 'const' - (Required) value mapping to member of
-// 'enum'. - 'title' - (Required) display name for the enum value.
+// Array of maps containing a mapping for display name to enum value.
+//   - 'const' - (Required) value mapping to member of 'enum'.
+//   - 'title' - (Required) display name for the enum value.
 func (o UserSchemaPropertyOutput) OneOfs() UserSchemaPropertyOneOfArrayOutput {
 	return o.ApplyT(func(v *UserSchemaProperty) UserSchemaPropertyOneOfArrayOutput { return v.OneOfs }).(UserSchemaPropertyOneOfArrayOutput)
 }

@@ -75,8 +75,7 @@ type Saml struct {
 	GroupsAttribute pulumi.StringPtrOutput `pulumi:"groupsAttribute"`
 	// Whitelist of Okta Group identifiers that are allowed for the `APPEND` or `SYNC` `groupsAction`.
 	GroupsFilters pulumi.StringArrayOutput `pulumi:"groupsFilters"`
-	// Determines if the IdP should persist account linking when the incoming assertion NameID format is
-	// urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
+	// Determines if the IdP should persist account linking when the incoming assertion NameID format is urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
 	HonorPersistentNameId pulumi.BoolPtrOutput `pulumi:"honorPersistentNameId"`
 	// URI that identifies the issuer.
 	Issuer pulumi.StringOutput `pulumi:"issuer"`
@@ -183,8 +182,7 @@ type samlState struct {
 	GroupsAttribute *string `pulumi:"groupsAttribute"`
 	// Whitelist of Okta Group identifiers that are allowed for the `APPEND` or `SYNC` `groupsAction`.
 	GroupsFilters []string `pulumi:"groupsFilters"`
-	// Determines if the IdP should persist account linking when the incoming assertion NameID format is
-	// urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
+	// Determines if the IdP should persist account linking when the incoming assertion NameID format is urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
 	HonorPersistentNameId *bool `pulumi:"honorPersistentNameId"`
 	// URI that identifies the issuer.
 	Issuer *string `pulumi:"issuer"`
@@ -253,8 +251,7 @@ type SamlState struct {
 	GroupsAttribute pulumi.StringPtrInput
 	// Whitelist of Okta Group identifiers that are allowed for the `APPEND` or `SYNC` `groupsAction`.
 	GroupsFilters pulumi.StringArrayInput
-	// Determines if the IdP should persist account linking when the incoming assertion NameID format is
-	// urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
+	// Determines if the IdP should persist account linking when the incoming assertion NameID format is urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
 	HonorPersistentNameId pulumi.BoolPtrInput
 	// URI that identifies the issuer.
 	Issuer pulumi.StringPtrInput
@@ -325,8 +322,7 @@ type samlArgs struct {
 	GroupsAttribute *string `pulumi:"groupsAttribute"`
 	// Whitelist of Okta Group identifiers that are allowed for the `APPEND` or `SYNC` `groupsAction`.
 	GroupsFilters []string `pulumi:"groupsFilters"`
-	// Determines if the IdP should persist account linking when the incoming assertion NameID format is
-	// urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
+	// Determines if the IdP should persist account linking when the incoming assertion NameID format is urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
 	HonorPersistentNameId *bool `pulumi:"honorPersistentNameId"`
 	// URI that identifies the issuer.
 	Issuer string `pulumi:"issuer"`
@@ -392,8 +388,7 @@ type SamlArgs struct {
 	GroupsAttribute pulumi.StringPtrInput
 	// Whitelist of Okta Group identifiers that are allowed for the `APPEND` or `SYNC` `groupsAction`.
 	GroupsFilters pulumi.StringArrayInput
-	// Determines if the IdP should persist account linking when the incoming assertion NameID format is
-	// urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
+	// Determines if the IdP should persist account linking when the incoming assertion NameID format is urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
 	HonorPersistentNameId pulumi.BoolPtrInput
 	// URI that identifies the issuer.
 	Issuer pulumi.StringInput
@@ -576,8 +571,7 @@ func (o SamlOutput) GroupsFilters() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Saml) pulumi.StringArrayOutput { return v.GroupsFilters }).(pulumi.StringArrayOutput)
 }
 
-// Determines if the IdP should persist account linking when the incoming assertion NameID format is
-// urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
+// Determines if the IdP should persist account linking when the incoming assertion NameID format is urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
 func (o SamlOutput) HonorPersistentNameId() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Saml) pulumi.BoolPtrOutput { return v.HonorPersistentNameId }).(pulumi.BoolPtrOutput)
 }

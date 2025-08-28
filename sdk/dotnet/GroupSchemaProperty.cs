@@ -49,8 +49,9 @@ namespace Pulumi.Okta
         public Output<ImmutableArray<string>> ArrayEnums { get; private set; } = null!;
 
         /// <summary>
-        /// Display name and value an enum array can be set to. - 'const' - (Required) value mapping to member of 'enum'. - 'title'
-        /// - (Required) display name for the enum value.
+        /// Display name and value an enum array can be set to.
+        /// 	- 'const' - (Required) value mapping to member of 'enum'.
+        /// 	- 'title' - (Required) display name for the enum value.
         /// </summary>
         [Output("arrayOneOfs")]
         public Output<ImmutableArray<Outputs.GroupSchemaPropertyArrayOneOf>> ArrayOneOfs { get; private set; } = null!;
@@ -92,8 +93,7 @@ namespace Pulumi.Okta
         public Output<string> Index { get; private set; } = null!;
 
         /// <summary>
-        /// Master priority for the group schema property. It can be set to `PROFILE_MASTER`, `OVERRIDE` or `OKTA`. Default:
-        /// `PROFILE_MASTER`
+        /// Master priority for the group schema property. It can be set to `PROFILE_MASTER`, `OVERRIDE` or `OKTA`. Default: `PROFILE_MASTER`
         /// </summary>
         [Output("master")]
         public Output<string?> Master { get; private set; } = null!;
@@ -117,8 +117,9 @@ namespace Pulumi.Okta
         public Output<int?> MinLength { get; private set; } = null!;
 
         /// <summary>
-        /// Array of maps containing a mapping for display name to enum value. - 'const' - (Required) value mapping to member of
-        /// 'enum'. - 'title' - (Required) display name for the enum value.
+        /// Array of maps containing a mapping for display name to enum value.
+        /// 	- 'const' - (Required) value mapping to member of 'enum'.
+        /// 	- 'title' - (Required) display name for the enum value.
         /// </summary>
         [Output("oneOfs")]
         public Output<ImmutableArray<Outputs.GroupSchemaPropertyOneOf>> OneOfs { get; private set; } = null!;
@@ -218,8 +219,9 @@ namespace Pulumi.Okta
         private InputList<Inputs.GroupSchemaPropertyArrayOneOfArgs>? _arrayOneOfs;
 
         /// <summary>
-        /// Display name and value an enum array can be set to. - 'const' - (Required) value mapping to member of 'enum'. - 'title'
-        /// - (Required) display name for the enum value.
+        /// Display name and value an enum array can be set to.
+        /// 	- 'const' - (Required) value mapping to member of 'enum'.
+        /// 	- 'title' - (Required) display name for the enum value.
         /// </summary>
         public InputList<Inputs.GroupSchemaPropertyArrayOneOfArgs> ArrayOneOfs
         {
@@ -270,8 +272,7 @@ namespace Pulumi.Okta
         public Input<string> Index { get; set; } = null!;
 
         /// <summary>
-        /// Master priority for the group schema property. It can be set to `PROFILE_MASTER`, `OVERRIDE` or `OKTA`. Default:
-        /// `PROFILE_MASTER`
+        /// Master priority for the group schema property. It can be set to `PROFILE_MASTER`, `OVERRIDE` or `OKTA`. Default: `PROFILE_MASTER`
         /// </summary>
         [Input("master")]
         public Input<string>? Master { get; set; }
@@ -304,8 +305,9 @@ namespace Pulumi.Okta
         private InputList<Inputs.GroupSchemaPropertyOneOfArgs>? _oneOfs;
 
         /// <summary>
-        /// Array of maps containing a mapping for display name to enum value. - 'const' - (Required) value mapping to member of
-        /// 'enum'. - 'title' - (Required) display name for the enum value.
+        /// Array of maps containing a mapping for display name to enum value.
+        /// 	- 'const' - (Required) value mapping to member of 'enum'.
+        /// 	- 'title' - (Required) display name for the enum value.
         /// </summary>
         public InputList<Inputs.GroupSchemaPropertyOneOfArgs> OneOfs
         {
@@ -370,8 +372,9 @@ namespace Pulumi.Okta
         private InputList<Inputs.GroupSchemaPropertyArrayOneOfGetArgs>? _arrayOneOfs;
 
         /// <summary>
-        /// Display name and value an enum array can be set to. - 'const' - (Required) value mapping to member of 'enum'. - 'title'
-        /// - (Required) display name for the enum value.
+        /// Display name and value an enum array can be set to.
+        /// 	- 'const' - (Required) value mapping to member of 'enum'.
+        /// 	- 'title' - (Required) display name for the enum value.
         /// </summary>
         public InputList<Inputs.GroupSchemaPropertyArrayOneOfGetArgs> ArrayOneOfs
         {
@@ -422,8 +425,7 @@ namespace Pulumi.Okta
         public Input<string>? Index { get; set; }
 
         /// <summary>
-        /// Master priority for the group schema property. It can be set to `PROFILE_MASTER`, `OVERRIDE` or `OKTA`. Default:
-        /// `PROFILE_MASTER`
+        /// Master priority for the group schema property. It can be set to `PROFILE_MASTER`, `OVERRIDE` or `OKTA`. Default: `PROFILE_MASTER`
         /// </summary>
         [Input("master")]
         public Input<string>? Master { get; set; }
@@ -456,8 +458,9 @@ namespace Pulumi.Okta
         private InputList<Inputs.GroupSchemaPropertyOneOfGetArgs>? _oneOfs;
 
         /// <summary>
-        /// Array of maps containing a mapping for display name to enum value. - 'const' - (Required) value mapping to member of
-        /// 'enum'. - 'title' - (Required) display name for the enum value.
+        /// Array of maps containing a mapping for display name to enum value.
+        /// 	- 'const' - (Required) value mapping to member of 'enum'.
+        /// 	- 'title' - (Required) display name for the enum value.
         /// </summary>
         public InputList<Inputs.GroupSchemaPropertyOneOfGetArgs> OneOfs
         {

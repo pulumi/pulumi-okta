@@ -71,11 +71,11 @@ export class TrustedServer extends pulumi.CustomResource {
     /**
      * Authorization server ID
      */
-    public readonly authServerId!: pulumi.Output<string>;
+    declare public readonly authServerId: pulumi.Output<string>;
     /**
      * A list of the authorization server IDs user want to trust
      */
-    public readonly trusteds!: pulumi.Output<string[]>;
+    declare public readonly trusteds: pulumi.Output<string[]>;
 
     /**
      * Create a TrustedServer resource with the given unique name, arguments, and options.
@@ -90,18 +90,18 @@ export class TrustedServer extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TrustedServerState | undefined;
-            resourceInputs["authServerId"] = state ? state.authServerId : undefined;
-            resourceInputs["trusteds"] = state ? state.trusteds : undefined;
+            resourceInputs["authServerId"] = state?.authServerId;
+            resourceInputs["trusteds"] = state?.trusteds;
         } else {
             const args = argsOrState as TrustedServerArgs | undefined;
-            if ((!args || args.authServerId === undefined) && !opts.urn) {
+            if (args?.authServerId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'authServerId'");
             }
-            if ((!args || args.trusteds === undefined) && !opts.urn) {
+            if (args?.trusteds === undefined && !opts.urn) {
                 throw new Error("Missing required property 'trusteds'");
             }
-            resourceInputs["authServerId"] = args ? args.authServerId : undefined;
-            resourceInputs["trusteds"] = args ? args.trusteds : undefined;
+            resourceInputs["authServerId"] = args?.authServerId;
+            resourceInputs["trusteds"] = args?.trusteds;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(TrustedServer.__pulumiType, name, resourceInputs, opts);

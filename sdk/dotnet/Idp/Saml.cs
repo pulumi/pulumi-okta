@@ -103,8 +103,7 @@ namespace Pulumi.Okta.Idp
         public Output<ImmutableArray<string>> GroupsFilters { get; private set; } = null!;
 
         /// <summary>
-        /// Determines if the IdP should persist account linking when the incoming assertion NameID format is
-        /// urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
+        /// Determines if the IdP should persist account linking when the incoming assertion NameID format is urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
         /// </summary>
         [Output("honorPersistentNameId")]
         public Output<bool?> HonorPersistentNameId { get; private set; } = null!;
@@ -360,8 +359,7 @@ namespace Pulumi.Okta.Idp
         }
 
         /// <summary>
-        /// Determines if the IdP should persist account linking when the incoming assertion NameID format is
-        /// urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
+        /// Determines if the IdP should persist account linking when the incoming assertion NameID format is urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
         /// </summary>
         [Input("honorPersistentNameId")]
         public Input<bool>? HonorPersistentNameId { get; set; }
@@ -585,8 +583,7 @@ namespace Pulumi.Okta.Idp
         }
 
         /// <summary>
-        /// Determines if the IdP should persist account linking when the incoming assertion NameID format is
-        /// urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
+        /// Determines if the IdP should persist account linking when the incoming assertion NameID format is urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
         /// </summary>
         [Input("honorPersistentNameId")]
         public Input<bool>? HonorPersistentNameId { get; set; }

@@ -46,16 +46,16 @@ export class LogStream extends pulumi.CustomResource {
     /**
      * Unique name for the Log Stream object
      */
-    public readonly name!: pulumi.Output<string>;
-    public readonly settings!: pulumi.Output<outputs.LogStreamSettings | undefined>;
+    declare public readonly name: pulumi.Output<string>;
+    declare public readonly settings: pulumi.Output<outputs.LogStreamSettings | undefined>;
     /**
      * Stream status
      */
-    public readonly status!: pulumi.Output<string | undefined>;
+    declare public readonly status: pulumi.Output<string | undefined>;
     /**
      * Streaming provider used - 'aws*eventbridge' or 'splunk*cloud_logstreaming'
      */
-    public readonly type!: pulumi.Output<string>;
+    declare public readonly type: pulumi.Output<string>;
 
     /**
      * Create a LogStream resource with the given unique name, arguments, and options.
@@ -70,19 +70,19 @@ export class LogStream extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LogStreamState | undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["settings"] = state ? state.settings : undefined;
-            resourceInputs["status"] = state ? state.status : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["settings"] = state?.settings;
+            resourceInputs["status"] = state?.status;
+            resourceInputs["type"] = state?.type;
         } else {
             const args = argsOrState as LogStreamArgs | undefined;
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["settings"] = args ? args.settings : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["settings"] = args?.settings;
+            resourceInputs["status"] = args?.status;
+            resourceInputs["type"] = args?.type;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(LogStream.__pulumiType, name, resourceInputs, opts);

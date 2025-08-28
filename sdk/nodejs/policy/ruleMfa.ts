@@ -44,56 +44,55 @@ export class RuleMfa extends pulumi.CustomResource {
     }
 
     /**
-     * Applications to exclude in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations. - 'id'
-     * - (Optional) Use if 'type' is 'APP' to indicate the application id to include. - 'name' - (Optional) Use if the 'type'
-     * is 'APP_TYPE' to indicate the type of application(s) to include in instances where an entire group (i.e. 'yahoo_mail')
-     * of applications should be included. - 'type' - (Required) One of: 'APP', 'APP_TYPE'
+     * Applications to exclude in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations.
+     * 	- 'id' - (Optional) Use if 'type' is 'APP' to indicate the application id to include.
+     * 	- 'name' - (Optional) Use if the 'type' is 'APP_TYPE' to indicate the type of application(s) to include in instances where an entire group (i.e. 'yahoo_mail') of applications should be included.
+     * 	- 'type' - (Required) One of: 'APP', 'APP_TYPE'
      */
-    public readonly appExcludes!: pulumi.Output<outputs.policy.RuleMfaAppExclude[] | undefined>;
+    declare public readonly appExcludes: pulumi.Output<outputs.policy.RuleMfaAppExclude[] | undefined>;
     /**
-     * Applications to include in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations. - 'id'
-     * - (Optional) Use if 'type' is 'APP' to indicate the application id to include. - 'name' - (Optional) Use if the 'type'
-     * is 'APP_TYPE' to indicate the type of application(s) to include in instances where an entire group (i.e. 'yahoo_mail')
-     * of applications should be included. - 'type' - (Required) One of: 'APP', 'APP_TYPE'
+     * Applications to include in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations.
+     * 	- 'id' - (Optional) Use if 'type' is 'APP' to indicate the application id to include.
+     * 	- 'name' - (Optional) Use if the 'type' is 'APP_TYPE' to indicate the type of application(s) to include in instances where an entire group (i.e. 'yahoo_mail') of applications should be included.
+     * 	- 'type' - (Required) One of: 'APP', 'APP_TYPE'
      */
-    public readonly appIncludes!: pulumi.Output<outputs.policy.RuleMfaAppInclude[] | undefined>;
+    declare public readonly appIncludes: pulumi.Output<outputs.policy.RuleMfaAppInclude[] | undefined>;
     /**
      * When a user should be prompted for MFA. It can be `CHALLENGE`, `LOGIN`, or `NEVER`.
      */
-    public readonly enroll!: pulumi.Output<string | undefined>;
+    declare public readonly enroll: pulumi.Output<string | undefined>;
     /**
      * Policy Rule Name
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Network selection mode: `ANYWHERE`, `ZONE`, `ON_NETWORK`, or `OFF_NETWORK`. Default: `ANYWHERE`
      */
-    public readonly networkConnection!: pulumi.Output<string | undefined>;
+    declare public readonly networkConnection: pulumi.Output<string | undefined>;
     /**
      * Required if `networkConnection` = `ZONE`. Indicates the network zones to exclude.
      */
-    public readonly networkExcludes!: pulumi.Output<string[] | undefined>;
+    declare public readonly networkExcludes: pulumi.Output<string[] | undefined>;
     /**
      * Required if `networkConnection` = `ZONE`. Indicates the network zones to include.
      */
-    public readonly networkIncludes!: pulumi.Output<string[] | undefined>;
+    declare public readonly networkIncludes: pulumi.Output<string[] | undefined>;
     /**
      * Policy ID of the Rule
      */
-    public readonly policyId!: pulumi.Output<string | undefined>;
+    declare public readonly policyId: pulumi.Output<string | undefined>;
     /**
-     * Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if
-     * an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
+     * Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
      */
-    public readonly priority!: pulumi.Output<number | undefined>;
+    declare public readonly priority: pulumi.Output<number | undefined>;
     /**
      * Policy Rule Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
      */
-    public readonly status!: pulumi.Output<string | undefined>;
+    declare public readonly status: pulumi.Output<string | undefined>;
     /**
      * Set of User IDs to Exclude
      */
-    public readonly usersExcludeds!: pulumi.Output<string[] | undefined>;
+    declare public readonly usersExcludeds: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a RuleMfa resource with the given unique name, arguments, and options.
@@ -108,30 +107,30 @@ export class RuleMfa extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RuleMfaState | undefined;
-            resourceInputs["appExcludes"] = state ? state.appExcludes : undefined;
-            resourceInputs["appIncludes"] = state ? state.appIncludes : undefined;
-            resourceInputs["enroll"] = state ? state.enroll : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["networkConnection"] = state ? state.networkConnection : undefined;
-            resourceInputs["networkExcludes"] = state ? state.networkExcludes : undefined;
-            resourceInputs["networkIncludes"] = state ? state.networkIncludes : undefined;
-            resourceInputs["policyId"] = state ? state.policyId : undefined;
-            resourceInputs["priority"] = state ? state.priority : undefined;
-            resourceInputs["status"] = state ? state.status : undefined;
-            resourceInputs["usersExcludeds"] = state ? state.usersExcludeds : undefined;
+            resourceInputs["appExcludes"] = state?.appExcludes;
+            resourceInputs["appIncludes"] = state?.appIncludes;
+            resourceInputs["enroll"] = state?.enroll;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["networkConnection"] = state?.networkConnection;
+            resourceInputs["networkExcludes"] = state?.networkExcludes;
+            resourceInputs["networkIncludes"] = state?.networkIncludes;
+            resourceInputs["policyId"] = state?.policyId;
+            resourceInputs["priority"] = state?.priority;
+            resourceInputs["status"] = state?.status;
+            resourceInputs["usersExcludeds"] = state?.usersExcludeds;
         } else {
             const args = argsOrState as RuleMfaArgs | undefined;
-            resourceInputs["appExcludes"] = args ? args.appExcludes : undefined;
-            resourceInputs["appIncludes"] = args ? args.appIncludes : undefined;
-            resourceInputs["enroll"] = args ? args.enroll : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["networkConnection"] = args ? args.networkConnection : undefined;
-            resourceInputs["networkExcludes"] = args ? args.networkExcludes : undefined;
-            resourceInputs["networkIncludes"] = args ? args.networkIncludes : undefined;
-            resourceInputs["policyId"] = args ? args.policyId : undefined;
-            resourceInputs["priority"] = args ? args.priority : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
-            resourceInputs["usersExcludeds"] = args ? args.usersExcludeds : undefined;
+            resourceInputs["appExcludes"] = args?.appExcludes;
+            resourceInputs["appIncludes"] = args?.appIncludes;
+            resourceInputs["enroll"] = args?.enroll;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["networkConnection"] = args?.networkConnection;
+            resourceInputs["networkExcludes"] = args?.networkExcludes;
+            resourceInputs["networkIncludes"] = args?.networkIncludes;
+            resourceInputs["policyId"] = args?.policyId;
+            resourceInputs["priority"] = args?.priority;
+            resourceInputs["status"] = args?.status;
+            resourceInputs["usersExcludeds"] = args?.usersExcludeds;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(RuleMfa.__pulumiType, name, resourceInputs, opts);
@@ -143,17 +142,17 @@ export class RuleMfa extends pulumi.CustomResource {
  */
 export interface RuleMfaState {
     /**
-     * Applications to exclude in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations. - 'id'
-     * - (Optional) Use if 'type' is 'APP' to indicate the application id to include. - 'name' - (Optional) Use if the 'type'
-     * is 'APP_TYPE' to indicate the type of application(s) to include in instances where an entire group (i.e. 'yahoo_mail')
-     * of applications should be included. - 'type' - (Required) One of: 'APP', 'APP_TYPE'
+     * Applications to exclude in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations.
+     * 	- 'id' - (Optional) Use if 'type' is 'APP' to indicate the application id to include.
+     * 	- 'name' - (Optional) Use if the 'type' is 'APP_TYPE' to indicate the type of application(s) to include in instances where an entire group (i.e. 'yahoo_mail') of applications should be included.
+     * 	- 'type' - (Required) One of: 'APP', 'APP_TYPE'
      */
     appExcludes?: pulumi.Input<pulumi.Input<inputs.policy.RuleMfaAppExclude>[]>;
     /**
-     * Applications to include in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations. - 'id'
-     * - (Optional) Use if 'type' is 'APP' to indicate the application id to include. - 'name' - (Optional) Use if the 'type'
-     * is 'APP_TYPE' to indicate the type of application(s) to include in instances where an entire group (i.e. 'yahoo_mail')
-     * of applications should be included. - 'type' - (Required) One of: 'APP', 'APP_TYPE'
+     * Applications to include in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations.
+     * 	- 'id' - (Optional) Use if 'type' is 'APP' to indicate the application id to include.
+     * 	- 'name' - (Optional) Use if the 'type' is 'APP_TYPE' to indicate the type of application(s) to include in instances where an entire group (i.e. 'yahoo_mail') of applications should be included.
+     * 	- 'type' - (Required) One of: 'APP', 'APP_TYPE'
      */
     appIncludes?: pulumi.Input<pulumi.Input<inputs.policy.RuleMfaAppInclude>[]>;
     /**
@@ -181,8 +180,7 @@ export interface RuleMfaState {
      */
     policyId?: pulumi.Input<string>;
     /**
-     * Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if
-     * an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
+     * Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
      */
     priority?: pulumi.Input<number>;
     /**
@@ -200,17 +198,17 @@ export interface RuleMfaState {
  */
 export interface RuleMfaArgs {
     /**
-     * Applications to exclude in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations. - 'id'
-     * - (Optional) Use if 'type' is 'APP' to indicate the application id to include. - 'name' - (Optional) Use if the 'type'
-     * is 'APP_TYPE' to indicate the type of application(s) to include in instances where an entire group (i.e. 'yahoo_mail')
-     * of applications should be included. - 'type' - (Required) One of: 'APP', 'APP_TYPE'
+     * Applications to exclude in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations.
+     * 	- 'id' - (Optional) Use if 'type' is 'APP' to indicate the application id to include.
+     * 	- 'name' - (Optional) Use if the 'type' is 'APP_TYPE' to indicate the type of application(s) to include in instances where an entire group (i.e. 'yahoo_mail') of applications should be included.
+     * 	- 'type' - (Required) One of: 'APP', 'APP_TYPE'
      */
     appExcludes?: pulumi.Input<pulumi.Input<inputs.policy.RuleMfaAppExclude>[]>;
     /**
-     * Applications to include in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations. - 'id'
-     * - (Optional) Use if 'type' is 'APP' to indicate the application id to include. - 'name' - (Optional) Use if the 'type'
-     * is 'APP_TYPE' to indicate the type of application(s) to include in instances where an entire group (i.e. 'yahoo_mail')
-     * of applications should be included. - 'type' - (Required) One of: 'APP', 'APP_TYPE'
+     * Applications to include in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations.
+     * 	- 'id' - (Optional) Use if 'type' is 'APP' to indicate the application id to include.
+     * 	- 'name' - (Optional) Use if the 'type' is 'APP_TYPE' to indicate the type of application(s) to include in instances where an entire group (i.e. 'yahoo_mail') of applications should be included.
+     * 	- 'type' - (Required) One of: 'APP', 'APP_TYPE'
      */
     appIncludes?: pulumi.Input<pulumi.Input<inputs.policy.RuleMfaAppInclude>[]>;
     /**
@@ -238,8 +236,7 @@ export interface RuleMfaArgs {
      */
     policyId?: pulumi.Input<string>;
     /**
-     * Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if
-     * an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
+     * Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
      */
     priority?: pulumi.Input<number>;
     /**

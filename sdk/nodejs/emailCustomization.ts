@@ -72,37 +72,37 @@ export class EmailCustomization extends pulumi.CustomResource {
     /**
      * The body of the customization
      */
-    public readonly body!: pulumi.Output<string | undefined>;
+    declare public readonly body: pulumi.Output<string | undefined>;
     /**
      * Brand ID
      */
-    public readonly brandId!: pulumi.Output<string>;
+    declare public readonly brandId: pulumi.Output<string>;
     /**
      * Force isDefault on the create and delete by deleting all email customizations. Comma separated string with values of 'create' or 'destroy' or both `create,destroy'.
      *
      * @deprecated force_is_default is deprecated and now is a no-op in behavior. Rely upon the dependsOn meta argument to force dependency of secondary templates to the default template
      */
-    public readonly forceIsDefault!: pulumi.Output<string | undefined>;
+    declare public readonly forceIsDefault: pulumi.Output<string | undefined>;
     /**
      * Whether the customization is the default
      */
-    public readonly isDefault!: pulumi.Output<boolean | undefined>;
+    declare public readonly isDefault: pulumi.Output<boolean | undefined>;
     /**
      * The language supported by the customization - Example values from [supported languages](https://developer.okta.com/docs/reference/api/brands/#supported-languages)
      */
-    public readonly language!: pulumi.Output<string | undefined>;
+    declare public readonly language: pulumi.Output<string | undefined>;
     /**
      * Link relations for this object - JSON HAL - Discoverable resources related to the email template
      */
-    public /*out*/ readonly links!: pulumi.Output<string>;
+    declare public /*out*/ readonly links: pulumi.Output<string>;
     /**
      * The subject of the customization
      */
-    public readonly subject!: pulumi.Output<string | undefined>;
+    declare public readonly subject: pulumi.Output<string | undefined>;
     /**
      * Template Name - Example values: `AccountLockout`,`ADForgotPassword`,`ADForgotPasswordDenied`,`ADSelfServiceUnlock`,`ADUserActivation`,`AuthenticatorEnrolled`,`AuthenticatorReset`,`ChangeEmailConfirmation`,`EmailChallenge`,`EmailChangeConfirmation`,`EmailFactorVerification`,`ForgotPassword`,`ForgotPasswordDenied`,`IGAReviewerEndNotification`,`IGAReviewerNotification`,`IGAReviewerPendingNotification`,`IGAReviewerReassigned`,`LDAPForgotPassword`,`LDAPForgotPasswordDenied`,`LDAPSelfServiceUnlock`,`LDAPUserActivation`,`MyAccountChangeConfirmation`,`NewSignOnNotification`,`OktaVerifyActivation`,`PasswordChanged`,`PasswordResetByAdmin`,`PendingEmailChange`,`RegistrationActivation`,`RegistrationEmailVerification`,`SelfServiceUnlock`,`SelfServiceUnlockOnUnlockedAccount`,`UserActivation`
      */
-    public readonly templateName!: pulumi.Output<string>;
+    declare public readonly templateName: pulumi.Output<string>;
 
     /**
      * Create a EmailCustomization resource with the given unique name, arguments, and options.
@@ -117,29 +117,29 @@ export class EmailCustomization extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EmailCustomizationState | undefined;
-            resourceInputs["body"] = state ? state.body : undefined;
-            resourceInputs["brandId"] = state ? state.brandId : undefined;
-            resourceInputs["forceIsDefault"] = state ? state.forceIsDefault : undefined;
-            resourceInputs["isDefault"] = state ? state.isDefault : undefined;
-            resourceInputs["language"] = state ? state.language : undefined;
-            resourceInputs["links"] = state ? state.links : undefined;
-            resourceInputs["subject"] = state ? state.subject : undefined;
-            resourceInputs["templateName"] = state ? state.templateName : undefined;
+            resourceInputs["body"] = state?.body;
+            resourceInputs["brandId"] = state?.brandId;
+            resourceInputs["forceIsDefault"] = state?.forceIsDefault;
+            resourceInputs["isDefault"] = state?.isDefault;
+            resourceInputs["language"] = state?.language;
+            resourceInputs["links"] = state?.links;
+            resourceInputs["subject"] = state?.subject;
+            resourceInputs["templateName"] = state?.templateName;
         } else {
             const args = argsOrState as EmailCustomizationArgs | undefined;
-            if ((!args || args.brandId === undefined) && !opts.urn) {
+            if (args?.brandId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'brandId'");
             }
-            if ((!args || args.templateName === undefined) && !opts.urn) {
+            if (args?.templateName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'templateName'");
             }
-            resourceInputs["body"] = args ? args.body : undefined;
-            resourceInputs["brandId"] = args ? args.brandId : undefined;
-            resourceInputs["forceIsDefault"] = args ? args.forceIsDefault : undefined;
-            resourceInputs["isDefault"] = args ? args.isDefault : undefined;
-            resourceInputs["language"] = args ? args.language : undefined;
-            resourceInputs["subject"] = args ? args.subject : undefined;
-            resourceInputs["templateName"] = args ? args.templateName : undefined;
+            resourceInputs["body"] = args?.body;
+            resourceInputs["brandId"] = args?.brandId;
+            resourceInputs["forceIsDefault"] = args?.forceIsDefault;
+            resourceInputs["isDefault"] = args?.isDefault;
+            resourceInputs["language"] = args?.language;
+            resourceInputs["subject"] = args?.subject;
+            resourceInputs["templateName"] = args?.templateName;
             resourceInputs["links"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

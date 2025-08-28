@@ -44,21 +44,21 @@ export class Group extends pulumi.CustomResource {
     /**
      * JSON formatted custom attributes for a group. It must be JSON due to various types Okta allows.
      */
-    public readonly customProfileAttributes!: pulumi.Output<string | undefined>;
+    declare public readonly customProfileAttributes: pulumi.Output<string | undefined>;
     /**
      * The description of the Okta Group.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The name of the Okta Group.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
      *
      * @deprecated Because users has been removed, this attribute is a no op and will be removed
      */
-    public readonly skipUsers!: pulumi.Output<boolean | undefined>;
+    declare public readonly skipUsers: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a Group resource with the given unique name, arguments, and options.
@@ -73,16 +73,16 @@ export class Group extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as GroupState | undefined;
-            resourceInputs["customProfileAttributes"] = state ? state.customProfileAttributes : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["skipUsers"] = state ? state.skipUsers : undefined;
+            resourceInputs["customProfileAttributes"] = state?.customProfileAttributes;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["skipUsers"] = state?.skipUsers;
         } else {
             const args = argsOrState as GroupArgs | undefined;
-            resourceInputs["customProfileAttributes"] = args ? args.customProfileAttributes : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["skipUsers"] = args ? args.skipUsers : undefined;
+            resourceInputs["customProfileAttributes"] = args?.customProfileAttributes;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["skipUsers"] = args?.skipUsers;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Group.__pulumiType, name, resourceInputs, opts);

@@ -57,15 +57,15 @@ export class EmailTemplateSettings extends pulumi.CustomResource {
     /**
      * The ID of the brand.
      */
-    public readonly brandId!: pulumi.Output<string>;
+    declare public readonly brandId: pulumi.Output<string>;
     /**
      * The recipients the emails of this template will be sent to - Valid values: `ALL_USERS`, `ADMINS_ONLY`, `NO_USERS`
      */
-    public readonly recipients!: pulumi.Output<string>;
+    declare public readonly recipients: pulumi.Output<string>;
     /**
      * Email template name - Example values: `AccountLockout`,`ADForgotPassword`,`ADForgotPasswordDenied`,`ADSelfServiceUnlock`,`ADUserActivation`,`AuthenticatorEnrolled`,`AuthenticatorReset`,`ChangeEmailConfirmation`,`EmailChallenge`,`EmailChangeConfirmation`,`EmailFactorVerification`,`ForgotPassword`,`ForgotPasswordDenied`,`IGAReviewerEndNotification`,`IGAReviewerNotification`,`IGAReviewerPendingNotification`,`IGAReviewerReassigned`,`LDAPForgotPassword`,`LDAPForgotPasswordDenied`,`LDAPSelfServiceUnlock`,`LDAPUserActivation`,`MyAccountChangeConfirmation`,`NewSignOnNotification`,`OktaVerifyActivation`,`PasswordChanged`,`PasswordResetByAdmin`,`PendingEmailChange`,`RegistrationActivation`,`RegistrationEmailVerification`,`SelfServiceUnlock`,`SelfServiceUnlockOnUnlockedAccount`,`UserActivation`
      */
-    public readonly templateName!: pulumi.Output<string>;
+    declare public readonly templateName: pulumi.Output<string>;
 
     /**
      * Create a EmailTemplateSettings resource with the given unique name, arguments, and options.
@@ -80,23 +80,23 @@ export class EmailTemplateSettings extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EmailTemplateSettingsState | undefined;
-            resourceInputs["brandId"] = state ? state.brandId : undefined;
-            resourceInputs["recipients"] = state ? state.recipients : undefined;
-            resourceInputs["templateName"] = state ? state.templateName : undefined;
+            resourceInputs["brandId"] = state?.brandId;
+            resourceInputs["recipients"] = state?.recipients;
+            resourceInputs["templateName"] = state?.templateName;
         } else {
             const args = argsOrState as EmailTemplateSettingsArgs | undefined;
-            if ((!args || args.brandId === undefined) && !opts.urn) {
+            if (args?.brandId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'brandId'");
             }
-            if ((!args || args.recipients === undefined) && !opts.urn) {
+            if (args?.recipients === undefined && !opts.urn) {
                 throw new Error("Missing required property 'recipients'");
             }
-            if ((!args || args.templateName === undefined) && !opts.urn) {
+            if (args?.templateName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'templateName'");
             }
-            resourceInputs["brandId"] = args ? args.brandId : undefined;
-            resourceInputs["recipients"] = args ? args.recipients : undefined;
-            resourceInputs["templateName"] = args ? args.templateName : undefined;
+            resourceInputs["brandId"] = args?.brandId;
+            resourceInputs["recipients"] = args?.recipients;
+            resourceInputs["templateName"] = args?.templateName;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(EmailTemplateSettings.__pulumiType, name, resourceInputs, opts);

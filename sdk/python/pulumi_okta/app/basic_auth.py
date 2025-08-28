@@ -52,14 +52,12 @@ class BasicAuthArgs:
         :param pulumi.Input[_builtins.str] admin_note: Application notes for admins.
         :param pulumi.Input[_builtins.str] app_links_json: Displays specific appLinks for the app. The value for each application link should be boolean.
         :param pulumi.Input[_builtins.bool] auto_submit_toolbar: Display auto submit toolbar
-        :param pulumi.Input[_builtins.str] credentials_scheme: Application credentials scheme. One of: `EDIT_USERNAME_AND_PASSWORD`, `ADMIN_SETS_CREDENTIALS`, `EDIT_PASSWORD_ONLY`,
-               `EXTERNAL_PASSWORD_SYNC`, or `SHARED_USERNAME_AND_PASSWORD`
+        :param pulumi.Input[_builtins.str] credentials_scheme: Application credentials scheme. One of: `EDIT_USERNAME_AND_PASSWORD`, `ADMIN_SETS_CREDENTIALS`, `EDIT_PASSWORD_ONLY`, `EXTERNAL_PASSWORD_SYNC`, or `SHARED_USERNAME_AND_PASSWORD`
         :param pulumi.Input[_builtins.str] enduser_note: Application notes for end users.
         :param pulumi.Input[_builtins.bool] hide_ios: Do not display application icon on mobile app
         :param pulumi.Input[_builtins.bool] hide_web: Do not display application icon to users
         :param pulumi.Input[_builtins.str] logo: Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
-        :param pulumi.Input[_builtins.bool] reveal_password: Allow user to reveal password. Default is false. It can not be set to true if credentials_scheme is
-               "ADMIN_SETS_CREDENTIALS", "SHARED_USERNAME_AND_PASSWORD" or "EXTERNAL_PASSWORD_SYNC".
+        :param pulumi.Input[_builtins.bool] reveal_password: Allow user to reveal password. Default is false. It can not be set to true if credentials_scheme is "ADMIN_SETS_CREDENTIALS", "SHARED_USERNAME_AND_PASSWORD" or "EXTERNAL_PASSWORD_SYNC".
         :param pulumi.Input[_builtins.str] shared_password: Shared password, required for certain schemes.
         :param pulumi.Input[_builtins.str] shared_username: Shared username, required for certain schemes.
         :param pulumi.Input[_builtins.str] status: Status of application. By default, it is `ACTIVE`
@@ -222,8 +220,7 @@ class BasicAuthArgs:
     @pulumi.getter(name="credentialsScheme")
     def credentials_scheme(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Application credentials scheme. One of: `EDIT_USERNAME_AND_PASSWORD`, `ADMIN_SETS_CREDENTIALS`, `EDIT_PASSWORD_ONLY`,
-        `EXTERNAL_PASSWORD_SYNC`, or `SHARED_USERNAME_AND_PASSWORD`
+        Application credentials scheme. One of: `EDIT_USERNAME_AND_PASSWORD`, `ADMIN_SETS_CREDENTIALS`, `EDIT_PASSWORD_ONLY`, `EXTERNAL_PASSWORD_SYNC`, or `SHARED_USERNAME_AND_PASSWORD`
         """
         return pulumi.get(self, "credentials_scheme")
 
@@ -283,8 +280,7 @@ class BasicAuthArgs:
     @pulumi.getter(name="revealPassword")
     def reveal_password(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Allow user to reveal password. Default is false. It can not be set to true if credentials_scheme is
-        "ADMIN_SETS_CREDENTIALS", "SHARED_USERNAME_AND_PASSWORD" or "EXTERNAL_PASSWORD_SYNC".
+        Allow user to reveal password. Default is false. It can not be set to true if credentials_scheme is "ADMIN_SETS_CREDENTIALS", "SHARED_USERNAME_AND_PASSWORD" or "EXTERNAL_PASSWORD_SYNC".
         """
         return pulumi.get(self, "reveal_password")
 
@@ -414,8 +410,7 @@ class _BasicAuthState:
         :param pulumi.Input[_builtins.str] app_links_json: Displays specific appLinks for the app. The value for each application link should be boolean.
         :param pulumi.Input[_builtins.str] auth_url: The URL of the authenticating site for this app.
         :param pulumi.Input[_builtins.bool] auto_submit_toolbar: Display auto submit toolbar
-        :param pulumi.Input[_builtins.str] credentials_scheme: Application credentials scheme. One of: `EDIT_USERNAME_AND_PASSWORD`, `ADMIN_SETS_CREDENTIALS`, `EDIT_PASSWORD_ONLY`,
-               `EXTERNAL_PASSWORD_SYNC`, or `SHARED_USERNAME_AND_PASSWORD`
+        :param pulumi.Input[_builtins.str] credentials_scheme: Application credentials scheme. One of: `EDIT_USERNAME_AND_PASSWORD`, `ADMIN_SETS_CREDENTIALS`, `EDIT_PASSWORD_ONLY`, `EXTERNAL_PASSWORD_SYNC`, or `SHARED_USERNAME_AND_PASSWORD`
         :param pulumi.Input[_builtins.str] enduser_note: Application notes for end users.
         :param pulumi.Input[_builtins.bool] hide_ios: Do not display application icon on mobile app
         :param pulumi.Input[_builtins.bool] hide_web: Do not display application icon to users
@@ -423,8 +418,7 @@ class _BasicAuthState:
         :param pulumi.Input[_builtins.str] logo: Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
         :param pulumi.Input[_builtins.str] logo_url: URL of the application's logo
         :param pulumi.Input[_builtins.str] name: Name of the app.
-        :param pulumi.Input[_builtins.bool] reveal_password: Allow user to reveal password. Default is false. It can not be set to true if credentials_scheme is
-               "ADMIN_SETS_CREDENTIALS", "SHARED_USERNAME_AND_PASSWORD" or "EXTERNAL_PASSWORD_SYNC".
+        :param pulumi.Input[_builtins.bool] reveal_password: Allow user to reveal password. Default is false. It can not be set to true if credentials_scheme is "ADMIN_SETS_CREDENTIALS", "SHARED_USERNAME_AND_PASSWORD" or "EXTERNAL_PASSWORD_SYNC".
         :param pulumi.Input[_builtins.str] shared_password: Shared password, required for certain schemes.
         :param pulumi.Input[_builtins.str] shared_username: Shared username, required for certain schemes.
         :param pulumi.Input[_builtins.str] sign_on_mode: Sign on mode of application.
@@ -574,8 +568,7 @@ class _BasicAuthState:
     @pulumi.getter(name="credentialsScheme")
     def credentials_scheme(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Application credentials scheme. One of: `EDIT_USERNAME_AND_PASSWORD`, `ADMIN_SETS_CREDENTIALS`, `EDIT_PASSWORD_ONLY`,
-        `EXTERNAL_PASSWORD_SYNC`, or `SHARED_USERNAME_AND_PASSWORD`
+        Application credentials scheme. One of: `EDIT_USERNAME_AND_PASSWORD`, `ADMIN_SETS_CREDENTIALS`, `EDIT_PASSWORD_ONLY`, `EXTERNAL_PASSWORD_SYNC`, or `SHARED_USERNAME_AND_PASSWORD`
         """
         return pulumi.get(self, "credentials_scheme")
 
@@ -671,8 +664,7 @@ class _BasicAuthState:
     @pulumi.getter(name="revealPassword")
     def reveal_password(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Allow user to reveal password. Default is false. It can not be set to true if credentials_scheme is
-        "ADMIN_SETS_CREDENTIALS", "SHARED_USERNAME_AND_PASSWORD" or "EXTERNAL_PASSWORD_SYNC".
+        Allow user to reveal password. Default is false. It can not be set to true if credentials_scheme is "ADMIN_SETS_CREDENTIALS", "SHARED_USERNAME_AND_PASSWORD" or "EXTERNAL_PASSWORD_SYNC".
         """
         return pulumi.get(self, "reveal_password")
 
@@ -851,15 +843,13 @@ class BasicAuth(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] app_links_json: Displays specific appLinks for the app. The value for each application link should be boolean.
         :param pulumi.Input[_builtins.str] auth_url: The URL of the authenticating site for this app.
         :param pulumi.Input[_builtins.bool] auto_submit_toolbar: Display auto submit toolbar
-        :param pulumi.Input[_builtins.str] credentials_scheme: Application credentials scheme. One of: `EDIT_USERNAME_AND_PASSWORD`, `ADMIN_SETS_CREDENTIALS`, `EDIT_PASSWORD_ONLY`,
-               `EXTERNAL_PASSWORD_SYNC`, or `SHARED_USERNAME_AND_PASSWORD`
+        :param pulumi.Input[_builtins.str] credentials_scheme: Application credentials scheme. One of: `EDIT_USERNAME_AND_PASSWORD`, `ADMIN_SETS_CREDENTIALS`, `EDIT_PASSWORD_ONLY`, `EXTERNAL_PASSWORD_SYNC`, or `SHARED_USERNAME_AND_PASSWORD`
         :param pulumi.Input[_builtins.str] enduser_note: Application notes for end users.
         :param pulumi.Input[_builtins.bool] hide_ios: Do not display application icon on mobile app
         :param pulumi.Input[_builtins.bool] hide_web: Do not display application icon to users
         :param pulumi.Input[_builtins.str] label: The Application's display name.
         :param pulumi.Input[_builtins.str] logo: Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
-        :param pulumi.Input[_builtins.bool] reveal_password: Allow user to reveal password. Default is false. It can not be set to true if credentials_scheme is
-               "ADMIN_SETS_CREDENTIALS", "SHARED_USERNAME_AND_PASSWORD" or "EXTERNAL_PASSWORD_SYNC".
+        :param pulumi.Input[_builtins.bool] reveal_password: Allow user to reveal password. Default is false. It can not be set to true if credentials_scheme is "ADMIN_SETS_CREDENTIALS", "SHARED_USERNAME_AND_PASSWORD" or "EXTERNAL_PASSWORD_SYNC".
         :param pulumi.Input[_builtins.str] shared_password: Shared password, required for certain schemes.
         :param pulumi.Input[_builtins.str] shared_username: Shared username, required for certain schemes.
         :param pulumi.Input[_builtins.str] status: Status of application. By default, it is `ACTIVE`
@@ -1025,8 +1015,7 @@ class BasicAuth(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] app_links_json: Displays specific appLinks for the app. The value for each application link should be boolean.
         :param pulumi.Input[_builtins.str] auth_url: The URL of the authenticating site for this app.
         :param pulumi.Input[_builtins.bool] auto_submit_toolbar: Display auto submit toolbar
-        :param pulumi.Input[_builtins.str] credentials_scheme: Application credentials scheme. One of: `EDIT_USERNAME_AND_PASSWORD`, `ADMIN_SETS_CREDENTIALS`, `EDIT_PASSWORD_ONLY`,
-               `EXTERNAL_PASSWORD_SYNC`, or `SHARED_USERNAME_AND_PASSWORD`
+        :param pulumi.Input[_builtins.str] credentials_scheme: Application credentials scheme. One of: `EDIT_USERNAME_AND_PASSWORD`, `ADMIN_SETS_CREDENTIALS`, `EDIT_PASSWORD_ONLY`, `EXTERNAL_PASSWORD_SYNC`, or `SHARED_USERNAME_AND_PASSWORD`
         :param pulumi.Input[_builtins.str] enduser_note: Application notes for end users.
         :param pulumi.Input[_builtins.bool] hide_ios: Do not display application icon on mobile app
         :param pulumi.Input[_builtins.bool] hide_web: Do not display application icon to users
@@ -1034,8 +1023,7 @@ class BasicAuth(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] logo: Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
         :param pulumi.Input[_builtins.str] logo_url: URL of the application's logo
         :param pulumi.Input[_builtins.str] name: Name of the app.
-        :param pulumi.Input[_builtins.bool] reveal_password: Allow user to reveal password. Default is false. It can not be set to true if credentials_scheme is
-               "ADMIN_SETS_CREDENTIALS", "SHARED_USERNAME_AND_PASSWORD" or "EXTERNAL_PASSWORD_SYNC".
+        :param pulumi.Input[_builtins.bool] reveal_password: Allow user to reveal password. Default is false. It can not be set to true if credentials_scheme is "ADMIN_SETS_CREDENTIALS", "SHARED_USERNAME_AND_PASSWORD" or "EXTERNAL_PASSWORD_SYNC".
         :param pulumi.Input[_builtins.str] shared_password: Shared password, required for certain schemes.
         :param pulumi.Input[_builtins.str] shared_username: Shared username, required for certain schemes.
         :param pulumi.Input[_builtins.str] sign_on_mode: Sign on mode of application.
@@ -1137,8 +1125,7 @@ class BasicAuth(pulumi.CustomResource):
     @pulumi.getter(name="credentialsScheme")
     def credentials_scheme(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Application credentials scheme. One of: `EDIT_USERNAME_AND_PASSWORD`, `ADMIN_SETS_CREDENTIALS`, `EDIT_PASSWORD_ONLY`,
-        `EXTERNAL_PASSWORD_SYNC`, or `SHARED_USERNAME_AND_PASSWORD`
+        Application credentials scheme. One of: `EDIT_USERNAME_AND_PASSWORD`, `ADMIN_SETS_CREDENTIALS`, `EDIT_PASSWORD_ONLY`, `EXTERNAL_PASSWORD_SYNC`, or `SHARED_USERNAME_AND_PASSWORD`
         """
         return pulumi.get(self, "credentials_scheme")
 
@@ -1202,8 +1189,7 @@ class BasicAuth(pulumi.CustomResource):
     @pulumi.getter(name="revealPassword")
     def reveal_password(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
-        Allow user to reveal password. Default is false. It can not be set to true if credentials_scheme is
-        "ADMIN_SETS_CREDENTIALS", "SHARED_USERNAME_AND_PASSWORD" or "EXTERNAL_PASSWORD_SYNC".
+        Allow user to reveal password. Default is false. It can not be set to true if credentials_scheme is "ADMIN_SETS_CREDENTIALS", "SHARED_USERNAME_AND_PASSWORD" or "EXTERNAL_PASSWORD_SYNC".
         """
         return pulumi.get(self, "reveal_password")
 

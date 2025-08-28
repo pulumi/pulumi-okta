@@ -86,15 +86,15 @@ export class LinkValue extends pulumi.CustomResource {
     /**
      * Set of User IDs or login values of the users to be assigned the `associated` relationship.
      */
-    public readonly associatedUserIds!: pulumi.Output<string[] | undefined>;
+    declare public readonly associatedUserIds: pulumi.Output<string[] | undefined>;
     /**
      * Name of the `primary` relationship being assigned.
      */
-    public readonly primaryName!: pulumi.Output<string>;
+    declare public readonly primaryName: pulumi.Output<string>;
     /**
      * User ID to be assigned to `primary` for the 'associated' user in the specified relationship.
      */
-    public readonly primaryUserId!: pulumi.Output<string>;
+    declare public readonly primaryUserId: pulumi.Output<string>;
 
     /**
      * Create a LinkValue resource with the given unique name, arguments, and options.
@@ -109,20 +109,20 @@ export class LinkValue extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LinkValueState | undefined;
-            resourceInputs["associatedUserIds"] = state ? state.associatedUserIds : undefined;
-            resourceInputs["primaryName"] = state ? state.primaryName : undefined;
-            resourceInputs["primaryUserId"] = state ? state.primaryUserId : undefined;
+            resourceInputs["associatedUserIds"] = state?.associatedUserIds;
+            resourceInputs["primaryName"] = state?.primaryName;
+            resourceInputs["primaryUserId"] = state?.primaryUserId;
         } else {
             const args = argsOrState as LinkValueArgs | undefined;
-            if ((!args || args.primaryName === undefined) && !opts.urn) {
+            if (args?.primaryName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'primaryName'");
             }
-            if ((!args || args.primaryUserId === undefined) && !opts.urn) {
+            if (args?.primaryUserId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'primaryUserId'");
             }
-            resourceInputs["associatedUserIds"] = args ? args.associatedUserIds : undefined;
-            resourceInputs["primaryName"] = args ? args.primaryName : undefined;
-            resourceInputs["primaryUserId"] = args ? args.primaryUserId : undefined;
+            resourceInputs["associatedUserIds"] = args?.associatedUserIds;
+            resourceInputs["primaryName"] = args?.primaryName;
+            resourceInputs["primaryUserId"] = args?.primaryUserId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(LinkValue.__pulumiType, name, resourceInputs, opts);

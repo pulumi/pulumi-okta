@@ -59,11 +59,11 @@ export class AdminRoleCustom extends pulumi.CustomResource {
     /**
      * A human-readable description of the new Role
      */
-    public readonly description!: pulumi.Output<string>;
+    declare public readonly description: pulumi.Output<string>;
     /**
      * The name given to the new Role
      */
-    public readonly label!: pulumi.Output<string>;
+    declare public readonly label: pulumi.Output<string>;
     /**
      * The permissions that the new Role grants. At least one
      * 			permission must be specified when creating custom role. Valid values: "okta.users.manage",
@@ -123,7 +123,7 @@ export class AdminRoleCustom extends pulumi.CustomResource {
      * 			"okta.iam.read",
      * 			"okta.support.cases.manage".,
      */
-    public readonly permissions!: pulumi.Output<string[] | undefined>;
+    declare public readonly permissions: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a AdminRoleCustom resource with the given unique name, arguments, and options.
@@ -138,20 +138,20 @@ export class AdminRoleCustom extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AdminRoleCustomState | undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["label"] = state ? state.label : undefined;
-            resourceInputs["permissions"] = state ? state.permissions : undefined;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["label"] = state?.label;
+            resourceInputs["permissions"] = state?.permissions;
         } else {
             const args = argsOrState as AdminRoleCustomArgs | undefined;
-            if ((!args || args.description === undefined) && !opts.urn) {
+            if (args?.description === undefined && !opts.urn) {
                 throw new Error("Missing required property 'description'");
             }
-            if ((!args || args.label === undefined) && !opts.urn) {
+            if (args?.label === undefined && !opts.urn) {
                 throw new Error("Missing required property 'label'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["label"] = args ? args.label : undefined;
-            resourceInputs["permissions"] = args ? args.permissions : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["label"] = args?.label;
+            resourceInputs["permissions"] = args?.permissions;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(AdminRoleCustom.__pulumiType, name, resourceInputs, opts);

@@ -49,15 +49,15 @@ export class OrgSupport extends pulumi.CustomResource {
     /**
      * Expiration of Okta Support
      */
-    public /*out*/ readonly expiration!: pulumi.Output<string>;
+    declare public /*out*/ readonly expiration: pulumi.Output<string>;
     /**
      * Number of days the support should be extended by
      */
-    public readonly extendBy!: pulumi.Output<number | undefined>;
+    declare public readonly extendBy: pulumi.Output<number | undefined>;
     /**
      * Status of Okta Support
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    declare public /*out*/ readonly status: pulumi.Output<string>;
 
     /**
      * Create a OrgSupport resource with the given unique name, arguments, and options.
@@ -72,12 +72,12 @@ export class OrgSupport extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as OrgSupportState | undefined;
-            resourceInputs["expiration"] = state ? state.expiration : undefined;
-            resourceInputs["extendBy"] = state ? state.extendBy : undefined;
-            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["expiration"] = state?.expiration;
+            resourceInputs["extendBy"] = state?.extendBy;
+            resourceInputs["status"] = state?.status;
         } else {
             const args = argsOrState as OrgSupportArgs | undefined;
-            resourceInputs["extendBy"] = args ? args.extendBy : undefined;
+            resourceInputs["extendBy"] = args?.extendBy;
             resourceInputs["expiration"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
         }

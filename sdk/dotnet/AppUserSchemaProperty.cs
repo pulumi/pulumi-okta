@@ -74,8 +74,9 @@ namespace Pulumi.Okta
         public Output<ImmutableArray<string>> ArrayEnums { get; private set; } = null!;
 
         /// <summary>
-        /// Display name and value an enum array can be set to. - 'const' - (Required) value mapping to member of 'enum'. - 'title'
-        /// - (Required) display name for the enum value.
+        /// Display name and value an enum array can be set to.
+        /// 	- 'const' - (Required) value mapping to member of 'enum'.
+        /// 	- 'title' - (Required) display name for the enum value.
         /// </summary>
         [Output("arrayOneOfs")]
         public Output<ImmutableArray<Outputs.AppUserSchemaPropertyArrayOneOf>> ArrayOneOfs { get; private set; } = null!;
@@ -135,8 +136,9 @@ namespace Pulumi.Okta
         public Output<int?> MinLength { get; private set; } = null!;
 
         /// <summary>
-        /// Array of maps containing a mapping for display name to enum value. - 'const' - (Required) value mapping to member of
-        /// 'enum'. - 'title' - (Required) display name for the enum value.
+        /// Array of maps containing a mapping for display name to enum value.
+        /// 	- 'const' - (Required) value mapping to member of 'enum'.
+        /// 	- 'title' - (Required) display name for the enum value.
         /// </summary>
         [Output("oneOfs")]
         public Output<ImmutableArray<Outputs.AppUserSchemaPropertyOneOf>> OneOfs { get; private set; } = null!;
@@ -154,8 +156,7 @@ namespace Pulumi.Okta
         public Output<bool?> Required { get; private set; } = null!;
 
         /// <summary>
-        /// determines whether an app user attribute can be set at the Personal `SELF` or Group `NONE` level. Default value is
-        /// `NONE`.
+        /// determines whether an app user attribute can be set at the Personal `SELF` or Group `NONE` level. Default value is `NONE`.
         /// </summary>
         [Output("scope")]
         public Output<string?> Scope { get; private set; } = null!;
@@ -173,8 +174,7 @@ namespace Pulumi.Okta
         public Output<string> Type { get; private set; } = null!;
 
         /// <summary>
-        /// If `type` is set to `array`, used to set whether attribute value is determined by group priority `false`, or combine
-        /// values across groups `true`. Can not be set to `true` if `scope` is set to `SELF`.
+        /// If `type` is set to `array`, used to set whether attribute value is determined by group priority `false`, or combine values across groups `true`. Can not be set to `true` if `scope` is set to `SELF`.
         /// </summary>
         [Output("union")]
         public Output<bool?> Union { get; private set; } = null!;
@@ -259,8 +259,9 @@ namespace Pulumi.Okta
         private InputList<Inputs.AppUserSchemaPropertyArrayOneOfArgs>? _arrayOneOfs;
 
         /// <summary>
-        /// Display name and value an enum array can be set to. - 'const' - (Required) value mapping to member of 'enum'. - 'title'
-        /// - (Required) display name for the enum value.
+        /// Display name and value an enum array can be set to.
+        /// 	- 'const' - (Required) value mapping to member of 'enum'.
+        /// 	- 'title' - (Required) display name for the enum value.
         /// </summary>
         public InputList<Inputs.AppUserSchemaPropertyArrayOneOfArgs> ArrayOneOfs
         {
@@ -332,8 +333,9 @@ namespace Pulumi.Okta
         private InputList<Inputs.AppUserSchemaPropertyOneOfArgs>? _oneOfs;
 
         /// <summary>
-        /// Array of maps containing a mapping for display name to enum value. - 'const' - (Required) value mapping to member of
-        /// 'enum'. - 'title' - (Required) display name for the enum value.
+        /// Array of maps containing a mapping for display name to enum value.
+        /// 	- 'const' - (Required) value mapping to member of 'enum'.
+        /// 	- 'title' - (Required) display name for the enum value.
         /// </summary>
         public InputList<Inputs.AppUserSchemaPropertyOneOfArgs> OneOfs
         {
@@ -354,8 +356,7 @@ namespace Pulumi.Okta
         public Input<bool>? Required { get; set; }
 
         /// <summary>
-        /// determines whether an app user attribute can be set at the Personal `SELF` or Group `NONE` level. Default value is
-        /// `NONE`.
+        /// determines whether an app user attribute can be set at the Personal `SELF` or Group `NONE` level. Default value is `NONE`.
         /// </summary>
         [Input("scope")]
         public Input<string>? Scope { get; set; }
@@ -373,8 +374,7 @@ namespace Pulumi.Okta
         public Input<string> Type { get; set; } = null!;
 
         /// <summary>
-        /// If `type` is set to `array`, used to set whether attribute value is determined by group priority `false`, or combine
-        /// values across groups `true`. Can not be set to `true` if `scope` is set to `SELF`.
+        /// If `type` is set to `array`, used to set whether attribute value is determined by group priority `false`, or combine values across groups `true`. Can not be set to `true` if `scope` is set to `SELF`.
         /// </summary>
         [Input("union")]
         public Input<bool>? Union { get; set; }
@@ -421,8 +421,9 @@ namespace Pulumi.Okta
         private InputList<Inputs.AppUserSchemaPropertyArrayOneOfGetArgs>? _arrayOneOfs;
 
         /// <summary>
-        /// Display name and value an enum array can be set to. - 'const' - (Required) value mapping to member of 'enum'. - 'title'
-        /// - (Required) display name for the enum value.
+        /// Display name and value an enum array can be set to.
+        /// 	- 'const' - (Required) value mapping to member of 'enum'.
+        /// 	- 'title' - (Required) display name for the enum value.
         /// </summary>
         public InputList<Inputs.AppUserSchemaPropertyArrayOneOfGetArgs> ArrayOneOfs
         {
@@ -494,8 +495,9 @@ namespace Pulumi.Okta
         private InputList<Inputs.AppUserSchemaPropertyOneOfGetArgs>? _oneOfs;
 
         /// <summary>
-        /// Array of maps containing a mapping for display name to enum value. - 'const' - (Required) value mapping to member of
-        /// 'enum'. - 'title' - (Required) display name for the enum value.
+        /// Array of maps containing a mapping for display name to enum value.
+        /// 	- 'const' - (Required) value mapping to member of 'enum'.
+        /// 	- 'title' - (Required) display name for the enum value.
         /// </summary>
         public InputList<Inputs.AppUserSchemaPropertyOneOfGetArgs> OneOfs
         {
@@ -516,8 +518,7 @@ namespace Pulumi.Okta
         public Input<bool>? Required { get; set; }
 
         /// <summary>
-        /// determines whether an app user attribute can be set at the Personal `SELF` or Group `NONE` level. Default value is
-        /// `NONE`.
+        /// determines whether an app user attribute can be set at the Personal `SELF` or Group `NONE` level. Default value is `NONE`.
         /// </summary>
         [Input("scope")]
         public Input<string>? Scope { get; set; }
@@ -535,8 +536,7 @@ namespace Pulumi.Okta
         public Input<string>? Type { get; set; }
 
         /// <summary>
-        /// If `type` is set to `array`, used to set whether attribute value is determined by group priority `false`, or combine
-        /// values across groups `true`. Can not be set to `true` if `scope` is set to `SELF`.
+        /// If `type` is set to `array`, used to set whether attribute value is determined by group priority `false`, or combine values across groups `true`. Can not be set to `true` if `scope` is set to `SELF`.
         /// </summary>
         [Input("union")]
         public Input<bool>? Union { get; set; }

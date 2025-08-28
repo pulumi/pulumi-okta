@@ -53,164 +53,164 @@ export class Saml extends pulumi.CustomResource {
     /**
      * Custom error page URL
      */
-    public readonly accessibilityErrorRedirectUrl!: pulumi.Output<string | undefined>;
+    declare public readonly accessibilityErrorRedirectUrl: pulumi.Output<string | undefined>;
     /**
      * Custom login page URL
      */
-    public readonly accessibilityLoginRedirectUrl!: pulumi.Output<string | undefined>;
+    declare public readonly accessibilityLoginRedirectUrl: pulumi.Output<string | undefined>;
     /**
      * Enable self service. Default is `false`
      */
-    public readonly accessibilitySelfService!: pulumi.Output<boolean | undefined>;
+    declare public readonly accessibilitySelfService: pulumi.Output<boolean | undefined>;
     /**
      * An array of ACS endpoints. You can configure a maximum of 100 endpoints.
      */
-    public readonly acsEndpoints!: pulumi.Output<string[] | undefined>;
+    declare public readonly acsEndpoints: pulumi.Output<string[] | undefined>;
     /**
      * ACS endpoints along with custom index as a set of maps called `acsEndpointsIndices` in JSON format.
      */
-    public readonly acsEndpointsIndices!: pulumi.Output<outputs.app.SamlAcsEndpointsIndex[] | undefined>;
+    declare public readonly acsEndpointsIndices: pulumi.Output<outputs.app.SamlAcsEndpointsIndex[] | undefined>;
     /**
      * Application notes for admins.
      */
-    public readonly adminNote!: pulumi.Output<string | undefined>;
+    declare public readonly adminNote: pulumi.Output<string | undefined>;
     /**
      * Displays specific appLinks for the app. The value for each application link should be boolean.
      */
-    public readonly appLinksJson!: pulumi.Output<string | undefined>;
+    declare public readonly appLinksJson: pulumi.Output<string | undefined>;
     /**
      * Application settings in JSON format
      */
-    public readonly appSettingsJson!: pulumi.Output<string | undefined>;
+    declare public readonly appSettingsJson: pulumi.Output<string | undefined>;
     /**
      * Determines whether the SAML assertion is digitally signed
      */
-    public readonly assertionSigned!: pulumi.Output<boolean | undefined>;
-    public readonly attributeStatements!: pulumi.Output<outputs.app.SamlAttributeStatement[] | undefined>;
+    declare public readonly assertionSigned: pulumi.Output<boolean | undefined>;
+    declare public readonly attributeStatements: pulumi.Output<outputs.app.SamlAttributeStatement[] | undefined>;
     /**
      * Audience Restriction
      */
-    public readonly audience!: pulumi.Output<string | undefined>;
+    declare public readonly audience: pulumi.Output<string | undefined>;
     /**
      * The ID of the associated `appSignonPolicy`. If this property is removed from the application the `default` sign-on-policy will be associated with this application.y
      */
-    public readonly authenticationPolicy!: pulumi.Output<string>;
+    declare public readonly authenticationPolicy: pulumi.Output<string>;
     /**
      * Identifies the SAML authentication context class for the assertion’s authentication statement
      */
-    public readonly authnContextClassRef!: pulumi.Output<string | undefined>;
+    declare public readonly authnContextClassRef: pulumi.Output<string | undefined>;
     /**
      * Display auto submit toolbar. Default is: `false`
      */
-    public readonly autoSubmitToolbar!: pulumi.Output<boolean | undefined>;
+    declare public readonly autoSubmitToolbar: pulumi.Output<boolean | undefined>;
     /**
      * cert from SAML XML metadata payload
      */
-    public /*out*/ readonly certificate!: pulumi.Output<string>;
+    declare public /*out*/ readonly certificate: pulumi.Output<string>;
     /**
      * Identifies a specific application resource in an IDP initiated SSO scenario.
      */
-    public readonly defaultRelayState!: pulumi.Output<string | undefined>;
+    declare public readonly defaultRelayState: pulumi.Output<string | undefined>;
     /**
      * Identifies the location where the SAML response is intended to be sent inside of the SAML assertion
      */
-    public readonly destination!: pulumi.Output<string | undefined>;
+    declare public readonly destination: pulumi.Output<string | undefined>;
     /**
      * Determines the digest algorithm used to digitally sign the SAML assertion and response
      */
-    public readonly digestAlgorithm!: pulumi.Output<string | undefined>;
+    declare public readonly digestAlgorithm: pulumi.Output<string | undefined>;
     /**
      * The url that can be used to embed this application in other portals.
      */
-    public /*out*/ readonly embedUrl!: pulumi.Output<string>;
+    declare public /*out*/ readonly embedUrl: pulumi.Output<string>;
     /**
      * Application notes for end users.
      */
-    public readonly enduserNote!: pulumi.Output<string | undefined>;
+    declare public readonly enduserNote: pulumi.Output<string | undefined>;
     /**
      * Entity ID, the ID portion of the entity_url
      */
-    public /*out*/ readonly entityKey!: pulumi.Output<string>;
+    declare public /*out*/ readonly entityKey: pulumi.Output<string>;
     /**
      * Entity URL for instance http://www.okta.com/exk1fcia6d6EMsf331d8
      */
-    public /*out*/ readonly entityUrl!: pulumi.Output<string>;
+    declare public /*out*/ readonly entityUrl: pulumi.Output<string>;
     /**
      * features to enable
      */
-    public /*out*/ readonly features!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly features: pulumi.Output<string[]>;
     /**
      * Do not display application icon on mobile app
      */
-    public readonly hideIos!: pulumi.Output<boolean | undefined>;
+    declare public readonly hideIos: pulumi.Output<boolean | undefined>;
     /**
      * Do not display application icon to users
      */
-    public readonly hideWeb!: pulumi.Output<boolean | undefined>;
+    declare public readonly hideWeb: pulumi.Output<boolean | undefined>;
     /**
      * Prompt user to re-authenticate if SP asks for it. Default is: `false`
      */
-    public readonly honorForceAuthn!: pulumi.Output<boolean | undefined>;
+    declare public readonly honorForceAuthn: pulumi.Output<boolean | undefined>;
     /**
      * urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Post location from the SAML metadata.
      */
-    public /*out*/ readonly httpPostBinding!: pulumi.Output<string>;
+    declare public /*out*/ readonly httpPostBinding: pulumi.Output<string>;
     /**
      * urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect location from the SAML metadata.
      */
-    public /*out*/ readonly httpRedirectBinding!: pulumi.Output<string>;
+    declare public /*out*/ readonly httpRedirectBinding: pulumi.Output<string>;
     /**
      * SAML issuer ID
      */
-    public readonly idpIssuer!: pulumi.Output<string | undefined>;
+    declare public readonly idpIssuer: pulumi.Output<string | undefined>;
     /**
      * *Early Access Property*. Enable Federation Broker Mode.
      */
-    public readonly implicitAssignment!: pulumi.Output<boolean | undefined>;
+    declare public readonly implicitAssignment: pulumi.Output<boolean | undefined>;
     /**
      * Saml Inline Hook setting
      */
-    public readonly inlineHookId!: pulumi.Output<string | undefined>;
+    declare public readonly inlineHookId: pulumi.Output<string | undefined>;
     /**
      * Certificate ID
      */
-    public /*out*/ readonly keyId!: pulumi.Output<string>;
+    declare public /*out*/ readonly keyId: pulumi.Output<string>;
     /**
      * Certificate name. This modulates the rotation of keys. New name == new key. Required to be set with `keyYearsValid`
      */
-    public readonly keyName!: pulumi.Output<string | undefined>;
+    declare public readonly keyName: pulumi.Output<string | undefined>;
     /**
      * Number of years the certificate is valid (2 - 10 years).
      */
-    public readonly keyYearsValid!: pulumi.Output<number | undefined>;
+    declare public readonly keyYearsValid: pulumi.Output<number | undefined>;
     /**
      * Application keys
      */
-    public /*out*/ readonly keys!: pulumi.Output<outputs.app.SamlKey[]>;
+    declare public /*out*/ readonly keys: pulumi.Output<outputs.app.SamlKey[]>;
     /**
      * The Application's display name.
      */
-    public readonly label!: pulumi.Output<string>;
+    declare public readonly label: pulumi.Output<string>;
     /**
      * Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
      */
-    public readonly logo!: pulumi.Output<string | undefined>;
+    declare public readonly logo: pulumi.Output<string | undefined>;
     /**
      * URL of the application's logo
      */
-    public /*out*/ readonly logoUrl!: pulumi.Output<string>;
+    declare public /*out*/ readonly logoUrl: pulumi.Output<string>;
     /**
      * SAML xml metadata payload
      */
-    public /*out*/ readonly metadata!: pulumi.Output<string>;
+    declare public /*out*/ readonly metadata: pulumi.Output<string>;
     /**
      * SAML xml metadata URL
      */
-    public /*out*/ readonly metadataUrl!: pulumi.Output<string>;
+    declare public /*out*/ readonly metadataUrl: pulumi.Output<string>;
     /**
      * Name of the app.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Name of application from the Okta Integration Network. For instance 'slack'. If not included a custom app will be created.  If not provided the following arguments are required:
      * 'sso*url'
@@ -223,83 +223,83 @@ export class Saml extends pulumi.CustomResource {
      * 'digest*algorithm'
      * 'authn*context*class*ref'
      */
-    public readonly preconfiguredApp!: pulumi.Output<string | undefined>;
+    declare public readonly preconfiguredApp: pulumi.Output<string | undefined>;
     /**
      * The location where the app may present the SAML assertion
      */
-    public readonly recipient!: pulumi.Output<string | undefined>;
+    declare public readonly recipient: pulumi.Output<string | undefined>;
     /**
      * Denotes whether the request is compressed or not.
      */
-    public readonly requestCompressed!: pulumi.Output<boolean | undefined>;
+    declare public readonly requestCompressed: pulumi.Output<boolean | undefined>;
     /**
      * Determines whether the SAML auth response message is digitally signed
      */
-    public readonly responseSigned!: pulumi.Output<boolean | undefined>;
+    declare public readonly responseSigned: pulumi.Output<boolean | undefined>;
     /**
      * SAML Signed Request enabled
      */
-    public readonly samlSignedRequestEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly samlSignedRequestEnabled: pulumi.Output<boolean | undefined>;
     /**
      * SAML version for the app's sign-on mode. Valid values are: `2.0` or `1.1`. Default is `2.0`
      */
-    public readonly samlVersion!: pulumi.Output<string | undefined>;
+    declare public readonly samlVersion: pulumi.Output<string | undefined>;
     /**
      * Sign on mode of application.
      */
-    public /*out*/ readonly signOnMode!: pulumi.Output<string>;
+    declare public /*out*/ readonly signOnMode: pulumi.Output<string>;
     /**
      * Signature algorithm used to digitally sign the assertion and response
      */
-    public readonly signatureAlgorithm!: pulumi.Output<string | undefined>;
+    declare public readonly signatureAlgorithm: pulumi.Output<string | undefined>;
     /**
      * x509 encoded certificate that the Service Provider uses to sign Single Logout requests. Note: should be provided without `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`, see [official documentation](https://developer.okta.com/docs/reference/api/apps/#service-provider-certificate).
      */
-    public readonly singleLogoutCertificate!: pulumi.Output<string | undefined>;
+    declare public readonly singleLogoutCertificate: pulumi.Output<string | undefined>;
     /**
      * The issuer of the Service Provider that generates the Single Logout request
      */
-    public readonly singleLogoutIssuer!: pulumi.Output<string | undefined>;
+    declare public readonly singleLogoutIssuer: pulumi.Output<string | undefined>;
     /**
      * The location where the logout response is sent
      */
-    public readonly singleLogoutUrl!: pulumi.Output<string | undefined>;
+    declare public readonly singleLogoutUrl: pulumi.Output<string | undefined>;
     /**
      * SAML SP issuer ID
      */
-    public readonly spIssuer!: pulumi.Output<string | undefined>;
+    declare public readonly spIssuer: pulumi.Output<string | undefined>;
     /**
      * Single Sign On URL
      */
-    public readonly ssoUrl!: pulumi.Output<string | undefined>;
+    declare public readonly ssoUrl: pulumi.Output<string | undefined>;
     /**
      * Status of application. By default, it is `ACTIVE`
      */
-    public readonly status!: pulumi.Output<string | undefined>;
+    declare public readonly status: pulumi.Output<string | undefined>;
     /**
      * Identifies the SAML processing rules.
      */
-    public readonly subjectNameIdFormat!: pulumi.Output<string | undefined>;
+    declare public readonly subjectNameIdFormat: pulumi.Output<string | undefined>;
     /**
      * Template for app user's username when a user is assigned to the app
      */
-    public readonly subjectNameIdTemplate!: pulumi.Output<string | undefined>;
+    declare public readonly subjectNameIdTemplate: pulumi.Output<string | undefined>;
     /**
      * Username template. Default: `${source.login}`
      */
-    public readonly userNameTemplate!: pulumi.Output<string | undefined>;
+    declare public readonly userNameTemplate: pulumi.Output<string | undefined>;
     /**
      * Push username on update. Valid values: `PUSH` and `DONT_PUSH`
      */
-    public readonly userNameTemplatePushStatus!: pulumi.Output<string | undefined>;
+    declare public readonly userNameTemplatePushStatus: pulumi.Output<string | undefined>;
     /**
      * Username template suffix
      */
-    public readonly userNameTemplateSuffix!: pulumi.Output<string | undefined>;
+    declare public readonly userNameTemplateSuffix: pulumi.Output<string | undefined>;
     /**
      * Username template type. Default: `BUILT_IN`
      */
-    public readonly userNameTemplateType!: pulumi.Output<string | undefined>;
+    declare public readonly userNameTemplateType: pulumi.Output<string | undefined>;
 
     /**
      * Create a Saml resource with the given unique name, arguments, and options.
@@ -314,119 +314,119 @@ export class Saml extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SamlState | undefined;
-            resourceInputs["accessibilityErrorRedirectUrl"] = state ? state.accessibilityErrorRedirectUrl : undefined;
-            resourceInputs["accessibilityLoginRedirectUrl"] = state ? state.accessibilityLoginRedirectUrl : undefined;
-            resourceInputs["accessibilitySelfService"] = state ? state.accessibilitySelfService : undefined;
-            resourceInputs["acsEndpoints"] = state ? state.acsEndpoints : undefined;
-            resourceInputs["acsEndpointsIndices"] = state ? state.acsEndpointsIndices : undefined;
-            resourceInputs["adminNote"] = state ? state.adminNote : undefined;
-            resourceInputs["appLinksJson"] = state ? state.appLinksJson : undefined;
-            resourceInputs["appSettingsJson"] = state ? state.appSettingsJson : undefined;
-            resourceInputs["assertionSigned"] = state ? state.assertionSigned : undefined;
-            resourceInputs["attributeStatements"] = state ? state.attributeStatements : undefined;
-            resourceInputs["audience"] = state ? state.audience : undefined;
-            resourceInputs["authenticationPolicy"] = state ? state.authenticationPolicy : undefined;
-            resourceInputs["authnContextClassRef"] = state ? state.authnContextClassRef : undefined;
-            resourceInputs["autoSubmitToolbar"] = state ? state.autoSubmitToolbar : undefined;
-            resourceInputs["certificate"] = state ? state.certificate : undefined;
-            resourceInputs["defaultRelayState"] = state ? state.defaultRelayState : undefined;
-            resourceInputs["destination"] = state ? state.destination : undefined;
-            resourceInputs["digestAlgorithm"] = state ? state.digestAlgorithm : undefined;
-            resourceInputs["embedUrl"] = state ? state.embedUrl : undefined;
-            resourceInputs["enduserNote"] = state ? state.enduserNote : undefined;
-            resourceInputs["entityKey"] = state ? state.entityKey : undefined;
-            resourceInputs["entityUrl"] = state ? state.entityUrl : undefined;
-            resourceInputs["features"] = state ? state.features : undefined;
-            resourceInputs["hideIos"] = state ? state.hideIos : undefined;
-            resourceInputs["hideWeb"] = state ? state.hideWeb : undefined;
-            resourceInputs["honorForceAuthn"] = state ? state.honorForceAuthn : undefined;
-            resourceInputs["httpPostBinding"] = state ? state.httpPostBinding : undefined;
-            resourceInputs["httpRedirectBinding"] = state ? state.httpRedirectBinding : undefined;
-            resourceInputs["idpIssuer"] = state ? state.idpIssuer : undefined;
-            resourceInputs["implicitAssignment"] = state ? state.implicitAssignment : undefined;
-            resourceInputs["inlineHookId"] = state ? state.inlineHookId : undefined;
-            resourceInputs["keyId"] = state ? state.keyId : undefined;
-            resourceInputs["keyName"] = state ? state.keyName : undefined;
-            resourceInputs["keyYearsValid"] = state ? state.keyYearsValid : undefined;
-            resourceInputs["keys"] = state ? state.keys : undefined;
-            resourceInputs["label"] = state ? state.label : undefined;
-            resourceInputs["logo"] = state ? state.logo : undefined;
-            resourceInputs["logoUrl"] = state ? state.logoUrl : undefined;
-            resourceInputs["metadata"] = state ? state.metadata : undefined;
-            resourceInputs["metadataUrl"] = state ? state.metadataUrl : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["preconfiguredApp"] = state ? state.preconfiguredApp : undefined;
-            resourceInputs["recipient"] = state ? state.recipient : undefined;
-            resourceInputs["requestCompressed"] = state ? state.requestCompressed : undefined;
-            resourceInputs["responseSigned"] = state ? state.responseSigned : undefined;
-            resourceInputs["samlSignedRequestEnabled"] = state ? state.samlSignedRequestEnabled : undefined;
-            resourceInputs["samlVersion"] = state ? state.samlVersion : undefined;
-            resourceInputs["signOnMode"] = state ? state.signOnMode : undefined;
-            resourceInputs["signatureAlgorithm"] = state ? state.signatureAlgorithm : undefined;
-            resourceInputs["singleLogoutCertificate"] = state ? state.singleLogoutCertificate : undefined;
-            resourceInputs["singleLogoutIssuer"] = state ? state.singleLogoutIssuer : undefined;
-            resourceInputs["singleLogoutUrl"] = state ? state.singleLogoutUrl : undefined;
-            resourceInputs["spIssuer"] = state ? state.spIssuer : undefined;
-            resourceInputs["ssoUrl"] = state ? state.ssoUrl : undefined;
-            resourceInputs["status"] = state ? state.status : undefined;
-            resourceInputs["subjectNameIdFormat"] = state ? state.subjectNameIdFormat : undefined;
-            resourceInputs["subjectNameIdTemplate"] = state ? state.subjectNameIdTemplate : undefined;
-            resourceInputs["userNameTemplate"] = state ? state.userNameTemplate : undefined;
-            resourceInputs["userNameTemplatePushStatus"] = state ? state.userNameTemplatePushStatus : undefined;
-            resourceInputs["userNameTemplateSuffix"] = state ? state.userNameTemplateSuffix : undefined;
-            resourceInputs["userNameTemplateType"] = state ? state.userNameTemplateType : undefined;
+            resourceInputs["accessibilityErrorRedirectUrl"] = state?.accessibilityErrorRedirectUrl;
+            resourceInputs["accessibilityLoginRedirectUrl"] = state?.accessibilityLoginRedirectUrl;
+            resourceInputs["accessibilitySelfService"] = state?.accessibilitySelfService;
+            resourceInputs["acsEndpoints"] = state?.acsEndpoints;
+            resourceInputs["acsEndpointsIndices"] = state?.acsEndpointsIndices;
+            resourceInputs["adminNote"] = state?.adminNote;
+            resourceInputs["appLinksJson"] = state?.appLinksJson;
+            resourceInputs["appSettingsJson"] = state?.appSettingsJson;
+            resourceInputs["assertionSigned"] = state?.assertionSigned;
+            resourceInputs["attributeStatements"] = state?.attributeStatements;
+            resourceInputs["audience"] = state?.audience;
+            resourceInputs["authenticationPolicy"] = state?.authenticationPolicy;
+            resourceInputs["authnContextClassRef"] = state?.authnContextClassRef;
+            resourceInputs["autoSubmitToolbar"] = state?.autoSubmitToolbar;
+            resourceInputs["certificate"] = state?.certificate;
+            resourceInputs["defaultRelayState"] = state?.defaultRelayState;
+            resourceInputs["destination"] = state?.destination;
+            resourceInputs["digestAlgorithm"] = state?.digestAlgorithm;
+            resourceInputs["embedUrl"] = state?.embedUrl;
+            resourceInputs["enduserNote"] = state?.enduserNote;
+            resourceInputs["entityKey"] = state?.entityKey;
+            resourceInputs["entityUrl"] = state?.entityUrl;
+            resourceInputs["features"] = state?.features;
+            resourceInputs["hideIos"] = state?.hideIos;
+            resourceInputs["hideWeb"] = state?.hideWeb;
+            resourceInputs["honorForceAuthn"] = state?.honorForceAuthn;
+            resourceInputs["httpPostBinding"] = state?.httpPostBinding;
+            resourceInputs["httpRedirectBinding"] = state?.httpRedirectBinding;
+            resourceInputs["idpIssuer"] = state?.idpIssuer;
+            resourceInputs["implicitAssignment"] = state?.implicitAssignment;
+            resourceInputs["inlineHookId"] = state?.inlineHookId;
+            resourceInputs["keyId"] = state?.keyId;
+            resourceInputs["keyName"] = state?.keyName;
+            resourceInputs["keyYearsValid"] = state?.keyYearsValid;
+            resourceInputs["keys"] = state?.keys;
+            resourceInputs["label"] = state?.label;
+            resourceInputs["logo"] = state?.logo;
+            resourceInputs["logoUrl"] = state?.logoUrl;
+            resourceInputs["metadata"] = state?.metadata;
+            resourceInputs["metadataUrl"] = state?.metadataUrl;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["preconfiguredApp"] = state?.preconfiguredApp;
+            resourceInputs["recipient"] = state?.recipient;
+            resourceInputs["requestCompressed"] = state?.requestCompressed;
+            resourceInputs["responseSigned"] = state?.responseSigned;
+            resourceInputs["samlSignedRequestEnabled"] = state?.samlSignedRequestEnabled;
+            resourceInputs["samlVersion"] = state?.samlVersion;
+            resourceInputs["signOnMode"] = state?.signOnMode;
+            resourceInputs["signatureAlgorithm"] = state?.signatureAlgorithm;
+            resourceInputs["singleLogoutCertificate"] = state?.singleLogoutCertificate;
+            resourceInputs["singleLogoutIssuer"] = state?.singleLogoutIssuer;
+            resourceInputs["singleLogoutUrl"] = state?.singleLogoutUrl;
+            resourceInputs["spIssuer"] = state?.spIssuer;
+            resourceInputs["ssoUrl"] = state?.ssoUrl;
+            resourceInputs["status"] = state?.status;
+            resourceInputs["subjectNameIdFormat"] = state?.subjectNameIdFormat;
+            resourceInputs["subjectNameIdTemplate"] = state?.subjectNameIdTemplate;
+            resourceInputs["userNameTemplate"] = state?.userNameTemplate;
+            resourceInputs["userNameTemplatePushStatus"] = state?.userNameTemplatePushStatus;
+            resourceInputs["userNameTemplateSuffix"] = state?.userNameTemplateSuffix;
+            resourceInputs["userNameTemplateType"] = state?.userNameTemplateType;
         } else {
             const args = argsOrState as SamlArgs | undefined;
-            if ((!args || args.label === undefined) && !opts.urn) {
+            if (args?.label === undefined && !opts.urn) {
                 throw new Error("Missing required property 'label'");
             }
-            resourceInputs["accessibilityErrorRedirectUrl"] = args ? args.accessibilityErrorRedirectUrl : undefined;
-            resourceInputs["accessibilityLoginRedirectUrl"] = args ? args.accessibilityLoginRedirectUrl : undefined;
-            resourceInputs["accessibilitySelfService"] = args ? args.accessibilitySelfService : undefined;
-            resourceInputs["acsEndpoints"] = args ? args.acsEndpoints : undefined;
-            resourceInputs["acsEndpointsIndices"] = args ? args.acsEndpointsIndices : undefined;
-            resourceInputs["adminNote"] = args ? args.adminNote : undefined;
-            resourceInputs["appLinksJson"] = args ? args.appLinksJson : undefined;
-            resourceInputs["appSettingsJson"] = args ? args.appSettingsJson : undefined;
-            resourceInputs["assertionSigned"] = args ? args.assertionSigned : undefined;
-            resourceInputs["attributeStatements"] = args ? args.attributeStatements : undefined;
-            resourceInputs["audience"] = args ? args.audience : undefined;
-            resourceInputs["authenticationPolicy"] = args ? args.authenticationPolicy : undefined;
-            resourceInputs["authnContextClassRef"] = args ? args.authnContextClassRef : undefined;
-            resourceInputs["autoSubmitToolbar"] = args ? args.autoSubmitToolbar : undefined;
-            resourceInputs["defaultRelayState"] = args ? args.defaultRelayState : undefined;
-            resourceInputs["destination"] = args ? args.destination : undefined;
-            resourceInputs["digestAlgorithm"] = args ? args.digestAlgorithm : undefined;
-            resourceInputs["enduserNote"] = args ? args.enduserNote : undefined;
-            resourceInputs["hideIos"] = args ? args.hideIos : undefined;
-            resourceInputs["hideWeb"] = args ? args.hideWeb : undefined;
-            resourceInputs["honorForceAuthn"] = args ? args.honorForceAuthn : undefined;
-            resourceInputs["idpIssuer"] = args ? args.idpIssuer : undefined;
-            resourceInputs["implicitAssignment"] = args ? args.implicitAssignment : undefined;
-            resourceInputs["inlineHookId"] = args ? args.inlineHookId : undefined;
-            resourceInputs["keyName"] = args ? args.keyName : undefined;
-            resourceInputs["keyYearsValid"] = args ? args.keyYearsValid : undefined;
-            resourceInputs["label"] = args ? args.label : undefined;
-            resourceInputs["logo"] = args ? args.logo : undefined;
-            resourceInputs["preconfiguredApp"] = args ? args.preconfiguredApp : undefined;
-            resourceInputs["recipient"] = args ? args.recipient : undefined;
-            resourceInputs["requestCompressed"] = args ? args.requestCompressed : undefined;
-            resourceInputs["responseSigned"] = args ? args.responseSigned : undefined;
-            resourceInputs["samlSignedRequestEnabled"] = args ? args.samlSignedRequestEnabled : undefined;
-            resourceInputs["samlVersion"] = args ? args.samlVersion : undefined;
-            resourceInputs["signatureAlgorithm"] = args ? args.signatureAlgorithm : undefined;
-            resourceInputs["singleLogoutCertificate"] = args ? args.singleLogoutCertificate : undefined;
-            resourceInputs["singleLogoutIssuer"] = args ? args.singleLogoutIssuer : undefined;
-            resourceInputs["singleLogoutUrl"] = args ? args.singleLogoutUrl : undefined;
-            resourceInputs["spIssuer"] = args ? args.spIssuer : undefined;
-            resourceInputs["ssoUrl"] = args ? args.ssoUrl : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
-            resourceInputs["subjectNameIdFormat"] = args ? args.subjectNameIdFormat : undefined;
-            resourceInputs["subjectNameIdTemplate"] = args ? args.subjectNameIdTemplate : undefined;
-            resourceInputs["userNameTemplate"] = args ? args.userNameTemplate : undefined;
-            resourceInputs["userNameTemplatePushStatus"] = args ? args.userNameTemplatePushStatus : undefined;
-            resourceInputs["userNameTemplateSuffix"] = args ? args.userNameTemplateSuffix : undefined;
-            resourceInputs["userNameTemplateType"] = args ? args.userNameTemplateType : undefined;
+            resourceInputs["accessibilityErrorRedirectUrl"] = args?.accessibilityErrorRedirectUrl;
+            resourceInputs["accessibilityLoginRedirectUrl"] = args?.accessibilityLoginRedirectUrl;
+            resourceInputs["accessibilitySelfService"] = args?.accessibilitySelfService;
+            resourceInputs["acsEndpoints"] = args?.acsEndpoints;
+            resourceInputs["acsEndpointsIndices"] = args?.acsEndpointsIndices;
+            resourceInputs["adminNote"] = args?.adminNote;
+            resourceInputs["appLinksJson"] = args?.appLinksJson;
+            resourceInputs["appSettingsJson"] = args?.appSettingsJson;
+            resourceInputs["assertionSigned"] = args?.assertionSigned;
+            resourceInputs["attributeStatements"] = args?.attributeStatements;
+            resourceInputs["audience"] = args?.audience;
+            resourceInputs["authenticationPolicy"] = args?.authenticationPolicy;
+            resourceInputs["authnContextClassRef"] = args?.authnContextClassRef;
+            resourceInputs["autoSubmitToolbar"] = args?.autoSubmitToolbar;
+            resourceInputs["defaultRelayState"] = args?.defaultRelayState;
+            resourceInputs["destination"] = args?.destination;
+            resourceInputs["digestAlgorithm"] = args?.digestAlgorithm;
+            resourceInputs["enduserNote"] = args?.enduserNote;
+            resourceInputs["hideIos"] = args?.hideIos;
+            resourceInputs["hideWeb"] = args?.hideWeb;
+            resourceInputs["honorForceAuthn"] = args?.honorForceAuthn;
+            resourceInputs["idpIssuer"] = args?.idpIssuer;
+            resourceInputs["implicitAssignment"] = args?.implicitAssignment;
+            resourceInputs["inlineHookId"] = args?.inlineHookId;
+            resourceInputs["keyName"] = args?.keyName;
+            resourceInputs["keyYearsValid"] = args?.keyYearsValid;
+            resourceInputs["label"] = args?.label;
+            resourceInputs["logo"] = args?.logo;
+            resourceInputs["preconfiguredApp"] = args?.preconfiguredApp;
+            resourceInputs["recipient"] = args?.recipient;
+            resourceInputs["requestCompressed"] = args?.requestCompressed;
+            resourceInputs["responseSigned"] = args?.responseSigned;
+            resourceInputs["samlSignedRequestEnabled"] = args?.samlSignedRequestEnabled;
+            resourceInputs["samlVersion"] = args?.samlVersion;
+            resourceInputs["signatureAlgorithm"] = args?.signatureAlgorithm;
+            resourceInputs["singleLogoutCertificate"] = args?.singleLogoutCertificate;
+            resourceInputs["singleLogoutIssuer"] = args?.singleLogoutIssuer;
+            resourceInputs["singleLogoutUrl"] = args?.singleLogoutUrl;
+            resourceInputs["spIssuer"] = args?.spIssuer;
+            resourceInputs["ssoUrl"] = args?.ssoUrl;
+            resourceInputs["status"] = args?.status;
+            resourceInputs["subjectNameIdFormat"] = args?.subjectNameIdFormat;
+            resourceInputs["subjectNameIdTemplate"] = args?.subjectNameIdTemplate;
+            resourceInputs["userNameTemplate"] = args?.userNameTemplate;
+            resourceInputs["userNameTemplatePushStatus"] = args?.userNameTemplatePushStatus;
+            resourceInputs["userNameTemplateSuffix"] = args?.userNameTemplateSuffix;
+            resourceInputs["userNameTemplateType"] = args?.userNameTemplateType;
             resourceInputs["certificate"] = undefined /*out*/;
             resourceInputs["embedUrl"] = undefined /*out*/;
             resourceInputs["entityKey"] = undefined /*out*/;

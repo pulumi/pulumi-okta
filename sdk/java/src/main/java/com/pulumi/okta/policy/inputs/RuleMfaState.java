@@ -20,20 +20,20 @@ public final class RuleMfaState extends com.pulumi.resources.ResourceArgs {
     public static final RuleMfaState Empty = new RuleMfaState();
 
     /**
-     * Applications to exclude in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations. - &#39;id&#39;
-     * - (Optional) Use if &#39;type&#39; is &#39;APP&#39; to indicate the application id to include. - &#39;name&#39; - (Optional) Use if the &#39;type&#39;
-     *   is &#39;APP_TYPE&#39; to indicate the type of application(s) to include in instances where an entire group (i.e. &#39;yahoo_mail&#39;)
-     *   of applications should be included. - &#39;type&#39; - (Required) One of: &#39;APP&#39;, &#39;APP_TYPE&#39;
+     * Applications to exclude in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations.
+     * 	- &#39;id&#39; - (Optional) Use if &#39;type&#39; is &#39;APP&#39; to indicate the application id to include.
+     * 	- &#39;name&#39; - (Optional) Use if the &#39;type&#39; is &#39;APP_TYPE&#39; to indicate the type of application(s) to include in instances where an entire group (i.e. &#39;yahoo_mail&#39;) of applications should be included.
+     * 	- &#39;type&#39; - (Required) One of: &#39;APP&#39;, &#39;APP_TYPE&#39;
      * 
      */
     @Import(name="appExcludes")
     private @Nullable Output<List<RuleMfaAppExcludeArgs>> appExcludes;
 
     /**
-     * @return Applications to exclude in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations. - &#39;id&#39;
-     * - (Optional) Use if &#39;type&#39; is &#39;APP&#39; to indicate the application id to include. - &#39;name&#39; - (Optional) Use if the &#39;type&#39;
-     *   is &#39;APP_TYPE&#39; to indicate the type of application(s) to include in instances where an entire group (i.e. &#39;yahoo_mail&#39;)
-     *   of applications should be included. - &#39;type&#39; - (Required) One of: &#39;APP&#39;, &#39;APP_TYPE&#39;
+     * @return Applications to exclude in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations.
+     * 	- &#39;id&#39; - (Optional) Use if &#39;type&#39; is &#39;APP&#39; to indicate the application id to include.
+     * 	- &#39;name&#39; - (Optional) Use if the &#39;type&#39; is &#39;APP_TYPE&#39; to indicate the type of application(s) to include in instances where an entire group (i.e. &#39;yahoo_mail&#39;) of applications should be included.
+     * 	- &#39;type&#39; - (Required) One of: &#39;APP&#39;, &#39;APP_TYPE&#39;
      * 
      */
     public Optional<Output<List<RuleMfaAppExcludeArgs>>> appExcludes() {
@@ -41,20 +41,20 @@ public final class RuleMfaState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Applications to include in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations. - &#39;id&#39;
-     * - (Optional) Use if &#39;type&#39; is &#39;APP&#39; to indicate the application id to include. - &#39;name&#39; - (Optional) Use if the &#39;type&#39;
-     *   is &#39;APP_TYPE&#39; to indicate the type of application(s) to include in instances where an entire group (i.e. &#39;yahoo_mail&#39;)
-     *   of applications should be included. - &#39;type&#39; - (Required) One of: &#39;APP&#39;, &#39;APP_TYPE&#39;
+     * Applications to include in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations.
+     * 	- &#39;id&#39; - (Optional) Use if &#39;type&#39; is &#39;APP&#39; to indicate the application id to include.
+     * 	- &#39;name&#39; - (Optional) Use if the &#39;type&#39; is &#39;APP_TYPE&#39; to indicate the type of application(s) to include in instances where an entire group (i.e. &#39;yahoo_mail&#39;) of applications should be included.
+     * 	- &#39;type&#39; - (Required) One of: &#39;APP&#39;, &#39;APP_TYPE&#39;
      * 
      */
     @Import(name="appIncludes")
     private @Nullable Output<List<RuleMfaAppIncludeArgs>> appIncludes;
 
     /**
-     * @return Applications to include in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations. - &#39;id&#39;
-     * - (Optional) Use if &#39;type&#39; is &#39;APP&#39; to indicate the application id to include. - &#39;name&#39; - (Optional) Use if the &#39;type&#39;
-     *   is &#39;APP_TYPE&#39; to indicate the type of application(s) to include in instances where an entire group (i.e. &#39;yahoo_mail&#39;)
-     *   of applications should be included. - &#39;type&#39; - (Required) One of: &#39;APP&#39;, &#39;APP_TYPE&#39;
+     * @return Applications to include in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations.
+     * 	- &#39;id&#39; - (Optional) Use if &#39;type&#39; is &#39;APP&#39; to indicate the application id to include.
+     * 	- &#39;name&#39; - (Optional) Use if the &#39;type&#39; is &#39;APP_TYPE&#39; to indicate the type of application(s) to include in instances where an entire group (i.e. &#39;yahoo_mail&#39;) of applications should be included.
+     * 	- &#39;type&#39; - (Required) One of: &#39;APP&#39;, &#39;APP_TYPE&#39;
      * 
      */
     public Optional<Output<List<RuleMfaAppIncludeArgs>>> appIncludes() {
@@ -152,16 +152,14 @@ public final class RuleMfaState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if
-     * an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
+     * Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
      * 
      */
     @Import(name="priority")
     private @Nullable Output<Integer> priority;
 
     /**
-     * @return Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if
-     * an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
+     * @return Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
      * 
      */
     public Optional<Output<Integer>> priority() {
@@ -233,10 +231,10 @@ public final class RuleMfaState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param appExcludes Applications to exclude in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations. - &#39;id&#39;
-         * - (Optional) Use if &#39;type&#39; is &#39;APP&#39; to indicate the application id to include. - &#39;name&#39; - (Optional) Use if the &#39;type&#39;
-         *   is &#39;APP_TYPE&#39; to indicate the type of application(s) to include in instances where an entire group (i.e. &#39;yahoo_mail&#39;)
-         *   of applications should be included. - &#39;type&#39; - (Required) One of: &#39;APP&#39;, &#39;APP_TYPE&#39;
+         * @param appExcludes Applications to exclude in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations.
+         * 	- &#39;id&#39; - (Optional) Use if &#39;type&#39; is &#39;APP&#39; to indicate the application id to include.
+         * 	- &#39;name&#39; - (Optional) Use if the &#39;type&#39; is &#39;APP_TYPE&#39; to indicate the type of application(s) to include in instances where an entire group (i.e. &#39;yahoo_mail&#39;) of applications should be included.
+         * 	- &#39;type&#39; - (Required) One of: &#39;APP&#39;, &#39;APP_TYPE&#39;
          * 
          * @return builder
          * 
@@ -247,10 +245,10 @@ public final class RuleMfaState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param appExcludes Applications to exclude in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations. - &#39;id&#39;
-         * - (Optional) Use if &#39;type&#39; is &#39;APP&#39; to indicate the application id to include. - &#39;name&#39; - (Optional) Use if the &#39;type&#39;
-         *   is &#39;APP_TYPE&#39; to indicate the type of application(s) to include in instances where an entire group (i.e. &#39;yahoo_mail&#39;)
-         *   of applications should be included. - &#39;type&#39; - (Required) One of: &#39;APP&#39;, &#39;APP_TYPE&#39;
+         * @param appExcludes Applications to exclude in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations.
+         * 	- &#39;id&#39; - (Optional) Use if &#39;type&#39; is &#39;APP&#39; to indicate the application id to include.
+         * 	- &#39;name&#39; - (Optional) Use if the &#39;type&#39; is &#39;APP_TYPE&#39; to indicate the type of application(s) to include in instances where an entire group (i.e. &#39;yahoo_mail&#39;) of applications should be included.
+         * 	- &#39;type&#39; - (Required) One of: &#39;APP&#39;, &#39;APP_TYPE&#39;
          * 
          * @return builder
          * 
@@ -260,10 +258,10 @@ public final class RuleMfaState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param appExcludes Applications to exclude in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations. - &#39;id&#39;
-         * - (Optional) Use if &#39;type&#39; is &#39;APP&#39; to indicate the application id to include. - &#39;name&#39; - (Optional) Use if the &#39;type&#39;
-         *   is &#39;APP_TYPE&#39; to indicate the type of application(s) to include in instances where an entire group (i.e. &#39;yahoo_mail&#39;)
-         *   of applications should be included. - &#39;type&#39; - (Required) One of: &#39;APP&#39;, &#39;APP_TYPE&#39;
+         * @param appExcludes Applications to exclude in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations.
+         * 	- &#39;id&#39; - (Optional) Use if &#39;type&#39; is &#39;APP&#39; to indicate the application id to include.
+         * 	- &#39;name&#39; - (Optional) Use if the &#39;type&#39; is &#39;APP_TYPE&#39; to indicate the type of application(s) to include in instances where an entire group (i.e. &#39;yahoo_mail&#39;) of applications should be included.
+         * 	- &#39;type&#39; - (Required) One of: &#39;APP&#39;, &#39;APP_TYPE&#39;
          * 
          * @return builder
          * 
@@ -273,10 +271,10 @@ public final class RuleMfaState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param appIncludes Applications to include in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations. - &#39;id&#39;
-         * - (Optional) Use if &#39;type&#39; is &#39;APP&#39; to indicate the application id to include. - &#39;name&#39; - (Optional) Use if the &#39;type&#39;
-         *   is &#39;APP_TYPE&#39; to indicate the type of application(s) to include in instances where an entire group (i.e. &#39;yahoo_mail&#39;)
-         *   of applications should be included. - &#39;type&#39; - (Required) One of: &#39;APP&#39;, &#39;APP_TYPE&#39;
+         * @param appIncludes Applications to include in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations.
+         * 	- &#39;id&#39; - (Optional) Use if &#39;type&#39; is &#39;APP&#39; to indicate the application id to include.
+         * 	- &#39;name&#39; - (Optional) Use if the &#39;type&#39; is &#39;APP_TYPE&#39; to indicate the type of application(s) to include in instances where an entire group (i.e. &#39;yahoo_mail&#39;) of applications should be included.
+         * 	- &#39;type&#39; - (Required) One of: &#39;APP&#39;, &#39;APP_TYPE&#39;
          * 
          * @return builder
          * 
@@ -287,10 +285,10 @@ public final class RuleMfaState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param appIncludes Applications to include in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations. - &#39;id&#39;
-         * - (Optional) Use if &#39;type&#39; is &#39;APP&#39; to indicate the application id to include. - &#39;name&#39; - (Optional) Use if the &#39;type&#39;
-         *   is &#39;APP_TYPE&#39; to indicate the type of application(s) to include in instances where an entire group (i.e. &#39;yahoo_mail&#39;)
-         *   of applications should be included. - &#39;type&#39; - (Required) One of: &#39;APP&#39;, &#39;APP_TYPE&#39;
+         * @param appIncludes Applications to include in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations.
+         * 	- &#39;id&#39; - (Optional) Use if &#39;type&#39; is &#39;APP&#39; to indicate the application id to include.
+         * 	- &#39;name&#39; - (Optional) Use if the &#39;type&#39; is &#39;APP_TYPE&#39; to indicate the type of application(s) to include in instances where an entire group (i.e. &#39;yahoo_mail&#39;) of applications should be included.
+         * 	- &#39;type&#39; - (Required) One of: &#39;APP&#39;, &#39;APP_TYPE&#39;
          * 
          * @return builder
          * 
@@ -300,10 +298,10 @@ public final class RuleMfaState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param appIncludes Applications to include in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations. - &#39;id&#39;
-         * - (Optional) Use if &#39;type&#39; is &#39;APP&#39; to indicate the application id to include. - &#39;name&#39; - (Optional) Use if the &#39;type&#39;
-         *   is &#39;APP_TYPE&#39; to indicate the type of application(s) to include in instances where an entire group (i.e. &#39;yahoo_mail&#39;)
-         *   of applications should be included. - &#39;type&#39; - (Required) One of: &#39;APP&#39;, &#39;APP_TYPE&#39;
+         * @param appIncludes Applications to include in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations.
+         * 	- &#39;id&#39; - (Optional) Use if &#39;type&#39; is &#39;APP&#39; to indicate the application id to include.
+         * 	- &#39;name&#39; - (Optional) Use if the &#39;type&#39; is &#39;APP_TYPE&#39; to indicate the type of application(s) to include in instances where an entire group (i.e. &#39;yahoo_mail&#39;) of applications should be included.
+         * 	- &#39;type&#39; - (Required) One of: &#39;APP&#39;, &#39;APP_TYPE&#39;
          * 
          * @return builder
          * 
@@ -459,8 +457,7 @@ public final class RuleMfaState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param priority Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if
-         * an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
+         * @param priority Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
          * 
          * @return builder
          * 
@@ -471,8 +468,7 @@ public final class RuleMfaState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param priority Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if
-         * an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
+         * @param priority Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
          * 
          * @return builder
          * 

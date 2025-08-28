@@ -56,43 +56,43 @@ export class AuthServerDefault extends pulumi.CustomResource {
     /**
      * The recipients that the tokens are intended for. This becomes the `aud` claim in an access token. Currently Okta only supports a single value here.
      */
-    public readonly audiences!: pulumi.Output<string[] | undefined>;
+    declare public readonly audiences: pulumi.Output<string[] | undefined>;
     /**
      * The timestamp when the authorization server started to use the `kid` for signing tokens.
      */
-    public /*out*/ readonly credentialsLastRotated!: pulumi.Output<string>;
+    declare public /*out*/ readonly credentialsLastRotated: pulumi.Output<string>;
     /**
      * The timestamp when the authorization server changes the key for signing tokens. Only returned when `credentialsRotationMode` is `AUTO`.
      */
-    public /*out*/ readonly credentialsNextRotation!: pulumi.Output<string>;
+    declare public /*out*/ readonly credentialsNextRotation: pulumi.Output<string>;
     /**
      * The key rotation mode for the authorization server. Can be `AUTO` or `MANUAL`. Default: `MANUAL`.Credential rotation mode, in many cases you cannot set this to MANUAL, the API will ignore the value and you will get a perpetual diff. This should rarely be used.
      */
-    public readonly credentialsRotationMode!: pulumi.Output<string | undefined>;
+    declare public readonly credentialsRotationMode: pulumi.Output<string | undefined>;
     /**
      * The description of the authorization server.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The complete URL for a Custom Authorization Server. This becomes the `iss` claim in an access token.
      */
-    public /*out*/ readonly issuer!: pulumi.Output<string>;
+    declare public /*out*/ readonly issuer: pulumi.Output<string>;
     /**
      * *Early Access Property*. Allows you to use a custom issuer URL. It can be set to `CUSTOM_URL`, `ORG_URL`, or `DYNAMIC`. Default: `ORG_URL`
      */
-    public readonly issuerMode!: pulumi.Output<string | undefined>;
+    declare public readonly issuerMode: pulumi.Output<string | undefined>;
     /**
      * The ID of the JSON Web Key used for signing tokens issued by the authorization server.
      */
-    public /*out*/ readonly kid!: pulumi.Output<string>;
+    declare public /*out*/ readonly kid: pulumi.Output<string>;
     /**
      * The name of the authorization server. Not necessary but left for backwards capacity with legacy implementation.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Default to `ACTIVE`
      */
-    public readonly status!: pulumi.Output<string | undefined>;
+    declare public readonly status: pulumi.Output<string | undefined>;
 
     /**
      * Create a AuthServerDefault resource with the given unique name, arguments, and options.
@@ -107,24 +107,24 @@ export class AuthServerDefault extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AuthServerDefaultState | undefined;
-            resourceInputs["audiences"] = state ? state.audiences : undefined;
-            resourceInputs["credentialsLastRotated"] = state ? state.credentialsLastRotated : undefined;
-            resourceInputs["credentialsNextRotation"] = state ? state.credentialsNextRotation : undefined;
-            resourceInputs["credentialsRotationMode"] = state ? state.credentialsRotationMode : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["issuer"] = state ? state.issuer : undefined;
-            resourceInputs["issuerMode"] = state ? state.issuerMode : undefined;
-            resourceInputs["kid"] = state ? state.kid : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["audiences"] = state?.audiences;
+            resourceInputs["credentialsLastRotated"] = state?.credentialsLastRotated;
+            resourceInputs["credentialsNextRotation"] = state?.credentialsNextRotation;
+            resourceInputs["credentialsRotationMode"] = state?.credentialsRotationMode;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["issuer"] = state?.issuer;
+            resourceInputs["issuerMode"] = state?.issuerMode;
+            resourceInputs["kid"] = state?.kid;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["status"] = state?.status;
         } else {
             const args = argsOrState as AuthServerDefaultArgs | undefined;
-            resourceInputs["audiences"] = args ? args.audiences : undefined;
-            resourceInputs["credentialsRotationMode"] = args ? args.credentialsRotationMode : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["issuerMode"] = args ? args.issuerMode : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
+            resourceInputs["audiences"] = args?.audiences;
+            resourceInputs["credentialsRotationMode"] = args?.credentialsRotationMode;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["issuerMode"] = args?.issuerMode;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["status"] = args?.status;
             resourceInputs["credentialsLastRotated"] = undefined /*out*/;
             resourceInputs["credentialsNextRotation"] = undefined /*out*/;
             resourceInputs["issuer"] = undefined /*out*/;

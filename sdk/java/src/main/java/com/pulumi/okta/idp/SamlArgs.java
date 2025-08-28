@@ -140,16 +140,14 @@ public final class SamlArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Determines if the IdP should persist account linking when the incoming assertion NameID format is
-     * urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
+     * Determines if the IdP should persist account linking when the incoming assertion NameID format is urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
      * 
      */
     @Import(name="honorPersistentNameId")
     private @Nullable Output<Boolean> honorPersistentNameId;
 
     /**
-     * @return Determines if the IdP should persist account linking when the incoming assertion NameID format is
-     * urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
+     * @return Determines if the IdP should persist account linking when the incoming assertion NameID format is urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
      * 
      */
     public Optional<Output<Boolean>> honorPersistentNameId() {
@@ -739,8 +737,7 @@ public final class SamlArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param honorPersistentNameId Determines if the IdP should persist account linking when the incoming assertion NameID format is
-         * urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
+         * @param honorPersistentNameId Determines if the IdP should persist account linking when the incoming assertion NameID format is urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
          * 
          * @return builder
          * 
@@ -751,8 +748,7 @@ public final class SamlArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param honorPersistentNameId Determines if the IdP should persist account linking when the incoming assertion NameID format is
-         * urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
+         * @param honorPersistentNameId Determines if the IdP should persist account linking when the incoming assertion NameID format is urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
          * 
          * @return builder
          * 

@@ -44,23 +44,23 @@ export class AppSignonPolicy extends pulumi.CustomResource {
     /**
      * If false, the default rule of the policy is set access to `DENY`. Otherwise default behavior of the default rule is to leave access at `ALLOW`.  **WARNING** setting this attribute to false changes policy rule's default behavior. Use at your own risk. This is only applied during creation and does not affect import or update.
      */
-    public readonly catchAll!: pulumi.Output<boolean>;
+    declare public readonly catchAll: pulumi.Output<boolean>;
     /**
      * Default rule (system=true) id of the policy
      */
-    public /*out*/ readonly defaultRuleId!: pulumi.Output<string>;
+    declare public /*out*/ readonly defaultRuleId: pulumi.Output<string>;
     /**
      * Description of the policy.
      */
-    public readonly description!: pulumi.Output<string>;
+    declare public readonly description: pulumi.Output<string>;
     /**
      * Name of the policy.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specifies the order in which this policy is evaluated in relation to the other policies.
      */
-    public readonly priority!: pulumi.Output<number>;
+    declare public readonly priority: pulumi.Output<number>;
 
     /**
      * Create a AppSignonPolicy resource with the given unique name, arguments, and options.
@@ -75,20 +75,20 @@ export class AppSignonPolicy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AppSignonPolicyState | undefined;
-            resourceInputs["catchAll"] = state ? state.catchAll : undefined;
-            resourceInputs["defaultRuleId"] = state ? state.defaultRuleId : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["priority"] = state ? state.priority : undefined;
+            resourceInputs["catchAll"] = state?.catchAll;
+            resourceInputs["defaultRuleId"] = state?.defaultRuleId;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["priority"] = state?.priority;
         } else {
             const args = argsOrState as AppSignonPolicyArgs | undefined;
-            if ((!args || args.description === undefined) && !opts.urn) {
+            if (args?.description === undefined && !opts.urn) {
                 throw new Error("Missing required property 'description'");
             }
-            resourceInputs["catchAll"] = args ? args.catchAll : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["priority"] = args ? args.priority : undefined;
+            resourceInputs["catchAll"] = args?.catchAll;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["priority"] = args?.priority;
             resourceInputs["defaultRuleId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

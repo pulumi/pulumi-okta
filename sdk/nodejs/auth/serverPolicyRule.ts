@@ -59,71 +59,71 @@ export class ServerPolicyRule extends pulumi.CustomResource {
     /**
      * Lifetime of access token. Can be set to a value between 5 and 1440 minutes. Default is `60`.
      */
-    public readonly accessTokenLifetimeMinutes!: pulumi.Output<number | undefined>;
+    declare public readonly accessTokenLifetimeMinutes: pulumi.Output<number | undefined>;
     /**
      * Auth server ID
      */
-    public readonly authServerId!: pulumi.Output<string>;
+    declare public readonly authServerId: pulumi.Output<string>;
     /**
      * Accepted grant type values, `authorizationCode`, `implicit`, `password`, `clientCredentials`, `urn:ietf:params:oauth:grant-type:saml2-bearer` (*Early Access Property*), `urn:ietf:params:oauth:grant-type:token-exchange` (*Early Access Property*),`urn:ietf:params:oauth:grant-type:device_code` (*Early Access Property*), `interactionCode` (*OIE only*). For `implicit` value either `userWhitelist` or `groupWhitelist` should be set.
      */
-    public readonly grantTypeWhitelists!: pulumi.Output<string[]>;
+    declare public readonly grantTypeWhitelists: pulumi.Output<string[]>;
     /**
      * Specifies a set of Groups whose Users are to be excluded.
      */
-    public readonly groupBlacklists!: pulumi.Output<string[] | undefined>;
+    declare public readonly groupBlacklists: pulumi.Output<string[] | undefined>;
     /**
      * Specifies a set of Groups whose Users are to be included. Can be set to Group ID or to the following: `EVERYONE`.
      */
-    public readonly groupWhitelists!: pulumi.Output<string[] | undefined>;
+    declare public readonly groupWhitelists: pulumi.Output<string[] | undefined>;
     /**
      * The ID of the inline token to trigger.
      */
-    public readonly inlineHookId!: pulumi.Output<string | undefined>;
+    declare public readonly inlineHookId: pulumi.Output<string | undefined>;
     /**
      * Auth server policy rule name
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Auth server policy ID
      */
-    public readonly policyId!: pulumi.Output<string>;
+    declare public readonly policyId: pulumi.Output<string>;
     /**
      * Priority of the auth server policy rule
      */
-    public readonly priority!: pulumi.Output<number>;
+    declare public readonly priority: pulumi.Output<number>;
     /**
      * Lifetime of refresh token.
      */
-    public readonly refreshTokenLifetimeMinutes!: pulumi.Output<number | undefined>;
+    declare public readonly refreshTokenLifetimeMinutes: pulumi.Output<number | undefined>;
     /**
      * Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes. Default is `10080` (7 days).`refreshTokenWindowMinutes` must be between `accessTokenLifetimeMinutes` and `refreshTokenLifetimeMinutes`.
      */
-    public readonly refreshTokenWindowMinutes!: pulumi.Output<number | undefined>;
+    declare public readonly refreshTokenWindowMinutes: pulumi.Output<number | undefined>;
     /**
      * Scopes allowed for this policy rule. They can be whitelisted by name or all can be whitelisted with `*`
      */
-    public readonly scopeWhitelists!: pulumi.Output<string[] | undefined>;
+    declare public readonly scopeWhitelists: pulumi.Output<string[] | undefined>;
     /**
      * Default to `ACTIVE`
      */
-    public readonly status!: pulumi.Output<string | undefined>;
+    declare public readonly status: pulumi.Output<string | undefined>;
     /**
      * The rule is the system (default) rule for its associated policy
      */
-    public /*out*/ readonly system!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly system: pulumi.Output<boolean>;
     /**
      * Auth server policy rule type, unlikely this will be anything other then the default
      */
-    public readonly type!: pulumi.Output<string | undefined>;
+    declare public readonly type: pulumi.Output<string | undefined>;
     /**
      * Specifies a set of Users to be excluded.
      */
-    public readonly userBlacklists!: pulumi.Output<string[] | undefined>;
+    declare public readonly userBlacklists: pulumi.Output<string[] | undefined>;
     /**
      * Specifies a set of Users to be included.
      */
-    public readonly userWhitelists!: pulumi.Output<string[] | undefined>;
+    declare public readonly userWhitelists: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a ServerPolicyRule resource with the given unique name, arguments, and options.
@@ -138,53 +138,53 @@ export class ServerPolicyRule extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServerPolicyRuleState | undefined;
-            resourceInputs["accessTokenLifetimeMinutes"] = state ? state.accessTokenLifetimeMinutes : undefined;
-            resourceInputs["authServerId"] = state ? state.authServerId : undefined;
-            resourceInputs["grantTypeWhitelists"] = state ? state.grantTypeWhitelists : undefined;
-            resourceInputs["groupBlacklists"] = state ? state.groupBlacklists : undefined;
-            resourceInputs["groupWhitelists"] = state ? state.groupWhitelists : undefined;
-            resourceInputs["inlineHookId"] = state ? state.inlineHookId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["policyId"] = state ? state.policyId : undefined;
-            resourceInputs["priority"] = state ? state.priority : undefined;
-            resourceInputs["refreshTokenLifetimeMinutes"] = state ? state.refreshTokenLifetimeMinutes : undefined;
-            resourceInputs["refreshTokenWindowMinutes"] = state ? state.refreshTokenWindowMinutes : undefined;
-            resourceInputs["scopeWhitelists"] = state ? state.scopeWhitelists : undefined;
-            resourceInputs["status"] = state ? state.status : undefined;
-            resourceInputs["system"] = state ? state.system : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
-            resourceInputs["userBlacklists"] = state ? state.userBlacklists : undefined;
-            resourceInputs["userWhitelists"] = state ? state.userWhitelists : undefined;
+            resourceInputs["accessTokenLifetimeMinutes"] = state?.accessTokenLifetimeMinutes;
+            resourceInputs["authServerId"] = state?.authServerId;
+            resourceInputs["grantTypeWhitelists"] = state?.grantTypeWhitelists;
+            resourceInputs["groupBlacklists"] = state?.groupBlacklists;
+            resourceInputs["groupWhitelists"] = state?.groupWhitelists;
+            resourceInputs["inlineHookId"] = state?.inlineHookId;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["policyId"] = state?.policyId;
+            resourceInputs["priority"] = state?.priority;
+            resourceInputs["refreshTokenLifetimeMinutes"] = state?.refreshTokenLifetimeMinutes;
+            resourceInputs["refreshTokenWindowMinutes"] = state?.refreshTokenWindowMinutes;
+            resourceInputs["scopeWhitelists"] = state?.scopeWhitelists;
+            resourceInputs["status"] = state?.status;
+            resourceInputs["system"] = state?.system;
+            resourceInputs["type"] = state?.type;
+            resourceInputs["userBlacklists"] = state?.userBlacklists;
+            resourceInputs["userWhitelists"] = state?.userWhitelists;
         } else {
             const args = argsOrState as ServerPolicyRuleArgs | undefined;
-            if ((!args || args.authServerId === undefined) && !opts.urn) {
+            if (args?.authServerId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'authServerId'");
             }
-            if ((!args || args.grantTypeWhitelists === undefined) && !opts.urn) {
+            if (args?.grantTypeWhitelists === undefined && !opts.urn) {
                 throw new Error("Missing required property 'grantTypeWhitelists'");
             }
-            if ((!args || args.policyId === undefined) && !opts.urn) {
+            if (args?.policyId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'policyId'");
             }
-            if ((!args || args.priority === undefined) && !opts.urn) {
+            if (args?.priority === undefined && !opts.urn) {
                 throw new Error("Missing required property 'priority'");
             }
-            resourceInputs["accessTokenLifetimeMinutes"] = args ? args.accessTokenLifetimeMinutes : undefined;
-            resourceInputs["authServerId"] = args ? args.authServerId : undefined;
-            resourceInputs["grantTypeWhitelists"] = args ? args.grantTypeWhitelists : undefined;
-            resourceInputs["groupBlacklists"] = args ? args.groupBlacklists : undefined;
-            resourceInputs["groupWhitelists"] = args ? args.groupWhitelists : undefined;
-            resourceInputs["inlineHookId"] = args ? args.inlineHookId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["policyId"] = args ? args.policyId : undefined;
-            resourceInputs["priority"] = args ? args.priority : undefined;
-            resourceInputs["refreshTokenLifetimeMinutes"] = args ? args.refreshTokenLifetimeMinutes : undefined;
-            resourceInputs["refreshTokenWindowMinutes"] = args ? args.refreshTokenWindowMinutes : undefined;
-            resourceInputs["scopeWhitelists"] = args ? args.scopeWhitelists : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
-            resourceInputs["userBlacklists"] = args ? args.userBlacklists : undefined;
-            resourceInputs["userWhitelists"] = args ? args.userWhitelists : undefined;
+            resourceInputs["accessTokenLifetimeMinutes"] = args?.accessTokenLifetimeMinutes;
+            resourceInputs["authServerId"] = args?.authServerId;
+            resourceInputs["grantTypeWhitelists"] = args?.grantTypeWhitelists;
+            resourceInputs["groupBlacklists"] = args?.groupBlacklists;
+            resourceInputs["groupWhitelists"] = args?.groupWhitelists;
+            resourceInputs["inlineHookId"] = args?.inlineHookId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["policyId"] = args?.policyId;
+            resourceInputs["priority"] = args?.priority;
+            resourceInputs["refreshTokenLifetimeMinutes"] = args?.refreshTokenLifetimeMinutes;
+            resourceInputs["refreshTokenWindowMinutes"] = args?.refreshTokenWindowMinutes;
+            resourceInputs["scopeWhitelists"] = args?.scopeWhitelists;
+            resourceInputs["status"] = args?.status;
+            resourceInputs["type"] = args?.type;
+            resourceInputs["userBlacklists"] = args?.userBlacklists;
+            resourceInputs["userWhitelists"] = args?.userWhitelists;
             resourceInputs["system"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

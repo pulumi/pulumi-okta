@@ -72,11 +72,11 @@ export class AppSamlAppSettings extends pulumi.CustomResource {
     /**
      * ID of the application.
      */
-    public readonly appId!: pulumi.Output<string>;
+    declare public readonly appId: pulumi.Output<string>;
     /**
      * Application settings in JSON format
      */
-    public readonly settings!: pulumi.Output<string>;
+    declare public readonly settings: pulumi.Output<string>;
 
     /**
      * Create a AppSamlAppSettings resource with the given unique name, arguments, and options.
@@ -91,18 +91,18 @@ export class AppSamlAppSettings extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AppSamlAppSettingsState | undefined;
-            resourceInputs["appId"] = state ? state.appId : undefined;
-            resourceInputs["settings"] = state ? state.settings : undefined;
+            resourceInputs["appId"] = state?.appId;
+            resourceInputs["settings"] = state?.settings;
         } else {
             const args = argsOrState as AppSamlAppSettingsArgs | undefined;
-            if ((!args || args.appId === undefined) && !opts.urn) {
+            if (args?.appId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'appId'");
             }
-            if ((!args || args.settings === undefined) && !opts.urn) {
+            if (args?.settings === undefined && !opts.urn) {
                 throw new Error("Missing required property 'settings'");
             }
-            resourceInputs["appId"] = args ? args.appId : undefined;
-            resourceInputs["settings"] = args ? args.settings : undefined;
+            resourceInputs["appId"] = args?.appId;
+            resourceInputs["settings"] = args?.settings;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(AppSamlAppSettings.__pulumiType, name, resourceInputs, opts);

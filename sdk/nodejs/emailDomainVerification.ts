@@ -53,7 +53,7 @@ export class EmailDomainVerification extends pulumi.CustomResource {
     /**
      * Email domain ID
      */
-    public readonly emailDomainId!: pulumi.Output<string>;
+    declare public readonly emailDomainId: pulumi.Output<string>;
 
     /**
      * Create a EmailDomainVerification resource with the given unique name, arguments, and options.
@@ -68,13 +68,13 @@ export class EmailDomainVerification extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EmailDomainVerificationState | undefined;
-            resourceInputs["emailDomainId"] = state ? state.emailDomainId : undefined;
+            resourceInputs["emailDomainId"] = state?.emailDomainId;
         } else {
             const args = argsOrState as EmailDomainVerificationArgs | undefined;
-            if ((!args || args.emailDomainId === undefined) && !opts.urn) {
+            if (args?.emailDomainId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'emailDomainId'");
             }
-            resourceInputs["emailDomainId"] = args ? args.emailDomainId : undefined;
+            resourceInputs["emailDomainId"] = args?.emailDomainId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(EmailDomainVerification.__pulumiType, name, resourceInputs, opts);

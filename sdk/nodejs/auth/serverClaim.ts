@@ -59,39 +59,39 @@ export class ServerClaim extends pulumi.CustomResource {
     /**
      * Specifies whether to include claims in token, by default it is set to `true`.
      */
-    public readonly alwaysIncludeInToken!: pulumi.Output<boolean | undefined>;
+    declare public readonly alwaysIncludeInToken: pulumi.Output<boolean | undefined>;
     /**
      * ID of the authorization server.
      */
-    public readonly authServerId!: pulumi.Output<string>;
+    declare public readonly authServerId: pulumi.Output<string>;
     /**
      * Specifies whether the claim is for an access token `RESOURCE` or ID token `IDENTITY`.
      */
-    public readonly claimType!: pulumi.Output<string>;
+    declare public readonly claimType: pulumi.Output<string>;
     /**
      * Specifies the type of group filter if `valueType` is `GROUPS`. Can be set to one of the following `STARTS_WITH`, `EQUALS`, `CONTAINS`, `REGEX`.
      */
-    public readonly groupFilterType!: pulumi.Output<string | undefined>;
+    declare public readonly groupFilterType: pulumi.Output<string | undefined>;
     /**
      * The name of the claim.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The list of scopes the auth server claim is tied to.
      */
-    public readonly scopes!: pulumi.Output<string[] | undefined>;
+    declare public readonly scopes: pulumi.Output<string[] | undefined>;
     /**
      * Default to `ACTIVE`
      */
-    public readonly status!: pulumi.Output<string | undefined>;
+    declare public readonly status: pulumi.Output<string | undefined>;
     /**
      * The value of the claim.
      */
-    public readonly value!: pulumi.Output<string>;
+    declare public readonly value: pulumi.Output<string>;
     /**
      * The type of value of the claim. It can be set to `EXPRESSION` or `GROUPS`. It defaults to `EXPRESSION`.
      */
-    public readonly valueType!: pulumi.Output<string | undefined>;
+    declare public readonly valueType: pulumi.Output<string | undefined>;
 
     /**
      * Create a ServerClaim resource with the given unique name, arguments, and options.
@@ -106,35 +106,35 @@ export class ServerClaim extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServerClaimState | undefined;
-            resourceInputs["alwaysIncludeInToken"] = state ? state.alwaysIncludeInToken : undefined;
-            resourceInputs["authServerId"] = state ? state.authServerId : undefined;
-            resourceInputs["claimType"] = state ? state.claimType : undefined;
-            resourceInputs["groupFilterType"] = state ? state.groupFilterType : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["scopes"] = state ? state.scopes : undefined;
-            resourceInputs["status"] = state ? state.status : undefined;
-            resourceInputs["value"] = state ? state.value : undefined;
-            resourceInputs["valueType"] = state ? state.valueType : undefined;
+            resourceInputs["alwaysIncludeInToken"] = state?.alwaysIncludeInToken;
+            resourceInputs["authServerId"] = state?.authServerId;
+            resourceInputs["claimType"] = state?.claimType;
+            resourceInputs["groupFilterType"] = state?.groupFilterType;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["scopes"] = state?.scopes;
+            resourceInputs["status"] = state?.status;
+            resourceInputs["value"] = state?.value;
+            resourceInputs["valueType"] = state?.valueType;
         } else {
             const args = argsOrState as ServerClaimArgs | undefined;
-            if ((!args || args.authServerId === undefined) && !opts.urn) {
+            if (args?.authServerId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'authServerId'");
             }
-            if ((!args || args.claimType === undefined) && !opts.urn) {
+            if (args?.claimType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'claimType'");
             }
-            if ((!args || args.value === undefined) && !opts.urn) {
+            if (args?.value === undefined && !opts.urn) {
                 throw new Error("Missing required property 'value'");
             }
-            resourceInputs["alwaysIncludeInToken"] = args ? args.alwaysIncludeInToken : undefined;
-            resourceInputs["authServerId"] = args ? args.authServerId : undefined;
-            resourceInputs["claimType"] = args ? args.claimType : undefined;
-            resourceInputs["groupFilterType"] = args ? args.groupFilterType : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["scopes"] = args ? args.scopes : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
-            resourceInputs["value"] = args ? args.value : undefined;
-            resourceInputs["valueType"] = args ? args.valueType : undefined;
+            resourceInputs["alwaysIncludeInToken"] = args?.alwaysIncludeInToken;
+            resourceInputs["authServerId"] = args?.authServerId;
+            resourceInputs["claimType"] = args?.claimType;
+            resourceInputs["groupFilterType"] = args?.groupFilterType;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["scopes"] = args?.scopes;
+            resourceInputs["status"] = args?.status;
+            resourceInputs["value"] = args?.value;
+            resourceInputs["valueType"] = args?.valueType;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ServerClaim.__pulumiType, name, resourceInputs, opts);

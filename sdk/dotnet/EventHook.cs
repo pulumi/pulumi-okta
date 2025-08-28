@@ -57,9 +57,10 @@ namespace Pulumi.Okta
     public partial class EventHook : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Details of the endpoint the event hook will hit. - 'version' - (Required) The version of the channel. The
-        /// currently-supported version is '1.0.0'. - 'uri' - (Required) The URI the hook will hit. - 'type' - (Optional) The type
-        /// of hook to trigger. Currently, the only supported type is 'HTTP'.
+        /// Details of the endpoint the event hook will hit.   
+        /// 	- 'version' - (Required) The version of the channel. The currently-supported version is '1.0.0'.
+        /// 	- 'uri' - (Required) The URI the hook will hit.
+        /// 	- 'type' - (Optional) The type of hook to trigger. Currently, the only supported type is 'HTTP'.
         /// </summary>
         [Output("auth")]
         public Output<ImmutableDictionary<string, string>?> Auth { get; private set; } = null!;
@@ -71,8 +72,7 @@ namespace Pulumi.Okta
         public Output<ImmutableDictionary<string, string>> Channel { get; private set; } = null!;
 
         /// <summary>
-        /// The events that will be delivered to this hook. [See here for a list of supported
-        /// events](https://developer.okta.com/docs/reference/api/event-types/?q=event-hook-eligible).
+        /// The events that will be delivered to this hook. [See here for a list of supported events](https://developer.okta.com/docs/reference/api/event-types/?q=event-hook-eligible).
         /// </summary>
         [Output("events")]
         public Output<ImmutableArray<string>> Events { get; private set; } = null!;
@@ -145,9 +145,10 @@ namespace Pulumi.Okta
         private InputMap<string>? _auth;
 
         /// <summary>
-        /// Details of the endpoint the event hook will hit. - 'version' - (Required) The version of the channel. The
-        /// currently-supported version is '1.0.0'. - 'uri' - (Required) The URI the hook will hit. - 'type' - (Optional) The type
-        /// of hook to trigger. Currently, the only supported type is 'HTTP'.
+        /// Details of the endpoint the event hook will hit.   
+        /// 	- 'version' - (Required) The version of the channel. The currently-supported version is '1.0.0'.
+        /// 	- 'uri' - (Required) The URI the hook will hit.
+        /// 	- 'type' - (Optional) The type of hook to trigger. Currently, the only supported type is 'HTTP'.
         /// </summary>
         public InputMap<string> Auth
         {
@@ -171,8 +172,7 @@ namespace Pulumi.Okta
         private InputList<string>? _events;
 
         /// <summary>
-        /// The events that will be delivered to this hook. [See here for a list of supported
-        /// events](https://developer.okta.com/docs/reference/api/event-types/?q=event-hook-eligible).
+        /// The events that will be delivered to this hook. [See here for a list of supported events](https://developer.okta.com/docs/reference/api/event-types/?q=event-hook-eligible).
         /// </summary>
         public InputList<string> Events
         {
@@ -216,9 +216,10 @@ namespace Pulumi.Okta
         private InputMap<string>? _auth;
 
         /// <summary>
-        /// Details of the endpoint the event hook will hit. - 'version' - (Required) The version of the channel. The
-        /// currently-supported version is '1.0.0'. - 'uri' - (Required) The URI the hook will hit. - 'type' - (Optional) The type
-        /// of hook to trigger. Currently, the only supported type is 'HTTP'.
+        /// Details of the endpoint the event hook will hit.   
+        /// 	- 'version' - (Required) The version of the channel. The currently-supported version is '1.0.0'.
+        /// 	- 'uri' - (Required) The URI the hook will hit.
+        /// 	- 'type' - (Optional) The type of hook to trigger. Currently, the only supported type is 'HTTP'.
         /// </summary>
         public InputMap<string> Auth
         {
@@ -242,8 +243,7 @@ namespace Pulumi.Okta
         private InputList<string>? _events;
 
         /// <summary>
-        /// The events that will be delivered to this hook. [See here for a list of supported
-        /// events](https://developer.okta.com/docs/reference/api/event-types/?q=event-hook-eligible).
+        /// The events that will be delivered to this hook. [See here for a list of supported events](https://developer.okta.com/docs/reference/api/event-types/?q=event-hook-eligible).
         /// </summary>
         public InputList<string> Events
         {

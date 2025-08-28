@@ -54,7 +54,7 @@ export class EmailSenderVerification extends pulumi.CustomResource {
     /**
      * Email sender ID
      */
-    public readonly senderId!: pulumi.Output<string>;
+    declare public readonly senderId: pulumi.Output<string>;
 
     /**
      * Create a EmailSenderVerification resource with the given unique name, arguments, and options.
@@ -69,13 +69,13 @@ export class EmailSenderVerification extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EmailSenderVerificationState | undefined;
-            resourceInputs["senderId"] = state ? state.senderId : undefined;
+            resourceInputs["senderId"] = state?.senderId;
         } else {
             const args = argsOrState as EmailSenderVerificationArgs | undefined;
-            if ((!args || args.senderId === undefined) && !opts.urn) {
+            if (args?.senderId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'senderId'");
             }
-            resourceInputs["senderId"] = args ? args.senderId : undefined;
+            resourceInputs["senderId"] = args?.senderId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(EmailSenderVerification.__pulumiType, name, resourceInputs, opts);

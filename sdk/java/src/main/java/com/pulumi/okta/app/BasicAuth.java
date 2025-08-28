@@ -166,16 +166,14 @@ public class BasicAuth extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.autoSubmitToolbar);
     }
     /**
-     * Application credentials scheme. One of: `EDIT_USERNAME_AND_PASSWORD`, `ADMIN_SETS_CREDENTIALS`, `EDIT_PASSWORD_ONLY`,
-     * `EXTERNAL_PASSWORD_SYNC`, or `SHARED_USERNAME_AND_PASSWORD`
+     * Application credentials scheme. One of: `EDIT_USERNAME_AND_PASSWORD`, `ADMIN_SETS_CREDENTIALS`, `EDIT_PASSWORD_ONLY`, `EXTERNAL_PASSWORD_SYNC`, or `SHARED_USERNAME_AND_PASSWORD`
      * 
      */
     @Export(name="credentialsScheme", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> credentialsScheme;
 
     /**
-     * @return Application credentials scheme. One of: `EDIT_USERNAME_AND_PASSWORD`, `ADMIN_SETS_CREDENTIALS`, `EDIT_PASSWORD_ONLY`,
-     * `EXTERNAL_PASSWORD_SYNC`, or `SHARED_USERNAME_AND_PASSWORD`
+     * @return Application credentials scheme. One of: `EDIT_USERNAME_AND_PASSWORD`, `ADMIN_SETS_CREDENTIALS`, `EDIT_PASSWORD_ONLY`, `EXTERNAL_PASSWORD_SYNC`, or `SHARED_USERNAME_AND_PASSWORD`
      * 
      */
     public Output<Optional<String>> credentialsScheme() {
@@ -280,16 +278,14 @@ public class BasicAuth extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * Allow user to reveal password. Default is false. It can not be set to true if credentials_scheme is
-     * &#34;ADMIN_SETS_CREDENTIALS&#34;, &#34;SHARED_USERNAME_AND_PASSWORD&#34; or &#34;EXTERNAL_PASSWORD_SYNC&#34;.
+     * Allow user to reveal password. Default is false. It can not be set to true if credentials_scheme is &#34;ADMIN_SETS_CREDENTIALS&#34;, &#34;SHARED_USERNAME_AND_PASSWORD&#34; or &#34;EXTERNAL_PASSWORD_SYNC&#34;.
      * 
      */
     @Export(name="revealPassword", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> revealPassword;
 
     /**
-     * @return Allow user to reveal password. Default is false. It can not be set to true if credentials_scheme is
-     * &#34;ADMIN_SETS_CREDENTIALS&#34;, &#34;SHARED_USERNAME_AND_PASSWORD&#34; or &#34;EXTERNAL_PASSWORD_SYNC&#34;.
+     * @return Allow user to reveal password. Default is false. It can not be set to true if credentials_scheme is &#34;ADMIN_SETS_CREDENTIALS&#34;, &#34;SHARED_USERNAME_AND_PASSWORD&#34; or &#34;EXTERNAL_PASSWORD_SYNC&#34;.
      * 
      */
     public Output<Optional<Boolean>> revealPassword() {

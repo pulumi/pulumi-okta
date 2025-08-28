@@ -58,39 +58,39 @@ export class ServerScope extends pulumi.CustomResource {
     /**
      * Auth server ID
      */
-    public readonly authServerId!: pulumi.Output<string>;
+    declare public readonly authServerId: pulumi.Output<string>;
     /**
      * Indicates whether a consent dialog is needed for the scope. It can be set to `REQUIRED` or `IMPLICIT`. Default: `IMPLICIT`
      */
-    public readonly consent!: pulumi.Output<string | undefined>;
+    declare public readonly consent: pulumi.Output<string | undefined>;
     /**
      * A default scope will be returned in an access token when the client omits the scope parameter in a token request, provided this scope is allowed as part of the access policy rule.
      */
-    public readonly default!: pulumi.Output<boolean | undefined>;
+    declare public readonly default: pulumi.Output<boolean | undefined>;
     /**
      * Description of the Auth Server Scope.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Name of the end user displayed in a consent dialog box
      */
-    public readonly displayName!: pulumi.Output<string | undefined>;
+    declare public readonly displayName: pulumi.Output<string | undefined>;
     /**
      * Whether to publish metadata or not. It can be set to `ALL_CLIENTS` or `NO_CLIENTS`. Default: `ALL_CLIENTS`
      */
-    public readonly metadataPublish!: pulumi.Output<string | undefined>;
+    declare public readonly metadataPublish: pulumi.Output<string | undefined>;
     /**
      * Auth server scope name
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Whether the scope optional
      */
-    public readonly optional!: pulumi.Output<boolean | undefined>;
+    declare public readonly optional: pulumi.Output<boolean | undefined>;
     /**
      * Whether Okta created the Scope
      */
-    public /*out*/ readonly system!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly system: pulumi.Output<boolean>;
 
     /**
      * Create a ServerScope resource with the given unique name, arguments, and options.
@@ -105,28 +105,28 @@ export class ServerScope extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServerScopeState | undefined;
-            resourceInputs["authServerId"] = state ? state.authServerId : undefined;
-            resourceInputs["consent"] = state ? state.consent : undefined;
-            resourceInputs["default"] = state ? state.default : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["displayName"] = state ? state.displayName : undefined;
-            resourceInputs["metadataPublish"] = state ? state.metadataPublish : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["optional"] = state ? state.optional : undefined;
-            resourceInputs["system"] = state ? state.system : undefined;
+            resourceInputs["authServerId"] = state?.authServerId;
+            resourceInputs["consent"] = state?.consent;
+            resourceInputs["default"] = state?.default;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["displayName"] = state?.displayName;
+            resourceInputs["metadataPublish"] = state?.metadataPublish;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["optional"] = state?.optional;
+            resourceInputs["system"] = state?.system;
         } else {
             const args = argsOrState as ServerScopeArgs | undefined;
-            if ((!args || args.authServerId === undefined) && !opts.urn) {
+            if (args?.authServerId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'authServerId'");
             }
-            resourceInputs["authServerId"] = args ? args.authServerId : undefined;
-            resourceInputs["consent"] = args ? args.consent : undefined;
-            resourceInputs["default"] = args ? args.default : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["metadataPublish"] = args ? args.metadataPublish : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["optional"] = args ? args.optional : undefined;
+            resourceInputs["authServerId"] = args?.authServerId;
+            resourceInputs["consent"] = args?.consent;
+            resourceInputs["default"] = args?.default;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["metadataPublish"] = args?.metadataPublish;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["optional"] = args?.optional;
             resourceInputs["system"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

@@ -91,67 +91,67 @@ export class Authenticator extends pulumi.CustomResource {
     /**
      * A human-readable string that identifies the authenticator. Some authenticators are available by feature flag on the organization. Possible values inclue: `duo`, `externalIdp`, `googleOtp`, `oktaEmail`, `oktaPassword`, `oktaVerify`, `onpremMfa`, `phoneNumber`, `rsaToken`, `securityQuestion`, `webauthn`
      */
-    public readonly key!: pulumi.Output<string>;
+    declare public readonly key: pulumi.Output<string>;
     /**
      * Name does not trigger change detection (legacy behavior)
      */
-    public readonly legacyIgnoreName!: pulumi.Output<boolean | undefined>;
+    declare public readonly legacyIgnoreName: pulumi.Output<boolean | undefined>;
     /**
      * Display name of the Authenticator
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The RADIUS server port (for example 1812). This is defined when the On-Prem RADIUS server is configured. Used only for authenticators with type `securityKey`.  Conflicts with `providerJson` argument.
      */
-    public readonly providerAuthPort!: pulumi.Output<number | undefined>;
+    declare public readonly providerAuthPort: pulumi.Output<number | undefined>;
     /**
      * (DUO specific) - The Duo Security API hostname. Conflicts with `providerJson` argument.
      */
-    public readonly providerHost!: pulumi.Output<string | undefined>;
+    declare public readonly providerHost: pulumi.Output<string | undefined>;
     /**
      * Server host name or IP address. Default is `localhost`. Used only for authenticators with type `securityKey`. Conflicts with `providerJson` argument.
      */
-    public readonly providerHostname!: pulumi.Output<string | undefined>;
+    declare public readonly providerHostname: pulumi.Output<string | undefined>;
     /**
      * App Instance ID.
      */
-    public /*out*/ readonly providerInstanceId!: pulumi.Output<string>;
+    declare public /*out*/ readonly providerInstanceId: pulumi.Output<string>;
     /**
      * (DUO specific) - The Duo Security integration key.  Conflicts with `providerJson` argument.
      */
-    public readonly providerIntegrationKey!: pulumi.Output<string | undefined>;
+    declare public readonly providerIntegrationKey: pulumi.Output<string | undefined>;
     /**
      * Provider JSON allows for expressive providervalues. This argument conflicts with the other 'provider_xxx' arguments. The [CreateProvider](https://developer.okta.com/docs/reference/api/authenticators-admin/#request) illustrates detailed provider values for a Duo authenticator. [Provider values](https://developer.okta.com/docs/reference/api/authenticators-admin/#authenticators-administration-api-object)are listed in Okta API.
      */
-    public readonly providerJson!: pulumi.Output<string | undefined>;
+    declare public readonly providerJson: pulumi.Output<string | undefined>;
     /**
      * (DUO specific) - The Duo Security secret key.  Conflicts with `providerJson` argument.
      */
-    public readonly providerSecretKey!: pulumi.Output<string | undefined>;
+    declare public readonly providerSecretKey: pulumi.Output<string | undefined>;
     /**
      * An authentication key that must be defined when the RADIUS server is configured, and must be the same on both the RADIUS client and server. Used only for authenticators with type `securityKey`. Conflicts with `providerJson` argument.
      */
-    public readonly providerSharedSecret!: pulumi.Output<string | undefined>;
+    declare public readonly providerSharedSecret: pulumi.Output<string | undefined>;
     /**
      * Provider type. Supported value for Duo: `DUO`. Supported value for Custom App: `PUSH`
      */
-    public /*out*/ readonly providerType!: pulumi.Output<string>;
+    declare public /*out*/ readonly providerType: pulumi.Output<string>;
     /**
      * Username template expected by the provider. Used only for authenticators with type `securityKey`.  Conflicts with `providerJson` argument.
      */
-    public readonly providerUserNameTemplate!: pulumi.Output<string | undefined>;
+    declare public readonly providerUserNameTemplate: pulumi.Output<string | undefined>;
     /**
      * Settings for the authenticator. The settings JSON contains values based on Authenticator key. It is not used for authenticators with type `securityKey`
      */
-    public readonly settings!: pulumi.Output<string | undefined>;
+    declare public readonly settings: pulumi.Output<string | undefined>;
     /**
      * Authenticator status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
      */
-    public readonly status!: pulumi.Output<string | undefined>;
+    declare public readonly status: pulumi.Output<string | undefined>;
     /**
      * he type of Authenticator. Values include: `password`, `securityQuestion`, `phone`, `email`, `app`, `federated`, and `securityKey`.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a Authenticator resource with the given unique name, arguments, and options.
@@ -166,40 +166,40 @@ export class Authenticator extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AuthenticatorState | undefined;
-            resourceInputs["key"] = state ? state.key : undefined;
-            resourceInputs["legacyIgnoreName"] = state ? state.legacyIgnoreName : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["providerAuthPort"] = state ? state.providerAuthPort : undefined;
-            resourceInputs["providerHost"] = state ? state.providerHost : undefined;
-            resourceInputs["providerHostname"] = state ? state.providerHostname : undefined;
-            resourceInputs["providerInstanceId"] = state ? state.providerInstanceId : undefined;
-            resourceInputs["providerIntegrationKey"] = state ? state.providerIntegrationKey : undefined;
-            resourceInputs["providerJson"] = state ? state.providerJson : undefined;
-            resourceInputs["providerSecretKey"] = state ? state.providerSecretKey : undefined;
-            resourceInputs["providerSharedSecret"] = state ? state.providerSharedSecret : undefined;
-            resourceInputs["providerType"] = state ? state.providerType : undefined;
-            resourceInputs["providerUserNameTemplate"] = state ? state.providerUserNameTemplate : undefined;
-            resourceInputs["settings"] = state ? state.settings : undefined;
-            resourceInputs["status"] = state ? state.status : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["key"] = state?.key;
+            resourceInputs["legacyIgnoreName"] = state?.legacyIgnoreName;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["providerAuthPort"] = state?.providerAuthPort;
+            resourceInputs["providerHost"] = state?.providerHost;
+            resourceInputs["providerHostname"] = state?.providerHostname;
+            resourceInputs["providerInstanceId"] = state?.providerInstanceId;
+            resourceInputs["providerIntegrationKey"] = state?.providerIntegrationKey;
+            resourceInputs["providerJson"] = state?.providerJson;
+            resourceInputs["providerSecretKey"] = state?.providerSecretKey;
+            resourceInputs["providerSharedSecret"] = state?.providerSharedSecret;
+            resourceInputs["providerType"] = state?.providerType;
+            resourceInputs["providerUserNameTemplate"] = state?.providerUserNameTemplate;
+            resourceInputs["settings"] = state?.settings;
+            resourceInputs["status"] = state?.status;
+            resourceInputs["type"] = state?.type;
         } else {
             const args = argsOrState as AuthenticatorArgs | undefined;
-            if ((!args || args.key === undefined) && !opts.urn) {
+            if (args?.key === undefined && !opts.urn) {
                 throw new Error("Missing required property 'key'");
             }
-            resourceInputs["key"] = args ? args.key : undefined;
-            resourceInputs["legacyIgnoreName"] = args ? args.legacyIgnoreName : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["providerAuthPort"] = args ? args.providerAuthPort : undefined;
-            resourceInputs["providerHost"] = args ? args.providerHost : undefined;
-            resourceInputs["providerHostname"] = args ? args.providerHostname : undefined;
-            resourceInputs["providerIntegrationKey"] = args ? args.providerIntegrationKey : undefined;
-            resourceInputs["providerJson"] = args ? args.providerJson : undefined;
-            resourceInputs["providerSecretKey"] = args ? args.providerSecretKey : undefined;
+            resourceInputs["key"] = args?.key;
+            resourceInputs["legacyIgnoreName"] = args?.legacyIgnoreName;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["providerAuthPort"] = args?.providerAuthPort;
+            resourceInputs["providerHost"] = args?.providerHost;
+            resourceInputs["providerHostname"] = args?.providerHostname;
+            resourceInputs["providerIntegrationKey"] = args?.providerIntegrationKey;
+            resourceInputs["providerJson"] = args?.providerJson;
+            resourceInputs["providerSecretKey"] = args?.providerSecretKey;
             resourceInputs["providerSharedSecret"] = args?.providerSharedSecret ? pulumi.secret(args.providerSharedSecret) : undefined;
-            resourceInputs["providerUserNameTemplate"] = args ? args.providerUserNameTemplate : undefined;
-            resourceInputs["settings"] = args ? args.settings : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
+            resourceInputs["providerUserNameTemplate"] = args?.providerUserNameTemplate;
+            resourceInputs["settings"] = args?.settings;
+            resourceInputs["status"] = args?.status;
             resourceInputs["providerInstanceId"] = undefined /*out*/;
             resourceInputs["providerType"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

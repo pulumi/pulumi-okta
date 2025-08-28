@@ -82,9 +82,7 @@ type providerArgs struct {
 	HttpProxy *string `pulumi:"httpProxy"`
 	// providers log level. Minimum is 1 (TRACE), and maximum is 5 (ERROR)
 	LogLevel *int `pulumi:"logLevel"`
-	// Sets what percentage of capacity the provider can use of the total rate limit capacity while making calls to the Okta
-	// management API endpoints. Okta API operates in one minute buckets. See Okta Management API Rate Limits:
-	// https://developer.okta.com/docs/reference/rl-global-mgmt/
+	// Sets what percentage of capacity the provider can use of the total rate limit capacity while making calls to the Okta management API endpoints. Okta API operates in one minute buckets. See Okta Management API Rate Limits: https://developer.okta.com/docs/reference/rl-global-mgmt/
 	MaxApiCapacity *int `pulumi:"maxApiCapacity"`
 	// maximum number of retries to attempt before erroring out.
 	MaxRetries *int `pulumi:"maxRetries"`
@@ -94,15 +92,13 @@ type providerArgs struct {
 	MinWaitSeconds *int `pulumi:"minWaitSeconds"`
 	// The organization to manage in Okta.
 	OrgName *string `pulumi:"orgName"`
-	// Number of concurrent requests to make within a resource where bulk operations are not possible. Take note of
-	// https://developer.okta.com/docs/api/getting_started/rate-limits.
+	// Number of concurrent requests to make within a resource where bulk operations are not possible. Take note of https://developer.okta.com/docs/api/getting_started/rate-limits.
 	Parallelism *int `pulumi:"parallelism"`
 	// API Token granting privileges to Okta API.
 	PrivateKey *string `pulumi:"privateKey"`
 	// API Token Id granting privileges to Okta API.
 	PrivateKeyId *string `pulumi:"privateKeyId"`
-	// Timeout for single request (in seconds) which is made to Okta, the default is `0` (means no limit is set). The maximum
-	// value can be `300`.
+	// Timeout for single request (in seconds) which is made to Okta, the default is `0` (means no limit is set). The maximum value can be `300`.
 	RequestTimeout *int `pulumi:"requestTimeout"`
 	// API Token granting privileges to Okta API.
 	Scopes []string `pulumi:"scopes"`
@@ -124,9 +120,7 @@ type ProviderArgs struct {
 	HttpProxy pulumi.StringPtrInput
 	// providers log level. Minimum is 1 (TRACE), and maximum is 5 (ERROR)
 	LogLevel pulumi.IntPtrInput
-	// Sets what percentage of capacity the provider can use of the total rate limit capacity while making calls to the Okta
-	// management API endpoints. Okta API operates in one minute buckets. See Okta Management API Rate Limits:
-	// https://developer.okta.com/docs/reference/rl-global-mgmt/
+	// Sets what percentage of capacity the provider can use of the total rate limit capacity while making calls to the Okta management API endpoints. Okta API operates in one minute buckets. See Okta Management API Rate Limits: https://developer.okta.com/docs/reference/rl-global-mgmt/
 	MaxApiCapacity pulumi.IntPtrInput
 	// maximum number of retries to attempt before erroring out.
 	MaxRetries pulumi.IntPtrInput
@@ -136,15 +130,13 @@ type ProviderArgs struct {
 	MinWaitSeconds pulumi.IntPtrInput
 	// The organization to manage in Okta.
 	OrgName pulumi.StringPtrInput
-	// Number of concurrent requests to make within a resource where bulk operations are not possible. Take note of
-	// https://developer.okta.com/docs/api/getting_started/rate-limits.
+	// Number of concurrent requests to make within a resource where bulk operations are not possible. Take note of https://developer.okta.com/docs/api/getting_started/rate-limits.
 	Parallelism pulumi.IntPtrInput
 	// API Token granting privileges to Okta API.
 	PrivateKey pulumi.StringPtrInput
 	// API Token Id granting privileges to Okta API.
 	PrivateKeyId pulumi.StringPtrInput
-	// Timeout for single request (in seconds) which is made to Okta, the default is `0` (means no limit is set). The maximum
-	// value can be `300`.
+	// Timeout for single request (in seconds) which is made to Okta, the default is `0` (means no limit is set). The maximum value can be `300`.
 	RequestTimeout pulumi.IntPtrInput
 	// API Token granting privileges to Okta API.
 	Scopes pulumi.StringArrayInput

@@ -21,15 +21,15 @@ import (
 type RuleMfa struct {
 	pulumi.CustomResourceState
 
-	// Applications to exclude in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations. - 'id'
-	// - (Optional) Use if 'type' is 'APP' to indicate the application id to include. - 'name' - (Optional) Use if the 'type'
-	//   is 'APP_TYPE' to indicate the type of application(s) to include in instances where an entire group (i.e. 'yahoo_mail')
-	//   of applications should be included. - 'type' - (Required) One of: 'APP', 'APP_TYPE'
+	// Applications to exclude in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations.
+	// 	- 'id' - (Optional) Use if 'type' is 'APP' to indicate the application id to include.
+	// 	- 'name' - (Optional) Use if the 'type' is 'APP_TYPE' to indicate the type of application(s) to include in instances where an entire group (i.e. 'yahoo_mail') of applications should be included.
+	// 	- 'type' - (Required) One of: 'APP', 'APP_TYPE'
 	AppExcludes RuleMfaAppExcludeArrayOutput `pulumi:"appExcludes"`
-	// Applications to include in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations. - 'id'
-	// - (Optional) Use if 'type' is 'APP' to indicate the application id to include. - 'name' - (Optional) Use if the 'type'
-	//   is 'APP_TYPE' to indicate the type of application(s) to include in instances where an entire group (i.e. 'yahoo_mail')
-	//   of applications should be included. - 'type' - (Required) One of: 'APP', 'APP_TYPE'
+	// Applications to include in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations.
+	// 	- 'id' - (Optional) Use if 'type' is 'APP' to indicate the application id to include.
+	// 	- 'name' - (Optional) Use if the 'type' is 'APP_TYPE' to indicate the type of application(s) to include in instances where an entire group (i.e. 'yahoo_mail') of applications should be included.
+	// 	- 'type' - (Required) One of: 'APP', 'APP_TYPE'
 	AppIncludes RuleMfaAppIncludeArrayOutput `pulumi:"appIncludes"`
 	// When a user should be prompted for MFA. It can be `CHALLENGE`, `LOGIN`, or `NEVER`.
 	Enroll pulumi.StringPtrOutput `pulumi:"enroll"`
@@ -43,8 +43,7 @@ type RuleMfa struct {
 	NetworkIncludes pulumi.StringArrayOutput `pulumi:"networkIncludes"`
 	// Policy ID of the Rule
 	PolicyId pulumi.StringPtrOutput `pulumi:"policyId"`
-	// Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if
-	// an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
+	// Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
 	Priority pulumi.IntPtrOutput `pulumi:"priority"`
 	// Policy Rule Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
 	Status pulumi.StringPtrOutput `pulumi:"status"`
@@ -82,15 +81,15 @@ func GetRuleMfa(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RuleMfa resources.
 type ruleMfaState struct {
-	// Applications to exclude in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations. - 'id'
-	// - (Optional) Use if 'type' is 'APP' to indicate the application id to include. - 'name' - (Optional) Use if the 'type'
-	//   is 'APP_TYPE' to indicate the type of application(s) to include in instances where an entire group (i.e. 'yahoo_mail')
-	//   of applications should be included. - 'type' - (Required) One of: 'APP', 'APP_TYPE'
+	// Applications to exclude in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations.
+	// 	- 'id' - (Optional) Use if 'type' is 'APP' to indicate the application id to include.
+	// 	- 'name' - (Optional) Use if the 'type' is 'APP_TYPE' to indicate the type of application(s) to include in instances where an entire group (i.e. 'yahoo_mail') of applications should be included.
+	// 	- 'type' - (Required) One of: 'APP', 'APP_TYPE'
 	AppExcludes []RuleMfaAppExclude `pulumi:"appExcludes"`
-	// Applications to include in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations. - 'id'
-	// - (Optional) Use if 'type' is 'APP' to indicate the application id to include. - 'name' - (Optional) Use if the 'type'
-	//   is 'APP_TYPE' to indicate the type of application(s) to include in instances where an entire group (i.e. 'yahoo_mail')
-	//   of applications should be included. - 'type' - (Required) One of: 'APP', 'APP_TYPE'
+	// Applications to include in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations.
+	// 	- 'id' - (Optional) Use if 'type' is 'APP' to indicate the application id to include.
+	// 	- 'name' - (Optional) Use if the 'type' is 'APP_TYPE' to indicate the type of application(s) to include in instances where an entire group (i.e. 'yahoo_mail') of applications should be included.
+	// 	- 'type' - (Required) One of: 'APP', 'APP_TYPE'
 	AppIncludes []RuleMfaAppInclude `pulumi:"appIncludes"`
 	// When a user should be prompted for MFA. It can be `CHALLENGE`, `LOGIN`, or `NEVER`.
 	Enroll *string `pulumi:"enroll"`
@@ -104,8 +103,7 @@ type ruleMfaState struct {
 	NetworkIncludes []string `pulumi:"networkIncludes"`
 	// Policy ID of the Rule
 	PolicyId *string `pulumi:"policyId"`
-	// Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if
-	// an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
+	// Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
 	Priority *int `pulumi:"priority"`
 	// Policy Rule Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
 	Status *string `pulumi:"status"`
@@ -114,15 +112,15 @@ type ruleMfaState struct {
 }
 
 type RuleMfaState struct {
-	// Applications to exclude in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations. - 'id'
-	// - (Optional) Use if 'type' is 'APP' to indicate the application id to include. - 'name' - (Optional) Use if the 'type'
-	//   is 'APP_TYPE' to indicate the type of application(s) to include in instances where an entire group (i.e. 'yahoo_mail')
-	//   of applications should be included. - 'type' - (Required) One of: 'APP', 'APP_TYPE'
+	// Applications to exclude in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations.
+	// 	- 'id' - (Optional) Use if 'type' is 'APP' to indicate the application id to include.
+	// 	- 'name' - (Optional) Use if the 'type' is 'APP_TYPE' to indicate the type of application(s) to include in instances where an entire group (i.e. 'yahoo_mail') of applications should be included.
+	// 	- 'type' - (Required) One of: 'APP', 'APP_TYPE'
 	AppExcludes RuleMfaAppExcludeArrayInput
-	// Applications to include in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations. - 'id'
-	// - (Optional) Use if 'type' is 'APP' to indicate the application id to include. - 'name' - (Optional) Use if the 'type'
-	//   is 'APP_TYPE' to indicate the type of application(s) to include in instances where an entire group (i.e. 'yahoo_mail')
-	//   of applications should be included. - 'type' - (Required) One of: 'APP', 'APP_TYPE'
+	// Applications to include in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations.
+	// 	- 'id' - (Optional) Use if 'type' is 'APP' to indicate the application id to include.
+	// 	- 'name' - (Optional) Use if the 'type' is 'APP_TYPE' to indicate the type of application(s) to include in instances where an entire group (i.e. 'yahoo_mail') of applications should be included.
+	// 	- 'type' - (Required) One of: 'APP', 'APP_TYPE'
 	AppIncludes RuleMfaAppIncludeArrayInput
 	// When a user should be prompted for MFA. It can be `CHALLENGE`, `LOGIN`, or `NEVER`.
 	Enroll pulumi.StringPtrInput
@@ -136,8 +134,7 @@ type RuleMfaState struct {
 	NetworkIncludes pulumi.StringArrayInput
 	// Policy ID of the Rule
 	PolicyId pulumi.StringPtrInput
-	// Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if
-	// an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
+	// Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
 	Priority pulumi.IntPtrInput
 	// Policy Rule Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
 	Status pulumi.StringPtrInput
@@ -150,15 +147,15 @@ func (RuleMfaState) ElementType() reflect.Type {
 }
 
 type ruleMfaArgs struct {
-	// Applications to exclude in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations. - 'id'
-	// - (Optional) Use if 'type' is 'APP' to indicate the application id to include. - 'name' - (Optional) Use if the 'type'
-	//   is 'APP_TYPE' to indicate the type of application(s) to include in instances where an entire group (i.e. 'yahoo_mail')
-	//   of applications should be included. - 'type' - (Required) One of: 'APP', 'APP_TYPE'
+	// Applications to exclude in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations.
+	// 	- 'id' - (Optional) Use if 'type' is 'APP' to indicate the application id to include.
+	// 	- 'name' - (Optional) Use if the 'type' is 'APP_TYPE' to indicate the type of application(s) to include in instances where an entire group (i.e. 'yahoo_mail') of applications should be included.
+	// 	- 'type' - (Required) One of: 'APP', 'APP_TYPE'
 	AppExcludes []RuleMfaAppExclude `pulumi:"appExcludes"`
-	// Applications to include in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations. - 'id'
-	// - (Optional) Use if 'type' is 'APP' to indicate the application id to include. - 'name' - (Optional) Use if the 'type'
-	//   is 'APP_TYPE' to indicate the type of application(s) to include in instances where an entire group (i.e. 'yahoo_mail')
-	//   of applications should be included. - 'type' - (Required) One of: 'APP', 'APP_TYPE'
+	// Applications to include in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations.
+	// 	- 'id' - (Optional) Use if 'type' is 'APP' to indicate the application id to include.
+	// 	- 'name' - (Optional) Use if the 'type' is 'APP_TYPE' to indicate the type of application(s) to include in instances where an entire group (i.e. 'yahoo_mail') of applications should be included.
+	// 	- 'type' - (Required) One of: 'APP', 'APP_TYPE'
 	AppIncludes []RuleMfaAppInclude `pulumi:"appIncludes"`
 	// When a user should be prompted for MFA. It can be `CHALLENGE`, `LOGIN`, or `NEVER`.
 	Enroll *string `pulumi:"enroll"`
@@ -172,8 +169,7 @@ type ruleMfaArgs struct {
 	NetworkIncludes []string `pulumi:"networkIncludes"`
 	// Policy ID of the Rule
 	PolicyId *string `pulumi:"policyId"`
-	// Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if
-	// an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
+	// Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
 	Priority *int `pulumi:"priority"`
 	// Policy Rule Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
 	Status *string `pulumi:"status"`
@@ -183,15 +179,15 @@ type ruleMfaArgs struct {
 
 // The set of arguments for constructing a RuleMfa resource.
 type RuleMfaArgs struct {
-	// Applications to exclude in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations. - 'id'
-	// - (Optional) Use if 'type' is 'APP' to indicate the application id to include. - 'name' - (Optional) Use if the 'type'
-	//   is 'APP_TYPE' to indicate the type of application(s) to include in instances where an entire group (i.e. 'yahoo_mail')
-	//   of applications should be included. - 'type' - (Required) One of: 'APP', 'APP_TYPE'
+	// Applications to exclude in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations.
+	// 	- 'id' - (Optional) Use if 'type' is 'APP' to indicate the application id to include.
+	// 	- 'name' - (Optional) Use if the 'type' is 'APP_TYPE' to indicate the type of application(s) to include in instances where an entire group (i.e. 'yahoo_mail') of applications should be included.
+	// 	- 'type' - (Required) One of: 'APP', 'APP_TYPE'
 	AppExcludes RuleMfaAppExcludeArrayInput
-	// Applications to include in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations. - 'id'
-	// - (Optional) Use if 'type' is 'APP' to indicate the application id to include. - 'name' - (Optional) Use if the 'type'
-	//   is 'APP_TYPE' to indicate the type of application(s) to include in instances where an entire group (i.e. 'yahoo_mail')
-	//   of applications should be included. - 'type' - (Required) One of: 'APP', 'APP_TYPE'
+	// Applications to include in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations.
+	// 	- 'id' - (Optional) Use if 'type' is 'APP' to indicate the application id to include.
+	// 	- 'name' - (Optional) Use if the 'type' is 'APP_TYPE' to indicate the type of application(s) to include in instances where an entire group (i.e. 'yahoo_mail') of applications should be included.
+	// 	- 'type' - (Required) One of: 'APP', 'APP_TYPE'
 	AppIncludes RuleMfaAppIncludeArrayInput
 	// When a user should be prompted for MFA. It can be `CHALLENGE`, `LOGIN`, or `NEVER`.
 	Enroll pulumi.StringPtrInput
@@ -205,8 +201,7 @@ type RuleMfaArgs struct {
 	NetworkIncludes pulumi.StringArrayInput
 	// Policy ID of the Rule
 	PolicyId pulumi.StringPtrInput
-	// Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if
-	// an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
+	// Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
 	Priority pulumi.IntPtrInput
 	// Policy Rule Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
 	Status pulumi.StringPtrInput
@@ -301,18 +296,18 @@ func (o RuleMfaOutput) ToRuleMfaOutputWithContext(ctx context.Context) RuleMfaOu
 	return o
 }
 
-// Applications to exclude in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations. - 'id'
-//   - (Optional) Use if 'type' is 'APP' to indicate the application id to include. - 'name' - (Optional) Use if the 'type'
-//     is 'APP_TYPE' to indicate the type of application(s) to include in instances where an entire group (i.e. 'yahoo_mail')
-//     of applications should be included. - 'type' - (Required) One of: 'APP', 'APP_TYPE'
+// Applications to exclude in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations.
+//   - 'id' - (Optional) Use if 'type' is 'APP' to indicate the application id to include.
+//   - 'name' - (Optional) Use if the 'type' is 'APP_TYPE' to indicate the type of application(s) to include in instances where an entire group (i.e. 'yahoo_mail') of applications should be included.
+//   - 'type' - (Required) One of: 'APP', 'APP_TYPE'
 func (o RuleMfaOutput) AppExcludes() RuleMfaAppExcludeArrayOutput {
 	return o.ApplyT(func(v *RuleMfa) RuleMfaAppExcludeArrayOutput { return v.AppExcludes }).(RuleMfaAppExcludeArrayOutput)
 }
 
-// Applications to include in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations. - 'id'
-//   - (Optional) Use if 'type' is 'APP' to indicate the application id to include. - 'name' - (Optional) Use if the 'type'
-//     is 'APP_TYPE' to indicate the type of application(s) to include in instances where an entire group (i.e. 'yahoo_mail')
-//     of applications should be included. - 'type' - (Required) One of: 'APP', 'APP_TYPE'
+// Applications to include in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations.
+//   - 'id' - (Optional) Use if 'type' is 'APP' to indicate the application id to include.
+//   - 'name' - (Optional) Use if the 'type' is 'APP_TYPE' to indicate the type of application(s) to include in instances where an entire group (i.e. 'yahoo_mail') of applications should be included.
+//   - 'type' - (Required) One of: 'APP', 'APP_TYPE'
 func (o RuleMfaOutput) AppIncludes() RuleMfaAppIncludeArrayOutput {
 	return o.ApplyT(func(v *RuleMfa) RuleMfaAppIncludeArrayOutput { return v.AppIncludes }).(RuleMfaAppIncludeArrayOutput)
 }
@@ -347,8 +342,7 @@ func (o RuleMfaOutput) PolicyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleMfa) pulumi.StringPtrOutput { return v.PolicyId }).(pulumi.StringPtrOutput)
 }
 
-// Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if
-// an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
+// Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
 func (o RuleMfaOutput) Priority() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *RuleMfa) pulumi.IntPtrOutput { return v.Priority }).(pulumi.IntPtrOutput)
 }

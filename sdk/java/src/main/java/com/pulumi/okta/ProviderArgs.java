@@ -124,18 +124,14 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Sets what percentage of capacity the provider can use of the total rate limit capacity while making calls to the Okta
-     * management API endpoints. Okta API operates in one minute buckets. See Okta Management API Rate Limits:
-     * https://developer.okta.com/docs/reference/rl-global-mgmt/
+     * Sets what percentage of capacity the provider can use of the total rate limit capacity while making calls to the Okta management API endpoints. Okta API operates in one minute buckets. See Okta Management API Rate Limits: https://developer.okta.com/docs/reference/rl-global-mgmt/
      * 
      */
     @Import(name="maxApiCapacity", json=true)
     private @Nullable Output<Integer> maxApiCapacity;
 
     /**
-     * @return Sets what percentage of capacity the provider can use of the total rate limit capacity while making calls to the Okta
-     * management API endpoints. Okta API operates in one minute buckets. See Okta Management API Rate Limits:
-     * https://developer.okta.com/docs/reference/rl-global-mgmt/
+     * @return Sets what percentage of capacity the provider can use of the total rate limit capacity while making calls to the Okta management API endpoints. Okta API operates in one minute buckets. See Okta Management API Rate Limits: https://developer.okta.com/docs/reference/rl-global-mgmt/
      * 
      */
     public Optional<Output<Integer>> maxApiCapacity() {
@@ -203,16 +199,14 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Number of concurrent requests to make within a resource where bulk operations are not possible. Take note of
-     * https://developer.okta.com/docs/api/getting_started/rate-limits.
+     * Number of concurrent requests to make within a resource where bulk operations are not possible. Take note of https://developer.okta.com/docs/api/getting_started/rate-limits.
      * 
      */
     @Import(name="parallelism", json=true)
     private @Nullable Output<Integer> parallelism;
 
     /**
-     * @return Number of concurrent requests to make within a resource where bulk operations are not possible. Take note of
-     * https://developer.okta.com/docs/api/getting_started/rate-limits.
+     * @return Number of concurrent requests to make within a resource where bulk operations are not possible. Take note of https://developer.okta.com/docs/api/getting_started/rate-limits.
      * 
      */
     public Optional<Output<Integer>> parallelism() {
@@ -250,16 +244,14 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Timeout for single request (in seconds) which is made to Okta, the default is `0` (means no limit is set). The maximum
-     * value can be `300`.
+     * Timeout for single request (in seconds) which is made to Okta, the default is `0` (means no limit is set). The maximum value can be `300`.
      * 
      */
     @Import(name="requestTimeout", json=true)
     private @Nullable Output<Integer> requestTimeout;
 
     /**
-     * @return Timeout for single request (in seconds) which is made to Okta, the default is `0` (means no limit is set). The maximum
-     * value can be `300`.
+     * @return Timeout for single request (in seconds) which is made to Okta, the default is `0` (means no limit is set). The maximum value can be `300`.
      * 
      */
     public Optional<Output<Integer>> requestTimeout() {
@@ -469,9 +461,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param maxApiCapacity Sets what percentage of capacity the provider can use of the total rate limit capacity while making calls to the Okta
-         * management API endpoints. Okta API operates in one minute buckets. See Okta Management API Rate Limits:
-         * https://developer.okta.com/docs/reference/rl-global-mgmt/
+         * @param maxApiCapacity Sets what percentage of capacity the provider can use of the total rate limit capacity while making calls to the Okta management API endpoints. Okta API operates in one minute buckets. See Okta Management API Rate Limits: https://developer.okta.com/docs/reference/rl-global-mgmt/
          * 
          * @return builder
          * 
@@ -482,9 +472,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param maxApiCapacity Sets what percentage of capacity the provider can use of the total rate limit capacity while making calls to the Okta
-         * management API endpoints. Okta API operates in one minute buckets. See Okta Management API Rate Limits:
-         * https://developer.okta.com/docs/reference/rl-global-mgmt/
+         * @param maxApiCapacity Sets what percentage of capacity the provider can use of the total rate limit capacity while making calls to the Okta management API endpoints. Okta API operates in one minute buckets. See Okta Management API Rate Limits: https://developer.okta.com/docs/reference/rl-global-mgmt/
          * 
          * @return builder
          * 
@@ -578,8 +566,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param parallelism Number of concurrent requests to make within a resource where bulk operations are not possible. Take note of
-         * https://developer.okta.com/docs/api/getting_started/rate-limits.
+         * @param parallelism Number of concurrent requests to make within a resource where bulk operations are not possible. Take note of https://developer.okta.com/docs/api/getting_started/rate-limits.
          * 
          * @return builder
          * 
@@ -590,8 +577,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param parallelism Number of concurrent requests to make within a resource where bulk operations are not possible. Take note of
-         * https://developer.okta.com/docs/api/getting_started/rate-limits.
+         * @param parallelism Number of concurrent requests to make within a resource where bulk operations are not possible. Take note of https://developer.okta.com/docs/api/getting_started/rate-limits.
          * 
          * @return builder
          * 
@@ -643,8 +629,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param requestTimeout Timeout for single request (in seconds) which is made to Okta, the default is `0` (means no limit is set). The maximum
-         * value can be `300`.
+         * @param requestTimeout Timeout for single request (in seconds) which is made to Okta, the default is `0` (means no limit is set). The maximum value can be `300`.
          * 
          * @return builder
          * 
@@ -655,8 +640,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param requestTimeout Timeout for single request (in seconds) which is made to Okta, the default is `0` (means no limit is set). The maximum
-         * value can be `300`.
+         * @param requestTimeout Timeout for single request (in seconds) which is made to Okta, the default is `0` (means no limit is set). The maximum value can be `300`.
          * 
          * @return builder
          * 

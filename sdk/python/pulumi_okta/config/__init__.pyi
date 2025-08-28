@@ -51,9 +51,7 @@ providers log level. Minimum is 1 (TRACE), and maximum is 5 (ERROR)
 
 maxApiCapacity: Optional[int]
 """
-Sets what percentage of capacity the provider can use of the total rate limit capacity while making calls to the Okta
-management API endpoints. Okta API operates in one minute buckets. See Okta Management API Rate Limits:
-https://developer.okta.com/docs/reference/rl-global-mgmt/
+Sets what percentage of capacity the provider can use of the total rate limit capacity while making calls to the Okta management API endpoints. Okta API operates in one minute buckets. See Okta Management API Rate Limits: https://developer.okta.com/docs/reference/rl-global-mgmt/
 """
 
 maxRetries: Optional[int]
@@ -78,8 +76,7 @@ The organization to manage in Okta.
 
 parallelism: Optional[int]
 """
-Number of concurrent requests to make within a resource where bulk operations are not possible. Take note of
-https://developer.okta.com/docs/api/getting_started/rate-limits.
+Number of concurrent requests to make within a resource where bulk operations are not possible. Take note of https://developer.okta.com/docs/api/getting_started/rate-limits.
 """
 
 privateKey: Optional[str]
@@ -94,8 +91,7 @@ API Token Id granting privileges to Okta API.
 
 requestTimeout: Optional[int]
 """
-Timeout for single request (in seconds) which is made to Okta, the default is `0` (means no limit is set). The maximum
-value can be `300`.
+Timeout for single request (in seconds) which is made to Okta, the default is `0` (means no limit is set). The maximum value can be `300`.
 """
 
 scopes: Optional[str]

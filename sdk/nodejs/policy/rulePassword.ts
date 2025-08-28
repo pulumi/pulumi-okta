@@ -44,47 +44,47 @@ export class RulePassword extends pulumi.CustomResource {
     /**
      * Policy Rule Name
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Network selection mode: `ANYWHERE`, `ZONE`, `ON_NETWORK`, or `OFF_NETWORK`. Default: `ANYWHERE`
      */
-    public readonly networkConnection!: pulumi.Output<string | undefined>;
+    declare public readonly networkConnection: pulumi.Output<string | undefined>;
     /**
      * Required if `networkConnection` = `ZONE`. Indicates the network zones to exclude.
      */
-    public readonly networkExcludes!: pulumi.Output<string[] | undefined>;
+    declare public readonly networkExcludes: pulumi.Output<string[] | undefined>;
     /**
      * Required if `networkConnection` = `ZONE`. Indicates the network zones to include.
      */
-    public readonly networkIncludes!: pulumi.Output<string[] | undefined>;
+    declare public readonly networkIncludes: pulumi.Output<string[] | undefined>;
     /**
      * Allow or deny a user to change their password: `ALLOW` or `DENY`. Default: `ALLOW`
      */
-    public readonly passwordChange!: pulumi.Output<string | undefined>;
+    declare public readonly passwordChange: pulumi.Output<string | undefined>;
     /**
      * Allow or deny a user to reset their password: `ALLOW` or `DENY`. Default: `ALLOW`
      */
-    public readonly passwordReset!: pulumi.Output<string | undefined>;
+    declare public readonly passwordReset: pulumi.Output<string | undefined>;
     /**
      * Allow or deny a user to unlock. Default: `DENY`
      */
-    public readonly passwordUnlock!: pulumi.Output<string | undefined>;
+    declare public readonly passwordUnlock: pulumi.Output<string | undefined>;
     /**
      * Policy ID of the Rule
      */
-    public readonly policyId!: pulumi.Output<string | undefined>;
+    declare public readonly policyId: pulumi.Output<string | undefined>;
     /**
      * Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
      */
-    public readonly priority!: pulumi.Output<number | undefined>;
+    declare public readonly priority: pulumi.Output<number | undefined>;
     /**
      * Policy Rule Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
      */
-    public readonly status!: pulumi.Output<string | undefined>;
+    declare public readonly status: pulumi.Output<string | undefined>;
     /**
      * Set of User IDs to Exclude
      */
-    public readonly usersExcludeds!: pulumi.Output<string[] | undefined>;
+    declare public readonly usersExcludeds: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a RulePassword resource with the given unique name, arguments, and options.
@@ -99,30 +99,30 @@ export class RulePassword extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RulePasswordState | undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["networkConnection"] = state ? state.networkConnection : undefined;
-            resourceInputs["networkExcludes"] = state ? state.networkExcludes : undefined;
-            resourceInputs["networkIncludes"] = state ? state.networkIncludes : undefined;
-            resourceInputs["passwordChange"] = state ? state.passwordChange : undefined;
-            resourceInputs["passwordReset"] = state ? state.passwordReset : undefined;
-            resourceInputs["passwordUnlock"] = state ? state.passwordUnlock : undefined;
-            resourceInputs["policyId"] = state ? state.policyId : undefined;
-            resourceInputs["priority"] = state ? state.priority : undefined;
-            resourceInputs["status"] = state ? state.status : undefined;
-            resourceInputs["usersExcludeds"] = state ? state.usersExcludeds : undefined;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["networkConnection"] = state?.networkConnection;
+            resourceInputs["networkExcludes"] = state?.networkExcludes;
+            resourceInputs["networkIncludes"] = state?.networkIncludes;
+            resourceInputs["passwordChange"] = state?.passwordChange;
+            resourceInputs["passwordReset"] = state?.passwordReset;
+            resourceInputs["passwordUnlock"] = state?.passwordUnlock;
+            resourceInputs["policyId"] = state?.policyId;
+            resourceInputs["priority"] = state?.priority;
+            resourceInputs["status"] = state?.status;
+            resourceInputs["usersExcludeds"] = state?.usersExcludeds;
         } else {
             const args = argsOrState as RulePasswordArgs | undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["networkConnection"] = args ? args.networkConnection : undefined;
-            resourceInputs["networkExcludes"] = args ? args.networkExcludes : undefined;
-            resourceInputs["networkIncludes"] = args ? args.networkIncludes : undefined;
-            resourceInputs["passwordChange"] = args ? args.passwordChange : undefined;
-            resourceInputs["passwordReset"] = args ? args.passwordReset : undefined;
-            resourceInputs["passwordUnlock"] = args ? args.passwordUnlock : undefined;
-            resourceInputs["policyId"] = args ? args.policyId : undefined;
-            resourceInputs["priority"] = args ? args.priority : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
-            resourceInputs["usersExcludeds"] = args ? args.usersExcludeds : undefined;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["networkConnection"] = args?.networkConnection;
+            resourceInputs["networkExcludes"] = args?.networkExcludes;
+            resourceInputs["networkIncludes"] = args?.networkIncludes;
+            resourceInputs["passwordChange"] = args?.passwordChange;
+            resourceInputs["passwordReset"] = args?.passwordReset;
+            resourceInputs["passwordUnlock"] = args?.passwordUnlock;
+            resourceInputs["policyId"] = args?.policyId;
+            resourceInputs["priority"] = args?.priority;
+            resourceInputs["status"] = args?.status;
+            resourceInputs["usersExcludeds"] = args?.usersExcludeds;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(RulePassword.__pulumiType, name, resourceInputs, opts);

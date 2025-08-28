@@ -75,91 +75,91 @@ export class AppUserSchemaProperty extends pulumi.CustomResource {
     /**
      * The Application's ID the user custom schema property should be assigned to.
      */
-    public readonly appId!: pulumi.Output<string>;
+    declare public readonly appId: pulumi.Output<string>;
     /**
      * Array of values that an array property's items can be set to.
      */
-    public readonly arrayEnums!: pulumi.Output<string[] | undefined>;
+    declare public readonly arrayEnums: pulumi.Output<string[] | undefined>;
     /**
-     * Display name and value an enum array can be set to. - 'const' - (Required) value mapping to member of 'enum'. - 'title'
-     * - (Required) display name for the enum value.
+     * Display name and value an enum array can be set to.
+     * 	- 'const' - (Required) value mapping to member of 'enum'.
+     * 	- 'title' - (Required) display name for the enum value.
      */
-    public readonly arrayOneOfs!: pulumi.Output<outputs.AppUserSchemaPropertyArrayOneOf[] | undefined>;
+    declare public readonly arrayOneOfs: pulumi.Output<outputs.AppUserSchemaPropertyArrayOneOf[] | undefined>;
     /**
      * The type of the array elements if `type` is set to `array`
      */
-    public readonly arrayType!: pulumi.Output<string | undefined>;
+    declare public readonly arrayType: pulumi.Output<string | undefined>;
     /**
      * The description of the user schema property.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Array of values a primitive property can be set to. See `arrayEnum` for arrays.
      */
-    public readonly enums!: pulumi.Output<string[] | undefined>;
+    declare public readonly enums: pulumi.Output<string[] | undefined>;
     /**
      * External name of the user schema property.
      */
-    public readonly externalName!: pulumi.Output<string | undefined>;
+    declare public readonly externalName: pulumi.Output<string | undefined>;
     /**
      * External namespace of the user schema property.
      */
-    public readonly externalNamespace!: pulumi.Output<string | undefined>;
+    declare public readonly externalNamespace: pulumi.Output<string | undefined>;
     /**
      * Subschema unique string identifier
      */
-    public readonly index!: pulumi.Output<string>;
+    declare public readonly index: pulumi.Output<string>;
     /**
      * Master priority for the user schema property. It can be set to `PROFILE_MASTER` or `OKTA`
      */
-    public readonly master!: pulumi.Output<string | undefined>;
+    declare public readonly master: pulumi.Output<string | undefined>;
     /**
      * The maximum length of the user property value. Only applies to type `string`
      */
-    public readonly maxLength!: pulumi.Output<number | undefined>;
+    declare public readonly maxLength: pulumi.Output<number | undefined>;
     /**
      * The minimum length of the user property value. Only applies to type `string`
      */
-    public readonly minLength!: pulumi.Output<number | undefined>;
+    declare public readonly minLength: pulumi.Output<number | undefined>;
     /**
-     * Array of maps containing a mapping for display name to enum value. - 'const' - (Required) value mapping to member of
-     * 'enum'. - 'title' - (Required) display name for the enum value.
+     * Array of maps containing a mapping for display name to enum value.
+     * 	- 'const' - (Required) value mapping to member of 'enum'.
+     * 	- 'title' - (Required) display name for the enum value.
      */
-    public readonly oneOfs!: pulumi.Output<outputs.AppUserSchemaPropertyOneOf[] | undefined>;
+    declare public readonly oneOfs: pulumi.Output<outputs.AppUserSchemaPropertyOneOf[] | undefined>;
     /**
      * Access control permissions for the property. It can be set to `READ_WRITE`, `READ_ONLY`, `HIDE`. Default: `READ_ONLY`
      */
-    public readonly permissions!: pulumi.Output<string | undefined>;
+    declare public readonly permissions: pulumi.Output<string | undefined>;
     /**
      * Whether the subschema is required
      */
-    public readonly required!: pulumi.Output<boolean | undefined>;
+    declare public readonly required: pulumi.Output<boolean | undefined>;
     /**
-     * determines whether an app user attribute can be set at the Personal `SELF` or Group `NONE` level. Default value is
-     * `NONE`.
+     * determines whether an app user attribute can be set at the Personal `SELF` or Group `NONE` level. Default value is `NONE`.
      */
-    public readonly scope!: pulumi.Output<string | undefined>;
+    declare public readonly scope: pulumi.Output<string | undefined>;
     /**
      * Subschema title (display name)
      */
-    public readonly title!: pulumi.Output<string>;
+    declare public readonly title: pulumi.Output<string>;
     /**
      * The type of the schema property. It can be `string`, `boolean`, `number`, `integer`, `array`, or `object`
      */
-    public readonly type!: pulumi.Output<string>;
+    declare public readonly type: pulumi.Output<string>;
     /**
-     * If `type` is set to `array`, used to set whether attribute value is determined by group priority `false`, or combine
-     * values across groups `true`. Can not be set to `true` if `scope` is set to `SELF`.
+     * If `type` is set to `array`, used to set whether attribute value is determined by group priority `false`, or combine values across groups `true`. Can not be set to `true` if `scope` is set to `SELF`.
      */
-    public readonly union!: pulumi.Output<boolean | undefined>;
+    declare public readonly union: pulumi.Output<boolean | undefined>;
     /**
      * Whether the property should be unique. It can be set to `UNIQUE_VALIDATED` or `NOT_UNIQUE`.
      */
-    public readonly unique!: pulumi.Output<string | undefined>;
+    declare public readonly unique: pulumi.Output<string | undefined>;
     /**
      * User type ID. By default, it is `default`
      */
-    public readonly userType!: pulumi.Output<string | undefined>;
+    declare public readonly userType: pulumi.Output<string | undefined>;
 
     /**
      * Create a AppUserSchemaProperty resource with the given unique name, arguments, and options.
@@ -174,62 +174,62 @@ export class AppUserSchemaProperty extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AppUserSchemaPropertyState | undefined;
-            resourceInputs["appId"] = state ? state.appId : undefined;
-            resourceInputs["arrayEnums"] = state ? state.arrayEnums : undefined;
-            resourceInputs["arrayOneOfs"] = state ? state.arrayOneOfs : undefined;
-            resourceInputs["arrayType"] = state ? state.arrayType : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["enums"] = state ? state.enums : undefined;
-            resourceInputs["externalName"] = state ? state.externalName : undefined;
-            resourceInputs["externalNamespace"] = state ? state.externalNamespace : undefined;
-            resourceInputs["index"] = state ? state.index : undefined;
-            resourceInputs["master"] = state ? state.master : undefined;
-            resourceInputs["maxLength"] = state ? state.maxLength : undefined;
-            resourceInputs["minLength"] = state ? state.minLength : undefined;
-            resourceInputs["oneOfs"] = state ? state.oneOfs : undefined;
-            resourceInputs["permissions"] = state ? state.permissions : undefined;
-            resourceInputs["required"] = state ? state.required : undefined;
-            resourceInputs["scope"] = state ? state.scope : undefined;
-            resourceInputs["title"] = state ? state.title : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
-            resourceInputs["union"] = state ? state.union : undefined;
-            resourceInputs["unique"] = state ? state.unique : undefined;
-            resourceInputs["userType"] = state ? state.userType : undefined;
+            resourceInputs["appId"] = state?.appId;
+            resourceInputs["arrayEnums"] = state?.arrayEnums;
+            resourceInputs["arrayOneOfs"] = state?.arrayOneOfs;
+            resourceInputs["arrayType"] = state?.arrayType;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["enums"] = state?.enums;
+            resourceInputs["externalName"] = state?.externalName;
+            resourceInputs["externalNamespace"] = state?.externalNamespace;
+            resourceInputs["index"] = state?.index;
+            resourceInputs["master"] = state?.master;
+            resourceInputs["maxLength"] = state?.maxLength;
+            resourceInputs["minLength"] = state?.minLength;
+            resourceInputs["oneOfs"] = state?.oneOfs;
+            resourceInputs["permissions"] = state?.permissions;
+            resourceInputs["required"] = state?.required;
+            resourceInputs["scope"] = state?.scope;
+            resourceInputs["title"] = state?.title;
+            resourceInputs["type"] = state?.type;
+            resourceInputs["union"] = state?.union;
+            resourceInputs["unique"] = state?.unique;
+            resourceInputs["userType"] = state?.userType;
         } else {
             const args = argsOrState as AppUserSchemaPropertyArgs | undefined;
-            if ((!args || args.appId === undefined) && !opts.urn) {
+            if (args?.appId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'appId'");
             }
-            if ((!args || args.index === undefined) && !opts.urn) {
+            if (args?.index === undefined && !opts.urn) {
                 throw new Error("Missing required property 'index'");
             }
-            if ((!args || args.title === undefined) && !opts.urn) {
+            if (args?.title === undefined && !opts.urn) {
                 throw new Error("Missing required property 'title'");
             }
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["appId"] = args ? args.appId : undefined;
-            resourceInputs["arrayEnums"] = args ? args.arrayEnums : undefined;
-            resourceInputs["arrayOneOfs"] = args ? args.arrayOneOfs : undefined;
-            resourceInputs["arrayType"] = args ? args.arrayType : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["enums"] = args ? args.enums : undefined;
-            resourceInputs["externalName"] = args ? args.externalName : undefined;
-            resourceInputs["externalNamespace"] = args ? args.externalNamespace : undefined;
-            resourceInputs["index"] = args ? args.index : undefined;
-            resourceInputs["master"] = args ? args.master : undefined;
-            resourceInputs["maxLength"] = args ? args.maxLength : undefined;
-            resourceInputs["minLength"] = args ? args.minLength : undefined;
-            resourceInputs["oneOfs"] = args ? args.oneOfs : undefined;
-            resourceInputs["permissions"] = args ? args.permissions : undefined;
-            resourceInputs["required"] = args ? args.required : undefined;
-            resourceInputs["scope"] = args ? args.scope : undefined;
-            resourceInputs["title"] = args ? args.title : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
-            resourceInputs["union"] = args ? args.union : undefined;
-            resourceInputs["unique"] = args ? args.unique : undefined;
-            resourceInputs["userType"] = args ? args.userType : undefined;
+            resourceInputs["appId"] = args?.appId;
+            resourceInputs["arrayEnums"] = args?.arrayEnums;
+            resourceInputs["arrayOneOfs"] = args?.arrayOneOfs;
+            resourceInputs["arrayType"] = args?.arrayType;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["enums"] = args?.enums;
+            resourceInputs["externalName"] = args?.externalName;
+            resourceInputs["externalNamespace"] = args?.externalNamespace;
+            resourceInputs["index"] = args?.index;
+            resourceInputs["master"] = args?.master;
+            resourceInputs["maxLength"] = args?.maxLength;
+            resourceInputs["minLength"] = args?.minLength;
+            resourceInputs["oneOfs"] = args?.oneOfs;
+            resourceInputs["permissions"] = args?.permissions;
+            resourceInputs["required"] = args?.required;
+            resourceInputs["scope"] = args?.scope;
+            resourceInputs["title"] = args?.title;
+            resourceInputs["type"] = args?.type;
+            resourceInputs["union"] = args?.union;
+            resourceInputs["unique"] = args?.unique;
+            resourceInputs["userType"] = args?.userType;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(AppUserSchemaProperty.__pulumiType, name, resourceInputs, opts);
@@ -249,8 +249,9 @@ export interface AppUserSchemaPropertyState {
      */
     arrayEnums?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Display name and value an enum array can be set to. - 'const' - (Required) value mapping to member of 'enum'. - 'title'
-     * - (Required) display name for the enum value.
+     * Display name and value an enum array can be set to.
+     * 	- 'const' - (Required) value mapping to member of 'enum'.
+     * 	- 'title' - (Required) display name for the enum value.
      */
     arrayOneOfs?: pulumi.Input<pulumi.Input<inputs.AppUserSchemaPropertyArrayOneOf>[]>;
     /**
@@ -290,8 +291,9 @@ export interface AppUserSchemaPropertyState {
      */
     minLength?: pulumi.Input<number>;
     /**
-     * Array of maps containing a mapping for display name to enum value. - 'const' - (Required) value mapping to member of
-     * 'enum'. - 'title' - (Required) display name for the enum value.
+     * Array of maps containing a mapping for display name to enum value.
+     * 	- 'const' - (Required) value mapping to member of 'enum'.
+     * 	- 'title' - (Required) display name for the enum value.
      */
     oneOfs?: pulumi.Input<pulumi.Input<inputs.AppUserSchemaPropertyOneOf>[]>;
     /**
@@ -303,8 +305,7 @@ export interface AppUserSchemaPropertyState {
      */
     required?: pulumi.Input<boolean>;
     /**
-     * determines whether an app user attribute can be set at the Personal `SELF` or Group `NONE` level. Default value is
-     * `NONE`.
+     * determines whether an app user attribute can be set at the Personal `SELF` or Group `NONE` level. Default value is `NONE`.
      */
     scope?: pulumi.Input<string>;
     /**
@@ -316,8 +317,7 @@ export interface AppUserSchemaPropertyState {
      */
     type?: pulumi.Input<string>;
     /**
-     * If `type` is set to `array`, used to set whether attribute value is determined by group priority `false`, or combine
-     * values across groups `true`. Can not be set to `true` if `scope` is set to `SELF`.
+     * If `type` is set to `array`, used to set whether attribute value is determined by group priority `false`, or combine values across groups `true`. Can not be set to `true` if `scope` is set to `SELF`.
      */
     union?: pulumi.Input<boolean>;
     /**
@@ -343,8 +343,9 @@ export interface AppUserSchemaPropertyArgs {
      */
     arrayEnums?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Display name and value an enum array can be set to. - 'const' - (Required) value mapping to member of 'enum'. - 'title'
-     * - (Required) display name for the enum value.
+     * Display name and value an enum array can be set to.
+     * 	- 'const' - (Required) value mapping to member of 'enum'.
+     * 	- 'title' - (Required) display name for the enum value.
      */
     arrayOneOfs?: pulumi.Input<pulumi.Input<inputs.AppUserSchemaPropertyArrayOneOf>[]>;
     /**
@@ -384,8 +385,9 @@ export interface AppUserSchemaPropertyArgs {
      */
     minLength?: pulumi.Input<number>;
     /**
-     * Array of maps containing a mapping for display name to enum value. - 'const' - (Required) value mapping to member of
-     * 'enum'. - 'title' - (Required) display name for the enum value.
+     * Array of maps containing a mapping for display name to enum value.
+     * 	- 'const' - (Required) value mapping to member of 'enum'.
+     * 	- 'title' - (Required) display name for the enum value.
      */
     oneOfs?: pulumi.Input<pulumi.Input<inputs.AppUserSchemaPropertyOneOf>[]>;
     /**
@@ -397,8 +399,7 @@ export interface AppUserSchemaPropertyArgs {
      */
     required?: pulumi.Input<boolean>;
     /**
-     * determines whether an app user attribute can be set at the Personal `SELF` or Group `NONE` level. Default value is
-     * `NONE`.
+     * determines whether an app user attribute can be set at the Personal `SELF` or Group `NONE` level. Default value is `NONE`.
      */
     scope?: pulumi.Input<string>;
     /**
@@ -410,8 +411,7 @@ export interface AppUserSchemaPropertyArgs {
      */
     type: pulumi.Input<string>;
     /**
-     * If `type` is set to `array`, used to set whether attribute value is determined by group priority `false`, or combine
-     * values across groups `true`. Can not be set to `true` if `scope` is set to `SELF`.
+     * If `type` is set to `array`, used to set whether attribute value is determined by group priority `false`, or combine values across groups `true`. Can not be set to `true` if `scope` is set to `SELF`.
      */
     union?: pulumi.Input<boolean>;
     /**

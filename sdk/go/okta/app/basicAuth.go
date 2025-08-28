@@ -67,8 +67,7 @@ type BasicAuth struct {
 	AuthUrl pulumi.StringOutput `pulumi:"authUrl"`
 	// Display auto submit toolbar
 	AutoSubmitToolbar pulumi.BoolPtrOutput `pulumi:"autoSubmitToolbar"`
-	// Application credentials scheme. One of: `EDIT_USERNAME_AND_PASSWORD`, `ADMIN_SETS_CREDENTIALS`, `EDIT_PASSWORD_ONLY`,
-	// `EXTERNAL_PASSWORD_SYNC`, or `SHARED_USERNAME_AND_PASSWORD`
+	// Application credentials scheme. One of: `EDIT_USERNAME_AND_PASSWORD`, `ADMIN_SETS_CREDENTIALS`, `EDIT_PASSWORD_ONLY`, `EXTERNAL_PASSWORD_SYNC`, or `SHARED_USERNAME_AND_PASSWORD`
 	CredentialsScheme pulumi.StringPtrOutput `pulumi:"credentialsScheme"`
 	// Application notes for end users.
 	EnduserNote pulumi.StringPtrOutput `pulumi:"enduserNote"`
@@ -84,8 +83,7 @@ type BasicAuth struct {
 	LogoUrl pulumi.StringOutput `pulumi:"logoUrl"`
 	// Name of the app.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Allow user to reveal password. Default is false. It can not be set to true if credentialsScheme is
-	// "ADMIN_SETS_CREDENTIALS", "SHARED_USERNAME_AND_PASSWORD" or "EXTERNAL_PASSWORD_SYNC".
+	// Allow user to reveal password. Default is false. It can not be set to true if credentialsScheme is "ADMIN_SETS_CREDENTIALS", "SHARED_USERNAME_AND_PASSWORD" or "EXTERNAL_PASSWORD_SYNC".
 	RevealPassword pulumi.BoolPtrOutput `pulumi:"revealPassword"`
 	// Shared password, required for certain schemes.
 	SharedPassword pulumi.StringPtrOutput `pulumi:"sharedPassword"`
@@ -160,8 +158,7 @@ type basicAuthState struct {
 	AuthUrl *string `pulumi:"authUrl"`
 	// Display auto submit toolbar
 	AutoSubmitToolbar *bool `pulumi:"autoSubmitToolbar"`
-	// Application credentials scheme. One of: `EDIT_USERNAME_AND_PASSWORD`, `ADMIN_SETS_CREDENTIALS`, `EDIT_PASSWORD_ONLY`,
-	// `EXTERNAL_PASSWORD_SYNC`, or `SHARED_USERNAME_AND_PASSWORD`
+	// Application credentials scheme. One of: `EDIT_USERNAME_AND_PASSWORD`, `ADMIN_SETS_CREDENTIALS`, `EDIT_PASSWORD_ONLY`, `EXTERNAL_PASSWORD_SYNC`, or `SHARED_USERNAME_AND_PASSWORD`
 	CredentialsScheme *string `pulumi:"credentialsScheme"`
 	// Application notes for end users.
 	EnduserNote *string `pulumi:"enduserNote"`
@@ -177,8 +174,7 @@ type basicAuthState struct {
 	LogoUrl *string `pulumi:"logoUrl"`
 	// Name of the app.
 	Name *string `pulumi:"name"`
-	// Allow user to reveal password. Default is false. It can not be set to true if credentialsScheme is
-	// "ADMIN_SETS_CREDENTIALS", "SHARED_USERNAME_AND_PASSWORD" or "EXTERNAL_PASSWORD_SYNC".
+	// Allow user to reveal password. Default is false. It can not be set to true if credentialsScheme is "ADMIN_SETS_CREDENTIALS", "SHARED_USERNAME_AND_PASSWORD" or "EXTERNAL_PASSWORD_SYNC".
 	RevealPassword *bool `pulumi:"revealPassword"`
 	// Shared password, required for certain schemes.
 	SharedPassword *string `pulumi:"sharedPassword"`
@@ -215,8 +211,7 @@ type BasicAuthState struct {
 	AuthUrl pulumi.StringPtrInput
 	// Display auto submit toolbar
 	AutoSubmitToolbar pulumi.BoolPtrInput
-	// Application credentials scheme. One of: `EDIT_USERNAME_AND_PASSWORD`, `ADMIN_SETS_CREDENTIALS`, `EDIT_PASSWORD_ONLY`,
-	// `EXTERNAL_PASSWORD_SYNC`, or `SHARED_USERNAME_AND_PASSWORD`
+	// Application credentials scheme. One of: `EDIT_USERNAME_AND_PASSWORD`, `ADMIN_SETS_CREDENTIALS`, `EDIT_PASSWORD_ONLY`, `EXTERNAL_PASSWORD_SYNC`, or `SHARED_USERNAME_AND_PASSWORD`
 	CredentialsScheme pulumi.StringPtrInput
 	// Application notes for end users.
 	EnduserNote pulumi.StringPtrInput
@@ -232,8 +227,7 @@ type BasicAuthState struct {
 	LogoUrl pulumi.StringPtrInput
 	// Name of the app.
 	Name pulumi.StringPtrInput
-	// Allow user to reveal password. Default is false. It can not be set to true if credentialsScheme is
-	// "ADMIN_SETS_CREDENTIALS", "SHARED_USERNAME_AND_PASSWORD" or "EXTERNAL_PASSWORD_SYNC".
+	// Allow user to reveal password. Default is false. It can not be set to true if credentialsScheme is "ADMIN_SETS_CREDENTIALS", "SHARED_USERNAME_AND_PASSWORD" or "EXTERNAL_PASSWORD_SYNC".
 	RevealPassword pulumi.BoolPtrInput
 	// Shared password, required for certain schemes.
 	SharedPassword pulumi.StringPtrInput
@@ -274,8 +268,7 @@ type basicAuthArgs struct {
 	AuthUrl string `pulumi:"authUrl"`
 	// Display auto submit toolbar
 	AutoSubmitToolbar *bool `pulumi:"autoSubmitToolbar"`
-	// Application credentials scheme. One of: `EDIT_USERNAME_AND_PASSWORD`, `ADMIN_SETS_CREDENTIALS`, `EDIT_PASSWORD_ONLY`,
-	// `EXTERNAL_PASSWORD_SYNC`, or `SHARED_USERNAME_AND_PASSWORD`
+	// Application credentials scheme. One of: `EDIT_USERNAME_AND_PASSWORD`, `ADMIN_SETS_CREDENTIALS`, `EDIT_PASSWORD_ONLY`, `EXTERNAL_PASSWORD_SYNC`, or `SHARED_USERNAME_AND_PASSWORD`
 	CredentialsScheme *string `pulumi:"credentialsScheme"`
 	// Application notes for end users.
 	EnduserNote *string `pulumi:"enduserNote"`
@@ -287,8 +280,7 @@ type basicAuthArgs struct {
 	Label string `pulumi:"label"`
 	// Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
 	Logo *string `pulumi:"logo"`
-	// Allow user to reveal password. Default is false. It can not be set to true if credentialsScheme is
-	// "ADMIN_SETS_CREDENTIALS", "SHARED_USERNAME_AND_PASSWORD" or "EXTERNAL_PASSWORD_SYNC".
+	// Allow user to reveal password. Default is false. It can not be set to true if credentialsScheme is "ADMIN_SETS_CREDENTIALS", "SHARED_USERNAME_AND_PASSWORD" or "EXTERNAL_PASSWORD_SYNC".
 	RevealPassword *bool `pulumi:"revealPassword"`
 	// Shared password, required for certain schemes.
 	SharedPassword *string `pulumi:"sharedPassword"`
@@ -324,8 +316,7 @@ type BasicAuthArgs struct {
 	AuthUrl pulumi.StringInput
 	// Display auto submit toolbar
 	AutoSubmitToolbar pulumi.BoolPtrInput
-	// Application credentials scheme. One of: `EDIT_USERNAME_AND_PASSWORD`, `ADMIN_SETS_CREDENTIALS`, `EDIT_PASSWORD_ONLY`,
-	// `EXTERNAL_PASSWORD_SYNC`, or `SHARED_USERNAME_AND_PASSWORD`
+	// Application credentials scheme. One of: `EDIT_USERNAME_AND_PASSWORD`, `ADMIN_SETS_CREDENTIALS`, `EDIT_PASSWORD_ONLY`, `EXTERNAL_PASSWORD_SYNC`, or `SHARED_USERNAME_AND_PASSWORD`
 	CredentialsScheme pulumi.StringPtrInput
 	// Application notes for end users.
 	EnduserNote pulumi.StringPtrInput
@@ -337,8 +328,7 @@ type BasicAuthArgs struct {
 	Label pulumi.StringInput
 	// Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
 	Logo pulumi.StringPtrInput
-	// Allow user to reveal password. Default is false. It can not be set to true if credentialsScheme is
-	// "ADMIN_SETS_CREDENTIALS", "SHARED_USERNAME_AND_PASSWORD" or "EXTERNAL_PASSWORD_SYNC".
+	// Allow user to reveal password. Default is false. It can not be set to true if credentialsScheme is "ADMIN_SETS_CREDENTIALS", "SHARED_USERNAME_AND_PASSWORD" or "EXTERNAL_PASSWORD_SYNC".
 	RevealPassword pulumi.BoolPtrInput
 	// Shared password, required for certain schemes.
 	SharedPassword pulumi.StringPtrInput
@@ -480,8 +470,7 @@ func (o BasicAuthOutput) AutoSubmitToolbar() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BasicAuth) pulumi.BoolPtrOutput { return v.AutoSubmitToolbar }).(pulumi.BoolPtrOutput)
 }
 
-// Application credentials scheme. One of: `EDIT_USERNAME_AND_PASSWORD`, `ADMIN_SETS_CREDENTIALS`, `EDIT_PASSWORD_ONLY`,
-// `EXTERNAL_PASSWORD_SYNC`, or `SHARED_USERNAME_AND_PASSWORD`
+// Application credentials scheme. One of: `EDIT_USERNAME_AND_PASSWORD`, `ADMIN_SETS_CREDENTIALS`, `EDIT_PASSWORD_ONLY`, `EXTERNAL_PASSWORD_SYNC`, or `SHARED_USERNAME_AND_PASSWORD`
 func (o BasicAuthOutput) CredentialsScheme() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BasicAuth) pulumi.StringPtrOutput { return v.CredentialsScheme }).(pulumi.StringPtrOutput)
 }
@@ -521,8 +510,7 @@ func (o BasicAuthOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *BasicAuth) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Allow user to reveal password. Default is false. It can not be set to true if credentialsScheme is
-// "ADMIN_SETS_CREDENTIALS", "SHARED_USERNAME_AND_PASSWORD" or "EXTERNAL_PASSWORD_SYNC".
+// Allow user to reveal password. Default is false. It can not be set to true if credentialsScheme is "ADMIN_SETS_CREDENTIALS", "SHARED_USERNAME_AND_PASSWORD" or "EXTERNAL_PASSWORD_SYNC".
 func (o BasicAuthOutput) RevealPassword() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BasicAuth) pulumi.BoolPtrOutput { return v.RevealPassword }).(pulumi.BoolPtrOutput)
 }

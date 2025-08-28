@@ -102,55 +102,54 @@ export class PolicyRuleProfileEnrollment extends pulumi.CustomResource {
     /**
      * Allow or deny access based on the rule conditions. Valid values are: `ALLOW`, `DENY`. Default: `ALLOW`.
      */
-    public readonly access!: pulumi.Output<string | undefined>;
+    declare public readonly access: pulumi.Output<string | undefined>;
     /**
      * Indicates whether email verification should occur before access is granted. Default: `true`.
      */
-    public readonly emailVerification!: pulumi.Output<boolean | undefined>;
+    declare public readonly emailVerification: pulumi.Output<boolean | undefined>;
     /**
      * Enrolls authenticator types
      */
-    public readonly enrollAuthenticatorTypes!: pulumi.Output<string[] | undefined>;
+    declare public readonly enrollAuthenticatorTypes: pulumi.Output<string[] | undefined>;
     /**
      * ID of a Registration Inline Hook
      */
-    public readonly inlineHookId!: pulumi.Output<string | undefined>;
+    declare public readonly inlineHookId: pulumi.Output<string | undefined>;
     /**
      * Name of the rule
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * ID of the policy
      */
-    public readonly policyId!: pulumi.Output<string>;
+    declare public readonly policyId: pulumi.Output<string>;
     /**
-     * A list of attributes to prompt the user during registration or progressive profiling. Where defined on the User schema,
-     * these attributes are persisted in the User profile. Non-schema attributes may also be added, which aren't persisted to
-     * the User's profile, but are included in requests to the registration inline hook. A maximum of 10 Profile properties is
-     * supported. - 'label' - (Required) A display-friendly label for this property - 'name' - (Required) The name of a User
-     * Profile property - 'required' - (Required) Indicates if this property is required for enrollment. Default is 'false'.
+     * A list of attributes to prompt the user during registration or progressive profiling. Where defined on the User schema, these attributes are persisted in the User profile. Non-schema attributes may also be added, which aren't persisted to the User's profile, but are included in requests to the registration inline hook. A maximum of 10 Profile properties is supported.
+     * 	- 'label' - (Required) A display-friendly label for this property
+     * 	- 'name' - (Required) The name of a User Profile property
+     * 	- 'required' - (Required) Indicates if this property is required for enrollment. Default is 'false'.
      */
-    public readonly profileAttributes!: pulumi.Output<outputs.PolicyRuleProfileEnrollmentProfileAttribute[] | undefined>;
+    declare public readonly profileAttributes: pulumi.Output<outputs.PolicyRuleProfileEnrollmentProfileAttribute[] | undefined>;
     /**
      * Enabled or disabled progressive profiling action rule conditions: `ENABLED` or `DISABLED`. Default: `DISABLED`
      */
-    public readonly progressiveProfilingAction!: pulumi.Output<string | undefined>;
+    declare public readonly progressiveProfilingAction: pulumi.Output<string | undefined>;
     /**
      * Status of the rule
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
      * The ID of a Group that this User should be added to
      */
-    public readonly targetGroupId!: pulumi.Output<string | undefined>;
+    declare public readonly targetGroupId: pulumi.Output<string | undefined>;
     /**
      * Value created by the backend. If present all policy updates must include this attribute/value.
      */
-    public readonly uiSchemaId!: pulumi.Output<string | undefined>;
+    declare public readonly uiSchemaId: pulumi.Output<string | undefined>;
     /**
      * Which action should be taken if this User is new. Valid values are: `DENY`, `REGISTER`
      */
-    public readonly unknownUserAction!: pulumi.Output<string>;
+    declare public readonly unknownUserAction: pulumi.Output<string>;
 
     /**
      * Create a PolicyRuleProfileEnrollment resource with the given unique name, arguments, and options.
@@ -165,36 +164,36 @@ export class PolicyRuleProfileEnrollment extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PolicyRuleProfileEnrollmentState | undefined;
-            resourceInputs["access"] = state ? state.access : undefined;
-            resourceInputs["emailVerification"] = state ? state.emailVerification : undefined;
-            resourceInputs["enrollAuthenticatorTypes"] = state ? state.enrollAuthenticatorTypes : undefined;
-            resourceInputs["inlineHookId"] = state ? state.inlineHookId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["policyId"] = state ? state.policyId : undefined;
-            resourceInputs["profileAttributes"] = state ? state.profileAttributes : undefined;
-            resourceInputs["progressiveProfilingAction"] = state ? state.progressiveProfilingAction : undefined;
-            resourceInputs["status"] = state ? state.status : undefined;
-            resourceInputs["targetGroupId"] = state ? state.targetGroupId : undefined;
-            resourceInputs["uiSchemaId"] = state ? state.uiSchemaId : undefined;
-            resourceInputs["unknownUserAction"] = state ? state.unknownUserAction : undefined;
+            resourceInputs["access"] = state?.access;
+            resourceInputs["emailVerification"] = state?.emailVerification;
+            resourceInputs["enrollAuthenticatorTypes"] = state?.enrollAuthenticatorTypes;
+            resourceInputs["inlineHookId"] = state?.inlineHookId;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["policyId"] = state?.policyId;
+            resourceInputs["profileAttributes"] = state?.profileAttributes;
+            resourceInputs["progressiveProfilingAction"] = state?.progressiveProfilingAction;
+            resourceInputs["status"] = state?.status;
+            resourceInputs["targetGroupId"] = state?.targetGroupId;
+            resourceInputs["uiSchemaId"] = state?.uiSchemaId;
+            resourceInputs["unknownUserAction"] = state?.unknownUserAction;
         } else {
             const args = argsOrState as PolicyRuleProfileEnrollmentArgs | undefined;
-            if ((!args || args.policyId === undefined) && !opts.urn) {
+            if (args?.policyId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'policyId'");
             }
-            if ((!args || args.unknownUserAction === undefined) && !opts.urn) {
+            if (args?.unknownUserAction === undefined && !opts.urn) {
                 throw new Error("Missing required property 'unknownUserAction'");
             }
-            resourceInputs["access"] = args ? args.access : undefined;
-            resourceInputs["emailVerification"] = args ? args.emailVerification : undefined;
-            resourceInputs["enrollAuthenticatorTypes"] = args ? args.enrollAuthenticatorTypes : undefined;
-            resourceInputs["inlineHookId"] = args ? args.inlineHookId : undefined;
-            resourceInputs["policyId"] = args ? args.policyId : undefined;
-            resourceInputs["profileAttributes"] = args ? args.profileAttributes : undefined;
-            resourceInputs["progressiveProfilingAction"] = args ? args.progressiveProfilingAction : undefined;
-            resourceInputs["targetGroupId"] = args ? args.targetGroupId : undefined;
-            resourceInputs["uiSchemaId"] = args ? args.uiSchemaId : undefined;
-            resourceInputs["unknownUserAction"] = args ? args.unknownUserAction : undefined;
+            resourceInputs["access"] = args?.access;
+            resourceInputs["emailVerification"] = args?.emailVerification;
+            resourceInputs["enrollAuthenticatorTypes"] = args?.enrollAuthenticatorTypes;
+            resourceInputs["inlineHookId"] = args?.inlineHookId;
+            resourceInputs["policyId"] = args?.policyId;
+            resourceInputs["profileAttributes"] = args?.profileAttributes;
+            resourceInputs["progressiveProfilingAction"] = args?.progressiveProfilingAction;
+            resourceInputs["targetGroupId"] = args?.targetGroupId;
+            resourceInputs["uiSchemaId"] = args?.uiSchemaId;
+            resourceInputs["unknownUserAction"] = args?.unknownUserAction;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
         }
@@ -232,11 +231,10 @@ export interface PolicyRuleProfileEnrollmentState {
      */
     policyId?: pulumi.Input<string>;
     /**
-     * A list of attributes to prompt the user during registration or progressive profiling. Where defined on the User schema,
-     * these attributes are persisted in the User profile. Non-schema attributes may also be added, which aren't persisted to
-     * the User's profile, but are included in requests to the registration inline hook. A maximum of 10 Profile properties is
-     * supported. - 'label' - (Required) A display-friendly label for this property - 'name' - (Required) The name of a User
-     * Profile property - 'required' - (Required) Indicates if this property is required for enrollment. Default is 'false'.
+     * A list of attributes to prompt the user during registration or progressive profiling. Where defined on the User schema, these attributes are persisted in the User profile. Non-schema attributes may also be added, which aren't persisted to the User's profile, but are included in requests to the registration inline hook. A maximum of 10 Profile properties is supported.
+     * 	- 'label' - (Required) A display-friendly label for this property
+     * 	- 'name' - (Required) The name of a User Profile property
+     * 	- 'required' - (Required) Indicates if this property is required for enrollment. Default is 'false'.
      */
     profileAttributes?: pulumi.Input<pulumi.Input<inputs.PolicyRuleProfileEnrollmentProfileAttribute>[]>;
     /**
@@ -286,11 +284,10 @@ export interface PolicyRuleProfileEnrollmentArgs {
      */
     policyId: pulumi.Input<string>;
     /**
-     * A list of attributes to prompt the user during registration or progressive profiling. Where defined on the User schema,
-     * these attributes are persisted in the User profile. Non-schema attributes may also be added, which aren't persisted to
-     * the User's profile, but are included in requests to the registration inline hook. A maximum of 10 Profile properties is
-     * supported. - 'label' - (Required) A display-friendly label for this property - 'name' - (Required) The name of a User
-     * Profile property - 'required' - (Required) Indicates if this property is required for enrollment. Default is 'false'.
+     * A list of attributes to prompt the user during registration or progressive profiling. Where defined on the User schema, these attributes are persisted in the User profile. Non-schema attributes may also be added, which aren't persisted to the User's profile, but are included in requests to the registration inline hook. A maximum of 10 Profile properties is supported.
+     * 	- 'label' - (Required) A display-friendly label for this property
+     * 	- 'name' - (Required) The name of a User Profile property
+     * 	- 'required' - (Required) Indicates if this property is required for enrollment. Default is 'false'.
      */
     profileAttributes?: pulumi.Input<pulumi.Input<inputs.PolicyRuleProfileEnrollmentProfileAttribute>[]>;
     /**

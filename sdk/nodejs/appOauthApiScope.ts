@@ -62,15 +62,15 @@ export class AppOauthApiScope extends pulumi.CustomResource {
     /**
      * ID of the application.
      */
-    public readonly appId!: pulumi.Output<string>;
+    declare public readonly appId: pulumi.Output<string>;
     /**
      * The issuer of your Org Authorization Server, your Org URL.
      */
-    public readonly issuer!: pulumi.Output<string>;
+    declare public readonly issuer: pulumi.Output<string>;
     /**
      * Scopes of the application for which consent is granted.
      */
-    public readonly scopes!: pulumi.Output<string[]>;
+    declare public readonly scopes: pulumi.Output<string[]>;
 
     /**
      * Create a AppOauthApiScope resource with the given unique name, arguments, and options.
@@ -85,23 +85,23 @@ export class AppOauthApiScope extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AppOauthApiScopeState | undefined;
-            resourceInputs["appId"] = state ? state.appId : undefined;
-            resourceInputs["issuer"] = state ? state.issuer : undefined;
-            resourceInputs["scopes"] = state ? state.scopes : undefined;
+            resourceInputs["appId"] = state?.appId;
+            resourceInputs["issuer"] = state?.issuer;
+            resourceInputs["scopes"] = state?.scopes;
         } else {
             const args = argsOrState as AppOauthApiScopeArgs | undefined;
-            if ((!args || args.appId === undefined) && !opts.urn) {
+            if (args?.appId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'appId'");
             }
-            if ((!args || args.issuer === undefined) && !opts.urn) {
+            if (args?.issuer === undefined && !opts.urn) {
                 throw new Error("Missing required property 'issuer'");
             }
-            if ((!args || args.scopes === undefined) && !opts.urn) {
+            if (args?.scopes === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scopes'");
             }
-            resourceInputs["appId"] = args ? args.appId : undefined;
-            resourceInputs["issuer"] = args ? args.issuer : undefined;
-            resourceInputs["scopes"] = args ? args.scopes : undefined;
+            resourceInputs["appId"] = args?.appId;
+            resourceInputs["issuer"] = args?.issuer;
+            resourceInputs["scopes"] = args?.scopes;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(AppOauthApiScope.__pulumiType, name, resourceInputs, opts);

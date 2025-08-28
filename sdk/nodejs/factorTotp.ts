@@ -63,27 +63,27 @@ export class FactorTotp extends pulumi.CustomResource {
     /**
      * Clock drift interval. This setting allows you to build in tolerance for any drift between the token's current time and the server's current time. Valid values: `3`, `5`, `10`. Default is `3`.
      */
-    public readonly clockDriftInterval!: pulumi.Output<number | undefined>;
+    declare public readonly clockDriftInterval: pulumi.Output<number | undefined>;
     /**
      * HMAC Algorithm. Valid values: `HMacSHA1`, `HMacSHA256`, `HMacSHA512`. Default is `HMacSHA512`.
      */
-    public readonly hmacAlgorithm!: pulumi.Output<string | undefined>;
+    declare public readonly hmacAlgorithm: pulumi.Output<string | undefined>;
     /**
      * The TOTP name.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Length of the password. Default is `6`.
      */
-    public readonly otpLength!: pulumi.Output<number | undefined>;
+    declare public readonly otpLength: pulumi.Output<number | undefined>;
     /**
      * Shared secret encoding. Valid values: `base32`, `base64`, `hexadecimal`. Default is `base32`.
      */
-    public readonly sharedSecretEncoding!: pulumi.Output<string | undefined>;
+    declare public readonly sharedSecretEncoding: pulumi.Output<string | undefined>;
     /**
      * Time step in seconds. Valid values: `15`, `30`, `60`. Default is `15`.
      */
-    public readonly timeStep!: pulumi.Output<number | undefined>;
+    declare public readonly timeStep: pulumi.Output<number | undefined>;
 
     /**
      * Create a FactorTotp resource with the given unique name, arguments, and options.
@@ -98,20 +98,20 @@ export class FactorTotp extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FactorTotpState | undefined;
-            resourceInputs["clockDriftInterval"] = state ? state.clockDriftInterval : undefined;
-            resourceInputs["hmacAlgorithm"] = state ? state.hmacAlgorithm : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["otpLength"] = state ? state.otpLength : undefined;
-            resourceInputs["sharedSecretEncoding"] = state ? state.sharedSecretEncoding : undefined;
-            resourceInputs["timeStep"] = state ? state.timeStep : undefined;
+            resourceInputs["clockDriftInterval"] = state?.clockDriftInterval;
+            resourceInputs["hmacAlgorithm"] = state?.hmacAlgorithm;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["otpLength"] = state?.otpLength;
+            resourceInputs["sharedSecretEncoding"] = state?.sharedSecretEncoding;
+            resourceInputs["timeStep"] = state?.timeStep;
         } else {
             const args = argsOrState as FactorTotpArgs | undefined;
-            resourceInputs["clockDriftInterval"] = args ? args.clockDriftInterval : undefined;
-            resourceInputs["hmacAlgorithm"] = args ? args.hmacAlgorithm : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["otpLength"] = args ? args.otpLength : undefined;
-            resourceInputs["sharedSecretEncoding"] = args ? args.sharedSecretEncoding : undefined;
-            resourceInputs["timeStep"] = args ? args.timeStep : undefined;
+            resourceInputs["clockDriftInterval"] = args?.clockDriftInterval;
+            resourceInputs["hmacAlgorithm"] = args?.hmacAlgorithm;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["otpLength"] = args?.otpLength;
+            resourceInputs["sharedSecretEncoding"] = args?.sharedSecretEncoding;
+            resourceInputs["timeStep"] = args?.timeStep;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(FactorTotp.__pulumiType, name, resourceInputs, opts);

@@ -134,11 +134,10 @@ namespace Pulumi.Okta
         public Output<string> PolicyId { get; private set; } = null!;
 
         /// <summary>
-        /// A list of attributes to prompt the user during registration or progressive profiling. Where defined on the User schema,
-        /// these attributes are persisted in the User profile. Non-schema attributes may also be added, which aren't persisted to
-        /// the User's profile, but are included in requests to the registration inline hook. A maximum of 10 Profile properties is
-        /// supported. - 'label' - (Required) A display-friendly label for this property - 'name' - (Required) The name of a User
-        /// Profile property - 'required' - (Required) Indicates if this property is required for enrollment. Default is 'false'.
+        /// A list of attributes to prompt the user during registration or progressive profiling. Where defined on the User schema, these attributes are persisted in the User profile. Non-schema attributes may also be added, which aren't persisted to the User's profile, but are included in requests to the registration inline hook. A maximum of 10 Profile properties is supported.
+        /// 	- 'label' - (Required) A display-friendly label for this property
+        /// 	- 'name' - (Required) The name of a User Profile property
+        /// 	- 'required' - (Required) Indicates if this property is required for enrollment. Default is 'false'.
         /// </summary>
         [Output("profileAttributes")]
         public Output<ImmutableArray<Outputs.PolicyRuleProfileEnrollmentProfileAttribute>> ProfileAttributes { get; private set; } = null!;
@@ -259,11 +258,10 @@ namespace Pulumi.Okta
         private InputList<Inputs.PolicyRuleProfileEnrollmentProfileAttributeArgs>? _profileAttributes;
 
         /// <summary>
-        /// A list of attributes to prompt the user during registration or progressive profiling. Where defined on the User schema,
-        /// these attributes are persisted in the User profile. Non-schema attributes may also be added, which aren't persisted to
-        /// the User's profile, but are included in requests to the registration inline hook. A maximum of 10 Profile properties is
-        /// supported. - 'label' - (Required) A display-friendly label for this property - 'name' - (Required) The name of a User
-        /// Profile property - 'required' - (Required) Indicates if this property is required for enrollment. Default is 'false'.
+        /// A list of attributes to prompt the user during registration or progressive profiling. Where defined on the User schema, these attributes are persisted in the User profile. Non-schema attributes may also be added, which aren't persisted to the User's profile, but are included in requests to the registration inline hook. A maximum of 10 Profile properties is supported.
+        /// 	- 'label' - (Required) A display-friendly label for this property
+        /// 	- 'name' - (Required) The name of a User Profile property
+        /// 	- 'required' - (Required) Indicates if this property is required for enrollment. Default is 'false'.
         /// </summary>
         public InputList<Inputs.PolicyRuleProfileEnrollmentProfileAttributeArgs> ProfileAttributes
         {
@@ -349,11 +347,10 @@ namespace Pulumi.Okta
         private InputList<Inputs.PolicyRuleProfileEnrollmentProfileAttributeGetArgs>? _profileAttributes;
 
         /// <summary>
-        /// A list of attributes to prompt the user during registration or progressive profiling. Where defined on the User schema,
-        /// these attributes are persisted in the User profile. Non-schema attributes may also be added, which aren't persisted to
-        /// the User's profile, but are included in requests to the registration inline hook. A maximum of 10 Profile properties is
-        /// supported. - 'label' - (Required) A display-friendly label for this property - 'name' - (Required) The name of a User
-        /// Profile property - 'required' - (Required) Indicates if this property is required for enrollment. Default is 'false'.
+        /// A list of attributes to prompt the user during registration or progressive profiling. Where defined on the User schema, these attributes are persisted in the User profile. Non-schema attributes may also be added, which aren't persisted to the User's profile, but are included in requests to the registration inline hook. A maximum of 10 Profile properties is supported.
+        /// 	- 'label' - (Required) A display-friendly label for this property
+        /// 	- 'name' - (Required) The name of a User Profile property
+        /// 	- 'required' - (Required) Indicates if this property is required for enrollment. Default is 'false'.
         /// </summary>
         public InputList<Inputs.PolicyRuleProfileEnrollmentProfileAttributeGetArgs> ProfileAttributes
         {
