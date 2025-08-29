@@ -52,108 +52,108 @@ export class AppSignonPolicyRule extends pulumi.CustomResource {
     /**
      * Allow or deny access based on the rule conditions: ALLOW or DENY
      */
-    public readonly access!: pulumi.Output<string | undefined>;
+    declare public readonly access: pulumi.Output<string | undefined>;
     /**
      * Authentication method chains. Only supports 5 items in the array. Each chain can support maximum 3 steps. To be used only with verification method type `AUTH_METHOD_CHAIN`.
      */
-    public readonly chains!: pulumi.Output<string[] | undefined>;
+    declare public readonly chains: pulumi.Output<string[] | undefined>;
     /**
      * An array that contains nested Authenticator Constraint objects that are organized by the Authenticator class
      */
-    public readonly constraints!: pulumi.Output<string[] | undefined>;
+    declare public readonly constraints: pulumi.Output<string[] | undefined>;
     /**
      * This is an optional advanced setting. If the expression is formatted incorrectly or conflicts with conditions set above, the rule may not match any users.
      */
-    public readonly customExpression!: pulumi.Output<string | undefined>;
+    declare public readonly customExpression: pulumi.Output<string | undefined>;
     /**
      * List of device assurance IDs to include
      */
-    public readonly deviceAssurancesIncludeds!: pulumi.Output<string[] | undefined>;
+    declare public readonly deviceAssurancesIncludeds: pulumi.Output<string[] | undefined>;
     /**
      * If the device is managed. A device is managed if it's managed by a device management system. When managed is passed, registered must also be included and must be set to true.
      */
-    public readonly deviceIsManaged!: pulumi.Output<boolean | undefined>;
+    declare public readonly deviceIsManaged: pulumi.Output<boolean | undefined>;
     /**
      * If the device is registered. A device is registered if the User enrolls with Okta Verify that is installed on the device.
      */
-    public readonly deviceIsRegistered!: pulumi.Output<boolean | undefined>;
+    declare public readonly deviceIsRegistered: pulumi.Output<boolean | undefined>;
     /**
      * The number of factors required to satisfy this assurance level
      */
-    public readonly factorMode!: pulumi.Output<string | undefined>;
+    declare public readonly factorMode: pulumi.Output<string | undefined>;
     /**
      * List of group IDs to exclude
      */
-    public readonly groupsExcludeds!: pulumi.Output<string[] | undefined>;
+    declare public readonly groupsExcludeds: pulumi.Output<string[] | undefined>;
     /**
      * List of group IDs to include
      */
-    public readonly groupsIncludeds!: pulumi.Output<string[] | undefined>;
+    declare public readonly groupsIncludeds: pulumi.Output<string[] | undefined>;
     /**
      * The inactivity duration after which the end user must re-authenticate. Use the ISO 8601 Period format for recurring time intervals.
      */
-    public readonly inactivityPeriod!: pulumi.Output<string | undefined>;
+    declare public readonly inactivityPeriod: pulumi.Output<string | undefined>;
     /**
      * Policy Rule Name
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Network selection mode: ANYWHERE, ZONE, ON*NETWORK, or OFF*NETWORK.
      */
-    public readonly networkConnection!: pulumi.Output<string | undefined>;
+    declare public readonly networkConnection: pulumi.Output<string | undefined>;
     /**
      * The zones to exclude
      */
-    public readonly networkExcludes!: pulumi.Output<string[] | undefined>;
+    declare public readonly networkExcludes: pulumi.Output<string[] | undefined>;
     /**
      * The zones to include
      */
-    public readonly networkIncludes!: pulumi.Output<string[] | undefined>;
-    public readonly platformIncludes!: pulumi.Output<outputs.AppSignonPolicyRulePlatformInclude[] | undefined>;
+    declare public readonly networkIncludes: pulumi.Output<string[] | undefined>;
+    declare public readonly platformIncludes: pulumi.Output<outputs.AppSignonPolicyRulePlatformInclude[] | undefined>;
     /**
      * ID of the policy
      */
-    public readonly policyId!: pulumi.Output<string>;
+    declare public readonly policyId: pulumi.Output<string>;
     /**
      * Priority of the rule.
      */
-    public readonly priority!: pulumi.Output<number | undefined>;
+    declare public readonly priority: pulumi.Output<number | undefined>;
     /**
      * The duration after which the end user must re-authenticate, regardless of user activity. Use the ISO 8601 Period format for recurring time intervals. PT0S - Every sign-in attempt, PT43800H - Once per session
      */
-    public readonly reAuthenticationFrequency!: pulumi.Output<string | undefined>;
+    declare public readonly reAuthenticationFrequency: pulumi.Output<string | undefined>;
     /**
      * The risk score specifies a particular level of risk to match on: ANY, LOW, MEDIUM, HIGH
      */
-    public readonly riskScore!: pulumi.Output<string>;
+    declare public readonly riskScore: pulumi.Output<string>;
     /**
      * Status of the rule
      */
-    public readonly status!: pulumi.Output<string | undefined>;
+    declare public readonly status: pulumi.Output<string | undefined>;
     /**
      * Often the `Catch-all Rule` this rule is the system (default) rule for its associated policy
      */
-    public /*out*/ readonly system!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly system: pulumi.Output<boolean>;
     /**
      * The Verification Method type
      */
-    public readonly type!: pulumi.Output<string | undefined>;
+    declare public readonly type: pulumi.Output<string | undefined>;
     /**
      * Set of User Type IDs to exclude
      */
-    public readonly userTypesExcludeds!: pulumi.Output<string[] | undefined>;
+    declare public readonly userTypesExcludeds: pulumi.Output<string[] | undefined>;
     /**
      * Set of User Type IDs to include
      */
-    public readonly userTypesIncludeds!: pulumi.Output<string[] | undefined>;
+    declare public readonly userTypesIncludeds: pulumi.Output<string[] | undefined>;
     /**
      * Set of User IDs to exclude
      */
-    public readonly usersExcludeds!: pulumi.Output<string[] | undefined>;
+    declare public readonly usersExcludeds: pulumi.Output<string[] | undefined>;
     /**
      * Set of User IDs to include
      */
-    public readonly usersIncludeds!: pulumi.Output<string[] | undefined>;
+    declare public readonly usersIncludeds: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a AppSignonPolicyRule resource with the given unique name, arguments, and options.
@@ -168,64 +168,64 @@ export class AppSignonPolicyRule extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AppSignonPolicyRuleState | undefined;
-            resourceInputs["access"] = state ? state.access : undefined;
-            resourceInputs["chains"] = state ? state.chains : undefined;
-            resourceInputs["constraints"] = state ? state.constraints : undefined;
-            resourceInputs["customExpression"] = state ? state.customExpression : undefined;
-            resourceInputs["deviceAssurancesIncludeds"] = state ? state.deviceAssurancesIncludeds : undefined;
-            resourceInputs["deviceIsManaged"] = state ? state.deviceIsManaged : undefined;
-            resourceInputs["deviceIsRegistered"] = state ? state.deviceIsRegistered : undefined;
-            resourceInputs["factorMode"] = state ? state.factorMode : undefined;
-            resourceInputs["groupsExcludeds"] = state ? state.groupsExcludeds : undefined;
-            resourceInputs["groupsIncludeds"] = state ? state.groupsIncludeds : undefined;
-            resourceInputs["inactivityPeriod"] = state ? state.inactivityPeriod : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["networkConnection"] = state ? state.networkConnection : undefined;
-            resourceInputs["networkExcludes"] = state ? state.networkExcludes : undefined;
-            resourceInputs["networkIncludes"] = state ? state.networkIncludes : undefined;
-            resourceInputs["platformIncludes"] = state ? state.platformIncludes : undefined;
-            resourceInputs["policyId"] = state ? state.policyId : undefined;
-            resourceInputs["priority"] = state ? state.priority : undefined;
-            resourceInputs["reAuthenticationFrequency"] = state ? state.reAuthenticationFrequency : undefined;
-            resourceInputs["riskScore"] = state ? state.riskScore : undefined;
-            resourceInputs["status"] = state ? state.status : undefined;
-            resourceInputs["system"] = state ? state.system : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
-            resourceInputs["userTypesExcludeds"] = state ? state.userTypesExcludeds : undefined;
-            resourceInputs["userTypesIncludeds"] = state ? state.userTypesIncludeds : undefined;
-            resourceInputs["usersExcludeds"] = state ? state.usersExcludeds : undefined;
-            resourceInputs["usersIncludeds"] = state ? state.usersIncludeds : undefined;
+            resourceInputs["access"] = state?.access;
+            resourceInputs["chains"] = state?.chains;
+            resourceInputs["constraints"] = state?.constraints;
+            resourceInputs["customExpression"] = state?.customExpression;
+            resourceInputs["deviceAssurancesIncludeds"] = state?.deviceAssurancesIncludeds;
+            resourceInputs["deviceIsManaged"] = state?.deviceIsManaged;
+            resourceInputs["deviceIsRegistered"] = state?.deviceIsRegistered;
+            resourceInputs["factorMode"] = state?.factorMode;
+            resourceInputs["groupsExcludeds"] = state?.groupsExcludeds;
+            resourceInputs["groupsIncludeds"] = state?.groupsIncludeds;
+            resourceInputs["inactivityPeriod"] = state?.inactivityPeriod;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["networkConnection"] = state?.networkConnection;
+            resourceInputs["networkExcludes"] = state?.networkExcludes;
+            resourceInputs["networkIncludes"] = state?.networkIncludes;
+            resourceInputs["platformIncludes"] = state?.platformIncludes;
+            resourceInputs["policyId"] = state?.policyId;
+            resourceInputs["priority"] = state?.priority;
+            resourceInputs["reAuthenticationFrequency"] = state?.reAuthenticationFrequency;
+            resourceInputs["riskScore"] = state?.riskScore;
+            resourceInputs["status"] = state?.status;
+            resourceInputs["system"] = state?.system;
+            resourceInputs["type"] = state?.type;
+            resourceInputs["userTypesExcludeds"] = state?.userTypesExcludeds;
+            resourceInputs["userTypesIncludeds"] = state?.userTypesIncludeds;
+            resourceInputs["usersExcludeds"] = state?.usersExcludeds;
+            resourceInputs["usersIncludeds"] = state?.usersIncludeds;
         } else {
             const args = argsOrState as AppSignonPolicyRuleArgs | undefined;
-            if ((!args || args.policyId === undefined) && !opts.urn) {
+            if (args?.policyId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'policyId'");
             }
-            resourceInputs["access"] = args ? args.access : undefined;
-            resourceInputs["chains"] = args ? args.chains : undefined;
-            resourceInputs["constraints"] = args ? args.constraints : undefined;
-            resourceInputs["customExpression"] = args ? args.customExpression : undefined;
-            resourceInputs["deviceAssurancesIncludeds"] = args ? args.deviceAssurancesIncludeds : undefined;
-            resourceInputs["deviceIsManaged"] = args ? args.deviceIsManaged : undefined;
-            resourceInputs["deviceIsRegistered"] = args ? args.deviceIsRegistered : undefined;
-            resourceInputs["factorMode"] = args ? args.factorMode : undefined;
-            resourceInputs["groupsExcludeds"] = args ? args.groupsExcludeds : undefined;
-            resourceInputs["groupsIncludeds"] = args ? args.groupsIncludeds : undefined;
-            resourceInputs["inactivityPeriod"] = args ? args.inactivityPeriod : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["networkConnection"] = args ? args.networkConnection : undefined;
-            resourceInputs["networkExcludes"] = args ? args.networkExcludes : undefined;
-            resourceInputs["networkIncludes"] = args ? args.networkIncludes : undefined;
-            resourceInputs["platformIncludes"] = args ? args.platformIncludes : undefined;
-            resourceInputs["policyId"] = args ? args.policyId : undefined;
-            resourceInputs["priority"] = args ? args.priority : undefined;
-            resourceInputs["reAuthenticationFrequency"] = args ? args.reAuthenticationFrequency : undefined;
-            resourceInputs["riskScore"] = args ? args.riskScore : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
-            resourceInputs["userTypesExcludeds"] = args ? args.userTypesExcludeds : undefined;
-            resourceInputs["userTypesIncludeds"] = args ? args.userTypesIncludeds : undefined;
-            resourceInputs["usersExcludeds"] = args ? args.usersExcludeds : undefined;
-            resourceInputs["usersIncludeds"] = args ? args.usersIncludeds : undefined;
+            resourceInputs["access"] = args?.access;
+            resourceInputs["chains"] = args?.chains;
+            resourceInputs["constraints"] = args?.constraints;
+            resourceInputs["customExpression"] = args?.customExpression;
+            resourceInputs["deviceAssurancesIncludeds"] = args?.deviceAssurancesIncludeds;
+            resourceInputs["deviceIsManaged"] = args?.deviceIsManaged;
+            resourceInputs["deviceIsRegistered"] = args?.deviceIsRegistered;
+            resourceInputs["factorMode"] = args?.factorMode;
+            resourceInputs["groupsExcludeds"] = args?.groupsExcludeds;
+            resourceInputs["groupsIncludeds"] = args?.groupsIncludeds;
+            resourceInputs["inactivityPeriod"] = args?.inactivityPeriod;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["networkConnection"] = args?.networkConnection;
+            resourceInputs["networkExcludes"] = args?.networkExcludes;
+            resourceInputs["networkIncludes"] = args?.networkIncludes;
+            resourceInputs["platformIncludes"] = args?.platformIncludes;
+            resourceInputs["policyId"] = args?.policyId;
+            resourceInputs["priority"] = args?.priority;
+            resourceInputs["reAuthenticationFrequency"] = args?.reAuthenticationFrequency;
+            resourceInputs["riskScore"] = args?.riskScore;
+            resourceInputs["status"] = args?.status;
+            resourceInputs["type"] = args?.type;
+            resourceInputs["userTypesExcludeds"] = args?.userTypesExcludeds;
+            resourceInputs["userTypesIncludeds"] = args?.userTypesIncludeds;
+            resourceInputs["usersExcludeds"] = args?.usersExcludeds;
+            resourceInputs["usersIncludeds"] = args?.usersIncludeds;
             resourceInputs["system"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

@@ -52,19 +52,19 @@ export class ResourceSet extends pulumi.CustomResource {
     /**
      * A description of the Resource Set
      */
-    public readonly description!: pulumi.Output<string>;
+    declare public readonly description: pulumi.Output<string>;
     /**
      * Unique name given to the Resource Set
      */
-    public readonly label!: pulumi.Output<string>;
+    declare public readonly label: pulumi.Output<string>;
     /**
      * The endpoints that reference the resources to be included in the new Resource Set. At least one endpoint must be specified when creating resource set.
      */
-    public readonly resources!: pulumi.Output<string[] | undefined>;
+    declare public readonly resources: pulumi.Output<string[] | undefined>;
     /**
      * The orn(Okta Resource Name) of the resources to be included in the new Resource Set. At least one orn must be specified when creating resource set.
      */
-    public readonly resourcesOrns!: pulumi.Output<string[] | undefined>;
+    declare public readonly resourcesOrns: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a ResourceSet resource with the given unique name, arguments, and options.
@@ -79,22 +79,22 @@ export class ResourceSet extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ResourceSetState | undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["label"] = state ? state.label : undefined;
-            resourceInputs["resources"] = state ? state.resources : undefined;
-            resourceInputs["resourcesOrns"] = state ? state.resourcesOrns : undefined;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["label"] = state?.label;
+            resourceInputs["resources"] = state?.resources;
+            resourceInputs["resourcesOrns"] = state?.resourcesOrns;
         } else {
             const args = argsOrState as ResourceSetArgs | undefined;
-            if ((!args || args.description === undefined) && !opts.urn) {
+            if (args?.description === undefined && !opts.urn) {
                 throw new Error("Missing required property 'description'");
             }
-            if ((!args || args.label === undefined) && !opts.urn) {
+            if (args?.label === undefined && !opts.urn) {
                 throw new Error("Missing required property 'label'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["label"] = args ? args.label : undefined;
-            resourceInputs["resources"] = args ? args.resources : undefined;
-            resourceInputs["resourcesOrns"] = args ? args.resourcesOrns : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["label"] = args?.label;
+            resourceInputs["resources"] = args?.resources;
+            resourceInputs["resourcesOrns"] = args?.resourcesOrns;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ResourceSet.__pulumiType, name, resourceInputs, opts);

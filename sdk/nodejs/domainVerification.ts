@@ -48,7 +48,7 @@ export class DomainVerification extends pulumi.CustomResource {
     /**
      * Domain's ID
      */
-    public readonly domainId!: pulumi.Output<string>;
+    declare public readonly domainId: pulumi.Output<string>;
 
     /**
      * Create a DomainVerification resource with the given unique name, arguments, and options.
@@ -63,13 +63,13 @@ export class DomainVerification extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DomainVerificationState | undefined;
-            resourceInputs["domainId"] = state ? state.domainId : undefined;
+            resourceInputs["domainId"] = state?.domainId;
         } else {
             const args = argsOrState as DomainVerificationArgs | undefined;
-            if ((!args || args.domainId === undefined) && !opts.urn) {
+            if (args?.domainId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'domainId'");
             }
-            resourceInputs["domainId"] = args ? args.domainId : undefined;
+            resourceInputs["domainId"] = args?.domainId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(DomainVerification.__pulumiType, name, resourceInputs, opts);

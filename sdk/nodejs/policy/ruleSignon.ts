@@ -128,109 +128,106 @@ export class RuleSignon extends pulumi.CustomResource {
     /**
      * Allow or deny access based on the rule conditions: `ALLOW`, `DENY` or `CHALLENGE`. Default: `ALLOW`
      */
-    public readonly access!: pulumi.Output<string | undefined>;
+    declare public readonly access: pulumi.Output<string | undefined>;
     /**
      * Authentication entrypoint: `ANY`, `RADIUS` or `LDAP_INTERFACE`. Default: `ANY`
      */
-    public readonly authtype!: pulumi.Output<string | undefined>;
+    declare public readonly authtype: pulumi.Output<string | undefined>;
     /**
      * List of behavior IDs
      */
-    public readonly behaviors!: pulumi.Output<string[] | undefined>;
+    declare public readonly behaviors: pulumi.Output<string[] | undefined>;
     /**
-     * Auth factor sequences. Should be set if 'access = "CHALLENGE"'. - 'primary_criteria_provider' - (Required) Primary
-     * provider of the auth section. - 'primary_criteria_factor_type' - (Required) Primary factor type of the auth section. -
-     * 'secondary_criteria' - (Optional) Additional authentication steps. - 'provider' - (Required) Provider of the additional
-     * authentication step. - 'factor_type' - (Required) Factor type of the additional authentication step.
+     * Auth factor sequences. Should be set if 'access = "CHALLENGE"'.
+     * 	- 'primary_criteria_provider' - (Required) Primary provider of the auth section.
+     * 	- 'primary_criteria_factor_type' - (Required) Primary factor type of the auth section.
+     * 	- 'secondary_criteria' - (Optional) Additional authentication steps.
+     * 	- 'provider' - (Required) Provider of the additional authentication step.
+     * 	- 'factor_type' - (Required) Factor type of the additional authentication step.
      */
-    public readonly factorSequences!: pulumi.Output<outputs.policy.RuleSignonFactorSequence[] | undefined>;
+    declare public readonly factorSequences: pulumi.Output<outputs.policy.RuleSignonFactorSequence[] | undefined>;
     /**
-     * Apply rule based on the IdP used: `ANY`, `OKTA` or `SPECIFIC_IDP`. Default: `ANY`. > **WARNING**: Use of
-     * `identityProvider` requires a feature flag to be enabled.
+     * Apply rule based on the IdP used: `ANY`, `OKTA` or `SPECIFIC_IDP`. Default: `ANY`. > **WARNING**: Use of `identityProvider` requires a feature flag to be enabled.
      */
-    public readonly identityProvider!: pulumi.Output<string | undefined>;
+    declare public readonly identityProvider: pulumi.Output<string | undefined>;
     /**
      * When identityProvider is `SPECIFIC_IDP` then this is the list of IdP IDs to apply the rule on
      */
-    public readonly identityProviderIds!: pulumi.Output<string[] | undefined>;
+    declare public readonly identityProviderIds: pulumi.Output<string[] | undefined>;
     /**
      * Elapsed time before the next MFA challenge
      */
-    public readonly mfaLifetime!: pulumi.Output<number | undefined>;
+    declare public readonly mfaLifetime: pulumi.Output<number | undefined>;
     /**
-     * Prompt for MFA based on the device used, a factor session lifetime, or every sign-on attempt: `DEVICE`, `SESSION`
-     * or`ALWAYS`.
+     * Prompt for MFA based on the device used, a factor session lifetime, or every sign-on attempt: `DEVICE`, `SESSION` or`ALWAYS`.
      */
-    public readonly mfaPrompt!: pulumi.Output<string | undefined>;
+    declare public readonly mfaPrompt: pulumi.Output<string | undefined>;
     /**
      * Remember MFA device. Default: `false`
      */
-    public readonly mfaRememberDevice!: pulumi.Output<boolean | undefined>;
+    declare public readonly mfaRememberDevice: pulumi.Output<boolean | undefined>;
     /**
      * Require MFA. Default: `false`
      */
-    public readonly mfaRequired!: pulumi.Output<boolean | undefined>;
+    declare public readonly mfaRequired: pulumi.Output<boolean | undefined>;
     /**
      * Policy Rule Name
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Network selection mode: `ANYWHERE`, `ZONE`, `ON_NETWORK`, or `OFF_NETWORK`. Default: `ANYWHERE`
      */
-    public readonly networkConnection!: pulumi.Output<string | undefined>;
+    declare public readonly networkConnection: pulumi.Output<string | undefined>;
     /**
      * Required if `networkConnection` = `ZONE`. Indicates the network zones to exclude.
      */
-    public readonly networkExcludes!: pulumi.Output<string[] | undefined>;
+    declare public readonly networkExcludes: pulumi.Output<string[] | undefined>;
     /**
      * Required if `networkConnection` = `ZONE`. Indicates the network zones to include.
      */
-    public readonly networkIncludes!: pulumi.Output<string[] | undefined>;
+    declare public readonly networkIncludes: pulumi.Output<string[] | undefined>;
     /**
      * Policy ID of the Rule
      */
-    public readonly policyId!: pulumi.Output<string | undefined>;
+    declare public readonly policyId: pulumi.Output<string | undefined>;
     /**
-     * Rule's primary factor. **WARNING** Ony works as a part of the Identity Engine. Valid values: `PASSWORD_IDP_ANY_FACTOR`,
-     * `PASSWORD_IDP`.
+     * Rule's primary factor. **WARNING** Ony works as a part of the Identity Engine. Valid values: `PASSWORD_IDP_ANY_FACTOR`, `PASSWORD_IDP`.
      */
-    public readonly primaryFactor!: pulumi.Output<string>;
+    declare public readonly primaryFactor: pulumi.Output<string>;
     /**
-     * Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if
-     * an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
+     * Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
      */
-    public readonly priority!: pulumi.Output<number | undefined>;
+    declare public readonly priority: pulumi.Output<number | undefined>;
     /**
      * Risc level: ANY, LOW, MEDIUM or HIGH. Default: `ANY`
      *
      * @deprecated Attribute typo, switch to riskLevel instead. Default: `ANY`
      */
-    public readonly riscLevel!: pulumi.Output<string | undefined>;
+    declare public readonly riscLevel: pulumi.Output<string | undefined>;
     /**
      * Risk level: ANY, LOW, MEDIUM or HIGH. Default: `ANY`
      */
-    public readonly riskLevel!: pulumi.Output<string | undefined>;
+    declare public readonly riskLevel: pulumi.Output<string | undefined>;
     /**
      * Max minutes a session can be idle. Default: `120`
      */
-    public readonly sessionIdle!: pulumi.Output<number | undefined>;
+    declare public readonly sessionIdle: pulumi.Output<number | undefined>;
     /**
      * Max minutes a session is active: Disable = 0. Default: `120`
      */
-    public readonly sessionLifetime!: pulumi.Output<number | undefined>;
+    declare public readonly sessionLifetime: pulumi.Output<number | undefined>;
     /**
-     * Whether session cookies will last across browser sessions. Okta Administrators can never have persistent session
-     * cookies. Default: `false`
+     * Whether session cookies will last across browser sessions. Okta Administrators can never have persistent session cookies. Default: `false`
      */
-    public readonly sessionPersistent!: pulumi.Output<boolean | undefined>;
+    declare public readonly sessionPersistent: pulumi.Output<boolean | undefined>;
     /**
      * Policy Rule Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
      */
-    public readonly status!: pulumi.Output<string | undefined>;
+    declare public readonly status: pulumi.Output<string | undefined>;
     /**
      * Set of User IDs to Exclude
      */
-    public readonly usersExcludeds!: pulumi.Output<string[] | undefined>;
+    declare public readonly usersExcludeds: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a RuleSignon resource with the given unique name, arguments, and options.
@@ -245,56 +242,56 @@ export class RuleSignon extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RuleSignonState | undefined;
-            resourceInputs["access"] = state ? state.access : undefined;
-            resourceInputs["authtype"] = state ? state.authtype : undefined;
-            resourceInputs["behaviors"] = state ? state.behaviors : undefined;
-            resourceInputs["factorSequences"] = state ? state.factorSequences : undefined;
-            resourceInputs["identityProvider"] = state ? state.identityProvider : undefined;
-            resourceInputs["identityProviderIds"] = state ? state.identityProviderIds : undefined;
-            resourceInputs["mfaLifetime"] = state ? state.mfaLifetime : undefined;
-            resourceInputs["mfaPrompt"] = state ? state.mfaPrompt : undefined;
-            resourceInputs["mfaRememberDevice"] = state ? state.mfaRememberDevice : undefined;
-            resourceInputs["mfaRequired"] = state ? state.mfaRequired : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["networkConnection"] = state ? state.networkConnection : undefined;
-            resourceInputs["networkExcludes"] = state ? state.networkExcludes : undefined;
-            resourceInputs["networkIncludes"] = state ? state.networkIncludes : undefined;
-            resourceInputs["policyId"] = state ? state.policyId : undefined;
-            resourceInputs["primaryFactor"] = state ? state.primaryFactor : undefined;
-            resourceInputs["priority"] = state ? state.priority : undefined;
-            resourceInputs["riscLevel"] = state ? state.riscLevel : undefined;
-            resourceInputs["riskLevel"] = state ? state.riskLevel : undefined;
-            resourceInputs["sessionIdle"] = state ? state.sessionIdle : undefined;
-            resourceInputs["sessionLifetime"] = state ? state.sessionLifetime : undefined;
-            resourceInputs["sessionPersistent"] = state ? state.sessionPersistent : undefined;
-            resourceInputs["status"] = state ? state.status : undefined;
-            resourceInputs["usersExcludeds"] = state ? state.usersExcludeds : undefined;
+            resourceInputs["access"] = state?.access;
+            resourceInputs["authtype"] = state?.authtype;
+            resourceInputs["behaviors"] = state?.behaviors;
+            resourceInputs["factorSequences"] = state?.factorSequences;
+            resourceInputs["identityProvider"] = state?.identityProvider;
+            resourceInputs["identityProviderIds"] = state?.identityProviderIds;
+            resourceInputs["mfaLifetime"] = state?.mfaLifetime;
+            resourceInputs["mfaPrompt"] = state?.mfaPrompt;
+            resourceInputs["mfaRememberDevice"] = state?.mfaRememberDevice;
+            resourceInputs["mfaRequired"] = state?.mfaRequired;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["networkConnection"] = state?.networkConnection;
+            resourceInputs["networkExcludes"] = state?.networkExcludes;
+            resourceInputs["networkIncludes"] = state?.networkIncludes;
+            resourceInputs["policyId"] = state?.policyId;
+            resourceInputs["primaryFactor"] = state?.primaryFactor;
+            resourceInputs["priority"] = state?.priority;
+            resourceInputs["riscLevel"] = state?.riscLevel;
+            resourceInputs["riskLevel"] = state?.riskLevel;
+            resourceInputs["sessionIdle"] = state?.sessionIdle;
+            resourceInputs["sessionLifetime"] = state?.sessionLifetime;
+            resourceInputs["sessionPersistent"] = state?.sessionPersistent;
+            resourceInputs["status"] = state?.status;
+            resourceInputs["usersExcludeds"] = state?.usersExcludeds;
         } else {
             const args = argsOrState as RuleSignonArgs | undefined;
-            resourceInputs["access"] = args ? args.access : undefined;
-            resourceInputs["authtype"] = args ? args.authtype : undefined;
-            resourceInputs["behaviors"] = args ? args.behaviors : undefined;
-            resourceInputs["factorSequences"] = args ? args.factorSequences : undefined;
-            resourceInputs["identityProvider"] = args ? args.identityProvider : undefined;
-            resourceInputs["identityProviderIds"] = args ? args.identityProviderIds : undefined;
-            resourceInputs["mfaLifetime"] = args ? args.mfaLifetime : undefined;
-            resourceInputs["mfaPrompt"] = args ? args.mfaPrompt : undefined;
-            resourceInputs["mfaRememberDevice"] = args ? args.mfaRememberDevice : undefined;
-            resourceInputs["mfaRequired"] = args ? args.mfaRequired : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["networkConnection"] = args ? args.networkConnection : undefined;
-            resourceInputs["networkExcludes"] = args ? args.networkExcludes : undefined;
-            resourceInputs["networkIncludes"] = args ? args.networkIncludes : undefined;
-            resourceInputs["policyId"] = args ? args.policyId : undefined;
-            resourceInputs["primaryFactor"] = args ? args.primaryFactor : undefined;
-            resourceInputs["priority"] = args ? args.priority : undefined;
-            resourceInputs["riscLevel"] = args ? args.riscLevel : undefined;
-            resourceInputs["riskLevel"] = args ? args.riskLevel : undefined;
-            resourceInputs["sessionIdle"] = args ? args.sessionIdle : undefined;
-            resourceInputs["sessionLifetime"] = args ? args.sessionLifetime : undefined;
-            resourceInputs["sessionPersistent"] = args ? args.sessionPersistent : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
-            resourceInputs["usersExcludeds"] = args ? args.usersExcludeds : undefined;
+            resourceInputs["access"] = args?.access;
+            resourceInputs["authtype"] = args?.authtype;
+            resourceInputs["behaviors"] = args?.behaviors;
+            resourceInputs["factorSequences"] = args?.factorSequences;
+            resourceInputs["identityProvider"] = args?.identityProvider;
+            resourceInputs["identityProviderIds"] = args?.identityProviderIds;
+            resourceInputs["mfaLifetime"] = args?.mfaLifetime;
+            resourceInputs["mfaPrompt"] = args?.mfaPrompt;
+            resourceInputs["mfaRememberDevice"] = args?.mfaRememberDevice;
+            resourceInputs["mfaRequired"] = args?.mfaRequired;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["networkConnection"] = args?.networkConnection;
+            resourceInputs["networkExcludes"] = args?.networkExcludes;
+            resourceInputs["networkIncludes"] = args?.networkIncludes;
+            resourceInputs["policyId"] = args?.policyId;
+            resourceInputs["primaryFactor"] = args?.primaryFactor;
+            resourceInputs["priority"] = args?.priority;
+            resourceInputs["riscLevel"] = args?.riscLevel;
+            resourceInputs["riskLevel"] = args?.riskLevel;
+            resourceInputs["sessionIdle"] = args?.sessionIdle;
+            resourceInputs["sessionLifetime"] = args?.sessionLifetime;
+            resourceInputs["sessionPersistent"] = args?.sessionPersistent;
+            resourceInputs["status"] = args?.status;
+            resourceInputs["usersExcludeds"] = args?.usersExcludeds;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(RuleSignon.__pulumiType, name, resourceInputs, opts);
@@ -318,15 +315,16 @@ export interface RuleSignonState {
      */
     behaviors?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Auth factor sequences. Should be set if 'access = "CHALLENGE"'. - 'primary_criteria_provider' - (Required) Primary
-     * provider of the auth section. - 'primary_criteria_factor_type' - (Required) Primary factor type of the auth section. -
-     * 'secondary_criteria' - (Optional) Additional authentication steps. - 'provider' - (Required) Provider of the additional
-     * authentication step. - 'factor_type' - (Required) Factor type of the additional authentication step.
+     * Auth factor sequences. Should be set if 'access = "CHALLENGE"'.
+     * 	- 'primary_criteria_provider' - (Required) Primary provider of the auth section.
+     * 	- 'primary_criteria_factor_type' - (Required) Primary factor type of the auth section.
+     * 	- 'secondary_criteria' - (Optional) Additional authentication steps.
+     * 	- 'provider' - (Required) Provider of the additional authentication step.
+     * 	- 'factor_type' - (Required) Factor type of the additional authentication step.
      */
     factorSequences?: pulumi.Input<pulumi.Input<inputs.policy.RuleSignonFactorSequence>[]>;
     /**
-     * Apply rule based on the IdP used: `ANY`, `OKTA` or `SPECIFIC_IDP`. Default: `ANY`. > **WARNING**: Use of
-     * `identityProvider` requires a feature flag to be enabled.
+     * Apply rule based on the IdP used: `ANY`, `OKTA` or `SPECIFIC_IDP`. Default: `ANY`. > **WARNING**: Use of `identityProvider` requires a feature flag to be enabled.
      */
     identityProvider?: pulumi.Input<string>;
     /**
@@ -338,8 +336,7 @@ export interface RuleSignonState {
      */
     mfaLifetime?: pulumi.Input<number>;
     /**
-     * Prompt for MFA based on the device used, a factor session lifetime, or every sign-on attempt: `DEVICE`, `SESSION`
-     * or`ALWAYS`.
+     * Prompt for MFA based on the device used, a factor session lifetime, or every sign-on attempt: `DEVICE`, `SESSION` or`ALWAYS`.
      */
     mfaPrompt?: pulumi.Input<string>;
     /**
@@ -371,13 +368,11 @@ export interface RuleSignonState {
      */
     policyId?: pulumi.Input<string>;
     /**
-     * Rule's primary factor. **WARNING** Ony works as a part of the Identity Engine. Valid values: `PASSWORD_IDP_ANY_FACTOR`,
-     * `PASSWORD_IDP`.
+     * Rule's primary factor. **WARNING** Ony works as a part of the Identity Engine. Valid values: `PASSWORD_IDP_ANY_FACTOR`, `PASSWORD_IDP`.
      */
     primaryFactor?: pulumi.Input<string>;
     /**
-     * Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if
-     * an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
+     * Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
      */
     priority?: pulumi.Input<number>;
     /**
@@ -399,8 +394,7 @@ export interface RuleSignonState {
      */
     sessionLifetime?: pulumi.Input<number>;
     /**
-     * Whether session cookies will last across browser sessions. Okta Administrators can never have persistent session
-     * cookies. Default: `false`
+     * Whether session cookies will last across browser sessions. Okta Administrators can never have persistent session cookies. Default: `false`
      */
     sessionPersistent?: pulumi.Input<boolean>;
     /**
@@ -430,15 +424,16 @@ export interface RuleSignonArgs {
      */
     behaviors?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Auth factor sequences. Should be set if 'access = "CHALLENGE"'. - 'primary_criteria_provider' - (Required) Primary
-     * provider of the auth section. - 'primary_criteria_factor_type' - (Required) Primary factor type of the auth section. -
-     * 'secondary_criteria' - (Optional) Additional authentication steps. - 'provider' - (Required) Provider of the additional
-     * authentication step. - 'factor_type' - (Required) Factor type of the additional authentication step.
+     * Auth factor sequences. Should be set if 'access = "CHALLENGE"'.
+     * 	- 'primary_criteria_provider' - (Required) Primary provider of the auth section.
+     * 	- 'primary_criteria_factor_type' - (Required) Primary factor type of the auth section.
+     * 	- 'secondary_criteria' - (Optional) Additional authentication steps.
+     * 	- 'provider' - (Required) Provider of the additional authentication step.
+     * 	- 'factor_type' - (Required) Factor type of the additional authentication step.
      */
     factorSequences?: pulumi.Input<pulumi.Input<inputs.policy.RuleSignonFactorSequence>[]>;
     /**
-     * Apply rule based on the IdP used: `ANY`, `OKTA` or `SPECIFIC_IDP`. Default: `ANY`. > **WARNING**: Use of
-     * `identityProvider` requires a feature flag to be enabled.
+     * Apply rule based on the IdP used: `ANY`, `OKTA` or `SPECIFIC_IDP`. Default: `ANY`. > **WARNING**: Use of `identityProvider` requires a feature flag to be enabled.
      */
     identityProvider?: pulumi.Input<string>;
     /**
@@ -450,8 +445,7 @@ export interface RuleSignonArgs {
      */
     mfaLifetime?: pulumi.Input<number>;
     /**
-     * Prompt for MFA based on the device used, a factor session lifetime, or every sign-on attempt: `DEVICE`, `SESSION`
-     * or`ALWAYS`.
+     * Prompt for MFA based on the device used, a factor session lifetime, or every sign-on attempt: `DEVICE`, `SESSION` or`ALWAYS`.
      */
     mfaPrompt?: pulumi.Input<string>;
     /**
@@ -483,13 +477,11 @@ export interface RuleSignonArgs {
      */
     policyId?: pulumi.Input<string>;
     /**
-     * Rule's primary factor. **WARNING** Ony works as a part of the Identity Engine. Valid values: `PASSWORD_IDP_ANY_FACTOR`,
-     * `PASSWORD_IDP`.
+     * Rule's primary factor. **WARNING** Ony works as a part of the Identity Engine. Valid values: `PASSWORD_IDP_ANY_FACTOR`, `PASSWORD_IDP`.
      */
     primaryFactor?: pulumi.Input<string>;
     /**
-     * Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if
-     * an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
+     * Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
      */
     priority?: pulumi.Input<number>;
     /**
@@ -511,8 +503,7 @@ export interface RuleSignonArgs {
      */
     sessionLifetime?: pulumi.Input<number>;
     /**
-     * Whether session cookies will last across browser sessions. Okta Administrators can never have persistent session
-     * cookies. Default: `false`
+     * Whether session cookies will last across browser sessions. Okta Administrators can never have persistent session cookies. Default: `false`
      */
     sessionPersistent?: pulumi.Input<boolean>;
     /**

@@ -58,71 +58,71 @@ export class OrgConfiguration extends pulumi.CustomResource {
     /**
      * Primary address of org
      */
-    public readonly address1!: pulumi.Output<string | undefined>;
+    declare public readonly address1: pulumi.Output<string | undefined>;
     /**
      * Secondary address of org
      */
-    public readonly address2!: pulumi.Output<string | undefined>;
+    declare public readonly address2: pulumi.Output<string | undefined>;
     /**
      * User ID representing the billing contact
      */
-    public readonly billingContactUser!: pulumi.Output<string | undefined>;
+    declare public readonly billingContactUser: pulumi.Output<string | undefined>;
     /**
      * City of org
      */
-    public readonly city!: pulumi.Output<string | undefined>;
+    declare public readonly city: pulumi.Output<string | undefined>;
     /**
      * Name of org
      */
-    public readonly companyName!: pulumi.Output<string>;
+    declare public readonly companyName: pulumi.Output<string>;
     /**
      * Country of org
      */
-    public readonly country!: pulumi.Output<string | undefined>;
+    declare public readonly country: pulumi.Output<string | undefined>;
     /**
      * Support link of org
      */
-    public readonly endUserSupportHelpUrl!: pulumi.Output<string | undefined>;
+    declare public readonly endUserSupportHelpUrl: pulumi.Output<string | undefined>;
     /**
      * Expiration of org
      */
-    public /*out*/ readonly expiresAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly expiresAt: pulumi.Output<string>;
     /**
      * Logo of org. The file must be in PNG, JPG, or GIF format and less than 1 MB in size. For best results use landscape orientation, a transparent background, and a minimum size of 420px by 120px to prevent upscaling.
      */
-    public readonly logo!: pulumi.Output<string | undefined>;
+    declare public readonly logo: pulumi.Output<string | undefined>;
     /**
      * Indicates whether the org's users receive Okta Communication emails
      */
-    public readonly optOutCommunicationEmails!: pulumi.Output<boolean | undefined>;
+    declare public readonly optOutCommunicationEmails: pulumi.Output<boolean | undefined>;
     /**
      * Support help phone of org
      */
-    public readonly phoneNumber!: pulumi.Output<string | undefined>;
+    declare public readonly phoneNumber: pulumi.Output<string | undefined>;
     /**
      * Postal code of org
      */
-    public readonly postalCode!: pulumi.Output<string | undefined>;
+    declare public readonly postalCode: pulumi.Output<string | undefined>;
     /**
      * State of org
      */
-    public readonly state!: pulumi.Output<string | undefined>;
+    declare public readonly state: pulumi.Output<string | undefined>;
     /**
      * Subdomain of org
      */
-    public /*out*/ readonly subdomain!: pulumi.Output<string>;
+    declare public /*out*/ readonly subdomain: pulumi.Output<string>;
     /**
      * Support help phone of org
      */
-    public readonly supportPhoneNumber!: pulumi.Output<string | undefined>;
+    declare public readonly supportPhoneNumber: pulumi.Output<string | undefined>;
     /**
      * User ID representing the technical contact
      */
-    public readonly technicalContactUser!: pulumi.Output<string | undefined>;
+    declare public readonly technicalContactUser: pulumi.Output<string | undefined>;
     /**
      * The org's website
      */
-    public readonly website!: pulumi.Output<string | undefined>;
+    declare public readonly website: pulumi.Output<string | undefined>;
 
     /**
      * Create a OrgConfiguration resource with the given unique name, arguments, and options.
@@ -137,43 +137,43 @@ export class OrgConfiguration extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as OrgConfigurationState | undefined;
-            resourceInputs["address1"] = state ? state.address1 : undefined;
-            resourceInputs["address2"] = state ? state.address2 : undefined;
-            resourceInputs["billingContactUser"] = state ? state.billingContactUser : undefined;
-            resourceInputs["city"] = state ? state.city : undefined;
-            resourceInputs["companyName"] = state ? state.companyName : undefined;
-            resourceInputs["country"] = state ? state.country : undefined;
-            resourceInputs["endUserSupportHelpUrl"] = state ? state.endUserSupportHelpUrl : undefined;
-            resourceInputs["expiresAt"] = state ? state.expiresAt : undefined;
-            resourceInputs["logo"] = state ? state.logo : undefined;
-            resourceInputs["optOutCommunicationEmails"] = state ? state.optOutCommunicationEmails : undefined;
-            resourceInputs["phoneNumber"] = state ? state.phoneNumber : undefined;
-            resourceInputs["postalCode"] = state ? state.postalCode : undefined;
-            resourceInputs["state"] = state ? state.state : undefined;
-            resourceInputs["subdomain"] = state ? state.subdomain : undefined;
-            resourceInputs["supportPhoneNumber"] = state ? state.supportPhoneNumber : undefined;
-            resourceInputs["technicalContactUser"] = state ? state.technicalContactUser : undefined;
-            resourceInputs["website"] = state ? state.website : undefined;
+            resourceInputs["address1"] = state?.address1;
+            resourceInputs["address2"] = state?.address2;
+            resourceInputs["billingContactUser"] = state?.billingContactUser;
+            resourceInputs["city"] = state?.city;
+            resourceInputs["companyName"] = state?.companyName;
+            resourceInputs["country"] = state?.country;
+            resourceInputs["endUserSupportHelpUrl"] = state?.endUserSupportHelpUrl;
+            resourceInputs["expiresAt"] = state?.expiresAt;
+            resourceInputs["logo"] = state?.logo;
+            resourceInputs["optOutCommunicationEmails"] = state?.optOutCommunicationEmails;
+            resourceInputs["phoneNumber"] = state?.phoneNumber;
+            resourceInputs["postalCode"] = state?.postalCode;
+            resourceInputs["state"] = state?.state;
+            resourceInputs["subdomain"] = state?.subdomain;
+            resourceInputs["supportPhoneNumber"] = state?.supportPhoneNumber;
+            resourceInputs["technicalContactUser"] = state?.technicalContactUser;
+            resourceInputs["website"] = state?.website;
         } else {
             const args = argsOrState as OrgConfigurationArgs | undefined;
-            if ((!args || args.companyName === undefined) && !opts.urn) {
+            if (args?.companyName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'companyName'");
             }
-            resourceInputs["address1"] = args ? args.address1 : undefined;
-            resourceInputs["address2"] = args ? args.address2 : undefined;
-            resourceInputs["billingContactUser"] = args ? args.billingContactUser : undefined;
-            resourceInputs["city"] = args ? args.city : undefined;
-            resourceInputs["companyName"] = args ? args.companyName : undefined;
-            resourceInputs["country"] = args ? args.country : undefined;
-            resourceInputs["endUserSupportHelpUrl"] = args ? args.endUserSupportHelpUrl : undefined;
-            resourceInputs["logo"] = args ? args.logo : undefined;
-            resourceInputs["optOutCommunicationEmails"] = args ? args.optOutCommunicationEmails : undefined;
-            resourceInputs["phoneNumber"] = args ? args.phoneNumber : undefined;
-            resourceInputs["postalCode"] = args ? args.postalCode : undefined;
-            resourceInputs["state"] = args ? args.state : undefined;
-            resourceInputs["supportPhoneNumber"] = args ? args.supportPhoneNumber : undefined;
-            resourceInputs["technicalContactUser"] = args ? args.technicalContactUser : undefined;
-            resourceInputs["website"] = args ? args.website : undefined;
+            resourceInputs["address1"] = args?.address1;
+            resourceInputs["address2"] = args?.address2;
+            resourceInputs["billingContactUser"] = args?.billingContactUser;
+            resourceInputs["city"] = args?.city;
+            resourceInputs["companyName"] = args?.companyName;
+            resourceInputs["country"] = args?.country;
+            resourceInputs["endUserSupportHelpUrl"] = args?.endUserSupportHelpUrl;
+            resourceInputs["logo"] = args?.logo;
+            resourceInputs["optOutCommunicationEmails"] = args?.optOutCommunicationEmails;
+            resourceInputs["phoneNumber"] = args?.phoneNumber;
+            resourceInputs["postalCode"] = args?.postalCode;
+            resourceInputs["state"] = args?.state;
+            resourceInputs["supportPhoneNumber"] = args?.supportPhoneNumber;
+            resourceInputs["technicalContactUser"] = args?.technicalContactUser;
+            resourceInputs["website"] = args?.website;
             resourceInputs["expiresAt"] = undefined /*out*/;
             resourceInputs["subdomain"] = undefined /*out*/;
         }

@@ -58,35 +58,35 @@ export class AuthServerClaimDefault extends pulumi.CustomResource {
     /**
      * Specifies whether to include claims in token.
      */
-    public readonly alwaysIncludeInToken!: pulumi.Output<boolean>;
+    declare public readonly alwaysIncludeInToken: pulumi.Output<boolean>;
     /**
      * ID of the authorization server.
      */
-    public readonly authServerId!: pulumi.Output<string>;
+    declare public readonly authServerId: pulumi.Output<string>;
     /**
      * Specifies whether the claim is for an access token `RESOURCE` or ID token `IDENTITY`.
      */
-    public /*out*/ readonly claimType!: pulumi.Output<string>;
+    declare public /*out*/ readonly claimType: pulumi.Output<string>;
     /**
      * The name of the claim. Can be set to `sub`, `address`, `birthdate`, `email`,`emailVerified`, `familyName`, `gender`, `givenName`, `locale`, `middleName`, `name`, `nickname`,`phoneNumber`, `picture`, `preferredUsername`, `profile`, `updatedAt`, `website`, `zoneinfo`
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Auth server claim list of scopes
      */
-    public /*out*/ readonly scopes!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly scopes: pulumi.Output<string[]>;
     /**
      * The status of the application.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
      * The value of the claim. Only required for `sub` claim.
      */
-    public readonly value!: pulumi.Output<string | undefined>;
+    declare public readonly value: pulumi.Output<string | undefined>;
     /**
      * The type of value of the claim.
      */
-    public /*out*/ readonly valueType!: pulumi.Output<string>;
+    declare public /*out*/ readonly valueType: pulumi.Output<string>;
 
     /**
      * Create a AuthServerClaimDefault resource with the given unique name, arguments, and options.
@@ -101,23 +101,23 @@ export class AuthServerClaimDefault extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AuthServerClaimDefaultState | undefined;
-            resourceInputs["alwaysIncludeInToken"] = state ? state.alwaysIncludeInToken : undefined;
-            resourceInputs["authServerId"] = state ? state.authServerId : undefined;
-            resourceInputs["claimType"] = state ? state.claimType : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["scopes"] = state ? state.scopes : undefined;
-            resourceInputs["status"] = state ? state.status : undefined;
-            resourceInputs["value"] = state ? state.value : undefined;
-            resourceInputs["valueType"] = state ? state.valueType : undefined;
+            resourceInputs["alwaysIncludeInToken"] = state?.alwaysIncludeInToken;
+            resourceInputs["authServerId"] = state?.authServerId;
+            resourceInputs["claimType"] = state?.claimType;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["scopes"] = state?.scopes;
+            resourceInputs["status"] = state?.status;
+            resourceInputs["value"] = state?.value;
+            resourceInputs["valueType"] = state?.valueType;
         } else {
             const args = argsOrState as AuthServerClaimDefaultArgs | undefined;
-            if ((!args || args.authServerId === undefined) && !opts.urn) {
+            if (args?.authServerId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'authServerId'");
             }
-            resourceInputs["alwaysIncludeInToken"] = args ? args.alwaysIncludeInToken : undefined;
-            resourceInputs["authServerId"] = args ? args.authServerId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["value"] = args ? args.value : undefined;
+            resourceInputs["alwaysIncludeInToken"] = args?.alwaysIncludeInToken;
+            resourceInputs["authServerId"] = args?.authServerId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["value"] = args?.value;
             resourceInputs["claimType"] = undefined /*out*/;
             resourceInputs["scopes"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;

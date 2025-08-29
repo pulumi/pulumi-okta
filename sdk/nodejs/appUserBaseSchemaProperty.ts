@@ -59,39 +59,39 @@ export class AppUserBaseSchemaProperty extends pulumi.CustomResource {
     /**
      * The Application's ID the user schema property should be assigned to.
      */
-    public readonly appId!: pulumi.Output<string>;
+    declare public readonly appId: pulumi.Output<string>;
     /**
      * Subschema unique string identifier
      */
-    public readonly index!: pulumi.Output<string>;
+    declare public readonly index: pulumi.Output<string>;
     /**
      * Master priority for the user schema property. It can be set to `PROFILE_MASTER` or `OKTA`. Default: `PROFILE_MASTER`
      */
-    public readonly master!: pulumi.Output<string | undefined>;
+    declare public readonly master: pulumi.Output<string | undefined>;
     /**
      * The validation pattern to use for the subschema. Must be in form of '.+', or '[\n\n]+' if present.'
      */
-    public readonly pattern!: pulumi.Output<string | undefined>;
+    declare public readonly pattern: pulumi.Output<string | undefined>;
     /**
      * Access control permissions for the property. It can be set to `READ_WRITE`, `READ_ONLY`, `HIDE`. Default: `READ_ONLY`
      */
-    public readonly permissions!: pulumi.Output<string | undefined>;
+    declare public readonly permissions: pulumi.Output<string | undefined>;
     /**
      * Whether the subschema is required
      */
-    public readonly required!: pulumi.Output<boolean | undefined>;
+    declare public readonly required: pulumi.Output<boolean | undefined>;
     /**
      * Subschema title (display name)
      */
-    public readonly title!: pulumi.Output<string>;
+    declare public readonly title: pulumi.Output<string>;
     /**
      * The type of the schema property. It can be `string`, `boolean`, `number`, `integer`, `array`, or `object`
      */
-    public readonly type!: pulumi.Output<string>;
+    declare public readonly type: pulumi.Output<string>;
     /**
      * User type ID. By default, it is `default`
      */
-    public readonly userType!: pulumi.Output<string | undefined>;
+    declare public readonly userType: pulumi.Output<string | undefined>;
 
     /**
      * Create a AppUserBaseSchemaProperty resource with the given unique name, arguments, and options.
@@ -106,38 +106,38 @@ export class AppUserBaseSchemaProperty extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AppUserBaseSchemaPropertyState | undefined;
-            resourceInputs["appId"] = state ? state.appId : undefined;
-            resourceInputs["index"] = state ? state.index : undefined;
-            resourceInputs["master"] = state ? state.master : undefined;
-            resourceInputs["pattern"] = state ? state.pattern : undefined;
-            resourceInputs["permissions"] = state ? state.permissions : undefined;
-            resourceInputs["required"] = state ? state.required : undefined;
-            resourceInputs["title"] = state ? state.title : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
-            resourceInputs["userType"] = state ? state.userType : undefined;
+            resourceInputs["appId"] = state?.appId;
+            resourceInputs["index"] = state?.index;
+            resourceInputs["master"] = state?.master;
+            resourceInputs["pattern"] = state?.pattern;
+            resourceInputs["permissions"] = state?.permissions;
+            resourceInputs["required"] = state?.required;
+            resourceInputs["title"] = state?.title;
+            resourceInputs["type"] = state?.type;
+            resourceInputs["userType"] = state?.userType;
         } else {
             const args = argsOrState as AppUserBaseSchemaPropertyArgs | undefined;
-            if ((!args || args.appId === undefined) && !opts.urn) {
+            if (args?.appId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'appId'");
             }
-            if ((!args || args.index === undefined) && !opts.urn) {
+            if (args?.index === undefined && !opts.urn) {
                 throw new Error("Missing required property 'index'");
             }
-            if ((!args || args.title === undefined) && !opts.urn) {
+            if (args?.title === undefined && !opts.urn) {
                 throw new Error("Missing required property 'title'");
             }
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["appId"] = args ? args.appId : undefined;
-            resourceInputs["index"] = args ? args.index : undefined;
-            resourceInputs["master"] = args ? args.master : undefined;
-            resourceInputs["pattern"] = args ? args.pattern : undefined;
-            resourceInputs["permissions"] = args ? args.permissions : undefined;
-            resourceInputs["required"] = args ? args.required : undefined;
-            resourceInputs["title"] = args ? args.title : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
-            resourceInputs["userType"] = args ? args.userType : undefined;
+            resourceInputs["appId"] = args?.appId;
+            resourceInputs["index"] = args?.index;
+            resourceInputs["master"] = args?.master;
+            resourceInputs["pattern"] = args?.pattern;
+            resourceInputs["permissions"] = args?.permissions;
+            resourceInputs["required"] = args?.required;
+            resourceInputs["title"] = args?.title;
+            resourceInputs["type"] = args?.type;
+            resourceInputs["userType"] = args?.userType;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(AppUserBaseSchemaProperty.__pulumiType, name, resourceInputs, opts);

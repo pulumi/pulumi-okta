@@ -57,31 +57,31 @@ export class Rule extends pulumi.CustomResource {
     /**
      * The expression type to use to invoke the rule. The default is `urn:okta:expression:1.0`.
      */
-    public readonly expressionType!: pulumi.Output<string | undefined>;
+    declare public readonly expressionType: pulumi.Output<string | undefined>;
     /**
      * The expression value.
      */
-    public readonly expressionValue!: pulumi.Output<string>;
+    declare public readonly expressionValue: pulumi.Output<string>;
     /**
      * The list of group ids to assign the users to.
      */
-    public readonly groupAssignments!: pulumi.Output<string[]>;
+    declare public readonly groupAssignments: pulumi.Output<string[]>;
     /**
      * The name of the Group Rule (min character 1; max characters 50).
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Remove users added by this rule from the assigned group after deleting this resource. Default is `false`
      */
-    public readonly removeAssignedUsers!: pulumi.Output<boolean | undefined>;
+    declare public readonly removeAssignedUsers: pulumi.Output<boolean | undefined>;
     /**
      * Default to `ACTIVE`
      */
-    public readonly status!: pulumi.Output<string | undefined>;
+    declare public readonly status: pulumi.Output<string | undefined>;
     /**
      * The list of user IDs that would be excluded when rules are processed
      */
-    public readonly usersExcludeds!: pulumi.Output<string[] | undefined>;
+    declare public readonly usersExcludeds: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a Rule resource with the given unique name, arguments, and options.
@@ -96,28 +96,28 @@ export class Rule extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RuleState | undefined;
-            resourceInputs["expressionType"] = state ? state.expressionType : undefined;
-            resourceInputs["expressionValue"] = state ? state.expressionValue : undefined;
-            resourceInputs["groupAssignments"] = state ? state.groupAssignments : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["removeAssignedUsers"] = state ? state.removeAssignedUsers : undefined;
-            resourceInputs["status"] = state ? state.status : undefined;
-            resourceInputs["usersExcludeds"] = state ? state.usersExcludeds : undefined;
+            resourceInputs["expressionType"] = state?.expressionType;
+            resourceInputs["expressionValue"] = state?.expressionValue;
+            resourceInputs["groupAssignments"] = state?.groupAssignments;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["removeAssignedUsers"] = state?.removeAssignedUsers;
+            resourceInputs["status"] = state?.status;
+            resourceInputs["usersExcludeds"] = state?.usersExcludeds;
         } else {
             const args = argsOrState as RuleArgs | undefined;
-            if ((!args || args.expressionValue === undefined) && !opts.urn) {
+            if (args?.expressionValue === undefined && !opts.urn) {
                 throw new Error("Missing required property 'expressionValue'");
             }
-            if ((!args || args.groupAssignments === undefined) && !opts.urn) {
+            if (args?.groupAssignments === undefined && !opts.urn) {
                 throw new Error("Missing required property 'groupAssignments'");
             }
-            resourceInputs["expressionType"] = args ? args.expressionType : undefined;
-            resourceInputs["expressionValue"] = args ? args.expressionValue : undefined;
-            resourceInputs["groupAssignments"] = args ? args.groupAssignments : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["removeAssignedUsers"] = args ? args.removeAssignedUsers : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
-            resourceInputs["usersExcludeds"] = args ? args.usersExcludeds : undefined;
+            resourceInputs["expressionType"] = args?.expressionType;
+            resourceInputs["expressionValue"] = args?.expressionValue;
+            resourceInputs["groupAssignments"] = args?.groupAssignments;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["removeAssignedUsers"] = args?.removeAssignedUsers;
+            resourceInputs["status"] = args?.status;
+            resourceInputs["usersExcludeds"] = args?.usersExcludeds;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Rule.__pulumiType, name, resourceInputs, opts);

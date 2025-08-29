@@ -64,9 +64,7 @@ public final class Config {
         return Codegen.integerProp("logLevel").config(config).get();
     }
 /**
- * Sets what percentage of capacity the provider can use of the total rate limit capacity while making calls to the Okta
- * management API endpoints. Okta API operates in one minute buckets. See Okta Management API Rate Limits:
- * https://developer.okta.com/docs/reference/rl-global-mgmt/
+ * Sets what percentage of capacity the provider can use of the total rate limit capacity while making calls to the Okta management API endpoints. Okta API operates in one minute buckets. See Okta Management API Rate Limits: https://developer.okta.com/docs/reference/rl-global-mgmt/
  * 
  */
     public Optional<Integer> maxApiCapacity() {
@@ -101,8 +99,7 @@ public final class Config {
         return Codegen.stringProp("orgName").config(config).get();
     }
 /**
- * Number of concurrent requests to make within a resource where bulk operations are not possible. Take note of
- * https://developer.okta.com/docs/api/getting_started/rate-limits.
+ * Number of concurrent requests to make within a resource where bulk operations are not possible. Take note of https://developer.okta.com/docs/api/getting_started/rate-limits.
  * 
  */
     public Optional<Integer> parallelism() {
@@ -123,8 +120,7 @@ public final class Config {
         return Codegen.stringProp("privateKeyId").config(config).get();
     }
 /**
- * Timeout for single request (in seconds) which is made to Okta, the default is `0` (means no limit is set). The maximum
- * value can be `300`.
+ * Timeout for single request (in seconds) which is made to Okta, the default is `0` (means no limit is set). The maximum value can be `300`.
  * 
  */
     public Optional<Integer> requestTimeout() {

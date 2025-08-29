@@ -74,36 +74,36 @@ export class Mapping extends pulumi.CustomResource {
      * > **WARNING:**: 'always*apply' is incompatible with OAuth 2.0 authentication and will be ignored when using that type of authentication.
      * > **WARNING:** 'always*apply' makes use of an internal/private Okta API endpoint that could change without notice rendering this resource inoperable.
      */
-    public readonly alwaysApply!: pulumi.Output<boolean | undefined>;
+    declare public readonly alwaysApply: pulumi.Output<boolean | undefined>;
     /**
      * When turned on this flag will trigger the provider to delete mapping properties that are not defined in config. By default, we do not delete missing properties.
      */
-    public readonly deleteWhenAbsent!: pulumi.Output<boolean | undefined>;
-    public readonly mappings!: pulumi.Output<outputs.profile.MappingMapping[] | undefined>;
+    declare public readonly deleteWhenAbsent: pulumi.Output<boolean | undefined>;
+    declare public readonly mappings: pulumi.Output<outputs.profile.MappingMapping[] | undefined>;
     /**
      * The source id of the mapping to manage.
      */
-    public readonly sourceId!: pulumi.Output<string>;
+    declare public readonly sourceId: pulumi.Output<string>;
     /**
      * Name of the mapping source.
      */
-    public /*out*/ readonly sourceName!: pulumi.Output<string>;
+    declare public /*out*/ readonly sourceName: pulumi.Output<string>;
     /**
      * ID of the mapping source.
      */
-    public /*out*/ readonly sourceType!: pulumi.Output<string>;
+    declare public /*out*/ readonly sourceType: pulumi.Output<string>;
     /**
      * The target id of the mapping to manage.
      */
-    public readonly targetId!: pulumi.Output<string>;
+    declare public readonly targetId: pulumi.Output<string>;
     /**
      * Name of the mapping target.
      */
-    public /*out*/ readonly targetName!: pulumi.Output<string>;
+    declare public /*out*/ readonly targetName: pulumi.Output<string>;
     /**
      * ID of the mapping target.
      */
-    public /*out*/ readonly targetType!: pulumi.Output<string>;
+    declare public /*out*/ readonly targetType: pulumi.Output<string>;
 
     /**
      * Create a Mapping resource with the given unique name, arguments, and options.
@@ -118,28 +118,28 @@ export class Mapping extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as MappingState | undefined;
-            resourceInputs["alwaysApply"] = state ? state.alwaysApply : undefined;
-            resourceInputs["deleteWhenAbsent"] = state ? state.deleteWhenAbsent : undefined;
-            resourceInputs["mappings"] = state ? state.mappings : undefined;
-            resourceInputs["sourceId"] = state ? state.sourceId : undefined;
-            resourceInputs["sourceName"] = state ? state.sourceName : undefined;
-            resourceInputs["sourceType"] = state ? state.sourceType : undefined;
-            resourceInputs["targetId"] = state ? state.targetId : undefined;
-            resourceInputs["targetName"] = state ? state.targetName : undefined;
-            resourceInputs["targetType"] = state ? state.targetType : undefined;
+            resourceInputs["alwaysApply"] = state?.alwaysApply;
+            resourceInputs["deleteWhenAbsent"] = state?.deleteWhenAbsent;
+            resourceInputs["mappings"] = state?.mappings;
+            resourceInputs["sourceId"] = state?.sourceId;
+            resourceInputs["sourceName"] = state?.sourceName;
+            resourceInputs["sourceType"] = state?.sourceType;
+            resourceInputs["targetId"] = state?.targetId;
+            resourceInputs["targetName"] = state?.targetName;
+            resourceInputs["targetType"] = state?.targetType;
         } else {
             const args = argsOrState as MappingArgs | undefined;
-            if ((!args || args.sourceId === undefined) && !opts.urn) {
+            if (args?.sourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sourceId'");
             }
-            if ((!args || args.targetId === undefined) && !opts.urn) {
+            if (args?.targetId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetId'");
             }
-            resourceInputs["alwaysApply"] = args ? args.alwaysApply : undefined;
-            resourceInputs["deleteWhenAbsent"] = args ? args.deleteWhenAbsent : undefined;
-            resourceInputs["mappings"] = args ? args.mappings : undefined;
-            resourceInputs["sourceId"] = args ? args.sourceId : undefined;
-            resourceInputs["targetId"] = args ? args.targetId : undefined;
+            resourceInputs["alwaysApply"] = args?.alwaysApply;
+            resourceInputs["deleteWhenAbsent"] = args?.deleteWhenAbsent;
+            resourceInputs["mappings"] = args?.mappings;
+            resourceInputs["sourceId"] = args?.sourceId;
+            resourceInputs["targetId"] = args?.targetId;
             resourceInputs["sourceName"] = undefined /*out*/;
             resourceInputs["sourceType"] = undefined /*out*/;
             resourceInputs["targetName"] = undefined /*out*/;

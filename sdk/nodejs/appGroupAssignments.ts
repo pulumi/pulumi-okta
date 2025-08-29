@@ -72,11 +72,11 @@ export class AppGroupAssignments extends pulumi.CustomResource {
     /**
      * The ID of the application to assign a group to.
      */
-    public readonly appId!: pulumi.Output<string>;
+    declare public readonly appId: pulumi.Output<string>;
     /**
      * A group to assign to this application
      */
-    public readonly groups!: pulumi.Output<outputs.AppGroupAssignmentsGroup[] | undefined>;
+    declare public readonly groups: pulumi.Output<outputs.AppGroupAssignmentsGroup[] | undefined>;
 
     /**
      * Create a AppGroupAssignments resource with the given unique name, arguments, and options.
@@ -91,15 +91,15 @@ export class AppGroupAssignments extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AppGroupAssignmentsState | undefined;
-            resourceInputs["appId"] = state ? state.appId : undefined;
-            resourceInputs["groups"] = state ? state.groups : undefined;
+            resourceInputs["appId"] = state?.appId;
+            resourceInputs["groups"] = state?.groups;
         } else {
             const args = argsOrState as AppGroupAssignmentsArgs | undefined;
-            if ((!args || args.appId === undefined) && !opts.urn) {
+            if (args?.appId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'appId'");
             }
-            resourceInputs["appId"] = args ? args.appId : undefined;
-            resourceInputs["groups"] = args ? args.groups : undefined;
+            resourceInputs["appId"] = args?.appId;
+            resourceInputs["groups"] = args?.groups;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(AppGroupAssignments.__pulumiType, name, resourceInputs, opts);

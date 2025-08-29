@@ -44,51 +44,51 @@ export class Zone extends pulumi.CustomResource {
     /**
      * List of asns included. Format of each array value: a string representation of an ASN numeric value. Use with type `DYNAMIC` or `DYNAMIC_V2`
      */
-    public readonly asns!: pulumi.Output<string[] | undefined>;
+    declare public readonly asns: pulumi.Output<string[] | undefined>;
     /**
      * Array of locations ISO-3166-1(2) included. Format code: countryCode OR countryCode-regionCode. Use with type `DYNAMIC` or `DYNAMIC_V2`
      */
-    public readonly dynamicLocations!: pulumi.Output<string[] | undefined>;
+    declare public readonly dynamicLocations: pulumi.Output<string[] | undefined>;
     /**
      * Array of locations ISO-3166-1(2) excluded. Format code: countryCode OR countryCode-regionCode. Use with type `DYNAMIC_V2`
      */
-    public readonly dynamicLocationsExcludes!: pulumi.Output<string[] | undefined>;
+    declare public readonly dynamicLocationsExcludes: pulumi.Output<string[] | undefined>;
     /**
      * Type of proxy being controlled by this dynamic network zone - can be one of `Any`, `TorAnonymizer` or `NotTorAnonymizer`. Use with type `DYNAMIC`
      */
-    public readonly dynamicProxyType!: pulumi.Output<string | undefined>;
+    declare public readonly dynamicProxyType: pulumi.Output<string | undefined>;
     /**
      * Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples. Use with type `IP`
      */
-    public readonly gateways!: pulumi.Output<string[] | undefined>;
+    declare public readonly gateways: pulumi.Output<string[] | undefined>;
     /**
      * List of ip service excluded. Use with type `DYNAMIC_V2`
      */
-    public readonly ipServiceCategoriesExcludes!: pulumi.Output<string[] | undefined>;
+    declare public readonly ipServiceCategoriesExcludes: pulumi.Output<string[] | undefined>;
     /**
      * List of ip service included. Use with type `DYNAMIC_V2`
      */
-    public readonly ipServiceCategoriesIncludes!: pulumi.Output<string[] | undefined>;
+    declare public readonly ipServiceCategoriesIncludes: pulumi.Output<string[] | undefined>;
     /**
      * Name of the Network Zone Resource
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples. Can not be set if `usage` is set to `BLOCKLIST`. Use with type `IP`
      */
-    public readonly proxies!: pulumi.Output<string[] | undefined>;
+    declare public readonly proxies: pulumi.Output<string[] | undefined>;
     /**
      * Network Status - can either be `ACTIVE` or `INACTIVE` only
      */
-    public readonly status!: pulumi.Output<string | undefined>;
+    declare public readonly status: pulumi.Output<string | undefined>;
     /**
      * Type of the Network Zone - can be `IP`, `DYNAMIC` or `DYNAMIC_V2` only
      */
-    public readonly type!: pulumi.Output<string>;
+    declare public readonly type: pulumi.Output<string>;
     /**
      * Usage of the Network Zone - can be either `POLICY` or `BLOCKLIST`. By default, it is `POLICY`
      */
-    public readonly usage!: pulumi.Output<string | undefined>;
+    declare public readonly usage: pulumi.Output<string | undefined>;
 
     /**
      * Create a Zone resource with the given unique name, arguments, and options.
@@ -103,35 +103,35 @@ export class Zone extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ZoneState | undefined;
-            resourceInputs["asns"] = state ? state.asns : undefined;
-            resourceInputs["dynamicLocations"] = state ? state.dynamicLocations : undefined;
-            resourceInputs["dynamicLocationsExcludes"] = state ? state.dynamicLocationsExcludes : undefined;
-            resourceInputs["dynamicProxyType"] = state ? state.dynamicProxyType : undefined;
-            resourceInputs["gateways"] = state ? state.gateways : undefined;
-            resourceInputs["ipServiceCategoriesExcludes"] = state ? state.ipServiceCategoriesExcludes : undefined;
-            resourceInputs["ipServiceCategoriesIncludes"] = state ? state.ipServiceCategoriesIncludes : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["proxies"] = state ? state.proxies : undefined;
-            resourceInputs["status"] = state ? state.status : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
-            resourceInputs["usage"] = state ? state.usage : undefined;
+            resourceInputs["asns"] = state?.asns;
+            resourceInputs["dynamicLocations"] = state?.dynamicLocations;
+            resourceInputs["dynamicLocationsExcludes"] = state?.dynamicLocationsExcludes;
+            resourceInputs["dynamicProxyType"] = state?.dynamicProxyType;
+            resourceInputs["gateways"] = state?.gateways;
+            resourceInputs["ipServiceCategoriesExcludes"] = state?.ipServiceCategoriesExcludes;
+            resourceInputs["ipServiceCategoriesIncludes"] = state?.ipServiceCategoriesIncludes;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["proxies"] = state?.proxies;
+            resourceInputs["status"] = state?.status;
+            resourceInputs["type"] = state?.type;
+            resourceInputs["usage"] = state?.usage;
         } else {
             const args = argsOrState as ZoneArgs | undefined;
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["asns"] = args ? args.asns : undefined;
-            resourceInputs["dynamicLocations"] = args ? args.dynamicLocations : undefined;
-            resourceInputs["dynamicLocationsExcludes"] = args ? args.dynamicLocationsExcludes : undefined;
-            resourceInputs["dynamicProxyType"] = args ? args.dynamicProxyType : undefined;
-            resourceInputs["gateways"] = args ? args.gateways : undefined;
-            resourceInputs["ipServiceCategoriesExcludes"] = args ? args.ipServiceCategoriesExcludes : undefined;
-            resourceInputs["ipServiceCategoriesIncludes"] = args ? args.ipServiceCategoriesIncludes : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["proxies"] = args ? args.proxies : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
-            resourceInputs["usage"] = args ? args.usage : undefined;
+            resourceInputs["asns"] = args?.asns;
+            resourceInputs["dynamicLocations"] = args?.dynamicLocations;
+            resourceInputs["dynamicLocationsExcludes"] = args?.dynamicLocationsExcludes;
+            resourceInputs["dynamicProxyType"] = args?.dynamicProxyType;
+            resourceInputs["gateways"] = args?.gateways;
+            resourceInputs["ipServiceCategoriesExcludes"] = args?.ipServiceCategoriesExcludes;
+            resourceInputs["ipServiceCategoriesIncludes"] = args?.ipServiceCategoriesIncludes;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["proxies"] = args?.proxies;
+            resourceInputs["status"] = args?.status;
+            resourceInputs["type"] = args?.type;
+            resourceInputs["usage"] = args?.usage;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Zone.__pulumiType, name, resourceInputs, opts);

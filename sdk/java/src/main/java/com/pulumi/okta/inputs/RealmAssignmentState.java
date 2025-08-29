@@ -18,16 +18,14 @@ public final class RealmAssignmentState extends com.pulumi.resources.ResourceArg
     public static final RealmAssignmentState Empty = new RealmAssignmentState();
 
     /**
-     * Condition expression for the Realm Assignment in Okta Expression Language. Example: `user.profile.role ==&#34;Manager&#34;` or
-     * `user.profile.state.contains(&#34;example&#34;)`.
+     * Condition expression for the Realm Assignment in Okta Expression Language. Example: `user.profile.role ==&#34;Manager&#34;` or `user.profile.state.contains(&#34;example&#34;)`.
      * 
      */
     @Import(name="conditionExpression")
     private @Nullable Output<String> conditionExpression;
 
     /**
-     * @return Condition expression for the Realm Assignment in Okta Expression Language. Example: `user.profile.role ==&#34;Manager&#34;` or
-     * `user.profile.state.contains(&#34;example&#34;)`.
+     * @return Condition expression for the Realm Assignment in Okta Expression Language. Example: `user.profile.role ==&#34;Manager&#34;` or `user.profile.state.contains(&#34;example&#34;)`.
      * 
      */
     public Optional<Output<String>> conditionExpression() {
@@ -155,8 +153,7 @@ public final class RealmAssignmentState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param conditionExpression Condition expression for the Realm Assignment in Okta Expression Language. Example: `user.profile.role ==&#34;Manager&#34;` or
-         * `user.profile.state.contains(&#34;example&#34;)`.
+         * @param conditionExpression Condition expression for the Realm Assignment in Okta Expression Language. Example: `user.profile.role ==&#34;Manager&#34;` or `user.profile.state.contains(&#34;example&#34;)`.
          * 
          * @return builder
          * 
@@ -167,8 +164,7 @@ public final class RealmAssignmentState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param conditionExpression Condition expression for the Realm Assignment in Okta Expression Language. Example: `user.profile.role ==&#34;Manager&#34;` or
-         * `user.profile.state.contains(&#34;example&#34;)`.
+         * @param conditionExpression Condition expression for the Realm Assignment in Okta Expression Language. Example: `user.profile.role ==&#34;Manager&#34;` or `user.profile.state.contains(&#34;example&#34;)`.
          * 
          * @return builder
          * 

@@ -50,16 +50,16 @@ class RuleSignonArgs:
         :param pulumi.Input[_builtins.str] access: Allow or deny access based on the rule conditions: `ALLOW`, `DENY` or `CHALLENGE`. Default: `ALLOW`
         :param pulumi.Input[_builtins.str] authtype: Authentication entrypoint: `ANY`, `RADIUS` or `LDAP_INTERFACE`. Default: `ANY`
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] behaviors: List of behavior IDs
-        :param pulumi.Input[Sequence[pulumi.Input['RuleSignonFactorSequenceArgs']]] factor_sequences: Auth factor sequences. Should be set if 'access = "CHALLENGE"'. - 'primary_criteria_provider' - (Required) Primary
-               provider of the auth section. - 'primary_criteria_factor_type' - (Required) Primary factor type of the auth section. -
-               'secondary_criteria' - (Optional) Additional authentication steps. - 'provider' - (Required) Provider of the additional
-               authentication step. - 'factor_type' - (Required) Factor type of the additional authentication step.
-        :param pulumi.Input[_builtins.str] identity_provider: Apply rule based on the IdP used: `ANY`, `OKTA` or `SPECIFIC_IDP`. Default: `ANY`. > **WARNING**: Use of
-               `identity_provider` requires a feature flag to be enabled.
+        :param pulumi.Input[Sequence[pulumi.Input['RuleSignonFactorSequenceArgs']]] factor_sequences: Auth factor sequences. Should be set if 'access = "CHALLENGE"'.
+               	- 'primary_criteria_provider' - (Required) Primary provider of the auth section.
+               	- 'primary_criteria_factor_type' - (Required) Primary factor type of the auth section.
+               	- 'secondary_criteria' - (Optional) Additional authentication steps.
+               	- 'provider' - (Required) Provider of the additional authentication step.
+               	- 'factor_type' - (Required) Factor type of the additional authentication step.
+        :param pulumi.Input[_builtins.str] identity_provider: Apply rule based on the IdP used: `ANY`, `OKTA` or `SPECIFIC_IDP`. Default: `ANY`. > **WARNING**: Use of `identity_provider` requires a feature flag to be enabled.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] identity_provider_ids: When identity_provider is `SPECIFIC_IDP` then this is the list of IdP IDs to apply the rule on
         :param pulumi.Input[_builtins.int] mfa_lifetime: Elapsed time before the next MFA challenge
-        :param pulumi.Input[_builtins.str] mfa_prompt: Prompt for MFA based on the device used, a factor session lifetime, or every sign-on attempt: `DEVICE`, `SESSION`
-               or`ALWAYS`.
+        :param pulumi.Input[_builtins.str] mfa_prompt: Prompt for MFA based on the device used, a factor session lifetime, or every sign-on attempt: `DEVICE`, `SESSION` or`ALWAYS`.
         :param pulumi.Input[_builtins.bool] mfa_remember_device: Remember MFA device. Default: `false`
         :param pulumi.Input[_builtins.bool] mfa_required: Require MFA. Default: `false`
         :param pulumi.Input[_builtins.str] name: Policy Rule Name
@@ -67,16 +67,13 @@ class RuleSignonArgs:
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] network_excludes: Required if `network_connection` = `ZONE`. Indicates the network zones to exclude.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] network_includes: Required if `network_connection` = `ZONE`. Indicates the network zones to include.
         :param pulumi.Input[_builtins.str] policy_id: Policy ID of the Rule
-        :param pulumi.Input[_builtins.str] primary_factor: Rule's primary factor. **WARNING** Ony works as a part of the Identity Engine. Valid values: `PASSWORD_IDP_ANY_FACTOR`,
-               `PASSWORD_IDP`.
-        :param pulumi.Input[_builtins.int] priority: Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if
-               an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
+        :param pulumi.Input[_builtins.str] primary_factor: Rule's primary factor. **WARNING** Ony works as a part of the Identity Engine. Valid values: `PASSWORD_IDP_ANY_FACTOR`, `PASSWORD_IDP`.
+        :param pulumi.Input[_builtins.int] priority: Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
         :param pulumi.Input[_builtins.str] risc_level: Risc level: ANY, LOW, MEDIUM or HIGH. Default: `ANY`
         :param pulumi.Input[_builtins.str] risk_level: Risk level: ANY, LOW, MEDIUM or HIGH. Default: `ANY`
         :param pulumi.Input[_builtins.int] session_idle: Max minutes a session can be idle. Default: `120`
         :param pulumi.Input[_builtins.int] session_lifetime: Max minutes a session is active: Disable = 0. Default: `120`
-        :param pulumi.Input[_builtins.bool] session_persistent: Whether session cookies will last across browser sessions. Okta Administrators can never have persistent session
-               cookies. Default: `false`
+        :param pulumi.Input[_builtins.bool] session_persistent: Whether session cookies will last across browser sessions. Okta Administrators can never have persistent session cookies. Default: `false`
         :param pulumi.Input[_builtins.str] status: Policy Rule Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] users_excludeds: Set of User IDs to Exclude
         """
@@ -172,10 +169,12 @@ class RuleSignonArgs:
     @pulumi.getter(name="factorSequences")
     def factor_sequences(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleSignonFactorSequenceArgs']]]]:
         """
-        Auth factor sequences. Should be set if 'access = "CHALLENGE"'. - 'primary_criteria_provider' - (Required) Primary
-        provider of the auth section. - 'primary_criteria_factor_type' - (Required) Primary factor type of the auth section. -
-        'secondary_criteria' - (Optional) Additional authentication steps. - 'provider' - (Required) Provider of the additional
-        authentication step. - 'factor_type' - (Required) Factor type of the additional authentication step.
+        Auth factor sequences. Should be set if 'access = "CHALLENGE"'.
+        	- 'primary_criteria_provider' - (Required) Primary provider of the auth section.
+        	- 'primary_criteria_factor_type' - (Required) Primary factor type of the auth section.
+        	- 'secondary_criteria' - (Optional) Additional authentication steps.
+        	- 'provider' - (Required) Provider of the additional authentication step.
+        	- 'factor_type' - (Required) Factor type of the additional authentication step.
         """
         return pulumi.get(self, "factor_sequences")
 
@@ -187,8 +186,7 @@ class RuleSignonArgs:
     @pulumi.getter(name="identityProvider")
     def identity_provider(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Apply rule based on the IdP used: `ANY`, `OKTA` or `SPECIFIC_IDP`. Default: `ANY`. > **WARNING**: Use of
-        `identity_provider` requires a feature flag to be enabled.
+        Apply rule based on the IdP used: `ANY`, `OKTA` or `SPECIFIC_IDP`. Default: `ANY`. > **WARNING**: Use of `identity_provider` requires a feature flag to be enabled.
         """
         return pulumi.get(self, "identity_provider")
 
@@ -224,8 +222,7 @@ class RuleSignonArgs:
     @pulumi.getter(name="mfaPrompt")
     def mfa_prompt(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Prompt for MFA based on the device used, a factor session lifetime, or every sign-on attempt: `DEVICE`, `SESSION`
-        or`ALWAYS`.
+        Prompt for MFA based on the device used, a factor session lifetime, or every sign-on attempt: `DEVICE`, `SESSION` or`ALWAYS`.
         """
         return pulumi.get(self, "mfa_prompt")
 
@@ -321,8 +318,7 @@ class RuleSignonArgs:
     @pulumi.getter(name="primaryFactor")
     def primary_factor(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Rule's primary factor. **WARNING** Ony works as a part of the Identity Engine. Valid values: `PASSWORD_IDP_ANY_FACTOR`,
-        `PASSWORD_IDP`.
+        Rule's primary factor. **WARNING** Ony works as a part of the Identity Engine. Valid values: `PASSWORD_IDP_ANY_FACTOR`, `PASSWORD_IDP`.
         """
         return pulumi.get(self, "primary_factor")
 
@@ -334,8 +330,7 @@ class RuleSignonArgs:
     @pulumi.getter
     def priority(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
-        Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if
-        an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
+        Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
         """
         return pulumi.get(self, "priority")
 
@@ -396,8 +391,7 @@ class RuleSignonArgs:
     @pulumi.getter(name="sessionPersistent")
     def session_persistent(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Whether session cookies will last across browser sessions. Okta Administrators can never have persistent session
-        cookies. Default: `false`
+        Whether session cookies will last across browser sessions. Okta Administrators can never have persistent session cookies. Default: `false`
         """
         return pulumi.get(self, "session_persistent")
 
@@ -462,16 +456,16 @@ class _RuleSignonState:
         :param pulumi.Input[_builtins.str] access: Allow or deny access based on the rule conditions: `ALLOW`, `DENY` or `CHALLENGE`. Default: `ALLOW`
         :param pulumi.Input[_builtins.str] authtype: Authentication entrypoint: `ANY`, `RADIUS` or `LDAP_INTERFACE`. Default: `ANY`
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] behaviors: List of behavior IDs
-        :param pulumi.Input[Sequence[pulumi.Input['RuleSignonFactorSequenceArgs']]] factor_sequences: Auth factor sequences. Should be set if 'access = "CHALLENGE"'. - 'primary_criteria_provider' - (Required) Primary
-               provider of the auth section. - 'primary_criteria_factor_type' - (Required) Primary factor type of the auth section. -
-               'secondary_criteria' - (Optional) Additional authentication steps. - 'provider' - (Required) Provider of the additional
-               authentication step. - 'factor_type' - (Required) Factor type of the additional authentication step.
-        :param pulumi.Input[_builtins.str] identity_provider: Apply rule based on the IdP used: `ANY`, `OKTA` or `SPECIFIC_IDP`. Default: `ANY`. > **WARNING**: Use of
-               `identity_provider` requires a feature flag to be enabled.
+        :param pulumi.Input[Sequence[pulumi.Input['RuleSignonFactorSequenceArgs']]] factor_sequences: Auth factor sequences. Should be set if 'access = "CHALLENGE"'.
+               	- 'primary_criteria_provider' - (Required) Primary provider of the auth section.
+               	- 'primary_criteria_factor_type' - (Required) Primary factor type of the auth section.
+               	- 'secondary_criteria' - (Optional) Additional authentication steps.
+               	- 'provider' - (Required) Provider of the additional authentication step.
+               	- 'factor_type' - (Required) Factor type of the additional authentication step.
+        :param pulumi.Input[_builtins.str] identity_provider: Apply rule based on the IdP used: `ANY`, `OKTA` or `SPECIFIC_IDP`. Default: `ANY`. > **WARNING**: Use of `identity_provider` requires a feature flag to be enabled.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] identity_provider_ids: When identity_provider is `SPECIFIC_IDP` then this is the list of IdP IDs to apply the rule on
         :param pulumi.Input[_builtins.int] mfa_lifetime: Elapsed time before the next MFA challenge
-        :param pulumi.Input[_builtins.str] mfa_prompt: Prompt for MFA based on the device used, a factor session lifetime, or every sign-on attempt: `DEVICE`, `SESSION`
-               or`ALWAYS`.
+        :param pulumi.Input[_builtins.str] mfa_prompt: Prompt for MFA based on the device used, a factor session lifetime, or every sign-on attempt: `DEVICE`, `SESSION` or`ALWAYS`.
         :param pulumi.Input[_builtins.bool] mfa_remember_device: Remember MFA device. Default: `false`
         :param pulumi.Input[_builtins.bool] mfa_required: Require MFA. Default: `false`
         :param pulumi.Input[_builtins.str] name: Policy Rule Name
@@ -479,16 +473,13 @@ class _RuleSignonState:
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] network_excludes: Required if `network_connection` = `ZONE`. Indicates the network zones to exclude.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] network_includes: Required if `network_connection` = `ZONE`. Indicates the network zones to include.
         :param pulumi.Input[_builtins.str] policy_id: Policy ID of the Rule
-        :param pulumi.Input[_builtins.str] primary_factor: Rule's primary factor. **WARNING** Ony works as a part of the Identity Engine. Valid values: `PASSWORD_IDP_ANY_FACTOR`,
-               `PASSWORD_IDP`.
-        :param pulumi.Input[_builtins.int] priority: Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if
-               an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
+        :param pulumi.Input[_builtins.str] primary_factor: Rule's primary factor. **WARNING** Ony works as a part of the Identity Engine. Valid values: `PASSWORD_IDP_ANY_FACTOR`, `PASSWORD_IDP`.
+        :param pulumi.Input[_builtins.int] priority: Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
         :param pulumi.Input[_builtins.str] risc_level: Risc level: ANY, LOW, MEDIUM or HIGH. Default: `ANY`
         :param pulumi.Input[_builtins.str] risk_level: Risk level: ANY, LOW, MEDIUM or HIGH. Default: `ANY`
         :param pulumi.Input[_builtins.int] session_idle: Max minutes a session can be idle. Default: `120`
         :param pulumi.Input[_builtins.int] session_lifetime: Max minutes a session is active: Disable = 0. Default: `120`
-        :param pulumi.Input[_builtins.bool] session_persistent: Whether session cookies will last across browser sessions. Okta Administrators can never have persistent session
-               cookies. Default: `false`
+        :param pulumi.Input[_builtins.bool] session_persistent: Whether session cookies will last across browser sessions. Okta Administrators can never have persistent session cookies. Default: `false`
         :param pulumi.Input[_builtins.str] status: Policy Rule Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] users_excludeds: Set of User IDs to Exclude
         """
@@ -584,10 +575,12 @@ class _RuleSignonState:
     @pulumi.getter(name="factorSequences")
     def factor_sequences(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleSignonFactorSequenceArgs']]]]:
         """
-        Auth factor sequences. Should be set if 'access = "CHALLENGE"'. - 'primary_criteria_provider' - (Required) Primary
-        provider of the auth section. - 'primary_criteria_factor_type' - (Required) Primary factor type of the auth section. -
-        'secondary_criteria' - (Optional) Additional authentication steps. - 'provider' - (Required) Provider of the additional
-        authentication step. - 'factor_type' - (Required) Factor type of the additional authentication step.
+        Auth factor sequences. Should be set if 'access = "CHALLENGE"'.
+        	- 'primary_criteria_provider' - (Required) Primary provider of the auth section.
+        	- 'primary_criteria_factor_type' - (Required) Primary factor type of the auth section.
+        	- 'secondary_criteria' - (Optional) Additional authentication steps.
+        	- 'provider' - (Required) Provider of the additional authentication step.
+        	- 'factor_type' - (Required) Factor type of the additional authentication step.
         """
         return pulumi.get(self, "factor_sequences")
 
@@ -599,8 +592,7 @@ class _RuleSignonState:
     @pulumi.getter(name="identityProvider")
     def identity_provider(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Apply rule based on the IdP used: `ANY`, `OKTA` or `SPECIFIC_IDP`. Default: `ANY`. > **WARNING**: Use of
-        `identity_provider` requires a feature flag to be enabled.
+        Apply rule based on the IdP used: `ANY`, `OKTA` or `SPECIFIC_IDP`. Default: `ANY`. > **WARNING**: Use of `identity_provider` requires a feature flag to be enabled.
         """
         return pulumi.get(self, "identity_provider")
 
@@ -636,8 +628,7 @@ class _RuleSignonState:
     @pulumi.getter(name="mfaPrompt")
     def mfa_prompt(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Prompt for MFA based on the device used, a factor session lifetime, or every sign-on attempt: `DEVICE`, `SESSION`
-        or`ALWAYS`.
+        Prompt for MFA based on the device used, a factor session lifetime, or every sign-on attempt: `DEVICE`, `SESSION` or`ALWAYS`.
         """
         return pulumi.get(self, "mfa_prompt")
 
@@ -733,8 +724,7 @@ class _RuleSignonState:
     @pulumi.getter(name="primaryFactor")
     def primary_factor(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Rule's primary factor. **WARNING** Ony works as a part of the Identity Engine. Valid values: `PASSWORD_IDP_ANY_FACTOR`,
-        `PASSWORD_IDP`.
+        Rule's primary factor. **WARNING** Ony works as a part of the Identity Engine. Valid values: `PASSWORD_IDP_ANY_FACTOR`, `PASSWORD_IDP`.
         """
         return pulumi.get(self, "primary_factor")
 
@@ -746,8 +736,7 @@ class _RuleSignonState:
     @pulumi.getter
     def priority(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
-        Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if
-        an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
+        Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
         """
         return pulumi.get(self, "priority")
 
@@ -808,8 +797,7 @@ class _RuleSignonState:
     @pulumi.getter(name="sessionPersistent")
     def session_persistent(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Whether session cookies will last across browser sessions. Okta Administrators can never have persistent session
-        cookies. Default: `false`
+        Whether session cookies will last across browser sessions. Okta Administrators can never have persistent session cookies. Default: `false`
         """
         return pulumi.get(self, "session_persistent")
 
@@ -965,16 +953,16 @@ class RuleSignon(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] access: Allow or deny access based on the rule conditions: `ALLOW`, `DENY` or `CHALLENGE`. Default: `ALLOW`
         :param pulumi.Input[_builtins.str] authtype: Authentication entrypoint: `ANY`, `RADIUS` or `LDAP_INTERFACE`. Default: `ANY`
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] behaviors: List of behavior IDs
-        :param pulumi.Input[Sequence[pulumi.Input[Union['RuleSignonFactorSequenceArgs', 'RuleSignonFactorSequenceArgsDict']]]] factor_sequences: Auth factor sequences. Should be set if 'access = "CHALLENGE"'. - 'primary_criteria_provider' - (Required) Primary
-               provider of the auth section. - 'primary_criteria_factor_type' - (Required) Primary factor type of the auth section. -
-               'secondary_criteria' - (Optional) Additional authentication steps. - 'provider' - (Required) Provider of the additional
-               authentication step. - 'factor_type' - (Required) Factor type of the additional authentication step.
-        :param pulumi.Input[_builtins.str] identity_provider: Apply rule based on the IdP used: `ANY`, `OKTA` or `SPECIFIC_IDP`. Default: `ANY`. > **WARNING**: Use of
-               `identity_provider` requires a feature flag to be enabled.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RuleSignonFactorSequenceArgs', 'RuleSignonFactorSequenceArgsDict']]]] factor_sequences: Auth factor sequences. Should be set if 'access = "CHALLENGE"'.
+               	- 'primary_criteria_provider' - (Required) Primary provider of the auth section.
+               	- 'primary_criteria_factor_type' - (Required) Primary factor type of the auth section.
+               	- 'secondary_criteria' - (Optional) Additional authentication steps.
+               	- 'provider' - (Required) Provider of the additional authentication step.
+               	- 'factor_type' - (Required) Factor type of the additional authentication step.
+        :param pulumi.Input[_builtins.str] identity_provider: Apply rule based on the IdP used: `ANY`, `OKTA` or `SPECIFIC_IDP`. Default: `ANY`. > **WARNING**: Use of `identity_provider` requires a feature flag to be enabled.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] identity_provider_ids: When identity_provider is `SPECIFIC_IDP` then this is the list of IdP IDs to apply the rule on
         :param pulumi.Input[_builtins.int] mfa_lifetime: Elapsed time before the next MFA challenge
-        :param pulumi.Input[_builtins.str] mfa_prompt: Prompt for MFA based on the device used, a factor session lifetime, or every sign-on attempt: `DEVICE`, `SESSION`
-               or`ALWAYS`.
+        :param pulumi.Input[_builtins.str] mfa_prompt: Prompt for MFA based on the device used, a factor session lifetime, or every sign-on attempt: `DEVICE`, `SESSION` or`ALWAYS`.
         :param pulumi.Input[_builtins.bool] mfa_remember_device: Remember MFA device. Default: `false`
         :param pulumi.Input[_builtins.bool] mfa_required: Require MFA. Default: `false`
         :param pulumi.Input[_builtins.str] name: Policy Rule Name
@@ -982,16 +970,13 @@ class RuleSignon(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] network_excludes: Required if `network_connection` = `ZONE`. Indicates the network zones to exclude.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] network_includes: Required if `network_connection` = `ZONE`. Indicates the network zones to include.
         :param pulumi.Input[_builtins.str] policy_id: Policy ID of the Rule
-        :param pulumi.Input[_builtins.str] primary_factor: Rule's primary factor. **WARNING** Ony works as a part of the Identity Engine. Valid values: `PASSWORD_IDP_ANY_FACTOR`,
-               `PASSWORD_IDP`.
-        :param pulumi.Input[_builtins.int] priority: Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if
-               an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
+        :param pulumi.Input[_builtins.str] primary_factor: Rule's primary factor. **WARNING** Ony works as a part of the Identity Engine. Valid values: `PASSWORD_IDP_ANY_FACTOR`, `PASSWORD_IDP`.
+        :param pulumi.Input[_builtins.int] priority: Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
         :param pulumi.Input[_builtins.str] risc_level: Risc level: ANY, LOW, MEDIUM or HIGH. Default: `ANY`
         :param pulumi.Input[_builtins.str] risk_level: Risk level: ANY, LOW, MEDIUM or HIGH. Default: `ANY`
         :param pulumi.Input[_builtins.int] session_idle: Max minutes a session can be idle. Default: `120`
         :param pulumi.Input[_builtins.int] session_lifetime: Max minutes a session is active: Disable = 0. Default: `120`
-        :param pulumi.Input[_builtins.bool] session_persistent: Whether session cookies will last across browser sessions. Okta Administrators can never have persistent session
-               cookies. Default: `false`
+        :param pulumi.Input[_builtins.bool] session_persistent: Whether session cookies will last across browser sessions. Okta Administrators can never have persistent session cookies. Default: `false`
         :param pulumi.Input[_builtins.str] status: Policy Rule Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] users_excludeds: Set of User IDs to Exclude
         """
@@ -1204,16 +1189,16 @@ class RuleSignon(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] access: Allow or deny access based on the rule conditions: `ALLOW`, `DENY` or `CHALLENGE`. Default: `ALLOW`
         :param pulumi.Input[_builtins.str] authtype: Authentication entrypoint: `ANY`, `RADIUS` or `LDAP_INTERFACE`. Default: `ANY`
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] behaviors: List of behavior IDs
-        :param pulumi.Input[Sequence[pulumi.Input[Union['RuleSignonFactorSequenceArgs', 'RuleSignonFactorSequenceArgsDict']]]] factor_sequences: Auth factor sequences. Should be set if 'access = "CHALLENGE"'. - 'primary_criteria_provider' - (Required) Primary
-               provider of the auth section. - 'primary_criteria_factor_type' - (Required) Primary factor type of the auth section. -
-               'secondary_criteria' - (Optional) Additional authentication steps. - 'provider' - (Required) Provider of the additional
-               authentication step. - 'factor_type' - (Required) Factor type of the additional authentication step.
-        :param pulumi.Input[_builtins.str] identity_provider: Apply rule based on the IdP used: `ANY`, `OKTA` or `SPECIFIC_IDP`. Default: `ANY`. > **WARNING**: Use of
-               `identity_provider` requires a feature flag to be enabled.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RuleSignonFactorSequenceArgs', 'RuleSignonFactorSequenceArgsDict']]]] factor_sequences: Auth factor sequences. Should be set if 'access = "CHALLENGE"'.
+               	- 'primary_criteria_provider' - (Required) Primary provider of the auth section.
+               	- 'primary_criteria_factor_type' - (Required) Primary factor type of the auth section.
+               	- 'secondary_criteria' - (Optional) Additional authentication steps.
+               	- 'provider' - (Required) Provider of the additional authentication step.
+               	- 'factor_type' - (Required) Factor type of the additional authentication step.
+        :param pulumi.Input[_builtins.str] identity_provider: Apply rule based on the IdP used: `ANY`, `OKTA` or `SPECIFIC_IDP`. Default: `ANY`. > **WARNING**: Use of `identity_provider` requires a feature flag to be enabled.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] identity_provider_ids: When identity_provider is `SPECIFIC_IDP` then this is the list of IdP IDs to apply the rule on
         :param pulumi.Input[_builtins.int] mfa_lifetime: Elapsed time before the next MFA challenge
-        :param pulumi.Input[_builtins.str] mfa_prompt: Prompt for MFA based on the device used, a factor session lifetime, or every sign-on attempt: `DEVICE`, `SESSION`
-               or`ALWAYS`.
+        :param pulumi.Input[_builtins.str] mfa_prompt: Prompt for MFA based on the device used, a factor session lifetime, or every sign-on attempt: `DEVICE`, `SESSION` or`ALWAYS`.
         :param pulumi.Input[_builtins.bool] mfa_remember_device: Remember MFA device. Default: `false`
         :param pulumi.Input[_builtins.bool] mfa_required: Require MFA. Default: `false`
         :param pulumi.Input[_builtins.str] name: Policy Rule Name
@@ -1221,16 +1206,13 @@ class RuleSignon(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] network_excludes: Required if `network_connection` = `ZONE`. Indicates the network zones to exclude.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] network_includes: Required if `network_connection` = `ZONE`. Indicates the network zones to include.
         :param pulumi.Input[_builtins.str] policy_id: Policy ID of the Rule
-        :param pulumi.Input[_builtins.str] primary_factor: Rule's primary factor. **WARNING** Ony works as a part of the Identity Engine. Valid values: `PASSWORD_IDP_ANY_FACTOR`,
-               `PASSWORD_IDP`.
-        :param pulumi.Input[_builtins.int] priority: Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if
-               an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
+        :param pulumi.Input[_builtins.str] primary_factor: Rule's primary factor. **WARNING** Ony works as a part of the Identity Engine. Valid values: `PASSWORD_IDP_ANY_FACTOR`, `PASSWORD_IDP`.
+        :param pulumi.Input[_builtins.int] priority: Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
         :param pulumi.Input[_builtins.str] risc_level: Risc level: ANY, LOW, MEDIUM or HIGH. Default: `ANY`
         :param pulumi.Input[_builtins.str] risk_level: Risk level: ANY, LOW, MEDIUM or HIGH. Default: `ANY`
         :param pulumi.Input[_builtins.int] session_idle: Max minutes a session can be idle. Default: `120`
         :param pulumi.Input[_builtins.int] session_lifetime: Max minutes a session is active: Disable = 0. Default: `120`
-        :param pulumi.Input[_builtins.bool] session_persistent: Whether session cookies will last across browser sessions. Okta Administrators can never have persistent session
-               cookies. Default: `false`
+        :param pulumi.Input[_builtins.bool] session_persistent: Whether session cookies will last across browser sessions. Okta Administrators can never have persistent session cookies. Default: `false`
         :param pulumi.Input[_builtins.str] status: Policy Rule Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] users_excludeds: Set of User IDs to Exclude
         """
@@ -1292,10 +1274,12 @@ class RuleSignon(pulumi.CustomResource):
     @pulumi.getter(name="factorSequences")
     def factor_sequences(self) -> pulumi.Output[Optional[Sequence['outputs.RuleSignonFactorSequence']]]:
         """
-        Auth factor sequences. Should be set if 'access = "CHALLENGE"'. - 'primary_criteria_provider' - (Required) Primary
-        provider of the auth section. - 'primary_criteria_factor_type' - (Required) Primary factor type of the auth section. -
-        'secondary_criteria' - (Optional) Additional authentication steps. - 'provider' - (Required) Provider of the additional
-        authentication step. - 'factor_type' - (Required) Factor type of the additional authentication step.
+        Auth factor sequences. Should be set if 'access = "CHALLENGE"'.
+        	- 'primary_criteria_provider' - (Required) Primary provider of the auth section.
+        	- 'primary_criteria_factor_type' - (Required) Primary factor type of the auth section.
+        	- 'secondary_criteria' - (Optional) Additional authentication steps.
+        	- 'provider' - (Required) Provider of the additional authentication step.
+        	- 'factor_type' - (Required) Factor type of the additional authentication step.
         """
         return pulumi.get(self, "factor_sequences")
 
@@ -1303,8 +1287,7 @@ class RuleSignon(pulumi.CustomResource):
     @pulumi.getter(name="identityProvider")
     def identity_provider(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Apply rule based on the IdP used: `ANY`, `OKTA` or `SPECIFIC_IDP`. Default: `ANY`. > **WARNING**: Use of
-        `identity_provider` requires a feature flag to be enabled.
+        Apply rule based on the IdP used: `ANY`, `OKTA` or `SPECIFIC_IDP`. Default: `ANY`. > **WARNING**: Use of `identity_provider` requires a feature flag to be enabled.
         """
         return pulumi.get(self, "identity_provider")
 
@@ -1328,8 +1311,7 @@ class RuleSignon(pulumi.CustomResource):
     @pulumi.getter(name="mfaPrompt")
     def mfa_prompt(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Prompt for MFA based on the device used, a factor session lifetime, or every sign-on attempt: `DEVICE`, `SESSION`
-        or`ALWAYS`.
+        Prompt for MFA based on the device used, a factor session lifetime, or every sign-on attempt: `DEVICE`, `SESSION` or`ALWAYS`.
         """
         return pulumi.get(self, "mfa_prompt")
 
@@ -1393,8 +1375,7 @@ class RuleSignon(pulumi.CustomResource):
     @pulumi.getter(name="primaryFactor")
     def primary_factor(self) -> pulumi.Output[_builtins.str]:
         """
-        Rule's primary factor. **WARNING** Ony works as a part of the Identity Engine. Valid values: `PASSWORD_IDP_ANY_FACTOR`,
-        `PASSWORD_IDP`.
+        Rule's primary factor. **WARNING** Ony works as a part of the Identity Engine. Valid values: `PASSWORD_IDP_ANY_FACTOR`, `PASSWORD_IDP`.
         """
         return pulumi.get(self, "primary_factor")
 
@@ -1402,8 +1383,7 @@ class RuleSignon(pulumi.CustomResource):
     @pulumi.getter
     def priority(self) -> pulumi.Output[Optional[_builtins.int]]:
         """
-        Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if
-        an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
+        Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
         """
         return pulumi.get(self, "priority")
 
@@ -1444,8 +1424,7 @@ class RuleSignon(pulumi.CustomResource):
     @pulumi.getter(name="sessionPersistent")
     def session_persistent(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
-        Whether session cookies will last across browser sessions. Okta Administrators can never have persistent session
-        cookies. Default: `false`
+        Whether session cookies will last across browser sessions. Okta Administrators can never have persistent session cookies. Default: `false`
         """
         return pulumi.get(self, "session_persistent")
 

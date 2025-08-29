@@ -51,16 +51,18 @@ public final class AppUserSchemaPropertyState extends com.pulumi.resources.Resou
     }
 
     /**
-     * Display name and value an enum array can be set to. - &#39;const&#39; - (Required) value mapping to member of &#39;enum&#39;. - &#39;title&#39;
-     * - (Required) display name for the enum value.
+     * Display name and value an enum array can be set to.
+     * 	- &#39;const&#39; - (Required) value mapping to member of &#39;enum&#39;.
+     * 	- &#39;title&#39; - (Required) display name for the enum value.
      * 
      */
     @Import(name="arrayOneOfs")
     private @Nullable Output<List<AppUserSchemaPropertyArrayOneOfArgs>> arrayOneOfs;
 
     /**
-     * @return Display name and value an enum array can be set to. - &#39;const&#39; - (Required) value mapping to member of &#39;enum&#39;. - &#39;title&#39;
-     * - (Required) display name for the enum value.
+     * @return Display name and value an enum array can be set to.
+     * 	- &#39;const&#39; - (Required) value mapping to member of &#39;enum&#39;.
+     * 	- &#39;title&#39; - (Required) display name for the enum value.
      * 
      */
     public Optional<Output<List<AppUserSchemaPropertyArrayOneOfArgs>>> arrayOneOfs() {
@@ -203,16 +205,18 @@ public final class AppUserSchemaPropertyState extends com.pulumi.resources.Resou
     }
 
     /**
-     * Array of maps containing a mapping for display name to enum value. - &#39;const&#39; - (Required) value mapping to member of
-     * &#39;enum&#39;. - &#39;title&#39; - (Required) display name for the enum value.
+     * Array of maps containing a mapping for display name to enum value.
+     * 	- &#39;const&#39; - (Required) value mapping to member of &#39;enum&#39;.
+     * 	- &#39;title&#39; - (Required) display name for the enum value.
      * 
      */
     @Import(name="oneOfs")
     private @Nullable Output<List<AppUserSchemaPropertyOneOfArgs>> oneOfs;
 
     /**
-     * @return Array of maps containing a mapping for display name to enum value. - &#39;const&#39; - (Required) value mapping to member of
-     * &#39;enum&#39;. - &#39;title&#39; - (Required) display name for the enum value.
+     * @return Array of maps containing a mapping for display name to enum value.
+     * 	- &#39;const&#39; - (Required) value mapping to member of &#39;enum&#39;.
+     * 	- &#39;title&#39; - (Required) display name for the enum value.
      * 
      */
     public Optional<Output<List<AppUserSchemaPropertyOneOfArgs>>> oneOfs() {
@@ -250,16 +254,14 @@ public final class AppUserSchemaPropertyState extends com.pulumi.resources.Resou
     }
 
     /**
-     * determines whether an app user attribute can be set at the Personal `SELF` or Group `NONE` level. Default value is
-     * `NONE`.
+     * determines whether an app user attribute can be set at the Personal `SELF` or Group `NONE` level. Default value is `NONE`.
      * 
      */
     @Import(name="scope")
     private @Nullable Output<String> scope;
 
     /**
-     * @return determines whether an app user attribute can be set at the Personal `SELF` or Group `NONE` level. Default value is
-     * `NONE`.
+     * @return determines whether an app user attribute can be set at the Personal `SELF` or Group `NONE` level. Default value is `NONE`.
      * 
      */
     public Optional<Output<String>> scope() {
@@ -297,16 +299,14 @@ public final class AppUserSchemaPropertyState extends com.pulumi.resources.Resou
     }
 
     /**
-     * If `type` is set to `array`, used to set whether attribute value is determined by group priority `false`, or combine
-     * values across groups `true`. Can not be set to `true` if `scope` is set to `SELF`.
+     * If `type` is set to `array`, used to set whether attribute value is determined by group priority `false`, or combine values across groups `true`. Can not be set to `true` if `scope` is set to `SELF`.
      * 
      */
     @Import(name="union")
     private @Nullable Output<Boolean> union;
 
     /**
-     * @return If `type` is set to `array`, used to set whether attribute value is determined by group priority `false`, or combine
-     * values across groups `true`. Can not be set to `true` if `scope` is set to `SELF`.
+     * @return If `type` is set to `array`, used to set whether attribute value is determined by group priority `false`, or combine values across groups `true`. Can not be set to `true` if `scope` is set to `SELF`.
      * 
      */
     public Optional<Output<Boolean>> union() {
@@ -440,8 +440,9 @@ public final class AppUserSchemaPropertyState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param arrayOneOfs Display name and value an enum array can be set to. - &#39;const&#39; - (Required) value mapping to member of &#39;enum&#39;. - &#39;title&#39;
-         * - (Required) display name for the enum value.
+         * @param arrayOneOfs Display name and value an enum array can be set to.
+         * 	- &#39;const&#39; - (Required) value mapping to member of &#39;enum&#39;.
+         * 	- &#39;title&#39; - (Required) display name for the enum value.
          * 
          * @return builder
          * 
@@ -452,8 +453,9 @@ public final class AppUserSchemaPropertyState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param arrayOneOfs Display name and value an enum array can be set to. - &#39;const&#39; - (Required) value mapping to member of &#39;enum&#39;. - &#39;title&#39;
-         * - (Required) display name for the enum value.
+         * @param arrayOneOfs Display name and value an enum array can be set to.
+         * 	- &#39;const&#39; - (Required) value mapping to member of &#39;enum&#39;.
+         * 	- &#39;title&#39; - (Required) display name for the enum value.
          * 
          * @return builder
          * 
@@ -463,8 +465,9 @@ public final class AppUserSchemaPropertyState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param arrayOneOfs Display name and value an enum array can be set to. - &#39;const&#39; - (Required) value mapping to member of &#39;enum&#39;. - &#39;title&#39;
-         * - (Required) display name for the enum value.
+         * @param arrayOneOfs Display name and value an enum array can be set to.
+         * 	- &#39;const&#39; - (Required) value mapping to member of &#39;enum&#39;.
+         * 	- &#39;title&#39; - (Required) display name for the enum value.
          * 
          * @return builder
          * 
@@ -673,8 +676,9 @@ public final class AppUserSchemaPropertyState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param oneOfs Array of maps containing a mapping for display name to enum value. - &#39;const&#39; - (Required) value mapping to member of
-         * &#39;enum&#39;. - &#39;title&#39; - (Required) display name for the enum value.
+         * @param oneOfs Array of maps containing a mapping for display name to enum value.
+         * 	- &#39;const&#39; - (Required) value mapping to member of &#39;enum&#39;.
+         * 	- &#39;title&#39; - (Required) display name for the enum value.
          * 
          * @return builder
          * 
@@ -685,8 +689,9 @@ public final class AppUserSchemaPropertyState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param oneOfs Array of maps containing a mapping for display name to enum value. - &#39;const&#39; - (Required) value mapping to member of
-         * &#39;enum&#39;. - &#39;title&#39; - (Required) display name for the enum value.
+         * @param oneOfs Array of maps containing a mapping for display name to enum value.
+         * 	- &#39;const&#39; - (Required) value mapping to member of &#39;enum&#39;.
+         * 	- &#39;title&#39; - (Required) display name for the enum value.
          * 
          * @return builder
          * 
@@ -696,8 +701,9 @@ public final class AppUserSchemaPropertyState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param oneOfs Array of maps containing a mapping for display name to enum value. - &#39;const&#39; - (Required) value mapping to member of
-         * &#39;enum&#39;. - &#39;title&#39; - (Required) display name for the enum value.
+         * @param oneOfs Array of maps containing a mapping for display name to enum value.
+         * 	- &#39;const&#39; - (Required) value mapping to member of &#39;enum&#39;.
+         * 	- &#39;title&#39; - (Required) display name for the enum value.
          * 
          * @return builder
          * 
@@ -749,8 +755,7 @@ public final class AppUserSchemaPropertyState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param scope determines whether an app user attribute can be set at the Personal `SELF` or Group `NONE` level. Default value is
-         * `NONE`.
+         * @param scope determines whether an app user attribute can be set at the Personal `SELF` or Group `NONE` level. Default value is `NONE`.
          * 
          * @return builder
          * 
@@ -761,8 +766,7 @@ public final class AppUserSchemaPropertyState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param scope determines whether an app user attribute can be set at the Personal `SELF` or Group `NONE` level. Default value is
-         * `NONE`.
+         * @param scope determines whether an app user attribute can be set at the Personal `SELF` or Group `NONE` level. Default value is `NONE`.
          * 
          * @return builder
          * 
@@ -814,8 +818,7 @@ public final class AppUserSchemaPropertyState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param union If `type` is set to `array`, used to set whether attribute value is determined by group priority `false`, or combine
-         * values across groups `true`. Can not be set to `true` if `scope` is set to `SELF`.
+         * @param union If `type` is set to `array`, used to set whether attribute value is determined by group priority `false`, or combine values across groups `true`. Can not be set to `true` if `scope` is set to `SELF`.
          * 
          * @return builder
          * 
@@ -826,8 +829,7 @@ public final class AppUserSchemaPropertyState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param union If `type` is set to `array`, used to set whether attribute value is determined by group priority `false`, or combine
-         * values across groups `true`. Can not be set to `true` if `scope` is set to `SELF`.
+         * @param union If `type` is set to `array`, used to set whether attribute value is determined by group priority `false`, or combine values across groups `true`. Can not be set to `true` if `scope` is set to `SELF`.
          * 
          * @return builder
          * 

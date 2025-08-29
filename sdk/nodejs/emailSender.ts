@@ -61,23 +61,23 @@ export class EmailSender extends pulumi.CustomResource {
     /**
      * TXT and CNAME records to be registered for the Domain
      */
-    public /*out*/ readonly dnsRecords!: pulumi.Output<outputs.EmailSenderDnsRecord[]>;
+    declare public /*out*/ readonly dnsRecords: pulumi.Output<outputs.EmailSenderDnsRecord[]>;
     /**
      * Email address to send from
      */
-    public readonly fromAddress!: pulumi.Output<string>;
+    declare public readonly fromAddress: pulumi.Output<string>;
     /**
      * Name of sender
      */
-    public readonly fromName!: pulumi.Output<string>;
+    declare public readonly fromName: pulumi.Output<string>;
     /**
      * Verification status
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
      * Mail domain to send from
      */
-    public readonly subdomain!: pulumi.Output<string>;
+    declare public readonly subdomain: pulumi.Output<string>;
 
     /**
      * Create a EmailSender resource with the given unique name, arguments, and options.
@@ -92,25 +92,25 @@ export class EmailSender extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EmailSenderState | undefined;
-            resourceInputs["dnsRecords"] = state ? state.dnsRecords : undefined;
-            resourceInputs["fromAddress"] = state ? state.fromAddress : undefined;
-            resourceInputs["fromName"] = state ? state.fromName : undefined;
-            resourceInputs["status"] = state ? state.status : undefined;
-            resourceInputs["subdomain"] = state ? state.subdomain : undefined;
+            resourceInputs["dnsRecords"] = state?.dnsRecords;
+            resourceInputs["fromAddress"] = state?.fromAddress;
+            resourceInputs["fromName"] = state?.fromName;
+            resourceInputs["status"] = state?.status;
+            resourceInputs["subdomain"] = state?.subdomain;
         } else {
             const args = argsOrState as EmailSenderArgs | undefined;
-            if ((!args || args.fromAddress === undefined) && !opts.urn) {
+            if (args?.fromAddress === undefined && !opts.urn) {
                 throw new Error("Missing required property 'fromAddress'");
             }
-            if ((!args || args.fromName === undefined) && !opts.urn) {
+            if (args?.fromName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'fromName'");
             }
-            if ((!args || args.subdomain === undefined) && !opts.urn) {
+            if (args?.subdomain === undefined && !opts.urn) {
                 throw new Error("Missing required property 'subdomain'");
             }
-            resourceInputs["fromAddress"] = args ? args.fromAddress : undefined;
-            resourceInputs["fromName"] = args ? args.fromName : undefined;
-            resourceInputs["subdomain"] = args ? args.subdomain : undefined;
+            resourceInputs["fromAddress"] = args?.fromAddress;
+            resourceInputs["fromName"] = args?.fromName;
+            resourceInputs["subdomain"] = args?.subdomain;
             resourceInputs["dnsRecords"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
         }

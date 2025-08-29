@@ -60,27 +60,27 @@ export class ServerPolicy extends pulumi.CustomResource {
     /**
      * The ID of the Auth Server.
      */
-    public readonly authServerId!: pulumi.Output<string>;
+    declare public readonly authServerId: pulumi.Output<string>;
     /**
      * The clients to whitelist the policy for. `[ALL_CLIENTS]` is a special value that can be used to whitelist all clients, otherwise it is a list of client ids.
      */
-    public readonly clientWhitelists!: pulumi.Output<string[]>;
+    declare public readonly clientWhitelists: pulumi.Output<string[]>;
     /**
      * The description of the Auth Server Policy.
      */
-    public readonly description!: pulumi.Output<string>;
+    declare public readonly description: pulumi.Output<string>;
     /**
      * The name of the Auth Server Policy.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Priority of the auth server policy
      */
-    public readonly priority!: pulumi.Output<number>;
+    declare public readonly priority: pulumi.Output<number>;
     /**
      * Default to `ACTIVE`
      */
-    public readonly status!: pulumi.Output<string | undefined>;
+    declare public readonly status: pulumi.Output<string | undefined>;
 
     /**
      * Create a ServerPolicy resource with the given unique name, arguments, and options.
@@ -95,32 +95,32 @@ export class ServerPolicy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServerPolicyState | undefined;
-            resourceInputs["authServerId"] = state ? state.authServerId : undefined;
-            resourceInputs["clientWhitelists"] = state ? state.clientWhitelists : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["priority"] = state ? state.priority : undefined;
-            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["authServerId"] = state?.authServerId;
+            resourceInputs["clientWhitelists"] = state?.clientWhitelists;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["priority"] = state?.priority;
+            resourceInputs["status"] = state?.status;
         } else {
             const args = argsOrState as ServerPolicyArgs | undefined;
-            if ((!args || args.authServerId === undefined) && !opts.urn) {
+            if (args?.authServerId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'authServerId'");
             }
-            if ((!args || args.clientWhitelists === undefined) && !opts.urn) {
+            if (args?.clientWhitelists === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clientWhitelists'");
             }
-            if ((!args || args.description === undefined) && !opts.urn) {
+            if (args?.description === undefined && !opts.urn) {
                 throw new Error("Missing required property 'description'");
             }
-            if ((!args || args.priority === undefined) && !opts.urn) {
+            if (args?.priority === undefined && !opts.urn) {
                 throw new Error("Missing required property 'priority'");
             }
-            resourceInputs["authServerId"] = args ? args.authServerId : undefined;
-            resourceInputs["clientWhitelists"] = args ? args.clientWhitelists : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["priority"] = args ? args.priority : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
+            resourceInputs["authServerId"] = args?.authServerId;
+            resourceInputs["clientWhitelists"] = args?.clientWhitelists;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["priority"] = args?.priority;
+            resourceInputs["status"] = args?.status;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ServerPolicy.__pulumiType, name, resourceInputs, opts);

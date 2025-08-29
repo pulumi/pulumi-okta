@@ -64,132 +64,131 @@ export class Saml extends pulumi.CustomResource {
     /**
      * Specifies the account linking action for an IdP user. Default: `AUTO`
      */
-    public readonly accountLinkAction!: pulumi.Output<string | undefined>;
+    declare public readonly accountLinkAction: pulumi.Output<string | undefined>;
     /**
      * Group memberships to determine link candidates.
      */
-    public readonly accountLinkGroupIncludes!: pulumi.Output<string[] | undefined>;
-    public /*out*/ readonly acsBinding!: pulumi.Output<string>;
+    declare public readonly accountLinkGroupIncludes: pulumi.Output<string[] | undefined>;
+    declare public /*out*/ readonly acsBinding: pulumi.Output<string>;
     /**
      * The type of ACS. It can be `INSTANCE` or `ORG`. Default: `INSTANCE`
      */
-    public readonly acsType!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly audience!: pulumi.Output<string>;
+    declare public readonly acsType: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly audience: pulumi.Output<string>;
     /**
      * Action for a previously deprovisioned IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`
      */
-    public readonly deprovisionedAction!: pulumi.Output<string | undefined>;
+    declare public readonly deprovisionedAction: pulumi.Output<string | undefined>;
     /**
      * Provisioning action for IdP user's group memberships. It can be `NONE`, `SYNC`, `APPEND`, or `ASSIGN`. Default: `NONE`
      */
-    public readonly groupsAction!: pulumi.Output<string | undefined>;
+    declare public readonly groupsAction: pulumi.Output<string | undefined>;
     /**
      * List of Okta Group IDs to add an IdP user as a member with the `ASSIGN` `groupsAction`.
      */
-    public readonly groupsAssignments!: pulumi.Output<string[] | undefined>;
+    declare public readonly groupsAssignments: pulumi.Output<string[] | undefined>;
     /**
      * IdP user profile attribute name (case-insensitive) for an array value that contains group memberships.
      */
-    public readonly groupsAttribute!: pulumi.Output<string | undefined>;
+    declare public readonly groupsAttribute: pulumi.Output<string | undefined>;
     /**
      * Whitelist of Okta Group identifiers that are allowed for the `APPEND` or `SYNC` `groupsAction`.
      */
-    public readonly groupsFilters!: pulumi.Output<string[] | undefined>;
+    declare public readonly groupsFilters: pulumi.Output<string[] | undefined>;
     /**
-     * Determines if the IdP should persist account linking when the incoming assertion NameID format is
-     * urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
+     * Determines if the IdP should persist account linking when the incoming assertion NameID format is urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
      */
-    public readonly honorPersistentNameId!: pulumi.Output<boolean | undefined>;
+    declare public readonly honorPersistentNameId: pulumi.Output<boolean | undefined>;
     /**
      * URI that identifies the issuer.
      */
-    public readonly issuer!: pulumi.Output<string>;
+    declare public readonly issuer: pulumi.Output<string>;
     /**
      * Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL
      */
-    public readonly issuerMode!: pulumi.Output<string | undefined>;
+    declare public readonly issuerMode: pulumi.Output<string | undefined>;
     /**
      * The ID of the signing key.
      */
-    public readonly kid!: pulumi.Output<string>;
+    declare public readonly kid: pulumi.Output<string>;
     /**
      * Maximum allowable clock-skew when processing messages from the IdP.
      */
-    public readonly maxClockSkew!: pulumi.Output<number | undefined>;
+    declare public readonly maxClockSkew: pulumi.Output<number | undefined>;
     /**
      * Name of the IdP
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The name identifier format to use. By default `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified`.
      */
-    public readonly nameFormat!: pulumi.Output<string | undefined>;
+    declare public readonly nameFormat: pulumi.Output<string | undefined>;
     /**
      * Determines if the IdP should act as a source of truth for user profile attributes.
      */
-    public readonly profileMaster!: pulumi.Output<boolean | undefined>;
+    declare public readonly profileMaster: pulumi.Output<boolean | undefined>;
     /**
      * Provisioning action for an IdP user during authentication. Default: `AUTO`
      */
-    public readonly provisioningAction!: pulumi.Output<string | undefined>;
+    declare public readonly provisioningAction: pulumi.Output<string | undefined>;
     /**
      * The XML digital Signature Algorithm used when signing an `AuthnRequest` message. It can be `SHA-256` or `SHA-1`. Default: `SHA-256`
      */
-    public readonly requestSignatureAlgorithm!: pulumi.Output<string | undefined>;
+    declare public readonly requestSignatureAlgorithm: pulumi.Output<string | undefined>;
     /**
      * Specifies whether to digitally sign an AuthnRequest messages to the IdP. It can be `REQUEST` or `NONE`. Default: `REQUEST`
      */
-    public readonly requestSignatureScope!: pulumi.Output<string | undefined>;
+    declare public readonly requestSignatureScope: pulumi.Output<string | undefined>;
     /**
      * The minimum XML digital signature algorithm allowed when verifying a `SAMLResponse` message or Assertion element. It can be `SHA-256` or `SHA-1`. Default: `SHA-256`
      */
-    public readonly responseSignatureAlgorithm!: pulumi.Output<string | undefined>;
+    declare public readonly responseSignatureAlgorithm: pulumi.Output<string | undefined>;
     /**
      * Specifies whether to verify a `SAMLResponse` message or Assertion element XML digital signature. It can be `RESPONSE`, `ASSERTION`, or `ANY`. Default: `ANY`
      */
-    public readonly responseSignatureScope!: pulumi.Output<string | undefined>;
+    declare public readonly responseSignatureScope: pulumi.Output<string | undefined>;
     /**
      * The method of making an SSO request. It can be set to `HTTP-POST` or `HTTP-REDIRECT`. Default: `HTTP-POST`
      */
-    public readonly ssoBinding!: pulumi.Output<string | undefined>;
+    declare public readonly ssoBinding: pulumi.Output<string | undefined>;
     /**
      * URI reference indicating the address to which the AuthnRequest message is sent.
      */
-    public readonly ssoDestination!: pulumi.Output<string | undefined>;
+    declare public readonly ssoDestination: pulumi.Output<string | undefined>;
     /**
      * URL of binding-specific endpoint to send an AuthnRequest message to IdP.
      */
-    public readonly ssoUrl!: pulumi.Output<string>;
+    declare public readonly ssoUrl: pulumi.Output<string>;
     /**
      * Default to `ACTIVE`
      */
-    public readonly status!: pulumi.Output<string | undefined>;
+    declare public readonly status: pulumi.Output<string | undefined>;
     /**
      * Optional regular expression pattern used to filter untrusted IdP usernames.
      */
-    public readonly subjectFilter!: pulumi.Output<string | undefined>;
+    declare public readonly subjectFilter: pulumi.Output<string | undefined>;
     /**
      * The name format.
      */
-    public readonly subjectFormats!: pulumi.Output<string[] | undefined>;
+    declare public readonly subjectFormats: pulumi.Output<string[] | undefined>;
     /**
      * Okta user profile attribute for matching transformed IdP username. Only for matchType `CUSTOM_ATTRIBUTE`.
      */
-    public readonly subjectMatchAttribute!: pulumi.Output<string | undefined>;
+    declare public readonly subjectMatchAttribute: pulumi.Output<string | undefined>;
     /**
      * Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `USERNAME`. It can be set to `USERNAME`, `EMAIL`, `USERNAME_OR_EMAIL` or `CUSTOM_ATTRIBUTE`.
      */
-    public readonly subjectMatchType!: pulumi.Output<string | undefined>;
+    declare public readonly subjectMatchType: pulumi.Output<string | undefined>;
     /**
      * Action for a previously suspended IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`
      */
-    public readonly suspendedAction!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly type!: pulumi.Output<string>;
-    public /*out*/ readonly userTypeId!: pulumi.Output<string>;
+    declare public readonly suspendedAction: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
+    declare public /*out*/ readonly userTypeId: pulumi.Output<string>;
     /**
      * Okta EL Expression to generate or transform a unique username for the IdP user. Default: `idpuser.email`
      */
-    public readonly usernameTemplate!: pulumi.Output<string | undefined>;
+    declare public readonly usernameTemplate: pulumi.Output<string | undefined>;
 
     /**
      * Create a Saml resource with the given unique name, arguments, and options.
@@ -204,83 +203,83 @@ export class Saml extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SamlState | undefined;
-            resourceInputs["accountLinkAction"] = state ? state.accountLinkAction : undefined;
-            resourceInputs["accountLinkGroupIncludes"] = state ? state.accountLinkGroupIncludes : undefined;
-            resourceInputs["acsBinding"] = state ? state.acsBinding : undefined;
-            resourceInputs["acsType"] = state ? state.acsType : undefined;
-            resourceInputs["audience"] = state ? state.audience : undefined;
-            resourceInputs["deprovisionedAction"] = state ? state.deprovisionedAction : undefined;
-            resourceInputs["groupsAction"] = state ? state.groupsAction : undefined;
-            resourceInputs["groupsAssignments"] = state ? state.groupsAssignments : undefined;
-            resourceInputs["groupsAttribute"] = state ? state.groupsAttribute : undefined;
-            resourceInputs["groupsFilters"] = state ? state.groupsFilters : undefined;
-            resourceInputs["honorPersistentNameId"] = state ? state.honorPersistentNameId : undefined;
-            resourceInputs["issuer"] = state ? state.issuer : undefined;
-            resourceInputs["issuerMode"] = state ? state.issuerMode : undefined;
-            resourceInputs["kid"] = state ? state.kid : undefined;
-            resourceInputs["maxClockSkew"] = state ? state.maxClockSkew : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["nameFormat"] = state ? state.nameFormat : undefined;
-            resourceInputs["profileMaster"] = state ? state.profileMaster : undefined;
-            resourceInputs["provisioningAction"] = state ? state.provisioningAction : undefined;
-            resourceInputs["requestSignatureAlgorithm"] = state ? state.requestSignatureAlgorithm : undefined;
-            resourceInputs["requestSignatureScope"] = state ? state.requestSignatureScope : undefined;
-            resourceInputs["responseSignatureAlgorithm"] = state ? state.responseSignatureAlgorithm : undefined;
-            resourceInputs["responseSignatureScope"] = state ? state.responseSignatureScope : undefined;
-            resourceInputs["ssoBinding"] = state ? state.ssoBinding : undefined;
-            resourceInputs["ssoDestination"] = state ? state.ssoDestination : undefined;
-            resourceInputs["ssoUrl"] = state ? state.ssoUrl : undefined;
-            resourceInputs["status"] = state ? state.status : undefined;
-            resourceInputs["subjectFilter"] = state ? state.subjectFilter : undefined;
-            resourceInputs["subjectFormats"] = state ? state.subjectFormats : undefined;
-            resourceInputs["subjectMatchAttribute"] = state ? state.subjectMatchAttribute : undefined;
-            resourceInputs["subjectMatchType"] = state ? state.subjectMatchType : undefined;
-            resourceInputs["suspendedAction"] = state ? state.suspendedAction : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
-            resourceInputs["userTypeId"] = state ? state.userTypeId : undefined;
-            resourceInputs["usernameTemplate"] = state ? state.usernameTemplate : undefined;
+            resourceInputs["accountLinkAction"] = state?.accountLinkAction;
+            resourceInputs["accountLinkGroupIncludes"] = state?.accountLinkGroupIncludes;
+            resourceInputs["acsBinding"] = state?.acsBinding;
+            resourceInputs["acsType"] = state?.acsType;
+            resourceInputs["audience"] = state?.audience;
+            resourceInputs["deprovisionedAction"] = state?.deprovisionedAction;
+            resourceInputs["groupsAction"] = state?.groupsAction;
+            resourceInputs["groupsAssignments"] = state?.groupsAssignments;
+            resourceInputs["groupsAttribute"] = state?.groupsAttribute;
+            resourceInputs["groupsFilters"] = state?.groupsFilters;
+            resourceInputs["honorPersistentNameId"] = state?.honorPersistentNameId;
+            resourceInputs["issuer"] = state?.issuer;
+            resourceInputs["issuerMode"] = state?.issuerMode;
+            resourceInputs["kid"] = state?.kid;
+            resourceInputs["maxClockSkew"] = state?.maxClockSkew;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["nameFormat"] = state?.nameFormat;
+            resourceInputs["profileMaster"] = state?.profileMaster;
+            resourceInputs["provisioningAction"] = state?.provisioningAction;
+            resourceInputs["requestSignatureAlgorithm"] = state?.requestSignatureAlgorithm;
+            resourceInputs["requestSignatureScope"] = state?.requestSignatureScope;
+            resourceInputs["responseSignatureAlgorithm"] = state?.responseSignatureAlgorithm;
+            resourceInputs["responseSignatureScope"] = state?.responseSignatureScope;
+            resourceInputs["ssoBinding"] = state?.ssoBinding;
+            resourceInputs["ssoDestination"] = state?.ssoDestination;
+            resourceInputs["ssoUrl"] = state?.ssoUrl;
+            resourceInputs["status"] = state?.status;
+            resourceInputs["subjectFilter"] = state?.subjectFilter;
+            resourceInputs["subjectFormats"] = state?.subjectFormats;
+            resourceInputs["subjectMatchAttribute"] = state?.subjectMatchAttribute;
+            resourceInputs["subjectMatchType"] = state?.subjectMatchType;
+            resourceInputs["suspendedAction"] = state?.suspendedAction;
+            resourceInputs["type"] = state?.type;
+            resourceInputs["userTypeId"] = state?.userTypeId;
+            resourceInputs["usernameTemplate"] = state?.usernameTemplate;
         } else {
             const args = argsOrState as SamlArgs | undefined;
-            if ((!args || args.issuer === undefined) && !opts.urn) {
+            if (args?.issuer === undefined && !opts.urn) {
                 throw new Error("Missing required property 'issuer'");
             }
-            if ((!args || args.kid === undefined) && !opts.urn) {
+            if (args?.kid === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kid'");
             }
-            if ((!args || args.ssoUrl === undefined) && !opts.urn) {
+            if (args?.ssoUrl === undefined && !opts.urn) {
                 throw new Error("Missing required property 'ssoUrl'");
             }
-            resourceInputs["accountLinkAction"] = args ? args.accountLinkAction : undefined;
-            resourceInputs["accountLinkGroupIncludes"] = args ? args.accountLinkGroupIncludes : undefined;
-            resourceInputs["acsType"] = args ? args.acsType : undefined;
-            resourceInputs["deprovisionedAction"] = args ? args.deprovisionedAction : undefined;
-            resourceInputs["groupsAction"] = args ? args.groupsAction : undefined;
-            resourceInputs["groupsAssignments"] = args ? args.groupsAssignments : undefined;
-            resourceInputs["groupsAttribute"] = args ? args.groupsAttribute : undefined;
-            resourceInputs["groupsFilters"] = args ? args.groupsFilters : undefined;
-            resourceInputs["honorPersistentNameId"] = args ? args.honorPersistentNameId : undefined;
-            resourceInputs["issuer"] = args ? args.issuer : undefined;
-            resourceInputs["issuerMode"] = args ? args.issuerMode : undefined;
-            resourceInputs["kid"] = args ? args.kid : undefined;
-            resourceInputs["maxClockSkew"] = args ? args.maxClockSkew : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["nameFormat"] = args ? args.nameFormat : undefined;
-            resourceInputs["profileMaster"] = args ? args.profileMaster : undefined;
-            resourceInputs["provisioningAction"] = args ? args.provisioningAction : undefined;
-            resourceInputs["requestSignatureAlgorithm"] = args ? args.requestSignatureAlgorithm : undefined;
-            resourceInputs["requestSignatureScope"] = args ? args.requestSignatureScope : undefined;
-            resourceInputs["responseSignatureAlgorithm"] = args ? args.responseSignatureAlgorithm : undefined;
-            resourceInputs["responseSignatureScope"] = args ? args.responseSignatureScope : undefined;
-            resourceInputs["ssoBinding"] = args ? args.ssoBinding : undefined;
-            resourceInputs["ssoDestination"] = args ? args.ssoDestination : undefined;
-            resourceInputs["ssoUrl"] = args ? args.ssoUrl : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
-            resourceInputs["subjectFilter"] = args ? args.subjectFilter : undefined;
-            resourceInputs["subjectFormats"] = args ? args.subjectFormats : undefined;
-            resourceInputs["subjectMatchAttribute"] = args ? args.subjectMatchAttribute : undefined;
-            resourceInputs["subjectMatchType"] = args ? args.subjectMatchType : undefined;
-            resourceInputs["suspendedAction"] = args ? args.suspendedAction : undefined;
-            resourceInputs["usernameTemplate"] = args ? args.usernameTemplate : undefined;
+            resourceInputs["accountLinkAction"] = args?.accountLinkAction;
+            resourceInputs["accountLinkGroupIncludes"] = args?.accountLinkGroupIncludes;
+            resourceInputs["acsType"] = args?.acsType;
+            resourceInputs["deprovisionedAction"] = args?.deprovisionedAction;
+            resourceInputs["groupsAction"] = args?.groupsAction;
+            resourceInputs["groupsAssignments"] = args?.groupsAssignments;
+            resourceInputs["groupsAttribute"] = args?.groupsAttribute;
+            resourceInputs["groupsFilters"] = args?.groupsFilters;
+            resourceInputs["honorPersistentNameId"] = args?.honorPersistentNameId;
+            resourceInputs["issuer"] = args?.issuer;
+            resourceInputs["issuerMode"] = args?.issuerMode;
+            resourceInputs["kid"] = args?.kid;
+            resourceInputs["maxClockSkew"] = args?.maxClockSkew;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["nameFormat"] = args?.nameFormat;
+            resourceInputs["profileMaster"] = args?.profileMaster;
+            resourceInputs["provisioningAction"] = args?.provisioningAction;
+            resourceInputs["requestSignatureAlgorithm"] = args?.requestSignatureAlgorithm;
+            resourceInputs["requestSignatureScope"] = args?.requestSignatureScope;
+            resourceInputs["responseSignatureAlgorithm"] = args?.responseSignatureAlgorithm;
+            resourceInputs["responseSignatureScope"] = args?.responseSignatureScope;
+            resourceInputs["ssoBinding"] = args?.ssoBinding;
+            resourceInputs["ssoDestination"] = args?.ssoDestination;
+            resourceInputs["ssoUrl"] = args?.ssoUrl;
+            resourceInputs["status"] = args?.status;
+            resourceInputs["subjectFilter"] = args?.subjectFilter;
+            resourceInputs["subjectFormats"] = args?.subjectFormats;
+            resourceInputs["subjectMatchAttribute"] = args?.subjectMatchAttribute;
+            resourceInputs["subjectMatchType"] = args?.subjectMatchType;
+            resourceInputs["suspendedAction"] = args?.suspendedAction;
+            resourceInputs["usernameTemplate"] = args?.usernameTemplate;
             resourceInputs["acsBinding"] = undefined /*out*/;
             resourceInputs["audience"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -330,8 +329,7 @@ export interface SamlState {
      */
     groupsFilters?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Determines if the IdP should persist account linking when the incoming assertion NameID format is
-     * urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
+     * Determines if the IdP should persist account linking when the incoming assertion NameID format is urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
      */
     honorPersistentNameId?: pulumi.Input<boolean>;
     /**
@@ -463,8 +461,7 @@ export interface SamlArgs {
      */
     groupsFilters?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Determines if the IdP should persist account linking when the incoming assertion NameID format is
-     * urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
+     * Determines if the IdP should persist account linking when the incoming assertion NameID format is urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
      */
     honorPersistentNameId?: pulumi.Input<boolean>;
     /**

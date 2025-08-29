@@ -44,99 +44,99 @@ export class DeviceAssuranceMacos extends pulumi.CustomResource {
     /**
      * Created by
      */
-    public /*out*/ readonly createdBy!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdBy: pulumi.Output<string>;
     /**
      * Created date
      */
-    public /*out*/ readonly createdDate!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdDate: pulumi.Output<string>;
     /**
      * List of disk encryption type, can be `ALL_INTERNAL_VOLUMES`
      */
-    public readonly diskEncryptionTypes!: pulumi.Output<string[] | undefined>;
+    declare public readonly diskEncryptionTypes: pulumi.Output<string[] | undefined>;
     /**
      * Last update
      */
-    public /*out*/ readonly lastUpdate!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastUpdate: pulumi.Output<string>;
     /**
      * Last updated by
      */
-    public /*out*/ readonly lastUpdatedBy!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastUpdatedBy: pulumi.Output<string>;
     /**
      * Name of the device assurance policy.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Minimum os version of the device in the device assurance policy.
      */
-    public readonly osVersion!: pulumi.Output<string | undefined>;
+    declare public readonly osVersion: pulumi.Output<string | undefined>;
     /**
      * Policy device assurance platform
      */
-    public /*out*/ readonly platform!: pulumi.Output<string>;
+    declare public /*out*/ readonly platform: pulumi.Output<string>;
     /**
      * List of screenlock type, can be `BIOMETRIC` or `BIOMETRIC, PASSCODE`
      */
-    public readonly screenlockTypes!: pulumi.Output<string[] | undefined>;
+    declare public readonly screenlockTypes: pulumi.Output<string[] | undefined>;
     /**
      * Is the device secure with hardware in the device assurance policy.
      */
-    public readonly secureHardwarePresent!: pulumi.Output<boolean | undefined>;
+    declare public readonly secureHardwarePresent: pulumi.Output<boolean | undefined>;
     /**
      * Check to include third party signal provider
      */
-    public readonly thirdPartySignalProviders!: pulumi.Output<boolean | undefined>;
+    declare public readonly thirdPartySignalProviders: pulumi.Output<boolean | undefined>;
     /**
      * Third party signal provider minimum browser version
      */
-    public readonly tpspBrowserVersion!: pulumi.Output<string | undefined>;
+    declare public readonly tpspBrowserVersion: pulumi.Output<string | undefined>;
     /**
      * Third party signal provider builtin dns client enable
      */
-    public readonly tpspBuiltinDnsClientEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly tpspBuiltinDnsClientEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Third party signal provider chrome remote desktop app blocked
      */
-    public readonly tpspChromeRemoteDesktopAppBlocked!: pulumi.Output<boolean | undefined>;
+    declare public readonly tpspChromeRemoteDesktopAppBlocked: pulumi.Output<boolean | undefined>;
     /**
      * Third party signal provider device enrollment domain
      */
-    public readonly tpspDeviceEnrollmentDomain!: pulumi.Output<string | undefined>;
+    declare public readonly tpspDeviceEnrollmentDomain: pulumi.Output<string | undefined>;
     /**
      * Third party signal provider disk encrypted
      */
-    public readonly tpspDiskEncrypted!: pulumi.Output<boolean | undefined>;
+    declare public readonly tpspDiskEncrypted: pulumi.Output<boolean | undefined>;
     /**
      * Third party signal provider key trust level
      */
-    public readonly tpspKeyTrustLevel!: pulumi.Output<string | undefined>;
+    declare public readonly tpspKeyTrustLevel: pulumi.Output<string | undefined>;
     /**
      * Third party signal provider os firewall
      */
-    public readonly tpspOsFirewall!: pulumi.Output<boolean | undefined>;
+    declare public readonly tpspOsFirewall: pulumi.Output<boolean | undefined>;
     /**
      * Third party signal provider minimum os version
      */
-    public readonly tpspOsVersion!: pulumi.Output<string | undefined>;
+    declare public readonly tpspOsVersion: pulumi.Output<string | undefined>;
     /**
      * Third party signal provider password protection warning trigger
      */
-    public readonly tpspPasswordProctectionWarningTrigger!: pulumi.Output<string | undefined>;
+    declare public readonly tpspPasswordProctectionWarningTrigger: pulumi.Output<string | undefined>;
     /**
      * Third party signal provider realtime url check mode
      */
-    public readonly tpspRealtimeUrlCheckMode!: pulumi.Output<boolean | undefined>;
+    declare public readonly tpspRealtimeUrlCheckMode: pulumi.Output<boolean | undefined>;
     /**
      * Third party signal provider safe browsing protection level
      */
-    public readonly tpspSafeBrowsingProtectionLevel!: pulumi.Output<string | undefined>;
+    declare public readonly tpspSafeBrowsingProtectionLevel: pulumi.Output<string | undefined>;
     /**
      * Third party signal provider screen lock secure
      */
-    public readonly tpspScreenLockSecured!: pulumi.Output<boolean | undefined>;
+    declare public readonly tpspScreenLockSecured: pulumi.Output<boolean | undefined>;
     /**
      * Third party signal provider site isolation enabled
      */
-    public readonly tpspSiteIsolationEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly tpspSiteIsolationEnabled: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a DeviceAssuranceMacos resource with the given unique name, arguments, and options.
@@ -151,51 +151,51 @@ export class DeviceAssuranceMacos extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DeviceAssuranceMacosState | undefined;
-            resourceInputs["createdBy"] = state ? state.createdBy : undefined;
-            resourceInputs["createdDate"] = state ? state.createdDate : undefined;
-            resourceInputs["diskEncryptionTypes"] = state ? state.diskEncryptionTypes : undefined;
-            resourceInputs["lastUpdate"] = state ? state.lastUpdate : undefined;
-            resourceInputs["lastUpdatedBy"] = state ? state.lastUpdatedBy : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["osVersion"] = state ? state.osVersion : undefined;
-            resourceInputs["platform"] = state ? state.platform : undefined;
-            resourceInputs["screenlockTypes"] = state ? state.screenlockTypes : undefined;
-            resourceInputs["secureHardwarePresent"] = state ? state.secureHardwarePresent : undefined;
-            resourceInputs["thirdPartySignalProviders"] = state ? state.thirdPartySignalProviders : undefined;
-            resourceInputs["tpspBrowserVersion"] = state ? state.tpspBrowserVersion : undefined;
-            resourceInputs["tpspBuiltinDnsClientEnabled"] = state ? state.tpspBuiltinDnsClientEnabled : undefined;
-            resourceInputs["tpspChromeRemoteDesktopAppBlocked"] = state ? state.tpspChromeRemoteDesktopAppBlocked : undefined;
-            resourceInputs["tpspDeviceEnrollmentDomain"] = state ? state.tpspDeviceEnrollmentDomain : undefined;
-            resourceInputs["tpspDiskEncrypted"] = state ? state.tpspDiskEncrypted : undefined;
-            resourceInputs["tpspKeyTrustLevel"] = state ? state.tpspKeyTrustLevel : undefined;
-            resourceInputs["tpspOsFirewall"] = state ? state.tpspOsFirewall : undefined;
-            resourceInputs["tpspOsVersion"] = state ? state.tpspOsVersion : undefined;
-            resourceInputs["tpspPasswordProctectionWarningTrigger"] = state ? state.tpspPasswordProctectionWarningTrigger : undefined;
-            resourceInputs["tpspRealtimeUrlCheckMode"] = state ? state.tpspRealtimeUrlCheckMode : undefined;
-            resourceInputs["tpspSafeBrowsingProtectionLevel"] = state ? state.tpspSafeBrowsingProtectionLevel : undefined;
-            resourceInputs["tpspScreenLockSecured"] = state ? state.tpspScreenLockSecured : undefined;
-            resourceInputs["tpspSiteIsolationEnabled"] = state ? state.tpspSiteIsolationEnabled : undefined;
+            resourceInputs["createdBy"] = state?.createdBy;
+            resourceInputs["createdDate"] = state?.createdDate;
+            resourceInputs["diskEncryptionTypes"] = state?.diskEncryptionTypes;
+            resourceInputs["lastUpdate"] = state?.lastUpdate;
+            resourceInputs["lastUpdatedBy"] = state?.lastUpdatedBy;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["osVersion"] = state?.osVersion;
+            resourceInputs["platform"] = state?.platform;
+            resourceInputs["screenlockTypes"] = state?.screenlockTypes;
+            resourceInputs["secureHardwarePresent"] = state?.secureHardwarePresent;
+            resourceInputs["thirdPartySignalProviders"] = state?.thirdPartySignalProviders;
+            resourceInputs["tpspBrowserVersion"] = state?.tpspBrowserVersion;
+            resourceInputs["tpspBuiltinDnsClientEnabled"] = state?.tpspBuiltinDnsClientEnabled;
+            resourceInputs["tpspChromeRemoteDesktopAppBlocked"] = state?.tpspChromeRemoteDesktopAppBlocked;
+            resourceInputs["tpspDeviceEnrollmentDomain"] = state?.tpspDeviceEnrollmentDomain;
+            resourceInputs["tpspDiskEncrypted"] = state?.tpspDiskEncrypted;
+            resourceInputs["tpspKeyTrustLevel"] = state?.tpspKeyTrustLevel;
+            resourceInputs["tpspOsFirewall"] = state?.tpspOsFirewall;
+            resourceInputs["tpspOsVersion"] = state?.tpspOsVersion;
+            resourceInputs["tpspPasswordProctectionWarningTrigger"] = state?.tpspPasswordProctectionWarningTrigger;
+            resourceInputs["tpspRealtimeUrlCheckMode"] = state?.tpspRealtimeUrlCheckMode;
+            resourceInputs["tpspSafeBrowsingProtectionLevel"] = state?.tpspSafeBrowsingProtectionLevel;
+            resourceInputs["tpspScreenLockSecured"] = state?.tpspScreenLockSecured;
+            resourceInputs["tpspSiteIsolationEnabled"] = state?.tpspSiteIsolationEnabled;
         } else {
             const args = argsOrState as DeviceAssuranceMacosArgs | undefined;
-            resourceInputs["diskEncryptionTypes"] = args ? args.diskEncryptionTypes : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["osVersion"] = args ? args.osVersion : undefined;
-            resourceInputs["screenlockTypes"] = args ? args.screenlockTypes : undefined;
-            resourceInputs["secureHardwarePresent"] = args ? args.secureHardwarePresent : undefined;
-            resourceInputs["thirdPartySignalProviders"] = args ? args.thirdPartySignalProviders : undefined;
-            resourceInputs["tpspBrowserVersion"] = args ? args.tpspBrowserVersion : undefined;
-            resourceInputs["tpspBuiltinDnsClientEnabled"] = args ? args.tpspBuiltinDnsClientEnabled : undefined;
-            resourceInputs["tpspChromeRemoteDesktopAppBlocked"] = args ? args.tpspChromeRemoteDesktopAppBlocked : undefined;
-            resourceInputs["tpspDeviceEnrollmentDomain"] = args ? args.tpspDeviceEnrollmentDomain : undefined;
-            resourceInputs["tpspDiskEncrypted"] = args ? args.tpspDiskEncrypted : undefined;
-            resourceInputs["tpspKeyTrustLevel"] = args ? args.tpspKeyTrustLevel : undefined;
-            resourceInputs["tpspOsFirewall"] = args ? args.tpspOsFirewall : undefined;
-            resourceInputs["tpspOsVersion"] = args ? args.tpspOsVersion : undefined;
-            resourceInputs["tpspPasswordProctectionWarningTrigger"] = args ? args.tpspPasswordProctectionWarningTrigger : undefined;
-            resourceInputs["tpspRealtimeUrlCheckMode"] = args ? args.tpspRealtimeUrlCheckMode : undefined;
-            resourceInputs["tpspSafeBrowsingProtectionLevel"] = args ? args.tpspSafeBrowsingProtectionLevel : undefined;
-            resourceInputs["tpspScreenLockSecured"] = args ? args.tpspScreenLockSecured : undefined;
-            resourceInputs["tpspSiteIsolationEnabled"] = args ? args.tpspSiteIsolationEnabled : undefined;
+            resourceInputs["diskEncryptionTypes"] = args?.diskEncryptionTypes;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["osVersion"] = args?.osVersion;
+            resourceInputs["screenlockTypes"] = args?.screenlockTypes;
+            resourceInputs["secureHardwarePresent"] = args?.secureHardwarePresent;
+            resourceInputs["thirdPartySignalProviders"] = args?.thirdPartySignalProviders;
+            resourceInputs["tpspBrowserVersion"] = args?.tpspBrowserVersion;
+            resourceInputs["tpspBuiltinDnsClientEnabled"] = args?.tpspBuiltinDnsClientEnabled;
+            resourceInputs["tpspChromeRemoteDesktopAppBlocked"] = args?.tpspChromeRemoteDesktopAppBlocked;
+            resourceInputs["tpspDeviceEnrollmentDomain"] = args?.tpspDeviceEnrollmentDomain;
+            resourceInputs["tpspDiskEncrypted"] = args?.tpspDiskEncrypted;
+            resourceInputs["tpspKeyTrustLevel"] = args?.tpspKeyTrustLevel;
+            resourceInputs["tpspOsFirewall"] = args?.tpspOsFirewall;
+            resourceInputs["tpspOsVersion"] = args?.tpspOsVersion;
+            resourceInputs["tpspPasswordProctectionWarningTrigger"] = args?.tpspPasswordProctectionWarningTrigger;
+            resourceInputs["tpspRealtimeUrlCheckMode"] = args?.tpspRealtimeUrlCheckMode;
+            resourceInputs["tpspSafeBrowsingProtectionLevel"] = args?.tpspSafeBrowsingProtectionLevel;
+            resourceInputs["tpspScreenLockSecured"] = args?.tpspScreenLockSecured;
+            resourceInputs["tpspSiteIsolationEnabled"] = args?.tpspSiteIsolationEnabled;
             resourceInputs["createdBy"] = undefined /*out*/;
             resourceInputs["createdDate"] = undefined /*out*/;
             resourceInputs["lastUpdate"] = undefined /*out*/;

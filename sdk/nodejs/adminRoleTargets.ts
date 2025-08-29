@@ -63,23 +63,23 @@ export class AdminRoleTargets extends pulumi.CustomResource {
     /**
      * List of app names (name represents set of app instances) or a combination of app name and app instance ID (like 'salesforce' or 'facebook.0oapsqQ6dv19pqyEo0g3')
      */
-    public readonly apps!: pulumi.Output<string[] | undefined>;
+    declare public readonly apps: pulumi.Output<string[] | undefined>;
     /**
      * List of group IDs. Conflicts with apps
      */
-    public readonly groups!: pulumi.Output<string[] | undefined>;
+    declare public readonly groups: pulumi.Output<string[] | undefined>;
     /**
      * ID of a role
      */
-    public /*out*/ readonly roleId!: pulumi.Output<string>;
+    declare public /*out*/ readonly roleId: pulumi.Output<string>;
     /**
      * Type of the role that is assigned to the user and supports optional targets. See [API Docs](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#standard-roles)
      */
-    public readonly roleType!: pulumi.Output<string>;
+    declare public readonly roleType: pulumi.Output<string>;
     /**
      * User associated with the role
      */
-    public readonly userId!: pulumi.Output<string>;
+    declare public readonly userId: pulumi.Output<string>;
 
     /**
      * Create a AdminRoleTargets resource with the given unique name, arguments, and options.
@@ -94,23 +94,23 @@ export class AdminRoleTargets extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AdminRoleTargetsState | undefined;
-            resourceInputs["apps"] = state ? state.apps : undefined;
-            resourceInputs["groups"] = state ? state.groups : undefined;
-            resourceInputs["roleId"] = state ? state.roleId : undefined;
-            resourceInputs["roleType"] = state ? state.roleType : undefined;
-            resourceInputs["userId"] = state ? state.userId : undefined;
+            resourceInputs["apps"] = state?.apps;
+            resourceInputs["groups"] = state?.groups;
+            resourceInputs["roleId"] = state?.roleId;
+            resourceInputs["roleType"] = state?.roleType;
+            resourceInputs["userId"] = state?.userId;
         } else {
             const args = argsOrState as AdminRoleTargetsArgs | undefined;
-            if ((!args || args.roleType === undefined) && !opts.urn) {
+            if (args?.roleType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roleType'");
             }
-            if ((!args || args.userId === undefined) && !opts.urn) {
+            if (args?.userId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'userId'");
             }
-            resourceInputs["apps"] = args ? args.apps : undefined;
-            resourceInputs["groups"] = args ? args.groups : undefined;
-            resourceInputs["roleType"] = args ? args.roleType : undefined;
-            resourceInputs["userId"] = args ? args.userId : undefined;
+            resourceInputs["apps"] = args?.apps;
+            resourceInputs["groups"] = args?.groups;
+            resourceInputs["roleType"] = args?.roleType;
+            resourceInputs["userId"] = args?.userId;
             resourceInputs["roleId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

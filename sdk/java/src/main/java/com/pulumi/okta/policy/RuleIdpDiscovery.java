@@ -53,20 +53,20 @@ public class RuleIdpDiscovery extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.appExcludes);
     }
     /**
-     * Applications to include in discovery rule. - &#39;id&#39; - (Optional) Use if &#39;type&#39; is &#39;APP&#39; to indicate the application id to
-     * include. - &#39;name&#39; - (Optional) Use if the &#39;type&#39; is &#39;APP_TYPE&#39; to indicate the type of application(s) to include in
-     * instances where an entire group (i.e. &#39;yahoo_mail&#39;) of applications should be included. - &#39;type&#39; - (Required) One of:
-     * &#39;APP&#39;, &#39;APP_TYPE&#39;
+     * Applications to include in discovery rule.
+     * - &#39;id&#39; - (Optional) Use if &#39;type&#39; is &#39;APP&#39; to indicate the application id to include.
+     * - &#39;name&#39; - (Optional) Use if the &#39;type&#39; is &#39;APP_TYPE&#39; to indicate the type of application(s) to include in instances where an entire group (i.e. &#39;yahoo_mail&#39;) of applications should be included.
+     * - &#39;type&#39; - (Required) One of: &#39;APP&#39;, &#39;APP_TYPE&#39;
      * 
      */
     @Export(name="appIncludes", refs={List.class,RuleIdpDiscoveryAppInclude.class}, tree="[0,1]")
     private Output</* @Nullable */ List<RuleIdpDiscoveryAppInclude>> appIncludes;
 
     /**
-     * @return Applications to include in discovery rule. - &#39;id&#39; - (Optional) Use if &#39;type&#39; is &#39;APP&#39; to indicate the application id to
-     * include. - &#39;name&#39; - (Optional) Use if the &#39;type&#39; is &#39;APP_TYPE&#39; to indicate the type of application(s) to include in
-     * instances where an entire group (i.e. &#39;yahoo_mail&#39;) of applications should be included. - &#39;type&#39; - (Required) One of:
-     * &#39;APP&#39;, &#39;APP_TYPE&#39;
+     * @return Applications to include in discovery rule.
+     * - &#39;id&#39; - (Optional) Use if &#39;type&#39; is &#39;APP&#39; to indicate the application id to include.
+     * - &#39;name&#39; - (Optional) Use if the &#39;type&#39; is &#39;APP_TYPE&#39; to indicate the type of application(s) to include in instances where an entire group (i.e. &#39;yahoo_mail&#39;) of applications should be included.
+     * - &#39;type&#39; - (Required) One of: &#39;APP&#39;, &#39;APP_TYPE&#39;
      * 
      */
     public Output<Optional<List<RuleIdpDiscoveryAppInclude>>> appIncludes() {
@@ -135,18 +135,20 @@ public class RuleIdpDiscovery extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.networkIncludes);
     }
     /**
-     * Platform to include in discovery rule. - &#39;type&#39; - (Optional) One of: &#39;ANY&#39;, &#39;MOBILE&#39;, &#39;DESKTOP&#39; - &#39;os_expression -
-     * (Optional) Only available when using os_type = &#39;OTHER&#39; - &#39;os_type&#39; - (Optional) One of: &#39;ANY&#39;, &#39;IOS&#39;, &#39;WINDOWS&#39;,
-     * &#39;ANDROID&#39;, &#39;OTHER&#39;, &#39;OSX&#39;
+     * Platform to include in discovery rule.
+     * - &#39;type&#39; - (Optional) One of: &#39;ANY&#39;, &#39;MOBILE&#39;, &#39;DESKTOP&#39;
+     * - &#39;os_expression - (Optional) Only available when using os_type = &#39;OTHER&#39;
+     * - &#39;os_type&#39; - (Optional) One of: &#39;ANY&#39;, &#39;IOS&#39;, &#39;WINDOWS&#39;, &#39;ANDROID&#39;, &#39;OTHER&#39;, &#39;OSX&#39;
      * 
      */
     @Export(name="platformIncludes", refs={List.class,RuleIdpDiscoveryPlatformInclude.class}, tree="[0,1]")
     private Output</* @Nullable */ List<RuleIdpDiscoveryPlatformInclude>> platformIncludes;
 
     /**
-     * @return Platform to include in discovery rule. - &#39;type&#39; - (Optional) One of: &#39;ANY&#39;, &#39;MOBILE&#39;, &#39;DESKTOP&#39; - &#39;os_expression -
-     * (Optional) Only available when using os_type = &#39;OTHER&#39; - &#39;os_type&#39; - (Optional) One of: &#39;ANY&#39;, &#39;IOS&#39;, &#39;WINDOWS&#39;,
-     * &#39;ANDROID&#39;, &#39;OTHER&#39;, &#39;OSX&#39;
+     * @return Platform to include in discovery rule.
+     * - &#39;type&#39; - (Optional) One of: &#39;ANY&#39;, &#39;MOBILE&#39;, &#39;DESKTOP&#39;
+     * - &#39;os_expression - (Optional) Only available when using os_type = &#39;OTHER&#39;
+     * - &#39;os_type&#39; - (Optional) One of: &#39;ANY&#39;, &#39;IOS&#39;, &#39;WINDOWS&#39;, &#39;ANDROID&#39;, &#39;OTHER&#39;, &#39;OSX&#39;
      * 
      */
     public Output<Optional<List<RuleIdpDiscoveryPlatformInclude>>> platformIncludes() {
@@ -167,16 +169,14 @@ public class RuleIdpDiscovery extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.policyId);
     }
     /**
-     * Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if
-     * an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
+     * Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
      * 
      */
     @Export(name="priority", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> priority;
 
     /**
-     * @return Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if
-     * an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
+     * @return Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
      * 
      */
     public Output<Optional<Integer>> priority() {
@@ -197,36 +197,32 @@ public class RuleIdpDiscovery extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.status);
     }
     /**
-     * Profile attribute matching can only have a single value that describes the type indicated in `user_identifier_type`.
-     * This is the attribute or identifier that the `user_identifier_patterns` are checked against.
+     * Profile attribute matching can only have a single value that describes the type indicated in `user_identifier_type`. This is the attribute or identifier that the `user_identifier_patterns` are checked against.
      * 
      */
     @Export(name="userIdentifierAttribute", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> userIdentifierAttribute;
 
     /**
-     * @return Profile attribute matching can only have a single value that describes the type indicated in `user_identifier_type`.
-     * This is the attribute or identifier that the `user_identifier_patterns` are checked against.
+     * @return Profile attribute matching can only have a single value that describes the type indicated in `user_identifier_type`. This is the attribute or identifier that the `user_identifier_patterns` are checked against.
      * 
      */
     public Output<Optional<String>> userIdentifierAttribute() {
         return Codegen.optional(this.userIdentifierAttribute);
     }
     /**
-     * Specifies a User Identifier pattern condition to match against. If &#39;match_type&#39; of &#39;EXPRESSION&#39; is used, only a *single*
-     * element can be set, otherwise multiple elements of matching patterns may be provided. - &#39;match_type&#39; - (Optional) The
-     * kind of pattern. For regex, use &#39;EXPRESSION&#39;. For simple string matches, use one of the following: &#39;SUFFIX&#39;, &#39;EQUALS&#39;,
-     * &#39;STARTS_WITH&#39;, &#39;CONTAINS&#39; - &#39;value&#39; - (Optional) The regex or simple match string to match against.
+     * Specifies a User Identifier pattern condition to match against. If &#39;match_type&#39; of &#39;EXPRESSION&#39; is used, only a *single* element can be set, otherwise multiple elements of matching patterns may be provided.
+     * - &#39;match_type&#39; - (Optional) The kind of pattern. For regex, use &#39;EXPRESSION&#39;. For simple string matches, use one of the following: &#39;SUFFIX&#39;, &#39;EQUALS&#39;, &#39;STARTS_WITH&#39;, &#39;CONTAINS&#39;
+     * - &#39;value&#39; - (Optional) The regex or simple match string to match against.
      * 
      */
     @Export(name="userIdentifierPatterns", refs={List.class,RuleIdpDiscoveryUserIdentifierPattern.class}, tree="[0,1]")
     private Output</* @Nullable */ List<RuleIdpDiscoveryUserIdentifierPattern>> userIdentifierPatterns;
 
     /**
-     * @return Specifies a User Identifier pattern condition to match against. If &#39;match_type&#39; of &#39;EXPRESSION&#39; is used, only a *single*
-     * element can be set, otherwise multiple elements of matching patterns may be provided. - &#39;match_type&#39; - (Optional) The
-     * kind of pattern. For regex, use &#39;EXPRESSION&#39;. For simple string matches, use one of the following: &#39;SUFFIX&#39;, &#39;EQUALS&#39;,
-     * &#39;STARTS_WITH&#39;, &#39;CONTAINS&#39; - &#39;value&#39; - (Optional) The regex or simple match string to match against.
+     * @return Specifies a User Identifier pattern condition to match against. If &#39;match_type&#39; of &#39;EXPRESSION&#39; is used, only a *single* element can be set, otherwise multiple elements of matching patterns may be provided.
+     * - &#39;match_type&#39; - (Optional) The kind of pattern. For regex, use &#39;EXPRESSION&#39;. For simple string matches, use one of the following: &#39;SUFFIX&#39;, &#39;EQUALS&#39;, &#39;STARTS_WITH&#39;, &#39;CONTAINS&#39;
+     * - &#39;value&#39; - (Optional) The regex or simple match string to match against.
      * 
      */
     public Output<Optional<List<RuleIdpDiscoveryUserIdentifierPattern>>> userIdentifierPatterns() {

@@ -62,14 +62,14 @@ import (
 type EventHook struct {
 	pulumi.CustomResourceState
 
-	// Details of the endpoint the event hook will hit. - 'version' - (Required) The version of the channel. The
-	// currently-supported version is '1.0.0'. - 'uri' - (Required) The URI the hook will hit. - 'type' - (Optional) The type
-	// of hook to trigger. Currently, the only supported type is 'HTTP'.
+	// Details of the endpoint the event hook will hit.\
+	// 	- 'version' - (Required) The version of the channel. The currently-supported version is '1.0.0'.
+	// 	- 'uri' - (Required) The URI the hook will hit.
+	// 	- 'type' - (Optional) The type of hook to trigger. Currently, the only supported type is 'HTTP'.
 	Auth pulumi.StringMapOutput `pulumi:"auth"`
 	// Details of the endpoint the event hook will hit.
 	Channel pulumi.StringMapOutput `pulumi:"channel"`
-	// The events that will be delivered to this hook. [See here for a list of supported
-	// events](https://developer.okta.com/docs/reference/api/event-types/?q=event-hook-eligible).
+	// The events that will be delivered to this hook. [See here for a list of supported events](https://developer.okta.com/docs/reference/api/event-types/?q=event-hook-eligible).
 	Events pulumi.StringArrayOutput `pulumi:"events"`
 	// Map of headers to send along in event hook request.
 	Headers EventHookHeaderArrayOutput `pulumi:"headers"`
@@ -115,14 +115,14 @@ func GetEventHook(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering EventHook resources.
 type eventHookState struct {
-	// Details of the endpoint the event hook will hit. - 'version' - (Required) The version of the channel. The
-	// currently-supported version is '1.0.0'. - 'uri' - (Required) The URI the hook will hit. - 'type' - (Optional) The type
-	// of hook to trigger. Currently, the only supported type is 'HTTP'.
+	// Details of the endpoint the event hook will hit.\
+	// 	- 'version' - (Required) The version of the channel. The currently-supported version is '1.0.0'.
+	// 	- 'uri' - (Required) The URI the hook will hit.
+	// 	- 'type' - (Optional) The type of hook to trigger. Currently, the only supported type is 'HTTP'.
 	Auth map[string]string `pulumi:"auth"`
 	// Details of the endpoint the event hook will hit.
 	Channel map[string]string `pulumi:"channel"`
-	// The events that will be delivered to this hook. [See here for a list of supported
-	// events](https://developer.okta.com/docs/reference/api/event-types/?q=event-hook-eligible).
+	// The events that will be delivered to this hook. [See here for a list of supported events](https://developer.okta.com/docs/reference/api/event-types/?q=event-hook-eligible).
 	Events []string `pulumi:"events"`
 	// Map of headers to send along in event hook request.
 	Headers []EventHookHeader `pulumi:"headers"`
@@ -133,14 +133,14 @@ type eventHookState struct {
 }
 
 type EventHookState struct {
-	// Details of the endpoint the event hook will hit. - 'version' - (Required) The version of the channel. The
-	// currently-supported version is '1.0.0'. - 'uri' - (Required) The URI the hook will hit. - 'type' - (Optional) The type
-	// of hook to trigger. Currently, the only supported type is 'HTTP'.
+	// Details of the endpoint the event hook will hit.\
+	// 	- 'version' - (Required) The version of the channel. The currently-supported version is '1.0.0'.
+	// 	- 'uri' - (Required) The URI the hook will hit.
+	// 	- 'type' - (Optional) The type of hook to trigger. Currently, the only supported type is 'HTTP'.
 	Auth pulumi.StringMapInput
 	// Details of the endpoint the event hook will hit.
 	Channel pulumi.StringMapInput
-	// The events that will be delivered to this hook. [See here for a list of supported
-	// events](https://developer.okta.com/docs/reference/api/event-types/?q=event-hook-eligible).
+	// The events that will be delivered to this hook. [See here for a list of supported events](https://developer.okta.com/docs/reference/api/event-types/?q=event-hook-eligible).
 	Events pulumi.StringArrayInput
 	// Map of headers to send along in event hook request.
 	Headers EventHookHeaderArrayInput
@@ -155,14 +155,14 @@ func (EventHookState) ElementType() reflect.Type {
 }
 
 type eventHookArgs struct {
-	// Details of the endpoint the event hook will hit. - 'version' - (Required) The version of the channel. The
-	// currently-supported version is '1.0.0'. - 'uri' - (Required) The URI the hook will hit. - 'type' - (Optional) The type
-	// of hook to trigger. Currently, the only supported type is 'HTTP'.
+	// Details of the endpoint the event hook will hit.\
+	// 	- 'version' - (Required) The version of the channel. The currently-supported version is '1.0.0'.
+	// 	- 'uri' - (Required) The URI the hook will hit.
+	// 	- 'type' - (Optional) The type of hook to trigger. Currently, the only supported type is 'HTTP'.
 	Auth map[string]string `pulumi:"auth"`
 	// Details of the endpoint the event hook will hit.
 	Channel map[string]string `pulumi:"channel"`
-	// The events that will be delivered to this hook. [See here for a list of supported
-	// events](https://developer.okta.com/docs/reference/api/event-types/?q=event-hook-eligible).
+	// The events that will be delivered to this hook. [See here for a list of supported events](https://developer.okta.com/docs/reference/api/event-types/?q=event-hook-eligible).
 	Events []string `pulumi:"events"`
 	// Map of headers to send along in event hook request.
 	Headers []EventHookHeader `pulumi:"headers"`
@@ -174,14 +174,14 @@ type eventHookArgs struct {
 
 // The set of arguments for constructing a EventHook resource.
 type EventHookArgs struct {
-	// Details of the endpoint the event hook will hit. - 'version' - (Required) The version of the channel. The
-	// currently-supported version is '1.0.0'. - 'uri' - (Required) The URI the hook will hit. - 'type' - (Optional) The type
-	// of hook to trigger. Currently, the only supported type is 'HTTP'.
+	// Details of the endpoint the event hook will hit.\
+	// 	- 'version' - (Required) The version of the channel. The currently-supported version is '1.0.0'.
+	// 	- 'uri' - (Required) The URI the hook will hit.
+	// 	- 'type' - (Optional) The type of hook to trigger. Currently, the only supported type is 'HTTP'.
 	Auth pulumi.StringMapInput
 	// Details of the endpoint the event hook will hit.
 	Channel pulumi.StringMapInput
-	// The events that will be delivered to this hook. [See here for a list of supported
-	// events](https://developer.okta.com/docs/reference/api/event-types/?q=event-hook-eligible).
+	// The events that will be delivered to this hook. [See here for a list of supported events](https://developer.okta.com/docs/reference/api/event-types/?q=event-hook-eligible).
 	Events pulumi.StringArrayInput
 	// Map of headers to send along in event hook request.
 	Headers EventHookHeaderArrayInput
@@ -278,9 +278,10 @@ func (o EventHookOutput) ToEventHookOutputWithContext(ctx context.Context) Event
 	return o
 }
 
-// Details of the endpoint the event hook will hit. - 'version' - (Required) The version of the channel. The
-// currently-supported version is '1.0.0'. - 'uri' - (Required) The URI the hook will hit. - 'type' - (Optional) The type
-// of hook to trigger. Currently, the only supported type is 'HTTP'.
+// Details of the endpoint the event hook will hit.\
+//   - 'version' - (Required) The version of the channel. The currently-supported version is '1.0.0'.
+//   - 'uri' - (Required) The URI the hook will hit.
+//   - 'type' - (Optional) The type of hook to trigger. Currently, the only supported type is 'HTTP'.
 func (o EventHookOutput) Auth() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *EventHook) pulumi.StringMapOutput { return v.Auth }).(pulumi.StringMapOutput)
 }
@@ -290,8 +291,7 @@ func (o EventHookOutput) Channel() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *EventHook) pulumi.StringMapOutput { return v.Channel }).(pulumi.StringMapOutput)
 }
 
-// The events that will be delivered to this hook. [See here for a list of supported
-// events](https://developer.okta.com/docs/reference/api/event-types/?q=event-hook-eligible).
+// The events that will be delivered to this hook. [See here for a list of supported events](https://developer.okta.com/docs/reference/api/event-types/?q=event-hook-eligible).
 func (o EventHookOutput) Events() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *EventHook) pulumi.StringArrayOutput { return v.Events }).(pulumi.StringArrayOutput)
 }

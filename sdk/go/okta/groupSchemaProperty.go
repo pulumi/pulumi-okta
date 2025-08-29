@@ -53,8 +53,9 @@ type GroupSchemaProperty struct {
 
 	// Array of values that an array property's items can be set to.
 	ArrayEnums pulumi.StringArrayOutput `pulumi:"arrayEnums"`
-	// Display name and value an enum array can be set to. - 'const' - (Required) value mapping to member of 'enum'. - 'title'
-	// - (Required) display name for the enum value.
+	// Display name and value an enum array can be set to.
+	// 	- 'const' - (Required) value mapping to member of 'enum'.
+	// 	- 'title' - (Required) display name for the enum value.
 	ArrayOneOfs GroupSchemaPropertyArrayOneOfArrayOutput `pulumi:"arrayOneOfs"`
 	// The type of the array elements if `type` is set to `array`
 	ArrayType pulumi.StringPtrOutput `pulumi:"arrayType"`
@@ -68,8 +69,7 @@ type GroupSchemaProperty struct {
 	ExternalNamespace pulumi.StringPtrOutput `pulumi:"externalNamespace"`
 	// Subschema unique string identifier
 	Index pulumi.StringOutput `pulumi:"index"`
-	// Master priority for the group schema property. It can be set to `PROFILE_MASTER`, `OVERRIDE` or `OKTA`. Default:
-	// `PROFILE_MASTER`
+	// Master priority for the group schema property. It can be set to `PROFILE_MASTER`, `OVERRIDE` or `OKTA`. Default: `PROFILE_MASTER`
 	Master pulumi.StringPtrOutput `pulumi:"master"`
 	// Prioritized list of profile sources (required when `master` is `OVERRIDE`).
 	MasterOverridePriorities GroupSchemaPropertyMasterOverridePriorityArrayOutput `pulumi:"masterOverridePriorities"`
@@ -77,8 +77,9 @@ type GroupSchemaProperty struct {
 	MaxLength pulumi.IntPtrOutput `pulumi:"maxLength"`
 	// The minimum length of the user property value. Only applies to type `string`
 	MinLength pulumi.IntPtrOutput `pulumi:"minLength"`
-	// Array of maps containing a mapping for display name to enum value. - 'const' - (Required) value mapping to member of
-	// 'enum'. - 'title' - (Required) display name for the enum value.
+	// Array of maps containing a mapping for display name to enum value.
+	// 	- 'const' - (Required) value mapping to member of 'enum'.
+	// 	- 'title' - (Required) display name for the enum value.
 	OneOfs GroupSchemaPropertyOneOfArrayOutput `pulumi:"oneOfs"`
 	// Access control permissions for the property. It can be set to `READ_WRITE`, `READ_ONLY`, `HIDE`. Default: `READ_ONLY`
 	Permissions pulumi.StringPtrOutput `pulumi:"permissions"`
@@ -134,8 +135,9 @@ func GetGroupSchemaProperty(ctx *pulumi.Context,
 type groupSchemaPropertyState struct {
 	// Array of values that an array property's items can be set to.
 	ArrayEnums []string `pulumi:"arrayEnums"`
-	// Display name and value an enum array can be set to. - 'const' - (Required) value mapping to member of 'enum'. - 'title'
-	// - (Required) display name for the enum value.
+	// Display name and value an enum array can be set to.
+	// 	- 'const' - (Required) value mapping to member of 'enum'.
+	// 	- 'title' - (Required) display name for the enum value.
 	ArrayOneOfs []GroupSchemaPropertyArrayOneOf `pulumi:"arrayOneOfs"`
 	// The type of the array elements if `type` is set to `array`
 	ArrayType *string `pulumi:"arrayType"`
@@ -149,8 +151,7 @@ type groupSchemaPropertyState struct {
 	ExternalNamespace *string `pulumi:"externalNamespace"`
 	// Subschema unique string identifier
 	Index *string `pulumi:"index"`
-	// Master priority for the group schema property. It can be set to `PROFILE_MASTER`, `OVERRIDE` or `OKTA`. Default:
-	// `PROFILE_MASTER`
+	// Master priority for the group schema property. It can be set to `PROFILE_MASTER`, `OVERRIDE` or `OKTA`. Default: `PROFILE_MASTER`
 	Master *string `pulumi:"master"`
 	// Prioritized list of profile sources (required when `master` is `OVERRIDE`).
 	MasterOverridePriorities []GroupSchemaPropertyMasterOverridePriority `pulumi:"masterOverridePriorities"`
@@ -158,8 +159,9 @@ type groupSchemaPropertyState struct {
 	MaxLength *int `pulumi:"maxLength"`
 	// The minimum length of the user property value. Only applies to type `string`
 	MinLength *int `pulumi:"minLength"`
-	// Array of maps containing a mapping for display name to enum value. - 'const' - (Required) value mapping to member of
-	// 'enum'. - 'title' - (Required) display name for the enum value.
+	// Array of maps containing a mapping for display name to enum value.
+	// 	- 'const' - (Required) value mapping to member of 'enum'.
+	// 	- 'title' - (Required) display name for the enum value.
 	OneOfs []GroupSchemaPropertyOneOf `pulumi:"oneOfs"`
 	// Access control permissions for the property. It can be set to `READ_WRITE`, `READ_ONLY`, `HIDE`. Default: `READ_ONLY`
 	Permissions *string `pulumi:"permissions"`
@@ -177,8 +179,9 @@ type groupSchemaPropertyState struct {
 type GroupSchemaPropertyState struct {
 	// Array of values that an array property's items can be set to.
 	ArrayEnums pulumi.StringArrayInput
-	// Display name and value an enum array can be set to. - 'const' - (Required) value mapping to member of 'enum'. - 'title'
-	// - (Required) display name for the enum value.
+	// Display name and value an enum array can be set to.
+	// 	- 'const' - (Required) value mapping to member of 'enum'.
+	// 	- 'title' - (Required) display name for the enum value.
 	ArrayOneOfs GroupSchemaPropertyArrayOneOfArrayInput
 	// The type of the array elements if `type` is set to `array`
 	ArrayType pulumi.StringPtrInput
@@ -192,8 +195,7 @@ type GroupSchemaPropertyState struct {
 	ExternalNamespace pulumi.StringPtrInput
 	// Subschema unique string identifier
 	Index pulumi.StringPtrInput
-	// Master priority for the group schema property. It can be set to `PROFILE_MASTER`, `OVERRIDE` or `OKTA`. Default:
-	// `PROFILE_MASTER`
+	// Master priority for the group schema property. It can be set to `PROFILE_MASTER`, `OVERRIDE` or `OKTA`. Default: `PROFILE_MASTER`
 	Master pulumi.StringPtrInput
 	// Prioritized list of profile sources (required when `master` is `OVERRIDE`).
 	MasterOverridePriorities GroupSchemaPropertyMasterOverridePriorityArrayInput
@@ -201,8 +203,9 @@ type GroupSchemaPropertyState struct {
 	MaxLength pulumi.IntPtrInput
 	// The minimum length of the user property value. Only applies to type `string`
 	MinLength pulumi.IntPtrInput
-	// Array of maps containing a mapping for display name to enum value. - 'const' - (Required) value mapping to member of
-	// 'enum'. - 'title' - (Required) display name for the enum value.
+	// Array of maps containing a mapping for display name to enum value.
+	// 	- 'const' - (Required) value mapping to member of 'enum'.
+	// 	- 'title' - (Required) display name for the enum value.
 	OneOfs GroupSchemaPropertyOneOfArrayInput
 	// Access control permissions for the property. It can be set to `READ_WRITE`, `READ_ONLY`, `HIDE`. Default: `READ_ONLY`
 	Permissions pulumi.StringPtrInput
@@ -224,8 +227,9 @@ func (GroupSchemaPropertyState) ElementType() reflect.Type {
 type groupSchemaPropertyArgs struct {
 	// Array of values that an array property's items can be set to.
 	ArrayEnums []string `pulumi:"arrayEnums"`
-	// Display name and value an enum array can be set to. - 'const' - (Required) value mapping to member of 'enum'. - 'title'
-	// - (Required) display name for the enum value.
+	// Display name and value an enum array can be set to.
+	// 	- 'const' - (Required) value mapping to member of 'enum'.
+	// 	- 'title' - (Required) display name for the enum value.
 	ArrayOneOfs []GroupSchemaPropertyArrayOneOf `pulumi:"arrayOneOfs"`
 	// The type of the array elements if `type` is set to `array`
 	ArrayType *string `pulumi:"arrayType"`
@@ -239,8 +243,7 @@ type groupSchemaPropertyArgs struct {
 	ExternalNamespace *string `pulumi:"externalNamespace"`
 	// Subschema unique string identifier
 	Index string `pulumi:"index"`
-	// Master priority for the group schema property. It can be set to `PROFILE_MASTER`, `OVERRIDE` or `OKTA`. Default:
-	// `PROFILE_MASTER`
+	// Master priority for the group schema property. It can be set to `PROFILE_MASTER`, `OVERRIDE` or `OKTA`. Default: `PROFILE_MASTER`
 	Master *string `pulumi:"master"`
 	// Prioritized list of profile sources (required when `master` is `OVERRIDE`).
 	MasterOverridePriorities []GroupSchemaPropertyMasterOverridePriority `pulumi:"masterOverridePriorities"`
@@ -248,8 +251,9 @@ type groupSchemaPropertyArgs struct {
 	MaxLength *int `pulumi:"maxLength"`
 	// The minimum length of the user property value. Only applies to type `string`
 	MinLength *int `pulumi:"minLength"`
-	// Array of maps containing a mapping for display name to enum value. - 'const' - (Required) value mapping to member of
-	// 'enum'. - 'title' - (Required) display name for the enum value.
+	// Array of maps containing a mapping for display name to enum value.
+	// 	- 'const' - (Required) value mapping to member of 'enum'.
+	// 	- 'title' - (Required) display name for the enum value.
 	OneOfs []GroupSchemaPropertyOneOf `pulumi:"oneOfs"`
 	// Access control permissions for the property. It can be set to `READ_WRITE`, `READ_ONLY`, `HIDE`. Default: `READ_ONLY`
 	Permissions *string `pulumi:"permissions"`
@@ -268,8 +272,9 @@ type groupSchemaPropertyArgs struct {
 type GroupSchemaPropertyArgs struct {
 	// Array of values that an array property's items can be set to.
 	ArrayEnums pulumi.StringArrayInput
-	// Display name and value an enum array can be set to. - 'const' - (Required) value mapping to member of 'enum'. - 'title'
-	// - (Required) display name for the enum value.
+	// Display name and value an enum array can be set to.
+	// 	- 'const' - (Required) value mapping to member of 'enum'.
+	// 	- 'title' - (Required) display name for the enum value.
 	ArrayOneOfs GroupSchemaPropertyArrayOneOfArrayInput
 	// The type of the array elements if `type` is set to `array`
 	ArrayType pulumi.StringPtrInput
@@ -283,8 +288,7 @@ type GroupSchemaPropertyArgs struct {
 	ExternalNamespace pulumi.StringPtrInput
 	// Subschema unique string identifier
 	Index pulumi.StringInput
-	// Master priority for the group schema property. It can be set to `PROFILE_MASTER`, `OVERRIDE` or `OKTA`. Default:
-	// `PROFILE_MASTER`
+	// Master priority for the group schema property. It can be set to `PROFILE_MASTER`, `OVERRIDE` or `OKTA`. Default: `PROFILE_MASTER`
 	Master pulumi.StringPtrInput
 	// Prioritized list of profile sources (required when `master` is `OVERRIDE`).
 	MasterOverridePriorities GroupSchemaPropertyMasterOverridePriorityArrayInput
@@ -292,8 +296,9 @@ type GroupSchemaPropertyArgs struct {
 	MaxLength pulumi.IntPtrInput
 	// The minimum length of the user property value. Only applies to type `string`
 	MinLength pulumi.IntPtrInput
-	// Array of maps containing a mapping for display name to enum value. - 'const' - (Required) value mapping to member of
-	// 'enum'. - 'title' - (Required) display name for the enum value.
+	// Array of maps containing a mapping for display name to enum value.
+	// 	- 'const' - (Required) value mapping to member of 'enum'.
+	// 	- 'title' - (Required) display name for the enum value.
 	OneOfs GroupSchemaPropertyOneOfArrayInput
 	// Access control permissions for the property. It can be set to `READ_WRITE`, `READ_ONLY`, `HIDE`. Default: `READ_ONLY`
 	Permissions pulumi.StringPtrInput
@@ -400,8 +405,9 @@ func (o GroupSchemaPropertyOutput) ArrayEnums() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *GroupSchemaProperty) pulumi.StringArrayOutput { return v.ArrayEnums }).(pulumi.StringArrayOutput)
 }
 
-// Display name and value an enum array can be set to. - 'const' - (Required) value mapping to member of 'enum'. - 'title'
-// - (Required) display name for the enum value.
+// Display name and value an enum array can be set to.
+//   - 'const' - (Required) value mapping to member of 'enum'.
+//   - 'title' - (Required) display name for the enum value.
 func (o GroupSchemaPropertyOutput) ArrayOneOfs() GroupSchemaPropertyArrayOneOfArrayOutput {
 	return o.ApplyT(func(v *GroupSchemaProperty) GroupSchemaPropertyArrayOneOfArrayOutput { return v.ArrayOneOfs }).(GroupSchemaPropertyArrayOneOfArrayOutput)
 }
@@ -436,8 +442,7 @@ func (o GroupSchemaPropertyOutput) Index() pulumi.StringOutput {
 	return o.ApplyT(func(v *GroupSchemaProperty) pulumi.StringOutput { return v.Index }).(pulumi.StringOutput)
 }
 
-// Master priority for the group schema property. It can be set to `PROFILE_MASTER`, `OVERRIDE` or `OKTA`. Default:
-// `PROFILE_MASTER`
+// Master priority for the group schema property. It can be set to `PROFILE_MASTER`, `OVERRIDE` or `OKTA`. Default: `PROFILE_MASTER`
 func (o GroupSchemaPropertyOutput) Master() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GroupSchemaProperty) pulumi.StringPtrOutput { return v.Master }).(pulumi.StringPtrOutput)
 }
@@ -459,8 +464,9 @@ func (o GroupSchemaPropertyOutput) MinLength() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GroupSchemaProperty) pulumi.IntPtrOutput { return v.MinLength }).(pulumi.IntPtrOutput)
 }
 
-// Array of maps containing a mapping for display name to enum value. - 'const' - (Required) value mapping to member of
-// 'enum'. - 'title' - (Required) display name for the enum value.
+// Array of maps containing a mapping for display name to enum value.
+//   - 'const' - (Required) value mapping to member of 'enum'.
+//   - 'title' - (Required) display name for the enum value.
 func (o GroupSchemaPropertyOutput) OneOfs() GroupSchemaPropertyOneOfArrayOutput {
 	return o.ApplyT(func(v *GroupSchemaProperty) GroupSchemaPropertyOneOfArrayOutput { return v.OneOfs }).(GroupSchemaPropertyOneOfArrayOutput)
 }

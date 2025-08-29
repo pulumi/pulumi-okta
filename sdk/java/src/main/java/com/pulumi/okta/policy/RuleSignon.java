@@ -184,36 +184,38 @@ public class RuleSignon extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.behaviors);
     }
     /**
-     * Auth factor sequences. Should be set if &#39;access = &#34;CHALLENGE&#34;&#39;. - &#39;primary_criteria_provider&#39; - (Required) Primary
-     * provider of the auth section. - &#39;primary_criteria_factor_type&#39; - (Required) Primary factor type of the auth section. -
-     * &#39;secondary_criteria&#39; - (Optional) Additional authentication steps. - &#39;provider&#39; - (Required) Provider of the additional
-     * authentication step. - &#39;factor_type&#39; - (Required) Factor type of the additional authentication step.
+     * Auth factor sequences. Should be set if &#39;access = &#34;CHALLENGE&#34;&#39;.
+     * 	- &#39;primary_criteria_provider&#39; - (Required) Primary provider of the auth section.
+     * 	- &#39;primary_criteria_factor_type&#39; - (Required) Primary factor type of the auth section.
+     * 	- &#39;secondary_criteria&#39; - (Optional) Additional authentication steps.
+     * 	- &#39;provider&#39; - (Required) Provider of the additional authentication step.
+     * 	- &#39;factor_type&#39; - (Required) Factor type of the additional authentication step.
      * 
      */
     @Export(name="factorSequences", refs={List.class,RuleSignonFactorSequence.class}, tree="[0,1]")
     private Output</* @Nullable */ List<RuleSignonFactorSequence>> factorSequences;
 
     /**
-     * @return Auth factor sequences. Should be set if &#39;access = &#34;CHALLENGE&#34;&#39;. - &#39;primary_criteria_provider&#39; - (Required) Primary
-     * provider of the auth section. - &#39;primary_criteria_factor_type&#39; - (Required) Primary factor type of the auth section. -
-     * &#39;secondary_criteria&#39; - (Optional) Additional authentication steps. - &#39;provider&#39; - (Required) Provider of the additional
-     * authentication step. - &#39;factor_type&#39; - (Required) Factor type of the additional authentication step.
+     * @return Auth factor sequences. Should be set if &#39;access = &#34;CHALLENGE&#34;&#39;.
+     * 	- &#39;primary_criteria_provider&#39; - (Required) Primary provider of the auth section.
+     * 	- &#39;primary_criteria_factor_type&#39; - (Required) Primary factor type of the auth section.
+     * 	- &#39;secondary_criteria&#39; - (Optional) Additional authentication steps.
+     * 	- &#39;provider&#39; - (Required) Provider of the additional authentication step.
+     * 	- &#39;factor_type&#39; - (Required) Factor type of the additional authentication step.
      * 
      */
     public Output<Optional<List<RuleSignonFactorSequence>>> factorSequences() {
         return Codegen.optional(this.factorSequences);
     }
     /**
-     * Apply rule based on the IdP used: `ANY`, `OKTA` or `SPECIFIC_IDP`. Default: `ANY`. &gt; **WARNING**: Use of
-     * `identity_provider` requires a feature flag to be enabled.
+     * Apply rule based on the IdP used: `ANY`, `OKTA` or `SPECIFIC_IDP`. Default: `ANY`. &gt; **WARNING**: Use of `identity_provider` requires a feature flag to be enabled.
      * 
      */
     @Export(name="identityProvider", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> identityProvider;
 
     /**
-     * @return Apply rule based on the IdP used: `ANY`, `OKTA` or `SPECIFIC_IDP`. Default: `ANY`. &gt; **WARNING**: Use of
-     * `identity_provider` requires a feature flag to be enabled.
+     * @return Apply rule based on the IdP used: `ANY`, `OKTA` or `SPECIFIC_IDP`. Default: `ANY`. &gt; **WARNING**: Use of `identity_provider` requires a feature flag to be enabled.
      * 
      */
     public Output<Optional<String>> identityProvider() {
@@ -248,16 +250,14 @@ public class RuleSignon extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.mfaLifetime);
     }
     /**
-     * Prompt for MFA based on the device used, a factor session lifetime, or every sign-on attempt: `DEVICE`, `SESSION`
-     * or`ALWAYS`.
+     * Prompt for MFA based on the device used, a factor session lifetime, or every sign-on attempt: `DEVICE`, `SESSION` or`ALWAYS`.
      * 
      */
     @Export(name="mfaPrompt", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> mfaPrompt;
 
     /**
-     * @return Prompt for MFA based on the device used, a factor session lifetime, or every sign-on attempt: `DEVICE`, `SESSION`
-     * or`ALWAYS`.
+     * @return Prompt for MFA based on the device used, a factor session lifetime, or every sign-on attempt: `DEVICE`, `SESSION` or`ALWAYS`.
      * 
      */
     public Output<Optional<String>> mfaPrompt() {
@@ -362,32 +362,28 @@ public class RuleSignon extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.policyId);
     }
     /**
-     * Rule&#39;s primary factor. **WARNING** Ony works as a part of the Identity Engine. Valid values: `PASSWORD_IDP_ANY_FACTOR`,
-     * `PASSWORD_IDP`.
+     * Rule&#39;s primary factor. **WARNING** Ony works as a part of the Identity Engine. Valid values: `PASSWORD_IDP_ANY_FACTOR`, `PASSWORD_IDP`.
      * 
      */
     @Export(name="primaryFactor", refs={String.class}, tree="[0]")
     private Output<String> primaryFactor;
 
     /**
-     * @return Rule&#39;s primary factor. **WARNING** Ony works as a part of the Identity Engine. Valid values: `PASSWORD_IDP_ANY_FACTOR`,
-     * `PASSWORD_IDP`.
+     * @return Rule&#39;s primary factor. **WARNING** Ony works as a part of the Identity Engine. Valid values: `PASSWORD_IDP_ANY_FACTOR`, `PASSWORD_IDP`.
      * 
      */
     public Output<String> primaryFactor() {
         return this.primaryFactor;
     }
     /**
-     * Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if
-     * an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
+     * Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
      * 
      */
     @Export(name="priority", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> priority;
 
     /**
-     * @return Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if
-     * an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
+     * @return Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
      * 
      */
     public Output<Optional<Integer>> priority() {
@@ -454,16 +450,14 @@ public class RuleSignon extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.sessionLifetime);
     }
     /**
-     * Whether session cookies will last across browser sessions. Okta Administrators can never have persistent session
-     * cookies. Default: `false`
+     * Whether session cookies will last across browser sessions. Okta Administrators can never have persistent session cookies. Default: `false`
      * 
      */
     @Export(name="sessionPersistent", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> sessionPersistent;
 
     /**
-     * @return Whether session cookies will last across browser sessions. Okta Administrators can never have persistent session
-     * cookies. Default: `false`
+     * @return Whether session cookies will last across browser sessions. Okta Administrators can never have persistent session cookies. Default: `false`
      * 
      */
     public Output<Optional<Boolean>> sessionPersistent() {

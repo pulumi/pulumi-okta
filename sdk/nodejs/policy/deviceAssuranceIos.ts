@@ -44,39 +44,39 @@ export class DeviceAssuranceIos extends pulumi.CustomResource {
     /**
      * Created by of the device assurance polic
      */
-    public /*out*/ readonly createdBy!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdBy: pulumi.Output<string>;
     /**
      * Created date of the device assurance polic
      */
-    public /*out*/ readonly createdDate!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdDate: pulumi.Output<string>;
     /**
      * Is the device jailbroken in the device assurance policy.
      */
-    public readonly jailbreak!: pulumi.Output<boolean | undefined>;
+    declare public readonly jailbreak: pulumi.Output<boolean | undefined>;
     /**
      * Last update of the device assurance polic
      */
-    public /*out*/ readonly lastUpdate!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastUpdate: pulumi.Output<string>;
     /**
      * Last updated by of the device assurance polic
      */
-    public /*out*/ readonly lastUpdatedBy!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastUpdatedBy: pulumi.Output<string>;
     /**
      * Name of the device assurance policy.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Minimum os version of the device in the device assurance policy.
      */
-    public readonly osVersion!: pulumi.Output<string | undefined>;
+    declare public readonly osVersion: pulumi.Output<string | undefined>;
     /**
      * Policy device assurance platform
      */
-    public /*out*/ readonly platform!: pulumi.Output<string>;
+    declare public /*out*/ readonly platform: pulumi.Output<string>;
     /**
      * List of screenlock type, can be `BIOMETRIC` or `BIOMETRIC, PASSCODE`
      */
-    public readonly screenlockTypes!: pulumi.Output<string[] | undefined>;
+    declare public readonly screenlockTypes: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a DeviceAssuranceIos resource with the given unique name, arguments, and options.
@@ -91,21 +91,21 @@ export class DeviceAssuranceIos extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DeviceAssuranceIosState | undefined;
-            resourceInputs["createdBy"] = state ? state.createdBy : undefined;
-            resourceInputs["createdDate"] = state ? state.createdDate : undefined;
-            resourceInputs["jailbreak"] = state ? state.jailbreak : undefined;
-            resourceInputs["lastUpdate"] = state ? state.lastUpdate : undefined;
-            resourceInputs["lastUpdatedBy"] = state ? state.lastUpdatedBy : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["osVersion"] = state ? state.osVersion : undefined;
-            resourceInputs["platform"] = state ? state.platform : undefined;
-            resourceInputs["screenlockTypes"] = state ? state.screenlockTypes : undefined;
+            resourceInputs["createdBy"] = state?.createdBy;
+            resourceInputs["createdDate"] = state?.createdDate;
+            resourceInputs["jailbreak"] = state?.jailbreak;
+            resourceInputs["lastUpdate"] = state?.lastUpdate;
+            resourceInputs["lastUpdatedBy"] = state?.lastUpdatedBy;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["osVersion"] = state?.osVersion;
+            resourceInputs["platform"] = state?.platform;
+            resourceInputs["screenlockTypes"] = state?.screenlockTypes;
         } else {
             const args = argsOrState as DeviceAssuranceIosArgs | undefined;
-            resourceInputs["jailbreak"] = args ? args.jailbreak : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["osVersion"] = args ? args.osVersion : undefined;
-            resourceInputs["screenlockTypes"] = args ? args.screenlockTypes : undefined;
+            resourceInputs["jailbreak"] = args?.jailbreak;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["osVersion"] = args?.osVersion;
+            resourceInputs["screenlockTypes"] = args?.screenlockTypes;
             resourceInputs["createdBy"] = undefined /*out*/;
             resourceInputs["createdDate"] = undefined /*out*/;
             resourceInputs["lastUpdate"] = undefined /*out*/;

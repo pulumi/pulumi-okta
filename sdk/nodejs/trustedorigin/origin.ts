@@ -57,19 +57,19 @@ export class Origin extends pulumi.CustomResource {
     /**
      * Whether the Trusted Origin is active or not - can only be issued post-creation. By default, it is `true`.
      */
-    public readonly active!: pulumi.Output<boolean | undefined>;
+    declare public readonly active: pulumi.Output<boolean | undefined>;
     /**
      * Unique name for this trusted origin
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Unique origin URL for this trusted origin
      */
-    public readonly origin!: pulumi.Output<string>;
+    declare public readonly origin: pulumi.Output<string>;
     /**
      * Scopes of the Trusted Origin - can either be `CORS` and/or `REDIRECT`
      */
-    public readonly scopes!: pulumi.Output<string[]>;
+    declare public readonly scopes: pulumi.Output<string[]>;
 
     /**
      * Create a Origin resource with the given unique name, arguments, and options.
@@ -84,22 +84,22 @@ export class Origin extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as OriginState | undefined;
-            resourceInputs["active"] = state ? state.active : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["origin"] = state ? state.origin : undefined;
-            resourceInputs["scopes"] = state ? state.scopes : undefined;
+            resourceInputs["active"] = state?.active;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["origin"] = state?.origin;
+            resourceInputs["scopes"] = state?.scopes;
         } else {
             const args = argsOrState as OriginArgs | undefined;
-            if ((!args || args.origin === undefined) && !opts.urn) {
+            if (args?.origin === undefined && !opts.urn) {
                 throw new Error("Missing required property 'origin'");
             }
-            if ((!args || args.scopes === undefined) && !opts.urn) {
+            if (args?.scopes === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scopes'");
             }
-            resourceInputs["active"] = args ? args.active : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["origin"] = args ? args.origin : undefined;
-            resourceInputs["scopes"] = args ? args.scopes : undefined;
+            resourceInputs["active"] = args?.active;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["origin"] = args?.origin;
+            resourceInputs["scopes"] = args?.scopes;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Origin.__pulumiType, name, resourceInputs, opts);

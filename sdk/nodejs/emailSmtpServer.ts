@@ -35,27 +35,27 @@ export class EmailSmtpServer extends pulumi.CustomResource {
     /**
      * Human-readable name for your SMTP server.
      */
-    public readonly alias!: pulumi.Output<string>;
+    declare public readonly alias: pulumi.Output<string>;
     /**
      * If true, routes all email traffic through your SMTP server.
      */
-    public readonly enabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly enabled: pulumi.Output<boolean | undefined>;
     /**
      * Hostname or IP address of your SMTP server.
      */
-    public readonly host!: pulumi.Output<string>;
+    declare public readonly host: pulumi.Output<string>;
     /**
      * User name of the email domain.
      */
-    public readonly password!: pulumi.Output<string>;
+    declare public readonly password: pulumi.Output<string>;
     /**
      * Port number of your SMTP server.
      */
-    public readonly port!: pulumi.Output<number>;
+    declare public readonly port: pulumi.Output<number>;
     /**
      * Display name of the email domain.
      */
-    public readonly username!: pulumi.Output<string>;
+    declare public readonly username: pulumi.Output<string>;
 
     /**
      * Create a EmailSmtpServer resource with the given unique name, arguments, and options.
@@ -70,35 +70,35 @@ export class EmailSmtpServer extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EmailSmtpServerState | undefined;
-            resourceInputs["alias"] = state ? state.alias : undefined;
-            resourceInputs["enabled"] = state ? state.enabled : undefined;
-            resourceInputs["host"] = state ? state.host : undefined;
-            resourceInputs["password"] = state ? state.password : undefined;
-            resourceInputs["port"] = state ? state.port : undefined;
-            resourceInputs["username"] = state ? state.username : undefined;
+            resourceInputs["alias"] = state?.alias;
+            resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["host"] = state?.host;
+            resourceInputs["password"] = state?.password;
+            resourceInputs["port"] = state?.port;
+            resourceInputs["username"] = state?.username;
         } else {
             const args = argsOrState as EmailSmtpServerArgs | undefined;
-            if ((!args || args.alias === undefined) && !opts.urn) {
+            if (args?.alias === undefined && !opts.urn) {
                 throw new Error("Missing required property 'alias'");
             }
-            if ((!args || args.host === undefined) && !opts.urn) {
+            if (args?.host === undefined && !opts.urn) {
                 throw new Error("Missing required property 'host'");
             }
-            if ((!args || args.password === undefined) && !opts.urn) {
+            if (args?.password === undefined && !opts.urn) {
                 throw new Error("Missing required property 'password'");
             }
-            if ((!args || args.port === undefined) && !opts.urn) {
+            if (args?.port === undefined && !opts.urn) {
                 throw new Error("Missing required property 'port'");
             }
-            if ((!args || args.username === undefined) && !opts.urn) {
+            if (args?.username === undefined && !opts.urn) {
                 throw new Error("Missing required property 'username'");
             }
-            resourceInputs["alias"] = args ? args.alias : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["host"] = args ? args.host : undefined;
-            resourceInputs["password"] = args ? args.password : undefined;
-            resourceInputs["port"] = args ? args.port : undefined;
-            resourceInputs["username"] = args ? args.username : undefined;
+            resourceInputs["alias"] = args?.alias;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["host"] = args?.host;
+            resourceInputs["password"] = args?.password;
+            resourceInputs["port"] = args?.port;
+            resourceInputs["username"] = args?.username;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(EmailSmtpServer.__pulumiType, name, resourceInputs, opts);

@@ -87,8 +87,7 @@ namespace Pulumi.Okta.App
         public Output<bool?> AutoSubmitToolbar { get; private set; } = null!;
 
         /// <summary>
-        /// Application credentials scheme. One of: `EDIT_USERNAME_AND_PASSWORD`, `ADMIN_SETS_CREDENTIALS`, `EDIT_PASSWORD_ONLY`,
-        /// `EXTERNAL_PASSWORD_SYNC`, or `SHARED_USERNAME_AND_PASSWORD`
+        /// Application credentials scheme. One of: `EDIT_USERNAME_AND_PASSWORD`, `ADMIN_SETS_CREDENTIALS`, `EDIT_PASSWORD_ONLY`, `EXTERNAL_PASSWORD_SYNC`, or `SHARED_USERNAME_AND_PASSWORD`
         /// </summary>
         [Output("credentialsScheme")]
         public Output<string?> CredentialsScheme { get; private set; } = null!;
@@ -136,8 +135,7 @@ namespace Pulumi.Okta.App
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Allow user to reveal password. Default is false. It can not be set to true if credentials_scheme is
-        /// "ADMIN_SETS_CREDENTIALS", "SHARED_USERNAME_AND_PASSWORD" or "EXTERNAL_PASSWORD_SYNC".
+        /// Allow user to reveal password. Default is false. It can not be set to true if credentials_scheme is "ADMIN_SETS_CREDENTIALS", "SHARED_USERNAME_AND_PASSWORD" or "EXTERNAL_PASSWORD_SYNC".
         /// </summary>
         [Output("revealPassword")]
         public Output<bool?> RevealPassword { get; private set; } = null!;
@@ -285,8 +283,7 @@ namespace Pulumi.Okta.App
         public Input<bool>? AutoSubmitToolbar { get; set; }
 
         /// <summary>
-        /// Application credentials scheme. One of: `EDIT_USERNAME_AND_PASSWORD`, `ADMIN_SETS_CREDENTIALS`, `EDIT_PASSWORD_ONLY`,
-        /// `EXTERNAL_PASSWORD_SYNC`, or `SHARED_USERNAME_AND_PASSWORD`
+        /// Application credentials scheme. One of: `EDIT_USERNAME_AND_PASSWORD`, `ADMIN_SETS_CREDENTIALS`, `EDIT_PASSWORD_ONLY`, `EXTERNAL_PASSWORD_SYNC`, or `SHARED_USERNAME_AND_PASSWORD`
         /// </summary>
         [Input("credentialsScheme")]
         public Input<string>? CredentialsScheme { get; set; }
@@ -322,8 +319,7 @@ namespace Pulumi.Okta.App
         public Input<string>? Logo { get; set; }
 
         /// <summary>
-        /// Allow user to reveal password. Default is false. It can not be set to true if credentials_scheme is
-        /// "ADMIN_SETS_CREDENTIALS", "SHARED_USERNAME_AND_PASSWORD" or "EXTERNAL_PASSWORD_SYNC".
+        /// Allow user to reveal password. Default is false. It can not be set to true if credentials_scheme is "ADMIN_SETS_CREDENTIALS", "SHARED_USERNAME_AND_PASSWORD" or "EXTERNAL_PASSWORD_SYNC".
         /// </summary>
         [Input("revealPassword")]
         public Input<bool>? RevealPassword { get; set; }
@@ -427,8 +423,7 @@ namespace Pulumi.Okta.App
         public Input<bool>? AutoSubmitToolbar { get; set; }
 
         /// <summary>
-        /// Application credentials scheme. One of: `EDIT_USERNAME_AND_PASSWORD`, `ADMIN_SETS_CREDENTIALS`, `EDIT_PASSWORD_ONLY`,
-        /// `EXTERNAL_PASSWORD_SYNC`, or `SHARED_USERNAME_AND_PASSWORD`
+        /// Application credentials scheme. One of: `EDIT_USERNAME_AND_PASSWORD`, `ADMIN_SETS_CREDENTIALS`, `EDIT_PASSWORD_ONLY`, `EXTERNAL_PASSWORD_SYNC`, or `SHARED_USERNAME_AND_PASSWORD`
         /// </summary>
         [Input("credentialsScheme")]
         public Input<string>? CredentialsScheme { get; set; }
@@ -476,8 +471,7 @@ namespace Pulumi.Okta.App
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Allow user to reveal password. Default is false. It can not be set to true if credentials_scheme is
-        /// "ADMIN_SETS_CREDENTIALS", "SHARED_USERNAME_AND_PASSWORD" or "EXTERNAL_PASSWORD_SYNC".
+        /// Allow user to reveal password. Default is false. It can not be set to true if credentials_scheme is "ADMIN_SETS_CREDENTIALS", "SHARED_USERNAME_AND_PASSWORD" or "EXTERNAL_PASSWORD_SYNC".
         /// </summary>
         [Input("revealPassword")]
         public Input<bool>? RevealPassword { get; set; }

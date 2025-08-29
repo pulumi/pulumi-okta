@@ -169,9 +169,7 @@ namespace Pulumi.Okta
         public Input<int>? LogLevel { get; set; }
 
         /// <summary>
-        /// Sets what percentage of capacity the provider can use of the total rate limit capacity while making calls to the Okta
-        /// management API endpoints. Okta API operates in one minute buckets. See Okta Management API Rate Limits:
-        /// https://developer.okta.com/docs/reference/rl-global-mgmt/
+        /// Sets what percentage of capacity the provider can use of the total rate limit capacity while making calls to the Okta management API endpoints. Okta API operates in one minute buckets. See Okta Management API Rate Limits: https://developer.okta.com/docs/reference/rl-global-mgmt/
         /// </summary>
         [Input("maxApiCapacity", json: true)]
         public Input<int>? MaxApiCapacity { get; set; }
@@ -201,8 +199,7 @@ namespace Pulumi.Okta
         public Input<string>? OrgName { get; set; }
 
         /// <summary>
-        /// Number of concurrent requests to make within a resource where bulk operations are not possible. Take note of
-        /// https://developer.okta.com/docs/api/getting_started/rate-limits.
+        /// Number of concurrent requests to make within a resource where bulk operations are not possible. Take note of https://developer.okta.com/docs/api/getting_started/rate-limits.
         /// </summary>
         [Input("parallelism", json: true)]
         public Input<int>? Parallelism { get; set; }
@@ -230,8 +227,7 @@ namespace Pulumi.Okta
         public Input<string>? PrivateKeyId { get; set; }
 
         /// <summary>
-        /// Timeout for single request (in seconds) which is made to Okta, the default is `0` (means no limit is set). The maximum
-        /// value can be `300`.
+        /// Timeout for single request (in seconds) which is made to Okta, the default is `0` (means no limit is set). The maximum value can be `300`.
         /// </summary>
         [Input("requestTimeout", json: true)]
         public Input<int>? RequestTimeout { get; set; }

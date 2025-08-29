@@ -73,53 +73,53 @@ export class PolicyMfaDefault extends pulumi.CustomResource {
     /**
      * Default group ID (always included)
      */
-    public /*out*/ readonly defaultIncludedGroupId!: pulumi.Output<string>;
+    declare public /*out*/ readonly defaultIncludedGroupId: pulumi.Output<string>;
     /**
      * Default policy description
      */
-    public /*out*/ readonly description!: pulumi.Output<string>;
-    public readonly duo!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public /*out*/ readonly description: pulumi.Output<string>;
+    declare public readonly duo: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * @deprecated Since okta now support multiple external_idps, this will be deprecated. Please use `externalIdps` instead
      */
-    public readonly externalIdp!: pulumi.Output<{[key: string]: string} | undefined>;
-    public readonly externalIdps!: pulumi.Output<{[key: string]: string}[] | undefined>;
-    public readonly fidoU2f!: pulumi.Output<{[key: string]: string} | undefined>;
-    public readonly fidoWebauthn!: pulumi.Output<{[key: string]: string} | undefined>;
-    public readonly googleOtp!: pulumi.Output<{[key: string]: string} | undefined>;
-    public readonly hotp!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly externalIdp: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly externalIdps: pulumi.Output<{[key: string]: string}[] | undefined>;
+    declare public readonly fidoU2f: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly fidoWebauthn: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly googleOtp: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly hotp: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Is the policy using Okta Identity Engine (OIE) with authenticators instead of factors?
      */
-    public readonly isOie!: pulumi.Output<boolean | undefined>;
+    declare public readonly isOie: pulumi.Output<boolean | undefined>;
     /**
      * Default policy name
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
-    public readonly oktaCall!: pulumi.Output<{[key: string]: string} | undefined>;
-    public readonly oktaEmail!: pulumi.Output<{[key: string]: string} | undefined>;
-    public readonly oktaOtp!: pulumi.Output<{[key: string]: string} | undefined>;
-    public readonly oktaPassword!: pulumi.Output<{[key: string]: string} | undefined>;
-    public readonly oktaPush!: pulumi.Output<{[key: string]: string} | undefined>;
-    public readonly oktaQuestion!: pulumi.Output<{[key: string]: string} | undefined>;
-    public readonly oktaSms!: pulumi.Output<{[key: string]: string} | undefined>;
-    public readonly oktaVerify!: pulumi.Output<{[key: string]: string} | undefined>;
-    public readonly onpremMfa!: pulumi.Output<{[key: string]: string} | undefined>;
-    public readonly phoneNumber!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
+    declare public readonly oktaCall: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly oktaEmail: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly oktaOtp: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly oktaPassword: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly oktaPush: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly oktaQuestion: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly oktaSms: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly oktaVerify: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly onpremMfa: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly phoneNumber: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Default policy priority
      */
-    public /*out*/ readonly priority!: pulumi.Output<number>;
-    public readonly rsaToken!: pulumi.Output<{[key: string]: string} | undefined>;
-    public readonly securityQuestion!: pulumi.Output<{[key: string]: string} | undefined>;
-    public readonly smartCardIdp!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public /*out*/ readonly priority: pulumi.Output<number>;
+    declare public readonly rsaToken: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly securityQuestion: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly smartCardIdp: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Default policy status
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
-    public readonly symantecVip!: pulumi.Output<{[key: string]: string} | undefined>;
-    public readonly webauthn!: pulumi.Output<{[key: string]: string} | undefined>;
-    public readonly yubikeyToken!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public /*out*/ readonly status: pulumi.Output<string>;
+    declare public readonly symantecVip: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly webauthn: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly yubikeyToken: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a PolicyMfaDefault resource with the given unique name, arguments, and options.
@@ -134,61 +134,61 @@ export class PolicyMfaDefault extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PolicyMfaDefaultState | undefined;
-            resourceInputs["defaultIncludedGroupId"] = state ? state.defaultIncludedGroupId : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["duo"] = state ? state.duo : undefined;
-            resourceInputs["externalIdp"] = state ? state.externalIdp : undefined;
-            resourceInputs["externalIdps"] = state ? state.externalIdps : undefined;
-            resourceInputs["fidoU2f"] = state ? state.fidoU2f : undefined;
-            resourceInputs["fidoWebauthn"] = state ? state.fidoWebauthn : undefined;
-            resourceInputs["googleOtp"] = state ? state.googleOtp : undefined;
-            resourceInputs["hotp"] = state ? state.hotp : undefined;
-            resourceInputs["isOie"] = state ? state.isOie : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["oktaCall"] = state ? state.oktaCall : undefined;
-            resourceInputs["oktaEmail"] = state ? state.oktaEmail : undefined;
-            resourceInputs["oktaOtp"] = state ? state.oktaOtp : undefined;
-            resourceInputs["oktaPassword"] = state ? state.oktaPassword : undefined;
-            resourceInputs["oktaPush"] = state ? state.oktaPush : undefined;
-            resourceInputs["oktaQuestion"] = state ? state.oktaQuestion : undefined;
-            resourceInputs["oktaSms"] = state ? state.oktaSms : undefined;
-            resourceInputs["oktaVerify"] = state ? state.oktaVerify : undefined;
-            resourceInputs["onpremMfa"] = state ? state.onpremMfa : undefined;
-            resourceInputs["phoneNumber"] = state ? state.phoneNumber : undefined;
-            resourceInputs["priority"] = state ? state.priority : undefined;
-            resourceInputs["rsaToken"] = state ? state.rsaToken : undefined;
-            resourceInputs["securityQuestion"] = state ? state.securityQuestion : undefined;
-            resourceInputs["smartCardIdp"] = state ? state.smartCardIdp : undefined;
-            resourceInputs["status"] = state ? state.status : undefined;
-            resourceInputs["symantecVip"] = state ? state.symantecVip : undefined;
-            resourceInputs["webauthn"] = state ? state.webauthn : undefined;
-            resourceInputs["yubikeyToken"] = state ? state.yubikeyToken : undefined;
+            resourceInputs["defaultIncludedGroupId"] = state?.defaultIncludedGroupId;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["duo"] = state?.duo;
+            resourceInputs["externalIdp"] = state?.externalIdp;
+            resourceInputs["externalIdps"] = state?.externalIdps;
+            resourceInputs["fidoU2f"] = state?.fidoU2f;
+            resourceInputs["fidoWebauthn"] = state?.fidoWebauthn;
+            resourceInputs["googleOtp"] = state?.googleOtp;
+            resourceInputs["hotp"] = state?.hotp;
+            resourceInputs["isOie"] = state?.isOie;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["oktaCall"] = state?.oktaCall;
+            resourceInputs["oktaEmail"] = state?.oktaEmail;
+            resourceInputs["oktaOtp"] = state?.oktaOtp;
+            resourceInputs["oktaPassword"] = state?.oktaPassword;
+            resourceInputs["oktaPush"] = state?.oktaPush;
+            resourceInputs["oktaQuestion"] = state?.oktaQuestion;
+            resourceInputs["oktaSms"] = state?.oktaSms;
+            resourceInputs["oktaVerify"] = state?.oktaVerify;
+            resourceInputs["onpremMfa"] = state?.onpremMfa;
+            resourceInputs["phoneNumber"] = state?.phoneNumber;
+            resourceInputs["priority"] = state?.priority;
+            resourceInputs["rsaToken"] = state?.rsaToken;
+            resourceInputs["securityQuestion"] = state?.securityQuestion;
+            resourceInputs["smartCardIdp"] = state?.smartCardIdp;
+            resourceInputs["status"] = state?.status;
+            resourceInputs["symantecVip"] = state?.symantecVip;
+            resourceInputs["webauthn"] = state?.webauthn;
+            resourceInputs["yubikeyToken"] = state?.yubikeyToken;
         } else {
             const args = argsOrState as PolicyMfaDefaultArgs | undefined;
-            resourceInputs["duo"] = args ? args.duo : undefined;
-            resourceInputs["externalIdp"] = args ? args.externalIdp : undefined;
-            resourceInputs["externalIdps"] = args ? args.externalIdps : undefined;
-            resourceInputs["fidoU2f"] = args ? args.fidoU2f : undefined;
-            resourceInputs["fidoWebauthn"] = args ? args.fidoWebauthn : undefined;
-            resourceInputs["googleOtp"] = args ? args.googleOtp : undefined;
-            resourceInputs["hotp"] = args ? args.hotp : undefined;
-            resourceInputs["isOie"] = args ? args.isOie : undefined;
-            resourceInputs["oktaCall"] = args ? args.oktaCall : undefined;
-            resourceInputs["oktaEmail"] = args ? args.oktaEmail : undefined;
-            resourceInputs["oktaOtp"] = args ? args.oktaOtp : undefined;
-            resourceInputs["oktaPassword"] = args ? args.oktaPassword : undefined;
-            resourceInputs["oktaPush"] = args ? args.oktaPush : undefined;
-            resourceInputs["oktaQuestion"] = args ? args.oktaQuestion : undefined;
-            resourceInputs["oktaSms"] = args ? args.oktaSms : undefined;
-            resourceInputs["oktaVerify"] = args ? args.oktaVerify : undefined;
-            resourceInputs["onpremMfa"] = args ? args.onpremMfa : undefined;
-            resourceInputs["phoneNumber"] = args ? args.phoneNumber : undefined;
-            resourceInputs["rsaToken"] = args ? args.rsaToken : undefined;
-            resourceInputs["securityQuestion"] = args ? args.securityQuestion : undefined;
-            resourceInputs["smartCardIdp"] = args ? args.smartCardIdp : undefined;
-            resourceInputs["symantecVip"] = args ? args.symantecVip : undefined;
-            resourceInputs["webauthn"] = args ? args.webauthn : undefined;
-            resourceInputs["yubikeyToken"] = args ? args.yubikeyToken : undefined;
+            resourceInputs["duo"] = args?.duo;
+            resourceInputs["externalIdp"] = args?.externalIdp;
+            resourceInputs["externalIdps"] = args?.externalIdps;
+            resourceInputs["fidoU2f"] = args?.fidoU2f;
+            resourceInputs["fidoWebauthn"] = args?.fidoWebauthn;
+            resourceInputs["googleOtp"] = args?.googleOtp;
+            resourceInputs["hotp"] = args?.hotp;
+            resourceInputs["isOie"] = args?.isOie;
+            resourceInputs["oktaCall"] = args?.oktaCall;
+            resourceInputs["oktaEmail"] = args?.oktaEmail;
+            resourceInputs["oktaOtp"] = args?.oktaOtp;
+            resourceInputs["oktaPassword"] = args?.oktaPassword;
+            resourceInputs["oktaPush"] = args?.oktaPush;
+            resourceInputs["oktaQuestion"] = args?.oktaQuestion;
+            resourceInputs["oktaSms"] = args?.oktaSms;
+            resourceInputs["oktaVerify"] = args?.oktaVerify;
+            resourceInputs["onpremMfa"] = args?.onpremMfa;
+            resourceInputs["phoneNumber"] = args?.phoneNumber;
+            resourceInputs["rsaToken"] = args?.rsaToken;
+            resourceInputs["securityQuestion"] = args?.securityQuestion;
+            resourceInputs["smartCardIdp"] = args?.smartCardIdp;
+            resourceInputs["symantecVip"] = args?.symantecVip;
+            resourceInputs["webauthn"] = args?.webauthn;
+            resourceInputs["yubikeyToken"] = args?.yubikeyToken;
             resourceInputs["defaultIncludedGroupId"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

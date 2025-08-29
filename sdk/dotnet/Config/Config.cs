@@ -104,9 +104,7 @@ namespace Pulumi.Okta
 
         private static readonly __Value<int?> _maxApiCapacity = new __Value<int?>(() => __config.GetInt32("maxApiCapacity"));
         /// <summary>
-        /// Sets what percentage of capacity the provider can use of the total rate limit capacity while making calls to the Okta
-        /// management API endpoints. Okta API operates in one minute buckets. See Okta Management API Rate Limits:
-        /// https://developer.okta.com/docs/reference/rl-global-mgmt/
+        /// Sets what percentage of capacity the provider can use of the total rate limit capacity while making calls to the Okta management API endpoints. Okta API operates in one minute buckets. See Okta Management API Rate Limits: https://developer.okta.com/docs/reference/rl-global-mgmt/
         /// </summary>
         public static int? MaxApiCapacity
         {
@@ -156,8 +154,7 @@ namespace Pulumi.Okta
 
         private static readonly __Value<int?> _parallelism = new __Value<int?>(() => __config.GetInt32("parallelism"));
         /// <summary>
-        /// Number of concurrent requests to make within a resource where bulk operations are not possible. Take note of
-        /// https://developer.okta.com/docs/api/getting_started/rate-limits.
+        /// Number of concurrent requests to make within a resource where bulk operations are not possible. Take note of https://developer.okta.com/docs/api/getting_started/rate-limits.
         /// </summary>
         public static int? Parallelism
         {
@@ -187,8 +184,7 @@ namespace Pulumi.Okta
 
         private static readonly __Value<int?> _requestTimeout = new __Value<int?>(() => __config.GetInt32("requestTimeout"));
         /// <summary>
-        /// Timeout for single request (in seconds) which is made to Okta, the default is `0` (means no limit is set). The maximum
-        /// value can be `300`.
+        /// Timeout for single request (in seconds) which is made to Okta, the default is `0` (means no limit is set). The maximum value can be `300`.
         /// </summary>
         public static int? RequestTimeout
         {

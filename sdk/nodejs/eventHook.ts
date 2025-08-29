@@ -69,32 +69,32 @@ export class EventHook extends pulumi.CustomResource {
     }
 
     /**
-     * Details of the endpoint the event hook will hit. - 'version' - (Required) The version of the channel. The
-     * currently-supported version is '1.0.0'. - 'uri' - (Required) The URI the hook will hit. - 'type' - (Optional) The type
-     * of hook to trigger. Currently, the only supported type is 'HTTP'.
+     * Details of the endpoint the event hook will hit.   
+     * 	- 'version' - (Required) The version of the channel. The currently-supported version is '1.0.0'.
+     * 	- 'uri' - (Required) The URI the hook will hit.
+     * 	- 'type' - (Optional) The type of hook to trigger. Currently, the only supported type is 'HTTP'.
      */
-    public readonly auth!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly auth: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Details of the endpoint the event hook will hit.
      */
-    public readonly channel!: pulumi.Output<{[key: string]: string}>;
+    declare public readonly channel: pulumi.Output<{[key: string]: string}>;
     /**
-     * The events that will be delivered to this hook. [See here for a list of supported
-     * events](https://developer.okta.com/docs/reference/api/event-types/?q=event-hook-eligible).
+     * The events that will be delivered to this hook. [See here for a list of supported events](https://developer.okta.com/docs/reference/api/event-types/?q=event-hook-eligible).
      */
-    public readonly events!: pulumi.Output<string[]>;
+    declare public readonly events: pulumi.Output<string[]>;
     /**
      * Map of headers to send along in event hook request.
      */
-    public readonly headers!: pulumi.Output<outputs.EventHookHeader[] | undefined>;
+    declare public readonly headers: pulumi.Output<outputs.EventHookHeader[] | undefined>;
     /**
      * The event hook display name.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Default to `ACTIVE`
      */
-    public readonly status!: pulumi.Output<string | undefined>;
+    declare public readonly status: pulumi.Output<string | undefined>;
 
     /**
      * Create a EventHook resource with the given unique name, arguments, and options.
@@ -109,26 +109,26 @@ export class EventHook extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EventHookState | undefined;
-            resourceInputs["auth"] = state ? state.auth : undefined;
-            resourceInputs["channel"] = state ? state.channel : undefined;
-            resourceInputs["events"] = state ? state.events : undefined;
-            resourceInputs["headers"] = state ? state.headers : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["auth"] = state?.auth;
+            resourceInputs["channel"] = state?.channel;
+            resourceInputs["events"] = state?.events;
+            resourceInputs["headers"] = state?.headers;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["status"] = state?.status;
         } else {
             const args = argsOrState as EventHookArgs | undefined;
-            if ((!args || args.channel === undefined) && !opts.urn) {
+            if (args?.channel === undefined && !opts.urn) {
                 throw new Error("Missing required property 'channel'");
             }
-            if ((!args || args.events === undefined) && !opts.urn) {
+            if (args?.events === undefined && !opts.urn) {
                 throw new Error("Missing required property 'events'");
             }
-            resourceInputs["auth"] = args ? args.auth : undefined;
-            resourceInputs["channel"] = args ? args.channel : undefined;
-            resourceInputs["events"] = args ? args.events : undefined;
-            resourceInputs["headers"] = args ? args.headers : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
+            resourceInputs["auth"] = args?.auth;
+            resourceInputs["channel"] = args?.channel;
+            resourceInputs["events"] = args?.events;
+            resourceInputs["headers"] = args?.headers;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["status"] = args?.status;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(EventHook.__pulumiType, name, resourceInputs, opts);
@@ -140,9 +140,10 @@ export class EventHook extends pulumi.CustomResource {
  */
 export interface EventHookState {
     /**
-     * Details of the endpoint the event hook will hit. - 'version' - (Required) The version of the channel. The
-     * currently-supported version is '1.0.0'. - 'uri' - (Required) The URI the hook will hit. - 'type' - (Optional) The type
-     * of hook to trigger. Currently, the only supported type is 'HTTP'.
+     * Details of the endpoint the event hook will hit.   
+     * 	- 'version' - (Required) The version of the channel. The currently-supported version is '1.0.0'.
+     * 	- 'uri' - (Required) The URI the hook will hit.
+     * 	- 'type' - (Optional) The type of hook to trigger. Currently, the only supported type is 'HTTP'.
      */
     auth?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -150,8 +151,7 @@ export interface EventHookState {
      */
     channel?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The events that will be delivered to this hook. [See here for a list of supported
-     * events](https://developer.okta.com/docs/reference/api/event-types/?q=event-hook-eligible).
+     * The events that will be delivered to this hook. [See here for a list of supported events](https://developer.okta.com/docs/reference/api/event-types/?q=event-hook-eligible).
      */
     events?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -173,9 +173,10 @@ export interface EventHookState {
  */
 export interface EventHookArgs {
     /**
-     * Details of the endpoint the event hook will hit. - 'version' - (Required) The version of the channel. The
-     * currently-supported version is '1.0.0'. - 'uri' - (Required) The URI the hook will hit. - 'type' - (Optional) The type
-     * of hook to trigger. Currently, the only supported type is 'HTTP'.
+     * Details of the endpoint the event hook will hit.   
+     * 	- 'version' - (Required) The version of the channel. The currently-supported version is '1.0.0'.
+     * 	- 'uri' - (Required) The URI the hook will hit.
+     * 	- 'type' - (Optional) The type of hook to trigger. Currently, the only supported type is 'HTTP'.
      */
     auth?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -183,8 +184,7 @@ export interface EventHookArgs {
      */
     channel: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The events that will be delivered to this hook. [See here for a list of supported
-     * events](https://developer.okta.com/docs/reference/api/event-types/?q=event-hook-eligible).
+     * The events that will be delivered to this hook. [See here for a list of supported events](https://developer.okta.com/docs/reference/api/event-types/?q=event-hook-eligible).
      */
     events: pulumi.Input<pulumi.Input<string>[]>;
     /**

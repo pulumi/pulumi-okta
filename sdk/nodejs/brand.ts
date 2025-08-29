@@ -51,53 +51,53 @@ export class Brand extends pulumi.CustomResource {
     /**
      * Is a required input flag with when changing custom*privacy*url, shouldn't be considered as a readable property
      */
-    public readonly agreeToCustomPrivacyPolicy!: pulumi.Output<boolean>;
+    declare public readonly agreeToCustomPrivacyPolicy: pulumi.Output<boolean>;
     /**
      * Brand ID - Note: Okta API for brands only reads and updates therefore the okta*brand resource needs to act as a quasi data source. Do this by setting brand*id. `DEPRECATED`: Okta has fully support brand creation, this attribute is a no op and will be removed
      *
      * @deprecated Okta has fully support brand creation, this attribute is a no op and will be removed
      */
-    public readonly brandId!: pulumi.Output<string>;
+    declare public readonly brandId: pulumi.Output<string>;
     /**
      * Custom privacy policy URL
      */
-    public readonly customPrivacyPolicyUrl!: pulumi.Output<string>;
+    declare public readonly customPrivacyPolicyUrl: pulumi.Output<string>;
     /**
      * Default app app instance id
      */
-    public readonly defaultAppAppInstanceId!: pulumi.Output<string | undefined>;
+    declare public readonly defaultAppAppInstanceId: pulumi.Output<string | undefined>;
     /**
      * Default app app link name
      */
-    public readonly defaultAppAppLinkName!: pulumi.Output<string | undefined>;
+    declare public readonly defaultAppAppLinkName: pulumi.Output<string | undefined>;
     /**
      * Default app classic application uri
      */
-    public readonly defaultAppClassicApplicationUri!: pulumi.Output<string | undefined>;
+    declare public readonly defaultAppClassicApplicationUri: pulumi.Output<string | undefined>;
     /**
      * Email Domain ID tied to this brand
      */
-    public /*out*/ readonly emailDomainId!: pulumi.Output<string>;
+    declare public /*out*/ readonly emailDomainId: pulumi.Output<string>;
     /**
      * Is this the default brand
      */
-    public /*out*/ readonly isDefault!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly isDefault: pulumi.Output<boolean>;
     /**
      * Link relations for this object - JSON HAL - Discoverable resources related to the brand
      */
-    public /*out*/ readonly links!: pulumi.Output<string>;
+    declare public /*out*/ readonly links: pulumi.Output<string>;
     /**
      * The language specified as an IETF BCP 47 language tag
      */
-    public readonly locale!: pulumi.Output<string | undefined>;
+    declare public readonly locale: pulumi.Output<string | undefined>;
     /**
      * Name of the brand
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Removes "Powered by Okta" from the Okta-hosted sign-in page and "© 2021 Okta, Inc." from the Okta End-User Dashboard
      */
-    public readonly removePoweredByOkta!: pulumi.Output<boolean>;
+    declare public readonly removePoweredByOkta: pulumi.Output<boolean>;
 
     /**
      * Create a Brand resource with the given unique name, arguments, and options.
@@ -112,29 +112,29 @@ export class Brand extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as BrandState | undefined;
-            resourceInputs["agreeToCustomPrivacyPolicy"] = state ? state.agreeToCustomPrivacyPolicy : undefined;
-            resourceInputs["brandId"] = state ? state.brandId : undefined;
-            resourceInputs["customPrivacyPolicyUrl"] = state ? state.customPrivacyPolicyUrl : undefined;
-            resourceInputs["defaultAppAppInstanceId"] = state ? state.defaultAppAppInstanceId : undefined;
-            resourceInputs["defaultAppAppLinkName"] = state ? state.defaultAppAppLinkName : undefined;
-            resourceInputs["defaultAppClassicApplicationUri"] = state ? state.defaultAppClassicApplicationUri : undefined;
-            resourceInputs["emailDomainId"] = state ? state.emailDomainId : undefined;
-            resourceInputs["isDefault"] = state ? state.isDefault : undefined;
-            resourceInputs["links"] = state ? state.links : undefined;
-            resourceInputs["locale"] = state ? state.locale : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["removePoweredByOkta"] = state ? state.removePoweredByOkta : undefined;
+            resourceInputs["agreeToCustomPrivacyPolicy"] = state?.agreeToCustomPrivacyPolicy;
+            resourceInputs["brandId"] = state?.brandId;
+            resourceInputs["customPrivacyPolicyUrl"] = state?.customPrivacyPolicyUrl;
+            resourceInputs["defaultAppAppInstanceId"] = state?.defaultAppAppInstanceId;
+            resourceInputs["defaultAppAppLinkName"] = state?.defaultAppAppLinkName;
+            resourceInputs["defaultAppClassicApplicationUri"] = state?.defaultAppClassicApplicationUri;
+            resourceInputs["emailDomainId"] = state?.emailDomainId;
+            resourceInputs["isDefault"] = state?.isDefault;
+            resourceInputs["links"] = state?.links;
+            resourceInputs["locale"] = state?.locale;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["removePoweredByOkta"] = state?.removePoweredByOkta;
         } else {
             const args = argsOrState as BrandArgs | undefined;
-            resourceInputs["agreeToCustomPrivacyPolicy"] = args ? args.agreeToCustomPrivacyPolicy : undefined;
-            resourceInputs["brandId"] = args ? args.brandId : undefined;
-            resourceInputs["customPrivacyPolicyUrl"] = args ? args.customPrivacyPolicyUrl : undefined;
-            resourceInputs["defaultAppAppInstanceId"] = args ? args.defaultAppAppInstanceId : undefined;
-            resourceInputs["defaultAppAppLinkName"] = args ? args.defaultAppAppLinkName : undefined;
-            resourceInputs["defaultAppClassicApplicationUri"] = args ? args.defaultAppClassicApplicationUri : undefined;
-            resourceInputs["locale"] = args ? args.locale : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["removePoweredByOkta"] = args ? args.removePoweredByOkta : undefined;
+            resourceInputs["agreeToCustomPrivacyPolicy"] = args?.agreeToCustomPrivacyPolicy;
+            resourceInputs["brandId"] = args?.brandId;
+            resourceInputs["customPrivacyPolicyUrl"] = args?.customPrivacyPolicyUrl;
+            resourceInputs["defaultAppAppInstanceId"] = args?.defaultAppAppInstanceId;
+            resourceInputs["defaultAppAppLinkName"] = args?.defaultAppAppLinkName;
+            resourceInputs["defaultAppClassicApplicationUri"] = args?.defaultAppClassicApplicationUri;
+            resourceInputs["locale"] = args?.locale;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["removePoweredByOkta"] = args?.removePoweredByOkta;
             resourceInputs["emailDomainId"] = undefined /*out*/;
             resourceInputs["isDefault"] = undefined /*out*/;
             resourceInputs["links"] = undefined /*out*/;

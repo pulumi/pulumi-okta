@@ -60,19 +60,19 @@ export class Captcha extends pulumi.CustomResource {
     /**
      * Name of the CAPTCHA
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Secret key issued from the CAPTCHA vendor to perform server-side validation for a CAPTCHA token
      */
-    public readonly secretKey!: pulumi.Output<string>;
+    declare public readonly secretKey: pulumi.Output<string>;
     /**
      * Site key issued from the CAPTCHA vendor to render a CAPTCHA on a page
      */
-    public readonly siteKey!: pulumi.Output<string>;
+    declare public readonly siteKey: pulumi.Output<string>;
     /**
      * Type of the captcha. Valid values: `HCAPTCHA`, `RECAPTCHA_V2`
      */
-    public readonly type!: pulumi.Output<string>;
+    declare public readonly type: pulumi.Output<string>;
 
     /**
      * Create a Captcha resource with the given unique name, arguments, and options.
@@ -87,25 +87,25 @@ export class Captcha extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CaptchaState | undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["secretKey"] = state ? state.secretKey : undefined;
-            resourceInputs["siteKey"] = state ? state.siteKey : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["secretKey"] = state?.secretKey;
+            resourceInputs["siteKey"] = state?.siteKey;
+            resourceInputs["type"] = state?.type;
         } else {
             const args = argsOrState as CaptchaArgs | undefined;
-            if ((!args || args.secretKey === undefined) && !opts.urn) {
+            if (args?.secretKey === undefined && !opts.urn) {
                 throw new Error("Missing required property 'secretKey'");
             }
-            if ((!args || args.siteKey === undefined) && !opts.urn) {
+            if (args?.siteKey === undefined && !opts.urn) {
                 throw new Error("Missing required property 'siteKey'");
             }
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["name"] = args?.name;
             resourceInputs["secretKey"] = args?.secretKey ? pulumi.secret(args.secretKey) : undefined;
-            resourceInputs["siteKey"] = args ? args.siteKey : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["siteKey"] = args?.siteKey;
+            resourceInputs["type"] = args?.type;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["secretKey"] };

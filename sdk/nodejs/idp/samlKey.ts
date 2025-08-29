@@ -64,31 +64,31 @@ export class SamlKey extends pulumi.CustomResource {
     /**
      * Date created.
      */
-    public /*out*/ readonly created!: pulumi.Output<string>;
+    declare public /*out*/ readonly created: pulumi.Output<string>;
     /**
      * Date the cert expires.
      */
-    public /*out*/ readonly expiresAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly expiresAt: pulumi.Output<string>;
     /**
      * Key ID.
      */
-    public /*out*/ readonly kid!: pulumi.Output<string>;
+    declare public /*out*/ readonly kid: pulumi.Output<string>;
     /**
      * Identifies the cryptographic algorithm family used with the key.
      */
-    public /*out*/ readonly kty!: pulumi.Output<string>;
+    declare public /*out*/ readonly kty: pulumi.Output<string>;
     /**
      * Intended use of the public key.
      */
-    public /*out*/ readonly use!: pulumi.Output<string>;
+    declare public /*out*/ readonly use: pulumi.Output<string>;
     /**
      * base64-encoded X.509 certificate chain with DER encoding
      */
-    public readonly x5cs!: pulumi.Output<string[]>;
+    declare public readonly x5cs: pulumi.Output<string[]>;
     /**
      * base64url-encoded SHA-256 thumbprint of the DER encoding of an X.509 certificate.
      */
-    public /*out*/ readonly x5tS256!: pulumi.Output<string>;
+    declare public /*out*/ readonly x5tS256: pulumi.Output<string>;
 
     /**
      * Create a SamlKey resource with the given unique name, arguments, and options.
@@ -103,19 +103,19 @@ export class SamlKey extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SamlKeyState | undefined;
-            resourceInputs["created"] = state ? state.created : undefined;
-            resourceInputs["expiresAt"] = state ? state.expiresAt : undefined;
-            resourceInputs["kid"] = state ? state.kid : undefined;
-            resourceInputs["kty"] = state ? state.kty : undefined;
-            resourceInputs["use"] = state ? state.use : undefined;
-            resourceInputs["x5cs"] = state ? state.x5cs : undefined;
-            resourceInputs["x5tS256"] = state ? state.x5tS256 : undefined;
+            resourceInputs["created"] = state?.created;
+            resourceInputs["expiresAt"] = state?.expiresAt;
+            resourceInputs["kid"] = state?.kid;
+            resourceInputs["kty"] = state?.kty;
+            resourceInputs["use"] = state?.use;
+            resourceInputs["x5cs"] = state?.x5cs;
+            resourceInputs["x5tS256"] = state?.x5tS256;
         } else {
             const args = argsOrState as SamlKeyArgs | undefined;
-            if ((!args || args.x5cs === undefined) && !opts.urn) {
+            if (args?.x5cs === undefined && !opts.urn) {
                 throw new Error("Missing required property 'x5cs'");
             }
-            resourceInputs["x5cs"] = args ? args.x5cs : undefined;
+            resourceInputs["x5cs"] = args?.x5cs;
             resourceInputs["created"] = undefined /*out*/;
             resourceInputs["expiresAt"] = undefined /*out*/;
             resourceInputs["kid"] = undefined /*out*/;

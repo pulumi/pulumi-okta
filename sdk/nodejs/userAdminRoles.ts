@@ -62,15 +62,15 @@ export class UserAdminRoles extends pulumi.CustomResource {
     /**
      * The list of Okta user admin roles, e.g. `['APP_ADMIN', 'USER_ADMIN']` See [API Docs](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#standard-roles).
      */
-    public readonly adminRoles!: pulumi.Output<string[]>;
+    declare public readonly adminRoles: pulumi.Output<string[]>;
     /**
      * When this setting is enabled, the admins won't receive any of the default Okta administrator emails. These admins also won't have access to contact Okta Support and open support cases on behalf of your org.
      */
-    public readonly disableNotifications!: pulumi.Output<boolean | undefined>;
+    declare public readonly disableNotifications: pulumi.Output<boolean | undefined>;
     /**
      * ID of a Okta User
      */
-    public readonly userId!: pulumi.Output<string>;
+    declare public readonly userId: pulumi.Output<string>;
 
     /**
      * Create a UserAdminRoles resource with the given unique name, arguments, and options.
@@ -85,20 +85,20 @@ export class UserAdminRoles extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as UserAdminRolesState | undefined;
-            resourceInputs["adminRoles"] = state ? state.adminRoles : undefined;
-            resourceInputs["disableNotifications"] = state ? state.disableNotifications : undefined;
-            resourceInputs["userId"] = state ? state.userId : undefined;
+            resourceInputs["adminRoles"] = state?.adminRoles;
+            resourceInputs["disableNotifications"] = state?.disableNotifications;
+            resourceInputs["userId"] = state?.userId;
         } else {
             const args = argsOrState as UserAdminRolesArgs | undefined;
-            if ((!args || args.adminRoles === undefined) && !opts.urn) {
+            if (args?.adminRoles === undefined && !opts.urn) {
                 throw new Error("Missing required property 'adminRoles'");
             }
-            if ((!args || args.userId === undefined) && !opts.urn) {
+            if (args?.userId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'userId'");
             }
-            resourceInputs["adminRoles"] = args ? args.adminRoles : undefined;
-            resourceInputs["disableNotifications"] = args ? args.disableNotifications : undefined;
-            resourceInputs["userId"] = args ? args.userId : undefined;
+            resourceInputs["adminRoles"] = args?.adminRoles;
+            resourceInputs["disableNotifications"] = args?.disableNotifications;
+            resourceInputs["userId"] = args?.userId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(UserAdminRoles.__pulumiType, name, resourceInputs, opts);

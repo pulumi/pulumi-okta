@@ -19,16 +19,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="okta:index/realmAssignment:RealmAssignment")
 public class RealmAssignment extends com.pulumi.resources.CustomResource {
     /**
-     * Condition expression for the Realm Assignment in Okta Expression Language. Example: `user.profile.role ==&#34;Manager&#34;` or
-     * `user.profile.state.contains(&#34;example&#34;)`.
+     * Condition expression for the Realm Assignment in Okta Expression Language. Example: `user.profile.role ==&#34;Manager&#34;` or `user.profile.state.contains(&#34;example&#34;)`.
      * 
      */
     @Export(name="conditionExpression", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> conditionExpression;
 
     /**
-     * @return Condition expression for the Realm Assignment in Okta Expression Language. Example: `user.profile.role ==&#34;Manager&#34;` or
-     * `user.profile.state.contains(&#34;example&#34;)`.
+     * @return Condition expression for the Realm Assignment in Okta Expression Language. Example: `user.profile.role ==&#34;Manager&#34;` or `user.profile.state.contains(&#34;example&#34;)`.
      * 
      */
     public Output<Optional<String>> conditionExpression() {

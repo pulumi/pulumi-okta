@@ -58,23 +58,23 @@ export class GroupAssignment extends pulumi.CustomResource {
     /**
      * App to associate group with
      */
-    public readonly appId!: pulumi.Output<string>;
+    declare public readonly appId: pulumi.Output<string>;
     /**
      * Group associated with the application
      */
-    public readonly groupId!: pulumi.Output<string>;
+    declare public readonly groupId: pulumi.Output<string>;
     /**
      * Priority of group assignment.
      */
-    public readonly priority!: pulumi.Output<number | undefined>;
+    declare public readonly priority: pulumi.Output<number | undefined>;
     /**
      * JSON document containing [application profile](https://developer.okta.com/docs/reference/api/apps/#profile-object)
      */
-    public readonly profile!: pulumi.Output<string | undefined>;
+    declare public readonly profile: pulumi.Output<string | undefined>;
     /**
      * Retain the group assignment on destroy. If set to true, the resource will be removed from state but not from the Okta app.
      */
-    public readonly retainAssignment!: pulumi.Output<boolean | undefined>;
+    declare public readonly retainAssignment: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a GroupAssignment resource with the given unique name, arguments, and options.
@@ -89,24 +89,24 @@ export class GroupAssignment extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as GroupAssignmentState | undefined;
-            resourceInputs["appId"] = state ? state.appId : undefined;
-            resourceInputs["groupId"] = state ? state.groupId : undefined;
-            resourceInputs["priority"] = state ? state.priority : undefined;
-            resourceInputs["profile"] = state ? state.profile : undefined;
-            resourceInputs["retainAssignment"] = state ? state.retainAssignment : undefined;
+            resourceInputs["appId"] = state?.appId;
+            resourceInputs["groupId"] = state?.groupId;
+            resourceInputs["priority"] = state?.priority;
+            resourceInputs["profile"] = state?.profile;
+            resourceInputs["retainAssignment"] = state?.retainAssignment;
         } else {
             const args = argsOrState as GroupAssignmentArgs | undefined;
-            if ((!args || args.appId === undefined) && !opts.urn) {
+            if (args?.appId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'appId'");
             }
-            if ((!args || args.groupId === undefined) && !opts.urn) {
+            if (args?.groupId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'groupId'");
             }
-            resourceInputs["appId"] = args ? args.appId : undefined;
-            resourceInputs["groupId"] = args ? args.groupId : undefined;
-            resourceInputs["priority"] = args ? args.priority : undefined;
-            resourceInputs["profile"] = args ? args.profile : undefined;
-            resourceInputs["retainAssignment"] = args ? args.retainAssignment : undefined;
+            resourceInputs["appId"] = args?.appId;
+            resourceInputs["groupId"] = args?.groupId;
+            resourceInputs["priority"] = args?.priority;
+            resourceInputs["profile"] = args?.profile;
+            resourceInputs["retainAssignment"] = args?.retainAssignment;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(GroupAssignment.__pulumiType, name, resourceInputs, opts);

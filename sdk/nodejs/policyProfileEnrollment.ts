@@ -59,11 +59,11 @@ export class PolicyProfileEnrollment extends pulumi.CustomResource {
     /**
      * Name of the policy
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Status of the policy
      */
-    public readonly status!: pulumi.Output<string | undefined>;
+    declare public readonly status: pulumi.Output<string | undefined>;
 
     /**
      * Create a PolicyProfileEnrollment resource with the given unique name, arguments, and options.
@@ -78,12 +78,12 @@ export class PolicyProfileEnrollment extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PolicyProfileEnrollmentState | undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["status"] = state?.status;
         } else {
             const args = argsOrState as PolicyProfileEnrollmentArgs | undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["status"] = args?.status;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(PolicyProfileEnrollment.__pulumiType, name, resourceInputs, opts);

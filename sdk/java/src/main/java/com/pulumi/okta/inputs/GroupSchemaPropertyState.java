@@ -37,16 +37,18 @@ public final class GroupSchemaPropertyState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Display name and value an enum array can be set to. - &#39;const&#39; - (Required) value mapping to member of &#39;enum&#39;. - &#39;title&#39;
-     * - (Required) display name for the enum value.
+     * Display name and value an enum array can be set to.
+     * 	- &#39;const&#39; - (Required) value mapping to member of &#39;enum&#39;.
+     * 	- &#39;title&#39; - (Required) display name for the enum value.
      * 
      */
     @Import(name="arrayOneOfs")
     private @Nullable Output<List<GroupSchemaPropertyArrayOneOfArgs>> arrayOneOfs;
 
     /**
-     * @return Display name and value an enum array can be set to. - &#39;const&#39; - (Required) value mapping to member of &#39;enum&#39;. - &#39;title&#39;
-     * - (Required) display name for the enum value.
+     * @return Display name and value an enum array can be set to.
+     * 	- &#39;const&#39; - (Required) value mapping to member of &#39;enum&#39;.
+     * 	- &#39;title&#39; - (Required) display name for the enum value.
      * 
      */
     public Optional<Output<List<GroupSchemaPropertyArrayOneOfArgs>>> arrayOneOfs() {
@@ -144,16 +146,14 @@ public final class GroupSchemaPropertyState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Master priority for the group schema property. It can be set to `PROFILE_MASTER`, `OVERRIDE` or `OKTA`. Default:
-     * `PROFILE_MASTER`
+     * Master priority for the group schema property. It can be set to `PROFILE_MASTER`, `OVERRIDE` or `OKTA`. Default: `PROFILE_MASTER`
      * 
      */
     @Import(name="master")
     private @Nullable Output<String> master;
 
     /**
-     * @return Master priority for the group schema property. It can be set to `PROFILE_MASTER`, `OVERRIDE` or `OKTA`. Default:
-     * `PROFILE_MASTER`
+     * @return Master priority for the group schema property. It can be set to `PROFILE_MASTER`, `OVERRIDE` or `OKTA`. Default: `PROFILE_MASTER`
      * 
      */
     public Optional<Output<String>> master() {
@@ -206,16 +206,18 @@ public final class GroupSchemaPropertyState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Array of maps containing a mapping for display name to enum value. - &#39;const&#39; - (Required) value mapping to member of
-     * &#39;enum&#39;. - &#39;title&#39; - (Required) display name for the enum value.
+     * Array of maps containing a mapping for display name to enum value.
+     * 	- &#39;const&#39; - (Required) value mapping to member of &#39;enum&#39;.
+     * 	- &#39;title&#39; - (Required) display name for the enum value.
      * 
      */
     @Import(name="oneOfs")
     private @Nullable Output<List<GroupSchemaPropertyOneOfArgs>> oneOfs;
 
     /**
-     * @return Array of maps containing a mapping for display name to enum value. - &#39;const&#39; - (Required) value mapping to member of
-     * &#39;enum&#39;. - &#39;title&#39; - (Required) display name for the enum value.
+     * @return Array of maps containing a mapping for display name to enum value.
+     * 	- &#39;const&#39; - (Required) value mapping to member of &#39;enum&#39;.
+     * 	- &#39;title&#39; - (Required) display name for the enum value.
      * 
      */
     public Optional<Output<List<GroupSchemaPropertyOneOfArgs>>> oneOfs() {
@@ -378,8 +380,9 @@ public final class GroupSchemaPropertyState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param arrayOneOfs Display name and value an enum array can be set to. - &#39;const&#39; - (Required) value mapping to member of &#39;enum&#39;. - &#39;title&#39;
-         * - (Required) display name for the enum value.
+         * @param arrayOneOfs Display name and value an enum array can be set to.
+         * 	- &#39;const&#39; - (Required) value mapping to member of &#39;enum&#39;.
+         * 	- &#39;title&#39; - (Required) display name for the enum value.
          * 
          * @return builder
          * 
@@ -390,8 +393,9 @@ public final class GroupSchemaPropertyState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param arrayOneOfs Display name and value an enum array can be set to. - &#39;const&#39; - (Required) value mapping to member of &#39;enum&#39;. - &#39;title&#39;
-         * - (Required) display name for the enum value.
+         * @param arrayOneOfs Display name and value an enum array can be set to.
+         * 	- &#39;const&#39; - (Required) value mapping to member of &#39;enum&#39;.
+         * 	- &#39;title&#39; - (Required) display name for the enum value.
          * 
          * @return builder
          * 
@@ -401,8 +405,9 @@ public final class GroupSchemaPropertyState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param arrayOneOfs Display name and value an enum array can be set to. - &#39;const&#39; - (Required) value mapping to member of &#39;enum&#39;. - &#39;title&#39;
-         * - (Required) display name for the enum value.
+         * @param arrayOneOfs Display name and value an enum array can be set to.
+         * 	- &#39;const&#39; - (Required) value mapping to member of &#39;enum&#39;.
+         * 	- &#39;title&#39; - (Required) display name for the enum value.
          * 
          * @return builder
          * 
@@ -548,8 +553,7 @@ public final class GroupSchemaPropertyState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param master Master priority for the group schema property. It can be set to `PROFILE_MASTER`, `OVERRIDE` or `OKTA`. Default:
-         * `PROFILE_MASTER`
+         * @param master Master priority for the group schema property. It can be set to `PROFILE_MASTER`, `OVERRIDE` or `OKTA`. Default: `PROFILE_MASTER`
          * 
          * @return builder
          * 
@@ -560,8 +564,7 @@ public final class GroupSchemaPropertyState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param master Master priority for the group schema property. It can be set to `PROFILE_MASTER`, `OVERRIDE` or `OKTA`. Default:
-         * `PROFILE_MASTER`
+         * @param master Master priority for the group schema property. It can be set to `PROFILE_MASTER`, `OVERRIDE` or `OKTA`. Default: `PROFILE_MASTER`
          * 
          * @return builder
          * 
@@ -644,8 +647,9 @@ public final class GroupSchemaPropertyState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param oneOfs Array of maps containing a mapping for display name to enum value. - &#39;const&#39; - (Required) value mapping to member of
-         * &#39;enum&#39;. - &#39;title&#39; - (Required) display name for the enum value.
+         * @param oneOfs Array of maps containing a mapping for display name to enum value.
+         * 	- &#39;const&#39; - (Required) value mapping to member of &#39;enum&#39;.
+         * 	- &#39;title&#39; - (Required) display name for the enum value.
          * 
          * @return builder
          * 
@@ -656,8 +660,9 @@ public final class GroupSchemaPropertyState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param oneOfs Array of maps containing a mapping for display name to enum value. - &#39;const&#39; - (Required) value mapping to member of
-         * &#39;enum&#39;. - &#39;title&#39; - (Required) display name for the enum value.
+         * @param oneOfs Array of maps containing a mapping for display name to enum value.
+         * 	- &#39;const&#39; - (Required) value mapping to member of &#39;enum&#39;.
+         * 	- &#39;title&#39; - (Required) display name for the enum value.
          * 
          * @return builder
          * 
@@ -667,8 +672,9 @@ public final class GroupSchemaPropertyState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param oneOfs Array of maps containing a mapping for display name to enum value. - &#39;const&#39; - (Required) value mapping to member of
-         * &#39;enum&#39;. - &#39;title&#39; - (Required) display name for the enum value.
+         * @param oneOfs Array of maps containing a mapping for display name to enum value.
+         * 	- &#39;const&#39; - (Required) value mapping to member of &#39;enum&#39;.
+         * 	- &#39;title&#39; - (Required) display name for the enum value.
          * 
          * @return builder
          * 

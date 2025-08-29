@@ -28,35 +28,35 @@ export class Provider extends pulumi.ProviderResource {
     /**
      * Bearer token granting privileges to Okta API.
      */
-    public readonly accessToken!: pulumi.Output<string | undefined>;
+    declare public readonly accessToken: pulumi.Output<string | undefined>;
     /**
      * API Token granting privileges to Okta API.
      */
-    public readonly apiToken!: pulumi.Output<string | undefined>;
+    declare public readonly apiToken: pulumi.Output<string | undefined>;
     /**
      * The Okta url. (Use 'oktapreview.com' for Okta testing)
      */
-    public readonly baseUrl!: pulumi.Output<string | undefined>;
+    declare public readonly baseUrl: pulumi.Output<string | undefined>;
     /**
      * API Token granting privileges to Okta API.
      */
-    public readonly clientId!: pulumi.Output<string | undefined>;
+    declare public readonly clientId: pulumi.Output<string | undefined>;
     /**
      * Alternate HTTP proxy of scheme://hostname or scheme://hostname:port format
      */
-    public readonly httpProxy!: pulumi.Output<string | undefined>;
+    declare public readonly httpProxy: pulumi.Output<string | undefined>;
     /**
      * The organization to manage in Okta.
      */
-    public readonly orgName!: pulumi.Output<string | undefined>;
+    declare public readonly orgName: pulumi.Output<string | undefined>;
     /**
      * API Token granting privileges to Okta API.
      */
-    public readonly privateKey!: pulumi.Output<string | undefined>;
+    declare public readonly privateKey: pulumi.Output<string | undefined>;
     /**
      * API Token Id granting privileges to Okta API.
      */
-    public readonly privateKeyId!: pulumi.Output<string | undefined>;
+    declare public readonly privateKeyId: pulumi.Output<string | undefined>;
 
     /**
      * Create a Provider resource with the given unique name, arguments, and options.
@@ -71,21 +71,21 @@ export class Provider extends pulumi.ProviderResource {
         {
             resourceInputs["accessToken"] = args?.accessToken ? pulumi.secret(args.accessToken) : undefined;
             resourceInputs["apiToken"] = args?.apiToken ? pulumi.secret(args.apiToken) : undefined;
-            resourceInputs["backoff"] = pulumi.output(args ? args.backoff : undefined).apply(JSON.stringify);
-            resourceInputs["baseUrl"] = args ? args.baseUrl : undefined;
-            resourceInputs["clientId"] = args ? args.clientId : undefined;
-            resourceInputs["httpProxy"] = args ? args.httpProxy : undefined;
-            resourceInputs["logLevel"] = pulumi.output(args ? args.logLevel : undefined).apply(JSON.stringify);
-            resourceInputs["maxApiCapacity"] = pulumi.output(args ? args.maxApiCapacity : undefined).apply(JSON.stringify);
-            resourceInputs["maxRetries"] = pulumi.output(args ? args.maxRetries : undefined).apply(JSON.stringify);
-            resourceInputs["maxWaitSeconds"] = pulumi.output(args ? args.maxWaitSeconds : undefined).apply(JSON.stringify);
-            resourceInputs["minWaitSeconds"] = pulumi.output(args ? args.minWaitSeconds : undefined).apply(JSON.stringify);
-            resourceInputs["orgName"] = args ? args.orgName : undefined;
-            resourceInputs["parallelism"] = pulumi.output(args ? args.parallelism : undefined).apply(JSON.stringify);
+            resourceInputs["backoff"] = pulumi.output(args?.backoff).apply(JSON.stringify);
+            resourceInputs["baseUrl"] = args?.baseUrl;
+            resourceInputs["clientId"] = args?.clientId;
+            resourceInputs["httpProxy"] = args?.httpProxy;
+            resourceInputs["logLevel"] = pulumi.output(args?.logLevel).apply(JSON.stringify);
+            resourceInputs["maxApiCapacity"] = pulumi.output(args?.maxApiCapacity).apply(JSON.stringify);
+            resourceInputs["maxRetries"] = pulumi.output(args?.maxRetries).apply(JSON.stringify);
+            resourceInputs["maxWaitSeconds"] = pulumi.output(args?.maxWaitSeconds).apply(JSON.stringify);
+            resourceInputs["minWaitSeconds"] = pulumi.output(args?.minWaitSeconds).apply(JSON.stringify);
+            resourceInputs["orgName"] = args?.orgName;
+            resourceInputs["parallelism"] = pulumi.output(args?.parallelism).apply(JSON.stringify);
             resourceInputs["privateKey"] = args?.privateKey ? pulumi.secret(args.privateKey) : undefined;
-            resourceInputs["privateKeyId"] = args ? args.privateKeyId : undefined;
-            resourceInputs["requestTimeout"] = pulumi.output(args ? args.requestTimeout : undefined).apply(JSON.stringify);
-            resourceInputs["scopes"] = pulumi.output(args ? args.scopes : undefined).apply(JSON.stringify);
+            resourceInputs["privateKeyId"] = args?.privateKeyId;
+            resourceInputs["requestTimeout"] = pulumi.output(args?.requestTimeout).apply(JSON.stringify);
+            resourceInputs["scopes"] = pulumi.output(args?.scopes).apply(JSON.stringify);
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["accessToken", "apiToken", "privateKey"] };
@@ -136,9 +136,7 @@ export interface ProviderArgs {
      */
     logLevel?: pulumi.Input<number>;
     /**
-     * Sets what percentage of capacity the provider can use of the total rate limit capacity while making calls to the Okta
-     * management API endpoints. Okta API operates in one minute buckets. See Okta Management API Rate Limits:
-     * https://developer.okta.com/docs/reference/rl-global-mgmt/
+     * Sets what percentage of capacity the provider can use of the total rate limit capacity while making calls to the Okta management API endpoints. Okta API operates in one minute buckets. See Okta Management API Rate Limits: https://developer.okta.com/docs/reference/rl-global-mgmt/
      */
     maxApiCapacity?: pulumi.Input<number>;
     /**
@@ -158,8 +156,7 @@ export interface ProviderArgs {
      */
     orgName?: pulumi.Input<string>;
     /**
-     * Number of concurrent requests to make within a resource where bulk operations are not possible. Take note of
-     * https://developer.okta.com/docs/api/getting_started/rate-limits.
+     * Number of concurrent requests to make within a resource where bulk operations are not possible. Take note of https://developer.okta.com/docs/api/getting_started/rate-limits.
      */
     parallelism?: pulumi.Input<number>;
     /**
@@ -171,8 +168,7 @@ export interface ProviderArgs {
      */
     privateKeyId?: pulumi.Input<string>;
     /**
-     * Timeout for single request (in seconds) which is made to Okta, the default is `0` (means no limit is set). The maximum
-     * value can be `300`.
+     * Timeout for single request (in seconds) which is made to Okta, the default is `0` (means no limit is set). The maximum value can be `300`.
      */
     requestTimeout?: pulumi.Input<number>;
     /**

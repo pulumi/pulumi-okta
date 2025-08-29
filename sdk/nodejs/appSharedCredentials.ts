@@ -76,119 +76,119 @@ export class AppSharedCredentials extends pulumi.CustomResource {
     /**
      * Custom error page URL
      */
-    public readonly accessibilityErrorRedirectUrl!: pulumi.Output<string | undefined>;
+    declare public readonly accessibilityErrorRedirectUrl: pulumi.Output<string | undefined>;
     /**
      * Custom login page URL
      */
-    public readonly accessibilityLoginRedirectUrl!: pulumi.Output<string | undefined>;
+    declare public readonly accessibilityLoginRedirectUrl: pulumi.Output<string | undefined>;
     /**
      * Enable self service. Default is `false`
      */
-    public readonly accessibilitySelfService!: pulumi.Output<boolean | undefined>;
+    declare public readonly accessibilitySelfService: pulumi.Output<boolean | undefined>;
     /**
      * Application notes for admins.
      */
-    public readonly adminNote!: pulumi.Output<string | undefined>;
+    declare public readonly adminNote: pulumi.Output<string | undefined>;
     /**
      * Displays specific appLinks for the app. The value for each application link should be boolean.
      */
-    public readonly appLinksJson!: pulumi.Output<string | undefined>;
+    declare public readonly appLinksJson: pulumi.Output<string | undefined>;
     /**
      * Display auto submit toolbar
      */
-    public readonly autoSubmitToolbar!: pulumi.Output<boolean | undefined>;
+    declare public readonly autoSubmitToolbar: pulumi.Output<boolean | undefined>;
     /**
      * Login button field
      */
-    public readonly buttonField!: pulumi.Output<string | undefined>;
+    declare public readonly buttonField: pulumi.Output<string | undefined>;
     /**
      * CSS selector for the checkbox
      */
-    public readonly checkbox!: pulumi.Output<string | undefined>;
+    declare public readonly checkbox: pulumi.Output<string | undefined>;
     /**
      * Application notes for end users.
      */
-    public readonly enduserNote!: pulumi.Output<string | undefined>;
+    declare public readonly enduserNote: pulumi.Output<string | undefined>;
     /**
      * Do not display application icon on mobile app
      */
-    public readonly hideIos!: pulumi.Output<boolean | undefined>;
+    declare public readonly hideIos: pulumi.Output<boolean | undefined>;
     /**
      * Do not display application icon to users
      */
-    public readonly hideWeb!: pulumi.Output<boolean | undefined>;
+    declare public readonly hideWeb: pulumi.Output<boolean | undefined>;
     /**
      * The Application's display name.
      */
-    public readonly label!: pulumi.Output<string>;
+    declare public readonly label: pulumi.Output<string>;
     /**
      * Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
      */
-    public readonly logo!: pulumi.Output<string | undefined>;
+    declare public readonly logo: pulumi.Output<string | undefined>;
     /**
      * URL of the application's logo
      */
-    public /*out*/ readonly logoUrl!: pulumi.Output<string>;
+    declare public /*out*/ readonly logoUrl: pulumi.Output<string>;
     /**
      * Name of the app.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Login password field
      */
-    public readonly passwordField!: pulumi.Output<string | undefined>;
+    declare public readonly passwordField: pulumi.Output<string | undefined>;
     /**
      * Name of application from the Okta Integration Network, if not included a custom app will be created.
      */
-    public readonly preconfiguredApp!: pulumi.Output<string | undefined>;
+    declare public readonly preconfiguredApp: pulumi.Output<string | undefined>;
     /**
      * Secondary URL of the sign-in page for this app
      */
-    public readonly redirectUrl!: pulumi.Output<string | undefined>;
+    declare public readonly redirectUrl: pulumi.Output<string | undefined>;
     /**
      * Shared password, required for certain schemes.
      */
-    public readonly sharedPassword!: pulumi.Output<string | undefined>;
+    declare public readonly sharedPassword: pulumi.Output<string | undefined>;
     /**
      * Shared username, required for certain schemes.
      */
-    public readonly sharedUsername!: pulumi.Output<string | undefined>;
+    declare public readonly sharedUsername: pulumi.Output<string | undefined>;
     /**
      * Sign on mode of application.
      */
-    public /*out*/ readonly signOnMode!: pulumi.Output<string>;
+    declare public /*out*/ readonly signOnMode: pulumi.Output<string>;
     /**
      * Status of application. By default, it is `ACTIVE`
      */
-    public readonly status!: pulumi.Output<string | undefined>;
+    declare public readonly status: pulumi.Output<string | undefined>;
     /**
      * The URL of the sign-in page for this app.
      */
-    public readonly url!: pulumi.Output<string | undefined>;
+    declare public readonly url: pulumi.Output<string | undefined>;
     /**
      * A regular expression that further restricts url to the specified regular expression.
      */
-    public readonly urlRegex!: pulumi.Output<string | undefined>;
+    declare public readonly urlRegex: pulumi.Output<string | undefined>;
     /**
      * Username template. Default: `${source.login}`
      */
-    public readonly userNameTemplate!: pulumi.Output<string | undefined>;
+    declare public readonly userNameTemplate: pulumi.Output<string | undefined>;
     /**
      * Push username on update. Valid values: `PUSH` and `DONT_PUSH`
      */
-    public readonly userNameTemplatePushStatus!: pulumi.Output<string | undefined>;
+    declare public readonly userNameTemplatePushStatus: pulumi.Output<string | undefined>;
     /**
      * Username template suffix
      */
-    public readonly userNameTemplateSuffix!: pulumi.Output<string | undefined>;
+    declare public readonly userNameTemplateSuffix: pulumi.Output<string | undefined>;
     /**
      * Username template type. Default: `BUILT_IN`
      */
-    public readonly userNameTemplateType!: pulumi.Output<string | undefined>;
+    declare public readonly userNameTemplateType: pulumi.Output<string | undefined>;
     /**
      * Login username field
      */
-    public readonly usernameField!: pulumi.Output<string | undefined>;
+    declare public readonly usernameField: pulumi.Output<string | undefined>;
 
     /**
      * Create a AppSharedCredentials resource with the given unique name, arguments, and options.
@@ -203,66 +203,66 @@ export class AppSharedCredentials extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AppSharedCredentialsState | undefined;
-            resourceInputs["accessibilityErrorRedirectUrl"] = state ? state.accessibilityErrorRedirectUrl : undefined;
-            resourceInputs["accessibilityLoginRedirectUrl"] = state ? state.accessibilityLoginRedirectUrl : undefined;
-            resourceInputs["accessibilitySelfService"] = state ? state.accessibilitySelfService : undefined;
-            resourceInputs["adminNote"] = state ? state.adminNote : undefined;
-            resourceInputs["appLinksJson"] = state ? state.appLinksJson : undefined;
-            resourceInputs["autoSubmitToolbar"] = state ? state.autoSubmitToolbar : undefined;
-            resourceInputs["buttonField"] = state ? state.buttonField : undefined;
-            resourceInputs["checkbox"] = state ? state.checkbox : undefined;
-            resourceInputs["enduserNote"] = state ? state.enduserNote : undefined;
-            resourceInputs["hideIos"] = state ? state.hideIos : undefined;
-            resourceInputs["hideWeb"] = state ? state.hideWeb : undefined;
-            resourceInputs["label"] = state ? state.label : undefined;
-            resourceInputs["logo"] = state ? state.logo : undefined;
-            resourceInputs["logoUrl"] = state ? state.logoUrl : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["passwordField"] = state ? state.passwordField : undefined;
-            resourceInputs["preconfiguredApp"] = state ? state.preconfiguredApp : undefined;
-            resourceInputs["redirectUrl"] = state ? state.redirectUrl : undefined;
-            resourceInputs["sharedPassword"] = state ? state.sharedPassword : undefined;
-            resourceInputs["sharedUsername"] = state ? state.sharedUsername : undefined;
-            resourceInputs["signOnMode"] = state ? state.signOnMode : undefined;
-            resourceInputs["status"] = state ? state.status : undefined;
-            resourceInputs["url"] = state ? state.url : undefined;
-            resourceInputs["urlRegex"] = state ? state.urlRegex : undefined;
-            resourceInputs["userNameTemplate"] = state ? state.userNameTemplate : undefined;
-            resourceInputs["userNameTemplatePushStatus"] = state ? state.userNameTemplatePushStatus : undefined;
-            resourceInputs["userNameTemplateSuffix"] = state ? state.userNameTemplateSuffix : undefined;
-            resourceInputs["userNameTemplateType"] = state ? state.userNameTemplateType : undefined;
-            resourceInputs["usernameField"] = state ? state.usernameField : undefined;
+            resourceInputs["accessibilityErrorRedirectUrl"] = state?.accessibilityErrorRedirectUrl;
+            resourceInputs["accessibilityLoginRedirectUrl"] = state?.accessibilityLoginRedirectUrl;
+            resourceInputs["accessibilitySelfService"] = state?.accessibilitySelfService;
+            resourceInputs["adminNote"] = state?.adminNote;
+            resourceInputs["appLinksJson"] = state?.appLinksJson;
+            resourceInputs["autoSubmitToolbar"] = state?.autoSubmitToolbar;
+            resourceInputs["buttonField"] = state?.buttonField;
+            resourceInputs["checkbox"] = state?.checkbox;
+            resourceInputs["enduserNote"] = state?.enduserNote;
+            resourceInputs["hideIos"] = state?.hideIos;
+            resourceInputs["hideWeb"] = state?.hideWeb;
+            resourceInputs["label"] = state?.label;
+            resourceInputs["logo"] = state?.logo;
+            resourceInputs["logoUrl"] = state?.logoUrl;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["passwordField"] = state?.passwordField;
+            resourceInputs["preconfiguredApp"] = state?.preconfiguredApp;
+            resourceInputs["redirectUrl"] = state?.redirectUrl;
+            resourceInputs["sharedPassword"] = state?.sharedPassword;
+            resourceInputs["sharedUsername"] = state?.sharedUsername;
+            resourceInputs["signOnMode"] = state?.signOnMode;
+            resourceInputs["status"] = state?.status;
+            resourceInputs["url"] = state?.url;
+            resourceInputs["urlRegex"] = state?.urlRegex;
+            resourceInputs["userNameTemplate"] = state?.userNameTemplate;
+            resourceInputs["userNameTemplatePushStatus"] = state?.userNameTemplatePushStatus;
+            resourceInputs["userNameTemplateSuffix"] = state?.userNameTemplateSuffix;
+            resourceInputs["userNameTemplateType"] = state?.userNameTemplateType;
+            resourceInputs["usernameField"] = state?.usernameField;
         } else {
             const args = argsOrState as AppSharedCredentialsArgs | undefined;
-            if ((!args || args.label === undefined) && !opts.urn) {
+            if (args?.label === undefined && !opts.urn) {
                 throw new Error("Missing required property 'label'");
             }
-            resourceInputs["accessibilityErrorRedirectUrl"] = args ? args.accessibilityErrorRedirectUrl : undefined;
-            resourceInputs["accessibilityLoginRedirectUrl"] = args ? args.accessibilityLoginRedirectUrl : undefined;
-            resourceInputs["accessibilitySelfService"] = args ? args.accessibilitySelfService : undefined;
-            resourceInputs["adminNote"] = args ? args.adminNote : undefined;
-            resourceInputs["appLinksJson"] = args ? args.appLinksJson : undefined;
-            resourceInputs["autoSubmitToolbar"] = args ? args.autoSubmitToolbar : undefined;
-            resourceInputs["buttonField"] = args ? args.buttonField : undefined;
-            resourceInputs["checkbox"] = args ? args.checkbox : undefined;
-            resourceInputs["enduserNote"] = args ? args.enduserNote : undefined;
-            resourceInputs["hideIos"] = args ? args.hideIos : undefined;
-            resourceInputs["hideWeb"] = args ? args.hideWeb : undefined;
-            resourceInputs["label"] = args ? args.label : undefined;
-            resourceInputs["logo"] = args ? args.logo : undefined;
-            resourceInputs["passwordField"] = args ? args.passwordField : undefined;
-            resourceInputs["preconfiguredApp"] = args ? args.preconfiguredApp : undefined;
-            resourceInputs["redirectUrl"] = args ? args.redirectUrl : undefined;
-            resourceInputs["sharedPassword"] = args ? args.sharedPassword : undefined;
-            resourceInputs["sharedUsername"] = args ? args.sharedUsername : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
-            resourceInputs["url"] = args ? args.url : undefined;
-            resourceInputs["urlRegex"] = args ? args.urlRegex : undefined;
-            resourceInputs["userNameTemplate"] = args ? args.userNameTemplate : undefined;
-            resourceInputs["userNameTemplatePushStatus"] = args ? args.userNameTemplatePushStatus : undefined;
-            resourceInputs["userNameTemplateSuffix"] = args ? args.userNameTemplateSuffix : undefined;
-            resourceInputs["userNameTemplateType"] = args ? args.userNameTemplateType : undefined;
-            resourceInputs["usernameField"] = args ? args.usernameField : undefined;
+            resourceInputs["accessibilityErrorRedirectUrl"] = args?.accessibilityErrorRedirectUrl;
+            resourceInputs["accessibilityLoginRedirectUrl"] = args?.accessibilityLoginRedirectUrl;
+            resourceInputs["accessibilitySelfService"] = args?.accessibilitySelfService;
+            resourceInputs["adminNote"] = args?.adminNote;
+            resourceInputs["appLinksJson"] = args?.appLinksJson;
+            resourceInputs["autoSubmitToolbar"] = args?.autoSubmitToolbar;
+            resourceInputs["buttonField"] = args?.buttonField;
+            resourceInputs["checkbox"] = args?.checkbox;
+            resourceInputs["enduserNote"] = args?.enduserNote;
+            resourceInputs["hideIos"] = args?.hideIos;
+            resourceInputs["hideWeb"] = args?.hideWeb;
+            resourceInputs["label"] = args?.label;
+            resourceInputs["logo"] = args?.logo;
+            resourceInputs["passwordField"] = args?.passwordField;
+            resourceInputs["preconfiguredApp"] = args?.preconfiguredApp;
+            resourceInputs["redirectUrl"] = args?.redirectUrl;
+            resourceInputs["sharedPassword"] = args?.sharedPassword;
+            resourceInputs["sharedUsername"] = args?.sharedUsername;
+            resourceInputs["status"] = args?.status;
+            resourceInputs["url"] = args?.url;
+            resourceInputs["urlRegex"] = args?.urlRegex;
+            resourceInputs["userNameTemplate"] = args?.userNameTemplate;
+            resourceInputs["userNameTemplatePushStatus"] = args?.userNameTemplatePushStatus;
+            resourceInputs["userNameTemplateSuffix"] = args?.userNameTemplateSuffix;
+            resourceInputs["userNameTemplateType"] = args?.userNameTemplateType;
+            resourceInputs["usernameField"] = args?.usernameField;
             resourceInputs["logoUrl"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["signOnMode"] = undefined /*out*/;
