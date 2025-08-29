@@ -46,35 +46,35 @@ export class Feature extends pulumi.CustomResource {
     /**
      * Name of the feature.
      */
-    public /*out*/ readonly description!: pulumi.Output<string>;
+    declare public /*out*/ readonly description: pulumi.Output<string>;
     /**
      * Okta API for feature only reads and updates therefore the okta*feature resource needs to act as a quasi data source. Do this by setting feature*id
      */
-    public readonly featureId!: pulumi.Output<string>;
+    declare public readonly featureId: pulumi.Output<string>;
     /**
      * Whether to `ENABLE` or `DISABLE` the feature
      */
-    public readonly lifeCycle!: pulumi.Output<string | undefined>;
+    declare public readonly lifeCycle: pulumi.Output<string | undefined>;
     /**
      * Indicates if you want to force enable or disable a feature. Value is `true` meaning force
      */
-    public readonly mode!: pulumi.Output<boolean | undefined>;
+    declare public readonly mode: pulumi.Output<boolean | undefined>;
     /**
      * Name of the feature.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Current release cycle stage of a feature.
      */
-    public /*out*/ readonly stage!: pulumi.Output<outputs.FeatureStage>;
+    declare public /*out*/ readonly stage: pulumi.Output<outputs.FeatureStage>;
     /**
      * The feature status.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
      * Type of feature.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a Feature resource with the given unique name, arguments, and options.
@@ -89,22 +89,22 @@ export class Feature extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FeatureState | undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["featureId"] = state ? state.featureId : undefined;
-            resourceInputs["lifeCycle"] = state ? state.lifeCycle : undefined;
-            resourceInputs["mode"] = state ? state.mode : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["stage"] = state ? state.stage : undefined;
-            resourceInputs["status"] = state ? state.status : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["featureId"] = state?.featureId;
+            resourceInputs["lifeCycle"] = state?.lifeCycle;
+            resourceInputs["mode"] = state?.mode;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["stage"] = state?.stage;
+            resourceInputs["status"] = state?.status;
+            resourceInputs["type"] = state?.type;
         } else {
             const args = argsOrState as FeatureArgs | undefined;
-            if ((!args || args.featureId === undefined) && !opts.urn) {
+            if (args?.featureId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'featureId'");
             }
-            resourceInputs["featureId"] = args ? args.featureId : undefined;
-            resourceInputs["lifeCycle"] = args ? args.lifeCycle : undefined;
-            resourceInputs["mode"] = args ? args.mode : undefined;
+            resourceInputs["featureId"] = args?.featureId;
+            resourceInputs["lifeCycle"] = args?.lifeCycle;
+            resourceInputs["mode"] = args?.mode;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["stage"] = undefined /*out*/;

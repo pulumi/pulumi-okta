@@ -72,23 +72,23 @@ export class UserFactorQuestion extends pulumi.CustomResource {
     /**
      * Security question answer. Note here that answer won't be set during the resource import.
      */
-    public readonly answer!: pulumi.Output<string>;
+    declare public readonly answer: pulumi.Output<string>;
     /**
      * Security question unique key.
      */
-    public readonly key!: pulumi.Output<string>;
+    declare public readonly key: pulumi.Output<string>;
     /**
      * The status of the security question factor.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
      * Display text for security question.
      */
-    public /*out*/ readonly text!: pulumi.Output<string>;
+    declare public /*out*/ readonly text: pulumi.Output<string>;
     /**
      * ID of the user. Resource will be recreated when `userId` changes.
      */
-    public readonly userId!: pulumi.Output<string>;
+    declare public readonly userId: pulumi.Output<string>;
 
     /**
      * Create a UserFactorQuestion resource with the given unique name, arguments, and options.
@@ -103,25 +103,25 @@ export class UserFactorQuestion extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as UserFactorQuestionState | undefined;
-            resourceInputs["answer"] = state ? state.answer : undefined;
-            resourceInputs["key"] = state ? state.key : undefined;
-            resourceInputs["status"] = state ? state.status : undefined;
-            resourceInputs["text"] = state ? state.text : undefined;
-            resourceInputs["userId"] = state ? state.userId : undefined;
+            resourceInputs["answer"] = state?.answer;
+            resourceInputs["key"] = state?.key;
+            resourceInputs["status"] = state?.status;
+            resourceInputs["text"] = state?.text;
+            resourceInputs["userId"] = state?.userId;
         } else {
             const args = argsOrState as UserFactorQuestionArgs | undefined;
-            if ((!args || args.answer === undefined) && !opts.urn) {
+            if (args?.answer === undefined && !opts.urn) {
                 throw new Error("Missing required property 'answer'");
             }
-            if ((!args || args.key === undefined) && !opts.urn) {
+            if (args?.key === undefined && !opts.urn) {
                 throw new Error("Missing required property 'key'");
             }
-            if ((!args || args.userId === undefined) && !opts.urn) {
+            if (args?.userId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'userId'");
             }
             resourceInputs["answer"] = args?.answer ? pulumi.secret(args.answer) : undefined;
-            resourceInputs["key"] = args ? args.key : undefined;
-            resourceInputs["userId"] = args ? args.userId : undefined;
+            resourceInputs["key"] = args?.key;
+            resourceInputs["userId"] = args?.userId;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["text"] = undefined /*out*/;
         }

@@ -90,16 +90,18 @@ public class UserSchemaProperty extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.arrayEnums);
     }
     /**
-     * Display name and value an enum array can be set to. - &#39;const&#39; - (Required) value mapping to member of &#39;enum&#39;. - &#39;title&#39;
-     * - (Required) display name for the enum value.
+     * Display name and value an enum array can be set to.
+     * 	- &#39;const&#39; - (Required) value mapping to member of &#39;enum&#39;.
+     * 	- &#39;title&#39; - (Required) display name for the enum value.
      * 
      */
     @Export(name="arrayOneOfs", refs={List.class,UserSchemaPropertyArrayOneOf.class}, tree="[0,1]")
     private Output</* @Nullable */ List<UserSchemaPropertyArrayOneOf>> arrayOneOfs;
 
     /**
-     * @return Display name and value an enum array can be set to. - &#39;const&#39; - (Required) value mapping to member of &#39;enum&#39;. - &#39;title&#39;
-     * - (Required) display name for the enum value.
+     * @return Display name and value an enum array can be set to.
+     * 	- &#39;const&#39; - (Required) value mapping to member of &#39;enum&#39;.
+     * 	- &#39;title&#39; - (Required) display name for the enum value.
      * 
      */
     public Output<Optional<List<UserSchemaPropertyArrayOneOf>>> arrayOneOfs() {
@@ -204,16 +206,18 @@ public class UserSchemaProperty extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.master);
     }
     /**
-     * Prioritized list of profile sources (required when &#39;master&#39; is &#39;OVERRIDE&#39;). - &#39;type&#39; - (Optional) - Type of profile
-     * source. - &#39;value&#39; - (Required) - ID of profile source.
+     * Prioritized list of profile sources (required when &#39;master&#39; is &#39;OVERRIDE&#39;).
+     * 	- &#39;type&#39; - (Optional) - Type of profile source.
+     * 	- &#39;value&#39; - (Required) - ID of profile source.
      * 
      */
     @Export(name="masterOverridePriorities", refs={List.class,UserSchemaPropertyMasterOverridePriority.class}, tree="[0,1]")
     private Output</* @Nullable */ List<UserSchemaPropertyMasterOverridePriority>> masterOverridePriorities;
 
     /**
-     * @return Prioritized list of profile sources (required when &#39;master&#39; is &#39;OVERRIDE&#39;). - &#39;type&#39; - (Optional) - Type of profile
-     * source. - &#39;value&#39; - (Required) - ID of profile source.
+     * @return Prioritized list of profile sources (required when &#39;master&#39; is &#39;OVERRIDE&#39;).
+     * 	- &#39;type&#39; - (Optional) - Type of profile source.
+     * 	- &#39;value&#39; - (Required) - ID of profile source.
      * 
      */
     public Output<Optional<List<UserSchemaPropertyMasterOverridePriority>>> masterOverridePriorities() {
@@ -248,16 +252,18 @@ public class UserSchemaProperty extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.minLength);
     }
     /**
-     * Array of maps containing a mapping for display name to enum value. - &#39;const&#39; - (Required) value mapping to member of
-     * &#39;enum&#39;. - &#39;title&#39; - (Required) display name for the enum value.
+     * Array of maps containing a mapping for display name to enum value.
+     * 	- &#39;const&#39; - (Required) value mapping to member of &#39;enum&#39;.
+     * 	- &#39;title&#39; - (Required) display name for the enum value.
      * 
      */
     @Export(name="oneOfs", refs={List.class,UserSchemaPropertyOneOf.class}, tree="[0,1]")
     private Output</* @Nullable */ List<UserSchemaPropertyOneOf>> oneOfs;
 
     /**
-     * @return Array of maps containing a mapping for display name to enum value. - &#39;const&#39; - (Required) value mapping to member of
-     * &#39;enum&#39;. - &#39;title&#39; - (Required) display name for the enum value.
+     * @return Array of maps containing a mapping for display name to enum value.
+     * 	- &#39;const&#39; - (Required) value mapping to member of &#39;enum&#39;.
+     * 	- &#39;title&#39; - (Required) display name for the enum value.
      * 
      */
     public Output<Optional<List<UserSchemaPropertyOneOf>>> oneOfs() {

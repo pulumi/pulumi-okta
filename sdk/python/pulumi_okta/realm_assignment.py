@@ -29,8 +29,7 @@ class RealmAssignmentArgs:
         The set of arguments for constructing a RealmAssignment resource.
         :param pulumi.Input[_builtins.str] profile_source_id: The ID of the Profile Source.
         :param pulumi.Input[_builtins.str] realm_id: The ID of the Realm asscociated with the Realm Assignment.
-        :param pulumi.Input[_builtins.str] condition_expression: Condition expression for the Realm Assignment in Okta Expression Language. Example: `user.profile.role =="Manager"` or
-               `user.profile.state.contains("example")`.
+        :param pulumi.Input[_builtins.str] condition_expression: Condition expression for the Realm Assignment in Okta Expression Language. Example: `user.profile.role =="Manager"` or `user.profile.state.contains("example")`.
         :param pulumi.Input[_builtins.str] name: The name of the Okta Realm Assignment.
         :param pulumi.Input[_builtins.int] priority: The Priority of the Realm Assignment. The lower the number, the higher the priority.
         :param pulumi.Input[_builtins.str] status: Defines whether the Realm Assignment is active or not. Valid values: `ACTIVE` and `INACTIVE`.
@@ -74,8 +73,7 @@ class RealmAssignmentArgs:
     @pulumi.getter(name="conditionExpression")
     def condition_expression(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Condition expression for the Realm Assignment in Okta Expression Language. Example: `user.profile.role =="Manager"` or
-        `user.profile.state.contains("example")`.
+        Condition expression for the Realm Assignment in Okta Expression Language. Example: `user.profile.role =="Manager"` or `user.profile.state.contains("example")`.
         """
         return pulumi.get(self, "condition_expression")
 
@@ -132,8 +130,7 @@ class _RealmAssignmentState:
                  status: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering RealmAssignment resources.
-        :param pulumi.Input[_builtins.str] condition_expression: Condition expression for the Realm Assignment in Okta Expression Language. Example: `user.profile.role =="Manager"` or
-               `user.profile.state.contains("example")`.
+        :param pulumi.Input[_builtins.str] condition_expression: Condition expression for the Realm Assignment in Okta Expression Language. Example: `user.profile.role =="Manager"` or `user.profile.state.contains("example")`.
         :param pulumi.Input[_builtins.bool] is_default: Indicates whether the realm assignment is the default.
         :param pulumi.Input[_builtins.str] name: The name of the Okta Realm Assignment.
         :param pulumi.Input[_builtins.int] priority: The Priority of the Realm Assignment. The lower the number, the higher the priority.
@@ -160,8 +157,7 @@ class _RealmAssignmentState:
     @pulumi.getter(name="conditionExpression")
     def condition_expression(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Condition expression for the Realm Assignment in Okta Expression Language. Example: `user.profile.role =="Manager"` or
-        `user.profile.state.contains("example")`.
+        Condition expression for the Realm Assignment in Okta Expression Language. Example: `user.profile.role =="Manager"` or `user.profile.state.contains("example")`.
         """
         return pulumi.get(self, "condition_expression")
 
@@ -259,8 +255,7 @@ class RealmAssignment(pulumi.CustomResource):
         Create a RealmAssignment resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] condition_expression: Condition expression for the Realm Assignment in Okta Expression Language. Example: `user.profile.role =="Manager"` or
-               `user.profile.state.contains("example")`.
+        :param pulumi.Input[_builtins.str] condition_expression: Condition expression for the Realm Assignment in Okta Expression Language. Example: `user.profile.role =="Manager"` or `user.profile.state.contains("example")`.
         :param pulumi.Input[_builtins.str] name: The name of the Okta Realm Assignment.
         :param pulumi.Input[_builtins.int] priority: The Priority of the Realm Assignment. The lower the number, the higher the priority.
         :param pulumi.Input[_builtins.str] profile_source_id: The ID of the Profile Source.
@@ -340,8 +335,7 @@ class RealmAssignment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] condition_expression: Condition expression for the Realm Assignment in Okta Expression Language. Example: `user.profile.role =="Manager"` or
-               `user.profile.state.contains("example")`.
+        :param pulumi.Input[_builtins.str] condition_expression: Condition expression for the Realm Assignment in Okta Expression Language. Example: `user.profile.role =="Manager"` or `user.profile.state.contains("example")`.
         :param pulumi.Input[_builtins.bool] is_default: Indicates whether the realm assignment is the default.
         :param pulumi.Input[_builtins.str] name: The name of the Okta Realm Assignment.
         :param pulumi.Input[_builtins.int] priority: The Priority of the Realm Assignment. The lower the number, the higher the priority.
@@ -366,8 +360,7 @@ class RealmAssignment(pulumi.CustomResource):
     @pulumi.getter(name="conditionExpression")
     def condition_expression(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Condition expression for the Realm Assignment in Okta Expression Language. Example: `user.profile.role =="Manager"` or
-        `user.profile.state.contains("example")`.
+        Condition expression for the Realm Assignment in Okta Expression Language. Example: `user.profile.role =="Manager"` or `user.profile.state.contains("example")`.
         """
         return pulumi.get(self, "condition_expression")
 

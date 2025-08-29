@@ -49,8 +49,9 @@ class AppUserSchemaPropertyArgs:
         :param pulumi.Input[_builtins.str] title: Subschema title (display name)
         :param pulumi.Input[_builtins.str] type: The type of the schema property. It can be `string`, `boolean`, `number`, `integer`, `array`, or `object`
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] array_enums: Array of values that an array property's items can be set to.
-        :param pulumi.Input[Sequence[pulumi.Input['AppUserSchemaPropertyArrayOneOfArgs']]] array_one_ofs: Display name and value an enum array can be set to. - 'const' - (Required) value mapping to member of 'enum'. - 'title'
-               - (Required) display name for the enum value.
+        :param pulumi.Input[Sequence[pulumi.Input['AppUserSchemaPropertyArrayOneOfArgs']]] array_one_ofs: Display name and value an enum array can be set to.
+               	- 'const' - (Required) value mapping to member of 'enum'.
+               	- 'title' - (Required) display name for the enum value.
         :param pulumi.Input[_builtins.str] array_type: The type of the array elements if `type` is set to `array`
         :param pulumi.Input[_builtins.str] description: The description of the user schema property.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] enums: Array of values a primitive property can be set to. See `array_enum` for arrays.
@@ -59,14 +60,13 @@ class AppUserSchemaPropertyArgs:
         :param pulumi.Input[_builtins.str] master: Master priority for the user schema property. It can be set to `PROFILE_MASTER` or `OKTA`
         :param pulumi.Input[_builtins.int] max_length: The maximum length of the user property value. Only applies to type `string`
         :param pulumi.Input[_builtins.int] min_length: The minimum length of the user property value. Only applies to type `string`
-        :param pulumi.Input[Sequence[pulumi.Input['AppUserSchemaPropertyOneOfArgs']]] one_ofs: Array of maps containing a mapping for display name to enum value. - 'const' - (Required) value mapping to member of
-               'enum'. - 'title' - (Required) display name for the enum value.
+        :param pulumi.Input[Sequence[pulumi.Input['AppUserSchemaPropertyOneOfArgs']]] one_ofs: Array of maps containing a mapping for display name to enum value.
+               	- 'const' - (Required) value mapping to member of 'enum'.
+               	- 'title' - (Required) display name for the enum value.
         :param pulumi.Input[_builtins.str] permissions: Access control permissions for the property. It can be set to `READ_WRITE`, `READ_ONLY`, `HIDE`. Default: `READ_ONLY`
         :param pulumi.Input[_builtins.bool] required: Whether the subschema is required
-        :param pulumi.Input[_builtins.str] scope: determines whether an app user attribute can be set at the Personal `SELF` or Group `NONE` level. Default value is
-               `NONE`.
-        :param pulumi.Input[_builtins.bool] union: If `type` is set to `array`, used to set whether attribute value is determined by group priority `false`, or combine
-               values across groups `true`. Can not be set to `true` if `scope` is set to `SELF`.
+        :param pulumi.Input[_builtins.str] scope: determines whether an app user attribute can be set at the Personal `SELF` or Group `NONE` level. Default value is `NONE`.
+        :param pulumi.Input[_builtins.bool] union: If `type` is set to `array`, used to set whether attribute value is determined by group priority `false`, or combine values across groups `true`. Can not be set to `true` if `scope` is set to `SELF`.
         :param pulumi.Input[_builtins.str] unique: Whether the property should be unique. It can be set to `UNIQUE_VALIDATED` or `NOT_UNIQUE`.
         :param pulumi.Input[_builtins.str] user_type: User type ID. By default, it is `default`
         """
@@ -173,8 +173,9 @@ class AppUserSchemaPropertyArgs:
     @pulumi.getter(name="arrayOneOfs")
     def array_one_ofs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AppUserSchemaPropertyArrayOneOfArgs']]]]:
         """
-        Display name and value an enum array can be set to. - 'const' - (Required) value mapping to member of 'enum'. - 'title'
-        - (Required) display name for the enum value.
+        Display name and value an enum array can be set to.
+        	- 'const' - (Required) value mapping to member of 'enum'.
+        	- 'title' - (Required) display name for the enum value.
         """
         return pulumi.get(self, "array_one_ofs")
 
@@ -282,8 +283,9 @@ class AppUserSchemaPropertyArgs:
     @pulumi.getter(name="oneOfs")
     def one_ofs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AppUserSchemaPropertyOneOfArgs']]]]:
         """
-        Array of maps containing a mapping for display name to enum value. - 'const' - (Required) value mapping to member of
-        'enum'. - 'title' - (Required) display name for the enum value.
+        Array of maps containing a mapping for display name to enum value.
+        	- 'const' - (Required) value mapping to member of 'enum'.
+        	- 'title' - (Required) display name for the enum value.
         """
         return pulumi.get(self, "one_ofs")
 
@@ -319,8 +321,7 @@ class AppUserSchemaPropertyArgs:
     @pulumi.getter
     def scope(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        determines whether an app user attribute can be set at the Personal `SELF` or Group `NONE` level. Default value is
-        `NONE`.
+        determines whether an app user attribute can be set at the Personal `SELF` or Group `NONE` level. Default value is `NONE`.
         """
         return pulumi.get(self, "scope")
 
@@ -332,8 +333,7 @@ class AppUserSchemaPropertyArgs:
     @pulumi.getter
     def union(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        If `type` is set to `array`, used to set whether attribute value is determined by group priority `false`, or combine
-        values across groups `true`. Can not be set to `true` if `scope` is set to `SELF`.
+        If `type` is set to `array`, used to set whether attribute value is determined by group priority `false`, or combine values across groups `true`. Can not be set to `true` if `scope` is set to `SELF`.
         """
         return pulumi.get(self, "union")
 
@@ -394,8 +394,9 @@ class _AppUserSchemaPropertyState:
         Input properties used for looking up and filtering AppUserSchemaProperty resources.
         :param pulumi.Input[_builtins.str] app_id: The Application's ID the user custom schema property should be assigned to.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] array_enums: Array of values that an array property's items can be set to.
-        :param pulumi.Input[Sequence[pulumi.Input['AppUserSchemaPropertyArrayOneOfArgs']]] array_one_ofs: Display name and value an enum array can be set to. - 'const' - (Required) value mapping to member of 'enum'. - 'title'
-               - (Required) display name for the enum value.
+        :param pulumi.Input[Sequence[pulumi.Input['AppUserSchemaPropertyArrayOneOfArgs']]] array_one_ofs: Display name and value an enum array can be set to.
+               	- 'const' - (Required) value mapping to member of 'enum'.
+               	- 'title' - (Required) display name for the enum value.
         :param pulumi.Input[_builtins.str] array_type: The type of the array elements if `type` is set to `array`
         :param pulumi.Input[_builtins.str] description: The description of the user schema property.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] enums: Array of values a primitive property can be set to. See `array_enum` for arrays.
@@ -405,16 +406,15 @@ class _AppUserSchemaPropertyState:
         :param pulumi.Input[_builtins.str] master: Master priority for the user schema property. It can be set to `PROFILE_MASTER` or `OKTA`
         :param pulumi.Input[_builtins.int] max_length: The maximum length of the user property value. Only applies to type `string`
         :param pulumi.Input[_builtins.int] min_length: The minimum length of the user property value. Only applies to type `string`
-        :param pulumi.Input[Sequence[pulumi.Input['AppUserSchemaPropertyOneOfArgs']]] one_ofs: Array of maps containing a mapping for display name to enum value. - 'const' - (Required) value mapping to member of
-               'enum'. - 'title' - (Required) display name for the enum value.
+        :param pulumi.Input[Sequence[pulumi.Input['AppUserSchemaPropertyOneOfArgs']]] one_ofs: Array of maps containing a mapping for display name to enum value.
+               	- 'const' - (Required) value mapping to member of 'enum'.
+               	- 'title' - (Required) display name for the enum value.
         :param pulumi.Input[_builtins.str] permissions: Access control permissions for the property. It can be set to `READ_WRITE`, `READ_ONLY`, `HIDE`. Default: `READ_ONLY`
         :param pulumi.Input[_builtins.bool] required: Whether the subschema is required
-        :param pulumi.Input[_builtins.str] scope: determines whether an app user attribute can be set at the Personal `SELF` or Group `NONE` level. Default value is
-               `NONE`.
+        :param pulumi.Input[_builtins.str] scope: determines whether an app user attribute can be set at the Personal `SELF` or Group `NONE` level. Default value is `NONE`.
         :param pulumi.Input[_builtins.str] title: Subschema title (display name)
         :param pulumi.Input[_builtins.str] type: The type of the schema property. It can be `string`, `boolean`, `number`, `integer`, `array`, or `object`
-        :param pulumi.Input[_builtins.bool] union: If `type` is set to `array`, used to set whether attribute value is determined by group priority `false`, or combine
-               values across groups `true`. Can not be set to `true` if `scope` is set to `SELF`.
+        :param pulumi.Input[_builtins.bool] union: If `type` is set to `array`, used to set whether attribute value is determined by group priority `false`, or combine values across groups `true`. Can not be set to `true` if `scope` is set to `SELF`.
         :param pulumi.Input[_builtins.str] unique: Whether the property should be unique. It can be set to `UNIQUE_VALIDATED` or `NOT_UNIQUE`.
         :param pulumi.Input[_builtins.str] user_type: User type ID. By default, it is `default`
         """
@@ -489,8 +489,9 @@ class _AppUserSchemaPropertyState:
     @pulumi.getter(name="arrayOneOfs")
     def array_one_ofs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AppUserSchemaPropertyArrayOneOfArgs']]]]:
         """
-        Display name and value an enum array can be set to. - 'const' - (Required) value mapping to member of 'enum'. - 'title'
-        - (Required) display name for the enum value.
+        Display name and value an enum array can be set to.
+        	- 'const' - (Required) value mapping to member of 'enum'.
+        	- 'title' - (Required) display name for the enum value.
         """
         return pulumi.get(self, "array_one_ofs")
 
@@ -610,8 +611,9 @@ class _AppUserSchemaPropertyState:
     @pulumi.getter(name="oneOfs")
     def one_ofs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AppUserSchemaPropertyOneOfArgs']]]]:
         """
-        Array of maps containing a mapping for display name to enum value. - 'const' - (Required) value mapping to member of
-        'enum'. - 'title' - (Required) display name for the enum value.
+        Array of maps containing a mapping for display name to enum value.
+        	- 'const' - (Required) value mapping to member of 'enum'.
+        	- 'title' - (Required) display name for the enum value.
         """
         return pulumi.get(self, "one_ofs")
 
@@ -647,8 +649,7 @@ class _AppUserSchemaPropertyState:
     @pulumi.getter
     def scope(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        determines whether an app user attribute can be set at the Personal `SELF` or Group `NONE` level. Default value is
-        `NONE`.
+        determines whether an app user attribute can be set at the Personal `SELF` or Group `NONE` level. Default value is `NONE`.
         """
         return pulumi.get(self, "scope")
 
@@ -684,8 +685,7 @@ class _AppUserSchemaPropertyState:
     @pulumi.getter
     def union(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        If `type` is set to `array`, used to set whether attribute value is determined by group priority `false`, or combine
-        values across groups `true`. Can not be set to `true` if `scope` is set to `SELF`.
+        If `type` is set to `array`, used to set whether attribute value is determined by group priority `false`, or combine values across groups `true`. Can not be set to `true` if `scope` is set to `SELF`.
         """
         return pulumi.get(self, "union")
 
@@ -787,8 +787,9 @@ class AppUserSchemaProperty(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] app_id: The Application's ID the user custom schema property should be assigned to.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] array_enums: Array of values that an array property's items can be set to.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AppUserSchemaPropertyArrayOneOfArgs', 'AppUserSchemaPropertyArrayOneOfArgsDict']]]] array_one_ofs: Display name and value an enum array can be set to. - 'const' - (Required) value mapping to member of 'enum'. - 'title'
-               - (Required) display name for the enum value.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AppUserSchemaPropertyArrayOneOfArgs', 'AppUserSchemaPropertyArrayOneOfArgsDict']]]] array_one_ofs: Display name and value an enum array can be set to.
+               	- 'const' - (Required) value mapping to member of 'enum'.
+               	- 'title' - (Required) display name for the enum value.
         :param pulumi.Input[_builtins.str] array_type: The type of the array elements if `type` is set to `array`
         :param pulumi.Input[_builtins.str] description: The description of the user schema property.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] enums: Array of values a primitive property can be set to. See `array_enum` for arrays.
@@ -798,16 +799,15 @@ class AppUserSchemaProperty(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] master: Master priority for the user schema property. It can be set to `PROFILE_MASTER` or `OKTA`
         :param pulumi.Input[_builtins.int] max_length: The maximum length of the user property value. Only applies to type `string`
         :param pulumi.Input[_builtins.int] min_length: The minimum length of the user property value. Only applies to type `string`
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AppUserSchemaPropertyOneOfArgs', 'AppUserSchemaPropertyOneOfArgsDict']]]] one_ofs: Array of maps containing a mapping for display name to enum value. - 'const' - (Required) value mapping to member of
-               'enum'. - 'title' - (Required) display name for the enum value.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AppUserSchemaPropertyOneOfArgs', 'AppUserSchemaPropertyOneOfArgsDict']]]] one_ofs: Array of maps containing a mapping for display name to enum value.
+               	- 'const' - (Required) value mapping to member of 'enum'.
+               	- 'title' - (Required) display name for the enum value.
         :param pulumi.Input[_builtins.str] permissions: Access control permissions for the property. It can be set to `READ_WRITE`, `READ_ONLY`, `HIDE`. Default: `READ_ONLY`
         :param pulumi.Input[_builtins.bool] required: Whether the subschema is required
-        :param pulumi.Input[_builtins.str] scope: determines whether an app user attribute can be set at the Personal `SELF` or Group `NONE` level. Default value is
-               `NONE`.
+        :param pulumi.Input[_builtins.str] scope: determines whether an app user attribute can be set at the Personal `SELF` or Group `NONE` level. Default value is `NONE`.
         :param pulumi.Input[_builtins.str] title: Subschema title (display name)
         :param pulumi.Input[_builtins.str] type: The type of the schema property. It can be `string`, `boolean`, `number`, `integer`, `array`, or `object`
-        :param pulumi.Input[_builtins.bool] union: If `type` is set to `array`, used to set whether attribute value is determined by group priority `false`, or combine
-               values across groups `true`. Can not be set to `true` if `scope` is set to `SELF`.
+        :param pulumi.Input[_builtins.bool] union: If `type` is set to `array`, used to set whether attribute value is determined by group priority `false`, or combine values across groups `true`. Can not be set to `true` if `scope` is set to `SELF`.
         :param pulumi.Input[_builtins.str] unique: Whether the property should be unique. It can be set to `UNIQUE_VALIDATED` or `NOT_UNIQUE`.
         :param pulumi.Input[_builtins.str] user_type: User type ID. By default, it is `default`
         """
@@ -968,8 +968,9 @@ class AppUserSchemaProperty(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] app_id: The Application's ID the user custom schema property should be assigned to.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] array_enums: Array of values that an array property's items can be set to.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AppUserSchemaPropertyArrayOneOfArgs', 'AppUserSchemaPropertyArrayOneOfArgsDict']]]] array_one_ofs: Display name and value an enum array can be set to. - 'const' - (Required) value mapping to member of 'enum'. - 'title'
-               - (Required) display name for the enum value.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AppUserSchemaPropertyArrayOneOfArgs', 'AppUserSchemaPropertyArrayOneOfArgsDict']]]] array_one_ofs: Display name and value an enum array can be set to.
+               	- 'const' - (Required) value mapping to member of 'enum'.
+               	- 'title' - (Required) display name for the enum value.
         :param pulumi.Input[_builtins.str] array_type: The type of the array elements if `type` is set to `array`
         :param pulumi.Input[_builtins.str] description: The description of the user schema property.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] enums: Array of values a primitive property can be set to. See `array_enum` for arrays.
@@ -979,16 +980,15 @@ class AppUserSchemaProperty(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] master: Master priority for the user schema property. It can be set to `PROFILE_MASTER` or `OKTA`
         :param pulumi.Input[_builtins.int] max_length: The maximum length of the user property value. Only applies to type `string`
         :param pulumi.Input[_builtins.int] min_length: The minimum length of the user property value. Only applies to type `string`
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AppUserSchemaPropertyOneOfArgs', 'AppUserSchemaPropertyOneOfArgsDict']]]] one_ofs: Array of maps containing a mapping for display name to enum value. - 'const' - (Required) value mapping to member of
-               'enum'. - 'title' - (Required) display name for the enum value.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AppUserSchemaPropertyOneOfArgs', 'AppUserSchemaPropertyOneOfArgsDict']]]] one_ofs: Array of maps containing a mapping for display name to enum value.
+               	- 'const' - (Required) value mapping to member of 'enum'.
+               	- 'title' - (Required) display name for the enum value.
         :param pulumi.Input[_builtins.str] permissions: Access control permissions for the property. It can be set to `READ_WRITE`, `READ_ONLY`, `HIDE`. Default: `READ_ONLY`
         :param pulumi.Input[_builtins.bool] required: Whether the subschema is required
-        :param pulumi.Input[_builtins.str] scope: determines whether an app user attribute can be set at the Personal `SELF` or Group `NONE` level. Default value is
-               `NONE`.
+        :param pulumi.Input[_builtins.str] scope: determines whether an app user attribute can be set at the Personal `SELF` or Group `NONE` level. Default value is `NONE`.
         :param pulumi.Input[_builtins.str] title: Subschema title (display name)
         :param pulumi.Input[_builtins.str] type: The type of the schema property. It can be `string`, `boolean`, `number`, `integer`, `array`, or `object`
-        :param pulumi.Input[_builtins.bool] union: If `type` is set to `array`, used to set whether attribute value is determined by group priority `false`, or combine
-               values across groups `true`. Can not be set to `true` if `scope` is set to `SELF`.
+        :param pulumi.Input[_builtins.bool] union: If `type` is set to `array`, used to set whether attribute value is determined by group priority `false`, or combine values across groups `true`. Can not be set to `true` if `scope` is set to `SELF`.
         :param pulumi.Input[_builtins.str] unique: Whether the property should be unique. It can be set to `UNIQUE_VALIDATED` or `NOT_UNIQUE`.
         :param pulumi.Input[_builtins.str] user_type: User type ID. By default, it is `default`
         """
@@ -1039,8 +1039,9 @@ class AppUserSchemaProperty(pulumi.CustomResource):
     @pulumi.getter(name="arrayOneOfs")
     def array_one_ofs(self) -> pulumi.Output[Optional[Sequence['outputs.AppUserSchemaPropertyArrayOneOf']]]:
         """
-        Display name and value an enum array can be set to. - 'const' - (Required) value mapping to member of 'enum'. - 'title'
-        - (Required) display name for the enum value.
+        Display name and value an enum array can be set to.
+        	- 'const' - (Required) value mapping to member of 'enum'.
+        	- 'title' - (Required) display name for the enum value.
         """
         return pulumi.get(self, "array_one_ofs")
 
@@ -1120,8 +1121,9 @@ class AppUserSchemaProperty(pulumi.CustomResource):
     @pulumi.getter(name="oneOfs")
     def one_ofs(self) -> pulumi.Output[Optional[Sequence['outputs.AppUserSchemaPropertyOneOf']]]:
         """
-        Array of maps containing a mapping for display name to enum value. - 'const' - (Required) value mapping to member of
-        'enum'. - 'title' - (Required) display name for the enum value.
+        Array of maps containing a mapping for display name to enum value.
+        	- 'const' - (Required) value mapping to member of 'enum'.
+        	- 'title' - (Required) display name for the enum value.
         """
         return pulumi.get(self, "one_ofs")
 
@@ -1145,8 +1147,7 @@ class AppUserSchemaProperty(pulumi.CustomResource):
     @pulumi.getter
     def scope(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        determines whether an app user attribute can be set at the Personal `SELF` or Group `NONE` level. Default value is
-        `NONE`.
+        determines whether an app user attribute can be set at the Personal `SELF` or Group `NONE` level. Default value is `NONE`.
         """
         return pulumi.get(self, "scope")
 
@@ -1170,8 +1171,7 @@ class AppUserSchemaProperty(pulumi.CustomResource):
     @pulumi.getter
     def union(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
-        If `type` is set to `array`, used to set whether attribute value is determined by group priority `false`, or combine
-        values across groups `true`. Can not be set to `true` if `scope` is set to `SELF`.
+        If `type` is set to `array`, used to set whether attribute value is determined by group priority `false`, or combine values across groups `true`. Can not be set to `true` if `scope` is set to `SELF`.
         """
         return pulumi.get(self, "union")
 

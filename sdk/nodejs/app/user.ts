@@ -55,28 +55,28 @@ export class User extends pulumi.CustomResource {
     /**
      * App to associate user with
      */
-    public readonly appId!: pulumi.Output<string>;
-    public /*out*/ readonly hasSharedUsername!: pulumi.Output<boolean>;
+    declare public readonly appId: pulumi.Output<string>;
+    declare public /*out*/ readonly hasSharedUsername: pulumi.Output<boolean>;
     /**
      * The password to use.
      */
-    public readonly password!: pulumi.Output<string | undefined>;
+    declare public readonly password: pulumi.Output<string | undefined>;
     /**
      * The JSON profile of the App User.
      */
-    public readonly profile!: pulumi.Output<string | undefined>;
+    declare public readonly profile: pulumi.Output<string | undefined>;
     /**
      * Retain the user assignment on destroy. If set to true, the resource will be removed from state but not from the Okta app.
      */
-    public readonly retainAssignment!: pulumi.Output<boolean | undefined>;
+    declare public readonly retainAssignment: pulumi.Output<boolean | undefined>;
     /**
      * User associated with the application
      */
-    public readonly userId!: pulumi.Output<string>;
+    declare public readonly userId: pulumi.Output<string>;
     /**
      * The username to use for the app user. In case the user is assigned to the app with `SHARED_USERNAME_AND_PASSWORD` credentials scheme, this field will be computed and should not be set.
      */
-    public readonly username!: pulumi.Output<string | undefined>;
+    declare public readonly username: pulumi.Output<string | undefined>;
 
     /**
      * Create a User resource with the given unique name, arguments, and options.
@@ -91,27 +91,27 @@ export class User extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as UserState | undefined;
-            resourceInputs["appId"] = state ? state.appId : undefined;
-            resourceInputs["hasSharedUsername"] = state ? state.hasSharedUsername : undefined;
-            resourceInputs["password"] = state ? state.password : undefined;
-            resourceInputs["profile"] = state ? state.profile : undefined;
-            resourceInputs["retainAssignment"] = state ? state.retainAssignment : undefined;
-            resourceInputs["userId"] = state ? state.userId : undefined;
-            resourceInputs["username"] = state ? state.username : undefined;
+            resourceInputs["appId"] = state?.appId;
+            resourceInputs["hasSharedUsername"] = state?.hasSharedUsername;
+            resourceInputs["password"] = state?.password;
+            resourceInputs["profile"] = state?.profile;
+            resourceInputs["retainAssignment"] = state?.retainAssignment;
+            resourceInputs["userId"] = state?.userId;
+            resourceInputs["username"] = state?.username;
         } else {
             const args = argsOrState as UserArgs | undefined;
-            if ((!args || args.appId === undefined) && !opts.urn) {
+            if (args?.appId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'appId'");
             }
-            if ((!args || args.userId === undefined) && !opts.urn) {
+            if (args?.userId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'userId'");
             }
-            resourceInputs["appId"] = args ? args.appId : undefined;
+            resourceInputs["appId"] = args?.appId;
             resourceInputs["password"] = args?.password ? pulumi.secret(args.password) : undefined;
-            resourceInputs["profile"] = args ? args.profile : undefined;
-            resourceInputs["retainAssignment"] = args ? args.retainAssignment : undefined;
-            resourceInputs["userId"] = args ? args.userId : undefined;
-            resourceInputs["username"] = args ? args.username : undefined;
+            resourceInputs["profile"] = args?.profile;
+            resourceInputs["retainAssignment"] = args?.retainAssignment;
+            resourceInputs["userId"] = args?.userId;
+            resourceInputs["username"] = args?.username;
             resourceInputs["hasSharedUsername"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

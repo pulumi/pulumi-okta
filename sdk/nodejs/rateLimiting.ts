@@ -60,15 +60,15 @@ export class RateLimiting extends pulumi.CustomResource {
     /**
      * Called during authentication. Valid values: `ENFORCE` *(Enforce limit and log per client (recommended))*, `DISABLE` *(Do nothing (not recommended))*, `PREVIEW` *(Log per client)*.
      */
-    public readonly authorize!: pulumi.Output<string>;
+    declare public readonly authorize: pulumi.Output<string>;
     /**
      * Enable or disable rate limiting communications. By default, it is `true`.
      */
-    public readonly communicationsEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly communicationsEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Called when accessing the Okta hosted login page. Valid values: `ENFORCE` *(Enforce limit and log per client (recommended))*, `DISABLE` *(Do nothing (not recommended))*, `PREVIEW` *(Log per client)*.
      */
-    public readonly login!: pulumi.Output<string>;
+    declare public readonly login: pulumi.Output<string>;
 
     /**
      * Create a RateLimiting resource with the given unique name, arguments, and options.
@@ -83,20 +83,20 @@ export class RateLimiting extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RateLimitingState | undefined;
-            resourceInputs["authorize"] = state ? state.authorize : undefined;
-            resourceInputs["communicationsEnabled"] = state ? state.communicationsEnabled : undefined;
-            resourceInputs["login"] = state ? state.login : undefined;
+            resourceInputs["authorize"] = state?.authorize;
+            resourceInputs["communicationsEnabled"] = state?.communicationsEnabled;
+            resourceInputs["login"] = state?.login;
         } else {
             const args = argsOrState as RateLimitingArgs | undefined;
-            if ((!args || args.authorize === undefined) && !opts.urn) {
+            if (args?.authorize === undefined && !opts.urn) {
                 throw new Error("Missing required property 'authorize'");
             }
-            if ((!args || args.login === undefined) && !opts.urn) {
+            if (args?.login === undefined && !opts.urn) {
                 throw new Error("Missing required property 'login'");
             }
-            resourceInputs["authorize"] = args ? args.authorize : undefined;
-            resourceInputs["communicationsEnabled"] = args ? args.communicationsEnabled : undefined;
-            resourceInputs["login"] = args ? args.login : undefined;
+            resourceInputs["authorize"] = args?.authorize;
+            resourceInputs["communicationsEnabled"] = args?.communicationsEnabled;
+            resourceInputs["login"] = args?.login;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(RateLimiting.__pulumiType, name, resourceInputs, opts);

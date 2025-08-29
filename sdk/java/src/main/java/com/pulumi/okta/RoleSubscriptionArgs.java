@@ -17,26 +17,38 @@ public final class RoleSubscriptionArgs extends com.pulumi.resources.ResourceArg
     public static final RoleSubscriptionArgs Empty = new RoleSubscriptionArgs();
 
     /**
-     * Type of the notification. Valid values: - &#39;CONNECTOR_AGENT&#39; - Disconnects and reconnects: On-prem provisioning, on-prem
-     * MFA agents, and RADIUS server agent. - &#39;USER_LOCKED_OUT&#39; - User lockouts. - &#39;APP_IMPORT&#39; - App user import status. -
-     * &#39;LDAP_AGENT&#39; - Disconnects and reconnects: LDAP agent. - &#39;AD_AGENT&#39; - Disconnects and reconnects: AD agent. -
-     * &#39;OKTA_ANNOUNCEMENT&#39; - Okta release notes and announcements. - &#39;OKTA_UPDATE&#39; - Scheduled system updates. - &#39;IWA_AGENT&#39; -
-     * Disconnects and reconnects: IWA agent. - &#39;USER_DEPROVISION&#39; - User deprovisions. - &#39;REPORT_SUSPICIOUS_ACTIVITY&#39; - User
-     * reporting of suspicious activity. - &#39;RATELIMIT_NOTIFICATION&#39; - Rate limit warning and violation. -
-     * &#39;AGENT_AUTO_UPDATE_NOTIFICATION&#39; - Agent auto-update notifications: AD Agent.
+     * Type of the notification. Valid values:
+     * 	- &#39;CONNECTOR_AGENT&#39; -  Disconnects and reconnects: On-prem provisioning, on-prem MFA agents, and RADIUS server agent.
+     * 	- &#39;USER_LOCKED_OUT&#39; - User lockouts.
+     * 	- &#39;APP_IMPORT&#39; - App user import status.
+     * 	- &#39;LDAP_AGENT&#39; - Disconnects and reconnects: LDAP agent.
+     * 	- &#39;AD_AGENT&#39; - Disconnects and reconnects: AD agent.
+     * 	- &#39;OKTA_ANNOUNCEMENT&#39; - Okta release notes and announcements.
+     * 	- &#39;OKTA_UPDATE&#39; - Scheduled system updates.
+     * 	- &#39;IWA_AGENT&#39; - Disconnects and reconnects: IWA agent.
+     * 	- &#39;USER_DEPROVISION&#39; - User deprovisions.
+     * 	- &#39;REPORT_SUSPICIOUS_ACTIVITY&#39; - User reporting of suspicious activity.
+     * 	- &#39;RATELIMIT_NOTIFICATION&#39; - Rate limit warning and violation.
+     * 	- &#39;AGENT_AUTO_UPDATE_NOTIFICATION&#39; - Agent auto-update notifications: AD Agent.
      * 
      */
     @Import(name="notificationType", required=true)
     private Output<String> notificationType;
 
     /**
-     * @return Type of the notification. Valid values: - &#39;CONNECTOR_AGENT&#39; - Disconnects and reconnects: On-prem provisioning, on-prem
-     * MFA agents, and RADIUS server agent. - &#39;USER_LOCKED_OUT&#39; - User lockouts. - &#39;APP_IMPORT&#39; - App user import status. -
-     * &#39;LDAP_AGENT&#39; - Disconnects and reconnects: LDAP agent. - &#39;AD_AGENT&#39; - Disconnects and reconnects: AD agent. -
-     * &#39;OKTA_ANNOUNCEMENT&#39; - Okta release notes and announcements. - &#39;OKTA_UPDATE&#39; - Scheduled system updates. - &#39;IWA_AGENT&#39; -
-     * Disconnects and reconnects: IWA agent. - &#39;USER_DEPROVISION&#39; - User deprovisions. - &#39;REPORT_SUSPICIOUS_ACTIVITY&#39; - User
-     * reporting of suspicious activity. - &#39;RATELIMIT_NOTIFICATION&#39; - Rate limit warning and violation. -
-     * &#39;AGENT_AUTO_UPDATE_NOTIFICATION&#39; - Agent auto-update notifications: AD Agent.
+     * @return Type of the notification. Valid values:
+     * 	- &#39;CONNECTOR_AGENT&#39; -  Disconnects and reconnects: On-prem provisioning, on-prem MFA agents, and RADIUS server agent.
+     * 	- &#39;USER_LOCKED_OUT&#39; - User lockouts.
+     * 	- &#39;APP_IMPORT&#39; - App user import status.
+     * 	- &#39;LDAP_AGENT&#39; - Disconnects and reconnects: LDAP agent.
+     * 	- &#39;AD_AGENT&#39; - Disconnects and reconnects: AD agent.
+     * 	- &#39;OKTA_ANNOUNCEMENT&#39; - Okta release notes and announcements.
+     * 	- &#39;OKTA_UPDATE&#39; - Scheduled system updates.
+     * 	- &#39;IWA_AGENT&#39; - Disconnects and reconnects: IWA agent.
+     * 	- &#39;USER_DEPROVISION&#39; - User deprovisions.
+     * 	- &#39;REPORT_SUSPICIOUS_ACTIVITY&#39; - User reporting of suspicious activity.
+     * 	- &#39;RATELIMIT_NOTIFICATION&#39; - Rate limit warning and violation.
+     * 	- &#39;AGENT_AUTO_UPDATE_NOTIFICATION&#39; - Agent auto-update notifications: AD Agent.
      * 
      */
     public Output<String> notificationType() {
@@ -44,18 +56,38 @@ public final class RoleSubscriptionArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Type of the role. Valid values: &#39;API_ADMIN&#39;, &#39;APP_ADMIN&#39;, &#39;CUSTOM&#39;, &#39;GROUP_MEMBERSHIP_ADMIN&#39;, &#39;HELP_DESK_ADMIN&#39;,
-     * &#39;MOBILE_ADMIN&#39;, &#39;ORG_ADMIN&#39;, &#39;READ_ONLY_ADMIN&#39;, &#39;REPORT_ADMIN&#39;, &#39;SUPER_ADMIN&#39;, &#39;USER_ADMIN&#39; . See [API
-     * docs](https://developer.okta.com/docs/reference/api/admin-notifications/#role-types).
+     * Type of the role. Valid values:
+     * 	&#39;API_ADMIN&#39;,
+     * 	&#39;APP_ADMIN&#39;,
+     * 	&#39;CUSTOM&#39;,
+     * 	&#39;GROUP_MEMBERSHIP_ADMIN&#39;,
+     * 	&#39;HELP_DESK_ADMIN&#39;,
+     * 	&#39;MOBILE_ADMIN&#39;,
+     * 	&#39;ORG_ADMIN&#39;,
+     * 	&#39;READ_ONLY_ADMIN&#39;,
+     * 	&#39;REPORT_ADMIN&#39;,
+     * 	&#39;SUPER_ADMIN&#39;,
+     * 	&#39;USER_ADMIN&#39;
+     * 	. See [API docs](https://developer.okta.com/docs/reference/api/admin-notifications/#role-types).
      * 
      */
     @Import(name="roleType", required=true)
     private Output<String> roleType;
 
     /**
-     * @return Type of the role. Valid values: &#39;API_ADMIN&#39;, &#39;APP_ADMIN&#39;, &#39;CUSTOM&#39;, &#39;GROUP_MEMBERSHIP_ADMIN&#39;, &#39;HELP_DESK_ADMIN&#39;,
-     * &#39;MOBILE_ADMIN&#39;, &#39;ORG_ADMIN&#39;, &#39;READ_ONLY_ADMIN&#39;, &#39;REPORT_ADMIN&#39;, &#39;SUPER_ADMIN&#39;, &#39;USER_ADMIN&#39; . See [API
-     * docs](https://developer.okta.com/docs/reference/api/admin-notifications/#role-types).
+     * @return Type of the role. Valid values:
+     * 	&#39;API_ADMIN&#39;,
+     * 	&#39;APP_ADMIN&#39;,
+     * 	&#39;CUSTOM&#39;,
+     * 	&#39;GROUP_MEMBERSHIP_ADMIN&#39;,
+     * 	&#39;HELP_DESK_ADMIN&#39;,
+     * 	&#39;MOBILE_ADMIN&#39;,
+     * 	&#39;ORG_ADMIN&#39;,
+     * 	&#39;READ_ONLY_ADMIN&#39;,
+     * 	&#39;REPORT_ADMIN&#39;,
+     * 	&#39;SUPER_ADMIN&#39;,
+     * 	&#39;USER_ADMIN&#39;
+     * 	. See [API docs](https://developer.okta.com/docs/reference/api/admin-notifications/#role-types).
      * 
      */
     public Output<String> roleType() {
@@ -104,13 +136,19 @@ public final class RoleSubscriptionArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param notificationType Type of the notification. Valid values: - &#39;CONNECTOR_AGENT&#39; - Disconnects and reconnects: On-prem provisioning, on-prem
-         * MFA agents, and RADIUS server agent. - &#39;USER_LOCKED_OUT&#39; - User lockouts. - &#39;APP_IMPORT&#39; - App user import status. -
-         * &#39;LDAP_AGENT&#39; - Disconnects and reconnects: LDAP agent. - &#39;AD_AGENT&#39; - Disconnects and reconnects: AD agent. -
-         * &#39;OKTA_ANNOUNCEMENT&#39; - Okta release notes and announcements. - &#39;OKTA_UPDATE&#39; - Scheduled system updates. - &#39;IWA_AGENT&#39; -
-         * Disconnects and reconnects: IWA agent. - &#39;USER_DEPROVISION&#39; - User deprovisions. - &#39;REPORT_SUSPICIOUS_ACTIVITY&#39; - User
-         * reporting of suspicious activity. - &#39;RATELIMIT_NOTIFICATION&#39; - Rate limit warning and violation. -
-         * &#39;AGENT_AUTO_UPDATE_NOTIFICATION&#39; - Agent auto-update notifications: AD Agent.
+         * @param notificationType Type of the notification. Valid values:
+         * 	- &#39;CONNECTOR_AGENT&#39; -  Disconnects and reconnects: On-prem provisioning, on-prem MFA agents, and RADIUS server agent.
+         * 	- &#39;USER_LOCKED_OUT&#39; - User lockouts.
+         * 	- &#39;APP_IMPORT&#39; - App user import status.
+         * 	- &#39;LDAP_AGENT&#39; - Disconnects and reconnects: LDAP agent.
+         * 	- &#39;AD_AGENT&#39; - Disconnects and reconnects: AD agent.
+         * 	- &#39;OKTA_ANNOUNCEMENT&#39; - Okta release notes and announcements.
+         * 	- &#39;OKTA_UPDATE&#39; - Scheduled system updates.
+         * 	- &#39;IWA_AGENT&#39; - Disconnects and reconnects: IWA agent.
+         * 	- &#39;USER_DEPROVISION&#39; - User deprovisions.
+         * 	- &#39;REPORT_SUSPICIOUS_ACTIVITY&#39; - User reporting of suspicious activity.
+         * 	- &#39;RATELIMIT_NOTIFICATION&#39; - Rate limit warning and violation.
+         * 	- &#39;AGENT_AUTO_UPDATE_NOTIFICATION&#39; - Agent auto-update notifications: AD Agent.
          * 
          * @return builder
          * 
@@ -121,13 +159,19 @@ public final class RoleSubscriptionArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param notificationType Type of the notification. Valid values: - &#39;CONNECTOR_AGENT&#39; - Disconnects and reconnects: On-prem provisioning, on-prem
-         * MFA agents, and RADIUS server agent. - &#39;USER_LOCKED_OUT&#39; - User lockouts. - &#39;APP_IMPORT&#39; - App user import status. -
-         * &#39;LDAP_AGENT&#39; - Disconnects and reconnects: LDAP agent. - &#39;AD_AGENT&#39; - Disconnects and reconnects: AD agent. -
-         * &#39;OKTA_ANNOUNCEMENT&#39; - Okta release notes and announcements. - &#39;OKTA_UPDATE&#39; - Scheduled system updates. - &#39;IWA_AGENT&#39; -
-         * Disconnects and reconnects: IWA agent. - &#39;USER_DEPROVISION&#39; - User deprovisions. - &#39;REPORT_SUSPICIOUS_ACTIVITY&#39; - User
-         * reporting of suspicious activity. - &#39;RATELIMIT_NOTIFICATION&#39; - Rate limit warning and violation. -
-         * &#39;AGENT_AUTO_UPDATE_NOTIFICATION&#39; - Agent auto-update notifications: AD Agent.
+         * @param notificationType Type of the notification. Valid values:
+         * 	- &#39;CONNECTOR_AGENT&#39; -  Disconnects and reconnects: On-prem provisioning, on-prem MFA agents, and RADIUS server agent.
+         * 	- &#39;USER_LOCKED_OUT&#39; - User lockouts.
+         * 	- &#39;APP_IMPORT&#39; - App user import status.
+         * 	- &#39;LDAP_AGENT&#39; - Disconnects and reconnects: LDAP agent.
+         * 	- &#39;AD_AGENT&#39; - Disconnects and reconnects: AD agent.
+         * 	- &#39;OKTA_ANNOUNCEMENT&#39; - Okta release notes and announcements.
+         * 	- &#39;OKTA_UPDATE&#39; - Scheduled system updates.
+         * 	- &#39;IWA_AGENT&#39; - Disconnects and reconnects: IWA agent.
+         * 	- &#39;USER_DEPROVISION&#39; - User deprovisions.
+         * 	- &#39;REPORT_SUSPICIOUS_ACTIVITY&#39; - User reporting of suspicious activity.
+         * 	- &#39;RATELIMIT_NOTIFICATION&#39; - Rate limit warning and violation.
+         * 	- &#39;AGENT_AUTO_UPDATE_NOTIFICATION&#39; - Agent auto-update notifications: AD Agent.
          * 
          * @return builder
          * 
@@ -137,9 +181,19 @@ public final class RoleSubscriptionArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param roleType Type of the role. Valid values: &#39;API_ADMIN&#39;, &#39;APP_ADMIN&#39;, &#39;CUSTOM&#39;, &#39;GROUP_MEMBERSHIP_ADMIN&#39;, &#39;HELP_DESK_ADMIN&#39;,
-         * &#39;MOBILE_ADMIN&#39;, &#39;ORG_ADMIN&#39;, &#39;READ_ONLY_ADMIN&#39;, &#39;REPORT_ADMIN&#39;, &#39;SUPER_ADMIN&#39;, &#39;USER_ADMIN&#39; . See [API
-         * docs](https://developer.okta.com/docs/reference/api/admin-notifications/#role-types).
+         * @param roleType Type of the role. Valid values:
+         * 	&#39;API_ADMIN&#39;,
+         * 	&#39;APP_ADMIN&#39;,
+         * 	&#39;CUSTOM&#39;,
+         * 	&#39;GROUP_MEMBERSHIP_ADMIN&#39;,
+         * 	&#39;HELP_DESK_ADMIN&#39;,
+         * 	&#39;MOBILE_ADMIN&#39;,
+         * 	&#39;ORG_ADMIN&#39;,
+         * 	&#39;READ_ONLY_ADMIN&#39;,
+         * 	&#39;REPORT_ADMIN&#39;,
+         * 	&#39;SUPER_ADMIN&#39;,
+         * 	&#39;USER_ADMIN&#39;
+         * 	. See [API docs](https://developer.okta.com/docs/reference/api/admin-notifications/#role-types).
          * 
          * @return builder
          * 
@@ -150,9 +204,19 @@ public final class RoleSubscriptionArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param roleType Type of the role. Valid values: &#39;API_ADMIN&#39;, &#39;APP_ADMIN&#39;, &#39;CUSTOM&#39;, &#39;GROUP_MEMBERSHIP_ADMIN&#39;, &#39;HELP_DESK_ADMIN&#39;,
-         * &#39;MOBILE_ADMIN&#39;, &#39;ORG_ADMIN&#39;, &#39;READ_ONLY_ADMIN&#39;, &#39;REPORT_ADMIN&#39;, &#39;SUPER_ADMIN&#39;, &#39;USER_ADMIN&#39; . See [API
-         * docs](https://developer.okta.com/docs/reference/api/admin-notifications/#role-types).
+         * @param roleType Type of the role. Valid values:
+         * 	&#39;API_ADMIN&#39;,
+         * 	&#39;APP_ADMIN&#39;,
+         * 	&#39;CUSTOM&#39;,
+         * 	&#39;GROUP_MEMBERSHIP_ADMIN&#39;,
+         * 	&#39;HELP_DESK_ADMIN&#39;,
+         * 	&#39;MOBILE_ADMIN&#39;,
+         * 	&#39;ORG_ADMIN&#39;,
+         * 	&#39;READ_ONLY_ADMIN&#39;,
+         * 	&#39;REPORT_ADMIN&#39;,
+         * 	&#39;SUPER_ADMIN&#39;,
+         * 	&#39;USER_ADMIN&#39;
+         * 	. See [API docs](https://developer.okta.com/docs/reference/api/admin-notifications/#role-types).
          * 
          * @return builder
          * 

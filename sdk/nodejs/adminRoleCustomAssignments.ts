@@ -47,15 +47,15 @@ export class AdminRoleCustomAssignments extends pulumi.CustomResource {
     /**
      * ID of the Custom Role
      */
-    public readonly customRoleId!: pulumi.Output<string>;
+    declare public readonly customRoleId: pulumi.Output<string>;
     /**
      * The hrefs that point to User(s) and/or Group(s) that receive the Role
      */
-    public readonly members!: pulumi.Output<string[] | undefined>;
+    declare public readonly members: pulumi.Output<string[] | undefined>;
     /**
      * ID of the target Resource Set
      */
-    public readonly resourceSetId!: pulumi.Output<string>;
+    declare public readonly resourceSetId: pulumi.Output<string>;
 
     /**
      * Create a AdminRoleCustomAssignments resource with the given unique name, arguments, and options.
@@ -70,20 +70,20 @@ export class AdminRoleCustomAssignments extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AdminRoleCustomAssignmentsState | undefined;
-            resourceInputs["customRoleId"] = state ? state.customRoleId : undefined;
-            resourceInputs["members"] = state ? state.members : undefined;
-            resourceInputs["resourceSetId"] = state ? state.resourceSetId : undefined;
+            resourceInputs["customRoleId"] = state?.customRoleId;
+            resourceInputs["members"] = state?.members;
+            resourceInputs["resourceSetId"] = state?.resourceSetId;
         } else {
             const args = argsOrState as AdminRoleCustomAssignmentsArgs | undefined;
-            if ((!args || args.customRoleId === undefined) && !opts.urn) {
+            if (args?.customRoleId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'customRoleId'");
             }
-            if ((!args || args.resourceSetId === undefined) && !opts.urn) {
+            if (args?.resourceSetId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceSetId'");
             }
-            resourceInputs["customRoleId"] = args ? args.customRoleId : undefined;
-            resourceInputs["members"] = args ? args.members : undefined;
-            resourceInputs["resourceSetId"] = args ? args.resourceSetId : undefined;
+            resourceInputs["customRoleId"] = args?.customRoleId;
+            resourceInputs["members"] = args?.members;
+            resourceInputs["resourceSetId"] = args?.resourceSetId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(AdminRoleCustomAssignments.__pulumiType, name, resourceInputs, opts);

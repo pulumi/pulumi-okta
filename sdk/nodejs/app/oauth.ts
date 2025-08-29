@@ -63,31 +63,31 @@ export class OAuth extends pulumi.CustomResource {
     /**
      * Custom error page URL
      */
-    public readonly accessibilityErrorRedirectUrl!: pulumi.Output<string | undefined>;
+    declare public readonly accessibilityErrorRedirectUrl: pulumi.Output<string | undefined>;
     /**
      * Custom login page URL
      */
-    public readonly accessibilityLoginRedirectUrl!: pulumi.Output<string | undefined>;
+    declare public readonly accessibilityLoginRedirectUrl: pulumi.Output<string | undefined>;
     /**
      * Enable self service. Default is `false`
      */
-    public readonly accessibilitySelfService!: pulumi.Output<boolean | undefined>;
+    declare public readonly accessibilitySelfService: pulumi.Output<boolean | undefined>;
     /**
      * Application notes for admins.
      */
-    public readonly adminNote!: pulumi.Output<string | undefined>;
+    declare public readonly adminNote: pulumi.Output<string | undefined>;
     /**
      * Displays specific appLinks for the app. The value for each application link should be boolean.
      */
-    public readonly appLinksJson!: pulumi.Output<string | undefined>;
+    declare public readonly appLinksJson: pulumi.Output<string | undefined>;
     /**
      * Application settings in JSON format
      */
-    public readonly appSettingsJson!: pulumi.Output<string | undefined>;
+    declare public readonly appSettingsJson: pulumi.Output<string | undefined>;
     /**
      * The ID of the associated app*signon*policy. If this property is removed from the application the default sign-on-policy will be associated with this application. From now on, there is no need to attach authenticationPolicy for applications of type `SERVICE` in the upcoming release.
      */
-    public readonly authenticationPolicy!: pulumi.Output<string>;
+    declare public readonly authenticationPolicy: pulumi.Output<string>;
     /**
      * Requested key rotation mode. If
      * 			auto*key*rotation isn't specified, the client automatically opts in for Okta's
@@ -95,172 +95,172 @@ export class OAuth extends pulumi.CustomResource {
      * 			UI.
      * 			See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object"
      */
-    public readonly autoKeyRotation!: pulumi.Output<boolean | undefined>;
+    declare public readonly autoKeyRotation: pulumi.Output<boolean | undefined>;
     /**
      * Display auto submit toolbar
      */
-    public readonly autoSubmitToolbar!: pulumi.Output<boolean | undefined>;
+    declare public readonly autoSubmitToolbar: pulumi.Output<boolean | undefined>;
     /**
      * The user provided OAuth client secret key value, this can be set when token*endpoint*auth*method is client*secret*basic. This does nothing when `omit*secret is set to true.
      */
-    public readonly clientBasicSecret!: pulumi.Output<string | undefined>;
+    declare public readonly clientBasicSecret: pulumi.Output<string | undefined>;
     /**
      * OAuth client ID. If set during creation, app is created with this id.
      */
-    public readonly clientId!: pulumi.Output<string>;
+    declare public readonly clientId: pulumi.Output<string>;
     /**
      * OAuth client secret value, this is output only. This will be in plain text in your statefile unless you set omitSecret above.
      */
-    public /*out*/ readonly clientSecret!: pulumi.Output<string>;
+    declare public /*out*/ readonly clientSecret: pulumi.Output<string>;
     /**
      * URI to a web page providing information about the client.
      */
-    public readonly clientUri!: pulumi.Output<string | undefined>;
+    declare public readonly clientUri: pulumi.Output<string | undefined>;
     /**
      * *Early Access Property*. Indicates whether user consent is required or implicit. Valid values: REQUIRED, TRUSTED. Default value is TRUSTED
      */
-    public readonly consentMethod!: pulumi.Output<string | undefined>;
+    declare public readonly consentMethod: pulumi.Output<string | undefined>;
     /**
      * Application notes for end users.
      */
-    public readonly enduserNote!: pulumi.Output<string | undefined>;
+    declare public readonly enduserNote: pulumi.Output<string | undefined>;
     /**
      * List of OAuth 2.0 grant types. Conditional validation params found here https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum requirements per app type.
      */
-    public readonly grantTypes!: pulumi.Output<string[]>;
+    declare public readonly grantTypes: pulumi.Output<string[]>;
     /**
      * Groups claim for an OpenID Connect client application (argument is ignored when API auth is done with OAuth 2.0 credentials)
      */
-    public readonly groupsClaim!: pulumi.Output<outputs.app.OAuthGroupsClaim | undefined>;
+    declare public readonly groupsClaim: pulumi.Output<outputs.app.OAuthGroupsClaim | undefined>;
     /**
      * Do not display application icon on mobile app
      */
-    public readonly hideIos!: pulumi.Output<boolean | undefined>;
+    declare public readonly hideIos: pulumi.Output<boolean | undefined>;
     /**
      * Do not display application icon to users
      */
-    public readonly hideWeb!: pulumi.Output<boolean | undefined>;
+    declare public readonly hideWeb: pulumi.Output<boolean | undefined>;
     /**
      * *Early Access Property*. Enable Federation Broker Mode.
      */
-    public readonly implicitAssignment!: pulumi.Output<boolean | undefined>;
+    declare public readonly implicitAssignment: pulumi.Output<boolean | undefined>;
     /**
      * *Early Access Property*. Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a custom domain URL as the issuer of ID token for this client.
      */
-    public readonly issuerMode!: pulumi.Output<string | undefined>;
-    public readonly jwks!: pulumi.Output<outputs.app.OAuthJwk[] | undefined>;
+    declare public readonly issuerMode: pulumi.Output<string | undefined>;
+    declare public readonly jwks: pulumi.Output<outputs.app.OAuthJwk[] | undefined>;
     /**
      * URL reference to JWKS
      */
-    public readonly jwksUri!: pulumi.Output<string | undefined>;
+    declare public readonly jwksUri: pulumi.Output<string | undefined>;
     /**
      * The Application's display name.
      */
-    public readonly label!: pulumi.Output<string>;
+    declare public readonly label: pulumi.Output<string>;
     /**
      * The type of Idp-Initiated login that the client supports, if any
      */
-    public readonly loginMode!: pulumi.Output<string | undefined>;
+    declare public readonly loginMode: pulumi.Output<string | undefined>;
     /**
      * List of scopes to use for the request
      */
-    public readonly loginScopes!: pulumi.Output<string[] | undefined>;
+    declare public readonly loginScopes: pulumi.Output<string[] | undefined>;
     /**
      * URI that initiates login.
      */
-    public readonly loginUri!: pulumi.Output<string | undefined>;
+    declare public readonly loginUri: pulumi.Output<string | undefined>;
     /**
      * Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
      */
-    public readonly logo!: pulumi.Output<string | undefined>;
+    declare public readonly logo: pulumi.Output<string | undefined>;
     /**
      * URI that references a logo for the client.
      */
-    public readonly logoUri!: pulumi.Output<string | undefined>;
+    declare public readonly logoUri: pulumi.Output<string | undefined>;
     /**
      * URL of the application's logo
      */
-    public /*out*/ readonly logoUrl!: pulumi.Output<string>;
+    declare public /*out*/ readonly logoUrl: pulumi.Output<string>;
     /**
      * Name of the app.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * This tells the provider not manage the client*secret value in state. When this is false (the default), it will cause the auto-generated client*secret to be persisted in the clientSecret attribute in state. This also means that every time an update to this app is run, this value is also set on the API. If this changes from false => true, the `clientSecret` is dropped from state and the secret at the time of the apply is what remains. If this is ever changes from true => false your app will be recreated, due to the need to regenerate a secret we can store in state.
      */
-    public readonly omitSecret!: pulumi.Output<boolean | undefined>;
+    declare public readonly omitSecret: pulumi.Output<boolean | undefined>;
     /**
      * Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
      */
-    public readonly pkceRequired!: pulumi.Output<boolean>;
+    declare public readonly pkceRequired: pulumi.Output<boolean>;
     /**
      * URI to web page providing client policy document.
      */
-    public readonly policyUri!: pulumi.Output<string | undefined>;
+    declare public readonly policyUri: pulumi.Output<string | undefined>;
     /**
      * List of URIs for redirection after logout. Note: see okta*app*oauth*post*logout*redirect*uri for appending to this list in a decentralized way.
      */
-    public readonly postLogoutRedirectUris!: pulumi.Output<string[] | undefined>;
+    declare public readonly postLogoutRedirectUris: pulumi.Output<string[] | undefined>;
     /**
      * Custom JSON that represents an OAuth application's profile
      */
-    public readonly profile!: pulumi.Output<string | undefined>;
+    declare public readonly profile: pulumi.Output<string | undefined>;
     /**
      * List of URIs for use in the redirect-based flow. This is required for all application types except service. Note: see okta*app*oauth*redirect*uri for appending to this list in a decentralized way.
      */
-    public readonly redirectUris!: pulumi.Output<string[] | undefined>;
+    declare public readonly redirectUris: pulumi.Output<string[] | undefined>;
     /**
      * *Early Access Property* Grace period for token rotation, required with grant types refresh_token
      */
-    public readonly refreshTokenLeeway!: pulumi.Output<number | undefined>;
+    declare public readonly refreshTokenLeeway: pulumi.Output<number | undefined>;
     /**
      * *Early Access Property* Refresh token rotation behavior, required with grant types refresh_token
      */
-    public readonly refreshTokenRotation!: pulumi.Output<string | undefined>;
+    declare public readonly refreshTokenRotation: pulumi.Output<string | undefined>;
     /**
      * List of OAuth 2.0 response type strings. Valid values are any combination of: `code`, `token`, and `idToken`.
      */
-    public readonly responseTypes!: pulumi.Output<string[]>;
+    declare public readonly responseTypes: pulumi.Output<string[]>;
     /**
      * Sign on mode of application.
      */
-    public /*out*/ readonly signOnMode!: pulumi.Output<string>;
+    declare public /*out*/ readonly signOnMode: pulumi.Output<string>;
     /**
      * Status of application. By default, it is `ACTIVE`
      */
-    public readonly status!: pulumi.Output<string | undefined>;
+    declare public readonly status: pulumi.Output<string | undefined>;
     /**
      * Requested authentication method for the token endpoint, valid values include:  'client*secret*basic', 'client*secret*post', 'client*secret*jwt', 'private*key*jwt', 'none', etc.
      */
-    public readonly tokenEndpointAuthMethod!: pulumi.Output<string | undefined>;
+    declare public readonly tokenEndpointAuthMethod: pulumi.Output<string | undefined>;
     /**
      * URI to web page providing client tos (terms of service).
      */
-    public readonly tosUri!: pulumi.Output<string | undefined>;
+    declare public readonly tosUri: pulumi.Output<string | undefined>;
     /**
      * The type of client application.
      */
-    public readonly type!: pulumi.Output<string>;
+    declare public readonly type: pulumi.Output<string>;
     /**
      * Username template. Default: `${source.login}`
      */
-    public readonly userNameTemplate!: pulumi.Output<string | undefined>;
+    declare public readonly userNameTemplate: pulumi.Output<string | undefined>;
     /**
      * Push username on update. Valid values: `PUSH` and `DONT_PUSH`
      */
-    public readonly userNameTemplatePushStatus!: pulumi.Output<string | undefined>;
+    declare public readonly userNameTemplatePushStatus: pulumi.Output<string | undefined>;
     /**
      * Username template suffix
      */
-    public readonly userNameTemplateSuffix!: pulumi.Output<string | undefined>;
+    declare public readonly userNameTemplateSuffix: pulumi.Output<string | undefined>;
     /**
      * Username template type. Default: `BUILT_IN`
      */
-    public readonly userNameTemplateType!: pulumi.Output<string | undefined>;
+    declare public readonly userNameTemplateType: pulumi.Output<string | undefined>;
     /**
      * *Early Access Property*. Indicates if the client is allowed to use wildcard matching of redirect_uris
      */
-    public readonly wildcardRedirect!: pulumi.Output<string | undefined>;
+    declare public readonly wildcardRedirect: pulumi.Output<string | undefined>;
 
     /**
      * Create a OAuth resource with the given unique name, arguments, and options.
@@ -275,110 +275,110 @@ export class OAuth extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as OAuthState | undefined;
-            resourceInputs["accessibilityErrorRedirectUrl"] = state ? state.accessibilityErrorRedirectUrl : undefined;
-            resourceInputs["accessibilityLoginRedirectUrl"] = state ? state.accessibilityLoginRedirectUrl : undefined;
-            resourceInputs["accessibilitySelfService"] = state ? state.accessibilitySelfService : undefined;
-            resourceInputs["adminNote"] = state ? state.adminNote : undefined;
-            resourceInputs["appLinksJson"] = state ? state.appLinksJson : undefined;
-            resourceInputs["appSettingsJson"] = state ? state.appSettingsJson : undefined;
-            resourceInputs["authenticationPolicy"] = state ? state.authenticationPolicy : undefined;
-            resourceInputs["autoKeyRotation"] = state ? state.autoKeyRotation : undefined;
-            resourceInputs["autoSubmitToolbar"] = state ? state.autoSubmitToolbar : undefined;
-            resourceInputs["clientBasicSecret"] = state ? state.clientBasicSecret : undefined;
-            resourceInputs["clientId"] = state ? state.clientId : undefined;
-            resourceInputs["clientSecret"] = state ? state.clientSecret : undefined;
-            resourceInputs["clientUri"] = state ? state.clientUri : undefined;
-            resourceInputs["consentMethod"] = state ? state.consentMethod : undefined;
-            resourceInputs["enduserNote"] = state ? state.enduserNote : undefined;
-            resourceInputs["grantTypes"] = state ? state.grantTypes : undefined;
-            resourceInputs["groupsClaim"] = state ? state.groupsClaim : undefined;
-            resourceInputs["hideIos"] = state ? state.hideIos : undefined;
-            resourceInputs["hideWeb"] = state ? state.hideWeb : undefined;
-            resourceInputs["implicitAssignment"] = state ? state.implicitAssignment : undefined;
-            resourceInputs["issuerMode"] = state ? state.issuerMode : undefined;
-            resourceInputs["jwks"] = state ? state.jwks : undefined;
-            resourceInputs["jwksUri"] = state ? state.jwksUri : undefined;
-            resourceInputs["label"] = state ? state.label : undefined;
-            resourceInputs["loginMode"] = state ? state.loginMode : undefined;
-            resourceInputs["loginScopes"] = state ? state.loginScopes : undefined;
-            resourceInputs["loginUri"] = state ? state.loginUri : undefined;
-            resourceInputs["logo"] = state ? state.logo : undefined;
-            resourceInputs["logoUri"] = state ? state.logoUri : undefined;
-            resourceInputs["logoUrl"] = state ? state.logoUrl : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["omitSecret"] = state ? state.omitSecret : undefined;
-            resourceInputs["pkceRequired"] = state ? state.pkceRequired : undefined;
-            resourceInputs["policyUri"] = state ? state.policyUri : undefined;
-            resourceInputs["postLogoutRedirectUris"] = state ? state.postLogoutRedirectUris : undefined;
-            resourceInputs["profile"] = state ? state.profile : undefined;
-            resourceInputs["redirectUris"] = state ? state.redirectUris : undefined;
-            resourceInputs["refreshTokenLeeway"] = state ? state.refreshTokenLeeway : undefined;
-            resourceInputs["refreshTokenRotation"] = state ? state.refreshTokenRotation : undefined;
-            resourceInputs["responseTypes"] = state ? state.responseTypes : undefined;
-            resourceInputs["signOnMode"] = state ? state.signOnMode : undefined;
-            resourceInputs["status"] = state ? state.status : undefined;
-            resourceInputs["tokenEndpointAuthMethod"] = state ? state.tokenEndpointAuthMethod : undefined;
-            resourceInputs["tosUri"] = state ? state.tosUri : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
-            resourceInputs["userNameTemplate"] = state ? state.userNameTemplate : undefined;
-            resourceInputs["userNameTemplatePushStatus"] = state ? state.userNameTemplatePushStatus : undefined;
-            resourceInputs["userNameTemplateSuffix"] = state ? state.userNameTemplateSuffix : undefined;
-            resourceInputs["userNameTemplateType"] = state ? state.userNameTemplateType : undefined;
-            resourceInputs["wildcardRedirect"] = state ? state.wildcardRedirect : undefined;
+            resourceInputs["accessibilityErrorRedirectUrl"] = state?.accessibilityErrorRedirectUrl;
+            resourceInputs["accessibilityLoginRedirectUrl"] = state?.accessibilityLoginRedirectUrl;
+            resourceInputs["accessibilitySelfService"] = state?.accessibilitySelfService;
+            resourceInputs["adminNote"] = state?.adminNote;
+            resourceInputs["appLinksJson"] = state?.appLinksJson;
+            resourceInputs["appSettingsJson"] = state?.appSettingsJson;
+            resourceInputs["authenticationPolicy"] = state?.authenticationPolicy;
+            resourceInputs["autoKeyRotation"] = state?.autoKeyRotation;
+            resourceInputs["autoSubmitToolbar"] = state?.autoSubmitToolbar;
+            resourceInputs["clientBasicSecret"] = state?.clientBasicSecret;
+            resourceInputs["clientId"] = state?.clientId;
+            resourceInputs["clientSecret"] = state?.clientSecret;
+            resourceInputs["clientUri"] = state?.clientUri;
+            resourceInputs["consentMethod"] = state?.consentMethod;
+            resourceInputs["enduserNote"] = state?.enduserNote;
+            resourceInputs["grantTypes"] = state?.grantTypes;
+            resourceInputs["groupsClaim"] = state?.groupsClaim;
+            resourceInputs["hideIos"] = state?.hideIos;
+            resourceInputs["hideWeb"] = state?.hideWeb;
+            resourceInputs["implicitAssignment"] = state?.implicitAssignment;
+            resourceInputs["issuerMode"] = state?.issuerMode;
+            resourceInputs["jwks"] = state?.jwks;
+            resourceInputs["jwksUri"] = state?.jwksUri;
+            resourceInputs["label"] = state?.label;
+            resourceInputs["loginMode"] = state?.loginMode;
+            resourceInputs["loginScopes"] = state?.loginScopes;
+            resourceInputs["loginUri"] = state?.loginUri;
+            resourceInputs["logo"] = state?.logo;
+            resourceInputs["logoUri"] = state?.logoUri;
+            resourceInputs["logoUrl"] = state?.logoUrl;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["omitSecret"] = state?.omitSecret;
+            resourceInputs["pkceRequired"] = state?.pkceRequired;
+            resourceInputs["policyUri"] = state?.policyUri;
+            resourceInputs["postLogoutRedirectUris"] = state?.postLogoutRedirectUris;
+            resourceInputs["profile"] = state?.profile;
+            resourceInputs["redirectUris"] = state?.redirectUris;
+            resourceInputs["refreshTokenLeeway"] = state?.refreshTokenLeeway;
+            resourceInputs["refreshTokenRotation"] = state?.refreshTokenRotation;
+            resourceInputs["responseTypes"] = state?.responseTypes;
+            resourceInputs["signOnMode"] = state?.signOnMode;
+            resourceInputs["status"] = state?.status;
+            resourceInputs["tokenEndpointAuthMethod"] = state?.tokenEndpointAuthMethod;
+            resourceInputs["tosUri"] = state?.tosUri;
+            resourceInputs["type"] = state?.type;
+            resourceInputs["userNameTemplate"] = state?.userNameTemplate;
+            resourceInputs["userNameTemplatePushStatus"] = state?.userNameTemplatePushStatus;
+            resourceInputs["userNameTemplateSuffix"] = state?.userNameTemplateSuffix;
+            resourceInputs["userNameTemplateType"] = state?.userNameTemplateType;
+            resourceInputs["wildcardRedirect"] = state?.wildcardRedirect;
         } else {
             const args = argsOrState as OAuthArgs | undefined;
-            if ((!args || args.label === undefined) && !opts.urn) {
+            if (args?.label === undefined && !opts.urn) {
                 throw new Error("Missing required property 'label'");
             }
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["accessibilityErrorRedirectUrl"] = args ? args.accessibilityErrorRedirectUrl : undefined;
-            resourceInputs["accessibilityLoginRedirectUrl"] = args ? args.accessibilityLoginRedirectUrl : undefined;
-            resourceInputs["accessibilitySelfService"] = args ? args.accessibilitySelfService : undefined;
-            resourceInputs["adminNote"] = args ? args.adminNote : undefined;
-            resourceInputs["appLinksJson"] = args ? args.appLinksJson : undefined;
-            resourceInputs["appSettingsJson"] = args ? args.appSettingsJson : undefined;
-            resourceInputs["authenticationPolicy"] = args ? args.authenticationPolicy : undefined;
-            resourceInputs["autoKeyRotation"] = args ? args.autoKeyRotation : undefined;
-            resourceInputs["autoSubmitToolbar"] = args ? args.autoSubmitToolbar : undefined;
+            resourceInputs["accessibilityErrorRedirectUrl"] = args?.accessibilityErrorRedirectUrl;
+            resourceInputs["accessibilityLoginRedirectUrl"] = args?.accessibilityLoginRedirectUrl;
+            resourceInputs["accessibilitySelfService"] = args?.accessibilitySelfService;
+            resourceInputs["adminNote"] = args?.adminNote;
+            resourceInputs["appLinksJson"] = args?.appLinksJson;
+            resourceInputs["appSettingsJson"] = args?.appSettingsJson;
+            resourceInputs["authenticationPolicy"] = args?.authenticationPolicy;
+            resourceInputs["autoKeyRotation"] = args?.autoKeyRotation;
+            resourceInputs["autoSubmitToolbar"] = args?.autoSubmitToolbar;
             resourceInputs["clientBasicSecret"] = args?.clientBasicSecret ? pulumi.secret(args.clientBasicSecret) : undefined;
-            resourceInputs["clientId"] = args ? args.clientId : undefined;
-            resourceInputs["clientUri"] = args ? args.clientUri : undefined;
-            resourceInputs["consentMethod"] = args ? args.consentMethod : undefined;
-            resourceInputs["enduserNote"] = args ? args.enduserNote : undefined;
-            resourceInputs["grantTypes"] = args ? args.grantTypes : undefined;
-            resourceInputs["groupsClaim"] = args ? args.groupsClaim : undefined;
-            resourceInputs["hideIos"] = args ? args.hideIos : undefined;
-            resourceInputs["hideWeb"] = args ? args.hideWeb : undefined;
-            resourceInputs["implicitAssignment"] = args ? args.implicitAssignment : undefined;
-            resourceInputs["issuerMode"] = args ? args.issuerMode : undefined;
-            resourceInputs["jwks"] = args ? args.jwks : undefined;
-            resourceInputs["jwksUri"] = args ? args.jwksUri : undefined;
-            resourceInputs["label"] = args ? args.label : undefined;
-            resourceInputs["loginMode"] = args ? args.loginMode : undefined;
-            resourceInputs["loginScopes"] = args ? args.loginScopes : undefined;
-            resourceInputs["loginUri"] = args ? args.loginUri : undefined;
-            resourceInputs["logo"] = args ? args.logo : undefined;
-            resourceInputs["logoUri"] = args ? args.logoUri : undefined;
-            resourceInputs["omitSecret"] = args ? args.omitSecret : undefined;
-            resourceInputs["pkceRequired"] = args ? args.pkceRequired : undefined;
-            resourceInputs["policyUri"] = args ? args.policyUri : undefined;
-            resourceInputs["postLogoutRedirectUris"] = args ? args.postLogoutRedirectUris : undefined;
-            resourceInputs["profile"] = args ? args.profile : undefined;
-            resourceInputs["redirectUris"] = args ? args.redirectUris : undefined;
-            resourceInputs["refreshTokenLeeway"] = args ? args.refreshTokenLeeway : undefined;
-            resourceInputs["refreshTokenRotation"] = args ? args.refreshTokenRotation : undefined;
-            resourceInputs["responseTypes"] = args ? args.responseTypes : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
-            resourceInputs["tokenEndpointAuthMethod"] = args ? args.tokenEndpointAuthMethod : undefined;
-            resourceInputs["tosUri"] = args ? args.tosUri : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
-            resourceInputs["userNameTemplate"] = args ? args.userNameTemplate : undefined;
-            resourceInputs["userNameTemplatePushStatus"] = args ? args.userNameTemplatePushStatus : undefined;
-            resourceInputs["userNameTemplateSuffix"] = args ? args.userNameTemplateSuffix : undefined;
-            resourceInputs["userNameTemplateType"] = args ? args.userNameTemplateType : undefined;
-            resourceInputs["wildcardRedirect"] = args ? args.wildcardRedirect : undefined;
+            resourceInputs["clientId"] = args?.clientId;
+            resourceInputs["clientUri"] = args?.clientUri;
+            resourceInputs["consentMethod"] = args?.consentMethod;
+            resourceInputs["enduserNote"] = args?.enduserNote;
+            resourceInputs["grantTypes"] = args?.grantTypes;
+            resourceInputs["groupsClaim"] = args?.groupsClaim;
+            resourceInputs["hideIos"] = args?.hideIos;
+            resourceInputs["hideWeb"] = args?.hideWeb;
+            resourceInputs["implicitAssignment"] = args?.implicitAssignment;
+            resourceInputs["issuerMode"] = args?.issuerMode;
+            resourceInputs["jwks"] = args?.jwks;
+            resourceInputs["jwksUri"] = args?.jwksUri;
+            resourceInputs["label"] = args?.label;
+            resourceInputs["loginMode"] = args?.loginMode;
+            resourceInputs["loginScopes"] = args?.loginScopes;
+            resourceInputs["loginUri"] = args?.loginUri;
+            resourceInputs["logo"] = args?.logo;
+            resourceInputs["logoUri"] = args?.logoUri;
+            resourceInputs["omitSecret"] = args?.omitSecret;
+            resourceInputs["pkceRequired"] = args?.pkceRequired;
+            resourceInputs["policyUri"] = args?.policyUri;
+            resourceInputs["postLogoutRedirectUris"] = args?.postLogoutRedirectUris;
+            resourceInputs["profile"] = args?.profile;
+            resourceInputs["redirectUris"] = args?.redirectUris;
+            resourceInputs["refreshTokenLeeway"] = args?.refreshTokenLeeway;
+            resourceInputs["refreshTokenRotation"] = args?.refreshTokenRotation;
+            resourceInputs["responseTypes"] = args?.responseTypes;
+            resourceInputs["status"] = args?.status;
+            resourceInputs["tokenEndpointAuthMethod"] = args?.tokenEndpointAuthMethod;
+            resourceInputs["tosUri"] = args?.tosUri;
+            resourceInputs["type"] = args?.type;
+            resourceInputs["userNameTemplate"] = args?.userNameTemplate;
+            resourceInputs["userNameTemplatePushStatus"] = args?.userNameTemplatePushStatus;
+            resourceInputs["userNameTemplateSuffix"] = args?.userNameTemplateSuffix;
+            resourceInputs["userNameTemplateType"] = args?.userNameTemplateType;
+            resourceInputs["wildcardRedirect"] = args?.wildcardRedirect;
             resourceInputs["clientSecret"] = undefined /*out*/;
             resourceInputs["logoUrl"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

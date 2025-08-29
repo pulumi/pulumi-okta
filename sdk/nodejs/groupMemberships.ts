@@ -80,15 +80,15 @@ export class GroupMemberships extends pulumi.CustomResource {
     /**
      * ID of a Okta group.
      */
-    public readonly groupId!: pulumi.Output<string>;
+    declare public readonly groupId: pulumi.Output<string>;
     /**
      * The resource concerns itself with all users added/deleted to the group; even those managed outside of the resource.
      */
-    public readonly trackAllUsers!: pulumi.Output<boolean | undefined>;
+    declare public readonly trackAllUsers: pulumi.Output<boolean | undefined>;
     /**
      * The list of Okta user IDs which the group should have membership managed for.
      */
-    public readonly users!: pulumi.Output<string[]>;
+    declare public readonly users: pulumi.Output<string[]>;
 
     /**
      * Create a GroupMemberships resource with the given unique name, arguments, and options.
@@ -103,20 +103,20 @@ export class GroupMemberships extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as GroupMembershipsState | undefined;
-            resourceInputs["groupId"] = state ? state.groupId : undefined;
-            resourceInputs["trackAllUsers"] = state ? state.trackAllUsers : undefined;
-            resourceInputs["users"] = state ? state.users : undefined;
+            resourceInputs["groupId"] = state?.groupId;
+            resourceInputs["trackAllUsers"] = state?.trackAllUsers;
+            resourceInputs["users"] = state?.users;
         } else {
             const args = argsOrState as GroupMembershipsArgs | undefined;
-            if ((!args || args.groupId === undefined) && !opts.urn) {
+            if (args?.groupId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'groupId'");
             }
-            if ((!args || args.users === undefined) && !opts.urn) {
+            if (args?.users === undefined && !opts.urn) {
                 throw new Error("Missing required property 'users'");
             }
-            resourceInputs["groupId"] = args ? args.groupId : undefined;
-            resourceInputs["trackAllUsers"] = args ? args.trackAllUsers : undefined;
-            resourceInputs["users"] = args ? args.users : undefined;
+            resourceInputs["groupId"] = args?.groupId;
+            resourceInputs["trackAllUsers"] = args?.trackAllUsers;
+            resourceInputs["users"] = args?.users;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(GroupMemberships.__pulumiType, name, resourceInputs, opts);

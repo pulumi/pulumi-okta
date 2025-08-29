@@ -57,11 +57,11 @@ export class UserGroupMemberships extends pulumi.CustomResource {
     /**
      * The list of Okta group IDs which the user should have membership managed for.
      */
-    public readonly groups!: pulumi.Output<string[]>;
+    declare public readonly groups: pulumi.Output<string[]>;
     /**
      * ID of a Okta User
      */
-    public readonly userId!: pulumi.Output<string>;
+    declare public readonly userId: pulumi.Output<string>;
 
     /**
      * Create a UserGroupMemberships resource with the given unique name, arguments, and options.
@@ -76,18 +76,18 @@ export class UserGroupMemberships extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as UserGroupMembershipsState | undefined;
-            resourceInputs["groups"] = state ? state.groups : undefined;
-            resourceInputs["userId"] = state ? state.userId : undefined;
+            resourceInputs["groups"] = state?.groups;
+            resourceInputs["userId"] = state?.userId;
         } else {
             const args = argsOrState as UserGroupMembershipsArgs | undefined;
-            if ((!args || args.groups === undefined) && !opts.urn) {
+            if (args?.groups === undefined && !opts.urn) {
                 throw new Error("Missing required property 'groups'");
             }
-            if ((!args || args.userId === undefined) && !opts.urn) {
+            if (args?.userId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'userId'");
             }
-            resourceInputs["groups"] = args ? args.groups : undefined;
-            resourceInputs["userId"] = args ? args.userId : undefined;
+            resourceInputs["groups"] = args?.groups;
+            resourceInputs["userId"] = args?.userId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(UserGroupMemberships.__pulumiType, name, resourceInputs, opts);

@@ -91,23 +91,23 @@ export class DomainCertificate extends pulumi.CustomResource {
     /**
      * Certificate content
      */
-    public readonly certificate!: pulumi.Output<string>;
+    declare public readonly certificate: pulumi.Output<string>;
     /**
      * Certificate chain
      */
-    public readonly certificateChain!: pulumi.Output<string>;
+    declare public readonly certificateChain: pulumi.Output<string>;
     /**
      * Domain's ID
      */
-    public readonly domainId!: pulumi.Output<string>;
+    declare public readonly domainId: pulumi.Output<string>;
     /**
      * Certificate private key
      */
-    public readonly privateKey!: pulumi.Output<string>;
+    declare public readonly privateKey: pulumi.Output<string>;
     /**
      * Certificate type. Valid value is `PEM`
      */
-    public readonly type!: pulumi.Output<string>;
+    declare public readonly type: pulumi.Output<string>;
 
     /**
      * Create a DomainCertificate resource with the given unique name, arguments, and options.
@@ -122,30 +122,30 @@ export class DomainCertificate extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DomainCertificateState | undefined;
-            resourceInputs["certificate"] = state ? state.certificate : undefined;
-            resourceInputs["certificateChain"] = state ? state.certificateChain : undefined;
-            resourceInputs["domainId"] = state ? state.domainId : undefined;
-            resourceInputs["privateKey"] = state ? state.privateKey : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["certificate"] = state?.certificate;
+            resourceInputs["certificateChain"] = state?.certificateChain;
+            resourceInputs["domainId"] = state?.domainId;
+            resourceInputs["privateKey"] = state?.privateKey;
+            resourceInputs["type"] = state?.type;
         } else {
             const args = argsOrState as DomainCertificateArgs | undefined;
-            if ((!args || args.certificate === undefined) && !opts.urn) {
+            if (args?.certificate === undefined && !opts.urn) {
                 throw new Error("Missing required property 'certificate'");
             }
-            if ((!args || args.certificateChain === undefined) && !opts.urn) {
+            if (args?.certificateChain === undefined && !opts.urn) {
                 throw new Error("Missing required property 'certificateChain'");
             }
-            if ((!args || args.domainId === undefined) && !opts.urn) {
+            if (args?.domainId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'domainId'");
             }
-            if ((!args || args.privateKey === undefined) && !opts.urn) {
+            if (args?.privateKey === undefined && !opts.urn) {
                 throw new Error("Missing required property 'privateKey'");
             }
-            resourceInputs["certificate"] = args ? args.certificate : undefined;
-            resourceInputs["certificateChain"] = args ? args.certificateChain : undefined;
-            resourceInputs["domainId"] = args ? args.domainId : undefined;
-            resourceInputs["privateKey"] = args ? args.privateKey : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["certificate"] = args?.certificate;
+            resourceInputs["certificateChain"] = args?.certificateChain;
+            resourceInputs["domainId"] = args?.domainId;
+            resourceInputs["privateKey"] = args?.privateKey;
+            resourceInputs["type"] = args?.type;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(DomainCertificate.__pulumiType, name, resourceInputs, opts);

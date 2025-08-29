@@ -33,34 +33,33 @@ export class RealmAssignment extends pulumi.CustomResource {
     }
 
     /**
-     * Condition expression for the Realm Assignment in Okta Expression Language. Example: `user.profile.role =="Manager"` or
-     * `user.profile.state.contains("example")`.
+     * Condition expression for the Realm Assignment in Okta Expression Language. Example: `user.profile.role =="Manager"` or `user.profile.state.contains("example")`.
      */
-    public readonly conditionExpression!: pulumi.Output<string | undefined>;
+    declare public readonly conditionExpression: pulumi.Output<string | undefined>;
     /**
      * Indicates whether the realm assignment is the default.
      */
-    public /*out*/ readonly isDefault!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly isDefault: pulumi.Output<boolean>;
     /**
      * The name of the Okta Realm Assignment.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The Priority of the Realm Assignment. The lower the number, the higher the priority.
      */
-    public readonly priority!: pulumi.Output<number>;
+    declare public readonly priority: pulumi.Output<number>;
     /**
      * The ID of the Profile Source.
      */
-    public readonly profileSourceId!: pulumi.Output<string>;
+    declare public readonly profileSourceId: pulumi.Output<string>;
     /**
      * The ID of the Realm asscociated with the Realm Assignment.
      */
-    public readonly realmId!: pulumi.Output<string>;
+    declare public readonly realmId: pulumi.Output<string>;
     /**
      * Defines whether the Realm Assignment is active or not. Valid values: `ACTIVE` and `INACTIVE`.
      */
-    public readonly status!: pulumi.Output<string>;
+    declare public readonly status: pulumi.Output<string>;
 
     /**
      * Create a RealmAssignment resource with the given unique name, arguments, and options.
@@ -75,27 +74,27 @@ export class RealmAssignment extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RealmAssignmentState | undefined;
-            resourceInputs["conditionExpression"] = state ? state.conditionExpression : undefined;
-            resourceInputs["isDefault"] = state ? state.isDefault : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["priority"] = state ? state.priority : undefined;
-            resourceInputs["profileSourceId"] = state ? state.profileSourceId : undefined;
-            resourceInputs["realmId"] = state ? state.realmId : undefined;
-            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["conditionExpression"] = state?.conditionExpression;
+            resourceInputs["isDefault"] = state?.isDefault;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["priority"] = state?.priority;
+            resourceInputs["profileSourceId"] = state?.profileSourceId;
+            resourceInputs["realmId"] = state?.realmId;
+            resourceInputs["status"] = state?.status;
         } else {
             const args = argsOrState as RealmAssignmentArgs | undefined;
-            if ((!args || args.profileSourceId === undefined) && !opts.urn) {
+            if (args?.profileSourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'profileSourceId'");
             }
-            if ((!args || args.realmId === undefined) && !opts.urn) {
+            if (args?.realmId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'realmId'");
             }
-            resourceInputs["conditionExpression"] = args ? args.conditionExpression : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["priority"] = args ? args.priority : undefined;
-            resourceInputs["profileSourceId"] = args ? args.profileSourceId : undefined;
-            resourceInputs["realmId"] = args ? args.realmId : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
+            resourceInputs["conditionExpression"] = args?.conditionExpression;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["priority"] = args?.priority;
+            resourceInputs["profileSourceId"] = args?.profileSourceId;
+            resourceInputs["realmId"] = args?.realmId;
+            resourceInputs["status"] = args?.status;
             resourceInputs["isDefault"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -108,8 +107,7 @@ export class RealmAssignment extends pulumi.CustomResource {
  */
 export interface RealmAssignmentState {
     /**
-     * Condition expression for the Realm Assignment in Okta Expression Language. Example: `user.profile.role =="Manager"` or
-     * `user.profile.state.contains("example")`.
+     * Condition expression for the Realm Assignment in Okta Expression Language. Example: `user.profile.role =="Manager"` or `user.profile.state.contains("example")`.
      */
     conditionExpression?: pulumi.Input<string>;
     /**
@@ -143,8 +141,7 @@ export interface RealmAssignmentState {
  */
 export interface RealmAssignmentArgs {
     /**
-     * Condition expression for the Realm Assignment in Okta Expression Language. Example: `user.profile.role =="Manager"` or
-     * `user.profile.state.contains("example")`.
+     * Condition expression for the Realm Assignment in Okta Expression Language. Example: `user.profile.role =="Manager"` or `user.profile.state.contains("example")`.
      */
     conditionExpression?: pulumi.Input<string>;
     /**

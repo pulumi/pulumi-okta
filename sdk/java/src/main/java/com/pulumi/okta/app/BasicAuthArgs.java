@@ -123,16 +123,14 @@ public final class BasicAuthArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Application credentials scheme. One of: `EDIT_USERNAME_AND_PASSWORD`, `ADMIN_SETS_CREDENTIALS`, `EDIT_PASSWORD_ONLY`,
-     * `EXTERNAL_PASSWORD_SYNC`, or `SHARED_USERNAME_AND_PASSWORD`
+     * Application credentials scheme. One of: `EDIT_USERNAME_AND_PASSWORD`, `ADMIN_SETS_CREDENTIALS`, `EDIT_PASSWORD_ONLY`, `EXTERNAL_PASSWORD_SYNC`, or `SHARED_USERNAME_AND_PASSWORD`
      * 
      */
     @Import(name="credentialsScheme")
     private @Nullable Output<String> credentialsScheme;
 
     /**
-     * @return Application credentials scheme. One of: `EDIT_USERNAME_AND_PASSWORD`, `ADMIN_SETS_CREDENTIALS`, `EDIT_PASSWORD_ONLY`,
-     * `EXTERNAL_PASSWORD_SYNC`, or `SHARED_USERNAME_AND_PASSWORD`
+     * @return Application credentials scheme. One of: `EDIT_USERNAME_AND_PASSWORD`, `ADMIN_SETS_CREDENTIALS`, `EDIT_PASSWORD_ONLY`, `EXTERNAL_PASSWORD_SYNC`, or `SHARED_USERNAME_AND_PASSWORD`
      * 
      */
     public Optional<Output<String>> credentialsScheme() {
@@ -215,16 +213,14 @@ public final class BasicAuthArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Allow user to reveal password. Default is false. It can not be set to true if credentials_scheme is
-     * &#34;ADMIN_SETS_CREDENTIALS&#34;, &#34;SHARED_USERNAME_AND_PASSWORD&#34; or &#34;EXTERNAL_PASSWORD_SYNC&#34;.
+     * Allow user to reveal password. Default is false. It can not be set to true if credentials_scheme is &#34;ADMIN_SETS_CREDENTIALS&#34;, &#34;SHARED_USERNAME_AND_PASSWORD&#34; or &#34;EXTERNAL_PASSWORD_SYNC&#34;.
      * 
      */
     @Import(name="revealPassword")
     private @Nullable Output<Boolean> revealPassword;
 
     /**
-     * @return Allow user to reveal password. Default is false. It can not be set to true if credentials_scheme is
-     * &#34;ADMIN_SETS_CREDENTIALS&#34;, &#34;SHARED_USERNAME_AND_PASSWORD&#34; or &#34;EXTERNAL_PASSWORD_SYNC&#34;.
+     * @return Allow user to reveal password. Default is false. It can not be set to true if credentials_scheme is &#34;ADMIN_SETS_CREDENTIALS&#34;, &#34;SHARED_USERNAME_AND_PASSWORD&#34; or &#34;EXTERNAL_PASSWORD_SYNC&#34;.
      * 
      */
     public Optional<Output<Boolean>> revealPassword() {
@@ -544,8 +540,7 @@ public final class BasicAuthArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param credentialsScheme Application credentials scheme. One of: `EDIT_USERNAME_AND_PASSWORD`, `ADMIN_SETS_CREDENTIALS`, `EDIT_PASSWORD_ONLY`,
-         * `EXTERNAL_PASSWORD_SYNC`, or `SHARED_USERNAME_AND_PASSWORD`
+         * @param credentialsScheme Application credentials scheme. One of: `EDIT_USERNAME_AND_PASSWORD`, `ADMIN_SETS_CREDENTIALS`, `EDIT_PASSWORD_ONLY`, `EXTERNAL_PASSWORD_SYNC`, or `SHARED_USERNAME_AND_PASSWORD`
          * 
          * @return builder
          * 
@@ -556,8 +551,7 @@ public final class BasicAuthArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param credentialsScheme Application credentials scheme. One of: `EDIT_USERNAME_AND_PASSWORD`, `ADMIN_SETS_CREDENTIALS`, `EDIT_PASSWORD_ONLY`,
-         * `EXTERNAL_PASSWORD_SYNC`, or `SHARED_USERNAME_AND_PASSWORD`
+         * @param credentialsScheme Application credentials scheme. One of: `EDIT_USERNAME_AND_PASSWORD`, `ADMIN_SETS_CREDENTIALS`, `EDIT_PASSWORD_ONLY`, `EXTERNAL_PASSWORD_SYNC`, or `SHARED_USERNAME_AND_PASSWORD`
          * 
          * @return builder
          * 
@@ -672,8 +666,7 @@ public final class BasicAuthArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param revealPassword Allow user to reveal password. Default is false. It can not be set to true if credentials_scheme is
-         * &#34;ADMIN_SETS_CREDENTIALS&#34;, &#34;SHARED_USERNAME_AND_PASSWORD&#34; or &#34;EXTERNAL_PASSWORD_SYNC&#34;.
+         * @param revealPassword Allow user to reveal password. Default is false. It can not be set to true if credentials_scheme is &#34;ADMIN_SETS_CREDENTIALS&#34;, &#34;SHARED_USERNAME_AND_PASSWORD&#34; or &#34;EXTERNAL_PASSWORD_SYNC&#34;.
          * 
          * @return builder
          * 
@@ -684,8 +677,7 @@ public final class BasicAuthArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param revealPassword Allow user to reveal password. Default is false. It can not be set to true if credentials_scheme is
-         * &#34;ADMIN_SETS_CREDENTIALS&#34;, &#34;SHARED_USERNAME_AND_PASSWORD&#34; or &#34;EXTERNAL_PASSWORD_SYNC&#34;.
+         * @param revealPassword Allow user to reveal password. Default is false. It can not be set to true if credentials_scheme is &#34;ADMIN_SETS_CREDENTIALS&#34;, &#34;SHARED_USERNAME_AND_PASSWORD&#34; or &#34;EXTERNAL_PASSWORD_SYNC&#34;.
          * 
          * @return builder
          * 

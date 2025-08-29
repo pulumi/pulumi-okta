@@ -151,17 +151,18 @@ namespace Pulumi.Okta.Policy
         public Output<ImmutableArray<string>> Behaviors { get; private set; } = null!;
 
         /// <summary>
-        /// Auth factor sequences. Should be set if 'access = "CHALLENGE"'. - 'primary_criteria_provider' - (Required) Primary
-        /// provider of the auth section. - 'primary_criteria_factor_type' - (Required) Primary factor type of the auth section. -
-        /// 'secondary_criteria' - (Optional) Additional authentication steps. - 'provider' - (Required) Provider of the additional
-        /// authentication step. - 'factor_type' - (Required) Factor type of the additional authentication step.
+        /// Auth factor sequences. Should be set if 'access = "CHALLENGE"'.
+        /// 	- 'primary_criteria_provider' - (Required) Primary provider of the auth section.
+        /// 	- 'primary_criteria_factor_type' - (Required) Primary factor type of the auth section.
+        /// 	- 'secondary_criteria' - (Optional) Additional authentication steps.
+        /// 	- 'provider' - (Required) Provider of the additional authentication step.
+        /// 	- 'factor_type' - (Required) Factor type of the additional authentication step.
         /// </summary>
         [Output("factorSequences")]
         public Output<ImmutableArray<Outputs.RuleSignonFactorSequence>> FactorSequences { get; private set; } = null!;
 
         /// <summary>
-        /// Apply rule based on the IdP used: `ANY`, `OKTA` or `SPECIFIC_IDP`. Default: `ANY`. &gt; **WARNING**: Use of
-        /// `identity_provider` requires a feature flag to be enabled.
+        /// Apply rule based on the IdP used: `ANY`, `OKTA` or `SPECIFIC_IDP`. Default: `ANY`. &gt; **WARNING**: Use of `identity_provider` requires a feature flag to be enabled.
         /// </summary>
         [Output("identityProvider")]
         public Output<string?> IdentityProvider { get; private set; } = null!;
@@ -179,8 +180,7 @@ namespace Pulumi.Okta.Policy
         public Output<int?> MfaLifetime { get; private set; } = null!;
 
         /// <summary>
-        /// Prompt for MFA based on the device used, a factor session lifetime, or every sign-on attempt: `DEVICE`, `SESSION`
-        /// or`ALWAYS`.
+        /// Prompt for MFA based on the device used, a factor session lifetime, or every sign-on attempt: `DEVICE`, `SESSION` or`ALWAYS`.
         /// </summary>
         [Output("mfaPrompt")]
         public Output<string?> MfaPrompt { get; private set; } = null!;
@@ -228,15 +228,13 @@ namespace Pulumi.Okta.Policy
         public Output<string?> PolicyId { get; private set; } = null!;
 
         /// <summary>
-        /// Rule's primary factor. **WARNING** Ony works as a part of the Identity Engine. Valid values: `PASSWORD_IDP_ANY_FACTOR`,
-        /// `PASSWORD_IDP`.
+        /// Rule's primary factor. **WARNING** Ony works as a part of the Identity Engine. Valid values: `PASSWORD_IDP_ANY_FACTOR`, `PASSWORD_IDP`.
         /// </summary>
         [Output("primaryFactor")]
         public Output<string> PrimaryFactor { get; private set; } = null!;
 
         /// <summary>
-        /// Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if
-        /// an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
+        /// Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
         /// </summary>
         [Output("priority")]
         public Output<int?> Priority { get; private set; } = null!;
@@ -266,8 +264,7 @@ namespace Pulumi.Okta.Policy
         public Output<int?> SessionLifetime { get; private set; } = null!;
 
         /// <summary>
-        /// Whether session cookies will last across browser sessions. Okta Administrators can never have persistent session
-        /// cookies. Default: `false`
+        /// Whether session cookies will last across browser sessions. Okta Administrators can never have persistent session cookies. Default: `false`
         /// </summary>
         [Output("sessionPersistent")]
         public Output<bool?> SessionPersistent { get; private set; } = null!;
@@ -358,10 +355,12 @@ namespace Pulumi.Okta.Policy
         private InputList<Inputs.RuleSignonFactorSequenceArgs>? _factorSequences;
 
         /// <summary>
-        /// Auth factor sequences. Should be set if 'access = "CHALLENGE"'. - 'primary_criteria_provider' - (Required) Primary
-        /// provider of the auth section. - 'primary_criteria_factor_type' - (Required) Primary factor type of the auth section. -
-        /// 'secondary_criteria' - (Optional) Additional authentication steps. - 'provider' - (Required) Provider of the additional
-        /// authentication step. - 'factor_type' - (Required) Factor type of the additional authentication step.
+        /// Auth factor sequences. Should be set if 'access = "CHALLENGE"'.
+        /// 	- 'primary_criteria_provider' - (Required) Primary provider of the auth section.
+        /// 	- 'primary_criteria_factor_type' - (Required) Primary factor type of the auth section.
+        /// 	- 'secondary_criteria' - (Optional) Additional authentication steps.
+        /// 	- 'provider' - (Required) Provider of the additional authentication step.
+        /// 	- 'factor_type' - (Required) Factor type of the additional authentication step.
         /// </summary>
         public InputList<Inputs.RuleSignonFactorSequenceArgs> FactorSequences
         {
@@ -370,8 +369,7 @@ namespace Pulumi.Okta.Policy
         }
 
         /// <summary>
-        /// Apply rule based on the IdP used: `ANY`, `OKTA` or `SPECIFIC_IDP`. Default: `ANY`. &gt; **WARNING**: Use of
-        /// `identity_provider` requires a feature flag to be enabled.
+        /// Apply rule based on the IdP used: `ANY`, `OKTA` or `SPECIFIC_IDP`. Default: `ANY`. &gt; **WARNING**: Use of `identity_provider` requires a feature flag to be enabled.
         /// </summary>
         [Input("identityProvider")]
         public Input<string>? IdentityProvider { get; set; }
@@ -395,8 +393,7 @@ namespace Pulumi.Okta.Policy
         public Input<int>? MfaLifetime { get; set; }
 
         /// <summary>
-        /// Prompt for MFA based on the device used, a factor session lifetime, or every sign-on attempt: `DEVICE`, `SESSION`
-        /// or`ALWAYS`.
+        /// Prompt for MFA based on the device used, a factor session lifetime, or every sign-on attempt: `DEVICE`, `SESSION` or`ALWAYS`.
         /// </summary>
         [Input("mfaPrompt")]
         public Input<string>? MfaPrompt { get; set; }
@@ -456,15 +453,13 @@ namespace Pulumi.Okta.Policy
         public Input<string>? PolicyId { get; set; }
 
         /// <summary>
-        /// Rule's primary factor. **WARNING** Ony works as a part of the Identity Engine. Valid values: `PASSWORD_IDP_ANY_FACTOR`,
-        /// `PASSWORD_IDP`.
+        /// Rule's primary factor. **WARNING** Ony works as a part of the Identity Engine. Valid values: `PASSWORD_IDP_ANY_FACTOR`, `PASSWORD_IDP`.
         /// </summary>
         [Input("primaryFactor")]
         public Input<string>? PrimaryFactor { get; set; }
 
         /// <summary>
-        /// Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if
-        /// an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
+        /// Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
         /// </summary>
         [Input("priority")]
         public Input<int>? Priority { get; set; }
@@ -494,8 +489,7 @@ namespace Pulumi.Okta.Policy
         public Input<int>? SessionLifetime { get; set; }
 
         /// <summary>
-        /// Whether session cookies will last across browser sessions. Okta Administrators can never have persistent session
-        /// cookies. Default: `false`
+        /// Whether session cookies will last across browser sessions. Okta Administrators can never have persistent session cookies. Default: `false`
         /// </summary>
         [Input("sessionPersistent")]
         public Input<bool>? SessionPersistent { get; set; }
@@ -554,10 +548,12 @@ namespace Pulumi.Okta.Policy
         private InputList<Inputs.RuleSignonFactorSequenceGetArgs>? _factorSequences;
 
         /// <summary>
-        /// Auth factor sequences. Should be set if 'access = "CHALLENGE"'. - 'primary_criteria_provider' - (Required) Primary
-        /// provider of the auth section. - 'primary_criteria_factor_type' - (Required) Primary factor type of the auth section. -
-        /// 'secondary_criteria' - (Optional) Additional authentication steps. - 'provider' - (Required) Provider of the additional
-        /// authentication step. - 'factor_type' - (Required) Factor type of the additional authentication step.
+        /// Auth factor sequences. Should be set if 'access = "CHALLENGE"'.
+        /// 	- 'primary_criteria_provider' - (Required) Primary provider of the auth section.
+        /// 	- 'primary_criteria_factor_type' - (Required) Primary factor type of the auth section.
+        /// 	- 'secondary_criteria' - (Optional) Additional authentication steps.
+        /// 	- 'provider' - (Required) Provider of the additional authentication step.
+        /// 	- 'factor_type' - (Required) Factor type of the additional authentication step.
         /// </summary>
         public InputList<Inputs.RuleSignonFactorSequenceGetArgs> FactorSequences
         {
@@ -566,8 +562,7 @@ namespace Pulumi.Okta.Policy
         }
 
         /// <summary>
-        /// Apply rule based on the IdP used: `ANY`, `OKTA` or `SPECIFIC_IDP`. Default: `ANY`. &gt; **WARNING**: Use of
-        /// `identity_provider` requires a feature flag to be enabled.
+        /// Apply rule based on the IdP used: `ANY`, `OKTA` or `SPECIFIC_IDP`. Default: `ANY`. &gt; **WARNING**: Use of `identity_provider` requires a feature flag to be enabled.
         /// </summary>
         [Input("identityProvider")]
         public Input<string>? IdentityProvider { get; set; }
@@ -591,8 +586,7 @@ namespace Pulumi.Okta.Policy
         public Input<int>? MfaLifetime { get; set; }
 
         /// <summary>
-        /// Prompt for MFA based on the device used, a factor session lifetime, or every sign-on attempt: `DEVICE`, `SESSION`
-        /// or`ALWAYS`.
+        /// Prompt for MFA based on the device used, a factor session lifetime, or every sign-on attempt: `DEVICE`, `SESSION` or`ALWAYS`.
         /// </summary>
         [Input("mfaPrompt")]
         public Input<string>? MfaPrompt { get; set; }
@@ -652,15 +646,13 @@ namespace Pulumi.Okta.Policy
         public Input<string>? PolicyId { get; set; }
 
         /// <summary>
-        /// Rule's primary factor. **WARNING** Ony works as a part of the Identity Engine. Valid values: `PASSWORD_IDP_ANY_FACTOR`,
-        /// `PASSWORD_IDP`.
+        /// Rule's primary factor. **WARNING** Ony works as a part of the Identity Engine. Valid values: `PASSWORD_IDP_ANY_FACTOR`, `PASSWORD_IDP`.
         /// </summary>
         [Input("primaryFactor")]
         public Input<string>? PrimaryFactor { get; set; }
 
         /// <summary>
-        /// Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if
-        /// an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
+        /// Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
         /// </summary>
         [Input("priority")]
         public Input<int>? Priority { get; set; }
@@ -690,8 +682,7 @@ namespace Pulumi.Okta.Policy
         public Input<int>? SessionLifetime { get; set; }
 
         /// <summary>
-        /// Whether session cookies will last across browser sessions. Okta Administrators can never have persistent session
-        /// cookies. Default: `false`
+        /// Whether session cookies will last across browser sessions. Okta Administrators can never have persistent session cookies. Default: `false`
         /// </summary>
         [Input("sessionPersistent")]
         public Input<bool>? SessionPersistent { get; set; }

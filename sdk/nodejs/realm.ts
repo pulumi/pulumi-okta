@@ -35,15 +35,15 @@ export class Realm extends pulumi.CustomResource {
     /**
      * Indicates whether the realm is the default realm.
      */
-    public /*out*/ readonly isDefault!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly isDefault: pulumi.Output<boolean>;
     /**
      * The name of the Okta Realm.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The realm type. Valid values: `PARTNER` and `DEFAULT`
      */
-    public readonly realmType!: pulumi.Output<string>;
+    declare public readonly realmType: pulumi.Output<string>;
 
     /**
      * Create a Realm resource with the given unique name, arguments, and options.
@@ -58,16 +58,16 @@ export class Realm extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RealmState | undefined;
-            resourceInputs["isDefault"] = state ? state.isDefault : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["realmType"] = state ? state.realmType : undefined;
+            resourceInputs["isDefault"] = state?.isDefault;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["realmType"] = state?.realmType;
         } else {
             const args = argsOrState as RealmArgs | undefined;
-            if ((!args || args.realmType === undefined) && !opts.urn) {
+            if (args?.realmType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'realmType'");
             }
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["realmType"] = args ? args.realmType : undefined;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["realmType"] = args?.realmType;
             resourceInputs["isDefault"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

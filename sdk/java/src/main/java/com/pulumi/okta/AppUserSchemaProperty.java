@@ -112,16 +112,18 @@ public class AppUserSchemaProperty extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.arrayEnums);
     }
     /**
-     * Display name and value an enum array can be set to. - &#39;const&#39; - (Required) value mapping to member of &#39;enum&#39;. - &#39;title&#39;
-     * - (Required) display name for the enum value.
+     * Display name and value an enum array can be set to.
+     * 	- &#39;const&#39; - (Required) value mapping to member of &#39;enum&#39;.
+     * 	- &#39;title&#39; - (Required) display name for the enum value.
      * 
      */
     @Export(name="arrayOneOfs", refs={List.class,AppUserSchemaPropertyArrayOneOf.class}, tree="[0,1]")
     private Output</* @Nullable */ List<AppUserSchemaPropertyArrayOneOf>> arrayOneOfs;
 
     /**
-     * @return Display name and value an enum array can be set to. - &#39;const&#39; - (Required) value mapping to member of &#39;enum&#39;. - &#39;title&#39;
-     * - (Required) display name for the enum value.
+     * @return Display name and value an enum array can be set to.
+     * 	- &#39;const&#39; - (Required) value mapping to member of &#39;enum&#39;.
+     * 	- &#39;title&#39; - (Required) display name for the enum value.
      * 
      */
     public Output<Optional<List<AppUserSchemaPropertyArrayOneOf>>> arrayOneOfs() {
@@ -254,16 +256,18 @@ public class AppUserSchemaProperty extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.minLength);
     }
     /**
-     * Array of maps containing a mapping for display name to enum value. - &#39;const&#39; - (Required) value mapping to member of
-     * &#39;enum&#39;. - &#39;title&#39; - (Required) display name for the enum value.
+     * Array of maps containing a mapping for display name to enum value.
+     * 	- &#39;const&#39; - (Required) value mapping to member of &#39;enum&#39;.
+     * 	- &#39;title&#39; - (Required) display name for the enum value.
      * 
      */
     @Export(name="oneOfs", refs={List.class,AppUserSchemaPropertyOneOf.class}, tree="[0,1]")
     private Output</* @Nullable */ List<AppUserSchemaPropertyOneOf>> oneOfs;
 
     /**
-     * @return Array of maps containing a mapping for display name to enum value. - &#39;const&#39; - (Required) value mapping to member of
-     * &#39;enum&#39;. - &#39;title&#39; - (Required) display name for the enum value.
+     * @return Array of maps containing a mapping for display name to enum value.
+     * 	- &#39;const&#39; - (Required) value mapping to member of &#39;enum&#39;.
+     * 	- &#39;title&#39; - (Required) display name for the enum value.
      * 
      */
     public Output<Optional<List<AppUserSchemaPropertyOneOf>>> oneOfs() {
@@ -298,16 +302,14 @@ public class AppUserSchemaProperty extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.required);
     }
     /**
-     * determines whether an app user attribute can be set at the Personal `SELF` or Group `NONE` level. Default value is
-     * `NONE`.
+     * determines whether an app user attribute can be set at the Personal `SELF` or Group `NONE` level. Default value is `NONE`.
      * 
      */
     @Export(name="scope", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> scope;
 
     /**
-     * @return determines whether an app user attribute can be set at the Personal `SELF` or Group `NONE` level. Default value is
-     * `NONE`.
+     * @return determines whether an app user attribute can be set at the Personal `SELF` or Group `NONE` level. Default value is `NONE`.
      * 
      */
     public Output<Optional<String>> scope() {
@@ -342,16 +344,14 @@ public class AppUserSchemaProperty extends com.pulumi.resources.CustomResource {
         return this.type;
     }
     /**
-     * If `type` is set to `array`, used to set whether attribute value is determined by group priority `false`, or combine
-     * values across groups `true`. Can not be set to `true` if `scope` is set to `SELF`.
+     * If `type` is set to `array`, used to set whether attribute value is determined by group priority `false`, or combine values across groups `true`. Can not be set to `true` if `scope` is set to `SELF`.
      * 
      */
     @Export(name="union", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> union;
 
     /**
-     * @return If `type` is set to `array`, used to set whether attribute value is determined by group priority `false`, or combine
-     * values across groups `true`. Can not be set to `true` if `scope` is set to `SELF`.
+     * @return If `type` is set to `array`, used to set whether attribute value is determined by group priority `false`, or combine values across groups `true`. Can not be set to `true` if `scope` is set to `SELF`.
      * 
      */
     public Output<Optional<Boolean>> union() {

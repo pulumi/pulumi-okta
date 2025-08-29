@@ -78,11 +78,11 @@ export class AccessPolicyAssignment extends pulumi.CustomResource {
     /**
      * The application ID; this value is immutable and can not be updated.
      */
-    public readonly appId!: pulumi.Output<string>;
+    declare public readonly appId: pulumi.Output<string>;
     /**
      * The access policy ID.
      */
-    public readonly policyId!: pulumi.Output<string>;
+    declare public readonly policyId: pulumi.Output<string>;
 
     /**
      * Create a AccessPolicyAssignment resource with the given unique name, arguments, and options.
@@ -97,18 +97,18 @@ export class AccessPolicyAssignment extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AccessPolicyAssignmentState | undefined;
-            resourceInputs["appId"] = state ? state.appId : undefined;
-            resourceInputs["policyId"] = state ? state.policyId : undefined;
+            resourceInputs["appId"] = state?.appId;
+            resourceInputs["policyId"] = state?.policyId;
         } else {
             const args = argsOrState as AccessPolicyAssignmentArgs | undefined;
-            if ((!args || args.appId === undefined) && !opts.urn) {
+            if (args?.appId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'appId'");
             }
-            if ((!args || args.policyId === undefined) && !opts.urn) {
+            if (args?.policyId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'policyId'");
             }
-            resourceInputs["appId"] = args ? args.appId : undefined;
-            resourceInputs["policyId"] = args ? args.policyId : undefined;
+            resourceInputs["appId"] = args?.appId;
+            resourceInputs["policyId"] = args?.policyId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(AccessPolicyAssignment.__pulumiType, name, resourceInputs, opts);

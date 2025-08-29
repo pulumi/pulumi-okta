@@ -15,8 +15,7 @@ import (
 type RealmAssignment struct {
 	pulumi.CustomResourceState
 
-	// Condition expression for the Realm Assignment in Okta Expression Language. Example: `user.profile.role =="Manager"` or
-	// `user.profile.state.contains("example")`.
+	// Condition expression for the Realm Assignment in Okta Expression Language. Example: `user.profile.role =="Manager"` or `user.profile.state.contains("example")`.
 	ConditionExpression pulumi.StringPtrOutput `pulumi:"conditionExpression"`
 	// Indicates whether the realm assignment is the default.
 	IsDefault pulumi.BoolOutput `pulumi:"isDefault"`
@@ -68,8 +67,7 @@ func GetRealmAssignment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RealmAssignment resources.
 type realmAssignmentState struct {
-	// Condition expression for the Realm Assignment in Okta Expression Language. Example: `user.profile.role =="Manager"` or
-	// `user.profile.state.contains("example")`.
+	// Condition expression for the Realm Assignment in Okta Expression Language. Example: `user.profile.role =="Manager"` or `user.profile.state.contains("example")`.
 	ConditionExpression *string `pulumi:"conditionExpression"`
 	// Indicates whether the realm assignment is the default.
 	IsDefault *bool `pulumi:"isDefault"`
@@ -86,8 +84,7 @@ type realmAssignmentState struct {
 }
 
 type RealmAssignmentState struct {
-	// Condition expression for the Realm Assignment in Okta Expression Language. Example: `user.profile.role =="Manager"` or
-	// `user.profile.state.contains("example")`.
+	// Condition expression for the Realm Assignment in Okta Expression Language. Example: `user.profile.role =="Manager"` or `user.profile.state.contains("example")`.
 	ConditionExpression pulumi.StringPtrInput
 	// Indicates whether the realm assignment is the default.
 	IsDefault pulumi.BoolPtrInput
@@ -108,8 +105,7 @@ func (RealmAssignmentState) ElementType() reflect.Type {
 }
 
 type realmAssignmentArgs struct {
-	// Condition expression for the Realm Assignment in Okta Expression Language. Example: `user.profile.role =="Manager"` or
-	// `user.profile.state.contains("example")`.
+	// Condition expression for the Realm Assignment in Okta Expression Language. Example: `user.profile.role =="Manager"` or `user.profile.state.contains("example")`.
 	ConditionExpression *string `pulumi:"conditionExpression"`
 	// The name of the Okta Realm Assignment.
 	Name *string `pulumi:"name"`
@@ -125,8 +121,7 @@ type realmAssignmentArgs struct {
 
 // The set of arguments for constructing a RealmAssignment resource.
 type RealmAssignmentArgs struct {
-	// Condition expression for the Realm Assignment in Okta Expression Language. Example: `user.profile.role =="Manager"` or
-	// `user.profile.state.contains("example")`.
+	// Condition expression for the Realm Assignment in Okta Expression Language. Example: `user.profile.role =="Manager"` or `user.profile.state.contains("example")`.
 	ConditionExpression pulumi.StringPtrInput
 	// The name of the Okta Realm Assignment.
 	Name pulumi.StringPtrInput
@@ -227,8 +222,7 @@ func (o RealmAssignmentOutput) ToRealmAssignmentOutputWithContext(ctx context.Co
 	return o
 }
 
-// Condition expression for the Realm Assignment in Okta Expression Language. Example: `user.profile.role =="Manager"` or
-// `user.profile.state.contains("example")`.
+// Condition expression for the Realm Assignment in Okta Expression Language. Example: `user.profile.role =="Manager"` or `user.profile.state.contains("example")`.
 func (o RealmAssignmentOutput) ConditionExpression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RealmAssignment) pulumi.StringPtrOutput { return v.ConditionExpression }).(pulumi.StringPtrOutput)
 }

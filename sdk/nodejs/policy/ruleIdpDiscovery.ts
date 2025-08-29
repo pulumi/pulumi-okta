@@ -51,66 +51,64 @@ export class RuleIdpDiscovery extends pulumi.CustomResource {
     /**
      * Applications to exclude in discovery. See `appInclude` for details.
      */
-    public readonly appExcludes!: pulumi.Output<outputs.policy.RuleIdpDiscoveryAppExclude[] | undefined>;
+    declare public readonly appExcludes: pulumi.Output<outputs.policy.RuleIdpDiscoveryAppExclude[] | undefined>;
     /**
-     * Applications to include in discovery rule. - 'id' - (Optional) Use if 'type' is 'APP' to indicate the application id to
-     * include. - 'name' - (Optional) Use if the 'type' is 'APP_TYPE' to indicate the type of application(s) to include in
-     * instances where an entire group (i.e. 'yahoo_mail') of applications should be included. - 'type' - (Required) One of:
-     * 'APP', 'APP_TYPE'
+     * Applications to include in discovery rule.
+     * - 'id' - (Optional) Use if 'type' is 'APP' to indicate the application id to include.
+     * - 'name' - (Optional) Use if the 'type' is 'APP_TYPE' to indicate the type of application(s) to include in instances where an entire group (i.e. 'yahoo_mail') of applications should be included.
+     * - 'type' - (Required) One of: 'APP', 'APP_TYPE'
      */
-    public readonly appIncludes!: pulumi.Output<outputs.policy.RuleIdpDiscoveryAppInclude[] | undefined>;
-    public readonly idpProviders!: pulumi.Output<outputs.policy.RuleIdpDiscoveryIdpProvider[]>;
+    declare public readonly appIncludes: pulumi.Output<outputs.policy.RuleIdpDiscoveryAppInclude[] | undefined>;
+    declare public readonly idpProviders: pulumi.Output<outputs.policy.RuleIdpDiscoveryIdpProvider[]>;
     /**
      * Policy Rule Name
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Network selection mode: `ANYWHERE`, `ZONE`, `ON_NETWORK`, or `OFF_NETWORK`. Default: `ANYWHERE`
      */
-    public readonly networkConnection!: pulumi.Output<string | undefined>;
+    declare public readonly networkConnection: pulumi.Output<string | undefined>;
     /**
      * Required if `networkConnection` = `ZONE`. Indicates the network zones to exclude.
      */
-    public readonly networkExcludes!: pulumi.Output<string[] | undefined>;
+    declare public readonly networkExcludes: pulumi.Output<string[] | undefined>;
     /**
      * Required if `networkConnection` = `ZONE`. Indicates the network zones to include.
      */
-    public readonly networkIncludes!: pulumi.Output<string[] | undefined>;
+    declare public readonly networkIncludes: pulumi.Output<string[] | undefined>;
     /**
-     * Platform to include in discovery rule. - 'type' - (Optional) One of: 'ANY', 'MOBILE', 'DESKTOP' - 'os_expression -
-     * (Optional) Only available when using osType = 'OTHER' - 'os_type' - (Optional) One of: 'ANY', 'IOS', 'WINDOWS',
-     * 'ANDROID', 'OTHER', 'OSX'
+     * Platform to include in discovery rule.
+     * - 'type' - (Optional) One of: 'ANY', 'MOBILE', 'DESKTOP'
+     * - 'os_expression - (Optional) Only available when using osType = 'OTHER'
+     * - 'os_type' - (Optional) One of: 'ANY', 'IOS', 'WINDOWS', 'ANDROID', 'OTHER', 'OSX'
      */
-    public readonly platformIncludes!: pulumi.Output<outputs.policy.RuleIdpDiscoveryPlatformInclude[] | undefined>;
+    declare public readonly platformIncludes: pulumi.Output<outputs.policy.RuleIdpDiscoveryPlatformInclude[] | undefined>;
     /**
      * Policy ID of the Rule
      */
-    public readonly policyId!: pulumi.Output<string | undefined>;
+    declare public readonly policyId: pulumi.Output<string | undefined>;
     /**
-     * Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if
-     * an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
+     * Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
      */
-    public readonly priority!: pulumi.Output<number | undefined>;
+    declare public readonly priority: pulumi.Output<number | undefined>;
     /**
      * Policy Rule Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
      */
-    public readonly status!: pulumi.Output<string | undefined>;
+    declare public readonly status: pulumi.Output<string | undefined>;
     /**
-     * Profile attribute matching can only have a single value that describes the type indicated in `userIdentifierType`. This
-     * is the attribute or identifier that the `userIdentifierPatterns` are checked against.
+     * Profile attribute matching can only have a single value that describes the type indicated in `userIdentifierType`. This is the attribute or identifier that the `userIdentifierPatterns` are checked against.
      */
-    public readonly userIdentifierAttribute!: pulumi.Output<string | undefined>;
+    declare public readonly userIdentifierAttribute: pulumi.Output<string | undefined>;
     /**
-     * Specifies a User Identifier pattern condition to match against. If 'match_type' of 'EXPRESSION' is used, only a *single*
-     * element can be set, otherwise multiple elements of matching patterns may be provided. - 'match_type' - (Optional) The
-     * kind of pattern. For regex, use 'EXPRESSION'. For simple string matches, use one of the following: 'SUFFIX', 'EQUALS',
-     * 'STARTS_WITH', 'CONTAINS' - 'value' - (Optional) The regex or simple match string to match against.
+     * Specifies a User Identifier pattern condition to match against. If 'match_type' of 'EXPRESSION' is used, only a *single* element can be set, otherwise multiple elements of matching patterns may be provided.
+     * - 'match_type' - (Optional) The kind of pattern. For regex, use 'EXPRESSION'. For simple string matches, use one of the following: 'SUFFIX', 'EQUALS', 'STARTS_WITH', 'CONTAINS'
+     * - 'value' - (Optional) The regex or simple match string to match against.
      */
-    public readonly userIdentifierPatterns!: pulumi.Output<outputs.policy.RuleIdpDiscoveryUserIdentifierPattern[] | undefined>;
+    declare public readonly userIdentifierPatterns: pulumi.Output<outputs.policy.RuleIdpDiscoveryUserIdentifierPattern[] | undefined>;
     /**
      * One of: `IDENTIFIER`, `ATTRIBUTE`
      */
-    public readonly userIdentifierType!: pulumi.Output<string | undefined>;
+    declare public readonly userIdentifierType: pulumi.Output<string | undefined>;
 
     /**
      * Create a RuleIdpDiscovery resource with the given unique name, arguments, and options.
@@ -125,36 +123,36 @@ export class RuleIdpDiscovery extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RuleIdpDiscoveryState | undefined;
-            resourceInputs["appExcludes"] = state ? state.appExcludes : undefined;
-            resourceInputs["appIncludes"] = state ? state.appIncludes : undefined;
-            resourceInputs["idpProviders"] = state ? state.idpProviders : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["networkConnection"] = state ? state.networkConnection : undefined;
-            resourceInputs["networkExcludes"] = state ? state.networkExcludes : undefined;
-            resourceInputs["networkIncludes"] = state ? state.networkIncludes : undefined;
-            resourceInputs["platformIncludes"] = state ? state.platformIncludes : undefined;
-            resourceInputs["policyId"] = state ? state.policyId : undefined;
-            resourceInputs["priority"] = state ? state.priority : undefined;
-            resourceInputs["status"] = state ? state.status : undefined;
-            resourceInputs["userIdentifierAttribute"] = state ? state.userIdentifierAttribute : undefined;
-            resourceInputs["userIdentifierPatterns"] = state ? state.userIdentifierPatterns : undefined;
-            resourceInputs["userIdentifierType"] = state ? state.userIdentifierType : undefined;
+            resourceInputs["appExcludes"] = state?.appExcludes;
+            resourceInputs["appIncludes"] = state?.appIncludes;
+            resourceInputs["idpProviders"] = state?.idpProviders;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["networkConnection"] = state?.networkConnection;
+            resourceInputs["networkExcludes"] = state?.networkExcludes;
+            resourceInputs["networkIncludes"] = state?.networkIncludes;
+            resourceInputs["platformIncludes"] = state?.platformIncludes;
+            resourceInputs["policyId"] = state?.policyId;
+            resourceInputs["priority"] = state?.priority;
+            resourceInputs["status"] = state?.status;
+            resourceInputs["userIdentifierAttribute"] = state?.userIdentifierAttribute;
+            resourceInputs["userIdentifierPatterns"] = state?.userIdentifierPatterns;
+            resourceInputs["userIdentifierType"] = state?.userIdentifierType;
         } else {
             const args = argsOrState as RuleIdpDiscoveryArgs | undefined;
-            resourceInputs["appExcludes"] = args ? args.appExcludes : undefined;
-            resourceInputs["appIncludes"] = args ? args.appIncludes : undefined;
-            resourceInputs["idpProviders"] = args ? args.idpProviders : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["networkConnection"] = args ? args.networkConnection : undefined;
-            resourceInputs["networkExcludes"] = args ? args.networkExcludes : undefined;
-            resourceInputs["networkIncludes"] = args ? args.networkIncludes : undefined;
-            resourceInputs["platformIncludes"] = args ? args.platformIncludes : undefined;
-            resourceInputs["policyId"] = args ? args.policyId : undefined;
-            resourceInputs["priority"] = args ? args.priority : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
-            resourceInputs["userIdentifierAttribute"] = args ? args.userIdentifierAttribute : undefined;
-            resourceInputs["userIdentifierPatterns"] = args ? args.userIdentifierPatterns : undefined;
-            resourceInputs["userIdentifierType"] = args ? args.userIdentifierType : undefined;
+            resourceInputs["appExcludes"] = args?.appExcludes;
+            resourceInputs["appIncludes"] = args?.appIncludes;
+            resourceInputs["idpProviders"] = args?.idpProviders;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["networkConnection"] = args?.networkConnection;
+            resourceInputs["networkExcludes"] = args?.networkExcludes;
+            resourceInputs["networkIncludes"] = args?.networkIncludes;
+            resourceInputs["platformIncludes"] = args?.platformIncludes;
+            resourceInputs["policyId"] = args?.policyId;
+            resourceInputs["priority"] = args?.priority;
+            resourceInputs["status"] = args?.status;
+            resourceInputs["userIdentifierAttribute"] = args?.userIdentifierAttribute;
+            resourceInputs["userIdentifierPatterns"] = args?.userIdentifierPatterns;
+            resourceInputs["userIdentifierType"] = args?.userIdentifierType;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(RuleIdpDiscovery.__pulumiType, name, resourceInputs, opts);
@@ -170,10 +168,10 @@ export interface RuleIdpDiscoveryState {
      */
     appExcludes?: pulumi.Input<pulumi.Input<inputs.policy.RuleIdpDiscoveryAppExclude>[]>;
     /**
-     * Applications to include in discovery rule. - 'id' - (Optional) Use if 'type' is 'APP' to indicate the application id to
-     * include. - 'name' - (Optional) Use if the 'type' is 'APP_TYPE' to indicate the type of application(s) to include in
-     * instances where an entire group (i.e. 'yahoo_mail') of applications should be included. - 'type' - (Required) One of:
-     * 'APP', 'APP_TYPE'
+     * Applications to include in discovery rule.
+     * - 'id' - (Optional) Use if 'type' is 'APP' to indicate the application id to include.
+     * - 'name' - (Optional) Use if the 'type' is 'APP_TYPE' to indicate the type of application(s) to include in instances where an entire group (i.e. 'yahoo_mail') of applications should be included.
+     * - 'type' - (Required) One of: 'APP', 'APP_TYPE'
      */
     appIncludes?: pulumi.Input<pulumi.Input<inputs.policy.RuleIdpDiscoveryAppInclude>[]>;
     idpProviders?: pulumi.Input<pulumi.Input<inputs.policy.RuleIdpDiscoveryIdpProvider>[]>;
@@ -194,9 +192,10 @@ export interface RuleIdpDiscoveryState {
      */
     networkIncludes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Platform to include in discovery rule. - 'type' - (Optional) One of: 'ANY', 'MOBILE', 'DESKTOP' - 'os_expression -
-     * (Optional) Only available when using osType = 'OTHER' - 'os_type' - (Optional) One of: 'ANY', 'IOS', 'WINDOWS',
-     * 'ANDROID', 'OTHER', 'OSX'
+     * Platform to include in discovery rule.
+     * - 'type' - (Optional) One of: 'ANY', 'MOBILE', 'DESKTOP'
+     * - 'os_expression - (Optional) Only available when using osType = 'OTHER'
+     * - 'os_type' - (Optional) One of: 'ANY', 'IOS', 'WINDOWS', 'ANDROID', 'OTHER', 'OSX'
      */
     platformIncludes?: pulumi.Input<pulumi.Input<inputs.policy.RuleIdpDiscoveryPlatformInclude>[]>;
     /**
@@ -204,8 +203,7 @@ export interface RuleIdpDiscoveryState {
      */
     policyId?: pulumi.Input<string>;
     /**
-     * Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if
-     * an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
+     * Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
      */
     priority?: pulumi.Input<number>;
     /**
@@ -213,15 +211,13 @@ export interface RuleIdpDiscoveryState {
      */
     status?: pulumi.Input<string>;
     /**
-     * Profile attribute matching can only have a single value that describes the type indicated in `userIdentifierType`. This
-     * is the attribute or identifier that the `userIdentifierPatterns` are checked against.
+     * Profile attribute matching can only have a single value that describes the type indicated in `userIdentifierType`. This is the attribute or identifier that the `userIdentifierPatterns` are checked against.
      */
     userIdentifierAttribute?: pulumi.Input<string>;
     /**
-     * Specifies a User Identifier pattern condition to match against. If 'match_type' of 'EXPRESSION' is used, only a *single*
-     * element can be set, otherwise multiple elements of matching patterns may be provided. - 'match_type' - (Optional) The
-     * kind of pattern. For regex, use 'EXPRESSION'. For simple string matches, use one of the following: 'SUFFIX', 'EQUALS',
-     * 'STARTS_WITH', 'CONTAINS' - 'value' - (Optional) The regex or simple match string to match against.
+     * Specifies a User Identifier pattern condition to match against. If 'match_type' of 'EXPRESSION' is used, only a *single* element can be set, otherwise multiple elements of matching patterns may be provided.
+     * - 'match_type' - (Optional) The kind of pattern. For regex, use 'EXPRESSION'. For simple string matches, use one of the following: 'SUFFIX', 'EQUALS', 'STARTS_WITH', 'CONTAINS'
+     * - 'value' - (Optional) The regex or simple match string to match against.
      */
     userIdentifierPatterns?: pulumi.Input<pulumi.Input<inputs.policy.RuleIdpDiscoveryUserIdentifierPattern>[]>;
     /**
@@ -239,10 +235,10 @@ export interface RuleIdpDiscoveryArgs {
      */
     appExcludes?: pulumi.Input<pulumi.Input<inputs.policy.RuleIdpDiscoveryAppExclude>[]>;
     /**
-     * Applications to include in discovery rule. - 'id' - (Optional) Use if 'type' is 'APP' to indicate the application id to
-     * include. - 'name' - (Optional) Use if the 'type' is 'APP_TYPE' to indicate the type of application(s) to include in
-     * instances where an entire group (i.e. 'yahoo_mail') of applications should be included. - 'type' - (Required) One of:
-     * 'APP', 'APP_TYPE'
+     * Applications to include in discovery rule.
+     * - 'id' - (Optional) Use if 'type' is 'APP' to indicate the application id to include.
+     * - 'name' - (Optional) Use if the 'type' is 'APP_TYPE' to indicate the type of application(s) to include in instances where an entire group (i.e. 'yahoo_mail') of applications should be included.
+     * - 'type' - (Required) One of: 'APP', 'APP_TYPE'
      */
     appIncludes?: pulumi.Input<pulumi.Input<inputs.policy.RuleIdpDiscoveryAppInclude>[]>;
     idpProviders?: pulumi.Input<pulumi.Input<inputs.policy.RuleIdpDiscoveryIdpProvider>[]>;
@@ -263,9 +259,10 @@ export interface RuleIdpDiscoveryArgs {
      */
     networkIncludes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Platform to include in discovery rule. - 'type' - (Optional) One of: 'ANY', 'MOBILE', 'DESKTOP' - 'os_expression -
-     * (Optional) Only available when using osType = 'OTHER' - 'os_type' - (Optional) One of: 'ANY', 'IOS', 'WINDOWS',
-     * 'ANDROID', 'OTHER', 'OSX'
+     * Platform to include in discovery rule.
+     * - 'type' - (Optional) One of: 'ANY', 'MOBILE', 'DESKTOP'
+     * - 'os_expression - (Optional) Only available when using osType = 'OTHER'
+     * - 'os_type' - (Optional) One of: 'ANY', 'IOS', 'WINDOWS', 'ANDROID', 'OTHER', 'OSX'
      */
     platformIncludes?: pulumi.Input<pulumi.Input<inputs.policy.RuleIdpDiscoveryPlatformInclude>[]>;
     /**
@@ -273,8 +270,7 @@ export interface RuleIdpDiscoveryArgs {
      */
     policyId?: pulumi.Input<string>;
     /**
-     * Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if
-     * an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
+     * Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
      */
     priority?: pulumi.Input<number>;
     /**
@@ -282,15 +278,13 @@ export interface RuleIdpDiscoveryArgs {
      */
     status?: pulumi.Input<string>;
     /**
-     * Profile attribute matching can only have a single value that describes the type indicated in `userIdentifierType`. This
-     * is the attribute or identifier that the `userIdentifierPatterns` are checked against.
+     * Profile attribute matching can only have a single value that describes the type indicated in `userIdentifierType`. This is the attribute or identifier that the `userIdentifierPatterns` are checked against.
      */
     userIdentifierAttribute?: pulumi.Input<string>;
     /**
-     * Specifies a User Identifier pattern condition to match against. If 'match_type' of 'EXPRESSION' is used, only a *single*
-     * element can be set, otherwise multiple elements of matching patterns may be provided. - 'match_type' - (Optional) The
-     * kind of pattern. For regex, use 'EXPRESSION'. For simple string matches, use one of the following: 'SUFFIX', 'EQUALS',
-     * 'STARTS_WITH', 'CONTAINS' - 'value' - (Optional) The regex or simple match string to match against.
+     * Specifies a User Identifier pattern condition to match against. If 'match_type' of 'EXPRESSION' is used, only a *single* element can be set, otherwise multiple elements of matching patterns may be provided.
+     * - 'match_type' - (Optional) The kind of pattern. For regex, use 'EXPRESSION'. For simple string matches, use one of the following: 'SUFFIX', 'EQUALS', 'STARTS_WITH', 'CONTAINS'
+     * - 'value' - (Optional) The regex or simple match string to match against.
      */
     userIdentifierPatterns?: pulumi.Input<pulumi.Input<inputs.policy.RuleIdpDiscoveryUserIdentifierPattern>[]>;
     /**

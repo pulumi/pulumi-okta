@@ -50,71 +50,71 @@ export class Theme extends pulumi.CustomResource {
     /**
      * Path to local file
      */
-    public readonly backgroundImage!: pulumi.Output<string | undefined>;
+    declare public readonly backgroundImage: pulumi.Output<string | undefined>;
     /**
      * Background image URL
      */
-    public /*out*/ readonly backgroundImageUrl!: pulumi.Output<string>;
+    declare public /*out*/ readonly backgroundImageUrl: pulumi.Output<string>;
     /**
      * Brand ID
      */
-    public readonly brandId!: pulumi.Output<string>;
+    declare public readonly brandId: pulumi.Output<string>;
     /**
      * Variant for email templates (`OKTA_DEFAULT`, `FULL_THEME`)
      */
-    public readonly emailTemplateTouchPointVariant!: pulumi.Output<string | undefined>;
+    declare public readonly emailTemplateTouchPointVariant: pulumi.Output<string | undefined>;
     /**
      * Variant for the Okta End-User Dashboard (`OKTA_DEFAULT`, `WHITE_LOGO_BACKGROUND`, `FULL_THEME`, `LOGO_ON_FULL_WHITE_BACKGROUND`)
      */
-    public readonly endUserDashboardTouchPointVariant!: pulumi.Output<string | undefined>;
+    declare public readonly endUserDashboardTouchPointVariant: pulumi.Output<string | undefined>;
     /**
      * Variant for the error page (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
      */
-    public readonly errorPageTouchPointVariant!: pulumi.Output<string | undefined>;
+    declare public readonly errorPageTouchPointVariant: pulumi.Output<string | undefined>;
     /**
      * Path to local file
      */
-    public readonly favicon!: pulumi.Output<string | undefined>;
+    declare public readonly favicon: pulumi.Output<string | undefined>;
     /**
      * Favicon URL
      */
-    public /*out*/ readonly faviconUrl!: pulumi.Output<string>;
+    declare public /*out*/ readonly faviconUrl: pulumi.Output<string>;
     /**
      * Link relations for this object - JSON HAL - Discoverable resources related to the email template
      */
-    public /*out*/ readonly links!: pulumi.Output<string>;
+    declare public /*out*/ readonly links: pulumi.Output<string>;
     /**
      * Path to local file
      */
-    public readonly logo!: pulumi.Output<string | undefined>;
+    declare public readonly logo: pulumi.Output<string | undefined>;
     /**
      * Logo URL
      */
-    public /*out*/ readonly logoUrl!: pulumi.Output<string>;
+    declare public /*out*/ readonly logoUrl: pulumi.Output<string>;
     /**
      * Primary color contrast hex code
      */
-    public readonly primaryColorContrastHex!: pulumi.Output<string | undefined>;
+    declare public readonly primaryColorContrastHex: pulumi.Output<string | undefined>;
     /**
      * Primary color hex code
      */
-    public readonly primaryColorHex!: pulumi.Output<string | undefined>;
+    declare public readonly primaryColorHex: pulumi.Output<string | undefined>;
     /**
      * Secondary color contrast hex code
      */
-    public readonly secondaryColorContrastHex!: pulumi.Output<string | undefined>;
+    declare public readonly secondaryColorContrastHex: pulumi.Output<string | undefined>;
     /**
      * Secondary color hex code
      */
-    public readonly secondaryColorHex!: pulumi.Output<string | undefined>;
+    declare public readonly secondaryColorHex: pulumi.Output<string | undefined>;
     /**
      * Variant for the Okta Sign-In Page (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
      */
-    public readonly signInPageTouchPointVariant!: pulumi.Output<string | undefined>;
+    declare public readonly signInPageTouchPointVariant: pulumi.Output<string | undefined>;
     /**
      * Theme ID - Note: Okta API for theme only reads and updates therefore the okta*theme resource needs to act as a quasi data source. Do this by setting theme*id.
      */
-    public readonly themeId!: pulumi.Output<string | undefined>;
+    declare public readonly themeId: pulumi.Output<string | undefined>;
 
     /**
      * Create a Theme resource with the given unique name, arguments, and options.
@@ -129,41 +129,41 @@ export class Theme extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ThemeState | undefined;
-            resourceInputs["backgroundImage"] = state ? state.backgroundImage : undefined;
-            resourceInputs["backgroundImageUrl"] = state ? state.backgroundImageUrl : undefined;
-            resourceInputs["brandId"] = state ? state.brandId : undefined;
-            resourceInputs["emailTemplateTouchPointVariant"] = state ? state.emailTemplateTouchPointVariant : undefined;
-            resourceInputs["endUserDashboardTouchPointVariant"] = state ? state.endUserDashboardTouchPointVariant : undefined;
-            resourceInputs["errorPageTouchPointVariant"] = state ? state.errorPageTouchPointVariant : undefined;
-            resourceInputs["favicon"] = state ? state.favicon : undefined;
-            resourceInputs["faviconUrl"] = state ? state.faviconUrl : undefined;
-            resourceInputs["links"] = state ? state.links : undefined;
-            resourceInputs["logo"] = state ? state.logo : undefined;
-            resourceInputs["logoUrl"] = state ? state.logoUrl : undefined;
-            resourceInputs["primaryColorContrastHex"] = state ? state.primaryColorContrastHex : undefined;
-            resourceInputs["primaryColorHex"] = state ? state.primaryColorHex : undefined;
-            resourceInputs["secondaryColorContrastHex"] = state ? state.secondaryColorContrastHex : undefined;
-            resourceInputs["secondaryColorHex"] = state ? state.secondaryColorHex : undefined;
-            resourceInputs["signInPageTouchPointVariant"] = state ? state.signInPageTouchPointVariant : undefined;
-            resourceInputs["themeId"] = state ? state.themeId : undefined;
+            resourceInputs["backgroundImage"] = state?.backgroundImage;
+            resourceInputs["backgroundImageUrl"] = state?.backgroundImageUrl;
+            resourceInputs["brandId"] = state?.brandId;
+            resourceInputs["emailTemplateTouchPointVariant"] = state?.emailTemplateTouchPointVariant;
+            resourceInputs["endUserDashboardTouchPointVariant"] = state?.endUserDashboardTouchPointVariant;
+            resourceInputs["errorPageTouchPointVariant"] = state?.errorPageTouchPointVariant;
+            resourceInputs["favicon"] = state?.favicon;
+            resourceInputs["faviconUrl"] = state?.faviconUrl;
+            resourceInputs["links"] = state?.links;
+            resourceInputs["logo"] = state?.logo;
+            resourceInputs["logoUrl"] = state?.logoUrl;
+            resourceInputs["primaryColorContrastHex"] = state?.primaryColorContrastHex;
+            resourceInputs["primaryColorHex"] = state?.primaryColorHex;
+            resourceInputs["secondaryColorContrastHex"] = state?.secondaryColorContrastHex;
+            resourceInputs["secondaryColorHex"] = state?.secondaryColorHex;
+            resourceInputs["signInPageTouchPointVariant"] = state?.signInPageTouchPointVariant;
+            resourceInputs["themeId"] = state?.themeId;
         } else {
             const args = argsOrState as ThemeArgs | undefined;
-            if ((!args || args.brandId === undefined) && !opts.urn) {
+            if (args?.brandId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'brandId'");
             }
-            resourceInputs["backgroundImage"] = args ? args.backgroundImage : undefined;
-            resourceInputs["brandId"] = args ? args.brandId : undefined;
-            resourceInputs["emailTemplateTouchPointVariant"] = args ? args.emailTemplateTouchPointVariant : undefined;
-            resourceInputs["endUserDashboardTouchPointVariant"] = args ? args.endUserDashboardTouchPointVariant : undefined;
-            resourceInputs["errorPageTouchPointVariant"] = args ? args.errorPageTouchPointVariant : undefined;
-            resourceInputs["favicon"] = args ? args.favicon : undefined;
-            resourceInputs["logo"] = args ? args.logo : undefined;
-            resourceInputs["primaryColorContrastHex"] = args ? args.primaryColorContrastHex : undefined;
-            resourceInputs["primaryColorHex"] = args ? args.primaryColorHex : undefined;
-            resourceInputs["secondaryColorContrastHex"] = args ? args.secondaryColorContrastHex : undefined;
-            resourceInputs["secondaryColorHex"] = args ? args.secondaryColorHex : undefined;
-            resourceInputs["signInPageTouchPointVariant"] = args ? args.signInPageTouchPointVariant : undefined;
-            resourceInputs["themeId"] = args ? args.themeId : undefined;
+            resourceInputs["backgroundImage"] = args?.backgroundImage;
+            resourceInputs["brandId"] = args?.brandId;
+            resourceInputs["emailTemplateTouchPointVariant"] = args?.emailTemplateTouchPointVariant;
+            resourceInputs["endUserDashboardTouchPointVariant"] = args?.endUserDashboardTouchPointVariant;
+            resourceInputs["errorPageTouchPointVariant"] = args?.errorPageTouchPointVariant;
+            resourceInputs["favicon"] = args?.favicon;
+            resourceInputs["logo"] = args?.logo;
+            resourceInputs["primaryColorContrastHex"] = args?.primaryColorContrastHex;
+            resourceInputs["primaryColorHex"] = args?.primaryColorHex;
+            resourceInputs["secondaryColorContrastHex"] = args?.secondaryColorContrastHex;
+            resourceInputs["secondaryColorHex"] = args?.secondaryColorHex;
+            resourceInputs["signInPageTouchPointVariant"] = args?.signInPageTouchPointVariant;
+            resourceInputs["themeId"] = args?.themeId;
             resourceInputs["backgroundImageUrl"] = undefined /*out*/;
             resourceInputs["faviconUrl"] = undefined /*out*/;
             resourceInputs["links"] = undefined /*out*/;

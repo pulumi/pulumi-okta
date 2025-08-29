@@ -54,8 +54,9 @@ namespace Pulumi.Okta
         public Output<ImmutableArray<string>> ArrayEnums { get; private set; } = null!;
 
         /// <summary>
-        /// Display name and value an enum array can be set to. - 'const' - (Required) value mapping to member of 'enum'. - 'title'
-        /// - (Required) display name for the enum value.
+        /// Display name and value an enum array can be set to.
+        /// 	- 'const' - (Required) value mapping to member of 'enum'.
+        /// 	- 'title' - (Required) display name for the enum value.
         /// </summary>
         [Output("arrayOneOfs")]
         public Output<ImmutableArray<Outputs.UserSchemaPropertyArrayOneOf>> ArrayOneOfs { get; private set; } = null!;
@@ -103,8 +104,9 @@ namespace Pulumi.Okta
         public Output<string?> Master { get; private set; } = null!;
 
         /// <summary>
-        /// Prioritized list of profile sources (required when 'master' is 'OVERRIDE'). - 'type' - (Optional) - Type of profile
-        /// source. - 'value' - (Required) - ID of profile source.
+        /// Prioritized list of profile sources (required when 'master' is 'OVERRIDE').
+        /// 	- 'type' - (Optional) - Type of profile source.
+        /// 	- 'value' - (Required) - ID of profile source.
         /// </summary>
         [Output("masterOverridePriorities")]
         public Output<ImmutableArray<Outputs.UserSchemaPropertyMasterOverridePriority>> MasterOverridePriorities { get; private set; } = null!;
@@ -122,8 +124,9 @@ namespace Pulumi.Okta
         public Output<int?> MinLength { get; private set; } = null!;
 
         /// <summary>
-        /// Array of maps containing a mapping for display name to enum value. - 'const' - (Required) value mapping to member of
-        /// 'enum'. - 'title' - (Required) display name for the enum value.
+        /// Array of maps containing a mapping for display name to enum value.
+        /// 	- 'const' - (Required) value mapping to member of 'enum'.
+        /// 	- 'title' - (Required) display name for the enum value.
         /// </summary>
         [Output("oneOfs")]
         public Output<ImmutableArray<Outputs.UserSchemaPropertyOneOf>> OneOfs { get; private set; } = null!;
@@ -238,8 +241,9 @@ namespace Pulumi.Okta
         private InputList<Inputs.UserSchemaPropertyArrayOneOfArgs>? _arrayOneOfs;
 
         /// <summary>
-        /// Display name and value an enum array can be set to. - 'const' - (Required) value mapping to member of 'enum'. - 'title'
-        /// - (Required) display name for the enum value.
+        /// Display name and value an enum array can be set to.
+        /// 	- 'const' - (Required) value mapping to member of 'enum'.
+        /// 	- 'title' - (Required) display name for the enum value.
         /// </summary>
         public InputList<Inputs.UserSchemaPropertyArrayOneOfArgs> ArrayOneOfs
         {
@@ -299,8 +303,9 @@ namespace Pulumi.Okta
         private InputList<Inputs.UserSchemaPropertyMasterOverridePriorityArgs>? _masterOverridePriorities;
 
         /// <summary>
-        /// Prioritized list of profile sources (required when 'master' is 'OVERRIDE'). - 'type' - (Optional) - Type of profile
-        /// source. - 'value' - (Required) - ID of profile source.
+        /// Prioritized list of profile sources (required when 'master' is 'OVERRIDE').
+        /// 	- 'type' - (Optional) - Type of profile source.
+        /// 	- 'value' - (Required) - ID of profile source.
         /// </summary>
         public InputList<Inputs.UserSchemaPropertyMasterOverridePriorityArgs> MasterOverridePriorities
         {
@@ -324,8 +329,9 @@ namespace Pulumi.Okta
         private InputList<Inputs.UserSchemaPropertyOneOfArgs>? _oneOfs;
 
         /// <summary>
-        /// Array of maps containing a mapping for display name to enum value. - 'const' - (Required) value mapping to member of
-        /// 'enum'. - 'title' - (Required) display name for the enum value.
+        /// Array of maps containing a mapping for display name to enum value.
+        /// 	- 'const' - (Required) value mapping to member of 'enum'.
+        /// 	- 'title' - (Required) display name for the enum value.
         /// </summary>
         public InputList<Inputs.UserSchemaPropertyOneOfArgs> OneOfs
         {
@@ -405,8 +411,9 @@ namespace Pulumi.Okta
         private InputList<Inputs.UserSchemaPropertyArrayOneOfGetArgs>? _arrayOneOfs;
 
         /// <summary>
-        /// Display name and value an enum array can be set to. - 'const' - (Required) value mapping to member of 'enum'. - 'title'
-        /// - (Required) display name for the enum value.
+        /// Display name and value an enum array can be set to.
+        /// 	- 'const' - (Required) value mapping to member of 'enum'.
+        /// 	- 'title' - (Required) display name for the enum value.
         /// </summary>
         public InputList<Inputs.UserSchemaPropertyArrayOneOfGetArgs> ArrayOneOfs
         {
@@ -466,8 +473,9 @@ namespace Pulumi.Okta
         private InputList<Inputs.UserSchemaPropertyMasterOverridePriorityGetArgs>? _masterOverridePriorities;
 
         /// <summary>
-        /// Prioritized list of profile sources (required when 'master' is 'OVERRIDE'). - 'type' - (Optional) - Type of profile
-        /// source. - 'value' - (Required) - ID of profile source.
+        /// Prioritized list of profile sources (required when 'master' is 'OVERRIDE').
+        /// 	- 'type' - (Optional) - Type of profile source.
+        /// 	- 'value' - (Required) - ID of profile source.
         /// </summary>
         public InputList<Inputs.UserSchemaPropertyMasterOverridePriorityGetArgs> MasterOverridePriorities
         {
@@ -491,8 +499,9 @@ namespace Pulumi.Okta
         private InputList<Inputs.UserSchemaPropertyOneOfGetArgs>? _oneOfs;
 
         /// <summary>
-        /// Array of maps containing a mapping for display name to enum value. - 'const' - (Required) value mapping to member of
-        /// 'enum'. - 'title' - (Required) display name for the enum value.
+        /// Array of maps containing a mapping for display name to enum value.
+        /// 	- 'const' - (Required) value mapping to member of 'enum'.
+        /// 	- 'title' - (Required) display name for the enum value.
         /// </summary>
         public InputList<Inputs.UserSchemaPropertyOneOfGetArgs> OneOfs
         {

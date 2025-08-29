@@ -33,10 +33,10 @@ namespace Pulumi.Okta.Policy
         public Output<ImmutableArray<Outputs.RuleIdpDiscoveryAppExclude>> AppExcludes { get; private set; } = null!;
 
         /// <summary>
-        /// Applications to include in discovery rule. - 'id' - (Optional) Use if 'type' is 'APP' to indicate the application id to
-        /// include. - 'name' - (Optional) Use if the 'type' is 'APP_TYPE' to indicate the type of application(s) to include in
-        /// instances where an entire group (i.e. 'yahoo_mail') of applications should be included. - 'type' - (Required) One of:
-        /// 'APP', 'APP_TYPE'
+        /// Applications to include in discovery rule.
+        /// - 'id' - (Optional) Use if 'type' is 'APP' to indicate the application id to include.
+        /// - 'name' - (Optional) Use if the 'type' is 'APP_TYPE' to indicate the type of application(s) to include in instances where an entire group (i.e. 'yahoo_mail') of applications should be included.
+        /// - 'type' - (Required) One of: 'APP', 'APP_TYPE'
         /// </summary>
         [Output("appIncludes")]
         public Output<ImmutableArray<Outputs.RuleIdpDiscoveryAppInclude>> AppIncludes { get; private set; } = null!;
@@ -69,9 +69,10 @@ namespace Pulumi.Okta.Policy
         public Output<ImmutableArray<string>> NetworkIncludes { get; private set; } = null!;
 
         /// <summary>
-        /// Platform to include in discovery rule. - 'type' - (Optional) One of: 'ANY', 'MOBILE', 'DESKTOP' - 'os_expression -
-        /// (Optional) Only available when using os_type = 'OTHER' - 'os_type' - (Optional) One of: 'ANY', 'IOS', 'WINDOWS',
-        /// 'ANDROID', 'OTHER', 'OSX'
+        /// Platform to include in discovery rule.
+        /// - 'type' - (Optional) One of: 'ANY', 'MOBILE', 'DESKTOP'
+        /// - 'os_expression - (Optional) Only available when using os_type = 'OTHER'
+        /// - 'os_type' - (Optional) One of: 'ANY', 'IOS', 'WINDOWS', 'ANDROID', 'OTHER', 'OSX'
         /// </summary>
         [Output("platformIncludes")]
         public Output<ImmutableArray<Outputs.RuleIdpDiscoveryPlatformInclude>> PlatformIncludes { get; private set; } = null!;
@@ -83,8 +84,7 @@ namespace Pulumi.Okta.Policy
         public Output<string?> PolicyId { get; private set; } = null!;
 
         /// <summary>
-        /// Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if
-        /// an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
+        /// Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
         /// </summary>
         [Output("priority")]
         public Output<int?> Priority { get; private set; } = null!;
@@ -96,17 +96,15 @@ namespace Pulumi.Okta.Policy
         public Output<string?> Status { get; private set; } = null!;
 
         /// <summary>
-        /// Profile attribute matching can only have a single value that describes the type indicated in `user_identifier_type`.
-        /// This is the attribute or identifier that the `user_identifier_patterns` are checked against.
+        /// Profile attribute matching can only have a single value that describes the type indicated in `user_identifier_type`. This is the attribute or identifier that the `user_identifier_patterns` are checked against.
         /// </summary>
         [Output("userIdentifierAttribute")]
         public Output<string?> UserIdentifierAttribute { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies a User Identifier pattern condition to match against. If 'match_type' of 'EXPRESSION' is used, only a *single*
-        /// element can be set, otherwise multiple elements of matching patterns may be provided. - 'match_type' - (Optional) The
-        /// kind of pattern. For regex, use 'EXPRESSION'. For simple string matches, use one of the following: 'SUFFIX', 'EQUALS',
-        /// 'STARTS_WITH', 'CONTAINS' - 'value' - (Optional) The regex or simple match string to match against.
+        /// Specifies a User Identifier pattern condition to match against. If 'match_type' of 'EXPRESSION' is used, only a *single* element can be set, otherwise multiple elements of matching patterns may be provided.
+        /// - 'match_type' - (Optional) The kind of pattern. For regex, use 'EXPRESSION'. For simple string matches, use one of the following: 'SUFFIX', 'EQUALS', 'STARTS_WITH', 'CONTAINS'
+        /// - 'value' - (Optional) The regex or simple match string to match against.
         /// </summary>
         [Output("userIdentifierPatterns")]
         public Output<ImmutableArray<Outputs.RuleIdpDiscoveryUserIdentifierPattern>> UserIdentifierPatterns { get; private set; } = null!;
@@ -179,10 +177,10 @@ namespace Pulumi.Okta.Policy
         private InputList<Inputs.RuleIdpDiscoveryAppIncludeArgs>? _appIncludes;
 
         /// <summary>
-        /// Applications to include in discovery rule. - 'id' - (Optional) Use if 'type' is 'APP' to indicate the application id to
-        /// include. - 'name' - (Optional) Use if the 'type' is 'APP_TYPE' to indicate the type of application(s) to include in
-        /// instances where an entire group (i.e. 'yahoo_mail') of applications should be included. - 'type' - (Required) One of:
-        /// 'APP', 'APP_TYPE'
+        /// Applications to include in discovery rule.
+        /// - 'id' - (Optional) Use if 'type' is 'APP' to indicate the application id to include.
+        /// - 'name' - (Optional) Use if the 'type' is 'APP_TYPE' to indicate the type of application(s) to include in instances where an entire group (i.e. 'yahoo_mail') of applications should be included.
+        /// - 'type' - (Required) One of: 'APP', 'APP_TYPE'
         /// </summary>
         public InputList<Inputs.RuleIdpDiscoveryAppIncludeArgs> AppIncludes
         {
@@ -238,9 +236,10 @@ namespace Pulumi.Okta.Policy
         private InputList<Inputs.RuleIdpDiscoveryPlatformIncludeArgs>? _platformIncludes;
 
         /// <summary>
-        /// Platform to include in discovery rule. - 'type' - (Optional) One of: 'ANY', 'MOBILE', 'DESKTOP' - 'os_expression -
-        /// (Optional) Only available when using os_type = 'OTHER' - 'os_type' - (Optional) One of: 'ANY', 'IOS', 'WINDOWS',
-        /// 'ANDROID', 'OTHER', 'OSX'
+        /// Platform to include in discovery rule.
+        /// - 'type' - (Optional) One of: 'ANY', 'MOBILE', 'DESKTOP'
+        /// - 'os_expression - (Optional) Only available when using os_type = 'OTHER'
+        /// - 'os_type' - (Optional) One of: 'ANY', 'IOS', 'WINDOWS', 'ANDROID', 'OTHER', 'OSX'
         /// </summary>
         public InputList<Inputs.RuleIdpDiscoveryPlatformIncludeArgs> PlatformIncludes
         {
@@ -255,8 +254,7 @@ namespace Pulumi.Okta.Policy
         public Input<string>? PolicyId { get; set; }
 
         /// <summary>
-        /// Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if
-        /// an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
+        /// Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
         /// </summary>
         [Input("priority")]
         public Input<int>? Priority { get; set; }
@@ -268,8 +266,7 @@ namespace Pulumi.Okta.Policy
         public Input<string>? Status { get; set; }
 
         /// <summary>
-        /// Profile attribute matching can only have a single value that describes the type indicated in `user_identifier_type`.
-        /// This is the attribute or identifier that the `user_identifier_patterns` are checked against.
+        /// Profile attribute matching can only have a single value that describes the type indicated in `user_identifier_type`. This is the attribute or identifier that the `user_identifier_patterns` are checked against.
         /// </summary>
         [Input("userIdentifierAttribute")]
         public Input<string>? UserIdentifierAttribute { get; set; }
@@ -278,10 +275,9 @@ namespace Pulumi.Okta.Policy
         private InputList<Inputs.RuleIdpDiscoveryUserIdentifierPatternArgs>? _userIdentifierPatterns;
 
         /// <summary>
-        /// Specifies a User Identifier pattern condition to match against. If 'match_type' of 'EXPRESSION' is used, only a *single*
-        /// element can be set, otherwise multiple elements of matching patterns may be provided. - 'match_type' - (Optional) The
-        /// kind of pattern. For regex, use 'EXPRESSION'. For simple string matches, use one of the following: 'SUFFIX', 'EQUALS',
-        /// 'STARTS_WITH', 'CONTAINS' - 'value' - (Optional) The regex or simple match string to match against.
+        /// Specifies a User Identifier pattern condition to match against. If 'match_type' of 'EXPRESSION' is used, only a *single* element can be set, otherwise multiple elements of matching patterns may be provided.
+        /// - 'match_type' - (Optional) The kind of pattern. For regex, use 'EXPRESSION'. For simple string matches, use one of the following: 'SUFFIX', 'EQUALS', 'STARTS_WITH', 'CONTAINS'
+        /// - 'value' - (Optional) The regex or simple match string to match against.
         /// </summary>
         public InputList<Inputs.RuleIdpDiscoveryUserIdentifierPatternArgs> UserIdentifierPatterns
         {
@@ -319,10 +315,10 @@ namespace Pulumi.Okta.Policy
         private InputList<Inputs.RuleIdpDiscoveryAppIncludeGetArgs>? _appIncludes;
 
         /// <summary>
-        /// Applications to include in discovery rule. - 'id' - (Optional) Use if 'type' is 'APP' to indicate the application id to
-        /// include. - 'name' - (Optional) Use if the 'type' is 'APP_TYPE' to indicate the type of application(s) to include in
-        /// instances where an entire group (i.e. 'yahoo_mail') of applications should be included. - 'type' - (Required) One of:
-        /// 'APP', 'APP_TYPE'
+        /// Applications to include in discovery rule.
+        /// - 'id' - (Optional) Use if 'type' is 'APP' to indicate the application id to include.
+        /// - 'name' - (Optional) Use if the 'type' is 'APP_TYPE' to indicate the type of application(s) to include in instances where an entire group (i.e. 'yahoo_mail') of applications should be included.
+        /// - 'type' - (Required) One of: 'APP', 'APP_TYPE'
         /// </summary>
         public InputList<Inputs.RuleIdpDiscoveryAppIncludeGetArgs> AppIncludes
         {
@@ -378,9 +374,10 @@ namespace Pulumi.Okta.Policy
         private InputList<Inputs.RuleIdpDiscoveryPlatformIncludeGetArgs>? _platformIncludes;
 
         /// <summary>
-        /// Platform to include in discovery rule. - 'type' - (Optional) One of: 'ANY', 'MOBILE', 'DESKTOP' - 'os_expression -
-        /// (Optional) Only available when using os_type = 'OTHER' - 'os_type' - (Optional) One of: 'ANY', 'IOS', 'WINDOWS',
-        /// 'ANDROID', 'OTHER', 'OSX'
+        /// Platform to include in discovery rule.
+        /// - 'type' - (Optional) One of: 'ANY', 'MOBILE', 'DESKTOP'
+        /// - 'os_expression - (Optional) Only available when using os_type = 'OTHER'
+        /// - 'os_type' - (Optional) One of: 'ANY', 'IOS', 'WINDOWS', 'ANDROID', 'OTHER', 'OSX'
         /// </summary>
         public InputList<Inputs.RuleIdpDiscoveryPlatformIncludeGetArgs> PlatformIncludes
         {
@@ -395,8 +392,7 @@ namespace Pulumi.Okta.Policy
         public Input<string>? PolicyId { get; set; }
 
         /// <summary>
-        /// Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if
-        /// an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
+        /// Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
         /// </summary>
         [Input("priority")]
         public Input<int>? Priority { get; set; }
@@ -408,8 +404,7 @@ namespace Pulumi.Okta.Policy
         public Input<string>? Status { get; set; }
 
         /// <summary>
-        /// Profile attribute matching can only have a single value that describes the type indicated in `user_identifier_type`.
-        /// This is the attribute or identifier that the `user_identifier_patterns` are checked against.
+        /// Profile attribute matching can only have a single value that describes the type indicated in `user_identifier_type`. This is the attribute or identifier that the `user_identifier_patterns` are checked against.
         /// </summary>
         [Input("userIdentifierAttribute")]
         public Input<string>? UserIdentifierAttribute { get; set; }
@@ -418,10 +413,9 @@ namespace Pulumi.Okta.Policy
         private InputList<Inputs.RuleIdpDiscoveryUserIdentifierPatternGetArgs>? _userIdentifierPatterns;
 
         /// <summary>
-        /// Specifies a User Identifier pattern condition to match against. If 'match_type' of 'EXPRESSION' is used, only a *single*
-        /// element can be set, otherwise multiple elements of matching patterns may be provided. - 'match_type' - (Optional) The
-        /// kind of pattern. For regex, use 'EXPRESSION'. For simple string matches, use one of the following: 'SUFFIX', 'EQUALS',
-        /// 'STARTS_WITH', 'CONTAINS' - 'value' - (Optional) The regex or simple match string to match against.
+        /// Specifies a User Identifier pattern condition to match against. If 'match_type' of 'EXPRESSION' is used, only a *single* element can be set, otherwise multiple elements of matching patterns may be provided.
+        /// - 'match_type' - (Optional) The kind of pattern. For regex, use 'EXPRESSION'. For simple string matches, use one of the following: 'SUFFIX', 'EQUALS', 'STARTS_WITH', 'CONTAINS'
+        /// - 'value' - (Optional) The regex or simple match string to match against.
         /// </summary>
         public InputList<Inputs.RuleIdpDiscoveryUserIdentifierPatternGetArgs> UserIdentifierPatterns
         {

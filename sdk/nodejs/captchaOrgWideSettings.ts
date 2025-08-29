@@ -47,11 +47,11 @@ export class CaptchaOrgWideSettings extends pulumi.CustomResource {
     /**
      * Array of pages that have CAPTCHA enabled. Valid values: `SSR`, `SSPR` and `SIGN_IN`.
      */
-    public readonly captchaId!: pulumi.Output<string | undefined>;
+    declare public readonly captchaId: pulumi.Output<string | undefined>;
     /**
      * Set of pages that have CAPTCHA enabled
      */
-    public readonly enabledFors!: pulumi.Output<string[] | undefined>;
+    declare public readonly enabledFors: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a CaptchaOrgWideSettings resource with the given unique name, arguments, and options.
@@ -66,12 +66,12 @@ export class CaptchaOrgWideSettings extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CaptchaOrgWideSettingsState | undefined;
-            resourceInputs["captchaId"] = state ? state.captchaId : undefined;
-            resourceInputs["enabledFors"] = state ? state.enabledFors : undefined;
+            resourceInputs["captchaId"] = state?.captchaId;
+            resourceInputs["enabledFors"] = state?.enabledFors;
         } else {
             const args = argsOrState as CaptchaOrgWideSettingsArgs | undefined;
-            resourceInputs["captchaId"] = args ? args.captchaId : undefined;
-            resourceInputs["enabledFors"] = args ? args.enabledFors : undefined;
+            resourceInputs["captchaId"] = args?.captchaId;
+            resourceInputs["enabledFors"] = args?.enabledFors;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(CaptchaOrgWideSettings.__pulumiType, name, resourceInputs, opts);

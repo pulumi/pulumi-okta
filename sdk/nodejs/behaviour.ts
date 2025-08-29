@@ -80,31 +80,31 @@ export class Behaviour extends pulumi.CustomResource {
     /**
      * Determines the method and level of detail used to evaluate the behavior. Required for `ANOMALOUS_LOCATION` behavior type. Can be set to `LAT_LONG`, `CITY`, `COUNTRY` or `SUBDIVISION`.
      */
-    public readonly locationGranularityType!: pulumi.Output<string | undefined>;
+    declare public readonly locationGranularityType: pulumi.Output<string | undefined>;
     /**
      * Name of the behavior
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The number of recent authentications used to evaluate the behavior. Required for `ANOMALOUS_LOCATION`, `ANOMALOUS_DEVICE` and `ANOMALOUS_IP` behavior types.
      */
-    public readonly numberOfAuthentications!: pulumi.Output<number | undefined>;
+    declare public readonly numberOfAuthentications: pulumi.Output<number | undefined>;
     /**
      * Radius from location (in kilometers). Should be at least 5. Required when `locationGranularityType` is set to `LAT_LONG`.
      */
-    public readonly radiusFromLocation!: pulumi.Output<number | undefined>;
+    declare public readonly radiusFromLocation: pulumi.Output<number | undefined>;
     /**
      * Behavior status: ACTIVE or INACTIVE. Default: `ACTIVE`
      */
-    public readonly status!: pulumi.Output<string | undefined>;
+    declare public readonly status: pulumi.Output<string | undefined>;
     /**
      * Type of the behavior. Can be set to `ANOMALOUS_LOCATION`, `ANOMALOUS_DEVICE`, `ANOMALOUS_IP` or `VELOCITY`. Resource will be recreated when the type changes.e
      */
-    public readonly type!: pulumi.Output<string>;
+    declare public readonly type: pulumi.Output<string>;
     /**
      * Velocity (in kilometers per hour). Should be at least 1. Required for `VELOCITY` behavior
      */
-    public readonly velocity!: pulumi.Output<number | undefined>;
+    declare public readonly velocity: pulumi.Output<number | undefined>;
 
     /**
      * Create a Behaviour resource with the given unique name, arguments, and options.
@@ -119,25 +119,25 @@ export class Behaviour extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as BehaviourState | undefined;
-            resourceInputs["locationGranularityType"] = state ? state.locationGranularityType : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["numberOfAuthentications"] = state ? state.numberOfAuthentications : undefined;
-            resourceInputs["radiusFromLocation"] = state ? state.radiusFromLocation : undefined;
-            resourceInputs["status"] = state ? state.status : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
-            resourceInputs["velocity"] = state ? state.velocity : undefined;
+            resourceInputs["locationGranularityType"] = state?.locationGranularityType;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["numberOfAuthentications"] = state?.numberOfAuthentications;
+            resourceInputs["radiusFromLocation"] = state?.radiusFromLocation;
+            resourceInputs["status"] = state?.status;
+            resourceInputs["type"] = state?.type;
+            resourceInputs["velocity"] = state?.velocity;
         } else {
             const args = argsOrState as BehaviourArgs | undefined;
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["locationGranularityType"] = args ? args.locationGranularityType : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["numberOfAuthentications"] = args ? args.numberOfAuthentications : undefined;
-            resourceInputs["radiusFromLocation"] = args ? args.radiusFromLocation : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
-            resourceInputs["velocity"] = args ? args.velocity : undefined;
+            resourceInputs["locationGranularityType"] = args?.locationGranularityType;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["numberOfAuthentications"] = args?.numberOfAuthentications;
+            resourceInputs["radiusFromLocation"] = args?.radiusFromLocation;
+            resourceInputs["status"] = args?.status;
+            resourceInputs["type"] = args?.type;
+            resourceInputs["velocity"] = args?.velocity;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Behaviour.__pulumiType, name, resourceInputs, opts);

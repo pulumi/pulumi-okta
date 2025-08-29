@@ -96,174 +96,174 @@ export class User extends pulumi.CustomResource {
     /**
      * User city
      */
-    public readonly city!: pulumi.Output<string | undefined>;
+    declare public readonly city: pulumi.Output<string | undefined>;
     /**
      * User cost center
      */
-    public readonly costCenter!: pulumi.Output<string | undefined>;
+    declare public readonly costCenter: pulumi.Output<string | undefined>;
     /**
      * User country code
      */
-    public readonly countryCode!: pulumi.Output<string | undefined>;
+    declare public readonly countryCode: pulumi.Output<string | undefined>;
     /**
      * JSON formatted custom attributes for a user. It must be JSON due to various types Okta allows. You must first add the custom property to the user profile schema before you reference it. You can use the Profile Editor in the Admin Console or the [Schemas](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UISchema/#tag/UISchema) API to manage schema extensions.
      */
-    public readonly customProfileAttributes!: pulumi.Output<string>;
-    public readonly customProfileAttributesToIgnores!: pulumi.Output<string[] | undefined>;
+    declare public readonly customProfileAttributes: pulumi.Output<string>;
+    declare public readonly customProfileAttributesToIgnores: pulumi.Output<string[] | undefined>;
     /**
      * User department
      */
-    public readonly department!: pulumi.Output<string | undefined>;
+    declare public readonly department: pulumi.Output<string | undefined>;
     /**
      * User display name, suitable to show end users
      */
-    public readonly displayName!: pulumi.Output<string | undefined>;
+    declare public readonly displayName: pulumi.Output<string | undefined>;
     /**
      * User division
      */
-    public readonly division!: pulumi.Output<string | undefined>;
+    declare public readonly division: pulumi.Output<string | undefined>;
     /**
      * User primary email address
      */
-    public readonly email!: pulumi.Output<string>;
+    declare public readonly email: pulumi.Output<string>;
     /**
      * User employee number
      */
-    public readonly employeeNumber!: pulumi.Output<string | undefined>;
+    declare public readonly employeeNumber: pulumi.Output<string | undefined>;
     /**
      * If set to `true`, the user will have to change the password at the next login. This property will be used when user is being created and works only when `password` field is set. Default: `false`
      */
-    public readonly expirePasswordOnCreate!: pulumi.Output<boolean | undefined>;
+    declare public readonly expirePasswordOnCreate: pulumi.Output<boolean | undefined>;
     /**
      * User first name
      */
-    public readonly firstName!: pulumi.Output<string>;
+    declare public readonly firstName: pulumi.Output<string>;
     /**
      * User honorific prefix
      */
-    public readonly honorificPrefix!: pulumi.Output<string | undefined>;
+    declare public readonly honorificPrefix: pulumi.Output<string | undefined>;
     /**
      * User honorific suffix
      */
-    public readonly honorificSuffix!: pulumi.Output<string | undefined>;
+    declare public readonly honorificSuffix: pulumi.Output<string | undefined>;
     /**
      * User last name
      */
-    public readonly lastName!: pulumi.Output<string>;
+    declare public readonly lastName: pulumi.Output<string>;
     /**
      * User default location
      */
-    public readonly locale!: pulumi.Output<string | undefined>;
+    declare public readonly locale: pulumi.Output<string | undefined>;
     /**
      * User Okta login
      */
-    public readonly login!: pulumi.Output<string>;
+    declare public readonly login: pulumi.Output<string>;
     /**
      * Manager of User
      */
-    public readonly manager!: pulumi.Output<string | undefined>;
+    declare public readonly manager: pulumi.Output<string | undefined>;
     /**
      * Manager ID of User
      */
-    public readonly managerId!: pulumi.Output<string | undefined>;
+    declare public readonly managerId: pulumi.Output<string | undefined>;
     /**
      * User middle name
      */
-    public readonly middleName!: pulumi.Output<string | undefined>;
+    declare public readonly middleName: pulumi.Output<string | undefined>;
     /**
      * User mobile phone number
      */
-    public readonly mobilePhone!: pulumi.Output<string | undefined>;
+    declare public readonly mobilePhone: pulumi.Output<string | undefined>;
     /**
      * User nickname
      */
-    public readonly nickName!: pulumi.Output<string | undefined>;
+    declare public readonly nickName: pulumi.Output<string | undefined>;
     /**
      * Old User Password. Should be only set in case the password was not changed using the provider. fter successful password change this field should be removed and `password` field should be used for further changes.
      */
-    public readonly oldPassword!: pulumi.Output<string | undefined>;
+    declare public readonly oldPassword: pulumi.Output<string | undefined>;
     /**
      * User organization
      */
-    public readonly organization!: pulumi.Output<string | undefined>;
+    declare public readonly organization: pulumi.Output<string | undefined>;
     /**
      * User Password
      */
-    public readonly password!: pulumi.Output<string | undefined>;
+    declare public readonly password: pulumi.Output<string | undefined>;
     /**
      * Specifies a hashed password to import into Okta.
      */
-    public readonly passwordHash!: pulumi.Output<outputs.user.UserPasswordHash | undefined>;
+    declare public readonly passwordHash: pulumi.Output<outputs.user.UserPasswordHash | undefined>;
     /**
      * Specifies that a Password Import Inline Hook should be triggered to handle verification of the user's password the first time the user logs in. This allows an existing password to be imported into Okta directly from some other store. When updating a user with a password hook the user must be in the `STAGED` status. The `password` field should not be specified when using Password Import Inline Hook.
      */
-    public readonly passwordInlineHook!: pulumi.Output<string | undefined>;
+    declare public readonly passwordInlineHook: pulumi.Output<string | undefined>;
     /**
      * User mailing address
      */
-    public readonly postalAddress!: pulumi.Output<string | undefined>;
+    declare public readonly postalAddress: pulumi.Output<string | undefined>;
     /**
      * User preferred language
      */
-    public readonly preferredLanguage!: pulumi.Output<string | undefined>;
+    declare public readonly preferredLanguage: pulumi.Output<string | undefined>;
     /**
      * User primary phone number
      */
-    public readonly primaryPhone!: pulumi.Output<string | undefined>;
+    declare public readonly primaryPhone: pulumi.Output<string | undefined>;
     /**
      * User online profile (web page)
      */
-    public readonly profileUrl!: pulumi.Output<string | undefined>;
+    declare public readonly profileUrl: pulumi.Output<string | undefined>;
     /**
      * The raw status of the User in Okta - (status is mapped)
      */
-    public /*out*/ readonly rawStatus!: pulumi.Output<string>;
+    declare public /*out*/ readonly rawStatus: pulumi.Output<string>;
     /**
      * User Password Recovery Answer
      */
-    public readonly recoveryAnswer!: pulumi.Output<string | undefined>;
+    declare public readonly recoveryAnswer: pulumi.Output<string | undefined>;
     /**
      * User Password Recovery Question
      */
-    public readonly recoveryQuestion!: pulumi.Output<string | undefined>;
+    declare public readonly recoveryQuestion: pulumi.Output<string | undefined>;
     /**
      * User secondary email address, used for account recovery
      */
-    public readonly secondEmail!: pulumi.Output<string | undefined>;
+    declare public readonly secondEmail: pulumi.Output<string | undefined>;
     /**
      * Do not populate user roles information (prevents additional API call)
      *
      * @deprecated Because adminRoles has been removed, this attribute is a no op and will be removed
      */
-    public readonly skipRoles!: pulumi.Output<boolean | undefined>;
+    declare public readonly skipRoles: pulumi.Output<boolean | undefined>;
     /**
      * User state or region
      */
-    public readonly state!: pulumi.Output<string | undefined>;
+    declare public readonly state: pulumi.Output<string | undefined>;
     /**
      * User profile property. Valid values are `ACTIVE`, `DEPROVISIONED`, `STAGED`, `SUSPENDED`. Default: `ACTIVE`
      */
-    public readonly status!: pulumi.Output<string | undefined>;
+    declare public readonly status: pulumi.Output<string | undefined>;
     /**
      * User street address
      */
-    public readonly streetAddress!: pulumi.Output<string | undefined>;
+    declare public readonly streetAddress: pulumi.Output<string | undefined>;
     /**
      * User default timezone
      */
-    public readonly timezone!: pulumi.Output<string | undefined>;
+    declare public readonly timezone: pulumi.Output<string | undefined>;
     /**
      * User title
      */
-    public readonly title!: pulumi.Output<string | undefined>;
+    declare public readonly title: pulumi.Output<string | undefined>;
     /**
      * User employee type
      */
-    public readonly userType!: pulumi.Output<string | undefined>;
+    declare public readonly userType: pulumi.Output<string | undefined>;
     /**
      * User zipcode or postal code
      */
-    public readonly zipCode!: pulumi.Output<string | undefined>;
+    declare public readonly zipCode: pulumi.Output<string | undefined>;
 
     /**
      * Create a User resource with the given unique name, arguments, and options.
@@ -278,105 +278,105 @@ export class User extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as UserState | undefined;
-            resourceInputs["city"] = state ? state.city : undefined;
-            resourceInputs["costCenter"] = state ? state.costCenter : undefined;
-            resourceInputs["countryCode"] = state ? state.countryCode : undefined;
-            resourceInputs["customProfileAttributes"] = state ? state.customProfileAttributes : undefined;
-            resourceInputs["customProfileAttributesToIgnores"] = state ? state.customProfileAttributesToIgnores : undefined;
-            resourceInputs["department"] = state ? state.department : undefined;
-            resourceInputs["displayName"] = state ? state.displayName : undefined;
-            resourceInputs["division"] = state ? state.division : undefined;
-            resourceInputs["email"] = state ? state.email : undefined;
-            resourceInputs["employeeNumber"] = state ? state.employeeNumber : undefined;
-            resourceInputs["expirePasswordOnCreate"] = state ? state.expirePasswordOnCreate : undefined;
-            resourceInputs["firstName"] = state ? state.firstName : undefined;
-            resourceInputs["honorificPrefix"] = state ? state.honorificPrefix : undefined;
-            resourceInputs["honorificSuffix"] = state ? state.honorificSuffix : undefined;
-            resourceInputs["lastName"] = state ? state.lastName : undefined;
-            resourceInputs["locale"] = state ? state.locale : undefined;
-            resourceInputs["login"] = state ? state.login : undefined;
-            resourceInputs["manager"] = state ? state.manager : undefined;
-            resourceInputs["managerId"] = state ? state.managerId : undefined;
-            resourceInputs["middleName"] = state ? state.middleName : undefined;
-            resourceInputs["mobilePhone"] = state ? state.mobilePhone : undefined;
-            resourceInputs["nickName"] = state ? state.nickName : undefined;
-            resourceInputs["oldPassword"] = state ? state.oldPassword : undefined;
-            resourceInputs["organization"] = state ? state.organization : undefined;
-            resourceInputs["password"] = state ? state.password : undefined;
-            resourceInputs["passwordHash"] = state ? state.passwordHash : undefined;
-            resourceInputs["passwordInlineHook"] = state ? state.passwordInlineHook : undefined;
-            resourceInputs["postalAddress"] = state ? state.postalAddress : undefined;
-            resourceInputs["preferredLanguage"] = state ? state.preferredLanguage : undefined;
-            resourceInputs["primaryPhone"] = state ? state.primaryPhone : undefined;
-            resourceInputs["profileUrl"] = state ? state.profileUrl : undefined;
-            resourceInputs["rawStatus"] = state ? state.rawStatus : undefined;
-            resourceInputs["recoveryAnswer"] = state ? state.recoveryAnswer : undefined;
-            resourceInputs["recoveryQuestion"] = state ? state.recoveryQuestion : undefined;
-            resourceInputs["secondEmail"] = state ? state.secondEmail : undefined;
-            resourceInputs["skipRoles"] = state ? state.skipRoles : undefined;
-            resourceInputs["state"] = state ? state.state : undefined;
-            resourceInputs["status"] = state ? state.status : undefined;
-            resourceInputs["streetAddress"] = state ? state.streetAddress : undefined;
-            resourceInputs["timezone"] = state ? state.timezone : undefined;
-            resourceInputs["title"] = state ? state.title : undefined;
-            resourceInputs["userType"] = state ? state.userType : undefined;
-            resourceInputs["zipCode"] = state ? state.zipCode : undefined;
+            resourceInputs["city"] = state?.city;
+            resourceInputs["costCenter"] = state?.costCenter;
+            resourceInputs["countryCode"] = state?.countryCode;
+            resourceInputs["customProfileAttributes"] = state?.customProfileAttributes;
+            resourceInputs["customProfileAttributesToIgnores"] = state?.customProfileAttributesToIgnores;
+            resourceInputs["department"] = state?.department;
+            resourceInputs["displayName"] = state?.displayName;
+            resourceInputs["division"] = state?.division;
+            resourceInputs["email"] = state?.email;
+            resourceInputs["employeeNumber"] = state?.employeeNumber;
+            resourceInputs["expirePasswordOnCreate"] = state?.expirePasswordOnCreate;
+            resourceInputs["firstName"] = state?.firstName;
+            resourceInputs["honorificPrefix"] = state?.honorificPrefix;
+            resourceInputs["honorificSuffix"] = state?.honorificSuffix;
+            resourceInputs["lastName"] = state?.lastName;
+            resourceInputs["locale"] = state?.locale;
+            resourceInputs["login"] = state?.login;
+            resourceInputs["manager"] = state?.manager;
+            resourceInputs["managerId"] = state?.managerId;
+            resourceInputs["middleName"] = state?.middleName;
+            resourceInputs["mobilePhone"] = state?.mobilePhone;
+            resourceInputs["nickName"] = state?.nickName;
+            resourceInputs["oldPassword"] = state?.oldPassword;
+            resourceInputs["organization"] = state?.organization;
+            resourceInputs["password"] = state?.password;
+            resourceInputs["passwordHash"] = state?.passwordHash;
+            resourceInputs["passwordInlineHook"] = state?.passwordInlineHook;
+            resourceInputs["postalAddress"] = state?.postalAddress;
+            resourceInputs["preferredLanguage"] = state?.preferredLanguage;
+            resourceInputs["primaryPhone"] = state?.primaryPhone;
+            resourceInputs["profileUrl"] = state?.profileUrl;
+            resourceInputs["rawStatus"] = state?.rawStatus;
+            resourceInputs["recoveryAnswer"] = state?.recoveryAnswer;
+            resourceInputs["recoveryQuestion"] = state?.recoveryQuestion;
+            resourceInputs["secondEmail"] = state?.secondEmail;
+            resourceInputs["skipRoles"] = state?.skipRoles;
+            resourceInputs["state"] = state?.state;
+            resourceInputs["status"] = state?.status;
+            resourceInputs["streetAddress"] = state?.streetAddress;
+            resourceInputs["timezone"] = state?.timezone;
+            resourceInputs["title"] = state?.title;
+            resourceInputs["userType"] = state?.userType;
+            resourceInputs["zipCode"] = state?.zipCode;
         } else {
             const args = argsOrState as UserArgs | undefined;
-            if ((!args || args.email === undefined) && !opts.urn) {
+            if (args?.email === undefined && !opts.urn) {
                 throw new Error("Missing required property 'email'");
             }
-            if ((!args || args.firstName === undefined) && !opts.urn) {
+            if (args?.firstName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'firstName'");
             }
-            if ((!args || args.lastName === undefined) && !opts.urn) {
+            if (args?.lastName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'lastName'");
             }
-            if ((!args || args.login === undefined) && !opts.urn) {
+            if (args?.login === undefined && !opts.urn) {
                 throw new Error("Missing required property 'login'");
             }
-            resourceInputs["city"] = args ? args.city : undefined;
-            resourceInputs["costCenter"] = args ? args.costCenter : undefined;
-            resourceInputs["countryCode"] = args ? args.countryCode : undefined;
-            resourceInputs["customProfileAttributes"] = args ? args.customProfileAttributes : undefined;
-            resourceInputs["customProfileAttributesToIgnores"] = args ? args.customProfileAttributesToIgnores : undefined;
-            resourceInputs["department"] = args ? args.department : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["division"] = args ? args.division : undefined;
-            resourceInputs["email"] = args ? args.email : undefined;
-            resourceInputs["employeeNumber"] = args ? args.employeeNumber : undefined;
-            resourceInputs["expirePasswordOnCreate"] = args ? args.expirePasswordOnCreate : undefined;
-            resourceInputs["firstName"] = args ? args.firstName : undefined;
-            resourceInputs["honorificPrefix"] = args ? args.honorificPrefix : undefined;
-            resourceInputs["honorificSuffix"] = args ? args.honorificSuffix : undefined;
-            resourceInputs["lastName"] = args ? args.lastName : undefined;
-            resourceInputs["locale"] = args ? args.locale : undefined;
-            resourceInputs["login"] = args ? args.login : undefined;
-            resourceInputs["manager"] = args ? args.manager : undefined;
-            resourceInputs["managerId"] = args ? args.managerId : undefined;
-            resourceInputs["middleName"] = args ? args.middleName : undefined;
-            resourceInputs["mobilePhone"] = args ? args.mobilePhone : undefined;
-            resourceInputs["nickName"] = args ? args.nickName : undefined;
+            resourceInputs["city"] = args?.city;
+            resourceInputs["costCenter"] = args?.costCenter;
+            resourceInputs["countryCode"] = args?.countryCode;
+            resourceInputs["customProfileAttributes"] = args?.customProfileAttributes;
+            resourceInputs["customProfileAttributesToIgnores"] = args?.customProfileAttributesToIgnores;
+            resourceInputs["department"] = args?.department;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["division"] = args?.division;
+            resourceInputs["email"] = args?.email;
+            resourceInputs["employeeNumber"] = args?.employeeNumber;
+            resourceInputs["expirePasswordOnCreate"] = args?.expirePasswordOnCreate;
+            resourceInputs["firstName"] = args?.firstName;
+            resourceInputs["honorificPrefix"] = args?.honorificPrefix;
+            resourceInputs["honorificSuffix"] = args?.honorificSuffix;
+            resourceInputs["lastName"] = args?.lastName;
+            resourceInputs["locale"] = args?.locale;
+            resourceInputs["login"] = args?.login;
+            resourceInputs["manager"] = args?.manager;
+            resourceInputs["managerId"] = args?.managerId;
+            resourceInputs["middleName"] = args?.middleName;
+            resourceInputs["mobilePhone"] = args?.mobilePhone;
+            resourceInputs["nickName"] = args?.nickName;
             resourceInputs["oldPassword"] = args?.oldPassword ? pulumi.secret(args.oldPassword) : undefined;
-            resourceInputs["organization"] = args ? args.organization : undefined;
+            resourceInputs["organization"] = args?.organization;
             resourceInputs["password"] = args?.password ? pulumi.secret(args.password) : undefined;
-            resourceInputs["passwordHash"] = args ? args.passwordHash : undefined;
-            resourceInputs["passwordInlineHook"] = args ? args.passwordInlineHook : undefined;
-            resourceInputs["postalAddress"] = args ? args.postalAddress : undefined;
-            resourceInputs["preferredLanguage"] = args ? args.preferredLanguage : undefined;
-            resourceInputs["primaryPhone"] = args ? args.primaryPhone : undefined;
-            resourceInputs["profileUrl"] = args ? args.profileUrl : undefined;
+            resourceInputs["passwordHash"] = args?.passwordHash;
+            resourceInputs["passwordInlineHook"] = args?.passwordInlineHook;
+            resourceInputs["postalAddress"] = args?.postalAddress;
+            resourceInputs["preferredLanguage"] = args?.preferredLanguage;
+            resourceInputs["primaryPhone"] = args?.primaryPhone;
+            resourceInputs["profileUrl"] = args?.profileUrl;
             resourceInputs["recoveryAnswer"] = args?.recoveryAnswer ? pulumi.secret(args.recoveryAnswer) : undefined;
-            resourceInputs["recoveryQuestion"] = args ? args.recoveryQuestion : undefined;
-            resourceInputs["secondEmail"] = args ? args.secondEmail : undefined;
-            resourceInputs["skipRoles"] = args ? args.skipRoles : undefined;
-            resourceInputs["state"] = args ? args.state : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
-            resourceInputs["streetAddress"] = args ? args.streetAddress : undefined;
-            resourceInputs["timezone"] = args ? args.timezone : undefined;
-            resourceInputs["title"] = args ? args.title : undefined;
-            resourceInputs["userType"] = args ? args.userType : undefined;
-            resourceInputs["zipCode"] = args ? args.zipCode : undefined;
+            resourceInputs["recoveryQuestion"] = args?.recoveryQuestion;
+            resourceInputs["secondEmail"] = args?.secondEmail;
+            resourceInputs["skipRoles"] = args?.skipRoles;
+            resourceInputs["state"] = args?.state;
+            resourceInputs["status"] = args?.status;
+            resourceInputs["streetAddress"] = args?.streetAddress;
+            resourceInputs["timezone"] = args?.timezone;
+            resourceInputs["title"] = args?.title;
+            resourceInputs["userType"] = args?.userType;
+            resourceInputs["zipCode"] = args?.zipCode;
             resourceInputs["rawStatus"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

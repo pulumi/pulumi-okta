@@ -64,131 +64,131 @@ export class SecurePasswordStore extends pulumi.CustomResource {
     /**
      * Custom error page URL
      */
-    public readonly accessibilityErrorRedirectUrl!: pulumi.Output<string | undefined>;
+    declare public readonly accessibilityErrorRedirectUrl: pulumi.Output<string | undefined>;
     /**
      * Custom login page URL
      */
-    public readonly accessibilityLoginRedirectUrl!: pulumi.Output<string | undefined>;
+    declare public readonly accessibilityLoginRedirectUrl: pulumi.Output<string | undefined>;
     /**
      * Enable self service. Default is `false`
      */
-    public readonly accessibilitySelfService!: pulumi.Output<boolean | undefined>;
+    declare public readonly accessibilitySelfService: pulumi.Output<boolean | undefined>;
     /**
      * Application notes for admins.
      */
-    public readonly adminNote!: pulumi.Output<string | undefined>;
+    declare public readonly adminNote: pulumi.Output<string | undefined>;
     /**
      * Displays specific appLinks for the app. The value for each application link should be boolean.
      */
-    public readonly appLinksJson!: pulumi.Output<string | undefined>;
+    declare public readonly appLinksJson: pulumi.Output<string | undefined>;
     /**
      * Display auto submit toolbar
      */
-    public readonly autoSubmitToolbar!: pulumi.Output<boolean | undefined>;
+    declare public readonly autoSubmitToolbar: pulumi.Output<boolean | undefined>;
     /**
      * Application credentials scheme. One of: `EDIT_USERNAME_AND_PASSWORD`, `ADMIN_SETS_CREDENTIALS`, `EDIT_PASSWORD_ONLY`, `EXTERNAL_PASSWORD_SYNC`, or `SHARED_USERNAME_AND_PASSWORD`
      */
-    public readonly credentialsScheme!: pulumi.Output<string | undefined>;
+    declare public readonly credentialsScheme: pulumi.Output<string | undefined>;
     /**
      * Application notes for end users.
      */
-    public readonly enduserNote!: pulumi.Output<string | undefined>;
+    declare public readonly enduserNote: pulumi.Output<string | undefined>;
     /**
      * Do not display application icon on mobile app
      */
-    public readonly hideIos!: pulumi.Output<boolean | undefined>;
+    declare public readonly hideIos: pulumi.Output<boolean | undefined>;
     /**
      * Do not display application icon to users
      */
-    public readonly hideWeb!: pulumi.Output<boolean | undefined>;
+    declare public readonly hideWeb: pulumi.Output<boolean | undefined>;
     /**
      * The Application's display name.
      */
-    public readonly label!: pulumi.Output<string>;
+    declare public readonly label: pulumi.Output<string>;
     /**
      * Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
      */
-    public readonly logo!: pulumi.Output<string | undefined>;
+    declare public readonly logo: pulumi.Output<string | undefined>;
     /**
      * URL of the application's logo
      */
-    public /*out*/ readonly logoUrl!: pulumi.Output<string>;
+    declare public /*out*/ readonly logoUrl: pulumi.Output<string>;
     /**
      * Name of the app.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Name of optional param in the login form
      */
-    public readonly optionalField1!: pulumi.Output<string | undefined>;
+    declare public readonly optionalField1: pulumi.Output<string | undefined>;
     /**
      * Name of optional value in login form
      */
-    public readonly optionalField1Value!: pulumi.Output<string | undefined>;
+    declare public readonly optionalField1Value: pulumi.Output<string | undefined>;
     /**
      * Name of optional param in the login form
      */
-    public readonly optionalField2!: pulumi.Output<string | undefined>;
+    declare public readonly optionalField2: pulumi.Output<string | undefined>;
     /**
      * Name of optional value in login form
      */
-    public readonly optionalField2Value!: pulumi.Output<string | undefined>;
+    declare public readonly optionalField2Value: pulumi.Output<string | undefined>;
     /**
      * Name of optional param in the login form
      */
-    public readonly optionalField3!: pulumi.Output<string | undefined>;
+    declare public readonly optionalField3: pulumi.Output<string | undefined>;
     /**
      * Name of optional value in login form
      */
-    public readonly optionalField3Value!: pulumi.Output<string | undefined>;
+    declare public readonly optionalField3Value: pulumi.Output<string | undefined>;
     /**
      * Login password field
      */
-    public readonly passwordField!: pulumi.Output<string>;
+    declare public readonly passwordField: pulumi.Output<string>;
     /**
      * Allow user to reveal password. It can not be set to `true` if `credentialsScheme` is `ADMIN_SETS_CREDENTIALS`, `SHARED_USERNAME_AND_PASSWORD` or `EXTERNAL_PASSWORD_SYNC`.
      */
-    public readonly revealPassword!: pulumi.Output<boolean | undefined>;
+    declare public readonly revealPassword: pulumi.Output<boolean | undefined>;
     /**
      * Shared password, required for certain schemes.
      */
-    public readonly sharedPassword!: pulumi.Output<string | undefined>;
+    declare public readonly sharedPassword: pulumi.Output<string | undefined>;
     /**
      * Shared username, required for certain schemes.
      */
-    public readonly sharedUsername!: pulumi.Output<string | undefined>;
+    declare public readonly sharedUsername: pulumi.Output<string | undefined>;
     /**
      * Sign on mode of application.
      */
-    public /*out*/ readonly signOnMode!: pulumi.Output<string>;
+    declare public /*out*/ readonly signOnMode: pulumi.Output<string>;
     /**
      * Status of application. By default, it is `ACTIVE`
      */
-    public readonly status!: pulumi.Output<string | undefined>;
+    declare public readonly status: pulumi.Output<string | undefined>;
     /**
      * Login URL
      */
-    public readonly url!: pulumi.Output<string>;
+    declare public readonly url: pulumi.Output<string>;
     /**
      * Username template. Default: `${source.login}`
      */
-    public readonly userNameTemplate!: pulumi.Output<string | undefined>;
+    declare public readonly userNameTemplate: pulumi.Output<string | undefined>;
     /**
      * Push username on update. Valid values: `PUSH` and `DONT_PUSH`
      */
-    public readonly userNameTemplatePushStatus!: pulumi.Output<string | undefined>;
+    declare public readonly userNameTemplatePushStatus: pulumi.Output<string | undefined>;
     /**
      * Username template suffix
      */
-    public readonly userNameTemplateSuffix!: pulumi.Output<string | undefined>;
+    declare public readonly userNameTemplateSuffix: pulumi.Output<string | undefined>;
     /**
      * Username template type. Default: `BUILT_IN`
      */
-    public readonly userNameTemplateType!: pulumi.Output<string | undefined>;
+    declare public readonly userNameTemplateType: pulumi.Output<string | undefined>;
     /**
      * Login username field
      */
-    public readonly usernameField!: pulumi.Output<string>;
+    declare public readonly usernameField: pulumi.Output<string>;
 
     /**
      * Create a SecurePasswordStore resource with the given unique name, arguments, and options.
@@ -203,81 +203,81 @@ export class SecurePasswordStore extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SecurePasswordStoreState | undefined;
-            resourceInputs["accessibilityErrorRedirectUrl"] = state ? state.accessibilityErrorRedirectUrl : undefined;
-            resourceInputs["accessibilityLoginRedirectUrl"] = state ? state.accessibilityLoginRedirectUrl : undefined;
-            resourceInputs["accessibilitySelfService"] = state ? state.accessibilitySelfService : undefined;
-            resourceInputs["adminNote"] = state ? state.adminNote : undefined;
-            resourceInputs["appLinksJson"] = state ? state.appLinksJson : undefined;
-            resourceInputs["autoSubmitToolbar"] = state ? state.autoSubmitToolbar : undefined;
-            resourceInputs["credentialsScheme"] = state ? state.credentialsScheme : undefined;
-            resourceInputs["enduserNote"] = state ? state.enduserNote : undefined;
-            resourceInputs["hideIos"] = state ? state.hideIos : undefined;
-            resourceInputs["hideWeb"] = state ? state.hideWeb : undefined;
-            resourceInputs["label"] = state ? state.label : undefined;
-            resourceInputs["logo"] = state ? state.logo : undefined;
-            resourceInputs["logoUrl"] = state ? state.logoUrl : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["optionalField1"] = state ? state.optionalField1 : undefined;
-            resourceInputs["optionalField1Value"] = state ? state.optionalField1Value : undefined;
-            resourceInputs["optionalField2"] = state ? state.optionalField2 : undefined;
-            resourceInputs["optionalField2Value"] = state ? state.optionalField2Value : undefined;
-            resourceInputs["optionalField3"] = state ? state.optionalField3 : undefined;
-            resourceInputs["optionalField3Value"] = state ? state.optionalField3Value : undefined;
-            resourceInputs["passwordField"] = state ? state.passwordField : undefined;
-            resourceInputs["revealPassword"] = state ? state.revealPassword : undefined;
-            resourceInputs["sharedPassword"] = state ? state.sharedPassword : undefined;
-            resourceInputs["sharedUsername"] = state ? state.sharedUsername : undefined;
-            resourceInputs["signOnMode"] = state ? state.signOnMode : undefined;
-            resourceInputs["status"] = state ? state.status : undefined;
-            resourceInputs["url"] = state ? state.url : undefined;
-            resourceInputs["userNameTemplate"] = state ? state.userNameTemplate : undefined;
-            resourceInputs["userNameTemplatePushStatus"] = state ? state.userNameTemplatePushStatus : undefined;
-            resourceInputs["userNameTemplateSuffix"] = state ? state.userNameTemplateSuffix : undefined;
-            resourceInputs["userNameTemplateType"] = state ? state.userNameTemplateType : undefined;
-            resourceInputs["usernameField"] = state ? state.usernameField : undefined;
+            resourceInputs["accessibilityErrorRedirectUrl"] = state?.accessibilityErrorRedirectUrl;
+            resourceInputs["accessibilityLoginRedirectUrl"] = state?.accessibilityLoginRedirectUrl;
+            resourceInputs["accessibilitySelfService"] = state?.accessibilitySelfService;
+            resourceInputs["adminNote"] = state?.adminNote;
+            resourceInputs["appLinksJson"] = state?.appLinksJson;
+            resourceInputs["autoSubmitToolbar"] = state?.autoSubmitToolbar;
+            resourceInputs["credentialsScheme"] = state?.credentialsScheme;
+            resourceInputs["enduserNote"] = state?.enduserNote;
+            resourceInputs["hideIos"] = state?.hideIos;
+            resourceInputs["hideWeb"] = state?.hideWeb;
+            resourceInputs["label"] = state?.label;
+            resourceInputs["logo"] = state?.logo;
+            resourceInputs["logoUrl"] = state?.logoUrl;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["optionalField1"] = state?.optionalField1;
+            resourceInputs["optionalField1Value"] = state?.optionalField1Value;
+            resourceInputs["optionalField2"] = state?.optionalField2;
+            resourceInputs["optionalField2Value"] = state?.optionalField2Value;
+            resourceInputs["optionalField3"] = state?.optionalField3;
+            resourceInputs["optionalField3Value"] = state?.optionalField3Value;
+            resourceInputs["passwordField"] = state?.passwordField;
+            resourceInputs["revealPassword"] = state?.revealPassword;
+            resourceInputs["sharedPassword"] = state?.sharedPassword;
+            resourceInputs["sharedUsername"] = state?.sharedUsername;
+            resourceInputs["signOnMode"] = state?.signOnMode;
+            resourceInputs["status"] = state?.status;
+            resourceInputs["url"] = state?.url;
+            resourceInputs["userNameTemplate"] = state?.userNameTemplate;
+            resourceInputs["userNameTemplatePushStatus"] = state?.userNameTemplatePushStatus;
+            resourceInputs["userNameTemplateSuffix"] = state?.userNameTemplateSuffix;
+            resourceInputs["userNameTemplateType"] = state?.userNameTemplateType;
+            resourceInputs["usernameField"] = state?.usernameField;
         } else {
             const args = argsOrState as SecurePasswordStoreArgs | undefined;
-            if ((!args || args.label === undefined) && !opts.urn) {
+            if (args?.label === undefined && !opts.urn) {
                 throw new Error("Missing required property 'label'");
             }
-            if ((!args || args.passwordField === undefined) && !opts.urn) {
+            if (args?.passwordField === undefined && !opts.urn) {
                 throw new Error("Missing required property 'passwordField'");
             }
-            if ((!args || args.url === undefined) && !opts.urn) {
+            if (args?.url === undefined && !opts.urn) {
                 throw new Error("Missing required property 'url'");
             }
-            if ((!args || args.usernameField === undefined) && !opts.urn) {
+            if (args?.usernameField === undefined && !opts.urn) {
                 throw new Error("Missing required property 'usernameField'");
             }
-            resourceInputs["accessibilityErrorRedirectUrl"] = args ? args.accessibilityErrorRedirectUrl : undefined;
-            resourceInputs["accessibilityLoginRedirectUrl"] = args ? args.accessibilityLoginRedirectUrl : undefined;
-            resourceInputs["accessibilitySelfService"] = args ? args.accessibilitySelfService : undefined;
-            resourceInputs["adminNote"] = args ? args.adminNote : undefined;
-            resourceInputs["appLinksJson"] = args ? args.appLinksJson : undefined;
-            resourceInputs["autoSubmitToolbar"] = args ? args.autoSubmitToolbar : undefined;
-            resourceInputs["credentialsScheme"] = args ? args.credentialsScheme : undefined;
-            resourceInputs["enduserNote"] = args ? args.enduserNote : undefined;
-            resourceInputs["hideIos"] = args ? args.hideIos : undefined;
-            resourceInputs["hideWeb"] = args ? args.hideWeb : undefined;
-            resourceInputs["label"] = args ? args.label : undefined;
-            resourceInputs["logo"] = args ? args.logo : undefined;
-            resourceInputs["optionalField1"] = args ? args.optionalField1 : undefined;
-            resourceInputs["optionalField1Value"] = args ? args.optionalField1Value : undefined;
-            resourceInputs["optionalField2"] = args ? args.optionalField2 : undefined;
-            resourceInputs["optionalField2Value"] = args ? args.optionalField2Value : undefined;
-            resourceInputs["optionalField3"] = args ? args.optionalField3 : undefined;
-            resourceInputs["optionalField3Value"] = args ? args.optionalField3Value : undefined;
-            resourceInputs["passwordField"] = args ? args.passwordField : undefined;
-            resourceInputs["revealPassword"] = args ? args.revealPassword : undefined;
-            resourceInputs["sharedPassword"] = args ? args.sharedPassword : undefined;
-            resourceInputs["sharedUsername"] = args ? args.sharedUsername : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
-            resourceInputs["url"] = args ? args.url : undefined;
-            resourceInputs["userNameTemplate"] = args ? args.userNameTemplate : undefined;
-            resourceInputs["userNameTemplatePushStatus"] = args ? args.userNameTemplatePushStatus : undefined;
-            resourceInputs["userNameTemplateSuffix"] = args ? args.userNameTemplateSuffix : undefined;
-            resourceInputs["userNameTemplateType"] = args ? args.userNameTemplateType : undefined;
-            resourceInputs["usernameField"] = args ? args.usernameField : undefined;
+            resourceInputs["accessibilityErrorRedirectUrl"] = args?.accessibilityErrorRedirectUrl;
+            resourceInputs["accessibilityLoginRedirectUrl"] = args?.accessibilityLoginRedirectUrl;
+            resourceInputs["accessibilitySelfService"] = args?.accessibilitySelfService;
+            resourceInputs["adminNote"] = args?.adminNote;
+            resourceInputs["appLinksJson"] = args?.appLinksJson;
+            resourceInputs["autoSubmitToolbar"] = args?.autoSubmitToolbar;
+            resourceInputs["credentialsScheme"] = args?.credentialsScheme;
+            resourceInputs["enduserNote"] = args?.enduserNote;
+            resourceInputs["hideIos"] = args?.hideIos;
+            resourceInputs["hideWeb"] = args?.hideWeb;
+            resourceInputs["label"] = args?.label;
+            resourceInputs["logo"] = args?.logo;
+            resourceInputs["optionalField1"] = args?.optionalField1;
+            resourceInputs["optionalField1Value"] = args?.optionalField1Value;
+            resourceInputs["optionalField2"] = args?.optionalField2;
+            resourceInputs["optionalField2Value"] = args?.optionalField2Value;
+            resourceInputs["optionalField3"] = args?.optionalField3;
+            resourceInputs["optionalField3Value"] = args?.optionalField3Value;
+            resourceInputs["passwordField"] = args?.passwordField;
+            resourceInputs["revealPassword"] = args?.revealPassword;
+            resourceInputs["sharedPassword"] = args?.sharedPassword;
+            resourceInputs["sharedUsername"] = args?.sharedUsername;
+            resourceInputs["status"] = args?.status;
+            resourceInputs["url"] = args?.url;
+            resourceInputs["userNameTemplate"] = args?.userNameTemplate;
+            resourceInputs["userNameTemplatePushStatus"] = args?.userNameTemplatePushStatus;
+            resourceInputs["userNameTemplateSuffix"] = args?.userNameTemplateSuffix;
+            resourceInputs["userNameTemplateType"] = args?.userNameTemplateType;
+            resourceInputs["usernameField"] = args?.usernameField;
             resourceInputs["logoUrl"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["signOnMode"] = undefined /*out*/;

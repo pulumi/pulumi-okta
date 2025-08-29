@@ -68,11 +68,11 @@ export class OAuthPostLogoutRedirectUri extends pulumi.CustomResource {
     /**
      * OAuth application ID.
      */
-    public readonly appId!: pulumi.Output<string>;
+    declare public readonly appId: pulumi.Output<string>;
     /**
      * Post Logout Redirect URI to append to Okta OIDC application.
      */
-    public readonly uri!: pulumi.Output<string>;
+    declare public readonly uri: pulumi.Output<string>;
 
     /**
      * Create a OAuthPostLogoutRedirectUri resource with the given unique name, arguments, and options.
@@ -87,18 +87,18 @@ export class OAuthPostLogoutRedirectUri extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as OAuthPostLogoutRedirectUriState | undefined;
-            resourceInputs["appId"] = state ? state.appId : undefined;
-            resourceInputs["uri"] = state ? state.uri : undefined;
+            resourceInputs["appId"] = state?.appId;
+            resourceInputs["uri"] = state?.uri;
         } else {
             const args = argsOrState as OAuthPostLogoutRedirectUriArgs | undefined;
-            if ((!args || args.appId === undefined) && !opts.urn) {
+            if (args?.appId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'appId'");
             }
-            if ((!args || args.uri === undefined) && !opts.urn) {
+            if (args?.uri === undefined && !opts.urn) {
                 throw new Error("Missing required property 'uri'");
             }
-            resourceInputs["appId"] = args ? args.appId : undefined;
-            resourceInputs["uri"] = args ? args.uri : undefined;
+            resourceInputs["appId"] = args?.appId;
+            resourceInputs["uri"] = args?.uri;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(OAuthPostLogoutRedirectUri.__pulumiType, name, resourceInputs, opts);

@@ -198,16 +198,14 @@ public class Saml extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.groupsFilters);
     }
     /**
-     * Determines if the IdP should persist account linking when the incoming assertion NameID format is
-     * urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
+     * Determines if the IdP should persist account linking when the incoming assertion NameID format is urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
      * 
      */
     @Export(name="honorPersistentNameId", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> honorPersistentNameId;
 
     /**
-     * @return Determines if the IdP should persist account linking when the incoming assertion NameID format is
-     * urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
+     * @return Determines if the IdP should persist account linking when the incoming assertion NameID format is urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
      * 
      */
     public Output<Optional<Boolean>> honorPersistentNameId() {

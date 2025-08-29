@@ -58,31 +58,31 @@ export class Owner extends pulumi.CustomResource {
     /**
      * The display name of the group owner
      */
-    public /*out*/ readonly displayName!: pulumi.Output<string>;
+    declare public /*out*/ readonly displayName: pulumi.Output<string>;
     /**
      * The id of the group
      */
-    public readonly groupId!: pulumi.Output<string>;
+    declare public readonly groupId: pulumi.Output<string>;
     /**
      * The user id of the group owner
      */
-    public readonly idOfGroupOwner!: pulumi.Output<string>;
+    declare public readonly idOfGroupOwner: pulumi.Output<string>;
     /**
      * The ID of the app instance if the originType is APPLICATION. This value is NULL if originType is OKTA_DIRECTORY.
      */
-    public /*out*/ readonly originId!: pulumi.Output<string>;
+    declare public /*out*/ readonly originId: pulumi.Output<string>;
     /**
      * The source where group ownership is managed. Enum: "APPLICATION" "OKTA_DIRECTORY"
      */
-    public /*out*/ readonly originType!: pulumi.Output<string>;
+    declare public /*out*/ readonly originType: pulumi.Output<string>;
     /**
      * If originType is APPLICATION, this parameter is set to FALSE until the owner's originId is reconciled with an associated Okta ID.
      */
-    public /*out*/ readonly resolved!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly resolved: pulumi.Output<boolean>;
     /**
      * The entity type of the owner. Enum: "GROUP" "USER"
      */
-    public readonly type!: pulumi.Output<string>;
+    declare public readonly type: pulumi.Output<string>;
 
     /**
      * Create a Owner resource with the given unique name, arguments, and options.
@@ -97,27 +97,27 @@ export class Owner extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as OwnerState | undefined;
-            resourceInputs["displayName"] = state ? state.displayName : undefined;
-            resourceInputs["groupId"] = state ? state.groupId : undefined;
-            resourceInputs["idOfGroupOwner"] = state ? state.idOfGroupOwner : undefined;
-            resourceInputs["originId"] = state ? state.originId : undefined;
-            resourceInputs["originType"] = state ? state.originType : undefined;
-            resourceInputs["resolved"] = state ? state.resolved : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["displayName"] = state?.displayName;
+            resourceInputs["groupId"] = state?.groupId;
+            resourceInputs["idOfGroupOwner"] = state?.idOfGroupOwner;
+            resourceInputs["originId"] = state?.originId;
+            resourceInputs["originType"] = state?.originType;
+            resourceInputs["resolved"] = state?.resolved;
+            resourceInputs["type"] = state?.type;
         } else {
             const args = argsOrState as OwnerArgs | undefined;
-            if ((!args || args.groupId === undefined) && !opts.urn) {
+            if (args?.groupId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'groupId'");
             }
-            if ((!args || args.idOfGroupOwner === undefined) && !opts.urn) {
+            if (args?.idOfGroupOwner === undefined && !opts.urn) {
                 throw new Error("Missing required property 'idOfGroupOwner'");
             }
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["groupId"] = args ? args.groupId : undefined;
-            resourceInputs["idOfGroupOwner"] = args ? args.idOfGroupOwner : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["groupId"] = args?.groupId;
+            resourceInputs["idOfGroupOwner"] = args?.idOfGroupOwner;
+            resourceInputs["type"] = args?.type;
             resourceInputs["displayName"] = undefined /*out*/;
             resourceInputs["originId"] = undefined /*out*/;
             resourceInputs["originType"] = undefined /*out*/;

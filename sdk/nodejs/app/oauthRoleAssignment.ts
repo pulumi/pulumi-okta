@@ -46,27 +46,27 @@ export class OauthRoleAssignment extends pulumi.CustomResource {
     /**
      * Client ID for the role to be assigned to
      */
-    public readonly clientId!: pulumi.Output<string>;
+    declare public readonly clientId: pulumi.Output<string>;
     /**
      * Label of the role assignment
      */
-    public /*out*/ readonly label!: pulumi.Output<string>;
+    declare public /*out*/ readonly label: pulumi.Output<string>;
     /**
      * Resource set for the custom role to assign, must be the ID of the created resource set.
      */
-    public readonly resourceSet!: pulumi.Output<string | undefined>;
+    declare public readonly resourceSet: pulumi.Output<string | undefined>;
     /**
      * Custom Role ID
      */
-    public readonly role!: pulumi.Output<string | undefined>;
+    declare public readonly role: pulumi.Output<string | undefined>;
     /**
      * Status of the role assignment
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
      * Role type to assign. This can be one of the standard Okta roles, such as `HELP_DESK_ADMIN`, or `CUSTOM`. Using custom requires the `resourceSet` and `role` attributes to be set.
      */
-    public readonly type!: pulumi.Output<string>;
+    declare public readonly type: pulumi.Output<string>;
 
     /**
      * Create a OauthRoleAssignment resource with the given unique name, arguments, and options.
@@ -81,24 +81,24 @@ export class OauthRoleAssignment extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as OauthRoleAssignmentState | undefined;
-            resourceInputs["clientId"] = state ? state.clientId : undefined;
-            resourceInputs["label"] = state ? state.label : undefined;
-            resourceInputs["resourceSet"] = state ? state.resourceSet : undefined;
-            resourceInputs["role"] = state ? state.role : undefined;
-            resourceInputs["status"] = state ? state.status : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["clientId"] = state?.clientId;
+            resourceInputs["label"] = state?.label;
+            resourceInputs["resourceSet"] = state?.resourceSet;
+            resourceInputs["role"] = state?.role;
+            resourceInputs["status"] = state?.status;
+            resourceInputs["type"] = state?.type;
         } else {
             const args = argsOrState as OauthRoleAssignmentArgs | undefined;
-            if ((!args || args.clientId === undefined) && !opts.urn) {
+            if (args?.clientId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clientId'");
             }
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["clientId"] = args ? args.clientId : undefined;
-            resourceInputs["resourceSet"] = args ? args.resourceSet : undefined;
-            resourceInputs["role"] = args ? args.role : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["clientId"] = args?.clientId;
+            resourceInputs["resourceSet"] = args?.resourceSet;
+            resourceInputs["role"] = args?.role;
+            resourceInputs["type"] = args?.type;
             resourceInputs["label"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
         }

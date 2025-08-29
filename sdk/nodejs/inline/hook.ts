@@ -104,32 +104,32 @@ export class Hook extends pulumi.CustomResource {
         return obj['__pulumiType'] === Hook.__pulumiType;
     }
 
-    public readonly auth!: pulumi.Output<{[key: string]: string} | undefined>;
-    public readonly channel!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly auth: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly channel: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * true channel object for the inline hook API contract
      */
-    public readonly channelJson!: pulumi.Output<string | undefined>;
+    declare public readonly channelJson: pulumi.Output<string | undefined>;
     /**
      * Map of headers to send along in inline hook request.
      */
-    public readonly headers!: pulumi.Output<outputs.inline.HookHeader[] | undefined>;
+    declare public readonly headers: pulumi.Output<outputs.inline.HookHeader[] | undefined>;
     /**
      * The inline hook display name.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Default to `ACTIVE`
      */
-    public readonly status!: pulumi.Output<string | undefined>;
+    declare public readonly status: pulumi.Output<string | undefined>;
     /**
      * The type of hook to create. [See here for supported types](https://developer.okta.com/docs/reference/api/inline-hooks/#supported-inline-hook-types).
      */
-    public readonly type!: pulumi.Output<string>;
+    declare public readonly type: pulumi.Output<string>;
     /**
      * The version of the hook. The currently-supported version is `1.0.0`.
      */
-    public readonly version!: pulumi.Output<string>;
+    declare public readonly version: pulumi.Output<string>;
 
     /**
      * Create a Hook resource with the given unique name, arguments, and options.
@@ -144,30 +144,30 @@ export class Hook extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as HookState | undefined;
-            resourceInputs["auth"] = state ? state.auth : undefined;
-            resourceInputs["channel"] = state ? state.channel : undefined;
-            resourceInputs["channelJson"] = state ? state.channelJson : undefined;
-            resourceInputs["headers"] = state ? state.headers : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["status"] = state ? state.status : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
-            resourceInputs["version"] = state ? state.version : undefined;
+            resourceInputs["auth"] = state?.auth;
+            resourceInputs["channel"] = state?.channel;
+            resourceInputs["channelJson"] = state?.channelJson;
+            resourceInputs["headers"] = state?.headers;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["status"] = state?.status;
+            resourceInputs["type"] = state?.type;
+            resourceInputs["version"] = state?.version;
         } else {
             const args = argsOrState as HookArgs | undefined;
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            if ((!args || args.version === undefined) && !opts.urn) {
+            if (args?.version === undefined && !opts.urn) {
                 throw new Error("Missing required property 'version'");
             }
-            resourceInputs["auth"] = args ? args.auth : undefined;
-            resourceInputs["channel"] = args ? args.channel : undefined;
-            resourceInputs["channelJson"] = args ? args.channelJson : undefined;
-            resourceInputs["headers"] = args ? args.headers : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
-            resourceInputs["version"] = args ? args.version : undefined;
+            resourceInputs["auth"] = args?.auth;
+            resourceInputs["channel"] = args?.channel;
+            resourceInputs["channelJson"] = args?.channelJson;
+            resourceInputs["headers"] = args?.headers;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["status"] = args?.status;
+            resourceInputs["type"] = args?.type;
+            resourceInputs["version"] = args?.version;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Hook.__pulumiType, name, resourceInputs, opts);

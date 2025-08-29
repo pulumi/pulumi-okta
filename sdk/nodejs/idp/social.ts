@@ -64,139 +64,139 @@ export class Social extends pulumi.CustomResource {
     /**
      * Specifies the account linking action for an IdP user. Default: `AUTO`
      */
-    public readonly accountLinkAction!: pulumi.Output<string | undefined>;
+    declare public readonly accountLinkAction: pulumi.Output<string | undefined>;
     /**
      * Group memberships to determine link candidates.
      */
-    public readonly accountLinkGroupIncludes!: pulumi.Output<string[] | undefined>;
+    declare public readonly accountLinkGroupIncludes: pulumi.Output<string[] | undefined>;
     /**
      * The Key ID that you obtained from Apple when you created the private key for the client
      */
-    public readonly appleKid!: pulumi.Output<string | undefined>;
+    declare public readonly appleKid: pulumi.Output<string | undefined>;
     /**
      * The Key ID that you obtained from Apple when you created the private key for the client. PrivateKey is required when resource is first created. For all consecutive updates, it can be empty/omitted and keeps the existing value if it is empty/omitted. PrivateKey isn't returned when importing this resource.
      */
-    public readonly applePrivateKey!: pulumi.Output<string | undefined>;
+    declare public readonly applePrivateKey: pulumi.Output<string | undefined>;
     /**
      * The Team ID associated with your Apple developer account
      */
-    public readonly appleTeamId!: pulumi.Output<string | undefined>;
+    declare public readonly appleTeamId: pulumi.Output<string | undefined>;
     /**
      * The method of making an authorization request. It can be set to `HTTP-POST` or `HTTP-REDIRECT`.
      */
-    public /*out*/ readonly authorizationBinding!: pulumi.Output<string>;
+    declare public /*out*/ readonly authorizationBinding: pulumi.Output<string>;
     /**
      * IdP Authorization Server (AS) endpoint to request consent from the user and obtain an authorization code grant.
      */
-    public /*out*/ readonly authorizationUrl!: pulumi.Output<string>;
+    declare public /*out*/ readonly authorizationUrl: pulumi.Output<string>;
     /**
      * Unique identifier issued by AS for the Okta IdP instance.
      */
-    public readonly clientId!: pulumi.Output<string | undefined>;
+    declare public readonly clientId: pulumi.Output<string | undefined>;
     /**
      * Client secret issued by AS for the Okta IdP instance.
      */
-    public readonly clientSecret!: pulumi.Output<string | undefined>;
+    declare public readonly clientSecret: pulumi.Output<string | undefined>;
     /**
      * Action for a previously deprovisioned IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`
      */
-    public readonly deprovisionedAction!: pulumi.Output<string | undefined>;
+    declare public readonly deprovisionedAction: pulumi.Output<string | undefined>;
     /**
      * Provisioning action for IdP user's group memberships. It can be `NONE`, `SYNC`, `APPEND`, or `ASSIGN`. Default: `NONE`
      */
-    public readonly groupsAction!: pulumi.Output<string | undefined>;
+    declare public readonly groupsAction: pulumi.Output<string | undefined>;
     /**
      * List of Okta Group IDs to add an IdP user as a member with the `ASSIGN` `groupsAction`.
      */
-    public readonly groupsAssignments!: pulumi.Output<string[] | undefined>;
+    declare public readonly groupsAssignments: pulumi.Output<string[] | undefined>;
     /**
      * IdP user profile attribute name (case-insensitive) for an array value that contains group memberships.
      */
-    public readonly groupsAttribute!: pulumi.Output<string | undefined>;
+    declare public readonly groupsAttribute: pulumi.Output<string | undefined>;
     /**
      * Whitelist of Okta Group identifiers that are allowed for the `APPEND` or `SYNC` `groupsAction`.
      */
-    public readonly groupsFilters!: pulumi.Output<string[] | undefined>;
+    declare public readonly groupsFilters: pulumi.Output<string[] | undefined>;
     /**
      * Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL. It can be `ORG_URL` or `CUSTOM_URL`. Default: `ORG_URL`
      */
-    public readonly issuerMode!: pulumi.Output<string | undefined>;
+    declare public readonly issuerMode: pulumi.Output<string | undefined>;
     /**
      * Maximum allowable clock-skew when processing messages from the IdP.
      */
-    public readonly maxClockSkew!: pulumi.Output<number | undefined>;
+    declare public readonly maxClockSkew: pulumi.Output<number | undefined>;
     /**
      * Name of the IdP
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Determines if the IdP should act as a source of truth for user profile attributes.
      */
-    public readonly profileMaster!: pulumi.Output<boolean | undefined>;
+    declare public readonly profileMaster: pulumi.Output<boolean | undefined>;
     /**
      * The type of protocol to use. It can be `OIDC` or `OAUTH2`. Default: `OAUTH2`
      */
-    public readonly protocolType!: pulumi.Output<string | undefined>;
+    declare public readonly protocolType: pulumi.Output<string | undefined>;
     /**
      * Provisioning action for an IdP user during authentication. Default: `AUTO`
      */
-    public readonly provisioningAction!: pulumi.Output<string | undefined>;
+    declare public readonly provisioningAction: pulumi.Output<string | undefined>;
     /**
      * The scopes of the IdP.
      */
-    public readonly scopes!: pulumi.Output<string[]>;
+    declare public readonly scopes: pulumi.Output<string[]>;
     /**
      * Default to `ACTIVE`
      */
-    public readonly status!: pulumi.Output<string | undefined>;
+    declare public readonly status: pulumi.Output<string | undefined>;
     /**
      * Okta user profile attribute for matching transformed IdP username. Only for matchType `CUSTOM_ATTRIBUTE`.
      */
-    public readonly subjectMatchAttribute!: pulumi.Output<string | undefined>;
+    declare public readonly subjectMatchAttribute: pulumi.Output<string | undefined>;
     /**
      * Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `USERNAME`. It can be set to `USERNAME`, `EMAIL`, `USERNAME_OR_EMAIL` or `CUSTOM_ATTRIBUTE`.
      */
-    public readonly subjectMatchType!: pulumi.Output<string | undefined>;
+    declare public readonly subjectMatchType: pulumi.Output<string | undefined>;
     /**
      * Action for a previously suspended IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`
      */
-    public readonly suspendedAction!: pulumi.Output<string | undefined>;
+    declare public readonly suspendedAction: pulumi.Output<string | undefined>;
     /**
      * The method of making a token request. It can be set to `HTTP-POST` or `HTTP-REDIRECT`.
      */
-    public /*out*/ readonly tokenBinding!: pulumi.Output<string>;
+    declare public /*out*/ readonly tokenBinding: pulumi.Output<string>;
     /**
      * IdP Authorization Server (AS) endpoint to exchange the authorization code grant for an access token.
      */
-    public /*out*/ readonly tokenUrl!: pulumi.Output<string>;
+    declare public /*out*/ readonly tokenUrl: pulumi.Output<string>;
     /**
      * Trust audience for the Okta IdP instance.
      */
-    public /*out*/ readonly trustAudience!: pulumi.Output<string>;
+    declare public /*out*/ readonly trustAudience: pulumi.Output<string>;
     /**
      * Trust issuer for the Okta IdP instance.
      */
-    public /*out*/ readonly trustIssuer!: pulumi.Output<string>;
+    declare public /*out*/ readonly trustIssuer: pulumi.Output<string>;
     /**
      * Trust kid for the Okta IdP instance.
      */
-    public /*out*/ readonly trustKid!: pulumi.Output<string>;
+    declare public /*out*/ readonly trustKid: pulumi.Output<string>;
     /**
      * Trust revocation for the Okta IdP instance.
      */
-    public /*out*/ readonly trustRevocation!: pulumi.Output<string>;
+    declare public /*out*/ readonly trustRevocation: pulumi.Output<string>;
     /**
      * Trust revocation cache lifetime for the Okta IdP instance.
      */
-    public /*out*/ readonly trustRevocationCacheLifetime!: pulumi.Output<number>;
+    declare public /*out*/ readonly trustRevocationCacheLifetime: pulumi.Output<number>;
     /**
      * Identity Provider Types: https://developer.okta.com/docs/reference/api/idps/#identity-provider-type
      */
-    public readonly type!: pulumi.Output<string>;
+    declare public readonly type: pulumi.Output<string>;
     /**
      * Okta EL Expression to generate or transform a unique username for the IdP user. Default: `idpuser.email`
      */
-    public readonly usernameTemplate!: pulumi.Output<string | undefined>;
+    declare public readonly usernameTemplate: pulumi.Output<string | undefined>;
 
     /**
      * Create a Social resource with the given unique name, arguments, and options.
@@ -211,73 +211,73 @@ export class Social extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SocialState | undefined;
-            resourceInputs["accountLinkAction"] = state ? state.accountLinkAction : undefined;
-            resourceInputs["accountLinkGroupIncludes"] = state ? state.accountLinkGroupIncludes : undefined;
-            resourceInputs["appleKid"] = state ? state.appleKid : undefined;
-            resourceInputs["applePrivateKey"] = state ? state.applePrivateKey : undefined;
-            resourceInputs["appleTeamId"] = state ? state.appleTeamId : undefined;
-            resourceInputs["authorizationBinding"] = state ? state.authorizationBinding : undefined;
-            resourceInputs["authorizationUrl"] = state ? state.authorizationUrl : undefined;
-            resourceInputs["clientId"] = state ? state.clientId : undefined;
-            resourceInputs["clientSecret"] = state ? state.clientSecret : undefined;
-            resourceInputs["deprovisionedAction"] = state ? state.deprovisionedAction : undefined;
-            resourceInputs["groupsAction"] = state ? state.groupsAction : undefined;
-            resourceInputs["groupsAssignments"] = state ? state.groupsAssignments : undefined;
-            resourceInputs["groupsAttribute"] = state ? state.groupsAttribute : undefined;
-            resourceInputs["groupsFilters"] = state ? state.groupsFilters : undefined;
-            resourceInputs["issuerMode"] = state ? state.issuerMode : undefined;
-            resourceInputs["maxClockSkew"] = state ? state.maxClockSkew : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["profileMaster"] = state ? state.profileMaster : undefined;
-            resourceInputs["protocolType"] = state ? state.protocolType : undefined;
-            resourceInputs["provisioningAction"] = state ? state.provisioningAction : undefined;
-            resourceInputs["scopes"] = state ? state.scopes : undefined;
-            resourceInputs["status"] = state ? state.status : undefined;
-            resourceInputs["subjectMatchAttribute"] = state ? state.subjectMatchAttribute : undefined;
-            resourceInputs["subjectMatchType"] = state ? state.subjectMatchType : undefined;
-            resourceInputs["suspendedAction"] = state ? state.suspendedAction : undefined;
-            resourceInputs["tokenBinding"] = state ? state.tokenBinding : undefined;
-            resourceInputs["tokenUrl"] = state ? state.tokenUrl : undefined;
-            resourceInputs["trustAudience"] = state ? state.trustAudience : undefined;
-            resourceInputs["trustIssuer"] = state ? state.trustIssuer : undefined;
-            resourceInputs["trustKid"] = state ? state.trustKid : undefined;
-            resourceInputs["trustRevocation"] = state ? state.trustRevocation : undefined;
-            resourceInputs["trustRevocationCacheLifetime"] = state ? state.trustRevocationCacheLifetime : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
-            resourceInputs["usernameTemplate"] = state ? state.usernameTemplate : undefined;
+            resourceInputs["accountLinkAction"] = state?.accountLinkAction;
+            resourceInputs["accountLinkGroupIncludes"] = state?.accountLinkGroupIncludes;
+            resourceInputs["appleKid"] = state?.appleKid;
+            resourceInputs["applePrivateKey"] = state?.applePrivateKey;
+            resourceInputs["appleTeamId"] = state?.appleTeamId;
+            resourceInputs["authorizationBinding"] = state?.authorizationBinding;
+            resourceInputs["authorizationUrl"] = state?.authorizationUrl;
+            resourceInputs["clientId"] = state?.clientId;
+            resourceInputs["clientSecret"] = state?.clientSecret;
+            resourceInputs["deprovisionedAction"] = state?.deprovisionedAction;
+            resourceInputs["groupsAction"] = state?.groupsAction;
+            resourceInputs["groupsAssignments"] = state?.groupsAssignments;
+            resourceInputs["groupsAttribute"] = state?.groupsAttribute;
+            resourceInputs["groupsFilters"] = state?.groupsFilters;
+            resourceInputs["issuerMode"] = state?.issuerMode;
+            resourceInputs["maxClockSkew"] = state?.maxClockSkew;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["profileMaster"] = state?.profileMaster;
+            resourceInputs["protocolType"] = state?.protocolType;
+            resourceInputs["provisioningAction"] = state?.provisioningAction;
+            resourceInputs["scopes"] = state?.scopes;
+            resourceInputs["status"] = state?.status;
+            resourceInputs["subjectMatchAttribute"] = state?.subjectMatchAttribute;
+            resourceInputs["subjectMatchType"] = state?.subjectMatchType;
+            resourceInputs["suspendedAction"] = state?.suspendedAction;
+            resourceInputs["tokenBinding"] = state?.tokenBinding;
+            resourceInputs["tokenUrl"] = state?.tokenUrl;
+            resourceInputs["trustAudience"] = state?.trustAudience;
+            resourceInputs["trustIssuer"] = state?.trustIssuer;
+            resourceInputs["trustKid"] = state?.trustKid;
+            resourceInputs["trustRevocation"] = state?.trustRevocation;
+            resourceInputs["trustRevocationCacheLifetime"] = state?.trustRevocationCacheLifetime;
+            resourceInputs["type"] = state?.type;
+            resourceInputs["usernameTemplate"] = state?.usernameTemplate;
         } else {
             const args = argsOrState as SocialArgs | undefined;
-            if ((!args || args.scopes === undefined) && !opts.urn) {
+            if (args?.scopes === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scopes'");
             }
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["accountLinkAction"] = args ? args.accountLinkAction : undefined;
-            resourceInputs["accountLinkGroupIncludes"] = args ? args.accountLinkGroupIncludes : undefined;
-            resourceInputs["appleKid"] = args ? args.appleKid : undefined;
+            resourceInputs["accountLinkAction"] = args?.accountLinkAction;
+            resourceInputs["accountLinkGroupIncludes"] = args?.accountLinkGroupIncludes;
+            resourceInputs["appleKid"] = args?.appleKid;
             resourceInputs["applePrivateKey"] = args?.applePrivateKey ? pulumi.secret(args.applePrivateKey) : undefined;
-            resourceInputs["appleTeamId"] = args ? args.appleTeamId : undefined;
-            resourceInputs["clientId"] = args ? args.clientId : undefined;
+            resourceInputs["appleTeamId"] = args?.appleTeamId;
+            resourceInputs["clientId"] = args?.clientId;
             resourceInputs["clientSecret"] = args?.clientSecret ? pulumi.secret(args.clientSecret) : undefined;
-            resourceInputs["deprovisionedAction"] = args ? args.deprovisionedAction : undefined;
-            resourceInputs["groupsAction"] = args ? args.groupsAction : undefined;
-            resourceInputs["groupsAssignments"] = args ? args.groupsAssignments : undefined;
-            resourceInputs["groupsAttribute"] = args ? args.groupsAttribute : undefined;
-            resourceInputs["groupsFilters"] = args ? args.groupsFilters : undefined;
-            resourceInputs["issuerMode"] = args ? args.issuerMode : undefined;
-            resourceInputs["maxClockSkew"] = args ? args.maxClockSkew : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["profileMaster"] = args ? args.profileMaster : undefined;
-            resourceInputs["protocolType"] = args ? args.protocolType : undefined;
-            resourceInputs["provisioningAction"] = args ? args.provisioningAction : undefined;
-            resourceInputs["scopes"] = args ? args.scopes : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
-            resourceInputs["subjectMatchAttribute"] = args ? args.subjectMatchAttribute : undefined;
-            resourceInputs["subjectMatchType"] = args ? args.subjectMatchType : undefined;
-            resourceInputs["suspendedAction"] = args ? args.suspendedAction : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
-            resourceInputs["usernameTemplate"] = args ? args.usernameTemplate : undefined;
+            resourceInputs["deprovisionedAction"] = args?.deprovisionedAction;
+            resourceInputs["groupsAction"] = args?.groupsAction;
+            resourceInputs["groupsAssignments"] = args?.groupsAssignments;
+            resourceInputs["groupsAttribute"] = args?.groupsAttribute;
+            resourceInputs["groupsFilters"] = args?.groupsFilters;
+            resourceInputs["issuerMode"] = args?.issuerMode;
+            resourceInputs["maxClockSkew"] = args?.maxClockSkew;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["profileMaster"] = args?.profileMaster;
+            resourceInputs["protocolType"] = args?.protocolType;
+            resourceInputs["provisioningAction"] = args?.provisioningAction;
+            resourceInputs["scopes"] = args?.scopes;
+            resourceInputs["status"] = args?.status;
+            resourceInputs["subjectMatchAttribute"] = args?.subjectMatchAttribute;
+            resourceInputs["subjectMatchType"] = args?.subjectMatchType;
+            resourceInputs["suspendedAction"] = args?.suspendedAction;
+            resourceInputs["type"] = args?.type;
+            resourceInputs["usernameTemplate"] = args?.usernameTemplate;
             resourceInputs["authorizationBinding"] = undefined /*out*/;
             resourceInputs["authorizationUrl"] = undefined /*out*/;
             resourceInputs["tokenBinding"] = undefined /*out*/;

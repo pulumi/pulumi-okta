@@ -64,27 +64,27 @@ export class LinkDefinition extends pulumi.CustomResource {
     /**
      * Description of the associated relationship.
      */
-    public readonly associatedDescription!: pulumi.Output<string>;
+    declare public readonly associatedDescription: pulumi.Output<string>;
     /**
      * API name of the associated link.
      */
-    public readonly associatedName!: pulumi.Output<string>;
+    declare public readonly associatedName: pulumi.Output<string>;
     /**
      * Display name of the associated link.
      */
-    public readonly associatedTitle!: pulumi.Output<string>;
+    declare public readonly associatedTitle: pulumi.Output<string>;
     /**
      * Description of the primary relationship.
      */
-    public readonly primaryDescription!: pulumi.Output<string>;
+    declare public readonly primaryDescription: pulumi.Output<string>;
     /**
      * API name of the primary link.
      */
-    public readonly primaryName!: pulumi.Output<string>;
+    declare public readonly primaryName: pulumi.Output<string>;
     /**
      * Display name of the primary link.
      */
-    public readonly primaryTitle!: pulumi.Output<string>;
+    declare public readonly primaryTitle: pulumi.Output<string>;
 
     /**
      * Create a LinkDefinition resource with the given unique name, arguments, and options.
@@ -99,38 +99,38 @@ export class LinkDefinition extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LinkDefinitionState | undefined;
-            resourceInputs["associatedDescription"] = state ? state.associatedDescription : undefined;
-            resourceInputs["associatedName"] = state ? state.associatedName : undefined;
-            resourceInputs["associatedTitle"] = state ? state.associatedTitle : undefined;
-            resourceInputs["primaryDescription"] = state ? state.primaryDescription : undefined;
-            resourceInputs["primaryName"] = state ? state.primaryName : undefined;
-            resourceInputs["primaryTitle"] = state ? state.primaryTitle : undefined;
+            resourceInputs["associatedDescription"] = state?.associatedDescription;
+            resourceInputs["associatedName"] = state?.associatedName;
+            resourceInputs["associatedTitle"] = state?.associatedTitle;
+            resourceInputs["primaryDescription"] = state?.primaryDescription;
+            resourceInputs["primaryName"] = state?.primaryName;
+            resourceInputs["primaryTitle"] = state?.primaryTitle;
         } else {
             const args = argsOrState as LinkDefinitionArgs | undefined;
-            if ((!args || args.associatedDescription === undefined) && !opts.urn) {
+            if (args?.associatedDescription === undefined && !opts.urn) {
                 throw new Error("Missing required property 'associatedDescription'");
             }
-            if ((!args || args.associatedName === undefined) && !opts.urn) {
+            if (args?.associatedName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'associatedName'");
             }
-            if ((!args || args.associatedTitle === undefined) && !opts.urn) {
+            if (args?.associatedTitle === undefined && !opts.urn) {
                 throw new Error("Missing required property 'associatedTitle'");
             }
-            if ((!args || args.primaryDescription === undefined) && !opts.urn) {
+            if (args?.primaryDescription === undefined && !opts.urn) {
                 throw new Error("Missing required property 'primaryDescription'");
             }
-            if ((!args || args.primaryName === undefined) && !opts.urn) {
+            if (args?.primaryName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'primaryName'");
             }
-            if ((!args || args.primaryTitle === undefined) && !opts.urn) {
+            if (args?.primaryTitle === undefined && !opts.urn) {
                 throw new Error("Missing required property 'primaryTitle'");
             }
-            resourceInputs["associatedDescription"] = args ? args.associatedDescription : undefined;
-            resourceInputs["associatedName"] = args ? args.associatedName : undefined;
-            resourceInputs["associatedTitle"] = args ? args.associatedTitle : undefined;
-            resourceInputs["primaryDescription"] = args ? args.primaryDescription : undefined;
-            resourceInputs["primaryName"] = args ? args.primaryName : undefined;
-            resourceInputs["primaryTitle"] = args ? args.primaryTitle : undefined;
+            resourceInputs["associatedDescription"] = args?.associatedDescription;
+            resourceInputs["associatedName"] = args?.associatedName;
+            resourceInputs["associatedTitle"] = args?.associatedTitle;
+            resourceInputs["primaryDescription"] = args?.primaryDescription;
+            resourceInputs["primaryName"] = args?.primaryName;
+            resourceInputs["primaryTitle"] = args?.primaryTitle;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(LinkDefinition.__pulumiType, name, resourceInputs, opts);

@@ -38,27 +38,25 @@ class RuleIdpDiscoveryArgs:
         """
         The set of arguments for constructing a RuleIdpDiscovery resource.
         :param pulumi.Input[Sequence[pulumi.Input['RuleIdpDiscoveryAppExcludeArgs']]] app_excludes: Applications to exclude in discovery. See `app_include` for details.
-        :param pulumi.Input[Sequence[pulumi.Input['RuleIdpDiscoveryAppIncludeArgs']]] app_includes: Applications to include in discovery rule. - 'id' - (Optional) Use if 'type' is 'APP' to indicate the application id to
-               include. - 'name' - (Optional) Use if the 'type' is 'APP_TYPE' to indicate the type of application(s) to include in
-               instances where an entire group (i.e. 'yahoo_mail') of applications should be included. - 'type' - (Required) One of:
-               'APP', 'APP_TYPE'
+        :param pulumi.Input[Sequence[pulumi.Input['RuleIdpDiscoveryAppIncludeArgs']]] app_includes: Applications to include in discovery rule.
+               - 'id' - (Optional) Use if 'type' is 'APP' to indicate the application id to include.
+               - 'name' - (Optional) Use if the 'type' is 'APP_TYPE' to indicate the type of application(s) to include in instances where an entire group (i.e. 'yahoo_mail') of applications should be included.
+               - 'type' - (Required) One of: 'APP', 'APP_TYPE'
         :param pulumi.Input[_builtins.str] name: Policy Rule Name
         :param pulumi.Input[_builtins.str] network_connection: Network selection mode: `ANYWHERE`, `ZONE`, `ON_NETWORK`, or `OFF_NETWORK`. Default: `ANYWHERE`
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] network_excludes: Required if `network_connection` = `ZONE`. Indicates the network zones to exclude.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] network_includes: Required if `network_connection` = `ZONE`. Indicates the network zones to include.
-        :param pulumi.Input[Sequence[pulumi.Input['RuleIdpDiscoveryPlatformIncludeArgs']]] platform_includes: Platform to include in discovery rule. - 'type' - (Optional) One of: 'ANY', 'MOBILE', 'DESKTOP' - 'os_expression -
-               (Optional) Only available when using os_type = 'OTHER' - 'os_type' - (Optional) One of: 'ANY', 'IOS', 'WINDOWS',
-               'ANDROID', 'OTHER', 'OSX'
+        :param pulumi.Input[Sequence[pulumi.Input['RuleIdpDiscoveryPlatformIncludeArgs']]] platform_includes: Platform to include in discovery rule.
+               - 'type' - (Optional) One of: 'ANY', 'MOBILE', 'DESKTOP'
+               - 'os_expression - (Optional) Only available when using os_type = 'OTHER'
+               - 'os_type' - (Optional) One of: 'ANY', 'IOS', 'WINDOWS', 'ANDROID', 'OTHER', 'OSX'
         :param pulumi.Input[_builtins.str] policy_id: Policy ID of the Rule
-        :param pulumi.Input[_builtins.int] priority: Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if
-               an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
+        :param pulumi.Input[_builtins.int] priority: Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
         :param pulumi.Input[_builtins.str] status: Policy Rule Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
-        :param pulumi.Input[_builtins.str] user_identifier_attribute: Profile attribute matching can only have a single value that describes the type indicated in `user_identifier_type`.
-               This is the attribute or identifier that the `user_identifier_patterns` are checked against.
-        :param pulumi.Input[Sequence[pulumi.Input['RuleIdpDiscoveryUserIdentifierPatternArgs']]] user_identifier_patterns: Specifies a User Identifier pattern condition to match against. If 'match_type' of 'EXPRESSION' is used, only a *single*
-               element can be set, otherwise multiple elements of matching patterns may be provided. - 'match_type' - (Optional) The
-               kind of pattern. For regex, use 'EXPRESSION'. For simple string matches, use one of the following: 'SUFFIX', 'EQUALS',
-               'STARTS_WITH', 'CONTAINS' - 'value' - (Optional) The regex or simple match string to match against.
+        :param pulumi.Input[_builtins.str] user_identifier_attribute: Profile attribute matching can only have a single value that describes the type indicated in `user_identifier_type`. This is the attribute or identifier that the `user_identifier_patterns` are checked against.
+        :param pulumi.Input[Sequence[pulumi.Input['RuleIdpDiscoveryUserIdentifierPatternArgs']]] user_identifier_patterns: Specifies a User Identifier pattern condition to match against. If 'match_type' of 'EXPRESSION' is used, only a *single* element can be set, otherwise multiple elements of matching patterns may be provided.
+               - 'match_type' - (Optional) The kind of pattern. For regex, use 'EXPRESSION'. For simple string matches, use one of the following: 'SUFFIX', 'EQUALS', 'STARTS_WITH', 'CONTAINS'
+               - 'value' - (Optional) The regex or simple match string to match against.
         :param pulumi.Input[_builtins.str] user_identifier_type: One of: `IDENTIFIER`, `ATTRIBUTE`
         """
         if app_excludes is not None:
@@ -106,10 +104,10 @@ class RuleIdpDiscoveryArgs:
     @pulumi.getter(name="appIncludes")
     def app_includes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleIdpDiscoveryAppIncludeArgs']]]]:
         """
-        Applications to include in discovery rule. - 'id' - (Optional) Use if 'type' is 'APP' to indicate the application id to
-        include. - 'name' - (Optional) Use if the 'type' is 'APP_TYPE' to indicate the type of application(s) to include in
-        instances where an entire group (i.e. 'yahoo_mail') of applications should be included. - 'type' - (Required) One of:
-        'APP', 'APP_TYPE'
+        Applications to include in discovery rule.
+        - 'id' - (Optional) Use if 'type' is 'APP' to indicate the application id to include.
+        - 'name' - (Optional) Use if the 'type' is 'APP_TYPE' to indicate the type of application(s) to include in instances where an entire group (i.e. 'yahoo_mail') of applications should be included.
+        - 'type' - (Required) One of: 'APP', 'APP_TYPE'
         """
         return pulumi.get(self, "app_includes")
 
@@ -178,9 +176,10 @@ class RuleIdpDiscoveryArgs:
     @pulumi.getter(name="platformIncludes")
     def platform_includes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleIdpDiscoveryPlatformIncludeArgs']]]]:
         """
-        Platform to include in discovery rule. - 'type' - (Optional) One of: 'ANY', 'MOBILE', 'DESKTOP' - 'os_expression -
-        (Optional) Only available when using os_type = 'OTHER' - 'os_type' - (Optional) One of: 'ANY', 'IOS', 'WINDOWS',
-        'ANDROID', 'OTHER', 'OSX'
+        Platform to include in discovery rule.
+        - 'type' - (Optional) One of: 'ANY', 'MOBILE', 'DESKTOP'
+        - 'os_expression - (Optional) Only available when using os_type = 'OTHER'
+        - 'os_type' - (Optional) One of: 'ANY', 'IOS', 'WINDOWS', 'ANDROID', 'OTHER', 'OSX'
         """
         return pulumi.get(self, "platform_includes")
 
@@ -204,8 +203,7 @@ class RuleIdpDiscoveryArgs:
     @pulumi.getter
     def priority(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
-        Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if
-        an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
+        Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
         """
         return pulumi.get(self, "priority")
 
@@ -229,8 +227,7 @@ class RuleIdpDiscoveryArgs:
     @pulumi.getter(name="userIdentifierAttribute")
     def user_identifier_attribute(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Profile attribute matching can only have a single value that describes the type indicated in `user_identifier_type`.
-        This is the attribute or identifier that the `user_identifier_patterns` are checked against.
+        Profile attribute matching can only have a single value that describes the type indicated in `user_identifier_type`. This is the attribute or identifier that the `user_identifier_patterns` are checked against.
         """
         return pulumi.get(self, "user_identifier_attribute")
 
@@ -242,10 +239,9 @@ class RuleIdpDiscoveryArgs:
     @pulumi.getter(name="userIdentifierPatterns")
     def user_identifier_patterns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleIdpDiscoveryUserIdentifierPatternArgs']]]]:
         """
-        Specifies a User Identifier pattern condition to match against. If 'match_type' of 'EXPRESSION' is used, only a *single*
-        element can be set, otherwise multiple elements of matching patterns may be provided. - 'match_type' - (Optional) The
-        kind of pattern. For regex, use 'EXPRESSION'. For simple string matches, use one of the following: 'SUFFIX', 'EQUALS',
-        'STARTS_WITH', 'CONTAINS' - 'value' - (Optional) The regex or simple match string to match against.
+        Specifies a User Identifier pattern condition to match against. If 'match_type' of 'EXPRESSION' is used, only a *single* element can be set, otherwise multiple elements of matching patterns may be provided.
+        - 'match_type' - (Optional) The kind of pattern. For regex, use 'EXPRESSION'. For simple string matches, use one of the following: 'SUFFIX', 'EQUALS', 'STARTS_WITH', 'CONTAINS'
+        - 'value' - (Optional) The regex or simple match string to match against.
         """
         return pulumi.get(self, "user_identifier_patterns")
 
@@ -286,27 +282,25 @@ class _RuleIdpDiscoveryState:
         """
         Input properties used for looking up and filtering RuleIdpDiscovery resources.
         :param pulumi.Input[Sequence[pulumi.Input['RuleIdpDiscoveryAppExcludeArgs']]] app_excludes: Applications to exclude in discovery. See `app_include` for details.
-        :param pulumi.Input[Sequence[pulumi.Input['RuleIdpDiscoveryAppIncludeArgs']]] app_includes: Applications to include in discovery rule. - 'id' - (Optional) Use if 'type' is 'APP' to indicate the application id to
-               include. - 'name' - (Optional) Use if the 'type' is 'APP_TYPE' to indicate the type of application(s) to include in
-               instances where an entire group (i.e. 'yahoo_mail') of applications should be included. - 'type' - (Required) One of:
-               'APP', 'APP_TYPE'
+        :param pulumi.Input[Sequence[pulumi.Input['RuleIdpDiscoveryAppIncludeArgs']]] app_includes: Applications to include in discovery rule.
+               - 'id' - (Optional) Use if 'type' is 'APP' to indicate the application id to include.
+               - 'name' - (Optional) Use if the 'type' is 'APP_TYPE' to indicate the type of application(s) to include in instances where an entire group (i.e. 'yahoo_mail') of applications should be included.
+               - 'type' - (Required) One of: 'APP', 'APP_TYPE'
         :param pulumi.Input[_builtins.str] name: Policy Rule Name
         :param pulumi.Input[_builtins.str] network_connection: Network selection mode: `ANYWHERE`, `ZONE`, `ON_NETWORK`, or `OFF_NETWORK`. Default: `ANYWHERE`
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] network_excludes: Required if `network_connection` = `ZONE`. Indicates the network zones to exclude.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] network_includes: Required if `network_connection` = `ZONE`. Indicates the network zones to include.
-        :param pulumi.Input[Sequence[pulumi.Input['RuleIdpDiscoveryPlatformIncludeArgs']]] platform_includes: Platform to include in discovery rule. - 'type' - (Optional) One of: 'ANY', 'MOBILE', 'DESKTOP' - 'os_expression -
-               (Optional) Only available when using os_type = 'OTHER' - 'os_type' - (Optional) One of: 'ANY', 'IOS', 'WINDOWS',
-               'ANDROID', 'OTHER', 'OSX'
+        :param pulumi.Input[Sequence[pulumi.Input['RuleIdpDiscoveryPlatformIncludeArgs']]] platform_includes: Platform to include in discovery rule.
+               - 'type' - (Optional) One of: 'ANY', 'MOBILE', 'DESKTOP'
+               - 'os_expression - (Optional) Only available when using os_type = 'OTHER'
+               - 'os_type' - (Optional) One of: 'ANY', 'IOS', 'WINDOWS', 'ANDROID', 'OTHER', 'OSX'
         :param pulumi.Input[_builtins.str] policy_id: Policy ID of the Rule
-        :param pulumi.Input[_builtins.int] priority: Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if
-               an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
+        :param pulumi.Input[_builtins.int] priority: Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
         :param pulumi.Input[_builtins.str] status: Policy Rule Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
-        :param pulumi.Input[_builtins.str] user_identifier_attribute: Profile attribute matching can only have a single value that describes the type indicated in `user_identifier_type`.
-               This is the attribute or identifier that the `user_identifier_patterns` are checked against.
-        :param pulumi.Input[Sequence[pulumi.Input['RuleIdpDiscoveryUserIdentifierPatternArgs']]] user_identifier_patterns: Specifies a User Identifier pattern condition to match against. If 'match_type' of 'EXPRESSION' is used, only a *single*
-               element can be set, otherwise multiple elements of matching patterns may be provided. - 'match_type' - (Optional) The
-               kind of pattern. For regex, use 'EXPRESSION'. For simple string matches, use one of the following: 'SUFFIX', 'EQUALS',
-               'STARTS_WITH', 'CONTAINS' - 'value' - (Optional) The regex or simple match string to match against.
+        :param pulumi.Input[_builtins.str] user_identifier_attribute: Profile attribute matching can only have a single value that describes the type indicated in `user_identifier_type`. This is the attribute or identifier that the `user_identifier_patterns` are checked against.
+        :param pulumi.Input[Sequence[pulumi.Input['RuleIdpDiscoveryUserIdentifierPatternArgs']]] user_identifier_patterns: Specifies a User Identifier pattern condition to match against. If 'match_type' of 'EXPRESSION' is used, only a *single* element can be set, otherwise multiple elements of matching patterns may be provided.
+               - 'match_type' - (Optional) The kind of pattern. For regex, use 'EXPRESSION'. For simple string matches, use one of the following: 'SUFFIX', 'EQUALS', 'STARTS_WITH', 'CONTAINS'
+               - 'value' - (Optional) The regex or simple match string to match against.
         :param pulumi.Input[_builtins.str] user_identifier_type: One of: `IDENTIFIER`, `ATTRIBUTE`
         """
         if app_excludes is not None:
@@ -354,10 +348,10 @@ class _RuleIdpDiscoveryState:
     @pulumi.getter(name="appIncludes")
     def app_includes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleIdpDiscoveryAppIncludeArgs']]]]:
         """
-        Applications to include in discovery rule. - 'id' - (Optional) Use if 'type' is 'APP' to indicate the application id to
-        include. - 'name' - (Optional) Use if the 'type' is 'APP_TYPE' to indicate the type of application(s) to include in
-        instances where an entire group (i.e. 'yahoo_mail') of applications should be included. - 'type' - (Required) One of:
-        'APP', 'APP_TYPE'
+        Applications to include in discovery rule.
+        - 'id' - (Optional) Use if 'type' is 'APP' to indicate the application id to include.
+        - 'name' - (Optional) Use if the 'type' is 'APP_TYPE' to indicate the type of application(s) to include in instances where an entire group (i.e. 'yahoo_mail') of applications should be included.
+        - 'type' - (Required) One of: 'APP', 'APP_TYPE'
         """
         return pulumi.get(self, "app_includes")
 
@@ -426,9 +420,10 @@ class _RuleIdpDiscoveryState:
     @pulumi.getter(name="platformIncludes")
     def platform_includes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleIdpDiscoveryPlatformIncludeArgs']]]]:
         """
-        Platform to include in discovery rule. - 'type' - (Optional) One of: 'ANY', 'MOBILE', 'DESKTOP' - 'os_expression -
-        (Optional) Only available when using os_type = 'OTHER' - 'os_type' - (Optional) One of: 'ANY', 'IOS', 'WINDOWS',
-        'ANDROID', 'OTHER', 'OSX'
+        Platform to include in discovery rule.
+        - 'type' - (Optional) One of: 'ANY', 'MOBILE', 'DESKTOP'
+        - 'os_expression - (Optional) Only available when using os_type = 'OTHER'
+        - 'os_type' - (Optional) One of: 'ANY', 'IOS', 'WINDOWS', 'ANDROID', 'OTHER', 'OSX'
         """
         return pulumi.get(self, "platform_includes")
 
@@ -452,8 +447,7 @@ class _RuleIdpDiscoveryState:
     @pulumi.getter
     def priority(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
-        Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if
-        an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
+        Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
         """
         return pulumi.get(self, "priority")
 
@@ -477,8 +471,7 @@ class _RuleIdpDiscoveryState:
     @pulumi.getter(name="userIdentifierAttribute")
     def user_identifier_attribute(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Profile attribute matching can only have a single value that describes the type indicated in `user_identifier_type`.
-        This is the attribute or identifier that the `user_identifier_patterns` are checked against.
+        Profile attribute matching can only have a single value that describes the type indicated in `user_identifier_type`. This is the attribute or identifier that the `user_identifier_patterns` are checked against.
         """
         return pulumi.get(self, "user_identifier_attribute")
 
@@ -490,10 +483,9 @@ class _RuleIdpDiscoveryState:
     @pulumi.getter(name="userIdentifierPatterns")
     def user_identifier_patterns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleIdpDiscoveryUserIdentifierPatternArgs']]]]:
         """
-        Specifies a User Identifier pattern condition to match against. If 'match_type' of 'EXPRESSION' is used, only a *single*
-        element can be set, otherwise multiple elements of matching patterns may be provided. - 'match_type' - (Optional) The
-        kind of pattern. For regex, use 'EXPRESSION'. For simple string matches, use one of the following: 'SUFFIX', 'EQUALS',
-        'STARTS_WITH', 'CONTAINS' - 'value' - (Optional) The regex or simple match string to match against.
+        Specifies a User Identifier pattern condition to match against. If 'match_type' of 'EXPRESSION' is used, only a *single* element can be set, otherwise multiple elements of matching patterns may be provided.
+        - 'match_type' - (Optional) The kind of pattern. For regex, use 'EXPRESSION'. For simple string matches, use one of the following: 'SUFFIX', 'EQUALS', 'STARTS_WITH', 'CONTAINS'
+        - 'value' - (Optional) The regex or simple match string to match against.
         """
         return pulumi.get(self, "user_identifier_patterns")
 
@@ -552,27 +544,25 @@ class RuleIdpDiscovery(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['RuleIdpDiscoveryAppExcludeArgs', 'RuleIdpDiscoveryAppExcludeArgsDict']]]] app_excludes: Applications to exclude in discovery. See `app_include` for details.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['RuleIdpDiscoveryAppIncludeArgs', 'RuleIdpDiscoveryAppIncludeArgsDict']]]] app_includes: Applications to include in discovery rule. - 'id' - (Optional) Use if 'type' is 'APP' to indicate the application id to
-               include. - 'name' - (Optional) Use if the 'type' is 'APP_TYPE' to indicate the type of application(s) to include in
-               instances where an entire group (i.e. 'yahoo_mail') of applications should be included. - 'type' - (Required) One of:
-               'APP', 'APP_TYPE'
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RuleIdpDiscoveryAppIncludeArgs', 'RuleIdpDiscoveryAppIncludeArgsDict']]]] app_includes: Applications to include in discovery rule.
+               - 'id' - (Optional) Use if 'type' is 'APP' to indicate the application id to include.
+               - 'name' - (Optional) Use if the 'type' is 'APP_TYPE' to indicate the type of application(s) to include in instances where an entire group (i.e. 'yahoo_mail') of applications should be included.
+               - 'type' - (Required) One of: 'APP', 'APP_TYPE'
         :param pulumi.Input[_builtins.str] name: Policy Rule Name
         :param pulumi.Input[_builtins.str] network_connection: Network selection mode: `ANYWHERE`, `ZONE`, `ON_NETWORK`, or `OFF_NETWORK`. Default: `ANYWHERE`
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] network_excludes: Required if `network_connection` = `ZONE`. Indicates the network zones to exclude.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] network_includes: Required if `network_connection` = `ZONE`. Indicates the network zones to include.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['RuleIdpDiscoveryPlatformIncludeArgs', 'RuleIdpDiscoveryPlatformIncludeArgsDict']]]] platform_includes: Platform to include in discovery rule. - 'type' - (Optional) One of: 'ANY', 'MOBILE', 'DESKTOP' - 'os_expression -
-               (Optional) Only available when using os_type = 'OTHER' - 'os_type' - (Optional) One of: 'ANY', 'IOS', 'WINDOWS',
-               'ANDROID', 'OTHER', 'OSX'
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RuleIdpDiscoveryPlatformIncludeArgs', 'RuleIdpDiscoveryPlatformIncludeArgsDict']]]] platform_includes: Platform to include in discovery rule.
+               - 'type' - (Optional) One of: 'ANY', 'MOBILE', 'DESKTOP'
+               - 'os_expression - (Optional) Only available when using os_type = 'OTHER'
+               - 'os_type' - (Optional) One of: 'ANY', 'IOS', 'WINDOWS', 'ANDROID', 'OTHER', 'OSX'
         :param pulumi.Input[_builtins.str] policy_id: Policy ID of the Rule
-        :param pulumi.Input[_builtins.int] priority: Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if
-               an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
+        :param pulumi.Input[_builtins.int] priority: Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
         :param pulumi.Input[_builtins.str] status: Policy Rule Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
-        :param pulumi.Input[_builtins.str] user_identifier_attribute: Profile attribute matching can only have a single value that describes the type indicated in `user_identifier_type`.
-               This is the attribute or identifier that the `user_identifier_patterns` are checked against.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['RuleIdpDiscoveryUserIdentifierPatternArgs', 'RuleIdpDiscoveryUserIdentifierPatternArgsDict']]]] user_identifier_patterns: Specifies a User Identifier pattern condition to match against. If 'match_type' of 'EXPRESSION' is used, only a *single*
-               element can be set, otherwise multiple elements of matching patterns may be provided. - 'match_type' - (Optional) The
-               kind of pattern. For regex, use 'EXPRESSION'. For simple string matches, use one of the following: 'SUFFIX', 'EQUALS',
-               'STARTS_WITH', 'CONTAINS' - 'value' - (Optional) The regex or simple match string to match against.
+        :param pulumi.Input[_builtins.str] user_identifier_attribute: Profile attribute matching can only have a single value that describes the type indicated in `user_identifier_type`. This is the attribute or identifier that the `user_identifier_patterns` are checked against.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RuleIdpDiscoveryUserIdentifierPatternArgs', 'RuleIdpDiscoveryUserIdentifierPatternArgsDict']]]] user_identifier_patterns: Specifies a User Identifier pattern condition to match against. If 'match_type' of 'EXPRESSION' is used, only a *single* element can be set, otherwise multiple elements of matching patterns may be provided.
+               - 'match_type' - (Optional) The kind of pattern. For regex, use 'EXPRESSION'. For simple string matches, use one of the following: 'SUFFIX', 'EQUALS', 'STARTS_WITH', 'CONTAINS'
+               - 'value' - (Optional) The regex or simple match string to match against.
         :param pulumi.Input[_builtins.str] user_identifier_type: One of: `IDENTIFIER`, `ATTRIBUTE`
         """
         ...
@@ -679,27 +669,25 @@ class RuleIdpDiscovery(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['RuleIdpDiscoveryAppExcludeArgs', 'RuleIdpDiscoveryAppExcludeArgsDict']]]] app_excludes: Applications to exclude in discovery. See `app_include` for details.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['RuleIdpDiscoveryAppIncludeArgs', 'RuleIdpDiscoveryAppIncludeArgsDict']]]] app_includes: Applications to include in discovery rule. - 'id' - (Optional) Use if 'type' is 'APP' to indicate the application id to
-               include. - 'name' - (Optional) Use if the 'type' is 'APP_TYPE' to indicate the type of application(s) to include in
-               instances where an entire group (i.e. 'yahoo_mail') of applications should be included. - 'type' - (Required) One of:
-               'APP', 'APP_TYPE'
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RuleIdpDiscoveryAppIncludeArgs', 'RuleIdpDiscoveryAppIncludeArgsDict']]]] app_includes: Applications to include in discovery rule.
+               - 'id' - (Optional) Use if 'type' is 'APP' to indicate the application id to include.
+               - 'name' - (Optional) Use if the 'type' is 'APP_TYPE' to indicate the type of application(s) to include in instances where an entire group (i.e. 'yahoo_mail') of applications should be included.
+               - 'type' - (Required) One of: 'APP', 'APP_TYPE'
         :param pulumi.Input[_builtins.str] name: Policy Rule Name
         :param pulumi.Input[_builtins.str] network_connection: Network selection mode: `ANYWHERE`, `ZONE`, `ON_NETWORK`, or `OFF_NETWORK`. Default: `ANYWHERE`
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] network_excludes: Required if `network_connection` = `ZONE`. Indicates the network zones to exclude.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] network_includes: Required if `network_connection` = `ZONE`. Indicates the network zones to include.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['RuleIdpDiscoveryPlatformIncludeArgs', 'RuleIdpDiscoveryPlatformIncludeArgsDict']]]] platform_includes: Platform to include in discovery rule. - 'type' - (Optional) One of: 'ANY', 'MOBILE', 'DESKTOP' - 'os_expression -
-               (Optional) Only available when using os_type = 'OTHER' - 'os_type' - (Optional) One of: 'ANY', 'IOS', 'WINDOWS',
-               'ANDROID', 'OTHER', 'OSX'
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RuleIdpDiscoveryPlatformIncludeArgs', 'RuleIdpDiscoveryPlatformIncludeArgsDict']]]] platform_includes: Platform to include in discovery rule.
+               - 'type' - (Optional) One of: 'ANY', 'MOBILE', 'DESKTOP'
+               - 'os_expression - (Optional) Only available when using os_type = 'OTHER'
+               - 'os_type' - (Optional) One of: 'ANY', 'IOS', 'WINDOWS', 'ANDROID', 'OTHER', 'OSX'
         :param pulumi.Input[_builtins.str] policy_id: Policy ID of the Rule
-        :param pulumi.Input[_builtins.int] priority: Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if
-               an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
+        :param pulumi.Input[_builtins.int] priority: Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
         :param pulumi.Input[_builtins.str] status: Policy Rule Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
-        :param pulumi.Input[_builtins.str] user_identifier_attribute: Profile attribute matching can only have a single value that describes the type indicated in `user_identifier_type`.
-               This is the attribute or identifier that the `user_identifier_patterns` are checked against.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['RuleIdpDiscoveryUserIdentifierPatternArgs', 'RuleIdpDiscoveryUserIdentifierPatternArgsDict']]]] user_identifier_patterns: Specifies a User Identifier pattern condition to match against. If 'match_type' of 'EXPRESSION' is used, only a *single*
-               element can be set, otherwise multiple elements of matching patterns may be provided. - 'match_type' - (Optional) The
-               kind of pattern. For regex, use 'EXPRESSION'. For simple string matches, use one of the following: 'SUFFIX', 'EQUALS',
-               'STARTS_WITH', 'CONTAINS' - 'value' - (Optional) The regex or simple match string to match against.
+        :param pulumi.Input[_builtins.str] user_identifier_attribute: Profile attribute matching can only have a single value that describes the type indicated in `user_identifier_type`. This is the attribute or identifier that the `user_identifier_patterns` are checked against.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RuleIdpDiscoveryUserIdentifierPatternArgs', 'RuleIdpDiscoveryUserIdentifierPatternArgsDict']]]] user_identifier_patterns: Specifies a User Identifier pattern condition to match against. If 'match_type' of 'EXPRESSION' is used, only a *single* element can be set, otherwise multiple elements of matching patterns may be provided.
+               - 'match_type' - (Optional) The kind of pattern. For regex, use 'EXPRESSION'. For simple string matches, use one of the following: 'SUFFIX', 'EQUALS', 'STARTS_WITH', 'CONTAINS'
+               - 'value' - (Optional) The regex or simple match string to match against.
         :param pulumi.Input[_builtins.str] user_identifier_type: One of: `IDENTIFIER`, `ATTRIBUTE`
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -734,10 +722,10 @@ class RuleIdpDiscovery(pulumi.CustomResource):
     @pulumi.getter(name="appIncludes")
     def app_includes(self) -> pulumi.Output[Optional[Sequence['outputs.RuleIdpDiscoveryAppInclude']]]:
         """
-        Applications to include in discovery rule. - 'id' - (Optional) Use if 'type' is 'APP' to indicate the application id to
-        include. - 'name' - (Optional) Use if the 'type' is 'APP_TYPE' to indicate the type of application(s) to include in
-        instances where an entire group (i.e. 'yahoo_mail') of applications should be included. - 'type' - (Required) One of:
-        'APP', 'APP_TYPE'
+        Applications to include in discovery rule.
+        - 'id' - (Optional) Use if 'type' is 'APP' to indicate the application id to include.
+        - 'name' - (Optional) Use if the 'type' is 'APP_TYPE' to indicate the type of application(s) to include in instances where an entire group (i.e. 'yahoo_mail') of applications should be included.
+        - 'type' - (Required) One of: 'APP', 'APP_TYPE'
         """
         return pulumi.get(self, "app_includes")
 
@@ -782,9 +770,10 @@ class RuleIdpDiscovery(pulumi.CustomResource):
     @pulumi.getter(name="platformIncludes")
     def platform_includes(self) -> pulumi.Output[Optional[Sequence['outputs.RuleIdpDiscoveryPlatformInclude']]]:
         """
-        Platform to include in discovery rule. - 'type' - (Optional) One of: 'ANY', 'MOBILE', 'DESKTOP' - 'os_expression -
-        (Optional) Only available when using os_type = 'OTHER' - 'os_type' - (Optional) One of: 'ANY', 'IOS', 'WINDOWS',
-        'ANDROID', 'OTHER', 'OSX'
+        Platform to include in discovery rule.
+        - 'type' - (Optional) One of: 'ANY', 'MOBILE', 'DESKTOP'
+        - 'os_expression - (Optional) Only available when using os_type = 'OTHER'
+        - 'os_type' - (Optional) One of: 'ANY', 'IOS', 'WINDOWS', 'ANDROID', 'OTHER', 'OSX'
         """
         return pulumi.get(self, "platform_includes")
 
@@ -800,8 +789,7 @@ class RuleIdpDiscovery(pulumi.CustomResource):
     @pulumi.getter
     def priority(self) -> pulumi.Output[Optional[_builtins.int]]:
         """
-        Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if
-        an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
+        Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
         """
         return pulumi.get(self, "priority")
 
@@ -817,8 +805,7 @@ class RuleIdpDiscovery(pulumi.CustomResource):
     @pulumi.getter(name="userIdentifierAttribute")
     def user_identifier_attribute(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Profile attribute matching can only have a single value that describes the type indicated in `user_identifier_type`.
-        This is the attribute or identifier that the `user_identifier_patterns` are checked against.
+        Profile attribute matching can only have a single value that describes the type indicated in `user_identifier_type`. This is the attribute or identifier that the `user_identifier_patterns` are checked against.
         """
         return pulumi.get(self, "user_identifier_attribute")
 
@@ -826,10 +813,9 @@ class RuleIdpDiscovery(pulumi.CustomResource):
     @pulumi.getter(name="userIdentifierPatterns")
     def user_identifier_patterns(self) -> pulumi.Output[Optional[Sequence['outputs.RuleIdpDiscoveryUserIdentifierPattern']]]:
         """
-        Specifies a User Identifier pattern condition to match against. If 'match_type' of 'EXPRESSION' is used, only a *single*
-        element can be set, otherwise multiple elements of matching patterns may be provided. - 'match_type' - (Optional) The
-        kind of pattern. For regex, use 'EXPRESSION'. For simple string matches, use one of the following: 'SUFFIX', 'EQUALS',
-        'STARTS_WITH', 'CONTAINS' - 'value' - (Optional) The regex or simple match string to match against.
+        Specifies a User Identifier pattern condition to match against. If 'match_type' of 'EXPRESSION' is used, only a *single* element can be set, otherwise multiple elements of matching patterns may be provided.
+        - 'match_type' - (Optional) The kind of pattern. For regex, use 'EXPRESSION'. For simple string matches, use one of the following: 'SUFFIX', 'EQUALS', 'STARTS_WITH', 'CONTAINS'
+        - 'value' - (Optional) The regex or simple match string to match against.
         """
         return pulumi.get(self, "user_identifier_patterns")
 

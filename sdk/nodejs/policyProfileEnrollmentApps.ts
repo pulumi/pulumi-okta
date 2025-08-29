@@ -69,15 +69,15 @@ export class PolicyProfileEnrollmentApps extends pulumi.CustomResource {
     /**
      * List of app IDs to be added to this policy
      */
-    public readonly apps!: pulumi.Output<string[] | undefined>;
+    declare public readonly apps: pulumi.Output<string[] | undefined>;
     /**
      * ID of the Default Enrollment Policy. This policy is used as a policy to re-assign apps to when they are unassigned from this one
      */
-    public /*out*/ readonly defaultPolicyId!: pulumi.Output<string>;
+    declare public /*out*/ readonly defaultPolicyId: pulumi.Output<string>;
     /**
      * ID of the enrollment policy.
      */
-    public readonly policyId!: pulumi.Output<string>;
+    declare public readonly policyId: pulumi.Output<string>;
 
     /**
      * Create a PolicyProfileEnrollmentApps resource with the given unique name, arguments, and options.
@@ -92,16 +92,16 @@ export class PolicyProfileEnrollmentApps extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PolicyProfileEnrollmentAppsState | undefined;
-            resourceInputs["apps"] = state ? state.apps : undefined;
-            resourceInputs["defaultPolicyId"] = state ? state.defaultPolicyId : undefined;
-            resourceInputs["policyId"] = state ? state.policyId : undefined;
+            resourceInputs["apps"] = state?.apps;
+            resourceInputs["defaultPolicyId"] = state?.defaultPolicyId;
+            resourceInputs["policyId"] = state?.policyId;
         } else {
             const args = argsOrState as PolicyProfileEnrollmentAppsArgs | undefined;
-            if ((!args || args.policyId === undefined) && !opts.urn) {
+            if (args?.policyId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'policyId'");
             }
-            resourceInputs["apps"] = args ? args.apps : undefined;
-            resourceInputs["policyId"] = args ? args.policyId : undefined;
+            resourceInputs["apps"] = args?.apps;
+            resourceInputs["policyId"] = args?.policyId;
             resourceInputs["defaultPolicyId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

@@ -47,11 +47,11 @@ export class Factor extends pulumi.CustomResource {
     /**
      * Whether to activate the provider, by default, it is set to `true`.
      */
-    public readonly active!: pulumi.Output<boolean | undefined>;
+    declare public readonly active: pulumi.Output<boolean | undefined>;
     /**
      * The MFA provider name. Allowed values are `duo`, `fidoU2f`, `fidoWebauthn`, `googleOtp`, `oktaCall`, `oktaOtp`, `oktaPassword`, `oktaPush`, `oktaQuestion`, `oktaSms`, `oktaEmail`, `rsaToken`, `symantecVip`, `yubikeyToken`, or `hotp`.
      */
-    public readonly providerId!: pulumi.Output<string>;
+    declare public readonly providerId: pulumi.Output<string>;
 
     /**
      * Create a Factor resource with the given unique name, arguments, and options.
@@ -66,15 +66,15 @@ export class Factor extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FactorState | undefined;
-            resourceInputs["active"] = state ? state.active : undefined;
-            resourceInputs["providerId"] = state ? state.providerId : undefined;
+            resourceInputs["active"] = state?.active;
+            resourceInputs["providerId"] = state?.providerId;
         } else {
             const args = argsOrState as FactorArgs | undefined;
-            if ((!args || args.providerId === undefined) && !opts.urn) {
+            if (args?.providerId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'providerId'");
             }
-            resourceInputs["active"] = args ? args.active : undefined;
-            resourceInputs["providerId"] = args ? args.providerId : undefined;
+            resourceInputs["active"] = args?.active;
+            resourceInputs["providerId"] = args?.providerId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Factor.__pulumiType, name, resourceInputs, opts);

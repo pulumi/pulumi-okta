@@ -109,22 +109,20 @@ public final class PolicyRuleProfileEnrollmentState extends com.pulumi.resources
     }
 
     /**
-     * A list of attributes to prompt the user during registration or progressive profiling. Where defined on the User schema,
-     * these attributes are persisted in the User profile. Non-schema attributes may also be added, which aren&#39;t persisted to
-     * the User&#39;s profile, but are included in requests to the registration inline hook. A maximum of 10 Profile properties is
-     * supported. - &#39;label&#39; - (Required) A display-friendly label for this property - &#39;name&#39; - (Required) The name of a User
-     * Profile property - &#39;required&#39; - (Required) Indicates if this property is required for enrollment. Default is &#39;false&#39;.
+     * A list of attributes to prompt the user during registration or progressive profiling. Where defined on the User schema, these attributes are persisted in the User profile. Non-schema attributes may also be added, which aren&#39;t persisted to the User&#39;s profile, but are included in requests to the registration inline hook. A maximum of 10 Profile properties is supported.
+     * 	- &#39;label&#39; - (Required) A display-friendly label for this property
+     * 	- &#39;name&#39; - (Required) The name of a User Profile property
+     * 	- &#39;required&#39; - (Required) Indicates if this property is required for enrollment. Default is &#39;false&#39;.
      * 
      */
     @Import(name="profileAttributes")
     private @Nullable Output<List<PolicyRuleProfileEnrollmentProfileAttributeArgs>> profileAttributes;
 
     /**
-     * @return A list of attributes to prompt the user during registration or progressive profiling. Where defined on the User schema,
-     * these attributes are persisted in the User profile. Non-schema attributes may also be added, which aren&#39;t persisted to
-     * the User&#39;s profile, but are included in requests to the registration inline hook. A maximum of 10 Profile properties is
-     * supported. - &#39;label&#39; - (Required) A display-friendly label for this property - &#39;name&#39; - (Required) The name of a User
-     * Profile property - &#39;required&#39; - (Required) Indicates if this property is required for enrollment. Default is &#39;false&#39;.
+     * @return A list of attributes to prompt the user during registration or progressive profiling. Where defined on the User schema, these attributes are persisted in the User profile. Non-schema attributes may also be added, which aren&#39;t persisted to the User&#39;s profile, but are included in requests to the registration inline hook. A maximum of 10 Profile properties is supported.
+     * 	- &#39;label&#39; - (Required) A display-friendly label for this property
+     * 	- &#39;name&#39; - (Required) The name of a User Profile property
+     * 	- &#39;required&#39; - (Required) Indicates if this property is required for enrollment. Default is &#39;false&#39;.
      * 
      */
     public Optional<Output<List<PolicyRuleProfileEnrollmentProfileAttributeArgs>>> profileAttributes() {
@@ -378,11 +376,10 @@ public final class PolicyRuleProfileEnrollmentState extends com.pulumi.resources
         }
 
         /**
-         * @param profileAttributes A list of attributes to prompt the user during registration or progressive profiling. Where defined on the User schema,
-         * these attributes are persisted in the User profile. Non-schema attributes may also be added, which aren&#39;t persisted to
-         * the User&#39;s profile, but are included in requests to the registration inline hook. A maximum of 10 Profile properties is
-         * supported. - &#39;label&#39; - (Required) A display-friendly label for this property - &#39;name&#39; - (Required) The name of a User
-         * Profile property - &#39;required&#39; - (Required) Indicates if this property is required for enrollment. Default is &#39;false&#39;.
+         * @param profileAttributes A list of attributes to prompt the user during registration or progressive profiling. Where defined on the User schema, these attributes are persisted in the User profile. Non-schema attributes may also be added, which aren&#39;t persisted to the User&#39;s profile, but are included in requests to the registration inline hook. A maximum of 10 Profile properties is supported.
+         * 	- &#39;label&#39; - (Required) A display-friendly label for this property
+         * 	- &#39;name&#39; - (Required) The name of a User Profile property
+         * 	- &#39;required&#39; - (Required) Indicates if this property is required for enrollment. Default is &#39;false&#39;.
          * 
          * @return builder
          * 
@@ -393,11 +390,10 @@ public final class PolicyRuleProfileEnrollmentState extends com.pulumi.resources
         }
 
         /**
-         * @param profileAttributes A list of attributes to prompt the user during registration or progressive profiling. Where defined on the User schema,
-         * these attributes are persisted in the User profile. Non-schema attributes may also be added, which aren&#39;t persisted to
-         * the User&#39;s profile, but are included in requests to the registration inline hook. A maximum of 10 Profile properties is
-         * supported. - &#39;label&#39; - (Required) A display-friendly label for this property - &#39;name&#39; - (Required) The name of a User
-         * Profile property - &#39;required&#39; - (Required) Indicates if this property is required for enrollment. Default is &#39;false&#39;.
+         * @param profileAttributes A list of attributes to prompt the user during registration or progressive profiling. Where defined on the User schema, these attributes are persisted in the User profile. Non-schema attributes may also be added, which aren&#39;t persisted to the User&#39;s profile, but are included in requests to the registration inline hook. A maximum of 10 Profile properties is supported.
+         * 	- &#39;label&#39; - (Required) A display-friendly label for this property
+         * 	- &#39;name&#39; - (Required) The name of a User Profile property
+         * 	- &#39;required&#39; - (Required) Indicates if this property is required for enrollment. Default is &#39;false&#39;.
          * 
          * @return builder
          * 
@@ -407,11 +403,10 @@ public final class PolicyRuleProfileEnrollmentState extends com.pulumi.resources
         }
 
         /**
-         * @param profileAttributes A list of attributes to prompt the user during registration or progressive profiling. Where defined on the User schema,
-         * these attributes are persisted in the User profile. Non-schema attributes may also be added, which aren&#39;t persisted to
-         * the User&#39;s profile, but are included in requests to the registration inline hook. A maximum of 10 Profile properties is
-         * supported. - &#39;label&#39; - (Required) A display-friendly label for this property - &#39;name&#39; - (Required) The name of a User
-         * Profile property - &#39;required&#39; - (Required) Indicates if this property is required for enrollment. Default is &#39;false&#39;.
+         * @param profileAttributes A list of attributes to prompt the user during registration or progressive profiling. Where defined on the User schema, these attributes are persisted in the User profile. Non-schema attributes may also be added, which aren&#39;t persisted to the User&#39;s profile, but are included in requests to the registration inline hook. A maximum of 10 Profile properties is supported.
+         * 	- &#39;label&#39; - (Required) A display-friendly label for this property
+         * 	- &#39;name&#39; - (Required) The name of a User Profile property
+         * 	- &#39;required&#39; - (Required) Indicates if this property is required for enrollment. Default is &#39;false&#39;.
          * 
          * @return builder
          * 

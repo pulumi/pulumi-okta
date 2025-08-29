@@ -28,10 +28,10 @@ type RuleIdpDiscovery struct {
 
 	// Applications to exclude in discovery. See `appInclude` for details.
 	AppExcludes RuleIdpDiscoveryAppExcludeArrayOutput `pulumi:"appExcludes"`
-	// Applications to include in discovery rule. - 'id' - (Optional) Use if 'type' is 'APP' to indicate the application id to
-	// include. - 'name' - (Optional) Use if the 'type' is 'APP_TYPE' to indicate the type of application(s) to include in
-	// instances where an entire group (i.e. 'yahoo_mail') of applications should be included. - 'type' - (Required) One of:
-	// 'APP', 'APP_TYPE'
+	// Applications to include in discovery rule.
+	// - 'id' - (Optional) Use if 'type' is 'APP' to indicate the application id to include.
+	// - 'name' - (Optional) Use if the 'type' is 'APP_TYPE' to indicate the type of application(s) to include in instances where an entire group (i.e. 'yahoo_mail') of applications should be included.
+	// - 'type' - (Required) One of: 'APP', 'APP_TYPE'
 	AppIncludes  RuleIdpDiscoveryAppIncludeArrayOutput  `pulumi:"appIncludes"`
 	IdpProviders RuleIdpDiscoveryIdpProviderArrayOutput `pulumi:"idpProviders"`
 	// Policy Rule Name
@@ -42,24 +42,22 @@ type RuleIdpDiscovery struct {
 	NetworkExcludes pulumi.StringArrayOutput `pulumi:"networkExcludes"`
 	// Required if `networkConnection` = `ZONE`. Indicates the network zones to include.
 	NetworkIncludes pulumi.StringArrayOutput `pulumi:"networkIncludes"`
-	// Platform to include in discovery rule. - 'type' - (Optional) One of: 'ANY', 'MOBILE', 'DESKTOP' - 'os_expression -
-	// (Optional) Only available when using osType = 'OTHER' - 'os_type' - (Optional) One of: 'ANY', 'IOS', 'WINDOWS',
-	// 'ANDROID', 'OTHER', 'OSX'
+	// Platform to include in discovery rule.
+	// - 'type' - (Optional) One of: 'ANY', 'MOBILE', 'DESKTOP'
+	// - 'os_expression - (Optional) Only available when using osType = 'OTHER'
+	// - 'os_type' - (Optional) One of: 'ANY', 'IOS', 'WINDOWS', 'ANDROID', 'OTHER', 'OSX'
 	PlatformIncludes RuleIdpDiscoveryPlatformIncludeArrayOutput `pulumi:"platformIncludes"`
 	// Policy ID of the Rule
 	PolicyId pulumi.StringPtrOutput `pulumi:"policyId"`
-	// Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if
-	// an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
+	// Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
 	Priority pulumi.IntPtrOutput `pulumi:"priority"`
 	// Policy Rule Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
 	Status pulumi.StringPtrOutput `pulumi:"status"`
-	// Profile attribute matching can only have a single value that describes the type indicated in `userIdentifierType`. This
-	// is the attribute or identifier that the `userIdentifierPatterns` are checked against.
+	// Profile attribute matching can only have a single value that describes the type indicated in `userIdentifierType`. This is the attribute or identifier that the `userIdentifierPatterns` are checked against.
 	UserIdentifierAttribute pulumi.StringPtrOutput `pulumi:"userIdentifierAttribute"`
-	// Specifies a User Identifier pattern condition to match against. If 'match_type' of 'EXPRESSION' is used, only a *single*
-	// element can be set, otherwise multiple elements of matching patterns may be provided. - 'match_type' - (Optional) The
-	// kind of pattern. For regex, use 'EXPRESSION'. For simple string matches, use one of the following: 'SUFFIX', 'EQUALS',
-	// 'STARTS_WITH', 'CONTAINS' - 'value' - (Optional) The regex or simple match string to match against.
+	// Specifies a User Identifier pattern condition to match against. If 'match_type' of 'EXPRESSION' is used, only a *single* element can be set, otherwise multiple elements of matching patterns may be provided.
+	// - 'match_type' - (Optional) The kind of pattern. For regex, use 'EXPRESSION'. For simple string matches, use one of the following: 'SUFFIX', 'EQUALS', 'STARTS_WITH', 'CONTAINS'
+	// - 'value' - (Optional) The regex or simple match string to match against.
 	UserIdentifierPatterns RuleIdpDiscoveryUserIdentifierPatternArrayOutput `pulumi:"userIdentifierPatterns"`
 	// One of: `IDENTIFIER`, `ATTRIBUTE`
 	UserIdentifierType pulumi.StringPtrOutput `pulumi:"userIdentifierType"`
@@ -97,10 +95,10 @@ func GetRuleIdpDiscovery(ctx *pulumi.Context,
 type ruleIdpDiscoveryState struct {
 	// Applications to exclude in discovery. See `appInclude` for details.
 	AppExcludes []RuleIdpDiscoveryAppExclude `pulumi:"appExcludes"`
-	// Applications to include in discovery rule. - 'id' - (Optional) Use if 'type' is 'APP' to indicate the application id to
-	// include. - 'name' - (Optional) Use if the 'type' is 'APP_TYPE' to indicate the type of application(s) to include in
-	// instances where an entire group (i.e. 'yahoo_mail') of applications should be included. - 'type' - (Required) One of:
-	// 'APP', 'APP_TYPE'
+	// Applications to include in discovery rule.
+	// - 'id' - (Optional) Use if 'type' is 'APP' to indicate the application id to include.
+	// - 'name' - (Optional) Use if the 'type' is 'APP_TYPE' to indicate the type of application(s) to include in instances where an entire group (i.e. 'yahoo_mail') of applications should be included.
+	// - 'type' - (Required) One of: 'APP', 'APP_TYPE'
 	AppIncludes  []RuleIdpDiscoveryAppInclude  `pulumi:"appIncludes"`
 	IdpProviders []RuleIdpDiscoveryIdpProvider `pulumi:"idpProviders"`
 	// Policy Rule Name
@@ -111,24 +109,22 @@ type ruleIdpDiscoveryState struct {
 	NetworkExcludes []string `pulumi:"networkExcludes"`
 	// Required if `networkConnection` = `ZONE`. Indicates the network zones to include.
 	NetworkIncludes []string `pulumi:"networkIncludes"`
-	// Platform to include in discovery rule. - 'type' - (Optional) One of: 'ANY', 'MOBILE', 'DESKTOP' - 'os_expression -
-	// (Optional) Only available when using osType = 'OTHER' - 'os_type' - (Optional) One of: 'ANY', 'IOS', 'WINDOWS',
-	// 'ANDROID', 'OTHER', 'OSX'
+	// Platform to include in discovery rule.
+	// - 'type' - (Optional) One of: 'ANY', 'MOBILE', 'DESKTOP'
+	// - 'os_expression - (Optional) Only available when using osType = 'OTHER'
+	// - 'os_type' - (Optional) One of: 'ANY', 'IOS', 'WINDOWS', 'ANDROID', 'OTHER', 'OSX'
 	PlatformIncludes []RuleIdpDiscoveryPlatformInclude `pulumi:"platformIncludes"`
 	// Policy ID of the Rule
 	PolicyId *string `pulumi:"policyId"`
-	// Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if
-	// an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
+	// Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
 	Priority *int `pulumi:"priority"`
 	// Policy Rule Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
 	Status *string `pulumi:"status"`
-	// Profile attribute matching can only have a single value that describes the type indicated in `userIdentifierType`. This
-	// is the attribute or identifier that the `userIdentifierPatterns` are checked against.
+	// Profile attribute matching can only have a single value that describes the type indicated in `userIdentifierType`. This is the attribute or identifier that the `userIdentifierPatterns` are checked against.
 	UserIdentifierAttribute *string `pulumi:"userIdentifierAttribute"`
-	// Specifies a User Identifier pattern condition to match against. If 'match_type' of 'EXPRESSION' is used, only a *single*
-	// element can be set, otherwise multiple elements of matching patterns may be provided. - 'match_type' - (Optional) The
-	// kind of pattern. For regex, use 'EXPRESSION'. For simple string matches, use one of the following: 'SUFFIX', 'EQUALS',
-	// 'STARTS_WITH', 'CONTAINS' - 'value' - (Optional) The regex or simple match string to match against.
+	// Specifies a User Identifier pattern condition to match against. If 'match_type' of 'EXPRESSION' is used, only a *single* element can be set, otherwise multiple elements of matching patterns may be provided.
+	// - 'match_type' - (Optional) The kind of pattern. For regex, use 'EXPRESSION'. For simple string matches, use one of the following: 'SUFFIX', 'EQUALS', 'STARTS_WITH', 'CONTAINS'
+	// - 'value' - (Optional) The regex or simple match string to match against.
 	UserIdentifierPatterns []RuleIdpDiscoveryUserIdentifierPattern `pulumi:"userIdentifierPatterns"`
 	// One of: `IDENTIFIER`, `ATTRIBUTE`
 	UserIdentifierType *string `pulumi:"userIdentifierType"`
@@ -137,10 +133,10 @@ type ruleIdpDiscoveryState struct {
 type RuleIdpDiscoveryState struct {
 	// Applications to exclude in discovery. See `appInclude` for details.
 	AppExcludes RuleIdpDiscoveryAppExcludeArrayInput
-	// Applications to include in discovery rule. - 'id' - (Optional) Use if 'type' is 'APP' to indicate the application id to
-	// include. - 'name' - (Optional) Use if the 'type' is 'APP_TYPE' to indicate the type of application(s) to include in
-	// instances where an entire group (i.e. 'yahoo_mail') of applications should be included. - 'type' - (Required) One of:
-	// 'APP', 'APP_TYPE'
+	// Applications to include in discovery rule.
+	// - 'id' - (Optional) Use if 'type' is 'APP' to indicate the application id to include.
+	// - 'name' - (Optional) Use if the 'type' is 'APP_TYPE' to indicate the type of application(s) to include in instances where an entire group (i.e. 'yahoo_mail') of applications should be included.
+	// - 'type' - (Required) One of: 'APP', 'APP_TYPE'
 	AppIncludes  RuleIdpDiscoveryAppIncludeArrayInput
 	IdpProviders RuleIdpDiscoveryIdpProviderArrayInput
 	// Policy Rule Name
@@ -151,24 +147,22 @@ type RuleIdpDiscoveryState struct {
 	NetworkExcludes pulumi.StringArrayInput
 	// Required if `networkConnection` = `ZONE`. Indicates the network zones to include.
 	NetworkIncludes pulumi.StringArrayInput
-	// Platform to include in discovery rule. - 'type' - (Optional) One of: 'ANY', 'MOBILE', 'DESKTOP' - 'os_expression -
-	// (Optional) Only available when using osType = 'OTHER' - 'os_type' - (Optional) One of: 'ANY', 'IOS', 'WINDOWS',
-	// 'ANDROID', 'OTHER', 'OSX'
+	// Platform to include in discovery rule.
+	// - 'type' - (Optional) One of: 'ANY', 'MOBILE', 'DESKTOP'
+	// - 'os_expression - (Optional) Only available when using osType = 'OTHER'
+	// - 'os_type' - (Optional) One of: 'ANY', 'IOS', 'WINDOWS', 'ANDROID', 'OTHER', 'OSX'
 	PlatformIncludes RuleIdpDiscoveryPlatformIncludeArrayInput
 	// Policy ID of the Rule
 	PolicyId pulumi.StringPtrInput
-	// Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if
-	// an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
+	// Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
 	Priority pulumi.IntPtrInput
 	// Policy Rule Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
 	Status pulumi.StringPtrInput
-	// Profile attribute matching can only have a single value that describes the type indicated in `userIdentifierType`. This
-	// is the attribute or identifier that the `userIdentifierPatterns` are checked against.
+	// Profile attribute matching can only have a single value that describes the type indicated in `userIdentifierType`. This is the attribute or identifier that the `userIdentifierPatterns` are checked against.
 	UserIdentifierAttribute pulumi.StringPtrInput
-	// Specifies a User Identifier pattern condition to match against. If 'match_type' of 'EXPRESSION' is used, only a *single*
-	// element can be set, otherwise multiple elements of matching patterns may be provided. - 'match_type' - (Optional) The
-	// kind of pattern. For regex, use 'EXPRESSION'. For simple string matches, use one of the following: 'SUFFIX', 'EQUALS',
-	// 'STARTS_WITH', 'CONTAINS' - 'value' - (Optional) The regex or simple match string to match against.
+	// Specifies a User Identifier pattern condition to match against. If 'match_type' of 'EXPRESSION' is used, only a *single* element can be set, otherwise multiple elements of matching patterns may be provided.
+	// - 'match_type' - (Optional) The kind of pattern. For regex, use 'EXPRESSION'. For simple string matches, use one of the following: 'SUFFIX', 'EQUALS', 'STARTS_WITH', 'CONTAINS'
+	// - 'value' - (Optional) The regex or simple match string to match against.
 	UserIdentifierPatterns RuleIdpDiscoveryUserIdentifierPatternArrayInput
 	// One of: `IDENTIFIER`, `ATTRIBUTE`
 	UserIdentifierType pulumi.StringPtrInput
@@ -181,10 +175,10 @@ func (RuleIdpDiscoveryState) ElementType() reflect.Type {
 type ruleIdpDiscoveryArgs struct {
 	// Applications to exclude in discovery. See `appInclude` for details.
 	AppExcludes []RuleIdpDiscoveryAppExclude `pulumi:"appExcludes"`
-	// Applications to include in discovery rule. - 'id' - (Optional) Use if 'type' is 'APP' to indicate the application id to
-	// include. - 'name' - (Optional) Use if the 'type' is 'APP_TYPE' to indicate the type of application(s) to include in
-	// instances where an entire group (i.e. 'yahoo_mail') of applications should be included. - 'type' - (Required) One of:
-	// 'APP', 'APP_TYPE'
+	// Applications to include in discovery rule.
+	// - 'id' - (Optional) Use if 'type' is 'APP' to indicate the application id to include.
+	// - 'name' - (Optional) Use if the 'type' is 'APP_TYPE' to indicate the type of application(s) to include in instances where an entire group (i.e. 'yahoo_mail') of applications should be included.
+	// - 'type' - (Required) One of: 'APP', 'APP_TYPE'
 	AppIncludes  []RuleIdpDiscoveryAppInclude  `pulumi:"appIncludes"`
 	IdpProviders []RuleIdpDiscoveryIdpProvider `pulumi:"idpProviders"`
 	// Policy Rule Name
@@ -195,24 +189,22 @@ type ruleIdpDiscoveryArgs struct {
 	NetworkExcludes []string `pulumi:"networkExcludes"`
 	// Required if `networkConnection` = `ZONE`. Indicates the network zones to include.
 	NetworkIncludes []string `pulumi:"networkIncludes"`
-	// Platform to include in discovery rule. - 'type' - (Optional) One of: 'ANY', 'MOBILE', 'DESKTOP' - 'os_expression -
-	// (Optional) Only available when using osType = 'OTHER' - 'os_type' - (Optional) One of: 'ANY', 'IOS', 'WINDOWS',
-	// 'ANDROID', 'OTHER', 'OSX'
+	// Platform to include in discovery rule.
+	// - 'type' - (Optional) One of: 'ANY', 'MOBILE', 'DESKTOP'
+	// - 'os_expression - (Optional) Only available when using osType = 'OTHER'
+	// - 'os_type' - (Optional) One of: 'ANY', 'IOS', 'WINDOWS', 'ANDROID', 'OTHER', 'OSX'
 	PlatformIncludes []RuleIdpDiscoveryPlatformInclude `pulumi:"platformIncludes"`
 	// Policy ID of the Rule
 	PolicyId *string `pulumi:"policyId"`
-	// Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if
-	// an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
+	// Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
 	Priority *int `pulumi:"priority"`
 	// Policy Rule Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
 	Status *string `pulumi:"status"`
-	// Profile attribute matching can only have a single value that describes the type indicated in `userIdentifierType`. This
-	// is the attribute or identifier that the `userIdentifierPatterns` are checked against.
+	// Profile attribute matching can only have a single value that describes the type indicated in `userIdentifierType`. This is the attribute or identifier that the `userIdentifierPatterns` are checked against.
 	UserIdentifierAttribute *string `pulumi:"userIdentifierAttribute"`
-	// Specifies a User Identifier pattern condition to match against. If 'match_type' of 'EXPRESSION' is used, only a *single*
-	// element can be set, otherwise multiple elements of matching patterns may be provided. - 'match_type' - (Optional) The
-	// kind of pattern. For regex, use 'EXPRESSION'. For simple string matches, use one of the following: 'SUFFIX', 'EQUALS',
-	// 'STARTS_WITH', 'CONTAINS' - 'value' - (Optional) The regex or simple match string to match against.
+	// Specifies a User Identifier pattern condition to match against. If 'match_type' of 'EXPRESSION' is used, only a *single* element can be set, otherwise multiple elements of matching patterns may be provided.
+	// - 'match_type' - (Optional) The kind of pattern. For regex, use 'EXPRESSION'. For simple string matches, use one of the following: 'SUFFIX', 'EQUALS', 'STARTS_WITH', 'CONTAINS'
+	// - 'value' - (Optional) The regex or simple match string to match against.
 	UserIdentifierPatterns []RuleIdpDiscoveryUserIdentifierPattern `pulumi:"userIdentifierPatterns"`
 	// One of: `IDENTIFIER`, `ATTRIBUTE`
 	UserIdentifierType *string `pulumi:"userIdentifierType"`
@@ -222,10 +214,10 @@ type ruleIdpDiscoveryArgs struct {
 type RuleIdpDiscoveryArgs struct {
 	// Applications to exclude in discovery. See `appInclude` for details.
 	AppExcludes RuleIdpDiscoveryAppExcludeArrayInput
-	// Applications to include in discovery rule. - 'id' - (Optional) Use if 'type' is 'APP' to indicate the application id to
-	// include. - 'name' - (Optional) Use if the 'type' is 'APP_TYPE' to indicate the type of application(s) to include in
-	// instances where an entire group (i.e. 'yahoo_mail') of applications should be included. - 'type' - (Required) One of:
-	// 'APP', 'APP_TYPE'
+	// Applications to include in discovery rule.
+	// - 'id' - (Optional) Use if 'type' is 'APP' to indicate the application id to include.
+	// - 'name' - (Optional) Use if the 'type' is 'APP_TYPE' to indicate the type of application(s) to include in instances where an entire group (i.e. 'yahoo_mail') of applications should be included.
+	// - 'type' - (Required) One of: 'APP', 'APP_TYPE'
 	AppIncludes  RuleIdpDiscoveryAppIncludeArrayInput
 	IdpProviders RuleIdpDiscoveryIdpProviderArrayInput
 	// Policy Rule Name
@@ -236,24 +228,22 @@ type RuleIdpDiscoveryArgs struct {
 	NetworkExcludes pulumi.StringArrayInput
 	// Required if `networkConnection` = `ZONE`. Indicates the network zones to include.
 	NetworkIncludes pulumi.StringArrayInput
-	// Platform to include in discovery rule. - 'type' - (Optional) One of: 'ANY', 'MOBILE', 'DESKTOP' - 'os_expression -
-	// (Optional) Only available when using osType = 'OTHER' - 'os_type' - (Optional) One of: 'ANY', 'IOS', 'WINDOWS',
-	// 'ANDROID', 'OTHER', 'OSX'
+	// Platform to include in discovery rule.
+	// - 'type' - (Optional) One of: 'ANY', 'MOBILE', 'DESKTOP'
+	// - 'os_expression - (Optional) Only available when using osType = 'OTHER'
+	// - 'os_type' - (Optional) One of: 'ANY', 'IOS', 'WINDOWS', 'ANDROID', 'OTHER', 'OSX'
 	PlatformIncludes RuleIdpDiscoveryPlatformIncludeArrayInput
 	// Policy ID of the Rule
 	PolicyId pulumi.StringPtrInput
-	// Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if
-	// an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
+	// Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
 	Priority pulumi.IntPtrInput
 	// Policy Rule Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
 	Status pulumi.StringPtrInput
-	// Profile attribute matching can only have a single value that describes the type indicated in `userIdentifierType`. This
-	// is the attribute or identifier that the `userIdentifierPatterns` are checked against.
+	// Profile attribute matching can only have a single value that describes the type indicated in `userIdentifierType`. This is the attribute or identifier that the `userIdentifierPatterns` are checked against.
 	UserIdentifierAttribute pulumi.StringPtrInput
-	// Specifies a User Identifier pattern condition to match against. If 'match_type' of 'EXPRESSION' is used, only a *single*
-	// element can be set, otherwise multiple elements of matching patterns may be provided. - 'match_type' - (Optional) The
-	// kind of pattern. For regex, use 'EXPRESSION'. For simple string matches, use one of the following: 'SUFFIX', 'EQUALS',
-	// 'STARTS_WITH', 'CONTAINS' - 'value' - (Optional) The regex or simple match string to match against.
+	// Specifies a User Identifier pattern condition to match against. If 'match_type' of 'EXPRESSION' is used, only a *single* element can be set, otherwise multiple elements of matching patterns may be provided.
+	// - 'match_type' - (Optional) The kind of pattern. For regex, use 'EXPRESSION'. For simple string matches, use one of the following: 'SUFFIX', 'EQUALS', 'STARTS_WITH', 'CONTAINS'
+	// - 'value' - (Optional) The regex or simple match string to match against.
 	UserIdentifierPatterns RuleIdpDiscoveryUserIdentifierPatternArrayInput
 	// One of: `IDENTIFIER`, `ATTRIBUTE`
 	UserIdentifierType pulumi.StringPtrInput
@@ -351,10 +341,10 @@ func (o RuleIdpDiscoveryOutput) AppExcludes() RuleIdpDiscoveryAppExcludeArrayOut
 	return o.ApplyT(func(v *RuleIdpDiscovery) RuleIdpDiscoveryAppExcludeArrayOutput { return v.AppExcludes }).(RuleIdpDiscoveryAppExcludeArrayOutput)
 }
 
-// Applications to include in discovery rule. - 'id' - (Optional) Use if 'type' is 'APP' to indicate the application id to
-// include. - 'name' - (Optional) Use if the 'type' is 'APP_TYPE' to indicate the type of application(s) to include in
-// instances where an entire group (i.e. 'yahoo_mail') of applications should be included. - 'type' - (Required) One of:
-// 'APP', 'APP_TYPE'
+// Applications to include in discovery rule.
+// - 'id' - (Optional) Use if 'type' is 'APP' to indicate the application id to include.
+// - 'name' - (Optional) Use if the 'type' is 'APP_TYPE' to indicate the type of application(s) to include in instances where an entire group (i.e. 'yahoo_mail') of applications should be included.
+// - 'type' - (Required) One of: 'APP', 'APP_TYPE'
 func (o RuleIdpDiscoveryOutput) AppIncludes() RuleIdpDiscoveryAppIncludeArrayOutput {
 	return o.ApplyT(func(v *RuleIdpDiscovery) RuleIdpDiscoveryAppIncludeArrayOutput { return v.AppIncludes }).(RuleIdpDiscoveryAppIncludeArrayOutput)
 }
@@ -383,9 +373,10 @@ func (o RuleIdpDiscoveryOutput) NetworkIncludes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *RuleIdpDiscovery) pulumi.StringArrayOutput { return v.NetworkIncludes }).(pulumi.StringArrayOutput)
 }
 
-// Platform to include in discovery rule. - 'type' - (Optional) One of: 'ANY', 'MOBILE', 'DESKTOP' - 'os_expression -
-// (Optional) Only available when using osType = 'OTHER' - 'os_type' - (Optional) One of: 'ANY', 'IOS', 'WINDOWS',
-// 'ANDROID', 'OTHER', 'OSX'
+// Platform to include in discovery rule.
+// - 'type' - (Optional) One of: 'ANY', 'MOBILE', 'DESKTOP'
+// - 'os_expression - (Optional) Only available when using osType = 'OTHER'
+// - 'os_type' - (Optional) One of: 'ANY', 'IOS', 'WINDOWS', 'ANDROID', 'OTHER', 'OSX'
 func (o RuleIdpDiscoveryOutput) PlatformIncludes() RuleIdpDiscoveryPlatformIncludeArrayOutput {
 	return o.ApplyT(func(v *RuleIdpDiscovery) RuleIdpDiscoveryPlatformIncludeArrayOutput { return v.PlatformIncludes }).(RuleIdpDiscoveryPlatformIncludeArrayOutput)
 }
@@ -395,8 +386,7 @@ func (o RuleIdpDiscoveryOutput) PolicyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleIdpDiscovery) pulumi.StringPtrOutput { return v.PolicyId }).(pulumi.StringPtrOutput)
 }
 
-// Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if
-// an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
+// Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
 func (o RuleIdpDiscoveryOutput) Priority() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *RuleIdpDiscovery) pulumi.IntPtrOutput { return v.Priority }).(pulumi.IntPtrOutput)
 }
@@ -406,16 +396,14 @@ func (o RuleIdpDiscoveryOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleIdpDiscovery) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }
 
-// Profile attribute matching can only have a single value that describes the type indicated in `userIdentifierType`. This
-// is the attribute or identifier that the `userIdentifierPatterns` are checked against.
+// Profile attribute matching can only have a single value that describes the type indicated in `userIdentifierType`. This is the attribute or identifier that the `userIdentifierPatterns` are checked against.
 func (o RuleIdpDiscoveryOutput) UserIdentifierAttribute() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleIdpDiscovery) pulumi.StringPtrOutput { return v.UserIdentifierAttribute }).(pulumi.StringPtrOutput)
 }
 
-// Specifies a User Identifier pattern condition to match against. If 'match_type' of 'EXPRESSION' is used, only a *single*
-// element can be set, otherwise multiple elements of matching patterns may be provided. - 'match_type' - (Optional) The
-// kind of pattern. For regex, use 'EXPRESSION'. For simple string matches, use one of the following: 'SUFFIX', 'EQUALS',
-// 'STARTS_WITH', 'CONTAINS' - 'value' - (Optional) The regex or simple match string to match against.
+// Specifies a User Identifier pattern condition to match against. If 'match_type' of 'EXPRESSION' is used, only a *single* element can be set, otherwise multiple elements of matching patterns may be provided.
+// - 'match_type' - (Optional) The kind of pattern. For regex, use 'EXPRESSION'. For simple string matches, use one of the following: 'SUFFIX', 'EQUALS', 'STARTS_WITH', 'CONTAINS'
+// - 'value' - (Optional) The regex or simple match string to match against.
 func (o RuleIdpDiscoveryOutput) UserIdentifierPatterns() RuleIdpDiscoveryUserIdentifierPatternArrayOutput {
 	return o.ApplyT(func(v *RuleIdpDiscovery) RuleIdpDiscoveryUserIdentifierPatternArrayOutput {
 		return v.UserIdentifierPatterns

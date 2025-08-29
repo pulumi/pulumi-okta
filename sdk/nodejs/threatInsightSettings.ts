@@ -68,11 +68,11 @@ export class ThreatInsightSettings extends pulumi.CustomResource {
     /**
      * Specifies how Okta responds to authentication requests from suspicious IPs. Valid values are `none`, `audit`, or `block`. A value of `none` indicates that ThreatInsight is disabled. A value of `audit` indicates that Okta logs suspicious requests in the System Log. A value of `block` indicates that Okta logs suspicious requests in the System Log and blocks the requests.
      */
-    public readonly action!: pulumi.Output<string>;
+    declare public readonly action: pulumi.Output<string>;
     /**
      * Accepts a list of Network Zone IDs. Can only accept zones of `IP` type. IPs in the excluded Network Zones aren't logged or blocked by Okta ThreatInsight and proceed to Sign On rules evaluation. This ensures that traffic from known, trusted IPs isn't accidentally logged or blocked. The ordering of the network zone is not guarantee from the API sides
      */
-    public readonly networkExcludes!: pulumi.Output<string[] | undefined>;
+    declare public readonly networkExcludes: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a ThreatInsightSettings resource with the given unique name, arguments, and options.
@@ -87,15 +87,15 @@ export class ThreatInsightSettings extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ThreatInsightSettingsState | undefined;
-            resourceInputs["action"] = state ? state.action : undefined;
-            resourceInputs["networkExcludes"] = state ? state.networkExcludes : undefined;
+            resourceInputs["action"] = state?.action;
+            resourceInputs["networkExcludes"] = state?.networkExcludes;
         } else {
             const args = argsOrState as ThreatInsightSettingsArgs | undefined;
-            if ((!args || args.action === undefined) && !opts.urn) {
+            if (args?.action === undefined && !opts.urn) {
                 throw new Error("Missing required property 'action'");
             }
-            resourceInputs["action"] = args ? args.action : undefined;
-            resourceInputs["networkExcludes"] = args ? args.networkExcludes : undefined;
+            resourceInputs["action"] = args?.action;
+            resourceInputs["networkExcludes"] = args?.networkExcludes;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ThreatInsightSettings.__pulumiType, name, resourceInputs, opts);

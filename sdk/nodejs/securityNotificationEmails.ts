@@ -62,23 +62,23 @@ export class SecurityNotificationEmails extends pulumi.CustomResource {
     /**
      * Notifies end users about suspicious or unrecognized activity from their account. Default is `true`.
      */
-    public readonly reportSuspiciousActivityEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly reportSuspiciousActivityEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Notifies end users of any activity on their account related to MFA factor enrollment. Default is `true`.
      */
-    public readonly sendEmailForFactorEnrollmentEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly sendEmailForFactorEnrollmentEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Notifies end users that one or more factors have been reset for their account. Default is `true`.
      */
-    public readonly sendEmailForFactorResetEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly sendEmailForFactorResetEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Notifies end users about new sign-on activity. Default is `true`.
      */
-    public readonly sendEmailForNewDeviceEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly sendEmailForNewDeviceEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Notifies end users that the password for their account has changed. Default is `true`.
      */
-    public readonly sendEmailForPasswordChangedEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly sendEmailForPasswordChangedEnabled: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a SecurityNotificationEmails resource with the given unique name, arguments, and options.
@@ -93,18 +93,18 @@ export class SecurityNotificationEmails extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SecurityNotificationEmailsState | undefined;
-            resourceInputs["reportSuspiciousActivityEnabled"] = state ? state.reportSuspiciousActivityEnabled : undefined;
-            resourceInputs["sendEmailForFactorEnrollmentEnabled"] = state ? state.sendEmailForFactorEnrollmentEnabled : undefined;
-            resourceInputs["sendEmailForFactorResetEnabled"] = state ? state.sendEmailForFactorResetEnabled : undefined;
-            resourceInputs["sendEmailForNewDeviceEnabled"] = state ? state.sendEmailForNewDeviceEnabled : undefined;
-            resourceInputs["sendEmailForPasswordChangedEnabled"] = state ? state.sendEmailForPasswordChangedEnabled : undefined;
+            resourceInputs["reportSuspiciousActivityEnabled"] = state?.reportSuspiciousActivityEnabled;
+            resourceInputs["sendEmailForFactorEnrollmentEnabled"] = state?.sendEmailForFactorEnrollmentEnabled;
+            resourceInputs["sendEmailForFactorResetEnabled"] = state?.sendEmailForFactorResetEnabled;
+            resourceInputs["sendEmailForNewDeviceEnabled"] = state?.sendEmailForNewDeviceEnabled;
+            resourceInputs["sendEmailForPasswordChangedEnabled"] = state?.sendEmailForPasswordChangedEnabled;
         } else {
             const args = argsOrState as SecurityNotificationEmailsArgs | undefined;
-            resourceInputs["reportSuspiciousActivityEnabled"] = args ? args.reportSuspiciousActivityEnabled : undefined;
-            resourceInputs["sendEmailForFactorEnrollmentEnabled"] = args ? args.sendEmailForFactorEnrollmentEnabled : undefined;
-            resourceInputs["sendEmailForFactorResetEnabled"] = args ? args.sendEmailForFactorResetEnabled : undefined;
-            resourceInputs["sendEmailForNewDeviceEnabled"] = args ? args.sendEmailForNewDeviceEnabled : undefined;
-            resourceInputs["sendEmailForPasswordChangedEnabled"] = args ? args.sendEmailForPasswordChangedEnabled : undefined;
+            resourceInputs["reportSuspiciousActivityEnabled"] = args?.reportSuspiciousActivityEnabled;
+            resourceInputs["sendEmailForFactorEnrollmentEnabled"] = args?.sendEmailForFactorEnrollmentEnabled;
+            resourceInputs["sendEmailForFactorResetEnabled"] = args?.sendEmailForFactorResetEnabled;
+            resourceInputs["sendEmailForNewDeviceEnabled"] = args?.sendEmailForNewDeviceEnabled;
+            resourceInputs["sendEmailForPasswordChangedEnabled"] = args?.sendEmailForPasswordChangedEnabled;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(SecurityNotificationEmails.__pulumiType, name, resourceInputs, opts);

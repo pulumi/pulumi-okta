@@ -58,23 +58,23 @@ export class Signon extends pulumi.CustomResource {
     /**
      * Policy Description
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * List of Group IDs to Include
      */
-    public readonly groupsIncludeds!: pulumi.Output<string[] | undefined>;
+    declare public readonly groupsIncludeds: pulumi.Output<string[] | undefined>;
     /**
      * Policy Name
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
      */
-    public readonly priority!: pulumi.Output<number | undefined>;
+    declare public readonly priority: pulumi.Output<number | undefined>;
     /**
      * Policy Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
      */
-    public readonly status!: pulumi.Output<string | undefined>;
+    declare public readonly status: pulumi.Output<string | undefined>;
 
     /**
      * Create a Signon resource with the given unique name, arguments, and options.
@@ -89,18 +89,18 @@ export class Signon extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SignonState | undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["groupsIncludeds"] = state ? state.groupsIncludeds : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["priority"] = state ? state.priority : undefined;
-            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["groupsIncludeds"] = state?.groupsIncludeds;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["priority"] = state?.priority;
+            resourceInputs["status"] = state?.status;
         } else {
             const args = argsOrState as SignonArgs | undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["groupsIncludeds"] = args ? args.groupsIncludeds : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["priority"] = args ? args.priority : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["groupsIncludeds"] = args?.groupsIncludeds;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["priority"] = args?.priority;
+            resourceInputs["status"] = args?.status;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Signon.__pulumiType, name, resourceInputs, opts);

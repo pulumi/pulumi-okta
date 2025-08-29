@@ -55,23 +55,23 @@ export class Domain extends pulumi.CustomResource {
     /**
      * Brand id of the domain
      */
-    public readonly brandId!: pulumi.Output<string>;
+    declare public readonly brandId: pulumi.Output<string>;
     /**
      * Certificate source type that indicates whether the certificate is provided by the user or Okta. Accepted values: `MANUAL`, `OKTA_MANAGED`. Warning: Use of OKTA_MANAGED requires a feature flag to be enabled. Default value = MANUAL
      */
-    public readonly certificateSourceType!: pulumi.Output<string | undefined>;
+    declare public readonly certificateSourceType: pulumi.Output<string | undefined>;
     /**
      * TXT and CNAME records to be registered for the Domain
      */
-    public /*out*/ readonly dnsRecords!: pulumi.Output<outputs.DomainDnsRecord[]>;
+    declare public /*out*/ readonly dnsRecords: pulumi.Output<outputs.DomainDnsRecord[]>;
     /**
      * Custom Domain name
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Status of the domain
      */
-    public /*out*/ readonly validationStatus!: pulumi.Output<string>;
+    declare public /*out*/ readonly validationStatus: pulumi.Output<string>;
 
     /**
      * Create a Domain resource with the given unique name, arguments, and options.
@@ -86,16 +86,16 @@ export class Domain extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DomainState | undefined;
-            resourceInputs["brandId"] = state ? state.brandId : undefined;
-            resourceInputs["certificateSourceType"] = state ? state.certificateSourceType : undefined;
-            resourceInputs["dnsRecords"] = state ? state.dnsRecords : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["validationStatus"] = state ? state.validationStatus : undefined;
+            resourceInputs["brandId"] = state?.brandId;
+            resourceInputs["certificateSourceType"] = state?.certificateSourceType;
+            resourceInputs["dnsRecords"] = state?.dnsRecords;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["validationStatus"] = state?.validationStatus;
         } else {
             const args = argsOrState as DomainArgs | undefined;
-            resourceInputs["brandId"] = args ? args.brandId : undefined;
-            resourceInputs["certificateSourceType"] = args ? args.certificateSourceType : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["brandId"] = args?.brandId;
+            resourceInputs["certificateSourceType"] = args?.certificateSourceType;
+            resourceInputs["name"] = args?.name;
             resourceInputs["dnsRecords"] = undefined /*out*/;
             resourceInputs["validationStatus"] = undefined /*out*/;
         }

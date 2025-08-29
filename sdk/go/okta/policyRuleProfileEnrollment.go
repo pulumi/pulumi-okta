@@ -118,11 +118,10 @@ type PolicyRuleProfileEnrollment struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// ID of the policy
 	PolicyId pulumi.StringOutput `pulumi:"policyId"`
-	// A list of attributes to prompt the user during registration or progressive profiling. Where defined on the User schema,
-	// these attributes are persisted in the User profile. Non-schema attributes may also be added, which aren't persisted to
-	// the User's profile, but are included in requests to the registration inline hook. A maximum of 10 Profile properties is
-	// supported. - 'label' - (Required) A display-friendly label for this property - 'name' - (Required) The name of a User
-	// Profile property - 'required' - (Required) Indicates if this property is required for enrollment. Default is 'false'.
+	// A list of attributes to prompt the user during registration or progressive profiling. Where defined on the User schema, these attributes are persisted in the User profile. Non-schema attributes may also be added, which aren't persisted to the User's profile, but are included in requests to the registration inline hook. A maximum of 10 Profile properties is supported.
+	// 	- 'label' - (Required) A display-friendly label for this property
+	// 	- 'name' - (Required) The name of a User Profile property
+	// 	- 'required' - (Required) Indicates if this property is required for enrollment. Default is 'false'.
 	ProfileAttributes PolicyRuleProfileEnrollmentProfileAttributeArrayOutput `pulumi:"profileAttributes"`
 	// Enabled or disabled progressive profiling action rule conditions: `ENABLED` or `DISABLED`. Default: `DISABLED`
 	ProgressiveProfilingAction pulumi.StringPtrOutput `pulumi:"progressiveProfilingAction"`
@@ -184,11 +183,10 @@ type policyRuleProfileEnrollmentState struct {
 	Name *string `pulumi:"name"`
 	// ID of the policy
 	PolicyId *string `pulumi:"policyId"`
-	// A list of attributes to prompt the user during registration or progressive profiling. Where defined on the User schema,
-	// these attributes are persisted in the User profile. Non-schema attributes may also be added, which aren't persisted to
-	// the User's profile, but are included in requests to the registration inline hook. A maximum of 10 Profile properties is
-	// supported. - 'label' - (Required) A display-friendly label for this property - 'name' - (Required) The name of a User
-	// Profile property - 'required' - (Required) Indicates if this property is required for enrollment. Default is 'false'.
+	// A list of attributes to prompt the user during registration or progressive profiling. Where defined on the User schema, these attributes are persisted in the User profile. Non-schema attributes may also be added, which aren't persisted to the User's profile, but are included in requests to the registration inline hook. A maximum of 10 Profile properties is supported.
+	// 	- 'label' - (Required) A display-friendly label for this property
+	// 	- 'name' - (Required) The name of a User Profile property
+	// 	- 'required' - (Required) Indicates if this property is required for enrollment. Default is 'false'.
 	ProfileAttributes []PolicyRuleProfileEnrollmentProfileAttribute `pulumi:"profileAttributes"`
 	// Enabled or disabled progressive profiling action rule conditions: `ENABLED` or `DISABLED`. Default: `DISABLED`
 	ProgressiveProfilingAction *string `pulumi:"progressiveProfilingAction"`
@@ -215,11 +213,10 @@ type PolicyRuleProfileEnrollmentState struct {
 	Name pulumi.StringPtrInput
 	// ID of the policy
 	PolicyId pulumi.StringPtrInput
-	// A list of attributes to prompt the user during registration or progressive profiling. Where defined on the User schema,
-	// these attributes are persisted in the User profile. Non-schema attributes may also be added, which aren't persisted to
-	// the User's profile, but are included in requests to the registration inline hook. A maximum of 10 Profile properties is
-	// supported. - 'label' - (Required) A display-friendly label for this property - 'name' - (Required) The name of a User
-	// Profile property - 'required' - (Required) Indicates if this property is required for enrollment. Default is 'false'.
+	// A list of attributes to prompt the user during registration or progressive profiling. Where defined on the User schema, these attributes are persisted in the User profile. Non-schema attributes may also be added, which aren't persisted to the User's profile, but are included in requests to the registration inline hook. A maximum of 10 Profile properties is supported.
+	// 	- 'label' - (Required) A display-friendly label for this property
+	// 	- 'name' - (Required) The name of a User Profile property
+	// 	- 'required' - (Required) Indicates if this property is required for enrollment. Default is 'false'.
 	ProfileAttributes PolicyRuleProfileEnrollmentProfileAttributeArrayInput
 	// Enabled or disabled progressive profiling action rule conditions: `ENABLED` or `DISABLED`. Default: `DISABLED`
 	ProgressiveProfilingAction pulumi.StringPtrInput
@@ -248,11 +245,10 @@ type policyRuleProfileEnrollmentArgs struct {
 	InlineHookId *string `pulumi:"inlineHookId"`
 	// ID of the policy
 	PolicyId string `pulumi:"policyId"`
-	// A list of attributes to prompt the user during registration or progressive profiling. Where defined on the User schema,
-	// these attributes are persisted in the User profile. Non-schema attributes may also be added, which aren't persisted to
-	// the User's profile, but are included in requests to the registration inline hook. A maximum of 10 Profile properties is
-	// supported. - 'label' - (Required) A display-friendly label for this property - 'name' - (Required) The name of a User
-	// Profile property - 'required' - (Required) Indicates if this property is required for enrollment. Default is 'false'.
+	// A list of attributes to prompt the user during registration or progressive profiling. Where defined on the User schema, these attributes are persisted in the User profile. Non-schema attributes may also be added, which aren't persisted to the User's profile, but are included in requests to the registration inline hook. A maximum of 10 Profile properties is supported.
+	// 	- 'label' - (Required) A display-friendly label for this property
+	// 	- 'name' - (Required) The name of a User Profile property
+	// 	- 'required' - (Required) Indicates if this property is required for enrollment. Default is 'false'.
 	ProfileAttributes []PolicyRuleProfileEnrollmentProfileAttribute `pulumi:"profileAttributes"`
 	// Enabled or disabled progressive profiling action rule conditions: `ENABLED` or `DISABLED`. Default: `DISABLED`
 	ProgressiveProfilingAction *string `pulumi:"progressiveProfilingAction"`
@@ -276,11 +272,10 @@ type PolicyRuleProfileEnrollmentArgs struct {
 	InlineHookId pulumi.StringPtrInput
 	// ID of the policy
 	PolicyId pulumi.StringInput
-	// A list of attributes to prompt the user during registration or progressive profiling. Where defined on the User schema,
-	// these attributes are persisted in the User profile. Non-schema attributes may also be added, which aren't persisted to
-	// the User's profile, but are included in requests to the registration inline hook. A maximum of 10 Profile properties is
-	// supported. - 'label' - (Required) A display-friendly label for this property - 'name' - (Required) The name of a User
-	// Profile property - 'required' - (Required) Indicates if this property is required for enrollment. Default is 'false'.
+	// A list of attributes to prompt the user during registration or progressive profiling. Where defined on the User schema, these attributes are persisted in the User profile. Non-schema attributes may also be added, which aren't persisted to the User's profile, but are included in requests to the registration inline hook. A maximum of 10 Profile properties is supported.
+	// 	- 'label' - (Required) A display-friendly label for this property
+	// 	- 'name' - (Required) The name of a User Profile property
+	// 	- 'required' - (Required) Indicates if this property is required for enrollment. Default is 'false'.
 	ProfileAttributes PolicyRuleProfileEnrollmentProfileAttributeArrayInput
 	// Enabled or disabled progressive profiling action rule conditions: `ENABLED` or `DISABLED`. Default: `DISABLED`
 	ProgressiveProfilingAction pulumi.StringPtrInput
@@ -409,11 +404,10 @@ func (o PolicyRuleProfileEnrollmentOutput) PolicyId() pulumi.StringOutput {
 	return o.ApplyT(func(v *PolicyRuleProfileEnrollment) pulumi.StringOutput { return v.PolicyId }).(pulumi.StringOutput)
 }
 
-// A list of attributes to prompt the user during registration or progressive profiling. Where defined on the User schema,
-// these attributes are persisted in the User profile. Non-schema attributes may also be added, which aren't persisted to
-// the User's profile, but are included in requests to the registration inline hook. A maximum of 10 Profile properties is
-// supported. - 'label' - (Required) A display-friendly label for this property - 'name' - (Required) The name of a User
-// Profile property - 'required' - (Required) Indicates if this property is required for enrollment. Default is 'false'.
+// A list of attributes to prompt the user during registration or progressive profiling. Where defined on the User schema, these attributes are persisted in the User profile. Non-schema attributes may also be added, which aren't persisted to the User's profile, but are included in requests to the registration inline hook. A maximum of 10 Profile properties is supported.
+//   - 'label' - (Required) A display-friendly label for this property
+//   - 'name' - (Required) The name of a User Profile property
+//   - 'required' - (Required) Indicates if this property is required for enrollment. Default is 'false'.
 func (o PolicyRuleProfileEnrollmentOutput) ProfileAttributes() PolicyRuleProfileEnrollmentProfileAttributeArrayOutput {
 	return o.ApplyT(func(v *PolicyRuleProfileEnrollment) PolicyRuleProfileEnrollmentProfileAttributeArrayOutput {
 		return v.ProfileAttributes

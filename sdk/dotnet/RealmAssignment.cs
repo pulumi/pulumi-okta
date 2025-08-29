@@ -13,8 +13,7 @@ namespace Pulumi.Okta
     public partial class RealmAssignment : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Condition expression for the Realm Assignment in Okta Expression Language. Example: `user.profile.role =="Manager"` or
-        /// `user.profile.state.contains("example")`.
+        /// Condition expression for the Realm Assignment in Okta Expression Language. Example: `user.profile.role =="Manager"` or `user.profile.state.contains("example")`.
         /// </summary>
         [Output("conditionExpression")]
         public Output<string?> ConditionExpression { get; private set; } = null!;
@@ -102,8 +101,7 @@ namespace Pulumi.Okta
     public sealed class RealmAssignmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Condition expression for the Realm Assignment in Okta Expression Language. Example: `user.profile.role =="Manager"` or
-        /// `user.profile.state.contains("example")`.
+        /// Condition expression for the Realm Assignment in Okta Expression Language. Example: `user.profile.role =="Manager"` or `user.profile.state.contains("example")`.
         /// </summary>
         [Input("conditionExpression")]
         public Input<string>? ConditionExpression { get; set; }
@@ -147,8 +145,7 @@ namespace Pulumi.Okta
     public sealed class RealmAssignmentState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Condition expression for the Realm Assignment in Okta Expression Language. Example: `user.profile.role =="Manager"` or
-        /// `user.profile.state.contains("example")`.
+        /// Condition expression for the Realm Assignment in Okta Expression Language. Example: `user.profile.role =="Manager"` or `user.profile.state.contains("example")`.
         /// </summary>
         [Input("conditionExpression")]
         public Input<string>? ConditionExpression { get; set; }

@@ -68,15 +68,15 @@ export class TemplateSms extends pulumi.CustomResource {
     /**
      * SMS default template
      */
-    public readonly template!: pulumi.Output<string>;
+    declare public readonly template: pulumi.Output<string>;
     /**
      * Set of translations for a particular template.
      */
-    public readonly translations!: pulumi.Output<outputs.TemplateSmsTranslation[] | undefined>;
+    declare public readonly translations: pulumi.Output<outputs.TemplateSmsTranslation[] | undefined>;
     /**
      * SMS template type
      */
-    public readonly type!: pulumi.Output<string>;
+    declare public readonly type: pulumi.Output<string>;
 
     /**
      * Create a TemplateSms resource with the given unique name, arguments, and options.
@@ -91,20 +91,20 @@ export class TemplateSms extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TemplateSmsState | undefined;
-            resourceInputs["template"] = state ? state.template : undefined;
-            resourceInputs["translations"] = state ? state.translations : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["template"] = state?.template;
+            resourceInputs["translations"] = state?.translations;
+            resourceInputs["type"] = state?.type;
         } else {
             const args = argsOrState as TemplateSmsArgs | undefined;
-            if ((!args || args.template === undefined) && !opts.urn) {
+            if (args?.template === undefined && !opts.urn) {
                 throw new Error("Missing required property 'template'");
             }
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["template"] = args ? args.template : undefined;
-            resourceInputs["translations"] = args ? args.translations : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["template"] = args?.template;
+            resourceInputs["translations"] = args?.translations;
+            resourceInputs["type"] = args?.type;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(TemplateSms.__pulumiType, name, resourceInputs, opts);
