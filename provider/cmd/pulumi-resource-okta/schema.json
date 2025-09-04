@@ -42,7 +42,7 @@
             "respectSchemaVersion": true
         },
         "nodejs": {
-            "packageDescription": "A Pulumi package for creating and managing okta resources.. Based on terraform-provider-okta: version v5.3.0",
+            "packageDescription": "A Pulumi package for creating and managing okta resources.. Based on terraform-provider-okta: version v5.4.0",
             "readme": "\u003e This provider is a derived work of the [Terraform Provider](https://github.com/okta/terraform-provider-okta)\n\u003e distributed under [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/). If you encounter a bug or missing feature,\n\u003e first check the [`pulumi-okta` repo](https://github.com/pulumi/pulumi-okta/issues); however, if that doesn't turn up anything,\n\u003e please consult the source [`terraform-provider-okta` repo](https://github.com/okta/terraform-provider-okta/issues).",
             "devDependencies": {
                 "@types/mime": "^2.0.0",
@@ -10106,7 +10106,7 @@
                 },
                 "reAuthenticationFrequency": {
                     "type": "string",
-                    "description": "The duration after which the end user must re-authenticate, regardless of user activity. Use the ISO 8601 Period format for recurring time intervals. PT0S - Every sign-in attempt, PT43800H - Once per session\n"
+                    "description": "The duration after which the end user must re-authenticate, regardless of user activity. Use the ISO 8601 Period format for recurring time intervals. PT0S - Every sign-in attempt, PT43800H - Once per session. Cannot be set if reauthenticateIn is set in one or more entries of chains.\n"
                 },
                 "riskScore": {
                     "type": "string",
@@ -10258,7 +10258,7 @@
                 },
                 "reAuthenticationFrequency": {
                     "type": "string",
-                    "description": "The duration after which the end user must re-authenticate, regardless of user activity. Use the ISO 8601 Period format for recurring time intervals. PT0S - Every sign-in attempt, PT43800H - Once per session\n"
+                    "description": "The duration after which the end user must re-authenticate, regardless of user activity. Use the ISO 8601 Period format for recurring time intervals. PT0S - Every sign-in attempt, PT43800H - Once per session. Cannot be set if reauthenticateIn is set in one or more entries of chains.\n"
                 },
                 "riskScore": {
                     "type": "string",
@@ -10405,7 +10405,7 @@
                     },
                     "reAuthenticationFrequency": {
                         "type": "string",
-                        "description": "The duration after which the end user must re-authenticate, regardless of user activity. Use the ISO 8601 Period format for recurring time intervals. PT0S - Every sign-in attempt, PT43800H - Once per session\n"
+                        "description": "The duration after which the end user must re-authenticate, regardless of user activity. Use the ISO 8601 Period format for recurring time intervals. PT0S - Every sign-in attempt, PT43800H - Once per session. Cannot be set if reauthenticateIn is set in one or more entries of chains.\n"
                     },
                     "riskScore": {
                         "type": "string",
@@ -12405,30 +12405,31 @@
             }
         },
         "okta:index/emailSmtpServer:EmailSmtpServer": {
+            "description": "Create and configure SMTP email server configuration for your org.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst example = new okta.EmailSmtpServer(\"example\", {\n    alias: \"CustomServer\",\n    host: \"192.168.160.1\",\n    port: 8086,\n    username: \"abcd\",\n    enabled: false,\n    password: \"pwd\",\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample = okta.EmailSmtpServer(\"example\",\n    alias=\"CustomServer\",\n    host=\"192.168.160.1\",\n    port=8086,\n    username=\"abcd\",\n    enabled=False,\n    password=\"pwd\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new Okta.EmailSmtpServer(\"example\", new()\n    {\n        Alias = \"CustomServer\",\n        Host = \"192.168.160.1\",\n        Port = 8086,\n        Username = \"abcd\",\n        Enabled = false,\n        Password = \"pwd\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v5/go/okta\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := okta.NewEmailSmtpServer(ctx, \"example\", \u0026okta.EmailSmtpServerArgs{\n\t\t\tAlias:    pulumi.String(\"CustomServer\"),\n\t\t\tHost:     pulumi.String(\"192.168.160.1\"),\n\t\t\tPort:     pulumi.Int(8086),\n\t\t\tUsername: pulumi.String(\"abcd\"),\n\t\t\tEnabled:  pulumi.Bool(false),\n\t\t\tPassword: pulumi.String(\"pwd\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.okta.EmailSmtpServer;\nimport com.pulumi.okta.EmailSmtpServerArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new EmailSmtpServer(\"example\", EmailSmtpServerArgs.builder()\n            .alias(\"CustomServer\")\n            .host(\"192.168.160.1\")\n            .port(8086)\n            .username(\"abcd\")\n            .enabled(false)\n            .password(\"pwd\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: okta:EmailSmtpServer\n    properties:\n      alias: CustomServer\n      host: 192.168.160.1\n      port: 8086\n      username: abcd\n      enabled: false\n      password: pwd\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
             "properties": {
                 "alias": {
                     "type": "string",
-                    "description": "Human-readable name for your SMTP server."
+                    "description": "Human-readable name for your SMTP server\n"
                 },
                 "enabled": {
                     "type": "boolean",
-                    "description": "If true, routes all email traffic through your SMTP server."
+                    "description": "If true, routes all email traffic through your SMTP server.Default: `false`\n"
                 },
                 "host": {
                     "type": "string",
-                    "description": "Hostname or IP address of your SMTP server."
+                    "description": "Hostname or IP address of your SMTP server\n"
                 },
                 "password": {
                     "type": "string",
-                    "description": "User name of the email domain."
+                    "description": "Password used to access your SMTP server\n"
                 },
                 "port": {
                     "type": "integer",
-                    "description": "Port number of your SMTP server."
+                    "description": "Port number of your SMTP server\n"
                 },
                 "username": {
                     "type": "string",
-                    "description": "Display name of the email domain."
+                    "description": "Username used to access your SMTP server\n"
                 }
             },
             "required": [
@@ -12441,27 +12442,27 @@
             "inputProperties": {
                 "alias": {
                     "type": "string",
-                    "description": "Human-readable name for your SMTP server."
+                    "description": "Human-readable name for your SMTP server\n"
                 },
                 "enabled": {
                     "type": "boolean",
-                    "description": "If true, routes all email traffic through your SMTP server."
+                    "description": "If true, routes all email traffic through your SMTP server.Default: `false`\n"
                 },
                 "host": {
                     "type": "string",
-                    "description": "Hostname or IP address of your SMTP server."
+                    "description": "Hostname or IP address of your SMTP server\n"
                 },
                 "password": {
                     "type": "string",
-                    "description": "User name of the email domain."
+                    "description": "Password used to access your SMTP server\n"
                 },
                 "port": {
                     "type": "integer",
-                    "description": "Port number of your SMTP server."
+                    "description": "Port number of your SMTP server\n"
                 },
                 "username": {
                     "type": "string",
-                    "description": "Display name of the email domain."
+                    "description": "Username used to access your SMTP server\n"
                 }
             },
             "requiredInputs": [
@@ -12476,27 +12477,27 @@
                 "properties": {
                     "alias": {
                         "type": "string",
-                        "description": "Human-readable name for your SMTP server."
+                        "description": "Human-readable name for your SMTP server\n"
                     },
                     "enabled": {
                         "type": "boolean",
-                        "description": "If true, routes all email traffic through your SMTP server."
+                        "description": "If true, routes all email traffic through your SMTP server.Default: `false`\n"
                     },
                     "host": {
                         "type": "string",
-                        "description": "Hostname or IP address of your SMTP server."
+                        "description": "Hostname or IP address of your SMTP server\n"
                     },
                     "password": {
                         "type": "string",
-                        "description": "User name of the email domain."
+                        "description": "Password used to access your SMTP server\n"
                     },
                     "port": {
                         "type": "integer",
-                        "description": "Port number of your SMTP server."
+                        "description": "Port number of your SMTP server\n"
                     },
                     "username": {
                         "type": "string",
-                        "description": "Display name of the email domain."
+                        "description": "Username used to access your SMTP server\n"
                     }
                 },
                 "type": "object"
@@ -15031,7 +15032,7 @@
             }
         },
         "okta:index/rateLimiting:RateLimiting": {
-            "description": "Manages rate limiting.\nThis resource allows you to configure the client-based rate limit and rate limiting communications settings.\n\u003e **WARNING:** This resource is available only when using a SSWS API token in the provider config, it is incompatible with OAuth 2.0 authentication.\n\u003e **WARNING:** This resource makes use of an internal/private Okta API endpoint that could change without notice rendering this resource inoperable.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst example = new okta.RateLimiting(\"example\", {\n    login: \"ENFORCE\",\n    authorize: \"ENFORCE\",\n    communicationsEnabled: true,\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample = okta.RateLimiting(\"example\",\n    login=\"ENFORCE\",\n    authorize=\"ENFORCE\",\n    communications_enabled=True)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new Okta.RateLimiting(\"example\", new()\n    {\n        Login = \"ENFORCE\",\n        Authorize = \"ENFORCE\",\n        CommunicationsEnabled = true,\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v5/go/okta\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := okta.NewRateLimiting(ctx, \"example\", \u0026okta.RateLimitingArgs{\n\t\t\tLogin:                 pulumi.String(\"ENFORCE\"),\n\t\t\tAuthorize:             pulumi.String(\"ENFORCE\"),\n\t\t\tCommunicationsEnabled: pulumi.Bool(true),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.okta.RateLimiting;\nimport com.pulumi.okta.RateLimitingArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new RateLimiting(\"example\", RateLimitingArgs.builder()\n            .login(\"ENFORCE\")\n            .authorize(\"ENFORCE\")\n            .communicationsEnabled(true)\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: okta:RateLimiting\n    properties:\n      login: ENFORCE\n      authorize: ENFORCE\n      communicationsEnabled: true\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n```sh\n$ pulumi import okta:index/rateLimiting:RateLimiting example .\n```\n\n",
+            "description": "Manages rate limiting.\nThis resource allows you to configure the client-based rate limit and rate limiting communications settings.\n\u003e **WARNING:** This resource is deprecated and will be removed in a future release. A new resource to manage rate limiting settings will be implemented in the future.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst example = new okta.RateLimiting(\"example\", {\n    login: \"ENFORCE\",\n    authorize: \"ENFORCE\",\n    communicationsEnabled: true,\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample = okta.RateLimiting(\"example\",\n    login=\"ENFORCE\",\n    authorize=\"ENFORCE\",\n    communications_enabled=True)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new Okta.RateLimiting(\"example\", new()\n    {\n        Login = \"ENFORCE\",\n        Authorize = \"ENFORCE\",\n        CommunicationsEnabled = true,\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v5/go/okta\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := okta.NewRateLimiting(ctx, \"example\", \u0026okta.RateLimitingArgs{\n\t\t\tLogin:                 pulumi.String(\"ENFORCE\"),\n\t\t\tAuthorize:             pulumi.String(\"ENFORCE\"),\n\t\t\tCommunicationsEnabled: pulumi.Bool(true),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.okta.RateLimiting;\nimport com.pulumi.okta.RateLimitingArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new RateLimiting(\"example\", RateLimitingArgs.builder()\n            .login(\"ENFORCE\")\n            .authorize(\"ENFORCE\")\n            .communicationsEnabled(true)\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: okta:RateLimiting\n    properties:\n      login: ENFORCE\n      authorize: ENFORCE\n      communicationsEnabled: true\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n```sh\n$ pulumi import okta:index/rateLimiting:RateLimiting example .\n```\n\n",
             "properties": {
                 "authorize": {
                     "type": "string",
@@ -15088,18 +15089,19 @@
             }
         },
         "okta:index/realm:Realm": {
+            "description": "Creates an Okta Realm. This resource allows you to create and configure an Okta Realm.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst example = new okta.Realm(\"example\", {\n    name: \"Example Realm\",\n    realmType: \"DEFAULT\",\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample = okta.Realm(\"example\",\n    name=\"Example Realm\",\n    realm_type=\"DEFAULT\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new Okta.Realm(\"example\", new()\n    {\n        Name = \"Example Realm\",\n        RealmType = \"DEFAULT\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v5/go/okta\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := okta.NewRealm(ctx, \"example\", \u0026okta.RealmArgs{\n\t\t\tName:      pulumi.String(\"Example Realm\"),\n\t\t\tRealmType: pulumi.String(\"DEFAULT\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.okta.Realm;\nimport com.pulumi.okta.RealmArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new Realm(\"example\", RealmArgs.builder()\n            .name(\"Example Realm\")\n            .realmType(\"DEFAULT\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: okta:Realm\n    properties:\n      name: Example Realm\n      realmType: DEFAULT\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n```sh\n$ pulumi import okta:index/realm:Realm example \u003crealm_id\u003e\n```\n\n",
             "properties": {
                 "isDefault": {
                     "type": "boolean",
-                    "description": "Indicates whether the realm is the default realm."
+                    "description": "Indicates whether the realm is the default realm.\n"
                 },
                 "name": {
                     "type": "string",
-                    "description": "The name of the Okta Realm."
+                    "description": "The name of the Okta Realm.\n"
                 },
                 "realmType": {
                     "type": "string",
-                    "description": "The realm type. Valid values: `PARTNER` and `DEFAULT`"
+                    "description": "The realm type. Valid values: `PARTNER` and `DEFAULT`\n"
                 }
             },
             "required": [
@@ -15110,11 +15112,11 @@
             "inputProperties": {
                 "name": {
                     "type": "string",
-                    "description": "The name of the Okta Realm."
+                    "description": "The name of the Okta Realm.\n"
                 },
                 "realmType": {
                     "type": "string",
-                    "description": "The realm type. Valid values: `PARTNER` and `DEFAULT`"
+                    "description": "The realm type. Valid values: `PARTNER` and `DEFAULT`\n"
                 }
             },
             "requiredInputs": [
@@ -15125,49 +15127,50 @@
                 "properties": {
                     "isDefault": {
                         "type": "boolean",
-                        "description": "Indicates whether the realm is the default realm."
+                        "description": "Indicates whether the realm is the default realm.\n"
                     },
                     "name": {
                         "type": "string",
-                        "description": "The name of the Okta Realm."
+                        "description": "The name of the Okta Realm.\n"
                     },
                     "realmType": {
                         "type": "string",
-                        "description": "The realm type. Valid values: `PARTNER` and `DEFAULT`"
+                        "description": "The realm type. Valid values: `PARTNER` and `DEFAULT`\n"
                     }
                 },
                 "type": "object"
             }
         },
         "okta:index/realmAssignment:RealmAssignment": {
+            "description": "Creates an Okta Realm Assignment. This resource allows you to create and configure an Okta Realm Assignment.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst example = new okta.Realm(\"example\", {\n    name: \"Example Realm\",\n    realmType: \"DEFAULT\",\n});\nconst test = new okta.RealmAssignment(\"test\", {\n    name: \"Example Realm Assignment\",\n    priority: 55,\n    status: \"ACTIVE\",\n    profileSourceId: testOktaIdpSaml.id,\n    conditionExpression: \"user.profile.login.contains(\\\"@example.com\\\")\",\n    realmId: example.id,\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample = okta.Realm(\"example\",\n    name=\"Example Realm\",\n    realm_type=\"DEFAULT\")\ntest = okta.RealmAssignment(\"test\",\n    name=\"Example Realm Assignment\",\n    priority=55,\n    status=\"ACTIVE\",\n    profile_source_id=test_okta_idp_saml[\"id\"],\n    condition_expression=\"user.profile.login.contains(\\\"@example.com\\\")\",\n    realm_id=example.id)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new Okta.Realm(\"example\", new()\n    {\n        Name = \"Example Realm\",\n        RealmType = \"DEFAULT\",\n    });\n\n    var test = new Okta.RealmAssignment(\"test\", new()\n    {\n        Name = \"Example Realm Assignment\",\n        Priority = 55,\n        Status = \"ACTIVE\",\n        ProfileSourceId = testOktaIdpSaml.Id,\n        ConditionExpression = \"user.profile.login.contains(\\\"@example.com\\\")\",\n        RealmId = example.Id,\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v5/go/okta\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texample, err := okta.NewRealm(ctx, \"example\", \u0026okta.RealmArgs{\n\t\t\tName:      pulumi.String(\"Example Realm\"),\n\t\t\tRealmType: pulumi.String(\"DEFAULT\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = okta.NewRealmAssignment(ctx, \"test\", \u0026okta.RealmAssignmentArgs{\n\t\t\tName:                pulumi.String(\"Example Realm Assignment\"),\n\t\t\tPriority:            pulumi.Int(55),\n\t\t\tStatus:              pulumi.String(\"ACTIVE\"),\n\t\t\tProfileSourceId:     pulumi.Any(testOktaIdpSaml.Id),\n\t\t\tConditionExpression: pulumi.String(\"user.profile.login.contains(\\\"@example.com\\\")\"),\n\t\t\tRealmId:             example.ID(),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.okta.Realm;\nimport com.pulumi.okta.RealmArgs;\nimport com.pulumi.okta.RealmAssignment;\nimport com.pulumi.okta.RealmAssignmentArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new Realm(\"example\", RealmArgs.builder()\n            .name(\"Example Realm\")\n            .realmType(\"DEFAULT\")\n            .build());\n\n        var test = new RealmAssignment(\"test\", RealmAssignmentArgs.builder()\n            .name(\"Example Realm Assignment\")\n            .priority(55)\n            .status(\"ACTIVE\")\n            .profileSourceId(testOktaIdpSaml.id())\n            .conditionExpression(\"user.profile.login.contains(\\\"@example.com\\\")\")\n            .realmId(example.id())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  test:\n    type: okta:RealmAssignment\n    properties:\n      name: Example Realm Assignment\n      priority: 55\n      status: ACTIVE\n      profileSourceId: ${testOktaIdpSaml.id}\n      conditionExpression: user.profile.login.contains(\"@example.com\")\n      realmId: ${example.id}\n  example:\n    type: okta:Realm\n    properties:\n      name: Example Realm\n      realmType: DEFAULT\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n```sh\n$ pulumi import okta:index/realmAssignment:RealmAssignment example \u003crealm_assignment_id\u003e\n```\n\n",
             "properties": {
                 "conditionExpression": {
                     "type": "string",
-                    "description": "Condition expression for the Realm Assignment in Okta Expression Language. Example: `user.profile.role ==\"Manager\"` or `user.profile.state.contains(\"example\")`."
+                    "description": "Condition expression for the Realm Assignment in Okta Expression Language. Example: `user.profile.role ==\"Manager\"` or `user.profile.state.contains(\"example\")`.\n"
                 },
                 "isDefault": {
                     "type": "boolean",
-                    "description": "Indicates whether the realm assignment is the default."
+                    "description": "Indicates whether the realm assignment is the default.\n"
                 },
                 "name": {
                     "type": "string",
-                    "description": "The name of the Okta Realm Assignment."
+                    "description": "The name of the Okta Realm Assignment.\n"
                 },
                 "priority": {
                     "type": "integer",
-                    "description": "The Priority of the Realm Assignment. The lower the number, the higher the priority."
+                    "description": "The Priority of the Realm Assignment. The lower the number, the higher the priority.\n"
                 },
                 "profileSourceId": {
                     "type": "string",
-                    "description": "The ID of the Profile Source."
+                    "description": "The ID of the Profile Source.\n"
                 },
                 "realmId": {
                     "type": "string",
-                    "description": "The ID of the Realm asscociated with the Realm Assignment."
+                    "description": "The ID of the Realm asscociated with the Realm Assignment.\n"
                 },
                 "status": {
                     "type": "string",
-                    "description": "Defines whether the Realm Assignment is active or not. Valid values: `ACTIVE` and `INACTIVE`."
+                    "description": "Defines whether the Realm Assignment is active or not. Valid values: `ACTIVE` and `INACTIVE`.\n"
                 }
             },
             "required": [
@@ -15181,27 +15184,27 @@
             "inputProperties": {
                 "conditionExpression": {
                     "type": "string",
-                    "description": "Condition expression for the Realm Assignment in Okta Expression Language. Example: `user.profile.role ==\"Manager\"` or `user.profile.state.contains(\"example\")`."
+                    "description": "Condition expression for the Realm Assignment in Okta Expression Language. Example: `user.profile.role ==\"Manager\"` or `user.profile.state.contains(\"example\")`.\n"
                 },
                 "name": {
                     "type": "string",
-                    "description": "The name of the Okta Realm Assignment."
+                    "description": "The name of the Okta Realm Assignment.\n"
                 },
                 "priority": {
                     "type": "integer",
-                    "description": "The Priority of the Realm Assignment. The lower the number, the higher the priority."
+                    "description": "The Priority of the Realm Assignment. The lower the number, the higher the priority.\n"
                 },
                 "profileSourceId": {
                     "type": "string",
-                    "description": "The ID of the Profile Source."
+                    "description": "The ID of the Profile Source.\n"
                 },
                 "realmId": {
                     "type": "string",
-                    "description": "The ID of the Realm asscociated with the Realm Assignment."
+                    "description": "The ID of the Realm asscociated with the Realm Assignment.\n"
                 },
                 "status": {
                     "type": "string",
-                    "description": "Defines whether the Realm Assignment is active or not. Valid values: `ACTIVE` and `INACTIVE`."
+                    "description": "Defines whether the Realm Assignment is active or not. Valid values: `ACTIVE` and `INACTIVE`.\n"
                 }
             },
             "requiredInputs": [
@@ -15213,31 +15216,31 @@
                 "properties": {
                     "conditionExpression": {
                         "type": "string",
-                        "description": "Condition expression for the Realm Assignment in Okta Expression Language. Example: `user.profile.role ==\"Manager\"` or `user.profile.state.contains(\"example\")`."
+                        "description": "Condition expression for the Realm Assignment in Okta Expression Language. Example: `user.profile.role ==\"Manager\"` or `user.profile.state.contains(\"example\")`.\n"
                     },
                     "isDefault": {
                         "type": "boolean",
-                        "description": "Indicates whether the realm assignment is the default."
+                        "description": "Indicates whether the realm assignment is the default.\n"
                     },
                     "name": {
                         "type": "string",
-                        "description": "The name of the Okta Realm Assignment."
+                        "description": "The name of the Okta Realm Assignment.\n"
                     },
                     "priority": {
                         "type": "integer",
-                        "description": "The Priority of the Realm Assignment. The lower the number, the higher the priority."
+                        "description": "The Priority of the Realm Assignment. The lower the number, the higher the priority.\n"
                     },
                     "profileSourceId": {
                         "type": "string",
-                        "description": "The ID of the Profile Source."
+                        "description": "The ID of the Profile Source.\n"
                     },
                     "realmId": {
                         "type": "string",
-                        "description": "The ID of the Realm asscociated with the Realm Assignment."
+                        "description": "The ID of the Realm asscociated with the Realm Assignment.\n"
                     },
                     "status": {
                         "type": "string",
-                        "description": "Defines whether the Realm Assignment is active or not. Valid values: `ACTIVE` and `INACTIVE`."
+                        "description": "Defines whether the Realm Assignment is active or not. Valid values: `ACTIVE` and `INACTIVE`.\n"
                     }
                 },
                 "type": "object"
@@ -23264,11 +23267,13 @@
             }
         },
         "okta:index/getEmailSmtpServer:getEmailSmtpServer": {
+            "description": "Get existing SMTP email server configuration.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst smtpServer = new okta.EmailSmtpServer(\"smtp_server\", {\n    alias: \"CustomServer\",\n    host: \"192.168.160.1\",\n    port: 8086,\n    username: \"aUser\",\n    password: \"abcd\",\n});\nconst serverConfig = okta.getEmailSmtpServer({\n    id: \"id-of-your-smtp-server\",\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nsmtp_server = okta.EmailSmtpServer(\"smtp_server\",\n    alias=\"CustomServer\",\n    host=\"192.168.160.1\",\n    port=8086,\n    username=\"aUser\",\n    password=\"abcd\")\nserver_config = okta.get_email_smtp_server(id=\"id-of-your-smtp-server\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var smtpServer = new Okta.EmailSmtpServer(\"smtp_server\", new()\n    {\n        Alias = \"CustomServer\",\n        Host = \"192.168.160.1\",\n        Port = 8086,\n        Username = \"aUser\",\n        Password = \"abcd\",\n    });\n\n    var serverConfig = Okta.GetEmailSmtpServer.Invoke(new()\n    {\n        Id = \"id-of-your-smtp-server\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v5/go/okta\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := okta.NewEmailSmtpServer(ctx, \"smtp_server\", \u0026okta.EmailSmtpServerArgs{\n\t\t\tAlias:    pulumi.String(\"CustomServer\"),\n\t\t\tHost:     pulumi.String(\"192.168.160.1\"),\n\t\t\tPort:     pulumi.Int(8086),\n\t\t\tUsername: pulumi.String(\"aUser\"),\n\t\t\tPassword: pulumi.String(\"abcd\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = okta.LookupEmailSmtpServer(ctx, \u0026okta.LookupEmailSmtpServerArgs{\n\t\t\tId: \"id-of-your-smtp-server\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.okta.EmailSmtpServer;\nimport com.pulumi.okta.EmailSmtpServerArgs;\nimport com.pulumi.okta.OktaFunctions;\nimport com.pulumi.okta.inputs.GetEmailSmtpServerArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var smtpServer = new EmailSmtpServer(\"smtpServer\", EmailSmtpServerArgs.builder()\n            .alias(\"CustomServer\")\n            .host(\"192.168.160.1\")\n            .port(8086)\n            .username(\"aUser\")\n            .password(\"abcd\")\n            .build());\n\n        final var serverConfig = OktaFunctions.getEmailSmtpServer(GetEmailSmtpServerArgs.builder()\n            .id(\"id-of-your-smtp-server\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  smtpServer:\n    type: okta:EmailSmtpServer\n    name: smtp_server\n    properties:\n      alias: CustomServer\n      host: 192.168.160.1\n      port: 8086\n      username: aUser\n      password: abcd\nvariables:\n  serverConfig:\n    fn::invoke:\n      function: okta:getEmailSmtpServer\n      arguments:\n        id: id-of-your-smtp-server\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
             "inputs": {
                 "description": "A collection of arguments for invoking getEmailSmtpServer.\n",
                 "properties": {
                     "id": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "ID of your SMTP server\n"
                     }
                 },
                 "type": "object",
@@ -23280,21 +23285,27 @@
                 "description": "A collection of values returned by getEmailSmtpServer.\n",
                 "properties": {
                     "alias": {
+                        "description": "Human-readable name for SMTP server\n",
                         "type": "string"
                     },
                     "enabled": {
+                        "description": "If true, routes all email traffic through the SMTP server.\n",
                         "type": "boolean"
                     },
                     "host": {
+                        "description": "Hostname or IP address of the SMTP server\n",
                         "type": "string"
                     },
                     "id": {
+                        "description": "ID of your SMTP server\n",
                         "type": "string"
                     },
                     "port": {
+                        "description": "The port number of the SMTP server\n",
                         "type": "integer"
                     },
                     "username": {
+                        "description": "Username used to access the SMTP server\n",
                         "type": "string"
                     }
                 },
@@ -23634,17 +23645,21 @@
             }
         },
         "okta:index/getRealm:getRealm": {
+            "description": "Get a realm from Okta.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst exampleName = okta.getRealm({\n    name: \"Example Realm\",\n});\nconst exampleId = okta.getRealm({\n    id: \"\u003crealm_id\u003e\",\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample_name = okta.get_realm(name=\"Example Realm\")\nexample_id = okta.get_realm(id=\"\u003crealm_id\u003e\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var exampleName = Okta.GetRealm.Invoke(new()\n    {\n        Name = \"Example Realm\",\n    });\n\n    var exampleId = Okta.GetRealm.Invoke(new()\n    {\n        Id = \"\u003crealm_id\u003e\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v5/go/okta\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := okta.LookupRealm(ctx, \u0026okta.LookupRealmArgs{\n\t\t\tName: pulumi.StringRef(\"Example Realm\"),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = okta.LookupRealm(ctx, \u0026okta.LookupRealmArgs{\n\t\t\tId: pulumi.StringRef(\"\u003crealm_id\u003e\"),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.okta.OktaFunctions;\nimport com.pulumi.okta.inputs.GetRealmArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var exampleName = OktaFunctions.getRealm(GetRealmArgs.builder()\n            .name(\"Example Realm\")\n            .build());\n\n        final var exampleId = OktaFunctions.getRealm(GetRealmArgs.builder()\n            .id(\"\u003crealm_id\u003e\")\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  exampleName:\n    fn::invoke:\n      function: okta:getRealm\n      arguments:\n        name: Example Realm\n  exampleId:\n    fn::invoke:\n      function: okta:getRealm\n      arguments:\n        id: \u003crealm_id\u003e\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
             "inputs": {
                 "description": "A collection of arguments for invoking getRealm.\n",
                 "properties": {
                     "id": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "The id of the Okta Realm.\n"
                     },
                     "name": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "The name of the Okta Realm.\n"
                     },
                     "realmType": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "The realm type. Valid values: `PARTNER` and `DEFAULT`\n"
                     }
                 },
                 "type": "object"
@@ -23653,15 +23668,19 @@
                 "description": "A collection of values returned by getRealm.\n",
                 "properties": {
                     "id": {
+                        "description": "The id of the Okta Realm.\n",
                         "type": "string"
                     },
                     "isDefault": {
+                        "description": "Indicates whether the realm is the default realm.\n",
                         "type": "boolean"
                     },
                     "name": {
+                        "description": "The name of the Okta Realm.\n",
                         "type": "string"
                     },
                     "realmType": {
+                        "description": "The realm type. Valid values: `PARTNER` and `DEFAULT`\n",
                         "type": "string"
                     }
                 },
@@ -23674,11 +23693,13 @@
             }
         },
         "okta:index/getRealmAssignment:getRealmAssignment": {
+            "description": "Get a realm assignment from Okta.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```yaml\nvariables:\n  exampleName:\n    fn::invoke:\n      function: okta:getRealmAssignment\n      arguments:\n        name: Example Realm Assignment\n  exampleId:\n    fn::invoke:\n      function: okta:getRealmAssignment\n      arguments:\n        id: \u003crealm_assignment_id\u003e\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
             "inputs": {
                 "description": "A collection of arguments for invoking getRealmAssignment.\n",
                 "properties": {
                     "name": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "The name of the Okta Realm Assignment.\n"
                     }
                 },
                 "type": "object"
@@ -23687,27 +23708,35 @@
                 "description": "A collection of values returned by getRealmAssignment.\n",
                 "properties": {
                     "conditionExpression": {
+                        "description": "Condition expression for the Realm Assignment in Okta Expression Language. Example: `user.profile.role ==\"Manager\"` or `user.profile.state.contains(\"example\")`.\n",
                         "type": "string"
                     },
                     "id": {
+                        "description": "Realm Assignment ID.\n",
                         "type": "string"
                     },
                     "isDefault": {
+                        "description": "Indicates whether the realm assignment is the default.\n",
                         "type": "boolean"
                     },
                     "name": {
+                        "description": "The name of the Okta Realm Assignment.\n",
                         "type": "string"
                     },
                     "priority": {
+                        "description": "The Priority of the Realm Assignment. The lower the number, the higher the priority.\n",
                         "type": "integer"
                     },
                     "profileSourceId": {
+                        "description": "The ID of the Profile Source.\n",
                         "type": "string"
                     },
                     "realmId": {
+                        "description": "The ID of the Realm asscociated with the Realm Assignment.\n",
                         "type": "string"
                     },
                     "status": {
+                        "description": "Defines whether the Realm Assignment is active or not. Valid values: `ACTIVE` and `INACTIVE`.\n",
                         "type": "string"
                     }
                 },
