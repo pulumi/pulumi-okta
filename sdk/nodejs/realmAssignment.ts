@@ -4,6 +4,35 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * Creates an Okta Realm Assignment. This resource allows you to create and configure an Okta Realm Assignment.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const example = new okta.Realm("example", {
+ *     name: "Example Realm",
+ *     realmType: "DEFAULT",
+ * });
+ * const test = new okta.RealmAssignment("test", {
+ *     name: "Example Realm Assignment",
+ *     priority: 55,
+ *     status: "ACTIVE",
+ *     profileSourceId: testOktaIdpSaml.id,
+ *     conditionExpression: "user.profile.login.contains(\"@example.com\")",
+ *     realmId: example.id,
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * ```sh
+ * $ pulumi import okta:index/realmAssignment:RealmAssignment example <realm_assignment_id>
+ * ```
+ */
 export class RealmAssignment extends pulumi.CustomResource {
     /**
      * Get an existing RealmAssignment resource's state with the given name, ID, and optional extra

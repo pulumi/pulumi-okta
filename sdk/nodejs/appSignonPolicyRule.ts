@@ -119,7 +119,7 @@ export class AppSignonPolicyRule extends pulumi.CustomResource {
      */
     declare public readonly priority: pulumi.Output<number | undefined>;
     /**
-     * The duration after which the end user must re-authenticate, regardless of user activity. Use the ISO 8601 Period format for recurring time intervals. PT0S - Every sign-in attempt, PT43800H - Once per session
+     * The duration after which the end user must re-authenticate, regardless of user activity. Use the ISO 8601 Period format for recurring time intervals. PT0S - Every sign-in attempt, PT43800H - Once per session. Cannot be set if reauthenticateIn is set in one or more entries of chains.
      */
     declare public readonly reAuthenticationFrequency: pulumi.Output<string | undefined>;
     /**
@@ -307,7 +307,7 @@ export interface AppSignonPolicyRuleState {
      */
     priority?: pulumi.Input<number>;
     /**
-     * The duration after which the end user must re-authenticate, regardless of user activity. Use the ISO 8601 Period format for recurring time intervals. PT0S - Every sign-in attempt, PT43800H - Once per session
+     * The duration after which the end user must re-authenticate, regardless of user activity. Use the ISO 8601 Period format for recurring time intervals. PT0S - Every sign-in attempt, PT43800H - Once per session. Cannot be set if reauthenticateIn is set in one or more entries of chains.
      */
     reAuthenticationFrequency?: pulumi.Input<string>;
     /**
@@ -418,7 +418,7 @@ export interface AppSignonPolicyRuleArgs {
      */
     priority?: pulumi.Input<number>;
     /**
-     * The duration after which the end user must re-authenticate, regardless of user activity. Use the ISO 8601 Period format for recurring time intervals. PT0S - Every sign-in attempt, PT43800H - Once per session
+     * The duration after which the end user must re-authenticate, regardless of user activity. Use the ISO 8601 Period format for recurring time intervals. PT0S - Every sign-in attempt, PT43800H - Once per session. Cannot be set if reauthenticateIn is set in one or more entries of chains.
      */
     reAuthenticationFrequency?: pulumi.Input<string>;
     /**

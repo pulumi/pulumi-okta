@@ -11,6 +11,43 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Get existing SMTP email server configuration.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v5/go/okta"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := okta.NewEmailSmtpServer(ctx, "smtp_server", &okta.EmailSmtpServerArgs{
+//				Alias:    pulumi.String("CustomServer"),
+//				Host:     pulumi.String("192.168.160.1"),
+//				Port:     pulumi.Int(8086),
+//				Username: pulumi.String("aUser"),
+//				Password: pulumi.String("abcd"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = okta.LookupEmailSmtpServer(ctx, &okta.LookupEmailSmtpServerArgs{
+//				Id: "id-of-your-smtp-server",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupEmailSmtpServer(ctx *pulumi.Context, args *LookupEmailSmtpServerArgs, opts ...pulumi.InvokeOption) (*LookupEmailSmtpServerResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupEmailSmtpServerResult
@@ -23,16 +60,23 @@ func LookupEmailSmtpServer(ctx *pulumi.Context, args *LookupEmailSmtpServerArgs,
 
 // A collection of arguments for invoking getEmailSmtpServer.
 type LookupEmailSmtpServerArgs struct {
+	// ID of your SMTP server
 	Id string `pulumi:"id"`
 }
 
 // A collection of values returned by getEmailSmtpServer.
 type LookupEmailSmtpServerResult struct {
-	Alias    string `pulumi:"alias"`
-	Enabled  bool   `pulumi:"enabled"`
-	Host     string `pulumi:"host"`
-	Id       string `pulumi:"id"`
-	Port     int    `pulumi:"port"`
+	// Human-readable name for SMTP server
+	Alias string `pulumi:"alias"`
+	// If true, routes all email traffic through the SMTP server.
+	Enabled bool `pulumi:"enabled"`
+	// Hostname or IP address of the SMTP server
+	Host string `pulumi:"host"`
+	// ID of your SMTP server
+	Id string `pulumi:"id"`
+	// The port number of the SMTP server
+	Port int `pulumi:"port"`
+	// Username used to access the SMTP server
 	Username string `pulumi:"username"`
 }
 
@@ -47,6 +91,7 @@ func LookupEmailSmtpServerOutput(ctx *pulumi.Context, args LookupEmailSmtpServer
 
 // A collection of arguments for invoking getEmailSmtpServer.
 type LookupEmailSmtpServerOutputArgs struct {
+	// ID of your SMTP server
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -69,26 +114,32 @@ func (o LookupEmailSmtpServerResultOutput) ToLookupEmailSmtpServerResultOutputWi
 	return o
 }
 
+// Human-readable name for SMTP server
 func (o LookupEmailSmtpServerResultOutput) Alias() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupEmailSmtpServerResult) string { return v.Alias }).(pulumi.StringOutput)
 }
 
+// If true, routes all email traffic through the SMTP server.
 func (o LookupEmailSmtpServerResultOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupEmailSmtpServerResult) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
+// Hostname or IP address of the SMTP server
 func (o LookupEmailSmtpServerResultOutput) Host() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupEmailSmtpServerResult) string { return v.Host }).(pulumi.StringOutput)
 }
 
+// ID of your SMTP server
 func (o LookupEmailSmtpServerResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupEmailSmtpServerResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// The port number of the SMTP server
 func (o LookupEmailSmtpServerResultOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupEmailSmtpServerResult) int { return v.Port }).(pulumi.IntOutput)
 }
 
+// Username used to access the SMTP server
 func (o LookupEmailSmtpServerResultOutput) Username() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupEmailSmtpServerResult) string { return v.Username }).(pulumi.StringOutput)
 }

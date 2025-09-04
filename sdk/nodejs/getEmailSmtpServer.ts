@@ -4,6 +4,27 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * Get existing SMTP email server configuration.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const smtpServer = new okta.EmailSmtpServer("smtp_server", {
+ *     alias: "CustomServer",
+ *     host: "192.168.160.1",
+ *     port: 8086,
+ *     username: "aUser",
+ *     password: "abcd",
+ * });
+ * const serverConfig = okta.getEmailSmtpServer({
+ *     id: "id-of-your-smtp-server",
+ * });
+ * ```
+ */
 export function getEmailSmtpServer(args: GetEmailSmtpServerArgs, opts?: pulumi.InvokeOptions): Promise<GetEmailSmtpServerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("okta:index/getEmailSmtpServer:getEmailSmtpServer", {
@@ -15,6 +36,9 @@ export function getEmailSmtpServer(args: GetEmailSmtpServerArgs, opts?: pulumi.I
  * A collection of arguments for invoking getEmailSmtpServer.
  */
 export interface GetEmailSmtpServerArgs {
+    /**
+     * ID of your SMTP server
+     */
     id: string;
 }
 
@@ -22,13 +46,52 @@ export interface GetEmailSmtpServerArgs {
  * A collection of values returned by getEmailSmtpServer.
  */
 export interface GetEmailSmtpServerResult {
+    /**
+     * Human-readable name for SMTP server
+     */
     readonly alias: string;
+    /**
+     * If true, routes all email traffic through the SMTP server.
+     */
     readonly enabled: boolean;
+    /**
+     * Hostname or IP address of the SMTP server
+     */
     readonly host: string;
+    /**
+     * ID of your SMTP server
+     */
     readonly id: string;
+    /**
+     * The port number of the SMTP server
+     */
     readonly port: number;
+    /**
+     * Username used to access the SMTP server
+     */
     readonly username: string;
 }
+/**
+ * Get existing SMTP email server configuration.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const smtpServer = new okta.EmailSmtpServer("smtp_server", {
+ *     alias: "CustomServer",
+ *     host: "192.168.160.1",
+ *     port: 8086,
+ *     username: "aUser",
+ *     password: "abcd",
+ * });
+ * const serverConfig = okta.getEmailSmtpServer({
+ *     id: "id-of-your-smtp-server",
+ * });
+ * ```
+ */
 export function getEmailSmtpServerOutput(args: GetEmailSmtpServerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEmailSmtpServerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("okta:index/getEmailSmtpServer:getEmailSmtpServer", {
@@ -40,5 +103,8 @@ export function getEmailSmtpServerOutput(args: GetEmailSmtpServerOutputArgs, opt
  * A collection of arguments for invoking getEmailSmtpServer.
  */
 export interface GetEmailSmtpServerOutputArgs {
+    /**
+     * ID of your SMTP server
+     */
     id: pulumi.Input<string>;
 }

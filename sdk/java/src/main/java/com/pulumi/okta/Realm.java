@@ -14,6 +14,52 @@ import java.lang.Boolean;
 import java.lang.String;
 import javax.annotation.Nullable;
 
+/**
+ * Creates an Okta Realm. This resource allows you to create and configure an Okta Realm.
+ * 
+ * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.okta.Realm;
+ * import com.pulumi.okta.RealmArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Realm("example", RealmArgs.builder()
+ *             .name("Example Realm")
+ *             .realmType("DEFAULT")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ## Import
+ * 
+ * ```sh
+ * $ pulumi import okta:index/realm:Realm example &lt;realm_id&gt;
+ * ```
+ * 
+ */
 @ResourceType(type="okta:index/realm:Realm")
 public class Realm extends com.pulumi.resources.CustomResource {
     /**

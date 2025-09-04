@@ -13,21 +13,53 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetRealmResult {
+    /**
+     * @return The id of the Okta Realm.
+     * 
+     */
     private String id;
+    /**
+     * @return Indicates whether the realm is the default realm.
+     * 
+     */
     private Boolean isDefault;
+    /**
+     * @return The name of the Okta Realm.
+     * 
+     */
     private String name;
+    /**
+     * @return The realm type. Valid values: `PARTNER` and `DEFAULT`
+     * 
+     */
     private @Nullable String realmType;
 
     private GetRealmResult() {}
+    /**
+     * @return The id of the Okta Realm.
+     * 
+     */
     public String id() {
         return this.id;
     }
+    /**
+     * @return Indicates whether the realm is the default realm.
+     * 
+     */
     public Boolean isDefault() {
         return this.isDefault;
     }
+    /**
+     * @return The name of the Okta Realm.
+     * 
+     */
     public String name() {
         return this.name;
     }
+    /**
+     * @return The realm type. Valid values: `PARTNER` and `DEFAULT`
+     * 
+     */
     public Optional<String> realmType() {
         return Optional.ofNullable(this.realmType);
     }

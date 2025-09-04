@@ -43,21 +43,33 @@ class GetRealmResult:
     @_builtins.property
     @pulumi.getter
     def id(self) -> _builtins.str:
+        """
+        The id of the Okta Realm.
+        """
         return pulumi.get(self, "id")
 
     @_builtins.property
     @pulumi.getter(name="isDefault")
     def is_default(self) -> _builtins.bool:
+        """
+        Indicates whether the realm is the default realm.
+        """
         return pulumi.get(self, "is_default")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
+        """
+        The name of the Okta Realm.
+        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="realmType")
     def realm_type(self) -> Optional[_builtins.str]:
+        """
+        The realm type. Valid values: `PARTNER` and `DEFAULT`
+        """
         return pulumi.get(self, "realm_type")
 
 
@@ -78,7 +90,22 @@ def get_realm(id: Optional[_builtins.str] = None,
               realm_type: Optional[_builtins.str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRealmResult:
     """
-    Use this data source to access information about an existing resource.
+    Get a realm from Okta.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_okta as okta
+
+    example_name = okta.get_realm(name="Example Realm")
+    example_id = okta.get_realm(id="<realm_id>")
+    ```
+
+
+    :param _builtins.str id: The id of the Okta Realm.
+    :param _builtins.str name: The name of the Okta Realm.
+    :param _builtins.str realm_type: The realm type. Valid values: `PARTNER` and `DEFAULT`
     """
     __args__ = dict()
     __args__['id'] = id
@@ -97,7 +124,22 @@ def get_realm_output(id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                      realm_type: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRealmResult]:
     """
-    Use this data source to access information about an existing resource.
+    Get a realm from Okta.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_okta as okta
+
+    example_name = okta.get_realm(name="Example Realm")
+    example_id = okta.get_realm(id="<realm_id>")
+    ```
+
+
+    :param _builtins.str id: The id of the Okta Realm.
+    :param _builtins.str name: The name of the Okta Realm.
+    :param _builtins.str realm_type: The realm type. Valid values: `PARTNER` and `DEFAULT`
     """
     __args__ = dict()
     __args__['id'] = id

@@ -121,7 +121,25 @@ class Realm(pulumi.CustomResource):
                  realm_type: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Create a Realm resource with the given unique name, props, and options.
+        Creates an Okta Realm. This resource allows you to create and configure an Okta Realm.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        example = okta.Realm("example",
+            name="Example Realm",
+            realm_type="DEFAULT")
+        ```
+
+        ## Import
+
+        ```sh
+        $ pulumi import okta:index/realm:Realm example <realm_id>
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: The name of the Okta Realm.
@@ -134,7 +152,25 @@ class Realm(pulumi.CustomResource):
                  args: RealmArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a Realm resource with the given unique name, props, and options.
+        Creates an Okta Realm. This resource allows you to create and configure an Okta Realm.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        example = okta.Realm("example",
+            name="Example Realm",
+            realm_type="DEFAULT")
+        ```
+
+        ## Import
+
+        ```sh
+        $ pulumi import okta:index/realm:Realm example <realm_id>
+        ```
+
         :param str resource_name: The name of the resource.
         :param RealmArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.

@@ -4,6 +4,23 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * Get a realm from Okta.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const exampleName = okta.getRealm({
+ *     name: "Example Realm",
+ * });
+ * const exampleId = okta.getRealm({
+ *     id: "<realm_id>",
+ * });
+ * ```
+ */
 export function getRealm(args?: GetRealmArgs, opts?: pulumi.InvokeOptions): Promise<GetRealmResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -18,8 +35,17 @@ export function getRealm(args?: GetRealmArgs, opts?: pulumi.InvokeOptions): Prom
  * A collection of arguments for invoking getRealm.
  */
 export interface GetRealmArgs {
+    /**
+     * The id of the Okta Realm.
+     */
     id?: string;
+    /**
+     * The name of the Okta Realm.
+     */
     name?: string;
+    /**
+     * The realm type. Valid values: `PARTNER` and `DEFAULT`
+     */
     realmType?: string;
 }
 
@@ -27,11 +53,40 @@ export interface GetRealmArgs {
  * A collection of values returned by getRealm.
  */
 export interface GetRealmResult {
+    /**
+     * The id of the Okta Realm.
+     */
     readonly id: string;
+    /**
+     * Indicates whether the realm is the default realm.
+     */
     readonly isDefault: boolean;
+    /**
+     * The name of the Okta Realm.
+     */
     readonly name: string;
+    /**
+     * The realm type. Valid values: `PARTNER` and `DEFAULT`
+     */
     readonly realmType?: string;
 }
+/**
+ * Get a realm from Okta.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const exampleName = okta.getRealm({
+ *     name: "Example Realm",
+ * });
+ * const exampleId = okta.getRealm({
+ *     id: "<realm_id>",
+ * });
+ * ```
+ */
 export function getRealmOutput(args?: GetRealmOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRealmResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -46,7 +101,16 @@ export function getRealmOutput(args?: GetRealmOutputArgs, opts?: pulumi.InvokeOu
  * A collection of arguments for invoking getRealm.
  */
 export interface GetRealmOutputArgs {
+    /**
+     * The id of the Okta Realm.
+     */
     id?: pulumi.Input<string>;
+    /**
+     * The name of the Okta Realm.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * The realm type. Valid values: `PARTNER` and `DEFAULT`
+     */
     realmType?: pulumi.Input<string>;
 }

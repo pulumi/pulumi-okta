@@ -55,41 +55,65 @@ class GetRealmAssignmentResult:
     @_builtins.property
     @pulumi.getter(name="conditionExpression")
     def condition_expression(self) -> _builtins.str:
+        """
+        Condition expression for the Realm Assignment in Okta Expression Language. Example: `user.profile.role =="Manager"` or `user.profile.state.contains("example")`.
+        """
         return pulumi.get(self, "condition_expression")
 
     @_builtins.property
     @pulumi.getter
     def id(self) -> _builtins.str:
+        """
+        Realm Assignment ID.
+        """
         return pulumi.get(self, "id")
 
     @_builtins.property
     @pulumi.getter(name="isDefault")
     def is_default(self) -> _builtins.bool:
+        """
+        Indicates whether the realm assignment is the default.
+        """
         return pulumi.get(self, "is_default")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[_builtins.str]:
+        """
+        The name of the Okta Realm Assignment.
+        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def priority(self) -> _builtins.int:
+        """
+        The Priority of the Realm Assignment. The lower the number, the higher the priority.
+        """
         return pulumi.get(self, "priority")
 
     @_builtins.property
     @pulumi.getter(name="profileSourceId")
     def profile_source_id(self) -> _builtins.str:
+        """
+        The ID of the Profile Source.
+        """
         return pulumi.get(self, "profile_source_id")
 
     @_builtins.property
     @pulumi.getter(name="realmId")
     def realm_id(self) -> _builtins.str:
+        """
+        The ID of the Realm asscociated with the Realm Assignment.
+        """
         return pulumi.get(self, "realm_id")
 
     @_builtins.property
     @pulumi.getter
     def status(self) -> _builtins.str:
+        """
+        Defines whether the Realm Assignment is active or not. Valid values: `ACTIVE` and `INACTIVE`.
+        """
         return pulumi.get(self, "status")
 
 
@@ -112,7 +136,10 @@ class AwaitableGetRealmAssignmentResult(GetRealmAssignmentResult):
 def get_realm_assignment(name: Optional[_builtins.str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRealmAssignmentResult:
     """
-    Use this data source to access information about an existing resource.
+    Get a realm assignment from Okta.
+
+
+    :param _builtins.str name: The name of the Okta Realm Assignment.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -131,7 +158,10 @@ def get_realm_assignment(name: Optional[_builtins.str] = None,
 def get_realm_assignment_output(name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRealmAssignmentResult]:
     """
-    Use this data source to access information about an existing resource.
+    Get a realm assignment from Okta.
+
+
+    :param _builtins.str name: The name of the Okta Realm Assignment.
     """
     __args__ = dict()
     __args__['name'] = name

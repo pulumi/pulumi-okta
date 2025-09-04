@@ -49,31 +49,49 @@ class GetEmailSmtpServerResult:
     @_builtins.property
     @pulumi.getter
     def alias(self) -> _builtins.str:
+        """
+        Human-readable name for SMTP server
+        """
         return pulumi.get(self, "alias")
 
     @_builtins.property
     @pulumi.getter
     def enabled(self) -> _builtins.bool:
+        """
+        If true, routes all email traffic through the SMTP server.
+        """
         return pulumi.get(self, "enabled")
 
     @_builtins.property
     @pulumi.getter
     def host(self) -> _builtins.str:
+        """
+        Hostname or IP address of the SMTP server
+        """
         return pulumi.get(self, "host")
 
     @_builtins.property
     @pulumi.getter
     def id(self) -> _builtins.str:
+        """
+        ID of your SMTP server
+        """
         return pulumi.get(self, "id")
 
     @_builtins.property
     @pulumi.getter
     def port(self) -> _builtins.int:
+        """
+        The port number of the SMTP server
+        """
         return pulumi.get(self, "port")
 
     @_builtins.property
     @pulumi.getter
     def username(self) -> _builtins.str:
+        """
+        Username used to access the SMTP server
+        """
         return pulumi.get(self, "username")
 
 
@@ -94,7 +112,25 @@ class AwaitableGetEmailSmtpServerResult(GetEmailSmtpServerResult):
 def get_email_smtp_server(id: Optional[_builtins.str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEmailSmtpServerResult:
     """
-    Use this data source to access information about an existing resource.
+    Get existing SMTP email server configuration.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_okta as okta
+
+    smtp_server = okta.EmailSmtpServer("smtp_server",
+        alias="CustomServer",
+        host="192.168.160.1",
+        port=8086,
+        username="aUser",
+        password="abcd")
+    server_config = okta.get_email_smtp_server(id="id-of-your-smtp-server")
+    ```
+
+
+    :param _builtins.str id: ID of your SMTP server
     """
     __args__ = dict()
     __args__['id'] = id
@@ -111,7 +147,25 @@ def get_email_smtp_server(id: Optional[_builtins.str] = None,
 def get_email_smtp_server_output(id: Optional[pulumi.Input[_builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEmailSmtpServerResult]:
     """
-    Use this data source to access information about an existing resource.
+    Get existing SMTP email server configuration.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_okta as okta
+
+    smtp_server = okta.EmailSmtpServer("smtp_server",
+        alias="CustomServer",
+        host="192.168.160.1",
+        port=8086,
+        username="aUser",
+        password="abcd")
+    server_config = okta.get_email_smtp_server(id="id-of-your-smtp-server")
+    ```
+
+
+    :param _builtins.str id: ID of your SMTP server
     """
     __args__ = dict()
     __args__['id'] = id

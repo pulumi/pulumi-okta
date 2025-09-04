@@ -9,6 +9,44 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Okta
 {
+    /// <summary>
+    /// Creates an Okta Realm Assignment. This resource allows you to create and configure an Okta Realm Assignment.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Okta = Pulumi.Okta;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Okta.Realm("example", new()
+    ///     {
+    ///         Name = "Example Realm",
+    ///         RealmType = "DEFAULT",
+    ///     });
+    /// 
+    ///     var test = new Okta.RealmAssignment("test", new()
+    ///     {
+    ///         Name = "Example Realm Assignment",
+    ///         Priority = 55,
+    ///         Status = "ACTIVE",
+    ///         ProfileSourceId = testOktaIdpSaml.Id,
+    ///         ConditionExpression = "user.profile.login.contains(\"@example.com\")",
+    ///         RealmId = example.Id,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// ```sh
+    /// $ pulumi import okta:index/realmAssignment:RealmAssignment example &lt;realm_assignment_id&gt;
+    /// ```
+    /// </summary>
     [OktaResourceType("okta:index/realmAssignment:RealmAssignment")]
     public partial class RealmAssignment : global::Pulumi.CustomResource
     {

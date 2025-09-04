@@ -12,6 +12,40 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Creates an Okta Realm. This resource allows you to create and configure an Okta Realm.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v5/go/okta"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := okta.NewRealm(ctx, "example", &okta.RealmArgs{
+//				Name:      pulumi.String("Example Realm"),
+//				RealmType: pulumi.String("DEFAULT"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// ```sh
+// $ pulumi import okta:index/realm:Realm example <realm_id>
+// ```
 type Realm struct {
 	pulumi.CustomResourceState
 

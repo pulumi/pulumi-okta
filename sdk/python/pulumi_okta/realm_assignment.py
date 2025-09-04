@@ -252,7 +252,32 @@ class RealmAssignment(pulumi.CustomResource):
                  status: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Create a RealmAssignment resource with the given unique name, props, and options.
+        Creates an Okta Realm Assignment. This resource allows you to create and configure an Okta Realm Assignment.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        example = okta.Realm("example",
+            name="Example Realm",
+            realm_type="DEFAULT")
+        test = okta.RealmAssignment("test",
+            name="Example Realm Assignment",
+            priority=55,
+            status="ACTIVE",
+            profile_source_id=test_okta_idp_saml["id"],
+            condition_expression="user.profile.login.contains(\\"@example.com\\")",
+            realm_id=example.id)
+        ```
+
+        ## Import
+
+        ```sh
+        $ pulumi import okta:index/realmAssignment:RealmAssignment example <realm_assignment_id>
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] condition_expression: Condition expression for the Realm Assignment in Okta Expression Language. Example: `user.profile.role =="Manager"` or `user.profile.state.contains("example")`.
@@ -269,7 +294,32 @@ class RealmAssignment(pulumi.CustomResource):
                  args: RealmAssignmentArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a RealmAssignment resource with the given unique name, props, and options.
+        Creates an Okta Realm Assignment. This resource allows you to create and configure an Okta Realm Assignment.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        example = okta.Realm("example",
+            name="Example Realm",
+            realm_type="DEFAULT")
+        test = okta.RealmAssignment("test",
+            name="Example Realm Assignment",
+            priority=55,
+            status="ACTIVE",
+            profile_source_id=test_okta_idp_saml["id"],
+            condition_expression="user.profile.login.contains(\\"@example.com\\")",
+            realm_id=example.id)
+        ```
+
+        ## Import
+
+        ```sh
+        $ pulumi import okta:index/realmAssignment:RealmAssignment example <realm_assignment_id>
+        ```
+
         :param str resource_name: The name of the resource.
         :param RealmAssignmentArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.

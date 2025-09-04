@@ -4,6 +4,27 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * Creates an Okta Realm. This resource allows you to create and configure an Okta Realm.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const example = new okta.Realm("example", {
+ *     name: "Example Realm",
+ *     realmType: "DEFAULT",
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * ```sh
+ * $ pulumi import okta:index/realm:Realm example <realm_id>
+ * ```
+ */
 export class Realm extends pulumi.CustomResource {
     /**
      * Get an existing Realm resource's state with the given name, ID, and optional extra
