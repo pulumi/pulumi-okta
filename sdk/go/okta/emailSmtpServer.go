@@ -12,20 +12,52 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Create and configure SMTP email server configuration for your org.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v5/go/okta"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := okta.NewEmailSmtpServer(ctx, "example", &okta.EmailSmtpServerArgs{
+//				Alias:    pulumi.String("CustomServer"),
+//				Host:     pulumi.String("192.168.160.1"),
+//				Port:     pulumi.Int(8086),
+//				Username: pulumi.String("abcd"),
+//				Enabled:  pulumi.Bool(false),
+//				Password: pulumi.String("pwd"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 type EmailSmtpServer struct {
 	pulumi.CustomResourceState
 
-	// Human-readable name for your SMTP server.
+	// Human-readable name for your SMTP server
 	Alias pulumi.StringOutput `pulumi:"alias"`
-	// If true, routes all email traffic through your SMTP server.
+	// If true, routes all email traffic through your SMTP server.Default: `false`
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
-	// Hostname or IP address of your SMTP server.
+	// Hostname or IP address of your SMTP server
 	Host pulumi.StringOutput `pulumi:"host"`
-	// User name of the email domain.
+	// Password used to access your SMTP server
 	Password pulumi.StringOutput `pulumi:"password"`
-	// Port number of your SMTP server.
+	// Port number of your SMTP server
 	Port pulumi.IntOutput `pulumi:"port"`
-	// Display name of the email domain.
+	// Username used to access your SMTP server
 	Username pulumi.StringOutput `pulumi:"username"`
 }
 
@@ -74,32 +106,32 @@ func GetEmailSmtpServer(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering EmailSmtpServer resources.
 type emailSmtpServerState struct {
-	// Human-readable name for your SMTP server.
+	// Human-readable name for your SMTP server
 	Alias *string `pulumi:"alias"`
-	// If true, routes all email traffic through your SMTP server.
+	// If true, routes all email traffic through your SMTP server.Default: `false`
 	Enabled *bool `pulumi:"enabled"`
-	// Hostname or IP address of your SMTP server.
+	// Hostname or IP address of your SMTP server
 	Host *string `pulumi:"host"`
-	// User name of the email domain.
+	// Password used to access your SMTP server
 	Password *string `pulumi:"password"`
-	// Port number of your SMTP server.
+	// Port number of your SMTP server
 	Port *int `pulumi:"port"`
-	// Display name of the email domain.
+	// Username used to access your SMTP server
 	Username *string `pulumi:"username"`
 }
 
 type EmailSmtpServerState struct {
-	// Human-readable name for your SMTP server.
+	// Human-readable name for your SMTP server
 	Alias pulumi.StringPtrInput
-	// If true, routes all email traffic through your SMTP server.
+	// If true, routes all email traffic through your SMTP server.Default: `false`
 	Enabled pulumi.BoolPtrInput
-	// Hostname or IP address of your SMTP server.
+	// Hostname or IP address of your SMTP server
 	Host pulumi.StringPtrInput
-	// User name of the email domain.
+	// Password used to access your SMTP server
 	Password pulumi.StringPtrInput
-	// Port number of your SMTP server.
+	// Port number of your SMTP server
 	Port pulumi.IntPtrInput
-	// Display name of the email domain.
+	// Username used to access your SMTP server
 	Username pulumi.StringPtrInput
 }
 
@@ -108,33 +140,33 @@ func (EmailSmtpServerState) ElementType() reflect.Type {
 }
 
 type emailSmtpServerArgs struct {
-	// Human-readable name for your SMTP server.
+	// Human-readable name for your SMTP server
 	Alias string `pulumi:"alias"`
-	// If true, routes all email traffic through your SMTP server.
+	// If true, routes all email traffic through your SMTP server.Default: `false`
 	Enabled *bool `pulumi:"enabled"`
-	// Hostname or IP address of your SMTP server.
+	// Hostname or IP address of your SMTP server
 	Host string `pulumi:"host"`
-	// User name of the email domain.
+	// Password used to access your SMTP server
 	Password string `pulumi:"password"`
-	// Port number of your SMTP server.
+	// Port number of your SMTP server
 	Port int `pulumi:"port"`
-	// Display name of the email domain.
+	// Username used to access your SMTP server
 	Username string `pulumi:"username"`
 }
 
 // The set of arguments for constructing a EmailSmtpServer resource.
 type EmailSmtpServerArgs struct {
-	// Human-readable name for your SMTP server.
+	// Human-readable name for your SMTP server
 	Alias pulumi.StringInput
-	// If true, routes all email traffic through your SMTP server.
+	// If true, routes all email traffic through your SMTP server.Default: `false`
 	Enabled pulumi.BoolPtrInput
-	// Hostname or IP address of your SMTP server.
+	// Hostname or IP address of your SMTP server
 	Host pulumi.StringInput
-	// User name of the email domain.
+	// Password used to access your SMTP server
 	Password pulumi.StringInput
-	// Port number of your SMTP server.
+	// Port number of your SMTP server
 	Port pulumi.IntInput
-	// Display name of the email domain.
+	// Username used to access your SMTP server
 	Username pulumi.StringInput
 }
 
@@ -225,32 +257,32 @@ func (o EmailSmtpServerOutput) ToEmailSmtpServerOutputWithContext(ctx context.Co
 	return o
 }
 
-// Human-readable name for your SMTP server.
+// Human-readable name for your SMTP server
 func (o EmailSmtpServerOutput) Alias() pulumi.StringOutput {
 	return o.ApplyT(func(v *EmailSmtpServer) pulumi.StringOutput { return v.Alias }).(pulumi.StringOutput)
 }
 
-// If true, routes all email traffic through your SMTP server.
+// If true, routes all email traffic through your SMTP server.Default: `false`
 func (o EmailSmtpServerOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EmailSmtpServer) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// Hostname or IP address of your SMTP server.
+// Hostname or IP address of your SMTP server
 func (o EmailSmtpServerOutput) Host() pulumi.StringOutput {
 	return o.ApplyT(func(v *EmailSmtpServer) pulumi.StringOutput { return v.Host }).(pulumi.StringOutput)
 }
 
-// User name of the email domain.
+// Password used to access your SMTP server
 func (o EmailSmtpServerOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v *EmailSmtpServer) pulumi.StringOutput { return v.Password }).(pulumi.StringOutput)
 }
 
-// Port number of your SMTP server.
+// Port number of your SMTP server
 func (o EmailSmtpServerOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v *EmailSmtpServer) pulumi.IntOutput { return v.Port }).(pulumi.IntOutput)
 }
 
-// Display name of the email domain.
+// Username used to access your SMTP server
 func (o EmailSmtpServerOutput) Username() pulumi.StringOutput {
 	return o.ApplyT(func(v *EmailSmtpServer) pulumi.StringOutput { return v.Username }).(pulumi.StringOutput)
 }

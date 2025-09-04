@@ -16,6 +16,63 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Creates an Okta Realm Assignment. This resource allows you to create and configure an Okta Realm Assignment.
+ * 
+ * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.okta.Realm;
+ * import com.pulumi.okta.RealmArgs;
+ * import com.pulumi.okta.RealmAssignment;
+ * import com.pulumi.okta.RealmAssignmentArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
+ *         Pulumi.run(App::stack);
+ *     }}{@code
+ * 
+ *     public static void stack(Context ctx) }{{@code
+ *         var example = new Realm("example", RealmArgs.builder()
+ *             .name("Example Realm")
+ *             .realmType("DEFAULT")
+ *             .build());
+ * 
+ *         var test = new RealmAssignment("test", RealmAssignmentArgs.builder()
+ *             .name("Example Realm Assignment")
+ *             .priority(55)
+ *             .status("ACTIVE")
+ *             .profileSourceId(testOktaIdpSaml.id())
+ *             .conditionExpression("user.profile.login.contains(\"}{@literal @}{@code example.com\")")
+ *             .realmId(example.id())
+ *             .build());
+ * 
+ *     }}{@code
+ * }}{@code
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ## Import
+ * 
+ * ```sh
+ * $ pulumi import okta:index/realmAssignment:RealmAssignment example &lt;realm_assignment_id&gt;
+ * ```
+ * 
+ */
 @ResourceType(type="okta:index/realmAssignment:RealmAssignment")
 public class RealmAssignment extends com.pulumi.resources.CustomResource {
     /**

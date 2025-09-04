@@ -282,14 +282,14 @@ public final class AppSignonPolicyRuleState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The duration after which the end user must re-authenticate, regardless of user activity. Use the ISO 8601 Period format for recurring time intervals. PT0S - Every sign-in attempt, PT43800H - Once per session
+     * The duration after which the end user must re-authenticate, regardless of user activity. Use the ISO 8601 Period format for recurring time intervals. PT0S - Every sign-in attempt, PT43800H - Once per session. Cannot be set if reauthenticateIn is set in one or more entries of chains.
      * 
      */
     @Import(name="reAuthenticationFrequency")
     private @Nullable Output<String> reAuthenticationFrequency;
 
     /**
-     * @return The duration after which the end user must re-authenticate, regardless of user activity. Use the ISO 8601 Period format for recurring time intervals. PT0S - Every sign-in attempt, PT43800H - Once per session
+     * @return The duration after which the end user must re-authenticate, regardless of user activity. Use the ISO 8601 Period format for recurring time intervals. PT0S - Every sign-in attempt, PT43800H - Once per session. Cannot be set if reauthenticateIn is set in one or more entries of chains.
      * 
      */
     public Optional<Output<String>> reAuthenticationFrequency() {
@@ -907,7 +907,7 @@ public final class AppSignonPolicyRuleState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param reAuthenticationFrequency The duration after which the end user must re-authenticate, regardless of user activity. Use the ISO 8601 Period format for recurring time intervals. PT0S - Every sign-in attempt, PT43800H - Once per session
+         * @param reAuthenticationFrequency The duration after which the end user must re-authenticate, regardless of user activity. Use the ISO 8601 Period format for recurring time intervals. PT0S - Every sign-in attempt, PT43800H - Once per session. Cannot be set if reauthenticateIn is set in one or more entries of chains.
          * 
          * @return builder
          * 
@@ -918,7 +918,7 @@ public final class AppSignonPolicyRuleState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param reAuthenticationFrequency The duration after which the end user must re-authenticate, regardless of user activity. Use the ISO 8601 Period format for recurring time intervals. PT0S - Every sign-in attempt, PT43800H - Once per session
+         * @param reAuthenticationFrequency The duration after which the end user must re-authenticate, regardless of user activity. Use the ISO 8601 Period format for recurring time intervals. PT0S - Every sign-in attempt, PT43800H - Once per session. Cannot be set if reauthenticateIn is set in one or more entries of chains.
          * 
          * @return builder
          * 

@@ -11,6 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Get a realm assignment from Okta.
 func LookupRealmAssignment(ctx *pulumi.Context, args *LookupRealmAssignmentArgs, opts ...pulumi.InvokeOption) (*LookupRealmAssignmentResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupRealmAssignmentResult
@@ -23,19 +24,28 @@ func LookupRealmAssignment(ctx *pulumi.Context, args *LookupRealmAssignmentArgs,
 
 // A collection of arguments for invoking getRealmAssignment.
 type LookupRealmAssignmentArgs struct {
+	// The name of the Okta Realm Assignment.
 	Name *string `pulumi:"name"`
 }
 
 // A collection of values returned by getRealmAssignment.
 type LookupRealmAssignmentResult struct {
-	ConditionExpression string  `pulumi:"conditionExpression"`
-	Id                  string  `pulumi:"id"`
-	IsDefault           bool    `pulumi:"isDefault"`
-	Name                *string `pulumi:"name"`
-	Priority            int     `pulumi:"priority"`
-	ProfileSourceId     string  `pulumi:"profileSourceId"`
-	RealmId             string  `pulumi:"realmId"`
-	Status              string  `pulumi:"status"`
+	// Condition expression for the Realm Assignment in Okta Expression Language. Example: `user.profile.role =="Manager"` or `user.profile.state.contains("example")`.
+	ConditionExpression string `pulumi:"conditionExpression"`
+	// Realm Assignment ID.
+	Id string `pulumi:"id"`
+	// Indicates whether the realm assignment is the default.
+	IsDefault bool `pulumi:"isDefault"`
+	// The name of the Okta Realm Assignment.
+	Name *string `pulumi:"name"`
+	// The Priority of the Realm Assignment. The lower the number, the higher the priority.
+	Priority int `pulumi:"priority"`
+	// The ID of the Profile Source.
+	ProfileSourceId string `pulumi:"profileSourceId"`
+	// The ID of the Realm asscociated with the Realm Assignment.
+	RealmId string `pulumi:"realmId"`
+	// Defines whether the Realm Assignment is active or not. Valid values: `ACTIVE` and `INACTIVE`.
+	Status string `pulumi:"status"`
 }
 
 func LookupRealmAssignmentOutput(ctx *pulumi.Context, args LookupRealmAssignmentOutputArgs, opts ...pulumi.InvokeOption) LookupRealmAssignmentResultOutput {
@@ -49,6 +59,7 @@ func LookupRealmAssignmentOutput(ctx *pulumi.Context, args LookupRealmAssignment
 
 // A collection of arguments for invoking getRealmAssignment.
 type LookupRealmAssignmentOutputArgs struct {
+	// The name of the Okta Realm Assignment.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
@@ -71,34 +82,42 @@ func (o LookupRealmAssignmentResultOutput) ToLookupRealmAssignmentResultOutputWi
 	return o
 }
 
+// Condition expression for the Realm Assignment in Okta Expression Language. Example: `user.profile.role =="Manager"` or `user.profile.state.contains("example")`.
 func (o LookupRealmAssignmentResultOutput) ConditionExpression() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRealmAssignmentResult) string { return v.ConditionExpression }).(pulumi.StringOutput)
 }
 
+// Realm Assignment ID.
 func (o LookupRealmAssignmentResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRealmAssignmentResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// Indicates whether the realm assignment is the default.
 func (o LookupRealmAssignmentResultOutput) IsDefault() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupRealmAssignmentResult) bool { return v.IsDefault }).(pulumi.BoolOutput)
 }
 
+// The name of the Okta Realm Assignment.
 func (o LookupRealmAssignmentResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRealmAssignmentResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// The Priority of the Realm Assignment. The lower the number, the higher the priority.
 func (o LookupRealmAssignmentResultOutput) Priority() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupRealmAssignmentResult) int { return v.Priority }).(pulumi.IntOutput)
 }
 
+// The ID of the Profile Source.
 func (o LookupRealmAssignmentResultOutput) ProfileSourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRealmAssignmentResult) string { return v.ProfileSourceId }).(pulumi.StringOutput)
 }
 
+// The ID of the Realm asscociated with the Realm Assignment.
 func (o LookupRealmAssignmentResultOutput) RealmId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRealmAssignmentResult) string { return v.RealmId }).(pulumi.StringOutput)
 }
 
+// Defines whether the Realm Assignment is active or not. Valid values: `ACTIVE` and `INACTIVE`.
 func (o LookupRealmAssignmentResultOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRealmAssignmentResult) string { return v.Status }).(pulumi.StringOutput)
 }

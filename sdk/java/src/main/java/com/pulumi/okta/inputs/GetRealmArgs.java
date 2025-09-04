@@ -15,23 +15,47 @@ public final class GetRealmArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetRealmArgs Empty = new GetRealmArgs();
 
+    /**
+     * The id of the Okta Realm.
+     * 
+     */
     @Import(name="id")
     private @Nullable Output<String> id;
 
+    /**
+     * @return The id of the Okta Realm.
+     * 
+     */
     public Optional<Output<String>> id() {
         return Optional.ofNullable(this.id);
     }
 
+    /**
+     * The name of the Okta Realm.
+     * 
+     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
+    /**
+     * @return The name of the Okta Realm.
+     * 
+     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
+    /**
+     * The realm type. Valid values: `PARTNER` and `DEFAULT`
+     * 
+     */
     @Import(name="realmType")
     private @Nullable Output<String> realmType;
 
+    /**
+     * @return The realm type. Valid values: `PARTNER` and `DEFAULT`
+     * 
+     */
     public Optional<Output<String>> realmType() {
         return Optional.ofNullable(this.realmType);
     }
@@ -62,29 +86,65 @@ public final class GetRealmArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetRealmArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param id The id of the Okta Realm.
+         * 
+         * @return builder
+         * 
+         */
         public Builder id(@Nullable Output<String> id) {
             $.id = id;
             return this;
         }
 
+        /**
+         * @param id The id of the Okta Realm.
+         * 
+         * @return builder
+         * 
+         */
         public Builder id(String id) {
             return id(Output.of(id));
         }
 
+        /**
+         * @param name The name of the Okta Realm.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name The name of the Okta Realm.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
+        /**
+         * @param realmType The realm type. Valid values: `PARTNER` and `DEFAULT`
+         * 
+         * @return builder
+         * 
+         */
         public Builder realmType(@Nullable Output<String> realmType) {
             $.realmType = realmType;
             return this;
         }
 
+        /**
+         * @param realmType The realm type. Valid values: `PARTNER` and `DEFAULT`
+         * 
+         * @return builder
+         * 
+         */
         public Builder realmType(String realmType) {
             return realmType(Output.of(realmType));
         }

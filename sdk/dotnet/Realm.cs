@@ -9,6 +9,34 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Okta
 {
+    /// <summary>
+    /// Creates an Okta Realm. This resource allows you to create and configure an Okta Realm.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Okta = Pulumi.Okta;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Okta.Realm("example", new()
+    ///     {
+    ///         Name = "Example Realm",
+    ///         RealmType = "DEFAULT",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// ```sh
+    /// $ pulumi import okta:index/realm:Realm example &lt;realm_id&gt;
+    /// ```
+    /// </summary>
     [OktaResourceType("okta:index/realm:Realm")]
     public partial class Realm : global::Pulumi.CustomResource
     {

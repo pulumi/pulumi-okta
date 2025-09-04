@@ -4,6 +4,9 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * Get a realm assignment from Okta.
+ */
 export function getRealmAssignment(args?: GetRealmAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetRealmAssignmentResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -16,6 +19,9 @@ export function getRealmAssignment(args?: GetRealmAssignmentArgs, opts?: pulumi.
  * A collection of arguments for invoking getRealmAssignment.
  */
 export interface GetRealmAssignmentArgs {
+    /**
+     * The name of the Okta Realm Assignment.
+     */
     name?: string;
 }
 
@@ -23,15 +29,42 @@ export interface GetRealmAssignmentArgs {
  * A collection of values returned by getRealmAssignment.
  */
 export interface GetRealmAssignmentResult {
+    /**
+     * Condition expression for the Realm Assignment in Okta Expression Language. Example: `user.profile.role =="Manager"` or `user.profile.state.contains("example")`.
+     */
     readonly conditionExpression: string;
+    /**
+     * Realm Assignment ID.
+     */
     readonly id: string;
+    /**
+     * Indicates whether the realm assignment is the default.
+     */
     readonly isDefault: boolean;
+    /**
+     * The name of the Okta Realm Assignment.
+     */
     readonly name?: string;
+    /**
+     * The Priority of the Realm Assignment. The lower the number, the higher the priority.
+     */
     readonly priority: number;
+    /**
+     * The ID of the Profile Source.
+     */
     readonly profileSourceId: string;
+    /**
+     * The ID of the Realm asscociated with the Realm Assignment.
+     */
     readonly realmId: string;
+    /**
+     * Defines whether the Realm Assignment is active or not. Valid values: `ACTIVE` and `INACTIVE`.
+     */
     readonly status: string;
 }
+/**
+ * Get a realm assignment from Okta.
+ */
 export function getRealmAssignmentOutput(args?: GetRealmAssignmentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRealmAssignmentResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -44,5 +77,8 @@ export function getRealmAssignmentOutput(args?: GetRealmAssignmentOutputArgs, op
  * A collection of arguments for invoking getRealmAssignment.
  */
 export interface GetRealmAssignmentOutputArgs {
+    /**
+     * The name of the Okta Realm Assignment.
+     */
     name?: pulumi.Input<string>;
 }

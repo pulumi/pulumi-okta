@@ -11,12 +11,90 @@ namespace Pulumi.Okta
 {
     public static class GetRealm
     {
+        /// <summary>
+        /// Get a realm from Okta.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Okta = Pulumi.Okta;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var exampleName = Okta.GetRealm.Invoke(new()
+        ///     {
+        ///         Name = "Example Realm",
+        ///     });
+        /// 
+        ///     var exampleId = Okta.GetRealm.Invoke(new()
+        ///     {
+        ///         Id = "&lt;realm_id&gt;",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
         public static Task<GetRealmResult> InvokeAsync(GetRealmArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRealmResult>("okta:index/getRealm:getRealm", args ?? new GetRealmArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Get a realm from Okta.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Okta = Pulumi.Okta;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var exampleName = Okta.GetRealm.Invoke(new()
+        ///     {
+        ///         Name = "Example Realm",
+        ///     });
+        /// 
+        ///     var exampleId = Okta.GetRealm.Invoke(new()
+        ///     {
+        ///         Id = "&lt;realm_id&gt;",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
         public static Output<GetRealmResult> Invoke(GetRealmInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRealmResult>("okta:index/getRealm:getRealm", args ?? new GetRealmInvokeArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Get a realm from Okta.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Okta = Pulumi.Okta;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var exampleName = Okta.GetRealm.Invoke(new()
+        ///     {
+        ///         Name = "Example Realm",
+        ///     });
+        /// 
+        ///     var exampleId = Okta.GetRealm.Invoke(new()
+        ///     {
+        ///         Id = "&lt;realm_id&gt;",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
         public static Output<GetRealmResult> Invoke(GetRealmInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetRealmResult>("okta:index/getRealm:getRealm", args ?? new GetRealmInvokeArgs(), options.WithDefaults());
     }
@@ -24,12 +102,21 @@ namespace Pulumi.Okta
 
     public sealed class GetRealmArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The id of the Okta Realm.
+        /// </summary>
         [Input("id")]
         public string? Id { get; set; }
 
+        /// <summary>
+        /// The name of the Okta Realm.
+        /// </summary>
         [Input("name")]
         public string? Name { get; set; }
 
+        /// <summary>
+        /// The realm type. Valid values: `PARTNER` and `DEFAULT`
+        /// </summary>
         [Input("realmType")]
         public string? RealmType { get; set; }
 
@@ -41,12 +128,21 @@ namespace Pulumi.Okta
 
     public sealed class GetRealmInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The id of the Okta Realm.
+        /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
 
+        /// <summary>
+        /// The name of the Okta Realm.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The realm type. Valid values: `PARTNER` and `DEFAULT`
+        /// </summary>
         [Input("realmType")]
         public Input<string>? RealmType { get; set; }
 
@@ -60,9 +156,21 @@ namespace Pulumi.Okta
     [OutputType]
     public sealed class GetRealmResult
     {
+        /// <summary>
+        /// The id of the Okta Realm.
+        /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Indicates whether the realm is the default realm.
+        /// </summary>
         public readonly bool IsDefault;
+        /// <summary>
+        /// The name of the Okta Realm.
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The realm type. Valid values: `PARTNER` and `DEFAULT`
+        /// </summary>
         public readonly string? RealmType;
 
         [OutputConstructor]

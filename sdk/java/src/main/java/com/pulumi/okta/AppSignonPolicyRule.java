@@ -281,14 +281,14 @@ public class AppSignonPolicyRule extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.priority);
     }
     /**
-     * The duration after which the end user must re-authenticate, regardless of user activity. Use the ISO 8601 Period format for recurring time intervals. PT0S - Every sign-in attempt, PT43800H - Once per session
+     * The duration after which the end user must re-authenticate, regardless of user activity. Use the ISO 8601 Period format for recurring time intervals. PT0S - Every sign-in attempt, PT43800H - Once per session. Cannot be set if reauthenticateIn is set in one or more entries of chains.
      * 
      */
     @Export(name="reAuthenticationFrequency", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> reAuthenticationFrequency;
 
     /**
-     * @return The duration after which the end user must re-authenticate, regardless of user activity. Use the ISO 8601 Period format for recurring time intervals. PT0S - Every sign-in attempt, PT43800H - Once per session
+     * @return The duration after which the end user must re-authenticate, regardless of user activity. Use the ISO 8601 Period format for recurring time intervals. PT0S - Every sign-in attempt, PT43800H - Once per session. Cannot be set if reauthenticateIn is set in one or more entries of chains.
      * 
      */
     public Output<Optional<String>> reAuthenticationFrequency() {

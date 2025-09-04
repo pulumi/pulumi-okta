@@ -19,14 +19,14 @@ public final class EmailSmtpServerArgs extends com.pulumi.resources.ResourceArgs
     public static final EmailSmtpServerArgs Empty = new EmailSmtpServerArgs();
 
     /**
-     * Human-readable name for your SMTP server.
+     * Human-readable name for your SMTP server
      * 
      */
     @Import(name="alias", required=true)
     private Output<String> alias;
 
     /**
-     * @return Human-readable name for your SMTP server.
+     * @return Human-readable name for your SMTP server
      * 
      */
     public Output<String> alias() {
@@ -34,14 +34,14 @@ public final class EmailSmtpServerArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * If true, routes all email traffic through your SMTP server.
+     * If true, routes all email traffic through your SMTP server.Default: `false`
      * 
      */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
     /**
-     * @return If true, routes all email traffic through your SMTP server.
+     * @return If true, routes all email traffic through your SMTP server.Default: `false`
      * 
      */
     public Optional<Output<Boolean>> enabled() {
@@ -49,14 +49,14 @@ public final class EmailSmtpServerArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Hostname or IP address of your SMTP server.
+     * Hostname or IP address of your SMTP server
      * 
      */
     @Import(name="host", required=true)
     private Output<String> host;
 
     /**
-     * @return Hostname or IP address of your SMTP server.
+     * @return Hostname or IP address of your SMTP server
      * 
      */
     public Output<String> host() {
@@ -64,14 +64,14 @@ public final class EmailSmtpServerArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * User name of the email domain.
+     * Password used to access your SMTP server
      * 
      */
     @Import(name="password", required=true)
     private Output<String> password;
 
     /**
-     * @return User name of the email domain.
+     * @return Password used to access your SMTP server
      * 
      */
     public Output<String> password() {
@@ -79,14 +79,14 @@ public final class EmailSmtpServerArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Port number of your SMTP server.
+     * Port number of your SMTP server
      * 
      */
     @Import(name="port", required=true)
     private Output<Integer> port;
 
     /**
-     * @return Port number of your SMTP server.
+     * @return Port number of your SMTP server
      * 
      */
     public Output<Integer> port() {
@@ -94,14 +94,14 @@ public final class EmailSmtpServerArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Display name of the email domain.
+     * Username used to access your SMTP server
      * 
      */
     @Import(name="username", required=true)
     private Output<String> username;
 
     /**
-     * @return Display name of the email domain.
+     * @return Username used to access your SMTP server
      * 
      */
     public Output<String> username() {
@@ -138,7 +138,7 @@ public final class EmailSmtpServerArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param alias Human-readable name for your SMTP server.
+         * @param alias Human-readable name for your SMTP server
          * 
          * @return builder
          * 
@@ -149,7 +149,7 @@ public final class EmailSmtpServerArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param alias Human-readable name for your SMTP server.
+         * @param alias Human-readable name for your SMTP server
          * 
          * @return builder
          * 
@@ -159,7 +159,7 @@ public final class EmailSmtpServerArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param enabled If true, routes all email traffic through your SMTP server.
+         * @param enabled If true, routes all email traffic through your SMTP server.Default: `false`
          * 
          * @return builder
          * 
@@ -170,7 +170,7 @@ public final class EmailSmtpServerArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param enabled If true, routes all email traffic through your SMTP server.
+         * @param enabled If true, routes all email traffic through your SMTP server.Default: `false`
          * 
          * @return builder
          * 
@@ -180,7 +180,7 @@ public final class EmailSmtpServerArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param host Hostname or IP address of your SMTP server.
+         * @param host Hostname or IP address of your SMTP server
          * 
          * @return builder
          * 
@@ -191,7 +191,7 @@ public final class EmailSmtpServerArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param host Hostname or IP address of your SMTP server.
+         * @param host Hostname or IP address of your SMTP server
          * 
          * @return builder
          * 
@@ -201,7 +201,7 @@ public final class EmailSmtpServerArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param password User name of the email domain.
+         * @param password Password used to access your SMTP server
          * 
          * @return builder
          * 
@@ -212,7 +212,7 @@ public final class EmailSmtpServerArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param password User name of the email domain.
+         * @param password Password used to access your SMTP server
          * 
          * @return builder
          * 
@@ -222,7 +222,7 @@ public final class EmailSmtpServerArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param port Port number of your SMTP server.
+         * @param port Port number of your SMTP server
          * 
          * @return builder
          * 
@@ -233,7 +233,7 @@ public final class EmailSmtpServerArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param port Port number of your SMTP server.
+         * @param port Port number of your SMTP server
          * 
          * @return builder
          * 
@@ -243,7 +243,7 @@ public final class EmailSmtpServerArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param username Display name of the email domain.
+         * @param username Username used to access your SMTP server
          * 
          * @return builder
          * 
@@ -254,7 +254,7 @@ public final class EmailSmtpServerArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param username Display name of the email domain.
+         * @param username Username used to access your SMTP server
          * 
          * @return builder
          * 

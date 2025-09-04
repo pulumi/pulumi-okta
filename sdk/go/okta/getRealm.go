@@ -11,6 +11,39 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Get a realm from Okta.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v5/go/okta"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := okta.LookupRealm(ctx, &okta.LookupRealmArgs{
+//				Name: pulumi.StringRef("Example Realm"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = okta.LookupRealm(ctx, &okta.LookupRealmArgs{
+//				Id: pulumi.StringRef("<realm_id>"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupRealm(ctx *pulumi.Context, args *LookupRealmArgs, opts ...pulumi.InvokeOption) (*LookupRealmResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupRealmResult
@@ -23,16 +56,23 @@ func LookupRealm(ctx *pulumi.Context, args *LookupRealmArgs, opts ...pulumi.Invo
 
 // A collection of arguments for invoking getRealm.
 type LookupRealmArgs struct {
-	Id        *string `pulumi:"id"`
-	Name      *string `pulumi:"name"`
+	// The id of the Okta Realm.
+	Id *string `pulumi:"id"`
+	// The name of the Okta Realm.
+	Name *string `pulumi:"name"`
+	// The realm type. Valid values: `PARTNER` and `DEFAULT`
 	RealmType *string `pulumi:"realmType"`
 }
 
 // A collection of values returned by getRealm.
 type LookupRealmResult struct {
-	Id        string  `pulumi:"id"`
-	IsDefault bool    `pulumi:"isDefault"`
-	Name      string  `pulumi:"name"`
+	// The id of the Okta Realm.
+	Id string `pulumi:"id"`
+	// Indicates whether the realm is the default realm.
+	IsDefault bool `pulumi:"isDefault"`
+	// The name of the Okta Realm.
+	Name string `pulumi:"name"`
+	// The realm type. Valid values: `PARTNER` and `DEFAULT`
 	RealmType *string `pulumi:"realmType"`
 }
 
@@ -47,8 +87,11 @@ func LookupRealmOutput(ctx *pulumi.Context, args LookupRealmOutputArgs, opts ...
 
 // A collection of arguments for invoking getRealm.
 type LookupRealmOutputArgs struct {
-	Id        pulumi.StringPtrInput `pulumi:"id"`
-	Name      pulumi.StringPtrInput `pulumi:"name"`
+	// The id of the Okta Realm.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// The name of the Okta Realm.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The realm type. Valid values: `PARTNER` and `DEFAULT`
 	RealmType pulumi.StringPtrInput `pulumi:"realmType"`
 }
 
@@ -71,18 +114,22 @@ func (o LookupRealmResultOutput) ToLookupRealmResultOutputWithContext(ctx contex
 	return o
 }
 
+// The id of the Okta Realm.
 func (o LookupRealmResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRealmResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// Indicates whether the realm is the default realm.
 func (o LookupRealmResultOutput) IsDefault() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupRealmResult) bool { return v.IsDefault }).(pulumi.BoolOutput)
 }
 
+// The name of the Okta Realm.
 func (o LookupRealmResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRealmResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The realm type. Valid values: `PARTNER` and `DEFAULT`
 func (o LookupRealmResultOutput) RealmType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRealmResult) *string { return v.RealmType }).(pulumi.StringPtrOutput)
 }

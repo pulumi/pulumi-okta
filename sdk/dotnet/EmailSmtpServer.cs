@@ -9,41 +9,67 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Okta
 {
+    /// <summary>
+    /// Create and configure SMTP email server configuration for your org.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Okta = Pulumi.Okta;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Okta.EmailSmtpServer("example", new()
+    ///     {
+    ///         Alias = "CustomServer",
+    ///         Host = "192.168.160.1",
+    ///         Port = 8086,
+    ///         Username = "abcd",
+    ///         Enabled = false,
+    ///         Password = "pwd",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// </summary>
     [OktaResourceType("okta:index/emailSmtpServer:EmailSmtpServer")]
     public partial class EmailSmtpServer : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Human-readable name for your SMTP server.
+        /// Human-readable name for your SMTP server
         /// </summary>
         [Output("alias")]
         public Output<string> Alias { get; private set; } = null!;
 
         /// <summary>
-        /// If true, routes all email traffic through your SMTP server.
+        /// If true, routes all email traffic through your SMTP server.Default: `false`
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
 
         /// <summary>
-        /// Hostname or IP address of your SMTP server.
+        /// Hostname or IP address of your SMTP server
         /// </summary>
         [Output("host")]
         public Output<string> Host { get; private set; } = null!;
 
         /// <summary>
-        /// User name of the email domain.
+        /// Password used to access your SMTP server
         /// </summary>
         [Output("password")]
         public Output<string> Password { get; private set; } = null!;
 
         /// <summary>
-        /// Port number of your SMTP server.
+        /// Port number of your SMTP server
         /// </summary>
         [Output("port")]
         public Output<int> Port { get; private set; } = null!;
 
         /// <summary>
-        /// Display name of the email domain.
+        /// Username used to access your SMTP server
         /// </summary>
         [Output("username")]
         public Output<string> Username { get; private set; } = null!;
@@ -95,37 +121,37 @@ namespace Pulumi.Okta
     public sealed class EmailSmtpServerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Human-readable name for your SMTP server.
+        /// Human-readable name for your SMTP server
         /// </summary>
         [Input("alias", required: true)]
         public Input<string> Alias { get; set; } = null!;
 
         /// <summary>
-        /// If true, routes all email traffic through your SMTP server.
+        /// If true, routes all email traffic through your SMTP server.Default: `false`
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// Hostname or IP address of your SMTP server.
+        /// Hostname or IP address of your SMTP server
         /// </summary>
         [Input("host", required: true)]
         public Input<string> Host { get; set; } = null!;
 
         /// <summary>
-        /// User name of the email domain.
+        /// Password used to access your SMTP server
         /// </summary>
         [Input("password", required: true)]
         public Input<string> Password { get; set; } = null!;
 
         /// <summary>
-        /// Port number of your SMTP server.
+        /// Port number of your SMTP server
         /// </summary>
         [Input("port", required: true)]
         public Input<int> Port { get; set; } = null!;
 
         /// <summary>
-        /// Display name of the email domain.
+        /// Username used to access your SMTP server
         /// </summary>
         [Input("username", required: true)]
         public Input<string> Username { get; set; } = null!;
@@ -139,37 +165,37 @@ namespace Pulumi.Okta
     public sealed class EmailSmtpServerState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Human-readable name for your SMTP server.
+        /// Human-readable name for your SMTP server
         /// </summary>
         [Input("alias")]
         public Input<string>? Alias { get; set; }
 
         /// <summary>
-        /// If true, routes all email traffic through your SMTP server.
+        /// If true, routes all email traffic through your SMTP server.Default: `false`
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// Hostname or IP address of your SMTP server.
+        /// Hostname or IP address of your SMTP server
         /// </summary>
         [Input("host")]
         public Input<string>? Host { get; set; }
 
         /// <summary>
-        /// User name of the email domain.
+        /// Password used to access your SMTP server
         /// </summary>
         [Input("password")]
         public Input<string>? Password { get; set; }
 
         /// <summary>
-        /// Port number of your SMTP server.
+        /// Port number of your SMTP server
         /// </summary>
         [Input("port")]
         public Input<int>? Port { get; set; }
 
         /// <summary>
-        /// Display name of the email domain.
+        /// Username used to access your SMTP server
         /// </summary>
         [Input("username")]
         public Input<string>? Username { get; set; }

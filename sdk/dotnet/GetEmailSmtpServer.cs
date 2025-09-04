@@ -11,12 +11,102 @@ namespace Pulumi.Okta
 {
     public static class GetEmailSmtpServer
     {
+        /// <summary>
+        /// Get existing SMTP email server configuration.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Okta = Pulumi.Okta;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var smtpServer = new Okta.EmailSmtpServer("smtp_server", new()
+        ///     {
+        ///         Alias = "CustomServer",
+        ///         Host = "192.168.160.1",
+        ///         Port = 8086,
+        ///         Username = "aUser",
+        ///         Password = "abcd",
+        ///     });
+        /// 
+        ///     var serverConfig = Okta.GetEmailSmtpServer.Invoke(new()
+        ///     {
+        ///         Id = "id-of-your-smtp-server",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
         public static Task<GetEmailSmtpServerResult> InvokeAsync(GetEmailSmtpServerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEmailSmtpServerResult>("okta:index/getEmailSmtpServer:getEmailSmtpServer", args ?? new GetEmailSmtpServerArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Get existing SMTP email server configuration.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Okta = Pulumi.Okta;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var smtpServer = new Okta.EmailSmtpServer("smtp_server", new()
+        ///     {
+        ///         Alias = "CustomServer",
+        ///         Host = "192.168.160.1",
+        ///         Port = 8086,
+        ///         Username = "aUser",
+        ///         Password = "abcd",
+        ///     });
+        /// 
+        ///     var serverConfig = Okta.GetEmailSmtpServer.Invoke(new()
+        ///     {
+        ///         Id = "id-of-your-smtp-server",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
         public static Output<GetEmailSmtpServerResult> Invoke(GetEmailSmtpServerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEmailSmtpServerResult>("okta:index/getEmailSmtpServer:getEmailSmtpServer", args ?? new GetEmailSmtpServerInvokeArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Get existing SMTP email server configuration.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Okta = Pulumi.Okta;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var smtpServer = new Okta.EmailSmtpServer("smtp_server", new()
+        ///     {
+        ///         Alias = "CustomServer",
+        ///         Host = "192.168.160.1",
+        ///         Port = 8086,
+        ///         Username = "aUser",
+        ///         Password = "abcd",
+        ///     });
+        /// 
+        ///     var serverConfig = Okta.GetEmailSmtpServer.Invoke(new()
+        ///     {
+        ///         Id = "id-of-your-smtp-server",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
         public static Output<GetEmailSmtpServerResult> Invoke(GetEmailSmtpServerInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetEmailSmtpServerResult>("okta:index/getEmailSmtpServer:getEmailSmtpServer", args ?? new GetEmailSmtpServerInvokeArgs(), options.WithDefaults());
     }
@@ -24,6 +114,9 @@ namespace Pulumi.Okta
 
     public sealed class GetEmailSmtpServerArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// ID of your SMTP server
+        /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
@@ -35,6 +128,9 @@ namespace Pulumi.Okta
 
     public sealed class GetEmailSmtpServerInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// ID of your SMTP server
+        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
@@ -48,11 +144,29 @@ namespace Pulumi.Okta
     [OutputType]
     public sealed class GetEmailSmtpServerResult
     {
+        /// <summary>
+        /// Human-readable name for SMTP server
+        /// </summary>
         public readonly string Alias;
+        /// <summary>
+        /// If true, routes all email traffic through the SMTP server.
+        /// </summary>
         public readonly bool Enabled;
+        /// <summary>
+        /// Hostname or IP address of the SMTP server
+        /// </summary>
         public readonly string Host;
+        /// <summary>
+        /// ID of your SMTP server
+        /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// The port number of the SMTP server
+        /// </summary>
         public readonly int Port;
+        /// <summary>
+        /// Username used to access the SMTP server
+        /// </summary>
         public readonly string Username;
 
         [OutputConstructor]

@@ -27,12 +27,12 @@ class EmailSmtpServerArgs:
                  enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a EmailSmtpServer resource.
-        :param pulumi.Input[_builtins.str] alias: Human-readable name for your SMTP server.
-        :param pulumi.Input[_builtins.str] host: Hostname or IP address of your SMTP server.
-        :param pulumi.Input[_builtins.str] password: User name of the email domain.
-        :param pulumi.Input[_builtins.int] port: Port number of your SMTP server.
-        :param pulumi.Input[_builtins.str] username: Display name of the email domain.
-        :param pulumi.Input[_builtins.bool] enabled: If true, routes all email traffic through your SMTP server.
+        :param pulumi.Input[_builtins.str] alias: Human-readable name for your SMTP server
+        :param pulumi.Input[_builtins.str] host: Hostname or IP address of your SMTP server
+        :param pulumi.Input[_builtins.str] password: Password used to access your SMTP server
+        :param pulumi.Input[_builtins.int] port: Port number of your SMTP server
+        :param pulumi.Input[_builtins.str] username: Username used to access your SMTP server
+        :param pulumi.Input[_builtins.bool] enabled: If true, routes all email traffic through your SMTP server.Default: `false`
         """
         pulumi.set(__self__, "alias", alias)
         pulumi.set(__self__, "host", host)
@@ -46,7 +46,7 @@ class EmailSmtpServerArgs:
     @pulumi.getter
     def alias(self) -> pulumi.Input[_builtins.str]:
         """
-        Human-readable name for your SMTP server.
+        Human-readable name for your SMTP server
         """
         return pulumi.get(self, "alias")
 
@@ -58,7 +58,7 @@ class EmailSmtpServerArgs:
     @pulumi.getter
     def host(self) -> pulumi.Input[_builtins.str]:
         """
-        Hostname or IP address of your SMTP server.
+        Hostname or IP address of your SMTP server
         """
         return pulumi.get(self, "host")
 
@@ -70,7 +70,7 @@ class EmailSmtpServerArgs:
     @pulumi.getter
     def password(self) -> pulumi.Input[_builtins.str]:
         """
-        User name of the email domain.
+        Password used to access your SMTP server
         """
         return pulumi.get(self, "password")
 
@@ -82,7 +82,7 @@ class EmailSmtpServerArgs:
     @pulumi.getter
     def port(self) -> pulumi.Input[_builtins.int]:
         """
-        Port number of your SMTP server.
+        Port number of your SMTP server
         """
         return pulumi.get(self, "port")
 
@@ -94,7 +94,7 @@ class EmailSmtpServerArgs:
     @pulumi.getter
     def username(self) -> pulumi.Input[_builtins.str]:
         """
-        Display name of the email domain.
+        Username used to access your SMTP server
         """
         return pulumi.get(self, "username")
 
@@ -106,7 +106,7 @@ class EmailSmtpServerArgs:
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        If true, routes all email traffic through your SMTP server.
+        If true, routes all email traffic through your SMTP server.Default: `false`
         """
         return pulumi.get(self, "enabled")
 
@@ -126,12 +126,12 @@ class _EmailSmtpServerState:
                  username: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering EmailSmtpServer resources.
-        :param pulumi.Input[_builtins.str] alias: Human-readable name for your SMTP server.
-        :param pulumi.Input[_builtins.bool] enabled: If true, routes all email traffic through your SMTP server.
-        :param pulumi.Input[_builtins.str] host: Hostname or IP address of your SMTP server.
-        :param pulumi.Input[_builtins.str] password: User name of the email domain.
-        :param pulumi.Input[_builtins.int] port: Port number of your SMTP server.
-        :param pulumi.Input[_builtins.str] username: Display name of the email domain.
+        :param pulumi.Input[_builtins.str] alias: Human-readable name for your SMTP server
+        :param pulumi.Input[_builtins.bool] enabled: If true, routes all email traffic through your SMTP server.Default: `false`
+        :param pulumi.Input[_builtins.str] host: Hostname or IP address of your SMTP server
+        :param pulumi.Input[_builtins.str] password: Password used to access your SMTP server
+        :param pulumi.Input[_builtins.int] port: Port number of your SMTP server
+        :param pulumi.Input[_builtins.str] username: Username used to access your SMTP server
         """
         if alias is not None:
             pulumi.set(__self__, "alias", alias)
@@ -150,7 +150,7 @@ class _EmailSmtpServerState:
     @pulumi.getter
     def alias(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Human-readable name for your SMTP server.
+        Human-readable name for your SMTP server
         """
         return pulumi.get(self, "alias")
 
@@ -162,7 +162,7 @@ class _EmailSmtpServerState:
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        If true, routes all email traffic through your SMTP server.
+        If true, routes all email traffic through your SMTP server.Default: `false`
         """
         return pulumi.get(self, "enabled")
 
@@ -174,7 +174,7 @@ class _EmailSmtpServerState:
     @pulumi.getter
     def host(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Hostname or IP address of your SMTP server.
+        Hostname or IP address of your SMTP server
         """
         return pulumi.get(self, "host")
 
@@ -186,7 +186,7 @@ class _EmailSmtpServerState:
     @pulumi.getter
     def password(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        User name of the email domain.
+        Password used to access your SMTP server
         """
         return pulumi.get(self, "password")
 
@@ -198,7 +198,7 @@ class _EmailSmtpServerState:
     @pulumi.getter
     def port(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
-        Port number of your SMTP server.
+        Port number of your SMTP server
         """
         return pulumi.get(self, "port")
 
@@ -210,7 +210,7 @@ class _EmailSmtpServerState:
     @pulumi.getter
     def username(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Display name of the email domain.
+        Username used to access your SMTP server
         """
         return pulumi.get(self, "username")
 
@@ -233,15 +233,31 @@ class EmailSmtpServer(pulumi.CustomResource):
                  username: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Create a EmailSmtpServer resource with the given unique name, props, and options.
+        Create and configure SMTP email server configuration for your org.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        example = okta.EmailSmtpServer("example",
+            alias="CustomServer",
+            host="192.168.160.1",
+            port=8086,
+            username="abcd",
+            enabled=False,
+            password="pwd")
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] alias: Human-readable name for your SMTP server.
-        :param pulumi.Input[_builtins.bool] enabled: If true, routes all email traffic through your SMTP server.
-        :param pulumi.Input[_builtins.str] host: Hostname or IP address of your SMTP server.
-        :param pulumi.Input[_builtins.str] password: User name of the email domain.
-        :param pulumi.Input[_builtins.int] port: Port number of your SMTP server.
-        :param pulumi.Input[_builtins.str] username: Display name of the email domain.
+        :param pulumi.Input[_builtins.str] alias: Human-readable name for your SMTP server
+        :param pulumi.Input[_builtins.bool] enabled: If true, routes all email traffic through your SMTP server.Default: `false`
+        :param pulumi.Input[_builtins.str] host: Hostname or IP address of your SMTP server
+        :param pulumi.Input[_builtins.str] password: Password used to access your SMTP server
+        :param pulumi.Input[_builtins.int] port: Port number of your SMTP server
+        :param pulumi.Input[_builtins.str] username: Username used to access your SMTP server
         """
         ...
     @overload
@@ -250,7 +266,23 @@ class EmailSmtpServer(pulumi.CustomResource):
                  args: EmailSmtpServerArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a EmailSmtpServer resource with the given unique name, props, and options.
+        Create and configure SMTP email server configuration for your org.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        example = okta.EmailSmtpServer("example",
+            alias="CustomServer",
+            host="192.168.160.1",
+            port=8086,
+            username="abcd",
+            enabled=False,
+            password="pwd")
+        ```
+
         :param str resource_name: The name of the resource.
         :param EmailSmtpServerArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -320,12 +352,12 @@ class EmailSmtpServer(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] alias: Human-readable name for your SMTP server.
-        :param pulumi.Input[_builtins.bool] enabled: If true, routes all email traffic through your SMTP server.
-        :param pulumi.Input[_builtins.str] host: Hostname or IP address of your SMTP server.
-        :param pulumi.Input[_builtins.str] password: User name of the email domain.
-        :param pulumi.Input[_builtins.int] port: Port number of your SMTP server.
-        :param pulumi.Input[_builtins.str] username: Display name of the email domain.
+        :param pulumi.Input[_builtins.str] alias: Human-readable name for your SMTP server
+        :param pulumi.Input[_builtins.bool] enabled: If true, routes all email traffic through your SMTP server.Default: `false`
+        :param pulumi.Input[_builtins.str] host: Hostname or IP address of your SMTP server
+        :param pulumi.Input[_builtins.str] password: Password used to access your SMTP server
+        :param pulumi.Input[_builtins.int] port: Port number of your SMTP server
+        :param pulumi.Input[_builtins.str] username: Username used to access your SMTP server
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -343,7 +375,7 @@ class EmailSmtpServer(pulumi.CustomResource):
     @pulumi.getter
     def alias(self) -> pulumi.Output[_builtins.str]:
         """
-        Human-readable name for your SMTP server.
+        Human-readable name for your SMTP server
         """
         return pulumi.get(self, "alias")
 
@@ -351,7 +383,7 @@ class EmailSmtpServer(pulumi.CustomResource):
     @pulumi.getter
     def enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
-        If true, routes all email traffic through your SMTP server.
+        If true, routes all email traffic through your SMTP server.Default: `false`
         """
         return pulumi.get(self, "enabled")
 
@@ -359,7 +391,7 @@ class EmailSmtpServer(pulumi.CustomResource):
     @pulumi.getter
     def host(self) -> pulumi.Output[_builtins.str]:
         """
-        Hostname or IP address of your SMTP server.
+        Hostname or IP address of your SMTP server
         """
         return pulumi.get(self, "host")
 
@@ -367,7 +399,7 @@ class EmailSmtpServer(pulumi.CustomResource):
     @pulumi.getter
     def password(self) -> pulumi.Output[_builtins.str]:
         """
-        User name of the email domain.
+        Password used to access your SMTP server
         """
         return pulumi.get(self, "password")
 
@@ -375,7 +407,7 @@ class EmailSmtpServer(pulumi.CustomResource):
     @pulumi.getter
     def port(self) -> pulumi.Output[_builtins.int]:
         """
-        Port number of your SMTP server.
+        Port number of your SMTP server
         """
         return pulumi.get(self, "port")
 
@@ -383,7 +415,7 @@ class EmailSmtpServer(pulumi.CustomResource):
     @pulumi.getter
     def username(self) -> pulumi.Output[_builtins.str]:
         """
-        Display name of the email domain.
+        Username used to access your SMTP server
         """
         return pulumi.get(self, "username")
 

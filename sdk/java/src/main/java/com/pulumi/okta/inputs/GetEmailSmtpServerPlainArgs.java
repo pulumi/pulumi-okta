@@ -13,9 +13,17 @@ public final class GetEmailSmtpServerPlainArgs extends com.pulumi.resources.Invo
 
     public static final GetEmailSmtpServerPlainArgs Empty = new GetEmailSmtpServerPlainArgs();
 
+    /**
+     * ID of your SMTP server
+     * 
+     */
     @Import(name="id", required=true)
     private String id;
 
+    /**
+     * @return ID of your SMTP server
+     * 
+     */
     public String id() {
         return this.id;
     }
@@ -44,6 +52,12 @@ public final class GetEmailSmtpServerPlainArgs extends com.pulumi.resources.Invo
             $ = new GetEmailSmtpServerPlainArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param id ID of your SMTP server
+         * 
+         * @return builder
+         * 
+         */
         public Builder id(String id) {
             $.id = id;
             return this;

@@ -4,6 +4,25 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * Create and configure SMTP email server configuration for your org.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const example = new okta.EmailSmtpServer("example", {
+ *     alias: "CustomServer",
+ *     host: "192.168.160.1",
+ *     port: 8086,
+ *     username: "abcd",
+ *     enabled: false,
+ *     password: "pwd",
+ * });
+ * ```
+ */
 export class EmailSmtpServer extends pulumi.CustomResource {
     /**
      * Get an existing EmailSmtpServer resource's state with the given name, ID, and optional extra
@@ -33,27 +52,27 @@ export class EmailSmtpServer extends pulumi.CustomResource {
     }
 
     /**
-     * Human-readable name for your SMTP server.
+     * Human-readable name for your SMTP server
      */
     declare public readonly alias: pulumi.Output<string>;
     /**
-     * If true, routes all email traffic through your SMTP server.
+     * If true, routes all email traffic through your SMTP server.Default: `false`
      */
     declare public readonly enabled: pulumi.Output<boolean | undefined>;
     /**
-     * Hostname or IP address of your SMTP server.
+     * Hostname or IP address of your SMTP server
      */
     declare public readonly host: pulumi.Output<string>;
     /**
-     * User name of the email domain.
+     * Password used to access your SMTP server
      */
     declare public readonly password: pulumi.Output<string>;
     /**
-     * Port number of your SMTP server.
+     * Port number of your SMTP server
      */
     declare public readonly port: pulumi.Output<number>;
     /**
-     * Display name of the email domain.
+     * Username used to access your SMTP server
      */
     declare public readonly username: pulumi.Output<string>;
 
@@ -110,27 +129,27 @@ export class EmailSmtpServer extends pulumi.CustomResource {
  */
 export interface EmailSmtpServerState {
     /**
-     * Human-readable name for your SMTP server.
+     * Human-readable name for your SMTP server
      */
     alias?: pulumi.Input<string>;
     /**
-     * If true, routes all email traffic through your SMTP server.
+     * If true, routes all email traffic through your SMTP server.Default: `false`
      */
     enabled?: pulumi.Input<boolean>;
     /**
-     * Hostname or IP address of your SMTP server.
+     * Hostname or IP address of your SMTP server
      */
     host?: pulumi.Input<string>;
     /**
-     * User name of the email domain.
+     * Password used to access your SMTP server
      */
     password?: pulumi.Input<string>;
     /**
-     * Port number of your SMTP server.
+     * Port number of your SMTP server
      */
     port?: pulumi.Input<number>;
     /**
-     * Display name of the email domain.
+     * Username used to access your SMTP server
      */
     username?: pulumi.Input<string>;
 }
@@ -140,27 +159,27 @@ export interface EmailSmtpServerState {
  */
 export interface EmailSmtpServerArgs {
     /**
-     * Human-readable name for your SMTP server.
+     * Human-readable name for your SMTP server
      */
     alias: pulumi.Input<string>;
     /**
-     * If true, routes all email traffic through your SMTP server.
+     * If true, routes all email traffic through your SMTP server.Default: `false`
      */
     enabled?: pulumi.Input<boolean>;
     /**
-     * Hostname or IP address of your SMTP server.
+     * Hostname or IP address of your SMTP server
      */
     host: pulumi.Input<string>;
     /**
-     * User name of the email domain.
+     * Password used to access your SMTP server
      */
     password: pulumi.Input<string>;
     /**
-     * Port number of your SMTP server.
+     * Port number of your SMTP server
      */
     port: pulumi.Input<number>;
     /**
-     * Display name of the email domain.
+     * Username used to access your SMTP server
      */
     username: pulumi.Input<string>;
 }

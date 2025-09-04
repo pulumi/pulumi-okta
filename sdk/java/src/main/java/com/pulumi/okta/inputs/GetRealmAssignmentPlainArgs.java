@@ -14,9 +14,17 @@ public final class GetRealmAssignmentPlainArgs extends com.pulumi.resources.Invo
 
     public static final GetRealmAssignmentPlainArgs Empty = new GetRealmAssignmentPlainArgs();
 
+    /**
+     * The name of the Okta Realm Assignment.
+     * 
+     */
     @Import(name="name")
     private @Nullable String name;
 
+    /**
+     * @return The name of the Okta Realm Assignment.
+     * 
+     */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
@@ -45,6 +53,12 @@ public final class GetRealmAssignmentPlainArgs extends com.pulumi.resources.Invo
             $ = new GetRealmAssignmentPlainArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param name The name of the Okta Realm Assignment.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(@Nullable String name) {
             $.name = name;
             return this;

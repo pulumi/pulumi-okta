@@ -66,7 +66,7 @@ class AppSignonPolicyRuleArgs:
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] network_excludes: The zones to exclude
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] network_includes: The zones to include
         :param pulumi.Input[_builtins.int] priority: Priority of the rule.
-        :param pulumi.Input[_builtins.str] re_authentication_frequency: The duration after which the end user must re-authenticate, regardless of user activity. Use the ISO 8601 Period format for recurring time intervals. PT0S - Every sign-in attempt, PT43800H - Once per session
+        :param pulumi.Input[_builtins.str] re_authentication_frequency: The duration after which the end user must re-authenticate, regardless of user activity. Use the ISO 8601 Period format for recurring time intervals. PT0S - Every sign-in attempt, PT43800H - Once per session. Cannot be set if reauthenticateIn is set in one or more entries of chains.
         :param pulumi.Input[_builtins.str] risk_score: The risk score specifies a particular level of risk to match on: ANY, LOW, MEDIUM, HIGH
         :param pulumi.Input[_builtins.str] status: Status of the rule
         :param pulumi.Input[_builtins.str] type: The Verification Method type
@@ -344,7 +344,7 @@ class AppSignonPolicyRuleArgs:
     @pulumi.getter(name="reAuthenticationFrequency")
     def re_authentication_frequency(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The duration after which the end user must re-authenticate, regardless of user activity. Use the ISO 8601 Period format for recurring time intervals. PT0S - Every sign-in attempt, PT43800H - Once per session
+        The duration after which the end user must re-authenticate, regardless of user activity. Use the ISO 8601 Period format for recurring time intervals. PT0S - Every sign-in attempt, PT43800H - Once per session. Cannot be set if reauthenticateIn is set in one or more entries of chains.
         """
         return pulumi.get(self, "re_authentication_frequency")
 
@@ -486,7 +486,7 @@ class _AppSignonPolicyRuleState:
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] network_includes: The zones to include
         :param pulumi.Input[_builtins.str] policy_id: ID of the policy
         :param pulumi.Input[_builtins.int] priority: Priority of the rule.
-        :param pulumi.Input[_builtins.str] re_authentication_frequency: The duration after which the end user must re-authenticate, regardless of user activity. Use the ISO 8601 Period format for recurring time intervals. PT0S - Every sign-in attempt, PT43800H - Once per session
+        :param pulumi.Input[_builtins.str] re_authentication_frequency: The duration after which the end user must re-authenticate, regardless of user activity. Use the ISO 8601 Period format for recurring time intervals. PT0S - Every sign-in attempt, PT43800H - Once per session. Cannot be set if reauthenticateIn is set in one or more entries of chains.
         :param pulumi.Input[_builtins.str] risk_score: The risk score specifies a particular level of risk to match on: ANY, LOW, MEDIUM, HIGH
         :param pulumi.Input[_builtins.str] status: Status of the rule
         :param pulumi.Input[_builtins.bool] system: Often the `Catch-all Rule` this rule is the system (default) rule for its associated policy
@@ -768,7 +768,7 @@ class _AppSignonPolicyRuleState:
     @pulumi.getter(name="reAuthenticationFrequency")
     def re_authentication_frequency(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The duration after which the end user must re-authenticate, regardless of user activity. Use the ISO 8601 Period format for recurring time intervals. PT0S - Every sign-in attempt, PT43800H - Once per session
+        The duration after which the end user must re-authenticate, regardless of user activity. Use the ISO 8601 Period format for recurring time intervals. PT0S - Every sign-in attempt, PT43800H - Once per session. Cannot be set if reauthenticateIn is set in one or more entries of chains.
         """
         return pulumi.get(self, "re_authentication_frequency")
 
@@ -940,7 +940,7 @@ class AppSignonPolicyRule(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] network_includes: The zones to include
         :param pulumi.Input[_builtins.str] policy_id: ID of the policy
         :param pulumi.Input[_builtins.int] priority: Priority of the rule.
-        :param pulumi.Input[_builtins.str] re_authentication_frequency: The duration after which the end user must re-authenticate, regardless of user activity. Use the ISO 8601 Period format for recurring time intervals. PT0S - Every sign-in attempt, PT43800H - Once per session
+        :param pulumi.Input[_builtins.str] re_authentication_frequency: The duration after which the end user must re-authenticate, regardless of user activity. Use the ISO 8601 Period format for recurring time intervals. PT0S - Every sign-in attempt, PT43800H - Once per session. Cannot be set if reauthenticateIn is set in one or more entries of chains.
         :param pulumi.Input[_builtins.str] risk_score: The risk score specifies a particular level of risk to match on: ANY, LOW, MEDIUM, HIGH
         :param pulumi.Input[_builtins.str] status: Status of the rule
         :param pulumi.Input[_builtins.str] type: The Verification Method type
@@ -1110,7 +1110,7 @@ class AppSignonPolicyRule(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] network_includes: The zones to include
         :param pulumi.Input[_builtins.str] policy_id: ID of the policy
         :param pulumi.Input[_builtins.int] priority: Priority of the rule.
-        :param pulumi.Input[_builtins.str] re_authentication_frequency: The duration after which the end user must re-authenticate, regardless of user activity. Use the ISO 8601 Period format for recurring time intervals. PT0S - Every sign-in attempt, PT43800H - Once per session
+        :param pulumi.Input[_builtins.str] re_authentication_frequency: The duration after which the end user must re-authenticate, regardless of user activity. Use the ISO 8601 Period format for recurring time intervals. PT0S - Every sign-in attempt, PT43800H - Once per session. Cannot be set if reauthenticateIn is set in one or more entries of chains.
         :param pulumi.Input[_builtins.str] risk_score: The risk score specifies a particular level of risk to match on: ANY, LOW, MEDIUM, HIGH
         :param pulumi.Input[_builtins.str] status: Status of the rule
         :param pulumi.Input[_builtins.bool] system: Often the `Catch-all Rule` this rule is the system (default) rule for its associated policy
@@ -1298,7 +1298,7 @@ class AppSignonPolicyRule(pulumi.CustomResource):
     @pulumi.getter(name="reAuthenticationFrequency")
     def re_authentication_frequency(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The duration after which the end user must re-authenticate, regardless of user activity. Use the ISO 8601 Period format for recurring time intervals. PT0S - Every sign-in attempt, PT43800H - Once per session
+        The duration after which the end user must re-authenticate, regardless of user activity. Use the ISO 8601 Period format for recurring time intervals. PT0S - Every sign-in attempt, PT43800H - Once per session. Cannot be set if reauthenticateIn is set in one or more entries of chains.
         """
         return pulumi.get(self, "re_authentication_frequency")
 

@@ -16,87 +16,131 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Create and configure SMTP email server configuration for your org.
+ * 
+ * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.okta.EmailSmtpServer;
+ * import com.pulumi.okta.EmailSmtpServerArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new EmailSmtpServer("example", EmailSmtpServerArgs.builder()
+ *             .alias("CustomServer")
+ *             .host("192.168.160.1")
+ *             .port(8086)
+ *             .username("abcd")
+ *             .enabled(false)
+ *             .password("pwd")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ */
 @ResourceType(type="okta:index/emailSmtpServer:EmailSmtpServer")
 public class EmailSmtpServer extends com.pulumi.resources.CustomResource {
     /**
-     * Human-readable name for your SMTP server.
+     * Human-readable name for your SMTP server
      * 
      */
     @Export(name="alias", refs={String.class}, tree="[0]")
     private Output<String> alias;
 
     /**
-     * @return Human-readable name for your SMTP server.
+     * @return Human-readable name for your SMTP server
      * 
      */
     public Output<String> alias() {
         return this.alias;
     }
     /**
-     * If true, routes all email traffic through your SMTP server.
+     * If true, routes all email traffic through your SMTP server.Default: `false`
      * 
      */
     @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
-     * @return If true, routes all email traffic through your SMTP server.
+     * @return If true, routes all email traffic through your SMTP server.Default: `false`
      * 
      */
     public Output<Optional<Boolean>> enabled() {
         return Codegen.optional(this.enabled);
     }
     /**
-     * Hostname or IP address of your SMTP server.
+     * Hostname or IP address of your SMTP server
      * 
      */
     @Export(name="host", refs={String.class}, tree="[0]")
     private Output<String> host;
 
     /**
-     * @return Hostname or IP address of your SMTP server.
+     * @return Hostname or IP address of your SMTP server
      * 
      */
     public Output<String> host() {
         return this.host;
     }
     /**
-     * User name of the email domain.
+     * Password used to access your SMTP server
      * 
      */
     @Export(name="password", refs={String.class}, tree="[0]")
     private Output<String> password;
 
     /**
-     * @return User name of the email domain.
+     * @return Password used to access your SMTP server
      * 
      */
     public Output<String> password() {
         return this.password;
     }
     /**
-     * Port number of your SMTP server.
+     * Port number of your SMTP server
      * 
      */
     @Export(name="port", refs={Integer.class}, tree="[0]")
     private Output<Integer> port;
 
     /**
-     * @return Port number of your SMTP server.
+     * @return Port number of your SMTP server
      * 
      */
     public Output<Integer> port() {
         return this.port;
     }
     /**
-     * Display name of the email domain.
+     * Username used to access your SMTP server
      * 
      */
     @Export(name="username", refs={String.class}, tree="[0]")
     private Output<String> username;
 
     /**
-     * @return Display name of the email domain.
+     * @return Username used to access your SMTP server
      * 
      */
     public Output<String> username() {

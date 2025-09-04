@@ -12,29 +12,77 @@ import java.util.Objects;
 
 @CustomType
 public final class GetEmailSmtpServerResult {
+    /**
+     * @return Human-readable name for SMTP server
+     * 
+     */
     private String alias;
+    /**
+     * @return If true, routes all email traffic through the SMTP server.
+     * 
+     */
     private Boolean enabled;
+    /**
+     * @return Hostname or IP address of the SMTP server
+     * 
+     */
     private String host;
+    /**
+     * @return ID of your SMTP server
+     * 
+     */
     private String id;
+    /**
+     * @return The port number of the SMTP server
+     * 
+     */
     private Integer port;
+    /**
+     * @return Username used to access the SMTP server
+     * 
+     */
     private String username;
 
     private GetEmailSmtpServerResult() {}
+    /**
+     * @return Human-readable name for SMTP server
+     * 
+     */
     public String alias() {
         return this.alias;
     }
+    /**
+     * @return If true, routes all email traffic through the SMTP server.
+     * 
+     */
     public Boolean enabled() {
         return this.enabled;
     }
+    /**
+     * @return Hostname or IP address of the SMTP server
+     * 
+     */
     public String host() {
         return this.host;
     }
+    /**
+     * @return ID of your SMTP server
+     * 
+     */
     public String id() {
         return this.id;
     }
+    /**
+     * @return The port number of the SMTP server
+     * 
+     */
     public Integer port() {
         return this.port;
     }
+    /**
+     * @return Username used to access the SMTP server
+     * 
+     */
     public String username() {
         return this.username;
     }

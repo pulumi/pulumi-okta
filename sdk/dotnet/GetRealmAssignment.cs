@@ -11,12 +11,21 @@ namespace Pulumi.Okta
 {
     public static class GetRealmAssignment
     {
+        /// <summary>
+        /// Get a realm assignment from Okta.
+        /// </summary>
         public static Task<GetRealmAssignmentResult> InvokeAsync(GetRealmAssignmentArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRealmAssignmentResult>("okta:index/getRealmAssignment:getRealmAssignment", args ?? new GetRealmAssignmentArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Get a realm assignment from Okta.
+        /// </summary>
         public static Output<GetRealmAssignmentResult> Invoke(GetRealmAssignmentInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRealmAssignmentResult>("okta:index/getRealmAssignment:getRealmAssignment", args ?? new GetRealmAssignmentInvokeArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Get a realm assignment from Okta.
+        /// </summary>
         public static Output<GetRealmAssignmentResult> Invoke(GetRealmAssignmentInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetRealmAssignmentResult>("okta:index/getRealmAssignment:getRealmAssignment", args ?? new GetRealmAssignmentInvokeArgs(), options.WithDefaults());
     }
@@ -24,6 +33,9 @@ namespace Pulumi.Okta
 
     public sealed class GetRealmAssignmentArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The name of the Okta Realm Assignment.
+        /// </summary>
         [Input("name")]
         public string? Name { get; set; }
 
@@ -35,6 +47,9 @@ namespace Pulumi.Okta
 
     public sealed class GetRealmAssignmentInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The name of the Okta Realm Assignment.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
@@ -48,13 +63,37 @@ namespace Pulumi.Okta
     [OutputType]
     public sealed class GetRealmAssignmentResult
     {
+        /// <summary>
+        /// Condition expression for the Realm Assignment in Okta Expression Language. Example: `user.profile.role =="Manager"` or `user.profile.state.contains("example")`.
+        /// </summary>
         public readonly string ConditionExpression;
+        /// <summary>
+        /// Realm Assignment ID.
+        /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Indicates whether the realm assignment is the default.
+        /// </summary>
         public readonly bool IsDefault;
+        /// <summary>
+        /// The name of the Okta Realm Assignment.
+        /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// The Priority of the Realm Assignment. The lower the number, the higher the priority.
+        /// </summary>
         public readonly int Priority;
+        /// <summary>
+        /// The ID of the Profile Source.
+        /// </summary>
         public readonly string ProfileSourceId;
+        /// <summary>
+        /// The ID of the Realm asscociated with the Realm Assignment.
+        /// </summary>
         public readonly string RealmId;
+        /// <summary>
+        /// Defines whether the Realm Assignment is active or not. Valid values: `ACTIVE` and `INACTIVE`.
+        /// </summary>
         public readonly string Status;
 
         [OutputConstructor]

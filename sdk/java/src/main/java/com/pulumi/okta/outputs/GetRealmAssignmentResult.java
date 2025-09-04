@@ -14,37 +14,101 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetRealmAssignmentResult {
+    /**
+     * @return Condition expression for the Realm Assignment in Okta Expression Language. Example: `user.profile.role ==&#34;Manager&#34;` or `user.profile.state.contains(&#34;example&#34;)`.
+     * 
+     */
     private String conditionExpression;
+    /**
+     * @return Realm Assignment ID.
+     * 
+     */
     private String id;
+    /**
+     * @return Indicates whether the realm assignment is the default.
+     * 
+     */
     private Boolean isDefault;
+    /**
+     * @return The name of the Okta Realm Assignment.
+     * 
+     */
     private @Nullable String name;
+    /**
+     * @return The Priority of the Realm Assignment. The lower the number, the higher the priority.
+     * 
+     */
     private Integer priority;
+    /**
+     * @return The ID of the Profile Source.
+     * 
+     */
     private String profileSourceId;
+    /**
+     * @return The ID of the Realm asscociated with the Realm Assignment.
+     * 
+     */
     private String realmId;
+    /**
+     * @return Defines whether the Realm Assignment is active or not. Valid values: `ACTIVE` and `INACTIVE`.
+     * 
+     */
     private String status;
 
     private GetRealmAssignmentResult() {}
+    /**
+     * @return Condition expression for the Realm Assignment in Okta Expression Language. Example: `user.profile.role ==&#34;Manager&#34;` or `user.profile.state.contains(&#34;example&#34;)`.
+     * 
+     */
     public String conditionExpression() {
         return this.conditionExpression;
     }
+    /**
+     * @return Realm Assignment ID.
+     * 
+     */
     public String id() {
         return this.id;
     }
+    /**
+     * @return Indicates whether the realm assignment is the default.
+     * 
+     */
     public Boolean isDefault() {
         return this.isDefault;
     }
+    /**
+     * @return The name of the Okta Realm Assignment.
+     * 
+     */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
+    /**
+     * @return The Priority of the Realm Assignment. The lower the number, the higher the priority.
+     * 
+     */
     public Integer priority() {
         return this.priority;
     }
+    /**
+     * @return The ID of the Profile Source.
+     * 
+     */
     public String profileSourceId() {
         return this.profileSourceId;
     }
+    /**
+     * @return The ID of the Realm asscociated with the Realm Assignment.
+     * 
+     */
     public String realmId() {
         return this.realmId;
     }
+    /**
+     * @return Defines whether the Realm Assignment is active or not. Valid values: `ACTIVE` and `INACTIVE`.
+     * 
+     */
     public String status() {
         return this.status;
     }

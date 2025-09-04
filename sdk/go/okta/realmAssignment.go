@@ -12,6 +12,51 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Creates an Okta Realm Assignment. This resource allows you to create and configure an Okta Realm Assignment.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v5/go/okta"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := okta.NewRealm(ctx, "example", &okta.RealmArgs{
+//				Name:      pulumi.String("Example Realm"),
+//				RealmType: pulumi.String("DEFAULT"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = okta.NewRealmAssignment(ctx, "test", &okta.RealmAssignmentArgs{
+//				Name:                pulumi.String("Example Realm Assignment"),
+//				Priority:            pulumi.Int(55),
+//				Status:              pulumi.String("ACTIVE"),
+//				ProfileSourceId:     pulumi.Any(testOktaIdpSaml.Id),
+//				ConditionExpression: pulumi.String("user.profile.login.contains(\"@example.com\")"),
+//				RealmId:             example.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// ```sh
+// $ pulumi import okta:index/realmAssignment:RealmAssignment example <realm_assignment_id>
+// ```
 type RealmAssignment struct {
 	pulumi.CustomResourceState
 

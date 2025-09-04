@@ -14,23 +14,47 @@ public final class GetRealmPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetRealmPlainArgs Empty = new GetRealmPlainArgs();
 
+    /**
+     * The id of the Okta Realm.
+     * 
+     */
     @Import(name="id")
     private @Nullable String id;
 
+    /**
+     * @return The id of the Okta Realm.
+     * 
+     */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
     }
 
+    /**
+     * The name of the Okta Realm.
+     * 
+     */
     @Import(name="name")
     private @Nullable String name;
 
+    /**
+     * @return The name of the Okta Realm.
+     * 
+     */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
 
+    /**
+     * The realm type. Valid values: `PARTNER` and `DEFAULT`
+     * 
+     */
     @Import(name="realmType")
     private @Nullable String realmType;
 
+    /**
+     * @return The realm type. Valid values: `PARTNER` and `DEFAULT`
+     * 
+     */
     public Optional<String> realmType() {
         return Optional.ofNullable(this.realmType);
     }
@@ -61,16 +85,34 @@ public final class GetRealmPlainArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetRealmPlainArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param id The id of the Okta Realm.
+         * 
+         * @return builder
+         * 
+         */
         public Builder id(@Nullable String id) {
             $.id = id;
             return this;
         }
 
+        /**
+         * @param name The name of the Okta Realm.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(@Nullable String name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param realmType The realm type. Valid values: `PARTNER` and `DEFAULT`
+         * 
+         * @return builder
+         * 
+         */
         public Builder realmType(@Nullable String realmType) {
             $.realmType = realmType;
             return this;
