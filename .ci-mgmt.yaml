@@ -1,5 +1,7 @@
 provider: okta
 major-version: 5
+esc:
+  enabled: true
 env:
   OKTA_BASE_URL: ${{ secrets.OKTA_BASE_URL }}
   OKTA_ORG_NAME: ${{ secrets.OKTA_ORG_NAME }}
