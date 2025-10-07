@@ -43,13 +43,13 @@ namespace Pulumi.Okta
         public string? Label { get; set; }
 
         /// <summary>
-        /// Searches for applications whose label or name property begins with this value. **Warning:** This might not work as intended and will be removed in the future release. Use `q` instead.
+        /// Searches for applications whose label or name property begins with this value. **Warning:** This might not work as intended and will be removed in the future release. Use `Q` instead.
         /// </summary>
         [Input("labelPrefix")]
         public string? LabelPrefix { get; set; }
 
         /// <summary>
-        /// Searches for apps with name or label properties that starts with the `q` value.
+        /// Searches for apps with name or label properties that starts with the `Q` value.
         /// </summary>
         [Input("q")]
         public string? Q { get; set; }
@@ -87,13 +87,13 @@ namespace Pulumi.Okta
         public Input<string>? Label { get; set; }
 
         /// <summary>
-        /// Searches for applications whose label or name property begins with this value. **Warning:** This might not work as intended and will be removed in the future release. Use `q` instead.
+        /// Searches for applications whose label or name property begins with this value. **Warning:** This might not work as intended and will be removed in the future release. Use `Q` instead.
         /// </summary>
         [Input("labelPrefix")]
         public Input<string>? LabelPrefix { get; set; }
 
         /// <summary>
-        /// Searches for apps with name or label properties that starts with the `q` value.
+        /// Searches for apps with name or label properties that starts with the `Q` value.
         /// </summary>
         [Input("q")]
         public Input<string>? Q { get; set; }
@@ -135,11 +135,11 @@ namespace Pulumi.Okta
         /// </summary>
         public readonly string? Label;
         /// <summary>
-        /// Searches for applications whose label or name property begins with this value. **Warning:** This might not work as intended and will be removed in the future release. Use `q` instead.
+        /// Searches for applications whose label or name property begins with this value. **Warning:** This might not work as intended and will be removed in the future release. Use `Q` instead.
         /// </summary>
         public readonly string? LabelPrefix;
         /// <summary>
-        /// Searches for apps with name or label properties that starts with the `q` value.
+        /// Searches for apps with name or label properties that starts with the `Q` value.
         /// </summary>
         public readonly string? Q;
         /// <summary>

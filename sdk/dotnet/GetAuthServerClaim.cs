@@ -97,13 +97,13 @@ namespace Pulumi.Okta
         public string AuthServerId { get; set; } = null!;
 
         /// <summary>
-        /// Name of the claim. Conflicts with `name`.
+        /// Name of the claim. Conflicts with `Name`.
         /// </summary>
         [Input("id")]
         public string? Id { get; set; }
 
         /// <summary>
-        /// Name of the claim. Conflicts with `id`.
+        /// Name of the claim. Conflicts with `Id`.
         /// </summary>
         [Input("name")]
         public string? Name { get; set; }
@@ -123,13 +123,13 @@ namespace Pulumi.Okta
         public Input<string> AuthServerId { get; set; } = null!;
 
         /// <summary>
-        /// Name of the claim. Conflicts with `name`.
+        /// Name of the claim. Conflicts with `Name`.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// Name of the claim. Conflicts with `id`.
+        /// Name of the claim. Conflicts with `Id`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -157,11 +157,11 @@ namespace Pulumi.Okta
         /// </summary>
         public readonly string ClaimType;
         /// <summary>
-        /// Name of the claim. Conflicts with `name`.
+        /// Name of the claim. Conflicts with `Name`.
         /// </summary>
         public readonly string? Id;
         /// <summary>
-        /// Name of the claim. Conflicts with `id`.
+        /// Name of the claim. Conflicts with `Id`.
         /// </summary>
         public readonly string? Name;
         /// <summary>

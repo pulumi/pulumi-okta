@@ -27,7 +27,7 @@ namespace Pulumi.Okta.Policy
     public partial class RuleIdpDiscovery : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Applications to exclude in discovery. See `app_include` for details.
+        /// Applications to exclude in discovery. See `AppInclude` for details.
         /// </summary>
         [Output("appExcludes")]
         public Output<ImmutableArray<Outputs.RuleIdpDiscoveryAppExclude>> AppExcludes { get; private set; } = null!;
@@ -57,13 +57,13 @@ namespace Pulumi.Okta.Policy
         public Output<string?> NetworkConnection { get; private set; } = null!;
 
         /// <summary>
-        /// Required if `network_connection` = `ZONE`. Indicates the network zones to exclude.
+        /// Required if `NetworkConnection` = `ZONE`. Indicates the network zones to exclude.
         /// </summary>
         [Output("networkExcludes")]
         public Output<ImmutableArray<string>> NetworkExcludes { get; private set; } = null!;
 
         /// <summary>
-        /// Required if `network_connection` = `ZONE`. Indicates the network zones to include.
+        /// Required if `NetworkConnection` = `ZONE`. Indicates the network zones to include.
         /// </summary>
         [Output("networkIncludes")]
         public Output<ImmutableArray<string>> NetworkIncludes { get; private set; } = null!;
@@ -71,7 +71,7 @@ namespace Pulumi.Okta.Policy
         /// <summary>
         /// Platform to include in discovery rule.
         /// - 'type' - (Optional) One of: 'ANY', 'MOBILE', 'DESKTOP'
-        /// - 'os_expression - (Optional) Only available when using os_type = 'OTHER'
+        /// - 'os_expression - (Optional) Only available when using OsType = 'OTHER'
         /// - 'os_type' - (Optional) One of: 'ANY', 'IOS', 'WINDOWS', 'ANDROID', 'OTHER', 'OSX'
         /// </summary>
         [Output("platformIncludes")]
@@ -96,7 +96,7 @@ namespace Pulumi.Okta.Policy
         public Output<string?> Status { get; private set; } = null!;
 
         /// <summary>
-        /// Profile attribute matching can only have a single value that describes the type indicated in `user_identifier_type`. This is the attribute or identifier that the `user_identifier_patterns` are checked against.
+        /// Profile attribute matching can only have a single value that describes the type indicated in `UserIdentifierType`. This is the attribute or identifier that the `UserIdentifierPatterns` are checked against.
         /// </summary>
         [Output("userIdentifierAttribute")]
         public Output<string?> UserIdentifierAttribute { get; private set; } = null!;
@@ -165,7 +165,7 @@ namespace Pulumi.Okta.Policy
         private InputList<Inputs.RuleIdpDiscoveryAppExcludeArgs>? _appExcludes;
 
         /// <summary>
-        /// Applications to exclude in discovery. See `app_include` for details.
+        /// Applications to exclude in discovery. See `AppInclude` for details.
         /// </summary>
         public InputList<Inputs.RuleIdpDiscoveryAppExcludeArgs> AppExcludes
         {
@@ -212,7 +212,7 @@ namespace Pulumi.Okta.Policy
         private InputList<string>? _networkExcludes;
 
         /// <summary>
-        /// Required if `network_connection` = `ZONE`. Indicates the network zones to exclude.
+        /// Required if `NetworkConnection` = `ZONE`. Indicates the network zones to exclude.
         /// </summary>
         public InputList<string> NetworkExcludes
         {
@@ -224,7 +224,7 @@ namespace Pulumi.Okta.Policy
         private InputList<string>? _networkIncludes;
 
         /// <summary>
-        /// Required if `network_connection` = `ZONE`. Indicates the network zones to include.
+        /// Required if `NetworkConnection` = `ZONE`. Indicates the network zones to include.
         /// </summary>
         public InputList<string> NetworkIncludes
         {
@@ -238,7 +238,7 @@ namespace Pulumi.Okta.Policy
         /// <summary>
         /// Platform to include in discovery rule.
         /// - 'type' - (Optional) One of: 'ANY', 'MOBILE', 'DESKTOP'
-        /// - 'os_expression - (Optional) Only available when using os_type = 'OTHER'
+        /// - 'os_expression - (Optional) Only available when using OsType = 'OTHER'
         /// - 'os_type' - (Optional) One of: 'ANY', 'IOS', 'WINDOWS', 'ANDROID', 'OTHER', 'OSX'
         /// </summary>
         public InputList<Inputs.RuleIdpDiscoveryPlatformIncludeArgs> PlatformIncludes
@@ -266,7 +266,7 @@ namespace Pulumi.Okta.Policy
         public Input<string>? Status { get; set; }
 
         /// <summary>
-        /// Profile attribute matching can only have a single value that describes the type indicated in `user_identifier_type`. This is the attribute or identifier that the `user_identifier_patterns` are checked against.
+        /// Profile attribute matching can only have a single value that describes the type indicated in `UserIdentifierType`. This is the attribute or identifier that the `UserIdentifierPatterns` are checked against.
         /// </summary>
         [Input("userIdentifierAttribute")]
         public Input<string>? UserIdentifierAttribute { get; set; }
@@ -303,7 +303,7 @@ namespace Pulumi.Okta.Policy
         private InputList<Inputs.RuleIdpDiscoveryAppExcludeGetArgs>? _appExcludes;
 
         /// <summary>
-        /// Applications to exclude in discovery. See `app_include` for details.
+        /// Applications to exclude in discovery. See `AppInclude` for details.
         /// </summary>
         public InputList<Inputs.RuleIdpDiscoveryAppExcludeGetArgs> AppExcludes
         {
@@ -350,7 +350,7 @@ namespace Pulumi.Okta.Policy
         private InputList<string>? _networkExcludes;
 
         /// <summary>
-        /// Required if `network_connection` = `ZONE`. Indicates the network zones to exclude.
+        /// Required if `NetworkConnection` = `ZONE`. Indicates the network zones to exclude.
         /// </summary>
         public InputList<string> NetworkExcludes
         {
@@ -362,7 +362,7 @@ namespace Pulumi.Okta.Policy
         private InputList<string>? _networkIncludes;
 
         /// <summary>
-        /// Required if `network_connection` = `ZONE`. Indicates the network zones to include.
+        /// Required if `NetworkConnection` = `ZONE`. Indicates the network zones to include.
         /// </summary>
         public InputList<string> NetworkIncludes
         {
@@ -376,7 +376,7 @@ namespace Pulumi.Okta.Policy
         /// <summary>
         /// Platform to include in discovery rule.
         /// - 'type' - (Optional) One of: 'ANY', 'MOBILE', 'DESKTOP'
-        /// - 'os_expression - (Optional) Only available when using os_type = 'OTHER'
+        /// - 'os_expression - (Optional) Only available when using OsType = 'OTHER'
         /// - 'os_type' - (Optional) One of: 'ANY', 'IOS', 'WINDOWS', 'ANDROID', 'OTHER', 'OSX'
         /// </summary>
         public InputList<Inputs.RuleIdpDiscoveryPlatformIncludeGetArgs> PlatformIncludes
@@ -404,7 +404,7 @@ namespace Pulumi.Okta.Policy
         public Input<string>? Status { get; set; }
 
         /// <summary>
-        /// Profile attribute matching can only have a single value that describes the type indicated in `user_identifier_type`. This is the attribute or identifier that the `user_identifier_patterns` are checked against.
+        /// Profile attribute matching can only have a single value that describes the type indicated in `UserIdentifierType`. This is the attribute or identifier that the `UserIdentifierPatterns` are checked against.
         /// </summary>
         [Input("userIdentifierAttribute")]
         public Input<string>? UserIdentifierAttribute { get; set; }

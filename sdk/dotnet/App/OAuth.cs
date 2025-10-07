@@ -27,7 +27,7 @@ namespace Pulumi.Okta.App
     /// identified by a header that starts with `-----BEGIN PRIVATE KEY-----`. If the
     /// operator has a PKCS#1 (unencrypted) format private key (the header starts with
     /// `-----BEGIN RSA PRIVATE KEY-----`) they can generate a PKCS#8 format
-    /// key with `openssl`:
+    /// key with `Openssl`:
     /// 
     /// ## Import
     /// 
@@ -51,7 +51,7 @@ namespace Pulumi.Okta.App
         public Output<string?> AccessibilityLoginRedirectUrl { get; private set; } = null!;
 
         /// <summary>
-        /// Enable self service. Default is `false`
+        /// Enable self service. Default is `False`
         /// </summary>
         [Output("accessibilitySelfService")]
         public Output<bool?> AccessibilitySelfService { get; private set; } = null!;
@@ -75,7 +75,7 @@ namespace Pulumi.Okta.App
         public Output<string?> AppSettingsJson { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the associated app*signon*policy. If this property is removed from the application the default sign-on-policy will be associated with this application. From now on, there is no need to attach authentication_policy for applications of type `SERVICE` in the upcoming release.
+        /// The ID of the associated app*signon*policy. If this property is removed from the application the default sign-on-policy will be associated with this application. From now on, there is no need to attach AuthenticationPolicy for applications of type `SERVICE` in the upcoming release.
         /// </summary>
         [Output("authenticationPolicy")]
         public Output<string> AuthenticationPolicy { get; private set; } = null!;
@@ -109,7 +109,7 @@ namespace Pulumi.Okta.App
         public Output<string> ClientId { get; private set; } = null!;
 
         /// <summary>
-        /// OAuth client secret value, this is output only. This will be in plain text in your statefile unless you set omit_secret above.
+        /// OAuth client secret value, this is output only. This will be in plain text in your statefile unless you set OmitSecret above.
         /// </summary>
         [Output("clientSecret")]
         public Output<string> ClientSecret { get; private set; } = null!;
@@ -226,7 +226,7 @@ namespace Pulumi.Okta.App
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// This tells the provider not manage the client*secret value in state. When this is false (the default), it will cause the auto-generated client*secret to be persisted in the client_secret attribute in state. This also means that every time an update to this app is run, this value is also set on the API. If this changes from false =&gt; true, the `client_secret` is dropped from state and the secret at the time of the apply is what remains. If this is ever changes from true =&gt; false your app will be recreated, due to the need to regenerate a secret we can store in state.
+        /// This tells the provider not manage the client*secret value in state. When this is false (the default), it will cause the auto-generated client*secret to be persisted in the ClientSecret attribute in state. This also means that every time an update to this app is run, this value is also set on the API. If this changes from false =&gt; true, the `ClientSecret` is dropped from state and the secret at the time of the apply is what remains. If this is ever changes from true =&gt; false your app will be recreated, due to the need to regenerate a secret we can store in state.
         /// </summary>
         [Output("omitSecret")]
         public Output<bool?> OmitSecret { get; private set; } = null!;
@@ -274,7 +274,7 @@ namespace Pulumi.Okta.App
         public Output<string?> RefreshTokenRotation { get; private set; } = null!;
 
         /// <summary>
-        /// List of OAuth 2.0 response type strings. Valid values are any combination of: `code`, `token`, and `id_token`.
+        /// List of OAuth 2.0 response type strings. Valid values are any combination of: `Code`, `Token`, and `IdToken`.
         /// </summary>
         [Output("responseTypes")]
         public Output<ImmutableArray<string>> ResponseTypes { get; private set; } = null!;
@@ -403,7 +403,7 @@ namespace Pulumi.Okta.App
         public Input<string>? AccessibilityLoginRedirectUrl { get; set; }
 
         /// <summary>
-        /// Enable self service. Default is `false`
+        /// Enable self service. Default is `False`
         /// </summary>
         [Input("accessibilitySelfService")]
         public Input<bool>? AccessibilitySelfService { get; set; }
@@ -427,7 +427,7 @@ namespace Pulumi.Okta.App
         public Input<string>? AppSettingsJson { get; set; }
 
         /// <summary>
-        /// The ID of the associated app*signon*policy. If this property is removed from the application the default sign-on-policy will be associated with this application. From now on, there is no need to attach authentication_policy for applications of type `SERVICE` in the upcoming release.
+        /// The ID of the associated app*signon*policy. If this property is removed from the application the default sign-on-policy will be associated with this application. From now on, there is no need to attach AuthenticationPolicy for applications of type `SERVICE` in the upcoming release.
         /// </summary>
         [Input("authenticationPolicy")]
         public Input<string>? AuthenticationPolicy { get; set; }
@@ -587,7 +587,7 @@ namespace Pulumi.Okta.App
         public Input<string>? LogoUri { get; set; }
 
         /// <summary>
-        /// This tells the provider not manage the client*secret value in state. When this is false (the default), it will cause the auto-generated client*secret to be persisted in the client_secret attribute in state. This also means that every time an update to this app is run, this value is also set on the API. If this changes from false =&gt; true, the `client_secret` is dropped from state and the secret at the time of the apply is what remains. If this is ever changes from true =&gt; false your app will be recreated, due to the need to regenerate a secret we can store in state.
+        /// This tells the provider not manage the client*secret value in state. When this is false (the default), it will cause the auto-generated client*secret to be persisted in the ClientSecret attribute in state. This also means that every time an update to this app is run, this value is also set on the API. If this changes from false =&gt; true, the `ClientSecret` is dropped from state and the secret at the time of the apply is what remains. If this is ever changes from true =&gt; false your app will be recreated, due to the need to regenerate a secret we can store in state.
         /// </summary>
         [Input("omitSecret")]
         public Input<bool>? OmitSecret { get; set; }
@@ -650,7 +650,7 @@ namespace Pulumi.Okta.App
         private InputList<string>? _responseTypes;
 
         /// <summary>
-        /// List of OAuth 2.0 response type strings. Valid values are any combination of: `code`, `token`, and `id_token`.
+        /// List of OAuth 2.0 response type strings. Valid values are any combination of: `Code`, `Token`, and `IdToken`.
         /// </summary>
         public InputList<string> ResponseTypes
         {
@@ -733,7 +733,7 @@ namespace Pulumi.Okta.App
         public Input<string>? AccessibilityLoginRedirectUrl { get; set; }
 
         /// <summary>
-        /// Enable self service. Default is `false`
+        /// Enable self service. Default is `False`
         /// </summary>
         [Input("accessibilitySelfService")]
         public Input<bool>? AccessibilitySelfService { get; set; }
@@ -757,7 +757,7 @@ namespace Pulumi.Okta.App
         public Input<string>? AppSettingsJson { get; set; }
 
         /// <summary>
-        /// The ID of the associated app*signon*policy. If this property is removed from the application the default sign-on-policy will be associated with this application. From now on, there is no need to attach authentication_policy for applications of type `SERVICE` in the upcoming release.
+        /// The ID of the associated app*signon*policy. If this property is removed from the application the default sign-on-policy will be associated with this application. From now on, there is no need to attach AuthenticationPolicy for applications of type `SERVICE` in the upcoming release.
         /// </summary>
         [Input("authenticationPolicy")]
         public Input<string>? AuthenticationPolicy { get; set; }
@@ -804,7 +804,7 @@ namespace Pulumi.Okta.App
         private Input<string>? _clientSecret;
 
         /// <summary>
-        /// OAuth client secret value, this is output only. This will be in plain text in your statefile unless you set omit_secret above.
+        /// OAuth client secret value, this is output only. This will be in plain text in your statefile unless you set OmitSecret above.
         /// </summary>
         public Input<string>? ClientSecret
         {
@@ -945,7 +945,7 @@ namespace Pulumi.Okta.App
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// This tells the provider not manage the client*secret value in state. When this is false (the default), it will cause the auto-generated client*secret to be persisted in the client_secret attribute in state. This also means that every time an update to this app is run, this value is also set on the API. If this changes from false =&gt; true, the `client_secret` is dropped from state and the secret at the time of the apply is what remains. If this is ever changes from true =&gt; false your app will be recreated, due to the need to regenerate a secret we can store in state.
+        /// This tells the provider not manage the client*secret value in state. When this is false (the default), it will cause the auto-generated client*secret to be persisted in the ClientSecret attribute in state. This also means that every time an update to this app is run, this value is also set on the API. If this changes from false =&gt; true, the `ClientSecret` is dropped from state and the secret at the time of the apply is what remains. If this is ever changes from true =&gt; false your app will be recreated, due to the need to regenerate a secret we can store in state.
         /// </summary>
         [Input("omitSecret")]
         public Input<bool>? OmitSecret { get; set; }
@@ -1008,7 +1008,7 @@ namespace Pulumi.Okta.App
         private InputList<string>? _responseTypes;
 
         /// <summary>
-        /// List of OAuth 2.0 response type strings. Valid values are any combination of: `code`, `token`, and `id_token`.
+        /// List of OAuth 2.0 response type strings. Valid values are any combination of: `Code`, `Token`, and `IdToken`.
         /// </summary>
         public InputList<string> ResponseTypes
         {

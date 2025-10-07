@@ -41,7 +41,7 @@ namespace Pulumi.Okta.App
         public Output<string?> AccessibilityLoginRedirectUrl { get; private set; } = null!;
 
         /// <summary>
-        /// Enable self service. Default is `false`
+        /// Enable self service. Default is `False`
         /// </summary>
         [Output("accessibilitySelfService")]
         public Output<bool?> AccessibilitySelfService { get; private set; } = null!;
@@ -53,7 +53,7 @@ namespace Pulumi.Okta.App
         public Output<ImmutableArray<string>> AcsEndpoints { get; private set; } = null!;
 
         /// <summary>
-        /// ACS endpoints along with custom index as a set of maps called `acs_endpoints_indices` in JSON format.
+        /// ACS endpoints along with custom index as a set of maps called `AcsEndpointsIndices` in JSON format.
         /// </summary>
         [Output("acsEndpointsIndices")]
         public Output<ImmutableArray<Outputs.SamlAcsEndpointsIndex>> AcsEndpointsIndices { get; private set; } = null!;
@@ -92,7 +92,7 @@ namespace Pulumi.Okta.App
         public Output<string?> Audience { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the associated `app_signon_policy`. If this property is removed from the application the `default` sign-on-policy will be associated with this application.y
+        /// The ID of the associated `AppSignonPolicy`. If this property is removed from the application the `Default` sign-on-policy will be associated with this application.y
         /// </summary>
         [Output("authenticationPolicy")]
         public Output<string> AuthenticationPolicy { get; private set; } = null!;
@@ -104,7 +104,7 @@ namespace Pulumi.Okta.App
         public Output<string?> AuthnContextClassRef { get; private set; } = null!;
 
         /// <summary>
-        /// Display auto submit toolbar. Default is: `false`
+        /// Display auto submit toolbar. Default is: `False`
         /// </summary>
         [Output("autoSubmitToolbar")]
         public Output<bool?> AutoSubmitToolbar { get; private set; } = null!;
@@ -176,7 +176,7 @@ namespace Pulumi.Okta.App
         public Output<bool?> HideWeb { get; private set; } = null!;
 
         /// <summary>
-        /// Prompt user to re-authenticate if SP asks for it. Default is: `false`
+        /// Prompt user to re-authenticate if SP asks for it. Default is: `False`
         /// </summary>
         [Output("honorForceAuthn")]
         public Output<bool?> HonorForceAuthn { get; private set; } = null!;
@@ -218,7 +218,7 @@ namespace Pulumi.Okta.App
         public Output<string> KeyId { get; private set; } = null!;
 
         /// <summary>
-        /// Certificate name. This modulates the rotation of keys. New name == new key. Required to be set with `key_years_valid`
+        /// Certificate name. This modulates the rotation of keys. New name == new key. Required to be set with `KeyYearsValid`
         /// </summary>
         [Output("keyName")]
         public Output<string?> KeyName { get; private set; } = null!;
@@ -459,7 +459,7 @@ namespace Pulumi.Okta.App
         public Input<string>? AccessibilityLoginRedirectUrl { get; set; }
 
         /// <summary>
-        /// Enable self service. Default is `false`
+        /// Enable self service. Default is `False`
         /// </summary>
         [Input("accessibilitySelfService")]
         public Input<bool>? AccessibilitySelfService { get; set; }
@@ -480,7 +480,7 @@ namespace Pulumi.Okta.App
         private InputList<Inputs.SamlAcsEndpointsIndexArgs>? _acsEndpointsIndices;
 
         /// <summary>
-        /// ACS endpoints along with custom index as a set of maps called `acs_endpoints_indices` in JSON format.
+        /// ACS endpoints along with custom index as a set of maps called `AcsEndpointsIndices` in JSON format.
         /// </summary>
         public InputList<Inputs.SamlAcsEndpointsIndexArgs> AcsEndpointsIndices
         {
@@ -527,7 +527,7 @@ namespace Pulumi.Okta.App
         public Input<string>? Audience { get; set; }
 
         /// <summary>
-        /// The ID of the associated `app_signon_policy`. If this property is removed from the application the `default` sign-on-policy will be associated with this application.y
+        /// The ID of the associated `AppSignonPolicy`. If this property is removed from the application the `Default` sign-on-policy will be associated with this application.y
         /// </summary>
         [Input("authenticationPolicy")]
         public Input<string>? AuthenticationPolicy { get; set; }
@@ -539,7 +539,7 @@ namespace Pulumi.Okta.App
         public Input<string>? AuthnContextClassRef { get; set; }
 
         /// <summary>
-        /// Display auto submit toolbar. Default is: `false`
+        /// Display auto submit toolbar. Default is: `False`
         /// </summary>
         [Input("autoSubmitToolbar")]
         public Input<bool>? AutoSubmitToolbar { get; set; }
@@ -581,7 +581,7 @@ namespace Pulumi.Okta.App
         public Input<bool>? HideWeb { get; set; }
 
         /// <summary>
-        /// Prompt user to re-authenticate if SP asks for it. Default is: `false`
+        /// Prompt user to re-authenticate if SP asks for it. Default is: `False`
         /// </summary>
         [Input("honorForceAuthn")]
         public Input<bool>? HonorForceAuthn { get; set; }
@@ -605,7 +605,7 @@ namespace Pulumi.Okta.App
         public Input<string>? InlineHookId { get; set; }
 
         /// <summary>
-        /// Certificate name. This modulates the rotation of keys. New name == new key. Required to be set with `key_years_valid`
+        /// Certificate name. This modulates the rotation of keys. New name == new key. Required to be set with `KeyYearsValid`
         /// </summary>
         [Input("keyName")]
         public Input<string>? KeyName { get; set; }
@@ -772,7 +772,7 @@ namespace Pulumi.Okta.App
         public Input<string>? AccessibilityLoginRedirectUrl { get; set; }
 
         /// <summary>
-        /// Enable self service. Default is `false`
+        /// Enable self service. Default is `False`
         /// </summary>
         [Input("accessibilitySelfService")]
         public Input<bool>? AccessibilitySelfService { get; set; }
@@ -793,7 +793,7 @@ namespace Pulumi.Okta.App
         private InputList<Inputs.SamlAcsEndpointsIndexGetArgs>? _acsEndpointsIndices;
 
         /// <summary>
-        /// ACS endpoints along with custom index as a set of maps called `acs_endpoints_indices` in JSON format.
+        /// ACS endpoints along with custom index as a set of maps called `AcsEndpointsIndices` in JSON format.
         /// </summary>
         public InputList<Inputs.SamlAcsEndpointsIndexGetArgs> AcsEndpointsIndices
         {
@@ -840,7 +840,7 @@ namespace Pulumi.Okta.App
         public Input<string>? Audience { get; set; }
 
         /// <summary>
-        /// The ID of the associated `app_signon_policy`. If this property is removed from the application the `default` sign-on-policy will be associated with this application.y
+        /// The ID of the associated `AppSignonPolicy`. If this property is removed from the application the `Default` sign-on-policy will be associated with this application.y
         /// </summary>
         [Input("authenticationPolicy")]
         public Input<string>? AuthenticationPolicy { get; set; }
@@ -852,7 +852,7 @@ namespace Pulumi.Okta.App
         public Input<string>? AuthnContextClassRef { get; set; }
 
         /// <summary>
-        /// Display auto submit toolbar. Default is: `false`
+        /// Display auto submit toolbar. Default is: `False`
         /// </summary>
         [Input("autoSubmitToolbar")]
         public Input<bool>? AutoSubmitToolbar { get; set; }
@@ -930,7 +930,7 @@ namespace Pulumi.Okta.App
         public Input<bool>? HideWeb { get; set; }
 
         /// <summary>
-        /// Prompt user to re-authenticate if SP asks for it. Default is: `false`
+        /// Prompt user to re-authenticate if SP asks for it. Default is: `False`
         /// </summary>
         [Input("honorForceAuthn")]
         public Input<bool>? HonorForceAuthn { get; set; }
@@ -972,7 +972,7 @@ namespace Pulumi.Okta.App
         public Input<string>? KeyId { get; set; }
 
         /// <summary>
-        /// Certificate name. This modulates the rotation of keys. New name == new key. Required to be set with `key_years_valid`
+        /// Certificate name. This modulates the rotation of keys. New name == new key. Required to be set with `KeyYearsValid`
         /// </summary>
         [Input("keyName")]
         public Input<string>? KeyName { get; set; }

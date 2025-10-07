@@ -1509,12 +1509,16 @@ public final class OktaFunctions {
     /**
      * Get a behavior by name or ID.
      * 
+     * ## Example Usage
+     * 
      */
     public static Output<GetBehaviourResult> getBehaviour() {
         return getBehaviour(GetBehaviourArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * Get a behavior by name or ID.
+     * 
+     * ## Example Usage
      * 
      */
     public static CompletableFuture<GetBehaviourResult> getBehaviourPlain() {
@@ -1523,12 +1527,16 @@ public final class OktaFunctions {
     /**
      * Get a behavior by name or ID.
      * 
+     * ## Example Usage
+     * 
      */
     public static Output<GetBehaviourResult> getBehaviour(GetBehaviourArgs args) {
         return getBehaviour(args, InvokeOptions.Empty);
     }
     /**
      * Get a behavior by name or ID.
+     * 
+     * ## Example Usage
      * 
      */
     public static CompletableFuture<GetBehaviourResult> getBehaviourPlain(GetBehaviourPlainArgs args) {
@@ -1537,6 +1545,8 @@ public final class OktaFunctions {
     /**
      * Get a behavior by name or ID.
      * 
+     * ## Example Usage
+     * 
      */
     public static Output<GetBehaviourResult> getBehaviour(GetBehaviourArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("okta:index/getBehaviour:getBehaviour", TypeShape.of(GetBehaviourResult.class), args, Utilities.withVersion(options));
@@ -1544,12 +1554,16 @@ public final class OktaFunctions {
     /**
      * Get a behavior by name or ID.
      * 
+     * ## Example Usage
+     * 
      */
     public static Output<GetBehaviourResult> getBehaviour(GetBehaviourArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("okta:index/getBehaviour:getBehaviour", TypeShape.of(GetBehaviourResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Get a behavior by name or ID.
+     * 
+     * ## Example Usage
      * 
      */
     public static CompletableFuture<GetBehaviourResult> getBehaviourPlain(GetBehaviourPlainArgs args, InvokeOptions options) {
@@ -4032,12 +4046,16 @@ public final class OktaFunctions {
     /**
      * Get a realm assignment from Okta.
      * 
+     * ## Example Usage
+     * 
      */
     public static Output<GetRealmAssignmentResult> getRealmAssignment() {
         return getRealmAssignment(GetRealmAssignmentArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * Get a realm assignment from Okta.
+     * 
+     * ## Example Usage
      * 
      */
     public static CompletableFuture<GetRealmAssignmentResult> getRealmAssignmentPlain() {
@@ -4046,12 +4064,16 @@ public final class OktaFunctions {
     /**
      * Get a realm assignment from Okta.
      * 
+     * ## Example Usage
+     * 
      */
     public static Output<GetRealmAssignmentResult> getRealmAssignment(GetRealmAssignmentArgs args) {
         return getRealmAssignment(args, InvokeOptions.Empty);
     }
     /**
      * Get a realm assignment from Okta.
+     * 
+     * ## Example Usage
      * 
      */
     public static CompletableFuture<GetRealmAssignmentResult> getRealmAssignmentPlain(GetRealmAssignmentPlainArgs args) {
@@ -4060,6 +4082,8 @@ public final class OktaFunctions {
     /**
      * Get a realm assignment from Okta.
      * 
+     * ## Example Usage
+     * 
      */
     public static Output<GetRealmAssignmentResult> getRealmAssignment(GetRealmAssignmentArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("okta:index/getRealmAssignment:getRealmAssignment", TypeShape.of(GetRealmAssignmentResult.class), args, Utilities.withVersion(options));
@@ -4067,12 +4091,16 @@ public final class OktaFunctions {
     /**
      * Get a realm assignment from Okta.
      * 
+     * ## Example Usage
+     * 
      */
     public static Output<GetRealmAssignmentResult> getRealmAssignment(GetRealmAssignmentArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("okta:index/getRealmAssignment:getRealmAssignment", TypeShape.of(GetRealmAssignmentResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Get a realm assignment from Okta.
+     * 
+     * ## Example Usage
      * 
      */
     public static CompletableFuture<GetRealmAssignmentResult> getRealmAssignmentPlain(GetRealmAssignmentPlainArgs args, InvokeOptions options) {

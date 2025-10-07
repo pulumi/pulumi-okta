@@ -91,7 +91,7 @@ namespace Pulumi.Okta
         public Output<string> Text { get; private set; } = null!;
 
         /// <summary>
-        /// ID of the user. Resource will be recreated when `user_id` changes.
+        /// ID of the user. Resource will be recreated when `UserId` changes.
         /// </summary>
         [Output("userId")]
         public Output<string> UserId { get; private set; } = null!;
@@ -169,7 +169,7 @@ namespace Pulumi.Okta
         public Input<string> Key { get; set; } = null!;
 
         /// <summary>
-        /// ID of the user. Resource will be recreated when `user_id` changes.
+        /// ID of the user. Resource will be recreated when `UserId` changes.
         /// </summary>
         [Input("userId", required: true)]
         public Input<string> UserId { get; set; } = null!;
@@ -217,7 +217,7 @@ namespace Pulumi.Okta
         public Input<string>? Text { get; set; }
 
         /// <summary>
-        /// ID of the user. Resource will be recreated when `user_id` changes.
+        /// ID of the user. Resource will be recreated when `UserId` changes.
         /// </summary>
         [Input("userId")]
         public Input<string>? UserId { get; set; }

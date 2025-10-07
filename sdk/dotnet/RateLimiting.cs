@@ -50,7 +50,7 @@ namespace Pulumi.Okta
         public Output<string> Authorize { get; private set; } = null!;
 
         /// <summary>
-        /// Enable or disable rate limiting communications. By default, it is `true`.
+        /// Enable or disable rate limiting communications. By default, it is `True`.
         /// </summary>
         [Output("communicationsEnabled")]
         public Output<bool?> CommunicationsEnabled { get; private set; } = null!;
@@ -114,7 +114,7 @@ namespace Pulumi.Okta
         public Input<string> Authorize { get; set; } = null!;
 
         /// <summary>
-        /// Enable or disable rate limiting communications. By default, it is `true`.
+        /// Enable or disable rate limiting communications. By default, it is `True`.
         /// </summary>
         [Input("communicationsEnabled")]
         public Input<bool>? CommunicationsEnabled { get; set; }
@@ -140,7 +140,7 @@ namespace Pulumi.Okta
         public Input<string>? Authorize { get; set; }
 
         /// <summary>
-        /// Enable or disable rate limiting communications. By default, it is `true`.
+        /// Enable or disable rate limiting communications. By default, it is `True`.
         /// </summary>
         [Input("communicationsEnabled")]
         public Input<bool>? CommunicationsEnabled { get; set; }

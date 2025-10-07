@@ -22,9 +22,9 @@ import javax.annotation.Nullable;
  * authentication policy) to an application. This resource does not perform true
  * delete as it will not delete an application and the app&#39;s access policy can&#39;t be
  * removed; it can only be changed to a different access policy. This resource is
- * only logical within the context of an application therefore `app_id` is
+ * only logical within the context of an application therefore `appId` is
  * immutable once set. Use this resource to manage assigning an access policy to an
- * application. It will assign the given `policy_id` to the application at creation
+ * application. It will assign the given `policyId` to the application at creation
  * and during update.
  * 
  * &gt; Inside the product a sign-on policy is referenced as an _authentication

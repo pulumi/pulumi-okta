@@ -13,6 +13,100 @@ import (
 )
 
 // Manage the preview signin page of a brand
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v5/go/okta"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := okta.NewBrand(ctx, "test", &okta.BrandArgs{
+//				Name:   pulumi.String("testBrand"),
+//				Locale: pulumi.String("en"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = okta.NewPreviewSigninPage(ctx, "test", &okta.PreviewSigninPageArgs{
+//				BrandId: pulumi.Any(oktaBrand.Test.Id),
+//				PageContent: pulumi.String(`<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+//
+// <html>
+// <head>
+//
+//	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+//	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+//	<meta name="robots" content="noindex,nofollow" />
+//	<!-- Styles generated from theme -->
+//	<link href="{{themedStylesUrl}}" rel="stylesheet" type="text/css">
+//	<!-- Favicon from theme -->
+//	<link rel="shortcut icon" href="{{faviconUrl}}" type="image/x-icon"/>
+//
+//	<title>{{pageTitle}}</title>
+//	{{{SignInWidgetResources}}}
+//
+//	<style nonce="{{nonceValue}}">
+//	    #login-bg-image-id {
+//	        background-image: {{bgImageUrl}}
+//	    }
+//	</style>
+//
+// </head>
+// <body>
+//
+//	<div id="login-bg-image-id" class="login-bg-image tb--background"></div>
+//	<div id="okta-login-container"></div>
+//
+//	<!--
+//	    "OktaUtil" defines a global OktaUtil object
+//	    that contains methods used to complete the Okta login flow.
+//	 -->
+//	{{{OktaUtil}}}
+//
+//	<script type="text/javascript" nonce="{{nonceValue}}">
+//	    // "config" object contains default widget configuration
+//	    // with any custom overrides defined in your admin settings.
+//	    var config = OktaUtil.getSignInWidgetConfig();
+//
+//	    // Render the Okta Sign-In Widget
+//	    var oktaSignIn = new OktaSignIn(config);
+//	    oktaSignIn.renderEl({ el: '#okta-login-container' },
+//	        OktaUtil.completeLogin,
+//	        function(error) {
+//	            // Logs errors that occur when configuring the widget.
+//	            // Remove or replace this with your own custom error handler.
+//	            console.log(error.message, error);
+//	        }
+//	    );
+//	</script>
+//
+// </body>
+// </html>
+// `),
+//
+//				WidgetVersion: pulumi.String("^6"),
+//				WidgetCustomizations: okta.PreviewSigninPageWidgetCustomizationsArgs{
+//					map[string]interface{}{
+//						"widgetGeneration": "G3",
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 type PreviewSigninPage struct {
 	pulumi.CustomResourceState
 

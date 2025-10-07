@@ -14,7 +14,7 @@ namespace Pulumi.Okta.Outputs
     public sealed class UserSchemaPropertyArrayOneOf
     {
         /// <summary>
-        /// Value mapping to member of `array_enum`
+        /// Value mapping to member of `ArrayEnum`
         /// </summary>
         public readonly string Const;
         /// <summary>
