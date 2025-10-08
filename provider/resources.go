@@ -31,13 +31,15 @@ import (
 
 	pfbridge "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/pf/tfbridge"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
+	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge/info"
 	tks "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge/tokens"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge/tokens/fallbackstrat"
 	shimv2 "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim/sdk-v2"
+	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/tokens"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
 
-	"github.com/pulumi/pulumi-okta/provider/v5/pkg/version"
+	"github.com/pulumi/pulumi-okta/provider/v6/pkg/version"
 )
 
 // all of the token components used below.
@@ -206,6 +208,33 @@ func Provider() tfbridge.ProviderInfo {
 			"okta_brand":                          {Tok: makeResource(mainMod, "Brand")},
 			"okta_email_customization":            {Tok: makeResource(mainMod, "EmailCustomization")},
 			"okta_theme":                          {Tok: makeResource(mainMod, "Theme")},
+			"okta_request_setting_organization": {
+				Fields: map[string]*info.Schema{
+					"id": {
+						Name: "idProperty",
+					},
+				},
+				ComputeID: tfbridge.DelegateIDField(resource.PropertyKey("idProperty"),
+					"pulumi-okta", "https://github.com/pulumi/pulumi-okta"),
+			},
+			"okta_request_setting_resource": {
+				Fields: map[string]*info.Schema{
+					"id": {
+						Name: "idProperty",
+					},
+				},
+				ComputeID: tfbridge.DelegateIDField(resource.PropertyKey("idProperty"),
+					"pulumi-okta", "https://github.com/pulumi/pulumi-okta"),
+			},
+			"okta_request_sequence": {
+				Fields: map[string]*info.Schema{
+					"id": {
+						Name: "idProperty",
+					},
+				},
+				ComputeID: tfbridge.DelegateIDField(resource.PropertyKey("idProperty"),
+					"pulumi-okta", "https://github.com/pulumi/pulumi-okta"),
+			},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			// App DataSources

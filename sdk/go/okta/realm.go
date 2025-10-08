@@ -7,8 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"errors"
-	"github.com/pulumi/pulumi-okta/sdk/v5/go/okta/internal"
+	"github.com/pulumi/pulumi-okta/sdk/v6/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-okta/sdk/v5/go/okta"
+//	"github.com/pulumi/pulumi-okta/sdk/v6/go/okta"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -54,19 +53,16 @@ type Realm struct {
 	// The name of the Okta Realm.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The realm type. Valid values: `PARTNER` and `DEFAULT`
-	RealmType pulumi.StringOutput `pulumi:"realmType"`
+	RealmType pulumi.StringPtrOutput `pulumi:"realmType"`
 }
 
 // NewRealm registers a new resource with the given unique name, arguments, and options.
 func NewRealm(ctx *pulumi.Context,
 	name string, args *RealmArgs, opts ...pulumi.ResourceOption) (*Realm, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &RealmArgs{}
 	}
 
-	if args.RealmType == nil {
-		return nil, errors.New("invalid value for required argument 'RealmType'")
-	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Realm
 	err := ctx.RegisterResource("okta:index/realm:Realm", name, args, &resource, opts...)
@@ -115,7 +111,7 @@ type realmArgs struct {
 	// The name of the Okta Realm.
 	Name *string `pulumi:"name"`
 	// The realm type. Valid values: `PARTNER` and `DEFAULT`
-	RealmType string `pulumi:"realmType"`
+	RealmType *string `pulumi:"realmType"`
 }
 
 // The set of arguments for constructing a Realm resource.
@@ -123,7 +119,7 @@ type RealmArgs struct {
 	// The name of the Okta Realm.
 	Name pulumi.StringPtrInput
 	// The realm type. Valid values: `PARTNER` and `DEFAULT`
-	RealmType pulumi.StringInput
+	RealmType pulumi.StringPtrInput
 }
 
 func (RealmArgs) ElementType() reflect.Type {
@@ -224,8 +220,8 @@ func (o RealmOutput) Name() pulumi.StringOutput {
 }
 
 // The realm type. Valid values: `PARTNER` and `DEFAULT`
-func (o RealmOutput) RealmType() pulumi.StringOutput {
-	return o.ApplyT(func(v *Realm) pulumi.StringOutput { return v.RealmType }).(pulumi.StringOutput)
+func (o RealmOutput) RealmType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Realm) pulumi.StringPtrOutput { return v.RealmType }).(pulumi.StringPtrOutput)
 }
 
 type RealmArrayOutput struct{ *pulumi.OutputState }

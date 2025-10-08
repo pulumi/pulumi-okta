@@ -13,117 +13,80 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = ['RateLimitingArgs', 'RateLimiting']
 
 @pulumi.input_type
 class RateLimitingArgs:
     def __init__(__self__, *,
-                 authorize: pulumi.Input[_builtins.str],
-                 login: pulumi.Input[_builtins.str],
-                 communications_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 default_mode: pulumi.Input[_builtins.str],
+                 use_case_mode_overrides: Optional[pulumi.Input['RateLimitingUseCaseModeOverridesArgs']] = None):
         """
         The set of arguments for constructing a RateLimiting resource.
-        :param pulumi.Input[_builtins.str] authorize: Called during authentication. Valid values: `ENFORCE` *(Enforce limit and log per client (recommended))*, `DISABLE` *(Do nothing (not recommended))*, `PREVIEW` *(Log per client)*.
-        :param pulumi.Input[_builtins.str] login: Called when accessing the Okta hosted login page. Valid values: `ENFORCE` *(Enforce limit and log per client (recommended))*, `DISABLE` *(Do nothing (not recommended))*, `PREVIEW` *(Log per client)*.
-        :param pulumi.Input[_builtins.bool] communications_enabled: Enable or disable rate limiting communications. By default, it is `true`.
+        :param pulumi.Input['RateLimitingUseCaseModeOverridesArgs'] use_case_mode_overrides: A map of Per-Client Rate Limit Use Case to the applicable PerClientRateLimitMode.Overrides the defaultMode property for the specified use cases.
         """
-        pulumi.set(__self__, "authorize", authorize)
-        pulumi.set(__self__, "login", login)
-        if communications_enabled is not None:
-            pulumi.set(__self__, "communications_enabled", communications_enabled)
+        pulumi.set(__self__, "default_mode", default_mode)
+        if use_case_mode_overrides is not None:
+            pulumi.set(__self__, "use_case_mode_overrides", use_case_mode_overrides)
 
     @_builtins.property
-    @pulumi.getter
-    def authorize(self) -> pulumi.Input[_builtins.str]:
-        """
-        Called during authentication. Valid values: `ENFORCE` *(Enforce limit and log per client (recommended))*, `DISABLE` *(Do nothing (not recommended))*, `PREVIEW` *(Log per client)*.
-        """
-        return pulumi.get(self, "authorize")
+    @pulumi.getter(name="defaultMode")
+    def default_mode(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "default_mode")
 
-    @authorize.setter
-    def authorize(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "authorize", value)
+    @default_mode.setter
+    def default_mode(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "default_mode", value)
 
     @_builtins.property
-    @pulumi.getter
-    def login(self) -> pulumi.Input[_builtins.str]:
+    @pulumi.getter(name="useCaseModeOverrides")
+    def use_case_mode_overrides(self) -> Optional[pulumi.Input['RateLimitingUseCaseModeOverridesArgs']]:
         """
-        Called when accessing the Okta hosted login page. Valid values: `ENFORCE` *(Enforce limit and log per client (recommended))*, `DISABLE` *(Do nothing (not recommended))*, `PREVIEW` *(Log per client)*.
+        A map of Per-Client Rate Limit Use Case to the applicable PerClientRateLimitMode.Overrides the defaultMode property for the specified use cases.
         """
-        return pulumi.get(self, "login")
+        return pulumi.get(self, "use_case_mode_overrides")
 
-    @login.setter
-    def login(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "login", value)
-
-    @_builtins.property
-    @pulumi.getter(name="communicationsEnabled")
-    def communications_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Enable or disable rate limiting communications. By default, it is `true`.
-        """
-        return pulumi.get(self, "communications_enabled")
-
-    @communications_enabled.setter
-    def communications_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
-        pulumi.set(self, "communications_enabled", value)
+    @use_case_mode_overrides.setter
+    def use_case_mode_overrides(self, value: Optional[pulumi.Input['RateLimitingUseCaseModeOverridesArgs']]):
+        pulumi.set(self, "use_case_mode_overrides", value)
 
 
 @pulumi.input_type
 class _RateLimitingState:
     def __init__(__self__, *,
-                 authorize: Optional[pulumi.Input[_builtins.str]] = None,
-                 communications_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 login: Optional[pulumi.Input[_builtins.str]] = None):
+                 default_mode: Optional[pulumi.Input[_builtins.str]] = None,
+                 use_case_mode_overrides: Optional[pulumi.Input['RateLimitingUseCaseModeOverridesArgs']] = None):
         """
         Input properties used for looking up and filtering RateLimiting resources.
-        :param pulumi.Input[_builtins.str] authorize: Called during authentication. Valid values: `ENFORCE` *(Enforce limit and log per client (recommended))*, `DISABLE` *(Do nothing (not recommended))*, `PREVIEW` *(Log per client)*.
-        :param pulumi.Input[_builtins.bool] communications_enabled: Enable or disable rate limiting communications. By default, it is `true`.
-        :param pulumi.Input[_builtins.str] login: Called when accessing the Okta hosted login page. Valid values: `ENFORCE` *(Enforce limit and log per client (recommended))*, `DISABLE` *(Do nothing (not recommended))*, `PREVIEW` *(Log per client)*.
+        :param pulumi.Input['RateLimitingUseCaseModeOverridesArgs'] use_case_mode_overrides: A map of Per-Client Rate Limit Use Case to the applicable PerClientRateLimitMode.Overrides the defaultMode property for the specified use cases.
         """
-        if authorize is not None:
-            pulumi.set(__self__, "authorize", authorize)
-        if communications_enabled is not None:
-            pulumi.set(__self__, "communications_enabled", communications_enabled)
-        if login is not None:
-            pulumi.set(__self__, "login", login)
+        if default_mode is not None:
+            pulumi.set(__self__, "default_mode", default_mode)
+        if use_case_mode_overrides is not None:
+            pulumi.set(__self__, "use_case_mode_overrides", use_case_mode_overrides)
 
     @_builtins.property
-    @pulumi.getter
-    def authorize(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Called during authentication. Valid values: `ENFORCE` *(Enforce limit and log per client (recommended))*, `DISABLE` *(Do nothing (not recommended))*, `PREVIEW` *(Log per client)*.
-        """
-        return pulumi.get(self, "authorize")
+    @pulumi.getter(name="defaultMode")
+    def default_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "default_mode")
 
-    @authorize.setter
-    def authorize(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "authorize", value)
+    @default_mode.setter
+    def default_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "default_mode", value)
 
     @_builtins.property
-    @pulumi.getter(name="communicationsEnabled")
-    def communications_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    @pulumi.getter(name="useCaseModeOverrides")
+    def use_case_mode_overrides(self) -> Optional[pulumi.Input['RateLimitingUseCaseModeOverridesArgs']]:
         """
-        Enable or disable rate limiting communications. By default, it is `true`.
+        A map of Per-Client Rate Limit Use Case to the applicable PerClientRateLimitMode.Overrides the defaultMode property for the specified use cases.
         """
-        return pulumi.get(self, "communications_enabled")
+        return pulumi.get(self, "use_case_mode_overrides")
 
-    @communications_enabled.setter
-    def communications_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
-        pulumi.set(self, "communications_enabled", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def login(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Called when accessing the Okta hosted login page. Valid values: `ENFORCE` *(Enforce limit and log per client (recommended))*, `DISABLE` *(Do nothing (not recommended))*, `PREVIEW` *(Log per client)*.
-        """
-        return pulumi.get(self, "login")
-
-    @login.setter
-    def login(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "login", value)
+    @use_case_mode_overrides.setter
+    def use_case_mode_overrides(self, value: Optional[pulumi.Input['RateLimitingUseCaseModeOverridesArgs']]):
+        pulumi.set(self, "use_case_mode_overrides", value)
 
 
 @pulumi.type_token("okta:index/rateLimiting:RateLimiting")
@@ -132,26 +95,13 @@ class RateLimiting(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authorize: Optional[pulumi.Input[_builtins.str]] = None,
-                 communications_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 login: Optional[pulumi.Input[_builtins.str]] = None,
+                 default_mode: Optional[pulumi.Input[_builtins.str]] = None,
+                 use_case_mode_overrides: Optional[pulumi.Input[Union['RateLimitingUseCaseModeOverridesArgs', 'RateLimitingUseCaseModeOverridesArgsDict']]] = None,
                  __props__=None):
         """
         Manages rate limiting.
         This resource allows you to configure the client-based rate limit and rate limiting communications settings.
         > **WARNING:** This resource is deprecated and will be removed in a future release. A new resource to manage rate limiting settings will be implemented in the future.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_okta as okta
-
-        example = okta.RateLimiting("example",
-            login="ENFORCE",
-            authorize="ENFORCE",
-            communications_enabled=True)
-        ```
 
         ## Import
 
@@ -161,9 +111,7 @@ class RateLimiting(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] authorize: Called during authentication. Valid values: `ENFORCE` *(Enforce limit and log per client (recommended))*, `DISABLE` *(Do nothing (not recommended))*, `PREVIEW` *(Log per client)*.
-        :param pulumi.Input[_builtins.bool] communications_enabled: Enable or disable rate limiting communications. By default, it is `true`.
-        :param pulumi.Input[_builtins.str] login: Called when accessing the Okta hosted login page. Valid values: `ENFORCE` *(Enforce limit and log per client (recommended))*, `DISABLE` *(Do nothing (not recommended))*, `PREVIEW` *(Log per client)*.
+        :param pulumi.Input[Union['RateLimitingUseCaseModeOverridesArgs', 'RateLimitingUseCaseModeOverridesArgsDict']] use_case_mode_overrides: A map of Per-Client Rate Limit Use Case to the applicable PerClientRateLimitMode.Overrides the defaultMode property for the specified use cases.
         """
         ...
     @overload
@@ -175,18 +123,6 @@ class RateLimiting(pulumi.CustomResource):
         Manages rate limiting.
         This resource allows you to configure the client-based rate limit and rate limiting communications settings.
         > **WARNING:** This resource is deprecated and will be removed in a future release. A new resource to manage rate limiting settings will be implemented in the future.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_okta as okta
-
-        example = okta.RateLimiting("example",
-            login="ENFORCE",
-            authorize="ENFORCE",
-            communications_enabled=True)
-        ```
 
         ## Import
 
@@ -209,9 +145,8 @@ class RateLimiting(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authorize: Optional[pulumi.Input[_builtins.str]] = None,
-                 communications_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 login: Optional[pulumi.Input[_builtins.str]] = None,
+                 default_mode: Optional[pulumi.Input[_builtins.str]] = None,
+                 use_case_mode_overrides: Optional[pulumi.Input[Union['RateLimitingUseCaseModeOverridesArgs', 'RateLimitingUseCaseModeOverridesArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -221,13 +156,10 @@ class RateLimiting(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = RateLimitingArgs.__new__(RateLimitingArgs)
 
-            if authorize is None and not opts.urn:
-                raise TypeError("Missing required property 'authorize'")
-            __props__.__dict__["authorize"] = authorize
-            __props__.__dict__["communications_enabled"] = communications_enabled
-            if login is None and not opts.urn:
-                raise TypeError("Missing required property 'login'")
-            __props__.__dict__["login"] = login
+            if default_mode is None and not opts.urn:
+                raise TypeError("Missing required property 'default_mode'")
+            __props__.__dict__["default_mode"] = default_mode
+            __props__.__dict__["use_case_mode_overrides"] = use_case_mode_overrides
         super(RateLimiting, __self__).__init__(
             'okta:index/rateLimiting:RateLimiting',
             resource_name,
@@ -238,9 +170,8 @@ class RateLimiting(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            authorize: Optional[pulumi.Input[_builtins.str]] = None,
-            communications_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            login: Optional[pulumi.Input[_builtins.str]] = None) -> 'RateLimiting':
+            default_mode: Optional[pulumi.Input[_builtins.str]] = None,
+            use_case_mode_overrides: Optional[pulumi.Input[Union['RateLimitingUseCaseModeOverridesArgs', 'RateLimitingUseCaseModeOverridesArgsDict']]] = None) -> 'RateLimiting':
         """
         Get an existing RateLimiting resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -248,40 +179,26 @@ class RateLimiting(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] authorize: Called during authentication. Valid values: `ENFORCE` *(Enforce limit and log per client (recommended))*, `DISABLE` *(Do nothing (not recommended))*, `PREVIEW` *(Log per client)*.
-        :param pulumi.Input[_builtins.bool] communications_enabled: Enable or disable rate limiting communications. By default, it is `true`.
-        :param pulumi.Input[_builtins.str] login: Called when accessing the Okta hosted login page. Valid values: `ENFORCE` *(Enforce limit and log per client (recommended))*, `DISABLE` *(Do nothing (not recommended))*, `PREVIEW` *(Log per client)*.
+        :param pulumi.Input[Union['RateLimitingUseCaseModeOverridesArgs', 'RateLimitingUseCaseModeOverridesArgsDict']] use_case_mode_overrides: A map of Per-Client Rate Limit Use Case to the applicable PerClientRateLimitMode.Overrides the defaultMode property for the specified use cases.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = _RateLimitingState.__new__(_RateLimitingState)
 
-        __props__.__dict__["authorize"] = authorize
-        __props__.__dict__["communications_enabled"] = communications_enabled
-        __props__.__dict__["login"] = login
+        __props__.__dict__["default_mode"] = default_mode
+        __props__.__dict__["use_case_mode_overrides"] = use_case_mode_overrides
         return RateLimiting(resource_name, opts=opts, __props__=__props__)
 
     @_builtins.property
-    @pulumi.getter
-    def authorize(self) -> pulumi.Output[_builtins.str]:
-        """
-        Called during authentication. Valid values: `ENFORCE` *(Enforce limit and log per client (recommended))*, `DISABLE` *(Do nothing (not recommended))*, `PREVIEW` *(Log per client)*.
-        """
-        return pulumi.get(self, "authorize")
+    @pulumi.getter(name="defaultMode")
+    def default_mode(self) -> pulumi.Output[_builtins.str]:
+        return pulumi.get(self, "default_mode")
 
     @_builtins.property
-    @pulumi.getter(name="communicationsEnabled")
-    def communications_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
+    @pulumi.getter(name="useCaseModeOverrides")
+    def use_case_mode_overrides(self) -> pulumi.Output[Optional['outputs.RateLimitingUseCaseModeOverrides']]:
         """
-        Enable or disable rate limiting communications. By default, it is `true`.
+        A map of Per-Client Rate Limit Use Case to the applicable PerClientRateLimitMode.Overrides the defaultMode property for the specified use cases.
         """
-        return pulumi.get(self, "communications_enabled")
-
-    @_builtins.property
-    @pulumi.getter
-    def login(self) -> pulumi.Output[_builtins.str]:
-        """
-        Called when accessing the Okta hosted login page. Valid values: `ENFORCE` *(Enforce limit and log per client (recommended))*, `DISABLE` *(Do nothing (not recommended))*, `PREVIEW` *(Log per client)*.
-        """
-        return pulumi.get(self, "login")
+        return pulumi.get(self, "use_case_mode_overrides")
 

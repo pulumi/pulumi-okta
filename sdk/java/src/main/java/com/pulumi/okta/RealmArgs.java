@@ -5,7 +5,6 @@ package com.pulumi.okta;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -35,15 +34,15 @@ public final class RealmArgs extends com.pulumi.resources.ResourceArgs {
      * The realm type. Valid values: `PARTNER` and `DEFAULT`
      * 
      */
-    @Import(name="realmType", required=true)
-    private Output<String> realmType;
+    @Import(name="realmType")
+    private @Nullable Output<String> realmType;
 
     /**
      * @return The realm type. Valid values: `PARTNER` and `DEFAULT`
      * 
      */
-    public Output<String> realmType() {
-        return this.realmType;
+    public Optional<Output<String>> realmType() {
+        return Optional.ofNullable(this.realmType);
     }
 
     private RealmArgs() {}
@@ -98,7 +97,7 @@ public final class RealmArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder realmType(Output<String> realmType) {
+        public Builder realmType(@Nullable Output<String> realmType) {
             $.realmType = realmType;
             return this;
         }
@@ -114,9 +113,6 @@ public final class RealmArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public RealmArgs build() {
-            if ($.realmType == null) {
-                throw new MissingRequiredPropertyException("RealmArgs", "realmType");
-            }
             return $;
         }
     }

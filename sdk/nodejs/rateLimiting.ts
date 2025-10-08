@@ -2,25 +2,14 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
  * Manages rate limiting.
  * This resource allows you to configure the client-based rate limit and rate limiting communications settings.
  * > **WARNING:** This resource is deprecated and will be removed in a future release. A new resource to manage rate limiting settings will be implemented in the future.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as okta from "@pulumi/okta";
- *
- * const example = new okta.RateLimiting("example", {
- *     login: "ENFORCE",
- *     authorize: "ENFORCE",
- *     communicationsEnabled: true,
- * });
- * ```
  *
  * ## Import
  *
@@ -56,18 +45,11 @@ export class RateLimiting extends pulumi.CustomResource {
         return obj['__pulumiType'] === RateLimiting.__pulumiType;
     }
 
+    declare public readonly defaultMode: pulumi.Output<string>;
     /**
-     * Called during authentication. Valid values: `ENFORCE` *(Enforce limit and log per client (recommended))*, `DISABLE` *(Do nothing (not recommended))*, `PREVIEW` *(Log per client)*.
+     * A map of Per-Client Rate Limit Use Case to the applicable PerClientRateLimitMode.Overrides the defaultMode property for the specified use cases.
      */
-    declare public readonly authorize: pulumi.Output<string>;
-    /**
-     * Enable or disable rate limiting communications. By default, it is `true`.
-     */
-    declare public readonly communicationsEnabled: pulumi.Output<boolean | undefined>;
-    /**
-     * Called when accessing the Okta hosted login page. Valid values: `ENFORCE` *(Enforce limit and log per client (recommended))*, `DISABLE` *(Do nothing (not recommended))*, `PREVIEW` *(Log per client)*.
-     */
-    declare public readonly login: pulumi.Output<string>;
+    declare public readonly useCaseModeOverrides: pulumi.Output<outputs.RateLimitingUseCaseModeOverrides | undefined>;
 
     /**
      * Create a RateLimiting resource with the given unique name, arguments, and options.
@@ -82,20 +64,15 @@ export class RateLimiting extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RateLimitingState | undefined;
-            resourceInputs["authorize"] = state?.authorize;
-            resourceInputs["communicationsEnabled"] = state?.communicationsEnabled;
-            resourceInputs["login"] = state?.login;
+            resourceInputs["defaultMode"] = state?.defaultMode;
+            resourceInputs["useCaseModeOverrides"] = state?.useCaseModeOverrides;
         } else {
             const args = argsOrState as RateLimitingArgs | undefined;
-            if (args?.authorize === undefined && !opts.urn) {
-                throw new Error("Missing required property 'authorize'");
+            if (args?.defaultMode === undefined && !opts.urn) {
+                throw new Error("Missing required property 'defaultMode'");
             }
-            if (args?.login === undefined && !opts.urn) {
-                throw new Error("Missing required property 'login'");
-            }
-            resourceInputs["authorize"] = args?.authorize;
-            resourceInputs["communicationsEnabled"] = args?.communicationsEnabled;
-            resourceInputs["login"] = args?.login;
+            resourceInputs["defaultMode"] = args?.defaultMode;
+            resourceInputs["useCaseModeOverrides"] = args?.useCaseModeOverrides;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(RateLimiting.__pulumiType, name, resourceInputs, opts);
@@ -106,34 +83,20 @@ export class RateLimiting extends pulumi.CustomResource {
  * Input properties used for looking up and filtering RateLimiting resources.
  */
 export interface RateLimitingState {
+    defaultMode?: pulumi.Input<string>;
     /**
-     * Called during authentication. Valid values: `ENFORCE` *(Enforce limit and log per client (recommended))*, `DISABLE` *(Do nothing (not recommended))*, `PREVIEW` *(Log per client)*.
+     * A map of Per-Client Rate Limit Use Case to the applicable PerClientRateLimitMode.Overrides the defaultMode property for the specified use cases.
      */
-    authorize?: pulumi.Input<string>;
-    /**
-     * Enable or disable rate limiting communications. By default, it is `true`.
-     */
-    communicationsEnabled?: pulumi.Input<boolean>;
-    /**
-     * Called when accessing the Okta hosted login page. Valid values: `ENFORCE` *(Enforce limit and log per client (recommended))*, `DISABLE` *(Do nothing (not recommended))*, `PREVIEW` *(Log per client)*.
-     */
-    login?: pulumi.Input<string>;
+    useCaseModeOverrides?: pulumi.Input<inputs.RateLimitingUseCaseModeOverrides>;
 }
 
 /**
  * The set of arguments for constructing a RateLimiting resource.
  */
 export interface RateLimitingArgs {
+    defaultMode: pulumi.Input<string>;
     /**
-     * Called during authentication. Valid values: `ENFORCE` *(Enforce limit and log per client (recommended))*, `DISABLE` *(Do nothing (not recommended))*, `PREVIEW` *(Log per client)*.
+     * A map of Per-Client Rate Limit Use Case to the applicable PerClientRateLimitMode.Overrides the defaultMode property for the specified use cases.
      */
-    authorize: pulumi.Input<string>;
-    /**
-     * Enable or disable rate limiting communications. By default, it is `true`.
-     */
-    communicationsEnabled?: pulumi.Input<boolean>;
-    /**
-     * Called when accessing the Okta hosted login page. Valid values: `ENFORCE` *(Enforce limit and log per client (recommended))*, `DISABLE` *(Do nothing (not recommended))*, `PREVIEW` *(Log per client)*.
-     */
-    login: pulumi.Input<string>;
+    useCaseModeOverrides?: pulumi.Input<inputs.RateLimitingUseCaseModeOverrides>;
 }

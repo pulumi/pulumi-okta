@@ -10,7 +10,7 @@ import com.pulumi.core.internal.Codegen;
 import com.pulumi.okta.RateLimitingArgs;
 import com.pulumi.okta.Utilities;
 import com.pulumi.okta.inputs.RateLimitingState;
-import java.lang.Boolean;
+import com.pulumi.okta.outputs.RateLimitingUseCaseModeOverrides;
 import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -19,41 +19,6 @@ import javax.annotation.Nullable;
  * Manages rate limiting.
  * This resource allows you to configure the client-based rate limit and rate limiting communications settings.
  * &gt; **WARNING:** This resource is deprecated and will be removed in a future release. A new resource to manage rate limiting settings will be implemented in the future.
- * 
- * ## Example Usage
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.okta.RateLimiting;
- * import com.pulumi.okta.RateLimitingArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new RateLimiting("example", RateLimitingArgs.builder()
- *             .login("ENFORCE")
- *             .authorize("ENFORCE")
- *             .communicationsEnabled(true)
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
  * 
  * ## Import
  * 
@@ -64,47 +29,25 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="okta:index/rateLimiting:RateLimiting")
 public class RateLimiting extends com.pulumi.resources.CustomResource {
-    /**
-     * Called during authentication. Valid values: `ENFORCE` *(Enforce limit and log per client (recommended))*, `DISABLE` *(Do nothing (not recommended))*, `PREVIEW` *(Log per client)*.
-     * 
-     */
-    @Export(name="authorize", refs={String.class}, tree="[0]")
-    private Output<String> authorize;
+    @Export(name="defaultMode", refs={String.class}, tree="[0]")
+    private Output<String> defaultMode;
 
-    /**
-     * @return Called during authentication. Valid values: `ENFORCE` *(Enforce limit and log per client (recommended))*, `DISABLE` *(Do nothing (not recommended))*, `PREVIEW` *(Log per client)*.
-     * 
-     */
-    public Output<String> authorize() {
-        return this.authorize;
+    public Output<String> defaultMode() {
+        return this.defaultMode;
     }
     /**
-     * Enable or disable rate limiting communications. By default, it is `true`.
+     * A map of Per-Client Rate Limit Use Case to the applicable PerClientRateLimitMode.Overrides the defaultMode property for the specified use cases.
      * 
      */
-    @Export(name="communicationsEnabled", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> communicationsEnabled;
+    @Export(name="useCaseModeOverrides", refs={RateLimitingUseCaseModeOverrides.class}, tree="[0]")
+    private Output</* @Nullable */ RateLimitingUseCaseModeOverrides> useCaseModeOverrides;
 
     /**
-     * @return Enable or disable rate limiting communications. By default, it is `true`.
+     * @return A map of Per-Client Rate Limit Use Case to the applicable PerClientRateLimitMode.Overrides the defaultMode property for the specified use cases.
      * 
      */
-    public Output<Optional<Boolean>> communicationsEnabled() {
-        return Codegen.optional(this.communicationsEnabled);
-    }
-    /**
-     * Called when accessing the Okta hosted login page. Valid values: `ENFORCE` *(Enforce limit and log per client (recommended))*, `DISABLE` *(Do nothing (not recommended))*, `PREVIEW` *(Log per client)*.
-     * 
-     */
-    @Export(name="login", refs={String.class}, tree="[0]")
-    private Output<String> login;
-
-    /**
-     * @return Called when accessing the Okta hosted login page. Valid values: `ENFORCE` *(Enforce limit and log per client (recommended))*, `DISABLE` *(Do nothing (not recommended))*, `PREVIEW` *(Log per client)*.
-     * 
-     */
-    public Output<String> login() {
-        return this.login;
+    public Output<Optional<RateLimitingUseCaseModeOverrides>> useCaseModeOverrides() {
+        return Codegen.optional(this.useCaseModeOverrides);
     }
 
     /**

@@ -29,6 +29,12 @@ import com.pulumi.okta.inputs.GetBehavioursArgs;
 import com.pulumi.okta.inputs.GetBehavioursPlainArgs;
 import com.pulumi.okta.inputs.GetBrandArgs;
 import com.pulumi.okta.inputs.GetBrandPlainArgs;
+import com.pulumi.okta.inputs.GetCampaignArgs;
+import com.pulumi.okta.inputs.GetCampaignPlainArgs;
+import com.pulumi.okta.inputs.GetCatalogEntryDefaultArgs;
+import com.pulumi.okta.inputs.GetCatalogEntryDefaultPlainArgs;
+import com.pulumi.okta.inputs.GetCatalogEntryUserAccessRequestFieldsArgs;
+import com.pulumi.okta.inputs.GetCatalogEntryUserAccessRequestFieldsPlainArgs;
 import com.pulumi.okta.inputs.GetDefaultSigninPageArgs;
 import com.pulumi.okta.inputs.GetDefaultSigninPagePlainArgs;
 import com.pulumi.okta.inputs.GetDeviceAssurancePolicyArgs;
@@ -41,6 +47,12 @@ import com.pulumi.okta.inputs.GetEmailCustomizationsArgs;
 import com.pulumi.okta.inputs.GetEmailCustomizationsPlainArgs;
 import com.pulumi.okta.inputs.GetEmailSmtpServerArgs;
 import com.pulumi.okta.inputs.GetEmailSmtpServerPlainArgs;
+import com.pulumi.okta.inputs.GetEndUserMyRequestsArgs;
+import com.pulumi.okta.inputs.GetEndUserMyRequestsPlainArgs;
+import com.pulumi.okta.inputs.GetEntitlementArgs;
+import com.pulumi.okta.inputs.GetEntitlementBundleArgs;
+import com.pulumi.okta.inputs.GetEntitlementBundlePlainArgs;
+import com.pulumi.okta.inputs.GetEntitlementPlainArgs;
 import com.pulumi.okta.inputs.GetFeaturesArgs;
 import com.pulumi.okta.inputs.GetFeaturesPlainArgs;
 import com.pulumi.okta.inputs.GetGroupsArgs;
@@ -51,10 +63,26 @@ import com.pulumi.okta.inputs.GetNetworkZoneArgs;
 import com.pulumi.okta.inputs.GetNetworkZonePlainArgs;
 import com.pulumi.okta.inputs.GetOrgMetadataArgs;
 import com.pulumi.okta.inputs.GetOrgMetadataPlainArgs;
+import com.pulumi.okta.inputs.GetPrincipalEntitlementsArgs;
+import com.pulumi.okta.inputs.GetPrincipalEntitlementsPlainArgs;
+import com.pulumi.okta.inputs.GetPrincipalRateLimitsArgs;
+import com.pulumi.okta.inputs.GetPrincipalRateLimitsPlainArgs;
 import com.pulumi.okta.inputs.GetRealmArgs;
 import com.pulumi.okta.inputs.GetRealmAssignmentArgs;
 import com.pulumi.okta.inputs.GetRealmAssignmentPlainArgs;
 import com.pulumi.okta.inputs.GetRealmPlainArgs;
+import com.pulumi.okta.inputs.GetRequestConditionArgs;
+import com.pulumi.okta.inputs.GetRequestConditionPlainArgs;
+import com.pulumi.okta.inputs.GetRequestSequenceArgs;
+import com.pulumi.okta.inputs.GetRequestSequencePlainArgs;
+import com.pulumi.okta.inputs.GetRequestSettingOrganizationArgs;
+import com.pulumi.okta.inputs.GetRequestSettingOrganizationPlainArgs;
+import com.pulumi.okta.inputs.GetRequestSettingResourceArgs;
+import com.pulumi.okta.inputs.GetRequestSettingResourcePlainArgs;
+import com.pulumi.okta.inputs.GetRequestV2Args;
+import com.pulumi.okta.inputs.GetRequestV2PlainArgs;
+import com.pulumi.okta.inputs.GetReviewArgs;
+import com.pulumi.okta.inputs.GetReviewPlainArgs;
 import com.pulumi.okta.inputs.GetRoleSubscriptionArgs;
 import com.pulumi.okta.inputs.GetRoleSubscriptionPlainArgs;
 import com.pulumi.okta.inputs.GetTemplateArgs;
@@ -80,19 +108,35 @@ import com.pulumi.okta.outputs.GetBehaviourResult;
 import com.pulumi.okta.outputs.GetBehavioursResult;
 import com.pulumi.okta.outputs.GetBrandResult;
 import com.pulumi.okta.outputs.GetBrandsResult;
+import com.pulumi.okta.outputs.GetCampaignResult;
+import com.pulumi.okta.outputs.GetCatalogEntryDefaultResult;
+import com.pulumi.okta.outputs.GetCatalogEntryUserAccessRequestFieldsResult;
 import com.pulumi.okta.outputs.GetDefaultSigninPageResult;
 import com.pulumi.okta.outputs.GetDeviceAssurancePolicyResult;
 import com.pulumi.okta.outputs.GetDomainResult;
 import com.pulumi.okta.outputs.GetEmailCustomizationResult;
 import com.pulumi.okta.outputs.GetEmailCustomizationsResult;
 import com.pulumi.okta.outputs.GetEmailSmtpServerResult;
+import com.pulumi.okta.outputs.GetEndUserMyRequestsResult;
+import com.pulumi.okta.outputs.GetEntitlementBundleResult;
+import com.pulumi.okta.outputs.GetEntitlementResult;
 import com.pulumi.okta.outputs.GetFeaturesResult;
 import com.pulumi.okta.outputs.GetGroupsResult;
 import com.pulumi.okta.outputs.GetLogStreamResult;
 import com.pulumi.okta.outputs.GetNetworkZoneResult;
 import com.pulumi.okta.outputs.GetOrgMetadataResult;
+import com.pulumi.okta.outputs.GetPrincipalEntitlementsResult;
+import com.pulumi.okta.outputs.GetPrincipalRateLimitsResult;
+import com.pulumi.okta.outputs.GetRateLimitAdminNotificationSettingsResult;
+import com.pulumi.okta.outputs.GetRateLimitWarningThresholdPercentageResult;
 import com.pulumi.okta.outputs.GetRealmAssignmentResult;
 import com.pulumi.okta.outputs.GetRealmResult;
+import com.pulumi.okta.outputs.GetRequestConditionResult;
+import com.pulumi.okta.outputs.GetRequestSequenceResult;
+import com.pulumi.okta.outputs.GetRequestSettingOrganizationResult;
+import com.pulumi.okta.outputs.GetRequestSettingResourceResult;
+import com.pulumi.okta.outputs.GetRequestV2Result;
+import com.pulumi.okta.outputs.GetReviewResult;
 import com.pulumi.okta.outputs.GetRoleSubscriptionResult;
 import com.pulumi.okta.outputs.GetTemplateResult;
 import com.pulumi.okta.outputs.GetTemplatesResult;
@@ -2130,6 +2174,496 @@ public final class OktaFunctions {
         return Deployment.getInstance().invokeAsync("okta:index/getBrands:getBrands", TypeShape.of(GetBrandsResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Get the campaign belonging to an Okta organization.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetCampaignArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = OktaFunctions.getCampaign(GetCampaignArgs.builder()
+     *             .id("<campaign id>")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetCampaignResult> getCampaign() {
+        return getCampaign(GetCampaignArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Get the campaign belonging to an Okta organization.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetCampaignArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = OktaFunctions.getCampaign(GetCampaignArgs.builder()
+     *             .id("<campaign id>")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetCampaignResult> getCampaignPlain() {
+        return getCampaignPlain(GetCampaignPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Get the campaign belonging to an Okta organization.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetCampaignArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = OktaFunctions.getCampaign(GetCampaignArgs.builder()
+     *             .id("<campaign id>")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetCampaignResult> getCampaign(GetCampaignArgs args) {
+        return getCampaign(args, InvokeOptions.Empty);
+    }
+    /**
+     * Get the campaign belonging to an Okta organization.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetCampaignArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = OktaFunctions.getCampaign(GetCampaignArgs.builder()
+     *             .id("<campaign id>")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetCampaignResult> getCampaignPlain(GetCampaignPlainArgs args) {
+        return getCampaignPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Get the campaign belonging to an Okta organization.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetCampaignArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = OktaFunctions.getCampaign(GetCampaignArgs.builder()
+     *             .id("<campaign id>")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetCampaignResult> getCampaign(GetCampaignArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("okta:index/getCampaign:getCampaign", TypeShape.of(GetCampaignResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Get the campaign belonging to an Okta organization.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetCampaignArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = OktaFunctions.getCampaign(GetCampaignArgs.builder()
+     *             .id("<campaign id>")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetCampaignResult> getCampaign(GetCampaignArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("okta:index/getCampaign:getCampaign", TypeShape.of(GetCampaignResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Get the campaign belonging to an Okta organization.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetCampaignArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = OktaFunctions.getCampaign(GetCampaignArgs.builder()
+     *             .id("<campaign id>")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetCampaignResult> getCampaignPlain(GetCampaignPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("okta:index/getCampaign:getCampaign", TypeShape.of(GetCampaignResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieves a catalog entry.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetCatalogEntryUserAccessRequestFieldsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = OktaFunctions.getCatalogEntryUserAccessRequestFields(GetCatalogEntryUserAccessRequestFieldsArgs.builder()
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetCatalogEntryDefaultResult> getCatalogEntryDefault(GetCatalogEntryDefaultArgs args) {
+        return getCatalogEntryDefault(args, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieves a catalog entry.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetCatalogEntryUserAccessRequestFieldsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = OktaFunctions.getCatalogEntryUserAccessRequestFields(GetCatalogEntryUserAccessRequestFieldsArgs.builder()
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetCatalogEntryDefaultResult> getCatalogEntryDefaultPlain(GetCatalogEntryDefaultPlainArgs args) {
+        return getCatalogEntryDefaultPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieves a catalog entry.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetCatalogEntryUserAccessRequestFieldsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = OktaFunctions.getCatalogEntryUserAccessRequestFields(GetCatalogEntryUserAccessRequestFieldsArgs.builder()
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetCatalogEntryDefaultResult> getCatalogEntryDefault(GetCatalogEntryDefaultArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("okta:index/getCatalogEntryDefault:getCatalogEntryDefault", TypeShape.of(GetCatalogEntryDefaultResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieves a catalog entry.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetCatalogEntryUserAccessRequestFieldsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = OktaFunctions.getCatalogEntryUserAccessRequestFields(GetCatalogEntryUserAccessRequestFieldsArgs.builder()
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetCatalogEntryDefaultResult> getCatalogEntryDefault(GetCatalogEntryDefaultArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("okta:index/getCatalogEntryDefault:getCatalogEntryDefault", TypeShape.of(GetCatalogEntryDefaultResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieves a catalog entry.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetCatalogEntryUserAccessRequestFieldsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = OktaFunctions.getCatalogEntryUserAccessRequestFields(GetCatalogEntryUserAccessRequestFieldsArgs.builder()
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetCatalogEntryDefaultResult> getCatalogEntryDefaultPlain(GetCatalogEntryDefaultPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("okta:index/getCatalogEntryDefault:getCatalogEntryDefault", TypeShape.of(GetCatalogEntryDefaultResult.class), args, Utilities.withVersion(options));
+    }
+    public static Output<GetCatalogEntryUserAccessRequestFieldsResult> getCatalogEntryUserAccessRequestFields(GetCatalogEntryUserAccessRequestFieldsArgs args) {
+        return getCatalogEntryUserAccessRequestFields(args, InvokeOptions.Empty);
+    }
+    public static CompletableFuture<GetCatalogEntryUserAccessRequestFieldsResult> getCatalogEntryUserAccessRequestFieldsPlain(GetCatalogEntryUserAccessRequestFieldsPlainArgs args) {
+        return getCatalogEntryUserAccessRequestFieldsPlain(args, InvokeOptions.Empty);
+    }
+    public static Output<GetCatalogEntryUserAccessRequestFieldsResult> getCatalogEntryUserAccessRequestFields(GetCatalogEntryUserAccessRequestFieldsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("okta:index/getCatalogEntryUserAccessRequestFields:getCatalogEntryUserAccessRequestFields", TypeShape.of(GetCatalogEntryUserAccessRequestFieldsResult.class), args, Utilities.withVersion(options));
+    }
+    public static Output<GetCatalogEntryUserAccessRequestFieldsResult> getCatalogEntryUserAccessRequestFields(GetCatalogEntryUserAccessRequestFieldsArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("okta:index/getCatalogEntryUserAccessRequestFields:getCatalogEntryUserAccessRequestFields", TypeShape.of(GetCatalogEntryUserAccessRequestFieldsResult.class), args, Utilities.withVersion(options));
+    }
+    public static CompletableFuture<GetCatalogEntryUserAccessRequestFieldsResult> getCatalogEntryUserAccessRequestFieldsPlain(GetCatalogEntryUserAccessRequestFieldsPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("okta:index/getCatalogEntryUserAccessRequestFields:getCatalogEntryUserAccessRequestFields", TypeShape.of(GetCatalogEntryUserAccessRequestFieldsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
      * Retrieve the default signin page of a brand
      * 
      */
@@ -2782,6 +3316,786 @@ public final class OktaFunctions {
      */
     public static CompletableFuture<GetEmailSmtpServerResult> getEmailSmtpServerPlain(GetEmailSmtpServerPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("okta:index/getEmailSmtpServer:getEmailSmtpServer", TypeShape.of(GetEmailSmtpServerResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Get an End User Request from Okta Identity Governance. This data source allows you to retrieve information about existing access requests in the Okta Identity Governance system.
+     * 
+     * Use this data source to fetch details about a specific request, including its current status, field values, and other metadata.
+     * 
+     * &gt; **Note:** This data source is part of Okta Identity Governance functionality and requires appropriate licensing and configuration.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetEndUserMyRequestsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Get a request by its catalog entry ID and request ID
+     *         final var example = OktaFunctions.getEndUserMyRequests(GetEndUserMyRequestsArgs.builder()
+     *             .entryId("cen123456789abcdefgh")
+     *             .id("reqABCDEFG0123456789")
+     *             .build());
+     * 
+     *         ctx.export("requestStatus", example.status());
+     *         ctx.export("requestFieldValues", example.requesterFieldValues());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## Field Type Reference
+     * 
+     * ### Field Types and Values
+     * 
+     * - **TEXT**: Contains free-form text input in the `value` attribute
+     * - **SELECT**: Contains single selection value in the `value` attribute
+     * - **MULTISELECT**: Contains multiple selection values in the `values` attribute (list)
+     * - **DURATION**: Contains time duration specification in the `value` attribute (e.g., &#34;5 days&#34;, &#34;2 weeks&#34;)
+     * - **ISO_DATE**: Contains date specification in ISO format in the `value` attribute
+     * - **OKTA_USER_ID**: Contains Okta user ID in the `value` attribute
+     * 
+     * ### Usage Notes
+     * 
+     * - For `MULTISELECT` type fields, the values will be in the `values` attribute as a list
+     * - For all other field types, the value will be in the `value` attribute as a string
+     * - The `label` and `type` attributes provide metadata about the field structure
+     * - Field definitions and requirements are determined by the approval system configuration
+     * 
+     * ## Limitations and Considerations
+     * 
+     * 1. **Read-Only**: This data source only retrieves existing request information and cannot modify requests.
+     * 
+     * 2. **Identity Governance Licensing**: This data source requires Okta Identity Governance licensing and proper configuration.
+     * 
+     * 3. **Request Lifecycle**: The data reflects the current state of the request in the approval workflow.
+     * 
+     * 4. **Field Structure**: The field structure and available types depend on the approval system configuration in Okta Identity Governance.
+     * 
+     */
+    public static Output<GetEndUserMyRequestsResult> getEndUserMyRequests(GetEndUserMyRequestsArgs args) {
+        return getEndUserMyRequests(args, InvokeOptions.Empty);
+    }
+    /**
+     * Get an End User Request from Okta Identity Governance. This data source allows you to retrieve information about existing access requests in the Okta Identity Governance system.
+     * 
+     * Use this data source to fetch details about a specific request, including its current status, field values, and other metadata.
+     * 
+     * &gt; **Note:** This data source is part of Okta Identity Governance functionality and requires appropriate licensing and configuration.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetEndUserMyRequestsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Get a request by its catalog entry ID and request ID
+     *         final var example = OktaFunctions.getEndUserMyRequests(GetEndUserMyRequestsArgs.builder()
+     *             .entryId("cen123456789abcdefgh")
+     *             .id("reqABCDEFG0123456789")
+     *             .build());
+     * 
+     *         ctx.export("requestStatus", example.status());
+     *         ctx.export("requestFieldValues", example.requesterFieldValues());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## Field Type Reference
+     * 
+     * ### Field Types and Values
+     * 
+     * - **TEXT**: Contains free-form text input in the `value` attribute
+     * - **SELECT**: Contains single selection value in the `value` attribute
+     * - **MULTISELECT**: Contains multiple selection values in the `values` attribute (list)
+     * - **DURATION**: Contains time duration specification in the `value` attribute (e.g., &#34;5 days&#34;, &#34;2 weeks&#34;)
+     * - **ISO_DATE**: Contains date specification in ISO format in the `value` attribute
+     * - **OKTA_USER_ID**: Contains Okta user ID in the `value` attribute
+     * 
+     * ### Usage Notes
+     * 
+     * - For `MULTISELECT` type fields, the values will be in the `values` attribute as a list
+     * - For all other field types, the value will be in the `value` attribute as a string
+     * - The `label` and `type` attributes provide metadata about the field structure
+     * - Field definitions and requirements are determined by the approval system configuration
+     * 
+     * ## Limitations and Considerations
+     * 
+     * 1. **Read-Only**: This data source only retrieves existing request information and cannot modify requests.
+     * 
+     * 2. **Identity Governance Licensing**: This data source requires Okta Identity Governance licensing and proper configuration.
+     * 
+     * 3. **Request Lifecycle**: The data reflects the current state of the request in the approval workflow.
+     * 
+     * 4. **Field Structure**: The field structure and available types depend on the approval system configuration in Okta Identity Governance.
+     * 
+     */
+    public static CompletableFuture<GetEndUserMyRequestsResult> getEndUserMyRequestsPlain(GetEndUserMyRequestsPlainArgs args) {
+        return getEndUserMyRequestsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Get an End User Request from Okta Identity Governance. This data source allows you to retrieve information about existing access requests in the Okta Identity Governance system.
+     * 
+     * Use this data source to fetch details about a specific request, including its current status, field values, and other metadata.
+     * 
+     * &gt; **Note:** This data source is part of Okta Identity Governance functionality and requires appropriate licensing and configuration.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetEndUserMyRequestsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Get a request by its catalog entry ID and request ID
+     *         final var example = OktaFunctions.getEndUserMyRequests(GetEndUserMyRequestsArgs.builder()
+     *             .entryId("cen123456789abcdefgh")
+     *             .id("reqABCDEFG0123456789")
+     *             .build());
+     * 
+     *         ctx.export("requestStatus", example.status());
+     *         ctx.export("requestFieldValues", example.requesterFieldValues());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## Field Type Reference
+     * 
+     * ### Field Types and Values
+     * 
+     * - **TEXT**: Contains free-form text input in the `value` attribute
+     * - **SELECT**: Contains single selection value in the `value` attribute
+     * - **MULTISELECT**: Contains multiple selection values in the `values` attribute (list)
+     * - **DURATION**: Contains time duration specification in the `value` attribute (e.g., &#34;5 days&#34;, &#34;2 weeks&#34;)
+     * - **ISO_DATE**: Contains date specification in ISO format in the `value` attribute
+     * - **OKTA_USER_ID**: Contains Okta user ID in the `value` attribute
+     * 
+     * ### Usage Notes
+     * 
+     * - For `MULTISELECT` type fields, the values will be in the `values` attribute as a list
+     * - For all other field types, the value will be in the `value` attribute as a string
+     * - The `label` and `type` attributes provide metadata about the field structure
+     * - Field definitions and requirements are determined by the approval system configuration
+     * 
+     * ## Limitations and Considerations
+     * 
+     * 1. **Read-Only**: This data source only retrieves existing request information and cannot modify requests.
+     * 
+     * 2. **Identity Governance Licensing**: This data source requires Okta Identity Governance licensing and proper configuration.
+     * 
+     * 3. **Request Lifecycle**: The data reflects the current state of the request in the approval workflow.
+     * 
+     * 4. **Field Structure**: The field structure and available types depend on the approval system configuration in Okta Identity Governance.
+     * 
+     */
+    public static Output<GetEndUserMyRequestsResult> getEndUserMyRequests(GetEndUserMyRequestsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("okta:index/getEndUserMyRequests:getEndUserMyRequests", TypeShape.of(GetEndUserMyRequestsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Get an End User Request from Okta Identity Governance. This data source allows you to retrieve information about existing access requests in the Okta Identity Governance system.
+     * 
+     * Use this data source to fetch details about a specific request, including its current status, field values, and other metadata.
+     * 
+     * &gt; **Note:** This data source is part of Okta Identity Governance functionality and requires appropriate licensing and configuration.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetEndUserMyRequestsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Get a request by its catalog entry ID and request ID
+     *         final var example = OktaFunctions.getEndUserMyRequests(GetEndUserMyRequestsArgs.builder()
+     *             .entryId("cen123456789abcdefgh")
+     *             .id("reqABCDEFG0123456789")
+     *             .build());
+     * 
+     *         ctx.export("requestStatus", example.status());
+     *         ctx.export("requestFieldValues", example.requesterFieldValues());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## Field Type Reference
+     * 
+     * ### Field Types and Values
+     * 
+     * - **TEXT**: Contains free-form text input in the `value` attribute
+     * - **SELECT**: Contains single selection value in the `value` attribute
+     * - **MULTISELECT**: Contains multiple selection values in the `values` attribute (list)
+     * - **DURATION**: Contains time duration specification in the `value` attribute (e.g., &#34;5 days&#34;, &#34;2 weeks&#34;)
+     * - **ISO_DATE**: Contains date specification in ISO format in the `value` attribute
+     * - **OKTA_USER_ID**: Contains Okta user ID in the `value` attribute
+     * 
+     * ### Usage Notes
+     * 
+     * - For `MULTISELECT` type fields, the values will be in the `values` attribute as a list
+     * - For all other field types, the value will be in the `value` attribute as a string
+     * - The `label` and `type` attributes provide metadata about the field structure
+     * - Field definitions and requirements are determined by the approval system configuration
+     * 
+     * ## Limitations and Considerations
+     * 
+     * 1. **Read-Only**: This data source only retrieves existing request information and cannot modify requests.
+     * 
+     * 2. **Identity Governance Licensing**: This data source requires Okta Identity Governance licensing and proper configuration.
+     * 
+     * 3. **Request Lifecycle**: The data reflects the current state of the request in the approval workflow.
+     * 
+     * 4. **Field Structure**: The field structure and available types depend on the approval system configuration in Okta Identity Governance.
+     * 
+     */
+    public static Output<GetEndUserMyRequestsResult> getEndUserMyRequests(GetEndUserMyRequestsArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("okta:index/getEndUserMyRequests:getEndUserMyRequests", TypeShape.of(GetEndUserMyRequestsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Get an End User Request from Okta Identity Governance. This data source allows you to retrieve information about existing access requests in the Okta Identity Governance system.
+     * 
+     * Use this data source to fetch details about a specific request, including its current status, field values, and other metadata.
+     * 
+     * &gt; **Note:** This data source is part of Okta Identity Governance functionality and requires appropriate licensing and configuration.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetEndUserMyRequestsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Get a request by its catalog entry ID and request ID
+     *         final var example = OktaFunctions.getEndUserMyRequests(GetEndUserMyRequestsArgs.builder()
+     *             .entryId("cen123456789abcdefgh")
+     *             .id("reqABCDEFG0123456789")
+     *             .build());
+     * 
+     *         ctx.export("requestStatus", example.status());
+     *         ctx.export("requestFieldValues", example.requesterFieldValues());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## Field Type Reference
+     * 
+     * ### Field Types and Values
+     * 
+     * - **TEXT**: Contains free-form text input in the `value` attribute
+     * - **SELECT**: Contains single selection value in the `value` attribute
+     * - **MULTISELECT**: Contains multiple selection values in the `values` attribute (list)
+     * - **DURATION**: Contains time duration specification in the `value` attribute (e.g., &#34;5 days&#34;, &#34;2 weeks&#34;)
+     * - **ISO_DATE**: Contains date specification in ISO format in the `value` attribute
+     * - **OKTA_USER_ID**: Contains Okta user ID in the `value` attribute
+     * 
+     * ### Usage Notes
+     * 
+     * - For `MULTISELECT` type fields, the values will be in the `values` attribute as a list
+     * - For all other field types, the value will be in the `value` attribute as a string
+     * - The `label` and `type` attributes provide metadata about the field structure
+     * - Field definitions and requirements are determined by the approval system configuration
+     * 
+     * ## Limitations and Considerations
+     * 
+     * 1. **Read-Only**: This data source only retrieves existing request information and cannot modify requests.
+     * 
+     * 2. **Identity Governance Licensing**: This data source requires Okta Identity Governance licensing and proper configuration.
+     * 
+     * 3. **Request Lifecycle**: The data reflects the current state of the request in the approval workflow.
+     * 
+     * 4. **Field Structure**: The field structure and available types depend on the approval system configuration in Okta Identity Governance.
+     * 
+     */
+    public static CompletableFuture<GetEndUserMyRequestsResult> getEndUserMyRequestsPlain(GetEndUserMyRequestsPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("okta:index/getEndUserMyRequests:getEndUserMyRequests", TypeShape.of(GetEndUserMyRequestsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Get the entitlement belonging to an Okta organization.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetEntitlementArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = OktaFunctions.getEntitlement(GetEntitlementArgs.builder()
+     *             .id("<entitlement id>")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetEntitlementResult> getEntitlement(GetEntitlementArgs args) {
+        return getEntitlement(args, InvokeOptions.Empty);
+    }
+    /**
+     * Get the entitlement belonging to an Okta organization.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetEntitlementArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = OktaFunctions.getEntitlement(GetEntitlementArgs.builder()
+     *             .id("<entitlement id>")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetEntitlementResult> getEntitlementPlain(GetEntitlementPlainArgs args) {
+        return getEntitlementPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Get the entitlement belonging to an Okta organization.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetEntitlementArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = OktaFunctions.getEntitlement(GetEntitlementArgs.builder()
+     *             .id("<entitlement id>")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetEntitlementResult> getEntitlement(GetEntitlementArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("okta:index/getEntitlement:getEntitlement", TypeShape.of(GetEntitlementResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Get the entitlement belonging to an Okta organization.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetEntitlementArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = OktaFunctions.getEntitlement(GetEntitlementArgs.builder()
+     *             .id("<entitlement id>")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetEntitlementResult> getEntitlement(GetEntitlementArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("okta:index/getEntitlement:getEntitlement", TypeShape.of(GetEntitlementResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Get the entitlement belonging to an Okta organization.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetEntitlementArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = OktaFunctions.getEntitlement(GetEntitlementArgs.builder()
+     *             .id("<entitlement id>")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetEntitlementResult> getEntitlementPlain(GetEntitlementPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("okta:index/getEntitlement:getEntitlement", TypeShape.of(GetEntitlementResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Get the entitlement bundle for the given id.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetEntitlementBundleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = OktaFunctions.getEntitlementBundle(GetEntitlementBundleArgs.builder()
+     *             .id("<entitlement_bundle id>")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetEntitlementBundleResult> getEntitlementBundle(GetEntitlementBundleArgs args) {
+        return getEntitlementBundle(args, InvokeOptions.Empty);
+    }
+    /**
+     * Get the entitlement bundle for the given id.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetEntitlementBundleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = OktaFunctions.getEntitlementBundle(GetEntitlementBundleArgs.builder()
+     *             .id("<entitlement_bundle id>")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetEntitlementBundleResult> getEntitlementBundlePlain(GetEntitlementBundlePlainArgs args) {
+        return getEntitlementBundlePlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Get the entitlement bundle for the given id.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetEntitlementBundleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = OktaFunctions.getEntitlementBundle(GetEntitlementBundleArgs.builder()
+     *             .id("<entitlement_bundle id>")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetEntitlementBundleResult> getEntitlementBundle(GetEntitlementBundleArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("okta:index/getEntitlementBundle:getEntitlementBundle", TypeShape.of(GetEntitlementBundleResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Get the entitlement bundle for the given id.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetEntitlementBundleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = OktaFunctions.getEntitlementBundle(GetEntitlementBundleArgs.builder()
+     *             .id("<entitlement_bundle id>")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetEntitlementBundleResult> getEntitlementBundle(GetEntitlementBundleArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("okta:index/getEntitlementBundle:getEntitlementBundle", TypeShape.of(GetEntitlementBundleResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Get the entitlement bundle for the given id.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetEntitlementBundleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = OktaFunctions.getEntitlementBundle(GetEntitlementBundleArgs.builder()
+     *             .id("<entitlement_bundle id>")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetEntitlementBundleResult> getEntitlementBundlePlain(GetEntitlementBundlePlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("okta:index/getEntitlementBundle:getEntitlementBundle", TypeShape.of(GetEntitlementBundleResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Get a list of features from Okta.
@@ -3722,6 +5036,773 @@ public final class OktaFunctions {
         return Deployment.getInstance().invokeAsync("okta:index/getOrgMetadata:getOrgMetadata", TypeShape.of(GetOrgMetadataResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Get the entitlements for a user and resource after evaluating all grants.
+     * 
+     */
+    public static Output<GetPrincipalEntitlementsResult> getPrincipalEntitlements() {
+        return getPrincipalEntitlements(GetPrincipalEntitlementsArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Get the entitlements for a user and resource after evaluating all grants.
+     * 
+     */
+    public static CompletableFuture<GetPrincipalEntitlementsResult> getPrincipalEntitlementsPlain() {
+        return getPrincipalEntitlementsPlain(GetPrincipalEntitlementsPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Get the entitlements for a user and resource after evaluating all grants.
+     * 
+     */
+    public static Output<GetPrincipalEntitlementsResult> getPrincipalEntitlements(GetPrincipalEntitlementsArgs args) {
+        return getPrincipalEntitlements(args, InvokeOptions.Empty);
+    }
+    /**
+     * Get the entitlements for a user and resource after evaluating all grants.
+     * 
+     */
+    public static CompletableFuture<GetPrincipalEntitlementsResult> getPrincipalEntitlementsPlain(GetPrincipalEntitlementsPlainArgs args) {
+        return getPrincipalEntitlementsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Get the entitlements for a user and resource after evaluating all grants.
+     * 
+     */
+    public static Output<GetPrincipalEntitlementsResult> getPrincipalEntitlements(GetPrincipalEntitlementsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("okta:index/getPrincipalEntitlements:getPrincipalEntitlements", TypeShape.of(GetPrincipalEntitlementsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Get the entitlements for a user and resource after evaluating all grants.
+     * 
+     */
+    public static Output<GetPrincipalEntitlementsResult> getPrincipalEntitlements(GetPrincipalEntitlementsArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("okta:index/getPrincipalEntitlements:getPrincipalEntitlements", TypeShape.of(GetPrincipalEntitlementsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Get the entitlements for a user and resource after evaluating all grants.
+     * 
+     */
+    public static CompletableFuture<GetPrincipalEntitlementsResult> getPrincipalEntitlementsPlain(GetPrincipalEntitlementsPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("okta:index/getPrincipalEntitlements:getPrincipalEntitlements", TypeShape.of(GetPrincipalEntitlementsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Get the entitlements for a user and resource after evaluating all grants.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetPrincipalRateLimitsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OktaFunctions.getPrincipalRateLimits(GetPrincipalRateLimitsArgs.builder()
+     *             .id("<principal_rate_limit_id>")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetPrincipalRateLimitsResult> getPrincipalRateLimits(GetPrincipalRateLimitsArgs args) {
+        return getPrincipalRateLimits(args, InvokeOptions.Empty);
+    }
+    /**
+     * Get the entitlements for a user and resource after evaluating all grants.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetPrincipalRateLimitsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OktaFunctions.getPrincipalRateLimits(GetPrincipalRateLimitsArgs.builder()
+     *             .id("<principal_rate_limit_id>")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetPrincipalRateLimitsResult> getPrincipalRateLimitsPlain(GetPrincipalRateLimitsPlainArgs args) {
+        return getPrincipalRateLimitsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Get the entitlements for a user and resource after evaluating all grants.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetPrincipalRateLimitsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OktaFunctions.getPrincipalRateLimits(GetPrincipalRateLimitsArgs.builder()
+     *             .id("<principal_rate_limit_id>")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetPrincipalRateLimitsResult> getPrincipalRateLimits(GetPrincipalRateLimitsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("okta:index/getPrincipalRateLimits:getPrincipalRateLimits", TypeShape.of(GetPrincipalRateLimitsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Get the entitlements for a user and resource after evaluating all grants.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetPrincipalRateLimitsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OktaFunctions.getPrincipalRateLimits(GetPrincipalRateLimitsArgs.builder()
+     *             .id("<principal_rate_limit_id>")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetPrincipalRateLimitsResult> getPrincipalRateLimits(GetPrincipalRateLimitsArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("okta:index/getPrincipalRateLimits:getPrincipalRateLimits", TypeShape.of(GetPrincipalRateLimitsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Get the entitlements for a user and resource after evaluating all grants.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetPrincipalRateLimitsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OktaFunctions.getPrincipalRateLimits(GetPrincipalRateLimitsArgs.builder()
+     *             .id("<principal_rate_limit_id>")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetPrincipalRateLimitsResult> getPrincipalRateLimitsPlain(GetPrincipalRateLimitsPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("okta:index/getPrincipalRateLimits:getPrincipalRateLimits", TypeShape.of(GetPrincipalRateLimitsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieves the currently configured Rate Limit Admin Notification Settings
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OktaFunctions.getRateLimitAdminNotificationSettings(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetRateLimitAdminNotificationSettingsResult> getRateLimitAdminNotificationSettings() {
+        return getRateLimitAdminNotificationSettings(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieves the currently configured Rate Limit Admin Notification Settings
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OktaFunctions.getRateLimitAdminNotificationSettings(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetRateLimitAdminNotificationSettingsResult> getRateLimitAdminNotificationSettingsPlain() {
+        return getRateLimitAdminNotificationSettingsPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieves the currently configured Rate Limit Admin Notification Settings
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OktaFunctions.getRateLimitAdminNotificationSettings(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetRateLimitAdminNotificationSettingsResult> getRateLimitAdminNotificationSettings(InvokeArgs args) {
+        return getRateLimitAdminNotificationSettings(args, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieves the currently configured Rate Limit Admin Notification Settings
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OktaFunctions.getRateLimitAdminNotificationSettings(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetRateLimitAdminNotificationSettingsResult> getRateLimitAdminNotificationSettingsPlain(InvokeArgs args) {
+        return getRateLimitAdminNotificationSettingsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieves the currently configured Rate Limit Admin Notification Settings
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OktaFunctions.getRateLimitAdminNotificationSettings(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetRateLimitAdminNotificationSettingsResult> getRateLimitAdminNotificationSettings(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("okta:index/getRateLimitAdminNotificationSettings:getRateLimitAdminNotificationSettings", TypeShape.of(GetRateLimitAdminNotificationSettingsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieves the currently configured Rate Limit Admin Notification Settings
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OktaFunctions.getRateLimitAdminNotificationSettings(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetRateLimitAdminNotificationSettingsResult> getRateLimitAdminNotificationSettings(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("okta:index/getRateLimitAdminNotificationSettings:getRateLimitAdminNotificationSettings", TypeShape.of(GetRateLimitAdminNotificationSettingsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieves the currently configured Rate Limit Admin Notification Settings
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OktaFunctions.getRateLimitAdminNotificationSettings(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetRateLimitAdminNotificationSettingsResult> getRateLimitAdminNotificationSettingsPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("okta:index/getRateLimitAdminNotificationSettings:getRateLimitAdminNotificationSettings", TypeShape.of(GetRateLimitAdminNotificationSettingsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Manages principal rate limits.
+     * Principal Rate Limits provides operations to manage Principal Rate Limits for your organization.
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OktaFunctions.getRateLimitWarningThresholdPercentage(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetRateLimitWarningThresholdPercentageResult> getRateLimitWarningThresholdPercentage() {
+        return getRateLimitWarningThresholdPercentage(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Manages principal rate limits.
+     * Principal Rate Limits provides operations to manage Principal Rate Limits for your organization.
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OktaFunctions.getRateLimitWarningThresholdPercentage(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetRateLimitWarningThresholdPercentageResult> getRateLimitWarningThresholdPercentagePlain() {
+        return getRateLimitWarningThresholdPercentagePlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Manages principal rate limits.
+     * Principal Rate Limits provides operations to manage Principal Rate Limits for your organization.
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OktaFunctions.getRateLimitWarningThresholdPercentage(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetRateLimitWarningThresholdPercentageResult> getRateLimitWarningThresholdPercentage(InvokeArgs args) {
+        return getRateLimitWarningThresholdPercentage(args, InvokeOptions.Empty);
+    }
+    /**
+     * Manages principal rate limits.
+     * Principal Rate Limits provides operations to manage Principal Rate Limits for your organization.
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OktaFunctions.getRateLimitWarningThresholdPercentage(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetRateLimitWarningThresholdPercentageResult> getRateLimitWarningThresholdPercentagePlain(InvokeArgs args) {
+        return getRateLimitWarningThresholdPercentagePlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Manages principal rate limits.
+     * Principal Rate Limits provides operations to manage Principal Rate Limits for your organization.
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OktaFunctions.getRateLimitWarningThresholdPercentage(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetRateLimitWarningThresholdPercentageResult> getRateLimitWarningThresholdPercentage(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("okta:index/getRateLimitWarningThresholdPercentage:getRateLimitWarningThresholdPercentage", TypeShape.of(GetRateLimitWarningThresholdPercentageResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Manages principal rate limits.
+     * Principal Rate Limits provides operations to manage Principal Rate Limits for your organization.
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OktaFunctions.getRateLimitWarningThresholdPercentage(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetRateLimitWarningThresholdPercentageResult> getRateLimitWarningThresholdPercentage(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("okta:index/getRateLimitWarningThresholdPercentage:getRateLimitWarningThresholdPercentage", TypeShape.of(GetRateLimitWarningThresholdPercentageResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Manages principal rate limits.
+     * Principal Rate Limits provides operations to manage Principal Rate Limits for your organization.
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OktaFunctions.getRateLimitWarningThresholdPercentage(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetRateLimitWarningThresholdPercentageResult> getRateLimitWarningThresholdPercentagePlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("okta:index/getRateLimitWarningThresholdPercentage:getRateLimitWarningThresholdPercentage", TypeShape.of(GetRateLimitWarningThresholdPercentageResult.class), args, Utilities.withVersion(options));
+    }
+    /**
      * Get a realm from Okta.
      * 
      * ## Example Usage
@@ -4077,6 +6158,994 @@ public final class OktaFunctions {
      */
     public static CompletableFuture<GetRealmAssignmentResult> getRealmAssignmentPlain(GetRealmAssignmentPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("okta:index/getRealmAssignment:getRealmAssignment", TypeShape.of(GetRealmAssignmentResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieves a resource request condition
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetRequestConditionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = OktaFunctions.getRequestCondition(GetRequestConditionArgs.builder()
+     *             .id("<request_condition_id>")
+     *             .resourceId("<resource_id>")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetRequestConditionResult> getRequestCondition(GetRequestConditionArgs args) {
+        return getRequestCondition(args, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieves a resource request condition
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetRequestConditionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = OktaFunctions.getRequestCondition(GetRequestConditionArgs.builder()
+     *             .id("<request_condition_id>")
+     *             .resourceId("<resource_id>")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetRequestConditionResult> getRequestConditionPlain(GetRequestConditionPlainArgs args) {
+        return getRequestConditionPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieves a resource request condition
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetRequestConditionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = OktaFunctions.getRequestCondition(GetRequestConditionArgs.builder()
+     *             .id("<request_condition_id>")
+     *             .resourceId("<resource_id>")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetRequestConditionResult> getRequestCondition(GetRequestConditionArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("okta:index/getRequestCondition:getRequestCondition", TypeShape.of(GetRequestConditionResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieves a resource request condition
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetRequestConditionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = OktaFunctions.getRequestCondition(GetRequestConditionArgs.builder()
+     *             .id("<request_condition_id>")
+     *             .resourceId("<resource_id>")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetRequestConditionResult> getRequestCondition(GetRequestConditionArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("okta:index/getRequestCondition:getRequestCondition", TypeShape.of(GetRequestConditionResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieves a resource request condition
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetRequestConditionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = OktaFunctions.getRequestCondition(GetRequestConditionArgs.builder()
+     *             .id("<request_condition_id>")
+     *             .resourceId("<resource_id>")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetRequestConditionResult> getRequestConditionPlain(GetRequestConditionPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("okta:index/getRequestCondition:getRequestCondition", TypeShape.of(GetRequestConditionResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieves a access request sequence referenced by the specified resource.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetRequestSequenceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = OktaFunctions.getRequestSequence(GetRequestSequenceArgs.builder()
+     *             .id("<sequence_id>")
+     *             .resourceId("<resource_id>")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetRequestSequenceResult> getRequestSequence(GetRequestSequenceArgs args) {
+        return getRequestSequence(args, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieves a access request sequence referenced by the specified resource.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetRequestSequenceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = OktaFunctions.getRequestSequence(GetRequestSequenceArgs.builder()
+     *             .id("<sequence_id>")
+     *             .resourceId("<resource_id>")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetRequestSequenceResult> getRequestSequencePlain(GetRequestSequencePlainArgs args) {
+        return getRequestSequencePlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieves a access request sequence referenced by the specified resource.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetRequestSequenceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = OktaFunctions.getRequestSequence(GetRequestSequenceArgs.builder()
+     *             .id("<sequence_id>")
+     *             .resourceId("<resource_id>")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetRequestSequenceResult> getRequestSequence(GetRequestSequenceArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("okta:index/getRequestSequence:getRequestSequence", TypeShape.of(GetRequestSequenceResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieves a access request sequence referenced by the specified resource.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetRequestSequenceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = OktaFunctions.getRequestSequence(GetRequestSequenceArgs.builder()
+     *             .id("<sequence_id>")
+     *             .resourceId("<resource_id>")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetRequestSequenceResult> getRequestSequence(GetRequestSequenceArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("okta:index/getRequestSequence:getRequestSequence", TypeShape.of(GetRequestSequenceResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieves a access request sequence referenced by the specified resource.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetRequestSequenceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = OktaFunctions.getRequestSequence(GetRequestSequenceArgs.builder()
+     *             .id("<sequence_id>")
+     *             .resourceId("<resource_id>")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetRequestSequenceResult> getRequestSequencePlain(GetRequestSequencePlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("okta:index/getRequestSequence:getRequestSequence", TypeShape.of(GetRequestSequenceResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieves the request settings for the org.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetRequestSettingOrganizationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = OktaFunctions.getRequestSettingOrganization(GetRequestSettingOrganizationArgs.builder()
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetRequestSettingOrganizationResult> getRequestSettingOrganization() {
+        return getRequestSettingOrganization(GetRequestSettingOrganizationArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieves the request settings for the org.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetRequestSettingOrganizationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = OktaFunctions.getRequestSettingOrganization(GetRequestSettingOrganizationArgs.builder()
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetRequestSettingOrganizationResult> getRequestSettingOrganizationPlain() {
+        return getRequestSettingOrganizationPlain(GetRequestSettingOrganizationPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieves the request settings for the org.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetRequestSettingOrganizationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = OktaFunctions.getRequestSettingOrganization(GetRequestSettingOrganizationArgs.builder()
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetRequestSettingOrganizationResult> getRequestSettingOrganization(GetRequestSettingOrganizationArgs args) {
+        return getRequestSettingOrganization(args, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieves the request settings for the org.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetRequestSettingOrganizationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = OktaFunctions.getRequestSettingOrganization(GetRequestSettingOrganizationArgs.builder()
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetRequestSettingOrganizationResult> getRequestSettingOrganizationPlain(GetRequestSettingOrganizationPlainArgs args) {
+        return getRequestSettingOrganizationPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieves the request settings for the org.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetRequestSettingOrganizationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = OktaFunctions.getRequestSettingOrganization(GetRequestSettingOrganizationArgs.builder()
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetRequestSettingOrganizationResult> getRequestSettingOrganization(GetRequestSettingOrganizationArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("okta:index/getRequestSettingOrganization:getRequestSettingOrganization", TypeShape.of(GetRequestSettingOrganizationResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieves the request settings for the org.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetRequestSettingOrganizationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = OktaFunctions.getRequestSettingOrganization(GetRequestSettingOrganizationArgs.builder()
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetRequestSettingOrganizationResult> getRequestSettingOrganization(GetRequestSettingOrganizationArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("okta:index/getRequestSettingOrganization:getRequestSettingOrganization", TypeShape.of(GetRequestSettingOrganizationResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieves the request settings for the org.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetRequestSettingOrganizationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = OktaFunctions.getRequestSettingOrganization(GetRequestSettingOrganizationArgs.builder()
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetRequestSettingOrganizationResult> getRequestSettingOrganizationPlain(GetRequestSettingOrganizationPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("okta:index/getRequestSettingOrganization:getRequestSettingOrganization", TypeShape.of(GetRequestSettingOrganizationResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieves the request settings for a resource.
+     * 
+     */
+    public static Output<GetRequestSettingResourceResult> getRequestSettingResource(GetRequestSettingResourceArgs args) {
+        return getRequestSettingResource(args, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieves the request settings for a resource.
+     * 
+     */
+    public static CompletableFuture<GetRequestSettingResourceResult> getRequestSettingResourcePlain(GetRequestSettingResourcePlainArgs args) {
+        return getRequestSettingResourcePlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieves the request settings for a resource.
+     * 
+     */
+    public static Output<GetRequestSettingResourceResult> getRequestSettingResource(GetRequestSettingResourceArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("okta:index/getRequestSettingResource:getRequestSettingResource", TypeShape.of(GetRequestSettingResourceResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieves the request settings for a resource.
+     * 
+     */
+    public static Output<GetRequestSettingResourceResult> getRequestSettingResource(GetRequestSettingResourceArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("okta:index/getRequestSettingResource:getRequestSettingResource", TypeShape.of(GetRequestSettingResourceResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieves the request settings for a resource.
+     * 
+     */
+    public static CompletableFuture<GetRequestSettingResourceResult> getRequestSettingResourcePlain(GetRequestSettingResourcePlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("okta:index/getRequestSettingResource:getRequestSettingResource", TypeShape.of(GetRequestSettingResourceResult.class), args, Utilities.withVersion(options));
+    }
+    public static Output<GetRequestV2Result> getRequestV2(GetRequestV2Args args) {
+        return getRequestV2(args, InvokeOptions.Empty);
+    }
+    public static CompletableFuture<GetRequestV2Result> getRequestV2Plain(GetRequestV2PlainArgs args) {
+        return getRequestV2Plain(args, InvokeOptions.Empty);
+    }
+    public static Output<GetRequestV2Result> getRequestV2(GetRequestV2Args args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("okta:index/getRequestV2:getRequestV2", TypeShape.of(GetRequestV2Result.class), args, Utilities.withVersion(options));
+    }
+    public static Output<GetRequestV2Result> getRequestV2(GetRequestV2Args args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("okta:index/getRequestV2:getRequestV2", TypeShape.of(GetRequestV2Result.class), args, Utilities.withVersion(options));
+    }
+    public static CompletableFuture<GetRequestV2Result> getRequestV2Plain(GetRequestV2PlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("okta:index/getRequestV2:getRequestV2", TypeShape.of(GetRequestV2Result.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Get the reviews belonging to a campaign
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetReviewArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = OktaFunctions.getReview(GetReviewArgs.builder()
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## Required:
+     * 
+     * - `email` (String) The Okta user&#39;s email address.
+     * - `id` (String) The Okta user id.
+     * - `status` (String) The status of the principal&#39;s profile. Enum: `INACTIVE`, `ACTIVE`.
+     * 
+     * ## Optional:
+     * 
+     * - `first_name` (String) The Okta user&#39;s first name.
+     * - `lastName` (String) The Okta user&#39;s last name
+     * - `login` (String) The Okta user&#39;s login
+     * 
+     */
+    public static Output<GetReviewResult> getReview(GetReviewArgs args) {
+        return getReview(args, InvokeOptions.Empty);
+    }
+    /**
+     * Get the reviews belonging to a campaign
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetReviewArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = OktaFunctions.getReview(GetReviewArgs.builder()
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## Required:
+     * 
+     * - `email` (String) The Okta user&#39;s email address.
+     * - `id` (String) The Okta user id.
+     * - `status` (String) The status of the principal&#39;s profile. Enum: `INACTIVE`, `ACTIVE`.
+     * 
+     * ## Optional:
+     * 
+     * - `first_name` (String) The Okta user&#39;s first name.
+     * - `lastName` (String) The Okta user&#39;s last name
+     * - `login` (String) The Okta user&#39;s login
+     * 
+     */
+    public static CompletableFuture<GetReviewResult> getReviewPlain(GetReviewPlainArgs args) {
+        return getReviewPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Get the reviews belonging to a campaign
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetReviewArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = OktaFunctions.getReview(GetReviewArgs.builder()
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## Required:
+     * 
+     * - `email` (String) The Okta user&#39;s email address.
+     * - `id` (String) The Okta user id.
+     * - `status` (String) The status of the principal&#39;s profile. Enum: `INACTIVE`, `ACTIVE`.
+     * 
+     * ## Optional:
+     * 
+     * - `first_name` (String) The Okta user&#39;s first name.
+     * - `lastName` (String) The Okta user&#39;s last name
+     * - `login` (String) The Okta user&#39;s login
+     * 
+     */
+    public static Output<GetReviewResult> getReview(GetReviewArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("okta:index/getReview:getReview", TypeShape.of(GetReviewResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Get the reviews belonging to a campaign
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetReviewArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = OktaFunctions.getReview(GetReviewArgs.builder()
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## Required:
+     * 
+     * - `email` (String) The Okta user&#39;s email address.
+     * - `id` (String) The Okta user id.
+     * - `status` (String) The status of the principal&#39;s profile. Enum: `INACTIVE`, `ACTIVE`.
+     * 
+     * ## Optional:
+     * 
+     * - `first_name` (String) The Okta user&#39;s first name.
+     * - `lastName` (String) The Okta user&#39;s last name
+     * - `login` (String) The Okta user&#39;s login
+     * 
+     */
+    public static Output<GetReviewResult> getReview(GetReviewArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("okta:index/getReview:getReview", TypeShape.of(GetReviewResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Get the reviews belonging to a campaign
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetReviewArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = OktaFunctions.getReview(GetReviewArgs.builder()
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## Required:
+     * 
+     * - `email` (String) The Okta user&#39;s email address.
+     * - `id` (String) The Okta user id.
+     * - `status` (String) The status of the principal&#39;s profile. Enum: `INACTIVE`, `ACTIVE`.
+     * 
+     * ## Optional:
+     * 
+     * - `first_name` (String) The Okta user&#39;s first name.
+     * - `lastName` (String) The Okta user&#39;s last name
+     * - `login` (String) The Okta user&#39;s login
+     * 
+     */
+    public static CompletableFuture<GetReviewResult> getReviewPlain(GetReviewPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("okta:index/getReview:getReview", TypeShape.of(GetReviewResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Get subscriptions of a Role with a specific type

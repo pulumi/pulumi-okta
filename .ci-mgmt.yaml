@@ -1,5 +1,5 @@
 provider: okta
-major-version: 5
+major-version: 6
 esc:
     enabled: true
 env:

@@ -22,6 +22,7 @@ from .auth_server_default import *
 from .authenticator import *
 from .behaviour import *
 from .brand import *
+from .campaign import *
 from .captcha import *
 from .captcha_org_wide_settings import *
 from .customized_signin_page import *
@@ -35,6 +36,9 @@ from .email_sender import *
 from .email_sender_verification import *
 from .email_smtp_server import *
 from .email_template_settings import *
+from .end_user_my_requests import *
+from .entitlement import *
+from .entitlement_bundle import *
 from .event_hook import *
 from .event_hook_verification import *
 from .factor_totp import *
@@ -50,19 +54,35 @@ from .get_behaviour import *
 from .get_behaviours import *
 from .get_brand import *
 from .get_brands import *
+from .get_campaign import *
+from .get_catalog_entry_default import *
+from .get_catalog_entry_user_access_request_fields import *
 from .get_default_signin_page import *
 from .get_device_assurance_policy import *
 from .get_domain import *
 from .get_email_customization import *
 from .get_email_customizations import *
 from .get_email_smtp_server import *
+from .get_end_user_my_requests import *
+from .get_entitlement import *
+from .get_entitlement_bundle import *
 from .get_features import *
 from .get_groups import *
 from .get_log_stream import *
 from .get_network_zone import *
 from .get_org_metadata import *
+from .get_principal_entitlements import *
+from .get_principal_rate_limits import *
+from .get_rate_limit_admin_notification_settings import *
+from .get_rate_limit_warning_threshold_percentage import *
 from .get_realm import *
 from .get_realm_assignment import *
+from .get_request_condition import *
+from .get_request_sequence import *
+from .get_request_setting_organization import *
+from .get_request_setting_resource import *
+from .get_request_v2 import *
+from .get_review import *
 from .get_role_subscription import *
 from .get_template import *
 from .get_templates import *
@@ -83,11 +103,20 @@ from .policy_profile_enrollment import *
 from .policy_profile_enrollment_apps import *
 from .policy_rule_profile_enrollment import *
 from .preview_signin_page import *
+from .principal_rate_limits import *
 from .provider import *
+from .rate_limit_admin_notification_settings import *
+from .rate_limit_warning_threshold_percentage import *
 from .rate_limiting import *
 from .realm import *
 from .realm_assignment import *
+from .request_condition import *
+from .request_sequence import *
+from .request_setting_organization import *
+from .request_setting_resource import *
+from .request_v2 import *
 from .resource_set import *
+from .review import *
 from .role_subscription import *
 from .security_notification_emails import *
 from .template_sms import *
@@ -499,6 +528,14 @@ _utilities.register(
  },
  {
   "pkg": "okta",
+  "mod": "index/campaign",
+  "fqn": "pulumi_okta",
+  "classes": {
+   "okta:index/campaign:Campaign": "Campaign"
+  }
+ },
+ {
+  "pkg": "okta",
   "mod": "index/captcha",
   "fqn": "pulumi_okta",
   "classes": {
@@ -599,6 +636,30 @@ _utilities.register(
   "fqn": "pulumi_okta",
   "classes": {
    "okta:index/emailTemplateSettings:EmailTemplateSettings": "EmailTemplateSettings"
+  }
+ },
+ {
+  "pkg": "okta",
+  "mod": "index/endUserMyRequests",
+  "fqn": "pulumi_okta",
+  "classes": {
+   "okta:index/endUserMyRequests:EndUserMyRequests": "EndUserMyRequests"
+  }
+ },
+ {
+  "pkg": "okta",
+  "mod": "index/entitlement",
+  "fqn": "pulumi_okta",
+  "classes": {
+   "okta:index/entitlement:Entitlement": "Entitlement"
+  }
+ },
+ {
+  "pkg": "okta",
+  "mod": "index/entitlementBundle",
+  "fqn": "pulumi_okta",
+  "classes": {
+   "okta:index/entitlementBundle:EntitlementBundle": "EntitlementBundle"
   }
  },
  {
@@ -739,6 +800,30 @@ _utilities.register(
  },
  {
   "pkg": "okta",
+  "mod": "index/principalRateLimits",
+  "fqn": "pulumi_okta",
+  "classes": {
+   "okta:index/principalRateLimits:PrincipalRateLimits": "PrincipalRateLimits"
+  }
+ },
+ {
+  "pkg": "okta",
+  "mod": "index/rateLimitAdminNotificationSettings",
+  "fqn": "pulumi_okta",
+  "classes": {
+   "okta:index/rateLimitAdminNotificationSettings:RateLimitAdminNotificationSettings": "RateLimitAdminNotificationSettings"
+  }
+ },
+ {
+  "pkg": "okta",
+  "mod": "index/rateLimitWarningThresholdPercentage",
+  "fqn": "pulumi_okta",
+  "classes": {
+   "okta:index/rateLimitWarningThresholdPercentage:RateLimitWarningThresholdPercentage": "RateLimitWarningThresholdPercentage"
+  }
+ },
+ {
+  "pkg": "okta",
   "mod": "index/rateLimiting",
   "fqn": "pulumi_okta",
   "classes": {
@@ -763,10 +848,58 @@ _utilities.register(
  },
  {
   "pkg": "okta",
+  "mod": "index/requestCondition",
+  "fqn": "pulumi_okta",
+  "classes": {
+   "okta:index/requestCondition:RequestCondition": "RequestCondition"
+  }
+ },
+ {
+  "pkg": "okta",
+  "mod": "index/requestSequence",
+  "fqn": "pulumi_okta",
+  "classes": {
+   "okta:index/requestSequence:RequestSequence": "RequestSequence"
+  }
+ },
+ {
+  "pkg": "okta",
+  "mod": "index/requestSettingOrganization",
+  "fqn": "pulumi_okta",
+  "classes": {
+   "okta:index/requestSettingOrganization:RequestSettingOrganization": "RequestSettingOrganization"
+  }
+ },
+ {
+  "pkg": "okta",
+  "mod": "index/requestSettingResource",
+  "fqn": "pulumi_okta",
+  "classes": {
+   "okta:index/requestSettingResource:RequestSettingResource": "RequestSettingResource"
+  }
+ },
+ {
+  "pkg": "okta",
+  "mod": "index/requestV2",
+  "fqn": "pulumi_okta",
+  "classes": {
+   "okta:index/requestV2:RequestV2": "RequestV2"
+  }
+ },
+ {
+  "pkg": "okta",
   "mod": "index/resourceSet",
   "fqn": "pulumi_okta",
   "classes": {
    "okta:index/resourceSet:ResourceSet": "ResourceSet"
+  }
+ },
+ {
+  "pkg": "okta",
+  "mod": "index/review",
+  "fqn": "pulumi_okta",
+  "classes": {
+   "okta:index/review:Review": "Review"
   }
  },
  {

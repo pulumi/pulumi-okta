@@ -8,41 +8,13 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-okta/sdk/v5/go/okta/internal"
+	"github.com/pulumi/pulumi-okta/sdk/v6/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Manages rate limiting.
 // This resource allows you to configure the client-based rate limit and rate limiting communications settings.
 // > **WARNING:** This resource is deprecated and will be removed in a future release. A new resource to manage rate limiting settings will be implemented in the future.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-okta/sdk/v5/go/okta"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := okta.NewRateLimiting(ctx, "example", &okta.RateLimitingArgs{
-//				Login:                 pulumi.String("ENFORCE"),
-//				Authorize:             pulumi.String("ENFORCE"),
-//				CommunicationsEnabled: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 //
 // ## Import
 //
@@ -52,12 +24,9 @@ import (
 type RateLimiting struct {
 	pulumi.CustomResourceState
 
-	// Called during authentication. Valid values: `ENFORCE` *(Enforce limit and log per client (recommended))*, `DISABLE` *(Do nothing (not recommended))*, `PREVIEW` *(Log per client)*.
-	Authorize pulumi.StringOutput `pulumi:"authorize"`
-	// Enable or disable rate limiting communications. By default, it is `true`.
-	CommunicationsEnabled pulumi.BoolPtrOutput `pulumi:"communicationsEnabled"`
-	// Called when accessing the Okta hosted login page. Valid values: `ENFORCE` *(Enforce limit and log per client (recommended))*, `DISABLE` *(Do nothing (not recommended))*, `PREVIEW` *(Log per client)*.
-	Login pulumi.StringOutput `pulumi:"login"`
+	DefaultMode pulumi.StringOutput `pulumi:"defaultMode"`
+	// A map of Per-Client Rate Limit Use Case to the applicable PerClientRateLimitMode.Overrides the defaultMode property for the specified use cases.
+	UseCaseModeOverrides RateLimitingUseCaseModeOverridesPtrOutput `pulumi:"useCaseModeOverrides"`
 }
 
 // NewRateLimiting registers a new resource with the given unique name, arguments, and options.
@@ -67,11 +36,8 @@ func NewRateLimiting(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Authorize == nil {
-		return nil, errors.New("invalid value for required argument 'Authorize'")
-	}
-	if args.Login == nil {
-		return nil, errors.New("invalid value for required argument 'Login'")
+	if args.DefaultMode == nil {
+		return nil, errors.New("invalid value for required argument 'DefaultMode'")
 	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource RateLimiting
@@ -96,21 +62,15 @@ func GetRateLimiting(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RateLimiting resources.
 type rateLimitingState struct {
-	// Called during authentication. Valid values: `ENFORCE` *(Enforce limit and log per client (recommended))*, `DISABLE` *(Do nothing (not recommended))*, `PREVIEW` *(Log per client)*.
-	Authorize *string `pulumi:"authorize"`
-	// Enable or disable rate limiting communications. By default, it is `true`.
-	CommunicationsEnabled *bool `pulumi:"communicationsEnabled"`
-	// Called when accessing the Okta hosted login page. Valid values: `ENFORCE` *(Enforce limit and log per client (recommended))*, `DISABLE` *(Do nothing (not recommended))*, `PREVIEW` *(Log per client)*.
-	Login *string `pulumi:"login"`
+	DefaultMode *string `pulumi:"defaultMode"`
+	// A map of Per-Client Rate Limit Use Case to the applicable PerClientRateLimitMode.Overrides the defaultMode property for the specified use cases.
+	UseCaseModeOverrides *RateLimitingUseCaseModeOverrides `pulumi:"useCaseModeOverrides"`
 }
 
 type RateLimitingState struct {
-	// Called during authentication. Valid values: `ENFORCE` *(Enforce limit and log per client (recommended))*, `DISABLE` *(Do nothing (not recommended))*, `PREVIEW` *(Log per client)*.
-	Authorize pulumi.StringPtrInput
-	// Enable or disable rate limiting communications. By default, it is `true`.
-	CommunicationsEnabled pulumi.BoolPtrInput
-	// Called when accessing the Okta hosted login page. Valid values: `ENFORCE` *(Enforce limit and log per client (recommended))*, `DISABLE` *(Do nothing (not recommended))*, `PREVIEW` *(Log per client)*.
-	Login pulumi.StringPtrInput
+	DefaultMode pulumi.StringPtrInput
+	// A map of Per-Client Rate Limit Use Case to the applicable PerClientRateLimitMode.Overrides the defaultMode property for the specified use cases.
+	UseCaseModeOverrides RateLimitingUseCaseModeOverridesPtrInput
 }
 
 func (RateLimitingState) ElementType() reflect.Type {
@@ -118,22 +78,16 @@ func (RateLimitingState) ElementType() reflect.Type {
 }
 
 type rateLimitingArgs struct {
-	// Called during authentication. Valid values: `ENFORCE` *(Enforce limit and log per client (recommended))*, `DISABLE` *(Do nothing (not recommended))*, `PREVIEW` *(Log per client)*.
-	Authorize string `pulumi:"authorize"`
-	// Enable or disable rate limiting communications. By default, it is `true`.
-	CommunicationsEnabled *bool `pulumi:"communicationsEnabled"`
-	// Called when accessing the Okta hosted login page. Valid values: `ENFORCE` *(Enforce limit and log per client (recommended))*, `DISABLE` *(Do nothing (not recommended))*, `PREVIEW` *(Log per client)*.
-	Login string `pulumi:"login"`
+	DefaultMode string `pulumi:"defaultMode"`
+	// A map of Per-Client Rate Limit Use Case to the applicable PerClientRateLimitMode.Overrides the defaultMode property for the specified use cases.
+	UseCaseModeOverrides *RateLimitingUseCaseModeOverrides `pulumi:"useCaseModeOverrides"`
 }
 
 // The set of arguments for constructing a RateLimiting resource.
 type RateLimitingArgs struct {
-	// Called during authentication. Valid values: `ENFORCE` *(Enforce limit and log per client (recommended))*, `DISABLE` *(Do nothing (not recommended))*, `PREVIEW` *(Log per client)*.
-	Authorize pulumi.StringInput
-	// Enable or disable rate limiting communications. By default, it is `true`.
-	CommunicationsEnabled pulumi.BoolPtrInput
-	// Called when accessing the Okta hosted login page. Valid values: `ENFORCE` *(Enforce limit and log per client (recommended))*, `DISABLE` *(Do nothing (not recommended))*, `PREVIEW` *(Log per client)*.
-	Login pulumi.StringInput
+	DefaultMode pulumi.StringInput
+	// A map of Per-Client Rate Limit Use Case to the applicable PerClientRateLimitMode.Overrides the defaultMode property for the specified use cases.
+	UseCaseModeOverrides RateLimitingUseCaseModeOverridesPtrInput
 }
 
 func (RateLimitingArgs) ElementType() reflect.Type {
@@ -223,19 +177,13 @@ func (o RateLimitingOutput) ToRateLimitingOutputWithContext(ctx context.Context)
 	return o
 }
 
-// Called during authentication. Valid values: `ENFORCE` *(Enforce limit and log per client (recommended))*, `DISABLE` *(Do nothing (not recommended))*, `PREVIEW` *(Log per client)*.
-func (o RateLimitingOutput) Authorize() pulumi.StringOutput {
-	return o.ApplyT(func(v *RateLimiting) pulumi.StringOutput { return v.Authorize }).(pulumi.StringOutput)
+func (o RateLimitingOutput) DefaultMode() pulumi.StringOutput {
+	return o.ApplyT(func(v *RateLimiting) pulumi.StringOutput { return v.DefaultMode }).(pulumi.StringOutput)
 }
 
-// Enable or disable rate limiting communications. By default, it is `true`.
-func (o RateLimitingOutput) CommunicationsEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *RateLimiting) pulumi.BoolPtrOutput { return v.CommunicationsEnabled }).(pulumi.BoolPtrOutput)
-}
-
-// Called when accessing the Okta hosted login page. Valid values: `ENFORCE` *(Enforce limit and log per client (recommended))*, `DISABLE` *(Do nothing (not recommended))*, `PREVIEW` *(Log per client)*.
-func (o RateLimitingOutput) Login() pulumi.StringOutput {
-	return o.ApplyT(func(v *RateLimiting) pulumi.StringOutput { return v.Login }).(pulumi.StringOutput)
+// A map of Per-Client Rate Limit Use Case to the applicable PerClientRateLimitMode.Overrides the defaultMode property for the specified use cases.
+func (o RateLimitingOutput) UseCaseModeOverrides() RateLimitingUseCaseModeOverridesPtrOutput {
+	return o.ApplyT(func(v *RateLimiting) RateLimitingUseCaseModeOverridesPtrOutput { return v.UseCaseModeOverrides }).(RateLimitingUseCaseModeOverridesPtrOutput)
 }
 
 type RateLimitingArrayOutput struct{ *pulumi.OutputState }

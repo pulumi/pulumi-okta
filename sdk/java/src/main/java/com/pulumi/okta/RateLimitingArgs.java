@@ -6,7 +6,7 @@ package com.pulumi.okta;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
-import java.lang.Boolean;
+import com.pulumi.okta.inputs.RateLimitingUseCaseModeOverridesArgs;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -17,57 +17,33 @@ public final class RateLimitingArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final RateLimitingArgs Empty = new RateLimitingArgs();
 
-    /**
-     * Called during authentication. Valid values: `ENFORCE` *(Enforce limit and log per client (recommended))*, `DISABLE` *(Do nothing (not recommended))*, `PREVIEW` *(Log per client)*.
-     * 
-     */
-    @Import(name="authorize", required=true)
-    private Output<String> authorize;
+    @Import(name="defaultMode", required=true)
+    private Output<String> defaultMode;
 
-    /**
-     * @return Called during authentication. Valid values: `ENFORCE` *(Enforce limit and log per client (recommended))*, `DISABLE` *(Do nothing (not recommended))*, `PREVIEW` *(Log per client)*.
-     * 
-     */
-    public Output<String> authorize() {
-        return this.authorize;
+    public Output<String> defaultMode() {
+        return this.defaultMode;
     }
 
     /**
-     * Enable or disable rate limiting communications. By default, it is `true`.
+     * A map of Per-Client Rate Limit Use Case to the applicable PerClientRateLimitMode.Overrides the defaultMode property for the specified use cases.
      * 
      */
-    @Import(name="communicationsEnabled")
-    private @Nullable Output<Boolean> communicationsEnabled;
+    @Import(name="useCaseModeOverrides")
+    private @Nullable Output<RateLimitingUseCaseModeOverridesArgs> useCaseModeOverrides;
 
     /**
-     * @return Enable or disable rate limiting communications. By default, it is `true`.
+     * @return A map of Per-Client Rate Limit Use Case to the applicable PerClientRateLimitMode.Overrides the defaultMode property for the specified use cases.
      * 
      */
-    public Optional<Output<Boolean>> communicationsEnabled() {
-        return Optional.ofNullable(this.communicationsEnabled);
-    }
-
-    /**
-     * Called when accessing the Okta hosted login page. Valid values: `ENFORCE` *(Enforce limit and log per client (recommended))*, `DISABLE` *(Do nothing (not recommended))*, `PREVIEW` *(Log per client)*.
-     * 
-     */
-    @Import(name="login", required=true)
-    private Output<String> login;
-
-    /**
-     * @return Called when accessing the Okta hosted login page. Valid values: `ENFORCE` *(Enforce limit and log per client (recommended))*, `DISABLE` *(Do nothing (not recommended))*, `PREVIEW` *(Log per client)*.
-     * 
-     */
-    public Output<String> login() {
-        return this.login;
+    public Optional<Output<RateLimitingUseCaseModeOverridesArgs>> useCaseModeOverrides() {
+        return Optional.ofNullable(this.useCaseModeOverrides);
     }
 
     private RateLimitingArgs() {}
 
     private RateLimitingArgs(RateLimitingArgs $) {
-        this.authorize = $.authorize;
-        this.communicationsEnabled = $.communicationsEnabled;
-        this.login = $.login;
+        this.defaultMode = $.defaultMode;
+        this.useCaseModeOverrides = $.useCaseModeOverrides;
     }
 
     public static Builder builder() {
@@ -88,75 +64,39 @@ public final class RateLimitingArgs extends com.pulumi.resources.ResourceArgs {
             $ = new RateLimitingArgs(Objects.requireNonNull(defaults));
         }
 
+        public Builder defaultMode(Output<String> defaultMode) {
+            $.defaultMode = defaultMode;
+            return this;
+        }
+
+        public Builder defaultMode(String defaultMode) {
+            return defaultMode(Output.of(defaultMode));
+        }
+
         /**
-         * @param authorize Called during authentication. Valid values: `ENFORCE` *(Enforce limit and log per client (recommended))*, `DISABLE` *(Do nothing (not recommended))*, `PREVIEW` *(Log per client)*.
+         * @param useCaseModeOverrides A map of Per-Client Rate Limit Use Case to the applicable PerClientRateLimitMode.Overrides the defaultMode property for the specified use cases.
          * 
          * @return builder
          * 
          */
-        public Builder authorize(Output<String> authorize) {
-            $.authorize = authorize;
+        public Builder useCaseModeOverrides(@Nullable Output<RateLimitingUseCaseModeOverridesArgs> useCaseModeOverrides) {
+            $.useCaseModeOverrides = useCaseModeOverrides;
             return this;
         }
 
         /**
-         * @param authorize Called during authentication. Valid values: `ENFORCE` *(Enforce limit and log per client (recommended))*, `DISABLE` *(Do nothing (not recommended))*, `PREVIEW` *(Log per client)*.
+         * @param useCaseModeOverrides A map of Per-Client Rate Limit Use Case to the applicable PerClientRateLimitMode.Overrides the defaultMode property for the specified use cases.
          * 
          * @return builder
          * 
          */
-        public Builder authorize(String authorize) {
-            return authorize(Output.of(authorize));
-        }
-
-        /**
-         * @param communicationsEnabled Enable or disable rate limiting communications. By default, it is `true`.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder communicationsEnabled(@Nullable Output<Boolean> communicationsEnabled) {
-            $.communicationsEnabled = communicationsEnabled;
-            return this;
-        }
-
-        /**
-         * @param communicationsEnabled Enable or disable rate limiting communications. By default, it is `true`.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder communicationsEnabled(Boolean communicationsEnabled) {
-            return communicationsEnabled(Output.of(communicationsEnabled));
-        }
-
-        /**
-         * @param login Called when accessing the Okta hosted login page. Valid values: `ENFORCE` *(Enforce limit and log per client (recommended))*, `DISABLE` *(Do nothing (not recommended))*, `PREVIEW` *(Log per client)*.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder login(Output<String> login) {
-            $.login = login;
-            return this;
-        }
-
-        /**
-         * @param login Called when accessing the Okta hosted login page. Valid values: `ENFORCE` *(Enforce limit and log per client (recommended))*, `DISABLE` *(Do nothing (not recommended))*, `PREVIEW` *(Log per client)*.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder login(String login) {
-            return login(Output.of(login));
+        public Builder useCaseModeOverrides(RateLimitingUseCaseModeOverridesArgs useCaseModeOverrides) {
+            return useCaseModeOverrides(Output.of(useCaseModeOverrides));
         }
 
         public RateLimitingArgs build() {
-            if ($.authorize == null) {
-                throw new MissingRequiredPropertyException("RateLimitingArgs", "authorize");
-            }
-            if ($.login == null) {
-                throw new MissingRequiredPropertyException("RateLimitingArgs", "login");
+            if ($.defaultMode == null) {
+                throw new MissingRequiredPropertyException("RateLimitingArgs", "defaultMode");
             }
             return $;
         }

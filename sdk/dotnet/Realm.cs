@@ -56,7 +56,7 @@ namespace Pulumi.Okta
         /// The realm type. Valid values: `PARTNER` and `DEFAULT`
         /// </summary>
         [Output("realmType")]
-        public Output<string> RealmType { get; private set; } = null!;
+        public Output<string?> RealmType { get; private set; } = null!;
 
 
         /// <summary>
@@ -66,7 +66,7 @@ namespace Pulumi.Okta
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public Realm(string name, RealmArgs args, CustomResourceOptions? options = null)
+        public Realm(string name, RealmArgs? args = null, CustomResourceOptions? options = null)
             : base("okta:index/realm:Realm", name, args ?? new RealmArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -113,8 +113,8 @@ namespace Pulumi.Okta
         /// <summary>
         /// The realm type. Valid values: `PARTNER` and `DEFAULT`
         /// </summary>
-        [Input("realmType", required: true)]
-        public Input<string> RealmType { get; set; } = null!;
+        [Input("realmType")]
+        public Input<string>? RealmType { get; set; }
 
         public RealmArgs()
         {

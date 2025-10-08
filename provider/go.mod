@@ -1,4 +1,4 @@
-module github.com/pulumi/pulumi-okta/provider/v5
+module github.com/pulumi/pulumi-okta/provider/v6
 
 go 1.23.11
 
@@ -9,7 +9,7 @@ require (
 	github.com/pulumi/providertest v0.3.0
 	github.com/pulumi/pulumi-terraform-bridge/v3 v3.114.0
 	github.com/pulumi/pulumi/sdk/v3 v3.190.0
-	github.com/stretchr/testify v1.11.0
+	github.com/stretchr/testify v1.11.1
 )
 
 replace (
@@ -70,7 +70,7 @@ require (
 	github.com/go-jose/go-jose/v3 v3.0.4 // indirect
 	github.com/go-logr/logr v1.4.2 // indirect
 	github.com/go-logr/stdr v1.2.2 // indirect
-	github.com/goccy/go-json v0.10.3 // indirect
+	github.com/goccy/go-json v0.10.5 // indirect
 	github.com/gogo/protobuf v1.3.2 // indirect
 	github.com/golang/glog v1.2.4 // indirect
 	github.com/golang/groupcache v0.0.0-20241129210726-2c02b8208cf8 // indirect
@@ -147,6 +147,7 @@ require (
 	github.com/natefinch/atomic v1.0.1 // indirect
 	github.com/nxadm/tail v1.4.11 // indirect
 	github.com/oklog/run v1.1.0 // indirect
+	github.com/okta/okta-governance-sdk-golang v1.0.1 // indirect
 	github.com/okta/okta-sdk-golang/v4 v4.1.2 // indirect
 	github.com/okta/okta-sdk-golang/v5 v5.0.6 // indirect
 	github.com/olekukonko/tablewriter v0.0.5 // indirect
