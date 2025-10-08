@@ -64,7 +64,7 @@ export class Realm extends pulumi.CustomResource {
     /**
      * The realm type. Valid values: `PARTNER` and `DEFAULT`
      */
-    declare public readonly realmType: pulumi.Output<string>;
+    declare public readonly realmType: pulumi.Output<string | undefined>;
 
     /**
      * Create a Realm resource with the given unique name, arguments, and options.
@@ -73,7 +73,7 @@ export class Realm extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: RealmArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args?: RealmArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: RealmArgs | RealmState, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
@@ -84,9 +84,6 @@ export class Realm extends pulumi.CustomResource {
             resourceInputs["realmType"] = state?.realmType;
         } else {
             const args = argsOrState as RealmArgs | undefined;
-            if (args?.realmType === undefined && !opts.urn) {
-                throw new Error("Missing required property 'realmType'");
-            }
             resourceInputs["name"] = args?.name;
             resourceInputs["realmType"] = args?.realmType;
             resourceInputs["isDefault"] = undefined /*out*/;
@@ -125,5 +122,5 @@ export interface RealmArgs {
     /**
      * The realm type. Valid values: `PARTNER` and `DEFAULT`
      */
-    realmType: pulumi.Input<string>;
+    realmType?: pulumi.Input<string>;
 }

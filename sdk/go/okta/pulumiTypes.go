@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-okta/sdk/v5/go/okta/internal"
+	"github.com/pulumi/pulumi-okta/sdk/v6/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -447,6 +447,2782 @@ func (o AppUserSchemaPropertyOneOfArrayOutput) Index(i pulumi.IntInput) AppUserS
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AppUserSchemaPropertyOneOf {
 		return vs[0].([]AppUserSchemaPropertyOneOf)[vs[1].(int)]
 	}).(AppUserSchemaPropertyOneOfOutput)
+}
+
+type CampaignNotificationSettings struct {
+	// To indicate whether a notification should be sent to the reviewer when a given reviewer level period is about to end.
+	NotifyReviewPeriodEnd bool `pulumi:"notifyReviewPeriodEnd"`
+	// To indicate whether a notification should be sent to the reviewers when campaign has come to an end.
+	NotifyReviewerAtCampaignEnd bool `pulumi:"notifyReviewerAtCampaignEnd"`
+	// To indicate whether a notification should be sent to the reviewer during the midpoint of the review process.
+	NotifyReviewerDuringMidpointOfReview bool `pulumi:"notifyReviewerDuringMidpointOfReview"`
+	// To indicate whether a notification should be sent to the reviewer when the review is overdue.
+	NotifyReviewerWhenOverdue bool `pulumi:"notifyReviewerWhenOverdue"`
+	// To indicate whether a notification should be sent to the reviewer when actionable reviews are assigned.
+	NotifyReviewerWhenReviewAssigned bool `pulumi:"notifyReviewerWhenReviewAssigned"`
+	// Specifies times (in seconds) to send reminders to reviewers before the campaign closes. Max 3 values. Example: [86400, 172800, 604800]
+	RemindersReviewerBeforeCampaignCloseInSecs []int `pulumi:"remindersReviewerBeforeCampaignCloseInSecs"`
+}
+
+// CampaignNotificationSettingsInput is an input type that accepts CampaignNotificationSettingsArgs and CampaignNotificationSettingsOutput values.
+// You can construct a concrete instance of `CampaignNotificationSettingsInput` via:
+//
+//	CampaignNotificationSettingsArgs{...}
+type CampaignNotificationSettingsInput interface {
+	pulumi.Input
+
+	ToCampaignNotificationSettingsOutput() CampaignNotificationSettingsOutput
+	ToCampaignNotificationSettingsOutputWithContext(context.Context) CampaignNotificationSettingsOutput
+}
+
+type CampaignNotificationSettingsArgs struct {
+	// To indicate whether a notification should be sent to the reviewer when a given reviewer level period is about to end.
+	NotifyReviewPeriodEnd pulumi.BoolInput `pulumi:"notifyReviewPeriodEnd"`
+	// To indicate whether a notification should be sent to the reviewers when campaign has come to an end.
+	NotifyReviewerAtCampaignEnd pulumi.BoolInput `pulumi:"notifyReviewerAtCampaignEnd"`
+	// To indicate whether a notification should be sent to the reviewer during the midpoint of the review process.
+	NotifyReviewerDuringMidpointOfReview pulumi.BoolInput `pulumi:"notifyReviewerDuringMidpointOfReview"`
+	// To indicate whether a notification should be sent to the reviewer when the review is overdue.
+	NotifyReviewerWhenOverdue pulumi.BoolInput `pulumi:"notifyReviewerWhenOverdue"`
+	// To indicate whether a notification should be sent to the reviewer when actionable reviews are assigned.
+	NotifyReviewerWhenReviewAssigned pulumi.BoolInput `pulumi:"notifyReviewerWhenReviewAssigned"`
+	// Specifies times (in seconds) to send reminders to reviewers before the campaign closes. Max 3 values. Example: [86400, 172800, 604800]
+	RemindersReviewerBeforeCampaignCloseInSecs pulumi.IntArrayInput `pulumi:"remindersReviewerBeforeCampaignCloseInSecs"`
+}
+
+func (CampaignNotificationSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CampaignNotificationSettings)(nil)).Elem()
+}
+
+func (i CampaignNotificationSettingsArgs) ToCampaignNotificationSettingsOutput() CampaignNotificationSettingsOutput {
+	return i.ToCampaignNotificationSettingsOutputWithContext(context.Background())
+}
+
+func (i CampaignNotificationSettingsArgs) ToCampaignNotificationSettingsOutputWithContext(ctx context.Context) CampaignNotificationSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CampaignNotificationSettingsOutput)
+}
+
+func (i CampaignNotificationSettingsArgs) ToCampaignNotificationSettingsPtrOutput() CampaignNotificationSettingsPtrOutput {
+	return i.ToCampaignNotificationSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i CampaignNotificationSettingsArgs) ToCampaignNotificationSettingsPtrOutputWithContext(ctx context.Context) CampaignNotificationSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CampaignNotificationSettingsOutput).ToCampaignNotificationSettingsPtrOutputWithContext(ctx)
+}
+
+// CampaignNotificationSettingsPtrInput is an input type that accepts CampaignNotificationSettingsArgs, CampaignNotificationSettingsPtr and CampaignNotificationSettingsPtrOutput values.
+// You can construct a concrete instance of `CampaignNotificationSettingsPtrInput` via:
+//
+//	        CampaignNotificationSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type CampaignNotificationSettingsPtrInput interface {
+	pulumi.Input
+
+	ToCampaignNotificationSettingsPtrOutput() CampaignNotificationSettingsPtrOutput
+	ToCampaignNotificationSettingsPtrOutputWithContext(context.Context) CampaignNotificationSettingsPtrOutput
+}
+
+type campaignNotificationSettingsPtrType CampaignNotificationSettingsArgs
+
+func CampaignNotificationSettingsPtr(v *CampaignNotificationSettingsArgs) CampaignNotificationSettingsPtrInput {
+	return (*campaignNotificationSettingsPtrType)(v)
+}
+
+func (*campaignNotificationSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CampaignNotificationSettings)(nil)).Elem()
+}
+
+func (i *campaignNotificationSettingsPtrType) ToCampaignNotificationSettingsPtrOutput() CampaignNotificationSettingsPtrOutput {
+	return i.ToCampaignNotificationSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *campaignNotificationSettingsPtrType) ToCampaignNotificationSettingsPtrOutputWithContext(ctx context.Context) CampaignNotificationSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CampaignNotificationSettingsPtrOutput)
+}
+
+type CampaignNotificationSettingsOutput struct{ *pulumi.OutputState }
+
+func (CampaignNotificationSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CampaignNotificationSettings)(nil)).Elem()
+}
+
+func (o CampaignNotificationSettingsOutput) ToCampaignNotificationSettingsOutput() CampaignNotificationSettingsOutput {
+	return o
+}
+
+func (o CampaignNotificationSettingsOutput) ToCampaignNotificationSettingsOutputWithContext(ctx context.Context) CampaignNotificationSettingsOutput {
+	return o
+}
+
+func (o CampaignNotificationSettingsOutput) ToCampaignNotificationSettingsPtrOutput() CampaignNotificationSettingsPtrOutput {
+	return o.ToCampaignNotificationSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o CampaignNotificationSettingsOutput) ToCampaignNotificationSettingsPtrOutputWithContext(ctx context.Context) CampaignNotificationSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CampaignNotificationSettings) *CampaignNotificationSettings {
+		return &v
+	}).(CampaignNotificationSettingsPtrOutput)
+}
+
+// To indicate whether a notification should be sent to the reviewer when a given reviewer level period is about to end.
+func (o CampaignNotificationSettingsOutput) NotifyReviewPeriodEnd() pulumi.BoolOutput {
+	return o.ApplyT(func(v CampaignNotificationSettings) bool { return v.NotifyReviewPeriodEnd }).(pulumi.BoolOutput)
+}
+
+// To indicate whether a notification should be sent to the reviewers when campaign has come to an end.
+func (o CampaignNotificationSettingsOutput) NotifyReviewerAtCampaignEnd() pulumi.BoolOutput {
+	return o.ApplyT(func(v CampaignNotificationSettings) bool { return v.NotifyReviewerAtCampaignEnd }).(pulumi.BoolOutput)
+}
+
+// To indicate whether a notification should be sent to the reviewer during the midpoint of the review process.
+func (o CampaignNotificationSettingsOutput) NotifyReviewerDuringMidpointOfReview() pulumi.BoolOutput {
+	return o.ApplyT(func(v CampaignNotificationSettings) bool { return v.NotifyReviewerDuringMidpointOfReview }).(pulumi.BoolOutput)
+}
+
+// To indicate whether a notification should be sent to the reviewer when the review is overdue.
+func (o CampaignNotificationSettingsOutput) NotifyReviewerWhenOverdue() pulumi.BoolOutput {
+	return o.ApplyT(func(v CampaignNotificationSettings) bool { return v.NotifyReviewerWhenOverdue }).(pulumi.BoolOutput)
+}
+
+// To indicate whether a notification should be sent to the reviewer when actionable reviews are assigned.
+func (o CampaignNotificationSettingsOutput) NotifyReviewerWhenReviewAssigned() pulumi.BoolOutput {
+	return o.ApplyT(func(v CampaignNotificationSettings) bool { return v.NotifyReviewerWhenReviewAssigned }).(pulumi.BoolOutput)
+}
+
+// Specifies times (in seconds) to send reminders to reviewers before the campaign closes. Max 3 values. Example: [86400, 172800, 604800]
+func (o CampaignNotificationSettingsOutput) RemindersReviewerBeforeCampaignCloseInSecs() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v CampaignNotificationSettings) []int { return v.RemindersReviewerBeforeCampaignCloseInSecs }).(pulumi.IntArrayOutput)
+}
+
+type CampaignNotificationSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (CampaignNotificationSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CampaignNotificationSettings)(nil)).Elem()
+}
+
+func (o CampaignNotificationSettingsPtrOutput) ToCampaignNotificationSettingsPtrOutput() CampaignNotificationSettingsPtrOutput {
+	return o
+}
+
+func (o CampaignNotificationSettingsPtrOutput) ToCampaignNotificationSettingsPtrOutputWithContext(ctx context.Context) CampaignNotificationSettingsPtrOutput {
+	return o
+}
+
+func (o CampaignNotificationSettingsPtrOutput) Elem() CampaignNotificationSettingsOutput {
+	return o.ApplyT(func(v *CampaignNotificationSettings) CampaignNotificationSettings {
+		if v != nil {
+			return *v
+		}
+		var ret CampaignNotificationSettings
+		return ret
+	}).(CampaignNotificationSettingsOutput)
+}
+
+// To indicate whether a notification should be sent to the reviewer when a given reviewer level period is about to end.
+func (o CampaignNotificationSettingsPtrOutput) NotifyReviewPeriodEnd() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CampaignNotificationSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.NotifyReviewPeriodEnd
+	}).(pulumi.BoolPtrOutput)
+}
+
+// To indicate whether a notification should be sent to the reviewers when campaign has come to an end.
+func (o CampaignNotificationSettingsPtrOutput) NotifyReviewerAtCampaignEnd() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CampaignNotificationSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.NotifyReviewerAtCampaignEnd
+	}).(pulumi.BoolPtrOutput)
+}
+
+// To indicate whether a notification should be sent to the reviewer during the midpoint of the review process.
+func (o CampaignNotificationSettingsPtrOutput) NotifyReviewerDuringMidpointOfReview() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CampaignNotificationSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.NotifyReviewerDuringMidpointOfReview
+	}).(pulumi.BoolPtrOutput)
+}
+
+// To indicate whether a notification should be sent to the reviewer when the review is overdue.
+func (o CampaignNotificationSettingsPtrOutput) NotifyReviewerWhenOverdue() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CampaignNotificationSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.NotifyReviewerWhenOverdue
+	}).(pulumi.BoolPtrOutput)
+}
+
+// To indicate whether a notification should be sent to the reviewer when actionable reviews are assigned.
+func (o CampaignNotificationSettingsPtrOutput) NotifyReviewerWhenReviewAssigned() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CampaignNotificationSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.NotifyReviewerWhenReviewAssigned
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Specifies times (in seconds) to send reminders to reviewers before the campaign closes. Max 3 values. Example: [86400, 172800, 604800]
+func (o CampaignNotificationSettingsPtrOutput) RemindersReviewerBeforeCampaignCloseInSecs() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v *CampaignNotificationSettings) []int {
+		if v == nil {
+			return nil
+		}
+		return v.RemindersReviewerBeforeCampaignCloseInSecs
+	}).(pulumi.IntArrayOutput)
+}
+
+type CampaignPrincipalScopeSettings struct {
+	// An array of Okta user IDs excluded from access certification or the campaign. This field is optional. A maximum of 50 users can be specified in the array.
+	ExcludedUserIds []string `pulumi:"excludedUserIds"`
+	// An array of Okta group IDs included from access certification or the campaign. userIds, groupIds or userScopeExpression is required if campaign type is USER. A maximum of 5 groups can be specified in the array.
+	GroupIds []string `pulumi:"groupIds"`
+	// If set to true, only active Okta users are included in the campaign.
+	IncludeOnlyActiveUsers *bool `pulumi:"includeOnlyActiveUsers"`
+	// If set to true, only includes users that have at least one SOD conflict that was caused due to entitlement(s) within Campaign scope.
+	OnlyIncludeUsersWithSodConflicts *bool                                                        `pulumi:"onlyIncludeUsersWithSodConflicts"`
+	PredefinedInactiveUsersScopes    []CampaignPrincipalScopeSettingsPredefinedInactiveUsersScope `pulumi:"predefinedInactiveUsersScopes"`
+	// Specifies the type for principal_scope_settings.
+	Type string `pulumi:"type"`
+	// An array of Okta user IDs included from access certification or the campaign. userIds, groupIds or userScopeExpression is required if campaign type is USER. A maximum of 100 users can be specified in the array.
+	UserIds []string `pulumi:"userIds"`
+	// The Okta expression language user expression on the resourceSettings to include users in the campaign.
+	UserScopeExpression *string `pulumi:"userScopeExpression"`
+}
+
+// CampaignPrincipalScopeSettingsInput is an input type that accepts CampaignPrincipalScopeSettingsArgs and CampaignPrincipalScopeSettingsOutput values.
+// You can construct a concrete instance of `CampaignPrincipalScopeSettingsInput` via:
+//
+//	CampaignPrincipalScopeSettingsArgs{...}
+type CampaignPrincipalScopeSettingsInput interface {
+	pulumi.Input
+
+	ToCampaignPrincipalScopeSettingsOutput() CampaignPrincipalScopeSettingsOutput
+	ToCampaignPrincipalScopeSettingsOutputWithContext(context.Context) CampaignPrincipalScopeSettingsOutput
+}
+
+type CampaignPrincipalScopeSettingsArgs struct {
+	// An array of Okta user IDs excluded from access certification or the campaign. This field is optional. A maximum of 50 users can be specified in the array.
+	ExcludedUserIds pulumi.StringArrayInput `pulumi:"excludedUserIds"`
+	// An array of Okta group IDs included from access certification or the campaign. userIds, groupIds or userScopeExpression is required if campaign type is USER. A maximum of 5 groups can be specified in the array.
+	GroupIds pulumi.StringArrayInput `pulumi:"groupIds"`
+	// If set to true, only active Okta users are included in the campaign.
+	IncludeOnlyActiveUsers pulumi.BoolPtrInput `pulumi:"includeOnlyActiveUsers"`
+	// If set to true, only includes users that have at least one SOD conflict that was caused due to entitlement(s) within Campaign scope.
+	OnlyIncludeUsersWithSodConflicts pulumi.BoolPtrInput                                                  `pulumi:"onlyIncludeUsersWithSodConflicts"`
+	PredefinedInactiveUsersScopes    CampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeArrayInput `pulumi:"predefinedInactiveUsersScopes"`
+	// Specifies the type for principal_scope_settings.
+	Type pulumi.StringInput `pulumi:"type"`
+	// An array of Okta user IDs included from access certification or the campaign. userIds, groupIds or userScopeExpression is required if campaign type is USER. A maximum of 100 users can be specified in the array.
+	UserIds pulumi.StringArrayInput `pulumi:"userIds"`
+	// The Okta expression language user expression on the resourceSettings to include users in the campaign.
+	UserScopeExpression pulumi.StringPtrInput `pulumi:"userScopeExpression"`
+}
+
+func (CampaignPrincipalScopeSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CampaignPrincipalScopeSettings)(nil)).Elem()
+}
+
+func (i CampaignPrincipalScopeSettingsArgs) ToCampaignPrincipalScopeSettingsOutput() CampaignPrincipalScopeSettingsOutput {
+	return i.ToCampaignPrincipalScopeSettingsOutputWithContext(context.Background())
+}
+
+func (i CampaignPrincipalScopeSettingsArgs) ToCampaignPrincipalScopeSettingsOutputWithContext(ctx context.Context) CampaignPrincipalScopeSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CampaignPrincipalScopeSettingsOutput)
+}
+
+func (i CampaignPrincipalScopeSettingsArgs) ToCampaignPrincipalScopeSettingsPtrOutput() CampaignPrincipalScopeSettingsPtrOutput {
+	return i.ToCampaignPrincipalScopeSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i CampaignPrincipalScopeSettingsArgs) ToCampaignPrincipalScopeSettingsPtrOutputWithContext(ctx context.Context) CampaignPrincipalScopeSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CampaignPrincipalScopeSettingsOutput).ToCampaignPrincipalScopeSettingsPtrOutputWithContext(ctx)
+}
+
+// CampaignPrincipalScopeSettingsPtrInput is an input type that accepts CampaignPrincipalScopeSettingsArgs, CampaignPrincipalScopeSettingsPtr and CampaignPrincipalScopeSettingsPtrOutput values.
+// You can construct a concrete instance of `CampaignPrincipalScopeSettingsPtrInput` via:
+//
+//	        CampaignPrincipalScopeSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type CampaignPrincipalScopeSettingsPtrInput interface {
+	pulumi.Input
+
+	ToCampaignPrincipalScopeSettingsPtrOutput() CampaignPrincipalScopeSettingsPtrOutput
+	ToCampaignPrincipalScopeSettingsPtrOutputWithContext(context.Context) CampaignPrincipalScopeSettingsPtrOutput
+}
+
+type campaignPrincipalScopeSettingsPtrType CampaignPrincipalScopeSettingsArgs
+
+func CampaignPrincipalScopeSettingsPtr(v *CampaignPrincipalScopeSettingsArgs) CampaignPrincipalScopeSettingsPtrInput {
+	return (*campaignPrincipalScopeSettingsPtrType)(v)
+}
+
+func (*campaignPrincipalScopeSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CampaignPrincipalScopeSettings)(nil)).Elem()
+}
+
+func (i *campaignPrincipalScopeSettingsPtrType) ToCampaignPrincipalScopeSettingsPtrOutput() CampaignPrincipalScopeSettingsPtrOutput {
+	return i.ToCampaignPrincipalScopeSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *campaignPrincipalScopeSettingsPtrType) ToCampaignPrincipalScopeSettingsPtrOutputWithContext(ctx context.Context) CampaignPrincipalScopeSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CampaignPrincipalScopeSettingsPtrOutput)
+}
+
+type CampaignPrincipalScopeSettingsOutput struct{ *pulumi.OutputState }
+
+func (CampaignPrincipalScopeSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CampaignPrincipalScopeSettings)(nil)).Elem()
+}
+
+func (o CampaignPrincipalScopeSettingsOutput) ToCampaignPrincipalScopeSettingsOutput() CampaignPrincipalScopeSettingsOutput {
+	return o
+}
+
+func (o CampaignPrincipalScopeSettingsOutput) ToCampaignPrincipalScopeSettingsOutputWithContext(ctx context.Context) CampaignPrincipalScopeSettingsOutput {
+	return o
+}
+
+func (o CampaignPrincipalScopeSettingsOutput) ToCampaignPrincipalScopeSettingsPtrOutput() CampaignPrincipalScopeSettingsPtrOutput {
+	return o.ToCampaignPrincipalScopeSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o CampaignPrincipalScopeSettingsOutput) ToCampaignPrincipalScopeSettingsPtrOutputWithContext(ctx context.Context) CampaignPrincipalScopeSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CampaignPrincipalScopeSettings) *CampaignPrincipalScopeSettings {
+		return &v
+	}).(CampaignPrincipalScopeSettingsPtrOutput)
+}
+
+// An array of Okta user IDs excluded from access certification or the campaign. This field is optional. A maximum of 50 users can be specified in the array.
+func (o CampaignPrincipalScopeSettingsOutput) ExcludedUserIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CampaignPrincipalScopeSettings) []string { return v.ExcludedUserIds }).(pulumi.StringArrayOutput)
+}
+
+// An array of Okta group IDs included from access certification or the campaign. userIds, groupIds or userScopeExpression is required if campaign type is USER. A maximum of 5 groups can be specified in the array.
+func (o CampaignPrincipalScopeSettingsOutput) GroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CampaignPrincipalScopeSettings) []string { return v.GroupIds }).(pulumi.StringArrayOutput)
+}
+
+// If set to true, only active Okta users are included in the campaign.
+func (o CampaignPrincipalScopeSettingsOutput) IncludeOnlyActiveUsers() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CampaignPrincipalScopeSettings) *bool { return v.IncludeOnlyActiveUsers }).(pulumi.BoolPtrOutput)
+}
+
+// If set to true, only includes users that have at least one SOD conflict that was caused due to entitlement(s) within Campaign scope.
+func (o CampaignPrincipalScopeSettingsOutput) OnlyIncludeUsersWithSodConflicts() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CampaignPrincipalScopeSettings) *bool { return v.OnlyIncludeUsersWithSodConflicts }).(pulumi.BoolPtrOutput)
+}
+
+func (o CampaignPrincipalScopeSettingsOutput) PredefinedInactiveUsersScopes() CampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeArrayOutput {
+	return o.ApplyT(func(v CampaignPrincipalScopeSettings) []CampaignPrincipalScopeSettingsPredefinedInactiveUsersScope {
+		return v.PredefinedInactiveUsersScopes
+	}).(CampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeArrayOutput)
+}
+
+// Specifies the type for principal_scope_settings.
+func (o CampaignPrincipalScopeSettingsOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v CampaignPrincipalScopeSettings) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// An array of Okta user IDs included from access certification or the campaign. userIds, groupIds or userScopeExpression is required if campaign type is USER. A maximum of 100 users can be specified in the array.
+func (o CampaignPrincipalScopeSettingsOutput) UserIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CampaignPrincipalScopeSettings) []string { return v.UserIds }).(pulumi.StringArrayOutput)
+}
+
+// The Okta expression language user expression on the resourceSettings to include users in the campaign.
+func (o CampaignPrincipalScopeSettingsOutput) UserScopeExpression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CampaignPrincipalScopeSettings) *string { return v.UserScopeExpression }).(pulumi.StringPtrOutput)
+}
+
+type CampaignPrincipalScopeSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (CampaignPrincipalScopeSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CampaignPrincipalScopeSettings)(nil)).Elem()
+}
+
+func (o CampaignPrincipalScopeSettingsPtrOutput) ToCampaignPrincipalScopeSettingsPtrOutput() CampaignPrincipalScopeSettingsPtrOutput {
+	return o
+}
+
+func (o CampaignPrincipalScopeSettingsPtrOutput) ToCampaignPrincipalScopeSettingsPtrOutputWithContext(ctx context.Context) CampaignPrincipalScopeSettingsPtrOutput {
+	return o
+}
+
+func (o CampaignPrincipalScopeSettingsPtrOutput) Elem() CampaignPrincipalScopeSettingsOutput {
+	return o.ApplyT(func(v *CampaignPrincipalScopeSettings) CampaignPrincipalScopeSettings {
+		if v != nil {
+			return *v
+		}
+		var ret CampaignPrincipalScopeSettings
+		return ret
+	}).(CampaignPrincipalScopeSettingsOutput)
+}
+
+// An array of Okta user IDs excluded from access certification or the campaign. This field is optional. A maximum of 50 users can be specified in the array.
+func (o CampaignPrincipalScopeSettingsPtrOutput) ExcludedUserIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CampaignPrincipalScopeSettings) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ExcludedUserIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// An array of Okta group IDs included from access certification or the campaign. userIds, groupIds or userScopeExpression is required if campaign type is USER. A maximum of 5 groups can be specified in the array.
+func (o CampaignPrincipalScopeSettingsPtrOutput) GroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CampaignPrincipalScopeSettings) []string {
+		if v == nil {
+			return nil
+		}
+		return v.GroupIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// If set to true, only active Okta users are included in the campaign.
+func (o CampaignPrincipalScopeSettingsPtrOutput) IncludeOnlyActiveUsers() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CampaignPrincipalScopeSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeOnlyActiveUsers
+	}).(pulumi.BoolPtrOutput)
+}
+
+// If set to true, only includes users that have at least one SOD conflict that was caused due to entitlement(s) within Campaign scope.
+func (o CampaignPrincipalScopeSettingsPtrOutput) OnlyIncludeUsersWithSodConflicts() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CampaignPrincipalScopeSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.OnlyIncludeUsersWithSodConflicts
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o CampaignPrincipalScopeSettingsPtrOutput) PredefinedInactiveUsersScopes() CampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeArrayOutput {
+	return o.ApplyT(func(v *CampaignPrincipalScopeSettings) []CampaignPrincipalScopeSettingsPredefinedInactiveUsersScope {
+		if v == nil {
+			return nil
+		}
+		return v.PredefinedInactiveUsersScopes
+	}).(CampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeArrayOutput)
+}
+
+// Specifies the type for principal_scope_settings.
+func (o CampaignPrincipalScopeSettingsPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CampaignPrincipalScopeSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// An array of Okta user IDs included from access certification or the campaign. userIds, groupIds or userScopeExpression is required if campaign type is USER. A maximum of 100 users can be specified in the array.
+func (o CampaignPrincipalScopeSettingsPtrOutput) UserIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CampaignPrincipalScopeSettings) []string {
+		if v == nil {
+			return nil
+		}
+		return v.UserIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// The Okta expression language user expression on the resourceSettings to include users in the campaign.
+func (o CampaignPrincipalScopeSettingsPtrOutput) UserScopeExpression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CampaignPrincipalScopeSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserScopeExpression
+	}).(pulumi.StringPtrOutput)
+}
+
+type CampaignPrincipalScopeSettingsPredefinedInactiveUsersScope struct {
+	// The duration the users have not used single sign on (SSO) to access their account within the specific time frame. Minimum 30 days and maximum 365 days are supported.
+	InactiveDays *int `pulumi:"inactiveDays"`
+}
+
+// CampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeInput is an input type that accepts CampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeArgs and CampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeOutput values.
+// You can construct a concrete instance of `CampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeInput` via:
+//
+//	CampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeArgs{...}
+type CampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeInput interface {
+	pulumi.Input
+
+	ToCampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeOutput() CampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeOutput
+	ToCampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeOutputWithContext(context.Context) CampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeOutput
+}
+
+type CampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeArgs struct {
+	// The duration the users have not used single sign on (SSO) to access their account within the specific time frame. Minimum 30 days and maximum 365 days are supported.
+	InactiveDays pulumi.IntPtrInput `pulumi:"inactiveDays"`
+}
+
+func (CampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CampaignPrincipalScopeSettingsPredefinedInactiveUsersScope)(nil)).Elem()
+}
+
+func (i CampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeArgs) ToCampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeOutput() CampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeOutput {
+	return i.ToCampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeOutputWithContext(context.Background())
+}
+
+func (i CampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeArgs) ToCampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeOutputWithContext(ctx context.Context) CampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeOutput)
+}
+
+// CampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeArrayInput is an input type that accepts CampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeArray and CampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeArrayOutput values.
+// You can construct a concrete instance of `CampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeArrayInput` via:
+//
+//	CampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeArray{ CampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeArgs{...} }
+type CampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeArrayInput interface {
+	pulumi.Input
+
+	ToCampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeArrayOutput() CampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeArrayOutput
+	ToCampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeArrayOutputWithContext(context.Context) CampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeArrayOutput
+}
+
+type CampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeArray []CampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeInput
+
+func (CampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CampaignPrincipalScopeSettingsPredefinedInactiveUsersScope)(nil)).Elem()
+}
+
+func (i CampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeArray) ToCampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeArrayOutput() CampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeArrayOutput {
+	return i.ToCampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeArrayOutputWithContext(context.Background())
+}
+
+func (i CampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeArray) ToCampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeArrayOutputWithContext(ctx context.Context) CampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeArrayOutput)
+}
+
+type CampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeOutput struct{ *pulumi.OutputState }
+
+func (CampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CampaignPrincipalScopeSettingsPredefinedInactiveUsersScope)(nil)).Elem()
+}
+
+func (o CampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeOutput) ToCampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeOutput() CampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeOutput {
+	return o
+}
+
+func (o CampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeOutput) ToCampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeOutputWithContext(ctx context.Context) CampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeOutput {
+	return o
+}
+
+// The duration the users have not used single sign on (SSO) to access their account within the specific time frame. Minimum 30 days and maximum 365 days are supported.
+func (o CampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeOutput) InactiveDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CampaignPrincipalScopeSettingsPredefinedInactiveUsersScope) *int { return v.InactiveDays }).(pulumi.IntPtrOutput)
+}
+
+type CampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeArrayOutput struct{ *pulumi.OutputState }
+
+func (CampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CampaignPrincipalScopeSettingsPredefinedInactiveUsersScope)(nil)).Elem()
+}
+
+func (o CampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeArrayOutput) ToCampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeArrayOutput() CampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeArrayOutput {
+	return o
+}
+
+func (o CampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeArrayOutput) ToCampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeArrayOutputWithContext(ctx context.Context) CampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeArrayOutput {
+	return o
+}
+
+func (o CampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeArrayOutput) Index(i pulumi.IntInput) CampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CampaignPrincipalScopeSettingsPredefinedInactiveUsersScope {
+		return vs[0].([]CampaignPrincipalScopeSettingsPredefinedInactiveUsersScope)[vs[1].(int)]
+	}).(CampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeOutput)
+}
+
+type CampaignRemediationSettings struct {
+	// Specifies the action by default if the reviewer approves access. NO_ACTION indicates there is no remediation action and the user retains access.
+	AccessApproved string `pulumi:"accessApproved"`
+	// Specifies the action if the reviewer revokes access. NO_ACTION indicates the user retains the same access. DENY indicates the user will have their access revoked as long as they are not assigned to a group through Group Rules.
+	AccessRevoked           string                                              `pulumi:"accessRevoked"`
+	AutoRemediationSettings *CampaignRemediationSettingsAutoRemediationSettings `pulumi:"autoRemediationSettings"`
+	// Specifies the action if the reviewer doesn't respond to the request or if the campaign is closed before an action is taken.
+	NoResponse string `pulumi:"noResponse"`
+}
+
+// CampaignRemediationSettingsInput is an input type that accepts CampaignRemediationSettingsArgs and CampaignRemediationSettingsOutput values.
+// You can construct a concrete instance of `CampaignRemediationSettingsInput` via:
+//
+//	CampaignRemediationSettingsArgs{...}
+type CampaignRemediationSettingsInput interface {
+	pulumi.Input
+
+	ToCampaignRemediationSettingsOutput() CampaignRemediationSettingsOutput
+	ToCampaignRemediationSettingsOutputWithContext(context.Context) CampaignRemediationSettingsOutput
+}
+
+type CampaignRemediationSettingsArgs struct {
+	// Specifies the action by default if the reviewer approves access. NO_ACTION indicates there is no remediation action and the user retains access.
+	AccessApproved pulumi.StringInput `pulumi:"accessApproved"`
+	// Specifies the action if the reviewer revokes access. NO_ACTION indicates the user retains the same access. DENY indicates the user will have their access revoked as long as they are not assigned to a group through Group Rules.
+	AccessRevoked           pulumi.StringInput                                         `pulumi:"accessRevoked"`
+	AutoRemediationSettings CampaignRemediationSettingsAutoRemediationSettingsPtrInput `pulumi:"autoRemediationSettings"`
+	// Specifies the action if the reviewer doesn't respond to the request or if the campaign is closed before an action is taken.
+	NoResponse pulumi.StringInput `pulumi:"noResponse"`
+}
+
+func (CampaignRemediationSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CampaignRemediationSettings)(nil)).Elem()
+}
+
+func (i CampaignRemediationSettingsArgs) ToCampaignRemediationSettingsOutput() CampaignRemediationSettingsOutput {
+	return i.ToCampaignRemediationSettingsOutputWithContext(context.Background())
+}
+
+func (i CampaignRemediationSettingsArgs) ToCampaignRemediationSettingsOutputWithContext(ctx context.Context) CampaignRemediationSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CampaignRemediationSettingsOutput)
+}
+
+func (i CampaignRemediationSettingsArgs) ToCampaignRemediationSettingsPtrOutput() CampaignRemediationSettingsPtrOutput {
+	return i.ToCampaignRemediationSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i CampaignRemediationSettingsArgs) ToCampaignRemediationSettingsPtrOutputWithContext(ctx context.Context) CampaignRemediationSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CampaignRemediationSettingsOutput).ToCampaignRemediationSettingsPtrOutputWithContext(ctx)
+}
+
+// CampaignRemediationSettingsPtrInput is an input type that accepts CampaignRemediationSettingsArgs, CampaignRemediationSettingsPtr and CampaignRemediationSettingsPtrOutput values.
+// You can construct a concrete instance of `CampaignRemediationSettingsPtrInput` via:
+//
+//	        CampaignRemediationSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type CampaignRemediationSettingsPtrInput interface {
+	pulumi.Input
+
+	ToCampaignRemediationSettingsPtrOutput() CampaignRemediationSettingsPtrOutput
+	ToCampaignRemediationSettingsPtrOutputWithContext(context.Context) CampaignRemediationSettingsPtrOutput
+}
+
+type campaignRemediationSettingsPtrType CampaignRemediationSettingsArgs
+
+func CampaignRemediationSettingsPtr(v *CampaignRemediationSettingsArgs) CampaignRemediationSettingsPtrInput {
+	return (*campaignRemediationSettingsPtrType)(v)
+}
+
+func (*campaignRemediationSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CampaignRemediationSettings)(nil)).Elem()
+}
+
+func (i *campaignRemediationSettingsPtrType) ToCampaignRemediationSettingsPtrOutput() CampaignRemediationSettingsPtrOutput {
+	return i.ToCampaignRemediationSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *campaignRemediationSettingsPtrType) ToCampaignRemediationSettingsPtrOutputWithContext(ctx context.Context) CampaignRemediationSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CampaignRemediationSettingsPtrOutput)
+}
+
+type CampaignRemediationSettingsOutput struct{ *pulumi.OutputState }
+
+func (CampaignRemediationSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CampaignRemediationSettings)(nil)).Elem()
+}
+
+func (o CampaignRemediationSettingsOutput) ToCampaignRemediationSettingsOutput() CampaignRemediationSettingsOutput {
+	return o
+}
+
+func (o CampaignRemediationSettingsOutput) ToCampaignRemediationSettingsOutputWithContext(ctx context.Context) CampaignRemediationSettingsOutput {
+	return o
+}
+
+func (o CampaignRemediationSettingsOutput) ToCampaignRemediationSettingsPtrOutput() CampaignRemediationSettingsPtrOutput {
+	return o.ToCampaignRemediationSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o CampaignRemediationSettingsOutput) ToCampaignRemediationSettingsPtrOutputWithContext(ctx context.Context) CampaignRemediationSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CampaignRemediationSettings) *CampaignRemediationSettings {
+		return &v
+	}).(CampaignRemediationSettingsPtrOutput)
+}
+
+// Specifies the action by default if the reviewer approves access. NO_ACTION indicates there is no remediation action and the user retains access.
+func (o CampaignRemediationSettingsOutput) AccessApproved() pulumi.StringOutput {
+	return o.ApplyT(func(v CampaignRemediationSettings) string { return v.AccessApproved }).(pulumi.StringOutput)
+}
+
+// Specifies the action if the reviewer revokes access. NO_ACTION indicates the user retains the same access. DENY indicates the user will have their access revoked as long as they are not assigned to a group through Group Rules.
+func (o CampaignRemediationSettingsOutput) AccessRevoked() pulumi.StringOutput {
+	return o.ApplyT(func(v CampaignRemediationSettings) string { return v.AccessRevoked }).(pulumi.StringOutput)
+}
+
+func (o CampaignRemediationSettingsOutput) AutoRemediationSettings() CampaignRemediationSettingsAutoRemediationSettingsPtrOutput {
+	return o.ApplyT(func(v CampaignRemediationSettings) *CampaignRemediationSettingsAutoRemediationSettings {
+		return v.AutoRemediationSettings
+	}).(CampaignRemediationSettingsAutoRemediationSettingsPtrOutput)
+}
+
+// Specifies the action if the reviewer doesn't respond to the request or if the campaign is closed before an action is taken.
+func (o CampaignRemediationSettingsOutput) NoResponse() pulumi.StringOutput {
+	return o.ApplyT(func(v CampaignRemediationSettings) string { return v.NoResponse }).(pulumi.StringOutput)
+}
+
+type CampaignRemediationSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (CampaignRemediationSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CampaignRemediationSettings)(nil)).Elem()
+}
+
+func (o CampaignRemediationSettingsPtrOutput) ToCampaignRemediationSettingsPtrOutput() CampaignRemediationSettingsPtrOutput {
+	return o
+}
+
+func (o CampaignRemediationSettingsPtrOutput) ToCampaignRemediationSettingsPtrOutputWithContext(ctx context.Context) CampaignRemediationSettingsPtrOutput {
+	return o
+}
+
+func (o CampaignRemediationSettingsPtrOutput) Elem() CampaignRemediationSettingsOutput {
+	return o.ApplyT(func(v *CampaignRemediationSettings) CampaignRemediationSettings {
+		if v != nil {
+			return *v
+		}
+		var ret CampaignRemediationSettings
+		return ret
+	}).(CampaignRemediationSettingsOutput)
+}
+
+// Specifies the action by default if the reviewer approves access. NO_ACTION indicates there is no remediation action and the user retains access.
+func (o CampaignRemediationSettingsPtrOutput) AccessApproved() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CampaignRemediationSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AccessApproved
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the action if the reviewer revokes access. NO_ACTION indicates the user retains the same access. DENY indicates the user will have their access revoked as long as they are not assigned to a group through Group Rules.
+func (o CampaignRemediationSettingsPtrOutput) AccessRevoked() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CampaignRemediationSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AccessRevoked
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o CampaignRemediationSettingsPtrOutput) AutoRemediationSettings() CampaignRemediationSettingsAutoRemediationSettingsPtrOutput {
+	return o.ApplyT(func(v *CampaignRemediationSettings) *CampaignRemediationSettingsAutoRemediationSettings {
+		if v == nil {
+			return nil
+		}
+		return v.AutoRemediationSettings
+	}).(CampaignRemediationSettingsAutoRemediationSettingsPtrOutput)
+}
+
+// Specifies the action if the reviewer doesn't respond to the request or if the campaign is closed before an action is taken.
+func (o CampaignRemediationSettingsPtrOutput) NoResponse() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CampaignRemediationSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.NoResponse
+	}).(pulumi.StringPtrOutput)
+}
+
+type CampaignRemediationSettingsAutoRemediationSettings struct {
+	// If true, all indirect assignments will be included in the campaign. If false, only direct assignments will be included.
+	IncludeAllIndirectAssignments *bool                                                           `pulumi:"includeAllIndirectAssignments"`
+	IncludeOnlies                 []CampaignRemediationSettingsAutoRemediationSettingsIncludeOnly `pulumi:"includeOnlies"`
+}
+
+// CampaignRemediationSettingsAutoRemediationSettingsInput is an input type that accepts CampaignRemediationSettingsAutoRemediationSettingsArgs and CampaignRemediationSettingsAutoRemediationSettingsOutput values.
+// You can construct a concrete instance of `CampaignRemediationSettingsAutoRemediationSettingsInput` via:
+//
+//	CampaignRemediationSettingsAutoRemediationSettingsArgs{...}
+type CampaignRemediationSettingsAutoRemediationSettingsInput interface {
+	pulumi.Input
+
+	ToCampaignRemediationSettingsAutoRemediationSettingsOutput() CampaignRemediationSettingsAutoRemediationSettingsOutput
+	ToCampaignRemediationSettingsAutoRemediationSettingsOutputWithContext(context.Context) CampaignRemediationSettingsAutoRemediationSettingsOutput
+}
+
+type CampaignRemediationSettingsAutoRemediationSettingsArgs struct {
+	// If true, all indirect assignments will be included in the campaign. If false, only direct assignments will be included.
+	IncludeAllIndirectAssignments pulumi.BoolPtrInput                                                     `pulumi:"includeAllIndirectAssignments"`
+	IncludeOnlies                 CampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyArrayInput `pulumi:"includeOnlies"`
+}
+
+func (CampaignRemediationSettingsAutoRemediationSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CampaignRemediationSettingsAutoRemediationSettings)(nil)).Elem()
+}
+
+func (i CampaignRemediationSettingsAutoRemediationSettingsArgs) ToCampaignRemediationSettingsAutoRemediationSettingsOutput() CampaignRemediationSettingsAutoRemediationSettingsOutput {
+	return i.ToCampaignRemediationSettingsAutoRemediationSettingsOutputWithContext(context.Background())
+}
+
+func (i CampaignRemediationSettingsAutoRemediationSettingsArgs) ToCampaignRemediationSettingsAutoRemediationSettingsOutputWithContext(ctx context.Context) CampaignRemediationSettingsAutoRemediationSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CampaignRemediationSettingsAutoRemediationSettingsOutput)
+}
+
+func (i CampaignRemediationSettingsAutoRemediationSettingsArgs) ToCampaignRemediationSettingsAutoRemediationSettingsPtrOutput() CampaignRemediationSettingsAutoRemediationSettingsPtrOutput {
+	return i.ToCampaignRemediationSettingsAutoRemediationSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i CampaignRemediationSettingsAutoRemediationSettingsArgs) ToCampaignRemediationSettingsAutoRemediationSettingsPtrOutputWithContext(ctx context.Context) CampaignRemediationSettingsAutoRemediationSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CampaignRemediationSettingsAutoRemediationSettingsOutput).ToCampaignRemediationSettingsAutoRemediationSettingsPtrOutputWithContext(ctx)
+}
+
+// CampaignRemediationSettingsAutoRemediationSettingsPtrInput is an input type that accepts CampaignRemediationSettingsAutoRemediationSettingsArgs, CampaignRemediationSettingsAutoRemediationSettingsPtr and CampaignRemediationSettingsAutoRemediationSettingsPtrOutput values.
+// You can construct a concrete instance of `CampaignRemediationSettingsAutoRemediationSettingsPtrInput` via:
+//
+//	        CampaignRemediationSettingsAutoRemediationSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type CampaignRemediationSettingsAutoRemediationSettingsPtrInput interface {
+	pulumi.Input
+
+	ToCampaignRemediationSettingsAutoRemediationSettingsPtrOutput() CampaignRemediationSettingsAutoRemediationSettingsPtrOutput
+	ToCampaignRemediationSettingsAutoRemediationSettingsPtrOutputWithContext(context.Context) CampaignRemediationSettingsAutoRemediationSettingsPtrOutput
+}
+
+type campaignRemediationSettingsAutoRemediationSettingsPtrType CampaignRemediationSettingsAutoRemediationSettingsArgs
+
+func CampaignRemediationSettingsAutoRemediationSettingsPtr(v *CampaignRemediationSettingsAutoRemediationSettingsArgs) CampaignRemediationSettingsAutoRemediationSettingsPtrInput {
+	return (*campaignRemediationSettingsAutoRemediationSettingsPtrType)(v)
+}
+
+func (*campaignRemediationSettingsAutoRemediationSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CampaignRemediationSettingsAutoRemediationSettings)(nil)).Elem()
+}
+
+func (i *campaignRemediationSettingsAutoRemediationSettingsPtrType) ToCampaignRemediationSettingsAutoRemediationSettingsPtrOutput() CampaignRemediationSettingsAutoRemediationSettingsPtrOutput {
+	return i.ToCampaignRemediationSettingsAutoRemediationSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *campaignRemediationSettingsAutoRemediationSettingsPtrType) ToCampaignRemediationSettingsAutoRemediationSettingsPtrOutputWithContext(ctx context.Context) CampaignRemediationSettingsAutoRemediationSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CampaignRemediationSettingsAutoRemediationSettingsPtrOutput)
+}
+
+type CampaignRemediationSettingsAutoRemediationSettingsOutput struct{ *pulumi.OutputState }
+
+func (CampaignRemediationSettingsAutoRemediationSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CampaignRemediationSettingsAutoRemediationSettings)(nil)).Elem()
+}
+
+func (o CampaignRemediationSettingsAutoRemediationSettingsOutput) ToCampaignRemediationSettingsAutoRemediationSettingsOutput() CampaignRemediationSettingsAutoRemediationSettingsOutput {
+	return o
+}
+
+func (o CampaignRemediationSettingsAutoRemediationSettingsOutput) ToCampaignRemediationSettingsAutoRemediationSettingsOutputWithContext(ctx context.Context) CampaignRemediationSettingsAutoRemediationSettingsOutput {
+	return o
+}
+
+func (o CampaignRemediationSettingsAutoRemediationSettingsOutput) ToCampaignRemediationSettingsAutoRemediationSettingsPtrOutput() CampaignRemediationSettingsAutoRemediationSettingsPtrOutput {
+	return o.ToCampaignRemediationSettingsAutoRemediationSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o CampaignRemediationSettingsAutoRemediationSettingsOutput) ToCampaignRemediationSettingsAutoRemediationSettingsPtrOutputWithContext(ctx context.Context) CampaignRemediationSettingsAutoRemediationSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CampaignRemediationSettingsAutoRemediationSettings) *CampaignRemediationSettingsAutoRemediationSettings {
+		return &v
+	}).(CampaignRemediationSettingsAutoRemediationSettingsPtrOutput)
+}
+
+// If true, all indirect assignments will be included in the campaign. If false, only direct assignments will be included.
+func (o CampaignRemediationSettingsAutoRemediationSettingsOutput) IncludeAllIndirectAssignments() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CampaignRemediationSettingsAutoRemediationSettings) *bool {
+		return v.IncludeAllIndirectAssignments
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o CampaignRemediationSettingsAutoRemediationSettingsOutput) IncludeOnlies() CampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyArrayOutput {
+	return o.ApplyT(func(v CampaignRemediationSettingsAutoRemediationSettings) []CampaignRemediationSettingsAutoRemediationSettingsIncludeOnly {
+		return v.IncludeOnlies
+	}).(CampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyArrayOutput)
+}
+
+type CampaignRemediationSettingsAutoRemediationSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (CampaignRemediationSettingsAutoRemediationSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CampaignRemediationSettingsAutoRemediationSettings)(nil)).Elem()
+}
+
+func (o CampaignRemediationSettingsAutoRemediationSettingsPtrOutput) ToCampaignRemediationSettingsAutoRemediationSettingsPtrOutput() CampaignRemediationSettingsAutoRemediationSettingsPtrOutput {
+	return o
+}
+
+func (o CampaignRemediationSettingsAutoRemediationSettingsPtrOutput) ToCampaignRemediationSettingsAutoRemediationSettingsPtrOutputWithContext(ctx context.Context) CampaignRemediationSettingsAutoRemediationSettingsPtrOutput {
+	return o
+}
+
+func (o CampaignRemediationSettingsAutoRemediationSettingsPtrOutput) Elem() CampaignRemediationSettingsAutoRemediationSettingsOutput {
+	return o.ApplyT(func(v *CampaignRemediationSettingsAutoRemediationSettings) CampaignRemediationSettingsAutoRemediationSettings {
+		if v != nil {
+			return *v
+		}
+		var ret CampaignRemediationSettingsAutoRemediationSettings
+		return ret
+	}).(CampaignRemediationSettingsAutoRemediationSettingsOutput)
+}
+
+// If true, all indirect assignments will be included in the campaign. If false, only direct assignments will be included.
+func (o CampaignRemediationSettingsAutoRemediationSettingsPtrOutput) IncludeAllIndirectAssignments() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CampaignRemediationSettingsAutoRemediationSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeAllIndirectAssignments
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o CampaignRemediationSettingsAutoRemediationSettingsPtrOutput) IncludeOnlies() CampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyArrayOutput {
+	return o.ApplyT(func(v *CampaignRemediationSettingsAutoRemediationSettings) []CampaignRemediationSettingsAutoRemediationSettingsIncludeOnly {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeOnlies
+	}).(CampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyArrayOutput)
+}
+
+type CampaignRemediationSettingsAutoRemediationSettingsIncludeOnly struct {
+	// The ID of the resource to include in the campaign.
+	ResourceId *string `pulumi:"resourceId"`
+	// The type of the resource to include in the campaign. Valid values are 'APPLICATION', 'GROUP', 'ENTITLEMENT', 'ENTITLEMENT_BUNDLE'.
+	ResourceType *string `pulumi:"resourceType"`
+}
+
+// CampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyInput is an input type that accepts CampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyArgs and CampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyOutput values.
+// You can construct a concrete instance of `CampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyInput` via:
+//
+//	CampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyArgs{...}
+type CampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyInput interface {
+	pulumi.Input
+
+	ToCampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyOutput() CampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyOutput
+	ToCampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyOutputWithContext(context.Context) CampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyOutput
+}
+
+type CampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyArgs struct {
+	// The ID of the resource to include in the campaign.
+	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
+	// The type of the resource to include in the campaign. Valid values are 'APPLICATION', 'GROUP', 'ENTITLEMENT', 'ENTITLEMENT_BUNDLE'.
+	ResourceType pulumi.StringPtrInput `pulumi:"resourceType"`
+}
+
+func (CampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CampaignRemediationSettingsAutoRemediationSettingsIncludeOnly)(nil)).Elem()
+}
+
+func (i CampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyArgs) ToCampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyOutput() CampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyOutput {
+	return i.ToCampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyOutputWithContext(context.Background())
+}
+
+func (i CampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyArgs) ToCampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyOutputWithContext(ctx context.Context) CampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyOutput)
+}
+
+// CampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyArrayInput is an input type that accepts CampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyArray and CampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyArrayOutput values.
+// You can construct a concrete instance of `CampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyArrayInput` via:
+//
+//	CampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyArray{ CampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyArgs{...} }
+type CampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyArrayInput interface {
+	pulumi.Input
+
+	ToCampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyArrayOutput() CampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyArrayOutput
+	ToCampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyArrayOutputWithContext(context.Context) CampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyArrayOutput
+}
+
+type CampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyArray []CampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyInput
+
+func (CampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CampaignRemediationSettingsAutoRemediationSettingsIncludeOnly)(nil)).Elem()
+}
+
+func (i CampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyArray) ToCampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyArrayOutput() CampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyArrayOutput {
+	return i.ToCampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyArrayOutputWithContext(context.Background())
+}
+
+func (i CampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyArray) ToCampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyArrayOutputWithContext(ctx context.Context) CampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyArrayOutput)
+}
+
+type CampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyOutput struct{ *pulumi.OutputState }
+
+func (CampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CampaignRemediationSettingsAutoRemediationSettingsIncludeOnly)(nil)).Elem()
+}
+
+func (o CampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyOutput) ToCampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyOutput() CampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyOutput {
+	return o
+}
+
+func (o CampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyOutput) ToCampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyOutputWithContext(ctx context.Context) CampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyOutput {
+	return o
+}
+
+// The ID of the resource to include in the campaign.
+func (o CampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyOutput) ResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CampaignRemediationSettingsAutoRemediationSettingsIncludeOnly) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
+}
+
+// The type of the resource to include in the campaign. Valid values are 'APPLICATION', 'GROUP', 'ENTITLEMENT', 'ENTITLEMENT_BUNDLE'.
+func (o CampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyOutput) ResourceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CampaignRemediationSettingsAutoRemediationSettingsIncludeOnly) *string { return v.ResourceType }).(pulumi.StringPtrOutput)
+}
+
+type CampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyArrayOutput struct{ *pulumi.OutputState }
+
+func (CampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CampaignRemediationSettingsAutoRemediationSettingsIncludeOnly)(nil)).Elem()
+}
+
+func (o CampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyArrayOutput) ToCampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyArrayOutput() CampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyArrayOutput {
+	return o
+}
+
+func (o CampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyArrayOutput) ToCampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyArrayOutputWithContext(ctx context.Context) CampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyArrayOutput {
+	return o
+}
+
+func (o CampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyArrayOutput) Index(i pulumi.IntInput) CampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CampaignRemediationSettingsAutoRemediationSettingsIncludeOnly {
+		return vs[0].([]CampaignRemediationSettingsAutoRemediationSettingsIncludeOnly)[vs[1].(int)]
+	}).(CampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyOutput)
+}
+
+type CampaignResourceSettings struct {
+	// An array of resources that are excluded from the review.
+	ExcludedResources []CampaignResourceSettingsExcludedResource `pulumi:"excludedResources"`
+	// Include admin roles.
+	IncludeAdminRoles *bool `pulumi:"includeAdminRoles"`
+	// Include entitlements for this application. This property is only applicable if resourceType = APPLICATION and Entitlement Management is enabled.
+	IncludeEntitlements *bool `pulumi:"includeEntitlements"`
+	// Only include individually assigned apps. This is only applicable if campaign type is USER.
+	IndividuallyAssignedAppsOnly *bool `pulumi:"individuallyAssignedAppsOnly"`
+	// Only include individually assigned groups. This is only applicable if campaign type is USER.
+	IndividuallyAssignedGroupsOnly *bool `pulumi:"individuallyAssignedGroupsOnly"`
+	// Only include out-of-policy entitlements. Only applicable if resourceType = APPLICATION and Entitlement Management is enabled.
+	OnlyIncludeOutOfPolicyEntitlements *bool `pulumi:"onlyIncludeOutOfPolicyEntitlements"`
+	// Represents a resource that will be part of Access certifications. If the app is enabled for Access Certifications, it's possible to review entitlements and entitlement bundles.
+	TargetResources []CampaignResourceSettingsTargetResource `pulumi:"targetResources"`
+	// The type of Okta resource.
+	Type string `pulumi:"type"`
+}
+
+// CampaignResourceSettingsInput is an input type that accepts CampaignResourceSettingsArgs and CampaignResourceSettingsOutput values.
+// You can construct a concrete instance of `CampaignResourceSettingsInput` via:
+//
+//	CampaignResourceSettingsArgs{...}
+type CampaignResourceSettingsInput interface {
+	pulumi.Input
+
+	ToCampaignResourceSettingsOutput() CampaignResourceSettingsOutput
+	ToCampaignResourceSettingsOutputWithContext(context.Context) CampaignResourceSettingsOutput
+}
+
+type CampaignResourceSettingsArgs struct {
+	// An array of resources that are excluded from the review.
+	ExcludedResources CampaignResourceSettingsExcludedResourceArrayInput `pulumi:"excludedResources"`
+	// Include admin roles.
+	IncludeAdminRoles pulumi.BoolPtrInput `pulumi:"includeAdminRoles"`
+	// Include entitlements for this application. This property is only applicable if resourceType = APPLICATION and Entitlement Management is enabled.
+	IncludeEntitlements pulumi.BoolPtrInput `pulumi:"includeEntitlements"`
+	// Only include individually assigned apps. This is only applicable if campaign type is USER.
+	IndividuallyAssignedAppsOnly pulumi.BoolPtrInput `pulumi:"individuallyAssignedAppsOnly"`
+	// Only include individually assigned groups. This is only applicable if campaign type is USER.
+	IndividuallyAssignedGroupsOnly pulumi.BoolPtrInput `pulumi:"individuallyAssignedGroupsOnly"`
+	// Only include out-of-policy entitlements. Only applicable if resourceType = APPLICATION and Entitlement Management is enabled.
+	OnlyIncludeOutOfPolicyEntitlements pulumi.BoolPtrInput `pulumi:"onlyIncludeOutOfPolicyEntitlements"`
+	// Represents a resource that will be part of Access certifications. If the app is enabled for Access Certifications, it's possible to review entitlements and entitlement bundles.
+	TargetResources CampaignResourceSettingsTargetResourceArrayInput `pulumi:"targetResources"`
+	// The type of Okta resource.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (CampaignResourceSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CampaignResourceSettings)(nil)).Elem()
+}
+
+func (i CampaignResourceSettingsArgs) ToCampaignResourceSettingsOutput() CampaignResourceSettingsOutput {
+	return i.ToCampaignResourceSettingsOutputWithContext(context.Background())
+}
+
+func (i CampaignResourceSettingsArgs) ToCampaignResourceSettingsOutputWithContext(ctx context.Context) CampaignResourceSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CampaignResourceSettingsOutput)
+}
+
+func (i CampaignResourceSettingsArgs) ToCampaignResourceSettingsPtrOutput() CampaignResourceSettingsPtrOutput {
+	return i.ToCampaignResourceSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i CampaignResourceSettingsArgs) ToCampaignResourceSettingsPtrOutputWithContext(ctx context.Context) CampaignResourceSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CampaignResourceSettingsOutput).ToCampaignResourceSettingsPtrOutputWithContext(ctx)
+}
+
+// CampaignResourceSettingsPtrInput is an input type that accepts CampaignResourceSettingsArgs, CampaignResourceSettingsPtr and CampaignResourceSettingsPtrOutput values.
+// You can construct a concrete instance of `CampaignResourceSettingsPtrInput` via:
+//
+//	        CampaignResourceSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type CampaignResourceSettingsPtrInput interface {
+	pulumi.Input
+
+	ToCampaignResourceSettingsPtrOutput() CampaignResourceSettingsPtrOutput
+	ToCampaignResourceSettingsPtrOutputWithContext(context.Context) CampaignResourceSettingsPtrOutput
+}
+
+type campaignResourceSettingsPtrType CampaignResourceSettingsArgs
+
+func CampaignResourceSettingsPtr(v *CampaignResourceSettingsArgs) CampaignResourceSettingsPtrInput {
+	return (*campaignResourceSettingsPtrType)(v)
+}
+
+func (*campaignResourceSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CampaignResourceSettings)(nil)).Elem()
+}
+
+func (i *campaignResourceSettingsPtrType) ToCampaignResourceSettingsPtrOutput() CampaignResourceSettingsPtrOutput {
+	return i.ToCampaignResourceSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *campaignResourceSettingsPtrType) ToCampaignResourceSettingsPtrOutputWithContext(ctx context.Context) CampaignResourceSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CampaignResourceSettingsPtrOutput)
+}
+
+type CampaignResourceSettingsOutput struct{ *pulumi.OutputState }
+
+func (CampaignResourceSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CampaignResourceSettings)(nil)).Elem()
+}
+
+func (o CampaignResourceSettingsOutput) ToCampaignResourceSettingsOutput() CampaignResourceSettingsOutput {
+	return o
+}
+
+func (o CampaignResourceSettingsOutput) ToCampaignResourceSettingsOutputWithContext(ctx context.Context) CampaignResourceSettingsOutput {
+	return o
+}
+
+func (o CampaignResourceSettingsOutput) ToCampaignResourceSettingsPtrOutput() CampaignResourceSettingsPtrOutput {
+	return o.ToCampaignResourceSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o CampaignResourceSettingsOutput) ToCampaignResourceSettingsPtrOutputWithContext(ctx context.Context) CampaignResourceSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CampaignResourceSettings) *CampaignResourceSettings {
+		return &v
+	}).(CampaignResourceSettingsPtrOutput)
+}
+
+// An array of resources that are excluded from the review.
+func (o CampaignResourceSettingsOutput) ExcludedResources() CampaignResourceSettingsExcludedResourceArrayOutput {
+	return o.ApplyT(func(v CampaignResourceSettings) []CampaignResourceSettingsExcludedResource {
+		return v.ExcludedResources
+	}).(CampaignResourceSettingsExcludedResourceArrayOutput)
+}
+
+// Include admin roles.
+func (o CampaignResourceSettingsOutput) IncludeAdminRoles() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CampaignResourceSettings) *bool { return v.IncludeAdminRoles }).(pulumi.BoolPtrOutput)
+}
+
+// Include entitlements for this application. This property is only applicable if resourceType = APPLICATION and Entitlement Management is enabled.
+func (o CampaignResourceSettingsOutput) IncludeEntitlements() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CampaignResourceSettings) *bool { return v.IncludeEntitlements }).(pulumi.BoolPtrOutput)
+}
+
+// Only include individually assigned apps. This is only applicable if campaign type is USER.
+func (o CampaignResourceSettingsOutput) IndividuallyAssignedAppsOnly() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CampaignResourceSettings) *bool { return v.IndividuallyAssignedAppsOnly }).(pulumi.BoolPtrOutput)
+}
+
+// Only include individually assigned groups. This is only applicable if campaign type is USER.
+func (o CampaignResourceSettingsOutput) IndividuallyAssignedGroupsOnly() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CampaignResourceSettings) *bool { return v.IndividuallyAssignedGroupsOnly }).(pulumi.BoolPtrOutput)
+}
+
+// Only include out-of-policy entitlements. Only applicable if resourceType = APPLICATION and Entitlement Management is enabled.
+func (o CampaignResourceSettingsOutput) OnlyIncludeOutOfPolicyEntitlements() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CampaignResourceSettings) *bool { return v.OnlyIncludeOutOfPolicyEntitlements }).(pulumi.BoolPtrOutput)
+}
+
+// Represents a resource that will be part of Access certifications. If the app is enabled for Access Certifications, it's possible to review entitlements and entitlement bundles.
+func (o CampaignResourceSettingsOutput) TargetResources() CampaignResourceSettingsTargetResourceArrayOutput {
+	return o.ApplyT(func(v CampaignResourceSettings) []CampaignResourceSettingsTargetResource { return v.TargetResources }).(CampaignResourceSettingsTargetResourceArrayOutput)
+}
+
+// The type of Okta resource.
+func (o CampaignResourceSettingsOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v CampaignResourceSettings) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type CampaignResourceSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (CampaignResourceSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CampaignResourceSettings)(nil)).Elem()
+}
+
+func (o CampaignResourceSettingsPtrOutput) ToCampaignResourceSettingsPtrOutput() CampaignResourceSettingsPtrOutput {
+	return o
+}
+
+func (o CampaignResourceSettingsPtrOutput) ToCampaignResourceSettingsPtrOutputWithContext(ctx context.Context) CampaignResourceSettingsPtrOutput {
+	return o
+}
+
+func (o CampaignResourceSettingsPtrOutput) Elem() CampaignResourceSettingsOutput {
+	return o.ApplyT(func(v *CampaignResourceSettings) CampaignResourceSettings {
+		if v != nil {
+			return *v
+		}
+		var ret CampaignResourceSettings
+		return ret
+	}).(CampaignResourceSettingsOutput)
+}
+
+// An array of resources that are excluded from the review.
+func (o CampaignResourceSettingsPtrOutput) ExcludedResources() CampaignResourceSettingsExcludedResourceArrayOutput {
+	return o.ApplyT(func(v *CampaignResourceSettings) []CampaignResourceSettingsExcludedResource {
+		if v == nil {
+			return nil
+		}
+		return v.ExcludedResources
+	}).(CampaignResourceSettingsExcludedResourceArrayOutput)
+}
+
+// Include admin roles.
+func (o CampaignResourceSettingsPtrOutput) IncludeAdminRoles() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CampaignResourceSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeAdminRoles
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Include entitlements for this application. This property is only applicable if resourceType = APPLICATION and Entitlement Management is enabled.
+func (o CampaignResourceSettingsPtrOutput) IncludeEntitlements() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CampaignResourceSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeEntitlements
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Only include individually assigned apps. This is only applicable if campaign type is USER.
+func (o CampaignResourceSettingsPtrOutput) IndividuallyAssignedAppsOnly() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CampaignResourceSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IndividuallyAssignedAppsOnly
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Only include individually assigned groups. This is only applicable if campaign type is USER.
+func (o CampaignResourceSettingsPtrOutput) IndividuallyAssignedGroupsOnly() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CampaignResourceSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IndividuallyAssignedGroupsOnly
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Only include out-of-policy entitlements. Only applicable if resourceType = APPLICATION and Entitlement Management is enabled.
+func (o CampaignResourceSettingsPtrOutput) OnlyIncludeOutOfPolicyEntitlements() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CampaignResourceSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.OnlyIncludeOutOfPolicyEntitlements
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Represents a resource that will be part of Access certifications. If the app is enabled for Access Certifications, it's possible to review entitlements and entitlement bundles.
+func (o CampaignResourceSettingsPtrOutput) TargetResources() CampaignResourceSettingsTargetResourceArrayOutput {
+	return o.ApplyT(func(v *CampaignResourceSettings) []CampaignResourceSettingsTargetResource {
+		if v == nil {
+			return nil
+		}
+		return v.TargetResources
+	}).(CampaignResourceSettingsTargetResourceArrayOutput)
+}
+
+// The type of Okta resource.
+func (o CampaignResourceSettingsPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CampaignResourceSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type CampaignResourceSettingsExcludedResource struct {
+	// The ID of the resource to exclude in the campaign.
+	ResourceId *string `pulumi:"resourceId"`
+	// The type of resource to exclude in the campaign.
+	ResourceType *string `pulumi:"resourceType"`
+}
+
+// CampaignResourceSettingsExcludedResourceInput is an input type that accepts CampaignResourceSettingsExcludedResourceArgs and CampaignResourceSettingsExcludedResourceOutput values.
+// You can construct a concrete instance of `CampaignResourceSettingsExcludedResourceInput` via:
+//
+//	CampaignResourceSettingsExcludedResourceArgs{...}
+type CampaignResourceSettingsExcludedResourceInput interface {
+	pulumi.Input
+
+	ToCampaignResourceSettingsExcludedResourceOutput() CampaignResourceSettingsExcludedResourceOutput
+	ToCampaignResourceSettingsExcludedResourceOutputWithContext(context.Context) CampaignResourceSettingsExcludedResourceOutput
+}
+
+type CampaignResourceSettingsExcludedResourceArgs struct {
+	// The ID of the resource to exclude in the campaign.
+	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
+	// The type of resource to exclude in the campaign.
+	ResourceType pulumi.StringPtrInput `pulumi:"resourceType"`
+}
+
+func (CampaignResourceSettingsExcludedResourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CampaignResourceSettingsExcludedResource)(nil)).Elem()
+}
+
+func (i CampaignResourceSettingsExcludedResourceArgs) ToCampaignResourceSettingsExcludedResourceOutput() CampaignResourceSettingsExcludedResourceOutput {
+	return i.ToCampaignResourceSettingsExcludedResourceOutputWithContext(context.Background())
+}
+
+func (i CampaignResourceSettingsExcludedResourceArgs) ToCampaignResourceSettingsExcludedResourceOutputWithContext(ctx context.Context) CampaignResourceSettingsExcludedResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CampaignResourceSettingsExcludedResourceOutput)
+}
+
+// CampaignResourceSettingsExcludedResourceArrayInput is an input type that accepts CampaignResourceSettingsExcludedResourceArray and CampaignResourceSettingsExcludedResourceArrayOutput values.
+// You can construct a concrete instance of `CampaignResourceSettingsExcludedResourceArrayInput` via:
+//
+//	CampaignResourceSettingsExcludedResourceArray{ CampaignResourceSettingsExcludedResourceArgs{...} }
+type CampaignResourceSettingsExcludedResourceArrayInput interface {
+	pulumi.Input
+
+	ToCampaignResourceSettingsExcludedResourceArrayOutput() CampaignResourceSettingsExcludedResourceArrayOutput
+	ToCampaignResourceSettingsExcludedResourceArrayOutputWithContext(context.Context) CampaignResourceSettingsExcludedResourceArrayOutput
+}
+
+type CampaignResourceSettingsExcludedResourceArray []CampaignResourceSettingsExcludedResourceInput
+
+func (CampaignResourceSettingsExcludedResourceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CampaignResourceSettingsExcludedResource)(nil)).Elem()
+}
+
+func (i CampaignResourceSettingsExcludedResourceArray) ToCampaignResourceSettingsExcludedResourceArrayOutput() CampaignResourceSettingsExcludedResourceArrayOutput {
+	return i.ToCampaignResourceSettingsExcludedResourceArrayOutputWithContext(context.Background())
+}
+
+func (i CampaignResourceSettingsExcludedResourceArray) ToCampaignResourceSettingsExcludedResourceArrayOutputWithContext(ctx context.Context) CampaignResourceSettingsExcludedResourceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CampaignResourceSettingsExcludedResourceArrayOutput)
+}
+
+type CampaignResourceSettingsExcludedResourceOutput struct{ *pulumi.OutputState }
+
+func (CampaignResourceSettingsExcludedResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CampaignResourceSettingsExcludedResource)(nil)).Elem()
+}
+
+func (o CampaignResourceSettingsExcludedResourceOutput) ToCampaignResourceSettingsExcludedResourceOutput() CampaignResourceSettingsExcludedResourceOutput {
+	return o
+}
+
+func (o CampaignResourceSettingsExcludedResourceOutput) ToCampaignResourceSettingsExcludedResourceOutputWithContext(ctx context.Context) CampaignResourceSettingsExcludedResourceOutput {
+	return o
+}
+
+// The ID of the resource to exclude in the campaign.
+func (o CampaignResourceSettingsExcludedResourceOutput) ResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CampaignResourceSettingsExcludedResource) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
+}
+
+// The type of resource to exclude in the campaign.
+func (o CampaignResourceSettingsExcludedResourceOutput) ResourceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CampaignResourceSettingsExcludedResource) *string { return v.ResourceType }).(pulumi.StringPtrOutput)
+}
+
+type CampaignResourceSettingsExcludedResourceArrayOutput struct{ *pulumi.OutputState }
+
+func (CampaignResourceSettingsExcludedResourceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CampaignResourceSettingsExcludedResource)(nil)).Elem()
+}
+
+func (o CampaignResourceSettingsExcludedResourceArrayOutput) ToCampaignResourceSettingsExcludedResourceArrayOutput() CampaignResourceSettingsExcludedResourceArrayOutput {
+	return o
+}
+
+func (o CampaignResourceSettingsExcludedResourceArrayOutput) ToCampaignResourceSettingsExcludedResourceArrayOutputWithContext(ctx context.Context) CampaignResourceSettingsExcludedResourceArrayOutput {
+	return o
+}
+
+func (o CampaignResourceSettingsExcludedResourceArrayOutput) Index(i pulumi.IntInput) CampaignResourceSettingsExcludedResourceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CampaignResourceSettingsExcludedResource {
+		return vs[0].([]CampaignResourceSettingsExcludedResource)[vs[1].(int)]
+	}).(CampaignResourceSettingsExcludedResourceOutput)
+}
+
+type CampaignResourceSettingsTargetResource struct {
+	// An array of entitlement bundles for this application.
+	EntitlementBundles []CampaignResourceSettingsTargetResourceEntitlementBundle `pulumi:"entitlementBundles"`
+	// An array of entitlements associated with resourceId that should be chosen as target when creating reviews
+	Entitlements []CampaignResourceSettingsTargetResourceEntitlement `pulumi:"entitlements"`
+	// Include all entitlements and entitlement bundles for this application. Only applicable if the resourcetype = APPLICATION and Entitlement Management is enabled.
+	IncludeAllEntitlementsAndBundles *bool `pulumi:"includeAllEntitlementsAndBundles"`
+	// The resource ID that is being reviewed.
+	ResourceId string `pulumi:"resourceId"`
+	// The type of Okta resource.
+	ResourceType string `pulumi:"resourceType"`
+}
+
+// CampaignResourceSettingsTargetResourceInput is an input type that accepts CampaignResourceSettingsTargetResourceArgs and CampaignResourceSettingsTargetResourceOutput values.
+// You can construct a concrete instance of `CampaignResourceSettingsTargetResourceInput` via:
+//
+//	CampaignResourceSettingsTargetResourceArgs{...}
+type CampaignResourceSettingsTargetResourceInput interface {
+	pulumi.Input
+
+	ToCampaignResourceSettingsTargetResourceOutput() CampaignResourceSettingsTargetResourceOutput
+	ToCampaignResourceSettingsTargetResourceOutputWithContext(context.Context) CampaignResourceSettingsTargetResourceOutput
+}
+
+type CampaignResourceSettingsTargetResourceArgs struct {
+	// An array of entitlement bundles for this application.
+	EntitlementBundles CampaignResourceSettingsTargetResourceEntitlementBundleArrayInput `pulumi:"entitlementBundles"`
+	// An array of entitlements associated with resourceId that should be chosen as target when creating reviews
+	Entitlements CampaignResourceSettingsTargetResourceEntitlementArrayInput `pulumi:"entitlements"`
+	// Include all entitlements and entitlement bundles for this application. Only applicable if the resourcetype = APPLICATION and Entitlement Management is enabled.
+	IncludeAllEntitlementsAndBundles pulumi.BoolPtrInput `pulumi:"includeAllEntitlementsAndBundles"`
+	// The resource ID that is being reviewed.
+	ResourceId pulumi.StringInput `pulumi:"resourceId"`
+	// The type of Okta resource.
+	ResourceType pulumi.StringInput `pulumi:"resourceType"`
+}
+
+func (CampaignResourceSettingsTargetResourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CampaignResourceSettingsTargetResource)(nil)).Elem()
+}
+
+func (i CampaignResourceSettingsTargetResourceArgs) ToCampaignResourceSettingsTargetResourceOutput() CampaignResourceSettingsTargetResourceOutput {
+	return i.ToCampaignResourceSettingsTargetResourceOutputWithContext(context.Background())
+}
+
+func (i CampaignResourceSettingsTargetResourceArgs) ToCampaignResourceSettingsTargetResourceOutputWithContext(ctx context.Context) CampaignResourceSettingsTargetResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CampaignResourceSettingsTargetResourceOutput)
+}
+
+// CampaignResourceSettingsTargetResourceArrayInput is an input type that accepts CampaignResourceSettingsTargetResourceArray and CampaignResourceSettingsTargetResourceArrayOutput values.
+// You can construct a concrete instance of `CampaignResourceSettingsTargetResourceArrayInput` via:
+//
+//	CampaignResourceSettingsTargetResourceArray{ CampaignResourceSettingsTargetResourceArgs{...} }
+type CampaignResourceSettingsTargetResourceArrayInput interface {
+	pulumi.Input
+
+	ToCampaignResourceSettingsTargetResourceArrayOutput() CampaignResourceSettingsTargetResourceArrayOutput
+	ToCampaignResourceSettingsTargetResourceArrayOutputWithContext(context.Context) CampaignResourceSettingsTargetResourceArrayOutput
+}
+
+type CampaignResourceSettingsTargetResourceArray []CampaignResourceSettingsTargetResourceInput
+
+func (CampaignResourceSettingsTargetResourceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CampaignResourceSettingsTargetResource)(nil)).Elem()
+}
+
+func (i CampaignResourceSettingsTargetResourceArray) ToCampaignResourceSettingsTargetResourceArrayOutput() CampaignResourceSettingsTargetResourceArrayOutput {
+	return i.ToCampaignResourceSettingsTargetResourceArrayOutputWithContext(context.Background())
+}
+
+func (i CampaignResourceSettingsTargetResourceArray) ToCampaignResourceSettingsTargetResourceArrayOutputWithContext(ctx context.Context) CampaignResourceSettingsTargetResourceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CampaignResourceSettingsTargetResourceArrayOutput)
+}
+
+type CampaignResourceSettingsTargetResourceOutput struct{ *pulumi.OutputState }
+
+func (CampaignResourceSettingsTargetResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CampaignResourceSettingsTargetResource)(nil)).Elem()
+}
+
+func (o CampaignResourceSettingsTargetResourceOutput) ToCampaignResourceSettingsTargetResourceOutput() CampaignResourceSettingsTargetResourceOutput {
+	return o
+}
+
+func (o CampaignResourceSettingsTargetResourceOutput) ToCampaignResourceSettingsTargetResourceOutputWithContext(ctx context.Context) CampaignResourceSettingsTargetResourceOutput {
+	return o
+}
+
+// An array of entitlement bundles for this application.
+func (o CampaignResourceSettingsTargetResourceOutput) EntitlementBundles() CampaignResourceSettingsTargetResourceEntitlementBundleArrayOutput {
+	return o.ApplyT(func(v CampaignResourceSettingsTargetResource) []CampaignResourceSettingsTargetResourceEntitlementBundle {
+		return v.EntitlementBundles
+	}).(CampaignResourceSettingsTargetResourceEntitlementBundleArrayOutput)
+}
+
+// An array of entitlements associated with resourceId that should be chosen as target when creating reviews
+func (o CampaignResourceSettingsTargetResourceOutput) Entitlements() CampaignResourceSettingsTargetResourceEntitlementArrayOutput {
+	return o.ApplyT(func(v CampaignResourceSettingsTargetResource) []CampaignResourceSettingsTargetResourceEntitlement {
+		return v.Entitlements
+	}).(CampaignResourceSettingsTargetResourceEntitlementArrayOutput)
+}
+
+// Include all entitlements and entitlement bundles for this application. Only applicable if the resourcetype = APPLICATION and Entitlement Management is enabled.
+func (o CampaignResourceSettingsTargetResourceOutput) IncludeAllEntitlementsAndBundles() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CampaignResourceSettingsTargetResource) *bool { return v.IncludeAllEntitlementsAndBundles }).(pulumi.BoolPtrOutput)
+}
+
+// The resource ID that is being reviewed.
+func (o CampaignResourceSettingsTargetResourceOutput) ResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v CampaignResourceSettingsTargetResource) string { return v.ResourceId }).(pulumi.StringOutput)
+}
+
+// The type of Okta resource.
+func (o CampaignResourceSettingsTargetResourceOutput) ResourceType() pulumi.StringOutput {
+	return o.ApplyT(func(v CampaignResourceSettingsTargetResource) string { return v.ResourceType }).(pulumi.StringOutput)
+}
+
+type CampaignResourceSettingsTargetResourceArrayOutput struct{ *pulumi.OutputState }
+
+func (CampaignResourceSettingsTargetResourceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CampaignResourceSettingsTargetResource)(nil)).Elem()
+}
+
+func (o CampaignResourceSettingsTargetResourceArrayOutput) ToCampaignResourceSettingsTargetResourceArrayOutput() CampaignResourceSettingsTargetResourceArrayOutput {
+	return o
+}
+
+func (o CampaignResourceSettingsTargetResourceArrayOutput) ToCampaignResourceSettingsTargetResourceArrayOutputWithContext(ctx context.Context) CampaignResourceSettingsTargetResourceArrayOutput {
+	return o
+}
+
+func (o CampaignResourceSettingsTargetResourceArrayOutput) Index(i pulumi.IntInput) CampaignResourceSettingsTargetResourceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CampaignResourceSettingsTargetResource {
+		return vs[0].([]CampaignResourceSettingsTargetResource)[vs[1].(int)]
+	}).(CampaignResourceSettingsTargetResourceOutput)
+}
+
+type CampaignResourceSettingsTargetResourceEntitlement struct {
+	// Campaign id
+	Id string `pulumi:"id"`
+	// Whether to include all entitlement values. If false we must provide the values property.
+	IncludeAllValues *bool                                                    `pulumi:"includeAllValues"`
+	Values           []CampaignResourceSettingsTargetResourceEntitlementValue `pulumi:"values"`
+}
+
+// CampaignResourceSettingsTargetResourceEntitlementInput is an input type that accepts CampaignResourceSettingsTargetResourceEntitlementArgs and CampaignResourceSettingsTargetResourceEntitlementOutput values.
+// You can construct a concrete instance of `CampaignResourceSettingsTargetResourceEntitlementInput` via:
+//
+//	CampaignResourceSettingsTargetResourceEntitlementArgs{...}
+type CampaignResourceSettingsTargetResourceEntitlementInput interface {
+	pulumi.Input
+
+	ToCampaignResourceSettingsTargetResourceEntitlementOutput() CampaignResourceSettingsTargetResourceEntitlementOutput
+	ToCampaignResourceSettingsTargetResourceEntitlementOutputWithContext(context.Context) CampaignResourceSettingsTargetResourceEntitlementOutput
+}
+
+type CampaignResourceSettingsTargetResourceEntitlementArgs struct {
+	// Campaign id
+	Id pulumi.StringInput `pulumi:"id"`
+	// Whether to include all entitlement values. If false we must provide the values property.
+	IncludeAllValues pulumi.BoolPtrInput                                              `pulumi:"includeAllValues"`
+	Values           CampaignResourceSettingsTargetResourceEntitlementValueArrayInput `pulumi:"values"`
+}
+
+func (CampaignResourceSettingsTargetResourceEntitlementArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CampaignResourceSettingsTargetResourceEntitlement)(nil)).Elem()
+}
+
+func (i CampaignResourceSettingsTargetResourceEntitlementArgs) ToCampaignResourceSettingsTargetResourceEntitlementOutput() CampaignResourceSettingsTargetResourceEntitlementOutput {
+	return i.ToCampaignResourceSettingsTargetResourceEntitlementOutputWithContext(context.Background())
+}
+
+func (i CampaignResourceSettingsTargetResourceEntitlementArgs) ToCampaignResourceSettingsTargetResourceEntitlementOutputWithContext(ctx context.Context) CampaignResourceSettingsTargetResourceEntitlementOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CampaignResourceSettingsTargetResourceEntitlementOutput)
+}
+
+// CampaignResourceSettingsTargetResourceEntitlementArrayInput is an input type that accepts CampaignResourceSettingsTargetResourceEntitlementArray and CampaignResourceSettingsTargetResourceEntitlementArrayOutput values.
+// You can construct a concrete instance of `CampaignResourceSettingsTargetResourceEntitlementArrayInput` via:
+//
+//	CampaignResourceSettingsTargetResourceEntitlementArray{ CampaignResourceSettingsTargetResourceEntitlementArgs{...} }
+type CampaignResourceSettingsTargetResourceEntitlementArrayInput interface {
+	pulumi.Input
+
+	ToCampaignResourceSettingsTargetResourceEntitlementArrayOutput() CampaignResourceSettingsTargetResourceEntitlementArrayOutput
+	ToCampaignResourceSettingsTargetResourceEntitlementArrayOutputWithContext(context.Context) CampaignResourceSettingsTargetResourceEntitlementArrayOutput
+}
+
+type CampaignResourceSettingsTargetResourceEntitlementArray []CampaignResourceSettingsTargetResourceEntitlementInput
+
+func (CampaignResourceSettingsTargetResourceEntitlementArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CampaignResourceSettingsTargetResourceEntitlement)(nil)).Elem()
+}
+
+func (i CampaignResourceSettingsTargetResourceEntitlementArray) ToCampaignResourceSettingsTargetResourceEntitlementArrayOutput() CampaignResourceSettingsTargetResourceEntitlementArrayOutput {
+	return i.ToCampaignResourceSettingsTargetResourceEntitlementArrayOutputWithContext(context.Background())
+}
+
+func (i CampaignResourceSettingsTargetResourceEntitlementArray) ToCampaignResourceSettingsTargetResourceEntitlementArrayOutputWithContext(ctx context.Context) CampaignResourceSettingsTargetResourceEntitlementArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CampaignResourceSettingsTargetResourceEntitlementArrayOutput)
+}
+
+type CampaignResourceSettingsTargetResourceEntitlementOutput struct{ *pulumi.OutputState }
+
+func (CampaignResourceSettingsTargetResourceEntitlementOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CampaignResourceSettingsTargetResourceEntitlement)(nil)).Elem()
+}
+
+func (o CampaignResourceSettingsTargetResourceEntitlementOutput) ToCampaignResourceSettingsTargetResourceEntitlementOutput() CampaignResourceSettingsTargetResourceEntitlementOutput {
+	return o
+}
+
+func (o CampaignResourceSettingsTargetResourceEntitlementOutput) ToCampaignResourceSettingsTargetResourceEntitlementOutputWithContext(ctx context.Context) CampaignResourceSettingsTargetResourceEntitlementOutput {
+	return o
+}
+
+// Campaign id
+func (o CampaignResourceSettingsTargetResourceEntitlementOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v CampaignResourceSettingsTargetResourceEntitlement) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Whether to include all entitlement values. If false we must provide the values property.
+func (o CampaignResourceSettingsTargetResourceEntitlementOutput) IncludeAllValues() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CampaignResourceSettingsTargetResourceEntitlement) *bool { return v.IncludeAllValues }).(pulumi.BoolPtrOutput)
+}
+
+func (o CampaignResourceSettingsTargetResourceEntitlementOutput) Values() CampaignResourceSettingsTargetResourceEntitlementValueArrayOutput {
+	return o.ApplyT(func(v CampaignResourceSettingsTargetResourceEntitlement) []CampaignResourceSettingsTargetResourceEntitlementValue {
+		return v.Values
+	}).(CampaignResourceSettingsTargetResourceEntitlementValueArrayOutput)
+}
+
+type CampaignResourceSettingsTargetResourceEntitlementArrayOutput struct{ *pulumi.OutputState }
+
+func (CampaignResourceSettingsTargetResourceEntitlementArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CampaignResourceSettingsTargetResourceEntitlement)(nil)).Elem()
+}
+
+func (o CampaignResourceSettingsTargetResourceEntitlementArrayOutput) ToCampaignResourceSettingsTargetResourceEntitlementArrayOutput() CampaignResourceSettingsTargetResourceEntitlementArrayOutput {
+	return o
+}
+
+func (o CampaignResourceSettingsTargetResourceEntitlementArrayOutput) ToCampaignResourceSettingsTargetResourceEntitlementArrayOutputWithContext(ctx context.Context) CampaignResourceSettingsTargetResourceEntitlementArrayOutput {
+	return o
+}
+
+func (o CampaignResourceSettingsTargetResourceEntitlementArrayOutput) Index(i pulumi.IntInput) CampaignResourceSettingsTargetResourceEntitlementOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CampaignResourceSettingsTargetResourceEntitlement {
+		return vs[0].([]CampaignResourceSettingsTargetResourceEntitlement)[vs[1].(int)]
+	}).(CampaignResourceSettingsTargetResourceEntitlementOutput)
+}
+
+type CampaignResourceSettingsTargetResourceEntitlementBundle struct {
+	// Campaign id
+	Id string `pulumi:"id"`
+}
+
+// CampaignResourceSettingsTargetResourceEntitlementBundleInput is an input type that accepts CampaignResourceSettingsTargetResourceEntitlementBundleArgs and CampaignResourceSettingsTargetResourceEntitlementBundleOutput values.
+// You can construct a concrete instance of `CampaignResourceSettingsTargetResourceEntitlementBundleInput` via:
+//
+//	CampaignResourceSettingsTargetResourceEntitlementBundleArgs{...}
+type CampaignResourceSettingsTargetResourceEntitlementBundleInput interface {
+	pulumi.Input
+
+	ToCampaignResourceSettingsTargetResourceEntitlementBundleOutput() CampaignResourceSettingsTargetResourceEntitlementBundleOutput
+	ToCampaignResourceSettingsTargetResourceEntitlementBundleOutputWithContext(context.Context) CampaignResourceSettingsTargetResourceEntitlementBundleOutput
+}
+
+type CampaignResourceSettingsTargetResourceEntitlementBundleArgs struct {
+	// Campaign id
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (CampaignResourceSettingsTargetResourceEntitlementBundleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CampaignResourceSettingsTargetResourceEntitlementBundle)(nil)).Elem()
+}
+
+func (i CampaignResourceSettingsTargetResourceEntitlementBundleArgs) ToCampaignResourceSettingsTargetResourceEntitlementBundleOutput() CampaignResourceSettingsTargetResourceEntitlementBundleOutput {
+	return i.ToCampaignResourceSettingsTargetResourceEntitlementBundleOutputWithContext(context.Background())
+}
+
+func (i CampaignResourceSettingsTargetResourceEntitlementBundleArgs) ToCampaignResourceSettingsTargetResourceEntitlementBundleOutputWithContext(ctx context.Context) CampaignResourceSettingsTargetResourceEntitlementBundleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CampaignResourceSettingsTargetResourceEntitlementBundleOutput)
+}
+
+// CampaignResourceSettingsTargetResourceEntitlementBundleArrayInput is an input type that accepts CampaignResourceSettingsTargetResourceEntitlementBundleArray and CampaignResourceSettingsTargetResourceEntitlementBundleArrayOutput values.
+// You can construct a concrete instance of `CampaignResourceSettingsTargetResourceEntitlementBundleArrayInput` via:
+//
+//	CampaignResourceSettingsTargetResourceEntitlementBundleArray{ CampaignResourceSettingsTargetResourceEntitlementBundleArgs{...} }
+type CampaignResourceSettingsTargetResourceEntitlementBundleArrayInput interface {
+	pulumi.Input
+
+	ToCampaignResourceSettingsTargetResourceEntitlementBundleArrayOutput() CampaignResourceSettingsTargetResourceEntitlementBundleArrayOutput
+	ToCampaignResourceSettingsTargetResourceEntitlementBundleArrayOutputWithContext(context.Context) CampaignResourceSettingsTargetResourceEntitlementBundleArrayOutput
+}
+
+type CampaignResourceSettingsTargetResourceEntitlementBundleArray []CampaignResourceSettingsTargetResourceEntitlementBundleInput
+
+func (CampaignResourceSettingsTargetResourceEntitlementBundleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CampaignResourceSettingsTargetResourceEntitlementBundle)(nil)).Elem()
+}
+
+func (i CampaignResourceSettingsTargetResourceEntitlementBundleArray) ToCampaignResourceSettingsTargetResourceEntitlementBundleArrayOutput() CampaignResourceSettingsTargetResourceEntitlementBundleArrayOutput {
+	return i.ToCampaignResourceSettingsTargetResourceEntitlementBundleArrayOutputWithContext(context.Background())
+}
+
+func (i CampaignResourceSettingsTargetResourceEntitlementBundleArray) ToCampaignResourceSettingsTargetResourceEntitlementBundleArrayOutputWithContext(ctx context.Context) CampaignResourceSettingsTargetResourceEntitlementBundleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CampaignResourceSettingsTargetResourceEntitlementBundleArrayOutput)
+}
+
+type CampaignResourceSettingsTargetResourceEntitlementBundleOutput struct{ *pulumi.OutputState }
+
+func (CampaignResourceSettingsTargetResourceEntitlementBundleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CampaignResourceSettingsTargetResourceEntitlementBundle)(nil)).Elem()
+}
+
+func (o CampaignResourceSettingsTargetResourceEntitlementBundleOutput) ToCampaignResourceSettingsTargetResourceEntitlementBundleOutput() CampaignResourceSettingsTargetResourceEntitlementBundleOutput {
+	return o
+}
+
+func (o CampaignResourceSettingsTargetResourceEntitlementBundleOutput) ToCampaignResourceSettingsTargetResourceEntitlementBundleOutputWithContext(ctx context.Context) CampaignResourceSettingsTargetResourceEntitlementBundleOutput {
+	return o
+}
+
+// Campaign id
+func (o CampaignResourceSettingsTargetResourceEntitlementBundleOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v CampaignResourceSettingsTargetResourceEntitlementBundle) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type CampaignResourceSettingsTargetResourceEntitlementBundleArrayOutput struct{ *pulumi.OutputState }
+
+func (CampaignResourceSettingsTargetResourceEntitlementBundleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CampaignResourceSettingsTargetResourceEntitlementBundle)(nil)).Elem()
+}
+
+func (o CampaignResourceSettingsTargetResourceEntitlementBundleArrayOutput) ToCampaignResourceSettingsTargetResourceEntitlementBundleArrayOutput() CampaignResourceSettingsTargetResourceEntitlementBundleArrayOutput {
+	return o
+}
+
+func (o CampaignResourceSettingsTargetResourceEntitlementBundleArrayOutput) ToCampaignResourceSettingsTargetResourceEntitlementBundleArrayOutputWithContext(ctx context.Context) CampaignResourceSettingsTargetResourceEntitlementBundleArrayOutput {
+	return o
+}
+
+func (o CampaignResourceSettingsTargetResourceEntitlementBundleArrayOutput) Index(i pulumi.IntInput) CampaignResourceSettingsTargetResourceEntitlementBundleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CampaignResourceSettingsTargetResourceEntitlementBundle {
+		return vs[0].([]CampaignResourceSettingsTargetResourceEntitlementBundle)[vs[1].(int)]
+	}).(CampaignResourceSettingsTargetResourceEntitlementBundleOutput)
+}
+
+type CampaignResourceSettingsTargetResourceEntitlementValue struct {
+	// Campaign id
+	Id string `pulumi:"id"`
+}
+
+// CampaignResourceSettingsTargetResourceEntitlementValueInput is an input type that accepts CampaignResourceSettingsTargetResourceEntitlementValueArgs and CampaignResourceSettingsTargetResourceEntitlementValueOutput values.
+// You can construct a concrete instance of `CampaignResourceSettingsTargetResourceEntitlementValueInput` via:
+//
+//	CampaignResourceSettingsTargetResourceEntitlementValueArgs{...}
+type CampaignResourceSettingsTargetResourceEntitlementValueInput interface {
+	pulumi.Input
+
+	ToCampaignResourceSettingsTargetResourceEntitlementValueOutput() CampaignResourceSettingsTargetResourceEntitlementValueOutput
+	ToCampaignResourceSettingsTargetResourceEntitlementValueOutputWithContext(context.Context) CampaignResourceSettingsTargetResourceEntitlementValueOutput
+}
+
+type CampaignResourceSettingsTargetResourceEntitlementValueArgs struct {
+	// Campaign id
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (CampaignResourceSettingsTargetResourceEntitlementValueArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CampaignResourceSettingsTargetResourceEntitlementValue)(nil)).Elem()
+}
+
+func (i CampaignResourceSettingsTargetResourceEntitlementValueArgs) ToCampaignResourceSettingsTargetResourceEntitlementValueOutput() CampaignResourceSettingsTargetResourceEntitlementValueOutput {
+	return i.ToCampaignResourceSettingsTargetResourceEntitlementValueOutputWithContext(context.Background())
+}
+
+func (i CampaignResourceSettingsTargetResourceEntitlementValueArgs) ToCampaignResourceSettingsTargetResourceEntitlementValueOutputWithContext(ctx context.Context) CampaignResourceSettingsTargetResourceEntitlementValueOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CampaignResourceSettingsTargetResourceEntitlementValueOutput)
+}
+
+// CampaignResourceSettingsTargetResourceEntitlementValueArrayInput is an input type that accepts CampaignResourceSettingsTargetResourceEntitlementValueArray and CampaignResourceSettingsTargetResourceEntitlementValueArrayOutput values.
+// You can construct a concrete instance of `CampaignResourceSettingsTargetResourceEntitlementValueArrayInput` via:
+//
+//	CampaignResourceSettingsTargetResourceEntitlementValueArray{ CampaignResourceSettingsTargetResourceEntitlementValueArgs{...} }
+type CampaignResourceSettingsTargetResourceEntitlementValueArrayInput interface {
+	pulumi.Input
+
+	ToCampaignResourceSettingsTargetResourceEntitlementValueArrayOutput() CampaignResourceSettingsTargetResourceEntitlementValueArrayOutput
+	ToCampaignResourceSettingsTargetResourceEntitlementValueArrayOutputWithContext(context.Context) CampaignResourceSettingsTargetResourceEntitlementValueArrayOutput
+}
+
+type CampaignResourceSettingsTargetResourceEntitlementValueArray []CampaignResourceSettingsTargetResourceEntitlementValueInput
+
+func (CampaignResourceSettingsTargetResourceEntitlementValueArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CampaignResourceSettingsTargetResourceEntitlementValue)(nil)).Elem()
+}
+
+func (i CampaignResourceSettingsTargetResourceEntitlementValueArray) ToCampaignResourceSettingsTargetResourceEntitlementValueArrayOutput() CampaignResourceSettingsTargetResourceEntitlementValueArrayOutput {
+	return i.ToCampaignResourceSettingsTargetResourceEntitlementValueArrayOutputWithContext(context.Background())
+}
+
+func (i CampaignResourceSettingsTargetResourceEntitlementValueArray) ToCampaignResourceSettingsTargetResourceEntitlementValueArrayOutputWithContext(ctx context.Context) CampaignResourceSettingsTargetResourceEntitlementValueArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CampaignResourceSettingsTargetResourceEntitlementValueArrayOutput)
+}
+
+type CampaignResourceSettingsTargetResourceEntitlementValueOutput struct{ *pulumi.OutputState }
+
+func (CampaignResourceSettingsTargetResourceEntitlementValueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CampaignResourceSettingsTargetResourceEntitlementValue)(nil)).Elem()
+}
+
+func (o CampaignResourceSettingsTargetResourceEntitlementValueOutput) ToCampaignResourceSettingsTargetResourceEntitlementValueOutput() CampaignResourceSettingsTargetResourceEntitlementValueOutput {
+	return o
+}
+
+func (o CampaignResourceSettingsTargetResourceEntitlementValueOutput) ToCampaignResourceSettingsTargetResourceEntitlementValueOutputWithContext(ctx context.Context) CampaignResourceSettingsTargetResourceEntitlementValueOutput {
+	return o
+}
+
+// Campaign id
+func (o CampaignResourceSettingsTargetResourceEntitlementValueOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v CampaignResourceSettingsTargetResourceEntitlementValue) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type CampaignResourceSettingsTargetResourceEntitlementValueArrayOutput struct{ *pulumi.OutputState }
+
+func (CampaignResourceSettingsTargetResourceEntitlementValueArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CampaignResourceSettingsTargetResourceEntitlementValue)(nil)).Elem()
+}
+
+func (o CampaignResourceSettingsTargetResourceEntitlementValueArrayOutput) ToCampaignResourceSettingsTargetResourceEntitlementValueArrayOutput() CampaignResourceSettingsTargetResourceEntitlementValueArrayOutput {
+	return o
+}
+
+func (o CampaignResourceSettingsTargetResourceEntitlementValueArrayOutput) ToCampaignResourceSettingsTargetResourceEntitlementValueArrayOutputWithContext(ctx context.Context) CampaignResourceSettingsTargetResourceEntitlementValueArrayOutput {
+	return o
+}
+
+func (o CampaignResourceSettingsTargetResourceEntitlementValueArrayOutput) Index(i pulumi.IntInput) CampaignResourceSettingsTargetResourceEntitlementValueOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CampaignResourceSettingsTargetResourceEntitlementValue {
+		return vs[0].([]CampaignResourceSettingsTargetResourceEntitlementValue)[vs[1].(int)]
+	}).(CampaignResourceSettingsTargetResourceEntitlementValueOutput)
+}
+
+type CampaignReviewerSettings struct {
+	// When approving or revoking review items, bulk actions are disabled if true.
+	BulkDecisionDisabled *bool `pulumi:"bulkDecisionDisabled"`
+	// The ID of the fallback reviewer. Required when the type=`REVIEWER_EXPRESSION` or type=`RESOURCE_OWNER`
+	FallbackReviewerId *string `pulumi:"fallbackReviewerId"`
+	// When approving or revoking review items, a justification is required if true.
+	JustificationRequired *bool `pulumi:"justificationRequired"`
+	// Reassignment is disabled for reviewers if true.
+	ReassignmentDisabled *bool `pulumi:"reassignmentDisabled"`
+	// The ID of the reviewer group to which the reviewer is assigned.
+	ReviewerGroupId *string `pulumi:"reviewerGroupId"`
+	ReviewerId      *string `pulumi:"reviewerId"`
+	// Definition of reviewer level for a given campaign. Each reviewer level defines the kind of reviewer who is going to review.
+	ReviewerLevels []CampaignReviewerSettingsReviewerLevel `pulumi:"reviewerLevels"`
+	// This property is required when type=`USER`
+	ReviewerScopeExpression *string `pulumi:"reviewerScopeExpression"`
+	// This property is required to be true for resource-centric campaigns when the Okta Admin Console is one of the resources.
+	SelfReviewDisabled *bool `pulumi:"selfReviewDisabled"`
+	// Identifies the kind of reviewer for Access Certification.
+	Type string `pulumi:"type"`
+}
+
+// CampaignReviewerSettingsInput is an input type that accepts CampaignReviewerSettingsArgs and CampaignReviewerSettingsOutput values.
+// You can construct a concrete instance of `CampaignReviewerSettingsInput` via:
+//
+//	CampaignReviewerSettingsArgs{...}
+type CampaignReviewerSettingsInput interface {
+	pulumi.Input
+
+	ToCampaignReviewerSettingsOutput() CampaignReviewerSettingsOutput
+	ToCampaignReviewerSettingsOutputWithContext(context.Context) CampaignReviewerSettingsOutput
+}
+
+type CampaignReviewerSettingsArgs struct {
+	// When approving or revoking review items, bulk actions are disabled if true.
+	BulkDecisionDisabled pulumi.BoolPtrInput `pulumi:"bulkDecisionDisabled"`
+	// The ID of the fallback reviewer. Required when the type=`REVIEWER_EXPRESSION` or type=`RESOURCE_OWNER`
+	FallbackReviewerId pulumi.StringPtrInput `pulumi:"fallbackReviewerId"`
+	// When approving or revoking review items, a justification is required if true.
+	JustificationRequired pulumi.BoolPtrInput `pulumi:"justificationRequired"`
+	// Reassignment is disabled for reviewers if true.
+	ReassignmentDisabled pulumi.BoolPtrInput `pulumi:"reassignmentDisabled"`
+	// The ID of the reviewer group to which the reviewer is assigned.
+	ReviewerGroupId pulumi.StringPtrInput `pulumi:"reviewerGroupId"`
+	ReviewerId      pulumi.StringPtrInput `pulumi:"reviewerId"`
+	// Definition of reviewer level for a given campaign. Each reviewer level defines the kind of reviewer who is going to review.
+	ReviewerLevels CampaignReviewerSettingsReviewerLevelArrayInput `pulumi:"reviewerLevels"`
+	// This property is required when type=`USER`
+	ReviewerScopeExpression pulumi.StringPtrInput `pulumi:"reviewerScopeExpression"`
+	// This property is required to be true for resource-centric campaigns when the Okta Admin Console is one of the resources.
+	SelfReviewDisabled pulumi.BoolPtrInput `pulumi:"selfReviewDisabled"`
+	// Identifies the kind of reviewer for Access Certification.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (CampaignReviewerSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CampaignReviewerSettings)(nil)).Elem()
+}
+
+func (i CampaignReviewerSettingsArgs) ToCampaignReviewerSettingsOutput() CampaignReviewerSettingsOutput {
+	return i.ToCampaignReviewerSettingsOutputWithContext(context.Background())
+}
+
+func (i CampaignReviewerSettingsArgs) ToCampaignReviewerSettingsOutputWithContext(ctx context.Context) CampaignReviewerSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CampaignReviewerSettingsOutput)
+}
+
+func (i CampaignReviewerSettingsArgs) ToCampaignReviewerSettingsPtrOutput() CampaignReviewerSettingsPtrOutput {
+	return i.ToCampaignReviewerSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i CampaignReviewerSettingsArgs) ToCampaignReviewerSettingsPtrOutputWithContext(ctx context.Context) CampaignReviewerSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CampaignReviewerSettingsOutput).ToCampaignReviewerSettingsPtrOutputWithContext(ctx)
+}
+
+// CampaignReviewerSettingsPtrInput is an input type that accepts CampaignReviewerSettingsArgs, CampaignReviewerSettingsPtr and CampaignReviewerSettingsPtrOutput values.
+// You can construct a concrete instance of `CampaignReviewerSettingsPtrInput` via:
+//
+//	        CampaignReviewerSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type CampaignReviewerSettingsPtrInput interface {
+	pulumi.Input
+
+	ToCampaignReviewerSettingsPtrOutput() CampaignReviewerSettingsPtrOutput
+	ToCampaignReviewerSettingsPtrOutputWithContext(context.Context) CampaignReviewerSettingsPtrOutput
+}
+
+type campaignReviewerSettingsPtrType CampaignReviewerSettingsArgs
+
+func CampaignReviewerSettingsPtr(v *CampaignReviewerSettingsArgs) CampaignReviewerSettingsPtrInput {
+	return (*campaignReviewerSettingsPtrType)(v)
+}
+
+func (*campaignReviewerSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CampaignReviewerSettings)(nil)).Elem()
+}
+
+func (i *campaignReviewerSettingsPtrType) ToCampaignReviewerSettingsPtrOutput() CampaignReviewerSettingsPtrOutput {
+	return i.ToCampaignReviewerSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *campaignReviewerSettingsPtrType) ToCampaignReviewerSettingsPtrOutputWithContext(ctx context.Context) CampaignReviewerSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CampaignReviewerSettingsPtrOutput)
+}
+
+type CampaignReviewerSettingsOutput struct{ *pulumi.OutputState }
+
+func (CampaignReviewerSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CampaignReviewerSettings)(nil)).Elem()
+}
+
+func (o CampaignReviewerSettingsOutput) ToCampaignReviewerSettingsOutput() CampaignReviewerSettingsOutput {
+	return o
+}
+
+func (o CampaignReviewerSettingsOutput) ToCampaignReviewerSettingsOutputWithContext(ctx context.Context) CampaignReviewerSettingsOutput {
+	return o
+}
+
+func (o CampaignReviewerSettingsOutput) ToCampaignReviewerSettingsPtrOutput() CampaignReviewerSettingsPtrOutput {
+	return o.ToCampaignReviewerSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o CampaignReviewerSettingsOutput) ToCampaignReviewerSettingsPtrOutputWithContext(ctx context.Context) CampaignReviewerSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CampaignReviewerSettings) *CampaignReviewerSettings {
+		return &v
+	}).(CampaignReviewerSettingsPtrOutput)
+}
+
+// When approving or revoking review items, bulk actions are disabled if true.
+func (o CampaignReviewerSettingsOutput) BulkDecisionDisabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CampaignReviewerSettings) *bool { return v.BulkDecisionDisabled }).(pulumi.BoolPtrOutput)
+}
+
+// The ID of the fallback reviewer. Required when the type=`REVIEWER_EXPRESSION` or type=`RESOURCE_OWNER`
+func (o CampaignReviewerSettingsOutput) FallbackReviewerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CampaignReviewerSettings) *string { return v.FallbackReviewerId }).(pulumi.StringPtrOutput)
+}
+
+// When approving or revoking review items, a justification is required if true.
+func (o CampaignReviewerSettingsOutput) JustificationRequired() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CampaignReviewerSettings) *bool { return v.JustificationRequired }).(pulumi.BoolPtrOutput)
+}
+
+// Reassignment is disabled for reviewers if true.
+func (o CampaignReviewerSettingsOutput) ReassignmentDisabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CampaignReviewerSettings) *bool { return v.ReassignmentDisabled }).(pulumi.BoolPtrOutput)
+}
+
+// The ID of the reviewer group to which the reviewer is assigned.
+func (o CampaignReviewerSettingsOutput) ReviewerGroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CampaignReviewerSettings) *string { return v.ReviewerGroupId }).(pulumi.StringPtrOutput)
+}
+
+func (o CampaignReviewerSettingsOutput) ReviewerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CampaignReviewerSettings) *string { return v.ReviewerId }).(pulumi.StringPtrOutput)
+}
+
+// Definition of reviewer level for a given campaign. Each reviewer level defines the kind of reviewer who is going to review.
+func (o CampaignReviewerSettingsOutput) ReviewerLevels() CampaignReviewerSettingsReviewerLevelArrayOutput {
+	return o.ApplyT(func(v CampaignReviewerSettings) []CampaignReviewerSettingsReviewerLevel { return v.ReviewerLevels }).(CampaignReviewerSettingsReviewerLevelArrayOutput)
+}
+
+// This property is required when type=`USER`
+func (o CampaignReviewerSettingsOutput) ReviewerScopeExpression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CampaignReviewerSettings) *string { return v.ReviewerScopeExpression }).(pulumi.StringPtrOutput)
+}
+
+// This property is required to be true for resource-centric campaigns when the Okta Admin Console is one of the resources.
+func (o CampaignReviewerSettingsOutput) SelfReviewDisabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CampaignReviewerSettings) *bool { return v.SelfReviewDisabled }).(pulumi.BoolPtrOutput)
+}
+
+// Identifies the kind of reviewer for Access Certification.
+func (o CampaignReviewerSettingsOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v CampaignReviewerSettings) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type CampaignReviewerSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (CampaignReviewerSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CampaignReviewerSettings)(nil)).Elem()
+}
+
+func (o CampaignReviewerSettingsPtrOutput) ToCampaignReviewerSettingsPtrOutput() CampaignReviewerSettingsPtrOutput {
+	return o
+}
+
+func (o CampaignReviewerSettingsPtrOutput) ToCampaignReviewerSettingsPtrOutputWithContext(ctx context.Context) CampaignReviewerSettingsPtrOutput {
+	return o
+}
+
+func (o CampaignReviewerSettingsPtrOutput) Elem() CampaignReviewerSettingsOutput {
+	return o.ApplyT(func(v *CampaignReviewerSettings) CampaignReviewerSettings {
+		if v != nil {
+			return *v
+		}
+		var ret CampaignReviewerSettings
+		return ret
+	}).(CampaignReviewerSettingsOutput)
+}
+
+// When approving or revoking review items, bulk actions are disabled if true.
+func (o CampaignReviewerSettingsPtrOutput) BulkDecisionDisabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CampaignReviewerSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.BulkDecisionDisabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The ID of the fallback reviewer. Required when the type=`REVIEWER_EXPRESSION` or type=`RESOURCE_OWNER`
+func (o CampaignReviewerSettingsPtrOutput) FallbackReviewerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CampaignReviewerSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FallbackReviewerId
+	}).(pulumi.StringPtrOutput)
+}
+
+// When approving or revoking review items, a justification is required if true.
+func (o CampaignReviewerSettingsPtrOutput) JustificationRequired() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CampaignReviewerSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.JustificationRequired
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Reassignment is disabled for reviewers if true.
+func (o CampaignReviewerSettingsPtrOutput) ReassignmentDisabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CampaignReviewerSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ReassignmentDisabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The ID of the reviewer group to which the reviewer is assigned.
+func (o CampaignReviewerSettingsPtrOutput) ReviewerGroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CampaignReviewerSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ReviewerGroupId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o CampaignReviewerSettingsPtrOutput) ReviewerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CampaignReviewerSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ReviewerId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Definition of reviewer level for a given campaign. Each reviewer level defines the kind of reviewer who is going to review.
+func (o CampaignReviewerSettingsPtrOutput) ReviewerLevels() CampaignReviewerSettingsReviewerLevelArrayOutput {
+	return o.ApplyT(func(v *CampaignReviewerSettings) []CampaignReviewerSettingsReviewerLevel {
+		if v == nil {
+			return nil
+		}
+		return v.ReviewerLevels
+	}).(CampaignReviewerSettingsReviewerLevelArrayOutput)
+}
+
+// This property is required when type=`USER`
+func (o CampaignReviewerSettingsPtrOutput) ReviewerScopeExpression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CampaignReviewerSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ReviewerScopeExpression
+	}).(pulumi.StringPtrOutput)
+}
+
+// This property is required to be true for resource-centric campaigns when the Okta Admin Console is one of the resources.
+func (o CampaignReviewerSettingsPtrOutput) SelfReviewDisabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CampaignReviewerSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SelfReviewDisabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Identifies the kind of reviewer for Access Certification.
+func (o CampaignReviewerSettingsPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CampaignReviewerSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type CampaignReviewerSettingsReviewerLevel struct {
+	// Required when the type=`REVIEWER_EXPRESSION` or type=`RESOURCE_OWNER`
+	FallbackReviewerId *string `pulumi:"fallbackReviewerId"`
+	// The ID of the reviewer group to which the reviewer is assigned.This property is required when type=`GROUP`
+	ReviewerGroupId *string `pulumi:"reviewerGroupId"`
+	// The ID of the reviewer to which the reviewer is assigned.This property is required when type=`USER`.
+	ReviewerId *string `pulumi:"reviewerId"`
+	// This property is required when type=`REVIEWER_EXPRESSION`
+	ReviewerScopeExpression *string `pulumi:"reviewerScopeExpression"`
+	// This property is used to prevent self review.
+	SelfReviewDisabled *bool `pulumi:"selfReviewDisabled"`
+	// The rules for which the reviews can move to that level.
+	StartReviews []CampaignReviewerSettingsReviewerLevelStartReview `pulumi:"startReviews"`
+	// Identifies the kind of reviewer.
+	Type string `pulumi:"type"`
+}
+
+// CampaignReviewerSettingsReviewerLevelInput is an input type that accepts CampaignReviewerSettingsReviewerLevelArgs and CampaignReviewerSettingsReviewerLevelOutput values.
+// You can construct a concrete instance of `CampaignReviewerSettingsReviewerLevelInput` via:
+//
+//	CampaignReviewerSettingsReviewerLevelArgs{...}
+type CampaignReviewerSettingsReviewerLevelInput interface {
+	pulumi.Input
+
+	ToCampaignReviewerSettingsReviewerLevelOutput() CampaignReviewerSettingsReviewerLevelOutput
+	ToCampaignReviewerSettingsReviewerLevelOutputWithContext(context.Context) CampaignReviewerSettingsReviewerLevelOutput
+}
+
+type CampaignReviewerSettingsReviewerLevelArgs struct {
+	// Required when the type=`REVIEWER_EXPRESSION` or type=`RESOURCE_OWNER`
+	FallbackReviewerId pulumi.StringPtrInput `pulumi:"fallbackReviewerId"`
+	// The ID of the reviewer group to which the reviewer is assigned.This property is required when type=`GROUP`
+	ReviewerGroupId pulumi.StringPtrInput `pulumi:"reviewerGroupId"`
+	// The ID of the reviewer to which the reviewer is assigned.This property is required when type=`USER`.
+	ReviewerId pulumi.StringPtrInput `pulumi:"reviewerId"`
+	// This property is required when type=`REVIEWER_EXPRESSION`
+	ReviewerScopeExpression pulumi.StringPtrInput `pulumi:"reviewerScopeExpression"`
+	// This property is used to prevent self review.
+	SelfReviewDisabled pulumi.BoolPtrInput `pulumi:"selfReviewDisabled"`
+	// The rules for which the reviews can move to that level.
+	StartReviews CampaignReviewerSettingsReviewerLevelStartReviewArrayInput `pulumi:"startReviews"`
+	// Identifies the kind of reviewer.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (CampaignReviewerSettingsReviewerLevelArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CampaignReviewerSettingsReviewerLevel)(nil)).Elem()
+}
+
+func (i CampaignReviewerSettingsReviewerLevelArgs) ToCampaignReviewerSettingsReviewerLevelOutput() CampaignReviewerSettingsReviewerLevelOutput {
+	return i.ToCampaignReviewerSettingsReviewerLevelOutputWithContext(context.Background())
+}
+
+func (i CampaignReviewerSettingsReviewerLevelArgs) ToCampaignReviewerSettingsReviewerLevelOutputWithContext(ctx context.Context) CampaignReviewerSettingsReviewerLevelOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CampaignReviewerSettingsReviewerLevelOutput)
+}
+
+// CampaignReviewerSettingsReviewerLevelArrayInput is an input type that accepts CampaignReviewerSettingsReviewerLevelArray and CampaignReviewerSettingsReviewerLevelArrayOutput values.
+// You can construct a concrete instance of `CampaignReviewerSettingsReviewerLevelArrayInput` via:
+//
+//	CampaignReviewerSettingsReviewerLevelArray{ CampaignReviewerSettingsReviewerLevelArgs{...} }
+type CampaignReviewerSettingsReviewerLevelArrayInput interface {
+	pulumi.Input
+
+	ToCampaignReviewerSettingsReviewerLevelArrayOutput() CampaignReviewerSettingsReviewerLevelArrayOutput
+	ToCampaignReviewerSettingsReviewerLevelArrayOutputWithContext(context.Context) CampaignReviewerSettingsReviewerLevelArrayOutput
+}
+
+type CampaignReviewerSettingsReviewerLevelArray []CampaignReviewerSettingsReviewerLevelInput
+
+func (CampaignReviewerSettingsReviewerLevelArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CampaignReviewerSettingsReviewerLevel)(nil)).Elem()
+}
+
+func (i CampaignReviewerSettingsReviewerLevelArray) ToCampaignReviewerSettingsReviewerLevelArrayOutput() CampaignReviewerSettingsReviewerLevelArrayOutput {
+	return i.ToCampaignReviewerSettingsReviewerLevelArrayOutputWithContext(context.Background())
+}
+
+func (i CampaignReviewerSettingsReviewerLevelArray) ToCampaignReviewerSettingsReviewerLevelArrayOutputWithContext(ctx context.Context) CampaignReviewerSettingsReviewerLevelArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CampaignReviewerSettingsReviewerLevelArrayOutput)
+}
+
+type CampaignReviewerSettingsReviewerLevelOutput struct{ *pulumi.OutputState }
+
+func (CampaignReviewerSettingsReviewerLevelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CampaignReviewerSettingsReviewerLevel)(nil)).Elem()
+}
+
+func (o CampaignReviewerSettingsReviewerLevelOutput) ToCampaignReviewerSettingsReviewerLevelOutput() CampaignReviewerSettingsReviewerLevelOutput {
+	return o
+}
+
+func (o CampaignReviewerSettingsReviewerLevelOutput) ToCampaignReviewerSettingsReviewerLevelOutputWithContext(ctx context.Context) CampaignReviewerSettingsReviewerLevelOutput {
+	return o
+}
+
+// Required when the type=`REVIEWER_EXPRESSION` or type=`RESOURCE_OWNER`
+func (o CampaignReviewerSettingsReviewerLevelOutput) FallbackReviewerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CampaignReviewerSettingsReviewerLevel) *string { return v.FallbackReviewerId }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the reviewer group to which the reviewer is assigned.This property is required when type=`GROUP`
+func (o CampaignReviewerSettingsReviewerLevelOutput) ReviewerGroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CampaignReviewerSettingsReviewerLevel) *string { return v.ReviewerGroupId }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the reviewer to which the reviewer is assigned.This property is required when type=`USER`.
+func (o CampaignReviewerSettingsReviewerLevelOutput) ReviewerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CampaignReviewerSettingsReviewerLevel) *string { return v.ReviewerId }).(pulumi.StringPtrOutput)
+}
+
+// This property is required when type=`REVIEWER_EXPRESSION`
+func (o CampaignReviewerSettingsReviewerLevelOutput) ReviewerScopeExpression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CampaignReviewerSettingsReviewerLevel) *string { return v.ReviewerScopeExpression }).(pulumi.StringPtrOutput)
+}
+
+// This property is used to prevent self review.
+func (o CampaignReviewerSettingsReviewerLevelOutput) SelfReviewDisabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CampaignReviewerSettingsReviewerLevel) *bool { return v.SelfReviewDisabled }).(pulumi.BoolPtrOutput)
+}
+
+// The rules for which the reviews can move to that level.
+func (o CampaignReviewerSettingsReviewerLevelOutput) StartReviews() CampaignReviewerSettingsReviewerLevelStartReviewArrayOutput {
+	return o.ApplyT(func(v CampaignReviewerSettingsReviewerLevel) []CampaignReviewerSettingsReviewerLevelStartReview {
+		return v.StartReviews
+	}).(CampaignReviewerSettingsReviewerLevelStartReviewArrayOutput)
+}
+
+// Identifies the kind of reviewer.
+func (o CampaignReviewerSettingsReviewerLevelOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v CampaignReviewerSettingsReviewerLevel) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type CampaignReviewerSettingsReviewerLevelArrayOutput struct{ *pulumi.OutputState }
+
+func (CampaignReviewerSettingsReviewerLevelArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CampaignReviewerSettingsReviewerLevel)(nil)).Elem()
+}
+
+func (o CampaignReviewerSettingsReviewerLevelArrayOutput) ToCampaignReviewerSettingsReviewerLevelArrayOutput() CampaignReviewerSettingsReviewerLevelArrayOutput {
+	return o
+}
+
+func (o CampaignReviewerSettingsReviewerLevelArrayOutput) ToCampaignReviewerSettingsReviewerLevelArrayOutputWithContext(ctx context.Context) CampaignReviewerSettingsReviewerLevelArrayOutput {
+	return o
+}
+
+func (o CampaignReviewerSettingsReviewerLevelArrayOutput) Index(i pulumi.IntInput) CampaignReviewerSettingsReviewerLevelOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CampaignReviewerSettingsReviewerLevel {
+		return vs[0].([]CampaignReviewerSettingsReviewerLevel)[vs[1].(int)]
+	}).(CampaignReviewerSettingsReviewerLevelOutput)
+}
+
+type CampaignReviewerSettingsReviewerLevelStartReview struct {
+	// The day of the campaign when the review starts. 0 means the first day of the campaign.
+	OnDay *int `pulumi:"onDay"`
+	// The condition for which, the lower level reviews will move to that level for further review.
+	When *string `pulumi:"when"`
+}
+
+// CampaignReviewerSettingsReviewerLevelStartReviewInput is an input type that accepts CampaignReviewerSettingsReviewerLevelStartReviewArgs and CampaignReviewerSettingsReviewerLevelStartReviewOutput values.
+// You can construct a concrete instance of `CampaignReviewerSettingsReviewerLevelStartReviewInput` via:
+//
+//	CampaignReviewerSettingsReviewerLevelStartReviewArgs{...}
+type CampaignReviewerSettingsReviewerLevelStartReviewInput interface {
+	pulumi.Input
+
+	ToCampaignReviewerSettingsReviewerLevelStartReviewOutput() CampaignReviewerSettingsReviewerLevelStartReviewOutput
+	ToCampaignReviewerSettingsReviewerLevelStartReviewOutputWithContext(context.Context) CampaignReviewerSettingsReviewerLevelStartReviewOutput
+}
+
+type CampaignReviewerSettingsReviewerLevelStartReviewArgs struct {
+	// The day of the campaign when the review starts. 0 means the first day of the campaign.
+	OnDay pulumi.IntPtrInput `pulumi:"onDay"`
+	// The condition for which, the lower level reviews will move to that level for further review.
+	When pulumi.StringPtrInput `pulumi:"when"`
+}
+
+func (CampaignReviewerSettingsReviewerLevelStartReviewArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CampaignReviewerSettingsReviewerLevelStartReview)(nil)).Elem()
+}
+
+func (i CampaignReviewerSettingsReviewerLevelStartReviewArgs) ToCampaignReviewerSettingsReviewerLevelStartReviewOutput() CampaignReviewerSettingsReviewerLevelStartReviewOutput {
+	return i.ToCampaignReviewerSettingsReviewerLevelStartReviewOutputWithContext(context.Background())
+}
+
+func (i CampaignReviewerSettingsReviewerLevelStartReviewArgs) ToCampaignReviewerSettingsReviewerLevelStartReviewOutputWithContext(ctx context.Context) CampaignReviewerSettingsReviewerLevelStartReviewOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CampaignReviewerSettingsReviewerLevelStartReviewOutput)
+}
+
+// CampaignReviewerSettingsReviewerLevelStartReviewArrayInput is an input type that accepts CampaignReviewerSettingsReviewerLevelStartReviewArray and CampaignReviewerSettingsReviewerLevelStartReviewArrayOutput values.
+// You can construct a concrete instance of `CampaignReviewerSettingsReviewerLevelStartReviewArrayInput` via:
+//
+//	CampaignReviewerSettingsReviewerLevelStartReviewArray{ CampaignReviewerSettingsReviewerLevelStartReviewArgs{...} }
+type CampaignReviewerSettingsReviewerLevelStartReviewArrayInput interface {
+	pulumi.Input
+
+	ToCampaignReviewerSettingsReviewerLevelStartReviewArrayOutput() CampaignReviewerSettingsReviewerLevelStartReviewArrayOutput
+	ToCampaignReviewerSettingsReviewerLevelStartReviewArrayOutputWithContext(context.Context) CampaignReviewerSettingsReviewerLevelStartReviewArrayOutput
+}
+
+type CampaignReviewerSettingsReviewerLevelStartReviewArray []CampaignReviewerSettingsReviewerLevelStartReviewInput
+
+func (CampaignReviewerSettingsReviewerLevelStartReviewArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CampaignReviewerSettingsReviewerLevelStartReview)(nil)).Elem()
+}
+
+func (i CampaignReviewerSettingsReviewerLevelStartReviewArray) ToCampaignReviewerSettingsReviewerLevelStartReviewArrayOutput() CampaignReviewerSettingsReviewerLevelStartReviewArrayOutput {
+	return i.ToCampaignReviewerSettingsReviewerLevelStartReviewArrayOutputWithContext(context.Background())
+}
+
+func (i CampaignReviewerSettingsReviewerLevelStartReviewArray) ToCampaignReviewerSettingsReviewerLevelStartReviewArrayOutputWithContext(ctx context.Context) CampaignReviewerSettingsReviewerLevelStartReviewArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CampaignReviewerSettingsReviewerLevelStartReviewArrayOutput)
+}
+
+type CampaignReviewerSettingsReviewerLevelStartReviewOutput struct{ *pulumi.OutputState }
+
+func (CampaignReviewerSettingsReviewerLevelStartReviewOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CampaignReviewerSettingsReviewerLevelStartReview)(nil)).Elem()
+}
+
+func (o CampaignReviewerSettingsReviewerLevelStartReviewOutput) ToCampaignReviewerSettingsReviewerLevelStartReviewOutput() CampaignReviewerSettingsReviewerLevelStartReviewOutput {
+	return o
+}
+
+func (o CampaignReviewerSettingsReviewerLevelStartReviewOutput) ToCampaignReviewerSettingsReviewerLevelStartReviewOutputWithContext(ctx context.Context) CampaignReviewerSettingsReviewerLevelStartReviewOutput {
+	return o
+}
+
+// The day of the campaign when the review starts. 0 means the first day of the campaign.
+func (o CampaignReviewerSettingsReviewerLevelStartReviewOutput) OnDay() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CampaignReviewerSettingsReviewerLevelStartReview) *int { return v.OnDay }).(pulumi.IntPtrOutput)
+}
+
+// The condition for which, the lower level reviews will move to that level for further review.
+func (o CampaignReviewerSettingsReviewerLevelStartReviewOutput) When() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CampaignReviewerSettingsReviewerLevelStartReview) *string { return v.When }).(pulumi.StringPtrOutput)
+}
+
+type CampaignReviewerSettingsReviewerLevelStartReviewArrayOutput struct{ *pulumi.OutputState }
+
+func (CampaignReviewerSettingsReviewerLevelStartReviewArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CampaignReviewerSettingsReviewerLevelStartReview)(nil)).Elem()
+}
+
+func (o CampaignReviewerSettingsReviewerLevelStartReviewArrayOutput) ToCampaignReviewerSettingsReviewerLevelStartReviewArrayOutput() CampaignReviewerSettingsReviewerLevelStartReviewArrayOutput {
+	return o
+}
+
+func (o CampaignReviewerSettingsReviewerLevelStartReviewArrayOutput) ToCampaignReviewerSettingsReviewerLevelStartReviewArrayOutputWithContext(ctx context.Context) CampaignReviewerSettingsReviewerLevelStartReviewArrayOutput {
+	return o
+}
+
+func (o CampaignReviewerSettingsReviewerLevelStartReviewArrayOutput) Index(i pulumi.IntInput) CampaignReviewerSettingsReviewerLevelStartReviewOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CampaignReviewerSettingsReviewerLevelStartReview {
+		return vs[0].([]CampaignReviewerSettingsReviewerLevelStartReview)[vs[1].(int)]
+	}).(CampaignReviewerSettingsReviewerLevelStartReviewOutput)
+}
+
+type CampaignScheduleSettings struct {
+	// The duration (in days) that the campaign is active.
+	DurationInDays int                                  `pulumi:"durationInDays"`
+	EndDate        *string                              `pulumi:"endDate"`
+	Recurrences    []CampaignScheduleSettingsRecurrence `pulumi:"recurrences"`
+	// The date on which the campaign is supposed to start. Accepts date in ISO 8601 format.
+	StartDate string `pulumi:"startDate"`
+	// The time zone in which the campaign is active.
+	TimeZone string `pulumi:"timeZone"`
+	// The type of campaign being scheduled.
+	Type string `pulumi:"type"`
+}
+
+// CampaignScheduleSettingsInput is an input type that accepts CampaignScheduleSettingsArgs and CampaignScheduleSettingsOutput values.
+// You can construct a concrete instance of `CampaignScheduleSettingsInput` via:
+//
+//	CampaignScheduleSettingsArgs{...}
+type CampaignScheduleSettingsInput interface {
+	pulumi.Input
+
+	ToCampaignScheduleSettingsOutput() CampaignScheduleSettingsOutput
+	ToCampaignScheduleSettingsOutputWithContext(context.Context) CampaignScheduleSettingsOutput
+}
+
+type CampaignScheduleSettingsArgs struct {
+	// The duration (in days) that the campaign is active.
+	DurationInDays pulumi.IntInput                              `pulumi:"durationInDays"`
+	EndDate        pulumi.StringPtrInput                        `pulumi:"endDate"`
+	Recurrences    CampaignScheduleSettingsRecurrenceArrayInput `pulumi:"recurrences"`
+	// The date on which the campaign is supposed to start. Accepts date in ISO 8601 format.
+	StartDate pulumi.StringInput `pulumi:"startDate"`
+	// The time zone in which the campaign is active.
+	TimeZone pulumi.StringInput `pulumi:"timeZone"`
+	// The type of campaign being scheduled.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (CampaignScheduleSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CampaignScheduleSettings)(nil)).Elem()
+}
+
+func (i CampaignScheduleSettingsArgs) ToCampaignScheduleSettingsOutput() CampaignScheduleSettingsOutput {
+	return i.ToCampaignScheduleSettingsOutputWithContext(context.Background())
+}
+
+func (i CampaignScheduleSettingsArgs) ToCampaignScheduleSettingsOutputWithContext(ctx context.Context) CampaignScheduleSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CampaignScheduleSettingsOutput)
+}
+
+func (i CampaignScheduleSettingsArgs) ToCampaignScheduleSettingsPtrOutput() CampaignScheduleSettingsPtrOutput {
+	return i.ToCampaignScheduleSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i CampaignScheduleSettingsArgs) ToCampaignScheduleSettingsPtrOutputWithContext(ctx context.Context) CampaignScheduleSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CampaignScheduleSettingsOutput).ToCampaignScheduleSettingsPtrOutputWithContext(ctx)
+}
+
+// CampaignScheduleSettingsPtrInput is an input type that accepts CampaignScheduleSettingsArgs, CampaignScheduleSettingsPtr and CampaignScheduleSettingsPtrOutput values.
+// You can construct a concrete instance of `CampaignScheduleSettingsPtrInput` via:
+//
+//	        CampaignScheduleSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type CampaignScheduleSettingsPtrInput interface {
+	pulumi.Input
+
+	ToCampaignScheduleSettingsPtrOutput() CampaignScheduleSettingsPtrOutput
+	ToCampaignScheduleSettingsPtrOutputWithContext(context.Context) CampaignScheduleSettingsPtrOutput
+}
+
+type campaignScheduleSettingsPtrType CampaignScheduleSettingsArgs
+
+func CampaignScheduleSettingsPtr(v *CampaignScheduleSettingsArgs) CampaignScheduleSettingsPtrInput {
+	return (*campaignScheduleSettingsPtrType)(v)
+}
+
+func (*campaignScheduleSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CampaignScheduleSettings)(nil)).Elem()
+}
+
+func (i *campaignScheduleSettingsPtrType) ToCampaignScheduleSettingsPtrOutput() CampaignScheduleSettingsPtrOutput {
+	return i.ToCampaignScheduleSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *campaignScheduleSettingsPtrType) ToCampaignScheduleSettingsPtrOutputWithContext(ctx context.Context) CampaignScheduleSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CampaignScheduleSettingsPtrOutput)
+}
+
+type CampaignScheduleSettingsOutput struct{ *pulumi.OutputState }
+
+func (CampaignScheduleSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CampaignScheduleSettings)(nil)).Elem()
+}
+
+func (o CampaignScheduleSettingsOutput) ToCampaignScheduleSettingsOutput() CampaignScheduleSettingsOutput {
+	return o
+}
+
+func (o CampaignScheduleSettingsOutput) ToCampaignScheduleSettingsOutputWithContext(ctx context.Context) CampaignScheduleSettingsOutput {
+	return o
+}
+
+func (o CampaignScheduleSettingsOutput) ToCampaignScheduleSettingsPtrOutput() CampaignScheduleSettingsPtrOutput {
+	return o.ToCampaignScheduleSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o CampaignScheduleSettingsOutput) ToCampaignScheduleSettingsPtrOutputWithContext(ctx context.Context) CampaignScheduleSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CampaignScheduleSettings) *CampaignScheduleSettings {
+		return &v
+	}).(CampaignScheduleSettingsPtrOutput)
+}
+
+// The duration (in days) that the campaign is active.
+func (o CampaignScheduleSettingsOutput) DurationInDays() pulumi.IntOutput {
+	return o.ApplyT(func(v CampaignScheduleSettings) int { return v.DurationInDays }).(pulumi.IntOutput)
+}
+
+func (o CampaignScheduleSettingsOutput) EndDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CampaignScheduleSettings) *string { return v.EndDate }).(pulumi.StringPtrOutput)
+}
+
+func (o CampaignScheduleSettingsOutput) Recurrences() CampaignScheduleSettingsRecurrenceArrayOutput {
+	return o.ApplyT(func(v CampaignScheduleSettings) []CampaignScheduleSettingsRecurrence { return v.Recurrences }).(CampaignScheduleSettingsRecurrenceArrayOutput)
+}
+
+// The date on which the campaign is supposed to start. Accepts date in ISO 8601 format.
+func (o CampaignScheduleSettingsOutput) StartDate() pulumi.StringOutput {
+	return o.ApplyT(func(v CampaignScheduleSettings) string { return v.StartDate }).(pulumi.StringOutput)
+}
+
+// The time zone in which the campaign is active.
+func (o CampaignScheduleSettingsOutput) TimeZone() pulumi.StringOutput {
+	return o.ApplyT(func(v CampaignScheduleSettings) string { return v.TimeZone }).(pulumi.StringOutput)
+}
+
+// The type of campaign being scheduled.
+func (o CampaignScheduleSettingsOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v CampaignScheduleSettings) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type CampaignScheduleSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (CampaignScheduleSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CampaignScheduleSettings)(nil)).Elem()
+}
+
+func (o CampaignScheduleSettingsPtrOutput) ToCampaignScheduleSettingsPtrOutput() CampaignScheduleSettingsPtrOutput {
+	return o
+}
+
+func (o CampaignScheduleSettingsPtrOutput) ToCampaignScheduleSettingsPtrOutputWithContext(ctx context.Context) CampaignScheduleSettingsPtrOutput {
+	return o
+}
+
+func (o CampaignScheduleSettingsPtrOutput) Elem() CampaignScheduleSettingsOutput {
+	return o.ApplyT(func(v *CampaignScheduleSettings) CampaignScheduleSettings {
+		if v != nil {
+			return *v
+		}
+		var ret CampaignScheduleSettings
+		return ret
+	}).(CampaignScheduleSettingsOutput)
+}
+
+// The duration (in days) that the campaign is active.
+func (o CampaignScheduleSettingsPtrOutput) DurationInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CampaignScheduleSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.DurationInDays
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o CampaignScheduleSettingsPtrOutput) EndDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CampaignScheduleSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EndDate
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o CampaignScheduleSettingsPtrOutput) Recurrences() CampaignScheduleSettingsRecurrenceArrayOutput {
+	return o.ApplyT(func(v *CampaignScheduleSettings) []CampaignScheduleSettingsRecurrence {
+		if v == nil {
+			return nil
+		}
+		return v.Recurrences
+	}).(CampaignScheduleSettingsRecurrenceArrayOutput)
+}
+
+// The date on which the campaign is supposed to start. Accepts date in ISO 8601 format.
+func (o CampaignScheduleSettingsPtrOutput) StartDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CampaignScheduleSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.StartDate
+	}).(pulumi.StringPtrOutput)
+}
+
+// The time zone in which the campaign is active.
+func (o CampaignScheduleSettingsPtrOutput) TimeZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CampaignScheduleSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TimeZone
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of campaign being scheduled.
+func (o CampaignScheduleSettingsPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CampaignScheduleSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type CampaignScheduleSettingsRecurrence struct {
+	// Specifies when the recurring schedule can have an end.
+	Ends *string `pulumi:"ends"`
+	// Recurrence interval specified according to ISO8061 notation for durations.
+	Interval string `pulumi:"interval"`
+	// Specifies when the recurring schedule can have an end.
+	RepeatOnType *string `pulumi:"repeatOnType"`
+}
+
+// CampaignScheduleSettingsRecurrenceInput is an input type that accepts CampaignScheduleSettingsRecurrenceArgs and CampaignScheduleSettingsRecurrenceOutput values.
+// You can construct a concrete instance of `CampaignScheduleSettingsRecurrenceInput` via:
+//
+//	CampaignScheduleSettingsRecurrenceArgs{...}
+type CampaignScheduleSettingsRecurrenceInput interface {
+	pulumi.Input
+
+	ToCampaignScheduleSettingsRecurrenceOutput() CampaignScheduleSettingsRecurrenceOutput
+	ToCampaignScheduleSettingsRecurrenceOutputWithContext(context.Context) CampaignScheduleSettingsRecurrenceOutput
+}
+
+type CampaignScheduleSettingsRecurrenceArgs struct {
+	// Specifies when the recurring schedule can have an end.
+	Ends pulumi.StringPtrInput `pulumi:"ends"`
+	// Recurrence interval specified according to ISO8061 notation for durations.
+	Interval pulumi.StringInput `pulumi:"interval"`
+	// Specifies when the recurring schedule can have an end.
+	RepeatOnType pulumi.StringPtrInput `pulumi:"repeatOnType"`
+}
+
+func (CampaignScheduleSettingsRecurrenceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CampaignScheduleSettingsRecurrence)(nil)).Elem()
+}
+
+func (i CampaignScheduleSettingsRecurrenceArgs) ToCampaignScheduleSettingsRecurrenceOutput() CampaignScheduleSettingsRecurrenceOutput {
+	return i.ToCampaignScheduleSettingsRecurrenceOutputWithContext(context.Background())
+}
+
+func (i CampaignScheduleSettingsRecurrenceArgs) ToCampaignScheduleSettingsRecurrenceOutputWithContext(ctx context.Context) CampaignScheduleSettingsRecurrenceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CampaignScheduleSettingsRecurrenceOutput)
+}
+
+// CampaignScheduleSettingsRecurrenceArrayInput is an input type that accepts CampaignScheduleSettingsRecurrenceArray and CampaignScheduleSettingsRecurrenceArrayOutput values.
+// You can construct a concrete instance of `CampaignScheduleSettingsRecurrenceArrayInput` via:
+//
+//	CampaignScheduleSettingsRecurrenceArray{ CampaignScheduleSettingsRecurrenceArgs{...} }
+type CampaignScheduleSettingsRecurrenceArrayInput interface {
+	pulumi.Input
+
+	ToCampaignScheduleSettingsRecurrenceArrayOutput() CampaignScheduleSettingsRecurrenceArrayOutput
+	ToCampaignScheduleSettingsRecurrenceArrayOutputWithContext(context.Context) CampaignScheduleSettingsRecurrenceArrayOutput
+}
+
+type CampaignScheduleSettingsRecurrenceArray []CampaignScheduleSettingsRecurrenceInput
+
+func (CampaignScheduleSettingsRecurrenceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CampaignScheduleSettingsRecurrence)(nil)).Elem()
+}
+
+func (i CampaignScheduleSettingsRecurrenceArray) ToCampaignScheduleSettingsRecurrenceArrayOutput() CampaignScheduleSettingsRecurrenceArrayOutput {
+	return i.ToCampaignScheduleSettingsRecurrenceArrayOutputWithContext(context.Background())
+}
+
+func (i CampaignScheduleSettingsRecurrenceArray) ToCampaignScheduleSettingsRecurrenceArrayOutputWithContext(ctx context.Context) CampaignScheduleSettingsRecurrenceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CampaignScheduleSettingsRecurrenceArrayOutput)
+}
+
+type CampaignScheduleSettingsRecurrenceOutput struct{ *pulumi.OutputState }
+
+func (CampaignScheduleSettingsRecurrenceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CampaignScheduleSettingsRecurrence)(nil)).Elem()
+}
+
+func (o CampaignScheduleSettingsRecurrenceOutput) ToCampaignScheduleSettingsRecurrenceOutput() CampaignScheduleSettingsRecurrenceOutput {
+	return o
+}
+
+func (o CampaignScheduleSettingsRecurrenceOutput) ToCampaignScheduleSettingsRecurrenceOutputWithContext(ctx context.Context) CampaignScheduleSettingsRecurrenceOutput {
+	return o
+}
+
+// Specifies when the recurring schedule can have an end.
+func (o CampaignScheduleSettingsRecurrenceOutput) Ends() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CampaignScheduleSettingsRecurrence) *string { return v.Ends }).(pulumi.StringPtrOutput)
+}
+
+// Recurrence interval specified according to ISO8061 notation for durations.
+func (o CampaignScheduleSettingsRecurrenceOutput) Interval() pulumi.StringOutput {
+	return o.ApplyT(func(v CampaignScheduleSettingsRecurrence) string { return v.Interval }).(pulumi.StringOutput)
+}
+
+// Specifies when the recurring schedule can have an end.
+func (o CampaignScheduleSettingsRecurrenceOutput) RepeatOnType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CampaignScheduleSettingsRecurrence) *string { return v.RepeatOnType }).(pulumi.StringPtrOutput)
+}
+
+type CampaignScheduleSettingsRecurrenceArrayOutput struct{ *pulumi.OutputState }
+
+func (CampaignScheduleSettingsRecurrenceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CampaignScheduleSettingsRecurrence)(nil)).Elem()
+}
+
+func (o CampaignScheduleSettingsRecurrenceArrayOutput) ToCampaignScheduleSettingsRecurrenceArrayOutput() CampaignScheduleSettingsRecurrenceArrayOutput {
+	return o
+}
+
+func (o CampaignScheduleSettingsRecurrenceArrayOutput) ToCampaignScheduleSettingsRecurrenceArrayOutputWithContext(ctx context.Context) CampaignScheduleSettingsRecurrenceArrayOutput {
+	return o
+}
+
+func (o CampaignScheduleSettingsRecurrenceArrayOutput) Index(i pulumi.IntInput) CampaignScheduleSettingsRecurrenceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CampaignScheduleSettingsRecurrence {
+		return vs[0].([]CampaignScheduleSettingsRecurrence)[vs[1].(int)]
+	}).(CampaignScheduleSettingsRecurrenceOutput)
 }
 
 type CustomizedSigninPageContentSecurityPolicySetting struct {
@@ -1418,6 +4194,775 @@ func (o EmailSenderDnsRecordArrayOutput) Index(i pulumi.IntInput) EmailSenderDns
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EmailSenderDnsRecord {
 		return vs[0].([]EmailSenderDnsRecord)[vs[1].(int)]
 	}).(EmailSenderDnsRecordOutput)
+}
+
+type EndUserMyRequestsRequesterFieldValue struct {
+	// The ID of a requesterField. This identifies the specific field in the approval system.
+	Id string `pulumi:"id"`
+	// A human-readable description of requesterField. It's used for display purposes and is optional.
+	Label *string `pulumi:"label"`
+	// Type of value for the requester field. Valid values: `DURATION`, `ISO_DATE`, `MULTISELECT`, `OKTA_USER_ID`, `SELECT`, `TEXT`.
+	Type *string `pulumi:"type"`
+	// The value of requesterField, which depends on the type of the field. Used for single-value fields.
+	Value *string `pulumi:"value"`
+	// The values of requesterField with the type MULTISELECT. If the field type is MULTISELECT, this property is required instead of `value`.
+	Values []string `pulumi:"values"`
+}
+
+// EndUserMyRequestsRequesterFieldValueInput is an input type that accepts EndUserMyRequestsRequesterFieldValueArgs and EndUserMyRequestsRequesterFieldValueOutput values.
+// You can construct a concrete instance of `EndUserMyRequestsRequesterFieldValueInput` via:
+//
+//	EndUserMyRequestsRequesterFieldValueArgs{...}
+type EndUserMyRequestsRequesterFieldValueInput interface {
+	pulumi.Input
+
+	ToEndUserMyRequestsRequesterFieldValueOutput() EndUserMyRequestsRequesterFieldValueOutput
+	ToEndUserMyRequestsRequesterFieldValueOutputWithContext(context.Context) EndUserMyRequestsRequesterFieldValueOutput
+}
+
+type EndUserMyRequestsRequesterFieldValueArgs struct {
+	// The ID of a requesterField. This identifies the specific field in the approval system.
+	Id pulumi.StringInput `pulumi:"id"`
+	// A human-readable description of requesterField. It's used for display purposes and is optional.
+	Label pulumi.StringPtrInput `pulumi:"label"`
+	// Type of value for the requester field. Valid values: `DURATION`, `ISO_DATE`, `MULTISELECT`, `OKTA_USER_ID`, `SELECT`, `TEXT`.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+	// The value of requesterField, which depends on the type of the field. Used for single-value fields.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+	// The values of requesterField with the type MULTISELECT. If the field type is MULTISELECT, this property is required instead of `value`.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (EndUserMyRequestsRequesterFieldValueArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndUserMyRequestsRequesterFieldValue)(nil)).Elem()
+}
+
+func (i EndUserMyRequestsRequesterFieldValueArgs) ToEndUserMyRequestsRequesterFieldValueOutput() EndUserMyRequestsRequesterFieldValueOutput {
+	return i.ToEndUserMyRequestsRequesterFieldValueOutputWithContext(context.Background())
+}
+
+func (i EndUserMyRequestsRequesterFieldValueArgs) ToEndUserMyRequestsRequesterFieldValueOutputWithContext(ctx context.Context) EndUserMyRequestsRequesterFieldValueOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndUserMyRequestsRequesterFieldValueOutput)
+}
+
+// EndUserMyRequestsRequesterFieldValueArrayInput is an input type that accepts EndUserMyRequestsRequesterFieldValueArray and EndUserMyRequestsRequesterFieldValueArrayOutput values.
+// You can construct a concrete instance of `EndUserMyRequestsRequesterFieldValueArrayInput` via:
+//
+//	EndUserMyRequestsRequesterFieldValueArray{ EndUserMyRequestsRequesterFieldValueArgs{...} }
+type EndUserMyRequestsRequesterFieldValueArrayInput interface {
+	pulumi.Input
+
+	ToEndUserMyRequestsRequesterFieldValueArrayOutput() EndUserMyRequestsRequesterFieldValueArrayOutput
+	ToEndUserMyRequestsRequesterFieldValueArrayOutputWithContext(context.Context) EndUserMyRequestsRequesterFieldValueArrayOutput
+}
+
+type EndUserMyRequestsRequesterFieldValueArray []EndUserMyRequestsRequesterFieldValueInput
+
+func (EndUserMyRequestsRequesterFieldValueArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EndUserMyRequestsRequesterFieldValue)(nil)).Elem()
+}
+
+func (i EndUserMyRequestsRequesterFieldValueArray) ToEndUserMyRequestsRequesterFieldValueArrayOutput() EndUserMyRequestsRequesterFieldValueArrayOutput {
+	return i.ToEndUserMyRequestsRequesterFieldValueArrayOutputWithContext(context.Background())
+}
+
+func (i EndUserMyRequestsRequesterFieldValueArray) ToEndUserMyRequestsRequesterFieldValueArrayOutputWithContext(ctx context.Context) EndUserMyRequestsRequesterFieldValueArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndUserMyRequestsRequesterFieldValueArrayOutput)
+}
+
+type EndUserMyRequestsRequesterFieldValueOutput struct{ *pulumi.OutputState }
+
+func (EndUserMyRequestsRequesterFieldValueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndUserMyRequestsRequesterFieldValue)(nil)).Elem()
+}
+
+func (o EndUserMyRequestsRequesterFieldValueOutput) ToEndUserMyRequestsRequesterFieldValueOutput() EndUserMyRequestsRequesterFieldValueOutput {
+	return o
+}
+
+func (o EndUserMyRequestsRequesterFieldValueOutput) ToEndUserMyRequestsRequesterFieldValueOutputWithContext(ctx context.Context) EndUserMyRequestsRequesterFieldValueOutput {
+	return o
+}
+
+// The ID of a requesterField. This identifies the specific field in the approval system.
+func (o EndUserMyRequestsRequesterFieldValueOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v EndUserMyRequestsRequesterFieldValue) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// A human-readable description of requesterField. It's used for display purposes and is optional.
+func (o EndUserMyRequestsRequesterFieldValueOutput) Label() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndUserMyRequestsRequesterFieldValue) *string { return v.Label }).(pulumi.StringPtrOutput)
+}
+
+// Type of value for the requester field. Valid values: `DURATION`, `ISO_DATE`, `MULTISELECT`, `OKTA_USER_ID`, `SELECT`, `TEXT`.
+func (o EndUserMyRequestsRequesterFieldValueOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndUserMyRequestsRequesterFieldValue) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// The value of requesterField, which depends on the type of the field. Used for single-value fields.
+func (o EndUserMyRequestsRequesterFieldValueOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndUserMyRequestsRequesterFieldValue) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+// The values of requesterField with the type MULTISELECT. If the field type is MULTISELECT, this property is required instead of `value`.
+func (o EndUserMyRequestsRequesterFieldValueOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v EndUserMyRequestsRequesterFieldValue) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type EndUserMyRequestsRequesterFieldValueArrayOutput struct{ *pulumi.OutputState }
+
+func (EndUserMyRequestsRequesterFieldValueArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EndUserMyRequestsRequesterFieldValue)(nil)).Elem()
+}
+
+func (o EndUserMyRequestsRequesterFieldValueArrayOutput) ToEndUserMyRequestsRequesterFieldValueArrayOutput() EndUserMyRequestsRequesterFieldValueArrayOutput {
+	return o
+}
+
+func (o EndUserMyRequestsRequesterFieldValueArrayOutput) ToEndUserMyRequestsRequesterFieldValueArrayOutputWithContext(ctx context.Context) EndUserMyRequestsRequesterFieldValueArrayOutput {
+	return o
+}
+
+func (o EndUserMyRequestsRequesterFieldValueArrayOutput) Index(i pulumi.IntInput) EndUserMyRequestsRequesterFieldValueOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EndUserMyRequestsRequesterFieldValue {
+		return vs[0].([]EndUserMyRequestsRequesterFieldValue)[vs[1].(int)]
+	}).(EndUserMyRequestsRequesterFieldValueOutput)
+}
+
+type EntitlementBundleEntitlement struct {
+	// The ID of the entitlement.
+	Id     string                              `pulumi:"id"`
+	Values []EntitlementBundleEntitlementValue `pulumi:"values"`
+}
+
+// EntitlementBundleEntitlementInput is an input type that accepts EntitlementBundleEntitlementArgs and EntitlementBundleEntitlementOutput values.
+// You can construct a concrete instance of `EntitlementBundleEntitlementInput` via:
+//
+//	EntitlementBundleEntitlementArgs{...}
+type EntitlementBundleEntitlementInput interface {
+	pulumi.Input
+
+	ToEntitlementBundleEntitlementOutput() EntitlementBundleEntitlementOutput
+	ToEntitlementBundleEntitlementOutputWithContext(context.Context) EntitlementBundleEntitlementOutput
+}
+
+type EntitlementBundleEntitlementArgs struct {
+	// The ID of the entitlement.
+	Id     pulumi.StringInput                          `pulumi:"id"`
+	Values EntitlementBundleEntitlementValueArrayInput `pulumi:"values"`
+}
+
+func (EntitlementBundleEntitlementArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EntitlementBundleEntitlement)(nil)).Elem()
+}
+
+func (i EntitlementBundleEntitlementArgs) ToEntitlementBundleEntitlementOutput() EntitlementBundleEntitlementOutput {
+	return i.ToEntitlementBundleEntitlementOutputWithContext(context.Background())
+}
+
+func (i EntitlementBundleEntitlementArgs) ToEntitlementBundleEntitlementOutputWithContext(ctx context.Context) EntitlementBundleEntitlementOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EntitlementBundleEntitlementOutput)
+}
+
+// EntitlementBundleEntitlementArrayInput is an input type that accepts EntitlementBundleEntitlementArray and EntitlementBundleEntitlementArrayOutput values.
+// You can construct a concrete instance of `EntitlementBundleEntitlementArrayInput` via:
+//
+//	EntitlementBundleEntitlementArray{ EntitlementBundleEntitlementArgs{...} }
+type EntitlementBundleEntitlementArrayInput interface {
+	pulumi.Input
+
+	ToEntitlementBundleEntitlementArrayOutput() EntitlementBundleEntitlementArrayOutput
+	ToEntitlementBundleEntitlementArrayOutputWithContext(context.Context) EntitlementBundleEntitlementArrayOutput
+}
+
+type EntitlementBundleEntitlementArray []EntitlementBundleEntitlementInput
+
+func (EntitlementBundleEntitlementArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EntitlementBundleEntitlement)(nil)).Elem()
+}
+
+func (i EntitlementBundleEntitlementArray) ToEntitlementBundleEntitlementArrayOutput() EntitlementBundleEntitlementArrayOutput {
+	return i.ToEntitlementBundleEntitlementArrayOutputWithContext(context.Background())
+}
+
+func (i EntitlementBundleEntitlementArray) ToEntitlementBundleEntitlementArrayOutputWithContext(ctx context.Context) EntitlementBundleEntitlementArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EntitlementBundleEntitlementArrayOutput)
+}
+
+type EntitlementBundleEntitlementOutput struct{ *pulumi.OutputState }
+
+func (EntitlementBundleEntitlementOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EntitlementBundleEntitlement)(nil)).Elem()
+}
+
+func (o EntitlementBundleEntitlementOutput) ToEntitlementBundleEntitlementOutput() EntitlementBundleEntitlementOutput {
+	return o
+}
+
+func (o EntitlementBundleEntitlementOutput) ToEntitlementBundleEntitlementOutputWithContext(ctx context.Context) EntitlementBundleEntitlementOutput {
+	return o
+}
+
+// The ID of the entitlement.
+func (o EntitlementBundleEntitlementOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v EntitlementBundleEntitlement) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o EntitlementBundleEntitlementOutput) Values() EntitlementBundleEntitlementValueArrayOutput {
+	return o.ApplyT(func(v EntitlementBundleEntitlement) []EntitlementBundleEntitlementValue { return v.Values }).(EntitlementBundleEntitlementValueArrayOutput)
+}
+
+type EntitlementBundleEntitlementArrayOutput struct{ *pulumi.OutputState }
+
+func (EntitlementBundleEntitlementArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EntitlementBundleEntitlement)(nil)).Elem()
+}
+
+func (o EntitlementBundleEntitlementArrayOutput) ToEntitlementBundleEntitlementArrayOutput() EntitlementBundleEntitlementArrayOutput {
+	return o
+}
+
+func (o EntitlementBundleEntitlementArrayOutput) ToEntitlementBundleEntitlementArrayOutputWithContext(ctx context.Context) EntitlementBundleEntitlementArrayOutput {
+	return o
+}
+
+func (o EntitlementBundleEntitlementArrayOutput) Index(i pulumi.IntInput) EntitlementBundleEntitlementOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EntitlementBundleEntitlement {
+		return vs[0].([]EntitlementBundleEntitlement)[vs[1].(int)]
+	}).(EntitlementBundleEntitlementOutput)
+}
+
+type EntitlementBundleEntitlementValue struct {
+	// The ID of the entitlement value.
+	Id string `pulumi:"id"`
+}
+
+// EntitlementBundleEntitlementValueInput is an input type that accepts EntitlementBundleEntitlementValueArgs and EntitlementBundleEntitlementValueOutput values.
+// You can construct a concrete instance of `EntitlementBundleEntitlementValueInput` via:
+//
+//	EntitlementBundleEntitlementValueArgs{...}
+type EntitlementBundleEntitlementValueInput interface {
+	pulumi.Input
+
+	ToEntitlementBundleEntitlementValueOutput() EntitlementBundleEntitlementValueOutput
+	ToEntitlementBundleEntitlementValueOutputWithContext(context.Context) EntitlementBundleEntitlementValueOutput
+}
+
+type EntitlementBundleEntitlementValueArgs struct {
+	// The ID of the entitlement value.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (EntitlementBundleEntitlementValueArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EntitlementBundleEntitlementValue)(nil)).Elem()
+}
+
+func (i EntitlementBundleEntitlementValueArgs) ToEntitlementBundleEntitlementValueOutput() EntitlementBundleEntitlementValueOutput {
+	return i.ToEntitlementBundleEntitlementValueOutputWithContext(context.Background())
+}
+
+func (i EntitlementBundleEntitlementValueArgs) ToEntitlementBundleEntitlementValueOutputWithContext(ctx context.Context) EntitlementBundleEntitlementValueOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EntitlementBundleEntitlementValueOutput)
+}
+
+// EntitlementBundleEntitlementValueArrayInput is an input type that accepts EntitlementBundleEntitlementValueArray and EntitlementBundleEntitlementValueArrayOutput values.
+// You can construct a concrete instance of `EntitlementBundleEntitlementValueArrayInput` via:
+//
+//	EntitlementBundleEntitlementValueArray{ EntitlementBundleEntitlementValueArgs{...} }
+type EntitlementBundleEntitlementValueArrayInput interface {
+	pulumi.Input
+
+	ToEntitlementBundleEntitlementValueArrayOutput() EntitlementBundleEntitlementValueArrayOutput
+	ToEntitlementBundleEntitlementValueArrayOutputWithContext(context.Context) EntitlementBundleEntitlementValueArrayOutput
+}
+
+type EntitlementBundleEntitlementValueArray []EntitlementBundleEntitlementValueInput
+
+func (EntitlementBundleEntitlementValueArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EntitlementBundleEntitlementValue)(nil)).Elem()
+}
+
+func (i EntitlementBundleEntitlementValueArray) ToEntitlementBundleEntitlementValueArrayOutput() EntitlementBundleEntitlementValueArrayOutput {
+	return i.ToEntitlementBundleEntitlementValueArrayOutputWithContext(context.Background())
+}
+
+func (i EntitlementBundleEntitlementValueArray) ToEntitlementBundleEntitlementValueArrayOutputWithContext(ctx context.Context) EntitlementBundleEntitlementValueArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EntitlementBundleEntitlementValueArrayOutput)
+}
+
+type EntitlementBundleEntitlementValueOutput struct{ *pulumi.OutputState }
+
+func (EntitlementBundleEntitlementValueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EntitlementBundleEntitlementValue)(nil)).Elem()
+}
+
+func (o EntitlementBundleEntitlementValueOutput) ToEntitlementBundleEntitlementValueOutput() EntitlementBundleEntitlementValueOutput {
+	return o
+}
+
+func (o EntitlementBundleEntitlementValueOutput) ToEntitlementBundleEntitlementValueOutputWithContext(ctx context.Context) EntitlementBundleEntitlementValueOutput {
+	return o
+}
+
+// The ID of the entitlement value.
+func (o EntitlementBundleEntitlementValueOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v EntitlementBundleEntitlementValue) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type EntitlementBundleEntitlementValueArrayOutput struct{ *pulumi.OutputState }
+
+func (EntitlementBundleEntitlementValueArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EntitlementBundleEntitlementValue)(nil)).Elem()
+}
+
+func (o EntitlementBundleEntitlementValueArrayOutput) ToEntitlementBundleEntitlementValueArrayOutput() EntitlementBundleEntitlementValueArrayOutput {
+	return o
+}
+
+func (o EntitlementBundleEntitlementValueArrayOutput) ToEntitlementBundleEntitlementValueArrayOutputWithContext(ctx context.Context) EntitlementBundleEntitlementValueArrayOutput {
+	return o
+}
+
+func (o EntitlementBundleEntitlementValueArrayOutput) Index(i pulumi.IntInput) EntitlementBundleEntitlementValueOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EntitlementBundleEntitlementValue {
+		return vs[0].([]EntitlementBundleEntitlementValue)[vs[1].(int)]
+	}).(EntitlementBundleEntitlementValueOutput)
+}
+
+type EntitlementBundleTarget struct {
+	// The Okta app ID of the resource.
+	ExternalId string `pulumi:"externalId"`
+	// The type of resource.
+	Type string `pulumi:"type"`
+}
+
+// EntitlementBundleTargetInput is an input type that accepts EntitlementBundleTargetArgs and EntitlementBundleTargetOutput values.
+// You can construct a concrete instance of `EntitlementBundleTargetInput` via:
+//
+//	EntitlementBundleTargetArgs{...}
+type EntitlementBundleTargetInput interface {
+	pulumi.Input
+
+	ToEntitlementBundleTargetOutput() EntitlementBundleTargetOutput
+	ToEntitlementBundleTargetOutputWithContext(context.Context) EntitlementBundleTargetOutput
+}
+
+type EntitlementBundleTargetArgs struct {
+	// The Okta app ID of the resource.
+	ExternalId pulumi.StringInput `pulumi:"externalId"`
+	// The type of resource.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (EntitlementBundleTargetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EntitlementBundleTarget)(nil)).Elem()
+}
+
+func (i EntitlementBundleTargetArgs) ToEntitlementBundleTargetOutput() EntitlementBundleTargetOutput {
+	return i.ToEntitlementBundleTargetOutputWithContext(context.Background())
+}
+
+func (i EntitlementBundleTargetArgs) ToEntitlementBundleTargetOutputWithContext(ctx context.Context) EntitlementBundleTargetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EntitlementBundleTargetOutput)
+}
+
+func (i EntitlementBundleTargetArgs) ToEntitlementBundleTargetPtrOutput() EntitlementBundleTargetPtrOutput {
+	return i.ToEntitlementBundleTargetPtrOutputWithContext(context.Background())
+}
+
+func (i EntitlementBundleTargetArgs) ToEntitlementBundleTargetPtrOutputWithContext(ctx context.Context) EntitlementBundleTargetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EntitlementBundleTargetOutput).ToEntitlementBundleTargetPtrOutputWithContext(ctx)
+}
+
+// EntitlementBundleTargetPtrInput is an input type that accepts EntitlementBundleTargetArgs, EntitlementBundleTargetPtr and EntitlementBundleTargetPtrOutput values.
+// You can construct a concrete instance of `EntitlementBundleTargetPtrInput` via:
+//
+//	        EntitlementBundleTargetArgs{...}
+//
+//	or:
+//
+//	        nil
+type EntitlementBundleTargetPtrInput interface {
+	pulumi.Input
+
+	ToEntitlementBundleTargetPtrOutput() EntitlementBundleTargetPtrOutput
+	ToEntitlementBundleTargetPtrOutputWithContext(context.Context) EntitlementBundleTargetPtrOutput
+}
+
+type entitlementBundleTargetPtrType EntitlementBundleTargetArgs
+
+func EntitlementBundleTargetPtr(v *EntitlementBundleTargetArgs) EntitlementBundleTargetPtrInput {
+	return (*entitlementBundleTargetPtrType)(v)
+}
+
+func (*entitlementBundleTargetPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EntitlementBundleTarget)(nil)).Elem()
+}
+
+func (i *entitlementBundleTargetPtrType) ToEntitlementBundleTargetPtrOutput() EntitlementBundleTargetPtrOutput {
+	return i.ToEntitlementBundleTargetPtrOutputWithContext(context.Background())
+}
+
+func (i *entitlementBundleTargetPtrType) ToEntitlementBundleTargetPtrOutputWithContext(ctx context.Context) EntitlementBundleTargetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EntitlementBundleTargetPtrOutput)
+}
+
+type EntitlementBundleTargetOutput struct{ *pulumi.OutputState }
+
+func (EntitlementBundleTargetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EntitlementBundleTarget)(nil)).Elem()
+}
+
+func (o EntitlementBundleTargetOutput) ToEntitlementBundleTargetOutput() EntitlementBundleTargetOutput {
+	return o
+}
+
+func (o EntitlementBundleTargetOutput) ToEntitlementBundleTargetOutputWithContext(ctx context.Context) EntitlementBundleTargetOutput {
+	return o
+}
+
+func (o EntitlementBundleTargetOutput) ToEntitlementBundleTargetPtrOutput() EntitlementBundleTargetPtrOutput {
+	return o.ToEntitlementBundleTargetPtrOutputWithContext(context.Background())
+}
+
+func (o EntitlementBundleTargetOutput) ToEntitlementBundleTargetPtrOutputWithContext(ctx context.Context) EntitlementBundleTargetPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EntitlementBundleTarget) *EntitlementBundleTarget {
+		return &v
+	}).(EntitlementBundleTargetPtrOutput)
+}
+
+// The Okta app ID of the resource.
+func (o EntitlementBundleTargetOutput) ExternalId() pulumi.StringOutput {
+	return o.ApplyT(func(v EntitlementBundleTarget) string { return v.ExternalId }).(pulumi.StringOutput)
+}
+
+// The type of resource.
+func (o EntitlementBundleTargetOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v EntitlementBundleTarget) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type EntitlementBundleTargetPtrOutput struct{ *pulumi.OutputState }
+
+func (EntitlementBundleTargetPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EntitlementBundleTarget)(nil)).Elem()
+}
+
+func (o EntitlementBundleTargetPtrOutput) ToEntitlementBundleTargetPtrOutput() EntitlementBundleTargetPtrOutput {
+	return o
+}
+
+func (o EntitlementBundleTargetPtrOutput) ToEntitlementBundleTargetPtrOutputWithContext(ctx context.Context) EntitlementBundleTargetPtrOutput {
+	return o
+}
+
+func (o EntitlementBundleTargetPtrOutput) Elem() EntitlementBundleTargetOutput {
+	return o.ApplyT(func(v *EntitlementBundleTarget) EntitlementBundleTarget {
+		if v != nil {
+			return *v
+		}
+		var ret EntitlementBundleTarget
+		return ret
+	}).(EntitlementBundleTargetOutput)
+}
+
+// The Okta app ID of the resource.
+func (o EntitlementBundleTargetPtrOutput) ExternalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EntitlementBundleTarget) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ExternalId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of resource.
+func (o EntitlementBundleTargetPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EntitlementBundleTarget) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type EntitlementParent struct {
+	// The Okta app ID of the resource.
+	ExternalId string `pulumi:"externalId"`
+	// The type of resource.
+	Type string `pulumi:"type"`
+}
+
+// EntitlementParentInput is an input type that accepts EntitlementParentArgs and EntitlementParentOutput values.
+// You can construct a concrete instance of `EntitlementParentInput` via:
+//
+//	EntitlementParentArgs{...}
+type EntitlementParentInput interface {
+	pulumi.Input
+
+	ToEntitlementParentOutput() EntitlementParentOutput
+	ToEntitlementParentOutputWithContext(context.Context) EntitlementParentOutput
+}
+
+type EntitlementParentArgs struct {
+	// The Okta app ID of the resource.
+	ExternalId pulumi.StringInput `pulumi:"externalId"`
+	// The type of resource.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (EntitlementParentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EntitlementParent)(nil)).Elem()
+}
+
+func (i EntitlementParentArgs) ToEntitlementParentOutput() EntitlementParentOutput {
+	return i.ToEntitlementParentOutputWithContext(context.Background())
+}
+
+func (i EntitlementParentArgs) ToEntitlementParentOutputWithContext(ctx context.Context) EntitlementParentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EntitlementParentOutput)
+}
+
+func (i EntitlementParentArgs) ToEntitlementParentPtrOutput() EntitlementParentPtrOutput {
+	return i.ToEntitlementParentPtrOutputWithContext(context.Background())
+}
+
+func (i EntitlementParentArgs) ToEntitlementParentPtrOutputWithContext(ctx context.Context) EntitlementParentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EntitlementParentOutput).ToEntitlementParentPtrOutputWithContext(ctx)
+}
+
+// EntitlementParentPtrInput is an input type that accepts EntitlementParentArgs, EntitlementParentPtr and EntitlementParentPtrOutput values.
+// You can construct a concrete instance of `EntitlementParentPtrInput` via:
+//
+//	        EntitlementParentArgs{...}
+//
+//	or:
+//
+//	        nil
+type EntitlementParentPtrInput interface {
+	pulumi.Input
+
+	ToEntitlementParentPtrOutput() EntitlementParentPtrOutput
+	ToEntitlementParentPtrOutputWithContext(context.Context) EntitlementParentPtrOutput
+}
+
+type entitlementParentPtrType EntitlementParentArgs
+
+func EntitlementParentPtr(v *EntitlementParentArgs) EntitlementParentPtrInput {
+	return (*entitlementParentPtrType)(v)
+}
+
+func (*entitlementParentPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EntitlementParent)(nil)).Elem()
+}
+
+func (i *entitlementParentPtrType) ToEntitlementParentPtrOutput() EntitlementParentPtrOutput {
+	return i.ToEntitlementParentPtrOutputWithContext(context.Background())
+}
+
+func (i *entitlementParentPtrType) ToEntitlementParentPtrOutputWithContext(ctx context.Context) EntitlementParentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EntitlementParentPtrOutput)
+}
+
+type EntitlementParentOutput struct{ *pulumi.OutputState }
+
+func (EntitlementParentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EntitlementParent)(nil)).Elem()
+}
+
+func (o EntitlementParentOutput) ToEntitlementParentOutput() EntitlementParentOutput {
+	return o
+}
+
+func (o EntitlementParentOutput) ToEntitlementParentOutputWithContext(ctx context.Context) EntitlementParentOutput {
+	return o
+}
+
+func (o EntitlementParentOutput) ToEntitlementParentPtrOutput() EntitlementParentPtrOutput {
+	return o.ToEntitlementParentPtrOutputWithContext(context.Background())
+}
+
+func (o EntitlementParentOutput) ToEntitlementParentPtrOutputWithContext(ctx context.Context) EntitlementParentPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EntitlementParent) *EntitlementParent {
+		return &v
+	}).(EntitlementParentPtrOutput)
+}
+
+// The Okta app ID of the resource.
+func (o EntitlementParentOutput) ExternalId() pulumi.StringOutput {
+	return o.ApplyT(func(v EntitlementParent) string { return v.ExternalId }).(pulumi.StringOutput)
+}
+
+// The type of resource.
+func (o EntitlementParentOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v EntitlementParent) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type EntitlementParentPtrOutput struct{ *pulumi.OutputState }
+
+func (EntitlementParentPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EntitlementParent)(nil)).Elem()
+}
+
+func (o EntitlementParentPtrOutput) ToEntitlementParentPtrOutput() EntitlementParentPtrOutput {
+	return o
+}
+
+func (o EntitlementParentPtrOutput) ToEntitlementParentPtrOutputWithContext(ctx context.Context) EntitlementParentPtrOutput {
+	return o
+}
+
+func (o EntitlementParentPtrOutput) Elem() EntitlementParentOutput {
+	return o.ApplyT(func(v *EntitlementParent) EntitlementParent {
+		if v != nil {
+			return *v
+		}
+		var ret EntitlementParent
+		return ret
+	}).(EntitlementParentOutput)
+}
+
+// The Okta app ID of the resource.
+func (o EntitlementParentPtrOutput) ExternalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EntitlementParent) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ExternalId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of resource.
+func (o EntitlementParentPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EntitlementParent) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type EntitlementValue struct {
+	// The description of an entitlement value.
+	Description *string `pulumi:"description"`
+	// The value of an entitlement property value.
+	ExternalValue *string `pulumi:"externalValue"`
+	// Collection of entitlement values.
+	Id *string `pulumi:"id"`
+	// The display name for an entitlement value.
+	Name *string `pulumi:"name"`
+}
+
+// EntitlementValueInput is an input type that accepts EntitlementValueArgs and EntitlementValueOutput values.
+// You can construct a concrete instance of `EntitlementValueInput` via:
+//
+//	EntitlementValueArgs{...}
+type EntitlementValueInput interface {
+	pulumi.Input
+
+	ToEntitlementValueOutput() EntitlementValueOutput
+	ToEntitlementValueOutputWithContext(context.Context) EntitlementValueOutput
+}
+
+type EntitlementValueArgs struct {
+	// The description of an entitlement value.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// The value of an entitlement property value.
+	ExternalValue pulumi.StringPtrInput `pulumi:"externalValue"`
+	// Collection of entitlement values.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// The display name for an entitlement value.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (EntitlementValueArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EntitlementValue)(nil)).Elem()
+}
+
+func (i EntitlementValueArgs) ToEntitlementValueOutput() EntitlementValueOutput {
+	return i.ToEntitlementValueOutputWithContext(context.Background())
+}
+
+func (i EntitlementValueArgs) ToEntitlementValueOutputWithContext(ctx context.Context) EntitlementValueOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EntitlementValueOutput)
+}
+
+// EntitlementValueArrayInput is an input type that accepts EntitlementValueArray and EntitlementValueArrayOutput values.
+// You can construct a concrete instance of `EntitlementValueArrayInput` via:
+//
+//	EntitlementValueArray{ EntitlementValueArgs{...} }
+type EntitlementValueArrayInput interface {
+	pulumi.Input
+
+	ToEntitlementValueArrayOutput() EntitlementValueArrayOutput
+	ToEntitlementValueArrayOutputWithContext(context.Context) EntitlementValueArrayOutput
+}
+
+type EntitlementValueArray []EntitlementValueInput
+
+func (EntitlementValueArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EntitlementValue)(nil)).Elem()
+}
+
+func (i EntitlementValueArray) ToEntitlementValueArrayOutput() EntitlementValueArrayOutput {
+	return i.ToEntitlementValueArrayOutputWithContext(context.Background())
+}
+
+func (i EntitlementValueArray) ToEntitlementValueArrayOutputWithContext(ctx context.Context) EntitlementValueArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EntitlementValueArrayOutput)
+}
+
+type EntitlementValueOutput struct{ *pulumi.OutputState }
+
+func (EntitlementValueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EntitlementValue)(nil)).Elem()
+}
+
+func (o EntitlementValueOutput) ToEntitlementValueOutput() EntitlementValueOutput {
+	return o
+}
+
+func (o EntitlementValueOutput) ToEntitlementValueOutputWithContext(ctx context.Context) EntitlementValueOutput {
+	return o
+}
+
+// The description of an entitlement value.
+func (o EntitlementValueOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EntitlementValue) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The value of an entitlement property value.
+func (o EntitlementValueOutput) ExternalValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EntitlementValue) *string { return v.ExternalValue }).(pulumi.StringPtrOutput)
+}
+
+// Collection of entitlement values.
+func (o EntitlementValueOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EntitlementValue) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// The display name for an entitlement value.
+func (o EntitlementValueOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EntitlementValue) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+type EntitlementValueArrayOutput struct{ *pulumi.OutputState }
+
+func (EntitlementValueArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EntitlementValue)(nil)).Elem()
+}
+
+func (o EntitlementValueArrayOutput) ToEntitlementValueArrayOutput() EntitlementValueArrayOutput {
+	return o
+}
+
+func (o EntitlementValueArrayOutput) ToEntitlementValueArrayOutputWithContext(ctx context.Context) EntitlementValueArrayOutput {
+	return o
+}
+
+func (o EntitlementValueArrayOutput) Index(i pulumi.IntInput) EntitlementValueOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EntitlementValue {
+		return vs[0].([]EntitlementValue)[vs[1].(int)]
+	}).(EntitlementValueOutput)
 }
 
 type EventHookHeader struct {
@@ -2929,6 +6474,2174 @@ func (o PreviewSigninPageWidgetCustomizationsPtrOutput) WidgetGeneration() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
+type RateLimitingUseCaseModeOverrides struct {
+	LoginPage       *string `pulumi:"loginPage"`
+	Oauth2Authorize *string `pulumi:"oauth2Authorize"`
+	OieAppIntent    *string `pulumi:"oieAppIntent"`
+}
+
+// RateLimitingUseCaseModeOverridesInput is an input type that accepts RateLimitingUseCaseModeOverridesArgs and RateLimitingUseCaseModeOverridesOutput values.
+// You can construct a concrete instance of `RateLimitingUseCaseModeOverridesInput` via:
+//
+//	RateLimitingUseCaseModeOverridesArgs{...}
+type RateLimitingUseCaseModeOverridesInput interface {
+	pulumi.Input
+
+	ToRateLimitingUseCaseModeOverridesOutput() RateLimitingUseCaseModeOverridesOutput
+	ToRateLimitingUseCaseModeOverridesOutputWithContext(context.Context) RateLimitingUseCaseModeOverridesOutput
+}
+
+type RateLimitingUseCaseModeOverridesArgs struct {
+	LoginPage       pulumi.StringPtrInput `pulumi:"loginPage"`
+	Oauth2Authorize pulumi.StringPtrInput `pulumi:"oauth2Authorize"`
+	OieAppIntent    pulumi.StringPtrInput `pulumi:"oieAppIntent"`
+}
+
+func (RateLimitingUseCaseModeOverridesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RateLimitingUseCaseModeOverrides)(nil)).Elem()
+}
+
+func (i RateLimitingUseCaseModeOverridesArgs) ToRateLimitingUseCaseModeOverridesOutput() RateLimitingUseCaseModeOverridesOutput {
+	return i.ToRateLimitingUseCaseModeOverridesOutputWithContext(context.Background())
+}
+
+func (i RateLimitingUseCaseModeOverridesArgs) ToRateLimitingUseCaseModeOverridesOutputWithContext(ctx context.Context) RateLimitingUseCaseModeOverridesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RateLimitingUseCaseModeOverridesOutput)
+}
+
+func (i RateLimitingUseCaseModeOverridesArgs) ToRateLimitingUseCaseModeOverridesPtrOutput() RateLimitingUseCaseModeOverridesPtrOutput {
+	return i.ToRateLimitingUseCaseModeOverridesPtrOutputWithContext(context.Background())
+}
+
+func (i RateLimitingUseCaseModeOverridesArgs) ToRateLimitingUseCaseModeOverridesPtrOutputWithContext(ctx context.Context) RateLimitingUseCaseModeOverridesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RateLimitingUseCaseModeOverridesOutput).ToRateLimitingUseCaseModeOverridesPtrOutputWithContext(ctx)
+}
+
+// RateLimitingUseCaseModeOverridesPtrInput is an input type that accepts RateLimitingUseCaseModeOverridesArgs, RateLimitingUseCaseModeOverridesPtr and RateLimitingUseCaseModeOverridesPtrOutput values.
+// You can construct a concrete instance of `RateLimitingUseCaseModeOverridesPtrInput` via:
+//
+//	        RateLimitingUseCaseModeOverridesArgs{...}
+//
+//	or:
+//
+//	        nil
+type RateLimitingUseCaseModeOverridesPtrInput interface {
+	pulumi.Input
+
+	ToRateLimitingUseCaseModeOverridesPtrOutput() RateLimitingUseCaseModeOverridesPtrOutput
+	ToRateLimitingUseCaseModeOverridesPtrOutputWithContext(context.Context) RateLimitingUseCaseModeOverridesPtrOutput
+}
+
+type rateLimitingUseCaseModeOverridesPtrType RateLimitingUseCaseModeOverridesArgs
+
+func RateLimitingUseCaseModeOverridesPtr(v *RateLimitingUseCaseModeOverridesArgs) RateLimitingUseCaseModeOverridesPtrInput {
+	return (*rateLimitingUseCaseModeOverridesPtrType)(v)
+}
+
+func (*rateLimitingUseCaseModeOverridesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RateLimitingUseCaseModeOverrides)(nil)).Elem()
+}
+
+func (i *rateLimitingUseCaseModeOverridesPtrType) ToRateLimitingUseCaseModeOverridesPtrOutput() RateLimitingUseCaseModeOverridesPtrOutput {
+	return i.ToRateLimitingUseCaseModeOverridesPtrOutputWithContext(context.Background())
+}
+
+func (i *rateLimitingUseCaseModeOverridesPtrType) ToRateLimitingUseCaseModeOverridesPtrOutputWithContext(ctx context.Context) RateLimitingUseCaseModeOverridesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RateLimitingUseCaseModeOverridesPtrOutput)
+}
+
+type RateLimitingUseCaseModeOverridesOutput struct{ *pulumi.OutputState }
+
+func (RateLimitingUseCaseModeOverridesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RateLimitingUseCaseModeOverrides)(nil)).Elem()
+}
+
+func (o RateLimitingUseCaseModeOverridesOutput) ToRateLimitingUseCaseModeOverridesOutput() RateLimitingUseCaseModeOverridesOutput {
+	return o
+}
+
+func (o RateLimitingUseCaseModeOverridesOutput) ToRateLimitingUseCaseModeOverridesOutputWithContext(ctx context.Context) RateLimitingUseCaseModeOverridesOutput {
+	return o
+}
+
+func (o RateLimitingUseCaseModeOverridesOutput) ToRateLimitingUseCaseModeOverridesPtrOutput() RateLimitingUseCaseModeOverridesPtrOutput {
+	return o.ToRateLimitingUseCaseModeOverridesPtrOutputWithContext(context.Background())
+}
+
+func (o RateLimitingUseCaseModeOverridesOutput) ToRateLimitingUseCaseModeOverridesPtrOutputWithContext(ctx context.Context) RateLimitingUseCaseModeOverridesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RateLimitingUseCaseModeOverrides) *RateLimitingUseCaseModeOverrides {
+		return &v
+	}).(RateLimitingUseCaseModeOverridesPtrOutput)
+}
+
+func (o RateLimitingUseCaseModeOverridesOutput) LoginPage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RateLimitingUseCaseModeOverrides) *string { return v.LoginPage }).(pulumi.StringPtrOutput)
+}
+
+func (o RateLimitingUseCaseModeOverridesOutput) Oauth2Authorize() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RateLimitingUseCaseModeOverrides) *string { return v.Oauth2Authorize }).(pulumi.StringPtrOutput)
+}
+
+func (o RateLimitingUseCaseModeOverridesOutput) OieAppIntent() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RateLimitingUseCaseModeOverrides) *string { return v.OieAppIntent }).(pulumi.StringPtrOutput)
+}
+
+type RateLimitingUseCaseModeOverridesPtrOutput struct{ *pulumi.OutputState }
+
+func (RateLimitingUseCaseModeOverridesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RateLimitingUseCaseModeOverrides)(nil)).Elem()
+}
+
+func (o RateLimitingUseCaseModeOverridesPtrOutput) ToRateLimitingUseCaseModeOverridesPtrOutput() RateLimitingUseCaseModeOverridesPtrOutput {
+	return o
+}
+
+func (o RateLimitingUseCaseModeOverridesPtrOutput) ToRateLimitingUseCaseModeOverridesPtrOutputWithContext(ctx context.Context) RateLimitingUseCaseModeOverridesPtrOutput {
+	return o
+}
+
+func (o RateLimitingUseCaseModeOverridesPtrOutput) Elem() RateLimitingUseCaseModeOverridesOutput {
+	return o.ApplyT(func(v *RateLimitingUseCaseModeOverrides) RateLimitingUseCaseModeOverrides {
+		if v != nil {
+			return *v
+		}
+		var ret RateLimitingUseCaseModeOverrides
+		return ret
+	}).(RateLimitingUseCaseModeOverridesOutput)
+}
+
+func (o RateLimitingUseCaseModeOverridesPtrOutput) LoginPage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RateLimitingUseCaseModeOverrides) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LoginPage
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o RateLimitingUseCaseModeOverridesPtrOutput) Oauth2Authorize() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RateLimitingUseCaseModeOverrides) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Oauth2Authorize
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o RateLimitingUseCaseModeOverridesPtrOutput) OieAppIntent() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RateLimitingUseCaseModeOverrides) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OieAppIntent
+	}).(pulumi.StringPtrOutput)
+}
+
+type RequestConditionAccessDurationSettings struct {
+	// The duration set by the admin for access durations. Use ISO8061 notation for duration values.
+	Duration *string `pulumi:"duration"`
+	Type     *string `pulumi:"type"`
+}
+
+// RequestConditionAccessDurationSettingsInput is an input type that accepts RequestConditionAccessDurationSettingsArgs and RequestConditionAccessDurationSettingsOutput values.
+// You can construct a concrete instance of `RequestConditionAccessDurationSettingsInput` via:
+//
+//	RequestConditionAccessDurationSettingsArgs{...}
+type RequestConditionAccessDurationSettingsInput interface {
+	pulumi.Input
+
+	ToRequestConditionAccessDurationSettingsOutput() RequestConditionAccessDurationSettingsOutput
+	ToRequestConditionAccessDurationSettingsOutputWithContext(context.Context) RequestConditionAccessDurationSettingsOutput
+}
+
+type RequestConditionAccessDurationSettingsArgs struct {
+	// The duration set by the admin for access durations. Use ISO8061 notation for duration values.
+	Duration pulumi.StringPtrInput `pulumi:"duration"`
+	Type     pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (RequestConditionAccessDurationSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RequestConditionAccessDurationSettings)(nil)).Elem()
+}
+
+func (i RequestConditionAccessDurationSettingsArgs) ToRequestConditionAccessDurationSettingsOutput() RequestConditionAccessDurationSettingsOutput {
+	return i.ToRequestConditionAccessDurationSettingsOutputWithContext(context.Background())
+}
+
+func (i RequestConditionAccessDurationSettingsArgs) ToRequestConditionAccessDurationSettingsOutputWithContext(ctx context.Context) RequestConditionAccessDurationSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RequestConditionAccessDurationSettingsOutput)
+}
+
+func (i RequestConditionAccessDurationSettingsArgs) ToRequestConditionAccessDurationSettingsPtrOutput() RequestConditionAccessDurationSettingsPtrOutput {
+	return i.ToRequestConditionAccessDurationSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i RequestConditionAccessDurationSettingsArgs) ToRequestConditionAccessDurationSettingsPtrOutputWithContext(ctx context.Context) RequestConditionAccessDurationSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RequestConditionAccessDurationSettingsOutput).ToRequestConditionAccessDurationSettingsPtrOutputWithContext(ctx)
+}
+
+// RequestConditionAccessDurationSettingsPtrInput is an input type that accepts RequestConditionAccessDurationSettingsArgs, RequestConditionAccessDurationSettingsPtr and RequestConditionAccessDurationSettingsPtrOutput values.
+// You can construct a concrete instance of `RequestConditionAccessDurationSettingsPtrInput` via:
+//
+//	        RequestConditionAccessDurationSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type RequestConditionAccessDurationSettingsPtrInput interface {
+	pulumi.Input
+
+	ToRequestConditionAccessDurationSettingsPtrOutput() RequestConditionAccessDurationSettingsPtrOutput
+	ToRequestConditionAccessDurationSettingsPtrOutputWithContext(context.Context) RequestConditionAccessDurationSettingsPtrOutput
+}
+
+type requestConditionAccessDurationSettingsPtrType RequestConditionAccessDurationSettingsArgs
+
+func RequestConditionAccessDurationSettingsPtr(v *RequestConditionAccessDurationSettingsArgs) RequestConditionAccessDurationSettingsPtrInput {
+	return (*requestConditionAccessDurationSettingsPtrType)(v)
+}
+
+func (*requestConditionAccessDurationSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RequestConditionAccessDurationSettings)(nil)).Elem()
+}
+
+func (i *requestConditionAccessDurationSettingsPtrType) ToRequestConditionAccessDurationSettingsPtrOutput() RequestConditionAccessDurationSettingsPtrOutput {
+	return i.ToRequestConditionAccessDurationSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *requestConditionAccessDurationSettingsPtrType) ToRequestConditionAccessDurationSettingsPtrOutputWithContext(ctx context.Context) RequestConditionAccessDurationSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RequestConditionAccessDurationSettingsPtrOutput)
+}
+
+type RequestConditionAccessDurationSettingsOutput struct{ *pulumi.OutputState }
+
+func (RequestConditionAccessDurationSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RequestConditionAccessDurationSettings)(nil)).Elem()
+}
+
+func (o RequestConditionAccessDurationSettingsOutput) ToRequestConditionAccessDurationSettingsOutput() RequestConditionAccessDurationSettingsOutput {
+	return o
+}
+
+func (o RequestConditionAccessDurationSettingsOutput) ToRequestConditionAccessDurationSettingsOutputWithContext(ctx context.Context) RequestConditionAccessDurationSettingsOutput {
+	return o
+}
+
+func (o RequestConditionAccessDurationSettingsOutput) ToRequestConditionAccessDurationSettingsPtrOutput() RequestConditionAccessDurationSettingsPtrOutput {
+	return o.ToRequestConditionAccessDurationSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o RequestConditionAccessDurationSettingsOutput) ToRequestConditionAccessDurationSettingsPtrOutputWithContext(ctx context.Context) RequestConditionAccessDurationSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RequestConditionAccessDurationSettings) *RequestConditionAccessDurationSettings {
+		return &v
+	}).(RequestConditionAccessDurationSettingsPtrOutput)
+}
+
+// The duration set by the admin for access durations. Use ISO8061 notation for duration values.
+func (o RequestConditionAccessDurationSettingsOutput) Duration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RequestConditionAccessDurationSettings) *string { return v.Duration }).(pulumi.StringPtrOutput)
+}
+
+func (o RequestConditionAccessDurationSettingsOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RequestConditionAccessDurationSettings) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type RequestConditionAccessDurationSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (RequestConditionAccessDurationSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RequestConditionAccessDurationSettings)(nil)).Elem()
+}
+
+func (o RequestConditionAccessDurationSettingsPtrOutput) ToRequestConditionAccessDurationSettingsPtrOutput() RequestConditionAccessDurationSettingsPtrOutput {
+	return o
+}
+
+func (o RequestConditionAccessDurationSettingsPtrOutput) ToRequestConditionAccessDurationSettingsPtrOutputWithContext(ctx context.Context) RequestConditionAccessDurationSettingsPtrOutput {
+	return o
+}
+
+func (o RequestConditionAccessDurationSettingsPtrOutput) Elem() RequestConditionAccessDurationSettingsOutput {
+	return o.ApplyT(func(v *RequestConditionAccessDurationSettings) RequestConditionAccessDurationSettings {
+		if v != nil {
+			return *v
+		}
+		var ret RequestConditionAccessDurationSettings
+		return ret
+	}).(RequestConditionAccessDurationSettingsOutput)
+}
+
+// The duration set by the admin for access durations. Use ISO8061 notation for duration values.
+func (o RequestConditionAccessDurationSettingsPtrOutput) Duration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RequestConditionAccessDurationSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Duration
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o RequestConditionAccessDurationSettingsPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RequestConditionAccessDurationSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type RequestConditionAccessScopeSettings struct {
+	// List of groups/entitlement bundles.
+	Ids  []RequestConditionAccessScopeSettingsId `pulumi:"ids"`
+	Type string                                  `pulumi:"type"`
+}
+
+// RequestConditionAccessScopeSettingsInput is an input type that accepts RequestConditionAccessScopeSettingsArgs and RequestConditionAccessScopeSettingsOutput values.
+// You can construct a concrete instance of `RequestConditionAccessScopeSettingsInput` via:
+//
+//	RequestConditionAccessScopeSettingsArgs{...}
+type RequestConditionAccessScopeSettingsInput interface {
+	pulumi.Input
+
+	ToRequestConditionAccessScopeSettingsOutput() RequestConditionAccessScopeSettingsOutput
+	ToRequestConditionAccessScopeSettingsOutputWithContext(context.Context) RequestConditionAccessScopeSettingsOutput
+}
+
+type RequestConditionAccessScopeSettingsArgs struct {
+	// List of groups/entitlement bundles.
+	Ids  RequestConditionAccessScopeSettingsIdArrayInput `pulumi:"ids"`
+	Type pulumi.StringInput                              `pulumi:"type"`
+}
+
+func (RequestConditionAccessScopeSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RequestConditionAccessScopeSettings)(nil)).Elem()
+}
+
+func (i RequestConditionAccessScopeSettingsArgs) ToRequestConditionAccessScopeSettingsOutput() RequestConditionAccessScopeSettingsOutput {
+	return i.ToRequestConditionAccessScopeSettingsOutputWithContext(context.Background())
+}
+
+func (i RequestConditionAccessScopeSettingsArgs) ToRequestConditionAccessScopeSettingsOutputWithContext(ctx context.Context) RequestConditionAccessScopeSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RequestConditionAccessScopeSettingsOutput)
+}
+
+func (i RequestConditionAccessScopeSettingsArgs) ToRequestConditionAccessScopeSettingsPtrOutput() RequestConditionAccessScopeSettingsPtrOutput {
+	return i.ToRequestConditionAccessScopeSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i RequestConditionAccessScopeSettingsArgs) ToRequestConditionAccessScopeSettingsPtrOutputWithContext(ctx context.Context) RequestConditionAccessScopeSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RequestConditionAccessScopeSettingsOutput).ToRequestConditionAccessScopeSettingsPtrOutputWithContext(ctx)
+}
+
+// RequestConditionAccessScopeSettingsPtrInput is an input type that accepts RequestConditionAccessScopeSettingsArgs, RequestConditionAccessScopeSettingsPtr and RequestConditionAccessScopeSettingsPtrOutput values.
+// You can construct a concrete instance of `RequestConditionAccessScopeSettingsPtrInput` via:
+//
+//	        RequestConditionAccessScopeSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type RequestConditionAccessScopeSettingsPtrInput interface {
+	pulumi.Input
+
+	ToRequestConditionAccessScopeSettingsPtrOutput() RequestConditionAccessScopeSettingsPtrOutput
+	ToRequestConditionAccessScopeSettingsPtrOutputWithContext(context.Context) RequestConditionAccessScopeSettingsPtrOutput
+}
+
+type requestConditionAccessScopeSettingsPtrType RequestConditionAccessScopeSettingsArgs
+
+func RequestConditionAccessScopeSettingsPtr(v *RequestConditionAccessScopeSettingsArgs) RequestConditionAccessScopeSettingsPtrInput {
+	return (*requestConditionAccessScopeSettingsPtrType)(v)
+}
+
+func (*requestConditionAccessScopeSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RequestConditionAccessScopeSettings)(nil)).Elem()
+}
+
+func (i *requestConditionAccessScopeSettingsPtrType) ToRequestConditionAccessScopeSettingsPtrOutput() RequestConditionAccessScopeSettingsPtrOutput {
+	return i.ToRequestConditionAccessScopeSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *requestConditionAccessScopeSettingsPtrType) ToRequestConditionAccessScopeSettingsPtrOutputWithContext(ctx context.Context) RequestConditionAccessScopeSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RequestConditionAccessScopeSettingsPtrOutput)
+}
+
+type RequestConditionAccessScopeSettingsOutput struct{ *pulumi.OutputState }
+
+func (RequestConditionAccessScopeSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RequestConditionAccessScopeSettings)(nil)).Elem()
+}
+
+func (o RequestConditionAccessScopeSettingsOutput) ToRequestConditionAccessScopeSettingsOutput() RequestConditionAccessScopeSettingsOutput {
+	return o
+}
+
+func (o RequestConditionAccessScopeSettingsOutput) ToRequestConditionAccessScopeSettingsOutputWithContext(ctx context.Context) RequestConditionAccessScopeSettingsOutput {
+	return o
+}
+
+func (o RequestConditionAccessScopeSettingsOutput) ToRequestConditionAccessScopeSettingsPtrOutput() RequestConditionAccessScopeSettingsPtrOutput {
+	return o.ToRequestConditionAccessScopeSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o RequestConditionAccessScopeSettingsOutput) ToRequestConditionAccessScopeSettingsPtrOutputWithContext(ctx context.Context) RequestConditionAccessScopeSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RequestConditionAccessScopeSettings) *RequestConditionAccessScopeSettings {
+		return &v
+	}).(RequestConditionAccessScopeSettingsPtrOutput)
+}
+
+// List of groups/entitlement bundles.
+func (o RequestConditionAccessScopeSettingsOutput) Ids() RequestConditionAccessScopeSettingsIdArrayOutput {
+	return o.ApplyT(func(v RequestConditionAccessScopeSettings) []RequestConditionAccessScopeSettingsId { return v.Ids }).(RequestConditionAccessScopeSettingsIdArrayOutput)
+}
+
+func (o RequestConditionAccessScopeSettingsOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v RequestConditionAccessScopeSettings) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type RequestConditionAccessScopeSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (RequestConditionAccessScopeSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RequestConditionAccessScopeSettings)(nil)).Elem()
+}
+
+func (o RequestConditionAccessScopeSettingsPtrOutput) ToRequestConditionAccessScopeSettingsPtrOutput() RequestConditionAccessScopeSettingsPtrOutput {
+	return o
+}
+
+func (o RequestConditionAccessScopeSettingsPtrOutput) ToRequestConditionAccessScopeSettingsPtrOutputWithContext(ctx context.Context) RequestConditionAccessScopeSettingsPtrOutput {
+	return o
+}
+
+func (o RequestConditionAccessScopeSettingsPtrOutput) Elem() RequestConditionAccessScopeSettingsOutput {
+	return o.ApplyT(func(v *RequestConditionAccessScopeSettings) RequestConditionAccessScopeSettings {
+		if v != nil {
+			return *v
+		}
+		var ret RequestConditionAccessScopeSettings
+		return ret
+	}).(RequestConditionAccessScopeSettingsOutput)
+}
+
+// List of groups/entitlement bundles.
+func (o RequestConditionAccessScopeSettingsPtrOutput) Ids() RequestConditionAccessScopeSettingsIdArrayOutput {
+	return o.ApplyT(func(v *RequestConditionAccessScopeSettings) []RequestConditionAccessScopeSettingsId {
+		if v == nil {
+			return nil
+		}
+		return v.Ids
+	}).(RequestConditionAccessScopeSettingsIdArrayOutput)
+}
+
+func (o RequestConditionAccessScopeSettingsPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RequestConditionAccessScopeSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type RequestConditionAccessScopeSettingsId struct {
+	// Request condition id.
+	Id *string `pulumi:"id"`
+}
+
+// RequestConditionAccessScopeSettingsIdInput is an input type that accepts RequestConditionAccessScopeSettingsIdArgs and RequestConditionAccessScopeSettingsIdOutput values.
+// You can construct a concrete instance of `RequestConditionAccessScopeSettingsIdInput` via:
+//
+//	RequestConditionAccessScopeSettingsIdArgs{...}
+type RequestConditionAccessScopeSettingsIdInput interface {
+	pulumi.Input
+
+	ToRequestConditionAccessScopeSettingsIdOutput() RequestConditionAccessScopeSettingsIdOutput
+	ToRequestConditionAccessScopeSettingsIdOutputWithContext(context.Context) RequestConditionAccessScopeSettingsIdOutput
+}
+
+type RequestConditionAccessScopeSettingsIdArgs struct {
+	// Request condition id.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+}
+
+func (RequestConditionAccessScopeSettingsIdArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RequestConditionAccessScopeSettingsId)(nil)).Elem()
+}
+
+func (i RequestConditionAccessScopeSettingsIdArgs) ToRequestConditionAccessScopeSettingsIdOutput() RequestConditionAccessScopeSettingsIdOutput {
+	return i.ToRequestConditionAccessScopeSettingsIdOutputWithContext(context.Background())
+}
+
+func (i RequestConditionAccessScopeSettingsIdArgs) ToRequestConditionAccessScopeSettingsIdOutputWithContext(ctx context.Context) RequestConditionAccessScopeSettingsIdOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RequestConditionAccessScopeSettingsIdOutput)
+}
+
+// RequestConditionAccessScopeSettingsIdArrayInput is an input type that accepts RequestConditionAccessScopeSettingsIdArray and RequestConditionAccessScopeSettingsIdArrayOutput values.
+// You can construct a concrete instance of `RequestConditionAccessScopeSettingsIdArrayInput` via:
+//
+//	RequestConditionAccessScopeSettingsIdArray{ RequestConditionAccessScopeSettingsIdArgs{...} }
+type RequestConditionAccessScopeSettingsIdArrayInput interface {
+	pulumi.Input
+
+	ToRequestConditionAccessScopeSettingsIdArrayOutput() RequestConditionAccessScopeSettingsIdArrayOutput
+	ToRequestConditionAccessScopeSettingsIdArrayOutputWithContext(context.Context) RequestConditionAccessScopeSettingsIdArrayOutput
+}
+
+type RequestConditionAccessScopeSettingsIdArray []RequestConditionAccessScopeSettingsIdInput
+
+func (RequestConditionAccessScopeSettingsIdArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RequestConditionAccessScopeSettingsId)(nil)).Elem()
+}
+
+func (i RequestConditionAccessScopeSettingsIdArray) ToRequestConditionAccessScopeSettingsIdArrayOutput() RequestConditionAccessScopeSettingsIdArrayOutput {
+	return i.ToRequestConditionAccessScopeSettingsIdArrayOutputWithContext(context.Background())
+}
+
+func (i RequestConditionAccessScopeSettingsIdArray) ToRequestConditionAccessScopeSettingsIdArrayOutputWithContext(ctx context.Context) RequestConditionAccessScopeSettingsIdArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RequestConditionAccessScopeSettingsIdArrayOutput)
+}
+
+type RequestConditionAccessScopeSettingsIdOutput struct{ *pulumi.OutputState }
+
+func (RequestConditionAccessScopeSettingsIdOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RequestConditionAccessScopeSettingsId)(nil)).Elem()
+}
+
+func (o RequestConditionAccessScopeSettingsIdOutput) ToRequestConditionAccessScopeSettingsIdOutput() RequestConditionAccessScopeSettingsIdOutput {
+	return o
+}
+
+func (o RequestConditionAccessScopeSettingsIdOutput) ToRequestConditionAccessScopeSettingsIdOutputWithContext(ctx context.Context) RequestConditionAccessScopeSettingsIdOutput {
+	return o
+}
+
+// Request condition id.
+func (o RequestConditionAccessScopeSettingsIdOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RequestConditionAccessScopeSettingsId) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+type RequestConditionAccessScopeSettingsIdArrayOutput struct{ *pulumi.OutputState }
+
+func (RequestConditionAccessScopeSettingsIdArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RequestConditionAccessScopeSettingsId)(nil)).Elem()
+}
+
+func (o RequestConditionAccessScopeSettingsIdArrayOutput) ToRequestConditionAccessScopeSettingsIdArrayOutput() RequestConditionAccessScopeSettingsIdArrayOutput {
+	return o
+}
+
+func (o RequestConditionAccessScopeSettingsIdArrayOutput) ToRequestConditionAccessScopeSettingsIdArrayOutputWithContext(ctx context.Context) RequestConditionAccessScopeSettingsIdArrayOutput {
+	return o
+}
+
+func (o RequestConditionAccessScopeSettingsIdArrayOutput) Index(i pulumi.IntInput) RequestConditionAccessScopeSettingsIdOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RequestConditionAccessScopeSettingsId {
+		return vs[0].([]RequestConditionAccessScopeSettingsId)[vs[1].(int)]
+	}).(RequestConditionAccessScopeSettingsIdOutput)
+}
+
+type RequestConditionRequesterSettings struct {
+	// List of teams/groups ids.
+	Ids  []RequestConditionRequesterSettingsId `pulumi:"ids"`
+	Type string                                `pulumi:"type"`
+}
+
+// RequestConditionRequesterSettingsInput is an input type that accepts RequestConditionRequesterSettingsArgs and RequestConditionRequesterSettingsOutput values.
+// You can construct a concrete instance of `RequestConditionRequesterSettingsInput` via:
+//
+//	RequestConditionRequesterSettingsArgs{...}
+type RequestConditionRequesterSettingsInput interface {
+	pulumi.Input
+
+	ToRequestConditionRequesterSettingsOutput() RequestConditionRequesterSettingsOutput
+	ToRequestConditionRequesterSettingsOutputWithContext(context.Context) RequestConditionRequesterSettingsOutput
+}
+
+type RequestConditionRequesterSettingsArgs struct {
+	// List of teams/groups ids.
+	Ids  RequestConditionRequesterSettingsIdArrayInput `pulumi:"ids"`
+	Type pulumi.StringInput                            `pulumi:"type"`
+}
+
+func (RequestConditionRequesterSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RequestConditionRequesterSettings)(nil)).Elem()
+}
+
+func (i RequestConditionRequesterSettingsArgs) ToRequestConditionRequesterSettingsOutput() RequestConditionRequesterSettingsOutput {
+	return i.ToRequestConditionRequesterSettingsOutputWithContext(context.Background())
+}
+
+func (i RequestConditionRequesterSettingsArgs) ToRequestConditionRequesterSettingsOutputWithContext(ctx context.Context) RequestConditionRequesterSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RequestConditionRequesterSettingsOutput)
+}
+
+func (i RequestConditionRequesterSettingsArgs) ToRequestConditionRequesterSettingsPtrOutput() RequestConditionRequesterSettingsPtrOutput {
+	return i.ToRequestConditionRequesterSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i RequestConditionRequesterSettingsArgs) ToRequestConditionRequesterSettingsPtrOutputWithContext(ctx context.Context) RequestConditionRequesterSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RequestConditionRequesterSettingsOutput).ToRequestConditionRequesterSettingsPtrOutputWithContext(ctx)
+}
+
+// RequestConditionRequesterSettingsPtrInput is an input type that accepts RequestConditionRequesterSettingsArgs, RequestConditionRequesterSettingsPtr and RequestConditionRequesterSettingsPtrOutput values.
+// You can construct a concrete instance of `RequestConditionRequesterSettingsPtrInput` via:
+//
+//	        RequestConditionRequesterSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type RequestConditionRequesterSettingsPtrInput interface {
+	pulumi.Input
+
+	ToRequestConditionRequesterSettingsPtrOutput() RequestConditionRequesterSettingsPtrOutput
+	ToRequestConditionRequesterSettingsPtrOutputWithContext(context.Context) RequestConditionRequesterSettingsPtrOutput
+}
+
+type requestConditionRequesterSettingsPtrType RequestConditionRequesterSettingsArgs
+
+func RequestConditionRequesterSettingsPtr(v *RequestConditionRequesterSettingsArgs) RequestConditionRequesterSettingsPtrInput {
+	return (*requestConditionRequesterSettingsPtrType)(v)
+}
+
+func (*requestConditionRequesterSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RequestConditionRequesterSettings)(nil)).Elem()
+}
+
+func (i *requestConditionRequesterSettingsPtrType) ToRequestConditionRequesterSettingsPtrOutput() RequestConditionRequesterSettingsPtrOutput {
+	return i.ToRequestConditionRequesterSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *requestConditionRequesterSettingsPtrType) ToRequestConditionRequesterSettingsPtrOutputWithContext(ctx context.Context) RequestConditionRequesterSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RequestConditionRequesterSettingsPtrOutput)
+}
+
+type RequestConditionRequesterSettingsOutput struct{ *pulumi.OutputState }
+
+func (RequestConditionRequesterSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RequestConditionRequesterSettings)(nil)).Elem()
+}
+
+func (o RequestConditionRequesterSettingsOutput) ToRequestConditionRequesterSettingsOutput() RequestConditionRequesterSettingsOutput {
+	return o
+}
+
+func (o RequestConditionRequesterSettingsOutput) ToRequestConditionRequesterSettingsOutputWithContext(ctx context.Context) RequestConditionRequesterSettingsOutput {
+	return o
+}
+
+func (o RequestConditionRequesterSettingsOutput) ToRequestConditionRequesterSettingsPtrOutput() RequestConditionRequesterSettingsPtrOutput {
+	return o.ToRequestConditionRequesterSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o RequestConditionRequesterSettingsOutput) ToRequestConditionRequesterSettingsPtrOutputWithContext(ctx context.Context) RequestConditionRequesterSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RequestConditionRequesterSettings) *RequestConditionRequesterSettings {
+		return &v
+	}).(RequestConditionRequesterSettingsPtrOutput)
+}
+
+// List of teams/groups ids.
+func (o RequestConditionRequesterSettingsOutput) Ids() RequestConditionRequesterSettingsIdArrayOutput {
+	return o.ApplyT(func(v RequestConditionRequesterSettings) []RequestConditionRequesterSettingsId { return v.Ids }).(RequestConditionRequesterSettingsIdArrayOutput)
+}
+
+func (o RequestConditionRequesterSettingsOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v RequestConditionRequesterSettings) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type RequestConditionRequesterSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (RequestConditionRequesterSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RequestConditionRequesterSettings)(nil)).Elem()
+}
+
+func (o RequestConditionRequesterSettingsPtrOutput) ToRequestConditionRequesterSettingsPtrOutput() RequestConditionRequesterSettingsPtrOutput {
+	return o
+}
+
+func (o RequestConditionRequesterSettingsPtrOutput) ToRequestConditionRequesterSettingsPtrOutputWithContext(ctx context.Context) RequestConditionRequesterSettingsPtrOutput {
+	return o
+}
+
+func (o RequestConditionRequesterSettingsPtrOutput) Elem() RequestConditionRequesterSettingsOutput {
+	return o.ApplyT(func(v *RequestConditionRequesterSettings) RequestConditionRequesterSettings {
+		if v != nil {
+			return *v
+		}
+		var ret RequestConditionRequesterSettings
+		return ret
+	}).(RequestConditionRequesterSettingsOutput)
+}
+
+// List of teams/groups ids.
+func (o RequestConditionRequesterSettingsPtrOutput) Ids() RequestConditionRequesterSettingsIdArrayOutput {
+	return o.ApplyT(func(v *RequestConditionRequesterSettings) []RequestConditionRequesterSettingsId {
+		if v == nil {
+			return nil
+		}
+		return v.Ids
+	}).(RequestConditionRequesterSettingsIdArrayOutput)
+}
+
+func (o RequestConditionRequesterSettingsPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RequestConditionRequesterSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type RequestConditionRequesterSettingsId struct {
+	// Request condition id.
+	Id *string `pulumi:"id"`
+}
+
+// RequestConditionRequesterSettingsIdInput is an input type that accepts RequestConditionRequesterSettingsIdArgs and RequestConditionRequesterSettingsIdOutput values.
+// You can construct a concrete instance of `RequestConditionRequesterSettingsIdInput` via:
+//
+//	RequestConditionRequesterSettingsIdArgs{...}
+type RequestConditionRequesterSettingsIdInput interface {
+	pulumi.Input
+
+	ToRequestConditionRequesterSettingsIdOutput() RequestConditionRequesterSettingsIdOutput
+	ToRequestConditionRequesterSettingsIdOutputWithContext(context.Context) RequestConditionRequesterSettingsIdOutput
+}
+
+type RequestConditionRequesterSettingsIdArgs struct {
+	// Request condition id.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+}
+
+func (RequestConditionRequesterSettingsIdArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RequestConditionRequesterSettingsId)(nil)).Elem()
+}
+
+func (i RequestConditionRequesterSettingsIdArgs) ToRequestConditionRequesterSettingsIdOutput() RequestConditionRequesterSettingsIdOutput {
+	return i.ToRequestConditionRequesterSettingsIdOutputWithContext(context.Background())
+}
+
+func (i RequestConditionRequesterSettingsIdArgs) ToRequestConditionRequesterSettingsIdOutputWithContext(ctx context.Context) RequestConditionRequesterSettingsIdOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RequestConditionRequesterSettingsIdOutput)
+}
+
+// RequestConditionRequesterSettingsIdArrayInput is an input type that accepts RequestConditionRequesterSettingsIdArray and RequestConditionRequesterSettingsIdArrayOutput values.
+// You can construct a concrete instance of `RequestConditionRequesterSettingsIdArrayInput` via:
+//
+//	RequestConditionRequesterSettingsIdArray{ RequestConditionRequesterSettingsIdArgs{...} }
+type RequestConditionRequesterSettingsIdArrayInput interface {
+	pulumi.Input
+
+	ToRequestConditionRequesterSettingsIdArrayOutput() RequestConditionRequesterSettingsIdArrayOutput
+	ToRequestConditionRequesterSettingsIdArrayOutputWithContext(context.Context) RequestConditionRequesterSettingsIdArrayOutput
+}
+
+type RequestConditionRequesterSettingsIdArray []RequestConditionRequesterSettingsIdInput
+
+func (RequestConditionRequesterSettingsIdArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RequestConditionRequesterSettingsId)(nil)).Elem()
+}
+
+func (i RequestConditionRequesterSettingsIdArray) ToRequestConditionRequesterSettingsIdArrayOutput() RequestConditionRequesterSettingsIdArrayOutput {
+	return i.ToRequestConditionRequesterSettingsIdArrayOutputWithContext(context.Background())
+}
+
+func (i RequestConditionRequesterSettingsIdArray) ToRequestConditionRequesterSettingsIdArrayOutputWithContext(ctx context.Context) RequestConditionRequesterSettingsIdArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RequestConditionRequesterSettingsIdArrayOutput)
+}
+
+type RequestConditionRequesterSettingsIdOutput struct{ *pulumi.OutputState }
+
+func (RequestConditionRequesterSettingsIdOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RequestConditionRequesterSettingsId)(nil)).Elem()
+}
+
+func (o RequestConditionRequesterSettingsIdOutput) ToRequestConditionRequesterSettingsIdOutput() RequestConditionRequesterSettingsIdOutput {
+	return o
+}
+
+func (o RequestConditionRequesterSettingsIdOutput) ToRequestConditionRequesterSettingsIdOutputWithContext(ctx context.Context) RequestConditionRequesterSettingsIdOutput {
+	return o
+}
+
+// Request condition id.
+func (o RequestConditionRequesterSettingsIdOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RequestConditionRequesterSettingsId) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+type RequestConditionRequesterSettingsIdArrayOutput struct{ *pulumi.OutputState }
+
+func (RequestConditionRequesterSettingsIdArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RequestConditionRequesterSettingsId)(nil)).Elem()
+}
+
+func (o RequestConditionRequesterSettingsIdArrayOutput) ToRequestConditionRequesterSettingsIdArrayOutput() RequestConditionRequesterSettingsIdArrayOutput {
+	return o
+}
+
+func (o RequestConditionRequesterSettingsIdArrayOutput) ToRequestConditionRequesterSettingsIdArrayOutputWithContext(ctx context.Context) RequestConditionRequesterSettingsIdArrayOutput {
+	return o
+}
+
+func (o RequestConditionRequesterSettingsIdArrayOutput) Index(i pulumi.IntInput) RequestConditionRequesterSettingsIdOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RequestConditionRequesterSettingsId {
+		return vs[0].([]RequestConditionRequesterSettingsId)[vs[1].(int)]
+	}).(RequestConditionRequesterSettingsIdOutput)
+}
+
+type RequestSettingResourceRequestOnBehalfOfSettings struct {
+	// Indicates that users who can request this resource could also request for another requester of the same resource. This property can only be true.
+	Allowed *bool `pulumi:"allowed"`
+	// Which requesters the resource requester can request on behalf of. Enum: `DIRECT_REPORT`.
+	OnlyFors []RequestSettingResourceRequestOnBehalfOfSettingsOnlyFor `pulumi:"onlyFors"`
+}
+
+// RequestSettingResourceRequestOnBehalfOfSettingsInput is an input type that accepts RequestSettingResourceRequestOnBehalfOfSettingsArgs and RequestSettingResourceRequestOnBehalfOfSettingsOutput values.
+// You can construct a concrete instance of `RequestSettingResourceRequestOnBehalfOfSettingsInput` via:
+//
+//	RequestSettingResourceRequestOnBehalfOfSettingsArgs{...}
+type RequestSettingResourceRequestOnBehalfOfSettingsInput interface {
+	pulumi.Input
+
+	ToRequestSettingResourceRequestOnBehalfOfSettingsOutput() RequestSettingResourceRequestOnBehalfOfSettingsOutput
+	ToRequestSettingResourceRequestOnBehalfOfSettingsOutputWithContext(context.Context) RequestSettingResourceRequestOnBehalfOfSettingsOutput
+}
+
+type RequestSettingResourceRequestOnBehalfOfSettingsArgs struct {
+	// Indicates that users who can request this resource could also request for another requester of the same resource. This property can only be true.
+	Allowed pulumi.BoolPtrInput `pulumi:"allowed"`
+	// Which requesters the resource requester can request on behalf of. Enum: `DIRECT_REPORT`.
+	OnlyFors RequestSettingResourceRequestOnBehalfOfSettingsOnlyForArrayInput `pulumi:"onlyFors"`
+}
+
+func (RequestSettingResourceRequestOnBehalfOfSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RequestSettingResourceRequestOnBehalfOfSettings)(nil)).Elem()
+}
+
+func (i RequestSettingResourceRequestOnBehalfOfSettingsArgs) ToRequestSettingResourceRequestOnBehalfOfSettingsOutput() RequestSettingResourceRequestOnBehalfOfSettingsOutput {
+	return i.ToRequestSettingResourceRequestOnBehalfOfSettingsOutputWithContext(context.Background())
+}
+
+func (i RequestSettingResourceRequestOnBehalfOfSettingsArgs) ToRequestSettingResourceRequestOnBehalfOfSettingsOutputWithContext(ctx context.Context) RequestSettingResourceRequestOnBehalfOfSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RequestSettingResourceRequestOnBehalfOfSettingsOutput)
+}
+
+func (i RequestSettingResourceRequestOnBehalfOfSettingsArgs) ToRequestSettingResourceRequestOnBehalfOfSettingsPtrOutput() RequestSettingResourceRequestOnBehalfOfSettingsPtrOutput {
+	return i.ToRequestSettingResourceRequestOnBehalfOfSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i RequestSettingResourceRequestOnBehalfOfSettingsArgs) ToRequestSettingResourceRequestOnBehalfOfSettingsPtrOutputWithContext(ctx context.Context) RequestSettingResourceRequestOnBehalfOfSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RequestSettingResourceRequestOnBehalfOfSettingsOutput).ToRequestSettingResourceRequestOnBehalfOfSettingsPtrOutputWithContext(ctx)
+}
+
+// RequestSettingResourceRequestOnBehalfOfSettingsPtrInput is an input type that accepts RequestSettingResourceRequestOnBehalfOfSettingsArgs, RequestSettingResourceRequestOnBehalfOfSettingsPtr and RequestSettingResourceRequestOnBehalfOfSettingsPtrOutput values.
+// You can construct a concrete instance of `RequestSettingResourceRequestOnBehalfOfSettingsPtrInput` via:
+//
+//	        RequestSettingResourceRequestOnBehalfOfSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type RequestSettingResourceRequestOnBehalfOfSettingsPtrInput interface {
+	pulumi.Input
+
+	ToRequestSettingResourceRequestOnBehalfOfSettingsPtrOutput() RequestSettingResourceRequestOnBehalfOfSettingsPtrOutput
+	ToRequestSettingResourceRequestOnBehalfOfSettingsPtrOutputWithContext(context.Context) RequestSettingResourceRequestOnBehalfOfSettingsPtrOutput
+}
+
+type requestSettingResourceRequestOnBehalfOfSettingsPtrType RequestSettingResourceRequestOnBehalfOfSettingsArgs
+
+func RequestSettingResourceRequestOnBehalfOfSettingsPtr(v *RequestSettingResourceRequestOnBehalfOfSettingsArgs) RequestSettingResourceRequestOnBehalfOfSettingsPtrInput {
+	return (*requestSettingResourceRequestOnBehalfOfSettingsPtrType)(v)
+}
+
+func (*requestSettingResourceRequestOnBehalfOfSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RequestSettingResourceRequestOnBehalfOfSettings)(nil)).Elem()
+}
+
+func (i *requestSettingResourceRequestOnBehalfOfSettingsPtrType) ToRequestSettingResourceRequestOnBehalfOfSettingsPtrOutput() RequestSettingResourceRequestOnBehalfOfSettingsPtrOutput {
+	return i.ToRequestSettingResourceRequestOnBehalfOfSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *requestSettingResourceRequestOnBehalfOfSettingsPtrType) ToRequestSettingResourceRequestOnBehalfOfSettingsPtrOutputWithContext(ctx context.Context) RequestSettingResourceRequestOnBehalfOfSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RequestSettingResourceRequestOnBehalfOfSettingsPtrOutput)
+}
+
+type RequestSettingResourceRequestOnBehalfOfSettingsOutput struct{ *pulumi.OutputState }
+
+func (RequestSettingResourceRequestOnBehalfOfSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RequestSettingResourceRequestOnBehalfOfSettings)(nil)).Elem()
+}
+
+func (o RequestSettingResourceRequestOnBehalfOfSettingsOutput) ToRequestSettingResourceRequestOnBehalfOfSettingsOutput() RequestSettingResourceRequestOnBehalfOfSettingsOutput {
+	return o
+}
+
+func (o RequestSettingResourceRequestOnBehalfOfSettingsOutput) ToRequestSettingResourceRequestOnBehalfOfSettingsOutputWithContext(ctx context.Context) RequestSettingResourceRequestOnBehalfOfSettingsOutput {
+	return o
+}
+
+func (o RequestSettingResourceRequestOnBehalfOfSettingsOutput) ToRequestSettingResourceRequestOnBehalfOfSettingsPtrOutput() RequestSettingResourceRequestOnBehalfOfSettingsPtrOutput {
+	return o.ToRequestSettingResourceRequestOnBehalfOfSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o RequestSettingResourceRequestOnBehalfOfSettingsOutput) ToRequestSettingResourceRequestOnBehalfOfSettingsPtrOutputWithContext(ctx context.Context) RequestSettingResourceRequestOnBehalfOfSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RequestSettingResourceRequestOnBehalfOfSettings) *RequestSettingResourceRequestOnBehalfOfSettings {
+		return &v
+	}).(RequestSettingResourceRequestOnBehalfOfSettingsPtrOutput)
+}
+
+// Indicates that users who can request this resource could also request for another requester of the same resource. This property can only be true.
+func (o RequestSettingResourceRequestOnBehalfOfSettingsOutput) Allowed() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RequestSettingResourceRequestOnBehalfOfSettings) *bool { return v.Allowed }).(pulumi.BoolPtrOutput)
+}
+
+// Which requesters the resource requester can request on behalf of. Enum: `DIRECT_REPORT`.
+func (o RequestSettingResourceRequestOnBehalfOfSettingsOutput) OnlyFors() RequestSettingResourceRequestOnBehalfOfSettingsOnlyForArrayOutput {
+	return o.ApplyT(func(v RequestSettingResourceRequestOnBehalfOfSettings) []RequestSettingResourceRequestOnBehalfOfSettingsOnlyFor {
+		return v.OnlyFors
+	}).(RequestSettingResourceRequestOnBehalfOfSettingsOnlyForArrayOutput)
+}
+
+type RequestSettingResourceRequestOnBehalfOfSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (RequestSettingResourceRequestOnBehalfOfSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RequestSettingResourceRequestOnBehalfOfSettings)(nil)).Elem()
+}
+
+func (o RequestSettingResourceRequestOnBehalfOfSettingsPtrOutput) ToRequestSettingResourceRequestOnBehalfOfSettingsPtrOutput() RequestSettingResourceRequestOnBehalfOfSettingsPtrOutput {
+	return o
+}
+
+func (o RequestSettingResourceRequestOnBehalfOfSettingsPtrOutput) ToRequestSettingResourceRequestOnBehalfOfSettingsPtrOutputWithContext(ctx context.Context) RequestSettingResourceRequestOnBehalfOfSettingsPtrOutput {
+	return o
+}
+
+func (o RequestSettingResourceRequestOnBehalfOfSettingsPtrOutput) Elem() RequestSettingResourceRequestOnBehalfOfSettingsOutput {
+	return o.ApplyT(func(v *RequestSettingResourceRequestOnBehalfOfSettings) RequestSettingResourceRequestOnBehalfOfSettings {
+		if v != nil {
+			return *v
+		}
+		var ret RequestSettingResourceRequestOnBehalfOfSettings
+		return ret
+	}).(RequestSettingResourceRequestOnBehalfOfSettingsOutput)
+}
+
+// Indicates that users who can request this resource could also request for another requester of the same resource. This property can only be true.
+func (o RequestSettingResourceRequestOnBehalfOfSettingsPtrOutput) Allowed() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RequestSettingResourceRequestOnBehalfOfSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Allowed
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Which requesters the resource requester can request on behalf of. Enum: `DIRECT_REPORT`.
+func (o RequestSettingResourceRequestOnBehalfOfSettingsPtrOutput) OnlyFors() RequestSettingResourceRequestOnBehalfOfSettingsOnlyForArrayOutput {
+	return o.ApplyT(func(v *RequestSettingResourceRequestOnBehalfOfSettings) []RequestSettingResourceRequestOnBehalfOfSettingsOnlyFor {
+		if v == nil {
+			return nil
+		}
+		return v.OnlyFors
+	}).(RequestSettingResourceRequestOnBehalfOfSettingsOnlyForArrayOutput)
+}
+
+type RequestSettingResourceRequestOnBehalfOfSettingsOnlyFor struct {
+	// Which requesters the resource requester can request on behalf of. If onlyFor is not specified then any requester may request a resource on the behalf of any other user
+	Type *string `pulumi:"type"`
+}
+
+// RequestSettingResourceRequestOnBehalfOfSettingsOnlyForInput is an input type that accepts RequestSettingResourceRequestOnBehalfOfSettingsOnlyForArgs and RequestSettingResourceRequestOnBehalfOfSettingsOnlyForOutput values.
+// You can construct a concrete instance of `RequestSettingResourceRequestOnBehalfOfSettingsOnlyForInput` via:
+//
+//	RequestSettingResourceRequestOnBehalfOfSettingsOnlyForArgs{...}
+type RequestSettingResourceRequestOnBehalfOfSettingsOnlyForInput interface {
+	pulumi.Input
+
+	ToRequestSettingResourceRequestOnBehalfOfSettingsOnlyForOutput() RequestSettingResourceRequestOnBehalfOfSettingsOnlyForOutput
+	ToRequestSettingResourceRequestOnBehalfOfSettingsOnlyForOutputWithContext(context.Context) RequestSettingResourceRequestOnBehalfOfSettingsOnlyForOutput
+}
+
+type RequestSettingResourceRequestOnBehalfOfSettingsOnlyForArgs struct {
+	// Which requesters the resource requester can request on behalf of. If onlyFor is not specified then any requester may request a resource on the behalf of any other user
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (RequestSettingResourceRequestOnBehalfOfSettingsOnlyForArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RequestSettingResourceRequestOnBehalfOfSettingsOnlyFor)(nil)).Elem()
+}
+
+func (i RequestSettingResourceRequestOnBehalfOfSettingsOnlyForArgs) ToRequestSettingResourceRequestOnBehalfOfSettingsOnlyForOutput() RequestSettingResourceRequestOnBehalfOfSettingsOnlyForOutput {
+	return i.ToRequestSettingResourceRequestOnBehalfOfSettingsOnlyForOutputWithContext(context.Background())
+}
+
+func (i RequestSettingResourceRequestOnBehalfOfSettingsOnlyForArgs) ToRequestSettingResourceRequestOnBehalfOfSettingsOnlyForOutputWithContext(ctx context.Context) RequestSettingResourceRequestOnBehalfOfSettingsOnlyForOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RequestSettingResourceRequestOnBehalfOfSettingsOnlyForOutput)
+}
+
+// RequestSettingResourceRequestOnBehalfOfSettingsOnlyForArrayInput is an input type that accepts RequestSettingResourceRequestOnBehalfOfSettingsOnlyForArray and RequestSettingResourceRequestOnBehalfOfSettingsOnlyForArrayOutput values.
+// You can construct a concrete instance of `RequestSettingResourceRequestOnBehalfOfSettingsOnlyForArrayInput` via:
+//
+//	RequestSettingResourceRequestOnBehalfOfSettingsOnlyForArray{ RequestSettingResourceRequestOnBehalfOfSettingsOnlyForArgs{...} }
+type RequestSettingResourceRequestOnBehalfOfSettingsOnlyForArrayInput interface {
+	pulumi.Input
+
+	ToRequestSettingResourceRequestOnBehalfOfSettingsOnlyForArrayOutput() RequestSettingResourceRequestOnBehalfOfSettingsOnlyForArrayOutput
+	ToRequestSettingResourceRequestOnBehalfOfSettingsOnlyForArrayOutputWithContext(context.Context) RequestSettingResourceRequestOnBehalfOfSettingsOnlyForArrayOutput
+}
+
+type RequestSettingResourceRequestOnBehalfOfSettingsOnlyForArray []RequestSettingResourceRequestOnBehalfOfSettingsOnlyForInput
+
+func (RequestSettingResourceRequestOnBehalfOfSettingsOnlyForArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RequestSettingResourceRequestOnBehalfOfSettingsOnlyFor)(nil)).Elem()
+}
+
+func (i RequestSettingResourceRequestOnBehalfOfSettingsOnlyForArray) ToRequestSettingResourceRequestOnBehalfOfSettingsOnlyForArrayOutput() RequestSettingResourceRequestOnBehalfOfSettingsOnlyForArrayOutput {
+	return i.ToRequestSettingResourceRequestOnBehalfOfSettingsOnlyForArrayOutputWithContext(context.Background())
+}
+
+func (i RequestSettingResourceRequestOnBehalfOfSettingsOnlyForArray) ToRequestSettingResourceRequestOnBehalfOfSettingsOnlyForArrayOutputWithContext(ctx context.Context) RequestSettingResourceRequestOnBehalfOfSettingsOnlyForArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RequestSettingResourceRequestOnBehalfOfSettingsOnlyForArrayOutput)
+}
+
+type RequestSettingResourceRequestOnBehalfOfSettingsOnlyForOutput struct{ *pulumi.OutputState }
+
+func (RequestSettingResourceRequestOnBehalfOfSettingsOnlyForOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RequestSettingResourceRequestOnBehalfOfSettingsOnlyFor)(nil)).Elem()
+}
+
+func (o RequestSettingResourceRequestOnBehalfOfSettingsOnlyForOutput) ToRequestSettingResourceRequestOnBehalfOfSettingsOnlyForOutput() RequestSettingResourceRequestOnBehalfOfSettingsOnlyForOutput {
+	return o
+}
+
+func (o RequestSettingResourceRequestOnBehalfOfSettingsOnlyForOutput) ToRequestSettingResourceRequestOnBehalfOfSettingsOnlyForOutputWithContext(ctx context.Context) RequestSettingResourceRequestOnBehalfOfSettingsOnlyForOutput {
+	return o
+}
+
+// Which requesters the resource requester can request on behalf of. If onlyFor is not specified then any requester may request a resource on the behalf of any other user
+func (o RequestSettingResourceRequestOnBehalfOfSettingsOnlyForOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RequestSettingResourceRequestOnBehalfOfSettingsOnlyFor) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type RequestSettingResourceRequestOnBehalfOfSettingsOnlyForArrayOutput struct{ *pulumi.OutputState }
+
+func (RequestSettingResourceRequestOnBehalfOfSettingsOnlyForArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RequestSettingResourceRequestOnBehalfOfSettingsOnlyFor)(nil)).Elem()
+}
+
+func (o RequestSettingResourceRequestOnBehalfOfSettingsOnlyForArrayOutput) ToRequestSettingResourceRequestOnBehalfOfSettingsOnlyForArrayOutput() RequestSettingResourceRequestOnBehalfOfSettingsOnlyForArrayOutput {
+	return o
+}
+
+func (o RequestSettingResourceRequestOnBehalfOfSettingsOnlyForArrayOutput) ToRequestSettingResourceRequestOnBehalfOfSettingsOnlyForArrayOutputWithContext(ctx context.Context) RequestSettingResourceRequestOnBehalfOfSettingsOnlyForArrayOutput {
+	return o
+}
+
+func (o RequestSettingResourceRequestOnBehalfOfSettingsOnlyForArrayOutput) Index(i pulumi.IntInput) RequestSettingResourceRequestOnBehalfOfSettingsOnlyForOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RequestSettingResourceRequestOnBehalfOfSettingsOnlyFor {
+		return vs[0].([]RequestSettingResourceRequestOnBehalfOfSettingsOnlyFor)[vs[1].(int)]
+	}).(RequestSettingResourceRequestOnBehalfOfSettingsOnlyForOutput)
+}
+
+type RequestSettingResourceRiskSettings struct {
+	// Default risk settings that are valid for an access request when a risk has been detected for the resource and requesting user.
+	DefaultSetting *RequestSettingResourceRiskSettingsDefaultSetting `pulumi:"defaultSetting"`
+}
+
+// RequestSettingResourceRiskSettingsInput is an input type that accepts RequestSettingResourceRiskSettingsArgs and RequestSettingResourceRiskSettingsOutput values.
+// You can construct a concrete instance of `RequestSettingResourceRiskSettingsInput` via:
+//
+//	RequestSettingResourceRiskSettingsArgs{...}
+type RequestSettingResourceRiskSettingsInput interface {
+	pulumi.Input
+
+	ToRequestSettingResourceRiskSettingsOutput() RequestSettingResourceRiskSettingsOutput
+	ToRequestSettingResourceRiskSettingsOutputWithContext(context.Context) RequestSettingResourceRiskSettingsOutput
+}
+
+type RequestSettingResourceRiskSettingsArgs struct {
+	// Default risk settings that are valid for an access request when a risk has been detected for the resource and requesting user.
+	DefaultSetting RequestSettingResourceRiskSettingsDefaultSettingPtrInput `pulumi:"defaultSetting"`
+}
+
+func (RequestSettingResourceRiskSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RequestSettingResourceRiskSettings)(nil)).Elem()
+}
+
+func (i RequestSettingResourceRiskSettingsArgs) ToRequestSettingResourceRiskSettingsOutput() RequestSettingResourceRiskSettingsOutput {
+	return i.ToRequestSettingResourceRiskSettingsOutputWithContext(context.Background())
+}
+
+func (i RequestSettingResourceRiskSettingsArgs) ToRequestSettingResourceRiskSettingsOutputWithContext(ctx context.Context) RequestSettingResourceRiskSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RequestSettingResourceRiskSettingsOutput)
+}
+
+func (i RequestSettingResourceRiskSettingsArgs) ToRequestSettingResourceRiskSettingsPtrOutput() RequestSettingResourceRiskSettingsPtrOutput {
+	return i.ToRequestSettingResourceRiskSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i RequestSettingResourceRiskSettingsArgs) ToRequestSettingResourceRiskSettingsPtrOutputWithContext(ctx context.Context) RequestSettingResourceRiskSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RequestSettingResourceRiskSettingsOutput).ToRequestSettingResourceRiskSettingsPtrOutputWithContext(ctx)
+}
+
+// RequestSettingResourceRiskSettingsPtrInput is an input type that accepts RequestSettingResourceRiskSettingsArgs, RequestSettingResourceRiskSettingsPtr and RequestSettingResourceRiskSettingsPtrOutput values.
+// You can construct a concrete instance of `RequestSettingResourceRiskSettingsPtrInput` via:
+//
+//	        RequestSettingResourceRiskSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type RequestSettingResourceRiskSettingsPtrInput interface {
+	pulumi.Input
+
+	ToRequestSettingResourceRiskSettingsPtrOutput() RequestSettingResourceRiskSettingsPtrOutput
+	ToRequestSettingResourceRiskSettingsPtrOutputWithContext(context.Context) RequestSettingResourceRiskSettingsPtrOutput
+}
+
+type requestSettingResourceRiskSettingsPtrType RequestSettingResourceRiskSettingsArgs
+
+func RequestSettingResourceRiskSettingsPtr(v *RequestSettingResourceRiskSettingsArgs) RequestSettingResourceRiskSettingsPtrInput {
+	return (*requestSettingResourceRiskSettingsPtrType)(v)
+}
+
+func (*requestSettingResourceRiskSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RequestSettingResourceRiskSettings)(nil)).Elem()
+}
+
+func (i *requestSettingResourceRiskSettingsPtrType) ToRequestSettingResourceRiskSettingsPtrOutput() RequestSettingResourceRiskSettingsPtrOutput {
+	return i.ToRequestSettingResourceRiskSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *requestSettingResourceRiskSettingsPtrType) ToRequestSettingResourceRiskSettingsPtrOutputWithContext(ctx context.Context) RequestSettingResourceRiskSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RequestSettingResourceRiskSettingsPtrOutput)
+}
+
+type RequestSettingResourceRiskSettingsOutput struct{ *pulumi.OutputState }
+
+func (RequestSettingResourceRiskSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RequestSettingResourceRiskSettings)(nil)).Elem()
+}
+
+func (o RequestSettingResourceRiskSettingsOutput) ToRequestSettingResourceRiskSettingsOutput() RequestSettingResourceRiskSettingsOutput {
+	return o
+}
+
+func (o RequestSettingResourceRiskSettingsOutput) ToRequestSettingResourceRiskSettingsOutputWithContext(ctx context.Context) RequestSettingResourceRiskSettingsOutput {
+	return o
+}
+
+func (o RequestSettingResourceRiskSettingsOutput) ToRequestSettingResourceRiskSettingsPtrOutput() RequestSettingResourceRiskSettingsPtrOutput {
+	return o.ToRequestSettingResourceRiskSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o RequestSettingResourceRiskSettingsOutput) ToRequestSettingResourceRiskSettingsPtrOutputWithContext(ctx context.Context) RequestSettingResourceRiskSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RequestSettingResourceRiskSettings) *RequestSettingResourceRiskSettings {
+		return &v
+	}).(RequestSettingResourceRiskSettingsPtrOutput)
+}
+
+// Default risk settings that are valid for an access request when a risk has been detected for the resource and requesting user.
+func (o RequestSettingResourceRiskSettingsOutput) DefaultSetting() RequestSettingResourceRiskSettingsDefaultSettingPtrOutput {
+	return o.ApplyT(func(v RequestSettingResourceRiskSettings) *RequestSettingResourceRiskSettingsDefaultSetting {
+		return v.DefaultSetting
+	}).(RequestSettingResourceRiskSettingsDefaultSettingPtrOutput)
+}
+
+type RequestSettingResourceRiskSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (RequestSettingResourceRiskSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RequestSettingResourceRiskSettings)(nil)).Elem()
+}
+
+func (o RequestSettingResourceRiskSettingsPtrOutput) ToRequestSettingResourceRiskSettingsPtrOutput() RequestSettingResourceRiskSettingsPtrOutput {
+	return o
+}
+
+func (o RequestSettingResourceRiskSettingsPtrOutput) ToRequestSettingResourceRiskSettingsPtrOutputWithContext(ctx context.Context) RequestSettingResourceRiskSettingsPtrOutput {
+	return o
+}
+
+func (o RequestSettingResourceRiskSettingsPtrOutput) Elem() RequestSettingResourceRiskSettingsOutput {
+	return o.ApplyT(func(v *RequestSettingResourceRiskSettings) RequestSettingResourceRiskSettings {
+		if v != nil {
+			return *v
+		}
+		var ret RequestSettingResourceRiskSettings
+		return ret
+	}).(RequestSettingResourceRiskSettingsOutput)
+}
+
+// Default risk settings that are valid for an access request when a risk has been detected for the resource and requesting user.
+func (o RequestSettingResourceRiskSettingsPtrOutput) DefaultSetting() RequestSettingResourceRiskSettingsDefaultSettingPtrOutput {
+	return o.ApplyT(func(v *RequestSettingResourceRiskSettings) *RequestSettingResourceRiskSettingsDefaultSetting {
+		if v == nil {
+			return nil
+		}
+		return v.DefaultSetting
+	}).(RequestSettingResourceRiskSettingsDefaultSettingPtrOutput)
+}
+
+type RequestSettingResourceRiskSettingsDefaultSetting struct {
+	// Settings that control who may specify the access duration allowed by this request condition or risk settings, as well as what duration may be requested.
+	AccessDurationSettings *RequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettings `pulumi:"accessDurationSettings"`
+	// The ID of the approval sequence.
+	ApprovalSequenceId    *string  `pulumi:"approvalSequenceId"`
+	Errors                []string `pulumi:"errors"`
+	RequestSubmissionType *string  `pulumi:"requestSubmissionType"`
+}
+
+// RequestSettingResourceRiskSettingsDefaultSettingInput is an input type that accepts RequestSettingResourceRiskSettingsDefaultSettingArgs and RequestSettingResourceRiskSettingsDefaultSettingOutput values.
+// You can construct a concrete instance of `RequestSettingResourceRiskSettingsDefaultSettingInput` via:
+//
+//	RequestSettingResourceRiskSettingsDefaultSettingArgs{...}
+type RequestSettingResourceRiskSettingsDefaultSettingInput interface {
+	pulumi.Input
+
+	ToRequestSettingResourceRiskSettingsDefaultSettingOutput() RequestSettingResourceRiskSettingsDefaultSettingOutput
+	ToRequestSettingResourceRiskSettingsDefaultSettingOutputWithContext(context.Context) RequestSettingResourceRiskSettingsDefaultSettingOutput
+}
+
+type RequestSettingResourceRiskSettingsDefaultSettingArgs struct {
+	// Settings that control who may specify the access duration allowed by this request condition or risk settings, as well as what duration may be requested.
+	AccessDurationSettings RequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsPtrInput `pulumi:"accessDurationSettings"`
+	// The ID of the approval sequence.
+	ApprovalSequenceId    pulumi.StringPtrInput   `pulumi:"approvalSequenceId"`
+	Errors                pulumi.StringArrayInput `pulumi:"errors"`
+	RequestSubmissionType pulumi.StringPtrInput   `pulumi:"requestSubmissionType"`
+}
+
+func (RequestSettingResourceRiskSettingsDefaultSettingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RequestSettingResourceRiskSettingsDefaultSetting)(nil)).Elem()
+}
+
+func (i RequestSettingResourceRiskSettingsDefaultSettingArgs) ToRequestSettingResourceRiskSettingsDefaultSettingOutput() RequestSettingResourceRiskSettingsDefaultSettingOutput {
+	return i.ToRequestSettingResourceRiskSettingsDefaultSettingOutputWithContext(context.Background())
+}
+
+func (i RequestSettingResourceRiskSettingsDefaultSettingArgs) ToRequestSettingResourceRiskSettingsDefaultSettingOutputWithContext(ctx context.Context) RequestSettingResourceRiskSettingsDefaultSettingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RequestSettingResourceRiskSettingsDefaultSettingOutput)
+}
+
+func (i RequestSettingResourceRiskSettingsDefaultSettingArgs) ToRequestSettingResourceRiskSettingsDefaultSettingPtrOutput() RequestSettingResourceRiskSettingsDefaultSettingPtrOutput {
+	return i.ToRequestSettingResourceRiskSettingsDefaultSettingPtrOutputWithContext(context.Background())
+}
+
+func (i RequestSettingResourceRiskSettingsDefaultSettingArgs) ToRequestSettingResourceRiskSettingsDefaultSettingPtrOutputWithContext(ctx context.Context) RequestSettingResourceRiskSettingsDefaultSettingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RequestSettingResourceRiskSettingsDefaultSettingOutput).ToRequestSettingResourceRiskSettingsDefaultSettingPtrOutputWithContext(ctx)
+}
+
+// RequestSettingResourceRiskSettingsDefaultSettingPtrInput is an input type that accepts RequestSettingResourceRiskSettingsDefaultSettingArgs, RequestSettingResourceRiskSettingsDefaultSettingPtr and RequestSettingResourceRiskSettingsDefaultSettingPtrOutput values.
+// You can construct a concrete instance of `RequestSettingResourceRiskSettingsDefaultSettingPtrInput` via:
+//
+//	        RequestSettingResourceRiskSettingsDefaultSettingArgs{...}
+//
+//	or:
+//
+//	        nil
+type RequestSettingResourceRiskSettingsDefaultSettingPtrInput interface {
+	pulumi.Input
+
+	ToRequestSettingResourceRiskSettingsDefaultSettingPtrOutput() RequestSettingResourceRiskSettingsDefaultSettingPtrOutput
+	ToRequestSettingResourceRiskSettingsDefaultSettingPtrOutputWithContext(context.Context) RequestSettingResourceRiskSettingsDefaultSettingPtrOutput
+}
+
+type requestSettingResourceRiskSettingsDefaultSettingPtrType RequestSettingResourceRiskSettingsDefaultSettingArgs
+
+func RequestSettingResourceRiskSettingsDefaultSettingPtr(v *RequestSettingResourceRiskSettingsDefaultSettingArgs) RequestSettingResourceRiskSettingsDefaultSettingPtrInput {
+	return (*requestSettingResourceRiskSettingsDefaultSettingPtrType)(v)
+}
+
+func (*requestSettingResourceRiskSettingsDefaultSettingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RequestSettingResourceRiskSettingsDefaultSetting)(nil)).Elem()
+}
+
+func (i *requestSettingResourceRiskSettingsDefaultSettingPtrType) ToRequestSettingResourceRiskSettingsDefaultSettingPtrOutput() RequestSettingResourceRiskSettingsDefaultSettingPtrOutput {
+	return i.ToRequestSettingResourceRiskSettingsDefaultSettingPtrOutputWithContext(context.Background())
+}
+
+func (i *requestSettingResourceRiskSettingsDefaultSettingPtrType) ToRequestSettingResourceRiskSettingsDefaultSettingPtrOutputWithContext(ctx context.Context) RequestSettingResourceRiskSettingsDefaultSettingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RequestSettingResourceRiskSettingsDefaultSettingPtrOutput)
+}
+
+type RequestSettingResourceRiskSettingsDefaultSettingOutput struct{ *pulumi.OutputState }
+
+func (RequestSettingResourceRiskSettingsDefaultSettingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RequestSettingResourceRiskSettingsDefaultSetting)(nil)).Elem()
+}
+
+func (o RequestSettingResourceRiskSettingsDefaultSettingOutput) ToRequestSettingResourceRiskSettingsDefaultSettingOutput() RequestSettingResourceRiskSettingsDefaultSettingOutput {
+	return o
+}
+
+func (o RequestSettingResourceRiskSettingsDefaultSettingOutput) ToRequestSettingResourceRiskSettingsDefaultSettingOutputWithContext(ctx context.Context) RequestSettingResourceRiskSettingsDefaultSettingOutput {
+	return o
+}
+
+func (o RequestSettingResourceRiskSettingsDefaultSettingOutput) ToRequestSettingResourceRiskSettingsDefaultSettingPtrOutput() RequestSettingResourceRiskSettingsDefaultSettingPtrOutput {
+	return o.ToRequestSettingResourceRiskSettingsDefaultSettingPtrOutputWithContext(context.Background())
+}
+
+func (o RequestSettingResourceRiskSettingsDefaultSettingOutput) ToRequestSettingResourceRiskSettingsDefaultSettingPtrOutputWithContext(ctx context.Context) RequestSettingResourceRiskSettingsDefaultSettingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RequestSettingResourceRiskSettingsDefaultSetting) *RequestSettingResourceRiskSettingsDefaultSetting {
+		return &v
+	}).(RequestSettingResourceRiskSettingsDefaultSettingPtrOutput)
+}
+
+// Settings that control who may specify the access duration allowed by this request condition or risk settings, as well as what duration may be requested.
+func (o RequestSettingResourceRiskSettingsDefaultSettingOutput) AccessDurationSettings() RequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsPtrOutput {
+	return o.ApplyT(func(v RequestSettingResourceRiskSettingsDefaultSetting) *RequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettings {
+		return v.AccessDurationSettings
+	}).(RequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsPtrOutput)
+}
+
+// The ID of the approval sequence.
+func (o RequestSettingResourceRiskSettingsDefaultSettingOutput) ApprovalSequenceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RequestSettingResourceRiskSettingsDefaultSetting) *string { return v.ApprovalSequenceId }).(pulumi.StringPtrOutput)
+}
+
+func (o RequestSettingResourceRiskSettingsDefaultSettingOutput) Errors() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RequestSettingResourceRiskSettingsDefaultSetting) []string { return v.Errors }).(pulumi.StringArrayOutput)
+}
+
+func (o RequestSettingResourceRiskSettingsDefaultSettingOutput) RequestSubmissionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RequestSettingResourceRiskSettingsDefaultSetting) *string { return v.RequestSubmissionType }).(pulumi.StringPtrOutput)
+}
+
+type RequestSettingResourceRiskSettingsDefaultSettingPtrOutput struct{ *pulumi.OutputState }
+
+func (RequestSettingResourceRiskSettingsDefaultSettingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RequestSettingResourceRiskSettingsDefaultSetting)(nil)).Elem()
+}
+
+func (o RequestSettingResourceRiskSettingsDefaultSettingPtrOutput) ToRequestSettingResourceRiskSettingsDefaultSettingPtrOutput() RequestSettingResourceRiskSettingsDefaultSettingPtrOutput {
+	return o
+}
+
+func (o RequestSettingResourceRiskSettingsDefaultSettingPtrOutput) ToRequestSettingResourceRiskSettingsDefaultSettingPtrOutputWithContext(ctx context.Context) RequestSettingResourceRiskSettingsDefaultSettingPtrOutput {
+	return o
+}
+
+func (o RequestSettingResourceRiskSettingsDefaultSettingPtrOutput) Elem() RequestSettingResourceRiskSettingsDefaultSettingOutput {
+	return o.ApplyT(func(v *RequestSettingResourceRiskSettingsDefaultSetting) RequestSettingResourceRiskSettingsDefaultSetting {
+		if v != nil {
+			return *v
+		}
+		var ret RequestSettingResourceRiskSettingsDefaultSetting
+		return ret
+	}).(RequestSettingResourceRiskSettingsDefaultSettingOutput)
+}
+
+// Settings that control who may specify the access duration allowed by this request condition or risk settings, as well as what duration may be requested.
+func (o RequestSettingResourceRiskSettingsDefaultSettingPtrOutput) AccessDurationSettings() RequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsPtrOutput {
+	return o.ApplyT(func(v *RequestSettingResourceRiskSettingsDefaultSetting) *RequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettings {
+		if v == nil {
+			return nil
+		}
+		return v.AccessDurationSettings
+	}).(RequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsPtrOutput)
+}
+
+// The ID of the approval sequence.
+func (o RequestSettingResourceRiskSettingsDefaultSettingPtrOutput) ApprovalSequenceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RequestSettingResourceRiskSettingsDefaultSetting) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ApprovalSequenceId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o RequestSettingResourceRiskSettingsDefaultSettingPtrOutput) Errors() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RequestSettingResourceRiskSettingsDefaultSetting) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Errors
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o RequestSettingResourceRiskSettingsDefaultSettingPtrOutput) RequestSubmissionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RequestSettingResourceRiskSettingsDefaultSetting) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RequestSubmissionType
+	}).(pulumi.StringPtrOutput)
+}
+
+type RequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettings struct {
+	// The duration set by the admin for access durations. Use ISO8061 notation for duration values.
+	Duration *string `pulumi:"duration"`
+	// Enum: `ADMIN_FIXED_DURATION`, `REQUESTER_SPECIFIED_DURATION`.
+	Type *string `pulumi:"type"`
+}
+
+// RequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsInput is an input type that accepts RequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsArgs and RequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsOutput values.
+// You can construct a concrete instance of `RequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsInput` via:
+//
+//	RequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsArgs{...}
+type RequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsInput interface {
+	pulumi.Input
+
+	ToRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsOutput() RequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsOutput
+	ToRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsOutputWithContext(context.Context) RequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsOutput
+}
+
+type RequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsArgs struct {
+	// The duration set by the admin for access durations. Use ISO8061 notation for duration values.
+	Duration pulumi.StringPtrInput `pulumi:"duration"`
+	// Enum: `ADMIN_FIXED_DURATION`, `REQUESTER_SPECIFIED_DURATION`.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (RequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettings)(nil)).Elem()
+}
+
+func (i RequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsArgs) ToRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsOutput() RequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsOutput {
+	return i.ToRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsOutputWithContext(context.Background())
+}
+
+func (i RequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsArgs) ToRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsOutputWithContext(ctx context.Context) RequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsOutput)
+}
+
+func (i RequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsArgs) ToRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsPtrOutput() RequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsPtrOutput {
+	return i.ToRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i RequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsArgs) ToRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsPtrOutputWithContext(ctx context.Context) RequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsOutput).ToRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsPtrOutputWithContext(ctx)
+}
+
+// RequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsPtrInput is an input type that accepts RequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsArgs, RequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsPtr and RequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsPtrOutput values.
+// You can construct a concrete instance of `RequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsPtrInput` via:
+//
+//	        RequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type RequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsPtrInput interface {
+	pulumi.Input
+
+	ToRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsPtrOutput() RequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsPtrOutput
+	ToRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsPtrOutputWithContext(context.Context) RequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsPtrOutput
+}
+
+type requestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsPtrType RequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsArgs
+
+func RequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsPtr(v *RequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsArgs) RequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsPtrInput {
+	return (*requestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsPtrType)(v)
+}
+
+func (*requestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettings)(nil)).Elem()
+}
+
+func (i *requestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsPtrType) ToRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsPtrOutput() RequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsPtrOutput {
+	return i.ToRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *requestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsPtrType) ToRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsPtrOutputWithContext(ctx context.Context) RequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsPtrOutput)
+}
+
+type RequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsOutput struct{ *pulumi.OutputState }
+
+func (RequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettings)(nil)).Elem()
+}
+
+func (o RequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsOutput) ToRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsOutput() RequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsOutput {
+	return o
+}
+
+func (o RequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsOutput) ToRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsOutputWithContext(ctx context.Context) RequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsOutput {
+	return o
+}
+
+func (o RequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsOutput) ToRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsPtrOutput() RequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsPtrOutput {
+	return o.ToRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o RequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsOutput) ToRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsPtrOutputWithContext(ctx context.Context) RequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettings) *RequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettings {
+		return &v
+	}).(RequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsPtrOutput)
+}
+
+// The duration set by the admin for access durations. Use ISO8061 notation for duration values.
+func (o RequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsOutput) Duration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettings) *string {
+		return v.Duration
+	}).(pulumi.StringPtrOutput)
+}
+
+// Enum: `ADMIN_FIXED_DURATION`, `REQUESTER_SPECIFIED_DURATION`.
+func (o RequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettings) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type RequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (RequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettings)(nil)).Elem()
+}
+
+func (o RequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsPtrOutput) ToRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsPtrOutput() RequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsPtrOutput {
+	return o
+}
+
+func (o RequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsPtrOutput) ToRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsPtrOutputWithContext(ctx context.Context) RequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsPtrOutput {
+	return o
+}
+
+func (o RequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsPtrOutput) Elem() RequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsOutput {
+	return o.ApplyT(func(v *RequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettings) RequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettings {
+		if v != nil {
+			return *v
+		}
+		var ret RequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettings
+		return ret
+	}).(RequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsOutput)
+}
+
+// The duration set by the admin for access durations. Use ISO8061 notation for duration values.
+func (o RequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsPtrOutput) Duration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Duration
+	}).(pulumi.StringPtrOutput)
+}
+
+// Enum: `ADMIN_FIXED_DURATION`, `REQUESTER_SPECIFIED_DURATION`.
+func (o RequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type RequestV2Requested struct {
+	// The ID of the access scope associated with the resource.
+	AccessScopeId *string `pulumi:"accessScopeId"`
+	// The access scope type.
+	AccessScopeType *string `pulumi:"accessScopeType"`
+	// The ID of the resource catalog entry.
+	EntryId string `pulumi:"entryId"`
+	// The ID of the requested resource.
+	ResourceId *string `pulumi:"resourceId"`
+	// The requested resource type.
+	ResourceType *string `pulumi:"resourceType"`
+	// The type of the resource.
+	Type string `pulumi:"type"`
+}
+
+// RequestV2RequestedInput is an input type that accepts RequestV2RequestedArgs and RequestV2RequestedOutput values.
+// You can construct a concrete instance of `RequestV2RequestedInput` via:
+//
+//	RequestV2RequestedArgs{...}
+type RequestV2RequestedInput interface {
+	pulumi.Input
+
+	ToRequestV2RequestedOutput() RequestV2RequestedOutput
+	ToRequestV2RequestedOutputWithContext(context.Context) RequestV2RequestedOutput
+}
+
+type RequestV2RequestedArgs struct {
+	// The ID of the access scope associated with the resource.
+	AccessScopeId pulumi.StringPtrInput `pulumi:"accessScopeId"`
+	// The access scope type.
+	AccessScopeType pulumi.StringPtrInput `pulumi:"accessScopeType"`
+	// The ID of the resource catalog entry.
+	EntryId pulumi.StringInput `pulumi:"entryId"`
+	// The ID of the requested resource.
+	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
+	// The requested resource type.
+	ResourceType pulumi.StringPtrInput `pulumi:"resourceType"`
+	// The type of the resource.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (RequestV2RequestedArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RequestV2Requested)(nil)).Elem()
+}
+
+func (i RequestV2RequestedArgs) ToRequestV2RequestedOutput() RequestV2RequestedOutput {
+	return i.ToRequestV2RequestedOutputWithContext(context.Background())
+}
+
+func (i RequestV2RequestedArgs) ToRequestV2RequestedOutputWithContext(ctx context.Context) RequestV2RequestedOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RequestV2RequestedOutput)
+}
+
+func (i RequestV2RequestedArgs) ToRequestV2RequestedPtrOutput() RequestV2RequestedPtrOutput {
+	return i.ToRequestV2RequestedPtrOutputWithContext(context.Background())
+}
+
+func (i RequestV2RequestedArgs) ToRequestV2RequestedPtrOutputWithContext(ctx context.Context) RequestV2RequestedPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RequestV2RequestedOutput).ToRequestV2RequestedPtrOutputWithContext(ctx)
+}
+
+// RequestV2RequestedPtrInput is an input type that accepts RequestV2RequestedArgs, RequestV2RequestedPtr and RequestV2RequestedPtrOutput values.
+// You can construct a concrete instance of `RequestV2RequestedPtrInput` via:
+//
+//	        RequestV2RequestedArgs{...}
+//
+//	or:
+//
+//	        nil
+type RequestV2RequestedPtrInput interface {
+	pulumi.Input
+
+	ToRequestV2RequestedPtrOutput() RequestV2RequestedPtrOutput
+	ToRequestV2RequestedPtrOutputWithContext(context.Context) RequestV2RequestedPtrOutput
+}
+
+type requestV2RequestedPtrType RequestV2RequestedArgs
+
+func RequestV2RequestedPtr(v *RequestV2RequestedArgs) RequestV2RequestedPtrInput {
+	return (*requestV2RequestedPtrType)(v)
+}
+
+func (*requestV2RequestedPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RequestV2Requested)(nil)).Elem()
+}
+
+func (i *requestV2RequestedPtrType) ToRequestV2RequestedPtrOutput() RequestV2RequestedPtrOutput {
+	return i.ToRequestV2RequestedPtrOutputWithContext(context.Background())
+}
+
+func (i *requestV2RequestedPtrType) ToRequestV2RequestedPtrOutputWithContext(ctx context.Context) RequestV2RequestedPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RequestV2RequestedPtrOutput)
+}
+
+type RequestV2RequestedOutput struct{ *pulumi.OutputState }
+
+func (RequestV2RequestedOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RequestV2Requested)(nil)).Elem()
+}
+
+func (o RequestV2RequestedOutput) ToRequestV2RequestedOutput() RequestV2RequestedOutput {
+	return o
+}
+
+func (o RequestV2RequestedOutput) ToRequestV2RequestedOutputWithContext(ctx context.Context) RequestV2RequestedOutput {
+	return o
+}
+
+func (o RequestV2RequestedOutput) ToRequestV2RequestedPtrOutput() RequestV2RequestedPtrOutput {
+	return o.ToRequestV2RequestedPtrOutputWithContext(context.Background())
+}
+
+func (o RequestV2RequestedOutput) ToRequestV2RequestedPtrOutputWithContext(ctx context.Context) RequestV2RequestedPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RequestV2Requested) *RequestV2Requested {
+		return &v
+	}).(RequestV2RequestedPtrOutput)
+}
+
+// The ID of the access scope associated with the resource.
+func (o RequestV2RequestedOutput) AccessScopeId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RequestV2Requested) *string { return v.AccessScopeId }).(pulumi.StringPtrOutput)
+}
+
+// The access scope type.
+func (o RequestV2RequestedOutput) AccessScopeType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RequestV2Requested) *string { return v.AccessScopeType }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the resource catalog entry.
+func (o RequestV2RequestedOutput) EntryId() pulumi.StringOutput {
+	return o.ApplyT(func(v RequestV2Requested) string { return v.EntryId }).(pulumi.StringOutput)
+}
+
+// The ID of the requested resource.
+func (o RequestV2RequestedOutput) ResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RequestV2Requested) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
+}
+
+// The requested resource type.
+func (o RequestV2RequestedOutput) ResourceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RequestV2Requested) *string { return v.ResourceType }).(pulumi.StringPtrOutput)
+}
+
+// The type of the resource.
+func (o RequestV2RequestedOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v RequestV2Requested) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type RequestV2RequestedPtrOutput struct{ *pulumi.OutputState }
+
+func (RequestV2RequestedPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RequestV2Requested)(nil)).Elem()
+}
+
+func (o RequestV2RequestedPtrOutput) ToRequestV2RequestedPtrOutput() RequestV2RequestedPtrOutput {
+	return o
+}
+
+func (o RequestV2RequestedPtrOutput) ToRequestV2RequestedPtrOutputWithContext(ctx context.Context) RequestV2RequestedPtrOutput {
+	return o
+}
+
+func (o RequestV2RequestedPtrOutput) Elem() RequestV2RequestedOutput {
+	return o.ApplyT(func(v *RequestV2Requested) RequestV2Requested {
+		if v != nil {
+			return *v
+		}
+		var ret RequestV2Requested
+		return ret
+	}).(RequestV2RequestedOutput)
+}
+
+// The ID of the access scope associated with the resource.
+func (o RequestV2RequestedPtrOutput) AccessScopeId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RequestV2Requested) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AccessScopeId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The access scope type.
+func (o RequestV2RequestedPtrOutput) AccessScopeType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RequestV2Requested) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AccessScopeType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of the resource catalog entry.
+func (o RequestV2RequestedPtrOutput) EntryId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RequestV2Requested) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.EntryId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of the requested resource.
+func (o RequestV2RequestedPtrOutput) ResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RequestV2Requested) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The requested resource type.
+func (o RequestV2RequestedPtrOutput) ResourceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RequestV2Requested) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of the resource.
+func (o RequestV2RequestedPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RequestV2Requested) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type RequestV2RequestedFor struct {
+	// The ID of the Okta user.
+	ExternalId string `pulumi:"externalId"`
+	// The type of principal.
+	Type string `pulumi:"type"`
+}
+
+// RequestV2RequestedForInput is an input type that accepts RequestV2RequestedForArgs and RequestV2RequestedForOutput values.
+// You can construct a concrete instance of `RequestV2RequestedForInput` via:
+//
+//	RequestV2RequestedForArgs{...}
+type RequestV2RequestedForInput interface {
+	pulumi.Input
+
+	ToRequestV2RequestedForOutput() RequestV2RequestedForOutput
+	ToRequestV2RequestedForOutputWithContext(context.Context) RequestV2RequestedForOutput
+}
+
+type RequestV2RequestedForArgs struct {
+	// The ID of the Okta user.
+	ExternalId pulumi.StringInput `pulumi:"externalId"`
+	// The type of principal.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (RequestV2RequestedForArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RequestV2RequestedFor)(nil)).Elem()
+}
+
+func (i RequestV2RequestedForArgs) ToRequestV2RequestedForOutput() RequestV2RequestedForOutput {
+	return i.ToRequestV2RequestedForOutputWithContext(context.Background())
+}
+
+func (i RequestV2RequestedForArgs) ToRequestV2RequestedForOutputWithContext(ctx context.Context) RequestV2RequestedForOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RequestV2RequestedForOutput)
+}
+
+func (i RequestV2RequestedForArgs) ToRequestV2RequestedForPtrOutput() RequestV2RequestedForPtrOutput {
+	return i.ToRequestV2RequestedForPtrOutputWithContext(context.Background())
+}
+
+func (i RequestV2RequestedForArgs) ToRequestV2RequestedForPtrOutputWithContext(ctx context.Context) RequestV2RequestedForPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RequestV2RequestedForOutput).ToRequestV2RequestedForPtrOutputWithContext(ctx)
+}
+
+// RequestV2RequestedForPtrInput is an input type that accepts RequestV2RequestedForArgs, RequestV2RequestedForPtr and RequestV2RequestedForPtrOutput values.
+// You can construct a concrete instance of `RequestV2RequestedForPtrInput` via:
+//
+//	        RequestV2RequestedForArgs{...}
+//
+//	or:
+//
+//	        nil
+type RequestV2RequestedForPtrInput interface {
+	pulumi.Input
+
+	ToRequestV2RequestedForPtrOutput() RequestV2RequestedForPtrOutput
+	ToRequestV2RequestedForPtrOutputWithContext(context.Context) RequestV2RequestedForPtrOutput
+}
+
+type requestV2RequestedForPtrType RequestV2RequestedForArgs
+
+func RequestV2RequestedForPtr(v *RequestV2RequestedForArgs) RequestV2RequestedForPtrInput {
+	return (*requestV2RequestedForPtrType)(v)
+}
+
+func (*requestV2RequestedForPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RequestV2RequestedFor)(nil)).Elem()
+}
+
+func (i *requestV2RequestedForPtrType) ToRequestV2RequestedForPtrOutput() RequestV2RequestedForPtrOutput {
+	return i.ToRequestV2RequestedForPtrOutputWithContext(context.Background())
+}
+
+func (i *requestV2RequestedForPtrType) ToRequestV2RequestedForPtrOutputWithContext(ctx context.Context) RequestV2RequestedForPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RequestV2RequestedForPtrOutput)
+}
+
+type RequestV2RequestedForOutput struct{ *pulumi.OutputState }
+
+func (RequestV2RequestedForOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RequestV2RequestedFor)(nil)).Elem()
+}
+
+func (o RequestV2RequestedForOutput) ToRequestV2RequestedForOutput() RequestV2RequestedForOutput {
+	return o
+}
+
+func (o RequestV2RequestedForOutput) ToRequestV2RequestedForOutputWithContext(ctx context.Context) RequestV2RequestedForOutput {
+	return o
+}
+
+func (o RequestV2RequestedForOutput) ToRequestV2RequestedForPtrOutput() RequestV2RequestedForPtrOutput {
+	return o.ToRequestV2RequestedForPtrOutputWithContext(context.Background())
+}
+
+func (o RequestV2RequestedForOutput) ToRequestV2RequestedForPtrOutputWithContext(ctx context.Context) RequestV2RequestedForPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RequestV2RequestedFor) *RequestV2RequestedFor {
+		return &v
+	}).(RequestV2RequestedForPtrOutput)
+}
+
+// The ID of the Okta user.
+func (o RequestV2RequestedForOutput) ExternalId() pulumi.StringOutput {
+	return o.ApplyT(func(v RequestV2RequestedFor) string { return v.ExternalId }).(pulumi.StringOutput)
+}
+
+// The type of principal.
+func (o RequestV2RequestedForOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v RequestV2RequestedFor) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type RequestV2RequestedForPtrOutput struct{ *pulumi.OutputState }
+
+func (RequestV2RequestedForPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RequestV2RequestedFor)(nil)).Elem()
+}
+
+func (o RequestV2RequestedForPtrOutput) ToRequestV2RequestedForPtrOutput() RequestV2RequestedForPtrOutput {
+	return o
+}
+
+func (o RequestV2RequestedForPtrOutput) ToRequestV2RequestedForPtrOutputWithContext(ctx context.Context) RequestV2RequestedForPtrOutput {
+	return o
+}
+
+func (o RequestV2RequestedForPtrOutput) Elem() RequestV2RequestedForOutput {
+	return o.ApplyT(func(v *RequestV2RequestedFor) RequestV2RequestedFor {
+		if v != nil {
+			return *v
+		}
+		var ret RequestV2RequestedFor
+		return ret
+	}).(RequestV2RequestedForOutput)
+}
+
+// The ID of the Okta user.
+func (o RequestV2RequestedForPtrOutput) ExternalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RequestV2RequestedFor) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ExternalId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of principal.
+func (o RequestV2RequestedForPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RequestV2RequestedFor) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type RequestV2RequesterFieldValue struct {
+	// The ID of a requester field.
+	Id *string `pulumi:"id"`
+	// A human-readable description of requester field.
+	Label *string `pulumi:"label"`
+	// Type of value for the requester field.
+	Type *string `pulumi:"type"`
+	// The value of requester field, which depends on the type of the field.
+	Value *string `pulumi:"value"`
+	// The values of requester field with the type MULTISELECT. If the field type is MULTISELECT, this property is required.
+	Values []RequestV2RequesterFieldValueValue `pulumi:"values"`
+}
+
+// RequestV2RequesterFieldValueInput is an input type that accepts RequestV2RequesterFieldValueArgs and RequestV2RequesterFieldValueOutput values.
+// You can construct a concrete instance of `RequestV2RequesterFieldValueInput` via:
+//
+//	RequestV2RequesterFieldValueArgs{...}
+type RequestV2RequesterFieldValueInput interface {
+	pulumi.Input
+
+	ToRequestV2RequesterFieldValueOutput() RequestV2RequesterFieldValueOutput
+	ToRequestV2RequesterFieldValueOutputWithContext(context.Context) RequestV2RequesterFieldValueOutput
+}
+
+type RequestV2RequesterFieldValueArgs struct {
+	// The ID of a requester field.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// A human-readable description of requester field.
+	Label pulumi.StringPtrInput `pulumi:"label"`
+	// Type of value for the requester field.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+	// The value of requester field, which depends on the type of the field.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+	// The values of requester field with the type MULTISELECT. If the field type is MULTISELECT, this property is required.
+	Values RequestV2RequesterFieldValueValueArrayInput `pulumi:"values"`
+}
+
+func (RequestV2RequesterFieldValueArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RequestV2RequesterFieldValue)(nil)).Elem()
+}
+
+func (i RequestV2RequesterFieldValueArgs) ToRequestV2RequesterFieldValueOutput() RequestV2RequesterFieldValueOutput {
+	return i.ToRequestV2RequesterFieldValueOutputWithContext(context.Background())
+}
+
+func (i RequestV2RequesterFieldValueArgs) ToRequestV2RequesterFieldValueOutputWithContext(ctx context.Context) RequestV2RequesterFieldValueOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RequestV2RequesterFieldValueOutput)
+}
+
+// RequestV2RequesterFieldValueArrayInput is an input type that accepts RequestV2RequesterFieldValueArray and RequestV2RequesterFieldValueArrayOutput values.
+// You can construct a concrete instance of `RequestV2RequesterFieldValueArrayInput` via:
+//
+//	RequestV2RequesterFieldValueArray{ RequestV2RequesterFieldValueArgs{...} }
+type RequestV2RequesterFieldValueArrayInput interface {
+	pulumi.Input
+
+	ToRequestV2RequesterFieldValueArrayOutput() RequestV2RequesterFieldValueArrayOutput
+	ToRequestV2RequesterFieldValueArrayOutputWithContext(context.Context) RequestV2RequesterFieldValueArrayOutput
+}
+
+type RequestV2RequesterFieldValueArray []RequestV2RequesterFieldValueInput
+
+func (RequestV2RequesterFieldValueArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RequestV2RequesterFieldValue)(nil)).Elem()
+}
+
+func (i RequestV2RequesterFieldValueArray) ToRequestV2RequesterFieldValueArrayOutput() RequestV2RequesterFieldValueArrayOutput {
+	return i.ToRequestV2RequesterFieldValueArrayOutputWithContext(context.Background())
+}
+
+func (i RequestV2RequesterFieldValueArray) ToRequestV2RequesterFieldValueArrayOutputWithContext(ctx context.Context) RequestV2RequesterFieldValueArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RequestV2RequesterFieldValueArrayOutput)
+}
+
+type RequestV2RequesterFieldValueOutput struct{ *pulumi.OutputState }
+
+func (RequestV2RequesterFieldValueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RequestV2RequesterFieldValue)(nil)).Elem()
+}
+
+func (o RequestV2RequesterFieldValueOutput) ToRequestV2RequesterFieldValueOutput() RequestV2RequesterFieldValueOutput {
+	return o
+}
+
+func (o RequestV2RequesterFieldValueOutput) ToRequestV2RequesterFieldValueOutputWithContext(ctx context.Context) RequestV2RequesterFieldValueOutput {
+	return o
+}
+
+// The ID of a requester field.
+func (o RequestV2RequesterFieldValueOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RequestV2RequesterFieldValue) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// A human-readable description of requester field.
+func (o RequestV2RequesterFieldValueOutput) Label() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RequestV2RequesterFieldValue) *string { return v.Label }).(pulumi.StringPtrOutput)
+}
+
+// Type of value for the requester field.
+func (o RequestV2RequesterFieldValueOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RequestV2RequesterFieldValue) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// The value of requester field, which depends on the type of the field.
+func (o RequestV2RequesterFieldValueOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RequestV2RequesterFieldValue) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+// The values of requester field with the type MULTISELECT. If the field type is MULTISELECT, this property is required.
+func (o RequestV2RequesterFieldValueOutput) Values() RequestV2RequesterFieldValueValueArrayOutput {
+	return o.ApplyT(func(v RequestV2RequesterFieldValue) []RequestV2RequesterFieldValueValue { return v.Values }).(RequestV2RequesterFieldValueValueArrayOutput)
+}
+
+type RequestV2RequesterFieldValueArrayOutput struct{ *pulumi.OutputState }
+
+func (RequestV2RequesterFieldValueArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RequestV2RequesterFieldValue)(nil)).Elem()
+}
+
+func (o RequestV2RequesterFieldValueArrayOutput) ToRequestV2RequesterFieldValueArrayOutput() RequestV2RequesterFieldValueArrayOutput {
+	return o
+}
+
+func (o RequestV2RequesterFieldValueArrayOutput) ToRequestV2RequesterFieldValueArrayOutputWithContext(ctx context.Context) RequestV2RequesterFieldValueArrayOutput {
+	return o
+}
+
+func (o RequestV2RequesterFieldValueArrayOutput) Index(i pulumi.IntInput) RequestV2RequesterFieldValueOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RequestV2RequesterFieldValue {
+		return vs[0].([]RequestV2RequesterFieldValue)[vs[1].(int)]
+	}).(RequestV2RequesterFieldValueOutput)
+}
+
+type RequestV2RequesterFieldValueValue struct {
+	Value *string `pulumi:"value"`
+}
+
+// RequestV2RequesterFieldValueValueInput is an input type that accepts RequestV2RequesterFieldValueValueArgs and RequestV2RequesterFieldValueValueOutput values.
+// You can construct a concrete instance of `RequestV2RequesterFieldValueValueInput` via:
+//
+//	RequestV2RequesterFieldValueValueArgs{...}
+type RequestV2RequesterFieldValueValueInput interface {
+	pulumi.Input
+
+	ToRequestV2RequesterFieldValueValueOutput() RequestV2RequesterFieldValueValueOutput
+	ToRequestV2RequesterFieldValueValueOutputWithContext(context.Context) RequestV2RequesterFieldValueValueOutput
+}
+
+type RequestV2RequesterFieldValueValueArgs struct {
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (RequestV2RequesterFieldValueValueArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RequestV2RequesterFieldValueValue)(nil)).Elem()
+}
+
+func (i RequestV2RequesterFieldValueValueArgs) ToRequestV2RequesterFieldValueValueOutput() RequestV2RequesterFieldValueValueOutput {
+	return i.ToRequestV2RequesterFieldValueValueOutputWithContext(context.Background())
+}
+
+func (i RequestV2RequesterFieldValueValueArgs) ToRequestV2RequesterFieldValueValueOutputWithContext(ctx context.Context) RequestV2RequesterFieldValueValueOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RequestV2RequesterFieldValueValueOutput)
+}
+
+// RequestV2RequesterFieldValueValueArrayInput is an input type that accepts RequestV2RequesterFieldValueValueArray and RequestV2RequesterFieldValueValueArrayOutput values.
+// You can construct a concrete instance of `RequestV2RequesterFieldValueValueArrayInput` via:
+//
+//	RequestV2RequesterFieldValueValueArray{ RequestV2RequesterFieldValueValueArgs{...} }
+type RequestV2RequesterFieldValueValueArrayInput interface {
+	pulumi.Input
+
+	ToRequestV2RequesterFieldValueValueArrayOutput() RequestV2RequesterFieldValueValueArrayOutput
+	ToRequestV2RequesterFieldValueValueArrayOutputWithContext(context.Context) RequestV2RequesterFieldValueValueArrayOutput
+}
+
+type RequestV2RequesterFieldValueValueArray []RequestV2RequesterFieldValueValueInput
+
+func (RequestV2RequesterFieldValueValueArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RequestV2RequesterFieldValueValue)(nil)).Elem()
+}
+
+func (i RequestV2RequesterFieldValueValueArray) ToRequestV2RequesterFieldValueValueArrayOutput() RequestV2RequesterFieldValueValueArrayOutput {
+	return i.ToRequestV2RequesterFieldValueValueArrayOutputWithContext(context.Background())
+}
+
+func (i RequestV2RequesterFieldValueValueArray) ToRequestV2RequesterFieldValueValueArrayOutputWithContext(ctx context.Context) RequestV2RequesterFieldValueValueArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RequestV2RequesterFieldValueValueArrayOutput)
+}
+
+type RequestV2RequesterFieldValueValueOutput struct{ *pulumi.OutputState }
+
+func (RequestV2RequesterFieldValueValueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RequestV2RequesterFieldValueValue)(nil)).Elem()
+}
+
+func (o RequestV2RequesterFieldValueValueOutput) ToRequestV2RequesterFieldValueValueOutput() RequestV2RequesterFieldValueValueOutput {
+	return o
+}
+
+func (o RequestV2RequesterFieldValueValueOutput) ToRequestV2RequesterFieldValueValueOutputWithContext(ctx context.Context) RequestV2RequesterFieldValueValueOutput {
+	return o
+}
+
+func (o RequestV2RequesterFieldValueValueOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RequestV2RequesterFieldValueValue) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type RequestV2RequesterFieldValueValueArrayOutput struct{ *pulumi.OutputState }
+
+func (RequestV2RequesterFieldValueValueArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RequestV2RequesterFieldValueValue)(nil)).Elem()
+}
+
+func (o RequestV2RequesterFieldValueValueArrayOutput) ToRequestV2RequesterFieldValueValueArrayOutput() RequestV2RequesterFieldValueValueArrayOutput {
+	return o
+}
+
+func (o RequestV2RequesterFieldValueValueArrayOutput) ToRequestV2RequesterFieldValueValueArrayOutputWithContext(ctx context.Context) RequestV2RequesterFieldValueValueArrayOutput {
+	return o
+}
+
+func (o RequestV2RequesterFieldValueValueArrayOutput) Index(i pulumi.IntInput) RequestV2RequesterFieldValueValueOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RequestV2RequesterFieldValueValue {
+		return vs[0].([]RequestV2RequesterFieldValueValue)[vs[1].(int)]
+	}).(RequestV2RequesterFieldValueValueOutput)
+}
+
 type TemplateSmsTranslation struct {
 	// The language to map the template to.
 	Language string `pulumi:"language"`
@@ -4041,6 +9754,3453 @@ func (o GetBrandsBrandArrayOutput) Index(i pulumi.IntInput) GetBrandsBrandOutput
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetBrandsBrand {
 		return vs[0].([]GetBrandsBrand)[vs[1].(int)]
 	}).(GetBrandsBrandOutput)
+}
+
+type GetCampaignNotificationSettings struct {
+	NotifyReviewPeriodEnd                      bool  `pulumi:"notifyReviewPeriodEnd"`
+	NotifyReviewerAtCampaignEnd                bool  `pulumi:"notifyReviewerAtCampaignEnd"`
+	NotifyReviewerDuringMidpointOfReview       bool  `pulumi:"notifyReviewerDuringMidpointOfReview"`
+	NotifyReviewerWhenOverdue                  bool  `pulumi:"notifyReviewerWhenOverdue"`
+	NotifyReviewerWhenReviewAssigned           bool  `pulumi:"notifyReviewerWhenReviewAssigned"`
+	RemindersReviewerBeforeCampaignCloseInSecs []int `pulumi:"remindersReviewerBeforeCampaignCloseInSecs"`
+}
+
+// GetCampaignNotificationSettingsInput is an input type that accepts GetCampaignNotificationSettingsArgs and GetCampaignNotificationSettingsOutput values.
+// You can construct a concrete instance of `GetCampaignNotificationSettingsInput` via:
+//
+//	GetCampaignNotificationSettingsArgs{...}
+type GetCampaignNotificationSettingsInput interface {
+	pulumi.Input
+
+	ToGetCampaignNotificationSettingsOutput() GetCampaignNotificationSettingsOutput
+	ToGetCampaignNotificationSettingsOutputWithContext(context.Context) GetCampaignNotificationSettingsOutput
+}
+
+type GetCampaignNotificationSettingsArgs struct {
+	NotifyReviewPeriodEnd                      pulumi.BoolInput     `pulumi:"notifyReviewPeriodEnd"`
+	NotifyReviewerAtCampaignEnd                pulumi.BoolInput     `pulumi:"notifyReviewerAtCampaignEnd"`
+	NotifyReviewerDuringMidpointOfReview       pulumi.BoolInput     `pulumi:"notifyReviewerDuringMidpointOfReview"`
+	NotifyReviewerWhenOverdue                  pulumi.BoolInput     `pulumi:"notifyReviewerWhenOverdue"`
+	NotifyReviewerWhenReviewAssigned           pulumi.BoolInput     `pulumi:"notifyReviewerWhenReviewAssigned"`
+	RemindersReviewerBeforeCampaignCloseInSecs pulumi.IntArrayInput `pulumi:"remindersReviewerBeforeCampaignCloseInSecs"`
+}
+
+func (GetCampaignNotificationSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCampaignNotificationSettings)(nil)).Elem()
+}
+
+func (i GetCampaignNotificationSettingsArgs) ToGetCampaignNotificationSettingsOutput() GetCampaignNotificationSettingsOutput {
+	return i.ToGetCampaignNotificationSettingsOutputWithContext(context.Background())
+}
+
+func (i GetCampaignNotificationSettingsArgs) ToGetCampaignNotificationSettingsOutputWithContext(ctx context.Context) GetCampaignNotificationSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCampaignNotificationSettingsOutput)
+}
+
+func (i GetCampaignNotificationSettingsArgs) ToGetCampaignNotificationSettingsPtrOutput() GetCampaignNotificationSettingsPtrOutput {
+	return i.ToGetCampaignNotificationSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i GetCampaignNotificationSettingsArgs) ToGetCampaignNotificationSettingsPtrOutputWithContext(ctx context.Context) GetCampaignNotificationSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCampaignNotificationSettingsOutput).ToGetCampaignNotificationSettingsPtrOutputWithContext(ctx)
+}
+
+// GetCampaignNotificationSettingsPtrInput is an input type that accepts GetCampaignNotificationSettingsArgs, GetCampaignNotificationSettingsPtr and GetCampaignNotificationSettingsPtrOutput values.
+// You can construct a concrete instance of `GetCampaignNotificationSettingsPtrInput` via:
+//
+//	        GetCampaignNotificationSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetCampaignNotificationSettingsPtrInput interface {
+	pulumi.Input
+
+	ToGetCampaignNotificationSettingsPtrOutput() GetCampaignNotificationSettingsPtrOutput
+	ToGetCampaignNotificationSettingsPtrOutputWithContext(context.Context) GetCampaignNotificationSettingsPtrOutput
+}
+
+type getCampaignNotificationSettingsPtrType GetCampaignNotificationSettingsArgs
+
+func GetCampaignNotificationSettingsPtr(v *GetCampaignNotificationSettingsArgs) GetCampaignNotificationSettingsPtrInput {
+	return (*getCampaignNotificationSettingsPtrType)(v)
+}
+
+func (*getCampaignNotificationSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetCampaignNotificationSettings)(nil)).Elem()
+}
+
+func (i *getCampaignNotificationSettingsPtrType) ToGetCampaignNotificationSettingsPtrOutput() GetCampaignNotificationSettingsPtrOutput {
+	return i.ToGetCampaignNotificationSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *getCampaignNotificationSettingsPtrType) ToGetCampaignNotificationSettingsPtrOutputWithContext(ctx context.Context) GetCampaignNotificationSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCampaignNotificationSettingsPtrOutput)
+}
+
+type GetCampaignNotificationSettingsOutput struct{ *pulumi.OutputState }
+
+func (GetCampaignNotificationSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCampaignNotificationSettings)(nil)).Elem()
+}
+
+func (o GetCampaignNotificationSettingsOutput) ToGetCampaignNotificationSettingsOutput() GetCampaignNotificationSettingsOutput {
+	return o
+}
+
+func (o GetCampaignNotificationSettingsOutput) ToGetCampaignNotificationSettingsOutputWithContext(ctx context.Context) GetCampaignNotificationSettingsOutput {
+	return o
+}
+
+func (o GetCampaignNotificationSettingsOutput) ToGetCampaignNotificationSettingsPtrOutput() GetCampaignNotificationSettingsPtrOutput {
+	return o.ToGetCampaignNotificationSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o GetCampaignNotificationSettingsOutput) ToGetCampaignNotificationSettingsPtrOutputWithContext(ctx context.Context) GetCampaignNotificationSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetCampaignNotificationSettings) *GetCampaignNotificationSettings {
+		return &v
+	}).(GetCampaignNotificationSettingsPtrOutput)
+}
+
+func (o GetCampaignNotificationSettingsOutput) NotifyReviewPeriodEnd() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetCampaignNotificationSettings) bool { return v.NotifyReviewPeriodEnd }).(pulumi.BoolOutput)
+}
+
+func (o GetCampaignNotificationSettingsOutput) NotifyReviewerAtCampaignEnd() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetCampaignNotificationSettings) bool { return v.NotifyReviewerAtCampaignEnd }).(pulumi.BoolOutput)
+}
+
+func (o GetCampaignNotificationSettingsOutput) NotifyReviewerDuringMidpointOfReview() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetCampaignNotificationSettings) bool { return v.NotifyReviewerDuringMidpointOfReview }).(pulumi.BoolOutput)
+}
+
+func (o GetCampaignNotificationSettingsOutput) NotifyReviewerWhenOverdue() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetCampaignNotificationSettings) bool { return v.NotifyReviewerWhenOverdue }).(pulumi.BoolOutput)
+}
+
+func (o GetCampaignNotificationSettingsOutput) NotifyReviewerWhenReviewAssigned() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetCampaignNotificationSettings) bool { return v.NotifyReviewerWhenReviewAssigned }).(pulumi.BoolOutput)
+}
+
+func (o GetCampaignNotificationSettingsOutput) RemindersReviewerBeforeCampaignCloseInSecs() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v GetCampaignNotificationSettings) []int { return v.RemindersReviewerBeforeCampaignCloseInSecs }).(pulumi.IntArrayOutput)
+}
+
+type GetCampaignNotificationSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (GetCampaignNotificationSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetCampaignNotificationSettings)(nil)).Elem()
+}
+
+func (o GetCampaignNotificationSettingsPtrOutput) ToGetCampaignNotificationSettingsPtrOutput() GetCampaignNotificationSettingsPtrOutput {
+	return o
+}
+
+func (o GetCampaignNotificationSettingsPtrOutput) ToGetCampaignNotificationSettingsPtrOutputWithContext(ctx context.Context) GetCampaignNotificationSettingsPtrOutput {
+	return o
+}
+
+func (o GetCampaignNotificationSettingsPtrOutput) Elem() GetCampaignNotificationSettingsOutput {
+	return o.ApplyT(func(v *GetCampaignNotificationSettings) GetCampaignNotificationSettings {
+		if v != nil {
+			return *v
+		}
+		var ret GetCampaignNotificationSettings
+		return ret
+	}).(GetCampaignNotificationSettingsOutput)
+}
+
+func (o GetCampaignNotificationSettingsPtrOutput) NotifyReviewPeriodEnd() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetCampaignNotificationSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.NotifyReviewPeriodEnd
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetCampaignNotificationSettingsPtrOutput) NotifyReviewerAtCampaignEnd() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetCampaignNotificationSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.NotifyReviewerAtCampaignEnd
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetCampaignNotificationSettingsPtrOutput) NotifyReviewerDuringMidpointOfReview() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetCampaignNotificationSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.NotifyReviewerDuringMidpointOfReview
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetCampaignNotificationSettingsPtrOutput) NotifyReviewerWhenOverdue() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetCampaignNotificationSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.NotifyReviewerWhenOverdue
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetCampaignNotificationSettingsPtrOutput) NotifyReviewerWhenReviewAssigned() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetCampaignNotificationSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.NotifyReviewerWhenReviewAssigned
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetCampaignNotificationSettingsPtrOutput) RemindersReviewerBeforeCampaignCloseInSecs() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v *GetCampaignNotificationSettings) []int {
+		if v == nil {
+			return nil
+		}
+		return v.RemindersReviewerBeforeCampaignCloseInSecs
+	}).(pulumi.IntArrayOutput)
+}
+
+type GetCampaignPrincipalScopeSettings struct {
+	ExcludedUserIds                  []string                                                        `pulumi:"excludedUserIds"`
+	GroupIds                         []string                                                        `pulumi:"groupIds"`
+	IncludeOnlyActiveUsers           bool                                                            `pulumi:"includeOnlyActiveUsers"`
+	OnlyIncludeUsersWithSodConflicts bool                                                            `pulumi:"onlyIncludeUsersWithSodConflicts"`
+	PredefinedInactiveUsersScopes    []GetCampaignPrincipalScopeSettingsPredefinedInactiveUsersScope `pulumi:"predefinedInactiveUsersScopes"`
+	Type                             string                                                          `pulumi:"type"`
+	UserIds                          []string                                                        `pulumi:"userIds"`
+	UserScopeExpression              string                                                          `pulumi:"userScopeExpression"`
+}
+
+// GetCampaignPrincipalScopeSettingsInput is an input type that accepts GetCampaignPrincipalScopeSettingsArgs and GetCampaignPrincipalScopeSettingsOutput values.
+// You can construct a concrete instance of `GetCampaignPrincipalScopeSettingsInput` via:
+//
+//	GetCampaignPrincipalScopeSettingsArgs{...}
+type GetCampaignPrincipalScopeSettingsInput interface {
+	pulumi.Input
+
+	ToGetCampaignPrincipalScopeSettingsOutput() GetCampaignPrincipalScopeSettingsOutput
+	ToGetCampaignPrincipalScopeSettingsOutputWithContext(context.Context) GetCampaignPrincipalScopeSettingsOutput
+}
+
+type GetCampaignPrincipalScopeSettingsArgs struct {
+	ExcludedUserIds                  pulumi.StringArrayInput                                                 `pulumi:"excludedUserIds"`
+	GroupIds                         pulumi.StringArrayInput                                                 `pulumi:"groupIds"`
+	IncludeOnlyActiveUsers           pulumi.BoolInput                                                        `pulumi:"includeOnlyActiveUsers"`
+	OnlyIncludeUsersWithSodConflicts pulumi.BoolInput                                                        `pulumi:"onlyIncludeUsersWithSodConflicts"`
+	PredefinedInactiveUsersScopes    GetCampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeArrayInput `pulumi:"predefinedInactiveUsersScopes"`
+	Type                             pulumi.StringInput                                                      `pulumi:"type"`
+	UserIds                          pulumi.StringArrayInput                                                 `pulumi:"userIds"`
+	UserScopeExpression              pulumi.StringInput                                                      `pulumi:"userScopeExpression"`
+}
+
+func (GetCampaignPrincipalScopeSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCampaignPrincipalScopeSettings)(nil)).Elem()
+}
+
+func (i GetCampaignPrincipalScopeSettingsArgs) ToGetCampaignPrincipalScopeSettingsOutput() GetCampaignPrincipalScopeSettingsOutput {
+	return i.ToGetCampaignPrincipalScopeSettingsOutputWithContext(context.Background())
+}
+
+func (i GetCampaignPrincipalScopeSettingsArgs) ToGetCampaignPrincipalScopeSettingsOutputWithContext(ctx context.Context) GetCampaignPrincipalScopeSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCampaignPrincipalScopeSettingsOutput)
+}
+
+func (i GetCampaignPrincipalScopeSettingsArgs) ToGetCampaignPrincipalScopeSettingsPtrOutput() GetCampaignPrincipalScopeSettingsPtrOutput {
+	return i.ToGetCampaignPrincipalScopeSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i GetCampaignPrincipalScopeSettingsArgs) ToGetCampaignPrincipalScopeSettingsPtrOutputWithContext(ctx context.Context) GetCampaignPrincipalScopeSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCampaignPrincipalScopeSettingsOutput).ToGetCampaignPrincipalScopeSettingsPtrOutputWithContext(ctx)
+}
+
+// GetCampaignPrincipalScopeSettingsPtrInput is an input type that accepts GetCampaignPrincipalScopeSettingsArgs, GetCampaignPrincipalScopeSettingsPtr and GetCampaignPrincipalScopeSettingsPtrOutput values.
+// You can construct a concrete instance of `GetCampaignPrincipalScopeSettingsPtrInput` via:
+//
+//	        GetCampaignPrincipalScopeSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetCampaignPrincipalScopeSettingsPtrInput interface {
+	pulumi.Input
+
+	ToGetCampaignPrincipalScopeSettingsPtrOutput() GetCampaignPrincipalScopeSettingsPtrOutput
+	ToGetCampaignPrincipalScopeSettingsPtrOutputWithContext(context.Context) GetCampaignPrincipalScopeSettingsPtrOutput
+}
+
+type getCampaignPrincipalScopeSettingsPtrType GetCampaignPrincipalScopeSettingsArgs
+
+func GetCampaignPrincipalScopeSettingsPtr(v *GetCampaignPrincipalScopeSettingsArgs) GetCampaignPrincipalScopeSettingsPtrInput {
+	return (*getCampaignPrincipalScopeSettingsPtrType)(v)
+}
+
+func (*getCampaignPrincipalScopeSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetCampaignPrincipalScopeSettings)(nil)).Elem()
+}
+
+func (i *getCampaignPrincipalScopeSettingsPtrType) ToGetCampaignPrincipalScopeSettingsPtrOutput() GetCampaignPrincipalScopeSettingsPtrOutput {
+	return i.ToGetCampaignPrincipalScopeSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *getCampaignPrincipalScopeSettingsPtrType) ToGetCampaignPrincipalScopeSettingsPtrOutputWithContext(ctx context.Context) GetCampaignPrincipalScopeSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCampaignPrincipalScopeSettingsPtrOutput)
+}
+
+type GetCampaignPrincipalScopeSettingsOutput struct{ *pulumi.OutputState }
+
+func (GetCampaignPrincipalScopeSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCampaignPrincipalScopeSettings)(nil)).Elem()
+}
+
+func (o GetCampaignPrincipalScopeSettingsOutput) ToGetCampaignPrincipalScopeSettingsOutput() GetCampaignPrincipalScopeSettingsOutput {
+	return o
+}
+
+func (o GetCampaignPrincipalScopeSettingsOutput) ToGetCampaignPrincipalScopeSettingsOutputWithContext(ctx context.Context) GetCampaignPrincipalScopeSettingsOutput {
+	return o
+}
+
+func (o GetCampaignPrincipalScopeSettingsOutput) ToGetCampaignPrincipalScopeSettingsPtrOutput() GetCampaignPrincipalScopeSettingsPtrOutput {
+	return o.ToGetCampaignPrincipalScopeSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o GetCampaignPrincipalScopeSettingsOutput) ToGetCampaignPrincipalScopeSettingsPtrOutputWithContext(ctx context.Context) GetCampaignPrincipalScopeSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetCampaignPrincipalScopeSettings) *GetCampaignPrincipalScopeSettings {
+		return &v
+	}).(GetCampaignPrincipalScopeSettingsPtrOutput)
+}
+
+func (o GetCampaignPrincipalScopeSettingsOutput) ExcludedUserIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetCampaignPrincipalScopeSettings) []string { return v.ExcludedUserIds }).(pulumi.StringArrayOutput)
+}
+
+func (o GetCampaignPrincipalScopeSettingsOutput) GroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetCampaignPrincipalScopeSettings) []string { return v.GroupIds }).(pulumi.StringArrayOutput)
+}
+
+func (o GetCampaignPrincipalScopeSettingsOutput) IncludeOnlyActiveUsers() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetCampaignPrincipalScopeSettings) bool { return v.IncludeOnlyActiveUsers }).(pulumi.BoolOutput)
+}
+
+func (o GetCampaignPrincipalScopeSettingsOutput) OnlyIncludeUsersWithSodConflicts() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetCampaignPrincipalScopeSettings) bool { return v.OnlyIncludeUsersWithSodConflicts }).(pulumi.BoolOutput)
+}
+
+func (o GetCampaignPrincipalScopeSettingsOutput) PredefinedInactiveUsersScopes() GetCampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeArrayOutput {
+	return o.ApplyT(func(v GetCampaignPrincipalScopeSettings) []GetCampaignPrincipalScopeSettingsPredefinedInactiveUsersScope {
+		return v.PredefinedInactiveUsersScopes
+	}).(GetCampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeArrayOutput)
+}
+
+func (o GetCampaignPrincipalScopeSettingsOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCampaignPrincipalScopeSettings) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func (o GetCampaignPrincipalScopeSettingsOutput) UserIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetCampaignPrincipalScopeSettings) []string { return v.UserIds }).(pulumi.StringArrayOutput)
+}
+
+func (o GetCampaignPrincipalScopeSettingsOutput) UserScopeExpression() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCampaignPrincipalScopeSettings) string { return v.UserScopeExpression }).(pulumi.StringOutput)
+}
+
+type GetCampaignPrincipalScopeSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (GetCampaignPrincipalScopeSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetCampaignPrincipalScopeSettings)(nil)).Elem()
+}
+
+func (o GetCampaignPrincipalScopeSettingsPtrOutput) ToGetCampaignPrincipalScopeSettingsPtrOutput() GetCampaignPrincipalScopeSettingsPtrOutput {
+	return o
+}
+
+func (o GetCampaignPrincipalScopeSettingsPtrOutput) ToGetCampaignPrincipalScopeSettingsPtrOutputWithContext(ctx context.Context) GetCampaignPrincipalScopeSettingsPtrOutput {
+	return o
+}
+
+func (o GetCampaignPrincipalScopeSettingsPtrOutput) Elem() GetCampaignPrincipalScopeSettingsOutput {
+	return o.ApplyT(func(v *GetCampaignPrincipalScopeSettings) GetCampaignPrincipalScopeSettings {
+		if v != nil {
+			return *v
+		}
+		var ret GetCampaignPrincipalScopeSettings
+		return ret
+	}).(GetCampaignPrincipalScopeSettingsOutput)
+}
+
+func (o GetCampaignPrincipalScopeSettingsPtrOutput) ExcludedUserIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *GetCampaignPrincipalScopeSettings) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ExcludedUserIds
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o GetCampaignPrincipalScopeSettingsPtrOutput) GroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *GetCampaignPrincipalScopeSettings) []string {
+		if v == nil {
+			return nil
+		}
+		return v.GroupIds
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o GetCampaignPrincipalScopeSettingsPtrOutput) IncludeOnlyActiveUsers() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetCampaignPrincipalScopeSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.IncludeOnlyActiveUsers
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetCampaignPrincipalScopeSettingsPtrOutput) OnlyIncludeUsersWithSodConflicts() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetCampaignPrincipalScopeSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.OnlyIncludeUsersWithSodConflicts
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetCampaignPrincipalScopeSettingsPtrOutput) PredefinedInactiveUsersScopes() GetCampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeArrayOutput {
+	return o.ApplyT(func(v *GetCampaignPrincipalScopeSettings) []GetCampaignPrincipalScopeSettingsPredefinedInactiveUsersScope {
+		if v == nil {
+			return nil
+		}
+		return v.PredefinedInactiveUsersScopes
+	}).(GetCampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeArrayOutput)
+}
+
+func (o GetCampaignPrincipalScopeSettingsPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetCampaignPrincipalScopeSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o GetCampaignPrincipalScopeSettingsPtrOutput) UserIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *GetCampaignPrincipalScopeSettings) []string {
+		if v == nil {
+			return nil
+		}
+		return v.UserIds
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o GetCampaignPrincipalScopeSettingsPtrOutput) UserScopeExpression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetCampaignPrincipalScopeSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.UserScopeExpression
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetCampaignPrincipalScopeSettingsPredefinedInactiveUsersScope struct {
+	InactiveDays int `pulumi:"inactiveDays"`
+}
+
+// GetCampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeInput is an input type that accepts GetCampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeArgs and GetCampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeOutput values.
+// You can construct a concrete instance of `GetCampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeInput` via:
+//
+//	GetCampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeArgs{...}
+type GetCampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeInput interface {
+	pulumi.Input
+
+	ToGetCampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeOutput() GetCampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeOutput
+	ToGetCampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeOutputWithContext(context.Context) GetCampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeOutput
+}
+
+type GetCampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeArgs struct {
+	InactiveDays pulumi.IntInput `pulumi:"inactiveDays"`
+}
+
+func (GetCampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCampaignPrincipalScopeSettingsPredefinedInactiveUsersScope)(nil)).Elem()
+}
+
+func (i GetCampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeArgs) ToGetCampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeOutput() GetCampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeOutput {
+	return i.ToGetCampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeOutputWithContext(context.Background())
+}
+
+func (i GetCampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeArgs) ToGetCampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeOutputWithContext(ctx context.Context) GetCampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeOutput)
+}
+
+// GetCampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeArrayInput is an input type that accepts GetCampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeArray and GetCampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeArrayOutput values.
+// You can construct a concrete instance of `GetCampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeArrayInput` via:
+//
+//	GetCampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeArray{ GetCampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeArgs{...} }
+type GetCampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeArrayInput interface {
+	pulumi.Input
+
+	ToGetCampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeArrayOutput() GetCampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeArrayOutput
+	ToGetCampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeArrayOutputWithContext(context.Context) GetCampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeArrayOutput
+}
+
+type GetCampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeArray []GetCampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeInput
+
+func (GetCampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCampaignPrincipalScopeSettingsPredefinedInactiveUsersScope)(nil)).Elem()
+}
+
+func (i GetCampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeArray) ToGetCampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeArrayOutput() GetCampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeArrayOutput {
+	return i.ToGetCampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeArrayOutputWithContext(context.Background())
+}
+
+func (i GetCampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeArray) ToGetCampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeArrayOutputWithContext(ctx context.Context) GetCampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeArrayOutput)
+}
+
+type GetCampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeOutput struct{ *pulumi.OutputState }
+
+func (GetCampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCampaignPrincipalScopeSettingsPredefinedInactiveUsersScope)(nil)).Elem()
+}
+
+func (o GetCampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeOutput) ToGetCampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeOutput() GetCampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeOutput {
+	return o
+}
+
+func (o GetCampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeOutput) ToGetCampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeOutputWithContext(ctx context.Context) GetCampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeOutput {
+	return o
+}
+
+func (o GetCampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeOutput) InactiveDays() pulumi.IntOutput {
+	return o.ApplyT(func(v GetCampaignPrincipalScopeSettingsPredefinedInactiveUsersScope) int { return v.InactiveDays }).(pulumi.IntOutput)
+}
+
+type GetCampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCampaignPrincipalScopeSettingsPredefinedInactiveUsersScope)(nil)).Elem()
+}
+
+func (o GetCampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeArrayOutput) ToGetCampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeArrayOutput() GetCampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeArrayOutput {
+	return o
+}
+
+func (o GetCampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeArrayOutput) ToGetCampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeArrayOutputWithContext(ctx context.Context) GetCampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeArrayOutput {
+	return o
+}
+
+func (o GetCampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeArrayOutput) Index(i pulumi.IntInput) GetCampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCampaignPrincipalScopeSettingsPredefinedInactiveUsersScope {
+		return vs[0].([]GetCampaignPrincipalScopeSettingsPredefinedInactiveUsersScope)[vs[1].(int)]
+	}).(GetCampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeOutput)
+}
+
+type GetCampaignRemediationSettings struct {
+	// Specifies the action by default if the reviewer approves access. NO_ACTION indicates there is no remediation action and the user retains access.
+	AccessApproved string `pulumi:"accessApproved"`
+	// Specifies the action if the reviewer revokes access. NO_ACTION indicates the user retains the same access. DENY indicates the user will have their access revoked as long as they are not assigned to a group through Group Rules.
+	AccessRevoked           string                                                 `pulumi:"accessRevoked"`
+	AutoRemediationSettings *GetCampaignRemediationSettingsAutoRemediationSettings `pulumi:"autoRemediationSettings"`
+	// Specifies the action if the reviewer doesn't respond to the request.
+	NoResponse string `pulumi:"noResponse"`
+}
+
+// GetCampaignRemediationSettingsInput is an input type that accepts GetCampaignRemediationSettingsArgs and GetCampaignRemediationSettingsOutput values.
+// You can construct a concrete instance of `GetCampaignRemediationSettingsInput` via:
+//
+//	GetCampaignRemediationSettingsArgs{...}
+type GetCampaignRemediationSettingsInput interface {
+	pulumi.Input
+
+	ToGetCampaignRemediationSettingsOutput() GetCampaignRemediationSettingsOutput
+	ToGetCampaignRemediationSettingsOutputWithContext(context.Context) GetCampaignRemediationSettingsOutput
+}
+
+type GetCampaignRemediationSettingsArgs struct {
+	// Specifies the action by default if the reviewer approves access. NO_ACTION indicates there is no remediation action and the user retains access.
+	AccessApproved pulumi.StringInput `pulumi:"accessApproved"`
+	// Specifies the action if the reviewer revokes access. NO_ACTION indicates the user retains the same access. DENY indicates the user will have their access revoked as long as they are not assigned to a group through Group Rules.
+	AccessRevoked           pulumi.StringInput                                            `pulumi:"accessRevoked"`
+	AutoRemediationSettings GetCampaignRemediationSettingsAutoRemediationSettingsPtrInput `pulumi:"autoRemediationSettings"`
+	// Specifies the action if the reviewer doesn't respond to the request.
+	NoResponse pulumi.StringInput `pulumi:"noResponse"`
+}
+
+func (GetCampaignRemediationSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCampaignRemediationSettings)(nil)).Elem()
+}
+
+func (i GetCampaignRemediationSettingsArgs) ToGetCampaignRemediationSettingsOutput() GetCampaignRemediationSettingsOutput {
+	return i.ToGetCampaignRemediationSettingsOutputWithContext(context.Background())
+}
+
+func (i GetCampaignRemediationSettingsArgs) ToGetCampaignRemediationSettingsOutputWithContext(ctx context.Context) GetCampaignRemediationSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCampaignRemediationSettingsOutput)
+}
+
+func (i GetCampaignRemediationSettingsArgs) ToGetCampaignRemediationSettingsPtrOutput() GetCampaignRemediationSettingsPtrOutput {
+	return i.ToGetCampaignRemediationSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i GetCampaignRemediationSettingsArgs) ToGetCampaignRemediationSettingsPtrOutputWithContext(ctx context.Context) GetCampaignRemediationSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCampaignRemediationSettingsOutput).ToGetCampaignRemediationSettingsPtrOutputWithContext(ctx)
+}
+
+// GetCampaignRemediationSettingsPtrInput is an input type that accepts GetCampaignRemediationSettingsArgs, GetCampaignRemediationSettingsPtr and GetCampaignRemediationSettingsPtrOutput values.
+// You can construct a concrete instance of `GetCampaignRemediationSettingsPtrInput` via:
+//
+//	        GetCampaignRemediationSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetCampaignRemediationSettingsPtrInput interface {
+	pulumi.Input
+
+	ToGetCampaignRemediationSettingsPtrOutput() GetCampaignRemediationSettingsPtrOutput
+	ToGetCampaignRemediationSettingsPtrOutputWithContext(context.Context) GetCampaignRemediationSettingsPtrOutput
+}
+
+type getCampaignRemediationSettingsPtrType GetCampaignRemediationSettingsArgs
+
+func GetCampaignRemediationSettingsPtr(v *GetCampaignRemediationSettingsArgs) GetCampaignRemediationSettingsPtrInput {
+	return (*getCampaignRemediationSettingsPtrType)(v)
+}
+
+func (*getCampaignRemediationSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetCampaignRemediationSettings)(nil)).Elem()
+}
+
+func (i *getCampaignRemediationSettingsPtrType) ToGetCampaignRemediationSettingsPtrOutput() GetCampaignRemediationSettingsPtrOutput {
+	return i.ToGetCampaignRemediationSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *getCampaignRemediationSettingsPtrType) ToGetCampaignRemediationSettingsPtrOutputWithContext(ctx context.Context) GetCampaignRemediationSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCampaignRemediationSettingsPtrOutput)
+}
+
+type GetCampaignRemediationSettingsOutput struct{ *pulumi.OutputState }
+
+func (GetCampaignRemediationSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCampaignRemediationSettings)(nil)).Elem()
+}
+
+func (o GetCampaignRemediationSettingsOutput) ToGetCampaignRemediationSettingsOutput() GetCampaignRemediationSettingsOutput {
+	return o
+}
+
+func (o GetCampaignRemediationSettingsOutput) ToGetCampaignRemediationSettingsOutputWithContext(ctx context.Context) GetCampaignRemediationSettingsOutput {
+	return o
+}
+
+func (o GetCampaignRemediationSettingsOutput) ToGetCampaignRemediationSettingsPtrOutput() GetCampaignRemediationSettingsPtrOutput {
+	return o.ToGetCampaignRemediationSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o GetCampaignRemediationSettingsOutput) ToGetCampaignRemediationSettingsPtrOutputWithContext(ctx context.Context) GetCampaignRemediationSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetCampaignRemediationSettings) *GetCampaignRemediationSettings {
+		return &v
+	}).(GetCampaignRemediationSettingsPtrOutput)
+}
+
+// Specifies the action by default if the reviewer approves access. NO_ACTION indicates there is no remediation action and the user retains access.
+func (o GetCampaignRemediationSettingsOutput) AccessApproved() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCampaignRemediationSettings) string { return v.AccessApproved }).(pulumi.StringOutput)
+}
+
+// Specifies the action if the reviewer revokes access. NO_ACTION indicates the user retains the same access. DENY indicates the user will have their access revoked as long as they are not assigned to a group through Group Rules.
+func (o GetCampaignRemediationSettingsOutput) AccessRevoked() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCampaignRemediationSettings) string { return v.AccessRevoked }).(pulumi.StringOutput)
+}
+
+func (o GetCampaignRemediationSettingsOutput) AutoRemediationSettings() GetCampaignRemediationSettingsAutoRemediationSettingsPtrOutput {
+	return o.ApplyT(func(v GetCampaignRemediationSettings) *GetCampaignRemediationSettingsAutoRemediationSettings {
+		return v.AutoRemediationSettings
+	}).(GetCampaignRemediationSettingsAutoRemediationSettingsPtrOutput)
+}
+
+// Specifies the action if the reviewer doesn't respond to the request.
+func (o GetCampaignRemediationSettingsOutput) NoResponse() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCampaignRemediationSettings) string { return v.NoResponse }).(pulumi.StringOutput)
+}
+
+type GetCampaignRemediationSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (GetCampaignRemediationSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetCampaignRemediationSettings)(nil)).Elem()
+}
+
+func (o GetCampaignRemediationSettingsPtrOutput) ToGetCampaignRemediationSettingsPtrOutput() GetCampaignRemediationSettingsPtrOutput {
+	return o
+}
+
+func (o GetCampaignRemediationSettingsPtrOutput) ToGetCampaignRemediationSettingsPtrOutputWithContext(ctx context.Context) GetCampaignRemediationSettingsPtrOutput {
+	return o
+}
+
+func (o GetCampaignRemediationSettingsPtrOutput) Elem() GetCampaignRemediationSettingsOutput {
+	return o.ApplyT(func(v *GetCampaignRemediationSettings) GetCampaignRemediationSettings {
+		if v != nil {
+			return *v
+		}
+		var ret GetCampaignRemediationSettings
+		return ret
+	}).(GetCampaignRemediationSettingsOutput)
+}
+
+// Specifies the action by default if the reviewer approves access. NO_ACTION indicates there is no remediation action and the user retains access.
+func (o GetCampaignRemediationSettingsPtrOutput) AccessApproved() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetCampaignRemediationSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AccessApproved
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the action if the reviewer revokes access. NO_ACTION indicates the user retains the same access. DENY indicates the user will have their access revoked as long as they are not assigned to a group through Group Rules.
+func (o GetCampaignRemediationSettingsPtrOutput) AccessRevoked() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetCampaignRemediationSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AccessRevoked
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o GetCampaignRemediationSettingsPtrOutput) AutoRemediationSettings() GetCampaignRemediationSettingsAutoRemediationSettingsPtrOutput {
+	return o.ApplyT(func(v *GetCampaignRemediationSettings) *GetCampaignRemediationSettingsAutoRemediationSettings {
+		if v == nil {
+			return nil
+		}
+		return v.AutoRemediationSettings
+	}).(GetCampaignRemediationSettingsAutoRemediationSettingsPtrOutput)
+}
+
+// Specifies the action if the reviewer doesn't respond to the request.
+func (o GetCampaignRemediationSettingsPtrOutput) NoResponse() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetCampaignRemediationSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.NoResponse
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetCampaignRemediationSettingsAutoRemediationSettings struct {
+	// When a group is selected to be automatically remediated.
+	IncludeAllIndirectAssignments bool `pulumi:"includeAllIndirectAssignments"`
+	// An array of resources to be automatically remediated.
+	IncludeOnlies []GetCampaignRemediationSettingsAutoRemediationSettingsIncludeOnly `pulumi:"includeOnlies"`
+}
+
+// GetCampaignRemediationSettingsAutoRemediationSettingsInput is an input type that accepts GetCampaignRemediationSettingsAutoRemediationSettingsArgs and GetCampaignRemediationSettingsAutoRemediationSettingsOutput values.
+// You can construct a concrete instance of `GetCampaignRemediationSettingsAutoRemediationSettingsInput` via:
+//
+//	GetCampaignRemediationSettingsAutoRemediationSettingsArgs{...}
+type GetCampaignRemediationSettingsAutoRemediationSettingsInput interface {
+	pulumi.Input
+
+	ToGetCampaignRemediationSettingsAutoRemediationSettingsOutput() GetCampaignRemediationSettingsAutoRemediationSettingsOutput
+	ToGetCampaignRemediationSettingsAutoRemediationSettingsOutputWithContext(context.Context) GetCampaignRemediationSettingsAutoRemediationSettingsOutput
+}
+
+type GetCampaignRemediationSettingsAutoRemediationSettingsArgs struct {
+	// When a group is selected to be automatically remediated.
+	IncludeAllIndirectAssignments pulumi.BoolInput `pulumi:"includeAllIndirectAssignments"`
+	// An array of resources to be automatically remediated.
+	IncludeOnlies GetCampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyArrayInput `pulumi:"includeOnlies"`
+}
+
+func (GetCampaignRemediationSettingsAutoRemediationSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCampaignRemediationSettingsAutoRemediationSettings)(nil)).Elem()
+}
+
+func (i GetCampaignRemediationSettingsAutoRemediationSettingsArgs) ToGetCampaignRemediationSettingsAutoRemediationSettingsOutput() GetCampaignRemediationSettingsAutoRemediationSettingsOutput {
+	return i.ToGetCampaignRemediationSettingsAutoRemediationSettingsOutputWithContext(context.Background())
+}
+
+func (i GetCampaignRemediationSettingsAutoRemediationSettingsArgs) ToGetCampaignRemediationSettingsAutoRemediationSettingsOutputWithContext(ctx context.Context) GetCampaignRemediationSettingsAutoRemediationSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCampaignRemediationSettingsAutoRemediationSettingsOutput)
+}
+
+func (i GetCampaignRemediationSettingsAutoRemediationSettingsArgs) ToGetCampaignRemediationSettingsAutoRemediationSettingsPtrOutput() GetCampaignRemediationSettingsAutoRemediationSettingsPtrOutput {
+	return i.ToGetCampaignRemediationSettingsAutoRemediationSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i GetCampaignRemediationSettingsAutoRemediationSettingsArgs) ToGetCampaignRemediationSettingsAutoRemediationSettingsPtrOutputWithContext(ctx context.Context) GetCampaignRemediationSettingsAutoRemediationSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCampaignRemediationSettingsAutoRemediationSettingsOutput).ToGetCampaignRemediationSettingsAutoRemediationSettingsPtrOutputWithContext(ctx)
+}
+
+// GetCampaignRemediationSettingsAutoRemediationSettingsPtrInput is an input type that accepts GetCampaignRemediationSettingsAutoRemediationSettingsArgs, GetCampaignRemediationSettingsAutoRemediationSettingsPtr and GetCampaignRemediationSettingsAutoRemediationSettingsPtrOutput values.
+// You can construct a concrete instance of `GetCampaignRemediationSettingsAutoRemediationSettingsPtrInput` via:
+//
+//	        GetCampaignRemediationSettingsAutoRemediationSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetCampaignRemediationSettingsAutoRemediationSettingsPtrInput interface {
+	pulumi.Input
+
+	ToGetCampaignRemediationSettingsAutoRemediationSettingsPtrOutput() GetCampaignRemediationSettingsAutoRemediationSettingsPtrOutput
+	ToGetCampaignRemediationSettingsAutoRemediationSettingsPtrOutputWithContext(context.Context) GetCampaignRemediationSettingsAutoRemediationSettingsPtrOutput
+}
+
+type getCampaignRemediationSettingsAutoRemediationSettingsPtrType GetCampaignRemediationSettingsAutoRemediationSettingsArgs
+
+func GetCampaignRemediationSettingsAutoRemediationSettingsPtr(v *GetCampaignRemediationSettingsAutoRemediationSettingsArgs) GetCampaignRemediationSettingsAutoRemediationSettingsPtrInput {
+	return (*getCampaignRemediationSettingsAutoRemediationSettingsPtrType)(v)
+}
+
+func (*getCampaignRemediationSettingsAutoRemediationSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetCampaignRemediationSettingsAutoRemediationSettings)(nil)).Elem()
+}
+
+func (i *getCampaignRemediationSettingsAutoRemediationSettingsPtrType) ToGetCampaignRemediationSettingsAutoRemediationSettingsPtrOutput() GetCampaignRemediationSettingsAutoRemediationSettingsPtrOutput {
+	return i.ToGetCampaignRemediationSettingsAutoRemediationSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *getCampaignRemediationSettingsAutoRemediationSettingsPtrType) ToGetCampaignRemediationSettingsAutoRemediationSettingsPtrOutputWithContext(ctx context.Context) GetCampaignRemediationSettingsAutoRemediationSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCampaignRemediationSettingsAutoRemediationSettingsPtrOutput)
+}
+
+type GetCampaignRemediationSettingsAutoRemediationSettingsOutput struct{ *pulumi.OutputState }
+
+func (GetCampaignRemediationSettingsAutoRemediationSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCampaignRemediationSettingsAutoRemediationSettings)(nil)).Elem()
+}
+
+func (o GetCampaignRemediationSettingsAutoRemediationSettingsOutput) ToGetCampaignRemediationSettingsAutoRemediationSettingsOutput() GetCampaignRemediationSettingsAutoRemediationSettingsOutput {
+	return o
+}
+
+func (o GetCampaignRemediationSettingsAutoRemediationSettingsOutput) ToGetCampaignRemediationSettingsAutoRemediationSettingsOutputWithContext(ctx context.Context) GetCampaignRemediationSettingsAutoRemediationSettingsOutput {
+	return o
+}
+
+func (o GetCampaignRemediationSettingsAutoRemediationSettingsOutput) ToGetCampaignRemediationSettingsAutoRemediationSettingsPtrOutput() GetCampaignRemediationSettingsAutoRemediationSettingsPtrOutput {
+	return o.ToGetCampaignRemediationSettingsAutoRemediationSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o GetCampaignRemediationSettingsAutoRemediationSettingsOutput) ToGetCampaignRemediationSettingsAutoRemediationSettingsPtrOutputWithContext(ctx context.Context) GetCampaignRemediationSettingsAutoRemediationSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetCampaignRemediationSettingsAutoRemediationSettings) *GetCampaignRemediationSettingsAutoRemediationSettings {
+		return &v
+	}).(GetCampaignRemediationSettingsAutoRemediationSettingsPtrOutput)
+}
+
+// When a group is selected to be automatically remediated.
+func (o GetCampaignRemediationSettingsAutoRemediationSettingsOutput) IncludeAllIndirectAssignments() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetCampaignRemediationSettingsAutoRemediationSettings) bool {
+		return v.IncludeAllIndirectAssignments
+	}).(pulumi.BoolOutput)
+}
+
+// An array of resources to be automatically remediated.
+func (o GetCampaignRemediationSettingsAutoRemediationSettingsOutput) IncludeOnlies() GetCampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyArrayOutput {
+	return o.ApplyT(func(v GetCampaignRemediationSettingsAutoRemediationSettings) []GetCampaignRemediationSettingsAutoRemediationSettingsIncludeOnly {
+		return v.IncludeOnlies
+	}).(GetCampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyArrayOutput)
+}
+
+type GetCampaignRemediationSettingsAutoRemediationSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (GetCampaignRemediationSettingsAutoRemediationSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetCampaignRemediationSettingsAutoRemediationSettings)(nil)).Elem()
+}
+
+func (o GetCampaignRemediationSettingsAutoRemediationSettingsPtrOutput) ToGetCampaignRemediationSettingsAutoRemediationSettingsPtrOutput() GetCampaignRemediationSettingsAutoRemediationSettingsPtrOutput {
+	return o
+}
+
+func (o GetCampaignRemediationSettingsAutoRemediationSettingsPtrOutput) ToGetCampaignRemediationSettingsAutoRemediationSettingsPtrOutputWithContext(ctx context.Context) GetCampaignRemediationSettingsAutoRemediationSettingsPtrOutput {
+	return o
+}
+
+func (o GetCampaignRemediationSettingsAutoRemediationSettingsPtrOutput) Elem() GetCampaignRemediationSettingsAutoRemediationSettingsOutput {
+	return o.ApplyT(func(v *GetCampaignRemediationSettingsAutoRemediationSettings) GetCampaignRemediationSettingsAutoRemediationSettings {
+		if v != nil {
+			return *v
+		}
+		var ret GetCampaignRemediationSettingsAutoRemediationSettings
+		return ret
+	}).(GetCampaignRemediationSettingsAutoRemediationSettingsOutput)
+}
+
+// When a group is selected to be automatically remediated.
+func (o GetCampaignRemediationSettingsAutoRemediationSettingsPtrOutput) IncludeAllIndirectAssignments() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetCampaignRemediationSettingsAutoRemediationSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.IncludeAllIndirectAssignments
+	}).(pulumi.BoolPtrOutput)
+}
+
+// An array of resources to be automatically remediated.
+func (o GetCampaignRemediationSettingsAutoRemediationSettingsPtrOutput) IncludeOnlies() GetCampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyArrayOutput {
+	return o.ApplyT(func(v *GetCampaignRemediationSettingsAutoRemediationSettings) []GetCampaignRemediationSettingsAutoRemediationSettingsIncludeOnly {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeOnlies
+	}).(GetCampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyArrayOutput)
+}
+
+type GetCampaignRemediationSettingsAutoRemediationSettingsIncludeOnly struct {
+	// The resource ID of the target resource When type = GROUP, it will point to the group ID.
+	ResourceId string `pulumi:"resourceId"`
+	// The type of the resource to be automatically remediated. Only GROUP is supported.
+	ResourceType string `pulumi:"resourceType"`
+}
+
+// GetCampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyInput is an input type that accepts GetCampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyArgs and GetCampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyOutput values.
+// You can construct a concrete instance of `GetCampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyInput` via:
+//
+//	GetCampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyArgs{...}
+type GetCampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyInput interface {
+	pulumi.Input
+
+	ToGetCampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyOutput() GetCampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyOutput
+	ToGetCampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyOutputWithContext(context.Context) GetCampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyOutput
+}
+
+type GetCampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyArgs struct {
+	// The resource ID of the target resource When type = GROUP, it will point to the group ID.
+	ResourceId pulumi.StringInput `pulumi:"resourceId"`
+	// The type of the resource to be automatically remediated. Only GROUP is supported.
+	ResourceType pulumi.StringInput `pulumi:"resourceType"`
+}
+
+func (GetCampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCampaignRemediationSettingsAutoRemediationSettingsIncludeOnly)(nil)).Elem()
+}
+
+func (i GetCampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyArgs) ToGetCampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyOutput() GetCampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyOutput {
+	return i.ToGetCampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyOutputWithContext(context.Background())
+}
+
+func (i GetCampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyArgs) ToGetCampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyOutputWithContext(ctx context.Context) GetCampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyOutput)
+}
+
+// GetCampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyArrayInput is an input type that accepts GetCampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyArray and GetCampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyArrayOutput values.
+// You can construct a concrete instance of `GetCampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyArrayInput` via:
+//
+//	GetCampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyArray{ GetCampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyArgs{...} }
+type GetCampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyArrayInput interface {
+	pulumi.Input
+
+	ToGetCampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyArrayOutput() GetCampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyArrayOutput
+	ToGetCampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyArrayOutputWithContext(context.Context) GetCampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyArrayOutput
+}
+
+type GetCampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyArray []GetCampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyInput
+
+func (GetCampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCampaignRemediationSettingsAutoRemediationSettingsIncludeOnly)(nil)).Elem()
+}
+
+func (i GetCampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyArray) ToGetCampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyArrayOutput() GetCampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyArrayOutput {
+	return i.ToGetCampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyArrayOutputWithContext(context.Background())
+}
+
+func (i GetCampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyArray) ToGetCampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyArrayOutputWithContext(ctx context.Context) GetCampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyArrayOutput)
+}
+
+type GetCampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyOutput struct{ *pulumi.OutputState }
+
+func (GetCampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCampaignRemediationSettingsAutoRemediationSettingsIncludeOnly)(nil)).Elem()
+}
+
+func (o GetCampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyOutput) ToGetCampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyOutput() GetCampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyOutput {
+	return o
+}
+
+func (o GetCampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyOutput) ToGetCampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyOutputWithContext(ctx context.Context) GetCampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyOutput {
+	return o
+}
+
+// The resource ID of the target resource When type = GROUP, it will point to the group ID.
+func (o GetCampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyOutput) ResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCampaignRemediationSettingsAutoRemediationSettingsIncludeOnly) string { return v.ResourceId }).(pulumi.StringOutput)
+}
+
+// The type of the resource to be automatically remediated. Only GROUP is supported.
+func (o GetCampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyOutput) ResourceType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCampaignRemediationSettingsAutoRemediationSettingsIncludeOnly) string { return v.ResourceType }).(pulumi.StringOutput)
+}
+
+type GetCampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCampaignRemediationSettingsAutoRemediationSettingsIncludeOnly)(nil)).Elem()
+}
+
+func (o GetCampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyArrayOutput) ToGetCampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyArrayOutput() GetCampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyArrayOutput {
+	return o
+}
+
+func (o GetCampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyArrayOutput) ToGetCampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyArrayOutputWithContext(ctx context.Context) GetCampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyArrayOutput {
+	return o
+}
+
+func (o GetCampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyArrayOutput) Index(i pulumi.IntInput) GetCampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCampaignRemediationSettingsAutoRemediationSettingsIncludeOnly {
+		return vs[0].([]GetCampaignRemediationSettingsAutoRemediationSettingsIncludeOnly)[vs[1].(int)]
+	}).(GetCampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyOutput)
+}
+
+type GetCampaignResourceSettings struct {
+	// An array of resources that are excluded from the review.
+	ExcludedResources []GetCampaignResourceSettingsExcludedResource `pulumi:"excludedResources"`
+	// Include admin roles.
+	IncludeAdminRoles bool `pulumi:"includeAdminRoles"`
+	// Include entitlements for this application.
+	IncludeEntitlements bool `pulumi:"includeEntitlements"`
+	// Only include individually assigned groups.
+	IndividuallyAssignedAppsOnly bool `pulumi:"individuallyAssignedAppsOnly"`
+	// Only include individually assigned groups.
+	IndividuallyAssignedGroupsOnly bool `pulumi:"individuallyAssignedGroupsOnly"`
+	// Only include out-of-policy entitlements.
+	OnlyIncludeOutOfPolicyEntitlements bool `pulumi:"onlyIncludeOutOfPolicyEntitlements"`
+	// Represents a resource that will be part of Access certifications.
+	TargetResources []GetCampaignResourceSettingsTargetResource `pulumi:"targetResources"`
+	// The type of Okta resource.
+	Type string `pulumi:"type"`
+}
+
+// GetCampaignResourceSettingsInput is an input type that accepts GetCampaignResourceSettingsArgs and GetCampaignResourceSettingsOutput values.
+// You can construct a concrete instance of `GetCampaignResourceSettingsInput` via:
+//
+//	GetCampaignResourceSettingsArgs{...}
+type GetCampaignResourceSettingsInput interface {
+	pulumi.Input
+
+	ToGetCampaignResourceSettingsOutput() GetCampaignResourceSettingsOutput
+	ToGetCampaignResourceSettingsOutputWithContext(context.Context) GetCampaignResourceSettingsOutput
+}
+
+type GetCampaignResourceSettingsArgs struct {
+	// An array of resources that are excluded from the review.
+	ExcludedResources GetCampaignResourceSettingsExcludedResourceArrayInput `pulumi:"excludedResources"`
+	// Include admin roles.
+	IncludeAdminRoles pulumi.BoolInput `pulumi:"includeAdminRoles"`
+	// Include entitlements for this application.
+	IncludeEntitlements pulumi.BoolInput `pulumi:"includeEntitlements"`
+	// Only include individually assigned groups.
+	IndividuallyAssignedAppsOnly pulumi.BoolInput `pulumi:"individuallyAssignedAppsOnly"`
+	// Only include individually assigned groups.
+	IndividuallyAssignedGroupsOnly pulumi.BoolInput `pulumi:"individuallyAssignedGroupsOnly"`
+	// Only include out-of-policy entitlements.
+	OnlyIncludeOutOfPolicyEntitlements pulumi.BoolInput `pulumi:"onlyIncludeOutOfPolicyEntitlements"`
+	// Represents a resource that will be part of Access certifications.
+	TargetResources GetCampaignResourceSettingsTargetResourceArrayInput `pulumi:"targetResources"`
+	// The type of Okta resource.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetCampaignResourceSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCampaignResourceSettings)(nil)).Elem()
+}
+
+func (i GetCampaignResourceSettingsArgs) ToGetCampaignResourceSettingsOutput() GetCampaignResourceSettingsOutput {
+	return i.ToGetCampaignResourceSettingsOutputWithContext(context.Background())
+}
+
+func (i GetCampaignResourceSettingsArgs) ToGetCampaignResourceSettingsOutputWithContext(ctx context.Context) GetCampaignResourceSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCampaignResourceSettingsOutput)
+}
+
+func (i GetCampaignResourceSettingsArgs) ToGetCampaignResourceSettingsPtrOutput() GetCampaignResourceSettingsPtrOutput {
+	return i.ToGetCampaignResourceSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i GetCampaignResourceSettingsArgs) ToGetCampaignResourceSettingsPtrOutputWithContext(ctx context.Context) GetCampaignResourceSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCampaignResourceSettingsOutput).ToGetCampaignResourceSettingsPtrOutputWithContext(ctx)
+}
+
+// GetCampaignResourceSettingsPtrInput is an input type that accepts GetCampaignResourceSettingsArgs, GetCampaignResourceSettingsPtr and GetCampaignResourceSettingsPtrOutput values.
+// You can construct a concrete instance of `GetCampaignResourceSettingsPtrInput` via:
+//
+//	        GetCampaignResourceSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetCampaignResourceSettingsPtrInput interface {
+	pulumi.Input
+
+	ToGetCampaignResourceSettingsPtrOutput() GetCampaignResourceSettingsPtrOutput
+	ToGetCampaignResourceSettingsPtrOutputWithContext(context.Context) GetCampaignResourceSettingsPtrOutput
+}
+
+type getCampaignResourceSettingsPtrType GetCampaignResourceSettingsArgs
+
+func GetCampaignResourceSettingsPtr(v *GetCampaignResourceSettingsArgs) GetCampaignResourceSettingsPtrInput {
+	return (*getCampaignResourceSettingsPtrType)(v)
+}
+
+func (*getCampaignResourceSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetCampaignResourceSettings)(nil)).Elem()
+}
+
+func (i *getCampaignResourceSettingsPtrType) ToGetCampaignResourceSettingsPtrOutput() GetCampaignResourceSettingsPtrOutput {
+	return i.ToGetCampaignResourceSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *getCampaignResourceSettingsPtrType) ToGetCampaignResourceSettingsPtrOutputWithContext(ctx context.Context) GetCampaignResourceSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCampaignResourceSettingsPtrOutput)
+}
+
+type GetCampaignResourceSettingsOutput struct{ *pulumi.OutputState }
+
+func (GetCampaignResourceSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCampaignResourceSettings)(nil)).Elem()
+}
+
+func (o GetCampaignResourceSettingsOutput) ToGetCampaignResourceSettingsOutput() GetCampaignResourceSettingsOutput {
+	return o
+}
+
+func (o GetCampaignResourceSettingsOutput) ToGetCampaignResourceSettingsOutputWithContext(ctx context.Context) GetCampaignResourceSettingsOutput {
+	return o
+}
+
+func (o GetCampaignResourceSettingsOutput) ToGetCampaignResourceSettingsPtrOutput() GetCampaignResourceSettingsPtrOutput {
+	return o.ToGetCampaignResourceSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o GetCampaignResourceSettingsOutput) ToGetCampaignResourceSettingsPtrOutputWithContext(ctx context.Context) GetCampaignResourceSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetCampaignResourceSettings) *GetCampaignResourceSettings {
+		return &v
+	}).(GetCampaignResourceSettingsPtrOutput)
+}
+
+// An array of resources that are excluded from the review.
+func (o GetCampaignResourceSettingsOutput) ExcludedResources() GetCampaignResourceSettingsExcludedResourceArrayOutput {
+	return o.ApplyT(func(v GetCampaignResourceSettings) []GetCampaignResourceSettingsExcludedResource {
+		return v.ExcludedResources
+	}).(GetCampaignResourceSettingsExcludedResourceArrayOutput)
+}
+
+// Include admin roles.
+func (o GetCampaignResourceSettingsOutput) IncludeAdminRoles() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetCampaignResourceSettings) bool { return v.IncludeAdminRoles }).(pulumi.BoolOutput)
+}
+
+// Include entitlements for this application.
+func (o GetCampaignResourceSettingsOutput) IncludeEntitlements() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetCampaignResourceSettings) bool { return v.IncludeEntitlements }).(pulumi.BoolOutput)
+}
+
+// Only include individually assigned groups.
+func (o GetCampaignResourceSettingsOutput) IndividuallyAssignedAppsOnly() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetCampaignResourceSettings) bool { return v.IndividuallyAssignedAppsOnly }).(pulumi.BoolOutput)
+}
+
+// Only include individually assigned groups.
+func (o GetCampaignResourceSettingsOutput) IndividuallyAssignedGroupsOnly() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetCampaignResourceSettings) bool { return v.IndividuallyAssignedGroupsOnly }).(pulumi.BoolOutput)
+}
+
+// Only include out-of-policy entitlements.
+func (o GetCampaignResourceSettingsOutput) OnlyIncludeOutOfPolicyEntitlements() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetCampaignResourceSettings) bool { return v.OnlyIncludeOutOfPolicyEntitlements }).(pulumi.BoolOutput)
+}
+
+// Represents a resource that will be part of Access certifications.
+func (o GetCampaignResourceSettingsOutput) TargetResources() GetCampaignResourceSettingsTargetResourceArrayOutput {
+	return o.ApplyT(func(v GetCampaignResourceSettings) []GetCampaignResourceSettingsTargetResource {
+		return v.TargetResources
+	}).(GetCampaignResourceSettingsTargetResourceArrayOutput)
+}
+
+// The type of Okta resource.
+func (o GetCampaignResourceSettingsOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCampaignResourceSettings) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetCampaignResourceSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (GetCampaignResourceSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetCampaignResourceSettings)(nil)).Elem()
+}
+
+func (o GetCampaignResourceSettingsPtrOutput) ToGetCampaignResourceSettingsPtrOutput() GetCampaignResourceSettingsPtrOutput {
+	return o
+}
+
+func (o GetCampaignResourceSettingsPtrOutput) ToGetCampaignResourceSettingsPtrOutputWithContext(ctx context.Context) GetCampaignResourceSettingsPtrOutput {
+	return o
+}
+
+func (o GetCampaignResourceSettingsPtrOutput) Elem() GetCampaignResourceSettingsOutput {
+	return o.ApplyT(func(v *GetCampaignResourceSettings) GetCampaignResourceSettings {
+		if v != nil {
+			return *v
+		}
+		var ret GetCampaignResourceSettings
+		return ret
+	}).(GetCampaignResourceSettingsOutput)
+}
+
+// An array of resources that are excluded from the review.
+func (o GetCampaignResourceSettingsPtrOutput) ExcludedResources() GetCampaignResourceSettingsExcludedResourceArrayOutput {
+	return o.ApplyT(func(v *GetCampaignResourceSettings) []GetCampaignResourceSettingsExcludedResource {
+		if v == nil {
+			return nil
+		}
+		return v.ExcludedResources
+	}).(GetCampaignResourceSettingsExcludedResourceArrayOutput)
+}
+
+// Include admin roles.
+func (o GetCampaignResourceSettingsPtrOutput) IncludeAdminRoles() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetCampaignResourceSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.IncludeAdminRoles
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Include entitlements for this application.
+func (o GetCampaignResourceSettingsPtrOutput) IncludeEntitlements() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetCampaignResourceSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.IncludeEntitlements
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Only include individually assigned groups.
+func (o GetCampaignResourceSettingsPtrOutput) IndividuallyAssignedAppsOnly() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetCampaignResourceSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.IndividuallyAssignedAppsOnly
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Only include individually assigned groups.
+func (o GetCampaignResourceSettingsPtrOutput) IndividuallyAssignedGroupsOnly() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetCampaignResourceSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.IndividuallyAssignedGroupsOnly
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Only include out-of-policy entitlements.
+func (o GetCampaignResourceSettingsPtrOutput) OnlyIncludeOutOfPolicyEntitlements() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetCampaignResourceSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.OnlyIncludeOutOfPolicyEntitlements
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Represents a resource that will be part of Access certifications.
+func (o GetCampaignResourceSettingsPtrOutput) TargetResources() GetCampaignResourceSettingsTargetResourceArrayOutput {
+	return o.ApplyT(func(v *GetCampaignResourceSettings) []GetCampaignResourceSettingsTargetResource {
+		if v == nil {
+			return nil
+		}
+		return v.TargetResources
+	}).(GetCampaignResourceSettingsTargetResourceArrayOutput)
+}
+
+// The type of Okta resource.
+func (o GetCampaignResourceSettingsPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetCampaignResourceSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetCampaignResourceSettingsExcludedResource struct {
+	// Okta specific resource ID.
+	ResourceId string `pulumi:"resourceId"`
+	// The type of Okta resource.
+	ResourceType string `pulumi:"resourceType"`
+}
+
+// GetCampaignResourceSettingsExcludedResourceInput is an input type that accepts GetCampaignResourceSettingsExcludedResourceArgs and GetCampaignResourceSettingsExcludedResourceOutput values.
+// You can construct a concrete instance of `GetCampaignResourceSettingsExcludedResourceInput` via:
+//
+//	GetCampaignResourceSettingsExcludedResourceArgs{...}
+type GetCampaignResourceSettingsExcludedResourceInput interface {
+	pulumi.Input
+
+	ToGetCampaignResourceSettingsExcludedResourceOutput() GetCampaignResourceSettingsExcludedResourceOutput
+	ToGetCampaignResourceSettingsExcludedResourceOutputWithContext(context.Context) GetCampaignResourceSettingsExcludedResourceOutput
+}
+
+type GetCampaignResourceSettingsExcludedResourceArgs struct {
+	// Okta specific resource ID.
+	ResourceId pulumi.StringInput `pulumi:"resourceId"`
+	// The type of Okta resource.
+	ResourceType pulumi.StringInput `pulumi:"resourceType"`
+}
+
+func (GetCampaignResourceSettingsExcludedResourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCampaignResourceSettingsExcludedResource)(nil)).Elem()
+}
+
+func (i GetCampaignResourceSettingsExcludedResourceArgs) ToGetCampaignResourceSettingsExcludedResourceOutput() GetCampaignResourceSettingsExcludedResourceOutput {
+	return i.ToGetCampaignResourceSettingsExcludedResourceOutputWithContext(context.Background())
+}
+
+func (i GetCampaignResourceSettingsExcludedResourceArgs) ToGetCampaignResourceSettingsExcludedResourceOutputWithContext(ctx context.Context) GetCampaignResourceSettingsExcludedResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCampaignResourceSettingsExcludedResourceOutput)
+}
+
+// GetCampaignResourceSettingsExcludedResourceArrayInput is an input type that accepts GetCampaignResourceSettingsExcludedResourceArray and GetCampaignResourceSettingsExcludedResourceArrayOutput values.
+// You can construct a concrete instance of `GetCampaignResourceSettingsExcludedResourceArrayInput` via:
+//
+//	GetCampaignResourceSettingsExcludedResourceArray{ GetCampaignResourceSettingsExcludedResourceArgs{...} }
+type GetCampaignResourceSettingsExcludedResourceArrayInput interface {
+	pulumi.Input
+
+	ToGetCampaignResourceSettingsExcludedResourceArrayOutput() GetCampaignResourceSettingsExcludedResourceArrayOutput
+	ToGetCampaignResourceSettingsExcludedResourceArrayOutputWithContext(context.Context) GetCampaignResourceSettingsExcludedResourceArrayOutput
+}
+
+type GetCampaignResourceSettingsExcludedResourceArray []GetCampaignResourceSettingsExcludedResourceInput
+
+func (GetCampaignResourceSettingsExcludedResourceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCampaignResourceSettingsExcludedResource)(nil)).Elem()
+}
+
+func (i GetCampaignResourceSettingsExcludedResourceArray) ToGetCampaignResourceSettingsExcludedResourceArrayOutput() GetCampaignResourceSettingsExcludedResourceArrayOutput {
+	return i.ToGetCampaignResourceSettingsExcludedResourceArrayOutputWithContext(context.Background())
+}
+
+func (i GetCampaignResourceSettingsExcludedResourceArray) ToGetCampaignResourceSettingsExcludedResourceArrayOutputWithContext(ctx context.Context) GetCampaignResourceSettingsExcludedResourceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCampaignResourceSettingsExcludedResourceArrayOutput)
+}
+
+type GetCampaignResourceSettingsExcludedResourceOutput struct{ *pulumi.OutputState }
+
+func (GetCampaignResourceSettingsExcludedResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCampaignResourceSettingsExcludedResource)(nil)).Elem()
+}
+
+func (o GetCampaignResourceSettingsExcludedResourceOutput) ToGetCampaignResourceSettingsExcludedResourceOutput() GetCampaignResourceSettingsExcludedResourceOutput {
+	return o
+}
+
+func (o GetCampaignResourceSettingsExcludedResourceOutput) ToGetCampaignResourceSettingsExcludedResourceOutputWithContext(ctx context.Context) GetCampaignResourceSettingsExcludedResourceOutput {
+	return o
+}
+
+// Okta specific resource ID.
+func (o GetCampaignResourceSettingsExcludedResourceOutput) ResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCampaignResourceSettingsExcludedResource) string { return v.ResourceId }).(pulumi.StringOutput)
+}
+
+// The type of Okta resource.
+func (o GetCampaignResourceSettingsExcludedResourceOutput) ResourceType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCampaignResourceSettingsExcludedResource) string { return v.ResourceType }).(pulumi.StringOutput)
+}
+
+type GetCampaignResourceSettingsExcludedResourceArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCampaignResourceSettingsExcludedResourceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCampaignResourceSettingsExcludedResource)(nil)).Elem()
+}
+
+func (o GetCampaignResourceSettingsExcludedResourceArrayOutput) ToGetCampaignResourceSettingsExcludedResourceArrayOutput() GetCampaignResourceSettingsExcludedResourceArrayOutput {
+	return o
+}
+
+func (o GetCampaignResourceSettingsExcludedResourceArrayOutput) ToGetCampaignResourceSettingsExcludedResourceArrayOutputWithContext(ctx context.Context) GetCampaignResourceSettingsExcludedResourceArrayOutput {
+	return o
+}
+
+func (o GetCampaignResourceSettingsExcludedResourceArrayOutput) Index(i pulumi.IntInput) GetCampaignResourceSettingsExcludedResourceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCampaignResourceSettingsExcludedResource {
+		return vs[0].([]GetCampaignResourceSettingsExcludedResource)[vs[1].(int)]
+	}).(GetCampaignResourceSettingsExcludedResourceOutput)
+}
+
+type GetCampaignResourceSettingsTargetResource struct {
+	// An array of entitlement bundles associated with resourceId that should be chosen as target when creating reviews.
+	EntitlementBundles []GetCampaignResourceSettingsTargetResourceEntitlementBundle `pulumi:"entitlementBundles"`
+	Entitlements       []GetCampaignResourceSettingsTargetResourceEntitlement       `pulumi:"entitlements"`
+	// Include all entitlements and entitlement bundles for this application.
+	IncludeAllEntitlementsAndBundles bool `pulumi:"includeAllEntitlementsAndBundles"`
+	// The resource ID that is being reviewed.
+	ResourceId string `pulumi:"resourceId"`
+	// The type of Okta resource.
+	ResourceType string `pulumi:"resourceType"`
+}
+
+// GetCampaignResourceSettingsTargetResourceInput is an input type that accepts GetCampaignResourceSettingsTargetResourceArgs and GetCampaignResourceSettingsTargetResourceOutput values.
+// You can construct a concrete instance of `GetCampaignResourceSettingsTargetResourceInput` via:
+//
+//	GetCampaignResourceSettingsTargetResourceArgs{...}
+type GetCampaignResourceSettingsTargetResourceInput interface {
+	pulumi.Input
+
+	ToGetCampaignResourceSettingsTargetResourceOutput() GetCampaignResourceSettingsTargetResourceOutput
+	ToGetCampaignResourceSettingsTargetResourceOutputWithContext(context.Context) GetCampaignResourceSettingsTargetResourceOutput
+}
+
+type GetCampaignResourceSettingsTargetResourceArgs struct {
+	// An array of entitlement bundles associated with resourceId that should be chosen as target when creating reviews.
+	EntitlementBundles GetCampaignResourceSettingsTargetResourceEntitlementBundleArrayInput `pulumi:"entitlementBundles"`
+	Entitlements       GetCampaignResourceSettingsTargetResourceEntitlementArrayInput       `pulumi:"entitlements"`
+	// Include all entitlements and entitlement bundles for this application.
+	IncludeAllEntitlementsAndBundles pulumi.BoolInput `pulumi:"includeAllEntitlementsAndBundles"`
+	// The resource ID that is being reviewed.
+	ResourceId pulumi.StringInput `pulumi:"resourceId"`
+	// The type of Okta resource.
+	ResourceType pulumi.StringInput `pulumi:"resourceType"`
+}
+
+func (GetCampaignResourceSettingsTargetResourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCampaignResourceSettingsTargetResource)(nil)).Elem()
+}
+
+func (i GetCampaignResourceSettingsTargetResourceArgs) ToGetCampaignResourceSettingsTargetResourceOutput() GetCampaignResourceSettingsTargetResourceOutput {
+	return i.ToGetCampaignResourceSettingsTargetResourceOutputWithContext(context.Background())
+}
+
+func (i GetCampaignResourceSettingsTargetResourceArgs) ToGetCampaignResourceSettingsTargetResourceOutputWithContext(ctx context.Context) GetCampaignResourceSettingsTargetResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCampaignResourceSettingsTargetResourceOutput)
+}
+
+// GetCampaignResourceSettingsTargetResourceArrayInput is an input type that accepts GetCampaignResourceSettingsTargetResourceArray and GetCampaignResourceSettingsTargetResourceArrayOutput values.
+// You can construct a concrete instance of `GetCampaignResourceSettingsTargetResourceArrayInput` via:
+//
+//	GetCampaignResourceSettingsTargetResourceArray{ GetCampaignResourceSettingsTargetResourceArgs{...} }
+type GetCampaignResourceSettingsTargetResourceArrayInput interface {
+	pulumi.Input
+
+	ToGetCampaignResourceSettingsTargetResourceArrayOutput() GetCampaignResourceSettingsTargetResourceArrayOutput
+	ToGetCampaignResourceSettingsTargetResourceArrayOutputWithContext(context.Context) GetCampaignResourceSettingsTargetResourceArrayOutput
+}
+
+type GetCampaignResourceSettingsTargetResourceArray []GetCampaignResourceSettingsTargetResourceInput
+
+func (GetCampaignResourceSettingsTargetResourceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCampaignResourceSettingsTargetResource)(nil)).Elem()
+}
+
+func (i GetCampaignResourceSettingsTargetResourceArray) ToGetCampaignResourceSettingsTargetResourceArrayOutput() GetCampaignResourceSettingsTargetResourceArrayOutput {
+	return i.ToGetCampaignResourceSettingsTargetResourceArrayOutputWithContext(context.Background())
+}
+
+func (i GetCampaignResourceSettingsTargetResourceArray) ToGetCampaignResourceSettingsTargetResourceArrayOutputWithContext(ctx context.Context) GetCampaignResourceSettingsTargetResourceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCampaignResourceSettingsTargetResourceArrayOutput)
+}
+
+type GetCampaignResourceSettingsTargetResourceOutput struct{ *pulumi.OutputState }
+
+func (GetCampaignResourceSettingsTargetResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCampaignResourceSettingsTargetResource)(nil)).Elem()
+}
+
+func (o GetCampaignResourceSettingsTargetResourceOutput) ToGetCampaignResourceSettingsTargetResourceOutput() GetCampaignResourceSettingsTargetResourceOutput {
+	return o
+}
+
+func (o GetCampaignResourceSettingsTargetResourceOutput) ToGetCampaignResourceSettingsTargetResourceOutputWithContext(ctx context.Context) GetCampaignResourceSettingsTargetResourceOutput {
+	return o
+}
+
+// An array of entitlement bundles associated with resourceId that should be chosen as target when creating reviews.
+func (o GetCampaignResourceSettingsTargetResourceOutput) EntitlementBundles() GetCampaignResourceSettingsTargetResourceEntitlementBundleArrayOutput {
+	return o.ApplyT(func(v GetCampaignResourceSettingsTargetResource) []GetCampaignResourceSettingsTargetResourceEntitlementBundle {
+		return v.EntitlementBundles
+	}).(GetCampaignResourceSettingsTargetResourceEntitlementBundleArrayOutput)
+}
+
+func (o GetCampaignResourceSettingsTargetResourceOutput) Entitlements() GetCampaignResourceSettingsTargetResourceEntitlementArrayOutput {
+	return o.ApplyT(func(v GetCampaignResourceSettingsTargetResource) []GetCampaignResourceSettingsTargetResourceEntitlement {
+		return v.Entitlements
+	}).(GetCampaignResourceSettingsTargetResourceEntitlementArrayOutput)
+}
+
+// Include all entitlements and entitlement bundles for this application.
+func (o GetCampaignResourceSettingsTargetResourceOutput) IncludeAllEntitlementsAndBundles() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetCampaignResourceSettingsTargetResource) bool { return v.IncludeAllEntitlementsAndBundles }).(pulumi.BoolOutput)
+}
+
+// The resource ID that is being reviewed.
+func (o GetCampaignResourceSettingsTargetResourceOutput) ResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCampaignResourceSettingsTargetResource) string { return v.ResourceId }).(pulumi.StringOutput)
+}
+
+// The type of Okta resource.
+func (o GetCampaignResourceSettingsTargetResourceOutput) ResourceType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCampaignResourceSettingsTargetResource) string { return v.ResourceType }).(pulumi.StringOutput)
+}
+
+type GetCampaignResourceSettingsTargetResourceArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCampaignResourceSettingsTargetResourceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCampaignResourceSettingsTargetResource)(nil)).Elem()
+}
+
+func (o GetCampaignResourceSettingsTargetResourceArrayOutput) ToGetCampaignResourceSettingsTargetResourceArrayOutput() GetCampaignResourceSettingsTargetResourceArrayOutput {
+	return o
+}
+
+func (o GetCampaignResourceSettingsTargetResourceArrayOutput) ToGetCampaignResourceSettingsTargetResourceArrayOutputWithContext(ctx context.Context) GetCampaignResourceSettingsTargetResourceArrayOutput {
+	return o
+}
+
+func (o GetCampaignResourceSettingsTargetResourceArrayOutput) Index(i pulumi.IntInput) GetCampaignResourceSettingsTargetResourceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCampaignResourceSettingsTargetResource {
+		return vs[0].([]GetCampaignResourceSettingsTargetResource)[vs[1].(int)]
+	}).(GetCampaignResourceSettingsTargetResourceOutput)
+}
+
+type GetCampaignResourceSettingsTargetResourceEntitlement struct {
+	// The ID of this resource.
+	Id string `pulumi:"id"`
+	// Whether to include all values for this entitlement.
+	IncludeAllValues bool `pulumi:"includeAllValues"`
+	// Entitlement value ids
+	Values []GetCampaignResourceSettingsTargetResourceEntitlementValue `pulumi:"values"`
+}
+
+// GetCampaignResourceSettingsTargetResourceEntitlementInput is an input type that accepts GetCampaignResourceSettingsTargetResourceEntitlementArgs and GetCampaignResourceSettingsTargetResourceEntitlementOutput values.
+// You can construct a concrete instance of `GetCampaignResourceSettingsTargetResourceEntitlementInput` via:
+//
+//	GetCampaignResourceSettingsTargetResourceEntitlementArgs{...}
+type GetCampaignResourceSettingsTargetResourceEntitlementInput interface {
+	pulumi.Input
+
+	ToGetCampaignResourceSettingsTargetResourceEntitlementOutput() GetCampaignResourceSettingsTargetResourceEntitlementOutput
+	ToGetCampaignResourceSettingsTargetResourceEntitlementOutputWithContext(context.Context) GetCampaignResourceSettingsTargetResourceEntitlementOutput
+}
+
+type GetCampaignResourceSettingsTargetResourceEntitlementArgs struct {
+	// The ID of this resource.
+	Id pulumi.StringInput `pulumi:"id"`
+	// Whether to include all values for this entitlement.
+	IncludeAllValues pulumi.BoolInput `pulumi:"includeAllValues"`
+	// Entitlement value ids
+	Values GetCampaignResourceSettingsTargetResourceEntitlementValueArrayInput `pulumi:"values"`
+}
+
+func (GetCampaignResourceSettingsTargetResourceEntitlementArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCampaignResourceSettingsTargetResourceEntitlement)(nil)).Elem()
+}
+
+func (i GetCampaignResourceSettingsTargetResourceEntitlementArgs) ToGetCampaignResourceSettingsTargetResourceEntitlementOutput() GetCampaignResourceSettingsTargetResourceEntitlementOutput {
+	return i.ToGetCampaignResourceSettingsTargetResourceEntitlementOutputWithContext(context.Background())
+}
+
+func (i GetCampaignResourceSettingsTargetResourceEntitlementArgs) ToGetCampaignResourceSettingsTargetResourceEntitlementOutputWithContext(ctx context.Context) GetCampaignResourceSettingsTargetResourceEntitlementOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCampaignResourceSettingsTargetResourceEntitlementOutput)
+}
+
+// GetCampaignResourceSettingsTargetResourceEntitlementArrayInput is an input type that accepts GetCampaignResourceSettingsTargetResourceEntitlementArray and GetCampaignResourceSettingsTargetResourceEntitlementArrayOutput values.
+// You can construct a concrete instance of `GetCampaignResourceSettingsTargetResourceEntitlementArrayInput` via:
+//
+//	GetCampaignResourceSettingsTargetResourceEntitlementArray{ GetCampaignResourceSettingsTargetResourceEntitlementArgs{...} }
+type GetCampaignResourceSettingsTargetResourceEntitlementArrayInput interface {
+	pulumi.Input
+
+	ToGetCampaignResourceSettingsTargetResourceEntitlementArrayOutput() GetCampaignResourceSettingsTargetResourceEntitlementArrayOutput
+	ToGetCampaignResourceSettingsTargetResourceEntitlementArrayOutputWithContext(context.Context) GetCampaignResourceSettingsTargetResourceEntitlementArrayOutput
+}
+
+type GetCampaignResourceSettingsTargetResourceEntitlementArray []GetCampaignResourceSettingsTargetResourceEntitlementInput
+
+func (GetCampaignResourceSettingsTargetResourceEntitlementArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCampaignResourceSettingsTargetResourceEntitlement)(nil)).Elem()
+}
+
+func (i GetCampaignResourceSettingsTargetResourceEntitlementArray) ToGetCampaignResourceSettingsTargetResourceEntitlementArrayOutput() GetCampaignResourceSettingsTargetResourceEntitlementArrayOutput {
+	return i.ToGetCampaignResourceSettingsTargetResourceEntitlementArrayOutputWithContext(context.Background())
+}
+
+func (i GetCampaignResourceSettingsTargetResourceEntitlementArray) ToGetCampaignResourceSettingsTargetResourceEntitlementArrayOutputWithContext(ctx context.Context) GetCampaignResourceSettingsTargetResourceEntitlementArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCampaignResourceSettingsTargetResourceEntitlementArrayOutput)
+}
+
+type GetCampaignResourceSettingsTargetResourceEntitlementOutput struct{ *pulumi.OutputState }
+
+func (GetCampaignResourceSettingsTargetResourceEntitlementOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCampaignResourceSettingsTargetResourceEntitlement)(nil)).Elem()
+}
+
+func (o GetCampaignResourceSettingsTargetResourceEntitlementOutput) ToGetCampaignResourceSettingsTargetResourceEntitlementOutput() GetCampaignResourceSettingsTargetResourceEntitlementOutput {
+	return o
+}
+
+func (o GetCampaignResourceSettingsTargetResourceEntitlementOutput) ToGetCampaignResourceSettingsTargetResourceEntitlementOutputWithContext(ctx context.Context) GetCampaignResourceSettingsTargetResourceEntitlementOutput {
+	return o
+}
+
+// The ID of this resource.
+func (o GetCampaignResourceSettingsTargetResourceEntitlementOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCampaignResourceSettingsTargetResourceEntitlement) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Whether to include all values for this entitlement.
+func (o GetCampaignResourceSettingsTargetResourceEntitlementOutput) IncludeAllValues() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetCampaignResourceSettingsTargetResourceEntitlement) bool { return v.IncludeAllValues }).(pulumi.BoolOutput)
+}
+
+// Entitlement value ids
+func (o GetCampaignResourceSettingsTargetResourceEntitlementOutput) Values() GetCampaignResourceSettingsTargetResourceEntitlementValueArrayOutput {
+	return o.ApplyT(func(v GetCampaignResourceSettingsTargetResourceEntitlement) []GetCampaignResourceSettingsTargetResourceEntitlementValue {
+		return v.Values
+	}).(GetCampaignResourceSettingsTargetResourceEntitlementValueArrayOutput)
+}
+
+type GetCampaignResourceSettingsTargetResourceEntitlementArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCampaignResourceSettingsTargetResourceEntitlementArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCampaignResourceSettingsTargetResourceEntitlement)(nil)).Elem()
+}
+
+func (o GetCampaignResourceSettingsTargetResourceEntitlementArrayOutput) ToGetCampaignResourceSettingsTargetResourceEntitlementArrayOutput() GetCampaignResourceSettingsTargetResourceEntitlementArrayOutput {
+	return o
+}
+
+func (o GetCampaignResourceSettingsTargetResourceEntitlementArrayOutput) ToGetCampaignResourceSettingsTargetResourceEntitlementArrayOutputWithContext(ctx context.Context) GetCampaignResourceSettingsTargetResourceEntitlementArrayOutput {
+	return o
+}
+
+func (o GetCampaignResourceSettingsTargetResourceEntitlementArrayOutput) Index(i pulumi.IntInput) GetCampaignResourceSettingsTargetResourceEntitlementOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCampaignResourceSettingsTargetResourceEntitlement {
+		return vs[0].([]GetCampaignResourceSettingsTargetResourceEntitlement)[vs[1].(int)]
+	}).(GetCampaignResourceSettingsTargetResourceEntitlementOutput)
+}
+
+type GetCampaignResourceSettingsTargetResourceEntitlementBundle struct {
+	// The ID of this resource.
+	Id string `pulumi:"id"`
+}
+
+// GetCampaignResourceSettingsTargetResourceEntitlementBundleInput is an input type that accepts GetCampaignResourceSettingsTargetResourceEntitlementBundleArgs and GetCampaignResourceSettingsTargetResourceEntitlementBundleOutput values.
+// You can construct a concrete instance of `GetCampaignResourceSettingsTargetResourceEntitlementBundleInput` via:
+//
+//	GetCampaignResourceSettingsTargetResourceEntitlementBundleArgs{...}
+type GetCampaignResourceSettingsTargetResourceEntitlementBundleInput interface {
+	pulumi.Input
+
+	ToGetCampaignResourceSettingsTargetResourceEntitlementBundleOutput() GetCampaignResourceSettingsTargetResourceEntitlementBundleOutput
+	ToGetCampaignResourceSettingsTargetResourceEntitlementBundleOutputWithContext(context.Context) GetCampaignResourceSettingsTargetResourceEntitlementBundleOutput
+}
+
+type GetCampaignResourceSettingsTargetResourceEntitlementBundleArgs struct {
+	// The ID of this resource.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (GetCampaignResourceSettingsTargetResourceEntitlementBundleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCampaignResourceSettingsTargetResourceEntitlementBundle)(nil)).Elem()
+}
+
+func (i GetCampaignResourceSettingsTargetResourceEntitlementBundleArgs) ToGetCampaignResourceSettingsTargetResourceEntitlementBundleOutput() GetCampaignResourceSettingsTargetResourceEntitlementBundleOutput {
+	return i.ToGetCampaignResourceSettingsTargetResourceEntitlementBundleOutputWithContext(context.Background())
+}
+
+func (i GetCampaignResourceSettingsTargetResourceEntitlementBundleArgs) ToGetCampaignResourceSettingsTargetResourceEntitlementBundleOutputWithContext(ctx context.Context) GetCampaignResourceSettingsTargetResourceEntitlementBundleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCampaignResourceSettingsTargetResourceEntitlementBundleOutput)
+}
+
+// GetCampaignResourceSettingsTargetResourceEntitlementBundleArrayInput is an input type that accepts GetCampaignResourceSettingsTargetResourceEntitlementBundleArray and GetCampaignResourceSettingsTargetResourceEntitlementBundleArrayOutput values.
+// You can construct a concrete instance of `GetCampaignResourceSettingsTargetResourceEntitlementBundleArrayInput` via:
+//
+//	GetCampaignResourceSettingsTargetResourceEntitlementBundleArray{ GetCampaignResourceSettingsTargetResourceEntitlementBundleArgs{...} }
+type GetCampaignResourceSettingsTargetResourceEntitlementBundleArrayInput interface {
+	pulumi.Input
+
+	ToGetCampaignResourceSettingsTargetResourceEntitlementBundleArrayOutput() GetCampaignResourceSettingsTargetResourceEntitlementBundleArrayOutput
+	ToGetCampaignResourceSettingsTargetResourceEntitlementBundleArrayOutputWithContext(context.Context) GetCampaignResourceSettingsTargetResourceEntitlementBundleArrayOutput
+}
+
+type GetCampaignResourceSettingsTargetResourceEntitlementBundleArray []GetCampaignResourceSettingsTargetResourceEntitlementBundleInput
+
+func (GetCampaignResourceSettingsTargetResourceEntitlementBundleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCampaignResourceSettingsTargetResourceEntitlementBundle)(nil)).Elem()
+}
+
+func (i GetCampaignResourceSettingsTargetResourceEntitlementBundleArray) ToGetCampaignResourceSettingsTargetResourceEntitlementBundleArrayOutput() GetCampaignResourceSettingsTargetResourceEntitlementBundleArrayOutput {
+	return i.ToGetCampaignResourceSettingsTargetResourceEntitlementBundleArrayOutputWithContext(context.Background())
+}
+
+func (i GetCampaignResourceSettingsTargetResourceEntitlementBundleArray) ToGetCampaignResourceSettingsTargetResourceEntitlementBundleArrayOutputWithContext(ctx context.Context) GetCampaignResourceSettingsTargetResourceEntitlementBundleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCampaignResourceSettingsTargetResourceEntitlementBundleArrayOutput)
+}
+
+type GetCampaignResourceSettingsTargetResourceEntitlementBundleOutput struct{ *pulumi.OutputState }
+
+func (GetCampaignResourceSettingsTargetResourceEntitlementBundleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCampaignResourceSettingsTargetResourceEntitlementBundle)(nil)).Elem()
+}
+
+func (o GetCampaignResourceSettingsTargetResourceEntitlementBundleOutput) ToGetCampaignResourceSettingsTargetResourceEntitlementBundleOutput() GetCampaignResourceSettingsTargetResourceEntitlementBundleOutput {
+	return o
+}
+
+func (o GetCampaignResourceSettingsTargetResourceEntitlementBundleOutput) ToGetCampaignResourceSettingsTargetResourceEntitlementBundleOutputWithContext(ctx context.Context) GetCampaignResourceSettingsTargetResourceEntitlementBundleOutput {
+	return o
+}
+
+// The ID of this resource.
+func (o GetCampaignResourceSettingsTargetResourceEntitlementBundleOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCampaignResourceSettingsTargetResourceEntitlementBundle) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type GetCampaignResourceSettingsTargetResourceEntitlementBundleArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCampaignResourceSettingsTargetResourceEntitlementBundleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCampaignResourceSettingsTargetResourceEntitlementBundle)(nil)).Elem()
+}
+
+func (o GetCampaignResourceSettingsTargetResourceEntitlementBundleArrayOutput) ToGetCampaignResourceSettingsTargetResourceEntitlementBundleArrayOutput() GetCampaignResourceSettingsTargetResourceEntitlementBundleArrayOutput {
+	return o
+}
+
+func (o GetCampaignResourceSettingsTargetResourceEntitlementBundleArrayOutput) ToGetCampaignResourceSettingsTargetResourceEntitlementBundleArrayOutputWithContext(ctx context.Context) GetCampaignResourceSettingsTargetResourceEntitlementBundleArrayOutput {
+	return o
+}
+
+func (o GetCampaignResourceSettingsTargetResourceEntitlementBundleArrayOutput) Index(i pulumi.IntInput) GetCampaignResourceSettingsTargetResourceEntitlementBundleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCampaignResourceSettingsTargetResourceEntitlementBundle {
+		return vs[0].([]GetCampaignResourceSettingsTargetResourceEntitlementBundle)[vs[1].(int)]
+	}).(GetCampaignResourceSettingsTargetResourceEntitlementBundleOutput)
+}
+
+type GetCampaignResourceSettingsTargetResourceEntitlementValue struct {
+	// The ID of this resource.
+	Id string `pulumi:"id"`
+}
+
+// GetCampaignResourceSettingsTargetResourceEntitlementValueInput is an input type that accepts GetCampaignResourceSettingsTargetResourceEntitlementValueArgs and GetCampaignResourceSettingsTargetResourceEntitlementValueOutput values.
+// You can construct a concrete instance of `GetCampaignResourceSettingsTargetResourceEntitlementValueInput` via:
+//
+//	GetCampaignResourceSettingsTargetResourceEntitlementValueArgs{...}
+type GetCampaignResourceSettingsTargetResourceEntitlementValueInput interface {
+	pulumi.Input
+
+	ToGetCampaignResourceSettingsTargetResourceEntitlementValueOutput() GetCampaignResourceSettingsTargetResourceEntitlementValueOutput
+	ToGetCampaignResourceSettingsTargetResourceEntitlementValueOutputWithContext(context.Context) GetCampaignResourceSettingsTargetResourceEntitlementValueOutput
+}
+
+type GetCampaignResourceSettingsTargetResourceEntitlementValueArgs struct {
+	// The ID of this resource.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (GetCampaignResourceSettingsTargetResourceEntitlementValueArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCampaignResourceSettingsTargetResourceEntitlementValue)(nil)).Elem()
+}
+
+func (i GetCampaignResourceSettingsTargetResourceEntitlementValueArgs) ToGetCampaignResourceSettingsTargetResourceEntitlementValueOutput() GetCampaignResourceSettingsTargetResourceEntitlementValueOutput {
+	return i.ToGetCampaignResourceSettingsTargetResourceEntitlementValueOutputWithContext(context.Background())
+}
+
+func (i GetCampaignResourceSettingsTargetResourceEntitlementValueArgs) ToGetCampaignResourceSettingsTargetResourceEntitlementValueOutputWithContext(ctx context.Context) GetCampaignResourceSettingsTargetResourceEntitlementValueOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCampaignResourceSettingsTargetResourceEntitlementValueOutput)
+}
+
+// GetCampaignResourceSettingsTargetResourceEntitlementValueArrayInput is an input type that accepts GetCampaignResourceSettingsTargetResourceEntitlementValueArray and GetCampaignResourceSettingsTargetResourceEntitlementValueArrayOutput values.
+// You can construct a concrete instance of `GetCampaignResourceSettingsTargetResourceEntitlementValueArrayInput` via:
+//
+//	GetCampaignResourceSettingsTargetResourceEntitlementValueArray{ GetCampaignResourceSettingsTargetResourceEntitlementValueArgs{...} }
+type GetCampaignResourceSettingsTargetResourceEntitlementValueArrayInput interface {
+	pulumi.Input
+
+	ToGetCampaignResourceSettingsTargetResourceEntitlementValueArrayOutput() GetCampaignResourceSettingsTargetResourceEntitlementValueArrayOutput
+	ToGetCampaignResourceSettingsTargetResourceEntitlementValueArrayOutputWithContext(context.Context) GetCampaignResourceSettingsTargetResourceEntitlementValueArrayOutput
+}
+
+type GetCampaignResourceSettingsTargetResourceEntitlementValueArray []GetCampaignResourceSettingsTargetResourceEntitlementValueInput
+
+func (GetCampaignResourceSettingsTargetResourceEntitlementValueArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCampaignResourceSettingsTargetResourceEntitlementValue)(nil)).Elem()
+}
+
+func (i GetCampaignResourceSettingsTargetResourceEntitlementValueArray) ToGetCampaignResourceSettingsTargetResourceEntitlementValueArrayOutput() GetCampaignResourceSettingsTargetResourceEntitlementValueArrayOutput {
+	return i.ToGetCampaignResourceSettingsTargetResourceEntitlementValueArrayOutputWithContext(context.Background())
+}
+
+func (i GetCampaignResourceSettingsTargetResourceEntitlementValueArray) ToGetCampaignResourceSettingsTargetResourceEntitlementValueArrayOutputWithContext(ctx context.Context) GetCampaignResourceSettingsTargetResourceEntitlementValueArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCampaignResourceSettingsTargetResourceEntitlementValueArrayOutput)
+}
+
+type GetCampaignResourceSettingsTargetResourceEntitlementValueOutput struct{ *pulumi.OutputState }
+
+func (GetCampaignResourceSettingsTargetResourceEntitlementValueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCampaignResourceSettingsTargetResourceEntitlementValue)(nil)).Elem()
+}
+
+func (o GetCampaignResourceSettingsTargetResourceEntitlementValueOutput) ToGetCampaignResourceSettingsTargetResourceEntitlementValueOutput() GetCampaignResourceSettingsTargetResourceEntitlementValueOutput {
+	return o
+}
+
+func (o GetCampaignResourceSettingsTargetResourceEntitlementValueOutput) ToGetCampaignResourceSettingsTargetResourceEntitlementValueOutputWithContext(ctx context.Context) GetCampaignResourceSettingsTargetResourceEntitlementValueOutput {
+	return o
+}
+
+// The ID of this resource.
+func (o GetCampaignResourceSettingsTargetResourceEntitlementValueOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCampaignResourceSettingsTargetResourceEntitlementValue) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type GetCampaignResourceSettingsTargetResourceEntitlementValueArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCampaignResourceSettingsTargetResourceEntitlementValueArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCampaignResourceSettingsTargetResourceEntitlementValue)(nil)).Elem()
+}
+
+func (o GetCampaignResourceSettingsTargetResourceEntitlementValueArrayOutput) ToGetCampaignResourceSettingsTargetResourceEntitlementValueArrayOutput() GetCampaignResourceSettingsTargetResourceEntitlementValueArrayOutput {
+	return o
+}
+
+func (o GetCampaignResourceSettingsTargetResourceEntitlementValueArrayOutput) ToGetCampaignResourceSettingsTargetResourceEntitlementValueArrayOutputWithContext(ctx context.Context) GetCampaignResourceSettingsTargetResourceEntitlementValueArrayOutput {
+	return o
+}
+
+func (o GetCampaignResourceSettingsTargetResourceEntitlementValueArrayOutput) Index(i pulumi.IntInput) GetCampaignResourceSettingsTargetResourceEntitlementValueOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCampaignResourceSettingsTargetResourceEntitlementValue {
+		return vs[0].([]GetCampaignResourceSettingsTargetResourceEntitlementValue)[vs[1].(int)]
+	}).(GetCampaignResourceSettingsTargetResourceEntitlementValueOutput)
+}
+
+type GetCampaignReviewerSettings struct {
+	BulkDecisionDisabled    bool                                       `pulumi:"bulkDecisionDisabled"`
+	FallbackReviewerId      string                                     `pulumi:"fallbackReviewerId"`
+	JustificationRequired   bool                                       `pulumi:"justificationRequired"`
+	ReassignmentDisabled    bool                                       `pulumi:"reassignmentDisabled"`
+	ReviewerGroupId         string                                     `pulumi:"reviewerGroupId"`
+	ReviewerId              string                                     `pulumi:"reviewerId"`
+	ReviewerLevels          []GetCampaignReviewerSettingsReviewerLevel `pulumi:"reviewerLevels"`
+	ReviewerScopeExpression string                                     `pulumi:"reviewerScopeExpression"`
+	SelfReviewDisabled      bool                                       `pulumi:"selfReviewDisabled"`
+	Type                    string                                     `pulumi:"type"`
+}
+
+// GetCampaignReviewerSettingsInput is an input type that accepts GetCampaignReviewerSettingsArgs and GetCampaignReviewerSettingsOutput values.
+// You can construct a concrete instance of `GetCampaignReviewerSettingsInput` via:
+//
+//	GetCampaignReviewerSettingsArgs{...}
+type GetCampaignReviewerSettingsInput interface {
+	pulumi.Input
+
+	ToGetCampaignReviewerSettingsOutput() GetCampaignReviewerSettingsOutput
+	ToGetCampaignReviewerSettingsOutputWithContext(context.Context) GetCampaignReviewerSettingsOutput
+}
+
+type GetCampaignReviewerSettingsArgs struct {
+	BulkDecisionDisabled    pulumi.BoolInput                                   `pulumi:"bulkDecisionDisabled"`
+	FallbackReviewerId      pulumi.StringInput                                 `pulumi:"fallbackReviewerId"`
+	JustificationRequired   pulumi.BoolInput                                   `pulumi:"justificationRequired"`
+	ReassignmentDisabled    pulumi.BoolInput                                   `pulumi:"reassignmentDisabled"`
+	ReviewerGroupId         pulumi.StringInput                                 `pulumi:"reviewerGroupId"`
+	ReviewerId              pulumi.StringInput                                 `pulumi:"reviewerId"`
+	ReviewerLevels          GetCampaignReviewerSettingsReviewerLevelArrayInput `pulumi:"reviewerLevels"`
+	ReviewerScopeExpression pulumi.StringInput                                 `pulumi:"reviewerScopeExpression"`
+	SelfReviewDisabled      pulumi.BoolInput                                   `pulumi:"selfReviewDisabled"`
+	Type                    pulumi.StringInput                                 `pulumi:"type"`
+}
+
+func (GetCampaignReviewerSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCampaignReviewerSettings)(nil)).Elem()
+}
+
+func (i GetCampaignReviewerSettingsArgs) ToGetCampaignReviewerSettingsOutput() GetCampaignReviewerSettingsOutput {
+	return i.ToGetCampaignReviewerSettingsOutputWithContext(context.Background())
+}
+
+func (i GetCampaignReviewerSettingsArgs) ToGetCampaignReviewerSettingsOutputWithContext(ctx context.Context) GetCampaignReviewerSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCampaignReviewerSettingsOutput)
+}
+
+func (i GetCampaignReviewerSettingsArgs) ToGetCampaignReviewerSettingsPtrOutput() GetCampaignReviewerSettingsPtrOutput {
+	return i.ToGetCampaignReviewerSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i GetCampaignReviewerSettingsArgs) ToGetCampaignReviewerSettingsPtrOutputWithContext(ctx context.Context) GetCampaignReviewerSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCampaignReviewerSettingsOutput).ToGetCampaignReviewerSettingsPtrOutputWithContext(ctx)
+}
+
+// GetCampaignReviewerSettingsPtrInput is an input type that accepts GetCampaignReviewerSettingsArgs, GetCampaignReviewerSettingsPtr and GetCampaignReviewerSettingsPtrOutput values.
+// You can construct a concrete instance of `GetCampaignReviewerSettingsPtrInput` via:
+//
+//	        GetCampaignReviewerSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetCampaignReviewerSettingsPtrInput interface {
+	pulumi.Input
+
+	ToGetCampaignReviewerSettingsPtrOutput() GetCampaignReviewerSettingsPtrOutput
+	ToGetCampaignReviewerSettingsPtrOutputWithContext(context.Context) GetCampaignReviewerSettingsPtrOutput
+}
+
+type getCampaignReviewerSettingsPtrType GetCampaignReviewerSettingsArgs
+
+func GetCampaignReviewerSettingsPtr(v *GetCampaignReviewerSettingsArgs) GetCampaignReviewerSettingsPtrInput {
+	return (*getCampaignReviewerSettingsPtrType)(v)
+}
+
+func (*getCampaignReviewerSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetCampaignReviewerSettings)(nil)).Elem()
+}
+
+func (i *getCampaignReviewerSettingsPtrType) ToGetCampaignReviewerSettingsPtrOutput() GetCampaignReviewerSettingsPtrOutput {
+	return i.ToGetCampaignReviewerSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *getCampaignReviewerSettingsPtrType) ToGetCampaignReviewerSettingsPtrOutputWithContext(ctx context.Context) GetCampaignReviewerSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCampaignReviewerSettingsPtrOutput)
+}
+
+type GetCampaignReviewerSettingsOutput struct{ *pulumi.OutputState }
+
+func (GetCampaignReviewerSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCampaignReviewerSettings)(nil)).Elem()
+}
+
+func (o GetCampaignReviewerSettingsOutput) ToGetCampaignReviewerSettingsOutput() GetCampaignReviewerSettingsOutput {
+	return o
+}
+
+func (o GetCampaignReviewerSettingsOutput) ToGetCampaignReviewerSettingsOutputWithContext(ctx context.Context) GetCampaignReviewerSettingsOutput {
+	return o
+}
+
+func (o GetCampaignReviewerSettingsOutput) ToGetCampaignReviewerSettingsPtrOutput() GetCampaignReviewerSettingsPtrOutput {
+	return o.ToGetCampaignReviewerSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o GetCampaignReviewerSettingsOutput) ToGetCampaignReviewerSettingsPtrOutputWithContext(ctx context.Context) GetCampaignReviewerSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetCampaignReviewerSettings) *GetCampaignReviewerSettings {
+		return &v
+	}).(GetCampaignReviewerSettingsPtrOutput)
+}
+
+func (o GetCampaignReviewerSettingsOutput) BulkDecisionDisabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetCampaignReviewerSettings) bool { return v.BulkDecisionDisabled }).(pulumi.BoolOutput)
+}
+
+func (o GetCampaignReviewerSettingsOutput) FallbackReviewerId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCampaignReviewerSettings) string { return v.FallbackReviewerId }).(pulumi.StringOutput)
+}
+
+func (o GetCampaignReviewerSettingsOutput) JustificationRequired() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetCampaignReviewerSettings) bool { return v.JustificationRequired }).(pulumi.BoolOutput)
+}
+
+func (o GetCampaignReviewerSettingsOutput) ReassignmentDisabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetCampaignReviewerSettings) bool { return v.ReassignmentDisabled }).(pulumi.BoolOutput)
+}
+
+func (o GetCampaignReviewerSettingsOutput) ReviewerGroupId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCampaignReviewerSettings) string { return v.ReviewerGroupId }).(pulumi.StringOutput)
+}
+
+func (o GetCampaignReviewerSettingsOutput) ReviewerId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCampaignReviewerSettings) string { return v.ReviewerId }).(pulumi.StringOutput)
+}
+
+func (o GetCampaignReviewerSettingsOutput) ReviewerLevels() GetCampaignReviewerSettingsReviewerLevelArrayOutput {
+	return o.ApplyT(func(v GetCampaignReviewerSettings) []GetCampaignReviewerSettingsReviewerLevel {
+		return v.ReviewerLevels
+	}).(GetCampaignReviewerSettingsReviewerLevelArrayOutput)
+}
+
+func (o GetCampaignReviewerSettingsOutput) ReviewerScopeExpression() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCampaignReviewerSettings) string { return v.ReviewerScopeExpression }).(pulumi.StringOutput)
+}
+
+func (o GetCampaignReviewerSettingsOutput) SelfReviewDisabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetCampaignReviewerSettings) bool { return v.SelfReviewDisabled }).(pulumi.BoolOutput)
+}
+
+func (o GetCampaignReviewerSettingsOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCampaignReviewerSettings) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetCampaignReviewerSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (GetCampaignReviewerSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetCampaignReviewerSettings)(nil)).Elem()
+}
+
+func (o GetCampaignReviewerSettingsPtrOutput) ToGetCampaignReviewerSettingsPtrOutput() GetCampaignReviewerSettingsPtrOutput {
+	return o
+}
+
+func (o GetCampaignReviewerSettingsPtrOutput) ToGetCampaignReviewerSettingsPtrOutputWithContext(ctx context.Context) GetCampaignReviewerSettingsPtrOutput {
+	return o
+}
+
+func (o GetCampaignReviewerSettingsPtrOutput) Elem() GetCampaignReviewerSettingsOutput {
+	return o.ApplyT(func(v *GetCampaignReviewerSettings) GetCampaignReviewerSettings {
+		if v != nil {
+			return *v
+		}
+		var ret GetCampaignReviewerSettings
+		return ret
+	}).(GetCampaignReviewerSettingsOutput)
+}
+
+func (o GetCampaignReviewerSettingsPtrOutput) BulkDecisionDisabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetCampaignReviewerSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.BulkDecisionDisabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetCampaignReviewerSettingsPtrOutput) FallbackReviewerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetCampaignReviewerSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.FallbackReviewerId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o GetCampaignReviewerSettingsPtrOutput) JustificationRequired() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetCampaignReviewerSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.JustificationRequired
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetCampaignReviewerSettingsPtrOutput) ReassignmentDisabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetCampaignReviewerSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.ReassignmentDisabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetCampaignReviewerSettingsPtrOutput) ReviewerGroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetCampaignReviewerSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ReviewerGroupId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o GetCampaignReviewerSettingsPtrOutput) ReviewerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetCampaignReviewerSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ReviewerId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o GetCampaignReviewerSettingsPtrOutput) ReviewerLevels() GetCampaignReviewerSettingsReviewerLevelArrayOutput {
+	return o.ApplyT(func(v *GetCampaignReviewerSettings) []GetCampaignReviewerSettingsReviewerLevel {
+		if v == nil {
+			return nil
+		}
+		return v.ReviewerLevels
+	}).(GetCampaignReviewerSettingsReviewerLevelArrayOutput)
+}
+
+func (o GetCampaignReviewerSettingsPtrOutput) ReviewerScopeExpression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetCampaignReviewerSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ReviewerScopeExpression
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o GetCampaignReviewerSettingsPtrOutput) SelfReviewDisabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetCampaignReviewerSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.SelfReviewDisabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetCampaignReviewerSettingsPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetCampaignReviewerSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetCampaignReviewerSettingsReviewerLevel struct {
+	FallbackReviewerId      string                                                `pulumi:"fallbackReviewerId"`
+	ReviewerGroupId         string                                                `pulumi:"reviewerGroupId"`
+	ReviewerId              string                                                `pulumi:"reviewerId"`
+	ReviewerScopeExpression string                                                `pulumi:"reviewerScopeExpression"`
+	SelfReviewDisabled      bool                                                  `pulumi:"selfReviewDisabled"`
+	StartReviews            []GetCampaignReviewerSettingsReviewerLevelStartReview `pulumi:"startReviews"`
+	Type                    string                                                `pulumi:"type"`
+}
+
+// GetCampaignReviewerSettingsReviewerLevelInput is an input type that accepts GetCampaignReviewerSettingsReviewerLevelArgs and GetCampaignReviewerSettingsReviewerLevelOutput values.
+// You can construct a concrete instance of `GetCampaignReviewerSettingsReviewerLevelInput` via:
+//
+//	GetCampaignReviewerSettingsReviewerLevelArgs{...}
+type GetCampaignReviewerSettingsReviewerLevelInput interface {
+	pulumi.Input
+
+	ToGetCampaignReviewerSettingsReviewerLevelOutput() GetCampaignReviewerSettingsReviewerLevelOutput
+	ToGetCampaignReviewerSettingsReviewerLevelOutputWithContext(context.Context) GetCampaignReviewerSettingsReviewerLevelOutput
+}
+
+type GetCampaignReviewerSettingsReviewerLevelArgs struct {
+	FallbackReviewerId      pulumi.StringInput                                            `pulumi:"fallbackReviewerId"`
+	ReviewerGroupId         pulumi.StringInput                                            `pulumi:"reviewerGroupId"`
+	ReviewerId              pulumi.StringInput                                            `pulumi:"reviewerId"`
+	ReviewerScopeExpression pulumi.StringInput                                            `pulumi:"reviewerScopeExpression"`
+	SelfReviewDisabled      pulumi.BoolInput                                              `pulumi:"selfReviewDisabled"`
+	StartReviews            GetCampaignReviewerSettingsReviewerLevelStartReviewArrayInput `pulumi:"startReviews"`
+	Type                    pulumi.StringInput                                            `pulumi:"type"`
+}
+
+func (GetCampaignReviewerSettingsReviewerLevelArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCampaignReviewerSettingsReviewerLevel)(nil)).Elem()
+}
+
+func (i GetCampaignReviewerSettingsReviewerLevelArgs) ToGetCampaignReviewerSettingsReviewerLevelOutput() GetCampaignReviewerSettingsReviewerLevelOutput {
+	return i.ToGetCampaignReviewerSettingsReviewerLevelOutputWithContext(context.Background())
+}
+
+func (i GetCampaignReviewerSettingsReviewerLevelArgs) ToGetCampaignReviewerSettingsReviewerLevelOutputWithContext(ctx context.Context) GetCampaignReviewerSettingsReviewerLevelOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCampaignReviewerSettingsReviewerLevelOutput)
+}
+
+// GetCampaignReviewerSettingsReviewerLevelArrayInput is an input type that accepts GetCampaignReviewerSettingsReviewerLevelArray and GetCampaignReviewerSettingsReviewerLevelArrayOutput values.
+// You can construct a concrete instance of `GetCampaignReviewerSettingsReviewerLevelArrayInput` via:
+//
+//	GetCampaignReviewerSettingsReviewerLevelArray{ GetCampaignReviewerSettingsReviewerLevelArgs{...} }
+type GetCampaignReviewerSettingsReviewerLevelArrayInput interface {
+	pulumi.Input
+
+	ToGetCampaignReviewerSettingsReviewerLevelArrayOutput() GetCampaignReviewerSettingsReviewerLevelArrayOutput
+	ToGetCampaignReviewerSettingsReviewerLevelArrayOutputWithContext(context.Context) GetCampaignReviewerSettingsReviewerLevelArrayOutput
+}
+
+type GetCampaignReviewerSettingsReviewerLevelArray []GetCampaignReviewerSettingsReviewerLevelInput
+
+func (GetCampaignReviewerSettingsReviewerLevelArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCampaignReviewerSettingsReviewerLevel)(nil)).Elem()
+}
+
+func (i GetCampaignReviewerSettingsReviewerLevelArray) ToGetCampaignReviewerSettingsReviewerLevelArrayOutput() GetCampaignReviewerSettingsReviewerLevelArrayOutput {
+	return i.ToGetCampaignReviewerSettingsReviewerLevelArrayOutputWithContext(context.Background())
+}
+
+func (i GetCampaignReviewerSettingsReviewerLevelArray) ToGetCampaignReviewerSettingsReviewerLevelArrayOutputWithContext(ctx context.Context) GetCampaignReviewerSettingsReviewerLevelArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCampaignReviewerSettingsReviewerLevelArrayOutput)
+}
+
+type GetCampaignReviewerSettingsReviewerLevelOutput struct{ *pulumi.OutputState }
+
+func (GetCampaignReviewerSettingsReviewerLevelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCampaignReviewerSettingsReviewerLevel)(nil)).Elem()
+}
+
+func (o GetCampaignReviewerSettingsReviewerLevelOutput) ToGetCampaignReviewerSettingsReviewerLevelOutput() GetCampaignReviewerSettingsReviewerLevelOutput {
+	return o
+}
+
+func (o GetCampaignReviewerSettingsReviewerLevelOutput) ToGetCampaignReviewerSettingsReviewerLevelOutputWithContext(ctx context.Context) GetCampaignReviewerSettingsReviewerLevelOutput {
+	return o
+}
+
+func (o GetCampaignReviewerSettingsReviewerLevelOutput) FallbackReviewerId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCampaignReviewerSettingsReviewerLevel) string { return v.FallbackReviewerId }).(pulumi.StringOutput)
+}
+
+func (o GetCampaignReviewerSettingsReviewerLevelOutput) ReviewerGroupId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCampaignReviewerSettingsReviewerLevel) string { return v.ReviewerGroupId }).(pulumi.StringOutput)
+}
+
+func (o GetCampaignReviewerSettingsReviewerLevelOutput) ReviewerId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCampaignReviewerSettingsReviewerLevel) string { return v.ReviewerId }).(pulumi.StringOutput)
+}
+
+func (o GetCampaignReviewerSettingsReviewerLevelOutput) ReviewerScopeExpression() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCampaignReviewerSettingsReviewerLevel) string { return v.ReviewerScopeExpression }).(pulumi.StringOutput)
+}
+
+func (o GetCampaignReviewerSettingsReviewerLevelOutput) SelfReviewDisabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetCampaignReviewerSettingsReviewerLevel) bool { return v.SelfReviewDisabled }).(pulumi.BoolOutput)
+}
+
+func (o GetCampaignReviewerSettingsReviewerLevelOutput) StartReviews() GetCampaignReviewerSettingsReviewerLevelStartReviewArrayOutput {
+	return o.ApplyT(func(v GetCampaignReviewerSettingsReviewerLevel) []GetCampaignReviewerSettingsReviewerLevelStartReview {
+		return v.StartReviews
+	}).(GetCampaignReviewerSettingsReviewerLevelStartReviewArrayOutput)
+}
+
+func (o GetCampaignReviewerSettingsReviewerLevelOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCampaignReviewerSettingsReviewerLevel) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetCampaignReviewerSettingsReviewerLevelArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCampaignReviewerSettingsReviewerLevelArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCampaignReviewerSettingsReviewerLevel)(nil)).Elem()
+}
+
+func (o GetCampaignReviewerSettingsReviewerLevelArrayOutput) ToGetCampaignReviewerSettingsReviewerLevelArrayOutput() GetCampaignReviewerSettingsReviewerLevelArrayOutput {
+	return o
+}
+
+func (o GetCampaignReviewerSettingsReviewerLevelArrayOutput) ToGetCampaignReviewerSettingsReviewerLevelArrayOutputWithContext(ctx context.Context) GetCampaignReviewerSettingsReviewerLevelArrayOutput {
+	return o
+}
+
+func (o GetCampaignReviewerSettingsReviewerLevelArrayOutput) Index(i pulumi.IntInput) GetCampaignReviewerSettingsReviewerLevelOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCampaignReviewerSettingsReviewerLevel {
+		return vs[0].([]GetCampaignReviewerSettingsReviewerLevel)[vs[1].(int)]
+	}).(GetCampaignReviewerSettingsReviewerLevelOutput)
+}
+
+type GetCampaignReviewerSettingsReviewerLevelStartReview struct {
+	OnDay int    `pulumi:"onDay"`
+	When  string `pulumi:"when"`
+}
+
+// GetCampaignReviewerSettingsReviewerLevelStartReviewInput is an input type that accepts GetCampaignReviewerSettingsReviewerLevelStartReviewArgs and GetCampaignReviewerSettingsReviewerLevelStartReviewOutput values.
+// You can construct a concrete instance of `GetCampaignReviewerSettingsReviewerLevelStartReviewInput` via:
+//
+//	GetCampaignReviewerSettingsReviewerLevelStartReviewArgs{...}
+type GetCampaignReviewerSettingsReviewerLevelStartReviewInput interface {
+	pulumi.Input
+
+	ToGetCampaignReviewerSettingsReviewerLevelStartReviewOutput() GetCampaignReviewerSettingsReviewerLevelStartReviewOutput
+	ToGetCampaignReviewerSettingsReviewerLevelStartReviewOutputWithContext(context.Context) GetCampaignReviewerSettingsReviewerLevelStartReviewOutput
+}
+
+type GetCampaignReviewerSettingsReviewerLevelStartReviewArgs struct {
+	OnDay pulumi.IntInput    `pulumi:"onDay"`
+	When  pulumi.StringInput `pulumi:"when"`
+}
+
+func (GetCampaignReviewerSettingsReviewerLevelStartReviewArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCampaignReviewerSettingsReviewerLevelStartReview)(nil)).Elem()
+}
+
+func (i GetCampaignReviewerSettingsReviewerLevelStartReviewArgs) ToGetCampaignReviewerSettingsReviewerLevelStartReviewOutput() GetCampaignReviewerSettingsReviewerLevelStartReviewOutput {
+	return i.ToGetCampaignReviewerSettingsReviewerLevelStartReviewOutputWithContext(context.Background())
+}
+
+func (i GetCampaignReviewerSettingsReviewerLevelStartReviewArgs) ToGetCampaignReviewerSettingsReviewerLevelStartReviewOutputWithContext(ctx context.Context) GetCampaignReviewerSettingsReviewerLevelStartReviewOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCampaignReviewerSettingsReviewerLevelStartReviewOutput)
+}
+
+// GetCampaignReviewerSettingsReviewerLevelStartReviewArrayInput is an input type that accepts GetCampaignReviewerSettingsReviewerLevelStartReviewArray and GetCampaignReviewerSettingsReviewerLevelStartReviewArrayOutput values.
+// You can construct a concrete instance of `GetCampaignReviewerSettingsReviewerLevelStartReviewArrayInput` via:
+//
+//	GetCampaignReviewerSettingsReviewerLevelStartReviewArray{ GetCampaignReviewerSettingsReviewerLevelStartReviewArgs{...} }
+type GetCampaignReviewerSettingsReviewerLevelStartReviewArrayInput interface {
+	pulumi.Input
+
+	ToGetCampaignReviewerSettingsReviewerLevelStartReviewArrayOutput() GetCampaignReviewerSettingsReviewerLevelStartReviewArrayOutput
+	ToGetCampaignReviewerSettingsReviewerLevelStartReviewArrayOutputWithContext(context.Context) GetCampaignReviewerSettingsReviewerLevelStartReviewArrayOutput
+}
+
+type GetCampaignReviewerSettingsReviewerLevelStartReviewArray []GetCampaignReviewerSettingsReviewerLevelStartReviewInput
+
+func (GetCampaignReviewerSettingsReviewerLevelStartReviewArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCampaignReviewerSettingsReviewerLevelStartReview)(nil)).Elem()
+}
+
+func (i GetCampaignReviewerSettingsReviewerLevelStartReviewArray) ToGetCampaignReviewerSettingsReviewerLevelStartReviewArrayOutput() GetCampaignReviewerSettingsReviewerLevelStartReviewArrayOutput {
+	return i.ToGetCampaignReviewerSettingsReviewerLevelStartReviewArrayOutputWithContext(context.Background())
+}
+
+func (i GetCampaignReviewerSettingsReviewerLevelStartReviewArray) ToGetCampaignReviewerSettingsReviewerLevelStartReviewArrayOutputWithContext(ctx context.Context) GetCampaignReviewerSettingsReviewerLevelStartReviewArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCampaignReviewerSettingsReviewerLevelStartReviewArrayOutput)
+}
+
+type GetCampaignReviewerSettingsReviewerLevelStartReviewOutput struct{ *pulumi.OutputState }
+
+func (GetCampaignReviewerSettingsReviewerLevelStartReviewOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCampaignReviewerSettingsReviewerLevelStartReview)(nil)).Elem()
+}
+
+func (o GetCampaignReviewerSettingsReviewerLevelStartReviewOutput) ToGetCampaignReviewerSettingsReviewerLevelStartReviewOutput() GetCampaignReviewerSettingsReviewerLevelStartReviewOutput {
+	return o
+}
+
+func (o GetCampaignReviewerSettingsReviewerLevelStartReviewOutput) ToGetCampaignReviewerSettingsReviewerLevelStartReviewOutputWithContext(ctx context.Context) GetCampaignReviewerSettingsReviewerLevelStartReviewOutput {
+	return o
+}
+
+func (o GetCampaignReviewerSettingsReviewerLevelStartReviewOutput) OnDay() pulumi.IntOutput {
+	return o.ApplyT(func(v GetCampaignReviewerSettingsReviewerLevelStartReview) int { return v.OnDay }).(pulumi.IntOutput)
+}
+
+func (o GetCampaignReviewerSettingsReviewerLevelStartReviewOutput) When() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCampaignReviewerSettingsReviewerLevelStartReview) string { return v.When }).(pulumi.StringOutput)
+}
+
+type GetCampaignReviewerSettingsReviewerLevelStartReviewArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCampaignReviewerSettingsReviewerLevelStartReviewArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCampaignReviewerSettingsReviewerLevelStartReview)(nil)).Elem()
+}
+
+func (o GetCampaignReviewerSettingsReviewerLevelStartReviewArrayOutput) ToGetCampaignReviewerSettingsReviewerLevelStartReviewArrayOutput() GetCampaignReviewerSettingsReviewerLevelStartReviewArrayOutput {
+	return o
+}
+
+func (o GetCampaignReviewerSettingsReviewerLevelStartReviewArrayOutput) ToGetCampaignReviewerSettingsReviewerLevelStartReviewArrayOutputWithContext(ctx context.Context) GetCampaignReviewerSettingsReviewerLevelStartReviewArrayOutput {
+	return o
+}
+
+func (o GetCampaignReviewerSettingsReviewerLevelStartReviewArrayOutput) Index(i pulumi.IntInput) GetCampaignReviewerSettingsReviewerLevelStartReviewOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCampaignReviewerSettingsReviewerLevelStartReview {
+		return vs[0].([]GetCampaignReviewerSettingsReviewerLevelStartReview)[vs[1].(int)]
+	}).(GetCampaignReviewerSettingsReviewerLevelStartReviewOutput)
+}
+
+type GetCampaignScheduleSettings struct {
+	DurationInDays int                                     `pulumi:"durationInDays"`
+	EndDate        string                                  `pulumi:"endDate"`
+	Recurrences    []GetCampaignScheduleSettingsRecurrence `pulumi:"recurrences"`
+	StartDate      string                                  `pulumi:"startDate"`
+	TimeZone       string                                  `pulumi:"timeZone"`
+	Type           string                                  `pulumi:"type"`
+}
+
+// GetCampaignScheduleSettingsInput is an input type that accepts GetCampaignScheduleSettingsArgs and GetCampaignScheduleSettingsOutput values.
+// You can construct a concrete instance of `GetCampaignScheduleSettingsInput` via:
+//
+//	GetCampaignScheduleSettingsArgs{...}
+type GetCampaignScheduleSettingsInput interface {
+	pulumi.Input
+
+	ToGetCampaignScheduleSettingsOutput() GetCampaignScheduleSettingsOutput
+	ToGetCampaignScheduleSettingsOutputWithContext(context.Context) GetCampaignScheduleSettingsOutput
+}
+
+type GetCampaignScheduleSettingsArgs struct {
+	DurationInDays pulumi.IntInput                                 `pulumi:"durationInDays"`
+	EndDate        pulumi.StringInput                              `pulumi:"endDate"`
+	Recurrences    GetCampaignScheduleSettingsRecurrenceArrayInput `pulumi:"recurrences"`
+	StartDate      pulumi.StringInput                              `pulumi:"startDate"`
+	TimeZone       pulumi.StringInput                              `pulumi:"timeZone"`
+	Type           pulumi.StringInput                              `pulumi:"type"`
+}
+
+func (GetCampaignScheduleSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCampaignScheduleSettings)(nil)).Elem()
+}
+
+func (i GetCampaignScheduleSettingsArgs) ToGetCampaignScheduleSettingsOutput() GetCampaignScheduleSettingsOutput {
+	return i.ToGetCampaignScheduleSettingsOutputWithContext(context.Background())
+}
+
+func (i GetCampaignScheduleSettingsArgs) ToGetCampaignScheduleSettingsOutputWithContext(ctx context.Context) GetCampaignScheduleSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCampaignScheduleSettingsOutput)
+}
+
+func (i GetCampaignScheduleSettingsArgs) ToGetCampaignScheduleSettingsPtrOutput() GetCampaignScheduleSettingsPtrOutput {
+	return i.ToGetCampaignScheduleSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i GetCampaignScheduleSettingsArgs) ToGetCampaignScheduleSettingsPtrOutputWithContext(ctx context.Context) GetCampaignScheduleSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCampaignScheduleSettingsOutput).ToGetCampaignScheduleSettingsPtrOutputWithContext(ctx)
+}
+
+// GetCampaignScheduleSettingsPtrInput is an input type that accepts GetCampaignScheduleSettingsArgs, GetCampaignScheduleSettingsPtr and GetCampaignScheduleSettingsPtrOutput values.
+// You can construct a concrete instance of `GetCampaignScheduleSettingsPtrInput` via:
+//
+//	        GetCampaignScheduleSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetCampaignScheduleSettingsPtrInput interface {
+	pulumi.Input
+
+	ToGetCampaignScheduleSettingsPtrOutput() GetCampaignScheduleSettingsPtrOutput
+	ToGetCampaignScheduleSettingsPtrOutputWithContext(context.Context) GetCampaignScheduleSettingsPtrOutput
+}
+
+type getCampaignScheduleSettingsPtrType GetCampaignScheduleSettingsArgs
+
+func GetCampaignScheduleSettingsPtr(v *GetCampaignScheduleSettingsArgs) GetCampaignScheduleSettingsPtrInput {
+	return (*getCampaignScheduleSettingsPtrType)(v)
+}
+
+func (*getCampaignScheduleSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetCampaignScheduleSettings)(nil)).Elem()
+}
+
+func (i *getCampaignScheduleSettingsPtrType) ToGetCampaignScheduleSettingsPtrOutput() GetCampaignScheduleSettingsPtrOutput {
+	return i.ToGetCampaignScheduleSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *getCampaignScheduleSettingsPtrType) ToGetCampaignScheduleSettingsPtrOutputWithContext(ctx context.Context) GetCampaignScheduleSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCampaignScheduleSettingsPtrOutput)
+}
+
+type GetCampaignScheduleSettingsOutput struct{ *pulumi.OutputState }
+
+func (GetCampaignScheduleSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCampaignScheduleSettings)(nil)).Elem()
+}
+
+func (o GetCampaignScheduleSettingsOutput) ToGetCampaignScheduleSettingsOutput() GetCampaignScheduleSettingsOutput {
+	return o
+}
+
+func (o GetCampaignScheduleSettingsOutput) ToGetCampaignScheduleSettingsOutputWithContext(ctx context.Context) GetCampaignScheduleSettingsOutput {
+	return o
+}
+
+func (o GetCampaignScheduleSettingsOutput) ToGetCampaignScheduleSettingsPtrOutput() GetCampaignScheduleSettingsPtrOutput {
+	return o.ToGetCampaignScheduleSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o GetCampaignScheduleSettingsOutput) ToGetCampaignScheduleSettingsPtrOutputWithContext(ctx context.Context) GetCampaignScheduleSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetCampaignScheduleSettings) *GetCampaignScheduleSettings {
+		return &v
+	}).(GetCampaignScheduleSettingsPtrOutput)
+}
+
+func (o GetCampaignScheduleSettingsOutput) DurationInDays() pulumi.IntOutput {
+	return o.ApplyT(func(v GetCampaignScheduleSettings) int { return v.DurationInDays }).(pulumi.IntOutput)
+}
+
+func (o GetCampaignScheduleSettingsOutput) EndDate() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCampaignScheduleSettings) string { return v.EndDate }).(pulumi.StringOutput)
+}
+
+func (o GetCampaignScheduleSettingsOutput) Recurrences() GetCampaignScheduleSettingsRecurrenceArrayOutput {
+	return o.ApplyT(func(v GetCampaignScheduleSettings) []GetCampaignScheduleSettingsRecurrence { return v.Recurrences }).(GetCampaignScheduleSettingsRecurrenceArrayOutput)
+}
+
+func (o GetCampaignScheduleSettingsOutput) StartDate() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCampaignScheduleSettings) string { return v.StartDate }).(pulumi.StringOutput)
+}
+
+func (o GetCampaignScheduleSettingsOutput) TimeZone() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCampaignScheduleSettings) string { return v.TimeZone }).(pulumi.StringOutput)
+}
+
+func (o GetCampaignScheduleSettingsOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCampaignScheduleSettings) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetCampaignScheduleSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (GetCampaignScheduleSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetCampaignScheduleSettings)(nil)).Elem()
+}
+
+func (o GetCampaignScheduleSettingsPtrOutput) ToGetCampaignScheduleSettingsPtrOutput() GetCampaignScheduleSettingsPtrOutput {
+	return o
+}
+
+func (o GetCampaignScheduleSettingsPtrOutput) ToGetCampaignScheduleSettingsPtrOutputWithContext(ctx context.Context) GetCampaignScheduleSettingsPtrOutput {
+	return o
+}
+
+func (o GetCampaignScheduleSettingsPtrOutput) Elem() GetCampaignScheduleSettingsOutput {
+	return o.ApplyT(func(v *GetCampaignScheduleSettings) GetCampaignScheduleSettings {
+		if v != nil {
+			return *v
+		}
+		var ret GetCampaignScheduleSettings
+		return ret
+	}).(GetCampaignScheduleSettingsOutput)
+}
+
+func (o GetCampaignScheduleSettingsPtrOutput) DurationInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GetCampaignScheduleSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.DurationInDays
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o GetCampaignScheduleSettingsPtrOutput) EndDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetCampaignScheduleSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.EndDate
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o GetCampaignScheduleSettingsPtrOutput) Recurrences() GetCampaignScheduleSettingsRecurrenceArrayOutput {
+	return o.ApplyT(func(v *GetCampaignScheduleSettings) []GetCampaignScheduleSettingsRecurrence {
+		if v == nil {
+			return nil
+		}
+		return v.Recurrences
+	}).(GetCampaignScheduleSettingsRecurrenceArrayOutput)
+}
+
+func (o GetCampaignScheduleSettingsPtrOutput) StartDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetCampaignScheduleSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.StartDate
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o GetCampaignScheduleSettingsPtrOutput) TimeZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetCampaignScheduleSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TimeZone
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o GetCampaignScheduleSettingsPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetCampaignScheduleSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetCampaignScheduleSettingsRecurrence struct {
+	Ends         string `pulumi:"ends"`
+	Interval     string `pulumi:"interval"`
+	RepeatOnType string `pulumi:"repeatOnType"`
+}
+
+// GetCampaignScheduleSettingsRecurrenceInput is an input type that accepts GetCampaignScheduleSettingsRecurrenceArgs and GetCampaignScheduleSettingsRecurrenceOutput values.
+// You can construct a concrete instance of `GetCampaignScheduleSettingsRecurrenceInput` via:
+//
+//	GetCampaignScheduleSettingsRecurrenceArgs{...}
+type GetCampaignScheduleSettingsRecurrenceInput interface {
+	pulumi.Input
+
+	ToGetCampaignScheduleSettingsRecurrenceOutput() GetCampaignScheduleSettingsRecurrenceOutput
+	ToGetCampaignScheduleSettingsRecurrenceOutputWithContext(context.Context) GetCampaignScheduleSettingsRecurrenceOutput
+}
+
+type GetCampaignScheduleSettingsRecurrenceArgs struct {
+	Ends         pulumi.StringInput `pulumi:"ends"`
+	Interval     pulumi.StringInput `pulumi:"interval"`
+	RepeatOnType pulumi.StringInput `pulumi:"repeatOnType"`
+}
+
+func (GetCampaignScheduleSettingsRecurrenceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCampaignScheduleSettingsRecurrence)(nil)).Elem()
+}
+
+func (i GetCampaignScheduleSettingsRecurrenceArgs) ToGetCampaignScheduleSettingsRecurrenceOutput() GetCampaignScheduleSettingsRecurrenceOutput {
+	return i.ToGetCampaignScheduleSettingsRecurrenceOutputWithContext(context.Background())
+}
+
+func (i GetCampaignScheduleSettingsRecurrenceArgs) ToGetCampaignScheduleSettingsRecurrenceOutputWithContext(ctx context.Context) GetCampaignScheduleSettingsRecurrenceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCampaignScheduleSettingsRecurrenceOutput)
+}
+
+// GetCampaignScheduleSettingsRecurrenceArrayInput is an input type that accepts GetCampaignScheduleSettingsRecurrenceArray and GetCampaignScheduleSettingsRecurrenceArrayOutput values.
+// You can construct a concrete instance of `GetCampaignScheduleSettingsRecurrenceArrayInput` via:
+//
+//	GetCampaignScheduleSettingsRecurrenceArray{ GetCampaignScheduleSettingsRecurrenceArgs{...} }
+type GetCampaignScheduleSettingsRecurrenceArrayInput interface {
+	pulumi.Input
+
+	ToGetCampaignScheduleSettingsRecurrenceArrayOutput() GetCampaignScheduleSettingsRecurrenceArrayOutput
+	ToGetCampaignScheduleSettingsRecurrenceArrayOutputWithContext(context.Context) GetCampaignScheduleSettingsRecurrenceArrayOutput
+}
+
+type GetCampaignScheduleSettingsRecurrenceArray []GetCampaignScheduleSettingsRecurrenceInput
+
+func (GetCampaignScheduleSettingsRecurrenceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCampaignScheduleSettingsRecurrence)(nil)).Elem()
+}
+
+func (i GetCampaignScheduleSettingsRecurrenceArray) ToGetCampaignScheduleSettingsRecurrenceArrayOutput() GetCampaignScheduleSettingsRecurrenceArrayOutput {
+	return i.ToGetCampaignScheduleSettingsRecurrenceArrayOutputWithContext(context.Background())
+}
+
+func (i GetCampaignScheduleSettingsRecurrenceArray) ToGetCampaignScheduleSettingsRecurrenceArrayOutputWithContext(ctx context.Context) GetCampaignScheduleSettingsRecurrenceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCampaignScheduleSettingsRecurrenceArrayOutput)
+}
+
+type GetCampaignScheduleSettingsRecurrenceOutput struct{ *pulumi.OutputState }
+
+func (GetCampaignScheduleSettingsRecurrenceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCampaignScheduleSettingsRecurrence)(nil)).Elem()
+}
+
+func (o GetCampaignScheduleSettingsRecurrenceOutput) ToGetCampaignScheduleSettingsRecurrenceOutput() GetCampaignScheduleSettingsRecurrenceOutput {
+	return o
+}
+
+func (o GetCampaignScheduleSettingsRecurrenceOutput) ToGetCampaignScheduleSettingsRecurrenceOutputWithContext(ctx context.Context) GetCampaignScheduleSettingsRecurrenceOutput {
+	return o
+}
+
+func (o GetCampaignScheduleSettingsRecurrenceOutput) Ends() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCampaignScheduleSettingsRecurrence) string { return v.Ends }).(pulumi.StringOutput)
+}
+
+func (o GetCampaignScheduleSettingsRecurrenceOutput) Interval() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCampaignScheduleSettingsRecurrence) string { return v.Interval }).(pulumi.StringOutput)
+}
+
+func (o GetCampaignScheduleSettingsRecurrenceOutput) RepeatOnType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCampaignScheduleSettingsRecurrence) string { return v.RepeatOnType }).(pulumi.StringOutput)
+}
+
+type GetCampaignScheduleSettingsRecurrenceArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCampaignScheduleSettingsRecurrenceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCampaignScheduleSettingsRecurrence)(nil)).Elem()
+}
+
+func (o GetCampaignScheduleSettingsRecurrenceArrayOutput) ToGetCampaignScheduleSettingsRecurrenceArrayOutput() GetCampaignScheduleSettingsRecurrenceArrayOutput {
+	return o
+}
+
+func (o GetCampaignScheduleSettingsRecurrenceArrayOutput) ToGetCampaignScheduleSettingsRecurrenceArrayOutputWithContext(ctx context.Context) GetCampaignScheduleSettingsRecurrenceArrayOutput {
+	return o
+}
+
+func (o GetCampaignScheduleSettingsRecurrenceArrayOutput) Index(i pulumi.IntInput) GetCampaignScheduleSettingsRecurrenceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCampaignScheduleSettingsRecurrence {
+		return vs[0].([]GetCampaignScheduleSettingsRecurrence)[vs[1].(int)]
+	}).(GetCampaignScheduleSettingsRecurrenceOutput)
+}
+
+type GetCatalogEntryDefaultCounts struct {
+	// Collection resource counts.
+	ResourceCounts *GetCatalogEntryDefaultCountsResourceCounts `pulumi:"resourceCounts"`
+}
+
+// GetCatalogEntryDefaultCountsInput is an input type that accepts GetCatalogEntryDefaultCountsArgs and GetCatalogEntryDefaultCountsOutput values.
+// You can construct a concrete instance of `GetCatalogEntryDefaultCountsInput` via:
+//
+//	GetCatalogEntryDefaultCountsArgs{...}
+type GetCatalogEntryDefaultCountsInput interface {
+	pulumi.Input
+
+	ToGetCatalogEntryDefaultCountsOutput() GetCatalogEntryDefaultCountsOutput
+	ToGetCatalogEntryDefaultCountsOutputWithContext(context.Context) GetCatalogEntryDefaultCountsOutput
+}
+
+type GetCatalogEntryDefaultCountsArgs struct {
+	// Collection resource counts.
+	ResourceCounts GetCatalogEntryDefaultCountsResourceCountsPtrInput `pulumi:"resourceCounts"`
+}
+
+func (GetCatalogEntryDefaultCountsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCatalogEntryDefaultCounts)(nil)).Elem()
+}
+
+func (i GetCatalogEntryDefaultCountsArgs) ToGetCatalogEntryDefaultCountsOutput() GetCatalogEntryDefaultCountsOutput {
+	return i.ToGetCatalogEntryDefaultCountsOutputWithContext(context.Background())
+}
+
+func (i GetCatalogEntryDefaultCountsArgs) ToGetCatalogEntryDefaultCountsOutputWithContext(ctx context.Context) GetCatalogEntryDefaultCountsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCatalogEntryDefaultCountsOutput)
+}
+
+func (i GetCatalogEntryDefaultCountsArgs) ToGetCatalogEntryDefaultCountsPtrOutput() GetCatalogEntryDefaultCountsPtrOutput {
+	return i.ToGetCatalogEntryDefaultCountsPtrOutputWithContext(context.Background())
+}
+
+func (i GetCatalogEntryDefaultCountsArgs) ToGetCatalogEntryDefaultCountsPtrOutputWithContext(ctx context.Context) GetCatalogEntryDefaultCountsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCatalogEntryDefaultCountsOutput).ToGetCatalogEntryDefaultCountsPtrOutputWithContext(ctx)
+}
+
+// GetCatalogEntryDefaultCountsPtrInput is an input type that accepts GetCatalogEntryDefaultCountsArgs, GetCatalogEntryDefaultCountsPtr and GetCatalogEntryDefaultCountsPtrOutput values.
+// You can construct a concrete instance of `GetCatalogEntryDefaultCountsPtrInput` via:
+//
+//	        GetCatalogEntryDefaultCountsArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetCatalogEntryDefaultCountsPtrInput interface {
+	pulumi.Input
+
+	ToGetCatalogEntryDefaultCountsPtrOutput() GetCatalogEntryDefaultCountsPtrOutput
+	ToGetCatalogEntryDefaultCountsPtrOutputWithContext(context.Context) GetCatalogEntryDefaultCountsPtrOutput
+}
+
+type getCatalogEntryDefaultCountsPtrType GetCatalogEntryDefaultCountsArgs
+
+func GetCatalogEntryDefaultCountsPtr(v *GetCatalogEntryDefaultCountsArgs) GetCatalogEntryDefaultCountsPtrInput {
+	return (*getCatalogEntryDefaultCountsPtrType)(v)
+}
+
+func (*getCatalogEntryDefaultCountsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetCatalogEntryDefaultCounts)(nil)).Elem()
+}
+
+func (i *getCatalogEntryDefaultCountsPtrType) ToGetCatalogEntryDefaultCountsPtrOutput() GetCatalogEntryDefaultCountsPtrOutput {
+	return i.ToGetCatalogEntryDefaultCountsPtrOutputWithContext(context.Background())
+}
+
+func (i *getCatalogEntryDefaultCountsPtrType) ToGetCatalogEntryDefaultCountsPtrOutputWithContext(ctx context.Context) GetCatalogEntryDefaultCountsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCatalogEntryDefaultCountsPtrOutput)
+}
+
+type GetCatalogEntryDefaultCountsOutput struct{ *pulumi.OutputState }
+
+func (GetCatalogEntryDefaultCountsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCatalogEntryDefaultCounts)(nil)).Elem()
+}
+
+func (o GetCatalogEntryDefaultCountsOutput) ToGetCatalogEntryDefaultCountsOutput() GetCatalogEntryDefaultCountsOutput {
+	return o
+}
+
+func (o GetCatalogEntryDefaultCountsOutput) ToGetCatalogEntryDefaultCountsOutputWithContext(ctx context.Context) GetCatalogEntryDefaultCountsOutput {
+	return o
+}
+
+func (o GetCatalogEntryDefaultCountsOutput) ToGetCatalogEntryDefaultCountsPtrOutput() GetCatalogEntryDefaultCountsPtrOutput {
+	return o.ToGetCatalogEntryDefaultCountsPtrOutputWithContext(context.Background())
+}
+
+func (o GetCatalogEntryDefaultCountsOutput) ToGetCatalogEntryDefaultCountsPtrOutputWithContext(ctx context.Context) GetCatalogEntryDefaultCountsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetCatalogEntryDefaultCounts) *GetCatalogEntryDefaultCounts {
+		return &v
+	}).(GetCatalogEntryDefaultCountsPtrOutput)
+}
+
+// Collection resource counts.
+func (o GetCatalogEntryDefaultCountsOutput) ResourceCounts() GetCatalogEntryDefaultCountsResourceCountsPtrOutput {
+	return o.ApplyT(func(v GetCatalogEntryDefaultCounts) *GetCatalogEntryDefaultCountsResourceCounts {
+		return v.ResourceCounts
+	}).(GetCatalogEntryDefaultCountsResourceCountsPtrOutput)
+}
+
+type GetCatalogEntryDefaultCountsPtrOutput struct{ *pulumi.OutputState }
+
+func (GetCatalogEntryDefaultCountsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetCatalogEntryDefaultCounts)(nil)).Elem()
+}
+
+func (o GetCatalogEntryDefaultCountsPtrOutput) ToGetCatalogEntryDefaultCountsPtrOutput() GetCatalogEntryDefaultCountsPtrOutput {
+	return o
+}
+
+func (o GetCatalogEntryDefaultCountsPtrOutput) ToGetCatalogEntryDefaultCountsPtrOutputWithContext(ctx context.Context) GetCatalogEntryDefaultCountsPtrOutput {
+	return o
+}
+
+func (o GetCatalogEntryDefaultCountsPtrOutput) Elem() GetCatalogEntryDefaultCountsOutput {
+	return o.ApplyT(func(v *GetCatalogEntryDefaultCounts) GetCatalogEntryDefaultCounts {
+		if v != nil {
+			return *v
+		}
+		var ret GetCatalogEntryDefaultCounts
+		return ret
+	}).(GetCatalogEntryDefaultCountsOutput)
+}
+
+// Collection resource counts.
+func (o GetCatalogEntryDefaultCountsPtrOutput) ResourceCounts() GetCatalogEntryDefaultCountsResourceCountsPtrOutput {
+	return o.ApplyT(func(v *GetCatalogEntryDefaultCounts) *GetCatalogEntryDefaultCountsResourceCounts {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceCounts
+	}).(GetCatalogEntryDefaultCountsResourceCountsPtrOutput)
+}
+
+type GetCatalogEntryDefaultCountsResourceCounts struct {
+	// Number of app resources in a collection.
+	Applications int `pulumi:"applications"`
+}
+
+// GetCatalogEntryDefaultCountsResourceCountsInput is an input type that accepts GetCatalogEntryDefaultCountsResourceCountsArgs and GetCatalogEntryDefaultCountsResourceCountsOutput values.
+// You can construct a concrete instance of `GetCatalogEntryDefaultCountsResourceCountsInput` via:
+//
+//	GetCatalogEntryDefaultCountsResourceCountsArgs{...}
+type GetCatalogEntryDefaultCountsResourceCountsInput interface {
+	pulumi.Input
+
+	ToGetCatalogEntryDefaultCountsResourceCountsOutput() GetCatalogEntryDefaultCountsResourceCountsOutput
+	ToGetCatalogEntryDefaultCountsResourceCountsOutputWithContext(context.Context) GetCatalogEntryDefaultCountsResourceCountsOutput
+}
+
+type GetCatalogEntryDefaultCountsResourceCountsArgs struct {
+	// Number of app resources in a collection.
+	Applications pulumi.IntInput `pulumi:"applications"`
+}
+
+func (GetCatalogEntryDefaultCountsResourceCountsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCatalogEntryDefaultCountsResourceCounts)(nil)).Elem()
+}
+
+func (i GetCatalogEntryDefaultCountsResourceCountsArgs) ToGetCatalogEntryDefaultCountsResourceCountsOutput() GetCatalogEntryDefaultCountsResourceCountsOutput {
+	return i.ToGetCatalogEntryDefaultCountsResourceCountsOutputWithContext(context.Background())
+}
+
+func (i GetCatalogEntryDefaultCountsResourceCountsArgs) ToGetCatalogEntryDefaultCountsResourceCountsOutputWithContext(ctx context.Context) GetCatalogEntryDefaultCountsResourceCountsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCatalogEntryDefaultCountsResourceCountsOutput)
+}
+
+func (i GetCatalogEntryDefaultCountsResourceCountsArgs) ToGetCatalogEntryDefaultCountsResourceCountsPtrOutput() GetCatalogEntryDefaultCountsResourceCountsPtrOutput {
+	return i.ToGetCatalogEntryDefaultCountsResourceCountsPtrOutputWithContext(context.Background())
+}
+
+func (i GetCatalogEntryDefaultCountsResourceCountsArgs) ToGetCatalogEntryDefaultCountsResourceCountsPtrOutputWithContext(ctx context.Context) GetCatalogEntryDefaultCountsResourceCountsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCatalogEntryDefaultCountsResourceCountsOutput).ToGetCatalogEntryDefaultCountsResourceCountsPtrOutputWithContext(ctx)
+}
+
+// GetCatalogEntryDefaultCountsResourceCountsPtrInput is an input type that accepts GetCatalogEntryDefaultCountsResourceCountsArgs, GetCatalogEntryDefaultCountsResourceCountsPtr and GetCatalogEntryDefaultCountsResourceCountsPtrOutput values.
+// You can construct a concrete instance of `GetCatalogEntryDefaultCountsResourceCountsPtrInput` via:
+//
+//	        GetCatalogEntryDefaultCountsResourceCountsArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetCatalogEntryDefaultCountsResourceCountsPtrInput interface {
+	pulumi.Input
+
+	ToGetCatalogEntryDefaultCountsResourceCountsPtrOutput() GetCatalogEntryDefaultCountsResourceCountsPtrOutput
+	ToGetCatalogEntryDefaultCountsResourceCountsPtrOutputWithContext(context.Context) GetCatalogEntryDefaultCountsResourceCountsPtrOutput
+}
+
+type getCatalogEntryDefaultCountsResourceCountsPtrType GetCatalogEntryDefaultCountsResourceCountsArgs
+
+func GetCatalogEntryDefaultCountsResourceCountsPtr(v *GetCatalogEntryDefaultCountsResourceCountsArgs) GetCatalogEntryDefaultCountsResourceCountsPtrInput {
+	return (*getCatalogEntryDefaultCountsResourceCountsPtrType)(v)
+}
+
+func (*getCatalogEntryDefaultCountsResourceCountsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetCatalogEntryDefaultCountsResourceCounts)(nil)).Elem()
+}
+
+func (i *getCatalogEntryDefaultCountsResourceCountsPtrType) ToGetCatalogEntryDefaultCountsResourceCountsPtrOutput() GetCatalogEntryDefaultCountsResourceCountsPtrOutput {
+	return i.ToGetCatalogEntryDefaultCountsResourceCountsPtrOutputWithContext(context.Background())
+}
+
+func (i *getCatalogEntryDefaultCountsResourceCountsPtrType) ToGetCatalogEntryDefaultCountsResourceCountsPtrOutputWithContext(ctx context.Context) GetCatalogEntryDefaultCountsResourceCountsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCatalogEntryDefaultCountsResourceCountsPtrOutput)
+}
+
+type GetCatalogEntryDefaultCountsResourceCountsOutput struct{ *pulumi.OutputState }
+
+func (GetCatalogEntryDefaultCountsResourceCountsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCatalogEntryDefaultCountsResourceCounts)(nil)).Elem()
+}
+
+func (o GetCatalogEntryDefaultCountsResourceCountsOutput) ToGetCatalogEntryDefaultCountsResourceCountsOutput() GetCatalogEntryDefaultCountsResourceCountsOutput {
+	return o
+}
+
+func (o GetCatalogEntryDefaultCountsResourceCountsOutput) ToGetCatalogEntryDefaultCountsResourceCountsOutputWithContext(ctx context.Context) GetCatalogEntryDefaultCountsResourceCountsOutput {
+	return o
+}
+
+func (o GetCatalogEntryDefaultCountsResourceCountsOutput) ToGetCatalogEntryDefaultCountsResourceCountsPtrOutput() GetCatalogEntryDefaultCountsResourceCountsPtrOutput {
+	return o.ToGetCatalogEntryDefaultCountsResourceCountsPtrOutputWithContext(context.Background())
+}
+
+func (o GetCatalogEntryDefaultCountsResourceCountsOutput) ToGetCatalogEntryDefaultCountsResourceCountsPtrOutputWithContext(ctx context.Context) GetCatalogEntryDefaultCountsResourceCountsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetCatalogEntryDefaultCountsResourceCounts) *GetCatalogEntryDefaultCountsResourceCounts {
+		return &v
+	}).(GetCatalogEntryDefaultCountsResourceCountsPtrOutput)
+}
+
+// Number of app resources in a collection.
+func (o GetCatalogEntryDefaultCountsResourceCountsOutput) Applications() pulumi.IntOutput {
+	return o.ApplyT(func(v GetCatalogEntryDefaultCountsResourceCounts) int { return v.Applications }).(pulumi.IntOutput)
+}
+
+type GetCatalogEntryDefaultCountsResourceCountsPtrOutput struct{ *pulumi.OutputState }
+
+func (GetCatalogEntryDefaultCountsResourceCountsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetCatalogEntryDefaultCountsResourceCounts)(nil)).Elem()
+}
+
+func (o GetCatalogEntryDefaultCountsResourceCountsPtrOutput) ToGetCatalogEntryDefaultCountsResourceCountsPtrOutput() GetCatalogEntryDefaultCountsResourceCountsPtrOutput {
+	return o
+}
+
+func (o GetCatalogEntryDefaultCountsResourceCountsPtrOutput) ToGetCatalogEntryDefaultCountsResourceCountsPtrOutputWithContext(ctx context.Context) GetCatalogEntryDefaultCountsResourceCountsPtrOutput {
+	return o
+}
+
+func (o GetCatalogEntryDefaultCountsResourceCountsPtrOutput) Elem() GetCatalogEntryDefaultCountsResourceCountsOutput {
+	return o.ApplyT(func(v *GetCatalogEntryDefaultCountsResourceCounts) GetCatalogEntryDefaultCountsResourceCounts {
+		if v != nil {
+			return *v
+		}
+		var ret GetCatalogEntryDefaultCountsResourceCounts
+		return ret
+	}).(GetCatalogEntryDefaultCountsResourceCountsOutput)
+}
+
+// Number of app resources in a collection.
+func (o GetCatalogEntryDefaultCountsResourceCountsPtrOutput) Applications() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GetCatalogEntryDefaultCountsResourceCounts) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Applications
+	}).(pulumi.IntPtrOutput)
+}
+
+type GetCatalogEntryDefaultLinks struct {
+	// A link to the catalog entry itself.
+	Self *GetCatalogEntryDefaultLinksSelf `pulumi:"self"`
+}
+
+// GetCatalogEntryDefaultLinksInput is an input type that accepts GetCatalogEntryDefaultLinksArgs and GetCatalogEntryDefaultLinksOutput values.
+// You can construct a concrete instance of `GetCatalogEntryDefaultLinksInput` via:
+//
+//	GetCatalogEntryDefaultLinksArgs{...}
+type GetCatalogEntryDefaultLinksInput interface {
+	pulumi.Input
+
+	ToGetCatalogEntryDefaultLinksOutput() GetCatalogEntryDefaultLinksOutput
+	ToGetCatalogEntryDefaultLinksOutputWithContext(context.Context) GetCatalogEntryDefaultLinksOutput
+}
+
+type GetCatalogEntryDefaultLinksArgs struct {
+	// A link to the catalog entry itself.
+	Self GetCatalogEntryDefaultLinksSelfPtrInput `pulumi:"self"`
+}
+
+func (GetCatalogEntryDefaultLinksArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCatalogEntryDefaultLinks)(nil)).Elem()
+}
+
+func (i GetCatalogEntryDefaultLinksArgs) ToGetCatalogEntryDefaultLinksOutput() GetCatalogEntryDefaultLinksOutput {
+	return i.ToGetCatalogEntryDefaultLinksOutputWithContext(context.Background())
+}
+
+func (i GetCatalogEntryDefaultLinksArgs) ToGetCatalogEntryDefaultLinksOutputWithContext(ctx context.Context) GetCatalogEntryDefaultLinksOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCatalogEntryDefaultLinksOutput)
+}
+
+func (i GetCatalogEntryDefaultLinksArgs) ToGetCatalogEntryDefaultLinksPtrOutput() GetCatalogEntryDefaultLinksPtrOutput {
+	return i.ToGetCatalogEntryDefaultLinksPtrOutputWithContext(context.Background())
+}
+
+func (i GetCatalogEntryDefaultLinksArgs) ToGetCatalogEntryDefaultLinksPtrOutputWithContext(ctx context.Context) GetCatalogEntryDefaultLinksPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCatalogEntryDefaultLinksOutput).ToGetCatalogEntryDefaultLinksPtrOutputWithContext(ctx)
+}
+
+// GetCatalogEntryDefaultLinksPtrInput is an input type that accepts GetCatalogEntryDefaultLinksArgs, GetCatalogEntryDefaultLinksPtr and GetCatalogEntryDefaultLinksPtrOutput values.
+// You can construct a concrete instance of `GetCatalogEntryDefaultLinksPtrInput` via:
+//
+//	        GetCatalogEntryDefaultLinksArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetCatalogEntryDefaultLinksPtrInput interface {
+	pulumi.Input
+
+	ToGetCatalogEntryDefaultLinksPtrOutput() GetCatalogEntryDefaultLinksPtrOutput
+	ToGetCatalogEntryDefaultLinksPtrOutputWithContext(context.Context) GetCatalogEntryDefaultLinksPtrOutput
+}
+
+type getCatalogEntryDefaultLinksPtrType GetCatalogEntryDefaultLinksArgs
+
+func GetCatalogEntryDefaultLinksPtr(v *GetCatalogEntryDefaultLinksArgs) GetCatalogEntryDefaultLinksPtrInput {
+	return (*getCatalogEntryDefaultLinksPtrType)(v)
+}
+
+func (*getCatalogEntryDefaultLinksPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetCatalogEntryDefaultLinks)(nil)).Elem()
+}
+
+func (i *getCatalogEntryDefaultLinksPtrType) ToGetCatalogEntryDefaultLinksPtrOutput() GetCatalogEntryDefaultLinksPtrOutput {
+	return i.ToGetCatalogEntryDefaultLinksPtrOutputWithContext(context.Background())
+}
+
+func (i *getCatalogEntryDefaultLinksPtrType) ToGetCatalogEntryDefaultLinksPtrOutputWithContext(ctx context.Context) GetCatalogEntryDefaultLinksPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCatalogEntryDefaultLinksPtrOutput)
+}
+
+type GetCatalogEntryDefaultLinksOutput struct{ *pulumi.OutputState }
+
+func (GetCatalogEntryDefaultLinksOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCatalogEntryDefaultLinks)(nil)).Elem()
+}
+
+func (o GetCatalogEntryDefaultLinksOutput) ToGetCatalogEntryDefaultLinksOutput() GetCatalogEntryDefaultLinksOutput {
+	return o
+}
+
+func (o GetCatalogEntryDefaultLinksOutput) ToGetCatalogEntryDefaultLinksOutputWithContext(ctx context.Context) GetCatalogEntryDefaultLinksOutput {
+	return o
+}
+
+func (o GetCatalogEntryDefaultLinksOutput) ToGetCatalogEntryDefaultLinksPtrOutput() GetCatalogEntryDefaultLinksPtrOutput {
+	return o.ToGetCatalogEntryDefaultLinksPtrOutputWithContext(context.Background())
+}
+
+func (o GetCatalogEntryDefaultLinksOutput) ToGetCatalogEntryDefaultLinksPtrOutputWithContext(ctx context.Context) GetCatalogEntryDefaultLinksPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetCatalogEntryDefaultLinks) *GetCatalogEntryDefaultLinks {
+		return &v
+	}).(GetCatalogEntryDefaultLinksPtrOutput)
+}
+
+// A link to the catalog entry itself.
+func (o GetCatalogEntryDefaultLinksOutput) Self() GetCatalogEntryDefaultLinksSelfPtrOutput {
+	return o.ApplyT(func(v GetCatalogEntryDefaultLinks) *GetCatalogEntryDefaultLinksSelf { return v.Self }).(GetCatalogEntryDefaultLinksSelfPtrOutput)
+}
+
+type GetCatalogEntryDefaultLinksPtrOutput struct{ *pulumi.OutputState }
+
+func (GetCatalogEntryDefaultLinksPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetCatalogEntryDefaultLinks)(nil)).Elem()
+}
+
+func (o GetCatalogEntryDefaultLinksPtrOutput) ToGetCatalogEntryDefaultLinksPtrOutput() GetCatalogEntryDefaultLinksPtrOutput {
+	return o
+}
+
+func (o GetCatalogEntryDefaultLinksPtrOutput) ToGetCatalogEntryDefaultLinksPtrOutputWithContext(ctx context.Context) GetCatalogEntryDefaultLinksPtrOutput {
+	return o
+}
+
+func (o GetCatalogEntryDefaultLinksPtrOutput) Elem() GetCatalogEntryDefaultLinksOutput {
+	return o.ApplyT(func(v *GetCatalogEntryDefaultLinks) GetCatalogEntryDefaultLinks {
+		if v != nil {
+			return *v
+		}
+		var ret GetCatalogEntryDefaultLinks
+		return ret
+	}).(GetCatalogEntryDefaultLinksOutput)
+}
+
+// A link to the catalog entry itself.
+func (o GetCatalogEntryDefaultLinksPtrOutput) Self() GetCatalogEntryDefaultLinksSelfPtrOutput {
+	return o.ApplyT(func(v *GetCatalogEntryDefaultLinks) *GetCatalogEntryDefaultLinksSelf {
+		if v == nil {
+			return nil
+		}
+		return v.Self
+	}).(GetCatalogEntryDefaultLinksSelfPtrOutput)
+}
+
+type GetCatalogEntryDefaultLinksSelf struct {
+	// Contains the absolute API URL for retrieving this catalog entry resource.
+	Href string `pulumi:"href"`
+}
+
+// GetCatalogEntryDefaultLinksSelfInput is an input type that accepts GetCatalogEntryDefaultLinksSelfArgs and GetCatalogEntryDefaultLinksSelfOutput values.
+// You can construct a concrete instance of `GetCatalogEntryDefaultLinksSelfInput` via:
+//
+//	GetCatalogEntryDefaultLinksSelfArgs{...}
+type GetCatalogEntryDefaultLinksSelfInput interface {
+	pulumi.Input
+
+	ToGetCatalogEntryDefaultLinksSelfOutput() GetCatalogEntryDefaultLinksSelfOutput
+	ToGetCatalogEntryDefaultLinksSelfOutputWithContext(context.Context) GetCatalogEntryDefaultLinksSelfOutput
+}
+
+type GetCatalogEntryDefaultLinksSelfArgs struct {
+	// Contains the absolute API URL for retrieving this catalog entry resource.
+	Href pulumi.StringInput `pulumi:"href"`
+}
+
+func (GetCatalogEntryDefaultLinksSelfArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCatalogEntryDefaultLinksSelf)(nil)).Elem()
+}
+
+func (i GetCatalogEntryDefaultLinksSelfArgs) ToGetCatalogEntryDefaultLinksSelfOutput() GetCatalogEntryDefaultLinksSelfOutput {
+	return i.ToGetCatalogEntryDefaultLinksSelfOutputWithContext(context.Background())
+}
+
+func (i GetCatalogEntryDefaultLinksSelfArgs) ToGetCatalogEntryDefaultLinksSelfOutputWithContext(ctx context.Context) GetCatalogEntryDefaultLinksSelfOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCatalogEntryDefaultLinksSelfOutput)
+}
+
+func (i GetCatalogEntryDefaultLinksSelfArgs) ToGetCatalogEntryDefaultLinksSelfPtrOutput() GetCatalogEntryDefaultLinksSelfPtrOutput {
+	return i.ToGetCatalogEntryDefaultLinksSelfPtrOutputWithContext(context.Background())
+}
+
+func (i GetCatalogEntryDefaultLinksSelfArgs) ToGetCatalogEntryDefaultLinksSelfPtrOutputWithContext(ctx context.Context) GetCatalogEntryDefaultLinksSelfPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCatalogEntryDefaultLinksSelfOutput).ToGetCatalogEntryDefaultLinksSelfPtrOutputWithContext(ctx)
+}
+
+// GetCatalogEntryDefaultLinksSelfPtrInput is an input type that accepts GetCatalogEntryDefaultLinksSelfArgs, GetCatalogEntryDefaultLinksSelfPtr and GetCatalogEntryDefaultLinksSelfPtrOutput values.
+// You can construct a concrete instance of `GetCatalogEntryDefaultLinksSelfPtrInput` via:
+//
+//	        GetCatalogEntryDefaultLinksSelfArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetCatalogEntryDefaultLinksSelfPtrInput interface {
+	pulumi.Input
+
+	ToGetCatalogEntryDefaultLinksSelfPtrOutput() GetCatalogEntryDefaultLinksSelfPtrOutput
+	ToGetCatalogEntryDefaultLinksSelfPtrOutputWithContext(context.Context) GetCatalogEntryDefaultLinksSelfPtrOutput
+}
+
+type getCatalogEntryDefaultLinksSelfPtrType GetCatalogEntryDefaultLinksSelfArgs
+
+func GetCatalogEntryDefaultLinksSelfPtr(v *GetCatalogEntryDefaultLinksSelfArgs) GetCatalogEntryDefaultLinksSelfPtrInput {
+	return (*getCatalogEntryDefaultLinksSelfPtrType)(v)
+}
+
+func (*getCatalogEntryDefaultLinksSelfPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetCatalogEntryDefaultLinksSelf)(nil)).Elem()
+}
+
+func (i *getCatalogEntryDefaultLinksSelfPtrType) ToGetCatalogEntryDefaultLinksSelfPtrOutput() GetCatalogEntryDefaultLinksSelfPtrOutput {
+	return i.ToGetCatalogEntryDefaultLinksSelfPtrOutputWithContext(context.Background())
+}
+
+func (i *getCatalogEntryDefaultLinksSelfPtrType) ToGetCatalogEntryDefaultLinksSelfPtrOutputWithContext(ctx context.Context) GetCatalogEntryDefaultLinksSelfPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCatalogEntryDefaultLinksSelfPtrOutput)
+}
+
+type GetCatalogEntryDefaultLinksSelfOutput struct{ *pulumi.OutputState }
+
+func (GetCatalogEntryDefaultLinksSelfOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCatalogEntryDefaultLinksSelf)(nil)).Elem()
+}
+
+func (o GetCatalogEntryDefaultLinksSelfOutput) ToGetCatalogEntryDefaultLinksSelfOutput() GetCatalogEntryDefaultLinksSelfOutput {
+	return o
+}
+
+func (o GetCatalogEntryDefaultLinksSelfOutput) ToGetCatalogEntryDefaultLinksSelfOutputWithContext(ctx context.Context) GetCatalogEntryDefaultLinksSelfOutput {
+	return o
+}
+
+func (o GetCatalogEntryDefaultLinksSelfOutput) ToGetCatalogEntryDefaultLinksSelfPtrOutput() GetCatalogEntryDefaultLinksSelfPtrOutput {
+	return o.ToGetCatalogEntryDefaultLinksSelfPtrOutputWithContext(context.Background())
+}
+
+func (o GetCatalogEntryDefaultLinksSelfOutput) ToGetCatalogEntryDefaultLinksSelfPtrOutputWithContext(ctx context.Context) GetCatalogEntryDefaultLinksSelfPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetCatalogEntryDefaultLinksSelf) *GetCatalogEntryDefaultLinksSelf {
+		return &v
+	}).(GetCatalogEntryDefaultLinksSelfPtrOutput)
+}
+
+// Contains the absolute API URL for retrieving this catalog entry resource.
+func (o GetCatalogEntryDefaultLinksSelfOutput) Href() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCatalogEntryDefaultLinksSelf) string { return v.Href }).(pulumi.StringOutput)
+}
+
+type GetCatalogEntryDefaultLinksSelfPtrOutput struct{ *pulumi.OutputState }
+
+func (GetCatalogEntryDefaultLinksSelfPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetCatalogEntryDefaultLinksSelf)(nil)).Elem()
+}
+
+func (o GetCatalogEntryDefaultLinksSelfPtrOutput) ToGetCatalogEntryDefaultLinksSelfPtrOutput() GetCatalogEntryDefaultLinksSelfPtrOutput {
+	return o
+}
+
+func (o GetCatalogEntryDefaultLinksSelfPtrOutput) ToGetCatalogEntryDefaultLinksSelfPtrOutputWithContext(ctx context.Context) GetCatalogEntryDefaultLinksSelfPtrOutput {
+	return o
+}
+
+func (o GetCatalogEntryDefaultLinksSelfPtrOutput) Elem() GetCatalogEntryDefaultLinksSelfOutput {
+	return o.ApplyT(func(v *GetCatalogEntryDefaultLinksSelf) GetCatalogEntryDefaultLinksSelf {
+		if v != nil {
+			return *v
+		}
+		var ret GetCatalogEntryDefaultLinksSelf
+		return ret
+	}).(GetCatalogEntryDefaultLinksSelfOutput)
+}
+
+// Contains the absolute API URL for retrieving this catalog entry resource.
+func (o GetCatalogEntryDefaultLinksSelfPtrOutput) Href() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetCatalogEntryDefaultLinksSelf) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Href
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetCatalogEntryUserAccessRequestFieldsData struct {
+	// Valid choices when type is SELECT or MULTISELECT.
+	Choices []GetCatalogEntryUserAccessRequestFieldsDataChoice `pulumi:"choices"`
+	Id      string                                             `pulumi:"id"`
+	// Label of the requester field.
+	Label string `pulumi:"label"`
+	// The maximum value allowed for this field. Only applies to DURATION fields.
+	MaximumValue string `pulumi:"maximumValue"`
+	// Indicates this field is immutable.
+	ReadOnly bool `pulumi:"readOnly"`
+	// Indicates whether a value to this field is required to advance the request.
+	Required bool `pulumi:"required"`
+	// Type of value for the requester field.
+	Type string `pulumi:"type"`
+	// An admin configured value for this field. Only applies to DURATION fields.
+	Value string `pulumi:"value"`
+}
+
+// GetCatalogEntryUserAccessRequestFieldsDataInput is an input type that accepts GetCatalogEntryUserAccessRequestFieldsDataArgs and GetCatalogEntryUserAccessRequestFieldsDataOutput values.
+// You can construct a concrete instance of `GetCatalogEntryUserAccessRequestFieldsDataInput` via:
+//
+//	GetCatalogEntryUserAccessRequestFieldsDataArgs{...}
+type GetCatalogEntryUserAccessRequestFieldsDataInput interface {
+	pulumi.Input
+
+	ToGetCatalogEntryUserAccessRequestFieldsDataOutput() GetCatalogEntryUserAccessRequestFieldsDataOutput
+	ToGetCatalogEntryUserAccessRequestFieldsDataOutputWithContext(context.Context) GetCatalogEntryUserAccessRequestFieldsDataOutput
+}
+
+type GetCatalogEntryUserAccessRequestFieldsDataArgs struct {
+	// Valid choices when type is SELECT or MULTISELECT.
+	Choices GetCatalogEntryUserAccessRequestFieldsDataChoiceArrayInput `pulumi:"choices"`
+	Id      pulumi.StringInput                                         `pulumi:"id"`
+	// Label of the requester field.
+	Label pulumi.StringInput `pulumi:"label"`
+	// The maximum value allowed for this field. Only applies to DURATION fields.
+	MaximumValue pulumi.StringInput `pulumi:"maximumValue"`
+	// Indicates this field is immutable.
+	ReadOnly pulumi.BoolInput `pulumi:"readOnly"`
+	// Indicates whether a value to this field is required to advance the request.
+	Required pulumi.BoolInput `pulumi:"required"`
+	// Type of value for the requester field.
+	Type pulumi.StringInput `pulumi:"type"`
+	// An admin configured value for this field. Only applies to DURATION fields.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetCatalogEntryUserAccessRequestFieldsDataArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCatalogEntryUserAccessRequestFieldsData)(nil)).Elem()
+}
+
+func (i GetCatalogEntryUserAccessRequestFieldsDataArgs) ToGetCatalogEntryUserAccessRequestFieldsDataOutput() GetCatalogEntryUserAccessRequestFieldsDataOutput {
+	return i.ToGetCatalogEntryUserAccessRequestFieldsDataOutputWithContext(context.Background())
+}
+
+func (i GetCatalogEntryUserAccessRequestFieldsDataArgs) ToGetCatalogEntryUserAccessRequestFieldsDataOutputWithContext(ctx context.Context) GetCatalogEntryUserAccessRequestFieldsDataOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCatalogEntryUserAccessRequestFieldsDataOutput)
+}
+
+// GetCatalogEntryUserAccessRequestFieldsDataArrayInput is an input type that accepts GetCatalogEntryUserAccessRequestFieldsDataArray and GetCatalogEntryUserAccessRequestFieldsDataArrayOutput values.
+// You can construct a concrete instance of `GetCatalogEntryUserAccessRequestFieldsDataArrayInput` via:
+//
+//	GetCatalogEntryUserAccessRequestFieldsDataArray{ GetCatalogEntryUserAccessRequestFieldsDataArgs{...} }
+type GetCatalogEntryUserAccessRequestFieldsDataArrayInput interface {
+	pulumi.Input
+
+	ToGetCatalogEntryUserAccessRequestFieldsDataArrayOutput() GetCatalogEntryUserAccessRequestFieldsDataArrayOutput
+	ToGetCatalogEntryUserAccessRequestFieldsDataArrayOutputWithContext(context.Context) GetCatalogEntryUserAccessRequestFieldsDataArrayOutput
+}
+
+type GetCatalogEntryUserAccessRequestFieldsDataArray []GetCatalogEntryUserAccessRequestFieldsDataInput
+
+func (GetCatalogEntryUserAccessRequestFieldsDataArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCatalogEntryUserAccessRequestFieldsData)(nil)).Elem()
+}
+
+func (i GetCatalogEntryUserAccessRequestFieldsDataArray) ToGetCatalogEntryUserAccessRequestFieldsDataArrayOutput() GetCatalogEntryUserAccessRequestFieldsDataArrayOutput {
+	return i.ToGetCatalogEntryUserAccessRequestFieldsDataArrayOutputWithContext(context.Background())
+}
+
+func (i GetCatalogEntryUserAccessRequestFieldsDataArray) ToGetCatalogEntryUserAccessRequestFieldsDataArrayOutputWithContext(ctx context.Context) GetCatalogEntryUserAccessRequestFieldsDataArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCatalogEntryUserAccessRequestFieldsDataArrayOutput)
+}
+
+type GetCatalogEntryUserAccessRequestFieldsDataOutput struct{ *pulumi.OutputState }
+
+func (GetCatalogEntryUserAccessRequestFieldsDataOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCatalogEntryUserAccessRequestFieldsData)(nil)).Elem()
+}
+
+func (o GetCatalogEntryUserAccessRequestFieldsDataOutput) ToGetCatalogEntryUserAccessRequestFieldsDataOutput() GetCatalogEntryUserAccessRequestFieldsDataOutput {
+	return o
+}
+
+func (o GetCatalogEntryUserAccessRequestFieldsDataOutput) ToGetCatalogEntryUserAccessRequestFieldsDataOutputWithContext(ctx context.Context) GetCatalogEntryUserAccessRequestFieldsDataOutput {
+	return o
+}
+
+// Valid choices when type is SELECT or MULTISELECT.
+func (o GetCatalogEntryUserAccessRequestFieldsDataOutput) Choices() GetCatalogEntryUserAccessRequestFieldsDataChoiceArrayOutput {
+	return o.ApplyT(func(v GetCatalogEntryUserAccessRequestFieldsData) []GetCatalogEntryUserAccessRequestFieldsDataChoice {
+		return v.Choices
+	}).(GetCatalogEntryUserAccessRequestFieldsDataChoiceArrayOutput)
+}
+
+func (o GetCatalogEntryUserAccessRequestFieldsDataOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCatalogEntryUserAccessRequestFieldsData) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Label of the requester field.
+func (o GetCatalogEntryUserAccessRequestFieldsDataOutput) Label() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCatalogEntryUserAccessRequestFieldsData) string { return v.Label }).(pulumi.StringOutput)
+}
+
+// The maximum value allowed for this field. Only applies to DURATION fields.
+func (o GetCatalogEntryUserAccessRequestFieldsDataOutput) MaximumValue() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCatalogEntryUserAccessRequestFieldsData) string { return v.MaximumValue }).(pulumi.StringOutput)
+}
+
+// Indicates this field is immutable.
+func (o GetCatalogEntryUserAccessRequestFieldsDataOutput) ReadOnly() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetCatalogEntryUserAccessRequestFieldsData) bool { return v.ReadOnly }).(pulumi.BoolOutput)
+}
+
+// Indicates whether a value to this field is required to advance the request.
+func (o GetCatalogEntryUserAccessRequestFieldsDataOutput) Required() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetCatalogEntryUserAccessRequestFieldsData) bool { return v.Required }).(pulumi.BoolOutput)
+}
+
+// Type of value for the requester field.
+func (o GetCatalogEntryUserAccessRequestFieldsDataOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCatalogEntryUserAccessRequestFieldsData) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// An admin configured value for this field. Only applies to DURATION fields.
+func (o GetCatalogEntryUserAccessRequestFieldsDataOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCatalogEntryUserAccessRequestFieldsData) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetCatalogEntryUserAccessRequestFieldsDataArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCatalogEntryUserAccessRequestFieldsDataArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCatalogEntryUserAccessRequestFieldsData)(nil)).Elem()
+}
+
+func (o GetCatalogEntryUserAccessRequestFieldsDataArrayOutput) ToGetCatalogEntryUserAccessRequestFieldsDataArrayOutput() GetCatalogEntryUserAccessRequestFieldsDataArrayOutput {
+	return o
+}
+
+func (o GetCatalogEntryUserAccessRequestFieldsDataArrayOutput) ToGetCatalogEntryUserAccessRequestFieldsDataArrayOutputWithContext(ctx context.Context) GetCatalogEntryUserAccessRequestFieldsDataArrayOutput {
+	return o
+}
+
+func (o GetCatalogEntryUserAccessRequestFieldsDataArrayOutput) Index(i pulumi.IntInput) GetCatalogEntryUserAccessRequestFieldsDataOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCatalogEntryUserAccessRequestFieldsData {
+		return vs[0].([]GetCatalogEntryUserAccessRequestFieldsData)[vs[1].(int)]
+	}).(GetCatalogEntryUserAccessRequestFieldsDataOutput)
+}
+
+type GetCatalogEntryUserAccessRequestFieldsDataChoice struct {
+	// Valid choice.
+	Choice string `pulumi:"choice"`
+}
+
+// GetCatalogEntryUserAccessRequestFieldsDataChoiceInput is an input type that accepts GetCatalogEntryUserAccessRequestFieldsDataChoiceArgs and GetCatalogEntryUserAccessRequestFieldsDataChoiceOutput values.
+// You can construct a concrete instance of `GetCatalogEntryUserAccessRequestFieldsDataChoiceInput` via:
+//
+//	GetCatalogEntryUserAccessRequestFieldsDataChoiceArgs{...}
+type GetCatalogEntryUserAccessRequestFieldsDataChoiceInput interface {
+	pulumi.Input
+
+	ToGetCatalogEntryUserAccessRequestFieldsDataChoiceOutput() GetCatalogEntryUserAccessRequestFieldsDataChoiceOutput
+	ToGetCatalogEntryUserAccessRequestFieldsDataChoiceOutputWithContext(context.Context) GetCatalogEntryUserAccessRequestFieldsDataChoiceOutput
+}
+
+type GetCatalogEntryUserAccessRequestFieldsDataChoiceArgs struct {
+	// Valid choice.
+	Choice pulumi.StringInput `pulumi:"choice"`
+}
+
+func (GetCatalogEntryUserAccessRequestFieldsDataChoiceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCatalogEntryUserAccessRequestFieldsDataChoice)(nil)).Elem()
+}
+
+func (i GetCatalogEntryUserAccessRequestFieldsDataChoiceArgs) ToGetCatalogEntryUserAccessRequestFieldsDataChoiceOutput() GetCatalogEntryUserAccessRequestFieldsDataChoiceOutput {
+	return i.ToGetCatalogEntryUserAccessRequestFieldsDataChoiceOutputWithContext(context.Background())
+}
+
+func (i GetCatalogEntryUserAccessRequestFieldsDataChoiceArgs) ToGetCatalogEntryUserAccessRequestFieldsDataChoiceOutputWithContext(ctx context.Context) GetCatalogEntryUserAccessRequestFieldsDataChoiceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCatalogEntryUserAccessRequestFieldsDataChoiceOutput)
+}
+
+// GetCatalogEntryUserAccessRequestFieldsDataChoiceArrayInput is an input type that accepts GetCatalogEntryUserAccessRequestFieldsDataChoiceArray and GetCatalogEntryUserAccessRequestFieldsDataChoiceArrayOutput values.
+// You can construct a concrete instance of `GetCatalogEntryUserAccessRequestFieldsDataChoiceArrayInput` via:
+//
+//	GetCatalogEntryUserAccessRequestFieldsDataChoiceArray{ GetCatalogEntryUserAccessRequestFieldsDataChoiceArgs{...} }
+type GetCatalogEntryUserAccessRequestFieldsDataChoiceArrayInput interface {
+	pulumi.Input
+
+	ToGetCatalogEntryUserAccessRequestFieldsDataChoiceArrayOutput() GetCatalogEntryUserAccessRequestFieldsDataChoiceArrayOutput
+	ToGetCatalogEntryUserAccessRequestFieldsDataChoiceArrayOutputWithContext(context.Context) GetCatalogEntryUserAccessRequestFieldsDataChoiceArrayOutput
+}
+
+type GetCatalogEntryUserAccessRequestFieldsDataChoiceArray []GetCatalogEntryUserAccessRequestFieldsDataChoiceInput
+
+func (GetCatalogEntryUserAccessRequestFieldsDataChoiceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCatalogEntryUserAccessRequestFieldsDataChoice)(nil)).Elem()
+}
+
+func (i GetCatalogEntryUserAccessRequestFieldsDataChoiceArray) ToGetCatalogEntryUserAccessRequestFieldsDataChoiceArrayOutput() GetCatalogEntryUserAccessRequestFieldsDataChoiceArrayOutput {
+	return i.ToGetCatalogEntryUserAccessRequestFieldsDataChoiceArrayOutputWithContext(context.Background())
+}
+
+func (i GetCatalogEntryUserAccessRequestFieldsDataChoiceArray) ToGetCatalogEntryUserAccessRequestFieldsDataChoiceArrayOutputWithContext(ctx context.Context) GetCatalogEntryUserAccessRequestFieldsDataChoiceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCatalogEntryUserAccessRequestFieldsDataChoiceArrayOutput)
+}
+
+type GetCatalogEntryUserAccessRequestFieldsDataChoiceOutput struct{ *pulumi.OutputState }
+
+func (GetCatalogEntryUserAccessRequestFieldsDataChoiceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCatalogEntryUserAccessRequestFieldsDataChoice)(nil)).Elem()
+}
+
+func (o GetCatalogEntryUserAccessRequestFieldsDataChoiceOutput) ToGetCatalogEntryUserAccessRequestFieldsDataChoiceOutput() GetCatalogEntryUserAccessRequestFieldsDataChoiceOutput {
+	return o
+}
+
+func (o GetCatalogEntryUserAccessRequestFieldsDataChoiceOutput) ToGetCatalogEntryUserAccessRequestFieldsDataChoiceOutputWithContext(ctx context.Context) GetCatalogEntryUserAccessRequestFieldsDataChoiceOutput {
+	return o
+}
+
+// Valid choice.
+func (o GetCatalogEntryUserAccessRequestFieldsDataChoiceOutput) Choice() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCatalogEntryUserAccessRequestFieldsDataChoice) string { return v.Choice }).(pulumi.StringOutput)
+}
+
+type GetCatalogEntryUserAccessRequestFieldsDataChoiceArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCatalogEntryUserAccessRequestFieldsDataChoiceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCatalogEntryUserAccessRequestFieldsDataChoice)(nil)).Elem()
+}
+
+func (o GetCatalogEntryUserAccessRequestFieldsDataChoiceArrayOutput) ToGetCatalogEntryUserAccessRequestFieldsDataChoiceArrayOutput() GetCatalogEntryUserAccessRequestFieldsDataChoiceArrayOutput {
+	return o
+}
+
+func (o GetCatalogEntryUserAccessRequestFieldsDataChoiceArrayOutput) ToGetCatalogEntryUserAccessRequestFieldsDataChoiceArrayOutputWithContext(ctx context.Context) GetCatalogEntryUserAccessRequestFieldsDataChoiceArrayOutput {
+	return o
+}
+
+func (o GetCatalogEntryUserAccessRequestFieldsDataChoiceArrayOutput) Index(i pulumi.IntInput) GetCatalogEntryUserAccessRequestFieldsDataChoiceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCatalogEntryUserAccessRequestFieldsDataChoice {
+		return vs[0].([]GetCatalogEntryUserAccessRequestFieldsDataChoice)[vs[1].(int)]
+	}).(GetCatalogEntryUserAccessRequestFieldsDataChoiceOutput)
 }
 
 type GetDefaultSigninPageContentSecurityPolicySetting struct {
@@ -6125,6 +15285,1672 @@ func (o GetEmailCustomizationsEmailCustomizationArrayOutput) Index(i pulumi.IntI
 	}).(GetEmailCustomizationsEmailCustomizationOutput)
 }
 
+type GetEndUserMyRequestsRequested struct {
+	// ID of the access scope
+	AccessScopeId string `pulumi:"accessScopeId"`
+	// The access scope type
+	AccessScopeType string `pulumi:"accessScopeType"`
+	// The ID of the catalog entry for which the request was made.
+	EntryId string `pulumi:"entryId"`
+	// The requested resource ID
+	ResourceId string `pulumi:"resourceId"`
+	// The requested resource type.
+	ResourceType string `pulumi:"resourceType"`
+}
+
+// GetEndUserMyRequestsRequestedInput is an input type that accepts GetEndUserMyRequestsRequestedArgs and GetEndUserMyRequestsRequestedOutput values.
+// You can construct a concrete instance of `GetEndUserMyRequestsRequestedInput` via:
+//
+//	GetEndUserMyRequestsRequestedArgs{...}
+type GetEndUserMyRequestsRequestedInput interface {
+	pulumi.Input
+
+	ToGetEndUserMyRequestsRequestedOutput() GetEndUserMyRequestsRequestedOutput
+	ToGetEndUserMyRequestsRequestedOutputWithContext(context.Context) GetEndUserMyRequestsRequestedOutput
+}
+
+type GetEndUserMyRequestsRequestedArgs struct {
+	// ID of the access scope
+	AccessScopeId pulumi.StringInput `pulumi:"accessScopeId"`
+	// The access scope type
+	AccessScopeType pulumi.StringInput `pulumi:"accessScopeType"`
+	// The ID of the catalog entry for which the request was made.
+	EntryId pulumi.StringInput `pulumi:"entryId"`
+	// The requested resource ID
+	ResourceId pulumi.StringInput `pulumi:"resourceId"`
+	// The requested resource type.
+	ResourceType pulumi.StringInput `pulumi:"resourceType"`
+}
+
+func (GetEndUserMyRequestsRequestedArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEndUserMyRequestsRequested)(nil)).Elem()
+}
+
+func (i GetEndUserMyRequestsRequestedArgs) ToGetEndUserMyRequestsRequestedOutput() GetEndUserMyRequestsRequestedOutput {
+	return i.ToGetEndUserMyRequestsRequestedOutputWithContext(context.Background())
+}
+
+func (i GetEndUserMyRequestsRequestedArgs) ToGetEndUserMyRequestsRequestedOutputWithContext(ctx context.Context) GetEndUserMyRequestsRequestedOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEndUserMyRequestsRequestedOutput)
+}
+
+func (i GetEndUserMyRequestsRequestedArgs) ToGetEndUserMyRequestsRequestedPtrOutput() GetEndUserMyRequestsRequestedPtrOutput {
+	return i.ToGetEndUserMyRequestsRequestedPtrOutputWithContext(context.Background())
+}
+
+func (i GetEndUserMyRequestsRequestedArgs) ToGetEndUserMyRequestsRequestedPtrOutputWithContext(ctx context.Context) GetEndUserMyRequestsRequestedPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEndUserMyRequestsRequestedOutput).ToGetEndUserMyRequestsRequestedPtrOutputWithContext(ctx)
+}
+
+// GetEndUserMyRequestsRequestedPtrInput is an input type that accepts GetEndUserMyRequestsRequestedArgs, GetEndUserMyRequestsRequestedPtr and GetEndUserMyRequestsRequestedPtrOutput values.
+// You can construct a concrete instance of `GetEndUserMyRequestsRequestedPtrInput` via:
+//
+//	        GetEndUserMyRequestsRequestedArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetEndUserMyRequestsRequestedPtrInput interface {
+	pulumi.Input
+
+	ToGetEndUserMyRequestsRequestedPtrOutput() GetEndUserMyRequestsRequestedPtrOutput
+	ToGetEndUserMyRequestsRequestedPtrOutputWithContext(context.Context) GetEndUserMyRequestsRequestedPtrOutput
+}
+
+type getEndUserMyRequestsRequestedPtrType GetEndUserMyRequestsRequestedArgs
+
+func GetEndUserMyRequestsRequestedPtr(v *GetEndUserMyRequestsRequestedArgs) GetEndUserMyRequestsRequestedPtrInput {
+	return (*getEndUserMyRequestsRequestedPtrType)(v)
+}
+
+func (*getEndUserMyRequestsRequestedPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetEndUserMyRequestsRequested)(nil)).Elem()
+}
+
+func (i *getEndUserMyRequestsRequestedPtrType) ToGetEndUserMyRequestsRequestedPtrOutput() GetEndUserMyRequestsRequestedPtrOutput {
+	return i.ToGetEndUserMyRequestsRequestedPtrOutputWithContext(context.Background())
+}
+
+func (i *getEndUserMyRequestsRequestedPtrType) ToGetEndUserMyRequestsRequestedPtrOutputWithContext(ctx context.Context) GetEndUserMyRequestsRequestedPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEndUserMyRequestsRequestedPtrOutput)
+}
+
+type GetEndUserMyRequestsRequestedOutput struct{ *pulumi.OutputState }
+
+func (GetEndUserMyRequestsRequestedOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEndUserMyRequestsRequested)(nil)).Elem()
+}
+
+func (o GetEndUserMyRequestsRequestedOutput) ToGetEndUserMyRequestsRequestedOutput() GetEndUserMyRequestsRequestedOutput {
+	return o
+}
+
+func (o GetEndUserMyRequestsRequestedOutput) ToGetEndUserMyRequestsRequestedOutputWithContext(ctx context.Context) GetEndUserMyRequestsRequestedOutput {
+	return o
+}
+
+func (o GetEndUserMyRequestsRequestedOutput) ToGetEndUserMyRequestsRequestedPtrOutput() GetEndUserMyRequestsRequestedPtrOutput {
+	return o.ToGetEndUserMyRequestsRequestedPtrOutputWithContext(context.Background())
+}
+
+func (o GetEndUserMyRequestsRequestedOutput) ToGetEndUserMyRequestsRequestedPtrOutputWithContext(ctx context.Context) GetEndUserMyRequestsRequestedPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetEndUserMyRequestsRequested) *GetEndUserMyRequestsRequested {
+		return &v
+	}).(GetEndUserMyRequestsRequestedPtrOutput)
+}
+
+// ID of the access scope
+func (o GetEndUserMyRequestsRequestedOutput) AccessScopeId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEndUserMyRequestsRequested) string { return v.AccessScopeId }).(pulumi.StringOutput)
+}
+
+// The access scope type
+func (o GetEndUserMyRequestsRequestedOutput) AccessScopeType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEndUserMyRequestsRequested) string { return v.AccessScopeType }).(pulumi.StringOutput)
+}
+
+// The ID of the catalog entry for which the request was made.
+func (o GetEndUserMyRequestsRequestedOutput) EntryId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEndUserMyRequestsRequested) string { return v.EntryId }).(pulumi.StringOutput)
+}
+
+// The requested resource ID
+func (o GetEndUserMyRequestsRequestedOutput) ResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEndUserMyRequestsRequested) string { return v.ResourceId }).(pulumi.StringOutput)
+}
+
+// The requested resource type.
+func (o GetEndUserMyRequestsRequestedOutput) ResourceType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEndUserMyRequestsRequested) string { return v.ResourceType }).(pulumi.StringOutput)
+}
+
+type GetEndUserMyRequestsRequestedPtrOutput struct{ *pulumi.OutputState }
+
+func (GetEndUserMyRequestsRequestedPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetEndUserMyRequestsRequested)(nil)).Elem()
+}
+
+func (o GetEndUserMyRequestsRequestedPtrOutput) ToGetEndUserMyRequestsRequestedPtrOutput() GetEndUserMyRequestsRequestedPtrOutput {
+	return o
+}
+
+func (o GetEndUserMyRequestsRequestedPtrOutput) ToGetEndUserMyRequestsRequestedPtrOutputWithContext(ctx context.Context) GetEndUserMyRequestsRequestedPtrOutput {
+	return o
+}
+
+func (o GetEndUserMyRequestsRequestedPtrOutput) Elem() GetEndUserMyRequestsRequestedOutput {
+	return o.ApplyT(func(v *GetEndUserMyRequestsRequested) GetEndUserMyRequestsRequested {
+		if v != nil {
+			return *v
+		}
+		var ret GetEndUserMyRequestsRequested
+		return ret
+	}).(GetEndUserMyRequestsRequestedOutput)
+}
+
+// ID of the access scope
+func (o GetEndUserMyRequestsRequestedPtrOutput) AccessScopeId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetEndUserMyRequestsRequested) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AccessScopeId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The access scope type
+func (o GetEndUserMyRequestsRequestedPtrOutput) AccessScopeType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetEndUserMyRequestsRequested) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AccessScopeType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of the catalog entry for which the request was made.
+func (o GetEndUserMyRequestsRequestedPtrOutput) EntryId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetEndUserMyRequestsRequested) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.EntryId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The requested resource ID
+func (o GetEndUserMyRequestsRequestedPtrOutput) ResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetEndUserMyRequestsRequested) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ResourceId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The requested resource type.
+func (o GetEndUserMyRequestsRequestedPtrOutput) ResourceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetEndUserMyRequestsRequested) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ResourceType
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetEndUserMyRequestsRequestedBy struct {
+	// The Okta user id
+	ExternalId string `pulumi:"externalId"`
+	// The type of principal
+	Type string `pulumi:"type"`
+}
+
+// GetEndUserMyRequestsRequestedByInput is an input type that accepts GetEndUserMyRequestsRequestedByArgs and GetEndUserMyRequestsRequestedByOutput values.
+// You can construct a concrete instance of `GetEndUserMyRequestsRequestedByInput` via:
+//
+//	GetEndUserMyRequestsRequestedByArgs{...}
+type GetEndUserMyRequestsRequestedByInput interface {
+	pulumi.Input
+
+	ToGetEndUserMyRequestsRequestedByOutput() GetEndUserMyRequestsRequestedByOutput
+	ToGetEndUserMyRequestsRequestedByOutputWithContext(context.Context) GetEndUserMyRequestsRequestedByOutput
+}
+
+type GetEndUserMyRequestsRequestedByArgs struct {
+	// The Okta user id
+	ExternalId pulumi.StringInput `pulumi:"externalId"`
+	// The type of principal
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetEndUserMyRequestsRequestedByArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEndUserMyRequestsRequestedBy)(nil)).Elem()
+}
+
+func (i GetEndUserMyRequestsRequestedByArgs) ToGetEndUserMyRequestsRequestedByOutput() GetEndUserMyRequestsRequestedByOutput {
+	return i.ToGetEndUserMyRequestsRequestedByOutputWithContext(context.Background())
+}
+
+func (i GetEndUserMyRequestsRequestedByArgs) ToGetEndUserMyRequestsRequestedByOutputWithContext(ctx context.Context) GetEndUserMyRequestsRequestedByOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEndUserMyRequestsRequestedByOutput)
+}
+
+func (i GetEndUserMyRequestsRequestedByArgs) ToGetEndUserMyRequestsRequestedByPtrOutput() GetEndUserMyRequestsRequestedByPtrOutput {
+	return i.ToGetEndUserMyRequestsRequestedByPtrOutputWithContext(context.Background())
+}
+
+func (i GetEndUserMyRequestsRequestedByArgs) ToGetEndUserMyRequestsRequestedByPtrOutputWithContext(ctx context.Context) GetEndUserMyRequestsRequestedByPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEndUserMyRequestsRequestedByOutput).ToGetEndUserMyRequestsRequestedByPtrOutputWithContext(ctx)
+}
+
+// GetEndUserMyRequestsRequestedByPtrInput is an input type that accepts GetEndUserMyRequestsRequestedByArgs, GetEndUserMyRequestsRequestedByPtr and GetEndUserMyRequestsRequestedByPtrOutput values.
+// You can construct a concrete instance of `GetEndUserMyRequestsRequestedByPtrInput` via:
+//
+//	        GetEndUserMyRequestsRequestedByArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetEndUserMyRequestsRequestedByPtrInput interface {
+	pulumi.Input
+
+	ToGetEndUserMyRequestsRequestedByPtrOutput() GetEndUserMyRequestsRequestedByPtrOutput
+	ToGetEndUserMyRequestsRequestedByPtrOutputWithContext(context.Context) GetEndUserMyRequestsRequestedByPtrOutput
+}
+
+type getEndUserMyRequestsRequestedByPtrType GetEndUserMyRequestsRequestedByArgs
+
+func GetEndUserMyRequestsRequestedByPtr(v *GetEndUserMyRequestsRequestedByArgs) GetEndUserMyRequestsRequestedByPtrInput {
+	return (*getEndUserMyRequestsRequestedByPtrType)(v)
+}
+
+func (*getEndUserMyRequestsRequestedByPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetEndUserMyRequestsRequestedBy)(nil)).Elem()
+}
+
+func (i *getEndUserMyRequestsRequestedByPtrType) ToGetEndUserMyRequestsRequestedByPtrOutput() GetEndUserMyRequestsRequestedByPtrOutput {
+	return i.ToGetEndUserMyRequestsRequestedByPtrOutputWithContext(context.Background())
+}
+
+func (i *getEndUserMyRequestsRequestedByPtrType) ToGetEndUserMyRequestsRequestedByPtrOutputWithContext(ctx context.Context) GetEndUserMyRequestsRequestedByPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEndUserMyRequestsRequestedByPtrOutput)
+}
+
+type GetEndUserMyRequestsRequestedByOutput struct{ *pulumi.OutputState }
+
+func (GetEndUserMyRequestsRequestedByOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEndUserMyRequestsRequestedBy)(nil)).Elem()
+}
+
+func (o GetEndUserMyRequestsRequestedByOutput) ToGetEndUserMyRequestsRequestedByOutput() GetEndUserMyRequestsRequestedByOutput {
+	return o
+}
+
+func (o GetEndUserMyRequestsRequestedByOutput) ToGetEndUserMyRequestsRequestedByOutputWithContext(ctx context.Context) GetEndUserMyRequestsRequestedByOutput {
+	return o
+}
+
+func (o GetEndUserMyRequestsRequestedByOutput) ToGetEndUserMyRequestsRequestedByPtrOutput() GetEndUserMyRequestsRequestedByPtrOutput {
+	return o.ToGetEndUserMyRequestsRequestedByPtrOutputWithContext(context.Background())
+}
+
+func (o GetEndUserMyRequestsRequestedByOutput) ToGetEndUserMyRequestsRequestedByPtrOutputWithContext(ctx context.Context) GetEndUserMyRequestsRequestedByPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetEndUserMyRequestsRequestedBy) *GetEndUserMyRequestsRequestedBy {
+		return &v
+	}).(GetEndUserMyRequestsRequestedByPtrOutput)
+}
+
+// The Okta user id
+func (o GetEndUserMyRequestsRequestedByOutput) ExternalId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEndUserMyRequestsRequestedBy) string { return v.ExternalId }).(pulumi.StringOutput)
+}
+
+// The type of principal
+func (o GetEndUserMyRequestsRequestedByOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEndUserMyRequestsRequestedBy) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetEndUserMyRequestsRequestedByPtrOutput struct{ *pulumi.OutputState }
+
+func (GetEndUserMyRequestsRequestedByPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetEndUserMyRequestsRequestedBy)(nil)).Elem()
+}
+
+func (o GetEndUserMyRequestsRequestedByPtrOutput) ToGetEndUserMyRequestsRequestedByPtrOutput() GetEndUserMyRequestsRequestedByPtrOutput {
+	return o
+}
+
+func (o GetEndUserMyRequestsRequestedByPtrOutput) ToGetEndUserMyRequestsRequestedByPtrOutputWithContext(ctx context.Context) GetEndUserMyRequestsRequestedByPtrOutput {
+	return o
+}
+
+func (o GetEndUserMyRequestsRequestedByPtrOutput) Elem() GetEndUserMyRequestsRequestedByOutput {
+	return o.ApplyT(func(v *GetEndUserMyRequestsRequestedBy) GetEndUserMyRequestsRequestedBy {
+		if v != nil {
+			return *v
+		}
+		var ret GetEndUserMyRequestsRequestedBy
+		return ret
+	}).(GetEndUserMyRequestsRequestedByOutput)
+}
+
+// The Okta user id
+func (o GetEndUserMyRequestsRequestedByPtrOutput) ExternalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetEndUserMyRequestsRequestedBy) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ExternalId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of principal
+func (o GetEndUserMyRequestsRequestedByPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetEndUserMyRequestsRequestedBy) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetEndUserMyRequestsRequestedFor struct {
+	// The Okta user id
+	ExternalId string `pulumi:"externalId"`
+	// The type of principal
+	Type string `pulumi:"type"`
+}
+
+// GetEndUserMyRequestsRequestedForInput is an input type that accepts GetEndUserMyRequestsRequestedForArgs and GetEndUserMyRequestsRequestedForOutput values.
+// You can construct a concrete instance of `GetEndUserMyRequestsRequestedForInput` via:
+//
+//	GetEndUserMyRequestsRequestedForArgs{...}
+type GetEndUserMyRequestsRequestedForInput interface {
+	pulumi.Input
+
+	ToGetEndUserMyRequestsRequestedForOutput() GetEndUserMyRequestsRequestedForOutput
+	ToGetEndUserMyRequestsRequestedForOutputWithContext(context.Context) GetEndUserMyRequestsRequestedForOutput
+}
+
+type GetEndUserMyRequestsRequestedForArgs struct {
+	// The Okta user id
+	ExternalId pulumi.StringInput `pulumi:"externalId"`
+	// The type of principal
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetEndUserMyRequestsRequestedForArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEndUserMyRequestsRequestedFor)(nil)).Elem()
+}
+
+func (i GetEndUserMyRequestsRequestedForArgs) ToGetEndUserMyRequestsRequestedForOutput() GetEndUserMyRequestsRequestedForOutput {
+	return i.ToGetEndUserMyRequestsRequestedForOutputWithContext(context.Background())
+}
+
+func (i GetEndUserMyRequestsRequestedForArgs) ToGetEndUserMyRequestsRequestedForOutputWithContext(ctx context.Context) GetEndUserMyRequestsRequestedForOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEndUserMyRequestsRequestedForOutput)
+}
+
+func (i GetEndUserMyRequestsRequestedForArgs) ToGetEndUserMyRequestsRequestedForPtrOutput() GetEndUserMyRequestsRequestedForPtrOutput {
+	return i.ToGetEndUserMyRequestsRequestedForPtrOutputWithContext(context.Background())
+}
+
+func (i GetEndUserMyRequestsRequestedForArgs) ToGetEndUserMyRequestsRequestedForPtrOutputWithContext(ctx context.Context) GetEndUserMyRequestsRequestedForPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEndUserMyRequestsRequestedForOutput).ToGetEndUserMyRequestsRequestedForPtrOutputWithContext(ctx)
+}
+
+// GetEndUserMyRequestsRequestedForPtrInput is an input type that accepts GetEndUserMyRequestsRequestedForArgs, GetEndUserMyRequestsRequestedForPtr and GetEndUserMyRequestsRequestedForPtrOutput values.
+// You can construct a concrete instance of `GetEndUserMyRequestsRequestedForPtrInput` via:
+//
+//	        GetEndUserMyRequestsRequestedForArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetEndUserMyRequestsRequestedForPtrInput interface {
+	pulumi.Input
+
+	ToGetEndUserMyRequestsRequestedForPtrOutput() GetEndUserMyRequestsRequestedForPtrOutput
+	ToGetEndUserMyRequestsRequestedForPtrOutputWithContext(context.Context) GetEndUserMyRequestsRequestedForPtrOutput
+}
+
+type getEndUserMyRequestsRequestedForPtrType GetEndUserMyRequestsRequestedForArgs
+
+func GetEndUserMyRequestsRequestedForPtr(v *GetEndUserMyRequestsRequestedForArgs) GetEndUserMyRequestsRequestedForPtrInput {
+	return (*getEndUserMyRequestsRequestedForPtrType)(v)
+}
+
+func (*getEndUserMyRequestsRequestedForPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetEndUserMyRequestsRequestedFor)(nil)).Elem()
+}
+
+func (i *getEndUserMyRequestsRequestedForPtrType) ToGetEndUserMyRequestsRequestedForPtrOutput() GetEndUserMyRequestsRequestedForPtrOutput {
+	return i.ToGetEndUserMyRequestsRequestedForPtrOutputWithContext(context.Background())
+}
+
+func (i *getEndUserMyRequestsRequestedForPtrType) ToGetEndUserMyRequestsRequestedForPtrOutputWithContext(ctx context.Context) GetEndUserMyRequestsRequestedForPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEndUserMyRequestsRequestedForPtrOutput)
+}
+
+type GetEndUserMyRequestsRequestedForOutput struct{ *pulumi.OutputState }
+
+func (GetEndUserMyRequestsRequestedForOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEndUserMyRequestsRequestedFor)(nil)).Elem()
+}
+
+func (o GetEndUserMyRequestsRequestedForOutput) ToGetEndUserMyRequestsRequestedForOutput() GetEndUserMyRequestsRequestedForOutput {
+	return o
+}
+
+func (o GetEndUserMyRequestsRequestedForOutput) ToGetEndUserMyRequestsRequestedForOutputWithContext(ctx context.Context) GetEndUserMyRequestsRequestedForOutput {
+	return o
+}
+
+func (o GetEndUserMyRequestsRequestedForOutput) ToGetEndUserMyRequestsRequestedForPtrOutput() GetEndUserMyRequestsRequestedForPtrOutput {
+	return o.ToGetEndUserMyRequestsRequestedForPtrOutputWithContext(context.Background())
+}
+
+func (o GetEndUserMyRequestsRequestedForOutput) ToGetEndUserMyRequestsRequestedForPtrOutputWithContext(ctx context.Context) GetEndUserMyRequestsRequestedForPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetEndUserMyRequestsRequestedFor) *GetEndUserMyRequestsRequestedFor {
+		return &v
+	}).(GetEndUserMyRequestsRequestedForPtrOutput)
+}
+
+// The Okta user id
+func (o GetEndUserMyRequestsRequestedForOutput) ExternalId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEndUserMyRequestsRequestedFor) string { return v.ExternalId }).(pulumi.StringOutput)
+}
+
+// The type of principal
+func (o GetEndUserMyRequestsRequestedForOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEndUserMyRequestsRequestedFor) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetEndUserMyRequestsRequestedForPtrOutput struct{ *pulumi.OutputState }
+
+func (GetEndUserMyRequestsRequestedForPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetEndUserMyRequestsRequestedFor)(nil)).Elem()
+}
+
+func (o GetEndUserMyRequestsRequestedForPtrOutput) ToGetEndUserMyRequestsRequestedForPtrOutput() GetEndUserMyRequestsRequestedForPtrOutput {
+	return o
+}
+
+func (o GetEndUserMyRequestsRequestedForPtrOutput) ToGetEndUserMyRequestsRequestedForPtrOutputWithContext(ctx context.Context) GetEndUserMyRequestsRequestedForPtrOutput {
+	return o
+}
+
+func (o GetEndUserMyRequestsRequestedForPtrOutput) Elem() GetEndUserMyRequestsRequestedForOutput {
+	return o.ApplyT(func(v *GetEndUserMyRequestsRequestedFor) GetEndUserMyRequestsRequestedFor {
+		if v != nil {
+			return *v
+		}
+		var ret GetEndUserMyRequestsRequestedFor
+		return ret
+	}).(GetEndUserMyRequestsRequestedForOutput)
+}
+
+// The Okta user id
+func (o GetEndUserMyRequestsRequestedForPtrOutput) ExternalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetEndUserMyRequestsRequestedFor) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ExternalId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of principal
+func (o GetEndUserMyRequestsRequestedForPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetEndUserMyRequestsRequestedFor) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetEndUserMyRequestsRequesterFieldValue struct {
+	// The ID of the requester field.
+	Id string `pulumi:"id"`
+	// A human-readable description of the requester field.
+	Label *string `pulumi:"label"`
+	// Type of value for the requester field. Valid values: `DURATION`, `ISO_DATE`, `MULTISELECT`, `OKTA_USER_ID`, `SELECT`, `TEXT`.
+	Type *string `pulumi:"type"`
+	// The value of the requester field (for single-value fields).
+	Value *string `pulumi:"value"`
+	// The values of the requester field (for MULTISELECT type fields).
+	Values []string `pulumi:"values"`
+}
+
+// GetEndUserMyRequestsRequesterFieldValueInput is an input type that accepts GetEndUserMyRequestsRequesterFieldValueArgs and GetEndUserMyRequestsRequesterFieldValueOutput values.
+// You can construct a concrete instance of `GetEndUserMyRequestsRequesterFieldValueInput` via:
+//
+//	GetEndUserMyRequestsRequesterFieldValueArgs{...}
+type GetEndUserMyRequestsRequesterFieldValueInput interface {
+	pulumi.Input
+
+	ToGetEndUserMyRequestsRequesterFieldValueOutput() GetEndUserMyRequestsRequesterFieldValueOutput
+	ToGetEndUserMyRequestsRequesterFieldValueOutputWithContext(context.Context) GetEndUserMyRequestsRequesterFieldValueOutput
+}
+
+type GetEndUserMyRequestsRequesterFieldValueArgs struct {
+	// The ID of the requester field.
+	Id pulumi.StringInput `pulumi:"id"`
+	// A human-readable description of the requester field.
+	Label pulumi.StringPtrInput `pulumi:"label"`
+	// Type of value for the requester field. Valid values: `DURATION`, `ISO_DATE`, `MULTISELECT`, `OKTA_USER_ID`, `SELECT`, `TEXT`.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+	// The value of the requester field (for single-value fields).
+	Value pulumi.StringPtrInput `pulumi:"value"`
+	// The values of the requester field (for MULTISELECT type fields).
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetEndUserMyRequestsRequesterFieldValueArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEndUserMyRequestsRequesterFieldValue)(nil)).Elem()
+}
+
+func (i GetEndUserMyRequestsRequesterFieldValueArgs) ToGetEndUserMyRequestsRequesterFieldValueOutput() GetEndUserMyRequestsRequesterFieldValueOutput {
+	return i.ToGetEndUserMyRequestsRequesterFieldValueOutputWithContext(context.Background())
+}
+
+func (i GetEndUserMyRequestsRequesterFieldValueArgs) ToGetEndUserMyRequestsRequesterFieldValueOutputWithContext(ctx context.Context) GetEndUserMyRequestsRequesterFieldValueOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEndUserMyRequestsRequesterFieldValueOutput)
+}
+
+// GetEndUserMyRequestsRequesterFieldValueArrayInput is an input type that accepts GetEndUserMyRequestsRequesterFieldValueArray and GetEndUserMyRequestsRequesterFieldValueArrayOutput values.
+// You can construct a concrete instance of `GetEndUserMyRequestsRequesterFieldValueArrayInput` via:
+//
+//	GetEndUserMyRequestsRequesterFieldValueArray{ GetEndUserMyRequestsRequesterFieldValueArgs{...} }
+type GetEndUserMyRequestsRequesterFieldValueArrayInput interface {
+	pulumi.Input
+
+	ToGetEndUserMyRequestsRequesterFieldValueArrayOutput() GetEndUserMyRequestsRequesterFieldValueArrayOutput
+	ToGetEndUserMyRequestsRequesterFieldValueArrayOutputWithContext(context.Context) GetEndUserMyRequestsRequesterFieldValueArrayOutput
+}
+
+type GetEndUserMyRequestsRequesterFieldValueArray []GetEndUserMyRequestsRequesterFieldValueInput
+
+func (GetEndUserMyRequestsRequesterFieldValueArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetEndUserMyRequestsRequesterFieldValue)(nil)).Elem()
+}
+
+func (i GetEndUserMyRequestsRequesterFieldValueArray) ToGetEndUserMyRequestsRequesterFieldValueArrayOutput() GetEndUserMyRequestsRequesterFieldValueArrayOutput {
+	return i.ToGetEndUserMyRequestsRequesterFieldValueArrayOutputWithContext(context.Background())
+}
+
+func (i GetEndUserMyRequestsRequesterFieldValueArray) ToGetEndUserMyRequestsRequesterFieldValueArrayOutputWithContext(ctx context.Context) GetEndUserMyRequestsRequesterFieldValueArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEndUserMyRequestsRequesterFieldValueArrayOutput)
+}
+
+type GetEndUserMyRequestsRequesterFieldValueOutput struct{ *pulumi.OutputState }
+
+func (GetEndUserMyRequestsRequesterFieldValueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEndUserMyRequestsRequesterFieldValue)(nil)).Elem()
+}
+
+func (o GetEndUserMyRequestsRequesterFieldValueOutput) ToGetEndUserMyRequestsRequesterFieldValueOutput() GetEndUserMyRequestsRequesterFieldValueOutput {
+	return o
+}
+
+func (o GetEndUserMyRequestsRequesterFieldValueOutput) ToGetEndUserMyRequestsRequesterFieldValueOutputWithContext(ctx context.Context) GetEndUserMyRequestsRequesterFieldValueOutput {
+	return o
+}
+
+// The ID of the requester field.
+func (o GetEndUserMyRequestsRequesterFieldValueOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEndUserMyRequestsRequesterFieldValue) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// A human-readable description of the requester field.
+func (o GetEndUserMyRequestsRequesterFieldValueOutput) Label() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetEndUserMyRequestsRequesterFieldValue) *string { return v.Label }).(pulumi.StringPtrOutput)
+}
+
+// Type of value for the requester field. Valid values: `DURATION`, `ISO_DATE`, `MULTISELECT`, `OKTA_USER_ID`, `SELECT`, `TEXT`.
+func (o GetEndUserMyRequestsRequesterFieldValueOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetEndUserMyRequestsRequesterFieldValue) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// The value of the requester field (for single-value fields).
+func (o GetEndUserMyRequestsRequesterFieldValueOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetEndUserMyRequestsRequesterFieldValue) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+// The values of the requester field (for MULTISELECT type fields).
+func (o GetEndUserMyRequestsRequesterFieldValueOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetEndUserMyRequestsRequesterFieldValue) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetEndUserMyRequestsRequesterFieldValueArrayOutput struct{ *pulumi.OutputState }
+
+func (GetEndUserMyRequestsRequesterFieldValueArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetEndUserMyRequestsRequesterFieldValue)(nil)).Elem()
+}
+
+func (o GetEndUserMyRequestsRequesterFieldValueArrayOutput) ToGetEndUserMyRequestsRequesterFieldValueArrayOutput() GetEndUserMyRequestsRequesterFieldValueArrayOutput {
+	return o
+}
+
+func (o GetEndUserMyRequestsRequesterFieldValueArrayOutput) ToGetEndUserMyRequestsRequesterFieldValueArrayOutputWithContext(ctx context.Context) GetEndUserMyRequestsRequesterFieldValueArrayOutput {
+	return o
+}
+
+func (o GetEndUserMyRequestsRequesterFieldValueArrayOutput) Index(i pulumi.IntInput) GetEndUserMyRequestsRequesterFieldValueOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetEndUserMyRequestsRequesterFieldValue {
+		return vs[0].([]GetEndUserMyRequestsRequesterFieldValue)[vs[1].(int)]
+	}).(GetEndUserMyRequestsRequesterFieldValueOutput)
+}
+
+type GetEndUserMyRequestsRiskAssessment struct {
+	// Whether request submission is allowed or restricted in the risk settings.
+	RequestSubmissionType *string `pulumi:"requestSubmissionType"`
+	// An array of resources that are excluded from the review.
+	RiskRules []GetEndUserMyRequestsRiskAssessmentRiskRule `pulumi:"riskRules"`
+}
+
+// GetEndUserMyRequestsRiskAssessmentInput is an input type that accepts GetEndUserMyRequestsRiskAssessmentArgs and GetEndUserMyRequestsRiskAssessmentOutput values.
+// You can construct a concrete instance of `GetEndUserMyRequestsRiskAssessmentInput` via:
+//
+//	GetEndUserMyRequestsRiskAssessmentArgs{...}
+type GetEndUserMyRequestsRiskAssessmentInput interface {
+	pulumi.Input
+
+	ToGetEndUserMyRequestsRiskAssessmentOutput() GetEndUserMyRequestsRiskAssessmentOutput
+	ToGetEndUserMyRequestsRiskAssessmentOutputWithContext(context.Context) GetEndUserMyRequestsRiskAssessmentOutput
+}
+
+type GetEndUserMyRequestsRiskAssessmentArgs struct {
+	// Whether request submission is allowed or restricted in the risk settings.
+	RequestSubmissionType pulumi.StringPtrInput `pulumi:"requestSubmissionType"`
+	// An array of resources that are excluded from the review.
+	RiskRules GetEndUserMyRequestsRiskAssessmentRiskRuleArrayInput `pulumi:"riskRules"`
+}
+
+func (GetEndUserMyRequestsRiskAssessmentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEndUserMyRequestsRiskAssessment)(nil)).Elem()
+}
+
+func (i GetEndUserMyRequestsRiskAssessmentArgs) ToGetEndUserMyRequestsRiskAssessmentOutput() GetEndUserMyRequestsRiskAssessmentOutput {
+	return i.ToGetEndUserMyRequestsRiskAssessmentOutputWithContext(context.Background())
+}
+
+func (i GetEndUserMyRequestsRiskAssessmentArgs) ToGetEndUserMyRequestsRiskAssessmentOutputWithContext(ctx context.Context) GetEndUserMyRequestsRiskAssessmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEndUserMyRequestsRiskAssessmentOutput)
+}
+
+func (i GetEndUserMyRequestsRiskAssessmentArgs) ToGetEndUserMyRequestsRiskAssessmentPtrOutput() GetEndUserMyRequestsRiskAssessmentPtrOutput {
+	return i.ToGetEndUserMyRequestsRiskAssessmentPtrOutputWithContext(context.Background())
+}
+
+func (i GetEndUserMyRequestsRiskAssessmentArgs) ToGetEndUserMyRequestsRiskAssessmentPtrOutputWithContext(ctx context.Context) GetEndUserMyRequestsRiskAssessmentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEndUserMyRequestsRiskAssessmentOutput).ToGetEndUserMyRequestsRiskAssessmentPtrOutputWithContext(ctx)
+}
+
+// GetEndUserMyRequestsRiskAssessmentPtrInput is an input type that accepts GetEndUserMyRequestsRiskAssessmentArgs, GetEndUserMyRequestsRiskAssessmentPtr and GetEndUserMyRequestsRiskAssessmentPtrOutput values.
+// You can construct a concrete instance of `GetEndUserMyRequestsRiskAssessmentPtrInput` via:
+//
+//	        GetEndUserMyRequestsRiskAssessmentArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetEndUserMyRequestsRiskAssessmentPtrInput interface {
+	pulumi.Input
+
+	ToGetEndUserMyRequestsRiskAssessmentPtrOutput() GetEndUserMyRequestsRiskAssessmentPtrOutput
+	ToGetEndUserMyRequestsRiskAssessmentPtrOutputWithContext(context.Context) GetEndUserMyRequestsRiskAssessmentPtrOutput
+}
+
+type getEndUserMyRequestsRiskAssessmentPtrType GetEndUserMyRequestsRiskAssessmentArgs
+
+func GetEndUserMyRequestsRiskAssessmentPtr(v *GetEndUserMyRequestsRiskAssessmentArgs) GetEndUserMyRequestsRiskAssessmentPtrInput {
+	return (*getEndUserMyRequestsRiskAssessmentPtrType)(v)
+}
+
+func (*getEndUserMyRequestsRiskAssessmentPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetEndUserMyRequestsRiskAssessment)(nil)).Elem()
+}
+
+func (i *getEndUserMyRequestsRiskAssessmentPtrType) ToGetEndUserMyRequestsRiskAssessmentPtrOutput() GetEndUserMyRequestsRiskAssessmentPtrOutput {
+	return i.ToGetEndUserMyRequestsRiskAssessmentPtrOutputWithContext(context.Background())
+}
+
+func (i *getEndUserMyRequestsRiskAssessmentPtrType) ToGetEndUserMyRequestsRiskAssessmentPtrOutputWithContext(ctx context.Context) GetEndUserMyRequestsRiskAssessmentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEndUserMyRequestsRiskAssessmentPtrOutput)
+}
+
+type GetEndUserMyRequestsRiskAssessmentOutput struct{ *pulumi.OutputState }
+
+func (GetEndUserMyRequestsRiskAssessmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEndUserMyRequestsRiskAssessment)(nil)).Elem()
+}
+
+func (o GetEndUserMyRequestsRiskAssessmentOutput) ToGetEndUserMyRequestsRiskAssessmentOutput() GetEndUserMyRequestsRiskAssessmentOutput {
+	return o
+}
+
+func (o GetEndUserMyRequestsRiskAssessmentOutput) ToGetEndUserMyRequestsRiskAssessmentOutputWithContext(ctx context.Context) GetEndUserMyRequestsRiskAssessmentOutput {
+	return o
+}
+
+func (o GetEndUserMyRequestsRiskAssessmentOutput) ToGetEndUserMyRequestsRiskAssessmentPtrOutput() GetEndUserMyRequestsRiskAssessmentPtrOutput {
+	return o.ToGetEndUserMyRequestsRiskAssessmentPtrOutputWithContext(context.Background())
+}
+
+func (o GetEndUserMyRequestsRiskAssessmentOutput) ToGetEndUserMyRequestsRiskAssessmentPtrOutputWithContext(ctx context.Context) GetEndUserMyRequestsRiskAssessmentPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetEndUserMyRequestsRiskAssessment) *GetEndUserMyRequestsRiskAssessment {
+		return &v
+	}).(GetEndUserMyRequestsRiskAssessmentPtrOutput)
+}
+
+// Whether request submission is allowed or restricted in the risk settings.
+func (o GetEndUserMyRequestsRiskAssessmentOutput) RequestSubmissionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetEndUserMyRequestsRiskAssessment) *string { return v.RequestSubmissionType }).(pulumi.StringPtrOutput)
+}
+
+// An array of resources that are excluded from the review.
+func (o GetEndUserMyRequestsRiskAssessmentOutput) RiskRules() GetEndUserMyRequestsRiskAssessmentRiskRuleArrayOutput {
+	return o.ApplyT(func(v GetEndUserMyRequestsRiskAssessment) []GetEndUserMyRequestsRiskAssessmentRiskRule {
+		return v.RiskRules
+	}).(GetEndUserMyRequestsRiskAssessmentRiskRuleArrayOutput)
+}
+
+type GetEndUserMyRequestsRiskAssessmentPtrOutput struct{ *pulumi.OutputState }
+
+func (GetEndUserMyRequestsRiskAssessmentPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetEndUserMyRequestsRiskAssessment)(nil)).Elem()
+}
+
+func (o GetEndUserMyRequestsRiskAssessmentPtrOutput) ToGetEndUserMyRequestsRiskAssessmentPtrOutput() GetEndUserMyRequestsRiskAssessmentPtrOutput {
+	return o
+}
+
+func (o GetEndUserMyRequestsRiskAssessmentPtrOutput) ToGetEndUserMyRequestsRiskAssessmentPtrOutputWithContext(ctx context.Context) GetEndUserMyRequestsRiskAssessmentPtrOutput {
+	return o
+}
+
+func (o GetEndUserMyRequestsRiskAssessmentPtrOutput) Elem() GetEndUserMyRequestsRiskAssessmentOutput {
+	return o.ApplyT(func(v *GetEndUserMyRequestsRiskAssessment) GetEndUserMyRequestsRiskAssessment {
+		if v != nil {
+			return *v
+		}
+		var ret GetEndUserMyRequestsRiskAssessment
+		return ret
+	}).(GetEndUserMyRequestsRiskAssessmentOutput)
+}
+
+// Whether request submission is allowed or restricted in the risk settings.
+func (o GetEndUserMyRequestsRiskAssessmentPtrOutput) RequestSubmissionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetEndUserMyRequestsRiskAssessment) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RequestSubmissionType
+	}).(pulumi.StringPtrOutput)
+}
+
+// An array of resources that are excluded from the review.
+func (o GetEndUserMyRequestsRiskAssessmentPtrOutput) RiskRules() GetEndUserMyRequestsRiskAssessmentRiskRuleArrayOutput {
+	return o.ApplyT(func(v *GetEndUserMyRequestsRiskAssessment) []GetEndUserMyRequestsRiskAssessmentRiskRule {
+		if v == nil {
+			return nil
+		}
+		return v.RiskRules
+	}).(GetEndUserMyRequestsRiskAssessmentRiskRuleArrayOutput)
+}
+
+type GetEndUserMyRequestsRiskAssessmentRiskRule struct {
+	// The human readable description.
+	Description *string `pulumi:"description"`
+	// The name of a resource rule causing a conflict.
+	Name *string `pulumi:"name"`
+	// Human readable name of the resource.
+	ResourceName *string `pulumi:"resourceName"`
+}
+
+// GetEndUserMyRequestsRiskAssessmentRiskRuleInput is an input type that accepts GetEndUserMyRequestsRiskAssessmentRiskRuleArgs and GetEndUserMyRequestsRiskAssessmentRiskRuleOutput values.
+// You can construct a concrete instance of `GetEndUserMyRequestsRiskAssessmentRiskRuleInput` via:
+//
+//	GetEndUserMyRequestsRiskAssessmentRiskRuleArgs{...}
+type GetEndUserMyRequestsRiskAssessmentRiskRuleInput interface {
+	pulumi.Input
+
+	ToGetEndUserMyRequestsRiskAssessmentRiskRuleOutput() GetEndUserMyRequestsRiskAssessmentRiskRuleOutput
+	ToGetEndUserMyRequestsRiskAssessmentRiskRuleOutputWithContext(context.Context) GetEndUserMyRequestsRiskAssessmentRiskRuleOutput
+}
+
+type GetEndUserMyRequestsRiskAssessmentRiskRuleArgs struct {
+	// The human readable description.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// The name of a resource rule causing a conflict.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Human readable name of the resource.
+	ResourceName pulumi.StringPtrInput `pulumi:"resourceName"`
+}
+
+func (GetEndUserMyRequestsRiskAssessmentRiskRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEndUserMyRequestsRiskAssessmentRiskRule)(nil)).Elem()
+}
+
+func (i GetEndUserMyRequestsRiskAssessmentRiskRuleArgs) ToGetEndUserMyRequestsRiskAssessmentRiskRuleOutput() GetEndUserMyRequestsRiskAssessmentRiskRuleOutput {
+	return i.ToGetEndUserMyRequestsRiskAssessmentRiskRuleOutputWithContext(context.Background())
+}
+
+func (i GetEndUserMyRequestsRiskAssessmentRiskRuleArgs) ToGetEndUserMyRequestsRiskAssessmentRiskRuleOutputWithContext(ctx context.Context) GetEndUserMyRequestsRiskAssessmentRiskRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEndUserMyRequestsRiskAssessmentRiskRuleOutput)
+}
+
+// GetEndUserMyRequestsRiskAssessmentRiskRuleArrayInput is an input type that accepts GetEndUserMyRequestsRiskAssessmentRiskRuleArray and GetEndUserMyRequestsRiskAssessmentRiskRuleArrayOutput values.
+// You can construct a concrete instance of `GetEndUserMyRequestsRiskAssessmentRiskRuleArrayInput` via:
+//
+//	GetEndUserMyRequestsRiskAssessmentRiskRuleArray{ GetEndUserMyRequestsRiskAssessmentRiskRuleArgs{...} }
+type GetEndUserMyRequestsRiskAssessmentRiskRuleArrayInput interface {
+	pulumi.Input
+
+	ToGetEndUserMyRequestsRiskAssessmentRiskRuleArrayOutput() GetEndUserMyRequestsRiskAssessmentRiskRuleArrayOutput
+	ToGetEndUserMyRequestsRiskAssessmentRiskRuleArrayOutputWithContext(context.Context) GetEndUserMyRequestsRiskAssessmentRiskRuleArrayOutput
+}
+
+type GetEndUserMyRequestsRiskAssessmentRiskRuleArray []GetEndUserMyRequestsRiskAssessmentRiskRuleInput
+
+func (GetEndUserMyRequestsRiskAssessmentRiskRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetEndUserMyRequestsRiskAssessmentRiskRule)(nil)).Elem()
+}
+
+func (i GetEndUserMyRequestsRiskAssessmentRiskRuleArray) ToGetEndUserMyRequestsRiskAssessmentRiskRuleArrayOutput() GetEndUserMyRequestsRiskAssessmentRiskRuleArrayOutput {
+	return i.ToGetEndUserMyRequestsRiskAssessmentRiskRuleArrayOutputWithContext(context.Background())
+}
+
+func (i GetEndUserMyRequestsRiskAssessmentRiskRuleArray) ToGetEndUserMyRequestsRiskAssessmentRiskRuleArrayOutputWithContext(ctx context.Context) GetEndUserMyRequestsRiskAssessmentRiskRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEndUserMyRequestsRiskAssessmentRiskRuleArrayOutput)
+}
+
+type GetEndUserMyRequestsRiskAssessmentRiskRuleOutput struct{ *pulumi.OutputState }
+
+func (GetEndUserMyRequestsRiskAssessmentRiskRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEndUserMyRequestsRiskAssessmentRiskRule)(nil)).Elem()
+}
+
+func (o GetEndUserMyRequestsRiskAssessmentRiskRuleOutput) ToGetEndUserMyRequestsRiskAssessmentRiskRuleOutput() GetEndUserMyRequestsRiskAssessmentRiskRuleOutput {
+	return o
+}
+
+func (o GetEndUserMyRequestsRiskAssessmentRiskRuleOutput) ToGetEndUserMyRequestsRiskAssessmentRiskRuleOutputWithContext(ctx context.Context) GetEndUserMyRequestsRiskAssessmentRiskRuleOutput {
+	return o
+}
+
+// The human readable description.
+func (o GetEndUserMyRequestsRiskAssessmentRiskRuleOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetEndUserMyRequestsRiskAssessmentRiskRule) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The name of a resource rule causing a conflict.
+func (o GetEndUserMyRequestsRiskAssessmentRiskRuleOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetEndUserMyRequestsRiskAssessmentRiskRule) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Human readable name of the resource.
+func (o GetEndUserMyRequestsRiskAssessmentRiskRuleOutput) ResourceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetEndUserMyRequestsRiskAssessmentRiskRule) *string { return v.ResourceName }).(pulumi.StringPtrOutput)
+}
+
+type GetEndUserMyRequestsRiskAssessmentRiskRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (GetEndUserMyRequestsRiskAssessmentRiskRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetEndUserMyRequestsRiskAssessmentRiskRule)(nil)).Elem()
+}
+
+func (o GetEndUserMyRequestsRiskAssessmentRiskRuleArrayOutput) ToGetEndUserMyRequestsRiskAssessmentRiskRuleArrayOutput() GetEndUserMyRequestsRiskAssessmentRiskRuleArrayOutput {
+	return o
+}
+
+func (o GetEndUserMyRequestsRiskAssessmentRiskRuleArrayOutput) ToGetEndUserMyRequestsRiskAssessmentRiskRuleArrayOutputWithContext(ctx context.Context) GetEndUserMyRequestsRiskAssessmentRiskRuleArrayOutput {
+	return o
+}
+
+func (o GetEndUserMyRequestsRiskAssessmentRiskRuleArrayOutput) Index(i pulumi.IntInput) GetEndUserMyRequestsRiskAssessmentRiskRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetEndUserMyRequestsRiskAssessmentRiskRule {
+		return vs[0].([]GetEndUserMyRequestsRiskAssessmentRiskRule)[vs[1].(int)]
+	}).(GetEndUserMyRequestsRiskAssessmentRiskRuleOutput)
+}
+
+type GetEntitlementBundleEntitlement struct {
+	// The data type of the entitlement property.
+	DataType string `pulumi:"dataType"`
+	// The description of an entitlement property.
+	Description string `pulumi:"description"`
+	// The value of an entitlement property.
+	ExternalValue string `pulumi:"externalValue"`
+	// The ID of this resource.
+	Id string `pulumi:"id"`
+	// The property that determines if the entitlement property can hold multiple values.
+	MultiValue bool `pulumi:"multiValue"`
+	// The display name for an entitlement bundle.
+	Name string `pulumi:"name"`
+	// The property that determines if the entitlement property is a required attribute.
+	Required bool                                   `pulumi:"required"`
+	Values   []GetEntitlementBundleEntitlementValue `pulumi:"values"`
+}
+
+// GetEntitlementBundleEntitlementInput is an input type that accepts GetEntitlementBundleEntitlementArgs and GetEntitlementBundleEntitlementOutput values.
+// You can construct a concrete instance of `GetEntitlementBundleEntitlementInput` via:
+//
+//	GetEntitlementBundleEntitlementArgs{...}
+type GetEntitlementBundleEntitlementInput interface {
+	pulumi.Input
+
+	ToGetEntitlementBundleEntitlementOutput() GetEntitlementBundleEntitlementOutput
+	ToGetEntitlementBundleEntitlementOutputWithContext(context.Context) GetEntitlementBundleEntitlementOutput
+}
+
+type GetEntitlementBundleEntitlementArgs struct {
+	// The data type of the entitlement property.
+	DataType pulumi.StringInput `pulumi:"dataType"`
+	// The description of an entitlement property.
+	Description pulumi.StringInput `pulumi:"description"`
+	// The value of an entitlement property.
+	ExternalValue pulumi.StringInput `pulumi:"externalValue"`
+	// The ID of this resource.
+	Id pulumi.StringInput `pulumi:"id"`
+	// The property that determines if the entitlement property can hold multiple values.
+	MultiValue pulumi.BoolInput `pulumi:"multiValue"`
+	// The display name for an entitlement bundle.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The property that determines if the entitlement property is a required attribute.
+	Required pulumi.BoolInput                               `pulumi:"required"`
+	Values   GetEntitlementBundleEntitlementValueArrayInput `pulumi:"values"`
+}
+
+func (GetEntitlementBundleEntitlementArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEntitlementBundleEntitlement)(nil)).Elem()
+}
+
+func (i GetEntitlementBundleEntitlementArgs) ToGetEntitlementBundleEntitlementOutput() GetEntitlementBundleEntitlementOutput {
+	return i.ToGetEntitlementBundleEntitlementOutputWithContext(context.Background())
+}
+
+func (i GetEntitlementBundleEntitlementArgs) ToGetEntitlementBundleEntitlementOutputWithContext(ctx context.Context) GetEntitlementBundleEntitlementOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEntitlementBundleEntitlementOutput)
+}
+
+// GetEntitlementBundleEntitlementArrayInput is an input type that accepts GetEntitlementBundleEntitlementArray and GetEntitlementBundleEntitlementArrayOutput values.
+// You can construct a concrete instance of `GetEntitlementBundleEntitlementArrayInput` via:
+//
+//	GetEntitlementBundleEntitlementArray{ GetEntitlementBundleEntitlementArgs{...} }
+type GetEntitlementBundleEntitlementArrayInput interface {
+	pulumi.Input
+
+	ToGetEntitlementBundleEntitlementArrayOutput() GetEntitlementBundleEntitlementArrayOutput
+	ToGetEntitlementBundleEntitlementArrayOutputWithContext(context.Context) GetEntitlementBundleEntitlementArrayOutput
+}
+
+type GetEntitlementBundleEntitlementArray []GetEntitlementBundleEntitlementInput
+
+func (GetEntitlementBundleEntitlementArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetEntitlementBundleEntitlement)(nil)).Elem()
+}
+
+func (i GetEntitlementBundleEntitlementArray) ToGetEntitlementBundleEntitlementArrayOutput() GetEntitlementBundleEntitlementArrayOutput {
+	return i.ToGetEntitlementBundleEntitlementArrayOutputWithContext(context.Background())
+}
+
+func (i GetEntitlementBundleEntitlementArray) ToGetEntitlementBundleEntitlementArrayOutputWithContext(ctx context.Context) GetEntitlementBundleEntitlementArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEntitlementBundleEntitlementArrayOutput)
+}
+
+type GetEntitlementBundleEntitlementOutput struct{ *pulumi.OutputState }
+
+func (GetEntitlementBundleEntitlementOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEntitlementBundleEntitlement)(nil)).Elem()
+}
+
+func (o GetEntitlementBundleEntitlementOutput) ToGetEntitlementBundleEntitlementOutput() GetEntitlementBundleEntitlementOutput {
+	return o
+}
+
+func (o GetEntitlementBundleEntitlementOutput) ToGetEntitlementBundleEntitlementOutputWithContext(ctx context.Context) GetEntitlementBundleEntitlementOutput {
+	return o
+}
+
+// The data type of the entitlement property.
+func (o GetEntitlementBundleEntitlementOutput) DataType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEntitlementBundleEntitlement) string { return v.DataType }).(pulumi.StringOutput)
+}
+
+// The description of an entitlement property.
+func (o GetEntitlementBundleEntitlementOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEntitlementBundleEntitlement) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// The value of an entitlement property.
+func (o GetEntitlementBundleEntitlementOutput) ExternalValue() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEntitlementBundleEntitlement) string { return v.ExternalValue }).(pulumi.StringOutput)
+}
+
+// The ID of this resource.
+func (o GetEntitlementBundleEntitlementOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEntitlementBundleEntitlement) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The property that determines if the entitlement property can hold multiple values.
+func (o GetEntitlementBundleEntitlementOutput) MultiValue() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetEntitlementBundleEntitlement) bool { return v.MultiValue }).(pulumi.BoolOutput)
+}
+
+// The display name for an entitlement bundle.
+func (o GetEntitlementBundleEntitlementOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEntitlementBundleEntitlement) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The property that determines if the entitlement property is a required attribute.
+func (o GetEntitlementBundleEntitlementOutput) Required() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetEntitlementBundleEntitlement) bool { return v.Required }).(pulumi.BoolOutput)
+}
+
+func (o GetEntitlementBundleEntitlementOutput) Values() GetEntitlementBundleEntitlementValueArrayOutput {
+	return o.ApplyT(func(v GetEntitlementBundleEntitlement) []GetEntitlementBundleEntitlementValue { return v.Values }).(GetEntitlementBundleEntitlementValueArrayOutput)
+}
+
+type GetEntitlementBundleEntitlementArrayOutput struct{ *pulumi.OutputState }
+
+func (GetEntitlementBundleEntitlementArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetEntitlementBundleEntitlement)(nil)).Elem()
+}
+
+func (o GetEntitlementBundleEntitlementArrayOutput) ToGetEntitlementBundleEntitlementArrayOutput() GetEntitlementBundleEntitlementArrayOutput {
+	return o
+}
+
+func (o GetEntitlementBundleEntitlementArrayOutput) ToGetEntitlementBundleEntitlementArrayOutputWithContext(ctx context.Context) GetEntitlementBundleEntitlementArrayOutput {
+	return o
+}
+
+func (o GetEntitlementBundleEntitlementArrayOutput) Index(i pulumi.IntInput) GetEntitlementBundleEntitlementOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetEntitlementBundleEntitlement {
+		return vs[0].([]GetEntitlementBundleEntitlement)[vs[1].(int)]
+	}).(GetEntitlementBundleEntitlementOutput)
+}
+
+type GetEntitlementBundleEntitlementValue struct {
+	// The description of an entitlement property.
+	Description string `pulumi:"description"`
+	// The read-only id of an entitlement property value in the downstream application.
+	ExternalId string `pulumi:"externalId"`
+	// The value of an entitlement property value.
+	ExternalValue string `pulumi:"externalValue"`
+	// The ID of this resource.
+	Id string `pulumi:"id"`
+	// The display name for an entitlement bundle.
+	Name string `pulumi:"name"`
+}
+
+// GetEntitlementBundleEntitlementValueInput is an input type that accepts GetEntitlementBundleEntitlementValueArgs and GetEntitlementBundleEntitlementValueOutput values.
+// You can construct a concrete instance of `GetEntitlementBundleEntitlementValueInput` via:
+//
+//	GetEntitlementBundleEntitlementValueArgs{...}
+type GetEntitlementBundleEntitlementValueInput interface {
+	pulumi.Input
+
+	ToGetEntitlementBundleEntitlementValueOutput() GetEntitlementBundleEntitlementValueOutput
+	ToGetEntitlementBundleEntitlementValueOutputWithContext(context.Context) GetEntitlementBundleEntitlementValueOutput
+}
+
+type GetEntitlementBundleEntitlementValueArgs struct {
+	// The description of an entitlement property.
+	Description pulumi.StringInput `pulumi:"description"`
+	// The read-only id of an entitlement property value in the downstream application.
+	ExternalId pulumi.StringInput `pulumi:"externalId"`
+	// The value of an entitlement property value.
+	ExternalValue pulumi.StringInput `pulumi:"externalValue"`
+	// The ID of this resource.
+	Id pulumi.StringInput `pulumi:"id"`
+	// The display name for an entitlement bundle.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetEntitlementBundleEntitlementValueArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEntitlementBundleEntitlementValue)(nil)).Elem()
+}
+
+func (i GetEntitlementBundleEntitlementValueArgs) ToGetEntitlementBundleEntitlementValueOutput() GetEntitlementBundleEntitlementValueOutput {
+	return i.ToGetEntitlementBundleEntitlementValueOutputWithContext(context.Background())
+}
+
+func (i GetEntitlementBundleEntitlementValueArgs) ToGetEntitlementBundleEntitlementValueOutputWithContext(ctx context.Context) GetEntitlementBundleEntitlementValueOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEntitlementBundleEntitlementValueOutput)
+}
+
+// GetEntitlementBundleEntitlementValueArrayInput is an input type that accepts GetEntitlementBundleEntitlementValueArray and GetEntitlementBundleEntitlementValueArrayOutput values.
+// You can construct a concrete instance of `GetEntitlementBundleEntitlementValueArrayInput` via:
+//
+//	GetEntitlementBundleEntitlementValueArray{ GetEntitlementBundleEntitlementValueArgs{...} }
+type GetEntitlementBundleEntitlementValueArrayInput interface {
+	pulumi.Input
+
+	ToGetEntitlementBundleEntitlementValueArrayOutput() GetEntitlementBundleEntitlementValueArrayOutput
+	ToGetEntitlementBundleEntitlementValueArrayOutputWithContext(context.Context) GetEntitlementBundleEntitlementValueArrayOutput
+}
+
+type GetEntitlementBundleEntitlementValueArray []GetEntitlementBundleEntitlementValueInput
+
+func (GetEntitlementBundleEntitlementValueArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetEntitlementBundleEntitlementValue)(nil)).Elem()
+}
+
+func (i GetEntitlementBundleEntitlementValueArray) ToGetEntitlementBundleEntitlementValueArrayOutput() GetEntitlementBundleEntitlementValueArrayOutput {
+	return i.ToGetEntitlementBundleEntitlementValueArrayOutputWithContext(context.Background())
+}
+
+func (i GetEntitlementBundleEntitlementValueArray) ToGetEntitlementBundleEntitlementValueArrayOutputWithContext(ctx context.Context) GetEntitlementBundleEntitlementValueArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEntitlementBundleEntitlementValueArrayOutput)
+}
+
+type GetEntitlementBundleEntitlementValueOutput struct{ *pulumi.OutputState }
+
+func (GetEntitlementBundleEntitlementValueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEntitlementBundleEntitlementValue)(nil)).Elem()
+}
+
+func (o GetEntitlementBundleEntitlementValueOutput) ToGetEntitlementBundleEntitlementValueOutput() GetEntitlementBundleEntitlementValueOutput {
+	return o
+}
+
+func (o GetEntitlementBundleEntitlementValueOutput) ToGetEntitlementBundleEntitlementValueOutputWithContext(ctx context.Context) GetEntitlementBundleEntitlementValueOutput {
+	return o
+}
+
+// The description of an entitlement property.
+func (o GetEntitlementBundleEntitlementValueOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEntitlementBundleEntitlementValue) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// The read-only id of an entitlement property value in the downstream application.
+func (o GetEntitlementBundleEntitlementValueOutput) ExternalId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEntitlementBundleEntitlementValue) string { return v.ExternalId }).(pulumi.StringOutput)
+}
+
+// The value of an entitlement property value.
+func (o GetEntitlementBundleEntitlementValueOutput) ExternalValue() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEntitlementBundleEntitlementValue) string { return v.ExternalValue }).(pulumi.StringOutput)
+}
+
+// The ID of this resource.
+func (o GetEntitlementBundleEntitlementValueOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEntitlementBundleEntitlementValue) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The display name for an entitlement bundle.
+func (o GetEntitlementBundleEntitlementValueOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEntitlementBundleEntitlementValue) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetEntitlementBundleEntitlementValueArrayOutput struct{ *pulumi.OutputState }
+
+func (GetEntitlementBundleEntitlementValueArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetEntitlementBundleEntitlementValue)(nil)).Elem()
+}
+
+func (o GetEntitlementBundleEntitlementValueArrayOutput) ToGetEntitlementBundleEntitlementValueArrayOutput() GetEntitlementBundleEntitlementValueArrayOutput {
+	return o
+}
+
+func (o GetEntitlementBundleEntitlementValueArrayOutput) ToGetEntitlementBundleEntitlementValueArrayOutputWithContext(ctx context.Context) GetEntitlementBundleEntitlementValueArrayOutput {
+	return o
+}
+
+func (o GetEntitlementBundleEntitlementValueArrayOutput) Index(i pulumi.IntInput) GetEntitlementBundleEntitlementValueOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetEntitlementBundleEntitlementValue {
+		return vs[0].([]GetEntitlementBundleEntitlementValue)[vs[1].(int)]
+	}).(GetEntitlementBundleEntitlementValueOutput)
+}
+
+type GetEntitlementBundleTarget struct {
+	// The Okta app.id of the resource.
+	ExternalId string `pulumi:"externalId"`
+	// The type of the resource.
+	Type string `pulumi:"type"`
+}
+
+// GetEntitlementBundleTargetInput is an input type that accepts GetEntitlementBundleTargetArgs and GetEntitlementBundleTargetOutput values.
+// You can construct a concrete instance of `GetEntitlementBundleTargetInput` via:
+//
+//	GetEntitlementBundleTargetArgs{...}
+type GetEntitlementBundleTargetInput interface {
+	pulumi.Input
+
+	ToGetEntitlementBundleTargetOutput() GetEntitlementBundleTargetOutput
+	ToGetEntitlementBundleTargetOutputWithContext(context.Context) GetEntitlementBundleTargetOutput
+}
+
+type GetEntitlementBundleTargetArgs struct {
+	// The Okta app.id of the resource.
+	ExternalId pulumi.StringInput `pulumi:"externalId"`
+	// The type of the resource.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetEntitlementBundleTargetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEntitlementBundleTarget)(nil)).Elem()
+}
+
+func (i GetEntitlementBundleTargetArgs) ToGetEntitlementBundleTargetOutput() GetEntitlementBundleTargetOutput {
+	return i.ToGetEntitlementBundleTargetOutputWithContext(context.Background())
+}
+
+func (i GetEntitlementBundleTargetArgs) ToGetEntitlementBundleTargetOutputWithContext(ctx context.Context) GetEntitlementBundleTargetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEntitlementBundleTargetOutput)
+}
+
+func (i GetEntitlementBundleTargetArgs) ToGetEntitlementBundleTargetPtrOutput() GetEntitlementBundleTargetPtrOutput {
+	return i.ToGetEntitlementBundleTargetPtrOutputWithContext(context.Background())
+}
+
+func (i GetEntitlementBundleTargetArgs) ToGetEntitlementBundleTargetPtrOutputWithContext(ctx context.Context) GetEntitlementBundleTargetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEntitlementBundleTargetOutput).ToGetEntitlementBundleTargetPtrOutputWithContext(ctx)
+}
+
+// GetEntitlementBundleTargetPtrInput is an input type that accepts GetEntitlementBundleTargetArgs, GetEntitlementBundleTargetPtr and GetEntitlementBundleTargetPtrOutput values.
+// You can construct a concrete instance of `GetEntitlementBundleTargetPtrInput` via:
+//
+//	        GetEntitlementBundleTargetArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetEntitlementBundleTargetPtrInput interface {
+	pulumi.Input
+
+	ToGetEntitlementBundleTargetPtrOutput() GetEntitlementBundleTargetPtrOutput
+	ToGetEntitlementBundleTargetPtrOutputWithContext(context.Context) GetEntitlementBundleTargetPtrOutput
+}
+
+type getEntitlementBundleTargetPtrType GetEntitlementBundleTargetArgs
+
+func GetEntitlementBundleTargetPtr(v *GetEntitlementBundleTargetArgs) GetEntitlementBundleTargetPtrInput {
+	return (*getEntitlementBundleTargetPtrType)(v)
+}
+
+func (*getEntitlementBundleTargetPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetEntitlementBundleTarget)(nil)).Elem()
+}
+
+func (i *getEntitlementBundleTargetPtrType) ToGetEntitlementBundleTargetPtrOutput() GetEntitlementBundleTargetPtrOutput {
+	return i.ToGetEntitlementBundleTargetPtrOutputWithContext(context.Background())
+}
+
+func (i *getEntitlementBundleTargetPtrType) ToGetEntitlementBundleTargetPtrOutputWithContext(ctx context.Context) GetEntitlementBundleTargetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEntitlementBundleTargetPtrOutput)
+}
+
+type GetEntitlementBundleTargetOutput struct{ *pulumi.OutputState }
+
+func (GetEntitlementBundleTargetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEntitlementBundleTarget)(nil)).Elem()
+}
+
+func (o GetEntitlementBundleTargetOutput) ToGetEntitlementBundleTargetOutput() GetEntitlementBundleTargetOutput {
+	return o
+}
+
+func (o GetEntitlementBundleTargetOutput) ToGetEntitlementBundleTargetOutputWithContext(ctx context.Context) GetEntitlementBundleTargetOutput {
+	return o
+}
+
+func (o GetEntitlementBundleTargetOutput) ToGetEntitlementBundleTargetPtrOutput() GetEntitlementBundleTargetPtrOutput {
+	return o.ToGetEntitlementBundleTargetPtrOutputWithContext(context.Background())
+}
+
+func (o GetEntitlementBundleTargetOutput) ToGetEntitlementBundleTargetPtrOutputWithContext(ctx context.Context) GetEntitlementBundleTargetPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetEntitlementBundleTarget) *GetEntitlementBundleTarget {
+		return &v
+	}).(GetEntitlementBundleTargetPtrOutput)
+}
+
+// The Okta app.id of the resource.
+func (o GetEntitlementBundleTargetOutput) ExternalId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEntitlementBundleTarget) string { return v.ExternalId }).(pulumi.StringOutput)
+}
+
+// The type of the resource.
+func (o GetEntitlementBundleTargetOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEntitlementBundleTarget) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetEntitlementBundleTargetPtrOutput struct{ *pulumi.OutputState }
+
+func (GetEntitlementBundleTargetPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetEntitlementBundleTarget)(nil)).Elem()
+}
+
+func (o GetEntitlementBundleTargetPtrOutput) ToGetEntitlementBundleTargetPtrOutput() GetEntitlementBundleTargetPtrOutput {
+	return o
+}
+
+func (o GetEntitlementBundleTargetPtrOutput) ToGetEntitlementBundleTargetPtrOutputWithContext(ctx context.Context) GetEntitlementBundleTargetPtrOutput {
+	return o
+}
+
+func (o GetEntitlementBundleTargetPtrOutput) Elem() GetEntitlementBundleTargetOutput {
+	return o.ApplyT(func(v *GetEntitlementBundleTarget) GetEntitlementBundleTarget {
+		if v != nil {
+			return *v
+		}
+		var ret GetEntitlementBundleTarget
+		return ret
+	}).(GetEntitlementBundleTargetOutput)
+}
+
+// The Okta app.id of the resource.
+func (o GetEntitlementBundleTargetPtrOutput) ExternalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetEntitlementBundleTarget) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ExternalId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of the resource.
+func (o GetEntitlementBundleTargetPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetEntitlementBundleTarget) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetEntitlementParent struct {
+	// The Okta app.id of the resource.
+	ExternalId string `pulumi:"externalId"`
+	// The type of resource.
+	Type string `pulumi:"type"`
+}
+
+// GetEntitlementParentInput is an input type that accepts GetEntitlementParentArgs and GetEntitlementParentOutput values.
+// You can construct a concrete instance of `GetEntitlementParentInput` via:
+//
+//	GetEntitlementParentArgs{...}
+type GetEntitlementParentInput interface {
+	pulumi.Input
+
+	ToGetEntitlementParentOutput() GetEntitlementParentOutput
+	ToGetEntitlementParentOutputWithContext(context.Context) GetEntitlementParentOutput
+}
+
+type GetEntitlementParentArgs struct {
+	// The Okta app.id of the resource.
+	ExternalId pulumi.StringInput `pulumi:"externalId"`
+	// The type of resource.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetEntitlementParentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEntitlementParent)(nil)).Elem()
+}
+
+func (i GetEntitlementParentArgs) ToGetEntitlementParentOutput() GetEntitlementParentOutput {
+	return i.ToGetEntitlementParentOutputWithContext(context.Background())
+}
+
+func (i GetEntitlementParentArgs) ToGetEntitlementParentOutputWithContext(ctx context.Context) GetEntitlementParentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEntitlementParentOutput)
+}
+
+func (i GetEntitlementParentArgs) ToGetEntitlementParentPtrOutput() GetEntitlementParentPtrOutput {
+	return i.ToGetEntitlementParentPtrOutputWithContext(context.Background())
+}
+
+func (i GetEntitlementParentArgs) ToGetEntitlementParentPtrOutputWithContext(ctx context.Context) GetEntitlementParentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEntitlementParentOutput).ToGetEntitlementParentPtrOutputWithContext(ctx)
+}
+
+// GetEntitlementParentPtrInput is an input type that accepts GetEntitlementParentArgs, GetEntitlementParentPtr and GetEntitlementParentPtrOutput values.
+// You can construct a concrete instance of `GetEntitlementParentPtrInput` via:
+//
+//	        GetEntitlementParentArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetEntitlementParentPtrInput interface {
+	pulumi.Input
+
+	ToGetEntitlementParentPtrOutput() GetEntitlementParentPtrOutput
+	ToGetEntitlementParentPtrOutputWithContext(context.Context) GetEntitlementParentPtrOutput
+}
+
+type getEntitlementParentPtrType GetEntitlementParentArgs
+
+func GetEntitlementParentPtr(v *GetEntitlementParentArgs) GetEntitlementParentPtrInput {
+	return (*getEntitlementParentPtrType)(v)
+}
+
+func (*getEntitlementParentPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetEntitlementParent)(nil)).Elem()
+}
+
+func (i *getEntitlementParentPtrType) ToGetEntitlementParentPtrOutput() GetEntitlementParentPtrOutput {
+	return i.ToGetEntitlementParentPtrOutputWithContext(context.Background())
+}
+
+func (i *getEntitlementParentPtrType) ToGetEntitlementParentPtrOutputWithContext(ctx context.Context) GetEntitlementParentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEntitlementParentPtrOutput)
+}
+
+type GetEntitlementParentOutput struct{ *pulumi.OutputState }
+
+func (GetEntitlementParentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEntitlementParent)(nil)).Elem()
+}
+
+func (o GetEntitlementParentOutput) ToGetEntitlementParentOutput() GetEntitlementParentOutput {
+	return o
+}
+
+func (o GetEntitlementParentOutput) ToGetEntitlementParentOutputWithContext(ctx context.Context) GetEntitlementParentOutput {
+	return o
+}
+
+func (o GetEntitlementParentOutput) ToGetEntitlementParentPtrOutput() GetEntitlementParentPtrOutput {
+	return o.ToGetEntitlementParentPtrOutputWithContext(context.Background())
+}
+
+func (o GetEntitlementParentOutput) ToGetEntitlementParentPtrOutputWithContext(ctx context.Context) GetEntitlementParentPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetEntitlementParent) *GetEntitlementParent {
+		return &v
+	}).(GetEntitlementParentPtrOutput)
+}
+
+// The Okta app.id of the resource.
+func (o GetEntitlementParentOutput) ExternalId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEntitlementParent) string { return v.ExternalId }).(pulumi.StringOutput)
+}
+
+// The type of resource.
+func (o GetEntitlementParentOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEntitlementParent) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetEntitlementParentPtrOutput struct{ *pulumi.OutputState }
+
+func (GetEntitlementParentPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetEntitlementParent)(nil)).Elem()
+}
+
+func (o GetEntitlementParentPtrOutput) ToGetEntitlementParentPtrOutput() GetEntitlementParentPtrOutput {
+	return o
+}
+
+func (o GetEntitlementParentPtrOutput) ToGetEntitlementParentPtrOutputWithContext(ctx context.Context) GetEntitlementParentPtrOutput {
+	return o
+}
+
+func (o GetEntitlementParentPtrOutput) Elem() GetEntitlementParentOutput {
+	return o.ApplyT(func(v *GetEntitlementParent) GetEntitlementParent {
+		if v != nil {
+			return *v
+		}
+		var ret GetEntitlementParent
+		return ret
+	}).(GetEntitlementParentOutput)
+}
+
+// The Okta app.id of the resource.
+func (o GetEntitlementParentPtrOutput) ExternalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetEntitlementParent) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ExternalId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of resource.
+func (o GetEntitlementParentPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetEntitlementParent) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetEntitlementValue struct {
+	// The description of an entitlement value.
+	Description string `pulumi:"description"`
+	// The id of the entitlement value.
+	ExternalId string `pulumi:"externalId"`
+	// The value of an entitlement property value.
+	ExternalValue string `pulumi:"externalValue"`
+	// The ID of this resource.
+	Id string `pulumi:"id"`
+	// The name of the entitlement value.
+	Name string `pulumi:"name"`
+}
+
+// GetEntitlementValueInput is an input type that accepts GetEntitlementValueArgs and GetEntitlementValueOutput values.
+// You can construct a concrete instance of `GetEntitlementValueInput` via:
+//
+//	GetEntitlementValueArgs{...}
+type GetEntitlementValueInput interface {
+	pulumi.Input
+
+	ToGetEntitlementValueOutput() GetEntitlementValueOutput
+	ToGetEntitlementValueOutputWithContext(context.Context) GetEntitlementValueOutput
+}
+
+type GetEntitlementValueArgs struct {
+	// The description of an entitlement value.
+	Description pulumi.StringInput `pulumi:"description"`
+	// The id of the entitlement value.
+	ExternalId pulumi.StringInput `pulumi:"externalId"`
+	// The value of an entitlement property value.
+	ExternalValue pulumi.StringInput `pulumi:"externalValue"`
+	// The ID of this resource.
+	Id pulumi.StringInput `pulumi:"id"`
+	// The name of the entitlement value.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetEntitlementValueArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEntitlementValue)(nil)).Elem()
+}
+
+func (i GetEntitlementValueArgs) ToGetEntitlementValueOutput() GetEntitlementValueOutput {
+	return i.ToGetEntitlementValueOutputWithContext(context.Background())
+}
+
+func (i GetEntitlementValueArgs) ToGetEntitlementValueOutputWithContext(ctx context.Context) GetEntitlementValueOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEntitlementValueOutput)
+}
+
+// GetEntitlementValueArrayInput is an input type that accepts GetEntitlementValueArray and GetEntitlementValueArrayOutput values.
+// You can construct a concrete instance of `GetEntitlementValueArrayInput` via:
+//
+//	GetEntitlementValueArray{ GetEntitlementValueArgs{...} }
+type GetEntitlementValueArrayInput interface {
+	pulumi.Input
+
+	ToGetEntitlementValueArrayOutput() GetEntitlementValueArrayOutput
+	ToGetEntitlementValueArrayOutputWithContext(context.Context) GetEntitlementValueArrayOutput
+}
+
+type GetEntitlementValueArray []GetEntitlementValueInput
+
+func (GetEntitlementValueArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetEntitlementValue)(nil)).Elem()
+}
+
+func (i GetEntitlementValueArray) ToGetEntitlementValueArrayOutput() GetEntitlementValueArrayOutput {
+	return i.ToGetEntitlementValueArrayOutputWithContext(context.Background())
+}
+
+func (i GetEntitlementValueArray) ToGetEntitlementValueArrayOutputWithContext(ctx context.Context) GetEntitlementValueArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEntitlementValueArrayOutput)
+}
+
+type GetEntitlementValueOutput struct{ *pulumi.OutputState }
+
+func (GetEntitlementValueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEntitlementValue)(nil)).Elem()
+}
+
+func (o GetEntitlementValueOutput) ToGetEntitlementValueOutput() GetEntitlementValueOutput {
+	return o
+}
+
+func (o GetEntitlementValueOutput) ToGetEntitlementValueOutputWithContext(ctx context.Context) GetEntitlementValueOutput {
+	return o
+}
+
+// The description of an entitlement value.
+func (o GetEntitlementValueOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEntitlementValue) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// The id of the entitlement value.
+func (o GetEntitlementValueOutput) ExternalId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEntitlementValue) string { return v.ExternalId }).(pulumi.StringOutput)
+}
+
+// The value of an entitlement property value.
+func (o GetEntitlementValueOutput) ExternalValue() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEntitlementValue) string { return v.ExternalValue }).(pulumi.StringOutput)
+}
+
+// The ID of this resource.
+func (o GetEntitlementValueOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEntitlementValue) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The name of the entitlement value.
+func (o GetEntitlementValueOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEntitlementValue) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetEntitlementValueArrayOutput struct{ *pulumi.OutputState }
+
+func (GetEntitlementValueArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetEntitlementValue)(nil)).Elem()
+}
+
+func (o GetEntitlementValueArrayOutput) ToGetEntitlementValueArrayOutput() GetEntitlementValueArrayOutput {
+	return o
+}
+
+func (o GetEntitlementValueArrayOutput) ToGetEntitlementValueArrayOutputWithContext(ctx context.Context) GetEntitlementValueArrayOutput {
+	return o
+}
+
+func (o GetEntitlementValueArrayOutput) Index(i pulumi.IntInput) GetEntitlementValueOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetEntitlementValue {
+		return vs[0].([]GetEntitlementValue)[vs[1].(int)]
+	}).(GetEntitlementValueOutput)
+}
+
 type GetFeaturesFeature struct {
 	Description string                  `pulumi:"description"`
 	Id          string                  `pulumi:"id"`
@@ -7001,6 +17827,4860 @@ func (o GetOrgMetadataSettingsPtrOutput) OmEnabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+type GetPrincipalEntitlementsData struct {
+	// The data type of the entitlement property.
+	DataType string `pulumi:"dataType"`
+	// The description of an entitlement property.
+	Description string `pulumi:"description"`
+	// The value of an entitlement property.
+	ExternalValue string `pulumi:"externalValue"`
+	// The id property of an entitlement.
+	Id string `pulumi:"id"`
+	// The property that determines if the entitlement property can hold multiple values.
+	MultiValue bool `pulumi:"multiValue"`
+	// The display name for an entitlement property.
+	Name string `pulumi:"name"`
+	// Representation of a resource.
+	Parent *GetPrincipalEntitlementsDataParent `pulumi:"parent"`
+	// The Okta app instance, in ORN format.
+	ParentResourceOrn string `pulumi:"parentResourceOrn"`
+	// The property that determines if the entitlement property is a required attribute
+	Required bool `pulumi:"required"`
+	// Representation of a principal.
+	TargetPrincipal *GetPrincipalEntitlementsDataTargetPrincipal `pulumi:"targetPrincipal"`
+	// The Okta user id in ORN format.
+	TargetPrincipalOrn string `pulumi:"targetPrincipalOrn"`
+	// Collection of entitlement values.
+	Values []GetPrincipalEntitlementsDataValue `pulumi:"values"`
+}
+
+// GetPrincipalEntitlementsDataInput is an input type that accepts GetPrincipalEntitlementsDataArgs and GetPrincipalEntitlementsDataOutput values.
+// You can construct a concrete instance of `GetPrincipalEntitlementsDataInput` via:
+//
+//	GetPrincipalEntitlementsDataArgs{...}
+type GetPrincipalEntitlementsDataInput interface {
+	pulumi.Input
+
+	ToGetPrincipalEntitlementsDataOutput() GetPrincipalEntitlementsDataOutput
+	ToGetPrincipalEntitlementsDataOutputWithContext(context.Context) GetPrincipalEntitlementsDataOutput
+}
+
+type GetPrincipalEntitlementsDataArgs struct {
+	// The data type of the entitlement property.
+	DataType pulumi.StringInput `pulumi:"dataType"`
+	// The description of an entitlement property.
+	Description pulumi.StringInput `pulumi:"description"`
+	// The value of an entitlement property.
+	ExternalValue pulumi.StringInput `pulumi:"externalValue"`
+	// The id property of an entitlement.
+	Id pulumi.StringInput `pulumi:"id"`
+	// The property that determines if the entitlement property can hold multiple values.
+	MultiValue pulumi.BoolInput `pulumi:"multiValue"`
+	// The display name for an entitlement property.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Representation of a resource.
+	Parent GetPrincipalEntitlementsDataParentPtrInput `pulumi:"parent"`
+	// The Okta app instance, in ORN format.
+	ParentResourceOrn pulumi.StringInput `pulumi:"parentResourceOrn"`
+	// The property that determines if the entitlement property is a required attribute
+	Required pulumi.BoolInput `pulumi:"required"`
+	// Representation of a principal.
+	TargetPrincipal GetPrincipalEntitlementsDataTargetPrincipalPtrInput `pulumi:"targetPrincipal"`
+	// The Okta user id in ORN format.
+	TargetPrincipalOrn pulumi.StringInput `pulumi:"targetPrincipalOrn"`
+	// Collection of entitlement values.
+	Values GetPrincipalEntitlementsDataValueArrayInput `pulumi:"values"`
+}
+
+func (GetPrincipalEntitlementsDataArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPrincipalEntitlementsData)(nil)).Elem()
+}
+
+func (i GetPrincipalEntitlementsDataArgs) ToGetPrincipalEntitlementsDataOutput() GetPrincipalEntitlementsDataOutput {
+	return i.ToGetPrincipalEntitlementsDataOutputWithContext(context.Background())
+}
+
+func (i GetPrincipalEntitlementsDataArgs) ToGetPrincipalEntitlementsDataOutputWithContext(ctx context.Context) GetPrincipalEntitlementsDataOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPrincipalEntitlementsDataOutput)
+}
+
+// GetPrincipalEntitlementsDataArrayInput is an input type that accepts GetPrincipalEntitlementsDataArray and GetPrincipalEntitlementsDataArrayOutput values.
+// You can construct a concrete instance of `GetPrincipalEntitlementsDataArrayInput` via:
+//
+//	GetPrincipalEntitlementsDataArray{ GetPrincipalEntitlementsDataArgs{...} }
+type GetPrincipalEntitlementsDataArrayInput interface {
+	pulumi.Input
+
+	ToGetPrincipalEntitlementsDataArrayOutput() GetPrincipalEntitlementsDataArrayOutput
+	ToGetPrincipalEntitlementsDataArrayOutputWithContext(context.Context) GetPrincipalEntitlementsDataArrayOutput
+}
+
+type GetPrincipalEntitlementsDataArray []GetPrincipalEntitlementsDataInput
+
+func (GetPrincipalEntitlementsDataArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPrincipalEntitlementsData)(nil)).Elem()
+}
+
+func (i GetPrincipalEntitlementsDataArray) ToGetPrincipalEntitlementsDataArrayOutput() GetPrincipalEntitlementsDataArrayOutput {
+	return i.ToGetPrincipalEntitlementsDataArrayOutputWithContext(context.Background())
+}
+
+func (i GetPrincipalEntitlementsDataArray) ToGetPrincipalEntitlementsDataArrayOutputWithContext(ctx context.Context) GetPrincipalEntitlementsDataArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPrincipalEntitlementsDataArrayOutput)
+}
+
+type GetPrincipalEntitlementsDataOutput struct{ *pulumi.OutputState }
+
+func (GetPrincipalEntitlementsDataOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPrincipalEntitlementsData)(nil)).Elem()
+}
+
+func (o GetPrincipalEntitlementsDataOutput) ToGetPrincipalEntitlementsDataOutput() GetPrincipalEntitlementsDataOutput {
+	return o
+}
+
+func (o GetPrincipalEntitlementsDataOutput) ToGetPrincipalEntitlementsDataOutputWithContext(ctx context.Context) GetPrincipalEntitlementsDataOutput {
+	return o
+}
+
+// The data type of the entitlement property.
+func (o GetPrincipalEntitlementsDataOutput) DataType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPrincipalEntitlementsData) string { return v.DataType }).(pulumi.StringOutput)
+}
+
+// The description of an entitlement property.
+func (o GetPrincipalEntitlementsDataOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPrincipalEntitlementsData) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// The value of an entitlement property.
+func (o GetPrincipalEntitlementsDataOutput) ExternalValue() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPrincipalEntitlementsData) string { return v.ExternalValue }).(pulumi.StringOutput)
+}
+
+// The id property of an entitlement.
+func (o GetPrincipalEntitlementsDataOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPrincipalEntitlementsData) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The property that determines if the entitlement property can hold multiple values.
+func (o GetPrincipalEntitlementsDataOutput) MultiValue() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetPrincipalEntitlementsData) bool { return v.MultiValue }).(pulumi.BoolOutput)
+}
+
+// The display name for an entitlement property.
+func (o GetPrincipalEntitlementsDataOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPrincipalEntitlementsData) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Representation of a resource.
+func (o GetPrincipalEntitlementsDataOutput) Parent() GetPrincipalEntitlementsDataParentPtrOutput {
+	return o.ApplyT(func(v GetPrincipalEntitlementsData) *GetPrincipalEntitlementsDataParent { return v.Parent }).(GetPrincipalEntitlementsDataParentPtrOutput)
+}
+
+// The Okta app instance, in ORN format.
+func (o GetPrincipalEntitlementsDataOutput) ParentResourceOrn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPrincipalEntitlementsData) string { return v.ParentResourceOrn }).(pulumi.StringOutput)
+}
+
+// The property that determines if the entitlement property is a required attribute
+func (o GetPrincipalEntitlementsDataOutput) Required() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetPrincipalEntitlementsData) bool { return v.Required }).(pulumi.BoolOutput)
+}
+
+// Representation of a principal.
+func (o GetPrincipalEntitlementsDataOutput) TargetPrincipal() GetPrincipalEntitlementsDataTargetPrincipalPtrOutput {
+	return o.ApplyT(func(v GetPrincipalEntitlementsData) *GetPrincipalEntitlementsDataTargetPrincipal {
+		return v.TargetPrincipal
+	}).(GetPrincipalEntitlementsDataTargetPrincipalPtrOutput)
+}
+
+// The Okta user id in ORN format.
+func (o GetPrincipalEntitlementsDataOutput) TargetPrincipalOrn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPrincipalEntitlementsData) string { return v.TargetPrincipalOrn }).(pulumi.StringOutput)
+}
+
+// Collection of entitlement values.
+func (o GetPrincipalEntitlementsDataOutput) Values() GetPrincipalEntitlementsDataValueArrayOutput {
+	return o.ApplyT(func(v GetPrincipalEntitlementsData) []GetPrincipalEntitlementsDataValue { return v.Values }).(GetPrincipalEntitlementsDataValueArrayOutput)
+}
+
+type GetPrincipalEntitlementsDataArrayOutput struct{ *pulumi.OutputState }
+
+func (GetPrincipalEntitlementsDataArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPrincipalEntitlementsData)(nil)).Elem()
+}
+
+func (o GetPrincipalEntitlementsDataArrayOutput) ToGetPrincipalEntitlementsDataArrayOutput() GetPrincipalEntitlementsDataArrayOutput {
+	return o
+}
+
+func (o GetPrincipalEntitlementsDataArrayOutput) ToGetPrincipalEntitlementsDataArrayOutputWithContext(ctx context.Context) GetPrincipalEntitlementsDataArrayOutput {
+	return o
+}
+
+func (o GetPrincipalEntitlementsDataArrayOutput) Index(i pulumi.IntInput) GetPrincipalEntitlementsDataOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetPrincipalEntitlementsData {
+		return vs[0].([]GetPrincipalEntitlementsData)[vs[1].(int)]
+	}).(GetPrincipalEntitlementsDataOutput)
+}
+
+type GetPrincipalEntitlementsDataParent struct {
+	// The Okta id of the resource.
+	ExternalId string `pulumi:"externalId"`
+	// The type of the resource.
+	Type string `pulumi:"type"`
+}
+
+// GetPrincipalEntitlementsDataParentInput is an input type that accepts GetPrincipalEntitlementsDataParentArgs and GetPrincipalEntitlementsDataParentOutput values.
+// You can construct a concrete instance of `GetPrincipalEntitlementsDataParentInput` via:
+//
+//	GetPrincipalEntitlementsDataParentArgs{...}
+type GetPrincipalEntitlementsDataParentInput interface {
+	pulumi.Input
+
+	ToGetPrincipalEntitlementsDataParentOutput() GetPrincipalEntitlementsDataParentOutput
+	ToGetPrincipalEntitlementsDataParentOutputWithContext(context.Context) GetPrincipalEntitlementsDataParentOutput
+}
+
+type GetPrincipalEntitlementsDataParentArgs struct {
+	// The Okta id of the resource.
+	ExternalId pulumi.StringInput `pulumi:"externalId"`
+	// The type of the resource.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetPrincipalEntitlementsDataParentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPrincipalEntitlementsDataParent)(nil)).Elem()
+}
+
+func (i GetPrincipalEntitlementsDataParentArgs) ToGetPrincipalEntitlementsDataParentOutput() GetPrincipalEntitlementsDataParentOutput {
+	return i.ToGetPrincipalEntitlementsDataParentOutputWithContext(context.Background())
+}
+
+func (i GetPrincipalEntitlementsDataParentArgs) ToGetPrincipalEntitlementsDataParentOutputWithContext(ctx context.Context) GetPrincipalEntitlementsDataParentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPrincipalEntitlementsDataParentOutput)
+}
+
+func (i GetPrincipalEntitlementsDataParentArgs) ToGetPrincipalEntitlementsDataParentPtrOutput() GetPrincipalEntitlementsDataParentPtrOutput {
+	return i.ToGetPrincipalEntitlementsDataParentPtrOutputWithContext(context.Background())
+}
+
+func (i GetPrincipalEntitlementsDataParentArgs) ToGetPrincipalEntitlementsDataParentPtrOutputWithContext(ctx context.Context) GetPrincipalEntitlementsDataParentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPrincipalEntitlementsDataParentOutput).ToGetPrincipalEntitlementsDataParentPtrOutputWithContext(ctx)
+}
+
+// GetPrincipalEntitlementsDataParentPtrInput is an input type that accepts GetPrincipalEntitlementsDataParentArgs, GetPrincipalEntitlementsDataParentPtr and GetPrincipalEntitlementsDataParentPtrOutput values.
+// You can construct a concrete instance of `GetPrincipalEntitlementsDataParentPtrInput` via:
+//
+//	        GetPrincipalEntitlementsDataParentArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetPrincipalEntitlementsDataParentPtrInput interface {
+	pulumi.Input
+
+	ToGetPrincipalEntitlementsDataParentPtrOutput() GetPrincipalEntitlementsDataParentPtrOutput
+	ToGetPrincipalEntitlementsDataParentPtrOutputWithContext(context.Context) GetPrincipalEntitlementsDataParentPtrOutput
+}
+
+type getPrincipalEntitlementsDataParentPtrType GetPrincipalEntitlementsDataParentArgs
+
+func GetPrincipalEntitlementsDataParentPtr(v *GetPrincipalEntitlementsDataParentArgs) GetPrincipalEntitlementsDataParentPtrInput {
+	return (*getPrincipalEntitlementsDataParentPtrType)(v)
+}
+
+func (*getPrincipalEntitlementsDataParentPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetPrincipalEntitlementsDataParent)(nil)).Elem()
+}
+
+func (i *getPrincipalEntitlementsDataParentPtrType) ToGetPrincipalEntitlementsDataParentPtrOutput() GetPrincipalEntitlementsDataParentPtrOutput {
+	return i.ToGetPrincipalEntitlementsDataParentPtrOutputWithContext(context.Background())
+}
+
+func (i *getPrincipalEntitlementsDataParentPtrType) ToGetPrincipalEntitlementsDataParentPtrOutputWithContext(ctx context.Context) GetPrincipalEntitlementsDataParentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPrincipalEntitlementsDataParentPtrOutput)
+}
+
+type GetPrincipalEntitlementsDataParentOutput struct{ *pulumi.OutputState }
+
+func (GetPrincipalEntitlementsDataParentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPrincipalEntitlementsDataParent)(nil)).Elem()
+}
+
+func (o GetPrincipalEntitlementsDataParentOutput) ToGetPrincipalEntitlementsDataParentOutput() GetPrincipalEntitlementsDataParentOutput {
+	return o
+}
+
+func (o GetPrincipalEntitlementsDataParentOutput) ToGetPrincipalEntitlementsDataParentOutputWithContext(ctx context.Context) GetPrincipalEntitlementsDataParentOutput {
+	return o
+}
+
+func (o GetPrincipalEntitlementsDataParentOutput) ToGetPrincipalEntitlementsDataParentPtrOutput() GetPrincipalEntitlementsDataParentPtrOutput {
+	return o.ToGetPrincipalEntitlementsDataParentPtrOutputWithContext(context.Background())
+}
+
+func (o GetPrincipalEntitlementsDataParentOutput) ToGetPrincipalEntitlementsDataParentPtrOutputWithContext(ctx context.Context) GetPrincipalEntitlementsDataParentPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetPrincipalEntitlementsDataParent) *GetPrincipalEntitlementsDataParent {
+		return &v
+	}).(GetPrincipalEntitlementsDataParentPtrOutput)
+}
+
+// The Okta id of the resource.
+func (o GetPrincipalEntitlementsDataParentOutput) ExternalId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPrincipalEntitlementsDataParent) string { return v.ExternalId }).(pulumi.StringOutput)
+}
+
+// The type of the resource.
+func (o GetPrincipalEntitlementsDataParentOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPrincipalEntitlementsDataParent) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetPrincipalEntitlementsDataParentPtrOutput struct{ *pulumi.OutputState }
+
+func (GetPrincipalEntitlementsDataParentPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetPrincipalEntitlementsDataParent)(nil)).Elem()
+}
+
+func (o GetPrincipalEntitlementsDataParentPtrOutput) ToGetPrincipalEntitlementsDataParentPtrOutput() GetPrincipalEntitlementsDataParentPtrOutput {
+	return o
+}
+
+func (o GetPrincipalEntitlementsDataParentPtrOutput) ToGetPrincipalEntitlementsDataParentPtrOutputWithContext(ctx context.Context) GetPrincipalEntitlementsDataParentPtrOutput {
+	return o
+}
+
+func (o GetPrincipalEntitlementsDataParentPtrOutput) Elem() GetPrincipalEntitlementsDataParentOutput {
+	return o.ApplyT(func(v *GetPrincipalEntitlementsDataParent) GetPrincipalEntitlementsDataParent {
+		if v != nil {
+			return *v
+		}
+		var ret GetPrincipalEntitlementsDataParent
+		return ret
+	}).(GetPrincipalEntitlementsDataParentOutput)
+}
+
+// The Okta id of the resource.
+func (o GetPrincipalEntitlementsDataParentPtrOutput) ExternalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetPrincipalEntitlementsDataParent) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ExternalId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of the resource.
+func (o GetPrincipalEntitlementsDataParentPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetPrincipalEntitlementsDataParent) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetPrincipalEntitlementsDataTargetPrincipal struct {
+	// The Okta user id.
+	ExternalId string `pulumi:"externalId"`
+	// The type of principal.
+	Type string `pulumi:"type"`
+}
+
+// GetPrincipalEntitlementsDataTargetPrincipalInput is an input type that accepts GetPrincipalEntitlementsDataTargetPrincipalArgs and GetPrincipalEntitlementsDataTargetPrincipalOutput values.
+// You can construct a concrete instance of `GetPrincipalEntitlementsDataTargetPrincipalInput` via:
+//
+//	GetPrincipalEntitlementsDataTargetPrincipalArgs{...}
+type GetPrincipalEntitlementsDataTargetPrincipalInput interface {
+	pulumi.Input
+
+	ToGetPrincipalEntitlementsDataTargetPrincipalOutput() GetPrincipalEntitlementsDataTargetPrincipalOutput
+	ToGetPrincipalEntitlementsDataTargetPrincipalOutputWithContext(context.Context) GetPrincipalEntitlementsDataTargetPrincipalOutput
+}
+
+type GetPrincipalEntitlementsDataTargetPrincipalArgs struct {
+	// The Okta user id.
+	ExternalId pulumi.StringInput `pulumi:"externalId"`
+	// The type of principal.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetPrincipalEntitlementsDataTargetPrincipalArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPrincipalEntitlementsDataTargetPrincipal)(nil)).Elem()
+}
+
+func (i GetPrincipalEntitlementsDataTargetPrincipalArgs) ToGetPrincipalEntitlementsDataTargetPrincipalOutput() GetPrincipalEntitlementsDataTargetPrincipalOutput {
+	return i.ToGetPrincipalEntitlementsDataTargetPrincipalOutputWithContext(context.Background())
+}
+
+func (i GetPrincipalEntitlementsDataTargetPrincipalArgs) ToGetPrincipalEntitlementsDataTargetPrincipalOutputWithContext(ctx context.Context) GetPrincipalEntitlementsDataTargetPrincipalOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPrincipalEntitlementsDataTargetPrincipalOutput)
+}
+
+func (i GetPrincipalEntitlementsDataTargetPrincipalArgs) ToGetPrincipalEntitlementsDataTargetPrincipalPtrOutput() GetPrincipalEntitlementsDataTargetPrincipalPtrOutput {
+	return i.ToGetPrincipalEntitlementsDataTargetPrincipalPtrOutputWithContext(context.Background())
+}
+
+func (i GetPrincipalEntitlementsDataTargetPrincipalArgs) ToGetPrincipalEntitlementsDataTargetPrincipalPtrOutputWithContext(ctx context.Context) GetPrincipalEntitlementsDataTargetPrincipalPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPrincipalEntitlementsDataTargetPrincipalOutput).ToGetPrincipalEntitlementsDataTargetPrincipalPtrOutputWithContext(ctx)
+}
+
+// GetPrincipalEntitlementsDataTargetPrincipalPtrInput is an input type that accepts GetPrincipalEntitlementsDataTargetPrincipalArgs, GetPrincipalEntitlementsDataTargetPrincipalPtr and GetPrincipalEntitlementsDataTargetPrincipalPtrOutput values.
+// You can construct a concrete instance of `GetPrincipalEntitlementsDataTargetPrincipalPtrInput` via:
+//
+//	        GetPrincipalEntitlementsDataTargetPrincipalArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetPrincipalEntitlementsDataTargetPrincipalPtrInput interface {
+	pulumi.Input
+
+	ToGetPrincipalEntitlementsDataTargetPrincipalPtrOutput() GetPrincipalEntitlementsDataTargetPrincipalPtrOutput
+	ToGetPrincipalEntitlementsDataTargetPrincipalPtrOutputWithContext(context.Context) GetPrincipalEntitlementsDataTargetPrincipalPtrOutput
+}
+
+type getPrincipalEntitlementsDataTargetPrincipalPtrType GetPrincipalEntitlementsDataTargetPrincipalArgs
+
+func GetPrincipalEntitlementsDataTargetPrincipalPtr(v *GetPrincipalEntitlementsDataTargetPrincipalArgs) GetPrincipalEntitlementsDataTargetPrincipalPtrInput {
+	return (*getPrincipalEntitlementsDataTargetPrincipalPtrType)(v)
+}
+
+func (*getPrincipalEntitlementsDataTargetPrincipalPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetPrincipalEntitlementsDataTargetPrincipal)(nil)).Elem()
+}
+
+func (i *getPrincipalEntitlementsDataTargetPrincipalPtrType) ToGetPrincipalEntitlementsDataTargetPrincipalPtrOutput() GetPrincipalEntitlementsDataTargetPrincipalPtrOutput {
+	return i.ToGetPrincipalEntitlementsDataTargetPrincipalPtrOutputWithContext(context.Background())
+}
+
+func (i *getPrincipalEntitlementsDataTargetPrincipalPtrType) ToGetPrincipalEntitlementsDataTargetPrincipalPtrOutputWithContext(ctx context.Context) GetPrincipalEntitlementsDataTargetPrincipalPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPrincipalEntitlementsDataTargetPrincipalPtrOutput)
+}
+
+type GetPrincipalEntitlementsDataTargetPrincipalOutput struct{ *pulumi.OutputState }
+
+func (GetPrincipalEntitlementsDataTargetPrincipalOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPrincipalEntitlementsDataTargetPrincipal)(nil)).Elem()
+}
+
+func (o GetPrincipalEntitlementsDataTargetPrincipalOutput) ToGetPrincipalEntitlementsDataTargetPrincipalOutput() GetPrincipalEntitlementsDataTargetPrincipalOutput {
+	return o
+}
+
+func (o GetPrincipalEntitlementsDataTargetPrincipalOutput) ToGetPrincipalEntitlementsDataTargetPrincipalOutputWithContext(ctx context.Context) GetPrincipalEntitlementsDataTargetPrincipalOutput {
+	return o
+}
+
+func (o GetPrincipalEntitlementsDataTargetPrincipalOutput) ToGetPrincipalEntitlementsDataTargetPrincipalPtrOutput() GetPrincipalEntitlementsDataTargetPrincipalPtrOutput {
+	return o.ToGetPrincipalEntitlementsDataTargetPrincipalPtrOutputWithContext(context.Background())
+}
+
+func (o GetPrincipalEntitlementsDataTargetPrincipalOutput) ToGetPrincipalEntitlementsDataTargetPrincipalPtrOutputWithContext(ctx context.Context) GetPrincipalEntitlementsDataTargetPrincipalPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetPrincipalEntitlementsDataTargetPrincipal) *GetPrincipalEntitlementsDataTargetPrincipal {
+		return &v
+	}).(GetPrincipalEntitlementsDataTargetPrincipalPtrOutput)
+}
+
+// The Okta user id.
+func (o GetPrincipalEntitlementsDataTargetPrincipalOutput) ExternalId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPrincipalEntitlementsDataTargetPrincipal) string { return v.ExternalId }).(pulumi.StringOutput)
+}
+
+// The type of principal.
+func (o GetPrincipalEntitlementsDataTargetPrincipalOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPrincipalEntitlementsDataTargetPrincipal) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetPrincipalEntitlementsDataTargetPrincipalPtrOutput struct{ *pulumi.OutputState }
+
+func (GetPrincipalEntitlementsDataTargetPrincipalPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetPrincipalEntitlementsDataTargetPrincipal)(nil)).Elem()
+}
+
+func (o GetPrincipalEntitlementsDataTargetPrincipalPtrOutput) ToGetPrincipalEntitlementsDataTargetPrincipalPtrOutput() GetPrincipalEntitlementsDataTargetPrincipalPtrOutput {
+	return o
+}
+
+func (o GetPrincipalEntitlementsDataTargetPrincipalPtrOutput) ToGetPrincipalEntitlementsDataTargetPrincipalPtrOutputWithContext(ctx context.Context) GetPrincipalEntitlementsDataTargetPrincipalPtrOutput {
+	return o
+}
+
+func (o GetPrincipalEntitlementsDataTargetPrincipalPtrOutput) Elem() GetPrincipalEntitlementsDataTargetPrincipalOutput {
+	return o.ApplyT(func(v *GetPrincipalEntitlementsDataTargetPrincipal) GetPrincipalEntitlementsDataTargetPrincipal {
+		if v != nil {
+			return *v
+		}
+		var ret GetPrincipalEntitlementsDataTargetPrincipal
+		return ret
+	}).(GetPrincipalEntitlementsDataTargetPrincipalOutput)
+}
+
+// The Okta user id.
+func (o GetPrincipalEntitlementsDataTargetPrincipalPtrOutput) ExternalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetPrincipalEntitlementsDataTargetPrincipal) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ExternalId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of principal.
+func (o GetPrincipalEntitlementsDataTargetPrincipalPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetPrincipalEntitlementsDataTargetPrincipal) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetPrincipalEntitlementsDataValue struct {
+	// The description of an entitlement property.
+	Description string `pulumi:"description"`
+	// The value of an entitlement property value.
+	ExternalValue string `pulumi:"externalValue"`
+	// The id of an entitlement value.
+	Id string `pulumi:"id"`
+	// The name of an entitlement value.
+	Name string `pulumi:"name"`
+}
+
+// GetPrincipalEntitlementsDataValueInput is an input type that accepts GetPrincipalEntitlementsDataValueArgs and GetPrincipalEntitlementsDataValueOutput values.
+// You can construct a concrete instance of `GetPrincipalEntitlementsDataValueInput` via:
+//
+//	GetPrincipalEntitlementsDataValueArgs{...}
+type GetPrincipalEntitlementsDataValueInput interface {
+	pulumi.Input
+
+	ToGetPrincipalEntitlementsDataValueOutput() GetPrincipalEntitlementsDataValueOutput
+	ToGetPrincipalEntitlementsDataValueOutputWithContext(context.Context) GetPrincipalEntitlementsDataValueOutput
+}
+
+type GetPrincipalEntitlementsDataValueArgs struct {
+	// The description of an entitlement property.
+	Description pulumi.StringInput `pulumi:"description"`
+	// The value of an entitlement property value.
+	ExternalValue pulumi.StringInput `pulumi:"externalValue"`
+	// The id of an entitlement value.
+	Id pulumi.StringInput `pulumi:"id"`
+	// The name of an entitlement value.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetPrincipalEntitlementsDataValueArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPrincipalEntitlementsDataValue)(nil)).Elem()
+}
+
+func (i GetPrincipalEntitlementsDataValueArgs) ToGetPrincipalEntitlementsDataValueOutput() GetPrincipalEntitlementsDataValueOutput {
+	return i.ToGetPrincipalEntitlementsDataValueOutputWithContext(context.Background())
+}
+
+func (i GetPrincipalEntitlementsDataValueArgs) ToGetPrincipalEntitlementsDataValueOutputWithContext(ctx context.Context) GetPrincipalEntitlementsDataValueOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPrincipalEntitlementsDataValueOutput)
+}
+
+// GetPrincipalEntitlementsDataValueArrayInput is an input type that accepts GetPrincipalEntitlementsDataValueArray and GetPrincipalEntitlementsDataValueArrayOutput values.
+// You can construct a concrete instance of `GetPrincipalEntitlementsDataValueArrayInput` via:
+//
+//	GetPrincipalEntitlementsDataValueArray{ GetPrincipalEntitlementsDataValueArgs{...} }
+type GetPrincipalEntitlementsDataValueArrayInput interface {
+	pulumi.Input
+
+	ToGetPrincipalEntitlementsDataValueArrayOutput() GetPrincipalEntitlementsDataValueArrayOutput
+	ToGetPrincipalEntitlementsDataValueArrayOutputWithContext(context.Context) GetPrincipalEntitlementsDataValueArrayOutput
+}
+
+type GetPrincipalEntitlementsDataValueArray []GetPrincipalEntitlementsDataValueInput
+
+func (GetPrincipalEntitlementsDataValueArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPrincipalEntitlementsDataValue)(nil)).Elem()
+}
+
+func (i GetPrincipalEntitlementsDataValueArray) ToGetPrincipalEntitlementsDataValueArrayOutput() GetPrincipalEntitlementsDataValueArrayOutput {
+	return i.ToGetPrincipalEntitlementsDataValueArrayOutputWithContext(context.Background())
+}
+
+func (i GetPrincipalEntitlementsDataValueArray) ToGetPrincipalEntitlementsDataValueArrayOutputWithContext(ctx context.Context) GetPrincipalEntitlementsDataValueArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPrincipalEntitlementsDataValueArrayOutput)
+}
+
+type GetPrincipalEntitlementsDataValueOutput struct{ *pulumi.OutputState }
+
+func (GetPrincipalEntitlementsDataValueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPrincipalEntitlementsDataValue)(nil)).Elem()
+}
+
+func (o GetPrincipalEntitlementsDataValueOutput) ToGetPrincipalEntitlementsDataValueOutput() GetPrincipalEntitlementsDataValueOutput {
+	return o
+}
+
+func (o GetPrincipalEntitlementsDataValueOutput) ToGetPrincipalEntitlementsDataValueOutputWithContext(ctx context.Context) GetPrincipalEntitlementsDataValueOutput {
+	return o
+}
+
+// The description of an entitlement property.
+func (o GetPrincipalEntitlementsDataValueOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPrincipalEntitlementsDataValue) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// The value of an entitlement property value.
+func (o GetPrincipalEntitlementsDataValueOutput) ExternalValue() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPrincipalEntitlementsDataValue) string { return v.ExternalValue }).(pulumi.StringOutput)
+}
+
+// The id of an entitlement value.
+func (o GetPrincipalEntitlementsDataValueOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPrincipalEntitlementsDataValue) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The name of an entitlement value.
+func (o GetPrincipalEntitlementsDataValueOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPrincipalEntitlementsDataValue) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetPrincipalEntitlementsDataValueArrayOutput struct{ *pulumi.OutputState }
+
+func (GetPrincipalEntitlementsDataValueArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPrincipalEntitlementsDataValue)(nil)).Elem()
+}
+
+func (o GetPrincipalEntitlementsDataValueArrayOutput) ToGetPrincipalEntitlementsDataValueArrayOutput() GetPrincipalEntitlementsDataValueArrayOutput {
+	return o
+}
+
+func (o GetPrincipalEntitlementsDataValueArrayOutput) ToGetPrincipalEntitlementsDataValueArrayOutputWithContext(ctx context.Context) GetPrincipalEntitlementsDataValueArrayOutput {
+	return o
+}
+
+func (o GetPrincipalEntitlementsDataValueArrayOutput) Index(i pulumi.IntInput) GetPrincipalEntitlementsDataValueOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetPrincipalEntitlementsDataValue {
+		return vs[0].([]GetPrincipalEntitlementsDataValue)[vs[1].(int)]
+	}).(GetPrincipalEntitlementsDataValueOutput)
+}
+
+type GetPrincipalEntitlementsParent struct {
+	ExternalId string `pulumi:"externalId"`
+	Type       string `pulumi:"type"`
+}
+
+// GetPrincipalEntitlementsParentInput is an input type that accepts GetPrincipalEntitlementsParentArgs and GetPrincipalEntitlementsParentOutput values.
+// You can construct a concrete instance of `GetPrincipalEntitlementsParentInput` via:
+//
+//	GetPrincipalEntitlementsParentArgs{...}
+type GetPrincipalEntitlementsParentInput interface {
+	pulumi.Input
+
+	ToGetPrincipalEntitlementsParentOutput() GetPrincipalEntitlementsParentOutput
+	ToGetPrincipalEntitlementsParentOutputWithContext(context.Context) GetPrincipalEntitlementsParentOutput
+}
+
+type GetPrincipalEntitlementsParentArgs struct {
+	ExternalId pulumi.StringInput `pulumi:"externalId"`
+	Type       pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetPrincipalEntitlementsParentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPrincipalEntitlementsParent)(nil)).Elem()
+}
+
+func (i GetPrincipalEntitlementsParentArgs) ToGetPrincipalEntitlementsParentOutput() GetPrincipalEntitlementsParentOutput {
+	return i.ToGetPrincipalEntitlementsParentOutputWithContext(context.Background())
+}
+
+func (i GetPrincipalEntitlementsParentArgs) ToGetPrincipalEntitlementsParentOutputWithContext(ctx context.Context) GetPrincipalEntitlementsParentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPrincipalEntitlementsParentOutput)
+}
+
+func (i GetPrincipalEntitlementsParentArgs) ToGetPrincipalEntitlementsParentPtrOutput() GetPrincipalEntitlementsParentPtrOutput {
+	return i.ToGetPrincipalEntitlementsParentPtrOutputWithContext(context.Background())
+}
+
+func (i GetPrincipalEntitlementsParentArgs) ToGetPrincipalEntitlementsParentPtrOutputWithContext(ctx context.Context) GetPrincipalEntitlementsParentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPrincipalEntitlementsParentOutput).ToGetPrincipalEntitlementsParentPtrOutputWithContext(ctx)
+}
+
+// GetPrincipalEntitlementsParentPtrInput is an input type that accepts GetPrincipalEntitlementsParentArgs, GetPrincipalEntitlementsParentPtr and GetPrincipalEntitlementsParentPtrOutput values.
+// You can construct a concrete instance of `GetPrincipalEntitlementsParentPtrInput` via:
+//
+//	        GetPrincipalEntitlementsParentArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetPrincipalEntitlementsParentPtrInput interface {
+	pulumi.Input
+
+	ToGetPrincipalEntitlementsParentPtrOutput() GetPrincipalEntitlementsParentPtrOutput
+	ToGetPrincipalEntitlementsParentPtrOutputWithContext(context.Context) GetPrincipalEntitlementsParentPtrOutput
+}
+
+type getPrincipalEntitlementsParentPtrType GetPrincipalEntitlementsParentArgs
+
+func GetPrincipalEntitlementsParentPtr(v *GetPrincipalEntitlementsParentArgs) GetPrincipalEntitlementsParentPtrInput {
+	return (*getPrincipalEntitlementsParentPtrType)(v)
+}
+
+func (*getPrincipalEntitlementsParentPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetPrincipalEntitlementsParent)(nil)).Elem()
+}
+
+func (i *getPrincipalEntitlementsParentPtrType) ToGetPrincipalEntitlementsParentPtrOutput() GetPrincipalEntitlementsParentPtrOutput {
+	return i.ToGetPrincipalEntitlementsParentPtrOutputWithContext(context.Background())
+}
+
+func (i *getPrincipalEntitlementsParentPtrType) ToGetPrincipalEntitlementsParentPtrOutputWithContext(ctx context.Context) GetPrincipalEntitlementsParentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPrincipalEntitlementsParentPtrOutput)
+}
+
+type GetPrincipalEntitlementsParentOutput struct{ *pulumi.OutputState }
+
+func (GetPrincipalEntitlementsParentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPrincipalEntitlementsParent)(nil)).Elem()
+}
+
+func (o GetPrincipalEntitlementsParentOutput) ToGetPrincipalEntitlementsParentOutput() GetPrincipalEntitlementsParentOutput {
+	return o
+}
+
+func (o GetPrincipalEntitlementsParentOutput) ToGetPrincipalEntitlementsParentOutputWithContext(ctx context.Context) GetPrincipalEntitlementsParentOutput {
+	return o
+}
+
+func (o GetPrincipalEntitlementsParentOutput) ToGetPrincipalEntitlementsParentPtrOutput() GetPrincipalEntitlementsParentPtrOutput {
+	return o.ToGetPrincipalEntitlementsParentPtrOutputWithContext(context.Background())
+}
+
+func (o GetPrincipalEntitlementsParentOutput) ToGetPrincipalEntitlementsParentPtrOutputWithContext(ctx context.Context) GetPrincipalEntitlementsParentPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetPrincipalEntitlementsParent) *GetPrincipalEntitlementsParent {
+		return &v
+	}).(GetPrincipalEntitlementsParentPtrOutput)
+}
+
+func (o GetPrincipalEntitlementsParentOutput) ExternalId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPrincipalEntitlementsParent) string { return v.ExternalId }).(pulumi.StringOutput)
+}
+
+func (o GetPrincipalEntitlementsParentOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPrincipalEntitlementsParent) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetPrincipalEntitlementsParentPtrOutput struct{ *pulumi.OutputState }
+
+func (GetPrincipalEntitlementsParentPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetPrincipalEntitlementsParent)(nil)).Elem()
+}
+
+func (o GetPrincipalEntitlementsParentPtrOutput) ToGetPrincipalEntitlementsParentPtrOutput() GetPrincipalEntitlementsParentPtrOutput {
+	return o
+}
+
+func (o GetPrincipalEntitlementsParentPtrOutput) ToGetPrincipalEntitlementsParentPtrOutputWithContext(ctx context.Context) GetPrincipalEntitlementsParentPtrOutput {
+	return o
+}
+
+func (o GetPrincipalEntitlementsParentPtrOutput) Elem() GetPrincipalEntitlementsParentOutput {
+	return o.ApplyT(func(v *GetPrincipalEntitlementsParent) GetPrincipalEntitlementsParent {
+		if v != nil {
+			return *v
+		}
+		var ret GetPrincipalEntitlementsParent
+		return ret
+	}).(GetPrincipalEntitlementsParentOutput)
+}
+
+func (o GetPrincipalEntitlementsParentPtrOutput) ExternalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetPrincipalEntitlementsParent) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ExternalId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o GetPrincipalEntitlementsParentPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetPrincipalEntitlementsParent) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetPrincipalEntitlementsTargetPrincipal struct {
+	ExternalId string `pulumi:"externalId"`
+	Type       string `pulumi:"type"`
+}
+
+// GetPrincipalEntitlementsTargetPrincipalInput is an input type that accepts GetPrincipalEntitlementsTargetPrincipalArgs and GetPrincipalEntitlementsTargetPrincipalOutput values.
+// You can construct a concrete instance of `GetPrincipalEntitlementsTargetPrincipalInput` via:
+//
+//	GetPrincipalEntitlementsTargetPrincipalArgs{...}
+type GetPrincipalEntitlementsTargetPrincipalInput interface {
+	pulumi.Input
+
+	ToGetPrincipalEntitlementsTargetPrincipalOutput() GetPrincipalEntitlementsTargetPrincipalOutput
+	ToGetPrincipalEntitlementsTargetPrincipalOutputWithContext(context.Context) GetPrincipalEntitlementsTargetPrincipalOutput
+}
+
+type GetPrincipalEntitlementsTargetPrincipalArgs struct {
+	ExternalId pulumi.StringInput `pulumi:"externalId"`
+	Type       pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetPrincipalEntitlementsTargetPrincipalArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPrincipalEntitlementsTargetPrincipal)(nil)).Elem()
+}
+
+func (i GetPrincipalEntitlementsTargetPrincipalArgs) ToGetPrincipalEntitlementsTargetPrincipalOutput() GetPrincipalEntitlementsTargetPrincipalOutput {
+	return i.ToGetPrincipalEntitlementsTargetPrincipalOutputWithContext(context.Background())
+}
+
+func (i GetPrincipalEntitlementsTargetPrincipalArgs) ToGetPrincipalEntitlementsTargetPrincipalOutputWithContext(ctx context.Context) GetPrincipalEntitlementsTargetPrincipalOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPrincipalEntitlementsTargetPrincipalOutput)
+}
+
+func (i GetPrincipalEntitlementsTargetPrincipalArgs) ToGetPrincipalEntitlementsTargetPrincipalPtrOutput() GetPrincipalEntitlementsTargetPrincipalPtrOutput {
+	return i.ToGetPrincipalEntitlementsTargetPrincipalPtrOutputWithContext(context.Background())
+}
+
+func (i GetPrincipalEntitlementsTargetPrincipalArgs) ToGetPrincipalEntitlementsTargetPrincipalPtrOutputWithContext(ctx context.Context) GetPrincipalEntitlementsTargetPrincipalPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPrincipalEntitlementsTargetPrincipalOutput).ToGetPrincipalEntitlementsTargetPrincipalPtrOutputWithContext(ctx)
+}
+
+// GetPrincipalEntitlementsTargetPrincipalPtrInput is an input type that accepts GetPrincipalEntitlementsTargetPrincipalArgs, GetPrincipalEntitlementsTargetPrincipalPtr and GetPrincipalEntitlementsTargetPrincipalPtrOutput values.
+// You can construct a concrete instance of `GetPrincipalEntitlementsTargetPrincipalPtrInput` via:
+//
+//	        GetPrincipalEntitlementsTargetPrincipalArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetPrincipalEntitlementsTargetPrincipalPtrInput interface {
+	pulumi.Input
+
+	ToGetPrincipalEntitlementsTargetPrincipalPtrOutput() GetPrincipalEntitlementsTargetPrincipalPtrOutput
+	ToGetPrincipalEntitlementsTargetPrincipalPtrOutputWithContext(context.Context) GetPrincipalEntitlementsTargetPrincipalPtrOutput
+}
+
+type getPrincipalEntitlementsTargetPrincipalPtrType GetPrincipalEntitlementsTargetPrincipalArgs
+
+func GetPrincipalEntitlementsTargetPrincipalPtr(v *GetPrincipalEntitlementsTargetPrincipalArgs) GetPrincipalEntitlementsTargetPrincipalPtrInput {
+	return (*getPrincipalEntitlementsTargetPrincipalPtrType)(v)
+}
+
+func (*getPrincipalEntitlementsTargetPrincipalPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetPrincipalEntitlementsTargetPrincipal)(nil)).Elem()
+}
+
+func (i *getPrincipalEntitlementsTargetPrincipalPtrType) ToGetPrincipalEntitlementsTargetPrincipalPtrOutput() GetPrincipalEntitlementsTargetPrincipalPtrOutput {
+	return i.ToGetPrincipalEntitlementsTargetPrincipalPtrOutputWithContext(context.Background())
+}
+
+func (i *getPrincipalEntitlementsTargetPrincipalPtrType) ToGetPrincipalEntitlementsTargetPrincipalPtrOutputWithContext(ctx context.Context) GetPrincipalEntitlementsTargetPrincipalPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPrincipalEntitlementsTargetPrincipalPtrOutput)
+}
+
+type GetPrincipalEntitlementsTargetPrincipalOutput struct{ *pulumi.OutputState }
+
+func (GetPrincipalEntitlementsTargetPrincipalOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPrincipalEntitlementsTargetPrincipal)(nil)).Elem()
+}
+
+func (o GetPrincipalEntitlementsTargetPrincipalOutput) ToGetPrincipalEntitlementsTargetPrincipalOutput() GetPrincipalEntitlementsTargetPrincipalOutput {
+	return o
+}
+
+func (o GetPrincipalEntitlementsTargetPrincipalOutput) ToGetPrincipalEntitlementsTargetPrincipalOutputWithContext(ctx context.Context) GetPrincipalEntitlementsTargetPrincipalOutput {
+	return o
+}
+
+func (o GetPrincipalEntitlementsTargetPrincipalOutput) ToGetPrincipalEntitlementsTargetPrincipalPtrOutput() GetPrincipalEntitlementsTargetPrincipalPtrOutput {
+	return o.ToGetPrincipalEntitlementsTargetPrincipalPtrOutputWithContext(context.Background())
+}
+
+func (o GetPrincipalEntitlementsTargetPrincipalOutput) ToGetPrincipalEntitlementsTargetPrincipalPtrOutputWithContext(ctx context.Context) GetPrincipalEntitlementsTargetPrincipalPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetPrincipalEntitlementsTargetPrincipal) *GetPrincipalEntitlementsTargetPrincipal {
+		return &v
+	}).(GetPrincipalEntitlementsTargetPrincipalPtrOutput)
+}
+
+func (o GetPrincipalEntitlementsTargetPrincipalOutput) ExternalId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPrincipalEntitlementsTargetPrincipal) string { return v.ExternalId }).(pulumi.StringOutput)
+}
+
+func (o GetPrincipalEntitlementsTargetPrincipalOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPrincipalEntitlementsTargetPrincipal) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetPrincipalEntitlementsTargetPrincipalPtrOutput struct{ *pulumi.OutputState }
+
+func (GetPrincipalEntitlementsTargetPrincipalPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetPrincipalEntitlementsTargetPrincipal)(nil)).Elem()
+}
+
+func (o GetPrincipalEntitlementsTargetPrincipalPtrOutput) ToGetPrincipalEntitlementsTargetPrincipalPtrOutput() GetPrincipalEntitlementsTargetPrincipalPtrOutput {
+	return o
+}
+
+func (o GetPrincipalEntitlementsTargetPrincipalPtrOutput) ToGetPrincipalEntitlementsTargetPrincipalPtrOutputWithContext(ctx context.Context) GetPrincipalEntitlementsTargetPrincipalPtrOutput {
+	return o
+}
+
+func (o GetPrincipalEntitlementsTargetPrincipalPtrOutput) Elem() GetPrincipalEntitlementsTargetPrincipalOutput {
+	return o.ApplyT(func(v *GetPrincipalEntitlementsTargetPrincipal) GetPrincipalEntitlementsTargetPrincipal {
+		if v != nil {
+			return *v
+		}
+		var ret GetPrincipalEntitlementsTargetPrincipal
+		return ret
+	}).(GetPrincipalEntitlementsTargetPrincipalOutput)
+}
+
+func (o GetPrincipalEntitlementsTargetPrincipalPtrOutput) ExternalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetPrincipalEntitlementsTargetPrincipal) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ExternalId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o GetPrincipalEntitlementsTargetPrincipalPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetPrincipalEntitlementsTargetPrincipal) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetRequestConditionAccessScopeSettings struct {
+	// List of groups/entitlement bundles.
+	Ids  []GetRequestConditionAccessScopeSettingsId `pulumi:"ids"`
+	Type string                                     `pulumi:"type"`
+}
+
+// GetRequestConditionAccessScopeSettingsInput is an input type that accepts GetRequestConditionAccessScopeSettingsArgs and GetRequestConditionAccessScopeSettingsOutput values.
+// You can construct a concrete instance of `GetRequestConditionAccessScopeSettingsInput` via:
+//
+//	GetRequestConditionAccessScopeSettingsArgs{...}
+type GetRequestConditionAccessScopeSettingsInput interface {
+	pulumi.Input
+
+	ToGetRequestConditionAccessScopeSettingsOutput() GetRequestConditionAccessScopeSettingsOutput
+	ToGetRequestConditionAccessScopeSettingsOutputWithContext(context.Context) GetRequestConditionAccessScopeSettingsOutput
+}
+
+type GetRequestConditionAccessScopeSettingsArgs struct {
+	// List of groups/entitlement bundles.
+	Ids  GetRequestConditionAccessScopeSettingsIdArrayInput `pulumi:"ids"`
+	Type pulumi.StringInput                                 `pulumi:"type"`
+}
+
+func (GetRequestConditionAccessScopeSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRequestConditionAccessScopeSettings)(nil)).Elem()
+}
+
+func (i GetRequestConditionAccessScopeSettingsArgs) ToGetRequestConditionAccessScopeSettingsOutput() GetRequestConditionAccessScopeSettingsOutput {
+	return i.ToGetRequestConditionAccessScopeSettingsOutputWithContext(context.Background())
+}
+
+func (i GetRequestConditionAccessScopeSettingsArgs) ToGetRequestConditionAccessScopeSettingsOutputWithContext(ctx context.Context) GetRequestConditionAccessScopeSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRequestConditionAccessScopeSettingsOutput)
+}
+
+func (i GetRequestConditionAccessScopeSettingsArgs) ToGetRequestConditionAccessScopeSettingsPtrOutput() GetRequestConditionAccessScopeSettingsPtrOutput {
+	return i.ToGetRequestConditionAccessScopeSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i GetRequestConditionAccessScopeSettingsArgs) ToGetRequestConditionAccessScopeSettingsPtrOutputWithContext(ctx context.Context) GetRequestConditionAccessScopeSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRequestConditionAccessScopeSettingsOutput).ToGetRequestConditionAccessScopeSettingsPtrOutputWithContext(ctx)
+}
+
+// GetRequestConditionAccessScopeSettingsPtrInput is an input type that accepts GetRequestConditionAccessScopeSettingsArgs, GetRequestConditionAccessScopeSettingsPtr and GetRequestConditionAccessScopeSettingsPtrOutput values.
+// You can construct a concrete instance of `GetRequestConditionAccessScopeSettingsPtrInput` via:
+//
+//	        GetRequestConditionAccessScopeSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetRequestConditionAccessScopeSettingsPtrInput interface {
+	pulumi.Input
+
+	ToGetRequestConditionAccessScopeSettingsPtrOutput() GetRequestConditionAccessScopeSettingsPtrOutput
+	ToGetRequestConditionAccessScopeSettingsPtrOutputWithContext(context.Context) GetRequestConditionAccessScopeSettingsPtrOutput
+}
+
+type getRequestConditionAccessScopeSettingsPtrType GetRequestConditionAccessScopeSettingsArgs
+
+func GetRequestConditionAccessScopeSettingsPtr(v *GetRequestConditionAccessScopeSettingsArgs) GetRequestConditionAccessScopeSettingsPtrInput {
+	return (*getRequestConditionAccessScopeSettingsPtrType)(v)
+}
+
+func (*getRequestConditionAccessScopeSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetRequestConditionAccessScopeSettings)(nil)).Elem()
+}
+
+func (i *getRequestConditionAccessScopeSettingsPtrType) ToGetRequestConditionAccessScopeSettingsPtrOutput() GetRequestConditionAccessScopeSettingsPtrOutput {
+	return i.ToGetRequestConditionAccessScopeSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *getRequestConditionAccessScopeSettingsPtrType) ToGetRequestConditionAccessScopeSettingsPtrOutputWithContext(ctx context.Context) GetRequestConditionAccessScopeSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRequestConditionAccessScopeSettingsPtrOutput)
+}
+
+type GetRequestConditionAccessScopeSettingsOutput struct{ *pulumi.OutputState }
+
+func (GetRequestConditionAccessScopeSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRequestConditionAccessScopeSettings)(nil)).Elem()
+}
+
+func (o GetRequestConditionAccessScopeSettingsOutput) ToGetRequestConditionAccessScopeSettingsOutput() GetRequestConditionAccessScopeSettingsOutput {
+	return o
+}
+
+func (o GetRequestConditionAccessScopeSettingsOutput) ToGetRequestConditionAccessScopeSettingsOutputWithContext(ctx context.Context) GetRequestConditionAccessScopeSettingsOutput {
+	return o
+}
+
+func (o GetRequestConditionAccessScopeSettingsOutput) ToGetRequestConditionAccessScopeSettingsPtrOutput() GetRequestConditionAccessScopeSettingsPtrOutput {
+	return o.ToGetRequestConditionAccessScopeSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o GetRequestConditionAccessScopeSettingsOutput) ToGetRequestConditionAccessScopeSettingsPtrOutputWithContext(ctx context.Context) GetRequestConditionAccessScopeSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetRequestConditionAccessScopeSettings) *GetRequestConditionAccessScopeSettings {
+		return &v
+	}).(GetRequestConditionAccessScopeSettingsPtrOutput)
+}
+
+// List of groups/entitlement bundles.
+func (o GetRequestConditionAccessScopeSettingsOutput) Ids() GetRequestConditionAccessScopeSettingsIdArrayOutput {
+	return o.ApplyT(func(v GetRequestConditionAccessScopeSettings) []GetRequestConditionAccessScopeSettingsId {
+		return v.Ids
+	}).(GetRequestConditionAccessScopeSettingsIdArrayOutput)
+}
+
+func (o GetRequestConditionAccessScopeSettingsOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRequestConditionAccessScopeSettings) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetRequestConditionAccessScopeSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (GetRequestConditionAccessScopeSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetRequestConditionAccessScopeSettings)(nil)).Elem()
+}
+
+func (o GetRequestConditionAccessScopeSettingsPtrOutput) ToGetRequestConditionAccessScopeSettingsPtrOutput() GetRequestConditionAccessScopeSettingsPtrOutput {
+	return o
+}
+
+func (o GetRequestConditionAccessScopeSettingsPtrOutput) ToGetRequestConditionAccessScopeSettingsPtrOutputWithContext(ctx context.Context) GetRequestConditionAccessScopeSettingsPtrOutput {
+	return o
+}
+
+func (o GetRequestConditionAccessScopeSettingsPtrOutput) Elem() GetRequestConditionAccessScopeSettingsOutput {
+	return o.ApplyT(func(v *GetRequestConditionAccessScopeSettings) GetRequestConditionAccessScopeSettings {
+		if v != nil {
+			return *v
+		}
+		var ret GetRequestConditionAccessScopeSettings
+		return ret
+	}).(GetRequestConditionAccessScopeSettingsOutput)
+}
+
+// List of groups/entitlement bundles.
+func (o GetRequestConditionAccessScopeSettingsPtrOutput) Ids() GetRequestConditionAccessScopeSettingsIdArrayOutput {
+	return o.ApplyT(func(v *GetRequestConditionAccessScopeSettings) []GetRequestConditionAccessScopeSettingsId {
+		if v == nil {
+			return nil
+		}
+		return v.Ids
+	}).(GetRequestConditionAccessScopeSettingsIdArrayOutput)
+}
+
+func (o GetRequestConditionAccessScopeSettingsPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetRequestConditionAccessScopeSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetRequestConditionAccessScopeSettingsId struct {
+	// Request condition id.
+	Id string `pulumi:"id"`
+}
+
+// GetRequestConditionAccessScopeSettingsIdInput is an input type that accepts GetRequestConditionAccessScopeSettingsIdArgs and GetRequestConditionAccessScopeSettingsIdOutput values.
+// You can construct a concrete instance of `GetRequestConditionAccessScopeSettingsIdInput` via:
+//
+//	GetRequestConditionAccessScopeSettingsIdArgs{...}
+type GetRequestConditionAccessScopeSettingsIdInput interface {
+	pulumi.Input
+
+	ToGetRequestConditionAccessScopeSettingsIdOutput() GetRequestConditionAccessScopeSettingsIdOutput
+	ToGetRequestConditionAccessScopeSettingsIdOutputWithContext(context.Context) GetRequestConditionAccessScopeSettingsIdOutput
+}
+
+type GetRequestConditionAccessScopeSettingsIdArgs struct {
+	// Request condition id.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (GetRequestConditionAccessScopeSettingsIdArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRequestConditionAccessScopeSettingsId)(nil)).Elem()
+}
+
+func (i GetRequestConditionAccessScopeSettingsIdArgs) ToGetRequestConditionAccessScopeSettingsIdOutput() GetRequestConditionAccessScopeSettingsIdOutput {
+	return i.ToGetRequestConditionAccessScopeSettingsIdOutputWithContext(context.Background())
+}
+
+func (i GetRequestConditionAccessScopeSettingsIdArgs) ToGetRequestConditionAccessScopeSettingsIdOutputWithContext(ctx context.Context) GetRequestConditionAccessScopeSettingsIdOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRequestConditionAccessScopeSettingsIdOutput)
+}
+
+// GetRequestConditionAccessScopeSettingsIdArrayInput is an input type that accepts GetRequestConditionAccessScopeSettingsIdArray and GetRequestConditionAccessScopeSettingsIdArrayOutput values.
+// You can construct a concrete instance of `GetRequestConditionAccessScopeSettingsIdArrayInput` via:
+//
+//	GetRequestConditionAccessScopeSettingsIdArray{ GetRequestConditionAccessScopeSettingsIdArgs{...} }
+type GetRequestConditionAccessScopeSettingsIdArrayInput interface {
+	pulumi.Input
+
+	ToGetRequestConditionAccessScopeSettingsIdArrayOutput() GetRequestConditionAccessScopeSettingsIdArrayOutput
+	ToGetRequestConditionAccessScopeSettingsIdArrayOutputWithContext(context.Context) GetRequestConditionAccessScopeSettingsIdArrayOutput
+}
+
+type GetRequestConditionAccessScopeSettingsIdArray []GetRequestConditionAccessScopeSettingsIdInput
+
+func (GetRequestConditionAccessScopeSettingsIdArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRequestConditionAccessScopeSettingsId)(nil)).Elem()
+}
+
+func (i GetRequestConditionAccessScopeSettingsIdArray) ToGetRequestConditionAccessScopeSettingsIdArrayOutput() GetRequestConditionAccessScopeSettingsIdArrayOutput {
+	return i.ToGetRequestConditionAccessScopeSettingsIdArrayOutputWithContext(context.Background())
+}
+
+func (i GetRequestConditionAccessScopeSettingsIdArray) ToGetRequestConditionAccessScopeSettingsIdArrayOutputWithContext(ctx context.Context) GetRequestConditionAccessScopeSettingsIdArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRequestConditionAccessScopeSettingsIdArrayOutput)
+}
+
+type GetRequestConditionAccessScopeSettingsIdOutput struct{ *pulumi.OutputState }
+
+func (GetRequestConditionAccessScopeSettingsIdOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRequestConditionAccessScopeSettingsId)(nil)).Elem()
+}
+
+func (o GetRequestConditionAccessScopeSettingsIdOutput) ToGetRequestConditionAccessScopeSettingsIdOutput() GetRequestConditionAccessScopeSettingsIdOutput {
+	return o
+}
+
+func (o GetRequestConditionAccessScopeSettingsIdOutput) ToGetRequestConditionAccessScopeSettingsIdOutputWithContext(ctx context.Context) GetRequestConditionAccessScopeSettingsIdOutput {
+	return o
+}
+
+// Request condition id.
+func (o GetRequestConditionAccessScopeSettingsIdOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRequestConditionAccessScopeSettingsId) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type GetRequestConditionAccessScopeSettingsIdArrayOutput struct{ *pulumi.OutputState }
+
+func (GetRequestConditionAccessScopeSettingsIdArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRequestConditionAccessScopeSettingsId)(nil)).Elem()
+}
+
+func (o GetRequestConditionAccessScopeSettingsIdArrayOutput) ToGetRequestConditionAccessScopeSettingsIdArrayOutput() GetRequestConditionAccessScopeSettingsIdArrayOutput {
+	return o
+}
+
+func (o GetRequestConditionAccessScopeSettingsIdArrayOutput) ToGetRequestConditionAccessScopeSettingsIdArrayOutputWithContext(ctx context.Context) GetRequestConditionAccessScopeSettingsIdArrayOutput {
+	return o
+}
+
+func (o GetRequestConditionAccessScopeSettingsIdArrayOutput) Index(i pulumi.IntInput) GetRequestConditionAccessScopeSettingsIdOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRequestConditionAccessScopeSettingsId {
+		return vs[0].([]GetRequestConditionAccessScopeSettingsId)[vs[1].(int)]
+	}).(GetRequestConditionAccessScopeSettingsIdOutput)
+}
+
+type GetRequestConditionRequesterSettings struct {
+	// List of teams/groups ids.
+	Ids  []GetRequestConditionRequesterSettingsId `pulumi:"ids"`
+	Type string                                   `pulumi:"type"`
+}
+
+// GetRequestConditionRequesterSettingsInput is an input type that accepts GetRequestConditionRequesterSettingsArgs and GetRequestConditionRequesterSettingsOutput values.
+// You can construct a concrete instance of `GetRequestConditionRequesterSettingsInput` via:
+//
+//	GetRequestConditionRequesterSettingsArgs{...}
+type GetRequestConditionRequesterSettingsInput interface {
+	pulumi.Input
+
+	ToGetRequestConditionRequesterSettingsOutput() GetRequestConditionRequesterSettingsOutput
+	ToGetRequestConditionRequesterSettingsOutputWithContext(context.Context) GetRequestConditionRequesterSettingsOutput
+}
+
+type GetRequestConditionRequesterSettingsArgs struct {
+	// List of teams/groups ids.
+	Ids  GetRequestConditionRequesterSettingsIdArrayInput `pulumi:"ids"`
+	Type pulumi.StringInput                               `pulumi:"type"`
+}
+
+func (GetRequestConditionRequesterSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRequestConditionRequesterSettings)(nil)).Elem()
+}
+
+func (i GetRequestConditionRequesterSettingsArgs) ToGetRequestConditionRequesterSettingsOutput() GetRequestConditionRequesterSettingsOutput {
+	return i.ToGetRequestConditionRequesterSettingsOutputWithContext(context.Background())
+}
+
+func (i GetRequestConditionRequesterSettingsArgs) ToGetRequestConditionRequesterSettingsOutputWithContext(ctx context.Context) GetRequestConditionRequesterSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRequestConditionRequesterSettingsOutput)
+}
+
+func (i GetRequestConditionRequesterSettingsArgs) ToGetRequestConditionRequesterSettingsPtrOutput() GetRequestConditionRequesterSettingsPtrOutput {
+	return i.ToGetRequestConditionRequesterSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i GetRequestConditionRequesterSettingsArgs) ToGetRequestConditionRequesterSettingsPtrOutputWithContext(ctx context.Context) GetRequestConditionRequesterSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRequestConditionRequesterSettingsOutput).ToGetRequestConditionRequesterSettingsPtrOutputWithContext(ctx)
+}
+
+// GetRequestConditionRequesterSettingsPtrInput is an input type that accepts GetRequestConditionRequesterSettingsArgs, GetRequestConditionRequesterSettingsPtr and GetRequestConditionRequesterSettingsPtrOutput values.
+// You can construct a concrete instance of `GetRequestConditionRequesterSettingsPtrInput` via:
+//
+//	        GetRequestConditionRequesterSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetRequestConditionRequesterSettingsPtrInput interface {
+	pulumi.Input
+
+	ToGetRequestConditionRequesterSettingsPtrOutput() GetRequestConditionRequesterSettingsPtrOutput
+	ToGetRequestConditionRequesterSettingsPtrOutputWithContext(context.Context) GetRequestConditionRequesterSettingsPtrOutput
+}
+
+type getRequestConditionRequesterSettingsPtrType GetRequestConditionRequesterSettingsArgs
+
+func GetRequestConditionRequesterSettingsPtr(v *GetRequestConditionRequesterSettingsArgs) GetRequestConditionRequesterSettingsPtrInput {
+	return (*getRequestConditionRequesterSettingsPtrType)(v)
+}
+
+func (*getRequestConditionRequesterSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetRequestConditionRequesterSettings)(nil)).Elem()
+}
+
+func (i *getRequestConditionRequesterSettingsPtrType) ToGetRequestConditionRequesterSettingsPtrOutput() GetRequestConditionRequesterSettingsPtrOutput {
+	return i.ToGetRequestConditionRequesterSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *getRequestConditionRequesterSettingsPtrType) ToGetRequestConditionRequesterSettingsPtrOutputWithContext(ctx context.Context) GetRequestConditionRequesterSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRequestConditionRequesterSettingsPtrOutput)
+}
+
+type GetRequestConditionRequesterSettingsOutput struct{ *pulumi.OutputState }
+
+func (GetRequestConditionRequesterSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRequestConditionRequesterSettings)(nil)).Elem()
+}
+
+func (o GetRequestConditionRequesterSettingsOutput) ToGetRequestConditionRequesterSettingsOutput() GetRequestConditionRequesterSettingsOutput {
+	return o
+}
+
+func (o GetRequestConditionRequesterSettingsOutput) ToGetRequestConditionRequesterSettingsOutputWithContext(ctx context.Context) GetRequestConditionRequesterSettingsOutput {
+	return o
+}
+
+func (o GetRequestConditionRequesterSettingsOutput) ToGetRequestConditionRequesterSettingsPtrOutput() GetRequestConditionRequesterSettingsPtrOutput {
+	return o.ToGetRequestConditionRequesterSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o GetRequestConditionRequesterSettingsOutput) ToGetRequestConditionRequesterSettingsPtrOutputWithContext(ctx context.Context) GetRequestConditionRequesterSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetRequestConditionRequesterSettings) *GetRequestConditionRequesterSettings {
+		return &v
+	}).(GetRequestConditionRequesterSettingsPtrOutput)
+}
+
+// List of teams/groups ids.
+func (o GetRequestConditionRequesterSettingsOutput) Ids() GetRequestConditionRequesterSettingsIdArrayOutput {
+	return o.ApplyT(func(v GetRequestConditionRequesterSettings) []GetRequestConditionRequesterSettingsId { return v.Ids }).(GetRequestConditionRequesterSettingsIdArrayOutput)
+}
+
+func (o GetRequestConditionRequesterSettingsOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRequestConditionRequesterSettings) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetRequestConditionRequesterSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (GetRequestConditionRequesterSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetRequestConditionRequesterSettings)(nil)).Elem()
+}
+
+func (o GetRequestConditionRequesterSettingsPtrOutput) ToGetRequestConditionRequesterSettingsPtrOutput() GetRequestConditionRequesterSettingsPtrOutput {
+	return o
+}
+
+func (o GetRequestConditionRequesterSettingsPtrOutput) ToGetRequestConditionRequesterSettingsPtrOutputWithContext(ctx context.Context) GetRequestConditionRequesterSettingsPtrOutput {
+	return o
+}
+
+func (o GetRequestConditionRequesterSettingsPtrOutput) Elem() GetRequestConditionRequesterSettingsOutput {
+	return o.ApplyT(func(v *GetRequestConditionRequesterSettings) GetRequestConditionRequesterSettings {
+		if v != nil {
+			return *v
+		}
+		var ret GetRequestConditionRequesterSettings
+		return ret
+	}).(GetRequestConditionRequesterSettingsOutput)
+}
+
+// List of teams/groups ids.
+func (o GetRequestConditionRequesterSettingsPtrOutput) Ids() GetRequestConditionRequesterSettingsIdArrayOutput {
+	return o.ApplyT(func(v *GetRequestConditionRequesterSettings) []GetRequestConditionRequesterSettingsId {
+		if v == nil {
+			return nil
+		}
+		return v.Ids
+	}).(GetRequestConditionRequesterSettingsIdArrayOutput)
+}
+
+func (o GetRequestConditionRequesterSettingsPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetRequestConditionRequesterSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetRequestConditionRequesterSettingsId struct {
+	// Request condition id.
+	Id string `pulumi:"id"`
+}
+
+// GetRequestConditionRequesterSettingsIdInput is an input type that accepts GetRequestConditionRequesterSettingsIdArgs and GetRequestConditionRequesterSettingsIdOutput values.
+// You can construct a concrete instance of `GetRequestConditionRequesterSettingsIdInput` via:
+//
+//	GetRequestConditionRequesterSettingsIdArgs{...}
+type GetRequestConditionRequesterSettingsIdInput interface {
+	pulumi.Input
+
+	ToGetRequestConditionRequesterSettingsIdOutput() GetRequestConditionRequesterSettingsIdOutput
+	ToGetRequestConditionRequesterSettingsIdOutputWithContext(context.Context) GetRequestConditionRequesterSettingsIdOutput
+}
+
+type GetRequestConditionRequesterSettingsIdArgs struct {
+	// Request condition id.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (GetRequestConditionRequesterSettingsIdArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRequestConditionRequesterSettingsId)(nil)).Elem()
+}
+
+func (i GetRequestConditionRequesterSettingsIdArgs) ToGetRequestConditionRequesterSettingsIdOutput() GetRequestConditionRequesterSettingsIdOutput {
+	return i.ToGetRequestConditionRequesterSettingsIdOutputWithContext(context.Background())
+}
+
+func (i GetRequestConditionRequesterSettingsIdArgs) ToGetRequestConditionRequesterSettingsIdOutputWithContext(ctx context.Context) GetRequestConditionRequesterSettingsIdOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRequestConditionRequesterSettingsIdOutput)
+}
+
+// GetRequestConditionRequesterSettingsIdArrayInput is an input type that accepts GetRequestConditionRequesterSettingsIdArray and GetRequestConditionRequesterSettingsIdArrayOutput values.
+// You can construct a concrete instance of `GetRequestConditionRequesterSettingsIdArrayInput` via:
+//
+//	GetRequestConditionRequesterSettingsIdArray{ GetRequestConditionRequesterSettingsIdArgs{...} }
+type GetRequestConditionRequesterSettingsIdArrayInput interface {
+	pulumi.Input
+
+	ToGetRequestConditionRequesterSettingsIdArrayOutput() GetRequestConditionRequesterSettingsIdArrayOutput
+	ToGetRequestConditionRequesterSettingsIdArrayOutputWithContext(context.Context) GetRequestConditionRequesterSettingsIdArrayOutput
+}
+
+type GetRequestConditionRequesterSettingsIdArray []GetRequestConditionRequesterSettingsIdInput
+
+func (GetRequestConditionRequesterSettingsIdArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRequestConditionRequesterSettingsId)(nil)).Elem()
+}
+
+func (i GetRequestConditionRequesterSettingsIdArray) ToGetRequestConditionRequesterSettingsIdArrayOutput() GetRequestConditionRequesterSettingsIdArrayOutput {
+	return i.ToGetRequestConditionRequesterSettingsIdArrayOutputWithContext(context.Background())
+}
+
+func (i GetRequestConditionRequesterSettingsIdArray) ToGetRequestConditionRequesterSettingsIdArrayOutputWithContext(ctx context.Context) GetRequestConditionRequesterSettingsIdArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRequestConditionRequesterSettingsIdArrayOutput)
+}
+
+type GetRequestConditionRequesterSettingsIdOutput struct{ *pulumi.OutputState }
+
+func (GetRequestConditionRequesterSettingsIdOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRequestConditionRequesterSettingsId)(nil)).Elem()
+}
+
+func (o GetRequestConditionRequesterSettingsIdOutput) ToGetRequestConditionRequesterSettingsIdOutput() GetRequestConditionRequesterSettingsIdOutput {
+	return o
+}
+
+func (o GetRequestConditionRequesterSettingsIdOutput) ToGetRequestConditionRequesterSettingsIdOutputWithContext(ctx context.Context) GetRequestConditionRequesterSettingsIdOutput {
+	return o
+}
+
+// Request condition id.
+func (o GetRequestConditionRequesterSettingsIdOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRequestConditionRequesterSettingsId) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type GetRequestConditionRequesterSettingsIdArrayOutput struct{ *pulumi.OutputState }
+
+func (GetRequestConditionRequesterSettingsIdArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRequestConditionRequesterSettingsId)(nil)).Elem()
+}
+
+func (o GetRequestConditionRequesterSettingsIdArrayOutput) ToGetRequestConditionRequesterSettingsIdArrayOutput() GetRequestConditionRequesterSettingsIdArrayOutput {
+	return o
+}
+
+func (o GetRequestConditionRequesterSettingsIdArrayOutput) ToGetRequestConditionRequesterSettingsIdArrayOutputWithContext(ctx context.Context) GetRequestConditionRequesterSettingsIdArrayOutput {
+	return o
+}
+
+func (o GetRequestConditionRequesterSettingsIdArrayOutput) Index(i pulumi.IntInput) GetRequestConditionRequesterSettingsIdOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRequestConditionRequesterSettingsId {
+		return vs[0].([]GetRequestConditionRequesterSettingsId)[vs[1].(int)]
+	}).(GetRequestConditionRequesterSettingsIdOutput)
+}
+
+type GetRequestSettingOrganizationRequestExperience struct {
+	ExperienceType string `pulumi:"experienceType"`
+}
+
+// GetRequestSettingOrganizationRequestExperienceInput is an input type that accepts GetRequestSettingOrganizationRequestExperienceArgs and GetRequestSettingOrganizationRequestExperienceOutput values.
+// You can construct a concrete instance of `GetRequestSettingOrganizationRequestExperienceInput` via:
+//
+//	GetRequestSettingOrganizationRequestExperienceArgs{...}
+type GetRequestSettingOrganizationRequestExperienceInput interface {
+	pulumi.Input
+
+	ToGetRequestSettingOrganizationRequestExperienceOutput() GetRequestSettingOrganizationRequestExperienceOutput
+	ToGetRequestSettingOrganizationRequestExperienceOutputWithContext(context.Context) GetRequestSettingOrganizationRequestExperienceOutput
+}
+
+type GetRequestSettingOrganizationRequestExperienceArgs struct {
+	ExperienceType pulumi.StringInput `pulumi:"experienceType"`
+}
+
+func (GetRequestSettingOrganizationRequestExperienceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRequestSettingOrganizationRequestExperience)(nil)).Elem()
+}
+
+func (i GetRequestSettingOrganizationRequestExperienceArgs) ToGetRequestSettingOrganizationRequestExperienceOutput() GetRequestSettingOrganizationRequestExperienceOutput {
+	return i.ToGetRequestSettingOrganizationRequestExperienceOutputWithContext(context.Background())
+}
+
+func (i GetRequestSettingOrganizationRequestExperienceArgs) ToGetRequestSettingOrganizationRequestExperienceOutputWithContext(ctx context.Context) GetRequestSettingOrganizationRequestExperienceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRequestSettingOrganizationRequestExperienceOutput)
+}
+
+// GetRequestSettingOrganizationRequestExperienceArrayInput is an input type that accepts GetRequestSettingOrganizationRequestExperienceArray and GetRequestSettingOrganizationRequestExperienceArrayOutput values.
+// You can construct a concrete instance of `GetRequestSettingOrganizationRequestExperienceArrayInput` via:
+//
+//	GetRequestSettingOrganizationRequestExperienceArray{ GetRequestSettingOrganizationRequestExperienceArgs{...} }
+type GetRequestSettingOrganizationRequestExperienceArrayInput interface {
+	pulumi.Input
+
+	ToGetRequestSettingOrganizationRequestExperienceArrayOutput() GetRequestSettingOrganizationRequestExperienceArrayOutput
+	ToGetRequestSettingOrganizationRequestExperienceArrayOutputWithContext(context.Context) GetRequestSettingOrganizationRequestExperienceArrayOutput
+}
+
+type GetRequestSettingOrganizationRequestExperienceArray []GetRequestSettingOrganizationRequestExperienceInput
+
+func (GetRequestSettingOrganizationRequestExperienceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRequestSettingOrganizationRequestExperience)(nil)).Elem()
+}
+
+func (i GetRequestSettingOrganizationRequestExperienceArray) ToGetRequestSettingOrganizationRequestExperienceArrayOutput() GetRequestSettingOrganizationRequestExperienceArrayOutput {
+	return i.ToGetRequestSettingOrganizationRequestExperienceArrayOutputWithContext(context.Background())
+}
+
+func (i GetRequestSettingOrganizationRequestExperienceArray) ToGetRequestSettingOrganizationRequestExperienceArrayOutputWithContext(ctx context.Context) GetRequestSettingOrganizationRequestExperienceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRequestSettingOrganizationRequestExperienceArrayOutput)
+}
+
+type GetRequestSettingOrganizationRequestExperienceOutput struct{ *pulumi.OutputState }
+
+func (GetRequestSettingOrganizationRequestExperienceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRequestSettingOrganizationRequestExperience)(nil)).Elem()
+}
+
+func (o GetRequestSettingOrganizationRequestExperienceOutput) ToGetRequestSettingOrganizationRequestExperienceOutput() GetRequestSettingOrganizationRequestExperienceOutput {
+	return o
+}
+
+func (o GetRequestSettingOrganizationRequestExperienceOutput) ToGetRequestSettingOrganizationRequestExperienceOutputWithContext(ctx context.Context) GetRequestSettingOrganizationRequestExperienceOutput {
+	return o
+}
+
+func (o GetRequestSettingOrganizationRequestExperienceOutput) ExperienceType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRequestSettingOrganizationRequestExperience) string { return v.ExperienceType }).(pulumi.StringOutput)
+}
+
+type GetRequestSettingOrganizationRequestExperienceArrayOutput struct{ *pulumi.OutputState }
+
+func (GetRequestSettingOrganizationRequestExperienceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRequestSettingOrganizationRequestExperience)(nil)).Elem()
+}
+
+func (o GetRequestSettingOrganizationRequestExperienceArrayOutput) ToGetRequestSettingOrganizationRequestExperienceArrayOutput() GetRequestSettingOrganizationRequestExperienceArrayOutput {
+	return o
+}
+
+func (o GetRequestSettingOrganizationRequestExperienceArrayOutput) ToGetRequestSettingOrganizationRequestExperienceArrayOutputWithContext(ctx context.Context) GetRequestSettingOrganizationRequestExperienceArrayOutput {
+	return o
+}
+
+func (o GetRequestSettingOrganizationRequestExperienceArrayOutput) Index(i pulumi.IntInput) GetRequestSettingOrganizationRequestExperienceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRequestSettingOrganizationRequestExperience {
+		return vs[0].([]GetRequestSettingOrganizationRequestExperience)[vs[1].(int)]
+	}).(GetRequestSettingOrganizationRequestExperienceOutput)
+}
+
+type GetRequestSettingResourceRequestOnBehalfOfSettings struct {
+	Allowed  bool                                                        `pulumi:"allowed"`
+	OnlyFors []GetRequestSettingResourceRequestOnBehalfOfSettingsOnlyFor `pulumi:"onlyFors"`
+}
+
+// GetRequestSettingResourceRequestOnBehalfOfSettingsInput is an input type that accepts GetRequestSettingResourceRequestOnBehalfOfSettingsArgs and GetRequestSettingResourceRequestOnBehalfOfSettingsOutput values.
+// You can construct a concrete instance of `GetRequestSettingResourceRequestOnBehalfOfSettingsInput` via:
+//
+//	GetRequestSettingResourceRequestOnBehalfOfSettingsArgs{...}
+type GetRequestSettingResourceRequestOnBehalfOfSettingsInput interface {
+	pulumi.Input
+
+	ToGetRequestSettingResourceRequestOnBehalfOfSettingsOutput() GetRequestSettingResourceRequestOnBehalfOfSettingsOutput
+	ToGetRequestSettingResourceRequestOnBehalfOfSettingsOutputWithContext(context.Context) GetRequestSettingResourceRequestOnBehalfOfSettingsOutput
+}
+
+type GetRequestSettingResourceRequestOnBehalfOfSettingsArgs struct {
+	Allowed  pulumi.BoolInput                                                    `pulumi:"allowed"`
+	OnlyFors GetRequestSettingResourceRequestOnBehalfOfSettingsOnlyForArrayInput `pulumi:"onlyFors"`
+}
+
+func (GetRequestSettingResourceRequestOnBehalfOfSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRequestSettingResourceRequestOnBehalfOfSettings)(nil)).Elem()
+}
+
+func (i GetRequestSettingResourceRequestOnBehalfOfSettingsArgs) ToGetRequestSettingResourceRequestOnBehalfOfSettingsOutput() GetRequestSettingResourceRequestOnBehalfOfSettingsOutput {
+	return i.ToGetRequestSettingResourceRequestOnBehalfOfSettingsOutputWithContext(context.Background())
+}
+
+func (i GetRequestSettingResourceRequestOnBehalfOfSettingsArgs) ToGetRequestSettingResourceRequestOnBehalfOfSettingsOutputWithContext(ctx context.Context) GetRequestSettingResourceRequestOnBehalfOfSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRequestSettingResourceRequestOnBehalfOfSettingsOutput)
+}
+
+func (i GetRequestSettingResourceRequestOnBehalfOfSettingsArgs) ToGetRequestSettingResourceRequestOnBehalfOfSettingsPtrOutput() GetRequestSettingResourceRequestOnBehalfOfSettingsPtrOutput {
+	return i.ToGetRequestSettingResourceRequestOnBehalfOfSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i GetRequestSettingResourceRequestOnBehalfOfSettingsArgs) ToGetRequestSettingResourceRequestOnBehalfOfSettingsPtrOutputWithContext(ctx context.Context) GetRequestSettingResourceRequestOnBehalfOfSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRequestSettingResourceRequestOnBehalfOfSettingsOutput).ToGetRequestSettingResourceRequestOnBehalfOfSettingsPtrOutputWithContext(ctx)
+}
+
+// GetRequestSettingResourceRequestOnBehalfOfSettingsPtrInput is an input type that accepts GetRequestSettingResourceRequestOnBehalfOfSettingsArgs, GetRequestSettingResourceRequestOnBehalfOfSettingsPtr and GetRequestSettingResourceRequestOnBehalfOfSettingsPtrOutput values.
+// You can construct a concrete instance of `GetRequestSettingResourceRequestOnBehalfOfSettingsPtrInput` via:
+//
+//	        GetRequestSettingResourceRequestOnBehalfOfSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetRequestSettingResourceRequestOnBehalfOfSettingsPtrInput interface {
+	pulumi.Input
+
+	ToGetRequestSettingResourceRequestOnBehalfOfSettingsPtrOutput() GetRequestSettingResourceRequestOnBehalfOfSettingsPtrOutput
+	ToGetRequestSettingResourceRequestOnBehalfOfSettingsPtrOutputWithContext(context.Context) GetRequestSettingResourceRequestOnBehalfOfSettingsPtrOutput
+}
+
+type getRequestSettingResourceRequestOnBehalfOfSettingsPtrType GetRequestSettingResourceRequestOnBehalfOfSettingsArgs
+
+func GetRequestSettingResourceRequestOnBehalfOfSettingsPtr(v *GetRequestSettingResourceRequestOnBehalfOfSettingsArgs) GetRequestSettingResourceRequestOnBehalfOfSettingsPtrInput {
+	return (*getRequestSettingResourceRequestOnBehalfOfSettingsPtrType)(v)
+}
+
+func (*getRequestSettingResourceRequestOnBehalfOfSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetRequestSettingResourceRequestOnBehalfOfSettings)(nil)).Elem()
+}
+
+func (i *getRequestSettingResourceRequestOnBehalfOfSettingsPtrType) ToGetRequestSettingResourceRequestOnBehalfOfSettingsPtrOutput() GetRequestSettingResourceRequestOnBehalfOfSettingsPtrOutput {
+	return i.ToGetRequestSettingResourceRequestOnBehalfOfSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *getRequestSettingResourceRequestOnBehalfOfSettingsPtrType) ToGetRequestSettingResourceRequestOnBehalfOfSettingsPtrOutputWithContext(ctx context.Context) GetRequestSettingResourceRequestOnBehalfOfSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRequestSettingResourceRequestOnBehalfOfSettingsPtrOutput)
+}
+
+type GetRequestSettingResourceRequestOnBehalfOfSettingsOutput struct{ *pulumi.OutputState }
+
+func (GetRequestSettingResourceRequestOnBehalfOfSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRequestSettingResourceRequestOnBehalfOfSettings)(nil)).Elem()
+}
+
+func (o GetRequestSettingResourceRequestOnBehalfOfSettingsOutput) ToGetRequestSettingResourceRequestOnBehalfOfSettingsOutput() GetRequestSettingResourceRequestOnBehalfOfSettingsOutput {
+	return o
+}
+
+func (o GetRequestSettingResourceRequestOnBehalfOfSettingsOutput) ToGetRequestSettingResourceRequestOnBehalfOfSettingsOutputWithContext(ctx context.Context) GetRequestSettingResourceRequestOnBehalfOfSettingsOutput {
+	return o
+}
+
+func (o GetRequestSettingResourceRequestOnBehalfOfSettingsOutput) ToGetRequestSettingResourceRequestOnBehalfOfSettingsPtrOutput() GetRequestSettingResourceRequestOnBehalfOfSettingsPtrOutput {
+	return o.ToGetRequestSettingResourceRequestOnBehalfOfSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o GetRequestSettingResourceRequestOnBehalfOfSettingsOutput) ToGetRequestSettingResourceRequestOnBehalfOfSettingsPtrOutputWithContext(ctx context.Context) GetRequestSettingResourceRequestOnBehalfOfSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetRequestSettingResourceRequestOnBehalfOfSettings) *GetRequestSettingResourceRequestOnBehalfOfSettings {
+		return &v
+	}).(GetRequestSettingResourceRequestOnBehalfOfSettingsPtrOutput)
+}
+
+func (o GetRequestSettingResourceRequestOnBehalfOfSettingsOutput) Allowed() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetRequestSettingResourceRequestOnBehalfOfSettings) bool { return v.Allowed }).(pulumi.BoolOutput)
+}
+
+func (o GetRequestSettingResourceRequestOnBehalfOfSettingsOutput) OnlyFors() GetRequestSettingResourceRequestOnBehalfOfSettingsOnlyForArrayOutput {
+	return o.ApplyT(func(v GetRequestSettingResourceRequestOnBehalfOfSettings) []GetRequestSettingResourceRequestOnBehalfOfSettingsOnlyFor {
+		return v.OnlyFors
+	}).(GetRequestSettingResourceRequestOnBehalfOfSettingsOnlyForArrayOutput)
+}
+
+type GetRequestSettingResourceRequestOnBehalfOfSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (GetRequestSettingResourceRequestOnBehalfOfSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetRequestSettingResourceRequestOnBehalfOfSettings)(nil)).Elem()
+}
+
+func (o GetRequestSettingResourceRequestOnBehalfOfSettingsPtrOutput) ToGetRequestSettingResourceRequestOnBehalfOfSettingsPtrOutput() GetRequestSettingResourceRequestOnBehalfOfSettingsPtrOutput {
+	return o
+}
+
+func (o GetRequestSettingResourceRequestOnBehalfOfSettingsPtrOutput) ToGetRequestSettingResourceRequestOnBehalfOfSettingsPtrOutputWithContext(ctx context.Context) GetRequestSettingResourceRequestOnBehalfOfSettingsPtrOutput {
+	return o
+}
+
+func (o GetRequestSettingResourceRequestOnBehalfOfSettingsPtrOutput) Elem() GetRequestSettingResourceRequestOnBehalfOfSettingsOutput {
+	return o.ApplyT(func(v *GetRequestSettingResourceRequestOnBehalfOfSettings) GetRequestSettingResourceRequestOnBehalfOfSettings {
+		if v != nil {
+			return *v
+		}
+		var ret GetRequestSettingResourceRequestOnBehalfOfSettings
+		return ret
+	}).(GetRequestSettingResourceRequestOnBehalfOfSettingsOutput)
+}
+
+func (o GetRequestSettingResourceRequestOnBehalfOfSettingsPtrOutput) Allowed() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRequestSettingResourceRequestOnBehalfOfSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Allowed
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRequestSettingResourceRequestOnBehalfOfSettingsPtrOutput) OnlyFors() GetRequestSettingResourceRequestOnBehalfOfSettingsOnlyForArrayOutput {
+	return o.ApplyT(func(v *GetRequestSettingResourceRequestOnBehalfOfSettings) []GetRequestSettingResourceRequestOnBehalfOfSettingsOnlyFor {
+		if v == nil {
+			return nil
+		}
+		return v.OnlyFors
+	}).(GetRequestSettingResourceRequestOnBehalfOfSettingsOnlyForArrayOutput)
+}
+
+type GetRequestSettingResourceRequestOnBehalfOfSettingsOnlyFor struct {
+	Type string `pulumi:"type"`
+}
+
+// GetRequestSettingResourceRequestOnBehalfOfSettingsOnlyForInput is an input type that accepts GetRequestSettingResourceRequestOnBehalfOfSettingsOnlyForArgs and GetRequestSettingResourceRequestOnBehalfOfSettingsOnlyForOutput values.
+// You can construct a concrete instance of `GetRequestSettingResourceRequestOnBehalfOfSettingsOnlyForInput` via:
+//
+//	GetRequestSettingResourceRequestOnBehalfOfSettingsOnlyForArgs{...}
+type GetRequestSettingResourceRequestOnBehalfOfSettingsOnlyForInput interface {
+	pulumi.Input
+
+	ToGetRequestSettingResourceRequestOnBehalfOfSettingsOnlyForOutput() GetRequestSettingResourceRequestOnBehalfOfSettingsOnlyForOutput
+	ToGetRequestSettingResourceRequestOnBehalfOfSettingsOnlyForOutputWithContext(context.Context) GetRequestSettingResourceRequestOnBehalfOfSettingsOnlyForOutput
+}
+
+type GetRequestSettingResourceRequestOnBehalfOfSettingsOnlyForArgs struct {
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetRequestSettingResourceRequestOnBehalfOfSettingsOnlyForArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRequestSettingResourceRequestOnBehalfOfSettingsOnlyFor)(nil)).Elem()
+}
+
+func (i GetRequestSettingResourceRequestOnBehalfOfSettingsOnlyForArgs) ToGetRequestSettingResourceRequestOnBehalfOfSettingsOnlyForOutput() GetRequestSettingResourceRequestOnBehalfOfSettingsOnlyForOutput {
+	return i.ToGetRequestSettingResourceRequestOnBehalfOfSettingsOnlyForOutputWithContext(context.Background())
+}
+
+func (i GetRequestSettingResourceRequestOnBehalfOfSettingsOnlyForArgs) ToGetRequestSettingResourceRequestOnBehalfOfSettingsOnlyForOutputWithContext(ctx context.Context) GetRequestSettingResourceRequestOnBehalfOfSettingsOnlyForOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRequestSettingResourceRequestOnBehalfOfSettingsOnlyForOutput)
+}
+
+// GetRequestSettingResourceRequestOnBehalfOfSettingsOnlyForArrayInput is an input type that accepts GetRequestSettingResourceRequestOnBehalfOfSettingsOnlyForArray and GetRequestSettingResourceRequestOnBehalfOfSettingsOnlyForArrayOutput values.
+// You can construct a concrete instance of `GetRequestSettingResourceRequestOnBehalfOfSettingsOnlyForArrayInput` via:
+//
+//	GetRequestSettingResourceRequestOnBehalfOfSettingsOnlyForArray{ GetRequestSettingResourceRequestOnBehalfOfSettingsOnlyForArgs{...} }
+type GetRequestSettingResourceRequestOnBehalfOfSettingsOnlyForArrayInput interface {
+	pulumi.Input
+
+	ToGetRequestSettingResourceRequestOnBehalfOfSettingsOnlyForArrayOutput() GetRequestSettingResourceRequestOnBehalfOfSettingsOnlyForArrayOutput
+	ToGetRequestSettingResourceRequestOnBehalfOfSettingsOnlyForArrayOutputWithContext(context.Context) GetRequestSettingResourceRequestOnBehalfOfSettingsOnlyForArrayOutput
+}
+
+type GetRequestSettingResourceRequestOnBehalfOfSettingsOnlyForArray []GetRequestSettingResourceRequestOnBehalfOfSettingsOnlyForInput
+
+func (GetRequestSettingResourceRequestOnBehalfOfSettingsOnlyForArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRequestSettingResourceRequestOnBehalfOfSettingsOnlyFor)(nil)).Elem()
+}
+
+func (i GetRequestSettingResourceRequestOnBehalfOfSettingsOnlyForArray) ToGetRequestSettingResourceRequestOnBehalfOfSettingsOnlyForArrayOutput() GetRequestSettingResourceRequestOnBehalfOfSettingsOnlyForArrayOutput {
+	return i.ToGetRequestSettingResourceRequestOnBehalfOfSettingsOnlyForArrayOutputWithContext(context.Background())
+}
+
+func (i GetRequestSettingResourceRequestOnBehalfOfSettingsOnlyForArray) ToGetRequestSettingResourceRequestOnBehalfOfSettingsOnlyForArrayOutputWithContext(ctx context.Context) GetRequestSettingResourceRequestOnBehalfOfSettingsOnlyForArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRequestSettingResourceRequestOnBehalfOfSettingsOnlyForArrayOutput)
+}
+
+type GetRequestSettingResourceRequestOnBehalfOfSettingsOnlyForOutput struct{ *pulumi.OutputState }
+
+func (GetRequestSettingResourceRequestOnBehalfOfSettingsOnlyForOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRequestSettingResourceRequestOnBehalfOfSettingsOnlyFor)(nil)).Elem()
+}
+
+func (o GetRequestSettingResourceRequestOnBehalfOfSettingsOnlyForOutput) ToGetRequestSettingResourceRequestOnBehalfOfSettingsOnlyForOutput() GetRequestSettingResourceRequestOnBehalfOfSettingsOnlyForOutput {
+	return o
+}
+
+func (o GetRequestSettingResourceRequestOnBehalfOfSettingsOnlyForOutput) ToGetRequestSettingResourceRequestOnBehalfOfSettingsOnlyForOutputWithContext(ctx context.Context) GetRequestSettingResourceRequestOnBehalfOfSettingsOnlyForOutput {
+	return o
+}
+
+func (o GetRequestSettingResourceRequestOnBehalfOfSettingsOnlyForOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRequestSettingResourceRequestOnBehalfOfSettingsOnlyFor) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetRequestSettingResourceRequestOnBehalfOfSettingsOnlyForArrayOutput struct{ *pulumi.OutputState }
+
+func (GetRequestSettingResourceRequestOnBehalfOfSettingsOnlyForArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRequestSettingResourceRequestOnBehalfOfSettingsOnlyFor)(nil)).Elem()
+}
+
+func (o GetRequestSettingResourceRequestOnBehalfOfSettingsOnlyForArrayOutput) ToGetRequestSettingResourceRequestOnBehalfOfSettingsOnlyForArrayOutput() GetRequestSettingResourceRequestOnBehalfOfSettingsOnlyForArrayOutput {
+	return o
+}
+
+func (o GetRequestSettingResourceRequestOnBehalfOfSettingsOnlyForArrayOutput) ToGetRequestSettingResourceRequestOnBehalfOfSettingsOnlyForArrayOutputWithContext(ctx context.Context) GetRequestSettingResourceRequestOnBehalfOfSettingsOnlyForArrayOutput {
+	return o
+}
+
+func (o GetRequestSettingResourceRequestOnBehalfOfSettingsOnlyForArrayOutput) Index(i pulumi.IntInput) GetRequestSettingResourceRequestOnBehalfOfSettingsOnlyForOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRequestSettingResourceRequestOnBehalfOfSettingsOnlyFor {
+		return vs[0].([]GetRequestSettingResourceRequestOnBehalfOfSettingsOnlyFor)[vs[1].(int)]
+	}).(GetRequestSettingResourceRequestOnBehalfOfSettingsOnlyForOutput)
+}
+
+type GetRequestSettingResourceRiskSettings struct {
+	// Default risk settings that are valid for an access request when a risk has been detected for the resource and requesting user.
+	DefaultSetting *GetRequestSettingResourceRiskSettingsDefaultSetting `pulumi:"defaultSetting"`
+}
+
+// GetRequestSettingResourceRiskSettingsInput is an input type that accepts GetRequestSettingResourceRiskSettingsArgs and GetRequestSettingResourceRiskSettingsOutput values.
+// You can construct a concrete instance of `GetRequestSettingResourceRiskSettingsInput` via:
+//
+//	GetRequestSettingResourceRiskSettingsArgs{...}
+type GetRequestSettingResourceRiskSettingsInput interface {
+	pulumi.Input
+
+	ToGetRequestSettingResourceRiskSettingsOutput() GetRequestSettingResourceRiskSettingsOutput
+	ToGetRequestSettingResourceRiskSettingsOutputWithContext(context.Context) GetRequestSettingResourceRiskSettingsOutput
+}
+
+type GetRequestSettingResourceRiskSettingsArgs struct {
+	// Default risk settings that are valid for an access request when a risk has been detected for the resource and requesting user.
+	DefaultSetting GetRequestSettingResourceRiskSettingsDefaultSettingPtrInput `pulumi:"defaultSetting"`
+}
+
+func (GetRequestSettingResourceRiskSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRequestSettingResourceRiskSettings)(nil)).Elem()
+}
+
+func (i GetRequestSettingResourceRiskSettingsArgs) ToGetRequestSettingResourceRiskSettingsOutput() GetRequestSettingResourceRiskSettingsOutput {
+	return i.ToGetRequestSettingResourceRiskSettingsOutputWithContext(context.Background())
+}
+
+func (i GetRequestSettingResourceRiskSettingsArgs) ToGetRequestSettingResourceRiskSettingsOutputWithContext(ctx context.Context) GetRequestSettingResourceRiskSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRequestSettingResourceRiskSettingsOutput)
+}
+
+func (i GetRequestSettingResourceRiskSettingsArgs) ToGetRequestSettingResourceRiskSettingsPtrOutput() GetRequestSettingResourceRiskSettingsPtrOutput {
+	return i.ToGetRequestSettingResourceRiskSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i GetRequestSettingResourceRiskSettingsArgs) ToGetRequestSettingResourceRiskSettingsPtrOutputWithContext(ctx context.Context) GetRequestSettingResourceRiskSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRequestSettingResourceRiskSettingsOutput).ToGetRequestSettingResourceRiskSettingsPtrOutputWithContext(ctx)
+}
+
+// GetRequestSettingResourceRiskSettingsPtrInput is an input type that accepts GetRequestSettingResourceRiskSettingsArgs, GetRequestSettingResourceRiskSettingsPtr and GetRequestSettingResourceRiskSettingsPtrOutput values.
+// You can construct a concrete instance of `GetRequestSettingResourceRiskSettingsPtrInput` via:
+//
+//	        GetRequestSettingResourceRiskSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetRequestSettingResourceRiskSettingsPtrInput interface {
+	pulumi.Input
+
+	ToGetRequestSettingResourceRiskSettingsPtrOutput() GetRequestSettingResourceRiskSettingsPtrOutput
+	ToGetRequestSettingResourceRiskSettingsPtrOutputWithContext(context.Context) GetRequestSettingResourceRiskSettingsPtrOutput
+}
+
+type getRequestSettingResourceRiskSettingsPtrType GetRequestSettingResourceRiskSettingsArgs
+
+func GetRequestSettingResourceRiskSettingsPtr(v *GetRequestSettingResourceRiskSettingsArgs) GetRequestSettingResourceRiskSettingsPtrInput {
+	return (*getRequestSettingResourceRiskSettingsPtrType)(v)
+}
+
+func (*getRequestSettingResourceRiskSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetRequestSettingResourceRiskSettings)(nil)).Elem()
+}
+
+func (i *getRequestSettingResourceRiskSettingsPtrType) ToGetRequestSettingResourceRiskSettingsPtrOutput() GetRequestSettingResourceRiskSettingsPtrOutput {
+	return i.ToGetRequestSettingResourceRiskSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *getRequestSettingResourceRiskSettingsPtrType) ToGetRequestSettingResourceRiskSettingsPtrOutputWithContext(ctx context.Context) GetRequestSettingResourceRiskSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRequestSettingResourceRiskSettingsPtrOutput)
+}
+
+type GetRequestSettingResourceRiskSettingsOutput struct{ *pulumi.OutputState }
+
+func (GetRequestSettingResourceRiskSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRequestSettingResourceRiskSettings)(nil)).Elem()
+}
+
+func (o GetRequestSettingResourceRiskSettingsOutput) ToGetRequestSettingResourceRiskSettingsOutput() GetRequestSettingResourceRiskSettingsOutput {
+	return o
+}
+
+func (o GetRequestSettingResourceRiskSettingsOutput) ToGetRequestSettingResourceRiskSettingsOutputWithContext(ctx context.Context) GetRequestSettingResourceRiskSettingsOutput {
+	return o
+}
+
+func (o GetRequestSettingResourceRiskSettingsOutput) ToGetRequestSettingResourceRiskSettingsPtrOutput() GetRequestSettingResourceRiskSettingsPtrOutput {
+	return o.ToGetRequestSettingResourceRiskSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o GetRequestSettingResourceRiskSettingsOutput) ToGetRequestSettingResourceRiskSettingsPtrOutputWithContext(ctx context.Context) GetRequestSettingResourceRiskSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetRequestSettingResourceRiskSettings) *GetRequestSettingResourceRiskSettings {
+		return &v
+	}).(GetRequestSettingResourceRiskSettingsPtrOutput)
+}
+
+// Default risk settings that are valid for an access request when a risk has been detected for the resource and requesting user.
+func (o GetRequestSettingResourceRiskSettingsOutput) DefaultSetting() GetRequestSettingResourceRiskSettingsDefaultSettingPtrOutput {
+	return o.ApplyT(func(v GetRequestSettingResourceRiskSettings) *GetRequestSettingResourceRiskSettingsDefaultSetting {
+		return v.DefaultSetting
+	}).(GetRequestSettingResourceRiskSettingsDefaultSettingPtrOutput)
+}
+
+type GetRequestSettingResourceRiskSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (GetRequestSettingResourceRiskSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetRequestSettingResourceRiskSettings)(nil)).Elem()
+}
+
+func (o GetRequestSettingResourceRiskSettingsPtrOutput) ToGetRequestSettingResourceRiskSettingsPtrOutput() GetRequestSettingResourceRiskSettingsPtrOutput {
+	return o
+}
+
+func (o GetRequestSettingResourceRiskSettingsPtrOutput) ToGetRequestSettingResourceRiskSettingsPtrOutputWithContext(ctx context.Context) GetRequestSettingResourceRiskSettingsPtrOutput {
+	return o
+}
+
+func (o GetRequestSettingResourceRiskSettingsPtrOutput) Elem() GetRequestSettingResourceRiskSettingsOutput {
+	return o.ApplyT(func(v *GetRequestSettingResourceRiskSettings) GetRequestSettingResourceRiskSettings {
+		if v != nil {
+			return *v
+		}
+		var ret GetRequestSettingResourceRiskSettings
+		return ret
+	}).(GetRequestSettingResourceRiskSettingsOutput)
+}
+
+// Default risk settings that are valid for an access request when a risk has been detected for the resource and requesting user.
+func (o GetRequestSettingResourceRiskSettingsPtrOutput) DefaultSetting() GetRequestSettingResourceRiskSettingsDefaultSettingPtrOutput {
+	return o.ApplyT(func(v *GetRequestSettingResourceRiskSettings) *GetRequestSettingResourceRiskSettingsDefaultSetting {
+		if v == nil {
+			return nil
+		}
+		return v.DefaultSetting
+	}).(GetRequestSettingResourceRiskSettingsDefaultSettingPtrOutput)
+}
+
+type GetRequestSettingResourceRiskSettingsDefaultSetting struct {
+	AccessDurationSettings *GetRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettings `pulumi:"accessDurationSettings"`
+	ApprovalSequenceId     string                                                                     `pulumi:"approvalSequenceId"`
+	Errors                 []string                                                                   `pulumi:"errors"`
+	RequestSubmissionType  string                                                                     `pulumi:"requestSubmissionType"`
+}
+
+// GetRequestSettingResourceRiskSettingsDefaultSettingInput is an input type that accepts GetRequestSettingResourceRiskSettingsDefaultSettingArgs and GetRequestSettingResourceRiskSettingsDefaultSettingOutput values.
+// You can construct a concrete instance of `GetRequestSettingResourceRiskSettingsDefaultSettingInput` via:
+//
+//	GetRequestSettingResourceRiskSettingsDefaultSettingArgs{...}
+type GetRequestSettingResourceRiskSettingsDefaultSettingInput interface {
+	pulumi.Input
+
+	ToGetRequestSettingResourceRiskSettingsDefaultSettingOutput() GetRequestSettingResourceRiskSettingsDefaultSettingOutput
+	ToGetRequestSettingResourceRiskSettingsDefaultSettingOutputWithContext(context.Context) GetRequestSettingResourceRiskSettingsDefaultSettingOutput
+}
+
+type GetRequestSettingResourceRiskSettingsDefaultSettingArgs struct {
+	AccessDurationSettings GetRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsPtrInput `pulumi:"accessDurationSettings"`
+	ApprovalSequenceId     pulumi.StringInput                                                                `pulumi:"approvalSequenceId"`
+	Errors                 pulumi.StringArrayInput                                                           `pulumi:"errors"`
+	RequestSubmissionType  pulumi.StringInput                                                                `pulumi:"requestSubmissionType"`
+}
+
+func (GetRequestSettingResourceRiskSettingsDefaultSettingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRequestSettingResourceRiskSettingsDefaultSetting)(nil)).Elem()
+}
+
+func (i GetRequestSettingResourceRiskSettingsDefaultSettingArgs) ToGetRequestSettingResourceRiskSettingsDefaultSettingOutput() GetRequestSettingResourceRiskSettingsDefaultSettingOutput {
+	return i.ToGetRequestSettingResourceRiskSettingsDefaultSettingOutputWithContext(context.Background())
+}
+
+func (i GetRequestSettingResourceRiskSettingsDefaultSettingArgs) ToGetRequestSettingResourceRiskSettingsDefaultSettingOutputWithContext(ctx context.Context) GetRequestSettingResourceRiskSettingsDefaultSettingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRequestSettingResourceRiskSettingsDefaultSettingOutput)
+}
+
+func (i GetRequestSettingResourceRiskSettingsDefaultSettingArgs) ToGetRequestSettingResourceRiskSettingsDefaultSettingPtrOutput() GetRequestSettingResourceRiskSettingsDefaultSettingPtrOutput {
+	return i.ToGetRequestSettingResourceRiskSettingsDefaultSettingPtrOutputWithContext(context.Background())
+}
+
+func (i GetRequestSettingResourceRiskSettingsDefaultSettingArgs) ToGetRequestSettingResourceRiskSettingsDefaultSettingPtrOutputWithContext(ctx context.Context) GetRequestSettingResourceRiskSettingsDefaultSettingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRequestSettingResourceRiskSettingsDefaultSettingOutput).ToGetRequestSettingResourceRiskSettingsDefaultSettingPtrOutputWithContext(ctx)
+}
+
+// GetRequestSettingResourceRiskSettingsDefaultSettingPtrInput is an input type that accepts GetRequestSettingResourceRiskSettingsDefaultSettingArgs, GetRequestSettingResourceRiskSettingsDefaultSettingPtr and GetRequestSettingResourceRiskSettingsDefaultSettingPtrOutput values.
+// You can construct a concrete instance of `GetRequestSettingResourceRiskSettingsDefaultSettingPtrInput` via:
+//
+//	        GetRequestSettingResourceRiskSettingsDefaultSettingArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetRequestSettingResourceRiskSettingsDefaultSettingPtrInput interface {
+	pulumi.Input
+
+	ToGetRequestSettingResourceRiskSettingsDefaultSettingPtrOutput() GetRequestSettingResourceRiskSettingsDefaultSettingPtrOutput
+	ToGetRequestSettingResourceRiskSettingsDefaultSettingPtrOutputWithContext(context.Context) GetRequestSettingResourceRiskSettingsDefaultSettingPtrOutput
+}
+
+type getRequestSettingResourceRiskSettingsDefaultSettingPtrType GetRequestSettingResourceRiskSettingsDefaultSettingArgs
+
+func GetRequestSettingResourceRiskSettingsDefaultSettingPtr(v *GetRequestSettingResourceRiskSettingsDefaultSettingArgs) GetRequestSettingResourceRiskSettingsDefaultSettingPtrInput {
+	return (*getRequestSettingResourceRiskSettingsDefaultSettingPtrType)(v)
+}
+
+func (*getRequestSettingResourceRiskSettingsDefaultSettingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetRequestSettingResourceRiskSettingsDefaultSetting)(nil)).Elem()
+}
+
+func (i *getRequestSettingResourceRiskSettingsDefaultSettingPtrType) ToGetRequestSettingResourceRiskSettingsDefaultSettingPtrOutput() GetRequestSettingResourceRiskSettingsDefaultSettingPtrOutput {
+	return i.ToGetRequestSettingResourceRiskSettingsDefaultSettingPtrOutputWithContext(context.Background())
+}
+
+func (i *getRequestSettingResourceRiskSettingsDefaultSettingPtrType) ToGetRequestSettingResourceRiskSettingsDefaultSettingPtrOutputWithContext(ctx context.Context) GetRequestSettingResourceRiskSettingsDefaultSettingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRequestSettingResourceRiskSettingsDefaultSettingPtrOutput)
+}
+
+type GetRequestSettingResourceRiskSettingsDefaultSettingOutput struct{ *pulumi.OutputState }
+
+func (GetRequestSettingResourceRiskSettingsDefaultSettingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRequestSettingResourceRiskSettingsDefaultSetting)(nil)).Elem()
+}
+
+func (o GetRequestSettingResourceRiskSettingsDefaultSettingOutput) ToGetRequestSettingResourceRiskSettingsDefaultSettingOutput() GetRequestSettingResourceRiskSettingsDefaultSettingOutput {
+	return o
+}
+
+func (o GetRequestSettingResourceRiskSettingsDefaultSettingOutput) ToGetRequestSettingResourceRiskSettingsDefaultSettingOutputWithContext(ctx context.Context) GetRequestSettingResourceRiskSettingsDefaultSettingOutput {
+	return o
+}
+
+func (o GetRequestSettingResourceRiskSettingsDefaultSettingOutput) ToGetRequestSettingResourceRiskSettingsDefaultSettingPtrOutput() GetRequestSettingResourceRiskSettingsDefaultSettingPtrOutput {
+	return o.ToGetRequestSettingResourceRiskSettingsDefaultSettingPtrOutputWithContext(context.Background())
+}
+
+func (o GetRequestSettingResourceRiskSettingsDefaultSettingOutput) ToGetRequestSettingResourceRiskSettingsDefaultSettingPtrOutputWithContext(ctx context.Context) GetRequestSettingResourceRiskSettingsDefaultSettingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetRequestSettingResourceRiskSettingsDefaultSetting) *GetRequestSettingResourceRiskSettingsDefaultSetting {
+		return &v
+	}).(GetRequestSettingResourceRiskSettingsDefaultSettingPtrOutput)
+}
+
+func (o GetRequestSettingResourceRiskSettingsDefaultSettingOutput) AccessDurationSettings() GetRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsPtrOutput {
+	return o.ApplyT(func(v GetRequestSettingResourceRiskSettingsDefaultSetting) *GetRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettings {
+		return v.AccessDurationSettings
+	}).(GetRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsPtrOutput)
+}
+
+func (o GetRequestSettingResourceRiskSettingsDefaultSettingOutput) ApprovalSequenceId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRequestSettingResourceRiskSettingsDefaultSetting) string { return v.ApprovalSequenceId }).(pulumi.StringOutput)
+}
+
+func (o GetRequestSettingResourceRiskSettingsDefaultSettingOutput) Errors() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetRequestSettingResourceRiskSettingsDefaultSetting) []string { return v.Errors }).(pulumi.StringArrayOutput)
+}
+
+func (o GetRequestSettingResourceRiskSettingsDefaultSettingOutput) RequestSubmissionType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRequestSettingResourceRiskSettingsDefaultSetting) string { return v.RequestSubmissionType }).(pulumi.StringOutput)
+}
+
+type GetRequestSettingResourceRiskSettingsDefaultSettingPtrOutput struct{ *pulumi.OutputState }
+
+func (GetRequestSettingResourceRiskSettingsDefaultSettingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetRequestSettingResourceRiskSettingsDefaultSetting)(nil)).Elem()
+}
+
+func (o GetRequestSettingResourceRiskSettingsDefaultSettingPtrOutput) ToGetRequestSettingResourceRiskSettingsDefaultSettingPtrOutput() GetRequestSettingResourceRiskSettingsDefaultSettingPtrOutput {
+	return o
+}
+
+func (o GetRequestSettingResourceRiskSettingsDefaultSettingPtrOutput) ToGetRequestSettingResourceRiskSettingsDefaultSettingPtrOutputWithContext(ctx context.Context) GetRequestSettingResourceRiskSettingsDefaultSettingPtrOutput {
+	return o
+}
+
+func (o GetRequestSettingResourceRiskSettingsDefaultSettingPtrOutput) Elem() GetRequestSettingResourceRiskSettingsDefaultSettingOutput {
+	return o.ApplyT(func(v *GetRequestSettingResourceRiskSettingsDefaultSetting) GetRequestSettingResourceRiskSettingsDefaultSetting {
+		if v != nil {
+			return *v
+		}
+		var ret GetRequestSettingResourceRiskSettingsDefaultSetting
+		return ret
+	}).(GetRequestSettingResourceRiskSettingsDefaultSettingOutput)
+}
+
+func (o GetRequestSettingResourceRiskSettingsDefaultSettingPtrOutput) AccessDurationSettings() GetRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsPtrOutput {
+	return o.ApplyT(func(v *GetRequestSettingResourceRiskSettingsDefaultSetting) *GetRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettings {
+		if v == nil {
+			return nil
+		}
+		return v.AccessDurationSettings
+	}).(GetRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsPtrOutput)
+}
+
+func (o GetRequestSettingResourceRiskSettingsDefaultSettingPtrOutput) ApprovalSequenceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetRequestSettingResourceRiskSettingsDefaultSetting) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ApprovalSequenceId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o GetRequestSettingResourceRiskSettingsDefaultSettingPtrOutput) Errors() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *GetRequestSettingResourceRiskSettingsDefaultSetting) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Errors
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o GetRequestSettingResourceRiskSettingsDefaultSettingPtrOutput) RequestSubmissionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetRequestSettingResourceRiskSettingsDefaultSetting) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RequestSubmissionType
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettings struct {
+	Duration string `pulumi:"duration"`
+	Type     string `pulumi:"type"`
+}
+
+// GetRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsInput is an input type that accepts GetRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsArgs and GetRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsOutput values.
+// You can construct a concrete instance of `GetRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsInput` via:
+//
+//	GetRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsArgs{...}
+type GetRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsInput interface {
+	pulumi.Input
+
+	ToGetRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsOutput() GetRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsOutput
+	ToGetRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsOutputWithContext(context.Context) GetRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsOutput
+}
+
+type GetRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsArgs struct {
+	Duration pulumi.StringInput `pulumi:"duration"`
+	Type     pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettings)(nil)).Elem()
+}
+
+func (i GetRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsArgs) ToGetRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsOutput() GetRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsOutput {
+	return i.ToGetRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsOutputWithContext(context.Background())
+}
+
+func (i GetRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsArgs) ToGetRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsOutputWithContext(ctx context.Context) GetRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsOutput)
+}
+
+func (i GetRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsArgs) ToGetRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsPtrOutput() GetRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsPtrOutput {
+	return i.ToGetRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i GetRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsArgs) ToGetRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsPtrOutputWithContext(ctx context.Context) GetRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsOutput).ToGetRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsPtrOutputWithContext(ctx)
+}
+
+// GetRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsPtrInput is an input type that accepts GetRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsArgs, GetRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsPtr and GetRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsPtrOutput values.
+// You can construct a concrete instance of `GetRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsPtrInput` via:
+//
+//	        GetRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsPtrInput interface {
+	pulumi.Input
+
+	ToGetRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsPtrOutput() GetRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsPtrOutput
+	ToGetRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsPtrOutputWithContext(context.Context) GetRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsPtrOutput
+}
+
+type getRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsPtrType GetRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsArgs
+
+func GetRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsPtr(v *GetRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsArgs) GetRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsPtrInput {
+	return (*getRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsPtrType)(v)
+}
+
+func (*getRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettings)(nil)).Elem()
+}
+
+func (i *getRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsPtrType) ToGetRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsPtrOutput() GetRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsPtrOutput {
+	return i.ToGetRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *getRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsPtrType) ToGetRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsPtrOutputWithContext(ctx context.Context) GetRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsPtrOutput)
+}
+
+type GetRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsOutput struct{ *pulumi.OutputState }
+
+func (GetRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettings)(nil)).Elem()
+}
+
+func (o GetRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsOutput) ToGetRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsOutput() GetRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsOutput {
+	return o
+}
+
+func (o GetRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsOutput) ToGetRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsOutputWithContext(ctx context.Context) GetRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsOutput {
+	return o
+}
+
+func (o GetRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsOutput) ToGetRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsPtrOutput() GetRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsPtrOutput {
+	return o.ToGetRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o GetRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsOutput) ToGetRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsPtrOutputWithContext(ctx context.Context) GetRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettings) *GetRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettings {
+		return &v
+	}).(GetRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsPtrOutput)
+}
+
+func (o GetRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsOutput) Duration() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettings) string {
+		return v.Duration
+	}).(pulumi.StringOutput)
+}
+
+func (o GetRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettings) string {
+		return v.Type
+	}).(pulumi.StringOutput)
+}
+
+type GetRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (GetRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettings)(nil)).Elem()
+}
+
+func (o GetRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsPtrOutput) ToGetRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsPtrOutput() GetRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsPtrOutput {
+	return o
+}
+
+func (o GetRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsPtrOutput) ToGetRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsPtrOutputWithContext(ctx context.Context) GetRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsPtrOutput {
+	return o
+}
+
+func (o GetRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsPtrOutput) Elem() GetRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsOutput {
+	return o.ApplyT(func(v *GetRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettings) GetRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettings {
+		if v != nil {
+			return *v
+		}
+		var ret GetRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettings
+		return ret
+	}).(GetRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsOutput)
+}
+
+func (o GetRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsPtrOutput) Duration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Duration
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o GetRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetRequestSettingResourceValidAccessDurationSettings struct {
+	// The maximum value allowed for a request condition or risk setting.
+	MaximumDays float64 `pulumi:"maximumDays"`
+	// The maximum value allowed for a request condition or risk setting.
+	MaximumHours float64 `pulumi:"maximumHours"`
+	// The maximum value allowed for a request condition or risk setting.
+	MaximumWeeks float64 `pulumi:"maximumWeeks"`
+	// Whether accessDurationSetting must be included in the request conditions or risk settings for the specified resource.
+	Required bool `pulumi:"required"`
+	// Access duration settings that are eligible to be added to a request condition or risk settings for the specified resource.
+	SupportedTypes []GetRequestSettingResourceValidAccessDurationSettingsSupportedType `pulumi:"supportedTypes"`
+}
+
+// GetRequestSettingResourceValidAccessDurationSettingsInput is an input type that accepts GetRequestSettingResourceValidAccessDurationSettingsArgs and GetRequestSettingResourceValidAccessDurationSettingsOutput values.
+// You can construct a concrete instance of `GetRequestSettingResourceValidAccessDurationSettingsInput` via:
+//
+//	GetRequestSettingResourceValidAccessDurationSettingsArgs{...}
+type GetRequestSettingResourceValidAccessDurationSettingsInput interface {
+	pulumi.Input
+
+	ToGetRequestSettingResourceValidAccessDurationSettingsOutput() GetRequestSettingResourceValidAccessDurationSettingsOutput
+	ToGetRequestSettingResourceValidAccessDurationSettingsOutputWithContext(context.Context) GetRequestSettingResourceValidAccessDurationSettingsOutput
+}
+
+type GetRequestSettingResourceValidAccessDurationSettingsArgs struct {
+	// The maximum value allowed for a request condition or risk setting.
+	MaximumDays pulumi.Float64Input `pulumi:"maximumDays"`
+	// The maximum value allowed for a request condition or risk setting.
+	MaximumHours pulumi.Float64Input `pulumi:"maximumHours"`
+	// The maximum value allowed for a request condition or risk setting.
+	MaximumWeeks pulumi.Float64Input `pulumi:"maximumWeeks"`
+	// Whether accessDurationSetting must be included in the request conditions or risk settings for the specified resource.
+	Required pulumi.BoolInput `pulumi:"required"`
+	// Access duration settings that are eligible to be added to a request condition or risk settings for the specified resource.
+	SupportedTypes GetRequestSettingResourceValidAccessDurationSettingsSupportedTypeArrayInput `pulumi:"supportedTypes"`
+}
+
+func (GetRequestSettingResourceValidAccessDurationSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRequestSettingResourceValidAccessDurationSettings)(nil)).Elem()
+}
+
+func (i GetRequestSettingResourceValidAccessDurationSettingsArgs) ToGetRequestSettingResourceValidAccessDurationSettingsOutput() GetRequestSettingResourceValidAccessDurationSettingsOutput {
+	return i.ToGetRequestSettingResourceValidAccessDurationSettingsOutputWithContext(context.Background())
+}
+
+func (i GetRequestSettingResourceValidAccessDurationSettingsArgs) ToGetRequestSettingResourceValidAccessDurationSettingsOutputWithContext(ctx context.Context) GetRequestSettingResourceValidAccessDurationSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRequestSettingResourceValidAccessDurationSettingsOutput)
+}
+
+func (i GetRequestSettingResourceValidAccessDurationSettingsArgs) ToGetRequestSettingResourceValidAccessDurationSettingsPtrOutput() GetRequestSettingResourceValidAccessDurationSettingsPtrOutput {
+	return i.ToGetRequestSettingResourceValidAccessDurationSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i GetRequestSettingResourceValidAccessDurationSettingsArgs) ToGetRequestSettingResourceValidAccessDurationSettingsPtrOutputWithContext(ctx context.Context) GetRequestSettingResourceValidAccessDurationSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRequestSettingResourceValidAccessDurationSettingsOutput).ToGetRequestSettingResourceValidAccessDurationSettingsPtrOutputWithContext(ctx)
+}
+
+// GetRequestSettingResourceValidAccessDurationSettingsPtrInput is an input type that accepts GetRequestSettingResourceValidAccessDurationSettingsArgs, GetRequestSettingResourceValidAccessDurationSettingsPtr and GetRequestSettingResourceValidAccessDurationSettingsPtrOutput values.
+// You can construct a concrete instance of `GetRequestSettingResourceValidAccessDurationSettingsPtrInput` via:
+//
+//	        GetRequestSettingResourceValidAccessDurationSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetRequestSettingResourceValidAccessDurationSettingsPtrInput interface {
+	pulumi.Input
+
+	ToGetRequestSettingResourceValidAccessDurationSettingsPtrOutput() GetRequestSettingResourceValidAccessDurationSettingsPtrOutput
+	ToGetRequestSettingResourceValidAccessDurationSettingsPtrOutputWithContext(context.Context) GetRequestSettingResourceValidAccessDurationSettingsPtrOutput
+}
+
+type getRequestSettingResourceValidAccessDurationSettingsPtrType GetRequestSettingResourceValidAccessDurationSettingsArgs
+
+func GetRequestSettingResourceValidAccessDurationSettingsPtr(v *GetRequestSettingResourceValidAccessDurationSettingsArgs) GetRequestSettingResourceValidAccessDurationSettingsPtrInput {
+	return (*getRequestSettingResourceValidAccessDurationSettingsPtrType)(v)
+}
+
+func (*getRequestSettingResourceValidAccessDurationSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetRequestSettingResourceValidAccessDurationSettings)(nil)).Elem()
+}
+
+func (i *getRequestSettingResourceValidAccessDurationSettingsPtrType) ToGetRequestSettingResourceValidAccessDurationSettingsPtrOutput() GetRequestSettingResourceValidAccessDurationSettingsPtrOutput {
+	return i.ToGetRequestSettingResourceValidAccessDurationSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *getRequestSettingResourceValidAccessDurationSettingsPtrType) ToGetRequestSettingResourceValidAccessDurationSettingsPtrOutputWithContext(ctx context.Context) GetRequestSettingResourceValidAccessDurationSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRequestSettingResourceValidAccessDurationSettingsPtrOutput)
+}
+
+type GetRequestSettingResourceValidAccessDurationSettingsOutput struct{ *pulumi.OutputState }
+
+func (GetRequestSettingResourceValidAccessDurationSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRequestSettingResourceValidAccessDurationSettings)(nil)).Elem()
+}
+
+func (o GetRequestSettingResourceValidAccessDurationSettingsOutput) ToGetRequestSettingResourceValidAccessDurationSettingsOutput() GetRequestSettingResourceValidAccessDurationSettingsOutput {
+	return o
+}
+
+func (o GetRequestSettingResourceValidAccessDurationSettingsOutput) ToGetRequestSettingResourceValidAccessDurationSettingsOutputWithContext(ctx context.Context) GetRequestSettingResourceValidAccessDurationSettingsOutput {
+	return o
+}
+
+func (o GetRequestSettingResourceValidAccessDurationSettingsOutput) ToGetRequestSettingResourceValidAccessDurationSettingsPtrOutput() GetRequestSettingResourceValidAccessDurationSettingsPtrOutput {
+	return o.ToGetRequestSettingResourceValidAccessDurationSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o GetRequestSettingResourceValidAccessDurationSettingsOutput) ToGetRequestSettingResourceValidAccessDurationSettingsPtrOutputWithContext(ctx context.Context) GetRequestSettingResourceValidAccessDurationSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetRequestSettingResourceValidAccessDurationSettings) *GetRequestSettingResourceValidAccessDurationSettings {
+		return &v
+	}).(GetRequestSettingResourceValidAccessDurationSettingsPtrOutput)
+}
+
+// The maximum value allowed for a request condition or risk setting.
+func (o GetRequestSettingResourceValidAccessDurationSettingsOutput) MaximumDays() pulumi.Float64Output {
+	return o.ApplyT(func(v GetRequestSettingResourceValidAccessDurationSettings) float64 { return v.MaximumDays }).(pulumi.Float64Output)
+}
+
+// The maximum value allowed for a request condition or risk setting.
+func (o GetRequestSettingResourceValidAccessDurationSettingsOutput) MaximumHours() pulumi.Float64Output {
+	return o.ApplyT(func(v GetRequestSettingResourceValidAccessDurationSettings) float64 { return v.MaximumHours }).(pulumi.Float64Output)
+}
+
+// The maximum value allowed for a request condition or risk setting.
+func (o GetRequestSettingResourceValidAccessDurationSettingsOutput) MaximumWeeks() pulumi.Float64Output {
+	return o.ApplyT(func(v GetRequestSettingResourceValidAccessDurationSettings) float64 { return v.MaximumWeeks }).(pulumi.Float64Output)
+}
+
+// Whether accessDurationSetting must be included in the request conditions or risk settings for the specified resource.
+func (o GetRequestSettingResourceValidAccessDurationSettingsOutput) Required() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetRequestSettingResourceValidAccessDurationSettings) bool { return v.Required }).(pulumi.BoolOutput)
+}
+
+// Access duration settings that are eligible to be added to a request condition or risk settings for the specified resource.
+func (o GetRequestSettingResourceValidAccessDurationSettingsOutput) SupportedTypes() GetRequestSettingResourceValidAccessDurationSettingsSupportedTypeArrayOutput {
+	return o.ApplyT(func(v GetRequestSettingResourceValidAccessDurationSettings) []GetRequestSettingResourceValidAccessDurationSettingsSupportedType {
+		return v.SupportedTypes
+	}).(GetRequestSettingResourceValidAccessDurationSettingsSupportedTypeArrayOutput)
+}
+
+type GetRequestSettingResourceValidAccessDurationSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (GetRequestSettingResourceValidAccessDurationSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetRequestSettingResourceValidAccessDurationSettings)(nil)).Elem()
+}
+
+func (o GetRequestSettingResourceValidAccessDurationSettingsPtrOutput) ToGetRequestSettingResourceValidAccessDurationSettingsPtrOutput() GetRequestSettingResourceValidAccessDurationSettingsPtrOutput {
+	return o
+}
+
+func (o GetRequestSettingResourceValidAccessDurationSettingsPtrOutput) ToGetRequestSettingResourceValidAccessDurationSettingsPtrOutputWithContext(ctx context.Context) GetRequestSettingResourceValidAccessDurationSettingsPtrOutput {
+	return o
+}
+
+func (o GetRequestSettingResourceValidAccessDurationSettingsPtrOutput) Elem() GetRequestSettingResourceValidAccessDurationSettingsOutput {
+	return o.ApplyT(func(v *GetRequestSettingResourceValidAccessDurationSettings) GetRequestSettingResourceValidAccessDurationSettings {
+		if v != nil {
+			return *v
+		}
+		var ret GetRequestSettingResourceValidAccessDurationSettings
+		return ret
+	}).(GetRequestSettingResourceValidAccessDurationSettingsOutput)
+}
+
+// The maximum value allowed for a request condition or risk setting.
+func (o GetRequestSettingResourceValidAccessDurationSettingsPtrOutput) MaximumDays() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *GetRequestSettingResourceValidAccessDurationSettings) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.MaximumDays
+	}).(pulumi.Float64PtrOutput)
+}
+
+// The maximum value allowed for a request condition or risk setting.
+func (o GetRequestSettingResourceValidAccessDurationSettingsPtrOutput) MaximumHours() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *GetRequestSettingResourceValidAccessDurationSettings) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.MaximumHours
+	}).(pulumi.Float64PtrOutput)
+}
+
+// The maximum value allowed for a request condition or risk setting.
+func (o GetRequestSettingResourceValidAccessDurationSettingsPtrOutput) MaximumWeeks() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *GetRequestSettingResourceValidAccessDurationSettings) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.MaximumWeeks
+	}).(pulumi.Float64PtrOutput)
+}
+
+// Whether accessDurationSetting must be included in the request conditions or risk settings for the specified resource.
+func (o GetRequestSettingResourceValidAccessDurationSettingsPtrOutput) Required() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRequestSettingResourceValidAccessDurationSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Required
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Access duration settings that are eligible to be added to a request condition or risk settings for the specified resource.
+func (o GetRequestSettingResourceValidAccessDurationSettingsPtrOutput) SupportedTypes() GetRequestSettingResourceValidAccessDurationSettingsSupportedTypeArrayOutput {
+	return o.ApplyT(func(v *GetRequestSettingResourceValidAccessDurationSettings) []GetRequestSettingResourceValidAccessDurationSettingsSupportedType {
+		if v == nil {
+			return nil
+		}
+		return v.SupportedTypes
+	}).(GetRequestSettingResourceValidAccessDurationSettingsSupportedTypeArrayOutput)
+}
+
+type GetRequestSettingResourceValidAccessDurationSettingsSupportedType struct {
+	Type string `pulumi:"type"`
+}
+
+// GetRequestSettingResourceValidAccessDurationSettingsSupportedTypeInput is an input type that accepts GetRequestSettingResourceValidAccessDurationSettingsSupportedTypeArgs and GetRequestSettingResourceValidAccessDurationSettingsSupportedTypeOutput values.
+// You can construct a concrete instance of `GetRequestSettingResourceValidAccessDurationSettingsSupportedTypeInput` via:
+//
+//	GetRequestSettingResourceValidAccessDurationSettingsSupportedTypeArgs{...}
+type GetRequestSettingResourceValidAccessDurationSettingsSupportedTypeInput interface {
+	pulumi.Input
+
+	ToGetRequestSettingResourceValidAccessDurationSettingsSupportedTypeOutput() GetRequestSettingResourceValidAccessDurationSettingsSupportedTypeOutput
+	ToGetRequestSettingResourceValidAccessDurationSettingsSupportedTypeOutputWithContext(context.Context) GetRequestSettingResourceValidAccessDurationSettingsSupportedTypeOutput
+}
+
+type GetRequestSettingResourceValidAccessDurationSettingsSupportedTypeArgs struct {
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetRequestSettingResourceValidAccessDurationSettingsSupportedTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRequestSettingResourceValidAccessDurationSettingsSupportedType)(nil)).Elem()
+}
+
+func (i GetRequestSettingResourceValidAccessDurationSettingsSupportedTypeArgs) ToGetRequestSettingResourceValidAccessDurationSettingsSupportedTypeOutput() GetRequestSettingResourceValidAccessDurationSettingsSupportedTypeOutput {
+	return i.ToGetRequestSettingResourceValidAccessDurationSettingsSupportedTypeOutputWithContext(context.Background())
+}
+
+func (i GetRequestSettingResourceValidAccessDurationSettingsSupportedTypeArgs) ToGetRequestSettingResourceValidAccessDurationSettingsSupportedTypeOutputWithContext(ctx context.Context) GetRequestSettingResourceValidAccessDurationSettingsSupportedTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRequestSettingResourceValidAccessDurationSettingsSupportedTypeOutput)
+}
+
+// GetRequestSettingResourceValidAccessDurationSettingsSupportedTypeArrayInput is an input type that accepts GetRequestSettingResourceValidAccessDurationSettingsSupportedTypeArray and GetRequestSettingResourceValidAccessDurationSettingsSupportedTypeArrayOutput values.
+// You can construct a concrete instance of `GetRequestSettingResourceValidAccessDurationSettingsSupportedTypeArrayInput` via:
+//
+//	GetRequestSettingResourceValidAccessDurationSettingsSupportedTypeArray{ GetRequestSettingResourceValidAccessDurationSettingsSupportedTypeArgs{...} }
+type GetRequestSettingResourceValidAccessDurationSettingsSupportedTypeArrayInput interface {
+	pulumi.Input
+
+	ToGetRequestSettingResourceValidAccessDurationSettingsSupportedTypeArrayOutput() GetRequestSettingResourceValidAccessDurationSettingsSupportedTypeArrayOutput
+	ToGetRequestSettingResourceValidAccessDurationSettingsSupportedTypeArrayOutputWithContext(context.Context) GetRequestSettingResourceValidAccessDurationSettingsSupportedTypeArrayOutput
+}
+
+type GetRequestSettingResourceValidAccessDurationSettingsSupportedTypeArray []GetRequestSettingResourceValidAccessDurationSettingsSupportedTypeInput
+
+func (GetRequestSettingResourceValidAccessDurationSettingsSupportedTypeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRequestSettingResourceValidAccessDurationSettingsSupportedType)(nil)).Elem()
+}
+
+func (i GetRequestSettingResourceValidAccessDurationSettingsSupportedTypeArray) ToGetRequestSettingResourceValidAccessDurationSettingsSupportedTypeArrayOutput() GetRequestSettingResourceValidAccessDurationSettingsSupportedTypeArrayOutput {
+	return i.ToGetRequestSettingResourceValidAccessDurationSettingsSupportedTypeArrayOutputWithContext(context.Background())
+}
+
+func (i GetRequestSettingResourceValidAccessDurationSettingsSupportedTypeArray) ToGetRequestSettingResourceValidAccessDurationSettingsSupportedTypeArrayOutputWithContext(ctx context.Context) GetRequestSettingResourceValidAccessDurationSettingsSupportedTypeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRequestSettingResourceValidAccessDurationSettingsSupportedTypeArrayOutput)
+}
+
+type GetRequestSettingResourceValidAccessDurationSettingsSupportedTypeOutput struct{ *pulumi.OutputState }
+
+func (GetRequestSettingResourceValidAccessDurationSettingsSupportedTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRequestSettingResourceValidAccessDurationSettingsSupportedType)(nil)).Elem()
+}
+
+func (o GetRequestSettingResourceValidAccessDurationSettingsSupportedTypeOutput) ToGetRequestSettingResourceValidAccessDurationSettingsSupportedTypeOutput() GetRequestSettingResourceValidAccessDurationSettingsSupportedTypeOutput {
+	return o
+}
+
+func (o GetRequestSettingResourceValidAccessDurationSettingsSupportedTypeOutput) ToGetRequestSettingResourceValidAccessDurationSettingsSupportedTypeOutputWithContext(ctx context.Context) GetRequestSettingResourceValidAccessDurationSettingsSupportedTypeOutput {
+	return o
+}
+
+func (o GetRequestSettingResourceValidAccessDurationSettingsSupportedTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRequestSettingResourceValidAccessDurationSettingsSupportedType) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetRequestSettingResourceValidAccessDurationSettingsSupportedTypeArrayOutput struct{ *pulumi.OutputState }
+
+func (GetRequestSettingResourceValidAccessDurationSettingsSupportedTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRequestSettingResourceValidAccessDurationSettingsSupportedType)(nil)).Elem()
+}
+
+func (o GetRequestSettingResourceValidAccessDurationSettingsSupportedTypeArrayOutput) ToGetRequestSettingResourceValidAccessDurationSettingsSupportedTypeArrayOutput() GetRequestSettingResourceValidAccessDurationSettingsSupportedTypeArrayOutput {
+	return o
+}
+
+func (o GetRequestSettingResourceValidAccessDurationSettingsSupportedTypeArrayOutput) ToGetRequestSettingResourceValidAccessDurationSettingsSupportedTypeArrayOutputWithContext(ctx context.Context) GetRequestSettingResourceValidAccessDurationSettingsSupportedTypeArrayOutput {
+	return o
+}
+
+func (o GetRequestSettingResourceValidAccessDurationSettingsSupportedTypeArrayOutput) Index(i pulumi.IntInput) GetRequestSettingResourceValidAccessDurationSettingsSupportedTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRequestSettingResourceValidAccessDurationSettingsSupportedType {
+		return vs[0].([]GetRequestSettingResourceValidAccessDurationSettingsSupportedType)[vs[1].(int)]
+	}).(GetRequestSettingResourceValidAccessDurationSettingsSupportedTypeOutput)
+}
+
+type GetRequestSettingResourceValidAccessScopeSetting struct {
+	Type string `pulumi:"type"`
+}
+
+// GetRequestSettingResourceValidAccessScopeSettingInput is an input type that accepts GetRequestSettingResourceValidAccessScopeSettingArgs and GetRequestSettingResourceValidAccessScopeSettingOutput values.
+// You can construct a concrete instance of `GetRequestSettingResourceValidAccessScopeSettingInput` via:
+//
+//	GetRequestSettingResourceValidAccessScopeSettingArgs{...}
+type GetRequestSettingResourceValidAccessScopeSettingInput interface {
+	pulumi.Input
+
+	ToGetRequestSettingResourceValidAccessScopeSettingOutput() GetRequestSettingResourceValidAccessScopeSettingOutput
+	ToGetRequestSettingResourceValidAccessScopeSettingOutputWithContext(context.Context) GetRequestSettingResourceValidAccessScopeSettingOutput
+}
+
+type GetRequestSettingResourceValidAccessScopeSettingArgs struct {
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetRequestSettingResourceValidAccessScopeSettingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRequestSettingResourceValidAccessScopeSetting)(nil)).Elem()
+}
+
+func (i GetRequestSettingResourceValidAccessScopeSettingArgs) ToGetRequestSettingResourceValidAccessScopeSettingOutput() GetRequestSettingResourceValidAccessScopeSettingOutput {
+	return i.ToGetRequestSettingResourceValidAccessScopeSettingOutputWithContext(context.Background())
+}
+
+func (i GetRequestSettingResourceValidAccessScopeSettingArgs) ToGetRequestSettingResourceValidAccessScopeSettingOutputWithContext(ctx context.Context) GetRequestSettingResourceValidAccessScopeSettingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRequestSettingResourceValidAccessScopeSettingOutput)
+}
+
+// GetRequestSettingResourceValidAccessScopeSettingArrayInput is an input type that accepts GetRequestSettingResourceValidAccessScopeSettingArray and GetRequestSettingResourceValidAccessScopeSettingArrayOutput values.
+// You can construct a concrete instance of `GetRequestSettingResourceValidAccessScopeSettingArrayInput` via:
+//
+//	GetRequestSettingResourceValidAccessScopeSettingArray{ GetRequestSettingResourceValidAccessScopeSettingArgs{...} }
+type GetRequestSettingResourceValidAccessScopeSettingArrayInput interface {
+	pulumi.Input
+
+	ToGetRequestSettingResourceValidAccessScopeSettingArrayOutput() GetRequestSettingResourceValidAccessScopeSettingArrayOutput
+	ToGetRequestSettingResourceValidAccessScopeSettingArrayOutputWithContext(context.Context) GetRequestSettingResourceValidAccessScopeSettingArrayOutput
+}
+
+type GetRequestSettingResourceValidAccessScopeSettingArray []GetRequestSettingResourceValidAccessScopeSettingInput
+
+func (GetRequestSettingResourceValidAccessScopeSettingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRequestSettingResourceValidAccessScopeSetting)(nil)).Elem()
+}
+
+func (i GetRequestSettingResourceValidAccessScopeSettingArray) ToGetRequestSettingResourceValidAccessScopeSettingArrayOutput() GetRequestSettingResourceValidAccessScopeSettingArrayOutput {
+	return i.ToGetRequestSettingResourceValidAccessScopeSettingArrayOutputWithContext(context.Background())
+}
+
+func (i GetRequestSettingResourceValidAccessScopeSettingArray) ToGetRequestSettingResourceValidAccessScopeSettingArrayOutputWithContext(ctx context.Context) GetRequestSettingResourceValidAccessScopeSettingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRequestSettingResourceValidAccessScopeSettingArrayOutput)
+}
+
+type GetRequestSettingResourceValidAccessScopeSettingOutput struct{ *pulumi.OutputState }
+
+func (GetRequestSettingResourceValidAccessScopeSettingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRequestSettingResourceValidAccessScopeSetting)(nil)).Elem()
+}
+
+func (o GetRequestSettingResourceValidAccessScopeSettingOutput) ToGetRequestSettingResourceValidAccessScopeSettingOutput() GetRequestSettingResourceValidAccessScopeSettingOutput {
+	return o
+}
+
+func (o GetRequestSettingResourceValidAccessScopeSettingOutput) ToGetRequestSettingResourceValidAccessScopeSettingOutputWithContext(ctx context.Context) GetRequestSettingResourceValidAccessScopeSettingOutput {
+	return o
+}
+
+func (o GetRequestSettingResourceValidAccessScopeSettingOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRequestSettingResourceValidAccessScopeSetting) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetRequestSettingResourceValidAccessScopeSettingArrayOutput struct{ *pulumi.OutputState }
+
+func (GetRequestSettingResourceValidAccessScopeSettingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRequestSettingResourceValidAccessScopeSetting)(nil)).Elem()
+}
+
+func (o GetRequestSettingResourceValidAccessScopeSettingArrayOutput) ToGetRequestSettingResourceValidAccessScopeSettingArrayOutput() GetRequestSettingResourceValidAccessScopeSettingArrayOutput {
+	return o
+}
+
+func (o GetRequestSettingResourceValidAccessScopeSettingArrayOutput) ToGetRequestSettingResourceValidAccessScopeSettingArrayOutputWithContext(ctx context.Context) GetRequestSettingResourceValidAccessScopeSettingArrayOutput {
+	return o
+}
+
+func (o GetRequestSettingResourceValidAccessScopeSettingArrayOutput) Index(i pulumi.IntInput) GetRequestSettingResourceValidAccessScopeSettingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRequestSettingResourceValidAccessScopeSetting {
+		return vs[0].([]GetRequestSettingResourceValidAccessScopeSetting)[vs[1].(int)]
+	}).(GetRequestSettingResourceValidAccessScopeSettingOutput)
+}
+
+type GetRequestSettingResourceValidRequesterSetting struct {
+	Type string `pulumi:"type"`
+}
+
+// GetRequestSettingResourceValidRequesterSettingInput is an input type that accepts GetRequestSettingResourceValidRequesterSettingArgs and GetRequestSettingResourceValidRequesterSettingOutput values.
+// You can construct a concrete instance of `GetRequestSettingResourceValidRequesterSettingInput` via:
+//
+//	GetRequestSettingResourceValidRequesterSettingArgs{...}
+type GetRequestSettingResourceValidRequesterSettingInput interface {
+	pulumi.Input
+
+	ToGetRequestSettingResourceValidRequesterSettingOutput() GetRequestSettingResourceValidRequesterSettingOutput
+	ToGetRequestSettingResourceValidRequesterSettingOutputWithContext(context.Context) GetRequestSettingResourceValidRequesterSettingOutput
+}
+
+type GetRequestSettingResourceValidRequesterSettingArgs struct {
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetRequestSettingResourceValidRequesterSettingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRequestSettingResourceValidRequesterSetting)(nil)).Elem()
+}
+
+func (i GetRequestSettingResourceValidRequesterSettingArgs) ToGetRequestSettingResourceValidRequesterSettingOutput() GetRequestSettingResourceValidRequesterSettingOutput {
+	return i.ToGetRequestSettingResourceValidRequesterSettingOutputWithContext(context.Background())
+}
+
+func (i GetRequestSettingResourceValidRequesterSettingArgs) ToGetRequestSettingResourceValidRequesterSettingOutputWithContext(ctx context.Context) GetRequestSettingResourceValidRequesterSettingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRequestSettingResourceValidRequesterSettingOutput)
+}
+
+// GetRequestSettingResourceValidRequesterSettingArrayInput is an input type that accepts GetRequestSettingResourceValidRequesterSettingArray and GetRequestSettingResourceValidRequesterSettingArrayOutput values.
+// You can construct a concrete instance of `GetRequestSettingResourceValidRequesterSettingArrayInput` via:
+//
+//	GetRequestSettingResourceValidRequesterSettingArray{ GetRequestSettingResourceValidRequesterSettingArgs{...} }
+type GetRequestSettingResourceValidRequesterSettingArrayInput interface {
+	pulumi.Input
+
+	ToGetRequestSettingResourceValidRequesterSettingArrayOutput() GetRequestSettingResourceValidRequesterSettingArrayOutput
+	ToGetRequestSettingResourceValidRequesterSettingArrayOutputWithContext(context.Context) GetRequestSettingResourceValidRequesterSettingArrayOutput
+}
+
+type GetRequestSettingResourceValidRequesterSettingArray []GetRequestSettingResourceValidRequesterSettingInput
+
+func (GetRequestSettingResourceValidRequesterSettingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRequestSettingResourceValidRequesterSetting)(nil)).Elem()
+}
+
+func (i GetRequestSettingResourceValidRequesterSettingArray) ToGetRequestSettingResourceValidRequesterSettingArrayOutput() GetRequestSettingResourceValidRequesterSettingArrayOutput {
+	return i.ToGetRequestSettingResourceValidRequesterSettingArrayOutputWithContext(context.Background())
+}
+
+func (i GetRequestSettingResourceValidRequesterSettingArray) ToGetRequestSettingResourceValidRequesterSettingArrayOutputWithContext(ctx context.Context) GetRequestSettingResourceValidRequesterSettingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRequestSettingResourceValidRequesterSettingArrayOutput)
+}
+
+type GetRequestSettingResourceValidRequesterSettingOutput struct{ *pulumi.OutputState }
+
+func (GetRequestSettingResourceValidRequesterSettingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRequestSettingResourceValidRequesterSetting)(nil)).Elem()
+}
+
+func (o GetRequestSettingResourceValidRequesterSettingOutput) ToGetRequestSettingResourceValidRequesterSettingOutput() GetRequestSettingResourceValidRequesterSettingOutput {
+	return o
+}
+
+func (o GetRequestSettingResourceValidRequesterSettingOutput) ToGetRequestSettingResourceValidRequesterSettingOutputWithContext(ctx context.Context) GetRequestSettingResourceValidRequesterSettingOutput {
+	return o
+}
+
+func (o GetRequestSettingResourceValidRequesterSettingOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRequestSettingResourceValidRequesterSetting) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetRequestSettingResourceValidRequesterSettingArrayOutput struct{ *pulumi.OutputState }
+
+func (GetRequestSettingResourceValidRequesterSettingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRequestSettingResourceValidRequesterSetting)(nil)).Elem()
+}
+
+func (o GetRequestSettingResourceValidRequesterSettingArrayOutput) ToGetRequestSettingResourceValidRequesterSettingArrayOutput() GetRequestSettingResourceValidRequesterSettingArrayOutput {
+	return o
+}
+
+func (o GetRequestSettingResourceValidRequesterSettingArrayOutput) ToGetRequestSettingResourceValidRequesterSettingArrayOutputWithContext(ctx context.Context) GetRequestSettingResourceValidRequesterSettingArrayOutput {
+	return o
+}
+
+func (o GetRequestSettingResourceValidRequesterSettingArrayOutput) Index(i pulumi.IntInput) GetRequestSettingResourceValidRequesterSettingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRequestSettingResourceValidRequesterSetting {
+		return vs[0].([]GetRequestSettingResourceValidRequesterSetting)[vs[1].(int)]
+	}).(GetRequestSettingResourceValidRequesterSettingOutput)
+}
+
+type GetRequestV2Requested struct {
+	// The ID of the access scope associated with the resource.
+	AccessScopeId string `pulumi:"accessScopeId"`
+	// The access scope type.
+	AccessScopeType string `pulumi:"accessScopeType"`
+	// The ID of the resource catalog entry.
+	EntryId string `pulumi:"entryId"`
+	// The ID of the requested resource.
+	ResourceId string `pulumi:"resourceId"`
+	// The requested resource type.
+	ResourceType string `pulumi:"resourceType"`
+	// The type of the resource.
+	Type string `pulumi:"type"`
+}
+
+// GetRequestV2RequestedInput is an input type that accepts GetRequestV2RequestedArgs and GetRequestV2RequestedOutput values.
+// You can construct a concrete instance of `GetRequestV2RequestedInput` via:
+//
+//	GetRequestV2RequestedArgs{...}
+type GetRequestV2RequestedInput interface {
+	pulumi.Input
+
+	ToGetRequestV2RequestedOutput() GetRequestV2RequestedOutput
+	ToGetRequestV2RequestedOutputWithContext(context.Context) GetRequestV2RequestedOutput
+}
+
+type GetRequestV2RequestedArgs struct {
+	// The ID of the access scope associated with the resource.
+	AccessScopeId pulumi.StringInput `pulumi:"accessScopeId"`
+	// The access scope type.
+	AccessScopeType pulumi.StringInput `pulumi:"accessScopeType"`
+	// The ID of the resource catalog entry.
+	EntryId pulumi.StringInput `pulumi:"entryId"`
+	// The ID of the requested resource.
+	ResourceId pulumi.StringInput `pulumi:"resourceId"`
+	// The requested resource type.
+	ResourceType pulumi.StringInput `pulumi:"resourceType"`
+	// The type of the resource.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetRequestV2RequestedArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRequestV2Requested)(nil)).Elem()
+}
+
+func (i GetRequestV2RequestedArgs) ToGetRequestV2RequestedOutput() GetRequestV2RequestedOutput {
+	return i.ToGetRequestV2RequestedOutputWithContext(context.Background())
+}
+
+func (i GetRequestV2RequestedArgs) ToGetRequestV2RequestedOutputWithContext(ctx context.Context) GetRequestV2RequestedOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRequestV2RequestedOutput)
+}
+
+func (i GetRequestV2RequestedArgs) ToGetRequestV2RequestedPtrOutput() GetRequestV2RequestedPtrOutput {
+	return i.ToGetRequestV2RequestedPtrOutputWithContext(context.Background())
+}
+
+func (i GetRequestV2RequestedArgs) ToGetRequestV2RequestedPtrOutputWithContext(ctx context.Context) GetRequestV2RequestedPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRequestV2RequestedOutput).ToGetRequestV2RequestedPtrOutputWithContext(ctx)
+}
+
+// GetRequestV2RequestedPtrInput is an input type that accepts GetRequestV2RequestedArgs, GetRequestV2RequestedPtr and GetRequestV2RequestedPtrOutput values.
+// You can construct a concrete instance of `GetRequestV2RequestedPtrInput` via:
+//
+//	        GetRequestV2RequestedArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetRequestV2RequestedPtrInput interface {
+	pulumi.Input
+
+	ToGetRequestV2RequestedPtrOutput() GetRequestV2RequestedPtrOutput
+	ToGetRequestV2RequestedPtrOutputWithContext(context.Context) GetRequestV2RequestedPtrOutput
+}
+
+type getRequestV2RequestedPtrType GetRequestV2RequestedArgs
+
+func GetRequestV2RequestedPtr(v *GetRequestV2RequestedArgs) GetRequestV2RequestedPtrInput {
+	return (*getRequestV2RequestedPtrType)(v)
+}
+
+func (*getRequestV2RequestedPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetRequestV2Requested)(nil)).Elem()
+}
+
+func (i *getRequestV2RequestedPtrType) ToGetRequestV2RequestedPtrOutput() GetRequestV2RequestedPtrOutput {
+	return i.ToGetRequestV2RequestedPtrOutputWithContext(context.Background())
+}
+
+func (i *getRequestV2RequestedPtrType) ToGetRequestV2RequestedPtrOutputWithContext(ctx context.Context) GetRequestV2RequestedPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRequestV2RequestedPtrOutput)
+}
+
+type GetRequestV2RequestedOutput struct{ *pulumi.OutputState }
+
+func (GetRequestV2RequestedOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRequestV2Requested)(nil)).Elem()
+}
+
+func (o GetRequestV2RequestedOutput) ToGetRequestV2RequestedOutput() GetRequestV2RequestedOutput {
+	return o
+}
+
+func (o GetRequestV2RequestedOutput) ToGetRequestV2RequestedOutputWithContext(ctx context.Context) GetRequestV2RequestedOutput {
+	return o
+}
+
+func (o GetRequestV2RequestedOutput) ToGetRequestV2RequestedPtrOutput() GetRequestV2RequestedPtrOutput {
+	return o.ToGetRequestV2RequestedPtrOutputWithContext(context.Background())
+}
+
+func (o GetRequestV2RequestedOutput) ToGetRequestV2RequestedPtrOutputWithContext(ctx context.Context) GetRequestV2RequestedPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetRequestV2Requested) *GetRequestV2Requested {
+		return &v
+	}).(GetRequestV2RequestedPtrOutput)
+}
+
+// The ID of the access scope associated with the resource.
+func (o GetRequestV2RequestedOutput) AccessScopeId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRequestV2Requested) string { return v.AccessScopeId }).(pulumi.StringOutput)
+}
+
+// The access scope type.
+func (o GetRequestV2RequestedOutput) AccessScopeType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRequestV2Requested) string { return v.AccessScopeType }).(pulumi.StringOutput)
+}
+
+// The ID of the resource catalog entry.
+func (o GetRequestV2RequestedOutput) EntryId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRequestV2Requested) string { return v.EntryId }).(pulumi.StringOutput)
+}
+
+// The ID of the requested resource.
+func (o GetRequestV2RequestedOutput) ResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRequestV2Requested) string { return v.ResourceId }).(pulumi.StringOutput)
+}
+
+// The requested resource type.
+func (o GetRequestV2RequestedOutput) ResourceType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRequestV2Requested) string { return v.ResourceType }).(pulumi.StringOutput)
+}
+
+// The type of the resource.
+func (o GetRequestV2RequestedOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRequestV2Requested) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetRequestV2RequestedPtrOutput struct{ *pulumi.OutputState }
+
+func (GetRequestV2RequestedPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetRequestV2Requested)(nil)).Elem()
+}
+
+func (o GetRequestV2RequestedPtrOutput) ToGetRequestV2RequestedPtrOutput() GetRequestV2RequestedPtrOutput {
+	return o
+}
+
+func (o GetRequestV2RequestedPtrOutput) ToGetRequestV2RequestedPtrOutputWithContext(ctx context.Context) GetRequestV2RequestedPtrOutput {
+	return o
+}
+
+func (o GetRequestV2RequestedPtrOutput) Elem() GetRequestV2RequestedOutput {
+	return o.ApplyT(func(v *GetRequestV2Requested) GetRequestV2Requested {
+		if v != nil {
+			return *v
+		}
+		var ret GetRequestV2Requested
+		return ret
+	}).(GetRequestV2RequestedOutput)
+}
+
+// The ID of the access scope associated with the resource.
+func (o GetRequestV2RequestedPtrOutput) AccessScopeId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetRequestV2Requested) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AccessScopeId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The access scope type.
+func (o GetRequestV2RequestedPtrOutput) AccessScopeType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetRequestV2Requested) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AccessScopeType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of the resource catalog entry.
+func (o GetRequestV2RequestedPtrOutput) EntryId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetRequestV2Requested) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.EntryId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of the requested resource.
+func (o GetRequestV2RequestedPtrOutput) ResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetRequestV2Requested) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ResourceId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The requested resource type.
+func (o GetRequestV2RequestedPtrOutput) ResourceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetRequestV2Requested) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ResourceType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of the resource.
+func (o GetRequestV2RequestedPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetRequestV2Requested) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetRequestV2RequestedBy struct {
+	// The Okta user id.
+	ExternalId string `pulumi:"externalId"`
+	// The type of principal.
+	Type string `pulumi:"type"`
+}
+
+// GetRequestV2RequestedByInput is an input type that accepts GetRequestV2RequestedByArgs and GetRequestV2RequestedByOutput values.
+// You can construct a concrete instance of `GetRequestV2RequestedByInput` via:
+//
+//	GetRequestV2RequestedByArgs{...}
+type GetRequestV2RequestedByInput interface {
+	pulumi.Input
+
+	ToGetRequestV2RequestedByOutput() GetRequestV2RequestedByOutput
+	ToGetRequestV2RequestedByOutputWithContext(context.Context) GetRequestV2RequestedByOutput
+}
+
+type GetRequestV2RequestedByArgs struct {
+	// The Okta user id.
+	ExternalId pulumi.StringInput `pulumi:"externalId"`
+	// The type of principal.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetRequestV2RequestedByArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRequestV2RequestedBy)(nil)).Elem()
+}
+
+func (i GetRequestV2RequestedByArgs) ToGetRequestV2RequestedByOutput() GetRequestV2RequestedByOutput {
+	return i.ToGetRequestV2RequestedByOutputWithContext(context.Background())
+}
+
+func (i GetRequestV2RequestedByArgs) ToGetRequestV2RequestedByOutputWithContext(ctx context.Context) GetRequestV2RequestedByOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRequestV2RequestedByOutput)
+}
+
+func (i GetRequestV2RequestedByArgs) ToGetRequestV2RequestedByPtrOutput() GetRequestV2RequestedByPtrOutput {
+	return i.ToGetRequestV2RequestedByPtrOutputWithContext(context.Background())
+}
+
+func (i GetRequestV2RequestedByArgs) ToGetRequestV2RequestedByPtrOutputWithContext(ctx context.Context) GetRequestV2RequestedByPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRequestV2RequestedByOutput).ToGetRequestV2RequestedByPtrOutputWithContext(ctx)
+}
+
+// GetRequestV2RequestedByPtrInput is an input type that accepts GetRequestV2RequestedByArgs, GetRequestV2RequestedByPtr and GetRequestV2RequestedByPtrOutput values.
+// You can construct a concrete instance of `GetRequestV2RequestedByPtrInput` via:
+//
+//	        GetRequestV2RequestedByArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetRequestV2RequestedByPtrInput interface {
+	pulumi.Input
+
+	ToGetRequestV2RequestedByPtrOutput() GetRequestV2RequestedByPtrOutput
+	ToGetRequestV2RequestedByPtrOutputWithContext(context.Context) GetRequestV2RequestedByPtrOutput
+}
+
+type getRequestV2RequestedByPtrType GetRequestV2RequestedByArgs
+
+func GetRequestV2RequestedByPtr(v *GetRequestV2RequestedByArgs) GetRequestV2RequestedByPtrInput {
+	return (*getRequestV2RequestedByPtrType)(v)
+}
+
+func (*getRequestV2RequestedByPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetRequestV2RequestedBy)(nil)).Elem()
+}
+
+func (i *getRequestV2RequestedByPtrType) ToGetRequestV2RequestedByPtrOutput() GetRequestV2RequestedByPtrOutput {
+	return i.ToGetRequestV2RequestedByPtrOutputWithContext(context.Background())
+}
+
+func (i *getRequestV2RequestedByPtrType) ToGetRequestV2RequestedByPtrOutputWithContext(ctx context.Context) GetRequestV2RequestedByPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRequestV2RequestedByPtrOutput)
+}
+
+type GetRequestV2RequestedByOutput struct{ *pulumi.OutputState }
+
+func (GetRequestV2RequestedByOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRequestV2RequestedBy)(nil)).Elem()
+}
+
+func (o GetRequestV2RequestedByOutput) ToGetRequestV2RequestedByOutput() GetRequestV2RequestedByOutput {
+	return o
+}
+
+func (o GetRequestV2RequestedByOutput) ToGetRequestV2RequestedByOutputWithContext(ctx context.Context) GetRequestV2RequestedByOutput {
+	return o
+}
+
+func (o GetRequestV2RequestedByOutput) ToGetRequestV2RequestedByPtrOutput() GetRequestV2RequestedByPtrOutput {
+	return o.ToGetRequestV2RequestedByPtrOutputWithContext(context.Background())
+}
+
+func (o GetRequestV2RequestedByOutput) ToGetRequestV2RequestedByPtrOutputWithContext(ctx context.Context) GetRequestV2RequestedByPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetRequestV2RequestedBy) *GetRequestV2RequestedBy {
+		return &v
+	}).(GetRequestV2RequestedByPtrOutput)
+}
+
+// The Okta user id.
+func (o GetRequestV2RequestedByOutput) ExternalId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRequestV2RequestedBy) string { return v.ExternalId }).(pulumi.StringOutput)
+}
+
+// The type of principal.
+func (o GetRequestV2RequestedByOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRequestV2RequestedBy) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetRequestV2RequestedByPtrOutput struct{ *pulumi.OutputState }
+
+func (GetRequestV2RequestedByPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetRequestV2RequestedBy)(nil)).Elem()
+}
+
+func (o GetRequestV2RequestedByPtrOutput) ToGetRequestV2RequestedByPtrOutput() GetRequestV2RequestedByPtrOutput {
+	return o
+}
+
+func (o GetRequestV2RequestedByPtrOutput) ToGetRequestV2RequestedByPtrOutputWithContext(ctx context.Context) GetRequestV2RequestedByPtrOutput {
+	return o
+}
+
+func (o GetRequestV2RequestedByPtrOutput) Elem() GetRequestV2RequestedByOutput {
+	return o.ApplyT(func(v *GetRequestV2RequestedBy) GetRequestV2RequestedBy {
+		if v != nil {
+			return *v
+		}
+		var ret GetRequestV2RequestedBy
+		return ret
+	}).(GetRequestV2RequestedByOutput)
+}
+
+// The Okta user id.
+func (o GetRequestV2RequestedByPtrOutput) ExternalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetRequestV2RequestedBy) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ExternalId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of principal.
+func (o GetRequestV2RequestedByPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetRequestV2RequestedBy) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetRequestV2RequestedFor struct {
+	// The ID of the Okta user.
+	ExternalId string `pulumi:"externalId"`
+	// The type of principal.
+	Type string `pulumi:"type"`
+}
+
+// GetRequestV2RequestedForInput is an input type that accepts GetRequestV2RequestedForArgs and GetRequestV2RequestedForOutput values.
+// You can construct a concrete instance of `GetRequestV2RequestedForInput` via:
+//
+//	GetRequestV2RequestedForArgs{...}
+type GetRequestV2RequestedForInput interface {
+	pulumi.Input
+
+	ToGetRequestV2RequestedForOutput() GetRequestV2RequestedForOutput
+	ToGetRequestV2RequestedForOutputWithContext(context.Context) GetRequestV2RequestedForOutput
+}
+
+type GetRequestV2RequestedForArgs struct {
+	// The ID of the Okta user.
+	ExternalId pulumi.StringInput `pulumi:"externalId"`
+	// The type of principal.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetRequestV2RequestedForArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRequestV2RequestedFor)(nil)).Elem()
+}
+
+func (i GetRequestV2RequestedForArgs) ToGetRequestV2RequestedForOutput() GetRequestV2RequestedForOutput {
+	return i.ToGetRequestV2RequestedForOutputWithContext(context.Background())
+}
+
+func (i GetRequestV2RequestedForArgs) ToGetRequestV2RequestedForOutputWithContext(ctx context.Context) GetRequestV2RequestedForOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRequestV2RequestedForOutput)
+}
+
+func (i GetRequestV2RequestedForArgs) ToGetRequestV2RequestedForPtrOutput() GetRequestV2RequestedForPtrOutput {
+	return i.ToGetRequestV2RequestedForPtrOutputWithContext(context.Background())
+}
+
+func (i GetRequestV2RequestedForArgs) ToGetRequestV2RequestedForPtrOutputWithContext(ctx context.Context) GetRequestV2RequestedForPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRequestV2RequestedForOutput).ToGetRequestV2RequestedForPtrOutputWithContext(ctx)
+}
+
+// GetRequestV2RequestedForPtrInput is an input type that accepts GetRequestV2RequestedForArgs, GetRequestV2RequestedForPtr and GetRequestV2RequestedForPtrOutput values.
+// You can construct a concrete instance of `GetRequestV2RequestedForPtrInput` via:
+//
+//	        GetRequestV2RequestedForArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetRequestV2RequestedForPtrInput interface {
+	pulumi.Input
+
+	ToGetRequestV2RequestedForPtrOutput() GetRequestV2RequestedForPtrOutput
+	ToGetRequestV2RequestedForPtrOutputWithContext(context.Context) GetRequestV2RequestedForPtrOutput
+}
+
+type getRequestV2RequestedForPtrType GetRequestV2RequestedForArgs
+
+func GetRequestV2RequestedForPtr(v *GetRequestV2RequestedForArgs) GetRequestV2RequestedForPtrInput {
+	return (*getRequestV2RequestedForPtrType)(v)
+}
+
+func (*getRequestV2RequestedForPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetRequestV2RequestedFor)(nil)).Elem()
+}
+
+func (i *getRequestV2RequestedForPtrType) ToGetRequestV2RequestedForPtrOutput() GetRequestV2RequestedForPtrOutput {
+	return i.ToGetRequestV2RequestedForPtrOutputWithContext(context.Background())
+}
+
+func (i *getRequestV2RequestedForPtrType) ToGetRequestV2RequestedForPtrOutputWithContext(ctx context.Context) GetRequestV2RequestedForPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRequestV2RequestedForPtrOutput)
+}
+
+type GetRequestV2RequestedForOutput struct{ *pulumi.OutputState }
+
+func (GetRequestV2RequestedForOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRequestV2RequestedFor)(nil)).Elem()
+}
+
+func (o GetRequestV2RequestedForOutput) ToGetRequestV2RequestedForOutput() GetRequestV2RequestedForOutput {
+	return o
+}
+
+func (o GetRequestV2RequestedForOutput) ToGetRequestV2RequestedForOutputWithContext(ctx context.Context) GetRequestV2RequestedForOutput {
+	return o
+}
+
+func (o GetRequestV2RequestedForOutput) ToGetRequestV2RequestedForPtrOutput() GetRequestV2RequestedForPtrOutput {
+	return o.ToGetRequestV2RequestedForPtrOutputWithContext(context.Background())
+}
+
+func (o GetRequestV2RequestedForOutput) ToGetRequestV2RequestedForPtrOutputWithContext(ctx context.Context) GetRequestV2RequestedForPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetRequestV2RequestedFor) *GetRequestV2RequestedFor {
+		return &v
+	}).(GetRequestV2RequestedForPtrOutput)
+}
+
+// The ID of the Okta user.
+func (o GetRequestV2RequestedForOutput) ExternalId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRequestV2RequestedFor) string { return v.ExternalId }).(pulumi.StringOutput)
+}
+
+// The type of principal.
+func (o GetRequestV2RequestedForOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRequestV2RequestedFor) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetRequestV2RequestedForPtrOutput struct{ *pulumi.OutputState }
+
+func (GetRequestV2RequestedForPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetRequestV2RequestedFor)(nil)).Elem()
+}
+
+func (o GetRequestV2RequestedForPtrOutput) ToGetRequestV2RequestedForPtrOutput() GetRequestV2RequestedForPtrOutput {
+	return o
+}
+
+func (o GetRequestV2RequestedForPtrOutput) ToGetRequestV2RequestedForPtrOutputWithContext(ctx context.Context) GetRequestV2RequestedForPtrOutput {
+	return o
+}
+
+func (o GetRequestV2RequestedForPtrOutput) Elem() GetRequestV2RequestedForOutput {
+	return o.ApplyT(func(v *GetRequestV2RequestedFor) GetRequestV2RequestedFor {
+		if v != nil {
+			return *v
+		}
+		var ret GetRequestV2RequestedFor
+		return ret
+	}).(GetRequestV2RequestedForOutput)
+}
+
+// The ID of the Okta user.
+func (o GetRequestV2RequestedForPtrOutput) ExternalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetRequestV2RequestedFor) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ExternalId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of principal.
+func (o GetRequestV2RequestedForPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetRequestV2RequestedFor) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetReviewAllReviewerLevel struct {
+	// The ISO 8601 formatted date and time when the resource was created.
+	Created string `pulumi:"created"`
+	// The id of user who created the resource.
+	CreatedBy string `pulumi:"createdBy"`
+	// The decision taken by the reviewer. Will be `UNASSIGNED` if no decision is made.
+	Decision string `pulumi:"decision"`
+	// The ID of  review.
+	Id string `pulumi:"id"`
+	// The ISO 8601 formatted date and time when the object was last updated.
+	LastUpdated string `pulumi:"lastUpdated"`
+	// The id of user who last updated the object.
+	LastUpdatedBy        string                                         `pulumi:"lastUpdatedBy"`
+	ReviewerGroupProfile *GetReviewAllReviewerLevelReviewerGroupProfile `pulumi:"reviewerGroupProfile"`
+	ReviewerLevel        string                                         `pulumi:"reviewerLevel"`
+	ReviewerProfile      *GetReviewAllReviewerLevelReviewerProfile      `pulumi:"reviewerProfile"`
+	// The type of reviewer to which the review is assigned.
+	ReviewerType string `pulumi:"reviewerType"`
+}
+
+// GetReviewAllReviewerLevelInput is an input type that accepts GetReviewAllReviewerLevelArgs and GetReviewAllReviewerLevelOutput values.
+// You can construct a concrete instance of `GetReviewAllReviewerLevelInput` via:
+//
+//	GetReviewAllReviewerLevelArgs{...}
+type GetReviewAllReviewerLevelInput interface {
+	pulumi.Input
+
+	ToGetReviewAllReviewerLevelOutput() GetReviewAllReviewerLevelOutput
+	ToGetReviewAllReviewerLevelOutputWithContext(context.Context) GetReviewAllReviewerLevelOutput
+}
+
+type GetReviewAllReviewerLevelArgs struct {
+	// The ISO 8601 formatted date and time when the resource was created.
+	Created pulumi.StringInput `pulumi:"created"`
+	// The id of user who created the resource.
+	CreatedBy pulumi.StringInput `pulumi:"createdBy"`
+	// The decision taken by the reviewer. Will be `UNASSIGNED` if no decision is made.
+	Decision pulumi.StringInput `pulumi:"decision"`
+	// The ID of  review.
+	Id pulumi.StringInput `pulumi:"id"`
+	// The ISO 8601 formatted date and time when the object was last updated.
+	LastUpdated pulumi.StringInput `pulumi:"lastUpdated"`
+	// The id of user who last updated the object.
+	LastUpdatedBy        pulumi.StringInput                                    `pulumi:"lastUpdatedBy"`
+	ReviewerGroupProfile GetReviewAllReviewerLevelReviewerGroupProfilePtrInput `pulumi:"reviewerGroupProfile"`
+	ReviewerLevel        pulumi.StringInput                                    `pulumi:"reviewerLevel"`
+	ReviewerProfile      GetReviewAllReviewerLevelReviewerProfilePtrInput      `pulumi:"reviewerProfile"`
+	// The type of reviewer to which the review is assigned.
+	ReviewerType pulumi.StringInput `pulumi:"reviewerType"`
+}
+
+func (GetReviewAllReviewerLevelArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetReviewAllReviewerLevel)(nil)).Elem()
+}
+
+func (i GetReviewAllReviewerLevelArgs) ToGetReviewAllReviewerLevelOutput() GetReviewAllReviewerLevelOutput {
+	return i.ToGetReviewAllReviewerLevelOutputWithContext(context.Background())
+}
+
+func (i GetReviewAllReviewerLevelArgs) ToGetReviewAllReviewerLevelOutputWithContext(ctx context.Context) GetReviewAllReviewerLevelOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetReviewAllReviewerLevelOutput)
+}
+
+// GetReviewAllReviewerLevelArrayInput is an input type that accepts GetReviewAllReviewerLevelArray and GetReviewAllReviewerLevelArrayOutput values.
+// You can construct a concrete instance of `GetReviewAllReviewerLevelArrayInput` via:
+//
+//	GetReviewAllReviewerLevelArray{ GetReviewAllReviewerLevelArgs{...} }
+type GetReviewAllReviewerLevelArrayInput interface {
+	pulumi.Input
+
+	ToGetReviewAllReviewerLevelArrayOutput() GetReviewAllReviewerLevelArrayOutput
+	ToGetReviewAllReviewerLevelArrayOutputWithContext(context.Context) GetReviewAllReviewerLevelArrayOutput
+}
+
+type GetReviewAllReviewerLevelArray []GetReviewAllReviewerLevelInput
+
+func (GetReviewAllReviewerLevelArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetReviewAllReviewerLevel)(nil)).Elem()
+}
+
+func (i GetReviewAllReviewerLevelArray) ToGetReviewAllReviewerLevelArrayOutput() GetReviewAllReviewerLevelArrayOutput {
+	return i.ToGetReviewAllReviewerLevelArrayOutputWithContext(context.Background())
+}
+
+func (i GetReviewAllReviewerLevelArray) ToGetReviewAllReviewerLevelArrayOutputWithContext(ctx context.Context) GetReviewAllReviewerLevelArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetReviewAllReviewerLevelArrayOutput)
+}
+
+type GetReviewAllReviewerLevelOutput struct{ *pulumi.OutputState }
+
+func (GetReviewAllReviewerLevelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetReviewAllReviewerLevel)(nil)).Elem()
+}
+
+func (o GetReviewAllReviewerLevelOutput) ToGetReviewAllReviewerLevelOutput() GetReviewAllReviewerLevelOutput {
+	return o
+}
+
+func (o GetReviewAllReviewerLevelOutput) ToGetReviewAllReviewerLevelOutputWithContext(ctx context.Context) GetReviewAllReviewerLevelOutput {
+	return o
+}
+
+// The ISO 8601 formatted date and time when the resource was created.
+func (o GetReviewAllReviewerLevelOutput) Created() pulumi.StringOutput {
+	return o.ApplyT(func(v GetReviewAllReviewerLevel) string { return v.Created }).(pulumi.StringOutput)
+}
+
+// The id of user who created the resource.
+func (o GetReviewAllReviewerLevelOutput) CreatedBy() pulumi.StringOutput {
+	return o.ApplyT(func(v GetReviewAllReviewerLevel) string { return v.CreatedBy }).(pulumi.StringOutput)
+}
+
+// The decision taken by the reviewer. Will be `UNASSIGNED` if no decision is made.
+func (o GetReviewAllReviewerLevelOutput) Decision() pulumi.StringOutput {
+	return o.ApplyT(func(v GetReviewAllReviewerLevel) string { return v.Decision }).(pulumi.StringOutput)
+}
+
+// The ID of  review.
+func (o GetReviewAllReviewerLevelOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetReviewAllReviewerLevel) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The ISO 8601 formatted date and time when the object was last updated.
+func (o GetReviewAllReviewerLevelOutput) LastUpdated() pulumi.StringOutput {
+	return o.ApplyT(func(v GetReviewAllReviewerLevel) string { return v.LastUpdated }).(pulumi.StringOutput)
+}
+
+// The id of user who last updated the object.
+func (o GetReviewAllReviewerLevelOutput) LastUpdatedBy() pulumi.StringOutput {
+	return o.ApplyT(func(v GetReviewAllReviewerLevel) string { return v.LastUpdatedBy }).(pulumi.StringOutput)
+}
+
+func (o GetReviewAllReviewerLevelOutput) ReviewerGroupProfile() GetReviewAllReviewerLevelReviewerGroupProfilePtrOutput {
+	return o.ApplyT(func(v GetReviewAllReviewerLevel) *GetReviewAllReviewerLevelReviewerGroupProfile {
+		return v.ReviewerGroupProfile
+	}).(GetReviewAllReviewerLevelReviewerGroupProfilePtrOutput)
+}
+
+func (o GetReviewAllReviewerLevelOutput) ReviewerLevel() pulumi.StringOutput {
+	return o.ApplyT(func(v GetReviewAllReviewerLevel) string { return v.ReviewerLevel }).(pulumi.StringOutput)
+}
+
+func (o GetReviewAllReviewerLevelOutput) ReviewerProfile() GetReviewAllReviewerLevelReviewerProfilePtrOutput {
+	return o.ApplyT(func(v GetReviewAllReviewerLevel) *GetReviewAllReviewerLevelReviewerProfile { return v.ReviewerProfile }).(GetReviewAllReviewerLevelReviewerProfilePtrOutput)
+}
+
+// The type of reviewer to which the review is assigned.
+func (o GetReviewAllReviewerLevelOutput) ReviewerType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetReviewAllReviewerLevel) string { return v.ReviewerType }).(pulumi.StringOutput)
+}
+
+type GetReviewAllReviewerLevelArrayOutput struct{ *pulumi.OutputState }
+
+func (GetReviewAllReviewerLevelArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetReviewAllReviewerLevel)(nil)).Elem()
+}
+
+func (o GetReviewAllReviewerLevelArrayOutput) ToGetReviewAllReviewerLevelArrayOutput() GetReviewAllReviewerLevelArrayOutput {
+	return o
+}
+
+func (o GetReviewAllReviewerLevelArrayOutput) ToGetReviewAllReviewerLevelArrayOutputWithContext(ctx context.Context) GetReviewAllReviewerLevelArrayOutput {
+	return o
+}
+
+func (o GetReviewAllReviewerLevelArrayOutput) Index(i pulumi.IntInput) GetReviewAllReviewerLevelOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetReviewAllReviewerLevel {
+		return vs[0].([]GetReviewAllReviewerLevel)[vs[1].(int)]
+	}).(GetReviewAllReviewerLevelOutput)
+}
+
+type GetReviewAllReviewerLevelReviewerGroupProfile struct {
+	GlobalName string `pulumi:"globalName"`
+	GroupId    string `pulumi:"groupId"`
+	GroupType  string `pulumi:"groupType"`
+	Name       string `pulumi:"name"`
+}
+
+// GetReviewAllReviewerLevelReviewerGroupProfileInput is an input type that accepts GetReviewAllReviewerLevelReviewerGroupProfileArgs and GetReviewAllReviewerLevelReviewerGroupProfileOutput values.
+// You can construct a concrete instance of `GetReviewAllReviewerLevelReviewerGroupProfileInput` via:
+//
+//	GetReviewAllReviewerLevelReviewerGroupProfileArgs{...}
+type GetReviewAllReviewerLevelReviewerGroupProfileInput interface {
+	pulumi.Input
+
+	ToGetReviewAllReviewerLevelReviewerGroupProfileOutput() GetReviewAllReviewerLevelReviewerGroupProfileOutput
+	ToGetReviewAllReviewerLevelReviewerGroupProfileOutputWithContext(context.Context) GetReviewAllReviewerLevelReviewerGroupProfileOutput
+}
+
+type GetReviewAllReviewerLevelReviewerGroupProfileArgs struct {
+	GlobalName pulumi.StringInput `pulumi:"globalName"`
+	GroupId    pulumi.StringInput `pulumi:"groupId"`
+	GroupType  pulumi.StringInput `pulumi:"groupType"`
+	Name       pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetReviewAllReviewerLevelReviewerGroupProfileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetReviewAllReviewerLevelReviewerGroupProfile)(nil)).Elem()
+}
+
+func (i GetReviewAllReviewerLevelReviewerGroupProfileArgs) ToGetReviewAllReviewerLevelReviewerGroupProfileOutput() GetReviewAllReviewerLevelReviewerGroupProfileOutput {
+	return i.ToGetReviewAllReviewerLevelReviewerGroupProfileOutputWithContext(context.Background())
+}
+
+func (i GetReviewAllReviewerLevelReviewerGroupProfileArgs) ToGetReviewAllReviewerLevelReviewerGroupProfileOutputWithContext(ctx context.Context) GetReviewAllReviewerLevelReviewerGroupProfileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetReviewAllReviewerLevelReviewerGroupProfileOutput)
+}
+
+func (i GetReviewAllReviewerLevelReviewerGroupProfileArgs) ToGetReviewAllReviewerLevelReviewerGroupProfilePtrOutput() GetReviewAllReviewerLevelReviewerGroupProfilePtrOutput {
+	return i.ToGetReviewAllReviewerLevelReviewerGroupProfilePtrOutputWithContext(context.Background())
+}
+
+func (i GetReviewAllReviewerLevelReviewerGroupProfileArgs) ToGetReviewAllReviewerLevelReviewerGroupProfilePtrOutputWithContext(ctx context.Context) GetReviewAllReviewerLevelReviewerGroupProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetReviewAllReviewerLevelReviewerGroupProfileOutput).ToGetReviewAllReviewerLevelReviewerGroupProfilePtrOutputWithContext(ctx)
+}
+
+// GetReviewAllReviewerLevelReviewerGroupProfilePtrInput is an input type that accepts GetReviewAllReviewerLevelReviewerGroupProfileArgs, GetReviewAllReviewerLevelReviewerGroupProfilePtr and GetReviewAllReviewerLevelReviewerGroupProfilePtrOutput values.
+// You can construct a concrete instance of `GetReviewAllReviewerLevelReviewerGroupProfilePtrInput` via:
+//
+//	        GetReviewAllReviewerLevelReviewerGroupProfileArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetReviewAllReviewerLevelReviewerGroupProfilePtrInput interface {
+	pulumi.Input
+
+	ToGetReviewAllReviewerLevelReviewerGroupProfilePtrOutput() GetReviewAllReviewerLevelReviewerGroupProfilePtrOutput
+	ToGetReviewAllReviewerLevelReviewerGroupProfilePtrOutputWithContext(context.Context) GetReviewAllReviewerLevelReviewerGroupProfilePtrOutput
+}
+
+type getReviewAllReviewerLevelReviewerGroupProfilePtrType GetReviewAllReviewerLevelReviewerGroupProfileArgs
+
+func GetReviewAllReviewerLevelReviewerGroupProfilePtr(v *GetReviewAllReviewerLevelReviewerGroupProfileArgs) GetReviewAllReviewerLevelReviewerGroupProfilePtrInput {
+	return (*getReviewAllReviewerLevelReviewerGroupProfilePtrType)(v)
+}
+
+func (*getReviewAllReviewerLevelReviewerGroupProfilePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetReviewAllReviewerLevelReviewerGroupProfile)(nil)).Elem()
+}
+
+func (i *getReviewAllReviewerLevelReviewerGroupProfilePtrType) ToGetReviewAllReviewerLevelReviewerGroupProfilePtrOutput() GetReviewAllReviewerLevelReviewerGroupProfilePtrOutput {
+	return i.ToGetReviewAllReviewerLevelReviewerGroupProfilePtrOutputWithContext(context.Background())
+}
+
+func (i *getReviewAllReviewerLevelReviewerGroupProfilePtrType) ToGetReviewAllReviewerLevelReviewerGroupProfilePtrOutputWithContext(ctx context.Context) GetReviewAllReviewerLevelReviewerGroupProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetReviewAllReviewerLevelReviewerGroupProfilePtrOutput)
+}
+
+type GetReviewAllReviewerLevelReviewerGroupProfileOutput struct{ *pulumi.OutputState }
+
+func (GetReviewAllReviewerLevelReviewerGroupProfileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetReviewAllReviewerLevelReviewerGroupProfile)(nil)).Elem()
+}
+
+func (o GetReviewAllReviewerLevelReviewerGroupProfileOutput) ToGetReviewAllReviewerLevelReviewerGroupProfileOutput() GetReviewAllReviewerLevelReviewerGroupProfileOutput {
+	return o
+}
+
+func (o GetReviewAllReviewerLevelReviewerGroupProfileOutput) ToGetReviewAllReviewerLevelReviewerGroupProfileOutputWithContext(ctx context.Context) GetReviewAllReviewerLevelReviewerGroupProfileOutput {
+	return o
+}
+
+func (o GetReviewAllReviewerLevelReviewerGroupProfileOutput) ToGetReviewAllReviewerLevelReviewerGroupProfilePtrOutput() GetReviewAllReviewerLevelReviewerGroupProfilePtrOutput {
+	return o.ToGetReviewAllReviewerLevelReviewerGroupProfilePtrOutputWithContext(context.Background())
+}
+
+func (o GetReviewAllReviewerLevelReviewerGroupProfileOutput) ToGetReviewAllReviewerLevelReviewerGroupProfilePtrOutputWithContext(ctx context.Context) GetReviewAllReviewerLevelReviewerGroupProfilePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetReviewAllReviewerLevelReviewerGroupProfile) *GetReviewAllReviewerLevelReviewerGroupProfile {
+		return &v
+	}).(GetReviewAllReviewerLevelReviewerGroupProfilePtrOutput)
+}
+
+func (o GetReviewAllReviewerLevelReviewerGroupProfileOutput) GlobalName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetReviewAllReviewerLevelReviewerGroupProfile) string { return v.GlobalName }).(pulumi.StringOutput)
+}
+
+func (o GetReviewAllReviewerLevelReviewerGroupProfileOutput) GroupId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetReviewAllReviewerLevelReviewerGroupProfile) string { return v.GroupId }).(pulumi.StringOutput)
+}
+
+func (o GetReviewAllReviewerLevelReviewerGroupProfileOutput) GroupType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetReviewAllReviewerLevelReviewerGroupProfile) string { return v.GroupType }).(pulumi.StringOutput)
+}
+
+func (o GetReviewAllReviewerLevelReviewerGroupProfileOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetReviewAllReviewerLevelReviewerGroupProfile) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetReviewAllReviewerLevelReviewerGroupProfilePtrOutput struct{ *pulumi.OutputState }
+
+func (GetReviewAllReviewerLevelReviewerGroupProfilePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetReviewAllReviewerLevelReviewerGroupProfile)(nil)).Elem()
+}
+
+func (o GetReviewAllReviewerLevelReviewerGroupProfilePtrOutput) ToGetReviewAllReviewerLevelReviewerGroupProfilePtrOutput() GetReviewAllReviewerLevelReviewerGroupProfilePtrOutput {
+	return o
+}
+
+func (o GetReviewAllReviewerLevelReviewerGroupProfilePtrOutput) ToGetReviewAllReviewerLevelReviewerGroupProfilePtrOutputWithContext(ctx context.Context) GetReviewAllReviewerLevelReviewerGroupProfilePtrOutput {
+	return o
+}
+
+func (o GetReviewAllReviewerLevelReviewerGroupProfilePtrOutput) Elem() GetReviewAllReviewerLevelReviewerGroupProfileOutput {
+	return o.ApplyT(func(v *GetReviewAllReviewerLevelReviewerGroupProfile) GetReviewAllReviewerLevelReviewerGroupProfile {
+		if v != nil {
+			return *v
+		}
+		var ret GetReviewAllReviewerLevelReviewerGroupProfile
+		return ret
+	}).(GetReviewAllReviewerLevelReviewerGroupProfileOutput)
+}
+
+func (o GetReviewAllReviewerLevelReviewerGroupProfilePtrOutput) GlobalName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetReviewAllReviewerLevelReviewerGroupProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.GlobalName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o GetReviewAllReviewerLevelReviewerGroupProfilePtrOutput) GroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetReviewAllReviewerLevelReviewerGroupProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.GroupId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o GetReviewAllReviewerLevelReviewerGroupProfilePtrOutput) GroupType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetReviewAllReviewerLevelReviewerGroupProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.GroupType
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o GetReviewAllReviewerLevelReviewerGroupProfilePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetReviewAllReviewerLevelReviewerGroupProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetReviewAllReviewerLevelReviewerProfile struct {
+	Email     string `pulumi:"email"`
+	FirstName string `pulumi:"firstName"`
+	// The ID of  review.
+	Id       string `pulumi:"id"`
+	LastName string `pulumi:"lastName"`
+	Status   string `pulumi:"status"`
+}
+
+// GetReviewAllReviewerLevelReviewerProfileInput is an input type that accepts GetReviewAllReviewerLevelReviewerProfileArgs and GetReviewAllReviewerLevelReviewerProfileOutput values.
+// You can construct a concrete instance of `GetReviewAllReviewerLevelReviewerProfileInput` via:
+//
+//	GetReviewAllReviewerLevelReviewerProfileArgs{...}
+type GetReviewAllReviewerLevelReviewerProfileInput interface {
+	pulumi.Input
+
+	ToGetReviewAllReviewerLevelReviewerProfileOutput() GetReviewAllReviewerLevelReviewerProfileOutput
+	ToGetReviewAllReviewerLevelReviewerProfileOutputWithContext(context.Context) GetReviewAllReviewerLevelReviewerProfileOutput
+}
+
+type GetReviewAllReviewerLevelReviewerProfileArgs struct {
+	Email     pulumi.StringInput `pulumi:"email"`
+	FirstName pulumi.StringInput `pulumi:"firstName"`
+	// The ID of  review.
+	Id       pulumi.StringInput `pulumi:"id"`
+	LastName pulumi.StringInput `pulumi:"lastName"`
+	Status   pulumi.StringInput `pulumi:"status"`
+}
+
+func (GetReviewAllReviewerLevelReviewerProfileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetReviewAllReviewerLevelReviewerProfile)(nil)).Elem()
+}
+
+func (i GetReviewAllReviewerLevelReviewerProfileArgs) ToGetReviewAllReviewerLevelReviewerProfileOutput() GetReviewAllReviewerLevelReviewerProfileOutput {
+	return i.ToGetReviewAllReviewerLevelReviewerProfileOutputWithContext(context.Background())
+}
+
+func (i GetReviewAllReviewerLevelReviewerProfileArgs) ToGetReviewAllReviewerLevelReviewerProfileOutputWithContext(ctx context.Context) GetReviewAllReviewerLevelReviewerProfileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetReviewAllReviewerLevelReviewerProfileOutput)
+}
+
+func (i GetReviewAllReviewerLevelReviewerProfileArgs) ToGetReviewAllReviewerLevelReviewerProfilePtrOutput() GetReviewAllReviewerLevelReviewerProfilePtrOutput {
+	return i.ToGetReviewAllReviewerLevelReviewerProfilePtrOutputWithContext(context.Background())
+}
+
+func (i GetReviewAllReviewerLevelReviewerProfileArgs) ToGetReviewAllReviewerLevelReviewerProfilePtrOutputWithContext(ctx context.Context) GetReviewAllReviewerLevelReviewerProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetReviewAllReviewerLevelReviewerProfileOutput).ToGetReviewAllReviewerLevelReviewerProfilePtrOutputWithContext(ctx)
+}
+
+// GetReviewAllReviewerLevelReviewerProfilePtrInput is an input type that accepts GetReviewAllReviewerLevelReviewerProfileArgs, GetReviewAllReviewerLevelReviewerProfilePtr and GetReviewAllReviewerLevelReviewerProfilePtrOutput values.
+// You can construct a concrete instance of `GetReviewAllReviewerLevelReviewerProfilePtrInput` via:
+//
+//	        GetReviewAllReviewerLevelReviewerProfileArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetReviewAllReviewerLevelReviewerProfilePtrInput interface {
+	pulumi.Input
+
+	ToGetReviewAllReviewerLevelReviewerProfilePtrOutput() GetReviewAllReviewerLevelReviewerProfilePtrOutput
+	ToGetReviewAllReviewerLevelReviewerProfilePtrOutputWithContext(context.Context) GetReviewAllReviewerLevelReviewerProfilePtrOutput
+}
+
+type getReviewAllReviewerLevelReviewerProfilePtrType GetReviewAllReviewerLevelReviewerProfileArgs
+
+func GetReviewAllReviewerLevelReviewerProfilePtr(v *GetReviewAllReviewerLevelReviewerProfileArgs) GetReviewAllReviewerLevelReviewerProfilePtrInput {
+	return (*getReviewAllReviewerLevelReviewerProfilePtrType)(v)
+}
+
+func (*getReviewAllReviewerLevelReviewerProfilePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetReviewAllReviewerLevelReviewerProfile)(nil)).Elem()
+}
+
+func (i *getReviewAllReviewerLevelReviewerProfilePtrType) ToGetReviewAllReviewerLevelReviewerProfilePtrOutput() GetReviewAllReviewerLevelReviewerProfilePtrOutput {
+	return i.ToGetReviewAllReviewerLevelReviewerProfilePtrOutputWithContext(context.Background())
+}
+
+func (i *getReviewAllReviewerLevelReviewerProfilePtrType) ToGetReviewAllReviewerLevelReviewerProfilePtrOutputWithContext(ctx context.Context) GetReviewAllReviewerLevelReviewerProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetReviewAllReviewerLevelReviewerProfilePtrOutput)
+}
+
+type GetReviewAllReviewerLevelReviewerProfileOutput struct{ *pulumi.OutputState }
+
+func (GetReviewAllReviewerLevelReviewerProfileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetReviewAllReviewerLevelReviewerProfile)(nil)).Elem()
+}
+
+func (o GetReviewAllReviewerLevelReviewerProfileOutput) ToGetReviewAllReviewerLevelReviewerProfileOutput() GetReviewAllReviewerLevelReviewerProfileOutput {
+	return o
+}
+
+func (o GetReviewAllReviewerLevelReviewerProfileOutput) ToGetReviewAllReviewerLevelReviewerProfileOutputWithContext(ctx context.Context) GetReviewAllReviewerLevelReviewerProfileOutput {
+	return o
+}
+
+func (o GetReviewAllReviewerLevelReviewerProfileOutput) ToGetReviewAllReviewerLevelReviewerProfilePtrOutput() GetReviewAllReviewerLevelReviewerProfilePtrOutput {
+	return o.ToGetReviewAllReviewerLevelReviewerProfilePtrOutputWithContext(context.Background())
+}
+
+func (o GetReviewAllReviewerLevelReviewerProfileOutput) ToGetReviewAllReviewerLevelReviewerProfilePtrOutputWithContext(ctx context.Context) GetReviewAllReviewerLevelReviewerProfilePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetReviewAllReviewerLevelReviewerProfile) *GetReviewAllReviewerLevelReviewerProfile {
+		return &v
+	}).(GetReviewAllReviewerLevelReviewerProfilePtrOutput)
+}
+
+func (o GetReviewAllReviewerLevelReviewerProfileOutput) Email() pulumi.StringOutput {
+	return o.ApplyT(func(v GetReviewAllReviewerLevelReviewerProfile) string { return v.Email }).(pulumi.StringOutput)
+}
+
+func (o GetReviewAllReviewerLevelReviewerProfileOutput) FirstName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetReviewAllReviewerLevelReviewerProfile) string { return v.FirstName }).(pulumi.StringOutput)
+}
+
+// The ID of  review.
+func (o GetReviewAllReviewerLevelReviewerProfileOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetReviewAllReviewerLevelReviewerProfile) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetReviewAllReviewerLevelReviewerProfileOutput) LastName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetReviewAllReviewerLevelReviewerProfile) string { return v.LastName }).(pulumi.StringOutput)
+}
+
+func (o GetReviewAllReviewerLevelReviewerProfileOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v GetReviewAllReviewerLevelReviewerProfile) string { return v.Status }).(pulumi.StringOutput)
+}
+
+type GetReviewAllReviewerLevelReviewerProfilePtrOutput struct{ *pulumi.OutputState }
+
+func (GetReviewAllReviewerLevelReviewerProfilePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetReviewAllReviewerLevelReviewerProfile)(nil)).Elem()
+}
+
+func (o GetReviewAllReviewerLevelReviewerProfilePtrOutput) ToGetReviewAllReviewerLevelReviewerProfilePtrOutput() GetReviewAllReviewerLevelReviewerProfilePtrOutput {
+	return o
+}
+
+func (o GetReviewAllReviewerLevelReviewerProfilePtrOutput) ToGetReviewAllReviewerLevelReviewerProfilePtrOutputWithContext(ctx context.Context) GetReviewAllReviewerLevelReviewerProfilePtrOutput {
+	return o
+}
+
+func (o GetReviewAllReviewerLevelReviewerProfilePtrOutput) Elem() GetReviewAllReviewerLevelReviewerProfileOutput {
+	return o.ApplyT(func(v *GetReviewAllReviewerLevelReviewerProfile) GetReviewAllReviewerLevelReviewerProfile {
+		if v != nil {
+			return *v
+		}
+		var ret GetReviewAllReviewerLevelReviewerProfile
+		return ret
+	}).(GetReviewAllReviewerLevelReviewerProfileOutput)
+}
+
+func (o GetReviewAllReviewerLevelReviewerProfilePtrOutput) Email() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetReviewAllReviewerLevelReviewerProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Email
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o GetReviewAllReviewerLevelReviewerProfilePtrOutput) FirstName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetReviewAllReviewerLevelReviewerProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.FirstName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of  review.
+func (o GetReviewAllReviewerLevelReviewerProfilePtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetReviewAllReviewerLevelReviewerProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o GetReviewAllReviewerLevelReviewerProfilePtrOutput) LastName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetReviewAllReviewerLevelReviewerProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LastName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o GetReviewAllReviewerLevelReviewerProfilePtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetReviewAllReviewerLevelReviewerProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Status
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetReviewEntitlementBundle struct {
+	// The ID of  review.
+	Id   string `pulumi:"id"`
+	Name string `pulumi:"name"`
+}
+
+// GetReviewEntitlementBundleInput is an input type that accepts GetReviewEntitlementBundleArgs and GetReviewEntitlementBundleOutput values.
+// You can construct a concrete instance of `GetReviewEntitlementBundleInput` via:
+//
+//	GetReviewEntitlementBundleArgs{...}
+type GetReviewEntitlementBundleInput interface {
+	pulumi.Input
+
+	ToGetReviewEntitlementBundleOutput() GetReviewEntitlementBundleOutput
+	ToGetReviewEntitlementBundleOutputWithContext(context.Context) GetReviewEntitlementBundleOutput
+}
+
+type GetReviewEntitlementBundleArgs struct {
+	// The ID of  review.
+	Id   pulumi.StringInput `pulumi:"id"`
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetReviewEntitlementBundleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetReviewEntitlementBundle)(nil)).Elem()
+}
+
+func (i GetReviewEntitlementBundleArgs) ToGetReviewEntitlementBundleOutput() GetReviewEntitlementBundleOutput {
+	return i.ToGetReviewEntitlementBundleOutputWithContext(context.Background())
+}
+
+func (i GetReviewEntitlementBundleArgs) ToGetReviewEntitlementBundleOutputWithContext(ctx context.Context) GetReviewEntitlementBundleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetReviewEntitlementBundleOutput)
+}
+
+func (i GetReviewEntitlementBundleArgs) ToGetReviewEntitlementBundlePtrOutput() GetReviewEntitlementBundlePtrOutput {
+	return i.ToGetReviewEntitlementBundlePtrOutputWithContext(context.Background())
+}
+
+func (i GetReviewEntitlementBundleArgs) ToGetReviewEntitlementBundlePtrOutputWithContext(ctx context.Context) GetReviewEntitlementBundlePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetReviewEntitlementBundleOutput).ToGetReviewEntitlementBundlePtrOutputWithContext(ctx)
+}
+
+// GetReviewEntitlementBundlePtrInput is an input type that accepts GetReviewEntitlementBundleArgs, GetReviewEntitlementBundlePtr and GetReviewEntitlementBundlePtrOutput values.
+// You can construct a concrete instance of `GetReviewEntitlementBundlePtrInput` via:
+//
+//	        GetReviewEntitlementBundleArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetReviewEntitlementBundlePtrInput interface {
+	pulumi.Input
+
+	ToGetReviewEntitlementBundlePtrOutput() GetReviewEntitlementBundlePtrOutput
+	ToGetReviewEntitlementBundlePtrOutputWithContext(context.Context) GetReviewEntitlementBundlePtrOutput
+}
+
+type getReviewEntitlementBundlePtrType GetReviewEntitlementBundleArgs
+
+func GetReviewEntitlementBundlePtr(v *GetReviewEntitlementBundleArgs) GetReviewEntitlementBundlePtrInput {
+	return (*getReviewEntitlementBundlePtrType)(v)
+}
+
+func (*getReviewEntitlementBundlePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetReviewEntitlementBundle)(nil)).Elem()
+}
+
+func (i *getReviewEntitlementBundlePtrType) ToGetReviewEntitlementBundlePtrOutput() GetReviewEntitlementBundlePtrOutput {
+	return i.ToGetReviewEntitlementBundlePtrOutputWithContext(context.Background())
+}
+
+func (i *getReviewEntitlementBundlePtrType) ToGetReviewEntitlementBundlePtrOutputWithContext(ctx context.Context) GetReviewEntitlementBundlePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetReviewEntitlementBundlePtrOutput)
+}
+
+type GetReviewEntitlementBundleOutput struct{ *pulumi.OutputState }
+
+func (GetReviewEntitlementBundleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetReviewEntitlementBundle)(nil)).Elem()
+}
+
+func (o GetReviewEntitlementBundleOutput) ToGetReviewEntitlementBundleOutput() GetReviewEntitlementBundleOutput {
+	return o
+}
+
+func (o GetReviewEntitlementBundleOutput) ToGetReviewEntitlementBundleOutputWithContext(ctx context.Context) GetReviewEntitlementBundleOutput {
+	return o
+}
+
+func (o GetReviewEntitlementBundleOutput) ToGetReviewEntitlementBundlePtrOutput() GetReviewEntitlementBundlePtrOutput {
+	return o.ToGetReviewEntitlementBundlePtrOutputWithContext(context.Background())
+}
+
+func (o GetReviewEntitlementBundleOutput) ToGetReviewEntitlementBundlePtrOutputWithContext(ctx context.Context) GetReviewEntitlementBundlePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetReviewEntitlementBundle) *GetReviewEntitlementBundle {
+		return &v
+	}).(GetReviewEntitlementBundlePtrOutput)
+}
+
+// The ID of  review.
+func (o GetReviewEntitlementBundleOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetReviewEntitlementBundle) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetReviewEntitlementBundleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetReviewEntitlementBundle) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetReviewEntitlementBundlePtrOutput struct{ *pulumi.OutputState }
+
+func (GetReviewEntitlementBundlePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetReviewEntitlementBundle)(nil)).Elem()
+}
+
+func (o GetReviewEntitlementBundlePtrOutput) ToGetReviewEntitlementBundlePtrOutput() GetReviewEntitlementBundlePtrOutput {
+	return o
+}
+
+func (o GetReviewEntitlementBundlePtrOutput) ToGetReviewEntitlementBundlePtrOutputWithContext(ctx context.Context) GetReviewEntitlementBundlePtrOutput {
+	return o
+}
+
+func (o GetReviewEntitlementBundlePtrOutput) Elem() GetReviewEntitlementBundleOutput {
+	return o.ApplyT(func(v *GetReviewEntitlementBundle) GetReviewEntitlementBundle {
+		if v != nil {
+			return *v
+		}
+		var ret GetReviewEntitlementBundle
+		return ret
+	}).(GetReviewEntitlementBundleOutput)
+}
+
+// The ID of  review.
+func (o GetReviewEntitlementBundlePtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetReviewEntitlementBundle) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o GetReviewEntitlementBundlePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetReviewEntitlementBundle) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetReviewEntitlementValue struct {
+	// The ID of  review.
+	Id   string `pulumi:"id"`
+	Name string `pulumi:"name"`
+}
+
+// GetReviewEntitlementValueInput is an input type that accepts GetReviewEntitlementValueArgs and GetReviewEntitlementValueOutput values.
+// You can construct a concrete instance of `GetReviewEntitlementValueInput` via:
+//
+//	GetReviewEntitlementValueArgs{...}
+type GetReviewEntitlementValueInput interface {
+	pulumi.Input
+
+	ToGetReviewEntitlementValueOutput() GetReviewEntitlementValueOutput
+	ToGetReviewEntitlementValueOutputWithContext(context.Context) GetReviewEntitlementValueOutput
+}
+
+type GetReviewEntitlementValueArgs struct {
+	// The ID of  review.
+	Id   pulumi.StringInput `pulumi:"id"`
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetReviewEntitlementValueArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetReviewEntitlementValue)(nil)).Elem()
+}
+
+func (i GetReviewEntitlementValueArgs) ToGetReviewEntitlementValueOutput() GetReviewEntitlementValueOutput {
+	return i.ToGetReviewEntitlementValueOutputWithContext(context.Background())
+}
+
+func (i GetReviewEntitlementValueArgs) ToGetReviewEntitlementValueOutputWithContext(ctx context.Context) GetReviewEntitlementValueOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetReviewEntitlementValueOutput)
+}
+
+func (i GetReviewEntitlementValueArgs) ToGetReviewEntitlementValuePtrOutput() GetReviewEntitlementValuePtrOutput {
+	return i.ToGetReviewEntitlementValuePtrOutputWithContext(context.Background())
+}
+
+func (i GetReviewEntitlementValueArgs) ToGetReviewEntitlementValuePtrOutputWithContext(ctx context.Context) GetReviewEntitlementValuePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetReviewEntitlementValueOutput).ToGetReviewEntitlementValuePtrOutputWithContext(ctx)
+}
+
+// GetReviewEntitlementValuePtrInput is an input type that accepts GetReviewEntitlementValueArgs, GetReviewEntitlementValuePtr and GetReviewEntitlementValuePtrOutput values.
+// You can construct a concrete instance of `GetReviewEntitlementValuePtrInput` via:
+//
+//	        GetReviewEntitlementValueArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetReviewEntitlementValuePtrInput interface {
+	pulumi.Input
+
+	ToGetReviewEntitlementValuePtrOutput() GetReviewEntitlementValuePtrOutput
+	ToGetReviewEntitlementValuePtrOutputWithContext(context.Context) GetReviewEntitlementValuePtrOutput
+}
+
+type getReviewEntitlementValuePtrType GetReviewEntitlementValueArgs
+
+func GetReviewEntitlementValuePtr(v *GetReviewEntitlementValueArgs) GetReviewEntitlementValuePtrInput {
+	return (*getReviewEntitlementValuePtrType)(v)
+}
+
+func (*getReviewEntitlementValuePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetReviewEntitlementValue)(nil)).Elem()
+}
+
+func (i *getReviewEntitlementValuePtrType) ToGetReviewEntitlementValuePtrOutput() GetReviewEntitlementValuePtrOutput {
+	return i.ToGetReviewEntitlementValuePtrOutputWithContext(context.Background())
+}
+
+func (i *getReviewEntitlementValuePtrType) ToGetReviewEntitlementValuePtrOutputWithContext(ctx context.Context) GetReviewEntitlementValuePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetReviewEntitlementValuePtrOutput)
+}
+
+type GetReviewEntitlementValueOutput struct{ *pulumi.OutputState }
+
+func (GetReviewEntitlementValueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetReviewEntitlementValue)(nil)).Elem()
+}
+
+func (o GetReviewEntitlementValueOutput) ToGetReviewEntitlementValueOutput() GetReviewEntitlementValueOutput {
+	return o
+}
+
+func (o GetReviewEntitlementValueOutput) ToGetReviewEntitlementValueOutputWithContext(ctx context.Context) GetReviewEntitlementValueOutput {
+	return o
+}
+
+func (o GetReviewEntitlementValueOutput) ToGetReviewEntitlementValuePtrOutput() GetReviewEntitlementValuePtrOutput {
+	return o.ToGetReviewEntitlementValuePtrOutputWithContext(context.Background())
+}
+
+func (o GetReviewEntitlementValueOutput) ToGetReviewEntitlementValuePtrOutputWithContext(ctx context.Context) GetReviewEntitlementValuePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetReviewEntitlementValue) *GetReviewEntitlementValue {
+		return &v
+	}).(GetReviewEntitlementValuePtrOutput)
+}
+
+// The ID of  review.
+func (o GetReviewEntitlementValueOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetReviewEntitlementValue) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetReviewEntitlementValueOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetReviewEntitlementValue) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetReviewEntitlementValuePtrOutput struct{ *pulumi.OutputState }
+
+func (GetReviewEntitlementValuePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetReviewEntitlementValue)(nil)).Elem()
+}
+
+func (o GetReviewEntitlementValuePtrOutput) ToGetReviewEntitlementValuePtrOutput() GetReviewEntitlementValuePtrOutput {
+	return o
+}
+
+func (o GetReviewEntitlementValuePtrOutput) ToGetReviewEntitlementValuePtrOutputWithContext(ctx context.Context) GetReviewEntitlementValuePtrOutput {
+	return o
+}
+
+func (o GetReviewEntitlementValuePtrOutput) Elem() GetReviewEntitlementValueOutput {
+	return o.ApplyT(func(v *GetReviewEntitlementValue) GetReviewEntitlementValue {
+		if v != nil {
+			return *v
+		}
+		var ret GetReviewEntitlementValue
+		return ret
+	}).(GetReviewEntitlementValueOutput)
+}
+
+// The ID of  review.
+func (o GetReviewEntitlementValuePtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetReviewEntitlementValue) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o GetReviewEntitlementValuePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetReviewEntitlementValue) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetReviewLinks struct {
+	ReassignReviewHref string `pulumi:"reassignReviewHref"`
+	SelfHref           string `pulumi:"selfHref"`
+}
+
+// GetReviewLinksInput is an input type that accepts GetReviewLinksArgs and GetReviewLinksOutput values.
+// You can construct a concrete instance of `GetReviewLinksInput` via:
+//
+//	GetReviewLinksArgs{...}
+type GetReviewLinksInput interface {
+	pulumi.Input
+
+	ToGetReviewLinksOutput() GetReviewLinksOutput
+	ToGetReviewLinksOutputWithContext(context.Context) GetReviewLinksOutput
+}
+
+type GetReviewLinksArgs struct {
+	ReassignReviewHref pulumi.StringInput `pulumi:"reassignReviewHref"`
+	SelfHref           pulumi.StringInput `pulumi:"selfHref"`
+}
+
+func (GetReviewLinksArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetReviewLinks)(nil)).Elem()
+}
+
+func (i GetReviewLinksArgs) ToGetReviewLinksOutput() GetReviewLinksOutput {
+	return i.ToGetReviewLinksOutputWithContext(context.Background())
+}
+
+func (i GetReviewLinksArgs) ToGetReviewLinksOutputWithContext(ctx context.Context) GetReviewLinksOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetReviewLinksOutput)
+}
+
+func (i GetReviewLinksArgs) ToGetReviewLinksPtrOutput() GetReviewLinksPtrOutput {
+	return i.ToGetReviewLinksPtrOutputWithContext(context.Background())
+}
+
+func (i GetReviewLinksArgs) ToGetReviewLinksPtrOutputWithContext(ctx context.Context) GetReviewLinksPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetReviewLinksOutput).ToGetReviewLinksPtrOutputWithContext(ctx)
+}
+
+// GetReviewLinksPtrInput is an input type that accepts GetReviewLinksArgs, GetReviewLinksPtr and GetReviewLinksPtrOutput values.
+// You can construct a concrete instance of `GetReviewLinksPtrInput` via:
+//
+//	        GetReviewLinksArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetReviewLinksPtrInput interface {
+	pulumi.Input
+
+	ToGetReviewLinksPtrOutput() GetReviewLinksPtrOutput
+	ToGetReviewLinksPtrOutputWithContext(context.Context) GetReviewLinksPtrOutput
+}
+
+type getReviewLinksPtrType GetReviewLinksArgs
+
+func GetReviewLinksPtr(v *GetReviewLinksArgs) GetReviewLinksPtrInput {
+	return (*getReviewLinksPtrType)(v)
+}
+
+func (*getReviewLinksPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetReviewLinks)(nil)).Elem()
+}
+
+func (i *getReviewLinksPtrType) ToGetReviewLinksPtrOutput() GetReviewLinksPtrOutput {
+	return i.ToGetReviewLinksPtrOutputWithContext(context.Background())
+}
+
+func (i *getReviewLinksPtrType) ToGetReviewLinksPtrOutputWithContext(ctx context.Context) GetReviewLinksPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetReviewLinksPtrOutput)
+}
+
+type GetReviewLinksOutput struct{ *pulumi.OutputState }
+
+func (GetReviewLinksOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetReviewLinks)(nil)).Elem()
+}
+
+func (o GetReviewLinksOutput) ToGetReviewLinksOutput() GetReviewLinksOutput {
+	return o
+}
+
+func (o GetReviewLinksOutput) ToGetReviewLinksOutputWithContext(ctx context.Context) GetReviewLinksOutput {
+	return o
+}
+
+func (o GetReviewLinksOutput) ToGetReviewLinksPtrOutput() GetReviewLinksPtrOutput {
+	return o.ToGetReviewLinksPtrOutputWithContext(context.Background())
+}
+
+func (o GetReviewLinksOutput) ToGetReviewLinksPtrOutputWithContext(ctx context.Context) GetReviewLinksPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetReviewLinks) *GetReviewLinks {
+		return &v
+	}).(GetReviewLinksPtrOutput)
+}
+
+func (o GetReviewLinksOutput) ReassignReviewHref() pulumi.StringOutput {
+	return o.ApplyT(func(v GetReviewLinks) string { return v.ReassignReviewHref }).(pulumi.StringOutput)
+}
+
+func (o GetReviewLinksOutput) SelfHref() pulumi.StringOutput {
+	return o.ApplyT(func(v GetReviewLinks) string { return v.SelfHref }).(pulumi.StringOutput)
+}
+
+type GetReviewLinksPtrOutput struct{ *pulumi.OutputState }
+
+func (GetReviewLinksPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetReviewLinks)(nil)).Elem()
+}
+
+func (o GetReviewLinksPtrOutput) ToGetReviewLinksPtrOutput() GetReviewLinksPtrOutput {
+	return o
+}
+
+func (o GetReviewLinksPtrOutput) ToGetReviewLinksPtrOutputWithContext(ctx context.Context) GetReviewLinksPtrOutput {
+	return o
+}
+
+func (o GetReviewLinksPtrOutput) Elem() GetReviewLinksOutput {
+	return o.ApplyT(func(v *GetReviewLinks) GetReviewLinks {
+		if v != nil {
+			return *v
+		}
+		var ret GetReviewLinks
+		return ret
+	}).(GetReviewLinksOutput)
+}
+
+func (o GetReviewLinksPtrOutput) ReassignReviewHref() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetReviewLinks) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ReassignReviewHref
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o GetReviewLinksPtrOutput) SelfHref() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetReviewLinks) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SelfHref
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetReviewNote struct {
+	// The ID of  review.
+	Id   string `pulumi:"id"`
+	Note string `pulumi:"note"`
+}
+
+// GetReviewNoteInput is an input type that accepts GetReviewNoteArgs and GetReviewNoteOutput values.
+// You can construct a concrete instance of `GetReviewNoteInput` via:
+//
+//	GetReviewNoteArgs{...}
+type GetReviewNoteInput interface {
+	pulumi.Input
+
+	ToGetReviewNoteOutput() GetReviewNoteOutput
+	ToGetReviewNoteOutputWithContext(context.Context) GetReviewNoteOutput
+}
+
+type GetReviewNoteArgs struct {
+	// The ID of  review.
+	Id   pulumi.StringInput `pulumi:"id"`
+	Note pulumi.StringInput `pulumi:"note"`
+}
+
+func (GetReviewNoteArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetReviewNote)(nil)).Elem()
+}
+
+func (i GetReviewNoteArgs) ToGetReviewNoteOutput() GetReviewNoteOutput {
+	return i.ToGetReviewNoteOutputWithContext(context.Background())
+}
+
+func (i GetReviewNoteArgs) ToGetReviewNoteOutputWithContext(ctx context.Context) GetReviewNoteOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetReviewNoteOutput)
+}
+
+func (i GetReviewNoteArgs) ToGetReviewNotePtrOutput() GetReviewNotePtrOutput {
+	return i.ToGetReviewNotePtrOutputWithContext(context.Background())
+}
+
+func (i GetReviewNoteArgs) ToGetReviewNotePtrOutputWithContext(ctx context.Context) GetReviewNotePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetReviewNoteOutput).ToGetReviewNotePtrOutputWithContext(ctx)
+}
+
+// GetReviewNotePtrInput is an input type that accepts GetReviewNoteArgs, GetReviewNotePtr and GetReviewNotePtrOutput values.
+// You can construct a concrete instance of `GetReviewNotePtrInput` via:
+//
+//	        GetReviewNoteArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetReviewNotePtrInput interface {
+	pulumi.Input
+
+	ToGetReviewNotePtrOutput() GetReviewNotePtrOutput
+	ToGetReviewNotePtrOutputWithContext(context.Context) GetReviewNotePtrOutput
+}
+
+type getReviewNotePtrType GetReviewNoteArgs
+
+func GetReviewNotePtr(v *GetReviewNoteArgs) GetReviewNotePtrInput {
+	return (*getReviewNotePtrType)(v)
+}
+
+func (*getReviewNotePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetReviewNote)(nil)).Elem()
+}
+
+func (i *getReviewNotePtrType) ToGetReviewNotePtrOutput() GetReviewNotePtrOutput {
+	return i.ToGetReviewNotePtrOutputWithContext(context.Background())
+}
+
+func (i *getReviewNotePtrType) ToGetReviewNotePtrOutputWithContext(ctx context.Context) GetReviewNotePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetReviewNotePtrOutput)
+}
+
+type GetReviewNoteOutput struct{ *pulumi.OutputState }
+
+func (GetReviewNoteOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetReviewNote)(nil)).Elem()
+}
+
+func (o GetReviewNoteOutput) ToGetReviewNoteOutput() GetReviewNoteOutput {
+	return o
+}
+
+func (o GetReviewNoteOutput) ToGetReviewNoteOutputWithContext(ctx context.Context) GetReviewNoteOutput {
+	return o
+}
+
+func (o GetReviewNoteOutput) ToGetReviewNotePtrOutput() GetReviewNotePtrOutput {
+	return o.ToGetReviewNotePtrOutputWithContext(context.Background())
+}
+
+func (o GetReviewNoteOutput) ToGetReviewNotePtrOutputWithContext(ctx context.Context) GetReviewNotePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetReviewNote) *GetReviewNote {
+		return &v
+	}).(GetReviewNotePtrOutput)
+}
+
+// The ID of  review.
+func (o GetReviewNoteOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetReviewNote) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetReviewNoteOutput) Note() pulumi.StringOutput {
+	return o.ApplyT(func(v GetReviewNote) string { return v.Note }).(pulumi.StringOutput)
+}
+
+type GetReviewNotePtrOutput struct{ *pulumi.OutputState }
+
+func (GetReviewNotePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetReviewNote)(nil)).Elem()
+}
+
+func (o GetReviewNotePtrOutput) ToGetReviewNotePtrOutput() GetReviewNotePtrOutput {
+	return o
+}
+
+func (o GetReviewNotePtrOutput) ToGetReviewNotePtrOutputWithContext(ctx context.Context) GetReviewNotePtrOutput {
+	return o
+}
+
+func (o GetReviewNotePtrOutput) Elem() GetReviewNoteOutput {
+	return o.ApplyT(func(v *GetReviewNote) GetReviewNote {
+		if v != nil {
+			return *v
+		}
+		var ret GetReviewNote
+		return ret
+	}).(GetReviewNoteOutput)
+}
+
+// The ID of  review.
+func (o GetReviewNotePtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetReviewNote) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o GetReviewNotePtrOutput) Note() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetReviewNote) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Note
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetReviewPrincipalProfile struct {
+	Email     string `pulumi:"email"`
+	FirstName string `pulumi:"firstName"`
+	// The ID of  review.
+	Id       string `pulumi:"id"`
+	LastName string `pulumi:"lastName"`
+	Login    string `pulumi:"login"`
+	Status   string `pulumi:"status"`
+}
+
+// GetReviewPrincipalProfileInput is an input type that accepts GetReviewPrincipalProfileArgs and GetReviewPrincipalProfileOutput values.
+// You can construct a concrete instance of `GetReviewPrincipalProfileInput` via:
+//
+//	GetReviewPrincipalProfileArgs{...}
+type GetReviewPrincipalProfileInput interface {
+	pulumi.Input
+
+	ToGetReviewPrincipalProfileOutput() GetReviewPrincipalProfileOutput
+	ToGetReviewPrincipalProfileOutputWithContext(context.Context) GetReviewPrincipalProfileOutput
+}
+
+type GetReviewPrincipalProfileArgs struct {
+	Email     pulumi.StringInput `pulumi:"email"`
+	FirstName pulumi.StringInput `pulumi:"firstName"`
+	// The ID of  review.
+	Id       pulumi.StringInput `pulumi:"id"`
+	LastName pulumi.StringInput `pulumi:"lastName"`
+	Login    pulumi.StringInput `pulumi:"login"`
+	Status   pulumi.StringInput `pulumi:"status"`
+}
+
+func (GetReviewPrincipalProfileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetReviewPrincipalProfile)(nil)).Elem()
+}
+
+func (i GetReviewPrincipalProfileArgs) ToGetReviewPrincipalProfileOutput() GetReviewPrincipalProfileOutput {
+	return i.ToGetReviewPrincipalProfileOutputWithContext(context.Background())
+}
+
+func (i GetReviewPrincipalProfileArgs) ToGetReviewPrincipalProfileOutputWithContext(ctx context.Context) GetReviewPrincipalProfileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetReviewPrincipalProfileOutput)
+}
+
+func (i GetReviewPrincipalProfileArgs) ToGetReviewPrincipalProfilePtrOutput() GetReviewPrincipalProfilePtrOutput {
+	return i.ToGetReviewPrincipalProfilePtrOutputWithContext(context.Background())
+}
+
+func (i GetReviewPrincipalProfileArgs) ToGetReviewPrincipalProfilePtrOutputWithContext(ctx context.Context) GetReviewPrincipalProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetReviewPrincipalProfileOutput).ToGetReviewPrincipalProfilePtrOutputWithContext(ctx)
+}
+
+// GetReviewPrincipalProfilePtrInput is an input type that accepts GetReviewPrincipalProfileArgs, GetReviewPrincipalProfilePtr and GetReviewPrincipalProfilePtrOutput values.
+// You can construct a concrete instance of `GetReviewPrincipalProfilePtrInput` via:
+//
+//	        GetReviewPrincipalProfileArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetReviewPrincipalProfilePtrInput interface {
+	pulumi.Input
+
+	ToGetReviewPrincipalProfilePtrOutput() GetReviewPrincipalProfilePtrOutput
+	ToGetReviewPrincipalProfilePtrOutputWithContext(context.Context) GetReviewPrincipalProfilePtrOutput
+}
+
+type getReviewPrincipalProfilePtrType GetReviewPrincipalProfileArgs
+
+func GetReviewPrincipalProfilePtr(v *GetReviewPrincipalProfileArgs) GetReviewPrincipalProfilePtrInput {
+	return (*getReviewPrincipalProfilePtrType)(v)
+}
+
+func (*getReviewPrincipalProfilePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetReviewPrincipalProfile)(nil)).Elem()
+}
+
+func (i *getReviewPrincipalProfilePtrType) ToGetReviewPrincipalProfilePtrOutput() GetReviewPrincipalProfilePtrOutput {
+	return i.ToGetReviewPrincipalProfilePtrOutputWithContext(context.Background())
+}
+
+func (i *getReviewPrincipalProfilePtrType) ToGetReviewPrincipalProfilePtrOutputWithContext(ctx context.Context) GetReviewPrincipalProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetReviewPrincipalProfilePtrOutput)
+}
+
+type GetReviewPrincipalProfileOutput struct{ *pulumi.OutputState }
+
+func (GetReviewPrincipalProfileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetReviewPrincipalProfile)(nil)).Elem()
+}
+
+func (o GetReviewPrincipalProfileOutput) ToGetReviewPrincipalProfileOutput() GetReviewPrincipalProfileOutput {
+	return o
+}
+
+func (o GetReviewPrincipalProfileOutput) ToGetReviewPrincipalProfileOutputWithContext(ctx context.Context) GetReviewPrincipalProfileOutput {
+	return o
+}
+
+func (o GetReviewPrincipalProfileOutput) ToGetReviewPrincipalProfilePtrOutput() GetReviewPrincipalProfilePtrOutput {
+	return o.ToGetReviewPrincipalProfilePtrOutputWithContext(context.Background())
+}
+
+func (o GetReviewPrincipalProfileOutput) ToGetReviewPrincipalProfilePtrOutputWithContext(ctx context.Context) GetReviewPrincipalProfilePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetReviewPrincipalProfile) *GetReviewPrincipalProfile {
+		return &v
+	}).(GetReviewPrincipalProfilePtrOutput)
+}
+
+func (o GetReviewPrincipalProfileOutput) Email() pulumi.StringOutput {
+	return o.ApplyT(func(v GetReviewPrincipalProfile) string { return v.Email }).(pulumi.StringOutput)
+}
+
+func (o GetReviewPrincipalProfileOutput) FirstName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetReviewPrincipalProfile) string { return v.FirstName }).(pulumi.StringOutput)
+}
+
+// The ID of  review.
+func (o GetReviewPrincipalProfileOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetReviewPrincipalProfile) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetReviewPrincipalProfileOutput) LastName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetReviewPrincipalProfile) string { return v.LastName }).(pulumi.StringOutput)
+}
+
+func (o GetReviewPrincipalProfileOutput) Login() pulumi.StringOutput {
+	return o.ApplyT(func(v GetReviewPrincipalProfile) string { return v.Login }).(pulumi.StringOutput)
+}
+
+func (o GetReviewPrincipalProfileOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v GetReviewPrincipalProfile) string { return v.Status }).(pulumi.StringOutput)
+}
+
+type GetReviewPrincipalProfilePtrOutput struct{ *pulumi.OutputState }
+
+func (GetReviewPrincipalProfilePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetReviewPrincipalProfile)(nil)).Elem()
+}
+
+func (o GetReviewPrincipalProfilePtrOutput) ToGetReviewPrincipalProfilePtrOutput() GetReviewPrincipalProfilePtrOutput {
+	return o
+}
+
+func (o GetReviewPrincipalProfilePtrOutput) ToGetReviewPrincipalProfilePtrOutputWithContext(ctx context.Context) GetReviewPrincipalProfilePtrOutput {
+	return o
+}
+
+func (o GetReviewPrincipalProfilePtrOutput) Elem() GetReviewPrincipalProfileOutput {
+	return o.ApplyT(func(v *GetReviewPrincipalProfile) GetReviewPrincipalProfile {
+		if v != nil {
+			return *v
+		}
+		var ret GetReviewPrincipalProfile
+		return ret
+	}).(GetReviewPrincipalProfileOutput)
+}
+
+func (o GetReviewPrincipalProfilePtrOutput) Email() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetReviewPrincipalProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Email
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o GetReviewPrincipalProfilePtrOutput) FirstName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetReviewPrincipalProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.FirstName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of  review.
+func (o GetReviewPrincipalProfilePtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetReviewPrincipalProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o GetReviewPrincipalProfilePtrOutput) LastName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetReviewPrincipalProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LastName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o GetReviewPrincipalProfilePtrOutput) Login() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetReviewPrincipalProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Login
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o GetReviewPrincipalProfilePtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetReviewPrincipalProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Status
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetReviewReviewerProfile struct {
+	Email     string `pulumi:"email"`
+	FirstName string `pulumi:"firstName"`
+	// The ID of  review.
+	Id       string `pulumi:"id"`
+	LastName string `pulumi:"lastName"`
+	Login    string `pulumi:"login"`
+	Status   string `pulumi:"status"`
+}
+
+// GetReviewReviewerProfileInput is an input type that accepts GetReviewReviewerProfileArgs and GetReviewReviewerProfileOutput values.
+// You can construct a concrete instance of `GetReviewReviewerProfileInput` via:
+//
+//	GetReviewReviewerProfileArgs{...}
+type GetReviewReviewerProfileInput interface {
+	pulumi.Input
+
+	ToGetReviewReviewerProfileOutput() GetReviewReviewerProfileOutput
+	ToGetReviewReviewerProfileOutputWithContext(context.Context) GetReviewReviewerProfileOutput
+}
+
+type GetReviewReviewerProfileArgs struct {
+	Email     pulumi.StringInput `pulumi:"email"`
+	FirstName pulumi.StringInput `pulumi:"firstName"`
+	// The ID of  review.
+	Id       pulumi.StringInput `pulumi:"id"`
+	LastName pulumi.StringInput `pulumi:"lastName"`
+	Login    pulumi.StringInput `pulumi:"login"`
+	Status   pulumi.StringInput `pulumi:"status"`
+}
+
+func (GetReviewReviewerProfileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetReviewReviewerProfile)(nil)).Elem()
+}
+
+func (i GetReviewReviewerProfileArgs) ToGetReviewReviewerProfileOutput() GetReviewReviewerProfileOutput {
+	return i.ToGetReviewReviewerProfileOutputWithContext(context.Background())
+}
+
+func (i GetReviewReviewerProfileArgs) ToGetReviewReviewerProfileOutputWithContext(ctx context.Context) GetReviewReviewerProfileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetReviewReviewerProfileOutput)
+}
+
+func (i GetReviewReviewerProfileArgs) ToGetReviewReviewerProfilePtrOutput() GetReviewReviewerProfilePtrOutput {
+	return i.ToGetReviewReviewerProfilePtrOutputWithContext(context.Background())
+}
+
+func (i GetReviewReviewerProfileArgs) ToGetReviewReviewerProfilePtrOutputWithContext(ctx context.Context) GetReviewReviewerProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetReviewReviewerProfileOutput).ToGetReviewReviewerProfilePtrOutputWithContext(ctx)
+}
+
+// GetReviewReviewerProfilePtrInput is an input type that accepts GetReviewReviewerProfileArgs, GetReviewReviewerProfilePtr and GetReviewReviewerProfilePtrOutput values.
+// You can construct a concrete instance of `GetReviewReviewerProfilePtrInput` via:
+//
+//	        GetReviewReviewerProfileArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetReviewReviewerProfilePtrInput interface {
+	pulumi.Input
+
+	ToGetReviewReviewerProfilePtrOutput() GetReviewReviewerProfilePtrOutput
+	ToGetReviewReviewerProfilePtrOutputWithContext(context.Context) GetReviewReviewerProfilePtrOutput
+}
+
+type getReviewReviewerProfilePtrType GetReviewReviewerProfileArgs
+
+func GetReviewReviewerProfilePtr(v *GetReviewReviewerProfileArgs) GetReviewReviewerProfilePtrInput {
+	return (*getReviewReviewerProfilePtrType)(v)
+}
+
+func (*getReviewReviewerProfilePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetReviewReviewerProfile)(nil)).Elem()
+}
+
+func (i *getReviewReviewerProfilePtrType) ToGetReviewReviewerProfilePtrOutput() GetReviewReviewerProfilePtrOutput {
+	return i.ToGetReviewReviewerProfilePtrOutputWithContext(context.Background())
+}
+
+func (i *getReviewReviewerProfilePtrType) ToGetReviewReviewerProfilePtrOutputWithContext(ctx context.Context) GetReviewReviewerProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetReviewReviewerProfilePtrOutput)
+}
+
+type GetReviewReviewerProfileOutput struct{ *pulumi.OutputState }
+
+func (GetReviewReviewerProfileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetReviewReviewerProfile)(nil)).Elem()
+}
+
+func (o GetReviewReviewerProfileOutput) ToGetReviewReviewerProfileOutput() GetReviewReviewerProfileOutput {
+	return o
+}
+
+func (o GetReviewReviewerProfileOutput) ToGetReviewReviewerProfileOutputWithContext(ctx context.Context) GetReviewReviewerProfileOutput {
+	return o
+}
+
+func (o GetReviewReviewerProfileOutput) ToGetReviewReviewerProfilePtrOutput() GetReviewReviewerProfilePtrOutput {
+	return o.ToGetReviewReviewerProfilePtrOutputWithContext(context.Background())
+}
+
+func (o GetReviewReviewerProfileOutput) ToGetReviewReviewerProfilePtrOutputWithContext(ctx context.Context) GetReviewReviewerProfilePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetReviewReviewerProfile) *GetReviewReviewerProfile {
+		return &v
+	}).(GetReviewReviewerProfilePtrOutput)
+}
+
+func (o GetReviewReviewerProfileOutput) Email() pulumi.StringOutput {
+	return o.ApplyT(func(v GetReviewReviewerProfile) string { return v.Email }).(pulumi.StringOutput)
+}
+
+func (o GetReviewReviewerProfileOutput) FirstName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetReviewReviewerProfile) string { return v.FirstName }).(pulumi.StringOutput)
+}
+
+// The ID of  review.
+func (o GetReviewReviewerProfileOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetReviewReviewerProfile) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetReviewReviewerProfileOutput) LastName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetReviewReviewerProfile) string { return v.LastName }).(pulumi.StringOutput)
+}
+
+func (o GetReviewReviewerProfileOutput) Login() pulumi.StringOutput {
+	return o.ApplyT(func(v GetReviewReviewerProfile) string { return v.Login }).(pulumi.StringOutput)
+}
+
+func (o GetReviewReviewerProfileOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v GetReviewReviewerProfile) string { return v.Status }).(pulumi.StringOutput)
+}
+
+type GetReviewReviewerProfilePtrOutput struct{ *pulumi.OutputState }
+
+func (GetReviewReviewerProfilePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetReviewReviewerProfile)(nil)).Elem()
+}
+
+func (o GetReviewReviewerProfilePtrOutput) ToGetReviewReviewerProfilePtrOutput() GetReviewReviewerProfilePtrOutput {
+	return o
+}
+
+func (o GetReviewReviewerProfilePtrOutput) ToGetReviewReviewerProfilePtrOutputWithContext(ctx context.Context) GetReviewReviewerProfilePtrOutput {
+	return o
+}
+
+func (o GetReviewReviewerProfilePtrOutput) Elem() GetReviewReviewerProfileOutput {
+	return o.ApplyT(func(v *GetReviewReviewerProfile) GetReviewReviewerProfile {
+		if v != nil {
+			return *v
+		}
+		var ret GetReviewReviewerProfile
+		return ret
+	}).(GetReviewReviewerProfileOutput)
+}
+
+func (o GetReviewReviewerProfilePtrOutput) Email() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetReviewReviewerProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Email
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o GetReviewReviewerProfilePtrOutput) FirstName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetReviewReviewerProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.FirstName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of  review.
+func (o GetReviewReviewerProfilePtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetReviewReviewerProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o GetReviewReviewerProfilePtrOutput) LastName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetReviewReviewerProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LastName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o GetReviewReviewerProfilePtrOutput) Login() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetReviewReviewerProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Login
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o GetReviewReviewerProfilePtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetReviewReviewerProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Status
+	}).(pulumi.StringPtrOutput)
+}
+
 type GetTemplatesEmailTemplate struct {
 	// Link relations for this object - JSON HAL - Discoverable resources related to the email template
 	Links string `pulumi:"links"`
@@ -7554,6 +23234,40 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AppUserSchemaPropertyArrayOneOfArrayInput)(nil)).Elem(), AppUserSchemaPropertyArrayOneOfArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppUserSchemaPropertyOneOfInput)(nil)).Elem(), AppUserSchemaPropertyOneOfArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppUserSchemaPropertyOneOfArrayInput)(nil)).Elem(), AppUserSchemaPropertyOneOfArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CampaignNotificationSettingsInput)(nil)).Elem(), CampaignNotificationSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CampaignNotificationSettingsPtrInput)(nil)).Elem(), CampaignNotificationSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CampaignPrincipalScopeSettingsInput)(nil)).Elem(), CampaignPrincipalScopeSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CampaignPrincipalScopeSettingsPtrInput)(nil)).Elem(), CampaignPrincipalScopeSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeInput)(nil)).Elem(), CampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeArrayInput)(nil)).Elem(), CampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CampaignRemediationSettingsInput)(nil)).Elem(), CampaignRemediationSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CampaignRemediationSettingsPtrInput)(nil)).Elem(), CampaignRemediationSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CampaignRemediationSettingsAutoRemediationSettingsInput)(nil)).Elem(), CampaignRemediationSettingsAutoRemediationSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CampaignRemediationSettingsAutoRemediationSettingsPtrInput)(nil)).Elem(), CampaignRemediationSettingsAutoRemediationSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyInput)(nil)).Elem(), CampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyArrayInput)(nil)).Elem(), CampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CampaignResourceSettingsInput)(nil)).Elem(), CampaignResourceSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CampaignResourceSettingsPtrInput)(nil)).Elem(), CampaignResourceSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CampaignResourceSettingsExcludedResourceInput)(nil)).Elem(), CampaignResourceSettingsExcludedResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CampaignResourceSettingsExcludedResourceArrayInput)(nil)).Elem(), CampaignResourceSettingsExcludedResourceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CampaignResourceSettingsTargetResourceInput)(nil)).Elem(), CampaignResourceSettingsTargetResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CampaignResourceSettingsTargetResourceArrayInput)(nil)).Elem(), CampaignResourceSettingsTargetResourceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CampaignResourceSettingsTargetResourceEntitlementInput)(nil)).Elem(), CampaignResourceSettingsTargetResourceEntitlementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CampaignResourceSettingsTargetResourceEntitlementArrayInput)(nil)).Elem(), CampaignResourceSettingsTargetResourceEntitlementArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CampaignResourceSettingsTargetResourceEntitlementBundleInput)(nil)).Elem(), CampaignResourceSettingsTargetResourceEntitlementBundleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CampaignResourceSettingsTargetResourceEntitlementBundleArrayInput)(nil)).Elem(), CampaignResourceSettingsTargetResourceEntitlementBundleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CampaignResourceSettingsTargetResourceEntitlementValueInput)(nil)).Elem(), CampaignResourceSettingsTargetResourceEntitlementValueArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CampaignResourceSettingsTargetResourceEntitlementValueArrayInput)(nil)).Elem(), CampaignResourceSettingsTargetResourceEntitlementValueArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CampaignReviewerSettingsInput)(nil)).Elem(), CampaignReviewerSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CampaignReviewerSettingsPtrInput)(nil)).Elem(), CampaignReviewerSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CampaignReviewerSettingsReviewerLevelInput)(nil)).Elem(), CampaignReviewerSettingsReviewerLevelArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CampaignReviewerSettingsReviewerLevelArrayInput)(nil)).Elem(), CampaignReviewerSettingsReviewerLevelArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CampaignReviewerSettingsReviewerLevelStartReviewInput)(nil)).Elem(), CampaignReviewerSettingsReviewerLevelStartReviewArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CampaignReviewerSettingsReviewerLevelStartReviewArrayInput)(nil)).Elem(), CampaignReviewerSettingsReviewerLevelStartReviewArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CampaignScheduleSettingsInput)(nil)).Elem(), CampaignScheduleSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CampaignScheduleSettingsPtrInput)(nil)).Elem(), CampaignScheduleSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CampaignScheduleSettingsRecurrenceInput)(nil)).Elem(), CampaignScheduleSettingsRecurrenceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CampaignScheduleSettingsRecurrenceArrayInput)(nil)).Elem(), CampaignScheduleSettingsRecurrenceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomizedSigninPageContentSecurityPolicySettingInput)(nil)).Elem(), CustomizedSigninPageContentSecurityPolicySettingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomizedSigninPageContentSecurityPolicySettingPtrInput)(nil)).Elem(), CustomizedSigninPageContentSecurityPolicySettingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomizedSigninPageWidgetCustomizationsInput)(nil)).Elem(), CustomizedSigninPageWidgetCustomizationsArgs{})
@@ -7564,6 +23278,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EmailDomainDnsValidationRecordArrayInput)(nil)).Elem(), EmailDomainDnsValidationRecordArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EmailSenderDnsRecordInput)(nil)).Elem(), EmailSenderDnsRecordArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EmailSenderDnsRecordArrayInput)(nil)).Elem(), EmailSenderDnsRecordArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndUserMyRequestsRequesterFieldValueInput)(nil)).Elem(), EndUserMyRequestsRequesterFieldValueArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndUserMyRequestsRequesterFieldValueArrayInput)(nil)).Elem(), EndUserMyRequestsRequesterFieldValueArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EntitlementBundleEntitlementInput)(nil)).Elem(), EntitlementBundleEntitlementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EntitlementBundleEntitlementArrayInput)(nil)).Elem(), EntitlementBundleEntitlementArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EntitlementBundleEntitlementValueInput)(nil)).Elem(), EntitlementBundleEntitlementValueArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EntitlementBundleEntitlementValueArrayInput)(nil)).Elem(), EntitlementBundleEntitlementValueArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EntitlementBundleTargetInput)(nil)).Elem(), EntitlementBundleTargetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EntitlementBundleTargetPtrInput)(nil)).Elem(), EntitlementBundleTargetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EntitlementParentInput)(nil)).Elem(), EntitlementParentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EntitlementParentPtrInput)(nil)).Elem(), EntitlementParentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EntitlementValueInput)(nil)).Elem(), EntitlementValueArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EntitlementValueArrayInput)(nil)).Elem(), EntitlementValueArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventHookHeaderInput)(nil)).Elem(), EventHookHeaderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventHookHeaderArrayInput)(nil)).Elem(), EventHookHeaderArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FeatureStageInput)(nil)).Elem(), FeatureStageArgs{})
@@ -7582,6 +23308,36 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PreviewSigninPageContentSecurityPolicySettingPtrInput)(nil)).Elem(), PreviewSigninPageContentSecurityPolicySettingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PreviewSigninPageWidgetCustomizationsInput)(nil)).Elem(), PreviewSigninPageWidgetCustomizationsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PreviewSigninPageWidgetCustomizationsPtrInput)(nil)).Elem(), PreviewSigninPageWidgetCustomizationsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RateLimitingUseCaseModeOverridesInput)(nil)).Elem(), RateLimitingUseCaseModeOverridesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RateLimitingUseCaseModeOverridesPtrInput)(nil)).Elem(), RateLimitingUseCaseModeOverridesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RequestConditionAccessDurationSettingsInput)(nil)).Elem(), RequestConditionAccessDurationSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RequestConditionAccessDurationSettingsPtrInput)(nil)).Elem(), RequestConditionAccessDurationSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RequestConditionAccessScopeSettingsInput)(nil)).Elem(), RequestConditionAccessScopeSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RequestConditionAccessScopeSettingsPtrInput)(nil)).Elem(), RequestConditionAccessScopeSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RequestConditionAccessScopeSettingsIdInput)(nil)).Elem(), RequestConditionAccessScopeSettingsIdArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RequestConditionAccessScopeSettingsIdArrayInput)(nil)).Elem(), RequestConditionAccessScopeSettingsIdArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RequestConditionRequesterSettingsInput)(nil)).Elem(), RequestConditionRequesterSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RequestConditionRequesterSettingsPtrInput)(nil)).Elem(), RequestConditionRequesterSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RequestConditionRequesterSettingsIdInput)(nil)).Elem(), RequestConditionRequesterSettingsIdArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RequestConditionRequesterSettingsIdArrayInput)(nil)).Elem(), RequestConditionRequesterSettingsIdArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RequestSettingResourceRequestOnBehalfOfSettingsInput)(nil)).Elem(), RequestSettingResourceRequestOnBehalfOfSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RequestSettingResourceRequestOnBehalfOfSettingsPtrInput)(nil)).Elem(), RequestSettingResourceRequestOnBehalfOfSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RequestSettingResourceRequestOnBehalfOfSettingsOnlyForInput)(nil)).Elem(), RequestSettingResourceRequestOnBehalfOfSettingsOnlyForArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RequestSettingResourceRequestOnBehalfOfSettingsOnlyForArrayInput)(nil)).Elem(), RequestSettingResourceRequestOnBehalfOfSettingsOnlyForArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RequestSettingResourceRiskSettingsInput)(nil)).Elem(), RequestSettingResourceRiskSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RequestSettingResourceRiskSettingsPtrInput)(nil)).Elem(), RequestSettingResourceRiskSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RequestSettingResourceRiskSettingsDefaultSettingInput)(nil)).Elem(), RequestSettingResourceRiskSettingsDefaultSettingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RequestSettingResourceRiskSettingsDefaultSettingPtrInput)(nil)).Elem(), RequestSettingResourceRiskSettingsDefaultSettingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsInput)(nil)).Elem(), RequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsPtrInput)(nil)).Elem(), RequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RequestV2RequestedInput)(nil)).Elem(), RequestV2RequestedArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RequestV2RequestedPtrInput)(nil)).Elem(), RequestV2RequestedArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RequestV2RequestedForInput)(nil)).Elem(), RequestV2RequestedForArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RequestV2RequestedForPtrInput)(nil)).Elem(), RequestV2RequestedForArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RequestV2RequesterFieldValueInput)(nil)).Elem(), RequestV2RequesterFieldValueArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RequestV2RequesterFieldValueArrayInput)(nil)).Elem(), RequestV2RequesterFieldValueArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RequestV2RequesterFieldValueValueInput)(nil)).Elem(), RequestV2RequesterFieldValueValueArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RequestV2RequesterFieldValueValueArrayInput)(nil)).Elem(), RequestV2RequesterFieldValueValueArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateSmsTranslationInput)(nil)).Elem(), TemplateSmsTranslationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateSmsTranslationArrayInput)(nil)).Elem(), TemplateSmsTranslationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserSchemaPropertyArrayOneOfInput)(nil)).Elem(), UserSchemaPropertyArrayOneOfArgs{})
@@ -7600,6 +23356,52 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBehavioursBehaviorArrayInput)(nil)).Elem(), GetBehavioursBehaviorArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBrandsBrandInput)(nil)).Elem(), GetBrandsBrandArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBrandsBrandArrayInput)(nil)).Elem(), GetBrandsBrandArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCampaignNotificationSettingsInput)(nil)).Elem(), GetCampaignNotificationSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCampaignNotificationSettingsPtrInput)(nil)).Elem(), GetCampaignNotificationSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCampaignPrincipalScopeSettingsInput)(nil)).Elem(), GetCampaignPrincipalScopeSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCampaignPrincipalScopeSettingsPtrInput)(nil)).Elem(), GetCampaignPrincipalScopeSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeInput)(nil)).Elem(), GetCampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeArrayInput)(nil)).Elem(), GetCampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCampaignRemediationSettingsInput)(nil)).Elem(), GetCampaignRemediationSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCampaignRemediationSettingsPtrInput)(nil)).Elem(), GetCampaignRemediationSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCampaignRemediationSettingsAutoRemediationSettingsInput)(nil)).Elem(), GetCampaignRemediationSettingsAutoRemediationSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCampaignRemediationSettingsAutoRemediationSettingsPtrInput)(nil)).Elem(), GetCampaignRemediationSettingsAutoRemediationSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyInput)(nil)).Elem(), GetCampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyArrayInput)(nil)).Elem(), GetCampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCampaignResourceSettingsInput)(nil)).Elem(), GetCampaignResourceSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCampaignResourceSettingsPtrInput)(nil)).Elem(), GetCampaignResourceSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCampaignResourceSettingsExcludedResourceInput)(nil)).Elem(), GetCampaignResourceSettingsExcludedResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCampaignResourceSettingsExcludedResourceArrayInput)(nil)).Elem(), GetCampaignResourceSettingsExcludedResourceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCampaignResourceSettingsTargetResourceInput)(nil)).Elem(), GetCampaignResourceSettingsTargetResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCampaignResourceSettingsTargetResourceArrayInput)(nil)).Elem(), GetCampaignResourceSettingsTargetResourceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCampaignResourceSettingsTargetResourceEntitlementInput)(nil)).Elem(), GetCampaignResourceSettingsTargetResourceEntitlementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCampaignResourceSettingsTargetResourceEntitlementArrayInput)(nil)).Elem(), GetCampaignResourceSettingsTargetResourceEntitlementArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCampaignResourceSettingsTargetResourceEntitlementBundleInput)(nil)).Elem(), GetCampaignResourceSettingsTargetResourceEntitlementBundleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCampaignResourceSettingsTargetResourceEntitlementBundleArrayInput)(nil)).Elem(), GetCampaignResourceSettingsTargetResourceEntitlementBundleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCampaignResourceSettingsTargetResourceEntitlementValueInput)(nil)).Elem(), GetCampaignResourceSettingsTargetResourceEntitlementValueArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCampaignResourceSettingsTargetResourceEntitlementValueArrayInput)(nil)).Elem(), GetCampaignResourceSettingsTargetResourceEntitlementValueArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCampaignReviewerSettingsInput)(nil)).Elem(), GetCampaignReviewerSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCampaignReviewerSettingsPtrInput)(nil)).Elem(), GetCampaignReviewerSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCampaignReviewerSettingsReviewerLevelInput)(nil)).Elem(), GetCampaignReviewerSettingsReviewerLevelArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCampaignReviewerSettingsReviewerLevelArrayInput)(nil)).Elem(), GetCampaignReviewerSettingsReviewerLevelArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCampaignReviewerSettingsReviewerLevelStartReviewInput)(nil)).Elem(), GetCampaignReviewerSettingsReviewerLevelStartReviewArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCampaignReviewerSettingsReviewerLevelStartReviewArrayInput)(nil)).Elem(), GetCampaignReviewerSettingsReviewerLevelStartReviewArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCampaignScheduleSettingsInput)(nil)).Elem(), GetCampaignScheduleSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCampaignScheduleSettingsPtrInput)(nil)).Elem(), GetCampaignScheduleSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCampaignScheduleSettingsRecurrenceInput)(nil)).Elem(), GetCampaignScheduleSettingsRecurrenceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCampaignScheduleSettingsRecurrenceArrayInput)(nil)).Elem(), GetCampaignScheduleSettingsRecurrenceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCatalogEntryDefaultCountsInput)(nil)).Elem(), GetCatalogEntryDefaultCountsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCatalogEntryDefaultCountsPtrInput)(nil)).Elem(), GetCatalogEntryDefaultCountsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCatalogEntryDefaultCountsResourceCountsInput)(nil)).Elem(), GetCatalogEntryDefaultCountsResourceCountsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCatalogEntryDefaultCountsResourceCountsPtrInput)(nil)).Elem(), GetCatalogEntryDefaultCountsResourceCountsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCatalogEntryDefaultLinksInput)(nil)).Elem(), GetCatalogEntryDefaultLinksArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCatalogEntryDefaultLinksPtrInput)(nil)).Elem(), GetCatalogEntryDefaultLinksArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCatalogEntryDefaultLinksSelfInput)(nil)).Elem(), GetCatalogEntryDefaultLinksSelfArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCatalogEntryDefaultLinksSelfPtrInput)(nil)).Elem(), GetCatalogEntryDefaultLinksSelfArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCatalogEntryUserAccessRequestFieldsDataInput)(nil)).Elem(), GetCatalogEntryUserAccessRequestFieldsDataArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCatalogEntryUserAccessRequestFieldsDataArrayInput)(nil)).Elem(), GetCatalogEntryUserAccessRequestFieldsDataArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCatalogEntryUserAccessRequestFieldsDataChoiceInput)(nil)).Elem(), GetCatalogEntryUserAccessRequestFieldsDataChoiceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCatalogEntryUserAccessRequestFieldsDataChoiceArrayInput)(nil)).Elem(), GetCatalogEntryUserAccessRequestFieldsDataChoiceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDefaultSigninPageContentSecurityPolicySettingInput)(nil)).Elem(), GetDefaultSigninPageContentSecurityPolicySettingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDefaultSigninPageContentSecurityPolicySettingPtrInput)(nil)).Elem(), GetDefaultSigninPageContentSecurityPolicySettingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDefaultSigninPageWidgetCustomizationsInput)(nil)).Elem(), GetDefaultSigninPageWidgetCustomizationsArgs{})
@@ -7623,6 +23425,28 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainDnsRecordArrayInput)(nil)).Elem(), GetDomainDnsRecordArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEmailCustomizationsEmailCustomizationInput)(nil)).Elem(), GetEmailCustomizationsEmailCustomizationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEmailCustomizationsEmailCustomizationArrayInput)(nil)).Elem(), GetEmailCustomizationsEmailCustomizationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEndUserMyRequestsRequestedInput)(nil)).Elem(), GetEndUserMyRequestsRequestedArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEndUserMyRequestsRequestedPtrInput)(nil)).Elem(), GetEndUserMyRequestsRequestedArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEndUserMyRequestsRequestedByInput)(nil)).Elem(), GetEndUserMyRequestsRequestedByArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEndUserMyRequestsRequestedByPtrInput)(nil)).Elem(), GetEndUserMyRequestsRequestedByArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEndUserMyRequestsRequestedForInput)(nil)).Elem(), GetEndUserMyRequestsRequestedForArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEndUserMyRequestsRequestedForPtrInput)(nil)).Elem(), GetEndUserMyRequestsRequestedForArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEndUserMyRequestsRequesterFieldValueInput)(nil)).Elem(), GetEndUserMyRequestsRequesterFieldValueArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEndUserMyRequestsRequesterFieldValueArrayInput)(nil)).Elem(), GetEndUserMyRequestsRequesterFieldValueArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEndUserMyRequestsRiskAssessmentInput)(nil)).Elem(), GetEndUserMyRequestsRiskAssessmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEndUserMyRequestsRiskAssessmentPtrInput)(nil)).Elem(), GetEndUserMyRequestsRiskAssessmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEndUserMyRequestsRiskAssessmentRiskRuleInput)(nil)).Elem(), GetEndUserMyRequestsRiskAssessmentRiskRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEndUserMyRequestsRiskAssessmentRiskRuleArrayInput)(nil)).Elem(), GetEndUserMyRequestsRiskAssessmentRiskRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEntitlementBundleEntitlementInput)(nil)).Elem(), GetEntitlementBundleEntitlementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEntitlementBundleEntitlementArrayInput)(nil)).Elem(), GetEntitlementBundleEntitlementArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEntitlementBundleEntitlementValueInput)(nil)).Elem(), GetEntitlementBundleEntitlementValueArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEntitlementBundleEntitlementValueArrayInput)(nil)).Elem(), GetEntitlementBundleEntitlementValueArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEntitlementBundleTargetInput)(nil)).Elem(), GetEntitlementBundleTargetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEntitlementBundleTargetPtrInput)(nil)).Elem(), GetEntitlementBundleTargetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEntitlementParentInput)(nil)).Elem(), GetEntitlementParentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEntitlementParentPtrInput)(nil)).Elem(), GetEntitlementParentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEntitlementValueInput)(nil)).Elem(), GetEntitlementValueArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEntitlementValueArrayInput)(nil)).Elem(), GetEntitlementValueArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFeaturesFeatureInput)(nil)).Elem(), GetFeaturesFeatureArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFeaturesFeatureArrayInput)(nil)).Elem(), GetFeaturesFeatureArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFeaturesFeatureStageInput)(nil)).Elem(), GetFeaturesFeatureStageArgs{})
@@ -7634,6 +23458,70 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetOrgMetadataDomainsPtrInput)(nil)).Elem(), GetOrgMetadataDomainsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetOrgMetadataSettingsInput)(nil)).Elem(), GetOrgMetadataSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetOrgMetadataSettingsPtrInput)(nil)).Elem(), GetOrgMetadataSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPrincipalEntitlementsDataInput)(nil)).Elem(), GetPrincipalEntitlementsDataArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPrincipalEntitlementsDataArrayInput)(nil)).Elem(), GetPrincipalEntitlementsDataArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPrincipalEntitlementsDataParentInput)(nil)).Elem(), GetPrincipalEntitlementsDataParentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPrincipalEntitlementsDataParentPtrInput)(nil)).Elem(), GetPrincipalEntitlementsDataParentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPrincipalEntitlementsDataTargetPrincipalInput)(nil)).Elem(), GetPrincipalEntitlementsDataTargetPrincipalArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPrincipalEntitlementsDataTargetPrincipalPtrInput)(nil)).Elem(), GetPrincipalEntitlementsDataTargetPrincipalArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPrincipalEntitlementsDataValueInput)(nil)).Elem(), GetPrincipalEntitlementsDataValueArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPrincipalEntitlementsDataValueArrayInput)(nil)).Elem(), GetPrincipalEntitlementsDataValueArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPrincipalEntitlementsParentInput)(nil)).Elem(), GetPrincipalEntitlementsParentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPrincipalEntitlementsParentPtrInput)(nil)).Elem(), GetPrincipalEntitlementsParentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPrincipalEntitlementsTargetPrincipalInput)(nil)).Elem(), GetPrincipalEntitlementsTargetPrincipalArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPrincipalEntitlementsTargetPrincipalPtrInput)(nil)).Elem(), GetPrincipalEntitlementsTargetPrincipalArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRequestConditionAccessScopeSettingsInput)(nil)).Elem(), GetRequestConditionAccessScopeSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRequestConditionAccessScopeSettingsPtrInput)(nil)).Elem(), GetRequestConditionAccessScopeSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRequestConditionAccessScopeSettingsIdInput)(nil)).Elem(), GetRequestConditionAccessScopeSettingsIdArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRequestConditionAccessScopeSettingsIdArrayInput)(nil)).Elem(), GetRequestConditionAccessScopeSettingsIdArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRequestConditionRequesterSettingsInput)(nil)).Elem(), GetRequestConditionRequesterSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRequestConditionRequesterSettingsPtrInput)(nil)).Elem(), GetRequestConditionRequesterSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRequestConditionRequesterSettingsIdInput)(nil)).Elem(), GetRequestConditionRequesterSettingsIdArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRequestConditionRequesterSettingsIdArrayInput)(nil)).Elem(), GetRequestConditionRequesterSettingsIdArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRequestSettingOrganizationRequestExperienceInput)(nil)).Elem(), GetRequestSettingOrganizationRequestExperienceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRequestSettingOrganizationRequestExperienceArrayInput)(nil)).Elem(), GetRequestSettingOrganizationRequestExperienceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRequestSettingResourceRequestOnBehalfOfSettingsInput)(nil)).Elem(), GetRequestSettingResourceRequestOnBehalfOfSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRequestSettingResourceRequestOnBehalfOfSettingsPtrInput)(nil)).Elem(), GetRequestSettingResourceRequestOnBehalfOfSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRequestSettingResourceRequestOnBehalfOfSettingsOnlyForInput)(nil)).Elem(), GetRequestSettingResourceRequestOnBehalfOfSettingsOnlyForArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRequestSettingResourceRequestOnBehalfOfSettingsOnlyForArrayInput)(nil)).Elem(), GetRequestSettingResourceRequestOnBehalfOfSettingsOnlyForArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRequestSettingResourceRiskSettingsInput)(nil)).Elem(), GetRequestSettingResourceRiskSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRequestSettingResourceRiskSettingsPtrInput)(nil)).Elem(), GetRequestSettingResourceRiskSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRequestSettingResourceRiskSettingsDefaultSettingInput)(nil)).Elem(), GetRequestSettingResourceRiskSettingsDefaultSettingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRequestSettingResourceRiskSettingsDefaultSettingPtrInput)(nil)).Elem(), GetRequestSettingResourceRiskSettingsDefaultSettingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsInput)(nil)).Elem(), GetRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsPtrInput)(nil)).Elem(), GetRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRequestSettingResourceValidAccessDurationSettingsInput)(nil)).Elem(), GetRequestSettingResourceValidAccessDurationSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRequestSettingResourceValidAccessDurationSettingsPtrInput)(nil)).Elem(), GetRequestSettingResourceValidAccessDurationSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRequestSettingResourceValidAccessDurationSettingsSupportedTypeInput)(nil)).Elem(), GetRequestSettingResourceValidAccessDurationSettingsSupportedTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRequestSettingResourceValidAccessDurationSettingsSupportedTypeArrayInput)(nil)).Elem(), GetRequestSettingResourceValidAccessDurationSettingsSupportedTypeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRequestSettingResourceValidAccessScopeSettingInput)(nil)).Elem(), GetRequestSettingResourceValidAccessScopeSettingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRequestSettingResourceValidAccessScopeSettingArrayInput)(nil)).Elem(), GetRequestSettingResourceValidAccessScopeSettingArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRequestSettingResourceValidRequesterSettingInput)(nil)).Elem(), GetRequestSettingResourceValidRequesterSettingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRequestSettingResourceValidRequesterSettingArrayInput)(nil)).Elem(), GetRequestSettingResourceValidRequesterSettingArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRequestV2RequestedInput)(nil)).Elem(), GetRequestV2RequestedArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRequestV2RequestedPtrInput)(nil)).Elem(), GetRequestV2RequestedArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRequestV2RequestedByInput)(nil)).Elem(), GetRequestV2RequestedByArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRequestV2RequestedByPtrInput)(nil)).Elem(), GetRequestV2RequestedByArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRequestV2RequestedForInput)(nil)).Elem(), GetRequestV2RequestedForArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRequestV2RequestedForPtrInput)(nil)).Elem(), GetRequestV2RequestedForArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetReviewAllReviewerLevelInput)(nil)).Elem(), GetReviewAllReviewerLevelArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetReviewAllReviewerLevelArrayInput)(nil)).Elem(), GetReviewAllReviewerLevelArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetReviewAllReviewerLevelReviewerGroupProfileInput)(nil)).Elem(), GetReviewAllReviewerLevelReviewerGroupProfileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetReviewAllReviewerLevelReviewerGroupProfilePtrInput)(nil)).Elem(), GetReviewAllReviewerLevelReviewerGroupProfileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetReviewAllReviewerLevelReviewerProfileInput)(nil)).Elem(), GetReviewAllReviewerLevelReviewerProfileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetReviewAllReviewerLevelReviewerProfilePtrInput)(nil)).Elem(), GetReviewAllReviewerLevelReviewerProfileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetReviewEntitlementBundleInput)(nil)).Elem(), GetReviewEntitlementBundleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetReviewEntitlementBundlePtrInput)(nil)).Elem(), GetReviewEntitlementBundleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetReviewEntitlementValueInput)(nil)).Elem(), GetReviewEntitlementValueArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetReviewEntitlementValuePtrInput)(nil)).Elem(), GetReviewEntitlementValueArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetReviewLinksInput)(nil)).Elem(), GetReviewLinksArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetReviewLinksPtrInput)(nil)).Elem(), GetReviewLinksArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetReviewNoteInput)(nil)).Elem(), GetReviewNoteArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetReviewNotePtrInput)(nil)).Elem(), GetReviewNoteArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetReviewPrincipalProfileInput)(nil)).Elem(), GetReviewPrincipalProfileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetReviewPrincipalProfilePtrInput)(nil)).Elem(), GetReviewPrincipalProfileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetReviewReviewerProfileInput)(nil)).Elem(), GetReviewReviewerProfileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetReviewReviewerProfilePtrInput)(nil)).Elem(), GetReviewReviewerProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTemplatesEmailTemplateInput)(nil)).Elem(), GetTemplatesEmailTemplateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTemplatesEmailTemplateArrayInput)(nil)).Elem(), GetTemplatesEmailTemplateArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetThemesThemeInput)(nil)).Elem(), GetThemesThemeArgs{})
@@ -7650,6 +23538,40 @@ func init() {
 	pulumi.RegisterOutputType(AppUserSchemaPropertyArrayOneOfArrayOutput{})
 	pulumi.RegisterOutputType(AppUserSchemaPropertyOneOfOutput{})
 	pulumi.RegisterOutputType(AppUserSchemaPropertyOneOfArrayOutput{})
+	pulumi.RegisterOutputType(CampaignNotificationSettingsOutput{})
+	pulumi.RegisterOutputType(CampaignNotificationSettingsPtrOutput{})
+	pulumi.RegisterOutputType(CampaignPrincipalScopeSettingsOutput{})
+	pulumi.RegisterOutputType(CampaignPrincipalScopeSettingsPtrOutput{})
+	pulumi.RegisterOutputType(CampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeOutput{})
+	pulumi.RegisterOutputType(CampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeArrayOutput{})
+	pulumi.RegisterOutputType(CampaignRemediationSettingsOutput{})
+	pulumi.RegisterOutputType(CampaignRemediationSettingsPtrOutput{})
+	pulumi.RegisterOutputType(CampaignRemediationSettingsAutoRemediationSettingsOutput{})
+	pulumi.RegisterOutputType(CampaignRemediationSettingsAutoRemediationSettingsPtrOutput{})
+	pulumi.RegisterOutputType(CampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyOutput{})
+	pulumi.RegisterOutputType(CampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyArrayOutput{})
+	pulumi.RegisterOutputType(CampaignResourceSettingsOutput{})
+	pulumi.RegisterOutputType(CampaignResourceSettingsPtrOutput{})
+	pulumi.RegisterOutputType(CampaignResourceSettingsExcludedResourceOutput{})
+	pulumi.RegisterOutputType(CampaignResourceSettingsExcludedResourceArrayOutput{})
+	pulumi.RegisterOutputType(CampaignResourceSettingsTargetResourceOutput{})
+	pulumi.RegisterOutputType(CampaignResourceSettingsTargetResourceArrayOutput{})
+	pulumi.RegisterOutputType(CampaignResourceSettingsTargetResourceEntitlementOutput{})
+	pulumi.RegisterOutputType(CampaignResourceSettingsTargetResourceEntitlementArrayOutput{})
+	pulumi.RegisterOutputType(CampaignResourceSettingsTargetResourceEntitlementBundleOutput{})
+	pulumi.RegisterOutputType(CampaignResourceSettingsTargetResourceEntitlementBundleArrayOutput{})
+	pulumi.RegisterOutputType(CampaignResourceSettingsTargetResourceEntitlementValueOutput{})
+	pulumi.RegisterOutputType(CampaignResourceSettingsTargetResourceEntitlementValueArrayOutput{})
+	pulumi.RegisterOutputType(CampaignReviewerSettingsOutput{})
+	pulumi.RegisterOutputType(CampaignReviewerSettingsPtrOutput{})
+	pulumi.RegisterOutputType(CampaignReviewerSettingsReviewerLevelOutput{})
+	pulumi.RegisterOutputType(CampaignReviewerSettingsReviewerLevelArrayOutput{})
+	pulumi.RegisterOutputType(CampaignReviewerSettingsReviewerLevelStartReviewOutput{})
+	pulumi.RegisterOutputType(CampaignReviewerSettingsReviewerLevelStartReviewArrayOutput{})
+	pulumi.RegisterOutputType(CampaignScheduleSettingsOutput{})
+	pulumi.RegisterOutputType(CampaignScheduleSettingsPtrOutput{})
+	pulumi.RegisterOutputType(CampaignScheduleSettingsRecurrenceOutput{})
+	pulumi.RegisterOutputType(CampaignScheduleSettingsRecurrenceArrayOutput{})
 	pulumi.RegisterOutputType(CustomizedSigninPageContentSecurityPolicySettingOutput{})
 	pulumi.RegisterOutputType(CustomizedSigninPageContentSecurityPolicySettingPtrOutput{})
 	pulumi.RegisterOutputType(CustomizedSigninPageWidgetCustomizationsOutput{})
@@ -7660,6 +23582,18 @@ func init() {
 	pulumi.RegisterOutputType(EmailDomainDnsValidationRecordArrayOutput{})
 	pulumi.RegisterOutputType(EmailSenderDnsRecordOutput{})
 	pulumi.RegisterOutputType(EmailSenderDnsRecordArrayOutput{})
+	pulumi.RegisterOutputType(EndUserMyRequestsRequesterFieldValueOutput{})
+	pulumi.RegisterOutputType(EndUserMyRequestsRequesterFieldValueArrayOutput{})
+	pulumi.RegisterOutputType(EntitlementBundleEntitlementOutput{})
+	pulumi.RegisterOutputType(EntitlementBundleEntitlementArrayOutput{})
+	pulumi.RegisterOutputType(EntitlementBundleEntitlementValueOutput{})
+	pulumi.RegisterOutputType(EntitlementBundleEntitlementValueArrayOutput{})
+	pulumi.RegisterOutputType(EntitlementBundleTargetOutput{})
+	pulumi.RegisterOutputType(EntitlementBundleTargetPtrOutput{})
+	pulumi.RegisterOutputType(EntitlementParentOutput{})
+	pulumi.RegisterOutputType(EntitlementParentPtrOutput{})
+	pulumi.RegisterOutputType(EntitlementValueOutput{})
+	pulumi.RegisterOutputType(EntitlementValueArrayOutput{})
 	pulumi.RegisterOutputType(EventHookHeaderOutput{})
 	pulumi.RegisterOutputType(EventHookHeaderArrayOutput{})
 	pulumi.RegisterOutputType(FeatureStageOutput{})
@@ -7678,6 +23612,36 @@ func init() {
 	pulumi.RegisterOutputType(PreviewSigninPageContentSecurityPolicySettingPtrOutput{})
 	pulumi.RegisterOutputType(PreviewSigninPageWidgetCustomizationsOutput{})
 	pulumi.RegisterOutputType(PreviewSigninPageWidgetCustomizationsPtrOutput{})
+	pulumi.RegisterOutputType(RateLimitingUseCaseModeOverridesOutput{})
+	pulumi.RegisterOutputType(RateLimitingUseCaseModeOverridesPtrOutput{})
+	pulumi.RegisterOutputType(RequestConditionAccessDurationSettingsOutput{})
+	pulumi.RegisterOutputType(RequestConditionAccessDurationSettingsPtrOutput{})
+	pulumi.RegisterOutputType(RequestConditionAccessScopeSettingsOutput{})
+	pulumi.RegisterOutputType(RequestConditionAccessScopeSettingsPtrOutput{})
+	pulumi.RegisterOutputType(RequestConditionAccessScopeSettingsIdOutput{})
+	pulumi.RegisterOutputType(RequestConditionAccessScopeSettingsIdArrayOutput{})
+	pulumi.RegisterOutputType(RequestConditionRequesterSettingsOutput{})
+	pulumi.RegisterOutputType(RequestConditionRequesterSettingsPtrOutput{})
+	pulumi.RegisterOutputType(RequestConditionRequesterSettingsIdOutput{})
+	pulumi.RegisterOutputType(RequestConditionRequesterSettingsIdArrayOutput{})
+	pulumi.RegisterOutputType(RequestSettingResourceRequestOnBehalfOfSettingsOutput{})
+	pulumi.RegisterOutputType(RequestSettingResourceRequestOnBehalfOfSettingsPtrOutput{})
+	pulumi.RegisterOutputType(RequestSettingResourceRequestOnBehalfOfSettingsOnlyForOutput{})
+	pulumi.RegisterOutputType(RequestSettingResourceRequestOnBehalfOfSettingsOnlyForArrayOutput{})
+	pulumi.RegisterOutputType(RequestSettingResourceRiskSettingsOutput{})
+	pulumi.RegisterOutputType(RequestSettingResourceRiskSettingsPtrOutput{})
+	pulumi.RegisterOutputType(RequestSettingResourceRiskSettingsDefaultSettingOutput{})
+	pulumi.RegisterOutputType(RequestSettingResourceRiskSettingsDefaultSettingPtrOutput{})
+	pulumi.RegisterOutputType(RequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsOutput{})
+	pulumi.RegisterOutputType(RequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsPtrOutput{})
+	pulumi.RegisterOutputType(RequestV2RequestedOutput{})
+	pulumi.RegisterOutputType(RequestV2RequestedPtrOutput{})
+	pulumi.RegisterOutputType(RequestV2RequestedForOutput{})
+	pulumi.RegisterOutputType(RequestV2RequestedForPtrOutput{})
+	pulumi.RegisterOutputType(RequestV2RequesterFieldValueOutput{})
+	pulumi.RegisterOutputType(RequestV2RequesterFieldValueArrayOutput{})
+	pulumi.RegisterOutputType(RequestV2RequesterFieldValueValueOutput{})
+	pulumi.RegisterOutputType(RequestV2RequesterFieldValueValueArrayOutput{})
 	pulumi.RegisterOutputType(TemplateSmsTranslationOutput{})
 	pulumi.RegisterOutputType(TemplateSmsTranslationArrayOutput{})
 	pulumi.RegisterOutputType(UserSchemaPropertyArrayOneOfOutput{})
@@ -7696,6 +23660,52 @@ func init() {
 	pulumi.RegisterOutputType(GetBehavioursBehaviorArrayOutput{})
 	pulumi.RegisterOutputType(GetBrandsBrandOutput{})
 	pulumi.RegisterOutputType(GetBrandsBrandArrayOutput{})
+	pulumi.RegisterOutputType(GetCampaignNotificationSettingsOutput{})
+	pulumi.RegisterOutputType(GetCampaignNotificationSettingsPtrOutput{})
+	pulumi.RegisterOutputType(GetCampaignPrincipalScopeSettingsOutput{})
+	pulumi.RegisterOutputType(GetCampaignPrincipalScopeSettingsPtrOutput{})
+	pulumi.RegisterOutputType(GetCampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeOutput{})
+	pulumi.RegisterOutputType(GetCampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeArrayOutput{})
+	pulumi.RegisterOutputType(GetCampaignRemediationSettingsOutput{})
+	pulumi.RegisterOutputType(GetCampaignRemediationSettingsPtrOutput{})
+	pulumi.RegisterOutputType(GetCampaignRemediationSettingsAutoRemediationSettingsOutput{})
+	pulumi.RegisterOutputType(GetCampaignRemediationSettingsAutoRemediationSettingsPtrOutput{})
+	pulumi.RegisterOutputType(GetCampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyOutput{})
+	pulumi.RegisterOutputType(GetCampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyArrayOutput{})
+	pulumi.RegisterOutputType(GetCampaignResourceSettingsOutput{})
+	pulumi.RegisterOutputType(GetCampaignResourceSettingsPtrOutput{})
+	pulumi.RegisterOutputType(GetCampaignResourceSettingsExcludedResourceOutput{})
+	pulumi.RegisterOutputType(GetCampaignResourceSettingsExcludedResourceArrayOutput{})
+	pulumi.RegisterOutputType(GetCampaignResourceSettingsTargetResourceOutput{})
+	pulumi.RegisterOutputType(GetCampaignResourceSettingsTargetResourceArrayOutput{})
+	pulumi.RegisterOutputType(GetCampaignResourceSettingsTargetResourceEntitlementOutput{})
+	pulumi.RegisterOutputType(GetCampaignResourceSettingsTargetResourceEntitlementArrayOutput{})
+	pulumi.RegisterOutputType(GetCampaignResourceSettingsTargetResourceEntitlementBundleOutput{})
+	pulumi.RegisterOutputType(GetCampaignResourceSettingsTargetResourceEntitlementBundleArrayOutput{})
+	pulumi.RegisterOutputType(GetCampaignResourceSettingsTargetResourceEntitlementValueOutput{})
+	pulumi.RegisterOutputType(GetCampaignResourceSettingsTargetResourceEntitlementValueArrayOutput{})
+	pulumi.RegisterOutputType(GetCampaignReviewerSettingsOutput{})
+	pulumi.RegisterOutputType(GetCampaignReviewerSettingsPtrOutput{})
+	pulumi.RegisterOutputType(GetCampaignReviewerSettingsReviewerLevelOutput{})
+	pulumi.RegisterOutputType(GetCampaignReviewerSettingsReviewerLevelArrayOutput{})
+	pulumi.RegisterOutputType(GetCampaignReviewerSettingsReviewerLevelStartReviewOutput{})
+	pulumi.RegisterOutputType(GetCampaignReviewerSettingsReviewerLevelStartReviewArrayOutput{})
+	pulumi.RegisterOutputType(GetCampaignScheduleSettingsOutput{})
+	pulumi.RegisterOutputType(GetCampaignScheduleSettingsPtrOutput{})
+	pulumi.RegisterOutputType(GetCampaignScheduleSettingsRecurrenceOutput{})
+	pulumi.RegisterOutputType(GetCampaignScheduleSettingsRecurrenceArrayOutput{})
+	pulumi.RegisterOutputType(GetCatalogEntryDefaultCountsOutput{})
+	pulumi.RegisterOutputType(GetCatalogEntryDefaultCountsPtrOutput{})
+	pulumi.RegisterOutputType(GetCatalogEntryDefaultCountsResourceCountsOutput{})
+	pulumi.RegisterOutputType(GetCatalogEntryDefaultCountsResourceCountsPtrOutput{})
+	pulumi.RegisterOutputType(GetCatalogEntryDefaultLinksOutput{})
+	pulumi.RegisterOutputType(GetCatalogEntryDefaultLinksPtrOutput{})
+	pulumi.RegisterOutputType(GetCatalogEntryDefaultLinksSelfOutput{})
+	pulumi.RegisterOutputType(GetCatalogEntryDefaultLinksSelfPtrOutput{})
+	pulumi.RegisterOutputType(GetCatalogEntryUserAccessRequestFieldsDataOutput{})
+	pulumi.RegisterOutputType(GetCatalogEntryUserAccessRequestFieldsDataArrayOutput{})
+	pulumi.RegisterOutputType(GetCatalogEntryUserAccessRequestFieldsDataChoiceOutput{})
+	pulumi.RegisterOutputType(GetCatalogEntryUserAccessRequestFieldsDataChoiceArrayOutput{})
 	pulumi.RegisterOutputType(GetDefaultSigninPageContentSecurityPolicySettingOutput{})
 	pulumi.RegisterOutputType(GetDefaultSigninPageContentSecurityPolicySettingPtrOutput{})
 	pulumi.RegisterOutputType(GetDefaultSigninPageWidgetCustomizationsOutput{})
@@ -7719,6 +23729,28 @@ func init() {
 	pulumi.RegisterOutputType(GetDomainDnsRecordArrayOutput{})
 	pulumi.RegisterOutputType(GetEmailCustomizationsEmailCustomizationOutput{})
 	pulumi.RegisterOutputType(GetEmailCustomizationsEmailCustomizationArrayOutput{})
+	pulumi.RegisterOutputType(GetEndUserMyRequestsRequestedOutput{})
+	pulumi.RegisterOutputType(GetEndUserMyRequestsRequestedPtrOutput{})
+	pulumi.RegisterOutputType(GetEndUserMyRequestsRequestedByOutput{})
+	pulumi.RegisterOutputType(GetEndUserMyRequestsRequestedByPtrOutput{})
+	pulumi.RegisterOutputType(GetEndUserMyRequestsRequestedForOutput{})
+	pulumi.RegisterOutputType(GetEndUserMyRequestsRequestedForPtrOutput{})
+	pulumi.RegisterOutputType(GetEndUserMyRequestsRequesterFieldValueOutput{})
+	pulumi.RegisterOutputType(GetEndUserMyRequestsRequesterFieldValueArrayOutput{})
+	pulumi.RegisterOutputType(GetEndUserMyRequestsRiskAssessmentOutput{})
+	pulumi.RegisterOutputType(GetEndUserMyRequestsRiskAssessmentPtrOutput{})
+	pulumi.RegisterOutputType(GetEndUserMyRequestsRiskAssessmentRiskRuleOutput{})
+	pulumi.RegisterOutputType(GetEndUserMyRequestsRiskAssessmentRiskRuleArrayOutput{})
+	pulumi.RegisterOutputType(GetEntitlementBundleEntitlementOutput{})
+	pulumi.RegisterOutputType(GetEntitlementBundleEntitlementArrayOutput{})
+	pulumi.RegisterOutputType(GetEntitlementBundleEntitlementValueOutput{})
+	pulumi.RegisterOutputType(GetEntitlementBundleEntitlementValueArrayOutput{})
+	pulumi.RegisterOutputType(GetEntitlementBundleTargetOutput{})
+	pulumi.RegisterOutputType(GetEntitlementBundleTargetPtrOutput{})
+	pulumi.RegisterOutputType(GetEntitlementParentOutput{})
+	pulumi.RegisterOutputType(GetEntitlementParentPtrOutput{})
+	pulumi.RegisterOutputType(GetEntitlementValueOutput{})
+	pulumi.RegisterOutputType(GetEntitlementValueArrayOutput{})
 	pulumi.RegisterOutputType(GetFeaturesFeatureOutput{})
 	pulumi.RegisterOutputType(GetFeaturesFeatureArrayOutput{})
 	pulumi.RegisterOutputType(GetFeaturesFeatureStageOutput{})
@@ -7730,6 +23762,70 @@ func init() {
 	pulumi.RegisterOutputType(GetOrgMetadataDomainsPtrOutput{})
 	pulumi.RegisterOutputType(GetOrgMetadataSettingsOutput{})
 	pulumi.RegisterOutputType(GetOrgMetadataSettingsPtrOutput{})
+	pulumi.RegisterOutputType(GetPrincipalEntitlementsDataOutput{})
+	pulumi.RegisterOutputType(GetPrincipalEntitlementsDataArrayOutput{})
+	pulumi.RegisterOutputType(GetPrincipalEntitlementsDataParentOutput{})
+	pulumi.RegisterOutputType(GetPrincipalEntitlementsDataParentPtrOutput{})
+	pulumi.RegisterOutputType(GetPrincipalEntitlementsDataTargetPrincipalOutput{})
+	pulumi.RegisterOutputType(GetPrincipalEntitlementsDataTargetPrincipalPtrOutput{})
+	pulumi.RegisterOutputType(GetPrincipalEntitlementsDataValueOutput{})
+	pulumi.RegisterOutputType(GetPrincipalEntitlementsDataValueArrayOutput{})
+	pulumi.RegisterOutputType(GetPrincipalEntitlementsParentOutput{})
+	pulumi.RegisterOutputType(GetPrincipalEntitlementsParentPtrOutput{})
+	pulumi.RegisterOutputType(GetPrincipalEntitlementsTargetPrincipalOutput{})
+	pulumi.RegisterOutputType(GetPrincipalEntitlementsTargetPrincipalPtrOutput{})
+	pulumi.RegisterOutputType(GetRequestConditionAccessScopeSettingsOutput{})
+	pulumi.RegisterOutputType(GetRequestConditionAccessScopeSettingsPtrOutput{})
+	pulumi.RegisterOutputType(GetRequestConditionAccessScopeSettingsIdOutput{})
+	pulumi.RegisterOutputType(GetRequestConditionAccessScopeSettingsIdArrayOutput{})
+	pulumi.RegisterOutputType(GetRequestConditionRequesterSettingsOutput{})
+	pulumi.RegisterOutputType(GetRequestConditionRequesterSettingsPtrOutput{})
+	pulumi.RegisterOutputType(GetRequestConditionRequesterSettingsIdOutput{})
+	pulumi.RegisterOutputType(GetRequestConditionRequesterSettingsIdArrayOutput{})
+	pulumi.RegisterOutputType(GetRequestSettingOrganizationRequestExperienceOutput{})
+	pulumi.RegisterOutputType(GetRequestSettingOrganizationRequestExperienceArrayOutput{})
+	pulumi.RegisterOutputType(GetRequestSettingResourceRequestOnBehalfOfSettingsOutput{})
+	pulumi.RegisterOutputType(GetRequestSettingResourceRequestOnBehalfOfSettingsPtrOutput{})
+	pulumi.RegisterOutputType(GetRequestSettingResourceRequestOnBehalfOfSettingsOnlyForOutput{})
+	pulumi.RegisterOutputType(GetRequestSettingResourceRequestOnBehalfOfSettingsOnlyForArrayOutput{})
+	pulumi.RegisterOutputType(GetRequestSettingResourceRiskSettingsOutput{})
+	pulumi.RegisterOutputType(GetRequestSettingResourceRiskSettingsPtrOutput{})
+	pulumi.RegisterOutputType(GetRequestSettingResourceRiskSettingsDefaultSettingOutput{})
+	pulumi.RegisterOutputType(GetRequestSettingResourceRiskSettingsDefaultSettingPtrOutput{})
+	pulumi.RegisterOutputType(GetRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsOutput{})
+	pulumi.RegisterOutputType(GetRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsPtrOutput{})
+	pulumi.RegisterOutputType(GetRequestSettingResourceValidAccessDurationSettingsOutput{})
+	pulumi.RegisterOutputType(GetRequestSettingResourceValidAccessDurationSettingsPtrOutput{})
+	pulumi.RegisterOutputType(GetRequestSettingResourceValidAccessDurationSettingsSupportedTypeOutput{})
+	pulumi.RegisterOutputType(GetRequestSettingResourceValidAccessDurationSettingsSupportedTypeArrayOutput{})
+	pulumi.RegisterOutputType(GetRequestSettingResourceValidAccessScopeSettingOutput{})
+	pulumi.RegisterOutputType(GetRequestSettingResourceValidAccessScopeSettingArrayOutput{})
+	pulumi.RegisterOutputType(GetRequestSettingResourceValidRequesterSettingOutput{})
+	pulumi.RegisterOutputType(GetRequestSettingResourceValidRequesterSettingArrayOutput{})
+	pulumi.RegisterOutputType(GetRequestV2RequestedOutput{})
+	pulumi.RegisterOutputType(GetRequestV2RequestedPtrOutput{})
+	pulumi.RegisterOutputType(GetRequestV2RequestedByOutput{})
+	pulumi.RegisterOutputType(GetRequestV2RequestedByPtrOutput{})
+	pulumi.RegisterOutputType(GetRequestV2RequestedForOutput{})
+	pulumi.RegisterOutputType(GetRequestV2RequestedForPtrOutput{})
+	pulumi.RegisterOutputType(GetReviewAllReviewerLevelOutput{})
+	pulumi.RegisterOutputType(GetReviewAllReviewerLevelArrayOutput{})
+	pulumi.RegisterOutputType(GetReviewAllReviewerLevelReviewerGroupProfileOutput{})
+	pulumi.RegisterOutputType(GetReviewAllReviewerLevelReviewerGroupProfilePtrOutput{})
+	pulumi.RegisterOutputType(GetReviewAllReviewerLevelReviewerProfileOutput{})
+	pulumi.RegisterOutputType(GetReviewAllReviewerLevelReviewerProfilePtrOutput{})
+	pulumi.RegisterOutputType(GetReviewEntitlementBundleOutput{})
+	pulumi.RegisterOutputType(GetReviewEntitlementBundlePtrOutput{})
+	pulumi.RegisterOutputType(GetReviewEntitlementValueOutput{})
+	pulumi.RegisterOutputType(GetReviewEntitlementValuePtrOutput{})
+	pulumi.RegisterOutputType(GetReviewLinksOutput{})
+	pulumi.RegisterOutputType(GetReviewLinksPtrOutput{})
+	pulumi.RegisterOutputType(GetReviewNoteOutput{})
+	pulumi.RegisterOutputType(GetReviewNotePtrOutput{})
+	pulumi.RegisterOutputType(GetReviewPrincipalProfileOutput{})
+	pulumi.RegisterOutputType(GetReviewPrincipalProfilePtrOutput{})
+	pulumi.RegisterOutputType(GetReviewReviewerProfileOutput{})
+	pulumi.RegisterOutputType(GetReviewReviewerProfilePtrOutput{})
 	pulumi.RegisterOutputType(GetTemplatesEmailTemplateOutput{})
 	pulumi.RegisterOutputType(GetTemplatesEmailTemplateArrayOutput{})
 	pulumi.RegisterOutputType(GetThemesThemeOutput{})

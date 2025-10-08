@@ -7,7 +7,7 @@ import (
 	"fmt"
 
 	"github.com/blang/semver"
-	"github.com/pulumi/pulumi-okta/sdk/v5/go/okta/internal"
+	"github.com/pulumi/pulumi-okta/sdk/v6/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -53,6 +53,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Behaviour{}
 	case "okta:index/brand:Brand":
 		r = &Brand{}
+	case "okta:index/campaign:Campaign":
+		r = &Campaign{}
 	case "okta:index/captcha:Captcha":
 		r = &Captcha{}
 	case "okta:index/captchaOrgWideSettings:CaptchaOrgWideSettings":
@@ -79,6 +81,12 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &EmailSmtpServer{}
 	case "okta:index/emailTemplateSettings:EmailTemplateSettings":
 		r = &EmailTemplateSettings{}
+	case "okta:index/endUserMyRequests:EndUserMyRequests":
+		r = &EndUserMyRequests{}
+	case "okta:index/entitlement:Entitlement":
+		r = &Entitlement{}
+	case "okta:index/entitlementBundle:EntitlementBundle":
+		r = &EntitlementBundle{}
 	case "okta:index/eventHook:EventHook":
 		r = &EventHook{}
 	case "okta:index/eventHookVerification:EventHookVerification":
@@ -113,14 +121,32 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &PolicyRuleProfileEnrollment{}
 	case "okta:index/previewSigninPage:PreviewSigninPage":
 		r = &PreviewSigninPage{}
+	case "okta:index/principalRateLimits:PrincipalRateLimits":
+		r = &PrincipalRateLimits{}
+	case "okta:index/rateLimitAdminNotificationSettings:RateLimitAdminNotificationSettings":
+		r = &RateLimitAdminNotificationSettings{}
+	case "okta:index/rateLimitWarningThresholdPercentage:RateLimitWarningThresholdPercentage":
+		r = &RateLimitWarningThresholdPercentage{}
 	case "okta:index/rateLimiting:RateLimiting":
 		r = &RateLimiting{}
 	case "okta:index/realm:Realm":
 		r = &Realm{}
 	case "okta:index/realmAssignment:RealmAssignment":
 		r = &RealmAssignment{}
+	case "okta:index/requestCondition:RequestCondition":
+		r = &RequestCondition{}
+	case "okta:index/requestSequence:RequestSequence":
+		r = &RequestSequence{}
+	case "okta:index/requestSettingOrganization:RequestSettingOrganization":
+		r = &RequestSettingOrganization{}
+	case "okta:index/requestSettingResource:RequestSettingResource":
+		r = &RequestSettingResource{}
+	case "okta:index/requestV2:RequestV2":
+		r = &RequestV2{}
 	case "okta:index/resourceSet:ResourceSet":
 		r = &ResourceSet{}
+	case "okta:index/review:Review":
+		r = &Review{}
 	case "okta:index/roleSubscription:RoleSubscription":
 		r = &RoleSubscription{}
 	case "okta:index/securityNotificationEmails:SecurityNotificationEmails":
@@ -256,6 +282,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"okta",
+		"index/campaign",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"okta",
 		"index/captcha",
 		&module{version},
 	)
@@ -317,6 +348,21 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"okta",
 		"index/emailTemplateSettings",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"okta",
+		"index/endUserMyRequests",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"okta",
+		"index/entitlement",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"okta",
+		"index/entitlementBundle",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -406,6 +452,21 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"okta",
+		"index/principalRateLimits",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"okta",
+		"index/rateLimitAdminNotificationSettings",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"okta",
+		"index/rateLimitWarningThresholdPercentage",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"okta",
 		"index/rateLimiting",
 		&module{version},
 	)
@@ -421,7 +482,37 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"okta",
+		"index/requestCondition",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"okta",
+		"index/requestSequence",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"okta",
+		"index/requestSettingOrganization",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"okta",
+		"index/requestSettingResource",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"okta",
+		"index/requestV2",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"okta",
 		"index/resourceSet",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"okta",
+		"index/review",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

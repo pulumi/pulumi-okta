@@ -14,26 +14,6 @@ namespace Pulumi.Okta
     /// This resource allows you to configure the client-based rate limit and rate limiting communications settings.
     /// &gt; **WARNING:** This resource is deprecated and will be removed in a future release. A new resource to manage rate limiting settings will be implemented in the future.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Okta = Pulumi.Okta;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Okta.RateLimiting("example", new()
-    ///     {
-    ///         Login = "ENFORCE",
-    ///         Authorize = "ENFORCE",
-    ///         CommunicationsEnabled = true,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// ```sh
@@ -43,23 +23,14 @@ namespace Pulumi.Okta
     [OktaResourceType("okta:index/rateLimiting:RateLimiting")]
     public partial class RateLimiting : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Called during authentication. Valid values: `ENFORCE` *(Enforce limit and log per client (recommended))*, `DISABLE` *(Do nothing (not recommended))*, `PREVIEW` *(Log per client)*.
-        /// </summary>
-        [Output("authorize")]
-        public Output<string> Authorize { get; private set; } = null!;
+        [Output("defaultMode")]
+        public Output<string> DefaultMode { get; private set; } = null!;
 
         /// <summary>
-        /// Enable or disable rate limiting communications. By default, it is `true`.
+        /// A map of Per-Client Rate Limit Use Case to the applicable PerClientRateLimitMode.Overrides the defaultMode property for the specified use cases.
         /// </summary>
-        [Output("communicationsEnabled")]
-        public Output<bool?> CommunicationsEnabled { get; private set; } = null!;
-
-        /// <summary>
-        /// Called when accessing the Okta hosted login page. Valid values: `ENFORCE` *(Enforce limit and log per client (recommended))*, `DISABLE` *(Do nothing (not recommended))*, `PREVIEW` *(Log per client)*.
-        /// </summary>
-        [Output("login")]
-        public Output<string> Login { get; private set; } = null!;
+        [Output("useCaseModeOverrides")]
+        public Output<Outputs.RateLimitingUseCaseModeOverrides?> UseCaseModeOverrides { get; private set; } = null!;
 
 
         /// <summary>
@@ -107,23 +78,14 @@ namespace Pulumi.Okta
 
     public sealed class RateLimitingArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Called during authentication. Valid values: `ENFORCE` *(Enforce limit and log per client (recommended))*, `DISABLE` *(Do nothing (not recommended))*, `PREVIEW` *(Log per client)*.
-        /// </summary>
-        [Input("authorize", required: true)]
-        public Input<string> Authorize { get; set; } = null!;
+        [Input("defaultMode", required: true)]
+        public Input<string> DefaultMode { get; set; } = null!;
 
         /// <summary>
-        /// Enable or disable rate limiting communications. By default, it is `true`.
+        /// A map of Per-Client Rate Limit Use Case to the applicable PerClientRateLimitMode.Overrides the defaultMode property for the specified use cases.
         /// </summary>
-        [Input("communicationsEnabled")]
-        public Input<bool>? CommunicationsEnabled { get; set; }
-
-        /// <summary>
-        /// Called when accessing the Okta hosted login page. Valid values: `ENFORCE` *(Enforce limit and log per client (recommended))*, `DISABLE` *(Do nothing (not recommended))*, `PREVIEW` *(Log per client)*.
-        /// </summary>
-        [Input("login", required: true)]
-        public Input<string> Login { get; set; } = null!;
+        [Input("useCaseModeOverrides")]
+        public Input<Inputs.RateLimitingUseCaseModeOverridesArgs>? UseCaseModeOverrides { get; set; }
 
         public RateLimitingArgs()
         {
@@ -133,23 +95,14 @@ namespace Pulumi.Okta
 
     public sealed class RateLimitingState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Called during authentication. Valid values: `ENFORCE` *(Enforce limit and log per client (recommended))*, `DISABLE` *(Do nothing (not recommended))*, `PREVIEW` *(Log per client)*.
-        /// </summary>
-        [Input("authorize")]
-        public Input<string>? Authorize { get; set; }
+        [Input("defaultMode")]
+        public Input<string>? DefaultMode { get; set; }
 
         /// <summary>
-        /// Enable or disable rate limiting communications. By default, it is `true`.
+        /// A map of Per-Client Rate Limit Use Case to the applicable PerClientRateLimitMode.Overrides the defaultMode property for the specified use cases.
         /// </summary>
-        [Input("communicationsEnabled")]
-        public Input<bool>? CommunicationsEnabled { get; set; }
-
-        /// <summary>
-        /// Called when accessing the Okta hosted login page. Valid values: `ENFORCE` *(Enforce limit and log per client (recommended))*, `DISABLE` *(Do nothing (not recommended))*, `PREVIEW` *(Log per client)*.
-        /// </summary>
-        [Input("login")]
-        public Input<string>? Login { get; set; }
+        [Input("useCaseModeOverrides")]
+        public Input<Inputs.RateLimitingUseCaseModeOverridesGetArgs>? UseCaseModeOverrides { get; set; }
 
         public RateLimitingState()
         {
