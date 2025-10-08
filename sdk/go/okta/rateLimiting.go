@@ -16,6 +16,34 @@ import (
 // This resource allows you to configure the client-based rate limit and rate limiting communications settings.
 // > **WARNING:** This resource is deprecated and will be removed in a future release. A new resource to manage rate limiting settings will be implemented in the future.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v6/go/okta"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := okta.NewRateLimiting(ctx, "example", &okta.RateLimitingArgs{
+//				Login:                 "ENFORCE",
+//				Authorize:             "ENFORCE",
+//				CommunicationsEnabled: true,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // ```sh

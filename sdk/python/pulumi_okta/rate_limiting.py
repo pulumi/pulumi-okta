@@ -103,6 +103,18 @@ class RateLimiting(pulumi.CustomResource):
         This resource allows you to configure the client-based rate limit and rate limiting communications settings.
         > **WARNING:** This resource is deprecated and will be removed in a future release. A new resource to manage rate limiting settings will be implemented in the future.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        example = okta.RateLimiting("example",
+            login="ENFORCE",
+            authorize="ENFORCE",
+            communications_enabled=True)
+        ```
+
         ## Import
 
         ```sh
@@ -123,6 +135,18 @@ class RateLimiting(pulumi.CustomResource):
         Manages rate limiting.
         This resource allows you to configure the client-based rate limit and rate limiting communications settings.
         > **WARNING:** This resource is deprecated and will be removed in a future release. A new resource to manage rate limiting settings will be implemented in the future.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        example = okta.RateLimiting("example",
+            login="ENFORCE",
+            authorize="ENFORCE",
+            communications_enabled=True)
+        ```
 
         ## Import
 

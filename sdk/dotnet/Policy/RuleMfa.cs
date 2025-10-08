@@ -58,13 +58,13 @@ namespace Pulumi.Okta.Policy
         public Output<string?> NetworkConnection { get; private set; } = null!;
 
         /// <summary>
-        /// Required if `network_connection` = `ZONE`. Indicates the network zones to exclude.
+        /// Required if `NetworkConnection` = `ZONE`. Indicates the network zones to exclude.
         /// </summary>
         [Output("networkExcludes")]
         public Output<ImmutableArray<string>> NetworkExcludes { get; private set; } = null!;
 
         /// <summary>
-        /// Required if `network_connection` = `ZONE`. Indicates the network zones to include.
+        /// Required if `NetworkConnection` = `ZONE`. Indicates the network zones to include.
         /// </summary>
         [Output("networkIncludes")]
         public Output<ImmutableArray<string>> NetworkIncludes { get; private set; } = null!;
@@ -191,7 +191,7 @@ namespace Pulumi.Okta.Policy
         private InputList<string>? _networkExcludes;
 
         /// <summary>
-        /// Required if `network_connection` = `ZONE`. Indicates the network zones to exclude.
+        /// Required if `NetworkConnection` = `ZONE`. Indicates the network zones to exclude.
         /// </summary>
         public InputList<string> NetworkExcludes
         {
@@ -203,7 +203,7 @@ namespace Pulumi.Okta.Policy
         private InputList<string>? _networkIncludes;
 
         /// <summary>
-        /// Required if `network_connection` = `ZONE`. Indicates the network zones to include.
+        /// Required if `NetworkConnection` = `ZONE`. Indicates the network zones to include.
         /// </summary>
         public InputList<string> NetworkIncludes
         {
@@ -301,7 +301,7 @@ namespace Pulumi.Okta.Policy
         private InputList<string>? _networkExcludes;
 
         /// <summary>
-        /// Required if `network_connection` = `ZONE`. Indicates the network zones to exclude.
+        /// Required if `NetworkConnection` = `ZONE`. Indicates the network zones to exclude.
         /// </summary>
         public InputList<string> NetworkExcludes
         {
@@ -313,7 +313,7 @@ namespace Pulumi.Okta.Policy
         private InputList<string>? _networkIncludes;
 
         /// <summary>
-        /// Required if `network_connection` = `ZONE`. Indicates the network zones to include.
+        /// Required if `NetworkConnection` = `ZONE`. Indicates the network zones to include.
         /// </summary>
         public InputList<string> NetworkIncludes
         {

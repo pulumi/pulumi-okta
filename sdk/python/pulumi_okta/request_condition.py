@@ -370,6 +370,24 @@ class RequestCondition(pulumi.CustomResource):
         """
         Manages request conditions. This resource allows you to create and configure an Okta [request-condition](https://developer.okta.com/docs/api/iga/openapi/governance.requests.admin.v2/tag/Request-Conditions/#tag/Request-Conditions).
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        example = okta.RequestCondition("example",
+            resource_id="<resource_id>",
+            approval_sequence_id="<approval_sequence_id>",
+            name="<name>",
+            access_scope_settings=[{
+                "type": "RESOURCE_DEFAULT",
+            }],
+            requester_settings=[{
+                "type": "EVERYONE",
+            }])
+        ```
+
         ## Import
 
         ```sh
@@ -393,6 +411,24 @@ class RequestCondition(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages request conditions. This resource allows you to create and configure an Okta [request-condition](https://developer.okta.com/docs/api/iga/openapi/governance.requests.admin.v2/tag/Request-Conditions/#tag/Request-Conditions).
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        example = okta.RequestCondition("example",
+            resource_id="<resource_id>",
+            approval_sequence_id="<approval_sequence_id>",
+            name="<name>",
+            access_scope_settings=[{
+                "type": "RESOURCE_DEFAULT",
+            }],
+            requester_settings=[{
+                "type": "EVERYONE",
+            }])
+        ```
 
         ## Import
 

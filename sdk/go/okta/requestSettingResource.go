@@ -14,6 +14,47 @@ import (
 
 // Manages request settings. This resource allows you to read and configure an Okta [request-setting](https://developer.okta.com/docs/api/iga/openapi/governance.requests.admin.v2/tag/Request-Settings/#tag/Request-Settings/operation/getRequestSettingsV2).
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v6/go/okta"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := okta.NewRequestSettingResource(ctx, "test", &okta.RequestSettingResourceArgs{
+//				ResourceId: "<resource_id>",
+//				RiskSettings: okta.RequestSettingResourceRiskSettingsArgs{
+//					map[string]interface{}{
+//						"defaultSetting": []map[string]interface{}{
+//							map[string]interface{}{
+//								"requestSubmissionType": "ALLOWED_WITH_OVERRIDES",
+//								"approvalSequenceId":    "<approval_sequence_id>",
+//							},
+//						},
+//					},
+//				},
+//				RequestOnBehalfOfSettings: okta.RequestSettingResourceRequestOnBehalfOfSettingsArgs{
+//					map[string]interface{}{
+//						"allowed": true,
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // ```sh

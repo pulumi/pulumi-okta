@@ -14,6 +14,26 @@ namespace Pulumi.Okta
     /// This resource allows you to configure the client-based rate limit and rate limiting communications settings.
     /// &gt; **WARNING:** This resource is deprecated and will be removed in a future release. A new resource to manage rate limiting settings will be implemented in the future.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Okta = Pulumi.Okta;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Okta.RateLimiting("example", new()
+    ///     {
+    ///         Login = "ENFORCE",
+    ///         Authorize = "ENFORCE",
+    ///         CommunicationsEnabled = true,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// ```sh

@@ -21,6 +21,47 @@ import javax.annotation.Nullable;
 /**
  * Manages request conditions. This resource allows you to create and configure an Okta [request-condition](https://developer.okta.com/docs/api/iga/openapi/governance.requests.admin.v2/tag/Request-Conditions/#tag/Request-Conditions).
  * 
+ * ## Example Usage
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.okta.RequestCondition;
+ * import com.pulumi.okta.RequestConditionArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new RequestCondition("example", RequestConditionArgs.builder()
+ *             .resourceId("<resource_id>")
+ *             .approvalSequenceId("<approval_sequence_id>")
+ *             .name("<name>")
+ *             .accessScopeSettings(RequestConditionAccessScopeSettingsArgs.builder()
+ *                 .type("RESOURCE_DEFAULT")
+ *                 .build())
+ *             .requesterSettings(RequestConditionRequesterSettingsArgs.builder()
+ *                 .type("EVERYONE")
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
  * ```sh

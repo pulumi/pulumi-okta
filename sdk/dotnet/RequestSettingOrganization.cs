@@ -12,6 +12,40 @@ namespace Pulumi.Okta
     /// <summary>
     /// Manages request settings. This resource allows you to read and configure an Okta [request-setting](https://developer.okta.com/docs/api/iga/openapi/governance.requests.admin.v2/tag/Request-Settings/#tag/Request-Settings/operation/updateOrgRequestSettingsV2).
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Okta = Pulumi.Okta;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Okta.RequestCondition("example", new()
+    ///     {
+    ///         ResourceId = "&lt;resource_id&gt;",
+    ///         ApprovalSequenceId = "&lt;approval_sequence_id&gt;",
+    ///         Name = "&lt;name&gt;",
+    ///         AccessScopeSettings = new[]
+    ///         {
+    ///             
+    ///             {
+    ///                 { "type", "RESOURCE_DEFAULT" },
+    ///             },
+    ///         },
+    ///         RequesterSettings = new[]
+    ///         {
+    ///             
+    ///             {
+    ///                 { "type", "EVERYONE" },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// ```sh

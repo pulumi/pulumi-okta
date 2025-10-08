@@ -100,7 +100,7 @@ namespace Pulumi.Okta
         }
 
         /// <summary>
-        /// ID of the network zone to retrieve, conflicts with `name`.
+        /// ID of the network zone to retrieve, conflicts with `Name`.
         /// </summary>
         [Input("id")]
         public string? Id { get; set; }
@@ -130,7 +130,7 @@ namespace Pulumi.Okta
         }
 
         /// <summary>
-        /// Name of the network zone to retrieve, conflicts with `id`.
+        /// Name of the network zone to retrieve, conflicts with `Id`.
         /// </summary>
         [Input("name")]
         public string? Name { get; set; }
@@ -156,7 +156,7 @@ namespace Pulumi.Okta
         }
 
         /// <summary>
-        /// ID of the network zone to retrieve, conflicts with `name`.
+        /// ID of the network zone to retrieve, conflicts with `Name`.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
@@ -186,7 +186,7 @@ namespace Pulumi.Okta
         }
 
         /// <summary>
-        /// Name of the network zone to retrieve, conflicts with `id`.
+        /// Name of the network zone to retrieve, conflicts with `Id`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -222,7 +222,7 @@ namespace Pulumi.Okta
         /// </summary>
         public readonly ImmutableArray<string> Gateways;
         /// <summary>
-        /// ID of the network zone to retrieve, conflicts with `name`.
+        /// ID of the network zone to retrieve, conflicts with `Name`.
         /// </summary>
         public readonly string? Id;
         /// <summary>
@@ -234,11 +234,11 @@ namespace Pulumi.Okta
         /// </summary>
         public readonly ImmutableArray<string> IpServiceCategoriesIncludes;
         /// <summary>
-        /// Name of the network zone to retrieve, conflicts with `id`.
+        /// Name of the network zone to retrieve, conflicts with `Id`.
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples. Can not be set if `usage` is set to `BLOCKLIST`. Use with type `IP`
+        /// Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples. Can not be set if `Usage` is set to `BLOCKLIST`. Use with type `IP`
         /// </summary>
         public readonly ImmutableArray<string> Proxies;
         /// <summary>

@@ -12,6 +12,87 @@ namespace Pulumi.Okta
     /// <summary>
     /// Manage the customized signin page of a brand
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Okta = Pulumi.Okta;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var test = new Okta.Brand("test", new()
+    ///     {
+    ///         Name = "testBrand",
+    ///         Locale = "en",
+    ///     });
+    /// 
+    ///     var testCustomizedSigninPage = new Okta.CustomizedSigninPage("test", new()
+    ///     {
+    ///         BrandId = oktaBrand.Test.Id,
+    ///         PageContent = @"&lt;!DOCTYPE html PUBLIC ""-//W3C//DTD HTML 4.01//EN"" ""http://www.w3.org/TR/html4/strict.dtd""&gt;
+    /// &lt;html&gt;
+    /// &lt;head&gt;
+    ///     &lt;meta http-equiv=""Content-Type"" content=""text/html; charset=UTF-8""&gt;
+    ///     &lt;meta name=""viewport"" content=""width=device-width, initial-scale=1.0"" /&gt;
+    ///     &lt;meta name=""robots"" content=""noindex,nofollow"" /&gt;
+    ///     &lt;!-- Styles generated from theme --&gt;
+    ///     &lt;link href=""{{themedStylesUrl}}"" rel=""stylesheet"" type=""text/css""&gt;
+    ///     &lt;!-- Favicon from theme --&gt;
+    ///     &lt;link rel=""shortcut icon"" href=""{{faviconUrl}}"" type=""image/x-icon""/&gt;
+    /// 
+    ///     &lt;title&gt;{{pageTitle}}&lt;/title&gt;
+    ///     {{{SignInWidgetResources}}}
+    /// 
+    ///     &lt;style nonce=""{{nonceValue}}""&gt;
+    ///         #login-bg-image-id {
+    ///             background-image: {{bgImageUrl}}
+    ///         }
+    ///     &lt;/style&gt;
+    /// &lt;/head&gt;
+    /// &lt;body&gt;
+    ///     &lt;div id=""login-bg-image-id"" class=""login-bg-image tb--background""&gt;&lt;/div&gt;
+    ///     &lt;div id=""okta-login-container""&gt;&lt;/div&gt;
+    /// 
+    ///     &lt;!--
+    ///         ""OktaUtil"" defines a global OktaUtil object
+    ///         that contains methods used to complete the Okta login flow.
+    ///      --&gt;
+    ///     {{{OktaUtil}}}
+    /// 
+    ///     &lt;script type=""text/javascript"" nonce=""{{nonceValue}}""&gt;
+    ///         // ""config"" object contains default widget configuration
+    ///         // with any custom overrides defined in your admin settings.
+    ///         var config = OktaUtil.getSignInWidgetConfig();
+    /// 
+    ///         // Render the Okta Sign-In Widget
+    ///         var oktaSignIn = new OktaSignIn(config);
+    ///         oktaSignIn.renderEl({ el: '#okta-login-container' },
+    ///             OktaUtil.completeLogin,
+    ///             function(error) {
+    ///                 // Logs errors that occur when configuring the widget.
+    ///                 // Remove or replace this with your own custom error handler.
+    ///                 console.log(error.message, error);
+    ///             }
+    ///         );
+    ///     &lt;/script&gt;
+    /// &lt;/body&gt;
+    /// &lt;/html&gt;
+    /// ",
+    ///         WidgetVersion = "^6",
+    ///         WidgetCustomizations = new[]
+    ///         {
+    ///             
+    ///             {
+    ///                 { "widgetGeneration", "G3" },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// ```sh

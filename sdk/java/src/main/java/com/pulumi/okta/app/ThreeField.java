@@ -22,6 +22,43 @@ import javax.annotation.Nullable;
  * 		activated or deactivated in accordance with the &#39;status&#39; change. Then, all
  * 		other arguments that changed will be applied.
  * 
+ * ## Example Usage
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.okta.app.ThreeField;
+ * import com.pulumi.okta.app.ThreeFieldArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new ThreeField("example", ThreeFieldArgs.builder()
+ *             .label("Example App")
+ *             .signOnUrl("https://example.com/login.html")
+ *             .signOnRedirectUrl("https://example.com")
+ *             .revealPassword(true)
+ *             .credentialsScheme("EDIT_USERNAME_AND_PASSWORD")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
  * ```sh
@@ -284,14 +321,14 @@ public class ThreeField extends com.pulumi.resources.CustomResource {
         return this.passwordSelector;
     }
     /**
-     * Allow user to reveal password. It can not be set to `true` if `credentials_scheme` is `ADMIN_SETS_CREDENTIALS`, `SHARED_USERNAME_AND_PASSWORD` or `EXTERNAL_PASSWORD_SYNC`.
+     * Allow user to reveal password. It can not be set to `true` if `credentialsScheme` is `ADMIN_SETS_CREDENTIALS`, `SHARED_USERNAME_AND_PASSWORD` or `EXTERNAL_PASSWORD_SYNC`.
      * 
      */
     @Export(name="revealPassword", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> revealPassword;
 
     /**
-     * @return Allow user to reveal password. It can not be set to `true` if `credentials_scheme` is `ADMIN_SETS_CREDENTIALS`, `SHARED_USERNAME_AND_PASSWORD` or `EXTERNAL_PASSWORD_SYNC`.
+     * @return Allow user to reveal password. It can not be set to `true` if `credentialsScheme` is `ADMIN_SETS_CREDENTIALS`, `SHARED_USERNAME_AND_PASSWORD` or `EXTERNAL_PASSWORD_SYNC`.
      * 
      */
     public Output<Optional<Boolean>> revealPassword() {

@@ -11,6 +11,19 @@ import * as utilities from "./utilities";
  * This resource allows you to configure the client-based rate limit and rate limiting communications settings.
  * > **WARNING:** This resource is deprecated and will be removed in a future release. A new resource to manage rate limiting settings will be implemented in the future.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const example = new okta.RateLimiting("example", {
+ *     login: "ENFORCE",
+ *     authorize: "ENFORCE",
+ *     communicationsEnabled: true,
+ * });
+ * ```
+ *
  * ## Import
  *
  * ```sh

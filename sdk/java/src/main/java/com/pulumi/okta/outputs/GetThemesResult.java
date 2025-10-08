@@ -23,7 +23,7 @@ public final class GetThemesResult {
      */
     private String id;
     /**
-     * @return List of `okta_them` belonging to the brand in the organization
+     * @return List of `oktaThem` belonging to the brand in the organization
      * 
      */
     private List<GetThemesTheme> themes;
@@ -44,7 +44,7 @@ public final class GetThemesResult {
         return this.id;
     }
     /**
-     * @return List of `okta_them` belonging to the brand in the organization
+     * @return List of `oktaThem` belonging to the brand in the organization
      * 
      */
     public List<GetThemesTheme> themes() {

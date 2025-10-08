@@ -14,6 +14,44 @@ import (
 
 // Manages request conditions. This resource allows you to create and configure an Okta [request-condition](https://developer.okta.com/docs/api/iga/openapi/governance.requests.admin.v2/tag/Request-Conditions/#tag/Request-Conditions).
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v6/go/okta"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := okta.NewRequestCondition(ctx, "example", &okta.RequestConditionArgs{
+//				ResourceId:         pulumi.String("<resource_id>"),
+//				ApprovalSequenceId: pulumi.String("<approval_sequence_id>"),
+//				Name:               pulumi.String("<name>"),
+//				AccessScopeSettings: okta.RequestConditionAccessScopeSettingsArgs{
+//					map[string]interface{}{
+//						"type": "RESOURCE_DEFAULT",
+//					},
+//				},
+//				RequesterSettings: okta.RequestConditionRequesterSettingsArgs{
+//					map[string]interface{}{
+//						"type": "EVERYONE",
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // ```sh

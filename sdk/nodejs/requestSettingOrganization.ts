@@ -7,6 +7,25 @@ import * as utilities from "./utilities";
 /**
  * Manages request settings. This resource allows you to read and configure an Okta [request-setting](https://developer.okta.com/docs/api/iga/openapi/governance.requests.admin.v2/tag/Request-Settings/#tag/Request-Settings/operation/updateOrgRequestSettingsV2).
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const example = new okta.RequestCondition("example", {
+ *     resourceId: "<resource_id>",
+ *     approvalSequenceId: "<approval_sequence_id>",
+ *     name: "<name>",
+ *     accessScopeSettings: [{
+ *         type: "RESOURCE_DEFAULT",
+ *     }],
+ *     requesterSettings: [{
+ *         type: "EVERYONE",
+ *     }],
+ * });
+ * ```
+ *
  * ## Import
  *
  * ```sh

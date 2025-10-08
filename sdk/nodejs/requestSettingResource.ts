@@ -9,6 +9,26 @@ import * as utilities from "./utilities";
 /**
  * Manages request settings. This resource allows you to read and configure an Okta [request-setting](https://developer.okta.com/docs/api/iga/openapi/governance.requests.admin.v2/tag/Request-Settings/#tag/Request-Settings/operation/getRequestSettingsV2).
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const test = new okta.RequestSettingResource("test", {
+ *     resourceId: "<resource_id>",
+ *     riskSettings: [{
+ *         defaultSetting: [{
+ *             requestSubmissionType: "ALLOWED_WITH_OVERRIDES",
+ *             approvalSequenceId: "<approval_sequence_id>",
+ *         }],
+ *     }],
+ *     requestOnBehalfOfSettings: [{
+ *         allowed: true,
+ *     }],
+ * });
+ * ```
+ *
  * ## Import
  *
  * ```sh

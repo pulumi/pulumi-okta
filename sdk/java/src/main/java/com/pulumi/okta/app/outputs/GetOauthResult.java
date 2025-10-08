@@ -61,7 +61,7 @@ public final class GetOauthResult {
     private @Nullable String id;
     /**
      * @return The label of the app to retrieve, conflicts with
-     * 			label_prefix and id. Label uses the ?q=\n\n query parameter exposed by
+     * 			labelPrefix and id. Label uses the ?q=\n\n query parameter exposed by
      * 			Okta&#39;s List Apps API. The API will search both name and label using that
      * 			query. Therefore similarily named and labeled apps may be returned in the query
      * 			and have the unitended result of associating the wrong app with this data
@@ -226,7 +226,7 @@ public final class GetOauthResult {
     }
     /**
      * @return The label of the app to retrieve, conflicts with
-     * 			label_prefix and id. Label uses the ?q=\n\n query parameter exposed by
+     * 			labelPrefix and id. Label uses the ?q=\n\n query parameter exposed by
      * 			Okta&#39;s List Apps API. The API will search both name and label using that
      * 			query. Therefore similarily named and labeled apps may be returned in the query
      * 			and have the unitended result of associating the wrong app with this data

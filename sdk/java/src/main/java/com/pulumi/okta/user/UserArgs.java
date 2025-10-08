@@ -525,10 +525,10 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
      * Do not populate user roles information (prevents additional API call)
      * 
      * @deprecated
-     * Because admin_roles has been removed, this attribute is a no op and will be removed
+     * Because adminRoles has been removed, this attribute is a no op and will be removed
      * 
      */
-    @Deprecated /* Because admin_roles has been removed, this attribute is a no op and will be removed */
+    @Deprecated /* Because adminRoles has been removed, this attribute is a no op and will be removed */
     @Import(name="skipRoles")
     private @Nullable Output<Boolean> skipRoles;
 
@@ -536,10 +536,10 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
      * @return Do not populate user roles information (prevents additional API call)
      * 
      * @deprecated
-     * Because admin_roles has been removed, this attribute is a no op and will be removed
+     * Because adminRoles has been removed, this attribute is a no op and will be removed
      * 
      */
-    @Deprecated /* Because admin_roles has been removed, this attribute is a no op and will be removed */
+    @Deprecated /* Because adminRoles has been removed, this attribute is a no op and will be removed */
     public Optional<Output<Boolean>> skipRoles() {
         return Optional.ofNullable(this.skipRoles);
     }
@@ -1426,10 +1426,10 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * Because admin_roles has been removed, this attribute is a no op and will be removed
+         * Because adminRoles has been removed, this attribute is a no op and will be removed
          * 
          */
-        @Deprecated /* Because admin_roles has been removed, this attribute is a no op and will be removed */
+        @Deprecated /* Because adminRoles has been removed, this attribute is a no op and will be removed */
         public Builder skipRoles(@Nullable Output<Boolean> skipRoles) {
             $.skipRoles = skipRoles;
             return this;
@@ -1441,10 +1441,10 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * Because admin_roles has been removed, this attribute is a no op and will be removed
+         * Because adminRoles has been removed, this attribute is a no op and will be removed
          * 
          */
-        @Deprecated /* Because admin_roles has been removed, this attribute is a no op and will be removed */
+        @Deprecated /* Because adminRoles has been removed, this attribute is a no op and will be removed */
         public Builder skipRoles(Boolean skipRoles) {
             return skipRoles(Output.of(skipRoles));
         }

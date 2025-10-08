@@ -16,6 +16,28 @@ namespace Pulumi.Okta.App
     /// 		activated or deactivated in accordance with the 'status' change. Then, all
     /// 		other arguments that changed will be applied.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Okta = Pulumi.Okta;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Okta.App.ThreeField("example", new()
+    ///     {
+    ///         Label = "Example App",
+    ///         SignOnUrl = "https://example.com/login.html",
+    ///         SignOnRedirectUrl = "https://example.com",
+    ///         RevealPassword = true,
+    ///         CredentialsScheme = "EDIT_USERNAME_AND_PASSWORD",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// ```sh
@@ -38,7 +60,7 @@ namespace Pulumi.Okta.App
         public Output<string?> AccessibilityLoginRedirectUrl { get; private set; } = null!;
 
         /// <summary>
-        /// Enable self service. Default is `false`
+        /// Enable self service. Default is `False`
         /// </summary>
         [Output("accessibilitySelfService")]
         public Output<bool?> AccessibilitySelfService { get; private set; } = null!;
@@ -134,7 +156,7 @@ namespace Pulumi.Okta.App
         public Output<string> PasswordSelector { get; private set; } = null!;
 
         /// <summary>
-        /// Allow user to reveal password. It can not be set to `true` if `credentials_scheme` is `ADMIN_SETS_CREDENTIALS`, `SHARED_USERNAME_AND_PASSWORD` or `EXTERNAL_PASSWORD_SYNC`.
+        /// Allow user to reveal password. It can not be set to `True` if `CredentialsScheme` is `ADMIN_SETS_CREDENTIALS`, `SHARED_USERNAME_AND_PASSWORD` or `EXTERNAL_PASSWORD_SYNC`.
         /// </summary>
         [Output("revealPassword")]
         public Output<bool?> RevealPassword { get; private set; } = null!;
@@ -264,7 +286,7 @@ namespace Pulumi.Okta.App
         public Input<string>? AccessibilityLoginRedirectUrl { get; set; }
 
         /// <summary>
-        /// Enable self service. Default is `false`
+        /// Enable self service. Default is `False`
         /// </summary>
         [Input("accessibilitySelfService")]
         public Input<bool>? AccessibilitySelfService { get; set; }
@@ -348,7 +370,7 @@ namespace Pulumi.Okta.App
         public Input<string> PasswordSelector { get; set; } = null!;
 
         /// <summary>
-        /// Allow user to reveal password. It can not be set to `true` if `credentials_scheme` is `ADMIN_SETS_CREDENTIALS`, `SHARED_USERNAME_AND_PASSWORD` or `EXTERNAL_PASSWORD_SYNC`.
+        /// Allow user to reveal password. It can not be set to `True` if `CredentialsScheme` is `ADMIN_SETS_CREDENTIALS`, `SHARED_USERNAME_AND_PASSWORD` or `EXTERNAL_PASSWORD_SYNC`.
         /// </summary>
         [Input("revealPassword")]
         public Input<bool>? RevealPassword { get; set; }
@@ -434,7 +456,7 @@ namespace Pulumi.Okta.App
         public Input<string>? AccessibilityLoginRedirectUrl { get; set; }
 
         /// <summary>
-        /// Enable self service. Default is `false`
+        /// Enable self service. Default is `False`
         /// </summary>
         [Input("accessibilitySelfService")]
         public Input<bool>? AccessibilitySelfService { get; set; }
@@ -530,7 +552,7 @@ namespace Pulumi.Okta.App
         public Input<string>? PasswordSelector { get; set; }
 
         /// <summary>
-        /// Allow user to reveal password. It can not be set to `true` if `credentials_scheme` is `ADMIN_SETS_CREDENTIALS`, `SHARED_USERNAME_AND_PASSWORD` or `EXTERNAL_PASSWORD_SYNC`.
+        /// Allow user to reveal password. It can not be set to `True` if `CredentialsScheme` is `ADMIN_SETS_CREDENTIALS`, `SHARED_USERNAME_AND_PASSWORD` or `EXTERNAL_PASSWORD_SYNC`.
         /// </summary>
         [Input("revealPassword")]
         public Input<bool>? RevealPassword { get; set; }
