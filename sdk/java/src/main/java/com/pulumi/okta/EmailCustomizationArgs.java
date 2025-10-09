@@ -48,24 +48,24 @@ public final class EmailCustomizationArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Force is_default on the create and delete by deleting all email customizations. Comma separated string with values of &#39;create&#39; or &#39;destroy&#39; or both `create,destroy&#39;.
+     * Force isDefault on the create and delete by deleting all email customizations. Comma separated string with values of &#39;create&#39; or &#39;destroy&#39; or both `create,destroy&#39;.
      * 
      * @deprecated
-     * force_is_default is deprecated and now is a no-op in behavior. Rely upon the depends_on meta argument to force dependency of secondary templates to the default template
+     * force_is_default is deprecated and now is a no-op in behavior. Rely upon the dependsOn meta argument to force dependency of secondary templates to the default template
      * 
      */
-    @Deprecated /* force_is_default is deprecated and now is a no-op in behavior. Rely upon the depends_on meta argument to force dependency of secondary templates to the default template */
+    @Deprecated /* force_is_default is deprecated and now is a no-op in behavior. Rely upon the dependsOn meta argument to force dependency of secondary templates to the default template */
     @Import(name="forceIsDefault")
     private @Nullable Output<String> forceIsDefault;
 
     /**
-     * @return Force is_default on the create and delete by deleting all email customizations. Comma separated string with values of &#39;create&#39; or &#39;destroy&#39; or both `create,destroy&#39;.
+     * @return Force isDefault on the create and delete by deleting all email customizations. Comma separated string with values of &#39;create&#39; or &#39;destroy&#39; or both `create,destroy&#39;.
      * 
      * @deprecated
-     * force_is_default is deprecated and now is a no-op in behavior. Rely upon the depends_on meta argument to force dependency of secondary templates to the default template
+     * force_is_default is deprecated and now is a no-op in behavior. Rely upon the dependsOn meta argument to force dependency of secondary templates to the default template
      * 
      */
-    @Deprecated /* force_is_default is deprecated and now is a no-op in behavior. Rely upon the depends_on meta argument to force dependency of secondary templates to the default template */
+    @Deprecated /* force_is_default is deprecated and now is a no-op in behavior. Rely upon the dependsOn meta argument to force dependency of secondary templates to the default template */
     public Optional<Output<String>> forceIsDefault() {
         return Optional.ofNullable(this.forceIsDefault);
     }
@@ -203,30 +203,30 @@ public final class EmailCustomizationArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param forceIsDefault Force is_default on the create and delete by deleting all email customizations. Comma separated string with values of &#39;create&#39; or &#39;destroy&#39; or both `create,destroy&#39;.
+         * @param forceIsDefault Force isDefault on the create and delete by deleting all email customizations. Comma separated string with values of &#39;create&#39; or &#39;destroy&#39; or both `create,destroy&#39;.
          * 
          * @return builder
          * 
          * @deprecated
-         * force_is_default is deprecated and now is a no-op in behavior. Rely upon the depends_on meta argument to force dependency of secondary templates to the default template
+         * force_is_default is deprecated and now is a no-op in behavior. Rely upon the dependsOn meta argument to force dependency of secondary templates to the default template
          * 
          */
-        @Deprecated /* force_is_default is deprecated and now is a no-op in behavior. Rely upon the depends_on meta argument to force dependency of secondary templates to the default template */
+        @Deprecated /* force_is_default is deprecated and now is a no-op in behavior. Rely upon the dependsOn meta argument to force dependency of secondary templates to the default template */
         public Builder forceIsDefault(@Nullable Output<String> forceIsDefault) {
             $.forceIsDefault = forceIsDefault;
             return this;
         }
 
         /**
-         * @param forceIsDefault Force is_default on the create and delete by deleting all email customizations. Comma separated string with values of &#39;create&#39; or &#39;destroy&#39; or both `create,destroy&#39;.
+         * @param forceIsDefault Force isDefault on the create and delete by deleting all email customizations. Comma separated string with values of &#39;create&#39; or &#39;destroy&#39; or both `create,destroy&#39;.
          * 
          * @return builder
          * 
          * @deprecated
-         * force_is_default is deprecated and now is a no-op in behavior. Rely upon the depends_on meta argument to force dependency of secondary templates to the default template
+         * force_is_default is deprecated and now is a no-op in behavior. Rely upon the dependsOn meta argument to force dependency of secondary templates to the default template
          * 
          */
-        @Deprecated /* force_is_default is deprecated and now is a no-op in behavior. Rely upon the depends_on meta argument to force dependency of secondary templates to the default template */
+        @Deprecated /* force_is_default is deprecated and now is a no-op in behavior. Rely upon the dependsOn meta argument to force dependency of secondary templates to the default template */
         public Builder forceIsDefault(String forceIsDefault) {
             return forceIsDefault(Output.of(forceIsDefault));
         }

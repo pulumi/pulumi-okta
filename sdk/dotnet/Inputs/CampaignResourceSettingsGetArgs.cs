@@ -31,7 +31,7 @@ namespace Pulumi.Okta.Inputs
         public Input<bool>? IncludeAdminRoles { get; set; }
 
         /// <summary>
-        /// Include entitlements for this application. This property is only applicable if resource_type = APPLICATION and Entitlement Management is enabled.
+        /// Include entitlements for this application. This property is only applicable if ResourceType = APPLICATION and Entitlement Management is enabled.
         /// </summary>
         [Input("includeEntitlements")]
         public Input<bool>? IncludeEntitlements { get; set; }
@@ -49,7 +49,7 @@ namespace Pulumi.Okta.Inputs
         public Input<bool>? IndividuallyAssignedGroupsOnly { get; set; }
 
         /// <summary>
-        /// Only include out-of-policy entitlements. Only applicable if resource_type = APPLICATION and Entitlement Management is enabled.
+        /// Only include out-of-policy entitlements. Only applicable if ResourceType = APPLICATION and Entitlement Management is enabled.
         /// </summary>
         [Input("onlyIncludeOutOfPolicyEntitlements")]
         public Input<bool>? OnlyIncludeOutOfPolicyEntitlements { get; set; }

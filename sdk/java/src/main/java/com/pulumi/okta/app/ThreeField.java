@@ -22,6 +22,8 @@ import javax.annotation.Nullable;
  * 		activated or deactivated in accordance with the &#39;status&#39; change. Then, all
  * 		other arguments that changed will be applied.
  * 
+ * ## Example Usage
+ * 
  * ## Import
  * 
  * ```sh
@@ -284,14 +286,14 @@ public class ThreeField extends com.pulumi.resources.CustomResource {
         return this.passwordSelector;
     }
     /**
-     * Allow user to reveal password. It can not be set to `true` if `credentials_scheme` is `ADMIN_SETS_CREDENTIALS`, `SHARED_USERNAME_AND_PASSWORD` or `EXTERNAL_PASSWORD_SYNC`.
+     * Allow user to reveal password. It can not be set to `true` if `credentialsScheme` is `ADMIN_SETS_CREDENTIALS`, `SHARED_USERNAME_AND_PASSWORD` or `EXTERNAL_PASSWORD_SYNC`.
      * 
      */
     @Export(name="revealPassword", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> revealPassword;
 
     /**
-     * @return Allow user to reveal password. It can not be set to `true` if `credentials_scheme` is `ADMIN_SETS_CREDENTIALS`, `SHARED_USERNAME_AND_PASSWORD` or `EXTERNAL_PASSWORD_SYNC`.
+     * @return Allow user to reveal password. It can not be set to `true` if `credentialsScheme` is `ADMIN_SETS_CREDENTIALS`, `SHARED_USERNAME_AND_PASSWORD` or `EXTERNAL_PASSWORD_SYNC`.
      * 
      */
     public Output<Optional<Boolean>> revealPassword() {

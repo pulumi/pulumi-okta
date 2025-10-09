@@ -12,6 +12,8 @@ namespace Pulumi.Okta
     /// <summary>
     /// Manage the customized signin page of a brand
     /// 
+    /// ## Example Usage
+    /// 
     /// ## Import
     /// 
     /// ```sh

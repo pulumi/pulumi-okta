@@ -110,7 +110,7 @@ namespace Pulumi.Okta.Idp
         public Output<string?> GroupsAction { get; private set; } = null!;
 
         /// <summary>
-        /// List of Okta Group IDs to add an IdP user as a member with the `ASSIGN` `groups_action`.
+        /// List of Okta Group IDs to add an IdP user as a member with the `ASSIGN` `GroupsAction`.
         /// </summary>
         [Output("groupsAssignments")]
         public Output<ImmutableArray<string>> GroupsAssignments { get; private set; } = null!;
@@ -122,7 +122,7 @@ namespace Pulumi.Okta.Idp
         public Output<string?> GroupsAttribute { get; private set; } = null!;
 
         /// <summary>
-        /// Whitelist of Okta Group identifiers that are allowed for the `APPEND` or `SYNC` `groups_action`.
+        /// Whitelist of Okta Group identifiers that are allowed for the `APPEND` or `SYNC` `GroupsAction`.
         /// </summary>
         [Output("groupsFilters")]
         public Output<ImmutableArray<string>> GroupsFilters { get; private set; } = null!;
@@ -257,7 +257,7 @@ namespace Pulumi.Okta.Idp
         public Output<string?> UserInfoUrl { get; private set; } = null!;
 
         /// <summary>
-        /// User type ID. Can be used as `target_id` in the `okta.profile.Mapping` resource.
+        /// User type ID. Can be used as `TargetId` in the `okta.profile.Mapping` resource.
         /// </summary>
         [Output("userTypeId")]
         public Output<string> UserTypeId { get; private set; } = null!;
@@ -392,7 +392,7 @@ namespace Pulumi.Okta.Idp
         private InputList<string>? _groupsAssignments;
 
         /// <summary>
-        /// List of Okta Group IDs to add an IdP user as a member with the `ASSIGN` `groups_action`.
+        /// List of Okta Group IDs to add an IdP user as a member with the `ASSIGN` `GroupsAction`.
         /// </summary>
         public InputList<string> GroupsAssignments
         {
@@ -410,7 +410,7 @@ namespace Pulumi.Okta.Idp
         private InputList<string>? _groupsFilters;
 
         /// <summary>
-        /// Whitelist of Okta Group identifiers that are allowed for the `APPEND` or `SYNC` `groups_action`.
+        /// Whitelist of Okta Group identifiers that are allowed for the `APPEND` or `SYNC` `GroupsAction`.
         /// </summary>
         public InputList<string> GroupsFilters
         {
@@ -635,7 +635,7 @@ namespace Pulumi.Okta.Idp
         private InputList<string>? _groupsAssignments;
 
         /// <summary>
-        /// List of Okta Group IDs to add an IdP user as a member with the `ASSIGN` `groups_action`.
+        /// List of Okta Group IDs to add an IdP user as a member with the `ASSIGN` `GroupsAction`.
         /// </summary>
         public InputList<string> GroupsAssignments
         {
@@ -653,7 +653,7 @@ namespace Pulumi.Okta.Idp
         private InputList<string>? _groupsFilters;
 
         /// <summary>
-        /// Whitelist of Okta Group identifiers that are allowed for the `APPEND` or `SYNC` `groups_action`.
+        /// Whitelist of Okta Group identifiers that are allowed for the `APPEND` or `SYNC` `GroupsAction`.
         /// </summary>
         public InputList<string> GroupsFilters
         {
@@ -797,7 +797,7 @@ namespace Pulumi.Okta.Idp
         public Input<string>? UserInfoUrl { get; set; }
 
         /// <summary>
-        /// User type ID. Can be used as `target_id` in the `okta.profile.Mapping` resource.
+        /// User type ID. Can be used as `TargetId` in the `okta.profile.Mapping` resource.
         /// </summary>
         [Input("userTypeId")]
         public Input<string>? UserTypeId { get; set; }

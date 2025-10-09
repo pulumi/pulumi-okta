@@ -32,15 +32,15 @@ namespace Pulumi.Okta
         /// 
         /// ## Required:
         /// 
-        /// - `email` (String) The Okta user's email address.
-        /// - `id` (String) The Okta user id.
-        /// - `status` (String) The status of the principal's profile. Enum: `INACTIVE`, `ACTIVE`.
+        /// - `Email` (String) The Okta user's email address.
+        /// - `Id` (String) The Okta user id.
+        /// - `Status` (String) The status of the principal's profile. Enum: `INACTIVE`, `ACTIVE`.
         /// 
         /// ## Optional:
         /// 
-        /// - `first_name` (String) The Okta user's first name.
+        /// - `FirstName` (String) The Okta user's first name.
         /// - `lastName` (String) The Okta user's last name
-        /// - `login` (String) The Okta user's login
+        /// - `Login` (String) The Okta user's login
         /// </summary>
         public static Task<GetReviewResult> InvokeAsync(GetReviewArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetReviewResult>("okta:index/getReview:getReview", args ?? new GetReviewArgs(), options.WithDefaults());
@@ -66,15 +66,15 @@ namespace Pulumi.Okta
         /// 
         /// ## Required:
         /// 
-        /// - `email` (String) The Okta user's email address.
-        /// - `id` (String) The Okta user id.
-        /// - `status` (String) The status of the principal's profile. Enum: `INACTIVE`, `ACTIVE`.
+        /// - `Email` (String) The Okta user's email address.
+        /// - `Id` (String) The Okta user id.
+        /// - `Status` (String) The status of the principal's profile. Enum: `INACTIVE`, `ACTIVE`.
         /// 
         /// ## Optional:
         /// 
-        /// - `first_name` (String) The Okta user's first name.
+        /// - `FirstName` (String) The Okta user's first name.
         /// - `lastName` (String) The Okta user's last name
-        /// - `login` (String) The Okta user's login
+        /// - `Login` (String) The Okta user's login
         /// </summary>
         public static Output<GetReviewResult> Invoke(GetReviewInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetReviewResult>("okta:index/getReview:getReview", args ?? new GetReviewInvokeArgs(), options.WithDefaults());
@@ -100,15 +100,15 @@ namespace Pulumi.Okta
         /// 
         /// ## Required:
         /// 
-        /// - `email` (String) The Okta user's email address.
-        /// - `id` (String) The Okta user id.
-        /// - `status` (String) The status of the principal's profile. Enum: `INACTIVE`, `ACTIVE`.
+        /// - `Email` (String) The Okta user's email address.
+        /// - `Id` (String) The Okta user id.
+        /// - `Status` (String) The status of the principal's profile. Enum: `INACTIVE`, `ACTIVE`.
         /// 
         /// ## Optional:
         /// 
-        /// - `first_name` (String) The Okta user's first name.
+        /// - `FirstName` (String) The Okta user's first name.
         /// - `lastName` (String) The Okta user's last name
-        /// - `login` (String) The Okta user's login
+        /// - `Login` (String) The Okta user's login
         /// </summary>
         public static Output<GetReviewResult> Invoke(GetReviewInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetReviewResult>("okta:index/getReview:getReview", args ?? new GetReviewInvokeArgs(), options.WithDefaults());

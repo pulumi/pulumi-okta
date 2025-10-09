@@ -108,14 +108,14 @@ public class ServerClaim extends com.pulumi.resources.CustomResource {
         return this.claimType;
     }
     /**
-     * Specifies the type of group filter if `value_type` is `GROUPS`. Can be set to one of the following `STARTS_WITH`, `EQUALS`, `CONTAINS`, `REGEX`.
+     * Specifies the type of group filter if `valueType` is `GROUPS`. Can be set to one of the following `STARTS_WITH`, `EQUALS`, `CONTAINS`, `REGEX`.
      * 
      */
     @Export(name="groupFilterType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> groupFilterType;
 
     /**
-     * @return Specifies the type of group filter if `value_type` is `GROUPS`. Can be set to one of the following `STARTS_WITH`, `EQUALS`, `CONTAINS`, `REGEX`.
+     * @return Specifies the type of group filter if `valueType` is `GROUPS`. Can be set to one of the following `STARTS_WITH`, `EQUALS`, `CONTAINS`, `REGEX`.
      * 
      */
     public Output<Optional<String>> groupFilterType() {

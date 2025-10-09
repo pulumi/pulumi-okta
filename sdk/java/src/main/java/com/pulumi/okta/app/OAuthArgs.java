@@ -112,14 +112,14 @@ public final class OAuthArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ID of the associated app*signon*policy. If this property is removed from the application the default sign-on-policy will be associated with this application. From now on, there is no need to attach authentication_policy for applications of type `SERVICE` in the upcoming release.
+     * The ID of the associated app*signon*policy. If this property is removed from the application the default sign-on-policy will be associated with this application. From now on, there is no need to attach authenticationPolicy for applications of type `SERVICE` in the upcoming release.
      * 
      */
     @Import(name="authenticationPolicy")
     private @Nullable Output<String> authenticationPolicy;
 
     /**
-     * @return The ID of the associated app*signon*policy. If this property is removed from the application the default sign-on-policy will be associated with this application. From now on, there is no need to attach authentication_policy for applications of type `SERVICE` in the upcoming release.
+     * @return The ID of the associated app*signon*policy. If this property is removed from the application the default sign-on-policy will be associated with this application. From now on, there is no need to attach authenticationPolicy for applications of type `SERVICE` in the upcoming release.
      * 
      */
     public Optional<Output<String>> authenticationPolicy() {
@@ -442,14 +442,14 @@ public final class OAuthArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * This tells the provider not manage the client*secret value in state. When this is false (the default), it will cause the auto-generated client*secret to be persisted in the client_secret attribute in state. This also means that every time an update to this app is run, this value is also set on the API. If this changes from false =&gt; true, the `client_secret` is dropped from state and the secret at the time of the apply is what remains. If this is ever changes from true =&gt; false your app will be recreated, due to the need to regenerate a secret we can store in state.
+     * This tells the provider not manage the client*secret value in state. When this is false (the default), it will cause the auto-generated client*secret to be persisted in the clientSecret attribute in state. This also means that every time an update to this app is run, this value is also set on the API. If this changes from false =&gt; true, the `clientSecret` is dropped from state and the secret at the time of the apply is what remains. If this is ever changes from true =&gt; false your app will be recreated, due to the need to regenerate a secret we can store in state.
      * 
      */
     @Import(name="omitSecret")
     private @Nullable Output<Boolean> omitSecret;
 
     /**
-     * @return This tells the provider not manage the client*secret value in state. When this is false (the default), it will cause the auto-generated client*secret to be persisted in the client_secret attribute in state. This also means that every time an update to this app is run, this value is also set on the API. If this changes from false =&gt; true, the `client_secret` is dropped from state and the secret at the time of the apply is what remains. If this is ever changes from true =&gt; false your app will be recreated, due to the need to regenerate a secret we can store in state.
+     * @return This tells the provider not manage the client*secret value in state. When this is false (the default), it will cause the auto-generated client*secret to be persisted in the clientSecret attribute in state. This also means that every time an update to this app is run, this value is also set on the API. If this changes from false =&gt; true, the `clientSecret` is dropped from state and the secret at the time of the apply is what remains. If this is ever changes from true =&gt; false your app will be recreated, due to the need to regenerate a secret we can store in state.
      * 
      */
     public Optional<Output<Boolean>> omitSecret() {
@@ -562,14 +562,14 @@ public final class OAuthArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * List of OAuth 2.0 response type strings. Valid values are any combination of: `code`, `token`, and `id_token`.
+     * List of OAuth 2.0 response type strings. Valid values are any combination of: `code`, `token`, and `idToken`.
      * 
      */
     @Import(name="responseTypes")
     private @Nullable Output<List<String>> responseTypes;
 
     /**
-     * @return List of OAuth 2.0 response type strings. Valid values are any combination of: `code`, `token`, and `id_token`.
+     * @return List of OAuth 2.0 response type strings. Valid values are any combination of: `code`, `token`, and `idToken`.
      * 
      */
     public Optional<Output<List<String>>> responseTypes() {
@@ -907,7 +907,7 @@ public final class OAuthArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param authenticationPolicy The ID of the associated app*signon*policy. If this property is removed from the application the default sign-on-policy will be associated with this application. From now on, there is no need to attach authentication_policy for applications of type `SERVICE` in the upcoming release.
+         * @param authenticationPolicy The ID of the associated app*signon*policy. If this property is removed from the application the default sign-on-policy will be associated with this application. From now on, there is no need to attach authenticationPolicy for applications of type `SERVICE` in the upcoming release.
          * 
          * @return builder
          * 
@@ -918,7 +918,7 @@ public final class OAuthArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param authenticationPolicy The ID of the associated app*signon*policy. If this property is removed from the application the default sign-on-policy will be associated with this application. From now on, there is no need to attach authentication_policy for applications of type `SERVICE` in the upcoming release.
+         * @param authenticationPolicy The ID of the associated app*signon*policy. If this property is removed from the application the default sign-on-policy will be associated with this application. From now on, there is no need to attach authenticationPolicy for applications of type `SERVICE` in the upcoming release.
          * 
          * @return builder
          * 
@@ -1389,7 +1389,7 @@ public final class OAuthArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param omitSecret This tells the provider not manage the client*secret value in state. When this is false (the default), it will cause the auto-generated client*secret to be persisted in the client_secret attribute in state. This also means that every time an update to this app is run, this value is also set on the API. If this changes from false =&gt; true, the `client_secret` is dropped from state and the secret at the time of the apply is what remains. If this is ever changes from true =&gt; false your app will be recreated, due to the need to regenerate a secret we can store in state.
+         * @param omitSecret This tells the provider not manage the client*secret value in state. When this is false (the default), it will cause the auto-generated client*secret to be persisted in the clientSecret attribute in state. This also means that every time an update to this app is run, this value is also set on the API. If this changes from false =&gt; true, the `clientSecret` is dropped from state and the secret at the time of the apply is what remains. If this is ever changes from true =&gt; false your app will be recreated, due to the need to regenerate a secret we can store in state.
          * 
          * @return builder
          * 
@@ -1400,7 +1400,7 @@ public final class OAuthArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param omitSecret This tells the provider not manage the client*secret value in state. When this is false (the default), it will cause the auto-generated client*secret to be persisted in the client_secret attribute in state. This also means that every time an update to this app is run, this value is also set on the API. If this changes from false =&gt; true, the `client_secret` is dropped from state and the secret at the time of the apply is what remains. If this is ever changes from true =&gt; false your app will be recreated, due to the need to regenerate a secret we can store in state.
+         * @param omitSecret This tells the provider not manage the client*secret value in state. When this is false (the default), it will cause the auto-generated client*secret to be persisted in the clientSecret attribute in state. This also means that every time an update to this app is run, this value is also set on the API. If this changes from false =&gt; true, the `clientSecret` is dropped from state and the secret at the time of the apply is what remains. If this is ever changes from true =&gt; false your app will be recreated, due to the need to regenerate a secret we can store in state.
          * 
          * @return builder
          * 
@@ -1577,7 +1577,7 @@ public final class OAuthArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param responseTypes List of OAuth 2.0 response type strings. Valid values are any combination of: `code`, `token`, and `id_token`.
+         * @param responseTypes List of OAuth 2.0 response type strings. Valid values are any combination of: `code`, `token`, and `idToken`.
          * 
          * @return builder
          * 
@@ -1588,7 +1588,7 @@ public final class OAuthArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param responseTypes List of OAuth 2.0 response type strings. Valid values are any combination of: `code`, `token`, and `id_token`.
+         * @param responseTypes List of OAuth 2.0 response type strings. Valid values are any combination of: `code`, `token`, and `idToken`.
          * 
          * @return builder
          * 
@@ -1598,7 +1598,7 @@ public final class OAuthArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param responseTypes List of OAuth 2.0 response type strings. Valid values are any combination of: `code`, `token`, and `id_token`.
+         * @param responseTypes List of OAuth 2.0 response type strings. Valid values are any combination of: `code`, `token`, and `idToken`.
          * 
          * @return builder
          * 
