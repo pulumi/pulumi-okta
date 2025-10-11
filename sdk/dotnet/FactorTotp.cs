@@ -72,7 +72,7 @@ namespace Pulumi.Okta
         public Output<int?> OtpLength { get; private set; } = null!;
 
         /// <summary>
-        /// Shared secret encoding. Valid values: `base32`, `base64`, `hexadecimal`. Default is `base32`.
+        /// Shared secret encoding. Valid values: `Base32`, `Base64`, `Hexadecimal`. Default is `Base32`.
         /// </summary>
         [Output("sharedSecretEncoding")]
         public Output<string?> SharedSecretEncoding { get; private set; } = null!;
@@ -154,7 +154,7 @@ namespace Pulumi.Okta
         public Input<int>? OtpLength { get; set; }
 
         /// <summary>
-        /// Shared secret encoding. Valid values: `base32`, `base64`, `hexadecimal`. Default is `base32`.
+        /// Shared secret encoding. Valid values: `Base32`, `Base64`, `Hexadecimal`. Default is `Base32`.
         /// </summary>
         [Input("sharedSecretEncoding")]
         public Input<string>? SharedSecretEncoding { get; set; }
@@ -198,7 +198,7 @@ namespace Pulumi.Okta
         public Input<int>? OtpLength { get; set; }
 
         /// <summary>
-        /// Shared secret encoding. Valid values: `base32`, `base64`, `hexadecimal`. Default is `base32`.
+        /// Shared secret encoding. Valid values: `Base32`, `Base64`, `Hexadecimal`. Default is `Base32`.
         /// </summary>
         [Input("sharedSecretEncoding")]
         public Input<string>? SharedSecretEncoding { get; set; }

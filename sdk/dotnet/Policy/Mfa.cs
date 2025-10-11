@@ -188,7 +188,7 @@ namespace Pulumi.Okta.Policy
 
         [Input("externalIdp")]
         private InputMap<string>? _externalIdp;
-        [Obsolete(@"Since okta now support multiple external_idps, this will be deprecated. Please use `external_idps` instead")]
+        [Obsolete(@"Since okta now support multiple external_idps, this will be deprecated. Please use `ExternalIdps` instead")]
         public InputMap<string> ExternalIdp
         {
             get => _externalIdp ?? (_externalIdp = new InputMap<string>());
@@ -423,7 +423,7 @@ namespace Pulumi.Okta.Policy
 
         [Input("externalIdp")]
         private InputMap<string>? _externalIdp;
-        [Obsolete(@"Since okta now support multiple external_idps, this will be deprecated. Please use `external_idps` instead")]
+        [Obsolete(@"Since okta now support multiple external_idps, this will be deprecated. Please use `ExternalIdps` instead")]
         public InputMap<string> ExternalIdp
         {
             get => _externalIdp ?? (_externalIdp = new InputMap<string>());

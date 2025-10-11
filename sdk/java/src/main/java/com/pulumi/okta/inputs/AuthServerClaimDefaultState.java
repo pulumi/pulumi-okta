@@ -63,14 +63,14 @@ public final class AuthServerClaimDefaultState extends com.pulumi.resources.Reso
     }
 
     /**
-     * The name of the claim. Can be set to `sub`, `address`, `birthdate`, `email`,`email_verified`, `family_name`, `gender`, `given_name`, `locale`, `middle_name`, `name`, `nickname`,`phone_number`, `picture`, `preferred_username`, `profile`, `updated_at`, `website`, `zoneinfo`
+     * The name of the claim. Can be set to `sub`, `address`, `birthdate`, `email`,`emailVerified`, `familyName`, `gender`, `givenName`, `locale`, `middleName`, `name`, `nickname`,`phoneNumber`, `picture`, `preferredUsername`, `profile`, `updatedAt`, `website`, `zoneinfo`
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the claim. Can be set to `sub`, `address`, `birthdate`, `email`,`email_verified`, `family_name`, `gender`, `given_name`, `locale`, `middle_name`, `name`, `nickname`,`phone_number`, `picture`, `preferred_username`, `profile`, `updated_at`, `website`, `zoneinfo`
+     * @return The name of the claim. Can be set to `sub`, `address`, `birthdate`, `email`,`emailVerified`, `familyName`, `gender`, `givenName`, `locale`, `middleName`, `name`, `nickname`,`phoneNumber`, `picture`, `preferredUsername`, `profile`, `updatedAt`, `website`, `zoneinfo`
      * 
      */
     public Optional<Output<String>> name() {
@@ -232,7 +232,7 @@ public final class AuthServerClaimDefaultState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param name The name of the claim. Can be set to `sub`, `address`, `birthdate`, `email`,`email_verified`, `family_name`, `gender`, `given_name`, `locale`, `middle_name`, `name`, `nickname`,`phone_number`, `picture`, `preferred_username`, `profile`, `updated_at`, `website`, `zoneinfo`
+         * @param name The name of the claim. Can be set to `sub`, `address`, `birthdate`, `email`,`emailVerified`, `familyName`, `gender`, `givenName`, `locale`, `middleName`, `name`, `nickname`,`phoneNumber`, `picture`, `preferredUsername`, `profile`, `updatedAt`, `website`, `zoneinfo`
          * 
          * @return builder
          * 
@@ -243,7 +243,7 @@ public final class AuthServerClaimDefaultState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param name The name of the claim. Can be set to `sub`, `address`, `birthdate`, `email`,`email_verified`, `family_name`, `gender`, `given_name`, `locale`, `middle_name`, `name`, `nickname`,`phone_number`, `picture`, `preferred_username`, `profile`, `updated_at`, `website`, `zoneinfo`
+         * @param name The name of the claim. Can be set to `sub`, `address`, `birthdate`, `email`,`emailVerified`, `familyName`, `gender`, `givenName`, `locale`, `middleName`, `name`, `nickname`,`phoneNumber`, `picture`, `preferredUsername`, `profile`, `updatedAt`, `website`, `zoneinfo`
          * 
          * @return builder
          * 

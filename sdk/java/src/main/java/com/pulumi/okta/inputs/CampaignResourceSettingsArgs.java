@@ -51,14 +51,14 @@ public final class CampaignResourceSettingsArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * Include entitlements for this application. This property is only applicable if resource_type = APPLICATION and Entitlement Management is enabled.
+     * Include entitlements for this application. This property is only applicable if resourceType = APPLICATION and Entitlement Management is enabled.
      * 
      */
     @Import(name="includeEntitlements")
     private @Nullable Output<Boolean> includeEntitlements;
 
     /**
-     * @return Include entitlements for this application. This property is only applicable if resource_type = APPLICATION and Entitlement Management is enabled.
+     * @return Include entitlements for this application. This property is only applicable if resourceType = APPLICATION and Entitlement Management is enabled.
      * 
      */
     public Optional<Output<Boolean>> includeEntitlements() {
@@ -96,14 +96,14 @@ public final class CampaignResourceSettingsArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * Only include out-of-policy entitlements. Only applicable if resource_type = APPLICATION and Entitlement Management is enabled.
+     * Only include out-of-policy entitlements. Only applicable if resourceType = APPLICATION and Entitlement Management is enabled.
      * 
      */
     @Import(name="onlyIncludeOutOfPolicyEntitlements")
     private @Nullable Output<Boolean> onlyIncludeOutOfPolicyEntitlements;
 
     /**
-     * @return Only include out-of-policy entitlements. Only applicable if resource_type = APPLICATION and Entitlement Management is enabled.
+     * @return Only include out-of-policy entitlements. Only applicable if resourceType = APPLICATION and Entitlement Management is enabled.
      * 
      */
     public Optional<Output<Boolean>> onlyIncludeOutOfPolicyEntitlements() {
@@ -224,7 +224,7 @@ public final class CampaignResourceSettingsArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param includeEntitlements Include entitlements for this application. This property is only applicable if resource_type = APPLICATION and Entitlement Management is enabled.
+         * @param includeEntitlements Include entitlements for this application. This property is only applicable if resourceType = APPLICATION and Entitlement Management is enabled.
          * 
          * @return builder
          * 
@@ -235,7 +235,7 @@ public final class CampaignResourceSettingsArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param includeEntitlements Include entitlements for this application. This property is only applicable if resource_type = APPLICATION and Entitlement Management is enabled.
+         * @param includeEntitlements Include entitlements for this application. This property is only applicable if resourceType = APPLICATION and Entitlement Management is enabled.
          * 
          * @return builder
          * 
@@ -287,7 +287,7 @@ public final class CampaignResourceSettingsArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param onlyIncludeOutOfPolicyEntitlements Only include out-of-policy entitlements. Only applicable if resource_type = APPLICATION and Entitlement Management is enabled.
+         * @param onlyIncludeOutOfPolicyEntitlements Only include out-of-policy entitlements. Only applicable if resourceType = APPLICATION and Entitlement Management is enabled.
          * 
          * @return builder
          * 
@@ -298,7 +298,7 @@ public final class CampaignResourceSettingsArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param onlyIncludeOutOfPolicyEntitlements Only include out-of-policy entitlements. Only applicable if resource_type = APPLICATION and Entitlement Management is enabled.
+         * @param onlyIncludeOutOfPolicyEntitlements Only include out-of-policy entitlements. Only applicable if resourceType = APPLICATION and Entitlement Management is enabled.
          * 
          * @return builder
          * 

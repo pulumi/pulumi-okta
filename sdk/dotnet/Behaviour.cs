@@ -91,7 +91,7 @@ namespace Pulumi.Okta
         public Output<int?> NumberOfAuthentications { get; private set; } = null!;
 
         /// <summary>
-        /// Radius from location (in kilometers). Should be at least 5. Required when `location_granularity_type` is set to `LAT_LONG`.
+        /// Radius from location (in kilometers). Should be at least 5. Required when `LocationGranularityType` is set to `LAT_LONG`.
         /// </summary>
         [Output("radiusFromLocation")]
         public Output<int?> RadiusFromLocation { get; private set; } = null!;
@@ -179,7 +179,7 @@ namespace Pulumi.Okta
         public Input<int>? NumberOfAuthentications { get; set; }
 
         /// <summary>
-        /// Radius from location (in kilometers). Should be at least 5. Required when `location_granularity_type` is set to `LAT_LONG`.
+        /// Radius from location (in kilometers). Should be at least 5. Required when `LocationGranularityType` is set to `LAT_LONG`.
         /// </summary>
         [Input("radiusFromLocation")]
         public Input<int>? RadiusFromLocation { get; set; }
@@ -229,7 +229,7 @@ namespace Pulumi.Okta
         public Input<int>? NumberOfAuthentications { get; set; }
 
         /// <summary>
-        /// Radius from location (in kilometers). Should be at least 5. Required when `location_granularity_type` is set to `LAT_LONG`.
+        /// Radius from location (in kilometers). Should be at least 5. Required when `LocationGranularityType` is set to `LAT_LONG`.
         /// </summary>
         [Input("radiusFromLocation")]
         public Input<int>? RadiusFromLocation { get; set; }

@@ -47,7 +47,7 @@ namespace Pulumi.Okta.Auth
     public partial class ServerClaim : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Specifies whether to include claims in token, by default it is set to `true`.
+        /// Specifies whether to include claims in token, by default it is set to `True`.
         /// </summary>
         [Output("alwaysIncludeInToken")]
         public Output<bool?> AlwaysIncludeInToken { get; private set; } = null!;
@@ -65,7 +65,7 @@ namespace Pulumi.Okta.Auth
         public Output<string> ClaimType { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the type of group filter if `value_type` is `GROUPS`. Can be set to one of the following `STARTS_WITH`, `EQUALS`, `CONTAINS`, `REGEX`.
+        /// Specifies the type of group filter if `ValueType` is `GROUPS`. Can be set to one of the following `STARTS_WITH`, `EQUALS`, `CONTAINS`, `REGEX`.
         /// </summary>
         [Output("groupFilterType")]
         public Output<string?> GroupFilterType { get; private set; } = null!;
@@ -147,7 +147,7 @@ namespace Pulumi.Okta.Auth
     public sealed class ServerClaimArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies whether to include claims in token, by default it is set to `true`.
+        /// Specifies whether to include claims in token, by default it is set to `True`.
         /// </summary>
         [Input("alwaysIncludeInToken")]
         public Input<bool>? AlwaysIncludeInToken { get; set; }
@@ -165,7 +165,7 @@ namespace Pulumi.Okta.Auth
         public Input<string> ClaimType { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the type of group filter if `value_type` is `GROUPS`. Can be set to one of the following `STARTS_WITH`, `EQUALS`, `CONTAINS`, `REGEX`.
+        /// Specifies the type of group filter if `ValueType` is `GROUPS`. Can be set to one of the following `STARTS_WITH`, `EQUALS`, `CONTAINS`, `REGEX`.
         /// </summary>
         [Input("groupFilterType")]
         public Input<string>? GroupFilterType { get; set; }
@@ -215,7 +215,7 @@ namespace Pulumi.Okta.Auth
     public sealed class ServerClaimState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies whether to include claims in token, by default it is set to `true`.
+        /// Specifies whether to include claims in token, by default it is set to `True`.
         /// </summary>
         [Input("alwaysIncludeInToken")]
         public Input<bool>? AlwaysIncludeInToken { get; set; }
@@ -233,7 +233,7 @@ namespace Pulumi.Okta.Auth
         public Input<string>? ClaimType { get; set; }
 
         /// <summary>
-        /// Specifies the type of group filter if `value_type` is `GROUPS`. Can be set to one of the following `STARTS_WITH`, `EQUALS`, `CONTAINS`, `REGEX`.
+        /// Specifies the type of group filter if `ValueType` is `GROUPS`. Can be set to one of the following `STARTS_WITH`, `EQUALS`, `CONTAINS`, `REGEX`.
         /// </summary>
         [Input("groupFilterType")]
         public Input<string>? GroupFilterType { get; set; }

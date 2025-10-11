@@ -47,14 +47,14 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The timestamp when the authorization server changes the key for signing tokens. Only returned when `credentials_rotation_mode` is `AUTO`.
+     * The timestamp when the authorization server changes the key for signing tokens. Only returned when `credentialsRotationMode` is `AUTO`.
      * 
      */
     @Import(name="credentialsNextRotation")
     private @Nullable Output<String> credentialsNextRotation;
 
     /**
-     * @return The timestamp when the authorization server changes the key for signing tokens. Only returned when `credentials_rotation_mode` is `AUTO`.
+     * @return The timestamp when the authorization server changes the key for signing tokens. Only returned when `credentialsRotationMode` is `AUTO`.
      * 
      */
     public Optional<Output<String>> credentialsNextRotation() {
@@ -252,7 +252,7 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param credentialsNextRotation The timestamp when the authorization server changes the key for signing tokens. Only returned when `credentials_rotation_mode` is `AUTO`.
+         * @param credentialsNextRotation The timestamp when the authorization server changes the key for signing tokens. Only returned when `credentialsRotationMode` is `AUTO`.
          * 
          * @return builder
          * 
@@ -263,7 +263,7 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param credentialsNextRotation The timestamp when the authorization server changes the key for signing tokens. Only returned when `credentials_rotation_mode` is `AUTO`.
+         * @param credentialsNextRotation The timestamp when the authorization server changes the key for signing tokens. Only returned when `credentialsRotationMode` is `AUTO`.
          * 
          * @return builder
          * 

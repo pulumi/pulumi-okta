@@ -13,18 +13,24 @@ namespace Pulumi.Okta
     {
         /// <summary>
         /// Retrieves the request settings for a resource.
+        /// 
+        /// ## Example Usage
         /// </summary>
         public static Task<GetRequestSettingResourceResult> InvokeAsync(GetRequestSettingResourceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRequestSettingResourceResult>("okta:index/getRequestSettingResource:getRequestSettingResource", args ?? new GetRequestSettingResourceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves the request settings for a resource.
+        /// 
+        /// ## Example Usage
         /// </summary>
         public static Output<GetRequestSettingResourceResult> Invoke(GetRequestSettingResourceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRequestSettingResourceResult>("okta:index/getRequestSettingResource:getRequestSettingResource", args ?? new GetRequestSettingResourceInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves the request settings for a resource.
+        /// 
+        /// ## Example Usage
         /// </summary>
         public static Output<GetRequestSettingResourceResult> Invoke(GetRequestSettingResourceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetRequestSettingResourceResult>("okta:index/getRequestSettingResource:getRequestSettingResource", args ?? new GetRequestSettingResourceInvokeArgs(), options.WithDefaults());

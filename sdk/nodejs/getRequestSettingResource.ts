@@ -8,6 +8,8 @@ import * as utilities from "./utilities";
 
 /**
  * Retrieves the request settings for a resource.
+ *
+ * ## Example Usage
  */
 export function getRequestSettingResource(args: GetRequestSettingResourceArgs, opts?: pulumi.InvokeOptions): Promise<GetRequestSettingResourceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -82,6 +84,8 @@ export interface GetRequestSettingResourceResult {
 }
 /**
  * Retrieves the request settings for a resource.
+ *
+ * ## Example Usage
  */
 export function getRequestSettingResourceOutput(args: GetRequestSettingResourceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRequestSettingResourceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

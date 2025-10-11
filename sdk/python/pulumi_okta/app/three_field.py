@@ -978,6 +978,8 @@ class ThreeField(pulumi.CustomResource):
         		activated or deactivated in accordance with the 'status' change. Then, all
         		other arguments that changed will be applied.
 
+        ## Example Usage
+
         ## Import
 
         ```sh
@@ -1026,6 +1028,8 @@ class ThreeField(pulumi.CustomResource):
         		> During an apply if there is change in 'status' the app will first be
         		activated or deactivated in accordance with the 'status' change. Then, all
         		other arguments that changed will be applied.
+
+        ## Example Usage
 
         ## Import
 

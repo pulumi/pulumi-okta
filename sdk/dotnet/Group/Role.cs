@@ -34,13 +34,13 @@ namespace Pulumi.Okta.Group
         public Output<string> GroupId { get; private set; } = null!;
 
         /// <summary>
-        /// Resource Set ID. Required for role_type = `CUSTOM`
+        /// Resource Set ID. Required for RoleType = `CUSTOM`
         /// </summary>
         [Output("resourceSetId")]
         public Output<string?> ResourceSetId { get; private set; } = null!;
 
         /// <summary>
-        /// Role ID. Required for role_type = `CUSTOM`
+        /// Role ID. Required for RoleType = `CUSTOM`
         /// </summary>
         [Output("roleId")]
         public Output<string?> RoleId { get; private set; } = null!;
@@ -135,13 +135,13 @@ namespace Pulumi.Okta.Group
         public Input<string> GroupId { get; set; } = null!;
 
         /// <summary>
-        /// Resource Set ID. Required for role_type = `CUSTOM`
+        /// Resource Set ID. Required for RoleType = `CUSTOM`
         /// </summary>
         [Input("resourceSetId")]
         public Input<string>? ResourceSetId { get; set; }
 
         /// <summary>
-        /// Role ID. Required for role_type = `CUSTOM`
+        /// Role ID. Required for RoleType = `CUSTOM`
         /// </summary>
         [Input("roleId")]
         public Input<string>? RoleId { get; set; }
@@ -210,13 +210,13 @@ namespace Pulumi.Okta.Group
         public Input<string>? GroupId { get; set; }
 
         /// <summary>
-        /// Resource Set ID. Required for role_type = `CUSTOM`
+        /// Resource Set ID. Required for RoleType = `CUSTOM`
         /// </summary>
         [Input("resourceSetId")]
         public Input<string>? ResourceSetId { get; set; }
 
         /// <summary>
-        /// Role ID. Required for role_type = `CUSTOM`
+        /// Role ID. Required for RoleType = `CUSTOM`
         /// </summary>
         [Input("roleId")]
         public Input<string>? RoleId { get; set; }

@@ -39,14 +39,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="okta:policy/ruleIdpDiscovery:RuleIdpDiscovery")
 public class RuleIdpDiscovery extends com.pulumi.resources.CustomResource {
     /**
-     * Applications to exclude in discovery. See `app_include` for details.
+     * Applications to exclude in discovery. See `appInclude` for details.
      * 
      */
     @Export(name="appExcludes", refs={List.class,RuleIdpDiscoveryAppExclude.class}, tree="[0,1]")
     private Output</* @Nullable */ List<RuleIdpDiscoveryAppExclude>> appExcludes;
 
     /**
-     * @return Applications to exclude in discovery. See `app_include` for details.
+     * @return Applications to exclude in discovery. See `appInclude` for details.
      * 
      */
     public Output<Optional<List<RuleIdpDiscoveryAppExclude>>> appExcludes() {
@@ -107,28 +107,28 @@ public class RuleIdpDiscovery extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.networkConnection);
     }
     /**
-     * Required if `network_connection` = `ZONE`. Indicates the network zones to exclude.
+     * Required if `networkConnection` = `ZONE`. Indicates the network zones to exclude.
      * 
      */
     @Export(name="networkExcludes", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> networkExcludes;
 
     /**
-     * @return Required if `network_connection` = `ZONE`. Indicates the network zones to exclude.
+     * @return Required if `networkConnection` = `ZONE`. Indicates the network zones to exclude.
      * 
      */
     public Output<Optional<List<String>>> networkExcludes() {
         return Codegen.optional(this.networkExcludes);
     }
     /**
-     * Required if `network_connection` = `ZONE`. Indicates the network zones to include.
+     * Required if `networkConnection` = `ZONE`. Indicates the network zones to include.
      * 
      */
     @Export(name="networkIncludes", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> networkIncludes;
 
     /**
-     * @return Required if `network_connection` = `ZONE`. Indicates the network zones to include.
+     * @return Required if `networkConnection` = `ZONE`. Indicates the network zones to include.
      * 
      */
     public Output<Optional<List<String>>> networkIncludes() {
@@ -137,7 +137,7 @@ public class RuleIdpDiscovery extends com.pulumi.resources.CustomResource {
     /**
      * Platform to include in discovery rule.
      * - &#39;type&#39; - (Optional) One of: &#39;ANY&#39;, &#39;MOBILE&#39;, &#39;DESKTOP&#39;
-     * - &#39;os_expression - (Optional) Only available when using os_type = &#39;OTHER&#39;
+     * - &#39;os_expression - (Optional) Only available when using osType = &#39;OTHER&#39;
      * - &#39;os_type&#39; - (Optional) One of: &#39;ANY&#39;, &#39;IOS&#39;, &#39;WINDOWS&#39;, &#39;ANDROID&#39;, &#39;OTHER&#39;, &#39;OSX&#39;
      * 
      */
@@ -147,7 +147,7 @@ public class RuleIdpDiscovery extends com.pulumi.resources.CustomResource {
     /**
      * @return Platform to include in discovery rule.
      * - &#39;type&#39; - (Optional) One of: &#39;ANY&#39;, &#39;MOBILE&#39;, &#39;DESKTOP&#39;
-     * - &#39;os_expression - (Optional) Only available when using os_type = &#39;OTHER&#39;
+     * - &#39;os_expression - (Optional) Only available when using osType = &#39;OTHER&#39;
      * - &#39;os_type&#39; - (Optional) One of: &#39;ANY&#39;, &#39;IOS&#39;, &#39;WINDOWS&#39;, &#39;ANDROID&#39;, &#39;OTHER&#39;, &#39;OSX&#39;
      * 
      */
@@ -197,14 +197,14 @@ public class RuleIdpDiscovery extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.status);
     }
     /**
-     * Profile attribute matching can only have a single value that describes the type indicated in `user_identifier_type`. This is the attribute or identifier that the `user_identifier_patterns` are checked against.
+     * Profile attribute matching can only have a single value that describes the type indicated in `userIdentifierType`. This is the attribute or identifier that the `userIdentifierPatterns` are checked against.
      * 
      */
     @Export(name="userIdentifierAttribute", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> userIdentifierAttribute;
 
     /**
-     * @return Profile attribute matching can only have a single value that describes the type indicated in `user_identifier_type`. This is the attribute or identifier that the `user_identifier_patterns` are checked against.
+     * @return Profile attribute matching can only have a single value that describes the type indicated in `userIdentifierType`. This is the attribute or identifier that the `userIdentifierPatterns` are checked against.
      * 
      */
     public Output<Optional<String>> userIdentifierAttribute() {

@@ -69,7 +69,7 @@ namespace Pulumi.Okta.Group
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Remove users added by this rule from the assigned group after deleting this resource. Default is `false`
+        /// Remove users added by this rule from the assigned group after deleting this resource. Default is `False`
         /// </summary>
         [Output("removeAssignedUsers")]
         public Output<bool?> RemoveAssignedUsers { get; private set; } = null!;
@@ -163,7 +163,7 @@ namespace Pulumi.Okta.Group
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Remove users added by this rule from the assigned group after deleting this resource. Default is `false`
+        /// Remove users added by this rule from the assigned group after deleting this resource. Default is `False`
         /// </summary>
         [Input("removeAssignedUsers")]
         public Input<bool>? RemoveAssignedUsers { get; set; }
@@ -225,7 +225,7 @@ namespace Pulumi.Okta.Group
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Remove users added by this rule from the assigned group after deleting this resource. Default is `false`
+        /// Remove users added by this rule from the assigned group after deleting this resource. Default is `False`
         /// </summary>
         [Input("removeAssignedUsers")]
         public Input<bool>? RemoveAssignedUsers { get; set; }

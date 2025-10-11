@@ -34,13 +34,13 @@ namespace Pulumi.Okta
     public sealed class GetLogStreamArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// ID of the log stream to retrieve, conflicts with `name`.
+        /// ID of the log stream to retrieve, conflicts with `Name`.
         /// </summary>
         [Input("id")]
         public string? Id { get; set; }
 
         /// <summary>
-        /// Unique name for the Log Stream object, conflicts with `id`.
+        /// Unique name for the Log Stream object, conflicts with `Id`.
         /// </summary>
         [Input("name")]
         public string? Name { get; set; }
@@ -57,13 +57,13 @@ namespace Pulumi.Okta
     public sealed class GetLogStreamInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// ID of the log stream to retrieve, conflicts with `name`.
+        /// ID of the log stream to retrieve, conflicts with `Name`.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// Unique name for the Log Stream object, conflicts with `id`.
+        /// Unique name for the Log Stream object, conflicts with `Id`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -82,11 +82,11 @@ namespace Pulumi.Okta
     public sealed class GetLogStreamResult
     {
         /// <summary>
-        /// ID of the log stream to retrieve, conflicts with `name`.
+        /// ID of the log stream to retrieve, conflicts with `Name`.
         /// </summary>
         public readonly string? Id;
         /// <summary>
-        /// Unique name for the Log Stream object, conflicts with `id`.
+        /// Unique name for the Log Stream object, conflicts with `Id`.
         /// </summary>
         public readonly string? Name;
         public readonly Outputs.GetLogStreamSettingsResult? Settings;

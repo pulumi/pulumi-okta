@@ -54,7 +54,7 @@ namespace Pulumi.Okta.App
         public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
-        /// Role type to assign. This can be one of the standard Okta roles, such as `HELP_DESK_ADMIN`, or `CUSTOM`. Using custom requires the `resource_set` and `role` attributes to be set.
+        /// Role type to assign. This can be one of the standard Okta roles, such as `HELP_DESK_ADMIN`, or `CUSTOM`. Using custom requires the `ResourceSet` and `Role` attributes to be set.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -124,7 +124,7 @@ namespace Pulumi.Okta.App
         public Input<string>? Role { get; set; }
 
         /// <summary>
-        /// Role type to assign. This can be one of the standard Okta roles, such as `HELP_DESK_ADMIN`, or `CUSTOM`. Using custom requires the `resource_set` and `role` attributes to be set.
+        /// Role type to assign. This can be one of the standard Okta roles, such as `HELP_DESK_ADMIN`, or `CUSTOM`. Using custom requires the `ResourceSet` and `Role` attributes to be set.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -168,7 +168,7 @@ namespace Pulumi.Okta.App
         public Input<string>? Status { get; set; }
 
         /// <summary>
-        /// Role type to assign. This can be one of the standard Okta roles, such as `HELP_DESK_ADMIN`, or `CUSTOM`. Using custom requires the `resource_set` and `role` attributes to be set.
+        /// Role type to assign. This can be one of the standard Okta roles, such as `HELP_DESK_ADMIN`, or `CUSTOM`. Using custom requires the `ResourceSet` and `Role` attributes to be set.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

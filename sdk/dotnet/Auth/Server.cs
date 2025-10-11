@@ -47,19 +47,19 @@ namespace Pulumi.Okta.Auth
     public partial class Server : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The recipients that the tokens are intended for. This becomes the `aud` claim in an access token. Currently Okta only supports a single value here.
+        /// The recipients that the tokens are intended for. This becomes the `Aud` claim in an access token. Currently Okta only supports a single value here.
         /// </summary>
         [Output("audiences")]
         public Output<ImmutableArray<string>> Audiences { get; private set; } = null!;
 
         /// <summary>
-        /// The timestamp when the authorization server started to use the `kid` for signing tokens.
+        /// The timestamp when the authorization server started to use the `Kid` for signing tokens.
         /// </summary>
         [Output("credentialsLastRotated")]
         public Output<string> CredentialsLastRotated { get; private set; } = null!;
 
         /// <summary>
-        /// The timestamp when the authorization server changes the key for signing tokens. Only returned when `credentials_rotation_mode` is `AUTO`.
+        /// The timestamp when the authorization server changes the key for signing tokens. Only returned when `CredentialsRotationMode` is `AUTO`.
         /// </summary>
         [Output("credentialsNextRotation")]
         public Output<string> CredentialsNextRotation { get; private set; } = null!;
@@ -77,7 +77,7 @@ namespace Pulumi.Okta.Auth
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// The complete URL for a Custom Authorization Server. This becomes the `iss` claim in an access token.
+        /// The complete URL for a Custom Authorization Server. This becomes the `Iss` claim in an access token.
         /// </summary>
         [Output("issuer")]
         public Output<string> Issuer { get; private set; } = null!;
@@ -156,7 +156,7 @@ namespace Pulumi.Okta.Auth
         private InputList<string>? _audiences;
 
         /// <summary>
-        /// The recipients that the tokens are intended for. This becomes the `aud` claim in an access token. Currently Okta only supports a single value here.
+        /// The recipients that the tokens are intended for. This becomes the `Aud` claim in an access token. Currently Okta only supports a single value here.
         /// </summary>
         public InputList<string> Audiences
         {
@@ -206,7 +206,7 @@ namespace Pulumi.Okta.Auth
         private InputList<string>? _audiences;
 
         /// <summary>
-        /// The recipients that the tokens are intended for. This becomes the `aud` claim in an access token. Currently Okta only supports a single value here.
+        /// The recipients that the tokens are intended for. This becomes the `Aud` claim in an access token. Currently Okta only supports a single value here.
         /// </summary>
         public InputList<string> Audiences
         {
@@ -215,13 +215,13 @@ namespace Pulumi.Okta.Auth
         }
 
         /// <summary>
-        /// The timestamp when the authorization server started to use the `kid` for signing tokens.
+        /// The timestamp when the authorization server started to use the `Kid` for signing tokens.
         /// </summary>
         [Input("credentialsLastRotated")]
         public Input<string>? CredentialsLastRotated { get; set; }
 
         /// <summary>
-        /// The timestamp when the authorization server changes the key for signing tokens. Only returned when `credentials_rotation_mode` is `AUTO`.
+        /// The timestamp when the authorization server changes the key for signing tokens. Only returned when `CredentialsRotationMode` is `AUTO`.
         /// </summary>
         [Input("credentialsNextRotation")]
         public Input<string>? CredentialsNextRotation { get; set; }
@@ -239,7 +239,7 @@ namespace Pulumi.Okta.Auth
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The complete URL for a Custom Authorization Server. This becomes the `iss` claim in an access token.
+        /// The complete URL for a Custom Authorization Server. This becomes the `Iss` claim in an access token.
         /// </summary>
         [Input("issuer")]
         public Input<string>? Issuer { get; set; }

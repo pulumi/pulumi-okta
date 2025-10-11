@@ -132,14 +132,14 @@ public class Behaviour extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.numberOfAuthentications);
     }
     /**
-     * Radius from location (in kilometers). Should be at least 5. Required when `location_granularity_type` is set to `LAT_LONG`.
+     * Radius from location (in kilometers). Should be at least 5. Required when `locationGranularityType` is set to `LAT_LONG`.
      * 
      */
     @Export(name="radiusFromLocation", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> radiusFromLocation;
 
     /**
-     * @return Radius from location (in kilometers). Should be at least 5. Required when `location_granularity_type` is set to `LAT_LONG`.
+     * @return Radius from location (in kilometers). Should be at least 5. Required when `locationGranularityType` is set to `LAT_LONG`.
      * 
      */
     public Output<Optional<Integer>> radiusFromLocation() {

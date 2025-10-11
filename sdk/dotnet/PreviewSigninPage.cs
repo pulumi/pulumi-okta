@@ -11,6 +11,8 @@ namespace Pulumi.Okta
 {
     /// <summary>
     /// Manage the preview signin page of a brand
+    /// 
+    /// ## Example Usage
     /// </summary>
     [OktaResourceType("okta:index/previewSigninPage:PreviewSigninPage")]
     public partial class PreviewSigninPage : global::Pulumi.CustomResource

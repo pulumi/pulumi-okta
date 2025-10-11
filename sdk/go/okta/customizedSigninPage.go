@@ -14,6 +14,8 @@ import (
 
 // Manage the customized signin page of a brand
 //
+// ## Example Usage
+//
 // ## Import
 //
 // ```sh

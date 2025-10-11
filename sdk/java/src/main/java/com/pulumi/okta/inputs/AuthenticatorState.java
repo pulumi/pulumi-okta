@@ -18,14 +18,14 @@ public final class AuthenticatorState extends com.pulumi.resources.ResourceArgs 
     public static final AuthenticatorState Empty = new AuthenticatorState();
 
     /**
-     * A human-readable string that identifies the authenticator. Some authenticators are available by feature flag on the organization. Possible values inclue: `duo`, `external_idp`, `google_otp`, `okta_email`, `okta_password`, `okta_verify`, `onprem_mfa`, `phone_number`, `rsa_token`, `security_question`, `webauthn`
+     * A human-readable string that identifies the authenticator. Some authenticators are available by feature flag on the organization. Possible values inclue: `duo`, `externalIdp`, `googleOtp`, `oktaEmail`, `oktaPassword`, `oktaVerify`, `onpremMfa`, `phoneNumber`, `rsaToken`, `securityQuestion`, `webauthn`
      * 
      */
     @Import(name="key")
     private @Nullable Output<String> key;
 
     /**
-     * @return A human-readable string that identifies the authenticator. Some authenticators are available by feature flag on the organization. Possible values inclue: `duo`, `external_idp`, `google_otp`, `okta_email`, `okta_password`, `okta_verify`, `onprem_mfa`, `phone_number`, `rsa_token`, `security_question`, `webauthn`
+     * @return A human-readable string that identifies the authenticator. Some authenticators are available by feature flag on the organization. Possible values inclue: `duo`, `externalIdp`, `googleOtp`, `oktaEmail`, `oktaPassword`, `oktaVerify`, `onpremMfa`, `phoneNumber`, `rsaToken`, `securityQuestion`, `webauthn`
      * 
      */
     public Optional<Output<String>> key() {
@@ -63,14 +63,14 @@ public final class AuthenticatorState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The RADIUS server port (for example 1812). This is defined when the On-Prem RADIUS server is configured. Used only for authenticators with type `security_key`.  Conflicts with `provider_json` argument.
+     * The RADIUS server port (for example 1812). This is defined when the On-Prem RADIUS server is configured. Used only for authenticators with type `securityKey`.  Conflicts with `providerJson` argument.
      * 
      */
     @Import(name="providerAuthPort")
     private @Nullable Output<Integer> providerAuthPort;
 
     /**
-     * @return The RADIUS server port (for example 1812). This is defined when the On-Prem RADIUS server is configured. Used only for authenticators with type `security_key`.  Conflicts with `provider_json` argument.
+     * @return The RADIUS server port (for example 1812). This is defined when the On-Prem RADIUS server is configured. Used only for authenticators with type `securityKey`.  Conflicts with `providerJson` argument.
      * 
      */
     public Optional<Output<Integer>> providerAuthPort() {
@@ -78,14 +78,14 @@ public final class AuthenticatorState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * (DUO specific) - The Duo Security API hostname. Conflicts with `provider_json` argument.
+     * (DUO specific) - The Duo Security API hostname. Conflicts with `providerJson` argument.
      * 
      */
     @Import(name="providerHost")
     private @Nullable Output<String> providerHost;
 
     /**
-     * @return (DUO specific) - The Duo Security API hostname. Conflicts with `provider_json` argument.
+     * @return (DUO specific) - The Duo Security API hostname. Conflicts with `providerJson` argument.
      * 
      */
     public Optional<Output<String>> providerHost() {
@@ -93,14 +93,14 @@ public final class AuthenticatorState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Server host name or IP address. Default is `localhost`. Used only for authenticators with type `security_key`. Conflicts with `provider_json` argument.
+     * Server host name or IP address. Default is `localhost`. Used only for authenticators with type `securityKey`. Conflicts with `providerJson` argument.
      * 
      */
     @Import(name="providerHostname")
     private @Nullable Output<String> providerHostname;
 
     /**
-     * @return Server host name or IP address. Default is `localhost`. Used only for authenticators with type `security_key`. Conflicts with `provider_json` argument.
+     * @return Server host name or IP address. Default is `localhost`. Used only for authenticators with type `securityKey`. Conflicts with `providerJson` argument.
      * 
      */
     public Optional<Output<String>> providerHostname() {
@@ -123,14 +123,14 @@ public final class AuthenticatorState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * (DUO specific) - The Duo Security integration key.  Conflicts with `provider_json` argument.
+     * (DUO specific) - The Duo Security integration key.  Conflicts with `providerJson` argument.
      * 
      */
     @Import(name="providerIntegrationKey")
     private @Nullable Output<String> providerIntegrationKey;
 
     /**
-     * @return (DUO specific) - The Duo Security integration key.  Conflicts with `provider_json` argument.
+     * @return (DUO specific) - The Duo Security integration key.  Conflicts with `providerJson` argument.
      * 
      */
     public Optional<Output<String>> providerIntegrationKey() {
@@ -153,14 +153,14 @@ public final class AuthenticatorState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * (DUO specific) - The Duo Security secret key.  Conflicts with `provider_json` argument.
+     * (DUO specific) - The Duo Security secret key.  Conflicts with `providerJson` argument.
      * 
      */
     @Import(name="providerSecretKey")
     private @Nullable Output<String> providerSecretKey;
 
     /**
-     * @return (DUO specific) - The Duo Security secret key.  Conflicts with `provider_json` argument.
+     * @return (DUO specific) - The Duo Security secret key.  Conflicts with `providerJson` argument.
      * 
      */
     public Optional<Output<String>> providerSecretKey() {
@@ -168,14 +168,14 @@ public final class AuthenticatorState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * An authentication key that must be defined when the RADIUS server is configured, and must be the same on both the RADIUS client and server. Used only for authenticators with type `security_key`. Conflicts with `provider_json` argument.
+     * An authentication key that must be defined when the RADIUS server is configured, and must be the same on both the RADIUS client and server. Used only for authenticators with type `securityKey`. Conflicts with `providerJson` argument.
      * 
      */
     @Import(name="providerSharedSecret")
     private @Nullable Output<String> providerSharedSecret;
 
     /**
-     * @return An authentication key that must be defined when the RADIUS server is configured, and must be the same on both the RADIUS client and server. Used only for authenticators with type `security_key`. Conflicts with `provider_json` argument.
+     * @return An authentication key that must be defined when the RADIUS server is configured, and must be the same on both the RADIUS client and server. Used only for authenticators with type `securityKey`. Conflicts with `providerJson` argument.
      * 
      */
     public Optional<Output<String>> providerSharedSecret() {
@@ -198,14 +198,14 @@ public final class AuthenticatorState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Username template expected by the provider. Used only for authenticators with type `security_key`.  Conflicts with `provider_json` argument.
+     * Username template expected by the provider. Used only for authenticators with type `securityKey`.  Conflicts with `providerJson` argument.
      * 
      */
     @Import(name="providerUserNameTemplate")
     private @Nullable Output<String> providerUserNameTemplate;
 
     /**
-     * @return Username template expected by the provider. Used only for authenticators with type `security_key`.  Conflicts with `provider_json` argument.
+     * @return Username template expected by the provider. Used only for authenticators with type `securityKey`.  Conflicts with `providerJson` argument.
      * 
      */
     public Optional<Output<String>> providerUserNameTemplate() {
@@ -213,14 +213,14 @@ public final class AuthenticatorState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Settings for the authenticator. The settings JSON contains values based on Authenticator key. It is not used for authenticators with type `security_key`
+     * Settings for the authenticator. The settings JSON contains values based on Authenticator key. It is not used for authenticators with type `securityKey`
      * 
      */
     @Import(name="settings")
     private @Nullable Output<String> settings;
 
     /**
-     * @return Settings for the authenticator. The settings JSON contains values based on Authenticator key. It is not used for authenticators with type `security_key`
+     * @return Settings for the authenticator. The settings JSON contains values based on Authenticator key. It is not used for authenticators with type `securityKey`
      * 
      */
     public Optional<Output<String>> settings() {
@@ -243,14 +243,14 @@ public final class AuthenticatorState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * he type of Authenticator. Values include: `password`, `security_question`, `phone`, `email`, `app`, `federated`, and `security_key`.
+     * he type of Authenticator. Values include: `password`, `securityQuestion`, `phone`, `email`, `app`, `federated`, and `securityKey`.
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return he type of Authenticator. Values include: `password`, `security_question`, `phone`, `email`, `app`, `federated`, and `security_key`.
+     * @return he type of Authenticator. Values include: `password`, `securityQuestion`, `phone`, `email`, `app`, `federated`, and `securityKey`.
      * 
      */
     public Optional<Output<String>> type() {
@@ -297,7 +297,7 @@ public final class AuthenticatorState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param key A human-readable string that identifies the authenticator. Some authenticators are available by feature flag on the organization. Possible values inclue: `duo`, `external_idp`, `google_otp`, `okta_email`, `okta_password`, `okta_verify`, `onprem_mfa`, `phone_number`, `rsa_token`, `security_question`, `webauthn`
+         * @param key A human-readable string that identifies the authenticator. Some authenticators are available by feature flag on the organization. Possible values inclue: `duo`, `externalIdp`, `googleOtp`, `oktaEmail`, `oktaPassword`, `oktaVerify`, `onpremMfa`, `phoneNumber`, `rsaToken`, `securityQuestion`, `webauthn`
          * 
          * @return builder
          * 
@@ -308,7 +308,7 @@ public final class AuthenticatorState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param key A human-readable string that identifies the authenticator. Some authenticators are available by feature flag on the organization. Possible values inclue: `duo`, `external_idp`, `google_otp`, `okta_email`, `okta_password`, `okta_verify`, `onprem_mfa`, `phone_number`, `rsa_token`, `security_question`, `webauthn`
+         * @param key A human-readable string that identifies the authenticator. Some authenticators are available by feature flag on the organization. Possible values inclue: `duo`, `externalIdp`, `googleOtp`, `oktaEmail`, `oktaPassword`, `oktaVerify`, `onpremMfa`, `phoneNumber`, `rsaToken`, `securityQuestion`, `webauthn`
          * 
          * @return builder
          * 
@@ -360,7 +360,7 @@ public final class AuthenticatorState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param providerAuthPort The RADIUS server port (for example 1812). This is defined when the On-Prem RADIUS server is configured. Used only for authenticators with type `security_key`.  Conflicts with `provider_json` argument.
+         * @param providerAuthPort The RADIUS server port (for example 1812). This is defined when the On-Prem RADIUS server is configured. Used only for authenticators with type `securityKey`.  Conflicts with `providerJson` argument.
          * 
          * @return builder
          * 
@@ -371,7 +371,7 @@ public final class AuthenticatorState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param providerAuthPort The RADIUS server port (for example 1812). This is defined when the On-Prem RADIUS server is configured. Used only for authenticators with type `security_key`.  Conflicts with `provider_json` argument.
+         * @param providerAuthPort The RADIUS server port (for example 1812). This is defined when the On-Prem RADIUS server is configured. Used only for authenticators with type `securityKey`.  Conflicts with `providerJson` argument.
          * 
          * @return builder
          * 
@@ -381,7 +381,7 @@ public final class AuthenticatorState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param providerHost (DUO specific) - The Duo Security API hostname. Conflicts with `provider_json` argument.
+         * @param providerHost (DUO specific) - The Duo Security API hostname. Conflicts with `providerJson` argument.
          * 
          * @return builder
          * 
@@ -392,7 +392,7 @@ public final class AuthenticatorState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param providerHost (DUO specific) - The Duo Security API hostname. Conflicts with `provider_json` argument.
+         * @param providerHost (DUO specific) - The Duo Security API hostname. Conflicts with `providerJson` argument.
          * 
          * @return builder
          * 
@@ -402,7 +402,7 @@ public final class AuthenticatorState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param providerHostname Server host name or IP address. Default is `localhost`. Used only for authenticators with type `security_key`. Conflicts with `provider_json` argument.
+         * @param providerHostname Server host name or IP address. Default is `localhost`. Used only for authenticators with type `securityKey`. Conflicts with `providerJson` argument.
          * 
          * @return builder
          * 
@@ -413,7 +413,7 @@ public final class AuthenticatorState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param providerHostname Server host name or IP address. Default is `localhost`. Used only for authenticators with type `security_key`. Conflicts with `provider_json` argument.
+         * @param providerHostname Server host name or IP address. Default is `localhost`. Used only for authenticators with type `securityKey`. Conflicts with `providerJson` argument.
          * 
          * @return builder
          * 
@@ -444,7 +444,7 @@ public final class AuthenticatorState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param providerIntegrationKey (DUO specific) - The Duo Security integration key.  Conflicts with `provider_json` argument.
+         * @param providerIntegrationKey (DUO specific) - The Duo Security integration key.  Conflicts with `providerJson` argument.
          * 
          * @return builder
          * 
@@ -455,7 +455,7 @@ public final class AuthenticatorState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param providerIntegrationKey (DUO specific) - The Duo Security integration key.  Conflicts with `provider_json` argument.
+         * @param providerIntegrationKey (DUO specific) - The Duo Security integration key.  Conflicts with `providerJson` argument.
          * 
          * @return builder
          * 
@@ -486,7 +486,7 @@ public final class AuthenticatorState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param providerSecretKey (DUO specific) - The Duo Security secret key.  Conflicts with `provider_json` argument.
+         * @param providerSecretKey (DUO specific) - The Duo Security secret key.  Conflicts with `providerJson` argument.
          * 
          * @return builder
          * 
@@ -497,7 +497,7 @@ public final class AuthenticatorState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param providerSecretKey (DUO specific) - The Duo Security secret key.  Conflicts with `provider_json` argument.
+         * @param providerSecretKey (DUO specific) - The Duo Security secret key.  Conflicts with `providerJson` argument.
          * 
          * @return builder
          * 
@@ -507,7 +507,7 @@ public final class AuthenticatorState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param providerSharedSecret An authentication key that must be defined when the RADIUS server is configured, and must be the same on both the RADIUS client and server. Used only for authenticators with type `security_key`. Conflicts with `provider_json` argument.
+         * @param providerSharedSecret An authentication key that must be defined when the RADIUS server is configured, and must be the same on both the RADIUS client and server. Used only for authenticators with type `securityKey`. Conflicts with `providerJson` argument.
          * 
          * @return builder
          * 
@@ -518,7 +518,7 @@ public final class AuthenticatorState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param providerSharedSecret An authentication key that must be defined when the RADIUS server is configured, and must be the same on both the RADIUS client and server. Used only for authenticators with type `security_key`. Conflicts with `provider_json` argument.
+         * @param providerSharedSecret An authentication key that must be defined when the RADIUS server is configured, and must be the same on both the RADIUS client and server. Used only for authenticators with type `securityKey`. Conflicts with `providerJson` argument.
          * 
          * @return builder
          * 
@@ -549,7 +549,7 @@ public final class AuthenticatorState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param providerUserNameTemplate Username template expected by the provider. Used only for authenticators with type `security_key`.  Conflicts with `provider_json` argument.
+         * @param providerUserNameTemplate Username template expected by the provider. Used only for authenticators with type `securityKey`.  Conflicts with `providerJson` argument.
          * 
          * @return builder
          * 
@@ -560,7 +560,7 @@ public final class AuthenticatorState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param providerUserNameTemplate Username template expected by the provider. Used only for authenticators with type `security_key`.  Conflicts with `provider_json` argument.
+         * @param providerUserNameTemplate Username template expected by the provider. Used only for authenticators with type `securityKey`.  Conflicts with `providerJson` argument.
          * 
          * @return builder
          * 
@@ -570,7 +570,7 @@ public final class AuthenticatorState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param settings Settings for the authenticator. The settings JSON contains values based on Authenticator key. It is not used for authenticators with type `security_key`
+         * @param settings Settings for the authenticator. The settings JSON contains values based on Authenticator key. It is not used for authenticators with type `securityKey`
          * 
          * @return builder
          * 
@@ -581,7 +581,7 @@ public final class AuthenticatorState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param settings Settings for the authenticator. The settings JSON contains values based on Authenticator key. It is not used for authenticators with type `security_key`
+         * @param settings Settings for the authenticator. The settings JSON contains values based on Authenticator key. It is not used for authenticators with type `securityKey`
          * 
          * @return builder
          * 
@@ -612,7 +612,7 @@ public final class AuthenticatorState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param type he type of Authenticator. Values include: `password`, `security_question`, `phone`, `email`, `app`, `federated`, and `security_key`.
+         * @param type he type of Authenticator. Values include: `password`, `securityQuestion`, `phone`, `email`, `app`, `federated`, and `securityKey`.
          * 
          * @return builder
          * 
@@ -623,7 +623,7 @@ public final class AuthenticatorState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param type he type of Authenticator. Values include: `password`, `security_question`, `phone`, `email`, `app`, `federated`, and `security_key`.
+         * @param type he type of Authenticator. Values include: `password`, `securityQuestion`, `phone`, `email`, `app`, `federated`, and `securityKey`.
          * 
          * @return builder
          * 

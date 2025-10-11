@@ -82,7 +82,7 @@ namespace Pulumi.Okta
         public Output<string> RoleType { get; private set; } = null!;
 
         /// <summary>
-        /// Subscription status. Valid values: `subscribed`, `unsubscribed`.
+        /// Subscription status. Valid values: `Subscribed`, `Unsubscribed`.
         /// </summary>
         [Output("status")]
         public Output<string?> Status { get; private set; } = null!;
@@ -170,7 +170,7 @@ namespace Pulumi.Okta
         public Input<string> RoleType { get; set; } = null!;
 
         /// <summary>
-        /// Subscription status. Valid values: `subscribed`, `unsubscribed`.
+        /// Subscription status. Valid values: `Subscribed`, `Unsubscribed`.
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
@@ -220,7 +220,7 @@ namespace Pulumi.Okta
         public Input<string>? RoleType { get; set; }
 
         /// <summary>
-        /// Subscription status. Valid values: `subscribed`, `unsubscribed`.
+        /// Subscription status. Valid values: `Subscribed`, `Unsubscribed`.
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }

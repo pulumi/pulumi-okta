@@ -88,13 +88,13 @@ namespace Pulumi.Okta.User
     public sealed class GetUserTypeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// ID of the user type to retrieve, conflicts with `name`.
+        /// ID of the user type to retrieve, conflicts with `Name`.
         /// </summary>
         [Input("id")]
         public string? Id { get; set; }
 
         /// <summary>
-        /// Name of user type to retrieve, conflicts with `id`.
+        /// Name of user type to retrieve, conflicts with `Id`.
         /// </summary>
         [Input("name")]
         public string? Name { get; set; }
@@ -108,13 +108,13 @@ namespace Pulumi.Okta.User
     public sealed class GetUserTypeInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// ID of the user type to retrieve, conflicts with `name`.
+        /// ID of the user type to retrieve, conflicts with `Name`.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// Name of user type to retrieve, conflicts with `id`.
+        /// Name of user type to retrieve, conflicts with `Id`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -138,11 +138,11 @@ namespace Pulumi.Okta.User
         /// </summary>
         public readonly string DisplayName;
         /// <summary>
-        /// ID of the user type to retrieve, conflicts with `name`.
+        /// ID of the user type to retrieve, conflicts with `Name`.
         /// </summary>
         public readonly string? Id;
         /// <summary>
-        /// Name of user type to retrieve, conflicts with `id`.
+        /// Name of user type to retrieve, conflicts with `Id`.
         /// </summary>
         public readonly string? Name;
 

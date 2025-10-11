@@ -47,7 +47,7 @@ public final class GetAppPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     /**
      * The label of the app to retrieve, conflicts with
-     * 			label_prefix and id. Label uses the ?q=\n\n query parameter exposed by
+     * 			labelPrefix and id. Label uses the ?q=\n\n query parameter exposed by
      * 			Okta&#39;s List Apps API. The API will search both name and label using that
      * 			query. Therefore similarily named and labeled apps may be returned in the query
      * 			and have the unitended result of associating the wrong app with this data
@@ -60,7 +60,7 @@ public final class GetAppPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     /**
      * @return The label of the app to retrieve, conflicts with
-     * 			label_prefix and id. Label uses the ?q=\n\n query parameter exposed by
+     * 			labelPrefix and id. Label uses the ?q=\n\n query parameter exposed by
      * 			Okta&#39;s List Apps API. The API will search both name and label using that
      * 			query. Therefore similarily named and labeled apps may be returned in the query
      * 			and have the unitended result of associating the wrong app with this data
@@ -188,7 +188,7 @@ public final class GetAppPlainArgs extends com.pulumi.resources.InvokeArgs {
 
         /**
          * @param label The label of the app to retrieve, conflicts with
-         * 			label_prefix and id. Label uses the ?q=\n\n query parameter exposed by
+         * 			labelPrefix and id. Label uses the ?q=\n\n query parameter exposed by
          * 			Okta&#39;s List Apps API. The API will search both name and label using that
          * 			query. Therefore similarily named and labeled apps may be returned in the query
          * 			and have the unitended result of associating the wrong app with this data

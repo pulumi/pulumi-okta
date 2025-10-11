@@ -16,7 +16,7 @@ import javax.annotation.Nullable;
 /**
  * Manages app settings of the SAML application.
  * This resource allows you to manage app settings of the SAML Application . It&#39;s basically the same as
- * app_settings_json field in okta.app.Saml resource and can be used in cases where settings require to be managed separately.
+ * appSettingsJson field in okta.app.Saml resource and can be used in cases where settings require to be managed separately.
  * 
  * ## Example Usage
  * 

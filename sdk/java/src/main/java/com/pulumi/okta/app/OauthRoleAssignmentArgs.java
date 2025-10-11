@@ -62,14 +62,14 @@ public final class OauthRoleAssignmentArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * Role type to assign. This can be one of the standard Okta roles, such as `HELP_DESK_ADMIN`, or `CUSTOM`. Using custom requires the `resource_set` and `role` attributes to be set.
+     * Role type to assign. This can be one of the standard Okta roles, such as `HELP_DESK_ADMIN`, or `CUSTOM`. Using custom requires the `resourceSet` and `role` attributes to be set.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return Role type to assign. This can be one of the standard Okta roles, such as `HELP_DESK_ADMIN`, or `CUSTOM`. Using custom requires the `resource_set` and `role` attributes to be set.
+     * @return Role type to assign. This can be one of the standard Okta roles, such as `HELP_DESK_ADMIN`, or `CUSTOM`. Using custom requires the `resourceSet` and `role` attributes to be set.
      * 
      */
     public Output<String> type() {
@@ -167,7 +167,7 @@ public final class OauthRoleAssignmentArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param type Role type to assign. This can be one of the standard Okta roles, such as `HELP_DESK_ADMIN`, or `CUSTOM`. Using custom requires the `resource_set` and `role` attributes to be set.
+         * @param type Role type to assign. This can be one of the standard Okta roles, such as `HELP_DESK_ADMIN`, or `CUSTOM`. Using custom requires the `resourceSet` and `role` attributes to be set.
          * 
          * @return builder
          * 
@@ -178,7 +178,7 @@ public final class OauthRoleAssignmentArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param type Role type to assign. This can be one of the standard Okta roles, such as `HELP_DESK_ADMIN`, or `CUSTOM`. Using custom requires the `resource_set` and `role` attributes to be set.
+         * @param type Role type to assign. This can be one of the standard Okta roles, such as `HELP_DESK_ADMIN`, or `CUSTOM`. Using custom requires the `resourceSet` and `role` attributes to be set.
          * 
          * @return builder
          * 

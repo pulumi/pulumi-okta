@@ -69,14 +69,14 @@ public class Factor extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.active);
     }
     /**
-     * The MFA provider name. Allowed values are `duo`, `fido_u2f`, `fido_webauthn`, `google_otp`, `okta_call`, `okta_otp`, `okta_password`, `okta_push`, `okta_question`, `okta_sms`, `okta_email`, `rsa_token`, `symantec_vip`, `yubikey_token`, or `hotp`.
+     * The MFA provider name. Allowed values are `duo`, `fidoU2f`, `fidoWebauthn`, `googleOtp`, `oktaCall`, `oktaOtp`, `oktaPassword`, `oktaPush`, `oktaQuestion`, `oktaSms`, `oktaEmail`, `rsaToken`, `symantecVip`, `yubikeyToken`, or `hotp`.
      * 
      */
     @Export(name="providerId", refs={String.class}, tree="[0]")
     private Output<String> providerId;
 
     /**
-     * @return The MFA provider name. Allowed values are `duo`, `fido_u2f`, `fido_webauthn`, `google_otp`, `okta_call`, `okta_otp`, `okta_password`, `okta_push`, `okta_question`, `okta_sms`, `okta_email`, `rsa_token`, `symantec_vip`, `yubikey_token`, or `hotp`.
+     * @return The MFA provider name. Allowed values are `duo`, `fidoU2f`, `fidoWebauthn`, `googleOtp`, `oktaCall`, `oktaOtp`, `oktaPassword`, `oktaPush`, `oktaQuestion`, `oktaSms`, `oktaEmail`, `rsaToken`, `symantecVip`, `yubikeyToken`, or `hotp`.
      * 
      */
     public Output<String> providerId() {

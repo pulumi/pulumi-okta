@@ -138,7 +138,7 @@ namespace Pulumi.Okta.User
         public Output<string?> EmployeeNumber { get; private set; } = null!;
 
         /// <summary>
-        /// If set to `true`, the user will have to change the password at the next login. This property will be used when user is being created and works only when `password` field is set. Default: `false`
+        /// If set to `True`, the user will have to change the password at the next login. This property will be used when user is being created and works only when `Password` field is set. Default: `False`
         /// </summary>
         [Output("expirePasswordOnCreate")]
         public Output<bool?> ExpirePasswordOnCreate { get; private set; } = null!;
@@ -210,7 +210,7 @@ namespace Pulumi.Okta.User
         public Output<string?> NickName { get; private set; } = null!;
 
         /// <summary>
-        /// Old User Password. Should be only set in case the password was not changed using the provider. fter successful password change this field should be removed and `password` field should be used for further changes.
+        /// Old User Password. Should be only set in case the password was not changed using the provider. fter successful password change this field should be removed and `Password` field should be used for further changes.
         /// </summary>
         [Output("oldPassword")]
         public Output<string?> OldPassword { get; private set; } = null!;
@@ -234,7 +234,7 @@ namespace Pulumi.Okta.User
         public Output<Outputs.UserPasswordHash?> PasswordHash { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies that a Password Import Inline Hook should be triggered to handle verification of the user's password the first time the user logs in. This allows an existing password to be imported into Okta directly from some other store. When updating a user with a password hook the user must be in the `STAGED` status. The `password` field should not be specified when using Password Import Inline Hook.
+        /// Specifies that a Password Import Inline Hook should be triggered to handle verification of the user's password the first time the user logs in. This allows an existing password to be imported into Okta directly from some other store. When updating a user with a password hook the user must be in the `STAGED` status. The `Password` field should not be specified when using Password Import Inline Hook.
         /// </summary>
         [Output("passwordInlineHook")]
         public Output<string?> PasswordInlineHook { get; private set; } = null!;
@@ -450,7 +450,7 @@ namespace Pulumi.Okta.User
         public Input<string>? EmployeeNumber { get; set; }
 
         /// <summary>
-        /// If set to `true`, the user will have to change the password at the next login. This property will be used when user is being created and works only when `password` field is set. Default: `false`
+        /// If set to `True`, the user will have to change the password at the next login. This property will be used when user is being created and works only when `Password` field is set. Default: `False`
         /// </summary>
         [Input("expirePasswordOnCreate")]
         public Input<bool>? ExpirePasswordOnCreate { get; set; }
@@ -525,7 +525,7 @@ namespace Pulumi.Okta.User
         private Input<string>? _oldPassword;
 
         /// <summary>
-        /// Old User Password. Should be only set in case the password was not changed using the provider. fter successful password change this field should be removed and `password` field should be used for further changes.
+        /// Old User Password. Should be only set in case the password was not changed using the provider. fter successful password change this field should be removed and `Password` field should be used for further changes.
         /// </summary>
         public Input<string>? OldPassword
         {
@@ -566,7 +566,7 @@ namespace Pulumi.Okta.User
         public Input<Inputs.UserPasswordHashArgs>? PasswordHash { get; set; }
 
         /// <summary>
-        /// Specifies that a Password Import Inline Hook should be triggered to handle verification of the user's password the first time the user logs in. This allows an existing password to be imported into Okta directly from some other store. When updating a user with a password hook the user must be in the `STAGED` status. The `password` field should not be specified when using Password Import Inline Hook.
+        /// Specifies that a Password Import Inline Hook should be triggered to handle verification of the user's password the first time the user logs in. This allows an existing password to be imported into Okta directly from some other store. When updating a user with a password hook the user must be in the `STAGED` status. The `Password` field should not be specified when using Password Import Inline Hook.
         /// </summary>
         [Input("passwordInlineHook")]
         public Input<string>? PasswordInlineHook { get; set; }
@@ -742,7 +742,7 @@ namespace Pulumi.Okta.User
         public Input<string>? EmployeeNumber { get; set; }
 
         /// <summary>
-        /// If set to `true`, the user will have to change the password at the next login. This property will be used when user is being created and works only when `password` field is set. Default: `false`
+        /// If set to `True`, the user will have to change the password at the next login. This property will be used when user is being created and works only when `Password` field is set. Default: `False`
         /// </summary>
         [Input("expirePasswordOnCreate")]
         public Input<bool>? ExpirePasswordOnCreate { get; set; }
@@ -817,7 +817,7 @@ namespace Pulumi.Okta.User
         private Input<string>? _oldPassword;
 
         /// <summary>
-        /// Old User Password. Should be only set in case the password was not changed using the provider. fter successful password change this field should be removed and `password` field should be used for further changes.
+        /// Old User Password. Should be only set in case the password was not changed using the provider. fter successful password change this field should be removed and `Password` field should be used for further changes.
         /// </summary>
         public Input<string>? OldPassword
         {
@@ -858,7 +858,7 @@ namespace Pulumi.Okta.User
         public Input<Inputs.UserPasswordHashGetArgs>? PasswordHash { get; set; }
 
         /// <summary>
-        /// Specifies that a Password Import Inline Hook should be triggered to handle verification of the user's password the first time the user logs in. This allows an existing password to be imported into Okta directly from some other store. When updating a user with a password hook the user must be in the `STAGED` status. The `password` field should not be specified when using Password Import Inline Hook.
+        /// Specifies that a Password Import Inline Hook should be triggered to handle verification of the user's password the first time the user logs in. This allows an existing password to be imported into Okta directly from some other store. When updating a user with a password hook the user must be in the `STAGED` status. The `Password` field should not be specified when using Password Import Inline Hook.
         /// </summary>
         [Input("passwordInlineHook")]
         public Input<string>? PasswordInlineHook { get; set; }

@@ -62,7 +62,7 @@ namespace Pulumi.Okta.Auth
         public Output<string> AuthServerId { get; private set; } = null!;
 
         /// <summary>
-        /// Accepted grant type values, `authorization_code`, `implicit`, `password`, `client_credentials`, `urn:ietf:params:oauth:grant-type:saml2-bearer` (*Early Access Property*), `urn:ietf:params:oauth:grant-type:token-exchange` (*Early Access Property*),`urn:ietf:params:oauth:grant-type:device_code` (*Early Access Property*), `interaction_code` (*OIE only*). For `implicit` value either `user_whitelist` or `group_whitelist` should be set.
+        /// Accepted grant type values, `AuthorizationCode`, `Implicit`, `Password`, `ClientCredentials`, `urn:ietf:params:oauth:grant-type:saml2-bearer` (*Early Access Property*), `urn:ietf:params:oauth:grant-type:token-exchange` (*Early Access Property*),`urn:ietf:params:oauth:grant-type:device_code` (*Early Access Property*), `InteractionCode` (*OIE only*). For `Implicit` value either `UserWhitelist` or `GroupWhitelist` should be set.
         /// </summary>
         [Output("grantTypeWhitelists")]
         public Output<ImmutableArray<string>> GrantTypeWhitelists { get; private set; } = null!;
@@ -110,7 +110,7 @@ namespace Pulumi.Okta.Auth
         public Output<int?> RefreshTokenLifetimeMinutes { get; private set; } = null!;
 
         /// <summary>
-        /// Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes. Default is `10080` (7 days).`refresh_token_window_minutes` must be between `access_token_lifetime_minutes` and `refresh_token_lifetime_minutes`.
+        /// Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes. Default is `10080` (7 days).`RefreshTokenWindowMinutes` must be between `AccessTokenLifetimeMinutes` and `RefreshTokenLifetimeMinutes`.
         /// </summary>
         [Output("refreshTokenWindowMinutes")]
         public Output<int?> RefreshTokenWindowMinutes { get; private set; } = null!;
@@ -217,7 +217,7 @@ namespace Pulumi.Okta.Auth
         private InputList<string>? _grantTypeWhitelists;
 
         /// <summary>
-        /// Accepted grant type values, `authorization_code`, `implicit`, `password`, `client_credentials`, `urn:ietf:params:oauth:grant-type:saml2-bearer` (*Early Access Property*), `urn:ietf:params:oauth:grant-type:token-exchange` (*Early Access Property*),`urn:ietf:params:oauth:grant-type:device_code` (*Early Access Property*), `interaction_code` (*OIE only*). For `implicit` value either `user_whitelist` or `group_whitelist` should be set.
+        /// Accepted grant type values, `AuthorizationCode`, `Implicit`, `Password`, `ClientCredentials`, `urn:ietf:params:oauth:grant-type:saml2-bearer` (*Early Access Property*), `urn:ietf:params:oauth:grant-type:token-exchange` (*Early Access Property*),`urn:ietf:params:oauth:grant-type:device_code` (*Early Access Property*), `InteractionCode` (*OIE only*). For `Implicit` value either `UserWhitelist` or `GroupWhitelist` should be set.
         /// </summary>
         public InputList<string> GrantTypeWhitelists
         {
@@ -280,7 +280,7 @@ namespace Pulumi.Okta.Auth
         public Input<int>? RefreshTokenLifetimeMinutes { get; set; }
 
         /// <summary>
-        /// Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes. Default is `10080` (7 days).`refresh_token_window_minutes` must be between `access_token_lifetime_minutes` and `refresh_token_lifetime_minutes`.
+        /// Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes. Default is `10080` (7 days).`RefreshTokenWindowMinutes` must be between `AccessTokenLifetimeMinutes` and `RefreshTokenLifetimeMinutes`.
         /// </summary>
         [Input("refreshTokenWindowMinutes")]
         public Input<int>? RefreshTokenWindowMinutes { get; set; }
@@ -357,7 +357,7 @@ namespace Pulumi.Okta.Auth
         private InputList<string>? _grantTypeWhitelists;
 
         /// <summary>
-        /// Accepted grant type values, `authorization_code`, `implicit`, `password`, `client_credentials`, `urn:ietf:params:oauth:grant-type:saml2-bearer` (*Early Access Property*), `urn:ietf:params:oauth:grant-type:token-exchange` (*Early Access Property*),`urn:ietf:params:oauth:grant-type:device_code` (*Early Access Property*), `interaction_code` (*OIE only*). For `implicit` value either `user_whitelist` or `group_whitelist` should be set.
+        /// Accepted grant type values, `AuthorizationCode`, `Implicit`, `Password`, `ClientCredentials`, `urn:ietf:params:oauth:grant-type:saml2-bearer` (*Early Access Property*), `urn:ietf:params:oauth:grant-type:token-exchange` (*Early Access Property*),`urn:ietf:params:oauth:grant-type:device_code` (*Early Access Property*), `InteractionCode` (*OIE only*). For `Implicit` value either `UserWhitelist` or `GroupWhitelist` should be set.
         /// </summary>
         public InputList<string> GrantTypeWhitelists
         {
@@ -420,7 +420,7 @@ namespace Pulumi.Okta.Auth
         public Input<int>? RefreshTokenLifetimeMinutes { get; set; }
 
         /// <summary>
-        /// Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes. Default is `10080` (7 days).`refresh_token_window_minutes` must be between `access_token_lifetime_minutes` and `refresh_token_lifetime_minutes`.
+        /// Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes. Default is `10080` (7 days).`RefreshTokenWindowMinutes` must be between `AccessTokenLifetimeMinutes` and `RefreshTokenLifetimeMinutes`.
         /// </summary>
         [Input("refreshTokenWindowMinutes")]
         public Input<int>? RefreshTokenWindowMinutes { get; set; }

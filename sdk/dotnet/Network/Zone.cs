@@ -70,7 +70,7 @@ namespace Pulumi.Okta.Network
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples. Can not be set if `usage` is set to `BLOCKLIST`. Use with type `IP`
+        /// Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples. Can not be set if `Usage` is set to `BLOCKLIST`. Use with type `IP`
         /// </summary>
         [Output("proxies")]
         public Output<ImmutableArray<string>> Proxies { get; private set; } = null!;
@@ -227,7 +227,7 @@ namespace Pulumi.Okta.Network
         private InputList<string>? _proxies;
 
         /// <summary>
-        /// Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples. Can not be set if `usage` is set to `BLOCKLIST`. Use with type `IP`
+        /// Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples. Can not be set if `Usage` is set to `BLOCKLIST`. Use with type `IP`
         /// </summary>
         public InputList<string> Proxies
         {
@@ -349,7 +349,7 @@ namespace Pulumi.Okta.Network
         private InputList<string>? _proxies;
 
         /// <summary>
-        /// Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples. Can not be set if `usage` is set to `BLOCKLIST`. Use with type `IP`
+        /// Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples. Can not be set if `Usage` is set to `BLOCKLIST`. Use with type `IP`
         /// </summary>
         public InputList<string> Proxies
         {

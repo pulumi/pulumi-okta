@@ -61,7 +61,7 @@ namespace Pulumi.Okta
         public Output<string> ClaimType { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the claim. Can be set to `sub`, `address`, `birthdate`, `email`,`email_verified`, `family_name`, `gender`, `given_name`, `locale`, `middle_name`, `name`, `nickname`,`phone_number`, `picture`, `preferred_username`, `profile`, `updated_at`, `website`, `zoneinfo`
+        /// The name of the claim. Can be set to `Sub`, `Address`, `Birthdate`, `Email`,`EmailVerified`, `FamilyName`, `Gender`, `GivenName`, `Locale`, `MiddleName`, `Name`, `Nickname`,`PhoneNumber`, `Picture`, `PreferredUsername`, `Profile`, `UpdatedAt`, `Website`, `Zoneinfo`
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -79,7 +79,7 @@ namespace Pulumi.Okta
         public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
-        /// The value of the claim. Only required for `sub` claim.
+        /// The value of the claim. Only required for `Sub` claim.
         /// </summary>
         [Output("value")]
         public Output<string?> Value { get; private set; } = null!;
@@ -149,13 +149,13 @@ namespace Pulumi.Okta
         public Input<string> AuthServerId { get; set; } = null!;
 
         /// <summary>
-        /// The name of the claim. Can be set to `sub`, `address`, `birthdate`, `email`,`email_verified`, `family_name`, `gender`, `given_name`, `locale`, `middle_name`, `name`, `nickname`,`phone_number`, `picture`, `preferred_username`, `profile`, `updated_at`, `website`, `zoneinfo`
+        /// The name of the claim. Can be set to `Sub`, `Address`, `Birthdate`, `Email`,`EmailVerified`, `FamilyName`, `Gender`, `GivenName`, `Locale`, `MiddleName`, `Name`, `Nickname`,`PhoneNumber`, `Picture`, `PreferredUsername`, `Profile`, `UpdatedAt`, `Website`, `Zoneinfo`
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The value of the claim. Only required for `sub` claim.
+        /// The value of the claim. Only required for `Sub` claim.
         /// </summary>
         [Input("value")]
         public Input<string>? Value { get; set; }
@@ -187,7 +187,7 @@ namespace Pulumi.Okta
         public Input<string>? ClaimType { get; set; }
 
         /// <summary>
-        /// The name of the claim. Can be set to `sub`, `address`, `birthdate`, `email`,`email_verified`, `family_name`, `gender`, `given_name`, `locale`, `middle_name`, `name`, `nickname`,`phone_number`, `picture`, `preferred_username`, `profile`, `updated_at`, `website`, `zoneinfo`
+        /// The name of the claim. Can be set to `Sub`, `Address`, `Birthdate`, `Email`,`EmailVerified`, `FamilyName`, `Gender`, `GivenName`, `Locale`, `MiddleName`, `Name`, `Nickname`,`PhoneNumber`, `Picture`, `PreferredUsername`, `Profile`, `UpdatedAt`, `Website`, `Zoneinfo`
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -211,7 +211,7 @@ namespace Pulumi.Okta
         public Input<string>? Status { get; set; }
 
         /// <summary>
-        /// The value of the claim. Only required for `sub` claim.
+        /// The value of the claim. Only required for `Sub` claim.
         /// </summary>
         [Input("value")]
         public Input<string>? Value { get; set; }

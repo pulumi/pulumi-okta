@@ -86,13 +86,13 @@ namespace Pulumi.Okta
         public Output<string> Title { get; private set; } = null!;
 
         /// <summary>
-        /// The type of the schema property. It can be `string`, `boolean`, `number`, `integer`, `array`, or `object`
+        /// The type of the schema property. It can be `String`, `Boolean`, `Number`, `Integer`, `Array`, or `Object`
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
 
         /// <summary>
-        /// User type ID. By default, it is `default`
+        /// User type ID. By default, it is `Default`
         /// </summary>
         [Output("userType")]
         public Output<string?> UserType { get; private set; } = null!;
@@ -186,13 +186,13 @@ namespace Pulumi.Okta
         public Input<string> Title { get; set; } = null!;
 
         /// <summary>
-        /// The type of the schema property. It can be `string`, `boolean`, `number`, `integer`, `array`, or `object`
+        /// The type of the schema property. It can be `String`, `Boolean`, `Number`, `Integer`, `Array`, or `Object`
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
         /// <summary>
-        /// User type ID. By default, it is `default`
+        /// User type ID. By default, it is `Default`
         /// </summary>
         [Input("userType")]
         public Input<string>? UserType { get; set; }
@@ -248,13 +248,13 @@ namespace Pulumi.Okta
         public Input<string>? Title { get; set; }
 
         /// <summary>
-        /// The type of the schema property. It can be `string`, `boolean`, `number`, `integer`, `array`, or `object`
+        /// The type of the schema property. It can be `String`, `Boolean`, `Number`, `Integer`, `Array`, or `Object`
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 
         /// <summary>
-        /// User type ID. By default, it is `default`
+        /// User type ID. By default, it is `Default`
         /// </summary>
         [Input("userType")]
         public Input<string>? UserType { get; set; }

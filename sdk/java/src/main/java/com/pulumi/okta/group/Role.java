@@ -57,28 +57,28 @@ public class Role extends com.pulumi.resources.CustomResource {
         return this.groupId;
     }
     /**
-     * Resource Set ID. Required for role_type = `CUSTOM`
+     * Resource Set ID. Required for roleType = `CUSTOM`
      * 
      */
     @Export(name="resourceSetId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> resourceSetId;
 
     /**
-     * @return Resource Set ID. Required for role_type = `CUSTOM`
+     * @return Resource Set ID. Required for roleType = `CUSTOM`
      * 
      */
     public Output<Optional<String>> resourceSetId() {
         return Codegen.optional(this.resourceSetId);
     }
     /**
-     * Role ID. Required for role_type = `CUSTOM`
+     * Role ID. Required for roleType = `CUSTOM`
      * 
      */
     @Export(name="roleId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> roleId;
 
     /**
-     * @return Role ID. Required for role_type = `CUSTOM`
+     * @return Role ID. Required for roleType = `CUSTOM`
      * 
      */
     public Output<Optional<String>> roleId() {

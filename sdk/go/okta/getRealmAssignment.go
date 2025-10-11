@@ -12,6 +12,8 @@ import (
 )
 
 // Get a realm assignment from Okta.
+//
+// ## Example Usage
 func LookupRealmAssignment(ctx *pulumi.Context, args *LookupRealmAssignmentArgs, opts ...pulumi.InvokeOption) (*LookupRealmAssignmentResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupRealmAssignmentResult

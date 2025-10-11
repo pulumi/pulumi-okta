@@ -588,10 +588,10 @@ public class User extends com.pulumi.resources.CustomResource {
      * Do not populate user roles information (prevents additional API call)
      * 
      * @deprecated
-     * Because admin_roles has been removed, this attribute is a no op and will be removed
+     * Because adminRoles has been removed, this attribute is a no op and will be removed
      * 
      */
-    @Deprecated /* Because admin_roles has been removed, this attribute is a no op and will be removed */
+    @Deprecated /* Because adminRoles has been removed, this attribute is a no op and will be removed */
     @Export(name="skipRoles", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> skipRoles;
 

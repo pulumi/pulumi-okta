@@ -154,14 +154,14 @@ public final class OidcState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * List of Okta Group IDs to add an IdP user as a member with the `ASSIGN` `groups_action`.
+     * List of Okta Group IDs to add an IdP user as a member with the `ASSIGN` `groupsAction`.
      * 
      */
     @Import(name="groupsAssignments")
     private @Nullable Output<List<String>> groupsAssignments;
 
     /**
-     * @return List of Okta Group IDs to add an IdP user as a member with the `ASSIGN` `groups_action`.
+     * @return List of Okta Group IDs to add an IdP user as a member with the `ASSIGN` `groupsAction`.
      * 
      */
     public Optional<Output<List<String>>> groupsAssignments() {
@@ -184,14 +184,14 @@ public final class OidcState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Whitelist of Okta Group identifiers that are allowed for the `APPEND` or `SYNC` `groups_action`.
+     * Whitelist of Okta Group identifiers that are allowed for the `APPEND` or `SYNC` `groupsAction`.
      * 
      */
     @Import(name="groupsFilters")
     private @Nullable Output<List<String>> groupsFilters;
 
     /**
-     * @return Whitelist of Okta Group identifiers that are allowed for the `APPEND` or `SYNC` `groups_action`.
+     * @return Whitelist of Okta Group identifiers that are allowed for the `APPEND` or `SYNC` `groupsAction`.
      * 
      */
     public Optional<Output<List<String>>> groupsFilters() {
@@ -521,14 +521,14 @@ public final class OidcState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * User type ID. Can be used as `target_id` in the `okta.profile.Mapping` resource.
+     * User type ID. Can be used as `targetId` in the `okta.profile.Mapping` resource.
      * 
      */
     @Import(name="userTypeId")
     private @Nullable Output<String> userTypeId;
 
     /**
-     * @return User type ID. Can be used as `target_id` in the `okta.profile.Mapping` resource.
+     * @return User type ID. Can be used as `targetId` in the `okta.profile.Mapping` resource.
      * 
      */
     public Optional<Output<String>> userTypeId() {
@@ -809,7 +809,7 @@ public final class OidcState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param groupsAssignments List of Okta Group IDs to add an IdP user as a member with the `ASSIGN` `groups_action`.
+         * @param groupsAssignments List of Okta Group IDs to add an IdP user as a member with the `ASSIGN` `groupsAction`.
          * 
          * @return builder
          * 
@@ -820,7 +820,7 @@ public final class OidcState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param groupsAssignments List of Okta Group IDs to add an IdP user as a member with the `ASSIGN` `groups_action`.
+         * @param groupsAssignments List of Okta Group IDs to add an IdP user as a member with the `ASSIGN` `groupsAction`.
          * 
          * @return builder
          * 
@@ -830,7 +830,7 @@ public final class OidcState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param groupsAssignments List of Okta Group IDs to add an IdP user as a member with the `ASSIGN` `groups_action`.
+         * @param groupsAssignments List of Okta Group IDs to add an IdP user as a member with the `ASSIGN` `groupsAction`.
          * 
          * @return builder
          * 
@@ -861,7 +861,7 @@ public final class OidcState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param groupsFilters Whitelist of Okta Group identifiers that are allowed for the `APPEND` or `SYNC` `groups_action`.
+         * @param groupsFilters Whitelist of Okta Group identifiers that are allowed for the `APPEND` or `SYNC` `groupsAction`.
          * 
          * @return builder
          * 
@@ -872,7 +872,7 @@ public final class OidcState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param groupsFilters Whitelist of Okta Group identifiers that are allowed for the `APPEND` or `SYNC` `groups_action`.
+         * @param groupsFilters Whitelist of Okta Group identifiers that are allowed for the `APPEND` or `SYNC` `groupsAction`.
          * 
          * @return builder
          * 
@@ -882,7 +882,7 @@ public final class OidcState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param groupsFilters Whitelist of Okta Group identifiers that are allowed for the `APPEND` or `SYNC` `groups_action`.
+         * @param groupsFilters Whitelist of Okta Group identifiers that are allowed for the `APPEND` or `SYNC` `groupsAction`.
          * 
          * @return builder
          * 
@@ -1352,7 +1352,7 @@ public final class OidcState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param userTypeId User type ID. Can be used as `target_id` in the `okta.profile.Mapping` resource.
+         * @param userTypeId User type ID. Can be used as `targetId` in the `okta.profile.Mapping` resource.
          * 
          * @return builder
          * 
@@ -1363,7 +1363,7 @@ public final class OidcState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param userTypeId User type ID. Can be used as `target_id` in the `okta.profile.Mapping` resource.
+         * @param userTypeId User type ID. Can be used as `targetId` in the `okta.profile.Mapping` resource.
          * 
          * @return builder
          * 

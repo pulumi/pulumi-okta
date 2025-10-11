@@ -19,6 +19,8 @@ import (
 //	activated or deactivated in accordance with the 'status' change. Then, all
 //	other arguments that changed will be applied.
 //
+// ## Example Usage
+//
 // ## Import
 //
 // ```sh

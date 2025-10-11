@@ -88,13 +88,13 @@ namespace Pulumi.Okta.Idp
     public sealed class GetSocialArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The id of the social idp to retrieve, conflicts with `name`.
+        /// The id of the social idp to retrieve, conflicts with `Name`.
         /// </summary>
         [Input("id")]
         public string? Id { get; set; }
 
         /// <summary>
-        /// The name of the social idp to retrieve, conflicts with `id`.
+        /// The name of the social idp to retrieve, conflicts with `Id`.
         /// </summary>
         [Input("name")]
         public string? Name { get; set; }
@@ -108,13 +108,13 @@ namespace Pulumi.Okta.Idp
     public sealed class GetSocialInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The id of the social idp to retrieve, conflicts with `name`.
+        /// The id of the social idp to retrieve, conflicts with `Name`.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// The name of the social idp to retrieve, conflicts with `id`.
+        /// The name of the social idp to retrieve, conflicts with `Id`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -174,7 +174,7 @@ namespace Pulumi.Okta.Idp
         /// </summary>
         public readonly ImmutableArray<string> GroupsFilters;
         /// <summary>
-        /// The id of the social idp to retrieve, conflicts with `name`.
+        /// The id of the social idp to retrieve, conflicts with `Name`.
         /// </summary>
         public readonly string? Id;
         /// <summary>
@@ -186,7 +186,7 @@ namespace Pulumi.Okta.Idp
         /// </summary>
         public readonly int MaxClockSkew;
         /// <summary>
-        /// The name of the social idp to retrieve, conflicts with `id`.
+        /// The name of the social idp to retrieve, conflicts with `Id`.
         /// </summary>
         public readonly string? Name;
         /// <summary>

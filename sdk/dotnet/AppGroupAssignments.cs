@@ -12,7 +12,7 @@ namespace Pulumi.Okta
     /// <summary>
     /// Assigns groups to an application. This resource allows you to create multiple App Group assignments.
     /// 
-    /// **Important**: Do not use in conjunction with for_each
+    /// **Important**: Do not use in conjunction with ForEach
     /// 
     /// ## Example Usage
     /// 

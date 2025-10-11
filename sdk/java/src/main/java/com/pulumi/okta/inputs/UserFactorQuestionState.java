@@ -76,14 +76,14 @@ public final class UserFactorQuestionState extends com.pulumi.resources.Resource
     }
 
     /**
-     * ID of the user. Resource will be recreated when `user_id` changes.
+     * ID of the user. Resource will be recreated when `userId` changes.
      * 
      */
     @Import(name="userId")
     private @Nullable Output<String> userId;
 
     /**
-     * @return ID of the user. Resource will be recreated when `user_id` changes.
+     * @return ID of the user. Resource will be recreated when `userId` changes.
      * 
      */
     public Optional<Output<String>> userId() {
@@ -203,7 +203,7 @@ public final class UserFactorQuestionState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param userId ID of the user. Resource will be recreated when `user_id` changes.
+         * @param userId ID of the user. Resource will be recreated when `userId` changes.
          * 
          * @return builder
          * 
@@ -214,7 +214,7 @@ public final class UserFactorQuestionState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param userId ID of the user. Resource will be recreated when `user_id` changes.
+         * @param userId ID of the user. Resource will be recreated when `userId` changes.
          * 
          * @return builder
          * 

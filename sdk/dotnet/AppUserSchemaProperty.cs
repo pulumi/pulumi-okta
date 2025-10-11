@@ -82,7 +82,7 @@ namespace Pulumi.Okta
         public Output<ImmutableArray<Outputs.AppUserSchemaPropertyArrayOneOf>> ArrayOneOfs { get; private set; } = null!;
 
         /// <summary>
-        /// The type of the array elements if `type` is set to `array`
+        /// The type of the array elements if `Type` is set to `Array`
         /// </summary>
         [Output("arrayType")]
         public Output<string?> ArrayType { get; private set; } = null!;
@@ -94,7 +94,7 @@ namespace Pulumi.Okta
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Array of values a primitive property can be set to. See `array_enum` for arrays.
+        /// Array of values a primitive property can be set to. See `ArrayEnum` for arrays.
         /// </summary>
         [Output("enums")]
         public Output<ImmutableArray<string>> Enums { get; private set; } = null!;
@@ -124,13 +124,13 @@ namespace Pulumi.Okta
         public Output<string?> Master { get; private set; } = null!;
 
         /// <summary>
-        /// The maximum length of the user property value. Only applies to type `string`
+        /// The maximum length of the user property value. Only applies to type `String`
         /// </summary>
         [Output("maxLength")]
         public Output<int?> MaxLength { get; private set; } = null!;
 
         /// <summary>
-        /// The minimum length of the user property value. Only applies to type `string`
+        /// The minimum length of the user property value. Only applies to type `String`
         /// </summary>
         [Output("minLength")]
         public Output<int?> MinLength { get; private set; } = null!;
@@ -168,13 +168,13 @@ namespace Pulumi.Okta
         public Output<string> Title { get; private set; } = null!;
 
         /// <summary>
-        /// The type of the schema property. It can be `string`, `boolean`, `number`, `integer`, `array`, or `object`
+        /// The type of the schema property. It can be `String`, `Boolean`, `Number`, `Integer`, `Array`, or `Object`
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
 
         /// <summary>
-        /// If `type` is set to `array`, used to set whether attribute value is determined by group priority `false`, or combine values across groups `true`. Can not be set to `true` if `scope` is set to `SELF`.
+        /// If `Type` is set to `Array`, used to set whether attribute value is determined by group priority `False`, or combine values across groups `True`. Can not be set to `True` if `Scope` is set to `SELF`.
         /// </summary>
         [Output("union")]
         public Output<bool?> Union { get; private set; } = null!;
@@ -186,7 +186,7 @@ namespace Pulumi.Okta
         public Output<string?> Unique { get; private set; } = null!;
 
         /// <summary>
-        /// User type ID. By default, it is `default`
+        /// User type ID. By default, it is `Default`
         /// </summary>
         [Output("userType")]
         public Output<string?> UserType { get; private set; } = null!;
@@ -270,7 +270,7 @@ namespace Pulumi.Okta
         }
 
         /// <summary>
-        /// The type of the array elements if `type` is set to `array`
+        /// The type of the array elements if `Type` is set to `Array`
         /// </summary>
         [Input("arrayType")]
         public Input<string>? ArrayType { get; set; }
@@ -285,7 +285,7 @@ namespace Pulumi.Okta
         private InputList<string>? _enums;
 
         /// <summary>
-        /// Array of values a primitive property can be set to. See `array_enum` for arrays.
+        /// Array of values a primitive property can be set to. See `ArrayEnum` for arrays.
         /// </summary>
         public InputList<string> Enums
         {
@@ -318,13 +318,13 @@ namespace Pulumi.Okta
         public Input<string>? Master { get; set; }
 
         /// <summary>
-        /// The maximum length of the user property value. Only applies to type `string`
+        /// The maximum length of the user property value. Only applies to type `String`
         /// </summary>
         [Input("maxLength")]
         public Input<int>? MaxLength { get; set; }
 
         /// <summary>
-        /// The minimum length of the user property value. Only applies to type `string`
+        /// The minimum length of the user property value. Only applies to type `String`
         /// </summary>
         [Input("minLength")]
         public Input<int>? MinLength { get; set; }
@@ -368,13 +368,13 @@ namespace Pulumi.Okta
         public Input<string> Title { get; set; } = null!;
 
         /// <summary>
-        /// The type of the schema property. It can be `string`, `boolean`, `number`, `integer`, `array`, or `object`
+        /// The type of the schema property. It can be `String`, `Boolean`, `Number`, `Integer`, `Array`, or `Object`
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
         /// <summary>
-        /// If `type` is set to `array`, used to set whether attribute value is determined by group priority `false`, or combine values across groups `true`. Can not be set to `true` if `scope` is set to `SELF`.
+        /// If `Type` is set to `Array`, used to set whether attribute value is determined by group priority `False`, or combine values across groups `True`. Can not be set to `True` if `Scope` is set to `SELF`.
         /// </summary>
         [Input("union")]
         public Input<bool>? Union { get; set; }
@@ -386,7 +386,7 @@ namespace Pulumi.Okta
         public Input<string>? Unique { get; set; }
 
         /// <summary>
-        /// User type ID. By default, it is `default`
+        /// User type ID. By default, it is `Default`
         /// </summary>
         [Input("userType")]
         public Input<string>? UserType { get; set; }
@@ -432,7 +432,7 @@ namespace Pulumi.Okta
         }
 
         /// <summary>
-        /// The type of the array elements if `type` is set to `array`
+        /// The type of the array elements if `Type` is set to `Array`
         /// </summary>
         [Input("arrayType")]
         public Input<string>? ArrayType { get; set; }
@@ -447,7 +447,7 @@ namespace Pulumi.Okta
         private InputList<string>? _enums;
 
         /// <summary>
-        /// Array of values a primitive property can be set to. See `array_enum` for arrays.
+        /// Array of values a primitive property can be set to. See `ArrayEnum` for arrays.
         /// </summary>
         public InputList<string> Enums
         {
@@ -480,13 +480,13 @@ namespace Pulumi.Okta
         public Input<string>? Master { get; set; }
 
         /// <summary>
-        /// The maximum length of the user property value. Only applies to type `string`
+        /// The maximum length of the user property value. Only applies to type `String`
         /// </summary>
         [Input("maxLength")]
         public Input<int>? MaxLength { get; set; }
 
         /// <summary>
-        /// The minimum length of the user property value. Only applies to type `string`
+        /// The minimum length of the user property value. Only applies to type `String`
         /// </summary>
         [Input("minLength")]
         public Input<int>? MinLength { get; set; }
@@ -530,13 +530,13 @@ namespace Pulumi.Okta
         public Input<string>? Title { get; set; }
 
         /// <summary>
-        /// The type of the schema property. It can be `string`, `boolean`, `number`, `integer`, `array`, or `object`
+        /// The type of the schema property. It can be `String`, `Boolean`, `Number`, `Integer`, `Array`, or `Object`
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 
         /// <summary>
-        /// If `type` is set to `array`, used to set whether attribute value is determined by group priority `false`, or combine values across groups `true`. Can not be set to `true` if `scope` is set to `SELF`.
+        /// If `Type` is set to `Array`, used to set whether attribute value is determined by group priority `False`, or combine values across groups `True`. Can not be set to `True` if `Scope` is set to `SELF`.
         /// </summary>
         [Input("union")]
         public Input<bool>? Union { get; set; }
@@ -548,7 +548,7 @@ namespace Pulumi.Okta
         public Input<string>? Unique { get; set; }
 
         /// <summary>
-        /// User type ID. By default, it is `default`
+        /// User type ID. By default, it is `Default`
         /// </summary>
         [Input("userType")]
         public Input<string>? UserType { get; set; }

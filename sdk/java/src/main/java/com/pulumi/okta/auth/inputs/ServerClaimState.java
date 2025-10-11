@@ -63,14 +63,14 @@ public final class ServerClaimState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the type of group filter if `value_type` is `GROUPS`. Can be set to one of the following `STARTS_WITH`, `EQUALS`, `CONTAINS`, `REGEX`.
+     * Specifies the type of group filter if `valueType` is `GROUPS`. Can be set to one of the following `STARTS_WITH`, `EQUALS`, `CONTAINS`, `REGEX`.
      * 
      */
     @Import(name="groupFilterType")
     private @Nullable Output<String> groupFilterType;
 
     /**
-     * @return Specifies the type of group filter if `value_type` is `GROUPS`. Can be set to one of the following `STARTS_WITH`, `EQUALS`, `CONTAINS`, `REGEX`.
+     * @return Specifies the type of group filter if `valueType` is `GROUPS`. Can be set to one of the following `STARTS_WITH`, `EQUALS`, `CONTAINS`, `REGEX`.
      * 
      */
     public Optional<Output<String>> groupFilterType() {
@@ -248,7 +248,7 @@ public final class ServerClaimState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param groupFilterType Specifies the type of group filter if `value_type` is `GROUPS`. Can be set to one of the following `STARTS_WITH`, `EQUALS`, `CONTAINS`, `REGEX`.
+         * @param groupFilterType Specifies the type of group filter if `valueType` is `GROUPS`. Can be set to one of the following `STARTS_WITH`, `EQUALS`, `CONTAINS`, `REGEX`.
          * 
          * @return builder
          * 
@@ -259,7 +259,7 @@ public final class ServerClaimState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param groupFilterType Specifies the type of group filter if `value_type` is `GROUPS`. Can be set to one of the following `STARTS_WITH`, `EQUALS`, `CONTAINS`, `REGEX`.
+         * @param groupFilterType Specifies the type of group filter if `valueType` is `GROUPS`. Can be set to one of the following `STARTS_WITH`, `EQUALS`, `CONTAINS`, `REGEX`.
          * 
          * @return builder
          * 

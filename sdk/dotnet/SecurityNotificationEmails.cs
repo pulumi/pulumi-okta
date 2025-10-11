@@ -47,31 +47,31 @@ namespace Pulumi.Okta
     public partial class SecurityNotificationEmails : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Notifies end users about suspicious or unrecognized activity from their account. Default is `true`.
+        /// Notifies end users about suspicious or unrecognized activity from their account. Default is `True`.
         /// </summary>
         [Output("reportSuspiciousActivityEnabled")]
         public Output<bool?> ReportSuspiciousActivityEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Notifies end users of any activity on their account related to MFA factor enrollment. Default is `true`.
+        /// Notifies end users of any activity on their account related to MFA factor enrollment. Default is `True`.
         /// </summary>
         [Output("sendEmailForFactorEnrollmentEnabled")]
         public Output<bool?> SendEmailForFactorEnrollmentEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Notifies end users that one or more factors have been reset for their account. Default is `true`.
+        /// Notifies end users that one or more factors have been reset for their account. Default is `True`.
         /// </summary>
         [Output("sendEmailForFactorResetEnabled")]
         public Output<bool?> SendEmailForFactorResetEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Notifies end users about new sign-on activity. Default is `true`.
+        /// Notifies end users about new sign-on activity. Default is `True`.
         /// </summary>
         [Output("sendEmailForNewDeviceEnabled")]
         public Output<bool?> SendEmailForNewDeviceEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Notifies end users that the password for their account has changed. Default is `true`.
+        /// Notifies end users that the password for their account has changed. Default is `True`.
         /// </summary>
         [Output("sendEmailForPasswordChangedEnabled")]
         public Output<bool?> SendEmailForPasswordChangedEnabled { get; private set; } = null!;
@@ -123,31 +123,31 @@ namespace Pulumi.Okta
     public sealed class SecurityNotificationEmailsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Notifies end users about suspicious or unrecognized activity from their account. Default is `true`.
+        /// Notifies end users about suspicious or unrecognized activity from their account. Default is `True`.
         /// </summary>
         [Input("reportSuspiciousActivityEnabled")]
         public Input<bool>? ReportSuspiciousActivityEnabled { get; set; }
 
         /// <summary>
-        /// Notifies end users of any activity on their account related to MFA factor enrollment. Default is `true`.
+        /// Notifies end users of any activity on their account related to MFA factor enrollment. Default is `True`.
         /// </summary>
         [Input("sendEmailForFactorEnrollmentEnabled")]
         public Input<bool>? SendEmailForFactorEnrollmentEnabled { get; set; }
 
         /// <summary>
-        /// Notifies end users that one or more factors have been reset for their account. Default is `true`.
+        /// Notifies end users that one or more factors have been reset for their account. Default is `True`.
         /// </summary>
         [Input("sendEmailForFactorResetEnabled")]
         public Input<bool>? SendEmailForFactorResetEnabled { get; set; }
 
         /// <summary>
-        /// Notifies end users about new sign-on activity. Default is `true`.
+        /// Notifies end users about new sign-on activity. Default is `True`.
         /// </summary>
         [Input("sendEmailForNewDeviceEnabled")]
         public Input<bool>? SendEmailForNewDeviceEnabled { get; set; }
 
         /// <summary>
-        /// Notifies end users that the password for their account has changed. Default is `true`.
+        /// Notifies end users that the password for their account has changed. Default is `True`.
         /// </summary>
         [Input("sendEmailForPasswordChangedEnabled")]
         public Input<bool>? SendEmailForPasswordChangedEnabled { get; set; }
@@ -161,31 +161,31 @@ namespace Pulumi.Okta
     public sealed class SecurityNotificationEmailsState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Notifies end users about suspicious or unrecognized activity from their account. Default is `true`.
+        /// Notifies end users about suspicious or unrecognized activity from their account. Default is `True`.
         /// </summary>
         [Input("reportSuspiciousActivityEnabled")]
         public Input<bool>? ReportSuspiciousActivityEnabled { get; set; }
 
         /// <summary>
-        /// Notifies end users of any activity on their account related to MFA factor enrollment. Default is `true`.
+        /// Notifies end users of any activity on their account related to MFA factor enrollment. Default is `True`.
         /// </summary>
         [Input("sendEmailForFactorEnrollmentEnabled")]
         public Input<bool>? SendEmailForFactorEnrollmentEnabled { get; set; }
 
         /// <summary>
-        /// Notifies end users that one or more factors have been reset for their account. Default is `true`.
+        /// Notifies end users that one or more factors have been reset for their account. Default is `True`.
         /// </summary>
         [Input("sendEmailForFactorResetEnabled")]
         public Input<bool>? SendEmailForFactorResetEnabled { get; set; }
 
         /// <summary>
-        /// Notifies end users about new sign-on activity. Default is `true`.
+        /// Notifies end users about new sign-on activity. Default is `True`.
         /// </summary>
         [Input("sendEmailForNewDeviceEnabled")]
         public Input<bool>? SendEmailForNewDeviceEnabled { get; set; }
 
         /// <summary>
-        /// Notifies end users that the password for their account has changed. Default is `true`.
+        /// Notifies end users that the password for their account has changed. Default is `True`.
         /// </summary>
         [Input("sendEmailForPasswordChangedEnabled")]
         public Input<bool>? SendEmailForPasswordChangedEnabled { get; set; }

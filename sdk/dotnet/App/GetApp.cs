@@ -101,7 +101,7 @@ namespace Pulumi.Okta.App
 
         /// <summary>
         /// The label of the app to retrieve, conflicts with
-        /// 			label_prefix and id. Label uses the ?q=\n\n query parameter exposed by
+        /// 			LabelPrefix and id. Label uses the ?q=\n\n query parameter exposed by
         /// 			Okta's List Apps API. The API will search both name and label using that
         /// 			query. Therefore similarily named and labeled apps may be returned in the query
         /// 			and have the unitended result of associating the wrong app with this data
@@ -152,7 +152,7 @@ namespace Pulumi.Okta.App
 
         /// <summary>
         /// The label of the app to retrieve, conflicts with
-        /// 			label_prefix and id. Label uses the ?q=\n\n query parameter exposed by
+        /// 			LabelPrefix and id. Label uses the ?q=\n\n query parameter exposed by
         /// 			Okta's List Apps API. The API will search both name and label using that
         /// 			query. Therefore similarily named and labeled apps may be returned in the query
         /// 			and have the unitended result of associating the wrong app with this data
@@ -205,7 +205,7 @@ namespace Pulumi.Okta.App
         public readonly string? Id;
         /// <summary>
         /// The label of the app to retrieve, conflicts with
-        /// 			label_prefix and id. Label uses the ?q=\n\n query parameter exposed by
+        /// 			LabelPrefix and id. Label uses the ?q=\n\n query parameter exposed by
         /// 			Okta's List Apps API. The API will search both name and label using that
         /// 			query. Therefore similarily named and labeled apps may be returned in the query
         /// 			and have the unitended result of associating the wrong app with this data

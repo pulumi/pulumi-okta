@@ -242,14 +242,14 @@ public final class BasicAuthState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Allow user to reveal password. Default is false. It can not be set to true if credentials_scheme is &#34;ADMIN_SETS_CREDENTIALS&#34;, &#34;SHARED_USERNAME_AND_PASSWORD&#34; or &#34;EXTERNAL_PASSWORD_SYNC&#34;.
+     * Allow user to reveal password. Default is false. It can not be set to true if credentialsScheme is &#34;ADMIN_SETS_CREDENTIALS&#34;, &#34;SHARED_USERNAME_AND_PASSWORD&#34; or &#34;EXTERNAL_PASSWORD_SYNC&#34;.
      * 
      */
     @Import(name="revealPassword")
     private @Nullable Output<Boolean> revealPassword;
 
     /**
-     * @return Allow user to reveal password. Default is false. It can not be set to true if credentials_scheme is &#34;ADMIN_SETS_CREDENTIALS&#34;, &#34;SHARED_USERNAME_AND_PASSWORD&#34; or &#34;EXTERNAL_PASSWORD_SYNC&#34;.
+     * @return Allow user to reveal password. Default is false. It can not be set to true if credentialsScheme is &#34;ADMIN_SETS_CREDENTIALS&#34;, &#34;SHARED_USERNAME_AND_PASSWORD&#34; or &#34;EXTERNAL_PASSWORD_SYNC&#34;.
      * 
      */
     public Optional<Output<Boolean>> revealPassword() {
@@ -755,7 +755,7 @@ public final class BasicAuthState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param revealPassword Allow user to reveal password. Default is false. It can not be set to true if credentials_scheme is &#34;ADMIN_SETS_CREDENTIALS&#34;, &#34;SHARED_USERNAME_AND_PASSWORD&#34; or &#34;EXTERNAL_PASSWORD_SYNC&#34;.
+         * @param revealPassword Allow user to reveal password. Default is false. It can not be set to true if credentialsScheme is &#34;ADMIN_SETS_CREDENTIALS&#34;, &#34;SHARED_USERNAME_AND_PASSWORD&#34; or &#34;EXTERNAL_PASSWORD_SYNC&#34;.
          * 
          * @return builder
          * 
@@ -766,7 +766,7 @@ public final class BasicAuthState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param revealPassword Allow user to reveal password. Default is false. It can not be set to true if credentials_scheme is &#34;ADMIN_SETS_CREDENTIALS&#34;, &#34;SHARED_USERNAME_AND_PASSWORD&#34; or &#34;EXTERNAL_PASSWORD_SYNC&#34;.
+         * @param revealPassword Allow user to reveal password. Default is false. It can not be set to true if credentialsScheme is &#34;ADMIN_SETS_CREDENTIALS&#34;, &#34;SHARED_USERNAME_AND_PASSWORD&#34; or &#34;EXTERNAL_PASSWORD_SYNC&#34;.
          * 
          * @return builder
          * 

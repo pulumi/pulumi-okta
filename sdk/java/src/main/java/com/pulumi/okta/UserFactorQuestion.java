@@ -143,14 +143,14 @@ public class UserFactorQuestion extends com.pulumi.resources.CustomResource {
         return this.text;
     }
     /**
-     * ID of the user. Resource will be recreated when `user_id` changes.
+     * ID of the user. Resource will be recreated when `userId` changes.
      * 
      */
     @Export(name="userId", refs={String.class}, tree="[0]")
     private Output<String> userId;
 
     /**
-     * @return ID of the user. Resource will be recreated when `user_id` changes.
+     * @return ID of the user. Resource will be recreated when `userId` changes.
      * 
      */
     public Output<String> userId() {

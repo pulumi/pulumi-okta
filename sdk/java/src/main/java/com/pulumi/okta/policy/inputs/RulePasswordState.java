@@ -48,14 +48,14 @@ public final class RulePasswordState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Required if `network_connection` = `ZONE`. Indicates the network zones to exclude.
+     * Required if `networkConnection` = `ZONE`. Indicates the network zones to exclude.
      * 
      */
     @Import(name="networkExcludes")
     private @Nullable Output<List<String>> networkExcludes;
 
     /**
-     * @return Required if `network_connection` = `ZONE`. Indicates the network zones to exclude.
+     * @return Required if `networkConnection` = `ZONE`. Indicates the network zones to exclude.
      * 
      */
     public Optional<Output<List<String>>> networkExcludes() {
@@ -63,14 +63,14 @@ public final class RulePasswordState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Required if `network_connection` = `ZONE`. Indicates the network zones to include.
+     * Required if `networkConnection` = `ZONE`. Indicates the network zones to include.
      * 
      */
     @Import(name="networkIncludes")
     private @Nullable Output<List<String>> networkIncludes;
 
     /**
-     * @return Required if `network_connection` = `ZONE`. Indicates the network zones to include.
+     * @return Required if `networkConnection` = `ZONE`. Indicates the network zones to include.
      * 
      */
     public Optional<Output<List<String>>> networkIncludes() {
@@ -259,7 +259,7 @@ public final class RulePasswordState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkExcludes Required if `network_connection` = `ZONE`. Indicates the network zones to exclude.
+         * @param networkExcludes Required if `networkConnection` = `ZONE`. Indicates the network zones to exclude.
          * 
          * @return builder
          * 
@@ -270,7 +270,7 @@ public final class RulePasswordState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkExcludes Required if `network_connection` = `ZONE`. Indicates the network zones to exclude.
+         * @param networkExcludes Required if `networkConnection` = `ZONE`. Indicates the network zones to exclude.
          * 
          * @return builder
          * 
@@ -280,7 +280,7 @@ public final class RulePasswordState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkExcludes Required if `network_connection` = `ZONE`. Indicates the network zones to exclude.
+         * @param networkExcludes Required if `networkConnection` = `ZONE`. Indicates the network zones to exclude.
          * 
          * @return builder
          * 
@@ -290,7 +290,7 @@ public final class RulePasswordState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkIncludes Required if `network_connection` = `ZONE`. Indicates the network zones to include.
+         * @param networkIncludes Required if `networkConnection` = `ZONE`. Indicates the network zones to include.
          * 
          * @return builder
          * 
@@ -301,7 +301,7 @@ public final class RulePasswordState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkIncludes Required if `network_connection` = `ZONE`. Indicates the network zones to include.
+         * @param networkIncludes Required if `networkConnection` = `ZONE`. Indicates the network zones to include.
          * 
          * @return builder
          * 
@@ -311,7 +311,7 @@ public final class RulePasswordState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkIncludes Required if `network_connection` = `ZONE`. Indicates the network zones to include.
+         * @param networkIncludes Required if `networkConnection` = `ZONE`. Indicates the network zones to include.
          * 
          * @return builder
          * 

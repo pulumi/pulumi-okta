@@ -103,6 +103,8 @@ def get_behaviour(id: Optional[_builtins.str] = None,
     """
     Get a behavior by name or ID.
 
+    ## Example Usage
+
 
     :param _builtins.str id: Behavior ID.
     :param _builtins.str name: Behavior name.
@@ -124,6 +126,8 @@ def get_behaviour_output(id: Optional[pulumi.Input[Optional[_builtins.str]]] = N
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBehaviourResult]:
     """
     Get a behavior by name or ID.
+
+    ## Example Usage
 
 
     :param _builtins.str id: Behavior ID.

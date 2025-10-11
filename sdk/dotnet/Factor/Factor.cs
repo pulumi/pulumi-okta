@@ -34,13 +34,13 @@ namespace Pulumi.Okta.Factor
     public partial class Factor : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Whether to activate the provider, by default, it is set to `true`.
+        /// Whether to activate the provider, by default, it is set to `True`.
         /// </summary>
         [Output("active")]
         public Output<bool?> Active { get; private set; } = null!;
 
         /// <summary>
-        /// The MFA provider name. Allowed values are `duo`, `fido_u2f`, `fido_webauthn`, `google_otp`, `okta_call`, `okta_otp`, `okta_password`, `okta_push`, `okta_question`, `okta_sms`, `okta_email`, `rsa_token`, `symantec_vip`, `yubikey_token`, or `hotp`.
+        /// The MFA provider name. Allowed values are `Duo`, `FidoU2f`, `FidoWebauthn`, `GoogleOtp`, `OktaCall`, `OktaOtp`, `OktaPassword`, `OktaPush`, `OktaQuestion`, `OktaSms`, `OktaEmail`, `RsaToken`, `SymantecVip`, `YubikeyToken`, or `Hotp`.
         /// </summary>
         [Output("providerId")]
         public Output<string> ProviderId { get; private set; } = null!;
@@ -92,13 +92,13 @@ namespace Pulumi.Okta.Factor
     public sealed class FactorArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether to activate the provider, by default, it is set to `true`.
+        /// Whether to activate the provider, by default, it is set to `True`.
         /// </summary>
         [Input("active")]
         public Input<bool>? Active { get; set; }
 
         /// <summary>
-        /// The MFA provider name. Allowed values are `duo`, `fido_u2f`, `fido_webauthn`, `google_otp`, `okta_call`, `okta_otp`, `okta_password`, `okta_push`, `okta_question`, `okta_sms`, `okta_email`, `rsa_token`, `symantec_vip`, `yubikey_token`, or `hotp`.
+        /// The MFA provider name. Allowed values are `Duo`, `FidoU2f`, `FidoWebauthn`, `GoogleOtp`, `OktaCall`, `OktaOtp`, `OktaPassword`, `OktaPush`, `OktaQuestion`, `OktaSms`, `OktaEmail`, `RsaToken`, `SymantecVip`, `YubikeyToken`, or `Hotp`.
         /// </summary>
         [Input("providerId", required: true)]
         public Input<string> ProviderId { get; set; } = null!;
@@ -112,13 +112,13 @@ namespace Pulumi.Okta.Factor
     public sealed class FactorState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether to activate the provider, by default, it is set to `true`.
+        /// Whether to activate the provider, by default, it is set to `True`.
         /// </summary>
         [Input("active")]
         public Input<bool>? Active { get; set; }
 
         /// <summary>
-        /// The MFA provider name. Allowed values are `duo`, `fido_u2f`, `fido_webauthn`, `google_otp`, `okta_call`, `okta_otp`, `okta_password`, `okta_push`, `okta_question`, `okta_sms`, `okta_email`, `rsa_token`, `symantec_vip`, `yubikey_token`, or `hotp`.
+        /// The MFA provider name. Allowed values are `Duo`, `FidoU2f`, `FidoWebauthn`, `GoogleOtp`, `OktaCall`, `OktaOtp`, `OktaPassword`, `OktaPush`, `OktaQuestion`, `OktaSms`, `OktaEmail`, `RsaToken`, `SymantecVip`, `YubikeyToken`, or `Hotp`.
         /// </summary>
         [Input("providerId")]
         public Input<string>? ProviderId { get; set; }

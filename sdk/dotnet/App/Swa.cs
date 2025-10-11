@@ -61,7 +61,7 @@ namespace Pulumi.Okta.App
         public Output<string?> AccessibilityLoginRedirectUrl { get; private set; } = null!;
 
         /// <summary>
-        /// Enable self service. Default is `false`
+        /// Enable self service. Default is `False`
         /// </summary>
         [Output("accessibilitySelfService")]
         public Output<bool?> AccessibilitySelfService { get; private set; } = null!;
@@ -269,7 +269,7 @@ namespace Pulumi.Okta.App
         public Input<string>? AccessibilityLoginRedirectUrl { get; set; }
 
         /// <summary>
-        /// Enable self service. Default is `false`
+        /// Enable self service. Default is `False`
         /// </summary>
         [Input("accessibilitySelfService")]
         public Input<bool>? AccessibilitySelfService { get; set; }
@@ -421,7 +421,7 @@ namespace Pulumi.Okta.App
         public Input<string>? AccessibilityLoginRedirectUrl { get; set; }
 
         /// <summary>
-        /// Enable self service. Default is `false`
+        /// Enable self service. Default is `False`
         /// </summary>
         [Input("accessibilitySelfService")]
         public Input<bool>? AccessibilitySelfService { get; set; }

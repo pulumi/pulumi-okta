@@ -142,7 +142,7 @@ namespace Pulumi.Okta.Auth
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The complete URL of the authorization server. This becomes the `iss` claim in an access token.
+        /// The complete URL of the authorization server. This becomes the `Iss` claim in an access token.
         /// </summary>
         public readonly string Issuer;
         /// <summary>

@@ -40,7 +40,7 @@ namespace Pulumi.Okta
         public Output<string?> LifeCycle { get; private set; } = null!;
 
         /// <summary>
-        /// Indicates if you want to force enable or disable a feature. Value is `true` meaning force
+        /// Indicates if you want to force enable or disable a feature. Value is `True` meaning force
         /// </summary>
         [Output("mode")]
         public Output<bool?> Mode { get; private set; } = null!;
@@ -128,7 +128,7 @@ namespace Pulumi.Okta
         public Input<string>? LifeCycle { get; set; }
 
         /// <summary>
-        /// Indicates if you want to force enable or disable a feature. Value is `true` meaning force
+        /// Indicates if you want to force enable or disable a feature. Value is `True` meaning force
         /// </summary>
         [Input("mode")]
         public Input<bool>? Mode { get; set; }
@@ -160,7 +160,7 @@ namespace Pulumi.Okta
         public Input<string>? LifeCycle { get; set; }
 
         /// <summary>
-        /// Indicates if you want to force enable or disable a feature. Value is `true` meaning force
+        /// Indicates if you want to force enable or disable a feature. Value is `True` meaning force
         /// </summary>
         [Input("mode")]
         public Input<bool>? Mode { get; set; }

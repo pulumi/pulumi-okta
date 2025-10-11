@@ -72,7 +72,7 @@ namespace Pulumi.Okta
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// List of `okta_them` belonging to the brand in the organization
+        /// List of `OktaThem` belonging to the brand in the organization
         /// </summary>
         public readonly ImmutableArray<Outputs.GetThemesThemeResult> Themes;
 

@@ -87,14 +87,14 @@ public final class UserSchemaPropertyArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Array of values a primitive property can be set to. See `array_enum` for arrays.
+     * Array of values a primitive property can be set to. See `arrayEnum` for arrays.
      * 
      */
     @Import(name="enums")
     private @Nullable Output<List<String>> enums;
 
     /**
-     * @return Array of values a primitive property can be set to. See `array_enum` for arrays.
+     * @return Array of values a primitive property can be set to. See `arrayEnum` for arrays.
      * 
      */
     public Optional<Output<List<String>>> enums() {
@@ -504,7 +504,7 @@ public final class UserSchemaPropertyArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param enums Array of values a primitive property can be set to. See `array_enum` for arrays.
+         * @param enums Array of values a primitive property can be set to. See `arrayEnum` for arrays.
          * 
          * @return builder
          * 
@@ -515,7 +515,7 @@ public final class UserSchemaPropertyArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param enums Array of values a primitive property can be set to. See `array_enum` for arrays.
+         * @param enums Array of values a primitive property can be set to. See `arrayEnum` for arrays.
          * 
          * @return builder
          * 
@@ -525,7 +525,7 @@ public final class UserSchemaPropertyArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param enums Array of values a primitive property can be set to. See `array_enum` for arrays.
+         * @param enums Array of values a primitive property can be set to. See `arrayEnum` for arrays.
          * 
          * @return builder
          * 

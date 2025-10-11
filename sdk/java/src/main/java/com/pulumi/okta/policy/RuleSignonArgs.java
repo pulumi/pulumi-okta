@@ -90,14 +90,14 @@ public final class RuleSignonArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Apply rule based on the IdP used: `ANY`, `OKTA` or `SPECIFIC_IDP`. Default: `ANY`. &gt; **WARNING**: Use of `identity_provider` requires a feature flag to be enabled.
+     * Apply rule based on the IdP used: `ANY`, `OKTA` or `SPECIFIC_IDP`. Default: `ANY`. &gt; **WARNING**: Use of `identityProvider` requires a feature flag to be enabled.
      * 
      */
     @Import(name="identityProvider")
     private @Nullable Output<String> identityProvider;
 
     /**
-     * @return Apply rule based on the IdP used: `ANY`, `OKTA` or `SPECIFIC_IDP`. Default: `ANY`. &gt; **WARNING**: Use of `identity_provider` requires a feature flag to be enabled.
+     * @return Apply rule based on the IdP used: `ANY`, `OKTA` or `SPECIFIC_IDP`. Default: `ANY`. &gt; **WARNING**: Use of `identityProvider` requires a feature flag to be enabled.
      * 
      */
     public Optional<Output<String>> identityProvider() {
@@ -105,14 +105,14 @@ public final class RuleSignonArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * When identity_provider is `SPECIFIC_IDP` then this is the list of IdP IDs to apply the rule on
+     * When identityProvider is `SPECIFIC_IDP` then this is the list of IdP IDs to apply the rule on
      * 
      */
     @Import(name="identityProviderIds")
     private @Nullable Output<List<String>> identityProviderIds;
 
     /**
-     * @return When identity_provider is `SPECIFIC_IDP` then this is the list of IdP IDs to apply the rule on
+     * @return When identityProvider is `SPECIFIC_IDP` then this is the list of IdP IDs to apply the rule on
      * 
      */
     public Optional<Output<List<String>>> identityProviderIds() {
@@ -210,14 +210,14 @@ public final class RuleSignonArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Required if `network_connection` = `ZONE`. Indicates the network zones to exclude.
+     * Required if `networkConnection` = `ZONE`. Indicates the network zones to exclude.
      * 
      */
     @Import(name="networkExcludes")
     private @Nullable Output<List<String>> networkExcludes;
 
     /**
-     * @return Required if `network_connection` = `ZONE`. Indicates the network zones to exclude.
+     * @return Required if `networkConnection` = `ZONE`. Indicates the network zones to exclude.
      * 
      */
     public Optional<Output<List<String>>> networkExcludes() {
@@ -225,14 +225,14 @@ public final class RuleSignonArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Required if `network_connection` = `ZONE`. Indicates the network zones to include.
+     * Required if `networkConnection` = `ZONE`. Indicates the network zones to include.
      * 
      */
     @Import(name="networkIncludes")
     private @Nullable Output<List<String>> networkIncludes;
 
     /**
-     * @return Required if `network_connection` = `ZONE`. Indicates the network zones to include.
+     * @return Required if `networkConnection` = `ZONE`. Indicates the network zones to include.
      * 
      */
     public Optional<Output<List<String>>> networkIncludes() {
@@ -288,10 +288,10 @@ public final class RuleSignonArgs extends com.pulumi.resources.ResourceArgs {
      * Risc level: ANY, LOW, MEDIUM or HIGH. Default: `ANY`
      * 
      * @deprecated
-     * Attribute typo, switch to risk_level instead. Default: `ANY`
+     * Attribute typo, switch to riskLevel instead. Default: `ANY`
      * 
      */
-    @Deprecated /* Attribute typo, switch to risk_level instead. Default: `ANY` */
+    @Deprecated /* Attribute typo, switch to riskLevel instead. Default: `ANY` */
     @Import(name="riscLevel")
     private @Nullable Output<String> riscLevel;
 
@@ -299,10 +299,10 @@ public final class RuleSignonArgs extends com.pulumi.resources.ResourceArgs {
      * @return Risc level: ANY, LOW, MEDIUM or HIGH. Default: `ANY`
      * 
      * @deprecated
-     * Attribute typo, switch to risk_level instead. Default: `ANY`
+     * Attribute typo, switch to riskLevel instead. Default: `ANY`
      * 
      */
-    @Deprecated /* Attribute typo, switch to risk_level instead. Default: `ANY` */
+    @Deprecated /* Attribute typo, switch to riskLevel instead. Default: `ANY` */
     public Optional<Output<String>> riscLevel() {
         return Optional.ofNullable(this.riscLevel);
     }
@@ -564,7 +564,7 @@ public final class RuleSignonArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param identityProvider Apply rule based on the IdP used: `ANY`, `OKTA` or `SPECIFIC_IDP`. Default: `ANY`. &gt; **WARNING**: Use of `identity_provider` requires a feature flag to be enabled.
+         * @param identityProvider Apply rule based on the IdP used: `ANY`, `OKTA` or `SPECIFIC_IDP`. Default: `ANY`. &gt; **WARNING**: Use of `identityProvider` requires a feature flag to be enabled.
          * 
          * @return builder
          * 
@@ -575,7 +575,7 @@ public final class RuleSignonArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param identityProvider Apply rule based on the IdP used: `ANY`, `OKTA` or `SPECIFIC_IDP`. Default: `ANY`. &gt; **WARNING**: Use of `identity_provider` requires a feature flag to be enabled.
+         * @param identityProvider Apply rule based on the IdP used: `ANY`, `OKTA` or `SPECIFIC_IDP`. Default: `ANY`. &gt; **WARNING**: Use of `identityProvider` requires a feature flag to be enabled.
          * 
          * @return builder
          * 
@@ -585,7 +585,7 @@ public final class RuleSignonArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param identityProviderIds When identity_provider is `SPECIFIC_IDP` then this is the list of IdP IDs to apply the rule on
+         * @param identityProviderIds When identityProvider is `SPECIFIC_IDP` then this is the list of IdP IDs to apply the rule on
          * 
          * @return builder
          * 
@@ -596,7 +596,7 @@ public final class RuleSignonArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param identityProviderIds When identity_provider is `SPECIFIC_IDP` then this is the list of IdP IDs to apply the rule on
+         * @param identityProviderIds When identityProvider is `SPECIFIC_IDP` then this is the list of IdP IDs to apply the rule on
          * 
          * @return builder
          * 
@@ -606,7 +606,7 @@ public final class RuleSignonArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param identityProviderIds When identity_provider is `SPECIFIC_IDP` then this is the list of IdP IDs to apply the rule on
+         * @param identityProviderIds When identityProvider is `SPECIFIC_IDP` then this is the list of IdP IDs to apply the rule on
          * 
          * @return builder
          * 
@@ -742,7 +742,7 @@ public final class RuleSignonArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkExcludes Required if `network_connection` = `ZONE`. Indicates the network zones to exclude.
+         * @param networkExcludes Required if `networkConnection` = `ZONE`. Indicates the network zones to exclude.
          * 
          * @return builder
          * 
@@ -753,7 +753,7 @@ public final class RuleSignonArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkExcludes Required if `network_connection` = `ZONE`. Indicates the network zones to exclude.
+         * @param networkExcludes Required if `networkConnection` = `ZONE`. Indicates the network zones to exclude.
          * 
          * @return builder
          * 
@@ -763,7 +763,7 @@ public final class RuleSignonArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkExcludes Required if `network_connection` = `ZONE`. Indicates the network zones to exclude.
+         * @param networkExcludes Required if `networkConnection` = `ZONE`. Indicates the network zones to exclude.
          * 
          * @return builder
          * 
@@ -773,7 +773,7 @@ public final class RuleSignonArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkIncludes Required if `network_connection` = `ZONE`. Indicates the network zones to include.
+         * @param networkIncludes Required if `networkConnection` = `ZONE`. Indicates the network zones to include.
          * 
          * @return builder
          * 
@@ -784,7 +784,7 @@ public final class RuleSignonArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkIncludes Required if `network_connection` = `ZONE`. Indicates the network zones to include.
+         * @param networkIncludes Required if `networkConnection` = `ZONE`. Indicates the network zones to include.
          * 
          * @return builder
          * 
@@ -794,7 +794,7 @@ public final class RuleSignonArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkIncludes Required if `network_connection` = `ZONE`. Indicates the network zones to include.
+         * @param networkIncludes Required if `networkConnection` = `ZONE`. Indicates the network zones to include.
          * 
          * @return builder
          * 
@@ -872,10 +872,10 @@ public final class RuleSignonArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * Attribute typo, switch to risk_level instead. Default: `ANY`
+         * Attribute typo, switch to riskLevel instead. Default: `ANY`
          * 
          */
-        @Deprecated /* Attribute typo, switch to risk_level instead. Default: `ANY` */
+        @Deprecated /* Attribute typo, switch to riskLevel instead. Default: `ANY` */
         public Builder riscLevel(@Nullable Output<String> riscLevel) {
             $.riscLevel = riscLevel;
             return this;
@@ -887,10 +887,10 @@ public final class RuleSignonArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * Attribute typo, switch to risk_level instead. Default: `ANY`
+         * Attribute typo, switch to riskLevel instead. Default: `ANY`
          * 
          */
-        @Deprecated /* Attribute typo, switch to risk_level instead. Default: `ANY` */
+        @Deprecated /* Attribute typo, switch to riskLevel instead. Default: `ANY` */
         public Builder riscLevel(String riscLevel) {
             return riscLevel(Output.of(riscLevel));
         }

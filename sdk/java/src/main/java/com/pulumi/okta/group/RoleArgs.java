@@ -49,14 +49,14 @@ public final class RoleArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Resource Set ID. Required for role_type = `CUSTOM`
+     * Resource Set ID. Required for roleType = `CUSTOM`
      * 
      */
     @Import(name="resourceSetId")
     private @Nullable Output<String> resourceSetId;
 
     /**
-     * @return Resource Set ID. Required for role_type = `CUSTOM`
+     * @return Resource Set ID. Required for roleType = `CUSTOM`
      * 
      */
     public Optional<Output<String>> resourceSetId() {
@@ -64,14 +64,14 @@ public final class RoleArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Role ID. Required for role_type = `CUSTOM`
+     * Role ID. Required for roleType = `CUSTOM`
      * 
      */
     @Import(name="roleId")
     private @Nullable Output<String> roleId;
 
     /**
-     * @return Role ID. Required for role_type = `CUSTOM`
+     * @return Role ID. Required for roleType = `CUSTOM`
      * 
      */
     public Optional<Output<String>> roleId() {
@@ -222,7 +222,7 @@ public final class RoleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceSetId Resource Set ID. Required for role_type = `CUSTOM`
+         * @param resourceSetId Resource Set ID. Required for roleType = `CUSTOM`
          * 
          * @return builder
          * 
@@ -233,7 +233,7 @@ public final class RoleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceSetId Resource Set ID. Required for role_type = `CUSTOM`
+         * @param resourceSetId Resource Set ID. Required for roleType = `CUSTOM`
          * 
          * @return builder
          * 
@@ -243,7 +243,7 @@ public final class RoleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param roleId Role ID. Required for role_type = `CUSTOM`
+         * @param roleId Role ID. Required for roleType = `CUSTOM`
          * 
          * @return builder
          * 
@@ -254,7 +254,7 @@ public final class RoleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param roleId Role ID. Required for role_type = `CUSTOM`
+         * @param roleId Role ID. Required for roleType = `CUSTOM`
          * 
          * @return builder
          * 

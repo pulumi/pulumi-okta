@@ -6,6 +6,8 @@ import * as utilities from "./utilities";
 
 /**
  * Get a realm assignment from Okta.
+ *
+ * ## Example Usage
  */
 export function getRealmAssignment(args?: GetRealmAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetRealmAssignmentResult> {
     args = args || {};
@@ -64,6 +66,8 @@ export interface GetRealmAssignmentResult {
 }
 /**
  * Get a realm assignment from Okta.
+ *
+ * ## Example Usage
  */
 export function getRealmAssignmentOutput(args?: GetRealmAssignmentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRealmAssignmentResult> {
     args = args || {};

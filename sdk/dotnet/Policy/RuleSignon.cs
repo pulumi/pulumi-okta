@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Okta.Policy
 {
     /// <summary>
-    /// Creates a Sign On Policy Rule. In case `Invalid condition type specified: riskScore.` error is thrown, set `risc_level` to an empty string, since this feature is not enabled.
+    /// Creates a Sign On Policy Rule. In case `Invalid condition type specified: riskScore.` error is thrown, set `RiscLevel` to an empty string, since this feature is not enabled.
     /// 
     /// ## Example Usage
     /// 
@@ -162,13 +162,13 @@ namespace Pulumi.Okta.Policy
         public Output<ImmutableArray<Outputs.RuleSignonFactorSequence>> FactorSequences { get; private set; } = null!;
 
         /// <summary>
-        /// Apply rule based on the IdP used: `ANY`, `OKTA` or `SPECIFIC_IDP`. Default: `ANY`. &gt; **WARNING**: Use of `identity_provider` requires a feature flag to be enabled.
+        /// Apply rule based on the IdP used: `ANY`, `OKTA` or `SPECIFIC_IDP`. Default: `ANY`. &gt; **WARNING**: Use of `IdentityProvider` requires a feature flag to be enabled.
         /// </summary>
         [Output("identityProvider")]
         public Output<string?> IdentityProvider { get; private set; } = null!;
 
         /// <summary>
-        /// When identity_provider is `SPECIFIC_IDP` then this is the list of IdP IDs to apply the rule on
+        /// When IdentityProvider is `SPECIFIC_IDP` then this is the list of IdP IDs to apply the rule on
         /// </summary>
         [Output("identityProviderIds")]
         public Output<ImmutableArray<string>> IdentityProviderIds { get; private set; } = null!;
@@ -186,13 +186,13 @@ namespace Pulumi.Okta.Policy
         public Output<string?> MfaPrompt { get; private set; } = null!;
 
         /// <summary>
-        /// Remember MFA device. Default: `false`
+        /// Remember MFA device. Default: `False`
         /// </summary>
         [Output("mfaRememberDevice")]
         public Output<bool?> MfaRememberDevice { get; private set; } = null!;
 
         /// <summary>
-        /// Require MFA. Default: `false`
+        /// Require MFA. Default: `False`
         /// </summary>
         [Output("mfaRequired")]
         public Output<bool?> MfaRequired { get; private set; } = null!;
@@ -210,13 +210,13 @@ namespace Pulumi.Okta.Policy
         public Output<string?> NetworkConnection { get; private set; } = null!;
 
         /// <summary>
-        /// Required if `network_connection` = `ZONE`. Indicates the network zones to exclude.
+        /// Required if `NetworkConnection` = `ZONE`. Indicates the network zones to exclude.
         /// </summary>
         [Output("networkExcludes")]
         public Output<ImmutableArray<string>> NetworkExcludes { get; private set; } = null!;
 
         /// <summary>
-        /// Required if `network_connection` = `ZONE`. Indicates the network zones to include.
+        /// Required if `NetworkConnection` = `ZONE`. Indicates the network zones to include.
         /// </summary>
         [Output("networkIncludes")]
         public Output<ImmutableArray<string>> NetworkIncludes { get; private set; } = null!;
@@ -264,7 +264,7 @@ namespace Pulumi.Okta.Policy
         public Output<int?> SessionLifetime { get; private set; } = null!;
 
         /// <summary>
-        /// Whether session cookies will last across browser sessions. Okta Administrators can never have persistent session cookies. Default: `false`
+        /// Whether session cookies will last across browser sessions. Okta Administrators can never have persistent session cookies. Default: `False`
         /// </summary>
         [Output("sessionPersistent")]
         public Output<bool?> SessionPersistent { get; private set; } = null!;
@@ -369,7 +369,7 @@ namespace Pulumi.Okta.Policy
         }
 
         /// <summary>
-        /// Apply rule based on the IdP used: `ANY`, `OKTA` or `SPECIFIC_IDP`. Default: `ANY`. &gt; **WARNING**: Use of `identity_provider` requires a feature flag to be enabled.
+        /// Apply rule based on the IdP used: `ANY`, `OKTA` or `SPECIFIC_IDP`. Default: `ANY`. &gt; **WARNING**: Use of `IdentityProvider` requires a feature flag to be enabled.
         /// </summary>
         [Input("identityProvider")]
         public Input<string>? IdentityProvider { get; set; }
@@ -378,7 +378,7 @@ namespace Pulumi.Okta.Policy
         private InputList<string>? _identityProviderIds;
 
         /// <summary>
-        /// When identity_provider is `SPECIFIC_IDP` then this is the list of IdP IDs to apply the rule on
+        /// When IdentityProvider is `SPECIFIC_IDP` then this is the list of IdP IDs to apply the rule on
         /// </summary>
         public InputList<string> IdentityProviderIds
         {
@@ -399,13 +399,13 @@ namespace Pulumi.Okta.Policy
         public Input<string>? MfaPrompt { get; set; }
 
         /// <summary>
-        /// Remember MFA device. Default: `false`
+        /// Remember MFA device. Default: `False`
         /// </summary>
         [Input("mfaRememberDevice")]
         public Input<bool>? MfaRememberDevice { get; set; }
 
         /// <summary>
-        /// Require MFA. Default: `false`
+        /// Require MFA. Default: `False`
         /// </summary>
         [Input("mfaRequired")]
         public Input<bool>? MfaRequired { get; set; }
@@ -426,7 +426,7 @@ namespace Pulumi.Okta.Policy
         private InputList<string>? _networkExcludes;
 
         /// <summary>
-        /// Required if `network_connection` = `ZONE`. Indicates the network zones to exclude.
+        /// Required if `NetworkConnection` = `ZONE`. Indicates the network zones to exclude.
         /// </summary>
         public InputList<string> NetworkExcludes
         {
@@ -438,7 +438,7 @@ namespace Pulumi.Okta.Policy
         private InputList<string>? _networkIncludes;
 
         /// <summary>
-        /// Required if `network_connection` = `ZONE`. Indicates the network zones to include.
+        /// Required if `NetworkConnection` = `ZONE`. Indicates the network zones to include.
         /// </summary>
         public InputList<string> NetworkIncludes
         {
@@ -489,7 +489,7 @@ namespace Pulumi.Okta.Policy
         public Input<int>? SessionLifetime { get; set; }
 
         /// <summary>
-        /// Whether session cookies will last across browser sessions. Okta Administrators can never have persistent session cookies. Default: `false`
+        /// Whether session cookies will last across browser sessions. Okta Administrators can never have persistent session cookies. Default: `False`
         /// </summary>
         [Input("sessionPersistent")]
         public Input<bool>? SessionPersistent { get; set; }
@@ -562,7 +562,7 @@ namespace Pulumi.Okta.Policy
         }
 
         /// <summary>
-        /// Apply rule based on the IdP used: `ANY`, `OKTA` or `SPECIFIC_IDP`. Default: `ANY`. &gt; **WARNING**: Use of `identity_provider` requires a feature flag to be enabled.
+        /// Apply rule based on the IdP used: `ANY`, `OKTA` or `SPECIFIC_IDP`. Default: `ANY`. &gt; **WARNING**: Use of `IdentityProvider` requires a feature flag to be enabled.
         /// </summary>
         [Input("identityProvider")]
         public Input<string>? IdentityProvider { get; set; }
@@ -571,7 +571,7 @@ namespace Pulumi.Okta.Policy
         private InputList<string>? _identityProviderIds;
 
         /// <summary>
-        /// When identity_provider is `SPECIFIC_IDP` then this is the list of IdP IDs to apply the rule on
+        /// When IdentityProvider is `SPECIFIC_IDP` then this is the list of IdP IDs to apply the rule on
         /// </summary>
         public InputList<string> IdentityProviderIds
         {
@@ -592,13 +592,13 @@ namespace Pulumi.Okta.Policy
         public Input<string>? MfaPrompt { get; set; }
 
         /// <summary>
-        /// Remember MFA device. Default: `false`
+        /// Remember MFA device. Default: `False`
         /// </summary>
         [Input("mfaRememberDevice")]
         public Input<bool>? MfaRememberDevice { get; set; }
 
         /// <summary>
-        /// Require MFA. Default: `false`
+        /// Require MFA. Default: `False`
         /// </summary>
         [Input("mfaRequired")]
         public Input<bool>? MfaRequired { get; set; }
@@ -619,7 +619,7 @@ namespace Pulumi.Okta.Policy
         private InputList<string>? _networkExcludes;
 
         /// <summary>
-        /// Required if `network_connection` = `ZONE`. Indicates the network zones to exclude.
+        /// Required if `NetworkConnection` = `ZONE`. Indicates the network zones to exclude.
         /// </summary>
         public InputList<string> NetworkExcludes
         {
@@ -631,7 +631,7 @@ namespace Pulumi.Okta.Policy
         private InputList<string>? _networkIncludes;
 
         /// <summary>
-        /// Required if `network_connection` = `ZONE`. Indicates the network zones to include.
+        /// Required if `NetworkConnection` = `ZONE`. Indicates the network zones to include.
         /// </summary>
         public InputList<string> NetworkIncludes
         {
@@ -682,7 +682,7 @@ namespace Pulumi.Okta.Policy
         public Input<int>? SessionLifetime { get; set; }
 
         /// <summary>
-        /// Whether session cookies will last across browser sessions. Okta Administrators can never have persistent session cookies. Default: `false`
+        /// Whether session cookies will last across browser sessions. Okta Administrators can never have persistent session cookies. Default: `False`
         /// </summary>
         [Input("sessionPersistent")]
         public Input<bool>? SessionPersistent { get; set; }

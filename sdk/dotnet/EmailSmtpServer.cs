@@ -45,7 +45,7 @@ namespace Pulumi.Okta
         public Output<string> Alias { get; private set; } = null!;
 
         /// <summary>
-        /// If true, routes all email traffic through your SMTP server.Default: `false`
+        /// If true, routes all email traffic through your SMTP server.Default: `False`
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
@@ -127,7 +127,7 @@ namespace Pulumi.Okta
         public Input<string> Alias { get; set; } = null!;
 
         /// <summary>
-        /// If true, routes all email traffic through your SMTP server.Default: `false`
+        /// If true, routes all email traffic through your SMTP server.Default: `False`
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -171,7 +171,7 @@ namespace Pulumi.Okta
         public Input<string>? Alias { get; set; }
 
         /// <summary>
-        /// If true, routes all email traffic through your SMTP server.Default: `false`
+        /// If true, routes all email traffic through your SMTP server.Default: `False`
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }

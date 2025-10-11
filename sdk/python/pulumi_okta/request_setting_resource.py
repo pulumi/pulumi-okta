@@ -142,6 +142,8 @@ class RequestSettingResource(pulumi.CustomResource):
         """
         Manages request settings. This resource allows you to read and configure an Okta [request-setting](https://developer.okta.com/docs/api/iga/openapi/governance.requests.admin.v2/tag/Request-Settings/#tag/Request-Settings/operation/getRequestSettingsV2).
 
+        ## Example Usage
+
         ## Import
 
         ```sh
@@ -162,6 +164,8 @@ class RequestSettingResource(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages request settings. This resource allows you to read and configure an Okta [request-setting](https://developer.okta.com/docs/api/iga/openapi/governance.requests.admin.v2/tag/Request-Settings/#tag/Request-Settings/operation/getRequestSettingsV2).
+
+        ## Example Usage
 
         ## Import
 

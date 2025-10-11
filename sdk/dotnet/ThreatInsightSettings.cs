@@ -60,7 +60,7 @@ namespace Pulumi.Okta
     public partial class ThreatInsightSettings : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Specifies how Okta responds to authentication requests from suspicious IPs. Valid values are `none`, `audit`, or `block`. A value of `none` indicates that ThreatInsight is disabled. A value of `audit` indicates that Okta logs suspicious requests in the System Log. A value of `block` indicates that Okta logs suspicious requests in the System Log and blocks the requests.
+        /// Specifies how Okta responds to authentication requests from suspicious IPs. Valid values are `None`, `Audit`, or `Block`. A value of `None` indicates that ThreatInsight is disabled. A value of `Audit` indicates that Okta logs suspicious requests in the System Log. A value of `Block` indicates that Okta logs suspicious requests in the System Log and blocks the requests.
         /// </summary>
         [Output("action")]
         public Output<string> Action { get; private set; } = null!;
@@ -118,7 +118,7 @@ namespace Pulumi.Okta
     public sealed class ThreatInsightSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies how Okta responds to authentication requests from suspicious IPs. Valid values are `none`, `audit`, or `block`. A value of `none` indicates that ThreatInsight is disabled. A value of `audit` indicates that Okta logs suspicious requests in the System Log. A value of `block` indicates that Okta logs suspicious requests in the System Log and blocks the requests.
+        /// Specifies how Okta responds to authentication requests from suspicious IPs. Valid values are `None`, `Audit`, or `Block`. A value of `None` indicates that ThreatInsight is disabled. A value of `Audit` indicates that Okta logs suspicious requests in the System Log. A value of `Block` indicates that Okta logs suspicious requests in the System Log and blocks the requests.
         /// </summary>
         [Input("action", required: true)]
         public Input<string> Action { get; set; } = null!;
@@ -144,7 +144,7 @@ namespace Pulumi.Okta
     public sealed class ThreatInsightSettingsState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies how Okta responds to authentication requests from suspicious IPs. Valid values are `none`, `audit`, or `block`. A value of `none` indicates that ThreatInsight is disabled. A value of `audit` indicates that Okta logs suspicious requests in the System Log. A value of `block` indicates that Okta logs suspicious requests in the System Log and blocks the requests.
+        /// Specifies how Okta responds to authentication requests from suspicious IPs. Valid values are `None`, `Audit`, or `Block`. A value of `None` indicates that ThreatInsight is disabled. A value of `Audit` indicates that Okta logs suspicious requests in the System Log. A value of `Block` indicates that Okta logs suspicious requests in the System Log and blocks the requests.
         /// </summary>
         [Input("action")]
         public Input<string>? Action { get; set; }

@@ -22,7 +22,7 @@ namespace Pulumi.Okta.Outputs
         /// </summary>
         public readonly bool? IncludeAdminRoles;
         /// <summary>
-        /// Include entitlements for this application. This property is only applicable if resource_type = APPLICATION and Entitlement Management is enabled.
+        /// Include entitlements for this application. This property is only applicable if ResourceType = APPLICATION and Entitlement Management is enabled.
         /// </summary>
         public readonly bool? IncludeEntitlements;
         /// <summary>
@@ -34,7 +34,7 @@ namespace Pulumi.Okta.Outputs
         /// </summary>
         public readonly bool? IndividuallyAssignedGroupsOnly;
         /// <summary>
-        /// Only include out-of-policy entitlements. Only applicable if resource_type = APPLICATION and Entitlement Management is enabled.
+        /// Only include out-of-policy entitlements. Only applicable if ResourceType = APPLICATION and Entitlement Management is enabled.
         /// </summary>
         public readonly bool? OnlyIncludeOutOfPolicyEntitlements;
         /// <summary>

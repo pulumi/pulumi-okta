@@ -12,6 +12,8 @@ import (
 )
 
 // Get a behavior by name or ID.
+//
+// ## Example Usage
 func LookupBehaviour(ctx *pulumi.Context, args *LookupBehaviourArgs, opts ...pulumi.InvokeOption) (*LookupBehaviourResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupBehaviourResult

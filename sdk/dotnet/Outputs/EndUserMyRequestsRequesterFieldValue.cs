@@ -30,7 +30,7 @@ namespace Pulumi.Okta.Outputs
         /// </summary>
         public readonly string? Value;
         /// <summary>
-        /// The values of requesterField with the type MULTISELECT. If the field type is MULTISELECT, this property is required instead of `value`.
+        /// The values of requesterField with the type MULTISELECT. If the field type is MULTISELECT, this property is required instead of `Value`.
         /// </summary>
         public readonly ImmutableArray<string> Values;
 

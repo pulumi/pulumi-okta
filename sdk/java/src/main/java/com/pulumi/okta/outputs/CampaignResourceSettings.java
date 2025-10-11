@@ -27,7 +27,7 @@ public final class CampaignResourceSettings {
      */
     private @Nullable Boolean includeAdminRoles;
     /**
-     * @return Include entitlements for this application. This property is only applicable if resource_type = APPLICATION and Entitlement Management is enabled.
+     * @return Include entitlements for this application. This property is only applicable if resourceType = APPLICATION and Entitlement Management is enabled.
      * 
      */
     private @Nullable Boolean includeEntitlements;
@@ -42,7 +42,7 @@ public final class CampaignResourceSettings {
      */
     private @Nullable Boolean individuallyAssignedGroupsOnly;
     /**
-     * @return Only include out-of-policy entitlements. Only applicable if resource_type = APPLICATION and Entitlement Management is enabled.
+     * @return Only include out-of-policy entitlements. Only applicable if resourceType = APPLICATION and Entitlement Management is enabled.
      * 
      */
     private @Nullable Boolean onlyIncludeOutOfPolicyEntitlements;
@@ -73,7 +73,7 @@ public final class CampaignResourceSettings {
         return Optional.ofNullable(this.includeAdminRoles);
     }
     /**
-     * @return Include entitlements for this application. This property is only applicable if resource_type = APPLICATION and Entitlement Management is enabled.
+     * @return Include entitlements for this application. This property is only applicable if resourceType = APPLICATION and Entitlement Management is enabled.
      * 
      */
     public Optional<Boolean> includeEntitlements() {
@@ -94,7 +94,7 @@ public final class CampaignResourceSettings {
         return Optional.ofNullable(this.individuallyAssignedGroupsOnly);
     }
     /**
-     * @return Only include out-of-policy entitlements. Only applicable if resource_type = APPLICATION and Entitlement Management is enabled.
+     * @return Only include out-of-policy entitlements. Only applicable if resourceType = APPLICATION and Entitlement Management is enabled.
      * 
      */
     public Optional<Boolean> onlyIncludeOutOfPolicyEntitlements() {

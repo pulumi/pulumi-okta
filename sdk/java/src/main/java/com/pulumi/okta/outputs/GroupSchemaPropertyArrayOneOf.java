@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class GroupSchemaPropertyArrayOneOf {
     /**
-     * @return Value mapping to member of `array_enum`
+     * @return Value mapping to member of `arrayEnum`
      * 
      */
     private String const_;
@@ -23,7 +23,7 @@ public final class GroupSchemaPropertyArrayOneOf {
 
     private GroupSchemaPropertyArrayOneOf() {}
     /**
-     * @return Value mapping to member of `array_enum`
+     * @return Value mapping to member of `arrayEnum`
      * 
      */
     public String const_() {

@@ -104,7 +104,7 @@ namespace Pulumi.Okta
         public Output<string?> Access { get; private set; } = null!;
 
         /// <summary>
-        /// Indicates whether email verification should occur before access is granted. Default: `true`.
+        /// Indicates whether email verification should occur before access is granted. Default: `True`.
         /// </summary>
         [Output("emailVerification")]
         public Output<bool?> EmailVerification { get; private set; } = null!;
@@ -225,7 +225,7 @@ namespace Pulumi.Okta
         public Input<string>? Access { get; set; }
 
         /// <summary>
-        /// Indicates whether email verification should occur before access is granted. Default: `true`.
+        /// Indicates whether email verification should occur before access is granted. Default: `True`.
         /// </summary>
         [Input("emailVerification")]
         public Input<bool>? EmailVerification { get; set; }
@@ -308,7 +308,7 @@ namespace Pulumi.Okta
         public Input<string>? Access { get; set; }
 
         /// <summary>
-        /// Indicates whether email verification should occur before access is granted. Default: `true`.
+        /// Indicates whether email verification should occur before access is granted. Default: `True`.
         /// </summary>
         [Input("emailVerification")]
         public Input<bool>? EmailVerification { get; set; }

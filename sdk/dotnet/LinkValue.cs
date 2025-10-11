@@ -79,19 +79,19 @@ namespace Pulumi.Okta
     public partial class LinkValue : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Set of User IDs or login values of the users to be assigned the `associated` relationship.
+        /// Set of User IDs or login values of the users to be assigned the `Associated` relationship.
         /// </summary>
         [Output("associatedUserIds")]
         public Output<ImmutableArray<string>> AssociatedUserIds { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the `primary` relationship being assigned.
+        /// Name of the `Primary` relationship being assigned.
         /// </summary>
         [Output("primaryName")]
         public Output<string> PrimaryName { get; private set; } = null!;
 
         /// <summary>
-        /// User ID to be assigned to `primary` for the 'associated' user in the specified relationship.
+        /// User ID to be assigned to `Primary` for the 'associated' user in the specified relationship.
         /// </summary>
         [Output("primaryUserId")]
         public Output<string> PrimaryUserId { get; private set; } = null!;
@@ -146,7 +146,7 @@ namespace Pulumi.Okta
         private InputList<string>? _associatedUserIds;
 
         /// <summary>
-        /// Set of User IDs or login values of the users to be assigned the `associated` relationship.
+        /// Set of User IDs or login values of the users to be assigned the `Associated` relationship.
         /// </summary>
         public InputList<string> AssociatedUserIds
         {
@@ -155,13 +155,13 @@ namespace Pulumi.Okta
         }
 
         /// <summary>
-        /// Name of the `primary` relationship being assigned.
+        /// Name of the `Primary` relationship being assigned.
         /// </summary>
         [Input("primaryName", required: true)]
         public Input<string> PrimaryName { get; set; } = null!;
 
         /// <summary>
-        /// User ID to be assigned to `primary` for the 'associated' user in the specified relationship.
+        /// User ID to be assigned to `Primary` for the 'associated' user in the specified relationship.
         /// </summary>
         [Input("primaryUserId", required: true)]
         public Input<string> PrimaryUserId { get; set; } = null!;
@@ -178,7 +178,7 @@ namespace Pulumi.Okta
         private InputList<string>? _associatedUserIds;
 
         /// <summary>
-        /// Set of User IDs or login values of the users to be assigned the `associated` relationship.
+        /// Set of User IDs or login values of the users to be assigned the `Associated` relationship.
         /// </summary>
         public InputList<string> AssociatedUserIds
         {
@@ -187,13 +187,13 @@ namespace Pulumi.Okta
         }
 
         /// <summary>
-        /// Name of the `primary` relationship being assigned.
+        /// Name of the `Primary` relationship being assigned.
         /// </summary>
         [Input("primaryName")]
         public Input<string>? PrimaryName { get; set; }
 
         /// <summary>
-        /// User ID to be assigned to `primary` for the 'associated' user in the specified relationship.
+        /// User ID to be assigned to `Primary` for the 'associated' user in the specified relationship.
         /// </summary>
         [Input("primaryUserId")]
         public Input<string>? PrimaryUserId { get; set; }

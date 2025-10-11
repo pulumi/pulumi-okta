@@ -46,7 +46,7 @@ public final class GetSamlPlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The label of the app to retrieve, conflicts with label_prefix and id. Label
+     * The label of the app to retrieve, conflicts with labelPrefix and id. Label
      * 			uses the ?q=\n\n query parameter exposed by Okta&#39;s API. It should be noted that at this time
      * 			this searches both name and label. This is used to avoid paginating through all applications.
      * 
@@ -55,7 +55,7 @@ public final class GetSamlPlainArgs extends com.pulumi.resources.InvokeArgs {
     private @Nullable String label;
 
     /**
-     * @return The label of the app to retrieve, conflicts with label_prefix and id. Label
+     * @return The label of the app to retrieve, conflicts with labelPrefix and id. Label
      * 			uses the ?q=\n\n query parameter exposed by Okta&#39;s API. It should be noted that at this time
      * 			this searches both name and label. This is used to avoid paginating through all applications.
      * 
@@ -195,7 +195,7 @@ public final class GetSamlPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param label The label of the app to retrieve, conflicts with label_prefix and id. Label
+         * @param label The label of the app to retrieve, conflicts with labelPrefix and id. Label
          * 			uses the ?q=\n\n query parameter exposed by Okta&#39;s API. It should be noted that at this time
          * 			this searches both name and label. This is used to avoid paginating through all applications.
          * 
