@@ -113,28 +113,28 @@ public class RuleMfa extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.networkConnection);
     }
     /**
-     * Required if `network_connection` = `ZONE`. Indicates the network zones to exclude.
+     * Required if `networkConnection` = `ZONE`. Indicates the network zones to exclude.
      * 
      */
     @Export(name="networkExcludes", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> networkExcludes;
 
     /**
-     * @return Required if `network_connection` = `ZONE`. Indicates the network zones to exclude.
+     * @return Required if `networkConnection` = `ZONE`. Indicates the network zones to exclude.
      * 
      */
     public Output<Optional<List<String>>> networkExcludes() {
         return Codegen.optional(this.networkExcludes);
     }
     /**
-     * Required if `network_connection` = `ZONE`. Indicates the network zones to include.
+     * Required if `networkConnection` = `ZONE`. Indicates the network zones to include.
      * 
      */
     @Export(name="networkIncludes", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> networkIncludes;
 
     /**
-     * @return Required if `network_connection` = `ZONE`. Indicates the network zones to include.
+     * @return Required if `networkConnection` = `ZONE`. Indicates the network zones to include.
      * 
      */
     public Output<Optional<List<String>>> networkIncludes() {

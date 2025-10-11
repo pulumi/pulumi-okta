@@ -189,7 +189,7 @@ namespace Pulumi.Okta
         /// </summary>
         public readonly string ProviderHostname;
         /// <summary>
-        /// (Specific to `security_key`) App Instance ID.
+        /// (Specific to `SecurityKey`) App Instance ID.
         /// </summary>
         public readonly string ProviderInstanceId;
         /// <summary>

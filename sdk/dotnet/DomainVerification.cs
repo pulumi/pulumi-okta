@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Okta
 {
     /// <summary>
-    /// Verifies the Domain. This is replacement for the `verify` field from the `okta.Domain` resource. The resource won't be created if the domain could not be verified. The provider will make several requests to verify the domain until the API returns `VERIFIED` verification status.
+    /// Verifies the Domain. This is replacement for the `Verify` field from the `okta.Domain` resource. The resource won't be created if the domain could not be verified. The provider will make several requests to verify the domain until the API returns `VERIFIED` verification status.
     /// 
     /// ## Example Usage
     /// 

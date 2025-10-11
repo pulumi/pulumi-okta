@@ -23,14 +23,14 @@ public final class RuleIdpDiscoveryState extends com.pulumi.resources.ResourceAr
     public static final RuleIdpDiscoveryState Empty = new RuleIdpDiscoveryState();
 
     /**
-     * Applications to exclude in discovery. See `app_include` for details.
+     * Applications to exclude in discovery. See `appInclude` for details.
      * 
      */
     @Import(name="appExcludes")
     private @Nullable Output<List<RuleIdpDiscoveryAppExcludeArgs>> appExcludes;
 
     /**
-     * @return Applications to exclude in discovery. See `app_include` for details.
+     * @return Applications to exclude in discovery. See `appInclude` for details.
      * 
      */
     public Optional<Output<List<RuleIdpDiscoveryAppExcludeArgs>>> appExcludes() {
@@ -96,14 +96,14 @@ public final class RuleIdpDiscoveryState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Required if `network_connection` = `ZONE`. Indicates the network zones to exclude.
+     * Required if `networkConnection` = `ZONE`. Indicates the network zones to exclude.
      * 
      */
     @Import(name="networkExcludes")
     private @Nullable Output<List<String>> networkExcludes;
 
     /**
-     * @return Required if `network_connection` = `ZONE`. Indicates the network zones to exclude.
+     * @return Required if `networkConnection` = `ZONE`. Indicates the network zones to exclude.
      * 
      */
     public Optional<Output<List<String>>> networkExcludes() {
@@ -111,14 +111,14 @@ public final class RuleIdpDiscoveryState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Required if `network_connection` = `ZONE`. Indicates the network zones to include.
+     * Required if `networkConnection` = `ZONE`. Indicates the network zones to include.
      * 
      */
     @Import(name="networkIncludes")
     private @Nullable Output<List<String>> networkIncludes;
 
     /**
-     * @return Required if `network_connection` = `ZONE`. Indicates the network zones to include.
+     * @return Required if `networkConnection` = `ZONE`. Indicates the network zones to include.
      * 
      */
     public Optional<Output<List<String>>> networkIncludes() {
@@ -128,7 +128,7 @@ public final class RuleIdpDiscoveryState extends com.pulumi.resources.ResourceAr
     /**
      * Platform to include in discovery rule.
      * - &#39;type&#39; - (Optional) One of: &#39;ANY&#39;, &#39;MOBILE&#39;, &#39;DESKTOP&#39;
-     * - &#39;os_expression - (Optional) Only available when using os_type = &#39;OTHER&#39;
+     * - &#39;os_expression - (Optional) Only available when using osType = &#39;OTHER&#39;
      * - &#39;os_type&#39; - (Optional) One of: &#39;ANY&#39;, &#39;IOS&#39;, &#39;WINDOWS&#39;, &#39;ANDROID&#39;, &#39;OTHER&#39;, &#39;OSX&#39;
      * 
      */
@@ -138,7 +138,7 @@ public final class RuleIdpDiscoveryState extends com.pulumi.resources.ResourceAr
     /**
      * @return Platform to include in discovery rule.
      * - &#39;type&#39; - (Optional) One of: &#39;ANY&#39;, &#39;MOBILE&#39;, &#39;DESKTOP&#39;
-     * - &#39;os_expression - (Optional) Only available when using os_type = &#39;OTHER&#39;
+     * - &#39;os_expression - (Optional) Only available when using osType = &#39;OTHER&#39;
      * - &#39;os_type&#39; - (Optional) One of: &#39;ANY&#39;, &#39;IOS&#39;, &#39;WINDOWS&#39;, &#39;ANDROID&#39;, &#39;OTHER&#39;, &#39;OSX&#39;
      * 
      */
@@ -192,14 +192,14 @@ public final class RuleIdpDiscoveryState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Profile attribute matching can only have a single value that describes the type indicated in `user_identifier_type`. This is the attribute or identifier that the `user_identifier_patterns` are checked against.
+     * Profile attribute matching can only have a single value that describes the type indicated in `userIdentifierType`. This is the attribute or identifier that the `userIdentifierPatterns` are checked against.
      * 
      */
     @Import(name="userIdentifierAttribute")
     private @Nullable Output<String> userIdentifierAttribute;
 
     /**
-     * @return Profile attribute matching can only have a single value that describes the type indicated in `user_identifier_type`. This is the attribute or identifier that the `user_identifier_patterns` are checked against.
+     * @return Profile attribute matching can only have a single value that describes the type indicated in `userIdentifierType`. This is the attribute or identifier that the `userIdentifierPatterns` are checked against.
      * 
      */
     public Optional<Output<String>> userIdentifierAttribute() {
@@ -278,7 +278,7 @@ public final class RuleIdpDiscoveryState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param appExcludes Applications to exclude in discovery. See `app_include` for details.
+         * @param appExcludes Applications to exclude in discovery. See `appInclude` for details.
          * 
          * @return builder
          * 
@@ -289,7 +289,7 @@ public final class RuleIdpDiscoveryState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param appExcludes Applications to exclude in discovery. See `app_include` for details.
+         * @param appExcludes Applications to exclude in discovery. See `appInclude` for details.
          * 
          * @return builder
          * 
@@ -299,7 +299,7 @@ public final class RuleIdpDiscoveryState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param appExcludes Applications to exclude in discovery. See `app_include` for details.
+         * @param appExcludes Applications to exclude in discovery. See `appInclude` for details.
          * 
          * @return builder
          * 
@@ -404,7 +404,7 @@ public final class RuleIdpDiscoveryState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param networkExcludes Required if `network_connection` = `ZONE`. Indicates the network zones to exclude.
+         * @param networkExcludes Required if `networkConnection` = `ZONE`. Indicates the network zones to exclude.
          * 
          * @return builder
          * 
@@ -415,7 +415,7 @@ public final class RuleIdpDiscoveryState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param networkExcludes Required if `network_connection` = `ZONE`. Indicates the network zones to exclude.
+         * @param networkExcludes Required if `networkConnection` = `ZONE`. Indicates the network zones to exclude.
          * 
          * @return builder
          * 
@@ -425,7 +425,7 @@ public final class RuleIdpDiscoveryState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param networkExcludes Required if `network_connection` = `ZONE`. Indicates the network zones to exclude.
+         * @param networkExcludes Required if `networkConnection` = `ZONE`. Indicates the network zones to exclude.
          * 
          * @return builder
          * 
@@ -435,7 +435,7 @@ public final class RuleIdpDiscoveryState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param networkIncludes Required if `network_connection` = `ZONE`. Indicates the network zones to include.
+         * @param networkIncludes Required if `networkConnection` = `ZONE`. Indicates the network zones to include.
          * 
          * @return builder
          * 
@@ -446,7 +446,7 @@ public final class RuleIdpDiscoveryState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param networkIncludes Required if `network_connection` = `ZONE`. Indicates the network zones to include.
+         * @param networkIncludes Required if `networkConnection` = `ZONE`. Indicates the network zones to include.
          * 
          * @return builder
          * 
@@ -456,7 +456,7 @@ public final class RuleIdpDiscoveryState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param networkIncludes Required if `network_connection` = `ZONE`. Indicates the network zones to include.
+         * @param networkIncludes Required if `networkConnection` = `ZONE`. Indicates the network zones to include.
          * 
          * @return builder
          * 
@@ -468,7 +468,7 @@ public final class RuleIdpDiscoveryState extends com.pulumi.resources.ResourceAr
         /**
          * @param platformIncludes Platform to include in discovery rule.
          * - &#39;type&#39; - (Optional) One of: &#39;ANY&#39;, &#39;MOBILE&#39;, &#39;DESKTOP&#39;
-         * - &#39;os_expression - (Optional) Only available when using os_type = &#39;OTHER&#39;
+         * - &#39;os_expression - (Optional) Only available when using osType = &#39;OTHER&#39;
          * - &#39;os_type&#39; - (Optional) One of: &#39;ANY&#39;, &#39;IOS&#39;, &#39;WINDOWS&#39;, &#39;ANDROID&#39;, &#39;OTHER&#39;, &#39;OSX&#39;
          * 
          * @return builder
@@ -482,7 +482,7 @@ public final class RuleIdpDiscoveryState extends com.pulumi.resources.ResourceAr
         /**
          * @param platformIncludes Platform to include in discovery rule.
          * - &#39;type&#39; - (Optional) One of: &#39;ANY&#39;, &#39;MOBILE&#39;, &#39;DESKTOP&#39;
-         * - &#39;os_expression - (Optional) Only available when using os_type = &#39;OTHER&#39;
+         * - &#39;os_expression - (Optional) Only available when using osType = &#39;OTHER&#39;
          * - &#39;os_type&#39; - (Optional) One of: &#39;ANY&#39;, &#39;IOS&#39;, &#39;WINDOWS&#39;, &#39;ANDROID&#39;, &#39;OTHER&#39;, &#39;OSX&#39;
          * 
          * @return builder
@@ -495,7 +495,7 @@ public final class RuleIdpDiscoveryState extends com.pulumi.resources.ResourceAr
         /**
          * @param platformIncludes Platform to include in discovery rule.
          * - &#39;type&#39; - (Optional) One of: &#39;ANY&#39;, &#39;MOBILE&#39;, &#39;DESKTOP&#39;
-         * - &#39;os_expression - (Optional) Only available when using os_type = &#39;OTHER&#39;
+         * - &#39;os_expression - (Optional) Only available when using osType = &#39;OTHER&#39;
          * - &#39;os_type&#39; - (Optional) One of: &#39;ANY&#39;, &#39;IOS&#39;, &#39;WINDOWS&#39;, &#39;ANDROID&#39;, &#39;OTHER&#39;, &#39;OSX&#39;
          * 
          * @return builder
@@ -569,7 +569,7 @@ public final class RuleIdpDiscoveryState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param userIdentifierAttribute Profile attribute matching can only have a single value that describes the type indicated in `user_identifier_type`. This is the attribute or identifier that the `user_identifier_patterns` are checked against.
+         * @param userIdentifierAttribute Profile attribute matching can only have a single value that describes the type indicated in `userIdentifierType`. This is the attribute or identifier that the `userIdentifierPatterns` are checked against.
          * 
          * @return builder
          * 
@@ -580,7 +580,7 @@ public final class RuleIdpDiscoveryState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param userIdentifierAttribute Profile attribute matching can only have a single value that describes the type indicated in `user_identifier_type`. This is the attribute or identifier that the `user_identifier_patterns` are checked against.
+         * @param userIdentifierAttribute Profile attribute matching can only have a single value that describes the type indicated in `userIdentifierType`. This is the attribute or identifier that the `userIdentifierPatterns` are checked against.
          * 
          * @return builder
          * 

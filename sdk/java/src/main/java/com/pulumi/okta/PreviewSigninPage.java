@@ -19,6 +19,8 @@ import javax.annotation.Nullable;
 /**
  * Manage the preview signin page of a brand
  * 
+ * ## Example Usage
+ * 
  */
 @ResourceType(type="okta:index/previewSigninPage:PreviewSigninPage")
 public class PreviewSigninPage extends com.pulumi.resources.CustomResource {

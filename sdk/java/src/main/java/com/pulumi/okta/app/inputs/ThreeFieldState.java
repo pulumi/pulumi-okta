@@ -287,14 +287,14 @@ public final class ThreeFieldState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Allow user to reveal password. It can not be set to `true` if `credentials_scheme` is `ADMIN_SETS_CREDENTIALS`, `SHARED_USERNAME_AND_PASSWORD` or `EXTERNAL_PASSWORD_SYNC`.
+     * Allow user to reveal password. It can not be set to `true` if `credentialsScheme` is `ADMIN_SETS_CREDENTIALS`, `SHARED_USERNAME_AND_PASSWORD` or `EXTERNAL_PASSWORD_SYNC`.
      * 
      */
     @Import(name="revealPassword")
     private @Nullable Output<Boolean> revealPassword;
 
     /**
-     * @return Allow user to reveal password. It can not be set to `true` if `credentials_scheme` is `ADMIN_SETS_CREDENTIALS`, `SHARED_USERNAME_AND_PASSWORD` or `EXTERNAL_PASSWORD_SYNC`.
+     * @return Allow user to reveal password. It can not be set to `true` if `credentialsScheme` is `ADMIN_SETS_CREDENTIALS`, `SHARED_USERNAME_AND_PASSWORD` or `EXTERNAL_PASSWORD_SYNC`.
      * 
      */
     public Optional<Output<Boolean>> revealPassword() {
@@ -898,7 +898,7 @@ public final class ThreeFieldState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param revealPassword Allow user to reveal password. It can not be set to `true` if `credentials_scheme` is `ADMIN_SETS_CREDENTIALS`, `SHARED_USERNAME_AND_PASSWORD` or `EXTERNAL_PASSWORD_SYNC`.
+         * @param revealPassword Allow user to reveal password. It can not be set to `true` if `credentialsScheme` is `ADMIN_SETS_CREDENTIALS`, `SHARED_USERNAME_AND_PASSWORD` or `EXTERNAL_PASSWORD_SYNC`.
          * 
          * @return builder
          * 
@@ -909,7 +909,7 @@ public final class ThreeFieldState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param revealPassword Allow user to reveal password. It can not be set to `true` if `credentials_scheme` is `ADMIN_SETS_CREDENTIALS`, `SHARED_USERNAME_AND_PASSWORD` or `EXTERNAL_PASSWORD_SYNC`.
+         * @param revealPassword Allow user to reveal password. It can not be set to `true` if `credentialsScheme` is `ADMIN_SETS_CREDENTIALS`, `SHARED_USERNAME_AND_PASSWORD` or `EXTERNAL_PASSWORD_SYNC`.
          * 
          * @return builder
          * 

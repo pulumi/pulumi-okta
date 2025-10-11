@@ -39,7 +39,7 @@ public final class GetAuthenticatorResult {
      */
     private String providerHostname;
     /**
-     * @return (Specific to `security_key`) App Instance ID.
+     * @return (Specific to `securityKey`) App Instance ID.
      * 
      */
     private String providerInstanceId;
@@ -111,7 +111,7 @@ public final class GetAuthenticatorResult {
         return this.providerHostname;
     }
     /**
-     * @return (Specific to `security_key`) App Instance ID.
+     * @return (Specific to `securityKey`) App Instance ID.
      * 
      */
     public String providerInstanceId() {

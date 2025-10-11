@@ -110,10 +110,10 @@ public class PolicyMfaDefault extends com.pulumi.resources.CustomResource {
     }
     /**
      * @deprecated
-     * Since okta now support multiple external_idps, this will be deprecated. Please use `external_idps` instead
+     * Since okta now support multiple external_idps, this will be deprecated. Please use `externalIdps` instead
      * 
      */
-    @Deprecated /* Since okta now support multiple external_idps, this will be deprecated. Please use `external_idps` instead */
+    @Deprecated /* Since okta now support multiple external_idps, this will be deprecated. Please use `externalIdps` instead */
     @Export(name="externalIdp", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> externalIdp;
 

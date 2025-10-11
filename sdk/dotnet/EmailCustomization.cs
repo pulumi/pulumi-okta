@@ -62,7 +62,7 @@ namespace Pulumi.Okta
         public Output<string> BrandId { get; private set; } = null!;
 
         /// <summary>
-        /// Force is_default on the create and delete by deleting all email customizations. Comma separated string with values of 'create' or 'destroy' or both `create,destroy'.
+        /// Force IsDefault on the create and delete by deleting all email customizations. Comma separated string with values of 'create' or 'destroy' or both `create,destroy'.
         /// </summary>
         [Output("forceIsDefault")]
         public Output<string?> ForceIsDefault { get; private set; } = null!;
@@ -156,7 +156,7 @@ namespace Pulumi.Okta
         public Input<string> BrandId { get; set; } = null!;
 
         /// <summary>
-        /// Force is_default on the create and delete by deleting all email customizations. Comma separated string with values of 'create' or 'destroy' or both `create,destroy'.
+        /// Force IsDefault on the create and delete by deleting all email customizations. Comma separated string with values of 'create' or 'destroy' or both `create,destroy'.
         /// </summary>
         [Input("forceIsDefault")]
         public Input<string>? ForceIsDefault { get; set; }
@@ -206,7 +206,7 @@ namespace Pulumi.Okta
         public Input<string>? BrandId { get; set; }
 
         /// <summary>
-        /// Force is_default on the create and delete by deleting all email customizations. Comma separated string with values of 'create' or 'destroy' or both `create,destroy'.
+        /// Force IsDefault on the create and delete by deleting all email customizations. Comma separated string with values of 'create' or 'destroy' or both `create,destroy'.
         /// </summary>
         [Input("forceIsDefault")]
         public Input<string>? ForceIsDefault { get; set; }

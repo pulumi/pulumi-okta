@@ -210,6 +210,8 @@ class CustomizedSigninPage(pulumi.CustomResource):
         """
         Manage the customized signin page of a brand
 
+        ## Example Usage
+
         ## Import
 
         ```sh
@@ -235,6 +237,8 @@ class CustomizedSigninPage(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manage the customized signin page of a brand
+
+        ## Example Usage
 
         ## Import
 

@@ -8,6 +8,8 @@ import * as utilities from "./utilities";
 
 /**
  * Manage the preview signin page of a brand
+ *
+ * ## Example Usage
  */
 export class PreviewSigninPage extends pulumi.CustomResource {
     /**
