@@ -19,7 +19,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Creates a Sign On Policy Rule. In case `Invalid condition type specified: riskScore.` error is thrown, set `risc_level` to an empty string, since this feature is not enabled.
+ * Creates a Sign On Policy Rule. In case `Invalid condition type specified: riskScore.` error is thrown, set `riscLevel` to an empty string, since this feature is not enabled.
  * 
  * ## Example Usage
  * 
@@ -206,28 +206,28 @@ public class RuleSignon extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.factorSequences);
     }
     /**
-     * Apply rule based on the IdP used: `ANY`, `OKTA` or `SPECIFIC_IDP`. Default: `ANY`. &gt; **WARNING**: Use of `identity_provider` requires a feature flag to be enabled.
+     * Apply rule based on the IdP used: `ANY`, `OKTA` or `SPECIFIC_IDP`. Default: `ANY`. &gt; **WARNING**: Use of `identityProvider` requires a feature flag to be enabled.
      * 
      */
     @Export(name="identityProvider", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> identityProvider;
 
     /**
-     * @return Apply rule based on the IdP used: `ANY`, `OKTA` or `SPECIFIC_IDP`. Default: `ANY`. &gt; **WARNING**: Use of `identity_provider` requires a feature flag to be enabled.
+     * @return Apply rule based on the IdP used: `ANY`, `OKTA` or `SPECIFIC_IDP`. Default: `ANY`. &gt; **WARNING**: Use of `identityProvider` requires a feature flag to be enabled.
      * 
      */
     public Output<Optional<String>> identityProvider() {
         return Codegen.optional(this.identityProvider);
     }
     /**
-     * When identity_provider is `SPECIFIC_IDP` then this is the list of IdP IDs to apply the rule on
+     * When identityProvider is `SPECIFIC_IDP` then this is the list of IdP IDs to apply the rule on
      * 
      */
     @Export(name="identityProviderIds", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> identityProviderIds;
 
     /**
-     * @return When identity_provider is `SPECIFIC_IDP` then this is the list of IdP IDs to apply the rule on
+     * @return When identityProvider is `SPECIFIC_IDP` then this is the list of IdP IDs to apply the rule on
      * 
      */
     public Output<Optional<List<String>>> identityProviderIds() {
@@ -318,28 +318,28 @@ public class RuleSignon extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.networkConnection);
     }
     /**
-     * Required if `network_connection` = `ZONE`. Indicates the network zones to exclude.
+     * Required if `networkConnection` = `ZONE`. Indicates the network zones to exclude.
      * 
      */
     @Export(name="networkExcludes", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> networkExcludes;
 
     /**
-     * @return Required if `network_connection` = `ZONE`. Indicates the network zones to exclude.
+     * @return Required if `networkConnection` = `ZONE`. Indicates the network zones to exclude.
      * 
      */
     public Output<Optional<List<String>>> networkExcludes() {
         return Codegen.optional(this.networkExcludes);
     }
     /**
-     * Required if `network_connection` = `ZONE`. Indicates the network zones to include.
+     * Required if `networkConnection` = `ZONE`. Indicates the network zones to include.
      * 
      */
     @Export(name="networkIncludes", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> networkIncludes;
 
     /**
-     * @return Required if `network_connection` = `ZONE`. Indicates the network zones to include.
+     * @return Required if `networkConnection` = `ZONE`. Indicates the network zones to include.
      * 
      */
     public Output<Optional<List<String>>> networkIncludes() {
@@ -391,10 +391,10 @@ public class RuleSignon extends com.pulumi.resources.CustomResource {
      * Risc level: ANY, LOW, MEDIUM or HIGH. Default: `ANY`
      * 
      * @deprecated
-     * Attribute typo, switch to risk_level instead. Default: `ANY`
+     * Attribute typo, switch to riskLevel instead. Default: `ANY`
      * 
      */
-    @Deprecated /* Attribute typo, switch to risk_level instead. Default: `ANY` */
+    @Deprecated /* Attribute typo, switch to riskLevel instead. Default: `ANY` */
     @Export(name="riscLevel", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> riscLevel;
 

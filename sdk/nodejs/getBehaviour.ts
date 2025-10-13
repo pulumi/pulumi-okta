@@ -6,6 +6,8 @@ import * as utilities from "./utilities";
 
 /**
  * Get a behavior by name or ID.
+ *
+ * ## Example Usage
  */
 export function getBehaviour(args?: GetBehaviourArgs, opts?: pulumi.InvokeOptions): Promise<GetBehaviourResult> {
     args = args || {};
@@ -57,6 +59,8 @@ export interface GetBehaviourResult {
 }
 /**
  * Get a behavior by name or ID.
+ *
+ * ## Example Usage
  */
 export function getBehaviourOutput(args?: GetBehaviourOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBehaviourResult> {
     args = args || {};

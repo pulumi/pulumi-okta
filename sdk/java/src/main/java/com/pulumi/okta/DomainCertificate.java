@@ -96,8 +96,8 @@ import javax.annotation.Nullable;
  * Okta Field          | Certbot file
  * --------------------|--------------
  * `certificate`       | `cert.pem`
- * `certificate_chain` | `chain.pem`
- * `private_key`       | `privkey.pem`
+ * `certificateChain` | `chain.pem`
+ * `privateKey`       | `privkey.pem`
  * 
  */
 @ResourceType(type="okta:index/domainCertificate:DomainCertificate")

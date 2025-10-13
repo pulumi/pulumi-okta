@@ -13,18 +13,24 @@ namespace Pulumi.Okta
     {
         /// <summary>
         /// Get a behavior by name or ID.
+        /// 
+        /// ## Example Usage
         /// </summary>
         public static Task<GetBehaviourResult> InvokeAsync(GetBehaviourArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBehaviourResult>("okta:index/getBehaviour:getBehaviour", args ?? new GetBehaviourArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a behavior by name or ID.
+        /// 
+        /// ## Example Usage
         /// </summary>
         public static Output<GetBehaviourResult> Invoke(GetBehaviourInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBehaviourResult>("okta:index/getBehaviour:getBehaviour", args ?? new GetBehaviourInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a behavior by name or ID.
+        /// 
+        /// ## Example Usage
         /// </summary>
         public static Output<GetBehaviourResult> Invoke(GetBehaviourInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetBehaviourResult>("okta:index/getBehaviour:getBehaviour", args ?? new GetBehaviourInvokeArgs(), options.WithDefaults());

@@ -9,6 +9,8 @@ import * as utilities from "./utilities";
 /**
  * Manages request conditions. This resource allows you to create and configure an Okta [request-condition](https://developer.okta.com/docs/api/iga/openapi/governance.requests.admin.v2/tag/Request-Conditions/#tag/Request-Conditions).
  *
+ * ## Example Usage
+ *
  * ## Import
  *
  * ```sh

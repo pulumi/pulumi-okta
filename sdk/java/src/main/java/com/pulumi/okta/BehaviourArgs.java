@@ -63,14 +63,14 @@ public final class BehaviourArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Radius from location (in kilometers). Should be at least 5. Required when `location_granularity_type` is set to `LAT_LONG`.
+     * Radius from location (in kilometers). Should be at least 5. Required when `locationGranularityType` is set to `LAT_LONG`.
      * 
      */
     @Import(name="radiusFromLocation")
     private @Nullable Output<Integer> radiusFromLocation;
 
     /**
-     * @return Radius from location (in kilometers). Should be at least 5. Required when `location_granularity_type` is set to `LAT_LONG`.
+     * @return Radius from location (in kilometers). Should be at least 5. Required when `locationGranularityType` is set to `LAT_LONG`.
      * 
      */
     public Optional<Output<Integer>> radiusFromLocation() {
@@ -216,7 +216,7 @@ public final class BehaviourArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param radiusFromLocation Radius from location (in kilometers). Should be at least 5. Required when `location_granularity_type` is set to `LAT_LONG`.
+         * @param radiusFromLocation Radius from location (in kilometers). Should be at least 5. Required when `locationGranularityType` is set to `LAT_LONG`.
          * 
          * @return builder
          * 
@@ -227,7 +227,7 @@ public final class BehaviourArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param radiusFromLocation Radius from location (in kilometers). Should be at least 5. Required when `location_granularity_type` is set to `LAT_LONG`.
+         * @param radiusFromLocation Radius from location (in kilometers). Should be at least 5. Required when `locationGranularityType` is set to `LAT_LONG`.
          * 
          * @return builder
          * 

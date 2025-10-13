@@ -79,7 +79,7 @@ namespace Pulumi.Okta
         public Output<int?> PasswordAutoUnlockMinutes { get; private set; } = null!;
 
         /// <summary>
-        /// Check Passwords Against Common Password Dictionary. Default: `false`
+        /// Check Passwords Against Common Password Dictionary. Default: `False`
         /// </summary>
         [Output("passwordDictionaryLookup")]
         public Output<bool?> PasswordDictionaryLookup { get; private set; } = null!;
@@ -97,7 +97,7 @@ namespace Pulumi.Okta
         public Output<bool?> PasswordExcludeLastName { get; private set; } = null!;
 
         /// <summary>
-        /// If the user name must be excluded from the password. Default: `true`
+        /// If the user name must be excluded from the password. Default: `True`
         /// </summary>
         [Output("passwordExcludeUsername")]
         public Output<bool?> PasswordExcludeUsername { get; private set; } = null!;
@@ -169,7 +169,7 @@ namespace Pulumi.Okta
         public Output<int?> PasswordMinUppercase { get; private set; } = null!;
 
         /// <summary>
-        /// If a user should be informed when their account is locked. Default: `false`
+        /// If a user should be informed when their account is locked. Default: `False`
         /// </summary>
         [Output("passwordShowLockoutFailures")]
         public Output<bool?> PasswordShowLockoutFailures { get; private set; } = null!;
@@ -199,7 +199,7 @@ namespace Pulumi.Okta
         public Output<int?> RecoveryEmailToken { get; private set; } = null!;
 
         /// <summary>
-        /// When an Active Directory user is locked out of Okta, the Okta unlock operation should also attempt to unlock the user's Windows account. Default: `false`
+        /// When an Active Directory user is locked out of Okta, the Okta unlock operation should also attempt to unlock the user's Windows account. Default: `False`
         /// </summary>
         [Output("skipUnlock")]
         public Output<bool?> SkipUnlock { get; private set; } = null!;
@@ -281,7 +281,7 @@ namespace Pulumi.Okta
         public Input<int>? PasswordAutoUnlockMinutes { get; set; }
 
         /// <summary>
-        /// Check Passwords Against Common Password Dictionary. Default: `false`
+        /// Check Passwords Against Common Password Dictionary. Default: `False`
         /// </summary>
         [Input("passwordDictionaryLookup")]
         public Input<bool>? PasswordDictionaryLookup { get; set; }
@@ -299,7 +299,7 @@ namespace Pulumi.Okta
         public Input<bool>? PasswordExcludeLastName { get; set; }
 
         /// <summary>
-        /// If the user name must be excluded from the password. Default: `true`
+        /// If the user name must be excluded from the password. Default: `True`
         /// </summary>
         [Input("passwordExcludeUsername")]
         public Input<bool>? PasswordExcludeUsername { get; set; }
@@ -377,7 +377,7 @@ namespace Pulumi.Okta
         public Input<int>? PasswordMinUppercase { get; set; }
 
         /// <summary>
-        /// If a user should be informed when their account is locked. Default: `false`
+        /// If a user should be informed when their account is locked. Default: `False`
         /// </summary>
         [Input("passwordShowLockoutFailures")]
         public Input<bool>? PasswordShowLockoutFailures { get; set; }
@@ -401,7 +401,7 @@ namespace Pulumi.Okta
         public Input<int>? RecoveryEmailToken { get; set; }
 
         /// <summary>
-        /// When an Active Directory user is locked out of Okta, the Okta unlock operation should also attempt to unlock the user's Windows account. Default: `false`
+        /// When an Active Directory user is locked out of Okta, the Okta unlock operation should also attempt to unlock the user's Windows account. Default: `False`
         /// </summary>
         [Input("skipUnlock")]
         public Input<bool>? SkipUnlock { get; set; }
@@ -463,7 +463,7 @@ namespace Pulumi.Okta
         public Input<int>? PasswordAutoUnlockMinutes { get; set; }
 
         /// <summary>
-        /// Check Passwords Against Common Password Dictionary. Default: `false`
+        /// Check Passwords Against Common Password Dictionary. Default: `False`
         /// </summary>
         [Input("passwordDictionaryLookup")]
         public Input<bool>? PasswordDictionaryLookup { get; set; }
@@ -481,7 +481,7 @@ namespace Pulumi.Okta
         public Input<bool>? PasswordExcludeLastName { get; set; }
 
         /// <summary>
-        /// If the user name must be excluded from the password. Default: `true`
+        /// If the user name must be excluded from the password. Default: `True`
         /// </summary>
         [Input("passwordExcludeUsername")]
         public Input<bool>? PasswordExcludeUsername { get; set; }
@@ -559,7 +559,7 @@ namespace Pulumi.Okta
         public Input<int>? PasswordMinUppercase { get; set; }
 
         /// <summary>
-        /// If a user should be informed when their account is locked. Default: `false`
+        /// If a user should be informed when their account is locked. Default: `False`
         /// </summary>
         [Input("passwordShowLockoutFailures")]
         public Input<bool>? PasswordShowLockoutFailures { get; set; }
@@ -589,7 +589,7 @@ namespace Pulumi.Okta
         public Input<int>? RecoveryEmailToken { get; set; }
 
         /// <summary>
-        /// When an Active Directory user is locked out of Okta, the Okta unlock operation should also attempt to unlock the user's Windows account. Default: `false`
+        /// When an Active Directory user is locked out of Okta, the Okta unlock operation should also attempt to unlock the user's Windows account. Default: `False`
         /// </summary>
         [Input("skipUnlock")]
         public Input<bool>? SkipUnlock { get; set; }

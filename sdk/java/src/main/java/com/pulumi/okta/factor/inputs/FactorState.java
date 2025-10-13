@@ -32,14 +32,14 @@ public final class FactorState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The MFA provider name. Allowed values are `duo`, `fido_u2f`, `fido_webauthn`, `google_otp`, `okta_call`, `okta_otp`, `okta_password`, `okta_push`, `okta_question`, `okta_sms`, `okta_email`, `rsa_token`, `symantec_vip`, `yubikey_token`, or `hotp`.
+     * The MFA provider name. Allowed values are `duo`, `fidoU2f`, `fidoWebauthn`, `googleOtp`, `oktaCall`, `oktaOtp`, `oktaPassword`, `oktaPush`, `oktaQuestion`, `oktaSms`, `oktaEmail`, `rsaToken`, `symantecVip`, `yubikeyToken`, or `hotp`.
      * 
      */
     @Import(name="providerId")
     private @Nullable Output<String> providerId;
 
     /**
-     * @return The MFA provider name. Allowed values are `duo`, `fido_u2f`, `fido_webauthn`, `google_otp`, `okta_call`, `okta_otp`, `okta_password`, `okta_push`, `okta_question`, `okta_sms`, `okta_email`, `rsa_token`, `symantec_vip`, `yubikey_token`, or `hotp`.
+     * @return The MFA provider name. Allowed values are `duo`, `fidoU2f`, `fidoWebauthn`, `googleOtp`, `oktaCall`, `oktaOtp`, `oktaPassword`, `oktaPush`, `oktaQuestion`, `oktaSms`, `oktaEmail`, `rsaToken`, `symantecVip`, `yubikeyToken`, or `hotp`.
      * 
      */
     public Optional<Output<String>> providerId() {
@@ -93,7 +93,7 @@ public final class FactorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param providerId The MFA provider name. Allowed values are `duo`, `fido_u2f`, `fido_webauthn`, `google_otp`, `okta_call`, `okta_otp`, `okta_password`, `okta_push`, `okta_question`, `okta_sms`, `okta_email`, `rsa_token`, `symantec_vip`, `yubikey_token`, or `hotp`.
+         * @param providerId The MFA provider name. Allowed values are `duo`, `fidoU2f`, `fidoWebauthn`, `googleOtp`, `oktaCall`, `oktaOtp`, `oktaPassword`, `oktaPush`, `oktaQuestion`, `oktaSms`, `oktaEmail`, `rsaToken`, `symantecVip`, `yubikeyToken`, or `hotp`.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class FactorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param providerId The MFA provider name. Allowed values are `duo`, `fido_u2f`, `fido_webauthn`, `google_otp`, `okta_call`, `okta_otp`, `okta_password`, `okta_push`, `okta_question`, `okta_sms`, `okta_email`, `rsa_token`, `symantec_vip`, `yubikey_token`, or `hotp`.
+         * @param providerId The MFA provider name. Allowed values are `duo`, `fidoU2f`, `fidoWebauthn`, `googleOtp`, `oktaCall`, `oktaOtp`, `oktaPassword`, `oktaPush`, `oktaQuestion`, `oktaSms`, `oktaEmail`, `rsaToken`, `symantecVip`, `yubikeyToken`, or `hotp`.
          * 
          * @return builder
          * 

@@ -13,6 +13,8 @@ import (
 )
 
 // Manage the preview signin page of a brand
+//
+// ## Example Usage
 type PreviewSigninPage struct {
 	pulumi.CustomResourceState
 

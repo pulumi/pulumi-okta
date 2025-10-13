@@ -96,14 +96,14 @@ public class ServerPolicyRule extends com.pulumi.resources.CustomResource {
         return this.authServerId;
     }
     /**
-     * Accepted grant type values, `authorization_code`, `implicit`, `password`, `client_credentials`, `urn:ietf:params:oauth:grant-type:saml2-bearer` (*Early Access Property*), `urn:ietf:params:oauth:grant-type:token-exchange` (*Early Access Property*),`urn:ietf:params:oauth:grant-type:device_code` (*Early Access Property*), `interaction_code` (*OIE only*). For `implicit` value either `user_whitelist` or `group_whitelist` should be set.
+     * Accepted grant type values, `authorizationCode`, `implicit`, `password`, `clientCredentials`, `urn:ietf:params:oauth:grant-type:saml2-bearer` (*Early Access Property*), `urn:ietf:params:oauth:grant-type:token-exchange` (*Early Access Property*),`urn:ietf:params:oauth:grant-type:device_code` (*Early Access Property*), `interactionCode` (*OIE only*). For `implicit` value either `userWhitelist` or `groupWhitelist` should be set.
      * 
      */
     @Export(name="grantTypeWhitelists", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> grantTypeWhitelists;
 
     /**
-     * @return Accepted grant type values, `authorization_code`, `implicit`, `password`, `client_credentials`, `urn:ietf:params:oauth:grant-type:saml2-bearer` (*Early Access Property*), `urn:ietf:params:oauth:grant-type:token-exchange` (*Early Access Property*),`urn:ietf:params:oauth:grant-type:device_code` (*Early Access Property*), `interaction_code` (*OIE only*). For `implicit` value either `user_whitelist` or `group_whitelist` should be set.
+     * @return Accepted grant type values, `authorizationCode`, `implicit`, `password`, `clientCredentials`, `urn:ietf:params:oauth:grant-type:saml2-bearer` (*Early Access Property*), `urn:ietf:params:oauth:grant-type:token-exchange` (*Early Access Property*),`urn:ietf:params:oauth:grant-type:device_code` (*Early Access Property*), `interactionCode` (*OIE only*). For `implicit` value either `userWhitelist` or `groupWhitelist` should be set.
      * 
      */
     public Output<List<String>> grantTypeWhitelists() {
@@ -208,14 +208,14 @@ public class ServerPolicyRule extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.refreshTokenLifetimeMinutes);
     }
     /**
-     * Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes. Default is `10080` (7 days).`refresh_token_window_minutes` must be between `access_token_lifetime_minutes` and `refresh_token_lifetime_minutes`.
+     * Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes. Default is `10080` (7 days).`refreshTokenWindowMinutes` must be between `accessTokenLifetimeMinutes` and `refreshTokenLifetimeMinutes`.
      * 
      */
     @Export(name="refreshTokenWindowMinutes", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> refreshTokenWindowMinutes;
 
     /**
-     * @return Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes. Default is `10080` (7 days).`refresh_token_window_minutes` must be between `access_token_lifetime_minutes` and `refresh_token_lifetime_minutes`.
+     * @return Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes. Default is `10080` (7 days).`refreshTokenWindowMinutes` must be between `accessTokenLifetimeMinutes` and `refreshTokenLifetimeMinutes`.
      * 
      */
     public Output<Optional<Integer>> refreshTokenWindowMinutes() {

@@ -100,7 +100,7 @@ namespace Pulumi.Okta.App
         public string? Id { get; set; }
 
         /// <summary>
-        /// The label of the app to retrieve, conflicts with label_prefix and id. Label
+        /// The label of the app to retrieve, conflicts with LabelPrefix and id. Label
         /// 			uses the ?q=\n\n query parameter exposed by Okta's API. It should be noted that at this time
         /// 			this searches both name and label. This is used to avoid paginating through all applications.
         /// </summary>
@@ -153,7 +153,7 @@ namespace Pulumi.Okta.App
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// The label of the app to retrieve, conflicts with label_prefix and id. Label
+        /// The label of the app to retrieve, conflicts with LabelPrefix and id. Label
         /// 			uses the ?q=\n\n query parameter exposed by Okta's API. It should be noted that at this time
         /// 			this searches both name and label. This is used to avoid paginating through all applications.
         /// </summary>
@@ -285,7 +285,7 @@ namespace Pulumi.Okta.App
         /// </summary>
         public readonly string KeyId;
         /// <summary>
-        /// The label of the app to retrieve, conflicts with label_prefix and id. Label
+        /// The label of the app to retrieve, conflicts with LabelPrefix and id. Label
         /// 			uses the ?q=\n\n query parameter exposed by Okta's API. It should be noted that at this time
         /// 			this searches both name and label. This is used to avoid paginating through all applications.
         /// </summary>

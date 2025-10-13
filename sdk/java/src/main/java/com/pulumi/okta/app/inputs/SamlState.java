@@ -82,14 +82,14 @@ public final class SamlState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * ACS endpoints along with custom index as a set of maps called `acs_endpoints_indices` in JSON format.
+     * ACS endpoints along with custom index as a set of maps called `acsEndpointsIndices` in JSON format.
      * 
      */
     @Import(name="acsEndpointsIndices")
     private @Nullable Output<List<SamlAcsEndpointsIndexArgs>> acsEndpointsIndices;
 
     /**
-     * @return ACS endpoints along with custom index as a set of maps called `acs_endpoints_indices` in JSON format.
+     * @return ACS endpoints along with custom index as a set of maps called `acsEndpointsIndices` in JSON format.
      * 
      */
     public Optional<Output<List<SamlAcsEndpointsIndexArgs>>> acsEndpointsIndices() {
@@ -179,14 +179,14 @@ public final class SamlState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ID of the associated `app_signon_policy`. If this property is removed from the application the `default` sign-on-policy will be associated with this application.y
+     * The ID of the associated `appSignonPolicy`. If this property is removed from the application the `default` sign-on-policy will be associated with this application.y
      * 
      */
     @Import(name="authenticationPolicy")
     private @Nullable Output<String> authenticationPolicy;
 
     /**
-     * @return The ID of the associated `app_signon_policy`. If this property is removed from the application the `default` sign-on-policy will be associated with this application.y
+     * @return The ID of the associated `appSignonPolicy`. If this property is removed from the application the `default` sign-on-policy will be associated with this application.y
      * 
      */
     public Optional<Output<String>> authenticationPolicy() {
@@ -494,14 +494,14 @@ public final class SamlState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Certificate name. This modulates the rotation of keys. New name == new key. Required to be set with `key_years_valid`
+     * Certificate name. This modulates the rotation of keys. New name == new key. Required to be set with `keyYearsValid`
      * 
      */
     @Import(name="keyName")
     private @Nullable Output<String> keyName;
 
     /**
-     * @return Certificate name. This modulates the rotation of keys. New name == new key. Required to be set with `key_years_valid`
+     * @return Certificate name. This modulates the rotation of keys. New name == new key. Required to be set with `keyYearsValid`
      * 
      */
     public Optional<Output<String>> keyName() {
@@ -1125,7 +1125,7 @@ public final class SamlState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param acsEndpointsIndices ACS endpoints along with custom index as a set of maps called `acs_endpoints_indices` in JSON format.
+         * @param acsEndpointsIndices ACS endpoints along with custom index as a set of maps called `acsEndpointsIndices` in JSON format.
          * 
          * @return builder
          * 
@@ -1136,7 +1136,7 @@ public final class SamlState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param acsEndpointsIndices ACS endpoints along with custom index as a set of maps called `acs_endpoints_indices` in JSON format.
+         * @param acsEndpointsIndices ACS endpoints along with custom index as a set of maps called `acsEndpointsIndices` in JSON format.
          * 
          * @return builder
          * 
@@ -1146,7 +1146,7 @@ public final class SamlState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param acsEndpointsIndices ACS endpoints along with custom index as a set of maps called `acs_endpoints_indices` in JSON format.
+         * @param acsEndpointsIndices ACS endpoints along with custom index as a set of maps called `acsEndpointsIndices` in JSON format.
          * 
          * @return builder
          * 
@@ -1274,7 +1274,7 @@ public final class SamlState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param authenticationPolicy The ID of the associated `app_signon_policy`. If this property is removed from the application the `default` sign-on-policy will be associated with this application.y
+         * @param authenticationPolicy The ID of the associated `appSignonPolicy`. If this property is removed from the application the `default` sign-on-policy will be associated with this application.y
          * 
          * @return builder
          * 
@@ -1285,7 +1285,7 @@ public final class SamlState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param authenticationPolicy The ID of the associated `app_signon_policy`. If this property is removed from the application the `default` sign-on-policy will be associated with this application.y
+         * @param authenticationPolicy The ID of the associated `appSignonPolicy`. If this property is removed from the application the `default` sign-on-policy will be associated with this application.y
          * 
          * @return builder
          * 
@@ -1725,7 +1725,7 @@ public final class SamlState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param keyName Certificate name. This modulates the rotation of keys. New name == new key. Required to be set with `key_years_valid`
+         * @param keyName Certificate name. This modulates the rotation of keys. New name == new key. Required to be set with `keyYearsValid`
          * 
          * @return builder
          * 
@@ -1736,7 +1736,7 @@ public final class SamlState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param keyName Certificate name. This modulates the rotation of keys. New name == new key. Required to be set with `key_years_valid`
+         * @param keyName Certificate name. This modulates the rotation of keys. New name == new key. Required to be set with `keyYearsValid`
          * 
          * @return builder
          * 
