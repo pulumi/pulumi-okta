@@ -129,14 +129,14 @@ public class GroupSchemaProperty extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.description);
     }
     /**
-     * Array of values a primitive property can be set to. See `array_enum` for arrays.
+     * Array of values a primitive property can be set to. See `arrayEnum` for arrays.
      * 
      */
     @Export(name="enums", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> enums;
 
     /**
-     * @return Array of values a primitive property can be set to. See `array_enum` for arrays.
+     * @return Array of values a primitive property can be set to. See `arrayEnum` for arrays.
      * 
      */
     public Output<Optional<List<String>>> enums() {

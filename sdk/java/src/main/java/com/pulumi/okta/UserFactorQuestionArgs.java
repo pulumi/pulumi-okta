@@ -45,14 +45,14 @@ public final class UserFactorQuestionArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * ID of the user. Resource will be recreated when `user_id` changes.
+     * ID of the user. Resource will be recreated when `userId` changes.
      * 
      */
     @Import(name="userId", required=true)
     private Output<String> userId;
 
     /**
-     * @return ID of the user. Resource will be recreated when `user_id` changes.
+     * @return ID of the user. Resource will be recreated when `userId` changes.
      * 
      */
     public Output<String> userId() {
@@ -128,7 +128,7 @@ public final class UserFactorQuestionArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param userId ID of the user. Resource will be recreated when `user_id` changes.
+         * @param userId ID of the user. Resource will be recreated when `userId` changes.
          * 
          * @return builder
          * 
@@ -139,7 +139,7 @@ public final class UserFactorQuestionArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param userId ID of the user. Resource will be recreated when `user_id` changes.
+         * @param userId ID of the user. Resource will be recreated when `userId` changes.
          * 
          * @return builder
          * 

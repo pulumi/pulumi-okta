@@ -48,18 +48,18 @@ namespace Pulumi.Okta
         /// 
         /// ### Field Types and Values
         /// 
-        /// - **TEXT**: Contains free-form text input in the `value` attribute
-        /// - **SELECT**: Contains single selection value in the `value` attribute
-        /// - **MULTISELECT**: Contains multiple selection values in the `values` attribute (list)
-        /// - **DURATION**: Contains time duration specification in the `value` attribute (e.g., "5 days", "2 weeks")
-        /// - **ISO_DATE**: Contains date specification in ISO format in the `value` attribute
-        /// - **OKTA_USER_ID**: Contains Okta user ID in the `value` attribute
+        /// - **TEXT**: Contains free-form text input in the `Value` attribute
+        /// - **SELECT**: Contains single selection value in the `Value` attribute
+        /// - **MULTISELECT**: Contains multiple selection values in the `Values` attribute (list)
+        /// - **DURATION**: Contains time duration specification in the `Value` attribute (e.g., "5 days", "2 weeks")
+        /// - **ISO_DATE**: Contains date specification in ISO format in the `Value` attribute
+        /// - **OKTA_USER_ID**: Contains Okta user ID in the `Value` attribute
         /// 
         /// ### Usage Notes
         /// 
-        /// - For `MULTISELECT` type fields, the values will be in the `values` attribute as a list
-        /// - For all other field types, the value will be in the `value` attribute as a string
-        /// - The `label` and `type` attributes provide metadata about the field structure
+        /// - For `MULTISELECT` type fields, the values will be in the `Values` attribute as a list
+        /// - For all other field types, the value will be in the `Value` attribute as a string
+        /// - The `Label` and `Type` attributes provide metadata about the field structure
         /// - Field definitions and requirements are determined by the approval system configuration
         /// 
         /// ## Limitations and Considerations
@@ -112,18 +112,18 @@ namespace Pulumi.Okta
         /// 
         /// ### Field Types and Values
         /// 
-        /// - **TEXT**: Contains free-form text input in the `value` attribute
-        /// - **SELECT**: Contains single selection value in the `value` attribute
-        /// - **MULTISELECT**: Contains multiple selection values in the `values` attribute (list)
-        /// - **DURATION**: Contains time duration specification in the `value` attribute (e.g., "5 days", "2 weeks")
-        /// - **ISO_DATE**: Contains date specification in ISO format in the `value` attribute
-        /// - **OKTA_USER_ID**: Contains Okta user ID in the `value` attribute
+        /// - **TEXT**: Contains free-form text input in the `Value` attribute
+        /// - **SELECT**: Contains single selection value in the `Value` attribute
+        /// - **MULTISELECT**: Contains multiple selection values in the `Values` attribute (list)
+        /// - **DURATION**: Contains time duration specification in the `Value` attribute (e.g., "5 days", "2 weeks")
+        /// - **ISO_DATE**: Contains date specification in ISO format in the `Value` attribute
+        /// - **OKTA_USER_ID**: Contains Okta user ID in the `Value` attribute
         /// 
         /// ### Usage Notes
         /// 
-        /// - For `MULTISELECT` type fields, the values will be in the `values` attribute as a list
-        /// - For all other field types, the value will be in the `value` attribute as a string
-        /// - The `label` and `type` attributes provide metadata about the field structure
+        /// - For `MULTISELECT` type fields, the values will be in the `Values` attribute as a list
+        /// - For all other field types, the value will be in the `Value` attribute as a string
+        /// - The `Label` and `Type` attributes provide metadata about the field structure
         /// - Field definitions and requirements are determined by the approval system configuration
         /// 
         /// ## Limitations and Considerations
@@ -176,18 +176,18 @@ namespace Pulumi.Okta
         /// 
         /// ### Field Types and Values
         /// 
-        /// - **TEXT**: Contains free-form text input in the `value` attribute
-        /// - **SELECT**: Contains single selection value in the `value` attribute
-        /// - **MULTISELECT**: Contains multiple selection values in the `values` attribute (list)
-        /// - **DURATION**: Contains time duration specification in the `value` attribute (e.g., "5 days", "2 weeks")
-        /// - **ISO_DATE**: Contains date specification in ISO format in the `value` attribute
-        /// - **OKTA_USER_ID**: Contains Okta user ID in the `value` attribute
+        /// - **TEXT**: Contains free-form text input in the `Value` attribute
+        /// - **SELECT**: Contains single selection value in the `Value` attribute
+        /// - **MULTISELECT**: Contains multiple selection values in the `Values` attribute (list)
+        /// - **DURATION**: Contains time duration specification in the `Value` attribute (e.g., "5 days", "2 weeks")
+        /// - **ISO_DATE**: Contains date specification in ISO format in the `Value` attribute
+        /// - **OKTA_USER_ID**: Contains Okta user ID in the `Value` attribute
         /// 
         /// ### Usage Notes
         /// 
-        /// - For `MULTISELECT` type fields, the values will be in the `values` attribute as a list
-        /// - For all other field types, the value will be in the `value` attribute as a string
-        /// - The `label` and `type` attributes provide metadata about the field structure
+        /// - For `MULTISELECT` type fields, the values will be in the `Values` attribute as a list
+        /// - For all other field types, the value will be in the `Value` attribute as a string
+        /// - The `Label` and `Type` attributes provide metadata about the field structure
         /// - Field definitions and requirements are determined by the approval system configuration
         /// 
         /// ## Limitations and Considerations

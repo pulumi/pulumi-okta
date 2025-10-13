@@ -12,6 +12,8 @@ import (
 )
 
 // Retrieves the request settings for a resource.
+//
+// ## Example Usage
 func LookupRequestSettingResource(ctx *pulumi.Context, args *LookupRequestSettingResourceArgs, opts ...pulumi.InvokeOption) (*LookupRequestSettingResourceResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupRequestSettingResourceResult

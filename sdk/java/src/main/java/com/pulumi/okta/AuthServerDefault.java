@@ -90,14 +90,14 @@ public class AuthServerDefault extends com.pulumi.resources.CustomResource {
         return this.credentialsLastRotated;
     }
     /**
-     * The timestamp when the authorization server changes the key for signing tokens. Only returned when `credentials_rotation_mode` is `AUTO`.
+     * The timestamp when the authorization server changes the key for signing tokens. Only returned when `credentialsRotationMode` is `AUTO`.
      * 
      */
     @Export(name="credentialsNextRotation", refs={String.class}, tree="[0]")
     private Output<String> credentialsNextRotation;
 
     /**
-     * @return The timestamp when the authorization server changes the key for signing tokens. Only returned when `credentials_rotation_mode` is `AUTO`.
+     * @return The timestamp when the authorization server changes the key for signing tokens. Only returned when `credentialsRotationMode` is `AUTO`.
      * 
      */
     public Output<String> credentialsNextRotation() {

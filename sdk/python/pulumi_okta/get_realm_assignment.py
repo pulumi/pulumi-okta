@@ -138,6 +138,8 @@ def get_realm_assignment(name: Optional[_builtins.str] = None,
     """
     Get a realm assignment from Okta.
 
+    ## Example Usage
+
 
     :param _builtins.str name: The name of the Okta Realm Assignment.
     """
@@ -159,6 +161,8 @@ def get_realm_assignment_output(name: Optional[pulumi.Input[Optional[_builtins.s
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRealmAssignmentResult]:
     """
     Get a realm assignment from Okta.
+
+    ## Example Usage
 
 
     :param _builtins.str name: The name of the Okta Realm Assignment.

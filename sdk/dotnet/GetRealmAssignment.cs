@@ -13,18 +13,24 @@ namespace Pulumi.Okta
     {
         /// <summary>
         /// Get a realm assignment from Okta.
+        /// 
+        /// ## Example Usage
         /// </summary>
         public static Task<GetRealmAssignmentResult> InvokeAsync(GetRealmAssignmentArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRealmAssignmentResult>("okta:index/getRealmAssignment:getRealmAssignment", args ?? new GetRealmAssignmentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a realm assignment from Okta.
+        /// 
+        /// ## Example Usage
         /// </summary>
         public static Output<GetRealmAssignmentResult> Invoke(GetRealmAssignmentInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRealmAssignmentResult>("okta:index/getRealmAssignment:getRealmAssignment", args ?? new GetRealmAssignmentInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a realm assignment from Okta.
+        /// 
+        /// ## Example Usage
         /// </summary>
         public static Output<GetRealmAssignmentResult> Invoke(GetRealmAssignmentInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetRealmAssignmentResult>("okta:index/getRealmAssignment:getRealmAssignment", args ?? new GetRealmAssignmentInvokeArgs(), options.WithDefaults());

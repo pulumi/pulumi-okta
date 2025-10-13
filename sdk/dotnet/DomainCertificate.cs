@@ -72,9 +72,9 @@ namespace Pulumi.Okta
     /// 
     /// Okta Field          | Certbot file
     /// --------------------|--------------
-    /// `certificate`       | `cert.pem`
-    /// `certificate_chain` | `chain.pem`
-    /// `private_key`       | `privkey.pem`
+    /// `Certificate`       | `cert.pem`
+    /// `CertificateChain` | `chain.pem`
+    /// `PrivateKey`       | `privkey.pem`
     /// </summary>
     [OktaResourceType("okta:index/domainCertificate:DomainCertificate")]
     public partial class DomainCertificate : global::Pulumi.CustomResource

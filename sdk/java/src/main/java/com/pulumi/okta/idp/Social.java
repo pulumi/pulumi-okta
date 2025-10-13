@@ -225,14 +225,14 @@ public class Social extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.groupsAction);
     }
     /**
-     * List of Okta Group IDs to add an IdP user as a member with the `ASSIGN` `groups_action`.
+     * List of Okta Group IDs to add an IdP user as a member with the `ASSIGN` `groupsAction`.
      * 
      */
     @Export(name="groupsAssignments", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> groupsAssignments;
 
     /**
-     * @return List of Okta Group IDs to add an IdP user as a member with the `ASSIGN` `groups_action`.
+     * @return List of Okta Group IDs to add an IdP user as a member with the `ASSIGN` `groupsAction`.
      * 
      */
     public Output<Optional<List<String>>> groupsAssignments() {
@@ -253,14 +253,14 @@ public class Social extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.groupsAttribute);
     }
     /**
-     * Whitelist of Okta Group identifiers that are allowed for the `APPEND` or `SYNC` `groups_action`.
+     * Whitelist of Okta Group identifiers that are allowed for the `APPEND` or `SYNC` `groupsAction`.
      * 
      */
     @Export(name="groupsFilters", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> groupsFilters;
 
     /**
-     * @return Whitelist of Okta Group identifiers that are allowed for the `APPEND` or `SYNC` `groups_action`.
+     * @return Whitelist of Okta Group identifiers that are allowed for the `APPEND` or `SYNC` `groupsAction`.
      * 
      */
     public Output<Optional<List<String>>> groupsFilters() {
