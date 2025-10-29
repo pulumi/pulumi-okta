@@ -20,6 +20,47 @@ import (
 // The Okta Management API does not have a true Create or Delete for a theme. Therefore, the theme resource must be imported
 // first into the pulumi state before updates can be applied to the theme.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v6/go/okta"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			test, err := okta.GetBrands(ctx, map[string]interface{}{}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			// resource has been imported into current state:
+//			// $ terraform import okta_theme.example <theme id>
+//			_, err = okta.NewTheme(ctx, "example", &okta.ThemeArgs{
+//				BrandId:                           pulumi.String(test.Brands[0].Id),
+//				Logo:                              pulumi.String("path/to/logo.png"),
+//				Favicon:                           pulumi.String("path/to/favicon.png"),
+//				BackgroundImage:                   pulumi.String("path/to/background.png"),
+//				PrimaryColorHex:                   pulumi.String("#1662dd"),
+//				SecondaryColorHex:                 pulumi.String("#ebebed"),
+//				SignInPageTouchPointVariant:       pulumi.String("OKTA_DEFAULT"),
+//				EndUserDashboardTouchPointVariant: pulumi.String("OKTA_DEFAULT"),
+//				ErrorPageTouchPointVariant:        pulumi.String("OKTA_DEFAULT"),
+//				EmailTemplateTouchPointVariant:    pulumi.String("OKTA_DEFAULT"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // ```sh

@@ -13,18 +13,81 @@ namespace Pulumi.Okta
     {
         /// <summary>
         /// Get a single Theme of a Brand of an Okta Organization.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Okta = Pulumi.Okta;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Okta.GetBrands.Invoke();
+        /// 
+        ///     var testGetTheme = Okta.GetTheme.Invoke(new()
+        ///     {
+        ///         BrandId = test.Apply(getBrandsResult =&gt; getBrandsResult.Brands[0]?.Id),
+        ///         ThemeId = testOktaThemes.Themes[0].Id,
+        ///     });
+        /// 
+        /// });
+        /// ```
         /// </summary>
         public static Task<GetThemeResult> InvokeAsync(GetThemeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetThemeResult>("okta:index/getTheme:getTheme", args ?? new GetThemeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a single Theme of a Brand of an Okta Organization.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Okta = Pulumi.Okta;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Okta.GetBrands.Invoke();
+        /// 
+        ///     var testGetTheme = Okta.GetTheme.Invoke(new()
+        ///     {
+        ///         BrandId = test.Apply(getBrandsResult =&gt; getBrandsResult.Brands[0]?.Id),
+        ///         ThemeId = testOktaThemes.Themes[0].Id,
+        ///     });
+        /// 
+        /// });
+        /// ```
         /// </summary>
         public static Output<GetThemeResult> Invoke(GetThemeInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetThemeResult>("okta:index/getTheme:getTheme", args ?? new GetThemeInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a single Theme of a Brand of an Okta Organization.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Okta = Pulumi.Okta;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Okta.GetBrands.Invoke();
+        /// 
+        ///     var testGetTheme = Okta.GetTheme.Invoke(new()
+        ///     {
+        ///         BrandId = test.Apply(getBrandsResult =&gt; getBrandsResult.Brands[0]?.Id),
+        ///         ThemeId = testOktaThemes.Themes[0].Id,
+        ///     });
+        /// 
+        /// });
+        /// ```
         /// </summary>
         public static Output<GetThemeResult> Invoke(GetThemeInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetThemeResult>("okta:index/getTheme:getTheme", args ?? new GetThemeInvokeArgs(), options.WithDefaults());

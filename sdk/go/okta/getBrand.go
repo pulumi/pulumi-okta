@@ -12,6 +12,42 @@ import (
 )
 
 // Get a single Brand from Okta.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v6/go/okta"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			test, err := okta.GetBrands(ctx, map[string]interface{}{}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = okta.LookupBrand(ctx, &okta.LookupBrandArgs{
+//				BrandId: test.Brands[0].Id,
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = okta.LookupBrand(ctx, &okta.LookupBrandArgs{
+//				BrandId: "default",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupBrand(ctx *pulumi.Context, args *LookupBrandArgs, opts ...pulumi.InvokeOption) (*LookupBrandResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupBrandResult

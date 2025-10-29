@@ -12,6 +12,29 @@ namespace Pulumi.Okta
     /// <summary>
     /// Manages brand. This resource allows you to toggle an Okta Feature.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Okta = Pulumi.Okta;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = Okta.GetFeatures.Invoke(new()
+    ///     {
+    ///         Label = "Android Device Trust",
+    ///     });
+    /// 
+    ///     var test = new Okta.Feature("test", new()
+    ///     {
+    ///         FeatureId = example.Apply(getFeaturesResult =&gt; getFeaturesResult.Features[0]?.Id),
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// ```sh

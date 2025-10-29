@@ -9,6 +9,42 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Okta
 {
+    /// <summary>
+    /// Manage the access request process. This resource allows you to create and read an Okta [request](https://developer.okta.com/docs/api/iga/openapi/governance.requests.admin.v2/tag/Requests/#tag/Requests).
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Okta = Pulumi.Okta;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var test = new Okta.RequestV2("test", new()
+    ///     {
+    ///         Requested = new Okta.Inputs.RequestV2RequestedArgs
+    ///         {
+    ///             Type = "CATALOG_ENTRY",
+    ///             EntryId = "&lt;entry_id&gt;",
+    ///         },
+    ///         RequestedFor = new Okta.Inputs.RequestV2RequestedForArgs
+    ///         {
+    ///             Type = "OKTA_USER",
+    ///             ExternalId = "&lt;user_id&gt;",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// ```sh
+    /// $ pulumi import okta:index/requestV2:RequestV2 example &lt;request_id&gt;
+    /// ```
+    /// </summary>
     [OktaResourceType("okta:index/requestV2:RequestV2")]
     public partial class RequestV2 : global::Pulumi.CustomResource
     {
@@ -19,13 +55,13 @@ namespace Pulumi.Okta
         public Output<string> AccessDuration { get; private set; } = null!;
 
         /// <summary>
-        /// The ISO 8601 formatted date and time when the resource was created.
+        /// The date and time when the request condition was created.
         /// </summary>
         [Output("created")]
         public Output<string> Created { get; private set; } = null!;
 
         /// <summary>
-        /// The user who created the resource.
+        /// The id of the user who created the request condition.
         /// </summary>
         [Output("createdBy")]
         public Output<string> CreatedBy { get; private set; } = null!;
@@ -37,19 +73,19 @@ namespace Pulumi.Okta
         public Output<string> GrantStatus { get; private set; } = null!;
 
         /// <summary>
-        /// The date the approved access was granted. Only set if request.status is APPROVED.
+        /// The date the approved access was granted. Only set if request . Status is APPROVED.
         /// </summary>
         [Output("granted")]
         public Output<string> Granted { get; private set; } = null!;
 
         /// <summary>
-        /// The ISO 8601 formatted date and time when the resource was last updated.
+        /// The date and time when the request condition was last updated.
         /// </summary>
         [Output("lastUpdated")]
         public Output<string> LastUpdated { get; private set; } = null!;
 
         /// <summary>
-        /// The user who last updated the resource.
+        /// The id of the user who last updated the request condition.
         /// </summary>
         [Output("lastUpdatedBy")]
         public Output<string> LastUpdatedBy { get; private set; } = null!;
@@ -79,7 +115,7 @@ namespace Pulumi.Okta
         public Output<string> Resolved { get; private set; } = null!;
 
         /// <summary>
-        /// The date the granted access is scheduled for revocation.
+        /// The date the request was scheduled for revocation.
         /// </summary>
         [Output("revocationScheduled")]
         public Output<string> RevocationScheduled { get; private set; } = null!;
@@ -187,13 +223,13 @@ namespace Pulumi.Okta
         public Input<string>? AccessDuration { get; set; }
 
         /// <summary>
-        /// The ISO 8601 formatted date and time when the resource was created.
+        /// The date and time when the request condition was created.
         /// </summary>
         [Input("created")]
         public Input<string>? Created { get; set; }
 
         /// <summary>
-        /// The user who created the resource.
+        /// The id of the user who created the request condition.
         /// </summary>
         [Input("createdBy")]
         public Input<string>? CreatedBy { get; set; }
@@ -205,19 +241,19 @@ namespace Pulumi.Okta
         public Input<string>? GrantStatus { get; set; }
 
         /// <summary>
-        /// The date the approved access was granted. Only set if request.status is APPROVED.
+        /// The date the approved access was granted. Only set if request . Status is APPROVED.
         /// </summary>
         [Input("granted")]
         public Input<string>? Granted { get; set; }
 
         /// <summary>
-        /// The ISO 8601 formatted date and time when the resource was last updated.
+        /// The date and time when the request condition was last updated.
         /// </summary>
         [Input("lastUpdated")]
         public Input<string>? LastUpdated { get; set; }
 
         /// <summary>
-        /// The user who last updated the resource.
+        /// The id of the user who last updated the request condition.
         /// </summary>
         [Input("lastUpdatedBy")]
         public Input<string>? LastUpdatedBy { get; set; }
@@ -253,7 +289,7 @@ namespace Pulumi.Okta
         public Input<string>? Resolved { get; set; }
 
         /// <summary>
-        /// The date the granted access is scheduled for revocation.
+        /// The date the request was scheduled for revocation.
         /// </summary>
         [Input("revocationScheduled")]
         public Input<string>? RevocationScheduled { get; set; }

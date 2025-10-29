@@ -46,6 +46,64 @@ import javax.annotation.Nullable;
  * 		does not contain a required variable reference.  The API will 404 for an invalid
  * 		&#39;brand_id&#39; or &#39;template_name&#39;.
  * 
+ * ## Example Usage
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.okta.OktaFunctions;
+ * import com.pulumi.okta.inputs.GetEmailCustomizationsArgs;
+ * import com.pulumi.okta.EmailCustomization;
+ * import com.pulumi.okta.EmailCustomizationArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var test = OktaFunctions.getBrands(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+ * 
+ *         final var forgotPassword = OktaFunctions.getEmailCustomizations(GetEmailCustomizationsArgs.builder()
+ *             .brandId(test.brands()[0].id())
+ *             .templateName("ForgotPassword")
+ *             .build());
+ * 
+ *         var forgotPasswordEn = new EmailCustomization("forgotPasswordEn", EmailCustomizationArgs.builder()
+ *             .brandId(test.brands()[0].id())
+ *             .templateName("ForgotPassword")
+ *             .language("en")
+ *             .isDefault(true)
+ *             .subject("Account password reset")
+ *             .body("Hi $$user.firstName,<br/><br/>Click this link to reset your password: $$resetPasswordLink")
+ *             .build());
+ * 
+ *         var forgotPasswordEs = new EmailCustomization("forgotPasswordEs", EmailCustomizationArgs.builder()
+ *             .brandId(test.brands()[0].id())
+ *             .templateName("ForgotPassword")
+ *             .language("es")
+ *             .subject("Restablecimiento de contraseña de cuenta")
+ *             .body("Hola $$user.firstName,<br/><br/>Haga clic en este enlace para restablecer tu contraseña: $$resetPasswordLink")
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(forgotPasswordEn)
+ *                 .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
  * ```sh

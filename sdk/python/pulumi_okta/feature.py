@@ -222,6 +222,16 @@ class Feature(pulumi.CustomResource):
         """
         Manages brand. This resource allows you to toggle an Okta Feature.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        example = okta.get_features(label="Android Device Trust")
+        test = okta.Feature("test", feature_id=example.features[0].id)
+        ```
+
         ## Import
 
         ```sh
@@ -242,6 +252,16 @@ class Feature(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages brand. This resource allows you to toggle an Okta Feature.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        example = okta.get_features(label="Android Device Trust")
+        test = okta.Feature("test", feature_id=example.features[0].id)
+        ```
 
         ## Import
 

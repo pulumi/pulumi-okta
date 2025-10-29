@@ -13,7 +13,7 @@ namespace Pulumi.Okta.Inputs
     public sealed class RequestV2RequesterFieldValueArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ID of a requester field.
+        /// Request condition id.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }

@@ -16,7 +16,7 @@ namespace Pulumi.Okta.Inputs
         private InputList<Inputs.RequestConditionAccessScopeSettingsIdArgs>? _ids;
 
         /// <summary>
-        /// List of groups/entitlement bundles.
+        /// Block list of groups/entitlement bundles ids.
         /// </summary>
         public InputList<Inputs.RequestConditionAccessScopeSettingsIdArgs> Ids
         {

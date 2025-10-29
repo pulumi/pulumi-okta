@@ -92,6 +92,17 @@ def get_email_customizations(brand_id: Optional[_builtins.str] = None,
     """
     Get the email customizations of an email template belonging to a brand in an Okta organization.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_okta as okta
+
+    test = okta.get_brands()
+    forgot_password = okta.get_email_customizations(brand_id=test.brands[0].id,
+        template_name="ForgotPassword")
+    ```
+
 
     :param _builtins.str brand_id: Brand ID
     :param _builtins.str template_name: Template Name
@@ -112,6 +123,17 @@ def get_email_customizations_output(brand_id: Optional[pulumi.Input[_builtins.st
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEmailCustomizationsResult]:
     """
     Get the email customizations of an email template belonging to a brand in an Okta organization.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_okta as okta
+
+    test = okta.get_brands()
+    forgot_password = okta.get_email_customizations(brand_id=test.brands[0].id,
+        template_name="ForgotPassword")
+    ```
 
 
     :param _builtins.str brand_id: Brand ID

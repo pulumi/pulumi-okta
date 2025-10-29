@@ -13,18 +13,93 @@ namespace Pulumi.Okta
     {
         /// <summary>
         /// Get a single Brand from Okta.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Okta = Pulumi.Okta;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Okta.GetBrands.Invoke();
+        /// 
+        ///     var testGetBrand = Okta.GetBrand.Invoke(new()
+        ///     {
+        ///         BrandId = test.Apply(getBrandsResult =&gt; getBrandsResult.Brands[0]?.Id),
+        ///     });
+        /// 
+        ///     var @default = Okta.GetBrand.Invoke(new()
+        ///     {
+        ///         BrandId = "default",
+        ///     });
+        /// 
+        /// });
+        /// ```
         /// </summary>
         public static Task<GetBrandResult> InvokeAsync(GetBrandArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBrandResult>("okta:index/getBrand:getBrand", args ?? new GetBrandArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a single Brand from Okta.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Okta = Pulumi.Okta;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Okta.GetBrands.Invoke();
+        /// 
+        ///     var testGetBrand = Okta.GetBrand.Invoke(new()
+        ///     {
+        ///         BrandId = test.Apply(getBrandsResult =&gt; getBrandsResult.Brands[0]?.Id),
+        ///     });
+        /// 
+        ///     var @default = Okta.GetBrand.Invoke(new()
+        ///     {
+        ///         BrandId = "default",
+        ///     });
+        /// 
+        /// });
+        /// ```
         /// </summary>
         public static Output<GetBrandResult> Invoke(GetBrandInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBrandResult>("okta:index/getBrand:getBrand", args ?? new GetBrandInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a single Brand from Okta.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Okta = Pulumi.Okta;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Okta.GetBrands.Invoke();
+        /// 
+        ///     var testGetBrand = Okta.GetBrand.Invoke(new()
+        ///     {
+        ///         BrandId = test.Apply(getBrandsResult =&gt; getBrandsResult.Brands[0]?.Id),
+        ///     });
+        /// 
+        ///     var @default = Okta.GetBrand.Invoke(new()
+        ///     {
+        ///         BrandId = "default",
+        ///     });
+        /// 
+        /// });
+        /// ```
         /// </summary>
         public static Output<GetBrandResult> Invoke(GetBrandInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetBrandResult>("okta:index/getBrand:getBrand", args ?? new GetBrandInvokeArgs(), options.WithDefaults());

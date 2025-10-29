@@ -11,6 +11,33 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Retrieves the full representation of a specific request.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v6/go/okta"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := okta.LookupRequestV2(ctx, &okta.LookupRequestV2Args{
+//				Id: "<request_id>",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupRequestV2(ctx *pulumi.Context, args *LookupRequestV2Args, opts ...pulumi.InvokeOption) (*LookupRequestV2Result, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupRequestV2Result
@@ -23,23 +50,36 @@ func LookupRequestV2(ctx *pulumi.Context, args *LookupRequestV2Args, opts ...pul
 
 // A collection of arguments for invoking getRequestV2.
 type LookupRequestV2Args struct {
-	Id           string                    `pulumi:"id"`
-	Requested    *GetRequestV2Requested    `pulumi:"requested"`
-	RequestedBy  *GetRequestV2RequestedBy  `pulumi:"requestedBy"`
+	// The ID of the request.
+	Id string `pulumi:"id"`
+	// A representation of a resource that can be requested for access.
+	Requested *GetRequestV2Requested `pulumi:"requested"`
+	// A representation of a principal.
+	RequestedBy *GetRequestV2RequestedBy `pulumi:"requestedBy"`
+	// A representation of a principal.
 	RequestedFor *GetRequestV2RequestedFor `pulumi:"requestedFor"`
 }
 
 // A collection of values returned by getRequestV2.
 type LookupRequestV2Result struct {
-	Created       string                    `pulumi:"created"`
-	CreatedBy     string                    `pulumi:"createdBy"`
-	Id            string                    `pulumi:"id"`
-	LastUpdated   string                    `pulumi:"lastUpdated"`
-	LastUpdatedBy string                    `pulumi:"lastUpdatedBy"`
-	Requested     *GetRequestV2Requested    `pulumi:"requested"`
-	RequestedBy   *GetRequestV2RequestedBy  `pulumi:"requestedBy"`
-	RequestedFor  *GetRequestV2RequestedFor `pulumi:"requestedFor"`
-	Status        string                    `pulumi:"status"`
+	// The date and time when the request condition was created.
+	Created string `pulumi:"created"`
+	// The id of the user who created the request condition.
+	CreatedBy string `pulumi:"createdBy"`
+	// The ID of the request.
+	Id string `pulumi:"id"`
+	// The date and time when the request condition was last updated.
+	LastUpdated string `pulumi:"lastUpdated"`
+	// The id of the user who last updated the request condition.
+	LastUpdatedBy string `pulumi:"lastUpdatedBy"`
+	// A representation of a resource that can be requested for access.
+	Requested *GetRequestV2Requested `pulumi:"requested"`
+	// A representation of a principal.
+	RequestedBy *GetRequestV2RequestedBy `pulumi:"requestedBy"`
+	// A representation of a principal.
+	RequestedFor *GetRequestV2RequestedFor `pulumi:"requestedFor"`
+	// The status of the request.
+	Status string `pulumi:"status"`
 }
 
 func LookupRequestV2Output(ctx *pulumi.Context, args LookupRequestV2OutputArgs, opts ...pulumi.InvokeOption) LookupRequestV2ResultOutput {
@@ -53,9 +93,13 @@ func LookupRequestV2Output(ctx *pulumi.Context, args LookupRequestV2OutputArgs, 
 
 // A collection of arguments for invoking getRequestV2.
 type LookupRequestV2OutputArgs struct {
-	Id           pulumi.StringInput               `pulumi:"id"`
-	Requested    GetRequestV2RequestedPtrInput    `pulumi:"requested"`
-	RequestedBy  GetRequestV2RequestedByPtrInput  `pulumi:"requestedBy"`
+	// The ID of the request.
+	Id pulumi.StringInput `pulumi:"id"`
+	// A representation of a resource that can be requested for access.
+	Requested GetRequestV2RequestedPtrInput `pulumi:"requested"`
+	// A representation of a principal.
+	RequestedBy GetRequestV2RequestedByPtrInput `pulumi:"requestedBy"`
+	// A representation of a principal.
 	RequestedFor GetRequestV2RequestedForPtrInput `pulumi:"requestedFor"`
 }
 
@@ -78,38 +122,47 @@ func (o LookupRequestV2ResultOutput) ToLookupRequestV2ResultOutputWithContext(ct
 	return o
 }
 
+// The date and time when the request condition was created.
 func (o LookupRequestV2ResultOutput) Created() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRequestV2Result) string { return v.Created }).(pulumi.StringOutput)
 }
 
+// The id of the user who created the request condition.
 func (o LookupRequestV2ResultOutput) CreatedBy() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRequestV2Result) string { return v.CreatedBy }).(pulumi.StringOutput)
 }
 
+// The ID of the request.
 func (o LookupRequestV2ResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRequestV2Result) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// The date and time when the request condition was last updated.
 func (o LookupRequestV2ResultOutput) LastUpdated() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRequestV2Result) string { return v.LastUpdated }).(pulumi.StringOutput)
 }
 
+// The id of the user who last updated the request condition.
 func (o LookupRequestV2ResultOutput) LastUpdatedBy() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRequestV2Result) string { return v.LastUpdatedBy }).(pulumi.StringOutput)
 }
 
+// A representation of a resource that can be requested for access.
 func (o LookupRequestV2ResultOutput) Requested() GetRequestV2RequestedPtrOutput {
 	return o.ApplyT(func(v LookupRequestV2Result) *GetRequestV2Requested { return v.Requested }).(GetRequestV2RequestedPtrOutput)
 }
 
+// A representation of a principal.
 func (o LookupRequestV2ResultOutput) RequestedBy() GetRequestV2RequestedByPtrOutput {
 	return o.ApplyT(func(v LookupRequestV2Result) *GetRequestV2RequestedBy { return v.RequestedBy }).(GetRequestV2RequestedByPtrOutput)
 }
 
+// A representation of a principal.
 func (o LookupRequestV2ResultOutput) RequestedFor() GetRequestV2RequestedForPtrOutput {
 	return o.ApplyT(func(v LookupRequestV2Result) *GetRequestV2RequestedFor { return v.RequestedFor }).(GetRequestV2RequestedForPtrOutput)
 }
 
+// The status of the request.
 func (o LookupRequestV2ResultOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRequestV2Result) string { return v.Status }).(pulumi.StringOutput)
 }

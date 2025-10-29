@@ -12,6 +12,79 @@ import (
 )
 
 // Get the entitlements for a user and resource after evaluating all grants.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v6/go/okta"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := okta.GetPrincipalEntitlements(ctx, &okta.GetPrincipalEntitlementsArgs{
+//				Parent: okta.GetPrincipalEntitlementsParent{
+//					ExternalId: "<resource_id>",
+//					Type:       "<resource_type>",
+//				},
+//				TargetPrincipal: okta.GetPrincipalEntitlementsTargetPrincipal{
+//					ExternalId: "<principal_id>",
+//					Type:       "<principal_type>",
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Required:
+//
+// - `externalId` (String) The Okta user's email address.
+// - `type` (String) The Okta user id.
+//
+// <a id="nestedblock--target_principal"></a>
+// ### Nested Schema for `targetPrincipal`
+// ## Required:
+//
+// - `externalId` (String) The Okta user id.
+// - `type` (String) The type of principal. Enum: `OKTA_USER`.
+//
+// <a id="nestedblock--data"></a>
+// ### Nested Schema for `data`
+// ## Required:
+//
+// - `parent` (Object) Representation of a resource. (see below for nested schema)
+// - `targetPrincipal` (Object) Representation of a principal. (see below for nested schema)
+//
+// ## Optional:
+//
+// - `dataType` (String) The data type of the entitlement property. Enum: `array`, `string`.
+// - `description` (String) The Okta user id.
+// - `externalValue` (String) The type of principal. Enum: `OKTA_USER`.
+// - `id` (String) The unique identifier of the entitlement.
+// - `multiValue` (Boolean) Indicates if the entitlement is multi-valued.
+// - `name` (String) The name of the entitlement.
+// - `parentResourceOrn` (String) The Okta app instance, in ORN format.
+// - `required` (Boolean) Indicates if the entitlement is required.
+// - `targetPrincipalOrn` (String) The Okta user id, in ORN format.
+// - `values` (List of Objects) The values of the entitlement. (see below for nested schema)
+//
+// <a id="nestedblock--values"></a>
+// ### Nested Schema for `values`
+// - `description` (String) The description of the value.
+// - `externalId` (String) The external ID of the value.
+// - `externalValue` (String) The value of an entitlement property value.
+// - `id` (String) The unique identifier of the value.
+// - `name` (String) The name of the value.
 func GetPrincipalEntitlements(ctx *pulumi.Context, args *GetPrincipalEntitlementsArgs, opts ...pulumi.InvokeOption) (*GetPrincipalEntitlementsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetPrincipalEntitlementsResult

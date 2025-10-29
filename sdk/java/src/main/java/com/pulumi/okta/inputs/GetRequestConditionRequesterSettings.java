@@ -18,14 +18,14 @@ public final class GetRequestConditionRequesterSettings extends com.pulumi.resou
     public static final GetRequestConditionRequesterSettings Empty = new GetRequestConditionRequesterSettings();
 
     /**
-     * List of teams/groups ids.
+     * Block list of teams/groups ids.
      * 
      */
     @Import(name="ids")
     private @Nullable List<GetRequestConditionRequesterSettingsId> ids;
 
     /**
-     * @return List of teams/groups ids.
+     * @return Block list of teams/groups ids.
      * 
      */
     public Optional<List<GetRequestConditionRequesterSettingsId>> ids() {
@@ -65,7 +65,7 @@ public final class GetRequestConditionRequesterSettings extends com.pulumi.resou
         }
 
         /**
-         * @param ids List of teams/groups ids.
+         * @param ids Block list of teams/groups ids.
          * 
          * @return builder
          * 
@@ -76,7 +76,7 @@ public final class GetRequestConditionRequesterSettings extends com.pulumi.resou
         }
 
         /**
-         * @param ids List of teams/groups ids.
+         * @param ids Block list of teams/groups ids.
          * 
          * @return builder
          * 

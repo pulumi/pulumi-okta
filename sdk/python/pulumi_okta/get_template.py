@@ -91,6 +91,17 @@ def get_template(brand_id: Optional[_builtins.str] = None,
     """
     Get a single Email Template for a Brand belonging to an Okta organization.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_okta as okta
+
+    test = okta.get_brands()
+    forgot_password = okta.get_template(brand_id=test.brands[0].id,
+        name="ForgotPassword")
+    ```
+
 
     :param _builtins.str brand_id: Brand ID
     :param _builtins.str name: The name of the email template
@@ -111,6 +122,17 @@ def get_template_output(brand_id: Optional[pulumi.Input[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTemplateResult]:
     """
     Get a single Email Template for a Brand belonging to an Okta organization.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_okta as okta
+
+    test = okta.get_brands()
+    forgot_password = okta.get_template(brand_id=test.brands[0].id,
+        name="ForgotPassword")
+    ```
 
 
     :param _builtins.str brand_id: Brand ID

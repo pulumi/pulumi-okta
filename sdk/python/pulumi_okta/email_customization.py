@@ -323,6 +323,31 @@ class EmailCustomization(pulumi.CustomResource):
         		does not contain a required variable reference.  The API will 404 for an invalid
         		'brand_id' or 'template_name'.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        test = okta.get_brands()
+        forgot_password = okta.get_email_customizations(brand_id=test.brands[0].id,
+            template_name="ForgotPassword")
+        forgot_password_en = okta.EmailCustomization("forgot_password_en",
+            brand_id=test.brands[0].id,
+            template_name="ForgotPassword",
+            language="en",
+            is_default=True,
+            subject="Account password reset",
+            body="Hi $$user.firstName,<br/><br/>Click this link to reset your password: $$resetPasswordLink")
+        forgot_password_es = okta.EmailCustomization("forgot_password_es",
+            brand_id=test.brands[0].id,
+            template_name="ForgotPassword",
+            language="es",
+            subject="Restablecimiento de contraseña de cuenta",
+            body="Hola $$user.firstName,<br/><br/>Haga clic en este enlace para restablecer tu contraseña: $$resetPasswordLink",
+            opts = pulumi.ResourceOptions(depends_on=[forgot_password_en]))
+        ```
+
         ## Import
 
         ```sh
@@ -375,6 +400,31 @@ class EmailCustomization(pulumi.CustomResource):
         		the language parameter is not one of the supported locales or the body parameter
         		does not contain a required variable reference.  The API will 404 for an invalid
         		'brand_id' or 'template_name'.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        test = okta.get_brands()
+        forgot_password = okta.get_email_customizations(brand_id=test.brands[0].id,
+            template_name="ForgotPassword")
+        forgot_password_en = okta.EmailCustomization("forgot_password_en",
+            brand_id=test.brands[0].id,
+            template_name="ForgotPassword",
+            language="en",
+            is_default=True,
+            subject="Account password reset",
+            body="Hi $$user.firstName,<br/><br/>Click this link to reset your password: $$resetPasswordLink")
+        forgot_password_es = okta.EmailCustomization("forgot_password_es",
+            brand_id=test.brands[0].id,
+            template_name="ForgotPassword",
+            language="es",
+            subject="Restablecimiento de contraseña de cuenta",
+            body="Hola $$user.firstName,<br/><br/>Haga clic en este enlace para restablecer tu contraseña: $$resetPasswordLink",
+            opts = pulumi.ResourceOptions(depends_on=[forgot_password_en]))
+        ```
 
         ## Import
 

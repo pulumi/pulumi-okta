@@ -213,7 +213,7 @@ class GroupAssignment(pulumi.CustomResource):
             app_id="<app id>",
             group_id="<group id>",
             profile=\"\"\"{
-          "<app_profile_field>": "<value>"
+          \\"<app_profile_field>\\": \\"<value>\\"
         }
         \"\"\")
         ```
@@ -249,7 +249,7 @@ class GroupAssignment(pulumi.CustomResource):
             app_id="<app id>",
             group_id="<group id>",
             profile=\"\"\"{
-          "<app_profile_field>": "<value>"
+          \\"<app_profile_field>\\": \\"<value>\\"
         }
         \"\"\")
         ```

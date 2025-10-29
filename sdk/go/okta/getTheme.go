@@ -12,6 +12,37 @@ import (
 )
 
 // Get a single Theme of a Brand of an Okta Organization.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v6/go/okta"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			test, err := okta.GetBrands(ctx, map[string]interface{}{}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = okta.LookupTheme(ctx, &okta.LookupThemeArgs{
+//				BrandId: test.Brands[0].Id,
+//				ThemeId: testOktaThemes.Themes[0].Id,
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupTheme(ctx *pulumi.Context, args *LookupThemeArgs, opts ...pulumi.InvokeOption) (*LookupThemeResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupThemeResult

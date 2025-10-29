@@ -540,6 +540,28 @@ class Theme(pulumi.CustomResource):
         The Okta Management API does not have a true Create or Delete for a theme. Therefore, the theme resource must be imported
         first into the pulumi state before updates can be applied to the theme.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        test = okta.get_brands()
+        # resource has been imported into current state:
+        # $ terraform import okta_theme.example <theme id>
+        example = okta.Theme("example",
+            brand_id=test.brands[0].id,
+            logo="path/to/logo.png",
+            favicon="path/to/favicon.png",
+            background_image="path/to/background.png",
+            primary_color_hex="#1662dd",
+            secondary_color_hex="#ebebed",
+            sign_in_page_touch_point_variant="OKTA_DEFAULT",
+            end_user_dashboard_touch_point_variant="OKTA_DEFAULT",
+            error_page_touch_point_variant="OKTA_DEFAULT",
+            email_template_touch_point_variant="OKTA_DEFAULT")
+        ```
+
         ## Import
 
         ```sh
@@ -576,6 +598,28 @@ class Theme(pulumi.CustomResource):
 
         The Okta Management API does not have a true Create or Delete for a theme. Therefore, the theme resource must be imported
         first into the pulumi state before updates can be applied to the theme.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        test = okta.get_brands()
+        # resource has been imported into current state:
+        # $ terraform import okta_theme.example <theme id>
+        example = okta.Theme("example",
+            brand_id=test.brands[0].id,
+            logo="path/to/logo.png",
+            favicon="path/to/favicon.png",
+            background_image="path/to/background.png",
+            primary_color_hex="#1662dd",
+            secondary_color_hex="#ebebed",
+            sign_in_page_touch_point_variant="OKTA_DEFAULT",
+            end_user_dashboard_touch_point_variant="OKTA_DEFAULT",
+            error_page_touch_point_variant="OKTA_DEFAULT",
+            email_template_touch_point_variant="OKTA_DEFAULT")
+        ```
 
         ## Import
 

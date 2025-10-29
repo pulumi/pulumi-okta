@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class RequestV2RequesterFieldValue {
     /**
-     * @return The ID of a requester field.
+     * @return Request condition id.
      * 
      */
     private @Nullable String id;
@@ -41,7 +41,7 @@ public final class RequestV2RequesterFieldValue {
 
     private RequestV2RequesterFieldValue() {}
     /**
-     * @return The ID of a requester field.
+     * @return Request condition id.
      * 
      */
     public Optional<String> id() {

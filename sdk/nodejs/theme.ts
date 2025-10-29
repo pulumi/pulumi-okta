@@ -13,6 +13,29 @@ import * as utilities from "./utilities";
  * The Okta Management API does not have a true Create or Delete for a theme. Therefore, the theme resource must be imported
  * first into the pulumi state before updates can be applied to the theme.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const test = okta.getBrands({});
+ * // resource has been imported into current state:
+ * // $ terraform import okta_theme.example <theme id>
+ * const example = new okta.Theme("example", {
+ *     brandId: test.then(test => test.brands?.[0]?.id),
+ *     logo: "path/to/logo.png",
+ *     favicon: "path/to/favicon.png",
+ *     backgroundImage: "path/to/background.png",
+ *     primaryColorHex: "#1662dd",
+ *     secondaryColorHex: "#ebebed",
+ *     signInPageTouchPointVariant: "OKTA_DEFAULT",
+ *     endUserDashboardTouchPointVariant: "OKTA_DEFAULT",
+ *     errorPageTouchPointVariant: "OKTA_DEFAULT",
+ *     emailTemplateTouchPointVariant: "OKTA_DEFAULT",
+ * });
+ * ```
+ *
  * ## Import
  *
  * ```sh

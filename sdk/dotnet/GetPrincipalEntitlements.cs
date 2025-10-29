@@ -13,18 +13,225 @@ namespace Pulumi.Okta
     {
         /// <summary>
         /// Get the entitlements for a user and resource after evaluating all grants.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Okta = Pulumi.Okta;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Okta.GetPrincipalEntitlements.Invoke(new()
+        ///     {
+        ///         Parent = new Okta.Inputs.GetPrincipalEntitlementsParentInputArgs
+        ///         {
+        ///             ExternalId = "&lt;resource_id&gt;",
+        ///             Type = "&lt;resource_type&gt;",
+        ///         },
+        ///         TargetPrincipal = new Okta.Inputs.GetPrincipalEntitlementsTargetPrincipalInputArgs
+        ///         {
+        ///             ExternalId = "&lt;principal_id&gt;",
+        ///             Type = "&lt;principal_type&gt;",
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// 
+        /// ## Required:
+        /// 
+        /// - `ExternalId` (String) The Okta user's email address.
+        /// - `Type` (String) The Okta user id.
+        /// 
+        /// &lt;a id="nestedblock--target_principal"&gt;&lt;/a&gt;
+        /// ### Nested Schema for `TargetPrincipal`
+        /// ## Required:
+        /// 
+        /// - `ExternalId` (String) The Okta user id.
+        /// - `Type` (String) The type of principal. Enum: `OKTA_USER`.
+        /// 
+        /// &lt;a id="nestedblock--data"&gt;&lt;/a&gt;
+        /// ### Nested Schema for `Data`
+        /// ## Required:
+        /// 
+        /// - `Parent` (Object) Representation of a resource. (see below for nested schema)
+        /// - `TargetPrincipal` (Object) Representation of a principal. (see below for nested schema)
+        /// 
+        /// ## Optional:
+        /// 
+        /// - `DataType` (String) The data type of the entitlement property. Enum: `Array`, `String`.
+        /// - `Description` (String) The Okta user id.
+        /// - `ExternalValue` (String) The type of principal. Enum: `OKTA_USER`.
+        /// - `Id` (String) The unique identifier of the entitlement.
+        /// - `MultiValue` (Boolean) Indicates if the entitlement is multi-valued.
+        /// - `Name` (String) The name of the entitlement.
+        /// - `ParentResourceOrn` (String) The Okta app instance, in ORN format.
+        /// - `Required` (Boolean) Indicates if the entitlement is required.
+        /// - `TargetPrincipalOrn` (String) The Okta user id, in ORN format.
+        /// - `Values` (List of Objects) The values of the entitlement. (see below for nested schema)
+        /// 
+        /// 
+        /// &lt;a id="nestedblock--values"&gt;&lt;/a&gt;
+        /// ### Nested Schema for `Values`
+        /// - `Description` (String) The description of the value.
+        /// - `ExternalId` (String) The external ID of the value.
+        /// - `ExternalValue` (String) The value of an entitlement property value.
+        /// - `Id` (String) The unique identifier of the value.
+        /// - `Name` (String) The name of the value.
         /// </summary>
         public static Task<GetPrincipalEntitlementsResult> InvokeAsync(GetPrincipalEntitlementsArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrincipalEntitlementsResult>("okta:index/getPrincipalEntitlements:getPrincipalEntitlements", args ?? new GetPrincipalEntitlementsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the entitlements for a user and resource after evaluating all grants.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Okta = Pulumi.Okta;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Okta.GetPrincipalEntitlements.Invoke(new()
+        ///     {
+        ///         Parent = new Okta.Inputs.GetPrincipalEntitlementsParentInputArgs
+        ///         {
+        ///             ExternalId = "&lt;resource_id&gt;",
+        ///             Type = "&lt;resource_type&gt;",
+        ///         },
+        ///         TargetPrincipal = new Okta.Inputs.GetPrincipalEntitlementsTargetPrincipalInputArgs
+        ///         {
+        ///             ExternalId = "&lt;principal_id&gt;",
+        ///             Type = "&lt;principal_type&gt;",
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// 
+        /// ## Required:
+        /// 
+        /// - `ExternalId` (String) The Okta user's email address.
+        /// - `Type` (String) The Okta user id.
+        /// 
+        /// &lt;a id="nestedblock--target_principal"&gt;&lt;/a&gt;
+        /// ### Nested Schema for `TargetPrincipal`
+        /// ## Required:
+        /// 
+        /// - `ExternalId` (String) The Okta user id.
+        /// - `Type` (String) The type of principal. Enum: `OKTA_USER`.
+        /// 
+        /// &lt;a id="nestedblock--data"&gt;&lt;/a&gt;
+        /// ### Nested Schema for `Data`
+        /// ## Required:
+        /// 
+        /// - `Parent` (Object) Representation of a resource. (see below for nested schema)
+        /// - `TargetPrincipal` (Object) Representation of a principal. (see below for nested schema)
+        /// 
+        /// ## Optional:
+        /// 
+        /// - `DataType` (String) The data type of the entitlement property. Enum: `Array`, `String`.
+        /// - `Description` (String) The Okta user id.
+        /// - `ExternalValue` (String) The type of principal. Enum: `OKTA_USER`.
+        /// - `Id` (String) The unique identifier of the entitlement.
+        /// - `MultiValue` (Boolean) Indicates if the entitlement is multi-valued.
+        /// - `Name` (String) The name of the entitlement.
+        /// - `ParentResourceOrn` (String) The Okta app instance, in ORN format.
+        /// - `Required` (Boolean) Indicates if the entitlement is required.
+        /// - `TargetPrincipalOrn` (String) The Okta user id, in ORN format.
+        /// - `Values` (List of Objects) The values of the entitlement. (see below for nested schema)
+        /// 
+        /// 
+        /// &lt;a id="nestedblock--values"&gt;&lt;/a&gt;
+        /// ### Nested Schema for `Values`
+        /// - `Description` (String) The description of the value.
+        /// - `ExternalId` (String) The external ID of the value.
+        /// - `ExternalValue` (String) The value of an entitlement property value.
+        /// - `Id` (String) The unique identifier of the value.
+        /// - `Name` (String) The name of the value.
         /// </summary>
         public static Output<GetPrincipalEntitlementsResult> Invoke(GetPrincipalEntitlementsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrincipalEntitlementsResult>("okta:index/getPrincipalEntitlements:getPrincipalEntitlements", args ?? new GetPrincipalEntitlementsInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the entitlements for a user and resource after evaluating all grants.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Okta = Pulumi.Okta;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Okta.GetPrincipalEntitlements.Invoke(new()
+        ///     {
+        ///         Parent = new Okta.Inputs.GetPrincipalEntitlementsParentInputArgs
+        ///         {
+        ///             ExternalId = "&lt;resource_id&gt;",
+        ///             Type = "&lt;resource_type&gt;",
+        ///         },
+        ///         TargetPrincipal = new Okta.Inputs.GetPrincipalEntitlementsTargetPrincipalInputArgs
+        ///         {
+        ///             ExternalId = "&lt;principal_id&gt;",
+        ///             Type = "&lt;principal_type&gt;",
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// 
+        /// ## Required:
+        /// 
+        /// - `ExternalId` (String) The Okta user's email address.
+        /// - `Type` (String) The Okta user id.
+        /// 
+        /// &lt;a id="nestedblock--target_principal"&gt;&lt;/a&gt;
+        /// ### Nested Schema for `TargetPrincipal`
+        /// ## Required:
+        /// 
+        /// - `ExternalId` (String) The Okta user id.
+        /// - `Type` (String) The type of principal. Enum: `OKTA_USER`.
+        /// 
+        /// &lt;a id="nestedblock--data"&gt;&lt;/a&gt;
+        /// ### Nested Schema for `Data`
+        /// ## Required:
+        /// 
+        /// - `Parent` (Object) Representation of a resource. (see below for nested schema)
+        /// - `TargetPrincipal` (Object) Representation of a principal. (see below for nested schema)
+        /// 
+        /// ## Optional:
+        /// 
+        /// - `DataType` (String) The data type of the entitlement property. Enum: `Array`, `String`.
+        /// - `Description` (String) The Okta user id.
+        /// - `ExternalValue` (String) The type of principal. Enum: `OKTA_USER`.
+        /// - `Id` (String) The unique identifier of the entitlement.
+        /// - `MultiValue` (Boolean) Indicates if the entitlement is multi-valued.
+        /// - `Name` (String) The name of the entitlement.
+        /// - `ParentResourceOrn` (String) The Okta app instance, in ORN format.
+        /// - `Required` (Boolean) Indicates if the entitlement is required.
+        /// - `TargetPrincipalOrn` (String) The Okta user id, in ORN format.
+        /// - `Values` (List of Objects) The values of the entitlement. (see below for nested schema)
+        /// 
+        /// 
+        /// &lt;a id="nestedblock--values"&gt;&lt;/a&gt;
+        /// ### Nested Schema for `Values`
+        /// - `Description` (String) The description of the value.
+        /// - `ExternalId` (String) The external ID of the value.
+        /// - `ExternalValue` (String) The value of an entitlement property value.
+        /// - `Id` (String) The unique identifier of the value.
+        /// - `Name` (String) The name of the value.
         /// </summary>
         public static Output<GetPrincipalEntitlementsResult> Invoke(GetPrincipalEntitlementsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrincipalEntitlementsResult>("okta:index/getPrincipalEntitlements:getPrincipalEntitlements", args ?? new GetPrincipalEntitlementsInvokeArgs(), options.WithDefaults());

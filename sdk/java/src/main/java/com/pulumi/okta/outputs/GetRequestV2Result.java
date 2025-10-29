@@ -15,41 +15,113 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetRequestV2Result {
+    /**
+     * @return The date and time when the request condition was created.
+     * 
+     */
     private String created;
+    /**
+     * @return The id of the user who created the request condition.
+     * 
+     */
     private String createdBy;
+    /**
+     * @return The ID of the request.
+     * 
+     */
     private String id;
+    /**
+     * @return The date and time when the request condition was last updated.
+     * 
+     */
     private String lastUpdated;
+    /**
+     * @return The id of the user who last updated the request condition.
+     * 
+     */
     private String lastUpdatedBy;
+    /**
+     * @return A representation of a resource that can be requested for access.
+     * 
+     */
     private @Nullable GetRequestV2Requested requested;
+    /**
+     * @return A representation of a principal.
+     * 
+     */
     private @Nullable GetRequestV2RequestedBy requestedBy;
+    /**
+     * @return A representation of a principal.
+     * 
+     */
     private @Nullable GetRequestV2RequestedFor requestedFor;
+    /**
+     * @return The status of the request.
+     * 
+     */
     private String status;
 
     private GetRequestV2Result() {}
+    /**
+     * @return The date and time when the request condition was created.
+     * 
+     */
     public String created() {
         return this.created;
     }
+    /**
+     * @return The id of the user who created the request condition.
+     * 
+     */
     public String createdBy() {
         return this.createdBy;
     }
+    /**
+     * @return The ID of the request.
+     * 
+     */
     public String id() {
         return this.id;
     }
+    /**
+     * @return The date and time when the request condition was last updated.
+     * 
+     */
     public String lastUpdated() {
         return this.lastUpdated;
     }
+    /**
+     * @return The id of the user who last updated the request condition.
+     * 
+     */
     public String lastUpdatedBy() {
         return this.lastUpdatedBy;
     }
+    /**
+     * @return A representation of a resource that can be requested for access.
+     * 
+     */
     public Optional<GetRequestV2Requested> requested() {
         return Optional.ofNullable(this.requested);
     }
+    /**
+     * @return A representation of a principal.
+     * 
+     */
     public Optional<GetRequestV2RequestedBy> requestedBy() {
         return Optional.ofNullable(this.requestedBy);
     }
+    /**
+     * @return A representation of a principal.
+     * 
+     */
     public Optional<GetRequestV2RequestedFor> requestedFor() {
         return Optional.ofNullable(this.requestedFor);
     }
+    /**
+     * @return The status of the request.
+     * 
+     */
     public String status() {
         return this.status;
     }

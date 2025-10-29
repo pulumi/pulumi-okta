@@ -8,6 +8,18 @@ import * as utilities from "./utilities";
 
 /**
  * Get the email templates belonging to a brand in an Okta organization.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const test = okta.getBrands({});
+ * const testGetTemplates = test.then(test => okta.getTemplates({
+ *     brandId: test.brands?.[0]?.id,
+ * }));
+ * ```
  */
 export function getTemplates(args: GetTemplatesArgs, opts?: pulumi.InvokeOptions): Promise<GetTemplatesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -45,6 +57,18 @@ export interface GetTemplatesResult {
 }
 /**
  * Get the email templates belonging to a brand in an Okta organization.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const test = okta.getBrands({});
+ * const testGetTemplates = test.then(test => okta.getTemplates({
+ *     brandId: test.brands?.[0]?.id,
+ * }));
+ * ```
  */
 export function getTemplatesOutput(args: GetTemplatesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTemplatesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

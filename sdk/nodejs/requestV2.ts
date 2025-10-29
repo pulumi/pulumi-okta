@@ -6,6 +6,33 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
+/**
+ * Manage the access request process. This resource allows you to create and read an Okta [request](https://developer.okta.com/docs/api/iga/openapi/governance.requests.admin.v2/tag/Requests/#tag/Requests).
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const test = new okta.RequestV2("test", {
+ *     requested: {
+ *         type: "CATALOG_ENTRY",
+ *         entryId: "<entry_id>",
+ *     },
+ *     requestedFor: {
+ *         type: "OKTA_USER",
+ *         externalId: "<user_id>",
+ *     },
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * ```sh
+ * $ pulumi import okta:index/requestV2:RequestV2 example <request_id>
+ * ```
+ */
 export class RequestV2 extends pulumi.CustomResource {
     /**
      * Get an existing RequestV2 resource's state with the given name, ID, and optional extra
@@ -39,11 +66,11 @@ export class RequestV2 extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly accessDuration: pulumi.Output<string>;
     /**
-     * The ISO 8601 formatted date and time when the resource was created.
+     * The date and time when the request condition was created.
      */
     declare public /*out*/ readonly created: pulumi.Output<string>;
     /**
-     * The user who created the resource.
+     * The id of the user who created the request condition.
      */
     declare public /*out*/ readonly createdBy: pulumi.Output<string>;
     /**
@@ -51,15 +78,15 @@ export class RequestV2 extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly grantStatus: pulumi.Output<string>;
     /**
-     * The date the approved access was granted. Only set if request.status is APPROVED.
+     * The date the approved access was granted. Only set if request . Status is APPROVED.
      */
     declare public /*out*/ readonly granted: pulumi.Output<string>;
     /**
-     * The ISO 8601 formatted date and time when the resource was last updated.
+     * The date and time when the request condition was last updated.
      */
     declare public /*out*/ readonly lastUpdated: pulumi.Output<string>;
     /**
-     * The user who last updated the resource.
+     * The id of the user who last updated the request condition.
      */
     declare public /*out*/ readonly lastUpdatedBy: pulumi.Output<string>;
     /**
@@ -79,7 +106,7 @@ export class RequestV2 extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly resolved: pulumi.Output<string>;
     /**
-     * The date the granted access is scheduled for revocation.
+     * The date the request was scheduled for revocation.
      */
     declare public /*out*/ readonly revocationScheduled: pulumi.Output<string>;
     /**
@@ -155,11 +182,11 @@ export interface RequestV2State {
      */
     accessDuration?: pulumi.Input<string>;
     /**
-     * The ISO 8601 formatted date and time when the resource was created.
+     * The date and time when the request condition was created.
      */
     created?: pulumi.Input<string>;
     /**
-     * The user who created the resource.
+     * The id of the user who created the request condition.
      */
     createdBy?: pulumi.Input<string>;
     /**
@@ -167,15 +194,15 @@ export interface RequestV2State {
      */
     grantStatus?: pulumi.Input<string>;
     /**
-     * The date the approved access was granted. Only set if request.status is APPROVED.
+     * The date the approved access was granted. Only set if request . Status is APPROVED.
      */
     granted?: pulumi.Input<string>;
     /**
-     * The ISO 8601 formatted date and time when the resource was last updated.
+     * The date and time when the request condition was last updated.
      */
     lastUpdated?: pulumi.Input<string>;
     /**
-     * The user who last updated the resource.
+     * The id of the user who last updated the request condition.
      */
     lastUpdatedBy?: pulumi.Input<string>;
     /**
@@ -195,7 +222,7 @@ export interface RequestV2State {
      */
     resolved?: pulumi.Input<string>;
     /**
-     * The date the granted access is scheduled for revocation.
+     * The date the request was scheduled for revocation.
      */
     revocationScheduled?: pulumi.Input<string>;
     /**

@@ -13,18 +13,102 @@ namespace Pulumi.Okta
     {
         /// <summary>
         /// Get the email customization of an email template belonging to a brand in an Okta organization.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Okta = Pulumi.Okta;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Okta.GetBrands.Invoke();
+        /// 
+        ///     var forgotPassword = Okta.GetEmailCustomizations.Invoke(new()
+        ///     {
+        ///         BrandId = test.Apply(getBrandsResult =&gt; getBrandsResult.Brands[0]?.Id),
+        ///         TemplateName = "ForgotPassword",
+        ///     });
+        /// 
+        ///     var forgotPasswordEn = Okta.GetEmailCustomization.Invoke(new()
+        ///     {
+        ///         BrandId = test.Apply(getBrandsResult =&gt; getBrandsResult.Brands[0]?.Id),
+        ///         TemplateName = "ForgotPassword",
+        ///         CustomizationId = forgotPassword.Apply(getEmailCustomizationsResult =&gt; getEmailCustomizationsResult.EmailCustomizations[0]?.Id),
+        ///     });
+        /// 
+        /// });
+        /// ```
         /// </summary>
         public static Task<GetEmailCustomizationResult> InvokeAsync(GetEmailCustomizationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEmailCustomizationResult>("okta:index/getEmailCustomization:getEmailCustomization", args ?? new GetEmailCustomizationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the email customization of an email template belonging to a brand in an Okta organization.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Okta = Pulumi.Okta;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Okta.GetBrands.Invoke();
+        /// 
+        ///     var forgotPassword = Okta.GetEmailCustomizations.Invoke(new()
+        ///     {
+        ///         BrandId = test.Apply(getBrandsResult =&gt; getBrandsResult.Brands[0]?.Id),
+        ///         TemplateName = "ForgotPassword",
+        ///     });
+        /// 
+        ///     var forgotPasswordEn = Okta.GetEmailCustomization.Invoke(new()
+        ///     {
+        ///         BrandId = test.Apply(getBrandsResult =&gt; getBrandsResult.Brands[0]?.Id),
+        ///         TemplateName = "ForgotPassword",
+        ///         CustomizationId = forgotPassword.Apply(getEmailCustomizationsResult =&gt; getEmailCustomizationsResult.EmailCustomizations[0]?.Id),
+        ///     });
+        /// 
+        /// });
+        /// ```
         /// </summary>
         public static Output<GetEmailCustomizationResult> Invoke(GetEmailCustomizationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEmailCustomizationResult>("okta:index/getEmailCustomization:getEmailCustomization", args ?? new GetEmailCustomizationInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the email customization of an email template belonging to a brand in an Okta organization.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Okta = Pulumi.Okta;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Okta.GetBrands.Invoke();
+        /// 
+        ///     var forgotPassword = Okta.GetEmailCustomizations.Invoke(new()
+        ///     {
+        ///         BrandId = test.Apply(getBrandsResult =&gt; getBrandsResult.Brands[0]?.Id),
+        ///         TemplateName = "ForgotPassword",
+        ///     });
+        /// 
+        ///     var forgotPasswordEn = Okta.GetEmailCustomization.Invoke(new()
+        ///     {
+        ///         BrandId = test.Apply(getBrandsResult =&gt; getBrandsResult.Brands[0]?.Id),
+        ///         TemplateName = "ForgotPassword",
+        ///         CustomizationId = forgotPassword.Apply(getEmailCustomizationsResult =&gt; getEmailCustomizationsResult.EmailCustomizations[0]?.Id),
+        ///     });
+        /// 
+        /// });
+        /// ```
         /// </summary>
         public static Output<GetEmailCustomizationResult> Invoke(GetEmailCustomizationInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetEmailCustomizationResult>("okta:index/getEmailCustomization:getEmailCustomization", args ?? new GetEmailCustomizationInvokeArgs(), options.WithDefaults());

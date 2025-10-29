@@ -13,18 +13,81 @@ namespace Pulumi.Okta
     {
         /// <summary>
         /// Get a single Email Template for a Brand belonging to an Okta organization.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Okta = Pulumi.Okta;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Okta.GetBrands.Invoke();
+        /// 
+        ///     var forgotPassword = Okta.GetTemplate.Invoke(new()
+        ///     {
+        ///         BrandId = test.Apply(getBrandsResult =&gt; getBrandsResult.Brands[0]?.Id),
+        ///         Name = "ForgotPassword",
+        ///     });
+        /// 
+        /// });
+        /// ```
         /// </summary>
         public static Task<GetTemplateResult> InvokeAsync(GetTemplateArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTemplateResult>("okta:index/getTemplate:getTemplate", args ?? new GetTemplateArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a single Email Template for a Brand belonging to an Okta organization.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Okta = Pulumi.Okta;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Okta.GetBrands.Invoke();
+        /// 
+        ///     var forgotPassword = Okta.GetTemplate.Invoke(new()
+        ///     {
+        ///         BrandId = test.Apply(getBrandsResult =&gt; getBrandsResult.Brands[0]?.Id),
+        ///         Name = "ForgotPassword",
+        ///     });
+        /// 
+        /// });
+        /// ```
         /// </summary>
         public static Output<GetTemplateResult> Invoke(GetTemplateInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTemplateResult>("okta:index/getTemplate:getTemplate", args ?? new GetTemplateInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a single Email Template for a Brand belonging to an Okta organization.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Okta = Pulumi.Okta;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Okta.GetBrands.Invoke();
+        /// 
+        ///     var forgotPassword = Okta.GetTemplate.Invoke(new()
+        ///     {
+        ///         BrandId = test.Apply(getBrandsResult =&gt; getBrandsResult.Brands[0]?.Id),
+        ///         Name = "ForgotPassword",
+        ///     });
+        /// 
+        /// });
+        /// ```
         /// </summary>
         public static Output<GetTemplateResult> Invoke(GetTemplateInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetTemplateResult>("okta:index/getTemplate:getTemplate", args ?? new GetTemplateInvokeArgs(), options.WithDefaults());

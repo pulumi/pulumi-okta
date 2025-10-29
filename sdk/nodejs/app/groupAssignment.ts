@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  *     appId: "<app id>",
  *     groupId: "<group id>",
  *     profile: `{
- *   "<app_profile_field>": "<value>"
+ *   \\"<app_profile_field>\\": \\"<value>\\"
  * }
  * `,
  * });

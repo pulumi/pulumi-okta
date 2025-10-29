@@ -8,6 +8,19 @@ import * as utilities from "./utilities";
 
 /**
  * Get the email customizations of an email template belonging to a brand in an Okta organization.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const test = okta.getBrands({});
+ * const forgotPassword = test.then(test => okta.getEmailCustomizations({
+ *     brandId: test.brands?.[0]?.id,
+ *     templateName: "ForgotPassword",
+ * }));
+ * ```
  */
 export function getEmailCustomizations(args: GetEmailCustomizationsArgs, opts?: pulumi.InvokeOptions): Promise<GetEmailCustomizationsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -54,6 +67,19 @@ export interface GetEmailCustomizationsResult {
 }
 /**
  * Get the email customizations of an email template belonging to a brand in an Okta organization.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const test = okta.getBrands({});
+ * const forgotPassword = test.then(test => okta.getEmailCustomizations({
+ *     brandId: test.brands?.[0]?.id,
+ *     templateName: "ForgotPassword",
+ * }));
+ * ```
  */
 export function getEmailCustomizationsOutput(args: GetEmailCustomizationsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEmailCustomizationsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

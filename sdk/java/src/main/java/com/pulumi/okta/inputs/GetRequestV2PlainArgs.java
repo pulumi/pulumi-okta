@@ -18,30 +18,62 @@ public final class GetRequestV2PlainArgs extends com.pulumi.resources.InvokeArgs
 
     public static final GetRequestV2PlainArgs Empty = new GetRequestV2PlainArgs();
 
+    /**
+     * The ID of the request.
+     * 
+     */
     @Import(name="id", required=true)
     private String id;
 
+    /**
+     * @return The ID of the request.
+     * 
+     */
     public String id() {
         return this.id;
     }
 
+    /**
+     * A representation of a resource that can be requested for access.
+     * 
+     */
     @Import(name="requested")
     private @Nullable GetRequestV2Requested requested;
 
+    /**
+     * @return A representation of a resource that can be requested for access.
+     * 
+     */
     public Optional<GetRequestV2Requested> requested() {
         return Optional.ofNullable(this.requested);
     }
 
+    /**
+     * A representation of a principal.
+     * 
+     */
     @Import(name="requestedBy")
     private @Nullable GetRequestV2RequestedBy requestedBy;
 
+    /**
+     * @return A representation of a principal.
+     * 
+     */
     public Optional<GetRequestV2RequestedBy> requestedBy() {
         return Optional.ofNullable(this.requestedBy);
     }
 
+    /**
+     * A representation of a principal.
+     * 
+     */
     @Import(name="requestedFor")
     private @Nullable GetRequestV2RequestedFor requestedFor;
 
+    /**
+     * @return A representation of a principal.
+     * 
+     */
     public Optional<GetRequestV2RequestedFor> requestedFor() {
         return Optional.ofNullable(this.requestedFor);
     }
@@ -73,21 +105,45 @@ public final class GetRequestV2PlainArgs extends com.pulumi.resources.InvokeArgs
             $ = new GetRequestV2PlainArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param id The ID of the request.
+         * 
+         * @return builder
+         * 
+         */
         public Builder id(String id) {
             $.id = id;
             return this;
         }
 
+        /**
+         * @param requested A representation of a resource that can be requested for access.
+         * 
+         * @return builder
+         * 
+         */
         public Builder requested(@Nullable GetRequestV2Requested requested) {
             $.requested = requested;
             return this;
         }
 
+        /**
+         * @param requestedBy A representation of a principal.
+         * 
+         * @return builder
+         * 
+         */
         public Builder requestedBy(@Nullable GetRequestV2RequestedBy requestedBy) {
             $.requestedBy = requestedBy;
             return this;
         }
 
+        /**
+         * @param requestedFor A representation of a principal.
+         * 
+         * @return builder
+         * 
+         */
         public Builder requestedFor(@Nullable GetRequestV2RequestedFor requestedFor) {
             $.requestedFor = requestedFor;
             return this;

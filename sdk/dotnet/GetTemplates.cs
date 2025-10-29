@@ -13,18 +13,78 @@ namespace Pulumi.Okta
     {
         /// <summary>
         /// Get the email templates belonging to a brand in an Okta organization.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Okta = Pulumi.Okta;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Okta.GetBrands.Invoke();
+        /// 
+        ///     var testGetTemplates = Okta.GetTemplates.Invoke(new()
+        ///     {
+        ///         BrandId = test.Apply(getBrandsResult =&gt; getBrandsResult.Brands[0]?.Id),
+        ///     });
+        /// 
+        /// });
+        /// ```
         /// </summary>
         public static Task<GetTemplatesResult> InvokeAsync(GetTemplatesArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTemplatesResult>("okta:index/getTemplates:getTemplates", args ?? new GetTemplatesArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the email templates belonging to a brand in an Okta organization.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Okta = Pulumi.Okta;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Okta.GetBrands.Invoke();
+        /// 
+        ///     var testGetTemplates = Okta.GetTemplates.Invoke(new()
+        ///     {
+        ///         BrandId = test.Apply(getBrandsResult =&gt; getBrandsResult.Brands[0]?.Id),
+        ///     });
+        /// 
+        /// });
+        /// ```
         /// </summary>
         public static Output<GetTemplatesResult> Invoke(GetTemplatesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTemplatesResult>("okta:index/getTemplates:getTemplates", args ?? new GetTemplatesInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the email templates belonging to a brand in an Okta organization.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Okta = Pulumi.Okta;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Okta.GetBrands.Invoke();
+        /// 
+        ///     var testGetTemplates = Okta.GetTemplates.Invoke(new()
+        ///     {
+        ///         BrandId = test.Apply(getBrandsResult =&gt; getBrandsResult.Brands[0]?.Id),
+        ///     });
+        /// 
+        /// });
+        /// ```
         /// </summary>
         public static Output<GetTemplatesResult> Invoke(GetTemplatesInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetTemplatesResult>("okta:index/getTemplates:getTemplates", args ?? new GetTemplatesInvokeArgs(), options.WithDefaults());

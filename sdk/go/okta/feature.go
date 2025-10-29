@@ -14,6 +14,38 @@ import (
 
 // Manages brand. This resource allows you to toggle an Okta Feature.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v6/go/okta"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := okta.GetFeatures(ctx, &okta.GetFeaturesArgs{
+//				Label: pulumi.StringRef("Android Device Trust"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = okta.NewFeature(ctx, "test", &okta.FeatureArgs{
+//				FeatureId: pulumi.String(example.Features[0].Id),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // ```sh

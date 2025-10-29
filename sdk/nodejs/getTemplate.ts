@@ -6,6 +6,19 @@ import * as utilities from "./utilities";
 
 /**
  * Get a single Email Template for a Brand belonging to an Okta organization.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const test = okta.getBrands({});
+ * const forgotPassword = test.then(test => okta.getTemplate({
+ *     brandId: test.brands?.[0]?.id,
+ *     name: "ForgotPassword",
+ * }));
+ * ```
  */
 export function getTemplate(args: GetTemplateArgs, opts?: pulumi.InvokeOptions): Promise<GetTemplateResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -52,6 +65,19 @@ export interface GetTemplateResult {
 }
 /**
  * Get a single Email Template for a Brand belonging to an Okta organization.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const test = okta.getBrands({});
+ * const forgotPassword = test.then(test => okta.getTemplate({
+ *     brandId: test.brands?.[0]?.id,
+ *     name: "ForgotPassword",
+ * }));
+ * ```
  */
 export function getTemplateOutput(args: GetTemplateOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTemplateResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

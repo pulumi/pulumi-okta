@@ -18,6 +18,58 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Manage the access request process. This resource allows you to create and read an Okta [request](https://developer.okta.com/docs/api/iga/openapi/governance.requests.admin.v2/tag/Requests/#tag/Requests).
+ * 
+ * ## Example Usage
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.okta.RequestV2;
+ * import com.pulumi.okta.RequestV2Args;
+ * import com.pulumi.okta.inputs.RequestV2RequestedArgs;
+ * import com.pulumi.okta.inputs.RequestV2RequestedForArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var test = new RequestV2("test", RequestV2Args.builder()
+ *             .requested(RequestV2RequestedArgs.builder()
+ *                 .type("CATALOG_ENTRY")
+ *                 .entryId("<entry_id>")
+ *                 .build())
+ *             .requestedFor(RequestV2RequestedForArgs.builder()
+ *                 .type("OKTA_USER")
+ *                 .externalId("<user_id>")
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ## Import
+ * 
+ * ```sh
+ * $ pulumi import okta:index/requestV2:RequestV2 example &lt;request_id&gt;
+ * ```
+ * 
+ */
 @ResourceType(type="okta:index/requestV2:RequestV2")
 public class RequestV2 extends com.pulumi.resources.CustomResource {
     /**
@@ -35,28 +87,28 @@ public class RequestV2 extends com.pulumi.resources.CustomResource {
         return this.accessDuration;
     }
     /**
-     * The ISO 8601 formatted date and time when the resource was created.
+     * The date and time when the request condition was created.
      * 
      */
     @Export(name="created", refs={String.class}, tree="[0]")
     private Output<String> created;
 
     /**
-     * @return The ISO 8601 formatted date and time when the resource was created.
+     * @return The date and time when the request condition was created.
      * 
      */
     public Output<String> created() {
         return this.created;
     }
     /**
-     * The user who created the resource.
+     * The id of the user who created the request condition.
      * 
      */
     @Export(name="createdBy", refs={String.class}, tree="[0]")
     private Output<String> createdBy;
 
     /**
-     * @return The user who created the resource.
+     * @return The id of the user who created the request condition.
      * 
      */
     public Output<String> createdBy() {
@@ -77,42 +129,42 @@ public class RequestV2 extends com.pulumi.resources.CustomResource {
         return this.grantStatus;
     }
     /**
-     * The date the approved access was granted. Only set if request.status is APPROVED.
+     * The date the approved access was granted. Only set if request . Status is APPROVED.
      * 
      */
     @Export(name="granted", refs={String.class}, tree="[0]")
     private Output<String> granted;
 
     /**
-     * @return The date the approved access was granted. Only set if request.status is APPROVED.
+     * @return The date the approved access was granted. Only set if request . Status is APPROVED.
      * 
      */
     public Output<String> granted() {
         return this.granted;
     }
     /**
-     * The ISO 8601 formatted date and time when the resource was last updated.
+     * The date and time when the request condition was last updated.
      * 
      */
     @Export(name="lastUpdated", refs={String.class}, tree="[0]")
     private Output<String> lastUpdated;
 
     /**
-     * @return The ISO 8601 formatted date and time when the resource was last updated.
+     * @return The date and time when the request condition was last updated.
      * 
      */
     public Output<String> lastUpdated() {
         return this.lastUpdated;
     }
     /**
-     * The user who last updated the resource.
+     * The id of the user who last updated the request condition.
      * 
      */
     @Export(name="lastUpdatedBy", refs={String.class}, tree="[0]")
     private Output<String> lastUpdatedBy;
 
     /**
-     * @return The user who last updated the resource.
+     * @return The id of the user who last updated the request condition.
      * 
      */
     public Output<String> lastUpdatedBy() {
@@ -175,14 +227,14 @@ public class RequestV2 extends com.pulumi.resources.CustomResource {
         return this.resolved;
     }
     /**
-     * The date the granted access is scheduled for revocation.
+     * The date the request was scheduled for revocation.
      * 
      */
     @Export(name="revocationScheduled", refs={String.class}, tree="[0]")
     private Output<String> revocationScheduled;
 
     /**
-     * @return The date the granted access is scheduled for revocation.
+     * @return The date the request was scheduled for revocation.
      * 
      */
     public Output<String> revocationScheduled() {

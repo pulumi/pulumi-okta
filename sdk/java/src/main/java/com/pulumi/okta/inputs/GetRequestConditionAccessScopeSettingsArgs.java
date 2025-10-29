@@ -19,14 +19,14 @@ public final class GetRequestConditionAccessScopeSettingsArgs extends com.pulumi
     public static final GetRequestConditionAccessScopeSettingsArgs Empty = new GetRequestConditionAccessScopeSettingsArgs();
 
     /**
-     * List of groups/entitlement bundles.
+     * Block list of groups/entitlement bundles ids.
      * 
      */
     @Import(name="ids")
     private @Nullable Output<List<GetRequestConditionAccessScopeSettingsIdArgs>> ids;
 
     /**
-     * @return List of groups/entitlement bundles.
+     * @return Block list of groups/entitlement bundles ids.
      * 
      */
     public Optional<Output<List<GetRequestConditionAccessScopeSettingsIdArgs>>> ids() {
@@ -66,7 +66,7 @@ public final class GetRequestConditionAccessScopeSettingsArgs extends com.pulumi
         }
 
         /**
-         * @param ids List of groups/entitlement bundles.
+         * @param ids Block list of groups/entitlement bundles ids.
          * 
          * @return builder
          * 
@@ -77,7 +77,7 @@ public final class GetRequestConditionAccessScopeSettingsArgs extends com.pulumi
         }
 
         /**
-         * @param ids List of groups/entitlement bundles.
+         * @param ids Block list of groups/entitlement bundles ids.
          * 
          * @return builder
          * 
@@ -87,7 +87,7 @@ public final class GetRequestConditionAccessScopeSettingsArgs extends com.pulumi
         }
 
         /**
-         * @param ids List of groups/entitlement bundles.
+         * @param ids Block list of groups/entitlement bundles ids.
          * 
          * @return builder
          * 
