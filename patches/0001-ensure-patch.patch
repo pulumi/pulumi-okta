@@ -5,12 +5,12 @@ Subject: [PATCH] ensure patch
 
 
 diff --git a/go.mod b/go.mod
-index 8405875c..5fdee766 100644
+index e7305894..d620c3e6 100644
 --- a/go.mod
 +++ b/go.mod
 @@ -1,4 +1,4 @@
 -module github.com/okta/terraform-provider-okta
 +module github.com/okta/terraform-provider-okta // should be v4
  
- go 1.23.7
+ go 1.24.0
  
