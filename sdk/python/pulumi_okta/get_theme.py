@@ -223,6 +223,17 @@ def get_theme(brand_id: Optional[_builtins.str] = None,
     """
     Get a single Theme of a Brand of an Okta Organization.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_okta as okta
+
+    test = okta.get_brands()
+    test_get_theme = okta.get_theme(brand_id=test.brands[0].id,
+        theme_id=test_okta_themes["themes"][0]["id"])
+    ```
+
 
     :param _builtins.str brand_id: Brand ID
     :param _builtins.str theme_id: Theme ID
@@ -254,6 +265,17 @@ def get_theme_output(brand_id: Optional[pulumi.Input[_builtins.str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetThemeResult]:
     """
     Get a single Theme of a Brand of an Okta Organization.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_okta as okta
+
+    test = okta.get_brands()
+    test_get_theme = okta.get_theme(brand_id=test.brands[0].id,
+        theme_id=test_okta_themes["themes"][0]["id"])
+    ```
 
 
     :param _builtins.str brand_id: Brand ID

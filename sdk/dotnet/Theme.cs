@@ -18,6 +18,37 @@ namespace Pulumi.Okta
     /// The Okta Management API does not have a true Create or Delete for a theme. Therefore, the theme resource must be imported
     /// first into the pulumi state before updates can be applied to the theme.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Okta = Pulumi.Okta;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var test = Okta.GetBrands.Invoke();
+    /// 
+    ///     // resource has been imported into current state:
+    ///     // $ terraform import okta_theme.example &lt;theme id&gt;
+    ///     var example = new Okta.Theme("example", new()
+    ///     {
+    ///         BrandId = test.Apply(getBrandsResult =&gt; getBrandsResult.Brands[0]?.Id),
+    ///         Logo = "path/to/logo.png",
+    ///         Favicon = "path/to/favicon.png",
+    ///         BackgroundImage = "path/to/background.png",
+    ///         PrimaryColorHex = "#1662dd",
+    ///         SecondaryColorHex = "#ebebed",
+    ///         SignInPageTouchPointVariant = "OKTA_DEFAULT",
+    ///         EndUserDashboardTouchPointVariant = "OKTA_DEFAULT",
+    ///         ErrorPageTouchPointVariant = "OKTA_DEFAULT",
+    ///         EmailTemplateTouchPointVariant = "OKTA_DEFAULT",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// ```sh

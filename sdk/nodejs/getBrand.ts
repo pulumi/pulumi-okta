@@ -6,6 +6,21 @@ import * as utilities from "./utilities";
 
 /**
  * Get a single Brand from Okta.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const test = okta.getBrands({});
+ * const testGetBrand = test.then(test => okta.getBrand({
+ *     brandId: test.brands?.[0]?.id,
+ * }));
+ * const _default = okta.getBrand({
+ *     brandId: "default",
+ * });
+ * ```
  */
 export function getBrand(args: GetBrandArgs, opts?: pulumi.InvokeOptions): Promise<GetBrandResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -55,6 +70,21 @@ export interface GetBrandResult {
 }
 /**
  * Get a single Brand from Okta.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const test = okta.getBrands({});
+ * const testGetBrand = test.then(test => okta.getBrand({
+ *     brandId: test.brands?.[0]?.id,
+ * }));
+ * const _default = okta.getBrand({
+ *     brandId: "default",
+ * });
+ * ```
  */
 export function getBrandOutput(args: GetBrandOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBrandResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

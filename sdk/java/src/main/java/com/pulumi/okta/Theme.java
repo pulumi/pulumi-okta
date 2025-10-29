@@ -23,6 +23,53 @@ import javax.annotation.Nullable;
  * The Okta Management API does not have a true Create or Delete for a theme. Therefore, the theme resource must be imported
  * first into the pulumi state before updates can be applied to the theme.
  * 
+ * ## Example Usage
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.okta.OktaFunctions;
+ * import com.pulumi.okta.Theme;
+ * import com.pulumi.okta.ThemeArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var test = OktaFunctions.getBrands(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+ * 
+ *         // resource has been imported into current state:
+ *         // $ terraform import okta_theme.example <theme id>
+ *         var example = new Theme("example", ThemeArgs.builder()
+ *             .brandId(test.brands()[0].id())
+ *             .logo("path/to/logo.png")
+ *             .favicon("path/to/favicon.png")
+ *             .backgroundImage("path/to/background.png")
+ *             .primaryColorHex("#1662dd")
+ *             .secondaryColorHex("#ebebed")
+ *             .signInPageTouchPointVariant("OKTA_DEFAULT")
+ *             .endUserDashboardTouchPointVariant("OKTA_DEFAULT")
+ *             .errorPageTouchPointVariant("OKTA_DEFAULT")
+ *             .emailTemplateTouchPointVariant("OKTA_DEFAULT")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
  * ```sh

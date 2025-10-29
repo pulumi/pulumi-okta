@@ -9,6 +9,18 @@ import * as utilities from "./utilities";
 /**
  * Manages brand. This resource allows you to toggle an Okta Feature.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const example = okta.getFeatures({
+ *     label: "Android Device Trust",
+ * });
+ * const test = new okta.Feature("test", {featureId: example.then(example => example.features?.[0]?.id)});
+ * ```
+ *
  * ## Import
  *
  * ```sh

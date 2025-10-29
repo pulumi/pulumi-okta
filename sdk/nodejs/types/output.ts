@@ -1445,7 +1445,7 @@ export interface GetPrincipalEntitlementsTargetPrincipal {
 
 export interface GetRequestConditionAccessScopeSettings {
     /**
-     * List of groups/entitlement bundles.
+     * Block list of groups/entitlement bundles ids.
      */
     ids?: outputs.GetRequestConditionAccessScopeSettingsId[];
     type: string;
@@ -1460,7 +1460,7 @@ export interface GetRequestConditionAccessScopeSettingsId {
 
 export interface GetRequestConditionRequesterSettings {
     /**
-     * List of teams/groups ids.
+     * Block list of teams/groups ids.
      */
     ids?: outputs.GetRequestConditionRequesterSettingsId[];
     type: string;
@@ -1906,7 +1906,7 @@ export interface RequestConditionAccessDurationSettings {
 
 export interface RequestConditionAccessScopeSettings {
     /**
-     * List of groups/entitlement bundles.
+     * Block list of groups/entitlement bundles ids.
      */
     ids?: outputs.RequestConditionAccessScopeSettingsId[];
     type: string;
@@ -1921,7 +1921,7 @@ export interface RequestConditionAccessScopeSettingsId {
 
 export interface RequestConditionRequesterSettings {
     /**
-     * List of teams/groups ids.
+     * Block list of teams/groups ids.
      */
     ids?: outputs.RequestConditionRequesterSettingsId[];
     type: string;
@@ -2023,7 +2023,7 @@ export interface RequestV2RequestedFor {
 
 export interface RequestV2RequesterFieldValue {
     /**
-     * The ID of a requester field.
+     * Request condition id.
      */
     id?: string;
     /**

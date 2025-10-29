@@ -35,6 +35,36 @@ import * as utilities from "./utilities";
  * 		does not contain a required variable reference.  The API will 404 for an invalid
  * 		'brand_id' or 'template_name'.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const test = okta.getBrands({});
+ * const forgotPassword = test.then(test => okta.getEmailCustomizations({
+ *     brandId: test.brands?.[0]?.id,
+ *     templateName: "ForgotPassword",
+ * }));
+ * const forgotPasswordEn = new okta.EmailCustomization("forgot_password_en", {
+ *     brandId: test.then(test => test.brands?.[0]?.id),
+ *     templateName: "ForgotPassword",
+ *     language: "en",
+ *     isDefault: true,
+ *     subject: "Account password reset",
+ *     body: "Hi $$user.firstName,<br/><br/>Click this link to reset your password: $$resetPasswordLink",
+ * });
+ * const forgotPasswordEs = new okta.EmailCustomization("forgot_password_es", {
+ *     brandId: test.then(test => test.brands?.[0]?.id),
+ *     templateName: "ForgotPassword",
+ *     language: "es",
+ *     subject: "Restablecimiento de contraseña de cuenta",
+ *     body: "Hola $$user.firstName,<br/><br/>Haga clic en este enlace para restablecer tu contraseña: $$resetPasswordLink",
+ * }, {
+ *     dependsOn: [forgotPasswordEn],
+ * });
+ * ```
+ *
  * ## Import
  *
  * ```sh

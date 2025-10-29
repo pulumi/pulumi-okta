@@ -14,7 +14,7 @@ namespace Pulumi.Okta.Outputs
     public sealed class GetRequestConditionRequesterSettingsResult
     {
         /// <summary>
-        /// List of teams/groups ids.
+        /// Block list of teams/groups ids.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetRequestConditionRequesterSettingsIdResult> Ids;
         public readonly string Type;

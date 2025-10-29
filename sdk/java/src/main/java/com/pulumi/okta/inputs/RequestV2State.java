@@ -35,14 +35,14 @@ public final class RequestV2State extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ISO 8601 formatted date and time when the resource was created.
+     * The date and time when the request condition was created.
      * 
      */
     @Import(name="created")
     private @Nullable Output<String> created;
 
     /**
-     * @return The ISO 8601 formatted date and time when the resource was created.
+     * @return The date and time when the request condition was created.
      * 
      */
     public Optional<Output<String>> created() {
@@ -50,14 +50,14 @@ public final class RequestV2State extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The user who created the resource.
+     * The id of the user who created the request condition.
      * 
      */
     @Import(name="createdBy")
     private @Nullable Output<String> createdBy;
 
     /**
-     * @return The user who created the resource.
+     * @return The id of the user who created the request condition.
      * 
      */
     public Optional<Output<String>> createdBy() {
@@ -80,14 +80,14 @@ public final class RequestV2State extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The date the approved access was granted. Only set if request.status is APPROVED.
+     * The date the approved access was granted. Only set if request . Status is APPROVED.
      * 
      */
     @Import(name="granted")
     private @Nullable Output<String> granted;
 
     /**
-     * @return The date the approved access was granted. Only set if request.status is APPROVED.
+     * @return The date the approved access was granted. Only set if request . Status is APPROVED.
      * 
      */
     public Optional<Output<String>> granted() {
@@ -95,14 +95,14 @@ public final class RequestV2State extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ISO 8601 formatted date and time when the resource was last updated.
+     * The date and time when the request condition was last updated.
      * 
      */
     @Import(name="lastUpdated")
     private @Nullable Output<String> lastUpdated;
 
     /**
-     * @return The ISO 8601 formatted date and time when the resource was last updated.
+     * @return The date and time when the request condition was last updated.
      * 
      */
     public Optional<Output<String>> lastUpdated() {
@@ -110,14 +110,14 @@ public final class RequestV2State extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The user who last updated the resource.
+     * The id of the user who last updated the request condition.
      * 
      */
     @Import(name="lastUpdatedBy")
     private @Nullable Output<String> lastUpdatedBy;
 
     /**
-     * @return The user who last updated the resource.
+     * @return The id of the user who last updated the request condition.
      * 
      */
     public Optional<Output<String>> lastUpdatedBy() {
@@ -185,14 +185,14 @@ public final class RequestV2State extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The date the granted access is scheduled for revocation.
+     * The date the request was scheduled for revocation.
      * 
      */
     @Import(name="revocationScheduled")
     private @Nullable Output<String> revocationScheduled;
 
     /**
-     * @return The date the granted access is scheduled for revocation.
+     * @return The date the request was scheduled for revocation.
      * 
      */
     public Optional<Output<String>> revocationScheduled() {
@@ -304,7 +304,7 @@ public final class RequestV2State extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param created The ISO 8601 formatted date and time when the resource was created.
+         * @param created The date and time when the request condition was created.
          * 
          * @return builder
          * 
@@ -315,7 +315,7 @@ public final class RequestV2State extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param created The ISO 8601 formatted date and time when the resource was created.
+         * @param created The date and time when the request condition was created.
          * 
          * @return builder
          * 
@@ -325,7 +325,7 @@ public final class RequestV2State extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param createdBy The user who created the resource.
+         * @param createdBy The id of the user who created the request condition.
          * 
          * @return builder
          * 
@@ -336,7 +336,7 @@ public final class RequestV2State extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param createdBy The user who created the resource.
+         * @param createdBy The id of the user who created the request condition.
          * 
          * @return builder
          * 
@@ -367,7 +367,7 @@ public final class RequestV2State extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param granted The date the approved access was granted. Only set if request.status is APPROVED.
+         * @param granted The date the approved access was granted. Only set if request . Status is APPROVED.
          * 
          * @return builder
          * 
@@ -378,7 +378,7 @@ public final class RequestV2State extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param granted The date the approved access was granted. Only set if request.status is APPROVED.
+         * @param granted The date the approved access was granted. Only set if request . Status is APPROVED.
          * 
          * @return builder
          * 
@@ -388,7 +388,7 @@ public final class RequestV2State extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param lastUpdated The ISO 8601 formatted date and time when the resource was last updated.
+         * @param lastUpdated The date and time when the request condition was last updated.
          * 
          * @return builder
          * 
@@ -399,7 +399,7 @@ public final class RequestV2State extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param lastUpdated The ISO 8601 formatted date and time when the resource was last updated.
+         * @param lastUpdated The date and time when the request condition was last updated.
          * 
          * @return builder
          * 
@@ -409,7 +409,7 @@ public final class RequestV2State extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param lastUpdatedBy The user who last updated the resource.
+         * @param lastUpdatedBy The id of the user who last updated the request condition.
          * 
          * @return builder
          * 
@@ -420,7 +420,7 @@ public final class RequestV2State extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param lastUpdatedBy The user who last updated the resource.
+         * @param lastUpdatedBy The id of the user who last updated the request condition.
          * 
          * @return builder
          * 
@@ -524,7 +524,7 @@ public final class RequestV2State extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param revocationScheduled The date the granted access is scheduled for revocation.
+         * @param revocationScheduled The date the request was scheduled for revocation.
          * 
          * @return builder
          * 
@@ -535,7 +535,7 @@ public final class RequestV2State extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param revocationScheduled The date the granted access is scheduled for revocation.
+         * @param revocationScheduled The date the request was scheduled for revocation.
          * 
          * @return builder
          * 

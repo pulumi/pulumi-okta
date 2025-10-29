@@ -109,6 +109,22 @@ class RequestSettingOrganization(pulumi.CustomResource):
 
         ## Example Usage
 
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        example = okta.RequestCondition("example",
+            resource_id="<resource_id>",
+            approval_sequence_id="<approval_sequence_id>",
+            name="<name>",
+            access_scope_settings={
+                "type": "RESOURCE_DEFAULT",
+            },
+            requester_settings={
+                "type": "EVERYONE",
+            })
+        ```
+
         ## Import
 
         ```sh
@@ -130,6 +146,22 @@ class RequestSettingOrganization(pulumi.CustomResource):
         Manages request settings. This resource allows you to read and configure an Okta [request-setting](https://developer.okta.com/docs/api/iga/openapi/governance.requests.admin.v2/tag/Request-Settings/#tag/Request-Settings/operation/updateOrgRequestSettingsV2).
 
         ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        example = okta.RequestCondition("example",
+            resource_id="<resource_id>",
+            approval_sequence_id="<approval_sequence_id>",
+            name="<name>",
+            access_scope_settings={
+                "type": "RESOURCE_DEFAULT",
+            },
+            requester_settings={
+                "type": "EVERYONE",
+            })
+        ```
 
         ## Import
 

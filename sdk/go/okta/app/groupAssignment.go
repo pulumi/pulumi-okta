@@ -29,7 +29,7 @@ import (
 //			_, err := app.NewGroupAssignment(ctx, "example", &app.GroupAssignmentArgs{
 //				AppId:   pulumi.String("<app id>"),
 //				GroupId: pulumi.String("<group id>"),
-//				Profile: pulumi.String("{\n  \"<app_profile_field>\": \"<value>\"\n}\n"),
+//				Profile: pulumi.String("{\n  \\\"<app_profile_field>\\\": \\\"<value>\\\"\n}\n"),
 //			})
 //			if err != nil {
 //				return err

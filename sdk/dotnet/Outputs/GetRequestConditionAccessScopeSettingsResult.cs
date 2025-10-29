@@ -14,7 +14,7 @@ namespace Pulumi.Okta.Outputs
     public sealed class GetRequestConditionAccessScopeSettingsResult
     {
         /// <summary>
-        /// List of groups/entitlement bundles.
+        /// Block list of groups/entitlement bundles ids.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetRequestConditionAccessScopeSettingsIdResult> Ids;
         public readonly string Type;

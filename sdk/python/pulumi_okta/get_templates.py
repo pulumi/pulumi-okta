@@ -79,6 +79,16 @@ def get_templates(brand_id: Optional[_builtins.str] = None,
     """
     Get the email templates belonging to a brand in an Okta organization.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_okta as okta
+
+    test = okta.get_brands()
+    test_get_templates = okta.get_templates(brand_id=test.brands[0].id)
+    ```
+
 
     :param _builtins.str brand_id: Brand ID
     """
@@ -95,6 +105,16 @@ def get_templates_output(brand_id: Optional[pulumi.Input[_builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTemplatesResult]:
     """
     Get the email templates belonging to a brand in an Okta organization.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_okta as okta
+
+    test = okta.get_brands()
+    test_get_templates = okta.get_templates(brand_id=test.brands[0].id)
+    ```
 
 
     :param _builtins.str brand_id: Brand ID

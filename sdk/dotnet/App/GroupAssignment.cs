@@ -25,7 +25,7 @@ namespace Pulumi.Okta.App
     ///         AppId = "&lt;app id&gt;",
     ///         GroupId = "&lt;group id&gt;",
     ///         Profile = @"{
-    ///   ""&lt;app_profile_field&gt;"": ""&lt;value&gt;""
+    ///   \""&lt;app_profile_field&gt;\"": \""&lt;value&gt;\""
     /// }
     /// ",
     ///     });

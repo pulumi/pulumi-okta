@@ -60,46 +60,73 @@ class GetRequestV2Result:
     @_builtins.property
     @pulumi.getter
     def created(self) -> _builtins.str:
+        """
+        The date and time when the request condition was created.
+        """
         return pulumi.get(self, "created")
 
     @_builtins.property
     @pulumi.getter(name="createdBy")
     def created_by(self) -> _builtins.str:
+        """
+        The id of the user who created the request condition.
+        """
         return pulumi.get(self, "created_by")
 
     @_builtins.property
     @pulumi.getter
     def id(self) -> _builtins.str:
+        """
+        The ID of the request.
+        """
         return pulumi.get(self, "id")
 
     @_builtins.property
     @pulumi.getter(name="lastUpdated")
     def last_updated(self) -> _builtins.str:
+        """
+        The date and time when the request condition was last updated.
+        """
         return pulumi.get(self, "last_updated")
 
     @_builtins.property
     @pulumi.getter(name="lastUpdatedBy")
     def last_updated_by(self) -> _builtins.str:
+        """
+        The id of the user who last updated the request condition.
+        """
         return pulumi.get(self, "last_updated_by")
 
     @_builtins.property
     @pulumi.getter
     def requested(self) -> Optional['outputs.GetRequestV2RequestedResult']:
+        """
+        A representation of a resource that can be requested for access.
+        """
         return pulumi.get(self, "requested")
 
     @_builtins.property
     @pulumi.getter(name="requestedBy")
     def requested_by(self) -> Optional['outputs.GetRequestV2RequestedByResult']:
+        """
+        A representation of a principal.
+        """
         return pulumi.get(self, "requested_by")
 
     @_builtins.property
     @pulumi.getter(name="requestedFor")
     def requested_for(self) -> Optional['outputs.GetRequestV2RequestedForResult']:
+        """
+        A representation of a principal.
+        """
         return pulumi.get(self, "requested_for")
 
     @_builtins.property
     @pulumi.getter
     def status(self) -> _builtins.str:
+        """
+        The status of the request.
+        """
         return pulumi.get(self, "status")
 
 
@@ -126,7 +153,22 @@ def get_request_v2(id: Optional[_builtins.str] = None,
                    requested_for: Optional[Union['GetRequestV2RequestedForArgs', 'GetRequestV2RequestedForArgsDict']] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRequestV2Result:
     """
-    Use this data source to access information about an existing resource.
+    Retrieves the full representation of a specific request.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_okta as okta
+
+    test = okta.get_request_v2(id="<request_id>")
+    ```
+
+
+    :param _builtins.str id: The ID of the request.
+    :param Union['GetRequestV2RequestedArgs', 'GetRequestV2RequestedArgsDict'] requested: A representation of a resource that can be requested for access.
+    :param Union['GetRequestV2RequestedByArgs', 'GetRequestV2RequestedByArgsDict'] requested_by: A representation of a principal.
+    :param Union['GetRequestV2RequestedForArgs', 'GetRequestV2RequestedForArgsDict'] requested_for: A representation of a principal.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -152,7 +194,22 @@ def get_request_v2_output(id: Optional[pulumi.Input[_builtins.str]] = None,
                           requested_for: Optional[pulumi.Input[Optional[Union['GetRequestV2RequestedForArgs', 'GetRequestV2RequestedForArgsDict']]]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRequestV2Result]:
     """
-    Use this data source to access information about an existing resource.
+    Retrieves the full representation of a specific request.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_okta as okta
+
+    test = okta.get_request_v2(id="<request_id>")
+    ```
+
+
+    :param _builtins.str id: The ID of the request.
+    :param Union['GetRequestV2RequestedArgs', 'GetRequestV2RequestedArgsDict'] requested: A representation of a resource that can be requested for access.
+    :param Union['GetRequestV2RequestedByArgs', 'GetRequestV2RequestedByArgsDict'] requested_by: A representation of a principal.
+    :param Union['GetRequestV2RequestedForArgs', 'GetRequestV2RequestedForArgsDict'] requested_for: A representation of a principal.
     """
     __args__ = dict()
     __args__['id'] = id

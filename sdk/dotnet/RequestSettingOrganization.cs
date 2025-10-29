@@ -14,6 +14,32 @@ namespace Pulumi.Okta
     /// 
     /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Okta = Pulumi.Okta;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Okta.RequestCondition("example", new()
+    ///     {
+    ///         ResourceId = "&lt;resource_id&gt;",
+    ///         ApprovalSequenceId = "&lt;approval_sequence_id&gt;",
+    ///         Name = "&lt;name&gt;",
+    ///         AccessScopeSettings = new Okta.Inputs.RequestConditionAccessScopeSettingsArgs
+    ///         {
+    ///             Type = "RESOURCE_DEFAULT",
+    ///         },
+    ///         RequesterSettings = new Okta.Inputs.RequestConditionRequesterSettingsArgs
+    ///         {
+    ///             Type = "EVERYONE",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// ```sh

@@ -6,6 +6,20 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
+/**
+ * Retrieves the full representation of a specific request.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const test = okta.getRequestV2({
+ *     id: "<request_id>",
+ * });
+ * ```
+ */
 export function getRequestV2(args: GetRequestV2Args, opts?: pulumi.InvokeOptions): Promise<GetRequestV2Result> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("okta:index/getRequestV2:getRequestV2", {
@@ -20,9 +34,21 @@ export function getRequestV2(args: GetRequestV2Args, opts?: pulumi.InvokeOptions
  * A collection of arguments for invoking getRequestV2.
  */
 export interface GetRequestV2Args {
+    /**
+     * The ID of the request.
+     */
     id: string;
+    /**
+     * A representation of a resource that can be requested for access.
+     */
     requested?: inputs.GetRequestV2Requested;
+    /**
+     * A representation of a principal.
+     */
     requestedBy?: inputs.GetRequestV2RequestedBy;
+    /**
+     * A representation of a principal.
+     */
     requestedFor?: inputs.GetRequestV2RequestedFor;
 }
 
@@ -30,16 +56,57 @@ export interface GetRequestV2Args {
  * A collection of values returned by getRequestV2.
  */
 export interface GetRequestV2Result {
+    /**
+     * The date and time when the request condition was created.
+     */
     readonly created: string;
+    /**
+     * The id of the user who created the request condition.
+     */
     readonly createdBy: string;
+    /**
+     * The ID of the request.
+     */
     readonly id: string;
+    /**
+     * The date and time when the request condition was last updated.
+     */
     readonly lastUpdated: string;
+    /**
+     * The id of the user who last updated the request condition.
+     */
     readonly lastUpdatedBy: string;
+    /**
+     * A representation of a resource that can be requested for access.
+     */
     readonly requested?: outputs.GetRequestV2Requested;
+    /**
+     * A representation of a principal.
+     */
     readonly requestedBy?: outputs.GetRequestV2RequestedBy;
+    /**
+     * A representation of a principal.
+     */
     readonly requestedFor?: outputs.GetRequestV2RequestedFor;
+    /**
+     * The status of the request.
+     */
     readonly status: string;
 }
+/**
+ * Retrieves the full representation of a specific request.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const test = okta.getRequestV2({
+ *     id: "<request_id>",
+ * });
+ * ```
+ */
 export function getRequestV2Output(args: GetRequestV2OutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRequestV2Result> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("okta:index/getRequestV2:getRequestV2", {
@@ -54,8 +121,20 @@ export function getRequestV2Output(args: GetRequestV2OutputArgs, opts?: pulumi.I
  * A collection of arguments for invoking getRequestV2.
  */
 export interface GetRequestV2OutputArgs {
+    /**
+     * The ID of the request.
+     */
     id: pulumi.Input<string>;
+    /**
+     * A representation of a resource that can be requested for access.
+     */
     requested?: pulumi.Input<inputs.GetRequestV2RequestedArgs>;
+    /**
+     * A representation of a principal.
+     */
     requestedBy?: pulumi.Input<inputs.GetRequestV2RequestedByArgs>;
+    /**
+     * A representation of a principal.
+     */
     requestedFor?: pulumi.Input<inputs.GetRequestV2RequestedForArgs>;
 }

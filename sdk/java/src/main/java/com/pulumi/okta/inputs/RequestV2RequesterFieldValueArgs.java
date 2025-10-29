@@ -18,14 +18,14 @@ public final class RequestV2RequesterFieldValueArgs extends com.pulumi.resources
     public static final RequestV2RequesterFieldValueArgs Empty = new RequestV2RequesterFieldValueArgs();
 
     /**
-     * The ID of a requester field.
+     * Request condition id.
      * 
      */
     @Import(name="id")
     private @Nullable Output<String> id;
 
     /**
-     * @return The ID of a requester field.
+     * @return Request condition id.
      * 
      */
     public Optional<Output<String>> id() {
@@ -121,7 +121,7 @@ public final class RequestV2RequesterFieldValueArgs extends com.pulumi.resources
         }
 
         /**
-         * @param id The ID of a requester field.
+         * @param id Request condition id.
          * 
          * @return builder
          * 
@@ -132,7 +132,7 @@ public final class RequestV2RequesterFieldValueArgs extends com.pulumi.resources
         }
 
         /**
-         * @param id The ID of a requester field.
+         * @param id Request condition id.
          * 
          * @return builder
          * 

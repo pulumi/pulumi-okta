@@ -11,6 +11,23 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const example = new okta.RequestCondition("example", {
+ *     resourceId: "<resource_id>",
+ *     approvalSequenceId: "<approval_sequence_id>",
+ *     name: "<name>",
+ *     accessScopeSettings: {
+ *         type: "RESOURCE_DEFAULT",
+ *     },
+ *     requesterSettings: {
+ *         type: "EVERYONE",
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * ```sh

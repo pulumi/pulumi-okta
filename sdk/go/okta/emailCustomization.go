@@ -43,6 +43,60 @@ import (
 //	does not contain a required variable reference.  The API will 404 for an invalid
 //	'brand_id' or 'template_name'.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v6/go/okta"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			test, err := okta.GetBrands(ctx, map[string]interface{}{}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = okta.GetEmailCustomizations(ctx, &okta.GetEmailCustomizationsArgs{
+//				BrandId:      test.Brands[0].Id,
+//				TemplateName: "ForgotPassword",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			forgotPasswordEn, err := okta.NewEmailCustomization(ctx, "forgot_password_en", &okta.EmailCustomizationArgs{
+//				BrandId:      pulumi.String(test.Brands[0].Id),
+//				TemplateName: pulumi.String("ForgotPassword"),
+//				Language:     pulumi.String("en"),
+//				IsDefault:    pulumi.Bool(true),
+//				Subject:      pulumi.String("Account password reset"),
+//				Body:         pulumi.String("Hi $$user.firstName,<br/><br/>Click this link to reset your password: $$resetPasswordLink"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = okta.NewEmailCustomization(ctx, "forgot_password_es", &okta.EmailCustomizationArgs{
+//				BrandId:      pulumi.String(test.Brands[0].Id),
+//				TemplateName: pulumi.String("ForgotPassword"),
+//				Language:     pulumi.String("es"),
+//				Subject:      pulumi.String("Restablecimiento de contraseña de cuenta"),
+//				Body:         pulumi.String("Hola $$user.firstName,<br/><br/>Haga clic en este enlace para restablecer tu contraseña: $$resetPasswordLink"),
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				forgotPasswordEn,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // ```sh

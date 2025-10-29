@@ -114,6 +114,17 @@ def get_brand(brand_id: Optional[_builtins.str] = None,
     """
     Get a single Brand from Okta.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_okta as okta
+
+    test = okta.get_brands()
+    test_get_brand = okta.get_brand(brand_id=test.brands[0].id)
+    default = okta.get_brand(brand_id="default")
+    ```
+
 
     :param _builtins.str brand_id: Brand ID
     """
@@ -133,6 +144,17 @@ def get_brand_output(brand_id: Optional[pulumi.Input[_builtins.str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBrandResult]:
     """
     Get a single Brand from Okta.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_okta as okta
+
+    test = okta.get_brands()
+    test_get_brand = okta.get_brand(brand_id=test.brands[0].id)
+    default = okta.get_brand(brand_id="default")
+    ```
 
 
     :param _builtins.str brand_id: Brand ID

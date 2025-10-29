@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class RequestConditionAccessScopeSettings {
     /**
-     * @return List of groups/entitlement bundles.
+     * @return Block list of groups/entitlement bundles ids.
      * 
      */
     private @Nullable List<RequestConditionAccessScopeSettingsId> ids;
@@ -22,7 +22,7 @@ public final class RequestConditionAccessScopeSettings {
 
     private RequestConditionAccessScopeSettings() {}
     /**
-     * @return List of groups/entitlement bundles.
+     * @return Block list of groups/entitlement bundles ids.
      * 
      */
     public List<RequestConditionAccessScopeSettingsId> ids() {

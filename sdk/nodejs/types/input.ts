@@ -1900,7 +1900,7 @@ export interface GetPrincipalEntitlementsTargetPrincipalArgs {
 
 export interface GetRequestConditionAccessScopeSettings {
     /**
-     * List of groups/entitlement bundles.
+     * Block list of groups/entitlement bundles ids.
      */
     ids?: inputs.GetRequestConditionAccessScopeSettingsId[];
     type?: string;
@@ -1908,7 +1908,7 @@ export interface GetRequestConditionAccessScopeSettings {
 
 export interface GetRequestConditionAccessScopeSettingsArgs {
     /**
-     * List of groups/entitlement bundles.
+     * Block list of groups/entitlement bundles ids.
      */
     ids?: pulumi.Input<pulumi.Input<inputs.GetRequestConditionAccessScopeSettingsIdArgs>[]>;
     type?: pulumi.Input<string>;
@@ -1930,7 +1930,7 @@ export interface GetRequestConditionAccessScopeSettingsIdArgs {
 
 export interface GetRequestConditionRequesterSettings {
     /**
-     * List of teams/groups ids.
+     * Block list of teams/groups ids.
      */
     ids?: inputs.GetRequestConditionRequesterSettingsId[];
     type?: string;
@@ -1938,7 +1938,7 @@ export interface GetRequestConditionRequesterSettings {
 
 export interface GetRequestConditionRequesterSettingsArgs {
     /**
-     * List of teams/groups ids.
+     * Block list of teams/groups ids.
      */
     ids?: pulumi.Input<pulumi.Input<inputs.GetRequestConditionRequesterSettingsIdArgs>[]>;
     type?: pulumi.Input<string>;
@@ -2518,7 +2518,7 @@ export interface RequestConditionAccessDurationSettings {
 
 export interface RequestConditionAccessScopeSettings {
     /**
-     * List of groups/entitlement bundles.
+     * Block list of groups/entitlement bundles ids.
      */
     ids?: pulumi.Input<pulumi.Input<inputs.RequestConditionAccessScopeSettingsId>[]>;
     type: pulumi.Input<string>;
@@ -2533,7 +2533,7 @@ export interface RequestConditionAccessScopeSettingsId {
 
 export interface RequestConditionRequesterSettings {
     /**
-     * List of teams/groups ids.
+     * Block list of teams/groups ids.
      */
     ids?: pulumi.Input<pulumi.Input<inputs.RequestConditionRequesterSettingsId>[]>;
     type: pulumi.Input<string>;
@@ -2635,7 +2635,7 @@ export interface RequestV2RequestedFor {
 
 export interface RequestV2RequesterFieldValue {
     /**
-     * The ID of a requester field.
+     * Request condition id.
      */
     id?: pulumi.Input<string>;
     /**

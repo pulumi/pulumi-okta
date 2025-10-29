@@ -19,6 +19,45 @@ import javax.annotation.Nullable;
 /**
  * Manages brand. This resource allows you to toggle an Okta Feature.
  * 
+ * ## Example Usage
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.okta.OktaFunctions;
+ * import com.pulumi.okta.inputs.GetFeaturesArgs;
+ * import com.pulumi.okta.Feature;
+ * import com.pulumi.okta.FeatureArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var example = OktaFunctions.getFeatures(GetFeaturesArgs.builder()
+ *             .label("Android Device Trust")
+ *             .build());
+ * 
+ *         var test = new Feature("test", FeatureArgs.builder()
+ *             .featureId(example.features()[0].id())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
  * ```sh

@@ -1896,12 +1896,90 @@ public final class OktaFunctions {
     /**
      * Get a single Brand from Okta.
      * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetBrandArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = OktaFunctions.getBrands(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *         final var testGetBrand = OktaFunctions.getBrand(GetBrandArgs.builder()
+     *             .brandId(test.brands()[0].id())
+     *             .build());
+     * 
+     *         final var default = OktaFunctions.getBrand(GetBrandArgs.builder()
+     *             .brandId("default")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      */
     public static Output<GetBrandResult> getBrand(GetBrandArgs args) {
         return getBrand(args, InvokeOptions.Empty);
     }
     /**
      * Get a single Brand from Okta.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetBrandArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = OktaFunctions.getBrands(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *         final var testGetBrand = OktaFunctions.getBrand(GetBrandArgs.builder()
+     *             .brandId(test.brands()[0].id())
+     *             .build());
+     * 
+     *         final var default = OktaFunctions.getBrand(GetBrandArgs.builder()
+     *             .brandId("default")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
      * 
      */
     public static CompletableFuture<GetBrandResult> getBrandPlain(GetBrandPlainArgs args) {
@@ -1910,6 +1988,45 @@ public final class OktaFunctions {
     /**
      * Get a single Brand from Okta.
      * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetBrandArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = OktaFunctions.getBrands(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *         final var testGetBrand = OktaFunctions.getBrand(GetBrandArgs.builder()
+     *             .brandId(test.brands()[0].id())
+     *             .build());
+     * 
+     *         final var default = OktaFunctions.getBrand(GetBrandArgs.builder()
+     *             .brandId("default")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      */
     public static Output<GetBrandResult> getBrand(GetBrandArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("okta:index/getBrand:getBrand", TypeShape.of(GetBrandResult.class), args, Utilities.withVersion(options));
@@ -1917,12 +2034,90 @@ public final class OktaFunctions {
     /**
      * Get a single Brand from Okta.
      * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetBrandArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = OktaFunctions.getBrands(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *         final var testGetBrand = OktaFunctions.getBrand(GetBrandArgs.builder()
+     *             .brandId(test.brands()[0].id())
+     *             .build());
+     * 
+     *         final var default = OktaFunctions.getBrand(GetBrandArgs.builder()
+     *             .brandId("default")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      */
     public static Output<GetBrandResult> getBrand(GetBrandArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("okta:index/getBrand:getBrand", TypeShape.of(GetBrandResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Get a single Brand from Okta.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetBrandArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = OktaFunctions.getBrands(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *         final var testGetBrand = OktaFunctions.getBrand(GetBrandArgs.builder()
+     *             .brandId(test.brands()[0].id())
+     *             .build());
+     * 
+     *         final var default = OktaFunctions.getBrand(GetBrandArgs.builder()
+     *             .brandId("default")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
      * 
      */
     public static CompletableFuture<GetBrandResult> getBrandPlain(GetBrandPlainArgs args, InvokeOptions options) {
@@ -3014,12 +3209,98 @@ public final class OktaFunctions {
     /**
      * Get the email customization of an email template belonging to a brand in an Okta organization.
      * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetEmailCustomizationsArgs;
+     * import com.pulumi.okta.inputs.GetEmailCustomizationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = OktaFunctions.getBrands(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *         final var forgotPassword = OktaFunctions.getEmailCustomizations(GetEmailCustomizationsArgs.builder()
+     *             .brandId(test.brands()[0].id())
+     *             .templateName("ForgotPassword")
+     *             .build());
+     * 
+     *         final var forgotPasswordEn = OktaFunctions.getEmailCustomization(GetEmailCustomizationArgs.builder()
+     *             .brandId(test.brands()[0].id())
+     *             .templateName("ForgotPassword")
+     *             .customizationId(forgotPassword.emailCustomizations()[0].id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      */
     public static Output<GetEmailCustomizationResult> getEmailCustomization(GetEmailCustomizationArgs args) {
         return getEmailCustomization(args, InvokeOptions.Empty);
     }
     /**
      * Get the email customization of an email template belonging to a brand in an Okta organization.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetEmailCustomizationsArgs;
+     * import com.pulumi.okta.inputs.GetEmailCustomizationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = OktaFunctions.getBrands(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *         final var forgotPassword = OktaFunctions.getEmailCustomizations(GetEmailCustomizationsArgs.builder()
+     *             .brandId(test.brands()[0].id())
+     *             .templateName("ForgotPassword")
+     *             .build());
+     * 
+     *         final var forgotPasswordEn = OktaFunctions.getEmailCustomization(GetEmailCustomizationArgs.builder()
+     *             .brandId(test.brands()[0].id())
+     *             .templateName("ForgotPassword")
+     *             .customizationId(forgotPassword.emailCustomizations()[0].id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
      * 
      */
     public static CompletableFuture<GetEmailCustomizationResult> getEmailCustomizationPlain(GetEmailCustomizationPlainArgs args) {
@@ -3028,12 +3309,98 @@ public final class OktaFunctions {
     /**
      * Get the email customization of an email template belonging to a brand in an Okta organization.
      * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetEmailCustomizationsArgs;
+     * import com.pulumi.okta.inputs.GetEmailCustomizationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = OktaFunctions.getBrands(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *         final var forgotPassword = OktaFunctions.getEmailCustomizations(GetEmailCustomizationsArgs.builder()
+     *             .brandId(test.brands()[0].id())
+     *             .templateName("ForgotPassword")
+     *             .build());
+     * 
+     *         final var forgotPasswordEn = OktaFunctions.getEmailCustomization(GetEmailCustomizationArgs.builder()
+     *             .brandId(test.brands()[0].id())
+     *             .templateName("ForgotPassword")
+     *             .customizationId(forgotPassword.emailCustomizations()[0].id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      */
     public static Output<GetEmailCustomizationResult> getEmailCustomization(GetEmailCustomizationArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("okta:index/getEmailCustomization:getEmailCustomization", TypeShape.of(GetEmailCustomizationResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Get the email customization of an email template belonging to a brand in an Okta organization.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetEmailCustomizationsArgs;
+     * import com.pulumi.okta.inputs.GetEmailCustomizationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = OktaFunctions.getBrands(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *         final var forgotPassword = OktaFunctions.getEmailCustomizations(GetEmailCustomizationsArgs.builder()
+     *             .brandId(test.brands()[0].id())
+     *             .templateName("ForgotPassword")
+     *             .build());
+     * 
+     *         final var forgotPasswordEn = OktaFunctions.getEmailCustomization(GetEmailCustomizationArgs.builder()
+     *             .brandId(test.brands()[0].id())
+     *             .templateName("ForgotPassword")
+     *             .customizationId(forgotPassword.emailCustomizations()[0].id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
      * 
      */
     public static Output<GetEmailCustomizationResult> getEmailCustomization(GetEmailCustomizationArgs args, InvokeOutputOptions options) {
@@ -3042,12 +3409,91 @@ public final class OktaFunctions {
     /**
      * Get the email customization of an email template belonging to a brand in an Okta organization.
      * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetEmailCustomizationsArgs;
+     * import com.pulumi.okta.inputs.GetEmailCustomizationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = OktaFunctions.getBrands(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *         final var forgotPassword = OktaFunctions.getEmailCustomizations(GetEmailCustomizationsArgs.builder()
+     *             .brandId(test.brands()[0].id())
+     *             .templateName("ForgotPassword")
+     *             .build());
+     * 
+     *         final var forgotPasswordEn = OktaFunctions.getEmailCustomization(GetEmailCustomizationArgs.builder()
+     *             .brandId(test.brands()[0].id())
+     *             .templateName("ForgotPassword")
+     *             .customizationId(forgotPassword.emailCustomizations()[0].id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      */
     public static CompletableFuture<GetEmailCustomizationResult> getEmailCustomizationPlain(GetEmailCustomizationPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("okta:index/getEmailCustomization:getEmailCustomization", TypeShape.of(GetEmailCustomizationResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Get the email customizations of an email template belonging to a brand in an Okta organization.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetEmailCustomizationsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = OktaFunctions.getBrands(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *         final var forgotPassword = OktaFunctions.getEmailCustomizations(GetEmailCustomizationsArgs.builder()
+     *             .brandId(test.brands()[0].id())
+     *             .templateName("ForgotPassword")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
      * 
      */
     public static Output<GetEmailCustomizationsResult> getEmailCustomizations(GetEmailCustomizationsArgs args) {
@@ -3056,12 +3502,84 @@ public final class OktaFunctions {
     /**
      * Get the email customizations of an email template belonging to a brand in an Okta organization.
      * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetEmailCustomizationsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = OktaFunctions.getBrands(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *         final var forgotPassword = OktaFunctions.getEmailCustomizations(GetEmailCustomizationsArgs.builder()
+     *             .brandId(test.brands()[0].id())
+     *             .templateName("ForgotPassword")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      */
     public static CompletableFuture<GetEmailCustomizationsResult> getEmailCustomizationsPlain(GetEmailCustomizationsPlainArgs args) {
         return getEmailCustomizationsPlain(args, InvokeOptions.Empty);
     }
     /**
      * Get the email customizations of an email template belonging to a brand in an Okta organization.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetEmailCustomizationsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = OktaFunctions.getBrands(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *         final var forgotPassword = OktaFunctions.getEmailCustomizations(GetEmailCustomizationsArgs.builder()
+     *             .brandId(test.brands()[0].id())
+     *             .templateName("ForgotPassword")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
      * 
      */
     public static Output<GetEmailCustomizationsResult> getEmailCustomizations(GetEmailCustomizationsArgs args, InvokeOptions options) {
@@ -3070,12 +3588,84 @@ public final class OktaFunctions {
     /**
      * Get the email customizations of an email template belonging to a brand in an Okta organization.
      * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetEmailCustomizationsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = OktaFunctions.getBrands(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *         final var forgotPassword = OktaFunctions.getEmailCustomizations(GetEmailCustomizationsArgs.builder()
+     *             .brandId(test.brands()[0].id())
+     *             .templateName("ForgotPassword")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      */
     public static Output<GetEmailCustomizationsResult> getEmailCustomizations(GetEmailCustomizationsArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("okta:index/getEmailCustomizations:getEmailCustomizations", TypeShape.of(GetEmailCustomizationsResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Get the email customizations of an email template belonging to a brand in an Okta organization.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetEmailCustomizationsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = OktaFunctions.getBrands(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *         final var forgotPassword = OktaFunctions.getEmailCustomizations(GetEmailCustomizationsArgs.builder()
+     *             .brandId(test.brands()[0].id())
+     *             .templateName("ForgotPassword")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
      * 
      */
     public static CompletableFuture<GetEmailCustomizationsResult> getEmailCustomizationsPlain(GetEmailCustomizationsPlainArgs args, InvokeOptions options) {
@@ -5052,12 +5642,176 @@ public final class OktaFunctions {
     /**
      * Get the entitlements for a user and resource after evaluating all grants.
      * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetPrincipalEntitlementsArgs;
+     * import com.pulumi.okta.inputs.GetPrincipalEntitlementsParentArgs;
+     * import com.pulumi.okta.inputs.GetPrincipalEntitlementsTargetPrincipalArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = OktaFunctions.getPrincipalEntitlements(GetPrincipalEntitlementsArgs.builder()
+     *             .parent(GetPrincipalEntitlementsParentArgs.builder()
+     *                 .externalId("<resource_id>")
+     *                 .type("<resource_type>")
+     *                 .build())
+     *             .targetPrincipal(GetPrincipalEntitlementsTargetPrincipalArgs.builder()
+     *                 .externalId("<principal_id>")
+     *                 .type("<principal_type>")
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## Required:
+     * 
+     * - `externalId` (String) The Okta user&#39;s email address.
+     * - `type` (String) The Okta user id.
+     * 
+     * &lt;a id=&#34;nestedblock--target_principal&#34;&gt;&lt;/a&gt;
+     * ### Nested Schema for `targetPrincipal`
+     * ## Required:
+     * 
+     * - `externalId` (String) The Okta user id.
+     * - `type` (String) The type of principal. Enum: `OKTA_USER`.
+     * 
+     * &lt;a id=&#34;nestedblock--data&#34;&gt;&lt;/a&gt;
+     * ### Nested Schema for `data`
+     * ## Required:
+     * 
+     * - `parent` (Object) Representation of a resource. (see below for nested schema)
+     * - `targetPrincipal` (Object) Representation of a principal. (see below for nested schema)
+     * 
+     * ## Optional:
+     * 
+     * - `dataType` (String) The data type of the entitlement property. Enum: `array`, `string`.
+     * - `description` (String) The Okta user id.
+     * - `externalValue` (String) The type of principal. Enum: `OKTA_USER`.
+     * - `id` (String) The unique identifier of the entitlement.
+     * - `multiValue` (Boolean) Indicates if the entitlement is multi-valued.
+     * - `name` (String) The name of the entitlement.
+     * - `parentResourceOrn` (String) The Okta app instance, in ORN format.
+     * - `required` (Boolean) Indicates if the entitlement is required.
+     * - `targetPrincipalOrn` (String) The Okta user id, in ORN format.
+     * - `values` (List of Objects) The values of the entitlement. (see below for nested schema)
+     * 
+     * &lt;a id=&#34;nestedblock--values&#34;&gt;&lt;/a&gt;
+     * ### Nested Schema for `values`
+     * - `description` (String) The description of the value.
+     * - `externalId` (String) The external ID of the value.
+     * - `externalValue` (String) The value of an entitlement property value.
+     * - `id` (String) The unique identifier of the value.
+     * - `name` (String) The name of the value.
+     * 
      */
     public static Output<GetPrincipalEntitlementsResult> getPrincipalEntitlements() {
         return getPrincipalEntitlements(GetPrincipalEntitlementsArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * Get the entitlements for a user and resource after evaluating all grants.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetPrincipalEntitlementsArgs;
+     * import com.pulumi.okta.inputs.GetPrincipalEntitlementsParentArgs;
+     * import com.pulumi.okta.inputs.GetPrincipalEntitlementsTargetPrincipalArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = OktaFunctions.getPrincipalEntitlements(GetPrincipalEntitlementsArgs.builder()
+     *             .parent(GetPrincipalEntitlementsParentArgs.builder()
+     *                 .externalId("<resource_id>")
+     *                 .type("<resource_type>")
+     *                 .build())
+     *             .targetPrincipal(GetPrincipalEntitlementsTargetPrincipalArgs.builder()
+     *                 .externalId("<principal_id>")
+     *                 .type("<principal_type>")
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## Required:
+     * 
+     * - `externalId` (String) The Okta user&#39;s email address.
+     * - `type` (String) The Okta user id.
+     * 
+     * &lt;a id=&#34;nestedblock--target_principal&#34;&gt;&lt;/a&gt;
+     * ### Nested Schema for `targetPrincipal`
+     * ## Required:
+     * 
+     * - `externalId` (String) The Okta user id.
+     * - `type` (String) The type of principal. Enum: `OKTA_USER`.
+     * 
+     * &lt;a id=&#34;nestedblock--data&#34;&gt;&lt;/a&gt;
+     * ### Nested Schema for `data`
+     * ## Required:
+     * 
+     * - `parent` (Object) Representation of a resource. (see below for nested schema)
+     * - `targetPrincipal` (Object) Representation of a principal. (see below for nested schema)
+     * 
+     * ## Optional:
+     * 
+     * - `dataType` (String) The data type of the entitlement property. Enum: `array`, `string`.
+     * - `description` (String) The Okta user id.
+     * - `externalValue` (String) The type of principal. Enum: `OKTA_USER`.
+     * - `id` (String) The unique identifier of the entitlement.
+     * - `multiValue` (Boolean) Indicates if the entitlement is multi-valued.
+     * - `name` (String) The name of the entitlement.
+     * - `parentResourceOrn` (String) The Okta app instance, in ORN format.
+     * - `required` (Boolean) Indicates if the entitlement is required.
+     * - `targetPrincipalOrn` (String) The Okta user id, in ORN format.
+     * - `values` (List of Objects) The values of the entitlement. (see below for nested schema)
+     * 
+     * &lt;a id=&#34;nestedblock--values&#34;&gt;&lt;/a&gt;
+     * ### Nested Schema for `values`
+     * - `description` (String) The description of the value.
+     * - `externalId` (String) The external ID of the value.
+     * - `externalValue` (String) The value of an entitlement property value.
+     * - `id` (String) The unique identifier of the value.
+     * - `name` (String) The name of the value.
      * 
      */
     public static CompletableFuture<GetPrincipalEntitlementsResult> getPrincipalEntitlementsPlain() {
@@ -5066,12 +5820,176 @@ public final class OktaFunctions {
     /**
      * Get the entitlements for a user and resource after evaluating all grants.
      * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetPrincipalEntitlementsArgs;
+     * import com.pulumi.okta.inputs.GetPrincipalEntitlementsParentArgs;
+     * import com.pulumi.okta.inputs.GetPrincipalEntitlementsTargetPrincipalArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = OktaFunctions.getPrincipalEntitlements(GetPrincipalEntitlementsArgs.builder()
+     *             .parent(GetPrincipalEntitlementsParentArgs.builder()
+     *                 .externalId("<resource_id>")
+     *                 .type("<resource_type>")
+     *                 .build())
+     *             .targetPrincipal(GetPrincipalEntitlementsTargetPrincipalArgs.builder()
+     *                 .externalId("<principal_id>")
+     *                 .type("<principal_type>")
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## Required:
+     * 
+     * - `externalId` (String) The Okta user&#39;s email address.
+     * - `type` (String) The Okta user id.
+     * 
+     * &lt;a id=&#34;nestedblock--target_principal&#34;&gt;&lt;/a&gt;
+     * ### Nested Schema for `targetPrincipal`
+     * ## Required:
+     * 
+     * - `externalId` (String) The Okta user id.
+     * - `type` (String) The type of principal. Enum: `OKTA_USER`.
+     * 
+     * &lt;a id=&#34;nestedblock--data&#34;&gt;&lt;/a&gt;
+     * ### Nested Schema for `data`
+     * ## Required:
+     * 
+     * - `parent` (Object) Representation of a resource. (see below for nested schema)
+     * - `targetPrincipal` (Object) Representation of a principal. (see below for nested schema)
+     * 
+     * ## Optional:
+     * 
+     * - `dataType` (String) The data type of the entitlement property. Enum: `array`, `string`.
+     * - `description` (String) The Okta user id.
+     * - `externalValue` (String) The type of principal. Enum: `OKTA_USER`.
+     * - `id` (String) The unique identifier of the entitlement.
+     * - `multiValue` (Boolean) Indicates if the entitlement is multi-valued.
+     * - `name` (String) The name of the entitlement.
+     * - `parentResourceOrn` (String) The Okta app instance, in ORN format.
+     * - `required` (Boolean) Indicates if the entitlement is required.
+     * - `targetPrincipalOrn` (String) The Okta user id, in ORN format.
+     * - `values` (List of Objects) The values of the entitlement. (see below for nested schema)
+     * 
+     * &lt;a id=&#34;nestedblock--values&#34;&gt;&lt;/a&gt;
+     * ### Nested Schema for `values`
+     * - `description` (String) The description of the value.
+     * - `externalId` (String) The external ID of the value.
+     * - `externalValue` (String) The value of an entitlement property value.
+     * - `id` (String) The unique identifier of the value.
+     * - `name` (String) The name of the value.
+     * 
      */
     public static Output<GetPrincipalEntitlementsResult> getPrincipalEntitlements(GetPrincipalEntitlementsArgs args) {
         return getPrincipalEntitlements(args, InvokeOptions.Empty);
     }
     /**
      * Get the entitlements for a user and resource after evaluating all grants.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetPrincipalEntitlementsArgs;
+     * import com.pulumi.okta.inputs.GetPrincipalEntitlementsParentArgs;
+     * import com.pulumi.okta.inputs.GetPrincipalEntitlementsTargetPrincipalArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = OktaFunctions.getPrincipalEntitlements(GetPrincipalEntitlementsArgs.builder()
+     *             .parent(GetPrincipalEntitlementsParentArgs.builder()
+     *                 .externalId("<resource_id>")
+     *                 .type("<resource_type>")
+     *                 .build())
+     *             .targetPrincipal(GetPrincipalEntitlementsTargetPrincipalArgs.builder()
+     *                 .externalId("<principal_id>")
+     *                 .type("<principal_type>")
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## Required:
+     * 
+     * - `externalId` (String) The Okta user&#39;s email address.
+     * - `type` (String) The Okta user id.
+     * 
+     * &lt;a id=&#34;nestedblock--target_principal&#34;&gt;&lt;/a&gt;
+     * ### Nested Schema for `targetPrincipal`
+     * ## Required:
+     * 
+     * - `externalId` (String) The Okta user id.
+     * - `type` (String) The type of principal. Enum: `OKTA_USER`.
+     * 
+     * &lt;a id=&#34;nestedblock--data&#34;&gt;&lt;/a&gt;
+     * ### Nested Schema for `data`
+     * ## Required:
+     * 
+     * - `parent` (Object) Representation of a resource. (see below for nested schema)
+     * - `targetPrincipal` (Object) Representation of a principal. (see below for nested schema)
+     * 
+     * ## Optional:
+     * 
+     * - `dataType` (String) The data type of the entitlement property. Enum: `array`, `string`.
+     * - `description` (String) The Okta user id.
+     * - `externalValue` (String) The type of principal. Enum: `OKTA_USER`.
+     * - `id` (String) The unique identifier of the entitlement.
+     * - `multiValue` (Boolean) Indicates if the entitlement is multi-valued.
+     * - `name` (String) The name of the entitlement.
+     * - `parentResourceOrn` (String) The Okta app instance, in ORN format.
+     * - `required` (Boolean) Indicates if the entitlement is required.
+     * - `targetPrincipalOrn` (String) The Okta user id, in ORN format.
+     * - `values` (List of Objects) The values of the entitlement. (see below for nested schema)
+     * 
+     * &lt;a id=&#34;nestedblock--values&#34;&gt;&lt;/a&gt;
+     * ### Nested Schema for `values`
+     * - `description` (String) The description of the value.
+     * - `externalId` (String) The external ID of the value.
+     * - `externalValue` (String) The value of an entitlement property value.
+     * - `id` (String) The unique identifier of the value.
+     * - `name` (String) The name of the value.
      * 
      */
     public static CompletableFuture<GetPrincipalEntitlementsResult> getPrincipalEntitlementsPlain(GetPrincipalEntitlementsPlainArgs args) {
@@ -5080,6 +5998,88 @@ public final class OktaFunctions {
     /**
      * Get the entitlements for a user and resource after evaluating all grants.
      * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetPrincipalEntitlementsArgs;
+     * import com.pulumi.okta.inputs.GetPrincipalEntitlementsParentArgs;
+     * import com.pulumi.okta.inputs.GetPrincipalEntitlementsTargetPrincipalArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = OktaFunctions.getPrincipalEntitlements(GetPrincipalEntitlementsArgs.builder()
+     *             .parent(GetPrincipalEntitlementsParentArgs.builder()
+     *                 .externalId("<resource_id>")
+     *                 .type("<resource_type>")
+     *                 .build())
+     *             .targetPrincipal(GetPrincipalEntitlementsTargetPrincipalArgs.builder()
+     *                 .externalId("<principal_id>")
+     *                 .type("<principal_type>")
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## Required:
+     * 
+     * - `externalId` (String) The Okta user&#39;s email address.
+     * - `type` (String) The Okta user id.
+     * 
+     * &lt;a id=&#34;nestedblock--target_principal&#34;&gt;&lt;/a&gt;
+     * ### Nested Schema for `targetPrincipal`
+     * ## Required:
+     * 
+     * - `externalId` (String) The Okta user id.
+     * - `type` (String) The type of principal. Enum: `OKTA_USER`.
+     * 
+     * &lt;a id=&#34;nestedblock--data&#34;&gt;&lt;/a&gt;
+     * ### Nested Schema for `data`
+     * ## Required:
+     * 
+     * - `parent` (Object) Representation of a resource. (see below for nested schema)
+     * - `targetPrincipal` (Object) Representation of a principal. (see below for nested schema)
+     * 
+     * ## Optional:
+     * 
+     * - `dataType` (String) The data type of the entitlement property. Enum: `array`, `string`.
+     * - `description` (String) The Okta user id.
+     * - `externalValue` (String) The type of principal. Enum: `OKTA_USER`.
+     * - `id` (String) The unique identifier of the entitlement.
+     * - `multiValue` (Boolean) Indicates if the entitlement is multi-valued.
+     * - `name` (String) The name of the entitlement.
+     * - `parentResourceOrn` (String) The Okta app instance, in ORN format.
+     * - `required` (Boolean) Indicates if the entitlement is required.
+     * - `targetPrincipalOrn` (String) The Okta user id, in ORN format.
+     * - `values` (List of Objects) The values of the entitlement. (see below for nested schema)
+     * 
+     * &lt;a id=&#34;nestedblock--values&#34;&gt;&lt;/a&gt;
+     * ### Nested Schema for `values`
+     * - `description` (String) The description of the value.
+     * - `externalId` (String) The external ID of the value.
+     * - `externalValue` (String) The value of an entitlement property value.
+     * - `id` (String) The unique identifier of the value.
+     * - `name` (String) The name of the value.
+     * 
      */
     public static Output<GetPrincipalEntitlementsResult> getPrincipalEntitlements(GetPrincipalEntitlementsArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("okta:index/getPrincipalEntitlements:getPrincipalEntitlements", TypeShape.of(GetPrincipalEntitlementsResult.class), args, Utilities.withVersion(options));
@@ -5087,12 +6087,176 @@ public final class OktaFunctions {
     /**
      * Get the entitlements for a user and resource after evaluating all grants.
      * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetPrincipalEntitlementsArgs;
+     * import com.pulumi.okta.inputs.GetPrincipalEntitlementsParentArgs;
+     * import com.pulumi.okta.inputs.GetPrincipalEntitlementsTargetPrincipalArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = OktaFunctions.getPrincipalEntitlements(GetPrincipalEntitlementsArgs.builder()
+     *             .parent(GetPrincipalEntitlementsParentArgs.builder()
+     *                 .externalId("<resource_id>")
+     *                 .type("<resource_type>")
+     *                 .build())
+     *             .targetPrincipal(GetPrincipalEntitlementsTargetPrincipalArgs.builder()
+     *                 .externalId("<principal_id>")
+     *                 .type("<principal_type>")
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## Required:
+     * 
+     * - `externalId` (String) The Okta user&#39;s email address.
+     * - `type` (String) The Okta user id.
+     * 
+     * &lt;a id=&#34;nestedblock--target_principal&#34;&gt;&lt;/a&gt;
+     * ### Nested Schema for `targetPrincipal`
+     * ## Required:
+     * 
+     * - `externalId` (String) The Okta user id.
+     * - `type` (String) The type of principal. Enum: `OKTA_USER`.
+     * 
+     * &lt;a id=&#34;nestedblock--data&#34;&gt;&lt;/a&gt;
+     * ### Nested Schema for `data`
+     * ## Required:
+     * 
+     * - `parent` (Object) Representation of a resource. (see below for nested schema)
+     * - `targetPrincipal` (Object) Representation of a principal. (see below for nested schema)
+     * 
+     * ## Optional:
+     * 
+     * - `dataType` (String) The data type of the entitlement property. Enum: `array`, `string`.
+     * - `description` (String) The Okta user id.
+     * - `externalValue` (String) The type of principal. Enum: `OKTA_USER`.
+     * - `id` (String) The unique identifier of the entitlement.
+     * - `multiValue` (Boolean) Indicates if the entitlement is multi-valued.
+     * - `name` (String) The name of the entitlement.
+     * - `parentResourceOrn` (String) The Okta app instance, in ORN format.
+     * - `required` (Boolean) Indicates if the entitlement is required.
+     * - `targetPrincipalOrn` (String) The Okta user id, in ORN format.
+     * - `values` (List of Objects) The values of the entitlement. (see below for nested schema)
+     * 
+     * &lt;a id=&#34;nestedblock--values&#34;&gt;&lt;/a&gt;
+     * ### Nested Schema for `values`
+     * - `description` (String) The description of the value.
+     * - `externalId` (String) The external ID of the value.
+     * - `externalValue` (String) The value of an entitlement property value.
+     * - `id` (String) The unique identifier of the value.
+     * - `name` (String) The name of the value.
+     * 
      */
     public static Output<GetPrincipalEntitlementsResult> getPrincipalEntitlements(GetPrincipalEntitlementsArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("okta:index/getPrincipalEntitlements:getPrincipalEntitlements", TypeShape.of(GetPrincipalEntitlementsResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Get the entitlements for a user and resource after evaluating all grants.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetPrincipalEntitlementsArgs;
+     * import com.pulumi.okta.inputs.GetPrincipalEntitlementsParentArgs;
+     * import com.pulumi.okta.inputs.GetPrincipalEntitlementsTargetPrincipalArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = OktaFunctions.getPrincipalEntitlements(GetPrincipalEntitlementsArgs.builder()
+     *             .parent(GetPrincipalEntitlementsParentArgs.builder()
+     *                 .externalId("<resource_id>")
+     *                 .type("<resource_type>")
+     *                 .build())
+     *             .targetPrincipal(GetPrincipalEntitlementsTargetPrincipalArgs.builder()
+     *                 .externalId("<principal_id>")
+     *                 .type("<principal_type>")
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## Required:
+     * 
+     * - `externalId` (String) The Okta user&#39;s email address.
+     * - `type` (String) The Okta user id.
+     * 
+     * &lt;a id=&#34;nestedblock--target_principal&#34;&gt;&lt;/a&gt;
+     * ### Nested Schema for `targetPrincipal`
+     * ## Required:
+     * 
+     * - `externalId` (String) The Okta user id.
+     * - `type` (String) The type of principal. Enum: `OKTA_USER`.
+     * 
+     * &lt;a id=&#34;nestedblock--data&#34;&gt;&lt;/a&gt;
+     * ### Nested Schema for `data`
+     * ## Required:
+     * 
+     * - `parent` (Object) Representation of a resource. (see below for nested schema)
+     * - `targetPrincipal` (Object) Representation of a principal. (see below for nested schema)
+     * 
+     * ## Optional:
+     * 
+     * - `dataType` (String) The data type of the entitlement property. Enum: `array`, `string`.
+     * - `description` (String) The Okta user id.
+     * - `externalValue` (String) The type of principal. Enum: `OKTA_USER`.
+     * - `id` (String) The unique identifier of the entitlement.
+     * - `multiValue` (Boolean) Indicates if the entitlement is multi-valued.
+     * - `name` (String) The name of the entitlement.
+     * - `parentResourceOrn` (String) The Okta app instance, in ORN format.
+     * - `required` (Boolean) Indicates if the entitlement is required.
+     * - `targetPrincipalOrn` (String) The Okta user id, in ORN format.
+     * - `values` (List of Objects) The values of the entitlement. (see below for nested schema)
+     * 
+     * &lt;a id=&#34;nestedblock--values&#34;&gt;&lt;/a&gt;
+     * ### Nested Schema for `values`
+     * - `description` (String) The description of the value.
+     * - `externalId` (String) The external ID of the value.
+     * - `externalValue` (String) The value of an entitlement property value.
+     * - `id` (String) The unique identifier of the value.
+     * - `name` (String) The name of the value.
      * 
      */
     public static CompletableFuture<GetPrincipalEntitlementsResult> getPrincipalEntitlementsPlain(GetPrincipalEntitlementsPlainArgs args, InvokeOptions options) {
@@ -6915,18 +8079,203 @@ public final class OktaFunctions {
     public static CompletableFuture<GetRequestSettingResourceResult> getRequestSettingResourcePlain(GetRequestSettingResourcePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("okta:index/getRequestSettingResource:getRequestSettingResource", TypeShape.of(GetRequestSettingResourceResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Retrieves the full representation of a specific request.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetRequestV2Args;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = OktaFunctions.getRequestV2(GetRequestV2Args.builder()
+     *             .id("<request_id>")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
     public static Output<GetRequestV2Result> getRequestV2(GetRequestV2Args args) {
         return getRequestV2(args, InvokeOptions.Empty);
     }
+    /**
+     * Retrieves the full representation of a specific request.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetRequestV2Args;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = OktaFunctions.getRequestV2(GetRequestV2Args.builder()
+     *             .id("<request_id>")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
     public static CompletableFuture<GetRequestV2Result> getRequestV2Plain(GetRequestV2PlainArgs args) {
         return getRequestV2Plain(args, InvokeOptions.Empty);
     }
+    /**
+     * Retrieves the full representation of a specific request.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetRequestV2Args;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = OktaFunctions.getRequestV2(GetRequestV2Args.builder()
+     *             .id("<request_id>")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
     public static Output<GetRequestV2Result> getRequestV2(GetRequestV2Args args, InvokeOptions options) {
         return Deployment.getInstance().invoke("okta:index/getRequestV2:getRequestV2", TypeShape.of(GetRequestV2Result.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Retrieves the full representation of a specific request.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetRequestV2Args;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = OktaFunctions.getRequestV2(GetRequestV2Args.builder()
+     *             .id("<request_id>")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
     public static Output<GetRequestV2Result> getRequestV2(GetRequestV2Args args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("okta:index/getRequestV2:getRequestV2", TypeShape.of(GetRequestV2Result.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Retrieves the full representation of a specific request.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetRequestV2Args;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = OktaFunctions.getRequestV2(GetRequestV2Args.builder()
+     *             .id("<request_id>")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
     public static CompletableFuture<GetRequestV2Result> getRequestV2Plain(GetRequestV2PlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("okta:index/getRequestV2:getRequestV2", TypeShape.of(GetRequestV2Result.class), args, Utilities.withVersion(options));
     }
@@ -7393,12 +8742,84 @@ public final class OktaFunctions {
     /**
      * Get a single Email Template for a Brand belonging to an Okta organization.
      * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetTemplateArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = OktaFunctions.getBrands(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *         final var forgotPassword = OktaFunctions.getTemplate(GetTemplateArgs.builder()
+     *             .brandId(test.brands()[0].id())
+     *             .name("ForgotPassword")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      */
     public static Output<GetTemplateResult> getTemplate(GetTemplateArgs args) {
         return getTemplate(args, InvokeOptions.Empty);
     }
     /**
      * Get a single Email Template for a Brand belonging to an Okta organization.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetTemplateArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = OktaFunctions.getBrands(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *         final var forgotPassword = OktaFunctions.getTemplate(GetTemplateArgs.builder()
+     *             .brandId(test.brands()[0].id())
+     *             .name("ForgotPassword")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
      * 
      */
     public static CompletableFuture<GetTemplateResult> getTemplatePlain(GetTemplatePlainArgs args) {
@@ -7407,12 +8828,84 @@ public final class OktaFunctions {
     /**
      * Get a single Email Template for a Brand belonging to an Okta organization.
      * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetTemplateArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = OktaFunctions.getBrands(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *         final var forgotPassword = OktaFunctions.getTemplate(GetTemplateArgs.builder()
+     *             .brandId(test.brands()[0].id())
+     *             .name("ForgotPassword")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      */
     public static Output<GetTemplateResult> getTemplate(GetTemplateArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("okta:index/getTemplate:getTemplate", TypeShape.of(GetTemplateResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Get a single Email Template for a Brand belonging to an Okta organization.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetTemplateArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = OktaFunctions.getBrands(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *         final var forgotPassword = OktaFunctions.getTemplate(GetTemplateArgs.builder()
+     *             .brandId(test.brands()[0].id())
+     *             .name("ForgotPassword")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
      * 
      */
     public static Output<GetTemplateResult> getTemplate(GetTemplateArgs args, InvokeOutputOptions options) {
@@ -7421,12 +8914,83 @@ public final class OktaFunctions {
     /**
      * Get a single Email Template for a Brand belonging to an Okta organization.
      * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetTemplateArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = OktaFunctions.getBrands(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *         final var forgotPassword = OktaFunctions.getTemplate(GetTemplateArgs.builder()
+     *             .brandId(test.brands()[0].id())
+     *             .name("ForgotPassword")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      */
     public static CompletableFuture<GetTemplateResult> getTemplatePlain(GetTemplatePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("okta:index/getTemplate:getTemplate", TypeShape.of(GetTemplateResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Get the email templates belonging to a brand in an Okta organization.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetTemplatesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = OktaFunctions.getBrands(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *         final var testGetTemplates = OktaFunctions.getTemplates(GetTemplatesArgs.builder()
+     *             .brandId(test.brands()[0].id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
      * 
      */
     public static Output<GetTemplatesResult> getTemplates(GetTemplatesArgs args) {
@@ -7435,12 +8999,82 @@ public final class OktaFunctions {
     /**
      * Get the email templates belonging to a brand in an Okta organization.
      * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetTemplatesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = OktaFunctions.getBrands(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *         final var testGetTemplates = OktaFunctions.getTemplates(GetTemplatesArgs.builder()
+     *             .brandId(test.brands()[0].id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      */
     public static CompletableFuture<GetTemplatesResult> getTemplatesPlain(GetTemplatesPlainArgs args) {
         return getTemplatesPlain(args, InvokeOptions.Empty);
     }
     /**
      * Get the email templates belonging to a brand in an Okta organization.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetTemplatesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = OktaFunctions.getBrands(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *         final var testGetTemplates = OktaFunctions.getTemplates(GetTemplatesArgs.builder()
+     *             .brandId(test.brands()[0].id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
      * 
      */
     public static Output<GetTemplatesResult> getTemplates(GetTemplatesArgs args, InvokeOptions options) {
@@ -7449,12 +9083,82 @@ public final class OktaFunctions {
     /**
      * Get the email templates belonging to a brand in an Okta organization.
      * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetTemplatesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = OktaFunctions.getBrands(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *         final var testGetTemplates = OktaFunctions.getTemplates(GetTemplatesArgs.builder()
+     *             .brandId(test.brands()[0].id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      */
     public static Output<GetTemplatesResult> getTemplates(GetTemplatesArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("okta:index/getTemplates:getTemplates", TypeShape.of(GetTemplatesResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Get the email templates belonging to a brand in an Okta organization.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetTemplatesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = OktaFunctions.getBrands(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *         final var testGetTemplates = OktaFunctions.getTemplates(GetTemplatesArgs.builder()
+     *             .brandId(test.brands()[0].id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
      * 
      */
     public static CompletableFuture<GetTemplatesResult> getTemplatesPlain(GetTemplatesPlainArgs args, InvokeOptions options) {
@@ -7463,12 +9167,84 @@ public final class OktaFunctions {
     /**
      * Get a single Theme of a Brand of an Okta Organization.
      * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetThemeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = OktaFunctions.getBrands(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *         final var testGetTheme = OktaFunctions.getTheme(GetThemeArgs.builder()
+     *             .brandId(test.brands()[0].id())
+     *             .themeId(testOktaThemes.themes()[0].id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      */
     public static Output<GetThemeResult> getTheme(GetThemeArgs args) {
         return getTheme(args, InvokeOptions.Empty);
     }
     /**
      * Get a single Theme of a Brand of an Okta Organization.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetThemeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = OktaFunctions.getBrands(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *         final var testGetTheme = OktaFunctions.getTheme(GetThemeArgs.builder()
+     *             .brandId(test.brands()[0].id())
+     *             .themeId(testOktaThemes.themes()[0].id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
      * 
      */
     public static CompletableFuture<GetThemeResult> getThemePlain(GetThemePlainArgs args) {
@@ -7477,12 +9253,84 @@ public final class OktaFunctions {
     /**
      * Get a single Theme of a Brand of an Okta Organization.
      * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetThemeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = OktaFunctions.getBrands(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *         final var testGetTheme = OktaFunctions.getTheme(GetThemeArgs.builder()
+     *             .brandId(test.brands()[0].id())
+     *             .themeId(testOktaThemes.themes()[0].id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      */
     public static Output<GetThemeResult> getTheme(GetThemeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("okta:index/getTheme:getTheme", TypeShape.of(GetThemeResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Get a single Theme of a Brand of an Okta Organization.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetThemeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = OktaFunctions.getBrands(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *         final var testGetTheme = OktaFunctions.getTheme(GetThemeArgs.builder()
+     *             .brandId(test.brands()[0].id())
+     *             .themeId(testOktaThemes.themes()[0].id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
      * 
      */
     public static Output<GetThemeResult> getTheme(GetThemeArgs args, InvokeOutputOptions options) {
@@ -7491,12 +9339,83 @@ public final class OktaFunctions {
     /**
      * Get a single Theme of a Brand of an Okta Organization.
      * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetThemeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = OktaFunctions.getBrands(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *         final var testGetTheme = OktaFunctions.getTheme(GetThemeArgs.builder()
+     *             .brandId(test.brands()[0].id())
+     *             .themeId(testOktaThemes.themes()[0].id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      */
     public static CompletableFuture<GetThemeResult> getThemePlain(GetThemePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("okta:index/getTheme:getTheme", TypeShape.of(GetThemeResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Get Themes of a Brand of an Okta Organization.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetThemesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = OktaFunctions.getBrands(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *         final var example = OktaFunctions.getThemes(GetThemesArgs.builder()
+     *             .brandId(test.brands()[0].id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
      * 
      */
     public static Output<GetThemesResult> getThemes(GetThemesArgs args) {
@@ -7505,12 +9424,82 @@ public final class OktaFunctions {
     /**
      * Get Themes of a Brand of an Okta Organization.
      * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetThemesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = OktaFunctions.getBrands(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *         final var example = OktaFunctions.getThemes(GetThemesArgs.builder()
+     *             .brandId(test.brands()[0].id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      */
     public static CompletableFuture<GetThemesResult> getThemesPlain(GetThemesPlainArgs args) {
         return getThemesPlain(args, InvokeOptions.Empty);
     }
     /**
      * Get Themes of a Brand of an Okta Organization.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetThemesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = OktaFunctions.getBrands(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *         final var example = OktaFunctions.getThemes(GetThemesArgs.builder()
+     *             .brandId(test.brands()[0].id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
      * 
      */
     public static Output<GetThemesResult> getThemes(GetThemesArgs args, InvokeOptions options) {
@@ -7519,12 +9508,82 @@ public final class OktaFunctions {
     /**
      * Get Themes of a Brand of an Okta Organization.
      * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetThemesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = OktaFunctions.getBrands(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *         final var example = OktaFunctions.getThemes(GetThemesArgs.builder()
+     *             .brandId(test.brands()[0].id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      */
     public static Output<GetThemesResult> getThemes(GetThemesArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("okta:index/getThemes:getThemes", TypeShape.of(GetThemesResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Get Themes of a Brand of an Okta Organization.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetThemesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = OktaFunctions.getBrands(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *         final var example = OktaFunctions.getThemes(GetThemesArgs.builder()
+     *             .brandId(test.brands()[0].id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
      * 
      */
     public static CompletableFuture<GetThemesResult> getThemesPlain(GetThemesPlainArgs args, InvokeOptions options) {

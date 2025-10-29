@@ -8,6 +8,64 @@ import * as utilities from "./utilities";
 
 /**
  * Get the entitlements for a user and resource after evaluating all grants.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const test = okta.getPrincipalEntitlements({
+ *     parent: {
+ *         externalId: "<resource_id>",
+ *         type: "<resource_type>",
+ *     },
+ *     targetPrincipal: {
+ *         externalId: "<principal_id>",
+ *         type: "<principal_type>",
+ *     },
+ * });
+ * ```
+ *
+ * ## Required:
+ *
+ * - `externalId` (String) The Okta user's email address.
+ * - `type` (String) The Okta user id.
+ *
+ * <a id="nestedblock--target_principal"></a>
+ * ### Nested Schema for `targetPrincipal`
+ * ## Required:
+ *
+ * - `externalId` (String) The Okta user id.
+ * - `type` (String) The type of principal. Enum: `OKTA_USER`.
+ *
+ * <a id="nestedblock--data"></a>
+ * ### Nested Schema for `data`
+ * ## Required:
+ *
+ * - `parent` (Object) Representation of a resource. (see below for nested schema)
+ * - `targetPrincipal` (Object) Representation of a principal. (see below for nested schema)
+ *
+ * ## Optional:
+ *
+ * - `dataType` (String) The data type of the entitlement property. Enum: `array`, `string`.
+ * - `description` (String) The Okta user id.
+ * - `externalValue` (String) The type of principal. Enum: `OKTA_USER`.
+ * - `id` (String) The unique identifier of the entitlement.
+ * - `multiValue` (Boolean) Indicates if the entitlement is multi-valued.
+ * - `name` (String) The name of the entitlement.
+ * - `parentResourceOrn` (String) The Okta app instance, in ORN format.
+ * - `required` (Boolean) Indicates if the entitlement is required.
+ * - `targetPrincipalOrn` (String) The Okta user id, in ORN format.
+ * - `values` (List of Objects) The values of the entitlement. (see below for nested schema)
+ *
+ * <a id="nestedblock--values"></a>
+ * ### Nested Schema for `values`
+ * - `description` (String) The description of the value.
+ * - `externalId` (String) The external ID of the value.
+ * - `externalValue` (String) The value of an entitlement property value.
+ * - `id` (String) The unique identifier of the value.
+ * - `name` (String) The name of the value.
  */
 export function getPrincipalEntitlements(args?: GetPrincipalEntitlementsArgs, opts?: pulumi.InvokeOptions): Promise<GetPrincipalEntitlementsResult> {
     args = args || {};
@@ -57,6 +115,64 @@ export interface GetPrincipalEntitlementsResult {
 }
 /**
  * Get the entitlements for a user and resource after evaluating all grants.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const test = okta.getPrincipalEntitlements({
+ *     parent: {
+ *         externalId: "<resource_id>",
+ *         type: "<resource_type>",
+ *     },
+ *     targetPrincipal: {
+ *         externalId: "<principal_id>",
+ *         type: "<principal_type>",
+ *     },
+ * });
+ * ```
+ *
+ * ## Required:
+ *
+ * - `externalId` (String) The Okta user's email address.
+ * - `type` (String) The Okta user id.
+ *
+ * <a id="nestedblock--target_principal"></a>
+ * ### Nested Schema for `targetPrincipal`
+ * ## Required:
+ *
+ * - `externalId` (String) The Okta user id.
+ * - `type` (String) The type of principal. Enum: `OKTA_USER`.
+ *
+ * <a id="nestedblock--data"></a>
+ * ### Nested Schema for `data`
+ * ## Required:
+ *
+ * - `parent` (Object) Representation of a resource. (see below for nested schema)
+ * - `targetPrincipal` (Object) Representation of a principal. (see below for nested schema)
+ *
+ * ## Optional:
+ *
+ * - `dataType` (String) The data type of the entitlement property. Enum: `array`, `string`.
+ * - `description` (String) The Okta user id.
+ * - `externalValue` (String) The type of principal. Enum: `OKTA_USER`.
+ * - `id` (String) The unique identifier of the entitlement.
+ * - `multiValue` (Boolean) Indicates if the entitlement is multi-valued.
+ * - `name` (String) The name of the entitlement.
+ * - `parentResourceOrn` (String) The Okta app instance, in ORN format.
+ * - `required` (Boolean) Indicates if the entitlement is required.
+ * - `targetPrincipalOrn` (String) The Okta user id, in ORN format.
+ * - `values` (List of Objects) The values of the entitlement. (see below for nested schema)
+ *
+ * <a id="nestedblock--values"></a>
+ * ### Nested Schema for `values`
+ * - `description` (String) The description of the value.
+ * - `externalId` (String) The external ID of the value.
+ * - `externalValue` (String) The value of an entitlement property value.
+ * - `id` (String) The unique identifier of the value.
+ * - `name` (String) The name of the value.
  */
 export function getPrincipalEntitlementsOutput(args?: GetPrincipalEntitlementsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPrincipalEntitlementsResult> {
     args = args || {};

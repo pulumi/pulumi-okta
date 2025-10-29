@@ -95,17 +95,17 @@ class _RequestV2State:
         """
         Input properties used for looking up and filtering RequestV2 resources.
         :param pulumi.Input[_builtins.str] access_duration: How long the requester retains access after their request is approved and fulfilled.
-        :param pulumi.Input[_builtins.str] created: The ISO 8601 formatted date and time when the resource was created.
-        :param pulumi.Input[_builtins.str] created_by: The user who created the resource.
+        :param pulumi.Input[_builtins.str] created: The date and time when the request condition was created.
+        :param pulumi.Input[_builtins.str] created_by: The id of the user who created the request condition.
         :param pulumi.Input[_builtins.str] grant_status: The status of the granted access request.
-        :param pulumi.Input[_builtins.str] granted: The date the approved access was granted. Only set if request.status is APPROVED.
-        :param pulumi.Input[_builtins.str] last_updated: The ISO 8601 formatted date and time when the resource was last updated.
-        :param pulumi.Input[_builtins.str] last_updated_by: The user who last updated the resource.
+        :param pulumi.Input[_builtins.str] granted: The date the approved access was granted. Only set if request . Status is APPROVED.
+        :param pulumi.Input[_builtins.str] last_updated: The date and time when the request condition was last updated.
+        :param pulumi.Input[_builtins.str] last_updated_by: The id of the user who last updated the request condition.
         :param pulumi.Input['RequestV2RequestedArgs'] requested: A representation of a resource that can be requested for access.
         :param pulumi.Input['RequestV2RequestedForArgs'] requested_for: A representation of a principal.
         :param pulumi.Input[Sequence[pulumi.Input['RequestV2RequesterFieldValueArgs']]] requester_field_values: The requester input fields required by the approval system.
         :param pulumi.Input[_builtins.str] resolved: The date the request was resolved.
-        :param pulumi.Input[_builtins.str] revocation_scheduled: The date the granted access is scheduled for revocation.
+        :param pulumi.Input[_builtins.str] revocation_scheduled: The date the request was scheduled for revocation.
         :param pulumi.Input[_builtins.str] revocation_status: The revocation status of the request.
         :param pulumi.Input[_builtins.str] revoked: The date the granted access was revoked.
         :param pulumi.Input[_builtins.str] status: The status of the request.
@@ -157,7 +157,7 @@ class _RequestV2State:
     @pulumi.getter
     def created(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The ISO 8601 formatted date and time when the resource was created.
+        The date and time when the request condition was created.
         """
         return pulumi.get(self, "created")
 
@@ -169,7 +169,7 @@ class _RequestV2State:
     @pulumi.getter(name="createdBy")
     def created_by(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The user who created the resource.
+        The id of the user who created the request condition.
         """
         return pulumi.get(self, "created_by")
 
@@ -193,7 +193,7 @@ class _RequestV2State:
     @pulumi.getter
     def granted(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The date the approved access was granted. Only set if request.status is APPROVED.
+        The date the approved access was granted. Only set if request . Status is APPROVED.
         """
         return pulumi.get(self, "granted")
 
@@ -205,7 +205,7 @@ class _RequestV2State:
     @pulumi.getter(name="lastUpdated")
     def last_updated(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The ISO 8601 formatted date and time when the resource was last updated.
+        The date and time when the request condition was last updated.
         """
         return pulumi.get(self, "last_updated")
 
@@ -217,7 +217,7 @@ class _RequestV2State:
     @pulumi.getter(name="lastUpdatedBy")
     def last_updated_by(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The user who last updated the resource.
+        The id of the user who last updated the request condition.
         """
         return pulumi.get(self, "last_updated_by")
 
@@ -277,7 +277,7 @@ class _RequestV2State:
     @pulumi.getter(name="revocationScheduled")
     def revocation_scheduled(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The date the granted access is scheduled for revocation.
+        The date the request was scheduled for revocation.
         """
         return pulumi.get(self, "revocation_scheduled")
 
@@ -333,7 +333,31 @@ class RequestV2(pulumi.CustomResource):
                  requester_field_values: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RequestV2RequesterFieldValueArgs', 'RequestV2RequesterFieldValueArgsDict']]]]] = None,
                  __props__=None):
         """
-        Create a RequestV2 resource with the given unique name, props, and options.
+        Manage the access request process. This resource allows you to create and read an Okta [request](https://developer.okta.com/docs/api/iga/openapi/governance.requests.admin.v2/tag/Requests/#tag/Requests).
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        test = okta.RequestV2("test",
+            requested={
+                "type": "CATALOG_ENTRY",
+                "entry_id": "<entry_id>",
+            },
+            requested_for={
+                "type": "OKTA_USER",
+                "external_id": "<user_id>",
+            })
+        ```
+
+        ## Import
+
+        ```sh
+        $ pulumi import okta:index/requestV2:RequestV2 example <request_id>
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['RequestV2RequestedArgs', 'RequestV2RequestedArgsDict']] requested: A representation of a resource that can be requested for access.
@@ -347,7 +371,31 @@ class RequestV2(pulumi.CustomResource):
                  args: Optional[RequestV2Args] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a RequestV2 resource with the given unique name, props, and options.
+        Manage the access request process. This resource allows you to create and read an Okta [request](https://developer.okta.com/docs/api/iga/openapi/governance.requests.admin.v2/tag/Requests/#tag/Requests).
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        test = okta.RequestV2("test",
+            requested={
+                "type": "CATALOG_ENTRY",
+                "entry_id": "<entry_id>",
+            },
+            requested_for={
+                "type": "OKTA_USER",
+                "external_id": "<user_id>",
+            })
+        ```
+
+        ## Import
+
+        ```sh
+        $ pulumi import okta:index/requestV2:RequestV2 example <request_id>
+        ```
+
         :param str resource_name: The name of the resource.
         :param RequestV2Args args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -423,17 +471,17 @@ class RequestV2(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] access_duration: How long the requester retains access after their request is approved and fulfilled.
-        :param pulumi.Input[_builtins.str] created: The ISO 8601 formatted date and time when the resource was created.
-        :param pulumi.Input[_builtins.str] created_by: The user who created the resource.
+        :param pulumi.Input[_builtins.str] created: The date and time when the request condition was created.
+        :param pulumi.Input[_builtins.str] created_by: The id of the user who created the request condition.
         :param pulumi.Input[_builtins.str] grant_status: The status of the granted access request.
-        :param pulumi.Input[_builtins.str] granted: The date the approved access was granted. Only set if request.status is APPROVED.
-        :param pulumi.Input[_builtins.str] last_updated: The ISO 8601 formatted date and time when the resource was last updated.
-        :param pulumi.Input[_builtins.str] last_updated_by: The user who last updated the resource.
+        :param pulumi.Input[_builtins.str] granted: The date the approved access was granted. Only set if request . Status is APPROVED.
+        :param pulumi.Input[_builtins.str] last_updated: The date and time when the request condition was last updated.
+        :param pulumi.Input[_builtins.str] last_updated_by: The id of the user who last updated the request condition.
         :param pulumi.Input[Union['RequestV2RequestedArgs', 'RequestV2RequestedArgsDict']] requested: A representation of a resource that can be requested for access.
         :param pulumi.Input[Union['RequestV2RequestedForArgs', 'RequestV2RequestedForArgsDict']] requested_for: A representation of a principal.
         :param pulumi.Input[Sequence[pulumi.Input[Union['RequestV2RequesterFieldValueArgs', 'RequestV2RequesterFieldValueArgsDict']]]] requester_field_values: The requester input fields required by the approval system.
         :param pulumi.Input[_builtins.str] resolved: The date the request was resolved.
-        :param pulumi.Input[_builtins.str] revocation_scheduled: The date the granted access is scheduled for revocation.
+        :param pulumi.Input[_builtins.str] revocation_scheduled: The date the request was scheduled for revocation.
         :param pulumi.Input[_builtins.str] revocation_status: The revocation status of the request.
         :param pulumi.Input[_builtins.str] revoked: The date the granted access was revoked.
         :param pulumi.Input[_builtins.str] status: The status of the request.
@@ -471,7 +519,7 @@ class RequestV2(pulumi.CustomResource):
     @pulumi.getter
     def created(self) -> pulumi.Output[_builtins.str]:
         """
-        The ISO 8601 formatted date and time when the resource was created.
+        The date and time when the request condition was created.
         """
         return pulumi.get(self, "created")
 
@@ -479,7 +527,7 @@ class RequestV2(pulumi.CustomResource):
     @pulumi.getter(name="createdBy")
     def created_by(self) -> pulumi.Output[_builtins.str]:
         """
-        The user who created the resource.
+        The id of the user who created the request condition.
         """
         return pulumi.get(self, "created_by")
 
@@ -495,7 +543,7 @@ class RequestV2(pulumi.CustomResource):
     @pulumi.getter
     def granted(self) -> pulumi.Output[_builtins.str]:
         """
-        The date the approved access was granted. Only set if request.status is APPROVED.
+        The date the approved access was granted. Only set if request . Status is APPROVED.
         """
         return pulumi.get(self, "granted")
 
@@ -503,7 +551,7 @@ class RequestV2(pulumi.CustomResource):
     @pulumi.getter(name="lastUpdated")
     def last_updated(self) -> pulumi.Output[_builtins.str]:
         """
-        The ISO 8601 formatted date and time when the resource was last updated.
+        The date and time when the request condition was last updated.
         """
         return pulumi.get(self, "last_updated")
 
@@ -511,7 +559,7 @@ class RequestV2(pulumi.CustomResource):
     @pulumi.getter(name="lastUpdatedBy")
     def last_updated_by(self) -> pulumi.Output[_builtins.str]:
         """
-        The user who last updated the resource.
+        The id of the user who last updated the request condition.
         """
         return pulumi.get(self, "last_updated_by")
 
@@ -551,7 +599,7 @@ class RequestV2(pulumi.CustomResource):
     @pulumi.getter(name="revocationScheduled")
     def revocation_scheduled(self) -> pulumi.Output[_builtins.str]:
         """
-        The date the granted access is scheduled for revocation.
+        The date the request was scheduled for revocation.
         """
         return pulumi.get(self, "revocation_scheduled")
 

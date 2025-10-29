@@ -19,30 +19,62 @@ public final class GetRequestV2Args extends com.pulumi.resources.InvokeArgs {
 
     public static final GetRequestV2Args Empty = new GetRequestV2Args();
 
+    /**
+     * The ID of the request.
+     * 
+     */
     @Import(name="id", required=true)
     private Output<String> id;
 
+    /**
+     * @return The ID of the request.
+     * 
+     */
     public Output<String> id() {
         return this.id;
     }
 
+    /**
+     * A representation of a resource that can be requested for access.
+     * 
+     */
     @Import(name="requested")
     private @Nullable Output<GetRequestV2RequestedArgs> requested;
 
+    /**
+     * @return A representation of a resource that can be requested for access.
+     * 
+     */
     public Optional<Output<GetRequestV2RequestedArgs>> requested() {
         return Optional.ofNullable(this.requested);
     }
 
+    /**
+     * A representation of a principal.
+     * 
+     */
     @Import(name="requestedBy")
     private @Nullable Output<GetRequestV2RequestedByArgs> requestedBy;
 
+    /**
+     * @return A representation of a principal.
+     * 
+     */
     public Optional<Output<GetRequestV2RequestedByArgs>> requestedBy() {
         return Optional.ofNullable(this.requestedBy);
     }
 
+    /**
+     * A representation of a principal.
+     * 
+     */
     @Import(name="requestedFor")
     private @Nullable Output<GetRequestV2RequestedForArgs> requestedFor;
 
+    /**
+     * @return A representation of a principal.
+     * 
+     */
     public Optional<Output<GetRequestV2RequestedForArgs>> requestedFor() {
         return Optional.ofNullable(this.requestedFor);
     }
@@ -74,38 +106,86 @@ public final class GetRequestV2Args extends com.pulumi.resources.InvokeArgs {
             $ = new GetRequestV2Args(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param id The ID of the request.
+         * 
+         * @return builder
+         * 
+         */
         public Builder id(Output<String> id) {
             $.id = id;
             return this;
         }
 
+        /**
+         * @param id The ID of the request.
+         * 
+         * @return builder
+         * 
+         */
         public Builder id(String id) {
             return id(Output.of(id));
         }
 
+        /**
+         * @param requested A representation of a resource that can be requested for access.
+         * 
+         * @return builder
+         * 
+         */
         public Builder requested(@Nullable Output<GetRequestV2RequestedArgs> requested) {
             $.requested = requested;
             return this;
         }
 
+        /**
+         * @param requested A representation of a resource that can be requested for access.
+         * 
+         * @return builder
+         * 
+         */
         public Builder requested(GetRequestV2RequestedArgs requested) {
             return requested(Output.of(requested));
         }
 
+        /**
+         * @param requestedBy A representation of a principal.
+         * 
+         * @return builder
+         * 
+         */
         public Builder requestedBy(@Nullable Output<GetRequestV2RequestedByArgs> requestedBy) {
             $.requestedBy = requestedBy;
             return this;
         }
 
+        /**
+         * @param requestedBy A representation of a principal.
+         * 
+         * @return builder
+         * 
+         */
         public Builder requestedBy(GetRequestV2RequestedByArgs requestedBy) {
             return requestedBy(Output.of(requestedBy));
         }
 
+        /**
+         * @param requestedFor A representation of a principal.
+         * 
+         * @return builder
+         * 
+         */
         public Builder requestedFor(@Nullable Output<GetRequestV2RequestedForArgs> requestedFor) {
             $.requestedFor = requestedFor;
             return this;
         }
 
+        /**
+         * @param requestedFor A representation of a principal.
+         * 
+         * @return builder
+         * 
+         */
         public Builder requestedFor(GetRequestV2RequestedForArgs requestedFor) {
             return requestedFor(Output.of(requestedFor));
         }

@@ -19,14 +19,14 @@ public final class RequestConditionRequesterSettingsArgs extends com.pulumi.reso
     public static final RequestConditionRequesterSettingsArgs Empty = new RequestConditionRequesterSettingsArgs();
 
     /**
-     * List of teams/groups ids.
+     * Block list of teams/groups ids.
      * 
      */
     @Import(name="ids")
     private @Nullable Output<List<RequestConditionRequesterSettingsIdArgs>> ids;
 
     /**
-     * @return List of teams/groups ids.
+     * @return Block list of teams/groups ids.
      * 
      */
     public Optional<Output<List<RequestConditionRequesterSettingsIdArgs>>> ids() {
@@ -66,7 +66,7 @@ public final class RequestConditionRequesterSettingsArgs extends com.pulumi.reso
         }
 
         /**
-         * @param ids List of teams/groups ids.
+         * @param ids Block list of teams/groups ids.
          * 
          * @return builder
          * 
@@ -77,7 +77,7 @@ public final class RequestConditionRequesterSettingsArgs extends com.pulumi.reso
         }
 
         /**
-         * @param ids List of teams/groups ids.
+         * @param ids Block list of teams/groups ids.
          * 
          * @return builder
          * 
@@ -87,7 +87,7 @@ public final class RequestConditionRequesterSettingsArgs extends com.pulumi.reso
         }
 
         /**
-         * @param ids List of teams/groups ids.
+         * @param ids Block list of teams/groups ids.
          * 
          * @return builder
          * 

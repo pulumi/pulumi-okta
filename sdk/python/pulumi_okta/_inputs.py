@@ -3894,7 +3894,7 @@ if not MYPY:
         type: pulumi.Input[_builtins.str]
         ids: NotRequired[pulumi.Input[Sequence[pulumi.Input['RequestConditionAccessScopeSettingsIdArgsDict']]]]
         """
-        List of groups/entitlement bundles.
+        Block list of groups/entitlement bundles ids.
         """
 elif False:
     RequestConditionAccessScopeSettingsArgsDict: TypeAlias = Mapping[str, Any]
@@ -3905,7 +3905,7 @@ class RequestConditionAccessScopeSettingsArgs:
                  type: pulumi.Input[_builtins.str],
                  ids: Optional[pulumi.Input[Sequence[pulumi.Input['RequestConditionAccessScopeSettingsIdArgs']]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['RequestConditionAccessScopeSettingsIdArgs']]] ids: List of groups/entitlement bundles.
+        :param pulumi.Input[Sequence[pulumi.Input['RequestConditionAccessScopeSettingsIdArgs']]] ids: Block list of groups/entitlement bundles ids.
         """
         pulumi.set(__self__, "type", type)
         if ids is not None:
@@ -3924,7 +3924,7 @@ class RequestConditionAccessScopeSettingsArgs:
     @pulumi.getter
     def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RequestConditionAccessScopeSettingsIdArgs']]]]:
         """
-        List of groups/entitlement bundles.
+        Block list of groups/entitlement bundles ids.
         """
         return pulumi.get(self, "ids")
 
@@ -3970,7 +3970,7 @@ if not MYPY:
         type: pulumi.Input[_builtins.str]
         ids: NotRequired[pulumi.Input[Sequence[pulumi.Input['RequestConditionRequesterSettingsIdArgsDict']]]]
         """
-        List of teams/groups ids.
+        Block list of teams/groups ids.
         """
 elif False:
     RequestConditionRequesterSettingsArgsDict: TypeAlias = Mapping[str, Any]
@@ -3981,7 +3981,7 @@ class RequestConditionRequesterSettingsArgs:
                  type: pulumi.Input[_builtins.str],
                  ids: Optional[pulumi.Input[Sequence[pulumi.Input['RequestConditionRequesterSettingsIdArgs']]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['RequestConditionRequesterSettingsIdArgs']]] ids: List of teams/groups ids.
+        :param pulumi.Input[Sequence[pulumi.Input['RequestConditionRequesterSettingsIdArgs']]] ids: Block list of teams/groups ids.
         """
         pulumi.set(__self__, "type", type)
         if ids is not None:
@@ -4000,7 +4000,7 @@ class RequestConditionRequesterSettingsArgs:
     @pulumi.getter
     def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RequestConditionRequesterSettingsIdArgs']]]]:
         """
-        List of teams/groups ids.
+        Block list of teams/groups ids.
         """
         return pulumi.get(self, "ids")
 
@@ -4471,7 +4471,7 @@ if not MYPY:
     class RequestV2RequesterFieldValueArgsDict(TypedDict):
         id: NotRequired[pulumi.Input[_builtins.str]]
         """
-        The ID of a requester field.
+        Request condition id.
         """
         label: NotRequired[pulumi.Input[_builtins.str]]
         """
@@ -4501,7 +4501,7 @@ class RequestV2RequesterFieldValueArgs:
                  value: Optional[pulumi.Input[_builtins.str]] = None,
                  values: Optional[pulumi.Input[Sequence[pulumi.Input['RequestV2RequesterFieldValueValueArgs']]]] = None):
         """
-        :param pulumi.Input[_builtins.str] id: The ID of a requester field.
+        :param pulumi.Input[_builtins.str] id: Request condition id.
         :param pulumi.Input[_builtins.str] label: A human-readable description of requester field.
         :param pulumi.Input[_builtins.str] type: Type of value for the requester field.
         :param pulumi.Input[_builtins.str] value: The value of requester field, which depends on the type of the field.
@@ -4522,7 +4522,7 @@ class RequestV2RequesterFieldValueArgs:
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The ID of a requester field.
+        Request condition id.
         """
         return pulumi.get(self, "id")
 
@@ -8617,7 +8617,7 @@ if not MYPY:
         type: _builtins.str
         ids: NotRequired[Sequence['GetRequestConditionAccessScopeSettingsIdArgsDict']]
         """
-        List of groups/entitlement bundles.
+        Block list of groups/entitlement bundles ids.
         """
 elif False:
     GetRequestConditionAccessScopeSettingsArgsDict: TypeAlias = Mapping[str, Any]
@@ -8628,7 +8628,7 @@ class GetRequestConditionAccessScopeSettingsArgs:
                  type: _builtins.str,
                  ids: Optional[Sequence['GetRequestConditionAccessScopeSettingsIdArgs']] = None):
         """
-        :param Sequence['GetRequestConditionAccessScopeSettingsIdArgs'] ids: List of groups/entitlement bundles.
+        :param Sequence['GetRequestConditionAccessScopeSettingsIdArgs'] ids: Block list of groups/entitlement bundles ids.
         """
         pulumi.set(__self__, "type", type)
         if ids is not None:
@@ -8647,7 +8647,7 @@ class GetRequestConditionAccessScopeSettingsArgs:
     @pulumi.getter
     def ids(self) -> Optional[Sequence['GetRequestConditionAccessScopeSettingsIdArgs']]:
         """
-        List of groups/entitlement bundles.
+        Block list of groups/entitlement bundles ids.
         """
         return pulumi.get(self, "ids")
 
@@ -8692,7 +8692,7 @@ if not MYPY:
         type: _builtins.str
         ids: NotRequired[Sequence['GetRequestConditionRequesterSettingsIdArgsDict']]
         """
-        List of teams/groups ids.
+        Block list of teams/groups ids.
         """
 elif False:
     GetRequestConditionRequesterSettingsArgsDict: TypeAlias = Mapping[str, Any]
@@ -8703,7 +8703,7 @@ class GetRequestConditionRequesterSettingsArgs:
                  type: _builtins.str,
                  ids: Optional[Sequence['GetRequestConditionRequesterSettingsIdArgs']] = None):
         """
-        :param Sequence['GetRequestConditionRequesterSettingsIdArgs'] ids: List of teams/groups ids.
+        :param Sequence['GetRequestConditionRequesterSettingsIdArgs'] ids: Block list of teams/groups ids.
         """
         pulumi.set(__self__, "type", type)
         if ids is not None:
@@ -8722,7 +8722,7 @@ class GetRequestConditionRequesterSettingsArgs:
     @pulumi.getter
     def ids(self) -> Optional[Sequence['GetRequestConditionRequesterSettingsIdArgs']]:
         """
-        List of teams/groups ids.
+        Block list of teams/groups ids.
         """
         return pulumi.get(self, "ids")
 

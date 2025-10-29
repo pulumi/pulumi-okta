@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetRequestConditionRequesterSettings {
     /**
-     * @return List of teams/groups ids.
+     * @return Block list of teams/groups ids.
      * 
      */
     private @Nullable List<GetRequestConditionRequesterSettingsId> ids;
@@ -22,7 +22,7 @@ public final class GetRequestConditionRequesterSettings {
 
     private GetRequestConditionRequesterSettings() {}
     /**
-     * @return List of teams/groups ids.
+     * @return Block list of teams/groups ids.
      * 
      */
     public List<GetRequestConditionRequesterSettingsId> ids() {

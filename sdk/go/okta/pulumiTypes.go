@@ -6790,7 +6790,7 @@ func (o RequestConditionAccessDurationSettingsPtrOutput) Type() pulumi.StringPtr
 }
 
 type RequestConditionAccessScopeSettings struct {
-	// List of groups/entitlement bundles.
+	// Block list of groups/entitlement bundles ids.
 	Ids  []RequestConditionAccessScopeSettingsId `pulumi:"ids"`
 	Type string                                  `pulumi:"type"`
 }
@@ -6807,7 +6807,7 @@ type RequestConditionAccessScopeSettingsInput interface {
 }
 
 type RequestConditionAccessScopeSettingsArgs struct {
-	// List of groups/entitlement bundles.
+	// Block list of groups/entitlement bundles ids.
 	Ids  RequestConditionAccessScopeSettingsIdArrayInput `pulumi:"ids"`
 	Type pulumi.StringInput                              `pulumi:"type"`
 }
@@ -6889,7 +6889,7 @@ func (o RequestConditionAccessScopeSettingsOutput) ToRequestConditionAccessScope
 	}).(RequestConditionAccessScopeSettingsPtrOutput)
 }
 
-// List of groups/entitlement bundles.
+// Block list of groups/entitlement bundles ids.
 func (o RequestConditionAccessScopeSettingsOutput) Ids() RequestConditionAccessScopeSettingsIdArrayOutput {
 	return o.ApplyT(func(v RequestConditionAccessScopeSettings) []RequestConditionAccessScopeSettingsId { return v.Ids }).(RequestConditionAccessScopeSettingsIdArrayOutput)
 }
@@ -6922,7 +6922,7 @@ func (o RequestConditionAccessScopeSettingsPtrOutput) Elem() RequestConditionAcc
 	}).(RequestConditionAccessScopeSettingsOutput)
 }
 
-// List of groups/entitlement bundles.
+// Block list of groups/entitlement bundles ids.
 func (o RequestConditionAccessScopeSettingsPtrOutput) Ids() RequestConditionAccessScopeSettingsIdArrayOutput {
 	return o.ApplyT(func(v *RequestConditionAccessScopeSettings) []RequestConditionAccessScopeSettingsId {
 		if v == nil {
@@ -7039,7 +7039,7 @@ func (o RequestConditionAccessScopeSettingsIdArrayOutput) Index(i pulumi.IntInpu
 }
 
 type RequestConditionRequesterSettings struct {
-	// List of teams/groups ids.
+	// Block list of teams/groups ids.
 	Ids  []RequestConditionRequesterSettingsId `pulumi:"ids"`
 	Type string                                `pulumi:"type"`
 }
@@ -7056,7 +7056,7 @@ type RequestConditionRequesterSettingsInput interface {
 }
 
 type RequestConditionRequesterSettingsArgs struct {
-	// List of teams/groups ids.
+	// Block list of teams/groups ids.
 	Ids  RequestConditionRequesterSettingsIdArrayInput `pulumi:"ids"`
 	Type pulumi.StringInput                            `pulumi:"type"`
 }
@@ -7138,7 +7138,7 @@ func (o RequestConditionRequesterSettingsOutput) ToRequestConditionRequesterSett
 	}).(RequestConditionRequesterSettingsPtrOutput)
 }
 
-// List of teams/groups ids.
+// Block list of teams/groups ids.
 func (o RequestConditionRequesterSettingsOutput) Ids() RequestConditionRequesterSettingsIdArrayOutput {
 	return o.ApplyT(func(v RequestConditionRequesterSettings) []RequestConditionRequesterSettingsId { return v.Ids }).(RequestConditionRequesterSettingsIdArrayOutput)
 }
@@ -7171,7 +7171,7 @@ func (o RequestConditionRequesterSettingsPtrOutput) Elem() RequestConditionReque
 	}).(RequestConditionRequesterSettingsOutput)
 }
 
-// List of teams/groups ids.
+// Block list of teams/groups ids.
 func (o RequestConditionRequesterSettingsPtrOutput) Ids() RequestConditionRequesterSettingsIdArrayOutput {
 	return o.ApplyT(func(v *RequestConditionRequesterSettings) []RequestConditionRequesterSettingsId {
 		if v == nil {
@@ -8416,7 +8416,7 @@ func (o RequestV2RequestedForPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 type RequestV2RequesterFieldValue struct {
-	// The ID of a requester field.
+	// Request condition id.
 	Id *string `pulumi:"id"`
 	// A human-readable description of requester field.
 	Label *string `pulumi:"label"`
@@ -8440,7 +8440,7 @@ type RequestV2RequesterFieldValueInput interface {
 }
 
 type RequestV2RequesterFieldValueArgs struct {
-	// The ID of a requester field.
+	// Request condition id.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// A human-readable description of requester field.
 	Label pulumi.StringPtrInput `pulumi:"label"`
@@ -8503,7 +8503,7 @@ func (o RequestV2RequesterFieldValueOutput) ToRequestV2RequesterFieldValueOutput
 	return o
 }
 
-// The ID of a requester field.
+// Request condition id.
 func (o RequestV2RequesterFieldValueOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RequestV2RequesterFieldValue) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -18758,7 +18758,7 @@ func (o GetPrincipalEntitlementsTargetPrincipalPtrOutput) Type() pulumi.StringPt
 }
 
 type GetRequestConditionAccessScopeSettings struct {
-	// List of groups/entitlement bundles.
+	// Block list of groups/entitlement bundles ids.
 	Ids  []GetRequestConditionAccessScopeSettingsId `pulumi:"ids"`
 	Type string                                     `pulumi:"type"`
 }
@@ -18775,7 +18775,7 @@ type GetRequestConditionAccessScopeSettingsInput interface {
 }
 
 type GetRequestConditionAccessScopeSettingsArgs struct {
-	// List of groups/entitlement bundles.
+	// Block list of groups/entitlement bundles ids.
 	Ids  GetRequestConditionAccessScopeSettingsIdArrayInput `pulumi:"ids"`
 	Type pulumi.StringInput                                 `pulumi:"type"`
 }
@@ -18857,7 +18857,7 @@ func (o GetRequestConditionAccessScopeSettingsOutput) ToGetRequestConditionAcces
 	}).(GetRequestConditionAccessScopeSettingsPtrOutput)
 }
 
-// List of groups/entitlement bundles.
+// Block list of groups/entitlement bundles ids.
 func (o GetRequestConditionAccessScopeSettingsOutput) Ids() GetRequestConditionAccessScopeSettingsIdArrayOutput {
 	return o.ApplyT(func(v GetRequestConditionAccessScopeSettings) []GetRequestConditionAccessScopeSettingsId {
 		return v.Ids
@@ -18892,7 +18892,7 @@ func (o GetRequestConditionAccessScopeSettingsPtrOutput) Elem() GetRequestCondit
 	}).(GetRequestConditionAccessScopeSettingsOutput)
 }
 
-// List of groups/entitlement bundles.
+// Block list of groups/entitlement bundles ids.
 func (o GetRequestConditionAccessScopeSettingsPtrOutput) Ids() GetRequestConditionAccessScopeSettingsIdArrayOutput {
 	return o.ApplyT(func(v *GetRequestConditionAccessScopeSettings) []GetRequestConditionAccessScopeSettingsId {
 		if v == nil {
@@ -19009,7 +19009,7 @@ func (o GetRequestConditionAccessScopeSettingsIdArrayOutput) Index(i pulumi.IntI
 }
 
 type GetRequestConditionRequesterSettings struct {
-	// List of teams/groups ids.
+	// Block list of teams/groups ids.
 	Ids  []GetRequestConditionRequesterSettingsId `pulumi:"ids"`
 	Type string                                   `pulumi:"type"`
 }
@@ -19026,7 +19026,7 @@ type GetRequestConditionRequesterSettingsInput interface {
 }
 
 type GetRequestConditionRequesterSettingsArgs struct {
-	// List of teams/groups ids.
+	// Block list of teams/groups ids.
 	Ids  GetRequestConditionRequesterSettingsIdArrayInput `pulumi:"ids"`
 	Type pulumi.StringInput                               `pulumi:"type"`
 }
@@ -19108,7 +19108,7 @@ func (o GetRequestConditionRequesterSettingsOutput) ToGetRequestConditionRequest
 	}).(GetRequestConditionRequesterSettingsPtrOutput)
 }
 
-// List of teams/groups ids.
+// Block list of teams/groups ids.
 func (o GetRequestConditionRequesterSettingsOutput) Ids() GetRequestConditionRequesterSettingsIdArrayOutput {
 	return o.ApplyT(func(v GetRequestConditionRequesterSettings) []GetRequestConditionRequesterSettingsId { return v.Ids }).(GetRequestConditionRequesterSettingsIdArrayOutput)
 }
@@ -19141,7 +19141,7 @@ func (o GetRequestConditionRequesterSettingsPtrOutput) Elem() GetRequestConditio
 	}).(GetRequestConditionRequesterSettingsOutput)
 }
 
-// List of teams/groups ids.
+// Block list of teams/groups ids.
 func (o GetRequestConditionRequesterSettingsPtrOutput) Ids() GetRequestConditionRequesterSettingsIdArrayOutput {
 	return o.ApplyT(func(v *GetRequestConditionRequesterSettings) []GetRequestConditionRequesterSettingsId {
 		if v == nil {

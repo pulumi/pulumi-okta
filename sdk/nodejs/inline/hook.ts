@@ -44,26 +44,26 @@ import * as utilities from "../utilities";
  *     type: "com.okta.saml.tokens.transform",
  *     status: "ACTIVE",
  *     channelJson: `{
- *         "type": "OAUTH",
- *         "version": "1.0.0",
- *         "config": {
- *             "headers": [
+ *         \\"type\\": \\"OAUTH\\",
+ *         \\"version\\": \\"1.0.0\\",
+ *         \\"config\\": {
+ *             \\"headers\\": [
  *                 {
- *                     "key": "Field 1",
- *                     "value": "Value 1"
+ *                     \\"key\\": \\"Field 1\\",
+ *                     \\"value\\": \\"Value 1\\"
  *                 },
  *                 {
- *                     "key": "Field 2",
- *                     "value": "Value 2"
+ *                     \\"key\\": \\"Field 2\\",
+ *                     \\"value\\": \\"Value 2\\"
  *                 }
  *             ],
- *             "method": "POST",
- *             "authType": "client_secret_post",
- *             "uri": "https://example.com/service",
- *             "clientId": "abc123",
- *             "clientSecret": "fake-secret",
- *             "tokenUrl": "https://example.com/token",
- *             "scope": "api"
+ *             \\"method\\": \\"POST\\",
+ *             \\"authType\\": \\"client_secret_post\\",
+ *             \\"uri\\": \\"https://example.com/service\\",
+ *             \\"clientId\\": \\"abc123\\",
+ *             \\"clientSecret\\": \\"fake-secret\\",
+ *             \\"tokenUrl\\": \\"https://example.com/token\\",
+ *             \\"scope\\": \\"api\\"
  *         }
  * }
  * `,

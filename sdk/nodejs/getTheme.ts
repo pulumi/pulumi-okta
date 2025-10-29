@@ -6,6 +6,19 @@ import * as utilities from "./utilities";
 
 /**
  * Get a single Theme of a Brand of an Okta Organization.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const test = okta.getBrands({});
+ * const testGetTheme = test.then(test => okta.getTheme({
+ *     brandId: test.brands?.[0]?.id,
+ *     themeId: testOktaThemes.themes[0].id,
+ * }));
+ * ```
  */
 export function getTheme(args: GetThemeArgs, opts?: pulumi.InvokeOptions): Promise<GetThemeResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -96,6 +109,19 @@ export interface GetThemeResult {
 }
 /**
  * Get a single Theme of a Brand of an Okta Organization.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const test = okta.getBrands({});
+ * const testGetTheme = test.then(test => okta.getTheme({
+ *     brandId: test.brands?.[0]?.id,
+ *     themeId: testOktaThemes.themes[0].id,
+ * }));
+ * ```
  */
 export function getThemeOutput(args: GetThemeOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetThemeResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -12,6 +12,45 @@ import (
 )
 
 // Get the email customization of an email template belonging to a brand in an Okta organization.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v6/go/okta"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			test, err := okta.GetBrands(ctx, map[string]interface{}{}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			forgotPassword, err := okta.GetEmailCustomizations(ctx, &okta.GetEmailCustomizationsArgs{
+//				BrandId:      test.Brands[0].Id,
+//				TemplateName: "ForgotPassword",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = okta.LookupEmailCustomization(ctx, &okta.LookupEmailCustomizationArgs{
+//				BrandId:         test.Brands[0].Id,
+//				TemplateName:    "ForgotPassword",
+//				CustomizationId: forgotPassword.EmailCustomizations[0].Id,
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupEmailCustomization(ctx *pulumi.Context, args *LookupEmailCustomizationArgs, opts ...pulumi.InvokeOption) (*LookupEmailCustomizationResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupEmailCustomizationResult

@@ -11,12 +11,75 @@ namespace Pulumi.Okta
 {
     public static class GetRequestV2
     {
+        /// <summary>
+        /// Retrieves the full representation of a specific request.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Okta = Pulumi.Okta;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Okta.GetRequestV2.Invoke(new()
+        ///     {
+        ///         Id = "&lt;request_id&gt;",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
         public static Task<GetRequestV2Result> InvokeAsync(GetRequestV2Args args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRequestV2Result>("okta:index/getRequestV2:getRequestV2", args ?? new GetRequestV2Args(), options.WithDefaults());
 
+        /// <summary>
+        /// Retrieves the full representation of a specific request.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Okta = Pulumi.Okta;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Okta.GetRequestV2.Invoke(new()
+        ///     {
+        ///         Id = "&lt;request_id&gt;",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
         public static Output<GetRequestV2Result> Invoke(GetRequestV2InvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRequestV2Result>("okta:index/getRequestV2:getRequestV2", args ?? new GetRequestV2InvokeArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Retrieves the full representation of a specific request.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Okta = Pulumi.Okta;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Okta.GetRequestV2.Invoke(new()
+        ///     {
+        ///         Id = "&lt;request_id&gt;",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
         public static Output<GetRequestV2Result> Invoke(GetRequestV2InvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetRequestV2Result>("okta:index/getRequestV2:getRequestV2", args ?? new GetRequestV2InvokeArgs(), options.WithDefaults());
     }
@@ -24,15 +87,27 @@ namespace Pulumi.Okta
 
     public sealed class GetRequestV2Args : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID of the request.
+        /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
+        /// <summary>
+        /// A representation of a resource that can be requested for access.
+        /// </summary>
         [Input("requested")]
         public Inputs.GetRequestV2RequestedArgs? Requested { get; set; }
 
+        /// <summary>
+        /// A representation of a principal.
+        /// </summary>
         [Input("requestedBy")]
         public Inputs.GetRequestV2RequestedByArgs? RequestedBy { get; set; }
 
+        /// <summary>
+        /// A representation of a principal.
+        /// </summary>
         [Input("requestedFor")]
         public Inputs.GetRequestV2RequestedForArgs? RequestedFor { get; set; }
 
@@ -44,15 +119,27 @@ namespace Pulumi.Okta
 
     public sealed class GetRequestV2InvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID of the request.
+        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
+        /// <summary>
+        /// A representation of a resource that can be requested for access.
+        /// </summary>
         [Input("requested")]
         public Input<Inputs.GetRequestV2RequestedInputArgs>? Requested { get; set; }
 
+        /// <summary>
+        /// A representation of a principal.
+        /// </summary>
         [Input("requestedBy")]
         public Input<Inputs.GetRequestV2RequestedByInputArgs>? RequestedBy { get; set; }
 
+        /// <summary>
+        /// A representation of a principal.
+        /// </summary>
         [Input("requestedFor")]
         public Input<Inputs.GetRequestV2RequestedForInputArgs>? RequestedFor { get; set; }
 
@@ -66,14 +153,41 @@ namespace Pulumi.Okta
     [OutputType]
     public sealed class GetRequestV2Result
     {
+        /// <summary>
+        /// The date and time when the request condition was created.
+        /// </summary>
         public readonly string Created;
+        /// <summary>
+        /// The id of the user who created the request condition.
+        /// </summary>
         public readonly string CreatedBy;
+        /// <summary>
+        /// The ID of the request.
+        /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// The date and time when the request condition was last updated.
+        /// </summary>
         public readonly string LastUpdated;
+        /// <summary>
+        /// The id of the user who last updated the request condition.
+        /// </summary>
         public readonly string LastUpdatedBy;
+        /// <summary>
+        /// A representation of a resource that can be requested for access.
+        /// </summary>
         public readonly Outputs.GetRequestV2RequestedResult? Requested;
+        /// <summary>
+        /// A representation of a principal.
+        /// </summary>
         public readonly Outputs.GetRequestV2RequestedByResult? RequestedBy;
+        /// <summary>
+        /// A representation of a principal.
+        /// </summary>
         public readonly Outputs.GetRequestV2RequestedForResult? RequestedFor;
+        /// <summary>
+        /// The status of the request.
+        /// </summary>
         public readonly string Status;
 
         [OutputConstructor]

@@ -11,22 +11,62 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Manage the access request process. This resource allows you to create and read an Okta [request](https://developer.okta.com/docs/api/iga/openapi/governance.requests.admin.v2/tag/Requests/#tag/Requests).
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v6/go/okta"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := okta.NewRequestV2(ctx, "test", &okta.RequestV2Args{
+//				Requested: &okta.RequestV2RequestedArgs{
+//					Type:    pulumi.String("CATALOG_ENTRY"),
+//					EntryId: pulumi.String("<entry_id>"),
+//				},
+//				RequestedFor: &okta.RequestV2RequestedForArgs{
+//					Type:       pulumi.String("OKTA_USER"),
+//					ExternalId: pulumi.String("<user_id>"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// ```sh
+// $ pulumi import okta:index/requestV2:RequestV2 example <request_id>
+// ```
 type RequestV2 struct {
 	pulumi.CustomResourceState
 
 	// How long the requester retains access after their request is approved and fulfilled.
 	AccessDuration pulumi.StringOutput `pulumi:"accessDuration"`
-	// The ISO 8601 formatted date and time when the resource was created.
+	// The date and time when the request condition was created.
 	Created pulumi.StringOutput `pulumi:"created"`
-	// The user who created the resource.
+	// The id of the user who created the request condition.
 	CreatedBy pulumi.StringOutput `pulumi:"createdBy"`
 	// The status of the granted access request.
 	GrantStatus pulumi.StringOutput `pulumi:"grantStatus"`
-	// The date the approved access was granted. Only set if request.status is APPROVED.
+	// The date the approved access was granted. Only set if request . Status is APPROVED.
 	Granted pulumi.StringOutput `pulumi:"granted"`
-	// The ISO 8601 formatted date and time when the resource was last updated.
+	// The date and time when the request condition was last updated.
 	LastUpdated pulumi.StringOutput `pulumi:"lastUpdated"`
-	// The user who last updated the resource.
+	// The id of the user who last updated the request condition.
 	LastUpdatedBy pulumi.StringOutput `pulumi:"lastUpdatedBy"`
 	// A representation of a resource that can be requested for access.
 	Requested RequestV2RequestedPtrOutput `pulumi:"requested"`
@@ -36,7 +76,7 @@ type RequestV2 struct {
 	RequesterFieldValues RequestV2RequesterFieldValueArrayOutput `pulumi:"requesterFieldValues"`
 	// The date the request was resolved.
 	Resolved pulumi.StringOutput `pulumi:"resolved"`
-	// The date the granted access is scheduled for revocation.
+	// The date the request was scheduled for revocation.
 	RevocationScheduled pulumi.StringOutput `pulumi:"revocationScheduled"`
 	// The revocation status of the request.
 	RevocationStatus pulumi.StringOutput `pulumi:"revocationStatus"`
@@ -78,17 +118,17 @@ func GetRequestV2(ctx *pulumi.Context,
 type requestV2State struct {
 	// How long the requester retains access after their request is approved and fulfilled.
 	AccessDuration *string `pulumi:"accessDuration"`
-	// The ISO 8601 formatted date and time when the resource was created.
+	// The date and time when the request condition was created.
 	Created *string `pulumi:"created"`
-	// The user who created the resource.
+	// The id of the user who created the request condition.
 	CreatedBy *string `pulumi:"createdBy"`
 	// The status of the granted access request.
 	GrantStatus *string `pulumi:"grantStatus"`
-	// The date the approved access was granted. Only set if request.status is APPROVED.
+	// The date the approved access was granted. Only set if request . Status is APPROVED.
 	Granted *string `pulumi:"granted"`
-	// The ISO 8601 formatted date and time when the resource was last updated.
+	// The date and time when the request condition was last updated.
 	LastUpdated *string `pulumi:"lastUpdated"`
-	// The user who last updated the resource.
+	// The id of the user who last updated the request condition.
 	LastUpdatedBy *string `pulumi:"lastUpdatedBy"`
 	// A representation of a resource that can be requested for access.
 	Requested *RequestV2Requested `pulumi:"requested"`
@@ -98,7 +138,7 @@ type requestV2State struct {
 	RequesterFieldValues []RequestV2RequesterFieldValue `pulumi:"requesterFieldValues"`
 	// The date the request was resolved.
 	Resolved *string `pulumi:"resolved"`
-	// The date the granted access is scheduled for revocation.
+	// The date the request was scheduled for revocation.
 	RevocationScheduled *string `pulumi:"revocationScheduled"`
 	// The revocation status of the request.
 	RevocationStatus *string `pulumi:"revocationStatus"`
@@ -111,17 +151,17 @@ type requestV2State struct {
 type RequestV2State struct {
 	// How long the requester retains access after their request is approved and fulfilled.
 	AccessDuration pulumi.StringPtrInput
-	// The ISO 8601 formatted date and time when the resource was created.
+	// The date and time when the request condition was created.
 	Created pulumi.StringPtrInput
-	// The user who created the resource.
+	// The id of the user who created the request condition.
 	CreatedBy pulumi.StringPtrInput
 	// The status of the granted access request.
 	GrantStatus pulumi.StringPtrInput
-	// The date the approved access was granted. Only set if request.status is APPROVED.
+	// The date the approved access was granted. Only set if request . Status is APPROVED.
 	Granted pulumi.StringPtrInput
-	// The ISO 8601 formatted date and time when the resource was last updated.
+	// The date and time when the request condition was last updated.
 	LastUpdated pulumi.StringPtrInput
-	// The user who last updated the resource.
+	// The id of the user who last updated the request condition.
 	LastUpdatedBy pulumi.StringPtrInput
 	// A representation of a resource that can be requested for access.
 	Requested RequestV2RequestedPtrInput
@@ -131,7 +171,7 @@ type RequestV2State struct {
 	RequesterFieldValues RequestV2RequesterFieldValueArrayInput
 	// The date the request was resolved.
 	Resolved pulumi.StringPtrInput
-	// The date the granted access is scheduled for revocation.
+	// The date the request was scheduled for revocation.
 	RevocationScheduled pulumi.StringPtrInput
 	// The revocation status of the request.
 	RevocationStatus pulumi.StringPtrInput
@@ -256,12 +296,12 @@ func (o RequestV2Output) AccessDuration() pulumi.StringOutput {
 	return o.ApplyT(func(v *RequestV2) pulumi.StringOutput { return v.AccessDuration }).(pulumi.StringOutput)
 }
 
-// The ISO 8601 formatted date and time when the resource was created.
+// The date and time when the request condition was created.
 func (o RequestV2Output) Created() pulumi.StringOutput {
 	return o.ApplyT(func(v *RequestV2) pulumi.StringOutput { return v.Created }).(pulumi.StringOutput)
 }
 
-// The user who created the resource.
+// The id of the user who created the request condition.
 func (o RequestV2Output) CreatedBy() pulumi.StringOutput {
 	return o.ApplyT(func(v *RequestV2) pulumi.StringOutput { return v.CreatedBy }).(pulumi.StringOutput)
 }
@@ -271,17 +311,17 @@ func (o RequestV2Output) GrantStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v *RequestV2) pulumi.StringOutput { return v.GrantStatus }).(pulumi.StringOutput)
 }
 
-// The date the approved access was granted. Only set if request.status is APPROVED.
+// The date the approved access was granted. Only set if request . Status is APPROVED.
 func (o RequestV2Output) Granted() pulumi.StringOutput {
 	return o.ApplyT(func(v *RequestV2) pulumi.StringOutput { return v.Granted }).(pulumi.StringOutput)
 }
 
-// The ISO 8601 formatted date and time when the resource was last updated.
+// The date and time when the request condition was last updated.
 func (o RequestV2Output) LastUpdated() pulumi.StringOutput {
 	return o.ApplyT(func(v *RequestV2) pulumi.StringOutput { return v.LastUpdated }).(pulumi.StringOutput)
 }
 
-// The user who last updated the resource.
+// The id of the user who last updated the request condition.
 func (o RequestV2Output) LastUpdatedBy() pulumi.StringOutput {
 	return o.ApplyT(func(v *RequestV2) pulumi.StringOutput { return v.LastUpdatedBy }).(pulumi.StringOutput)
 }
@@ -306,7 +346,7 @@ func (o RequestV2Output) Resolved() pulumi.StringOutput {
 	return o.ApplyT(func(v *RequestV2) pulumi.StringOutput { return v.Resolved }).(pulumi.StringOutput)
 }
 
-// The date the granted access is scheduled for revocation.
+// The date the request was scheduled for revocation.
 func (o RequestV2Output) RevocationScheduled() pulumi.StringOutput {
 	return o.ApplyT(func(v *RequestV2) pulumi.StringOutput { return v.RevocationScheduled }).(pulumi.StringOutput)
 }

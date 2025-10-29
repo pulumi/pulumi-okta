@@ -6,6 +6,24 @@ import * as utilities from "./utilities";
 
 /**
  * Get the email customization of an email template belonging to a brand in an Okta organization.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const test = okta.getBrands({});
+ * const forgotPassword = test.then(test => okta.getEmailCustomizations({
+ *     brandId: test.brands?.[0]?.id,
+ *     templateName: "ForgotPassword",
+ * }));
+ * const forgotPasswordEn = Promise.all([test, forgotPassword]).then(([test, forgotPassword]) => okta.getEmailCustomization({
+ *     brandId: test.brands?.[0]?.id,
+ *     templateName: "ForgotPassword",
+ *     customizationId: forgotPassword.emailCustomizations?.[0]?.id,
+ * }));
+ * ```
  */
 export function getEmailCustomization(args: GetEmailCustomizationArgs, opts?: pulumi.InvokeOptions): Promise<GetEmailCustomizationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -77,6 +95,24 @@ export interface GetEmailCustomizationResult {
 }
 /**
  * Get the email customization of an email template belonging to a brand in an Okta organization.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const test = okta.getBrands({});
+ * const forgotPassword = test.then(test => okta.getEmailCustomizations({
+ *     brandId: test.brands?.[0]?.id,
+ *     templateName: "ForgotPassword",
+ * }));
+ * const forgotPasswordEn = Promise.all([test, forgotPassword]).then(([test, forgotPassword]) => okta.getEmailCustomization({
+ *     brandId: test.brands?.[0]?.id,
+ *     templateName: "ForgotPassword",
+ *     customizationId: forgotPassword.emailCustomizations?.[0]?.id,
+ * }));
+ * ```
  */
 export function getEmailCustomizationOutput(args: GetEmailCustomizationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEmailCustomizationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

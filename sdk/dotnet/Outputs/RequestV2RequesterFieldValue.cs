@@ -14,7 +14,7 @@ namespace Pulumi.Okta.Outputs
     public sealed class RequestV2RequesterFieldValue
     {
         /// <summary>
-        /// The ID of a requester field.
+        /// Request condition id.
         /// </summary>
         public readonly string? Id;
         /// <summary>

@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *             .groupId("<group id>")
  *             .profile("""
  * {
- *   "<app_profile_field>": "<value>"
+ *   \"<app_profile_field>\": \"<value>\"
  * }
  *             """)
  *             .build());

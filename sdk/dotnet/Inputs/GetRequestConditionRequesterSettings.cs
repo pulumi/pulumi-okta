@@ -16,7 +16,7 @@ namespace Pulumi.Okta.Inputs
         private List<Inputs.GetRequestConditionRequesterSettingsIdArgs>? _ids;
 
         /// <summary>
-        /// List of teams/groups ids.
+        /// Block list of teams/groups ids.
         /// </summary>
         public List<Inputs.GetRequestConditionRequesterSettingsIdArgs> Ids
         {

@@ -40,6 +40,52 @@ namespace Pulumi.Okta
     /// 		does not contain a required variable reference.  The API will 404 for an invalid
     /// 		'brand_id' or 'template_name'.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Okta = Pulumi.Okta;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var test = Okta.GetBrands.Invoke();
+    /// 
+    ///     var forgotPassword = Okta.GetEmailCustomizations.Invoke(new()
+    ///     {
+    ///         BrandId = test.Apply(getBrandsResult =&gt; getBrandsResult.Brands[0]?.Id),
+    ///         TemplateName = "ForgotPassword",
+    ///     });
+    /// 
+    ///     var forgotPasswordEn = new Okta.EmailCustomization("forgot_password_en", new()
+    ///     {
+    ///         BrandId = test.Apply(getBrandsResult =&gt; getBrandsResult.Brands[0]?.Id),
+    ///         TemplateName = "ForgotPassword",
+    ///         Language = "en",
+    ///         IsDefault = true,
+    ///         Subject = "Account password reset",
+    ///         Body = "Hi $$user.firstName,&lt;br/&gt;&lt;br/&gt;Click this link to reset your password: $$resetPasswordLink",
+    ///     });
+    /// 
+    ///     var forgotPasswordEs = new Okta.EmailCustomization("forgot_password_es", new()
+    ///     {
+    ///         BrandId = test.Apply(getBrandsResult =&gt; getBrandsResult.Brands[0]?.Id),
+    ///         TemplateName = "ForgotPassword",
+    ///         Language = "es",
+    ///         Subject = "Restablecimiento de contraseña de cuenta",
+    ///         Body = "Hola $$user.firstName,&lt;br/&gt;&lt;br/&gt;Haga clic en este enlace para restablecer tu contraseña: $$resetPasswordLink",
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             forgotPasswordEn,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// ```sh
