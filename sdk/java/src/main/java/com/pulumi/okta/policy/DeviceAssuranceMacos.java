@@ -19,6 +19,60 @@ import javax.annotation.Nullable;
 /**
  * Manages a device assurance policy for macos.
  * 
+ * ## Example Usage
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.okta.policy.DeviceAssuranceMacos;
+ * import com.pulumi.okta.policy.DeviceAssuranceMacosArgs;
+ * import com.pulumi.std.StdFunctions;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new DeviceAssuranceMacos("example", DeviceAssuranceMacosArgs.builder()
+ *             .name("example")
+ *             .osVersion("12.4.6")
+ *             .diskEncryptionTypes(StdFunctions.toset(Map.of("input", "ALL_INTERNAL_VOLUMES")).result())
+ *             .secureHardwarePresent(true)
+ *             .screenlockTypes(StdFunctions.toset(Map.of("input",             
+ *                 "BIOMETRIC",
+ *                 "PASSCODE")).result())
+ *             .thirdPartySignalProviders(true)
+ *             .tpspBrowserVersion("15393.27.0")
+ *             .tpspBuiltinDnsClientEnabled(true)
+ *             .tpspChromeRemoteDesktopAppBlocked(true)
+ *             .tpspDeviceEnrollmentDomain("exampleDomain")
+ *             .tpspDiskEncrypted(true)
+ *             .tpspKeyTrustLevel("CHROME_BROWSER_HW_KEY")
+ *             .tpspOsFirewall(true)
+ *             .tpspOsVersion("10.0.19041")
+ *             .tpspPasswordProctectionWarningTrigger("PASSWORD_PROTECTION_OFF")
+ *             .tpspRealtimeUrlCheckMode(true)
+ *             .tpspSafeBrowsingProtectionLevel("ENHANCED_PROTECTION")
+ *             .tpspScreenLockSecured(true)
+ *             .tpspSiteIsolationEnabled(true)
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
  * ```sh

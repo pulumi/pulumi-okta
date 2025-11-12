@@ -16,6 +16,39 @@ import (
 //
 // ## Example Usage
 //
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v6/go/okta"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := okta.NewRequestSettingResource(ctx, "test", &okta.RequestSettingResourceArgs{
+//				ResourceId: "<resource_id>",
+//				RiskSettings: &okta.RequestSettingResourceRiskSettingsArgs{
+//					DefaultSetting: &okta.RequestSettingResourceRiskSettingsDefaultSettingArgs{
+//						RequestSubmissionType: pulumi.String("ALLOWED_WITH_OVERRIDES"),
+//						ApprovalSequenceId:    pulumi.String("<approval_sequence_id>"),
+//					},
+//				},
+//				RequestOnBehalfOfSettings: &okta.RequestSettingResourceRequestOnBehalfOfSettingsArgs{
+//					Allowed: pulumi.Bool(true),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // ```sh

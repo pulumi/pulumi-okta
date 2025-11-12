@@ -13,6 +13,68 @@ import (
 
 // Manages a device assurance policy for macos.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v6/go/okta/policy"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			invokeToset, err := std.Toset(ctx, map[string]interface{}{
+//				"input": []string{
+//					"ALL_INTERNAL_VOLUMES",
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			invokeToset1, err := std.Toset(ctx, map[string]interface{}{
+//				"input": []string{
+//					"BIOMETRIC",
+//					"PASSCODE",
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = policy.NewDeviceAssuranceMacos(ctx, "example", &policy.DeviceAssuranceMacosArgs{
+//				Name:                                  pulumi.String("example"),
+//				OsVersion:                             pulumi.String("12.4.6"),
+//				DiskEncryptionTypes:                   []pulumi.String(invokeToset.Result),
+//				SecureHardwarePresent:                 pulumi.Bool(true),
+//				ScreenlockTypes:                       []pulumi.String(invokeToset1.Result),
+//				ThirdPartySignalProviders:             pulumi.Bool(true),
+//				TpspBrowserVersion:                    pulumi.String("15393.27.0"),
+//				TpspBuiltinDnsClientEnabled:           pulumi.Bool(true),
+//				TpspChromeRemoteDesktopAppBlocked:     pulumi.Bool(true),
+//				TpspDeviceEnrollmentDomain:            pulumi.String("exampleDomain"),
+//				TpspDiskEncrypted:                     pulumi.Bool(true),
+//				TpspKeyTrustLevel:                     pulumi.String("CHROME_BROWSER_HW_KEY"),
+//				TpspOsFirewall:                        pulumi.Bool(true),
+//				TpspOsVersion:                         pulumi.String("10.0.19041"),
+//				TpspPasswordProctectionWarningTrigger: pulumi.String("PASSWORD_PROTECTION_OFF"),
+//				TpspRealtimeUrlCheckMode:              pulumi.Bool(true),
+//				TpspSafeBrowsingProtectionLevel:       pulumi.String("ENHANCED_PROTECTION"),
+//				TpspScreenLockSecured:                 pulumi.Bool(true),
+//				TpspSiteIsolationEnabled:              pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // ```sh

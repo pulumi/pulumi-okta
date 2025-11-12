@@ -980,6 +980,18 @@ class ThreeField(pulumi.CustomResource):
 
         ## Example Usage
 
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        example = okta.app.ThreeField("example",
+            label="Example App",
+            sign_on_url="https://example.com/login.html",
+            sign_on_redirect_url="https://example.com",
+            reveal_password=True,
+            credentials_scheme="EDIT_USERNAME_AND_PASSWORD")
+        ```
+
         ## Import
 
         ```sh
@@ -1030,6 +1042,18 @@ class ThreeField(pulumi.CustomResource):
         		other arguments that changed will be applied.
 
         ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        example = okta.app.ThreeField("example",
+            label="Example App",
+            sign_on_url="https://example.com/login.html",
+            sign_on_redirect_url="https://example.com",
+            reveal_password=True,
+            credentials_scheme="EDIT_USERNAME_AND_PASSWORD")
+        ```
 
         ## Import
 

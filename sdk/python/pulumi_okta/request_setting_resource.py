@@ -144,6 +144,23 @@ class RequestSettingResource(pulumi.CustomResource):
 
         ## Example Usage
 
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        test = okta.RequestSettingResource("test",
+            resource_id="<resource_id>",
+            risk_settings={
+                "default_setting": {
+                    "request_submission_type": "ALLOWED_WITH_OVERRIDES",
+                    "approval_sequence_id": "<approval_sequence_id>",
+                },
+            },
+            request_on_behalf_of_settings={
+                "allowed": True,
+            })
+        ```
+
         ## Import
 
         ```sh
@@ -166,6 +183,23 @@ class RequestSettingResource(pulumi.CustomResource):
         Manages request settings. This resource allows you to read and configure an Okta [request-setting](https://developer.okta.com/docs/api/iga/openapi/governance.requests.admin.v2/tag/Request-Settings/#tag/Request-Settings/operation/getRequestSettingsV2).
 
         ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        test = okta.RequestSettingResource("test",
+            resource_id="<resource_id>",
+            risk_settings={
+                "default_setting": {
+                    "request_submission_type": "ALLOWED_WITH_OVERRIDES",
+                    "approval_sequence_id": "<approval_sequence_id>",
+                },
+            },
+            request_on_behalf_of_settings={
+                "allowed": True,
+            })
+        ```
 
         ## Import
 

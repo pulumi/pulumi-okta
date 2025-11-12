@@ -320,6 +320,25 @@ class DeviceAssuranceAndroid(pulumi.CustomResource):
         """
         Manages a device assurance policy for android.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+        import pulumi_std as std
+
+        example = okta.policy.DeviceAssuranceAndroid("example",
+            name="example",
+            os_version="12",
+            disk_encryption_types=std.index.toset(input=[
+                "FULL",
+                "USER",
+            ])["result"],
+            jailbreak=False,
+            secure_hardware_present=True,
+            screenlock_types=std.index.toset(input=["BIOMETRIC"])["result"])
+        ```
+
         ## Import
 
         ```sh
@@ -343,6 +362,25 @@ class DeviceAssuranceAndroid(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a device assurance policy for android.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+        import pulumi_std as std
+
+        example = okta.policy.DeviceAssuranceAndroid("example",
+            name="example",
+            os_version="12",
+            disk_encryption_types=std.index.toset(input=[
+                "FULL",
+                "USER",
+            ])["result"],
+            jailbreak=False,
+            secure_hardware_present=True,
+            screenlock_types=std.index.toset(input=["BIOMETRIC"])["result"])
+        ```
 
         ## Import
 

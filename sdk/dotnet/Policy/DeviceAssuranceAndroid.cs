@@ -12,6 +12,43 @@ namespace Pulumi.Okta.Policy
     /// <summary>
     /// Manages a device assurance policy for android.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Okta = Pulumi.Okta;
+    /// using Std = Pulumi.Std;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Okta.Policy.DeviceAssuranceAndroid("example", new()
+    ///     {
+    ///         Name = "example",
+    ///         OsVersion = "12",
+    ///         DiskEncryptionTypes = Std.Index.Toset.Invoke(new()
+    ///         {
+    ///             Input = new[]
+    ///             {
+    ///                 "FULL",
+    ///                 "USER",
+    ///             },
+    ///         }).Result,
+    ///         Jailbreak = false,
+    ///         SecureHardwarePresent = true,
+    ///         ScreenlockTypes = Std.Index.Toset.Invoke(new()
+    ///         {
+    ///             Input = new[]
+    ///             {
+    ///                 "BIOMETRIC",
+    ///             },
+    ///         }).Result,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// ```sh

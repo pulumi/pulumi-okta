@@ -254,6 +254,20 @@ class DeviceAssuranceIos(pulumi.CustomResource):
         """
         Manages a device assurance policy for ios.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+        import pulumi_std as std
+
+        example = okta.policy.DeviceAssuranceIos("example",
+            name="example",
+            os_version="12.4.5",
+            jailbreak=False,
+            screenlock_types=std.index.toset(input=["BIOMETRIC"])["result"])
+        ```
+
         ## Import
 
         ```sh
@@ -275,6 +289,20 @@ class DeviceAssuranceIos(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a device assurance policy for ios.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+        import pulumi_std as std
+
+        example = okta.policy.DeviceAssuranceIos("example",
+            name="example",
+            os_version="12.4.5",
+            jailbreak=False,
+            screenlock_types=std.index.toset(input=["BIOMETRIC"])["result"])
+        ```
 
         ## Import
 

@@ -12,6 +12,56 @@ namespace Pulumi.Okta.Policy
     /// <summary>
     /// Manages a device assurance policy for macos.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Okta = Pulumi.Okta;
+    /// using Std = Pulumi.Std;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Okta.Policy.DeviceAssuranceMacos("example", new()
+    ///     {
+    ///         Name = "example",
+    ///         OsVersion = "12.4.6",
+    ///         DiskEncryptionTypes = Std.Index.Toset.Invoke(new()
+    ///         {
+    ///             Input = new[]
+    ///             {
+    ///                 "ALL_INTERNAL_VOLUMES",
+    ///             },
+    ///         }).Result,
+    ///         SecureHardwarePresent = true,
+    ///         ScreenlockTypes = Std.Index.Toset.Invoke(new()
+    ///         {
+    ///             Input = new[]
+    ///             {
+    ///                 "BIOMETRIC",
+    ///                 "PASSCODE",
+    ///             },
+    ///         }).Result,
+    ///         ThirdPartySignalProviders = true,
+    ///         TpspBrowserVersion = "15393.27.0",
+    ///         TpspBuiltinDnsClientEnabled = true,
+    ///         TpspChromeRemoteDesktopAppBlocked = true,
+    ///         TpspDeviceEnrollmentDomain = "exampleDomain",
+    ///         TpspDiskEncrypted = true,
+    ///         TpspKeyTrustLevel = "CHROME_BROWSER_HW_KEY",
+    ///         TpspOsFirewall = true,
+    ///         TpspOsVersion = "10.0.19041",
+    ///         TpspPasswordProctectionWarningTrigger = "PASSWORD_PROTECTION_OFF",
+    ///         TpspRealtimeUrlCheckMode = true,
+    ///         TpspSafeBrowsingProtectionLevel = "ENHANCED_PROTECTION",
+    ///         TpspScreenLockSecured = true,
+    ///         TpspSiteIsolationEnabled = true,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// ```sh

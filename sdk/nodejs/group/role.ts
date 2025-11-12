@@ -7,6 +7,47 @@ import * as utilities from "../utilities";
 /**
  * Assigns Admin roles to Okta Groups. This resource allows you to assign Okta administrator roles to Okta Groups. This resource provides a one-to-one interface between the Okta group and the admin role.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ * import * as std from "@pulumi/std";
+ *
+ * const example = new okta.group.Role("example", {
+ *     groupId: "<group id>",
+ *     roleType: "READ_ONLY_ADMIN",
+ * });
+ * // Example for CUSTOM role
+ * const test = new okta.group.Group("test", {
+ *     name: "testAcc_replace_with_uuid",
+ *     description: "testing",
+ * });
+ * const testResourceSet = new okta.ResourceSet("test", {
+ *     label: "test",
+ *     description: "testing, testing",
+ *     resources: [std.index.format({
+ *         input: "%s/api/v1/users",
+ *         args: ["https://tien-oie-2023-26-26.oktapreview.com"],
+ *     }).result],
+ * });
+ * const testAdminRoleCustom = new okta.AdminRoleCustom("test", {
+ *     label: "testt",
+ *     description: "testing, testing",
+ *     permissions: [
+ *         "okta.apps.assignment.manage",
+ *         "okta.users.manage",
+ *         "okta.apps.manage",
+ *     ],
+ * });
+ * const testRole = new okta.group.Role("test", {
+ *     groupId: test.id,
+ *     roleId: testAdminRoleCustom.id,
+ *     resourceSetId: testResourceSet.id,
+ *     roleType: "CUSTOM",
+ * });
+ * ```
+ *
  * ## Import
  *
  * ```sh
