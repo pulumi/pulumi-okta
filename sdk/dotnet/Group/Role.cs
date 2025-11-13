@@ -12,6 +12,70 @@ namespace Pulumi.Okta.Group
     /// <summary>
     /// Assigns Admin roles to Okta Groups. This resource allows you to assign Okta administrator roles to Okta Groups. This resource provides a one-to-one interface between the Okta group and the admin role.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Okta = Pulumi.Okta;
+    /// using Std = Pulumi.Std;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Okta.Group.Role("example", new()
+    ///     {
+    ///         GroupId = "&lt;group id&gt;",
+    ///         RoleType = "READ_ONLY_ADMIN",
+    ///     });
+    /// 
+    ///     // Example for CUSTOM role
+    ///     var test = new Okta.Group.Group("test", new()
+    ///     {
+    ///         Name = "testAcc_replace_with_uuid",
+    ///         Description = "testing",
+    ///     });
+    /// 
+    ///     var testResourceSet = new Okta.ResourceSet("test", new()
+    ///     {
+    ///         Label = "test",
+    ///         Description = "testing, testing",
+    ///         Resources = new[]
+    ///         {
+    ///             Std.Index.Format.Invoke(new()
+    ///             {
+    ///                 Input = "%s/api/v1/users",
+    ///                 Args = new[]
+    ///                 {
+    ///                     "https://tien-oie-2023-26-26.oktapreview.com",
+    ///                 },
+    ///             }).Result,
+    ///         },
+    ///     });
+    /// 
+    ///     var testAdminRoleCustom = new Okta.AdminRoleCustom("test", new()
+    ///     {
+    ///         Label = "testt",
+    ///         Description = "testing, testing",
+    ///         Permissions = new[]
+    ///         {
+    ///             "okta.apps.assignment.manage",
+    ///             "okta.users.manage",
+    ///             "okta.apps.manage",
+    ///         },
+    ///     });
+    /// 
+    ///     var testRole = new Okta.Group.Role("test", new()
+    ///     {
+    ///         GroupId = test.Id,
+    ///         RoleId = testAdminRoleCustom.Id,
+    ///         ResourceSetId = testResourceSet.Id,
+    ///         RoleType = "CUSTOM",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// ```sh

@@ -13,6 +13,19 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const example = new okta.app.ThreeField("example", {
+ *     label: "Example App",
+ *     signOnUrl: "https://example.com/login.html",
+ *     signOnRedirectUrl: "https://example.com",
+ *     revealPassword: true,
+ *     credentialsScheme: "EDIT_USERNAME_AND_PASSWORD",
+ * });
+ * ```
+ *
  * ## Import
  *
  * ```sh

@@ -7,6 +7,43 @@ import * as utilities from "../utilities";
 /**
  * Manages a device assurance policy for macos.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ * import * as std from "@pulumi/std";
+ *
+ * const example = new okta.policy.DeviceAssuranceMacos("example", {
+ *     name: "example",
+ *     osVersion: "12.4.6",
+ *     diskEncryptionTypes: std.index.toset({
+ *         input: ["ALL_INTERNAL_VOLUMES"],
+ *     }).result,
+ *     secureHardwarePresent: true,
+ *     screenlockTypes: std.index.toset({
+ *         input: [
+ *             "BIOMETRIC",
+ *             "PASSCODE",
+ *         ],
+ *     }).result,
+ *     thirdPartySignalProviders: true,
+ *     tpspBrowserVersion: "15393.27.0",
+ *     tpspBuiltinDnsClientEnabled: true,
+ *     tpspChromeRemoteDesktopAppBlocked: true,
+ *     tpspDeviceEnrollmentDomain: "exampleDomain",
+ *     tpspDiskEncrypted: true,
+ *     tpspKeyTrustLevel: "CHROME_BROWSER_HW_KEY",
+ *     tpspOsFirewall: true,
+ *     tpspOsVersion: "10.0.19041",
+ *     tpspPasswordProctectionWarningTrigger: "PASSWORD_PROTECTION_OFF",
+ *     tpspRealtimeUrlCheckMode: true,
+ *     tpspSafeBrowsingProtectionLevel: "ENHANCED_PROTECTION",
+ *     tpspScreenLockSecured: true,
+ *     tpspSiteIsolationEnabled: true,
+ * });
+ * ```
+ *
  * ## Import
  *
  * ```sh

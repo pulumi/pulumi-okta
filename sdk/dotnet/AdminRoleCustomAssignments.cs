@@ -15,6 +15,113 @@ namespace Pulumi.Okta
     /// 
     /// &gt; **NOTE:** This an Early Access feature.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Okta = Pulumi.Okta;
+    /// using Std = Pulumi.Std;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var orgUrl = "https://mycompany.okta.com";
+    /// 
+    ///     var test = new Okta.AdminRoleCustom("test", new()
+    ///     {
+    ///         Label = "SomeUsersAndApps",
+    ///         Description = "Manage apps assignments and users",
+    ///         Permissions = new[]
+    ///         {
+    ///             "okta.apps.assignment.manage",
+    ///             "okta.users.manage",
+    ///             "okta.apps.manage",
+    ///         },
+    ///     });
+    /// 
+    ///     var testSwa = new Okta.App.Swa("test", new()
+    ///     {
+    ///         Label = "My SWA App",
+    ///         ButtonField = "btn-login",
+    ///         PasswordField = "txtbox-password",
+    ///         UsernameField = "txtbox-username",
+    ///         Url = "https://example.com/login.html",
+    ///     });
+    /// 
+    ///     var testResourceSet = new Okta.ResourceSet("test", new()
+    ///     {
+    ///         Label = "UsersWithApp",
+    ///         Description = "All the users and SWA app",
+    ///         Resources = new[]
+    ///         {
+    ///             Std.Index.Format.Invoke(new()
+    ///             {
+    ///                 Input = "%s/api/v1/users",
+    ///                 Args = new[]
+    ///                 {
+    ///                     orgUrl,
+    ///                 },
+    ///             }).Result,
+    ///             Std.Index.Format.Invoke(new()
+    ///             {
+    ///                 Input = "%s/api/v1/apps/%s",
+    ///                 Args = new[]
+    ///                 {
+    ///                     orgUrl,
+    ///                     testSwa.Id,
+    ///                 },
+    ///             }).Result,
+    ///         },
+    ///     });
+    /// 
+    ///     // this user will have `CUSTOM` role assigned, but it won't appear in the `admin_roles` for that user,
+    ///     // since direct assignment of custom roles is not allowed
+    ///     var testUser = new Okta.User.User("test", new()
+    ///     {
+    ///         FirstName = "Paul",
+    ///         LastName = "Atreides",
+    ///         Login = "no-reply@caladan.planet",
+    ///         Email = "no-reply@caladan.planet",
+    ///     });
+    /// 
+    ///     var testGroup = new Okta.Group.Group("test", new()
+    ///     {
+    ///         Name = "General",
+    ///         Description = "General Group",
+    ///     });
+    /// 
+    ///     // this user and group will manage the set of resources based on the permissions specified in the custom role
+    ///     var testAdminRoleCustomAssignments = new Okta.AdminRoleCustomAssignments("test", new()
+    ///     {
+    ///         ResourceSetId = testResourceSet.Id,
+    ///         CustomRoleId = test.Id,
+    ///         Members = new[]
+    ///         {
+    ///             Std.Index.Format.Invoke(new()
+    ///             {
+    ///                 Input = "%s/api/v1/users/%s",
+    ///                 Args = new[]
+    ///                 {
+    ///                     orgUrl,
+    ///                     testUser.Id,
+    ///                 },
+    ///             }).Result,
+    ///             Std.Index.Format.Invoke(new()
+    ///             {
+    ///                 Input = "%s/api/v1/groups/%s",
+    ///                 Args = new[]
+    ///                 {
+    ///                     orgUrl,
+    ///                     testGroup.Id,
+    ///                 },
+    ///             }).Result,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// ```sh

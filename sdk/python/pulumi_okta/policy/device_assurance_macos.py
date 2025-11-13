@@ -749,6 +749,38 @@ class DeviceAssuranceMacos(pulumi.CustomResource):
         """
         Manages a device assurance policy for macos.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+        import pulumi_std as std
+
+        example = okta.policy.DeviceAssuranceMacos("example",
+            name="example",
+            os_version="12.4.6",
+            disk_encryption_types=std.index.toset(input=["ALL_INTERNAL_VOLUMES"])["result"],
+            secure_hardware_present=True,
+            screenlock_types=std.index.toset(input=[
+                "BIOMETRIC",
+                "PASSCODE",
+            ])["result"],
+            third_party_signal_providers=True,
+            tpsp_browser_version="15393.27.0",
+            tpsp_builtin_dns_client_enabled=True,
+            tpsp_chrome_remote_desktop_app_blocked=True,
+            tpsp_device_enrollment_domain="exampleDomain",
+            tpsp_disk_encrypted=True,
+            tpsp_key_trust_level="CHROME_BROWSER_HW_KEY",
+            tpsp_os_firewall=True,
+            tpsp_os_version="10.0.19041",
+            tpsp_password_proctection_warning_trigger="PASSWORD_PROTECTION_OFF",
+            tpsp_realtime_url_check_mode=True,
+            tpsp_safe_browsing_protection_level="ENHANCED_PROTECTION",
+            tpsp_screen_lock_secured=True,
+            tpsp_site_isolation_enabled=True)
+        ```
+
         ## Import
 
         ```sh
@@ -785,6 +817,38 @@ class DeviceAssuranceMacos(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a device assurance policy for macos.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+        import pulumi_std as std
+
+        example = okta.policy.DeviceAssuranceMacos("example",
+            name="example",
+            os_version="12.4.6",
+            disk_encryption_types=std.index.toset(input=["ALL_INTERNAL_VOLUMES"])["result"],
+            secure_hardware_present=True,
+            screenlock_types=std.index.toset(input=[
+                "BIOMETRIC",
+                "PASSCODE",
+            ])["result"],
+            third_party_signal_providers=True,
+            tpsp_browser_version="15393.27.0",
+            tpsp_builtin_dns_client_enabled=True,
+            tpsp_chrome_remote_desktop_app_blocked=True,
+            tpsp_device_enrollment_domain="exampleDomain",
+            tpsp_disk_encrypted=True,
+            tpsp_key_trust_level="CHROME_BROWSER_HW_KEY",
+            tpsp_os_firewall=True,
+            tpsp_os_version="10.0.19041",
+            tpsp_password_proctection_warning_trigger="PASSWORD_PROTECTION_OFF",
+            tpsp_realtime_url_check_mode=True,
+            tpsp_safe_browsing_protection_level="ENHANCED_PROTECTION",
+            tpsp_screen_lock_secured=True,
+            tpsp_site_isolation_enabled=True)
+        ```
 
         ## Import
 

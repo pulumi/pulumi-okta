@@ -18,6 +18,26 @@ namespace Pulumi.Okta.App
     /// 
     /// ## Example Usage
     /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Okta = Pulumi.Okta;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Okta.App.ThreeField("example", new()
+    ///     {
+    ///         Label = "Example App",
+    ///         SignOnUrl = "https://example.com/login.html",
+    ///         SignOnRedirectUrl = "https://example.com",
+    ///         RevealPassword = true,
+    ///         CredentialsScheme = "EDIT_USERNAME_AND_PASSWORD",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// ```sh

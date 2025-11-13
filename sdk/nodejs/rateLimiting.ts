@@ -13,6 +13,17 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const example = new okta.RateLimiting("example", {
+ *     login: "ENFORCE",
+ *     authorize: "ENFORCE",
+ *     communicationsEnabled: true,
+ * });
+ * ```
+ *
  * ## Import
  *
  * ```sh

@@ -12,6 +12,34 @@ namespace Pulumi.Okta.Policy
     /// <summary>
     /// Manages a device assurance policy for ios.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Okta = Pulumi.Okta;
+    /// using Std = Pulumi.Std;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Okta.Policy.DeviceAssuranceIos("example", new()
+    ///     {
+    ///         Name = "example",
+    ///         OsVersion = "12.4.5",
+    ///         Jailbreak = false,
+    ///         ScreenlockTypes = Std.Index.Toset.Invoke(new()
+    ///         {
+    ///             Input = new[]
+    ///             {
+    ///                 "BIOMETRIC",
+    ///             },
+    ///         }).Result,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// ```sh

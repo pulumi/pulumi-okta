@@ -13,6 +13,44 @@ import (
 
 // Manages a device assurance policy for ios.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v6/go/okta/policy"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			invokeToset, err := std.Toset(ctx, map[string]interface{}{
+//				"input": []string{
+//					"BIOMETRIC",
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = policy.NewDeviceAssuranceIos(ctx, "example", &policy.DeviceAssuranceIosArgs{
+//				Name:            pulumi.String("example"),
+//				OsVersion:       pulumi.String("12.4.5"),
+//				Jailbreak:       pulumi.Bool(false),
+//				ScreenlockTypes: []pulumi.String(invokeToset.Result),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // ```sh

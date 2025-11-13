@@ -19,6 +19,78 @@ import javax.annotation.Nullable;
 /**
  * Assigns Admin roles to Okta Groups. This resource allows you to assign Okta administrator roles to Okta Groups. This resource provides a one-to-one interface between the Okta group and the admin role.
  * 
+ * ## Example Usage
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.okta.group.Role;
+ * import com.pulumi.okta.group.RoleArgs;
+ * import com.pulumi.okta.group.Group;
+ * import com.pulumi.okta.group.GroupArgs;
+ * import com.pulumi.okta.ResourceSet;
+ * import com.pulumi.okta.ResourceSetArgs;
+ * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.okta.AdminRoleCustom;
+ * import com.pulumi.okta.AdminRoleCustomArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Role("example", RoleArgs.builder()
+ *             .groupId("<group id>")
+ *             .roleType("READ_ONLY_ADMIN")
+ *             .build());
+ * 
+ *         // Example for CUSTOM role
+ *         var test = new Group("test", GroupArgs.builder()
+ *             .name("testAcc_replace_with_uuid")
+ *             .description("testing")
+ *             .build());
+ * 
+ *         var testResourceSet = new ResourceSet("testResourceSet", ResourceSetArgs.builder()
+ *             .label("test")
+ *             .description("testing, testing")
+ *             .resources(StdFunctions.format(Map.ofEntries(
+ *                 Map.entry("input", "%s/api/v1/users"),
+ *                 Map.entry("args", "https://tien-oie-2023-26-26.oktapreview.com")
+ *             )).result())
+ *             .build());
+ * 
+ *         var testAdminRoleCustom = new AdminRoleCustom("testAdminRoleCustom", AdminRoleCustomArgs.builder()
+ *             .label("testt")
+ *             .description("testing, testing")
+ *             .permissions(            
+ *                 "okta.apps.assignment.manage",
+ *                 "okta.users.manage",
+ *                 "okta.apps.manage")
+ *             .build());
+ * 
+ *         var testRole = new Role("testRole", RoleArgs.builder()
+ *             .groupId(test.id())
+ *             .roleId(testAdminRoleCustom.id())
+ *             .resourceSetId(testResourceSet.id())
+ *             .roleType("CUSTOM")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
  * ```sh
