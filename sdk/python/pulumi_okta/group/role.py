@@ -323,6 +323,40 @@ class Role(pulumi.CustomResource):
         """
         Assigns Admin roles to Okta Groups. This resource allows you to assign Okta administrator roles to Okta Groups. This resource provides a one-to-one interface between the Okta group and the admin role.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+        import pulumi_std as std
+
+        example = okta.group.Role("example",
+            group_id="<group id>",
+            role_type="READ_ONLY_ADMIN")
+        # Example for CUSTOM role
+        test = okta.group.Group("test",
+            name="testAcc_replace_with_uuid",
+            description="testing")
+        test_resource_set = okta.ResourceSet("test",
+            label="test",
+            description="testing, testing",
+            resources=[std.index.format(input="%s/api/v1/users",
+                args=["https://tien-oie-2023-26-26.oktapreview.com"])["result"]])
+        test_admin_role_custom = okta.AdminRoleCustom("test",
+            label="testt",
+            description="testing, testing",
+            permissions=[
+                "okta.apps.assignment.manage",
+                "okta.users.manage",
+                "okta.apps.manage",
+            ])
+        test_role = okta.group.Role("test",
+            group_id=test.id,
+            role_id=test_admin_role_custom.id,
+            resource_set_id=test_resource_set.id,
+            role_type="CUSTOM")
+        ```
+
         ## Import
 
         ```sh
@@ -360,6 +394,40 @@ class Role(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Assigns Admin roles to Okta Groups. This resource allows you to assign Okta administrator roles to Okta Groups. This resource provides a one-to-one interface between the Okta group and the admin role.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+        import pulumi_std as std
+
+        example = okta.group.Role("example",
+            group_id="<group id>",
+            role_type="READ_ONLY_ADMIN")
+        # Example for CUSTOM role
+        test = okta.group.Group("test",
+            name="testAcc_replace_with_uuid",
+            description="testing")
+        test_resource_set = okta.ResourceSet("test",
+            label="test",
+            description="testing, testing",
+            resources=[std.index.format(input="%s/api/v1/users",
+                args=["https://tien-oie-2023-26-26.oktapreview.com"])["result"]])
+        test_admin_role_custom = okta.AdminRoleCustom("test",
+            label="testt",
+            description="testing, testing",
+            permissions=[
+                "okta.apps.assignment.manage",
+                "okta.users.manage",
+                "okta.apps.manage",
+            ])
+        test_role = okta.group.Role("test",
+            group_id=test.id,
+            role_id=test_admin_role_custom.id,
+            resource_set_id=test_resource_set.id,
+            role_type="CUSTOM")
+        ```
 
         ## Import
 

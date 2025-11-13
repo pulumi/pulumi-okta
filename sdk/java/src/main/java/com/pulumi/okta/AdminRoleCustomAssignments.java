@@ -21,6 +21,114 @@ import javax.annotation.Nullable;
  * 
  * &gt; **NOTE:** This an Early Access feature.
  * 
+ * ## Example Usage
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.okta.AdminRoleCustom;
+ * import com.pulumi.okta.AdminRoleCustomArgs;
+ * import com.pulumi.okta.app.Swa;
+ * import com.pulumi.okta.app.SwaArgs;
+ * import com.pulumi.okta.ResourceSet;
+ * import com.pulumi.okta.ResourceSetArgs;
+ * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.okta.user.User;
+ * import com.pulumi.okta.user.UserArgs;
+ * import com.pulumi.okta.group.Group;
+ * import com.pulumi.okta.group.GroupArgs;
+ * import com.pulumi.okta.AdminRoleCustomAssignments;
+ * import com.pulumi.okta.AdminRoleCustomAssignmentsArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
+ *         Pulumi.run(App::stack);
+ *     }}{@code
+ * 
+ *     public static void stack(Context ctx) }{{@code
+ *         final var orgUrl = "https://mycompany.okta.com";
+ * 
+ *         var test = new AdminRoleCustom("test", AdminRoleCustomArgs.builder()
+ *             .label("SomeUsersAndApps")
+ *             .description("Manage apps assignments and users")
+ *             .permissions(            
+ *                 "okta.apps.assignment.manage",
+ *                 "okta.users.manage",
+ *                 "okta.apps.manage")
+ *             .build());
+ * 
+ *         var testSwa = new Swa("testSwa", SwaArgs.builder()
+ *             .label("My SWA App")
+ *             .buttonField("btn-login")
+ *             .passwordField("txtbox-password")
+ *             .usernameField("txtbox-username")
+ *             .url("https://example.com/login.html")
+ *             .build());
+ * 
+ *         var testResourceSet = new ResourceSet("testResourceSet", ResourceSetArgs.builder()
+ *             .label("UsersWithApp")
+ *             .description("All the users and SWA app")
+ *             .resources(            
+ *                 StdFunctions.format(Map.ofEntries(
+ *                     Map.entry("input", "%s/api/v1/users"),
+ *                     Map.entry("args", orgUrl)
+ *                 )).result(),
+ *                 StdFunctions.format(Map.ofEntries(
+ *                     Map.entry("input", "%s/api/v1/apps/%s"),
+ *                     Map.entry("args",                     
+ *                         orgUrl,
+ *                         testSwa.id())
+ *                 )).result())
+ *             .build());
+ * 
+ *         // this user will have `CUSTOM` role assigned, but it won't appear in the `admin_roles` for that user,
+ *         // since direct assignment of custom roles is not allowed
+ *         var testUser = new User("testUser", UserArgs.builder()
+ *             .firstName("Paul")
+ *             .lastName("Atreides")
+ *             .login("no-reply}{@literal @}{@code caladan.planet")
+ *             .email("no-reply}{@literal @}{@code caladan.planet")
+ *             .build());
+ * 
+ *         var testGroup = new Group("testGroup", GroupArgs.builder()
+ *             .name("General")
+ *             .description("General Group")
+ *             .build());
+ * 
+ *         // this user and group will manage the set of resources based on the permissions specified in the custom role
+ *         var testAdminRoleCustomAssignments = new AdminRoleCustomAssignments("testAdminRoleCustomAssignments", AdminRoleCustomAssignmentsArgs.builder()
+ *             .resourceSetId(testResourceSet.id())
+ *             .customRoleId(test.id())
+ *             .members(            
+ *                 StdFunctions.format(Map.ofEntries(
+ *                     Map.entry("input", "%s/api/v1/users/%s"),
+ *                     Map.entry("args",                     
+ *                         orgUrl,
+ *                         testUser.id())
+ *                 )).result(),
+ *                 StdFunctions.format(Map.ofEntries(
+ *                     Map.entry("input", "%s/api/v1/groups/%s"),
+ *                     Map.entry("args",                     
+ *                         orgUrl,
+ *                         testGroup.id())
+ *                 )).result())
+ *             .build());
+ * 
+ *     }}{@code
+ * }}{@code
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
  * ```sh

@@ -17,6 +17,133 @@ import (
 //
 // > **NOTE:** This an Early Access feature.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v6/go/okta"
+//	"github.com/pulumi/pulumi-okta/sdk/v6/go/okta/app"
+//	"github.com/pulumi/pulumi-okta/sdk/v6/go/okta/group"
+//	"github.com/pulumi/pulumi-okta/sdk/v6/go/okta/user"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			orgUrl := "https://mycompany.okta.com"
+//			test, err := okta.NewAdminRoleCustom(ctx, "test", &okta.AdminRoleCustomArgs{
+//				Label:       pulumi.String("SomeUsersAndApps"),
+//				Description: pulumi.String("Manage apps assignments and users"),
+//				Permissions: pulumi.StringArray{
+//					pulumi.String("okta.apps.assignment.manage"),
+//					pulumi.String("okta.users.manage"),
+//					pulumi.String("okta.apps.manage"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			testSwa, err := app.NewSwa(ctx, "test", &app.SwaArgs{
+//				Label:         pulumi.String("My SWA App"),
+//				ButtonField:   pulumi.String("btn-login"),
+//				PasswordField: pulumi.String("txtbox-password"),
+//				UsernameField: pulumi.String("txtbox-username"),
+//				Url:           pulumi.String("https://example.com/login.html"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			invokeFormat, err := std.Format(ctx, map[string]interface{}{
+//				"input": "%s/api/v1/users",
+//				"args": []string{
+//					orgUrl,
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			invokeFormat1, err := std.Format(ctx, map[string]interface{}{
+//				"input": "%s/api/v1/apps/%s",
+//				"args": []interface{}{
+//					orgUrl,
+//					testSwa.ID(),
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			testResourceSet, err := okta.NewResourceSet(ctx, "test", &okta.ResourceSetArgs{
+//				Label:       pulumi.String("UsersWithApp"),
+//				Description: pulumi.String("All the users and SWA app"),
+//				Resources: pulumi.StringArray{
+//					invokeFormat.Result,
+//					invokeFormat1.Result,
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			// this user will have `CUSTOM` role assigned, but it won't appear in the `admin_roles` for that user,
+//			// since direct assignment of custom roles is not allowed
+//			testUser, err := user.NewUser(ctx, "test", &user.UserArgs{
+//				FirstName: pulumi.String("Paul"),
+//				LastName:  pulumi.String("Atreides"),
+//				Login:     pulumi.String("no-reply@caladan.planet"),
+//				Email:     pulumi.String("no-reply@caladan.planet"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			testGroup, err := group.NewGroup(ctx, "test", &group.GroupArgs{
+//				Name:        pulumi.String("General"),
+//				Description: pulumi.String("General Group"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			invokeFormat2, err := std.Format(ctx, map[string]interface{}{
+//				"input": "%s/api/v1/users/%s",
+//				"args": []interface{}{
+//					orgUrl,
+//					testUser.ID(),
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			invokeFormat3, err := std.Format(ctx, map[string]interface{}{
+//				"input": "%s/api/v1/groups/%s",
+//				"args": []interface{}{
+//					orgUrl,
+//					testGroup.ID(),
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			// this user and group will manage the set of resources based on the permissions specified in the custom role
+//			_, err = okta.NewAdminRoleCustomAssignments(ctx, "test", &okta.AdminRoleCustomAssignmentsArgs{
+//				ResourceSetId: testResourceSet.ID(),
+//				CustomRoleId:  test.ID(),
+//				Members: pulumi.StringArray{
+//					invokeFormat2.Result,
+//					invokeFormat3.Result,
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // ```sh

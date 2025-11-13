@@ -19,6 +19,47 @@ import javax.annotation.Nullable;
 /**
  * Manages a device assurance policy for android.
  * 
+ * ## Example Usage
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.okta.policy.DeviceAssuranceAndroid;
+ * import com.pulumi.okta.policy.DeviceAssuranceAndroidArgs;
+ * import com.pulumi.std.StdFunctions;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new DeviceAssuranceAndroid("example", DeviceAssuranceAndroidArgs.builder()
+ *             .name("example")
+ *             .osVersion("12")
+ *             .diskEncryptionTypes(StdFunctions.toset(Map.of("input",             
+ *                 "FULL",
+ *                 "USER")).result())
+ *             .jailbreak(false)
+ *             .secureHardwarePresent(true)
+ *             .screenlockTypes(StdFunctions.toset(Map.of("input", "BIOMETRIC")).result())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
  * ```sh

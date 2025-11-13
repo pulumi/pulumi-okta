@@ -21,6 +21,49 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.okta.RequestSettingResource;
+ * import com.pulumi.okta.RequestSettingResourceArgs;
+ * import com.pulumi.okta.inputs.RequestSettingResourceRiskSettingsArgs;
+ * import com.pulumi.okta.inputs.RequestSettingResourceRiskSettingsDefaultSettingArgs;
+ * import com.pulumi.okta.inputs.RequestSettingResourceRequestOnBehalfOfSettingsArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var test = new RequestSettingResource("test", RequestSettingResourceArgs.builder()
+ *             .resourceId("<resource_id>")
+ *             .riskSettings(RequestSettingResourceRiskSettingsArgs.builder()
+ *                 .defaultSetting(RequestSettingResourceRiskSettingsDefaultSettingArgs.builder()
+ *                     .requestSubmissionType("ALLOWED_WITH_OVERRIDES")
+ *                     .approvalSequenceId("<approval_sequence_id>")
+ *                     .build())
+ *                 .build())
+ *             .requestOnBehalfOfSettings(RequestSettingResourceRequestOnBehalfOfSettingsArgs.builder()
+ *                 .allowed(true)
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
  * ```sh

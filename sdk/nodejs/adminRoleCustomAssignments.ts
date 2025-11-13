@@ -10,6 +10,82 @@ import * as utilities from "./utilities";
  *
  * > **NOTE:** This an Early Access feature.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ * import * as std from "@pulumi/std";
+ *
+ * const orgUrl = "https://mycompany.okta.com";
+ * const test = new okta.AdminRoleCustom("test", {
+ *     label: "SomeUsersAndApps",
+ *     description: "Manage apps assignments and users",
+ *     permissions: [
+ *         "okta.apps.assignment.manage",
+ *         "okta.users.manage",
+ *         "okta.apps.manage",
+ *     ],
+ * });
+ * const testSwa = new okta.app.Swa("test", {
+ *     label: "My SWA App",
+ *     buttonField: "btn-login",
+ *     passwordField: "txtbox-password",
+ *     usernameField: "txtbox-username",
+ *     url: "https://example.com/login.html",
+ * });
+ * const testResourceSet = new okta.ResourceSet("test", {
+ *     label: "UsersWithApp",
+ *     description: "All the users and SWA app",
+ *     resources: [
+ *         std.index.format({
+ *             input: "%s/api/v1/users",
+ *             args: [orgUrl],
+ *         }).result,
+ *         std.index.format({
+ *             input: "%s/api/v1/apps/%s",
+ *             args: [
+ *                 orgUrl,
+ *                 testSwa.id,
+ *             ],
+ *         }).result,
+ *     ],
+ * });
+ * // this user will have `CUSTOM` role assigned, but it won't appear in the `admin_roles` for that user,
+ * // since direct assignment of custom roles is not allowed
+ * const testUser = new okta.user.User("test", {
+ *     firstName: "Paul",
+ *     lastName: "Atreides",
+ *     login: "no-reply@caladan.planet",
+ *     email: "no-reply@caladan.planet",
+ * });
+ * const testGroup = new okta.group.Group("test", {
+ *     name: "General",
+ *     description: "General Group",
+ * });
+ * // this user and group will manage the set of resources based on the permissions specified in the custom role
+ * const testAdminRoleCustomAssignments = new okta.AdminRoleCustomAssignments("test", {
+ *     resourceSetId: testResourceSet.id,
+ *     customRoleId: test.id,
+ *     members: [
+ *         std.index.format({
+ *             input: "%s/api/v1/users/%s",
+ *             args: [
+ *                 orgUrl,
+ *                 testUser.id,
+ *             ],
+ *         }).result,
+ *         std.index.format({
+ *             input: "%s/api/v1/groups/%s",
+ *             args: [
+ *                 orgUrl,
+ *                 testGroup.id,
+ *             ],
+ *         }).result,
+ *     ],
+ * });
+ * ```
+ *
  * ## Import
  *
  * ```sh

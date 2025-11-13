@@ -7,6 +7,23 @@ import * as utilities from "../utilities";
 /**
  * Manages a device assurance policy for ios.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ * import * as std from "@pulumi/std";
+ *
+ * const example = new okta.policy.DeviceAssuranceIos("example", {
+ *     name: "example",
+ *     osVersion: "12.4.5",
+ *     jailbreak: false,
+ *     screenlockTypes: std.index.toset({
+ *         input: ["BIOMETRIC"],
+ *     }).result,
+ * });
+ * ```
+ *
  * ## Import
  *
  * ```sh

@@ -142,6 +142,68 @@ class AdminRoleCustomAssignments(pulumi.CustomResource):
 
         > **NOTE:** This an Early Access feature.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+        import pulumi_std as std
+
+        org_url = "https://mycompany.okta.com"
+        test = okta.AdminRoleCustom("test",
+            label="SomeUsersAndApps",
+            description="Manage apps assignments and users",
+            permissions=[
+                "okta.apps.assignment.manage",
+                "okta.users.manage",
+                "okta.apps.manage",
+            ])
+        test_swa = okta.app.Swa("test",
+            label="My SWA App",
+            button_field="btn-login",
+            password_field="txtbox-password",
+            username_field="txtbox-username",
+            url="https://example.com/login.html")
+        test_resource_set = okta.ResourceSet("test",
+            label="UsersWithApp",
+            description="All the users and SWA app",
+            resources=[
+                std.index.format(input="%s/api/v1/users",
+                    args=[org_url])["result"],
+                std.index.format(input="%s/api/v1/apps/%s",
+                    args=[
+                        org_url,
+                        test_swa.id,
+                    ])["result"],
+            ])
+        # this user will have `CUSTOM` role assigned, but it won't appear in the `admin_roles` for that user,
+        # since direct assignment of custom roles is not allowed
+        test_user = okta.user.User("test",
+            first_name="Paul",
+            last_name="Atreides",
+            login="no-reply@caladan.planet",
+            email="no-reply@caladan.planet")
+        test_group = okta.group.Group("test",
+            name="General",
+            description="General Group")
+        # this user and group will manage the set of resources based on the permissions specified in the custom role
+        test_admin_role_custom_assignments = okta.AdminRoleCustomAssignments("test",
+            resource_set_id=test_resource_set.id,
+            custom_role_id=test.id,
+            members=[
+                std.index.format(input="%s/api/v1/users/%s",
+                    args=[
+                        org_url,
+                        test_user.id,
+                    ])["result"],
+                std.index.format(input="%s/api/v1/groups/%s",
+                    args=[
+                        org_url,
+                        test_group.id,
+                    ])["result"],
+            ])
+        ```
+
         ## Import
 
         ```sh
@@ -165,6 +227,68 @@ class AdminRoleCustomAssignments(pulumi.CustomResource):
         These operations allow the creation and manipulation of custom roles as custom collections of permissions.
 
         > **NOTE:** This an Early Access feature.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+        import pulumi_std as std
+
+        org_url = "https://mycompany.okta.com"
+        test = okta.AdminRoleCustom("test",
+            label="SomeUsersAndApps",
+            description="Manage apps assignments and users",
+            permissions=[
+                "okta.apps.assignment.manage",
+                "okta.users.manage",
+                "okta.apps.manage",
+            ])
+        test_swa = okta.app.Swa("test",
+            label="My SWA App",
+            button_field="btn-login",
+            password_field="txtbox-password",
+            username_field="txtbox-username",
+            url="https://example.com/login.html")
+        test_resource_set = okta.ResourceSet("test",
+            label="UsersWithApp",
+            description="All the users and SWA app",
+            resources=[
+                std.index.format(input="%s/api/v1/users",
+                    args=[org_url])["result"],
+                std.index.format(input="%s/api/v1/apps/%s",
+                    args=[
+                        org_url,
+                        test_swa.id,
+                    ])["result"],
+            ])
+        # this user will have `CUSTOM` role assigned, but it won't appear in the `admin_roles` for that user,
+        # since direct assignment of custom roles is not allowed
+        test_user = okta.user.User("test",
+            first_name="Paul",
+            last_name="Atreides",
+            login="no-reply@caladan.planet",
+            email="no-reply@caladan.planet")
+        test_group = okta.group.Group("test",
+            name="General",
+            description="General Group")
+        # this user and group will manage the set of resources based on the permissions specified in the custom role
+        test_admin_role_custom_assignments = okta.AdminRoleCustomAssignments("test",
+            resource_set_id=test_resource_set.id,
+            custom_role_id=test.id,
+            members=[
+                std.index.format(input="%s/api/v1/users/%s",
+                    args=[
+                        org_url,
+                        test_user.id,
+                    ])["result"],
+                std.index.format(input="%s/api/v1/groups/%s",
+                    args=[
+                        org_url,
+                        test_group.id,
+                    ])["result"],
+            ])
+        ```
 
         ## Import
 

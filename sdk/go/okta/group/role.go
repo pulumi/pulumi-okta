@@ -14,6 +14,83 @@ import (
 
 // Assigns Admin roles to Okta Groups. This resource allows you to assign Okta administrator roles to Okta Groups. This resource provides a one-to-one interface between the Okta group and the admin role.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v6/go/okta"
+//	"github.com/pulumi/pulumi-okta/sdk/v6/go/okta/group"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := group.NewRole(ctx, "example", &group.RoleArgs{
+//				GroupId:  pulumi.String("<group id>"),
+//				RoleType: pulumi.String("READ_ONLY_ADMIN"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			// Example for CUSTOM role
+//			test, err := group.NewGroup(ctx, "test", &group.GroupArgs{
+//				Name:        pulumi.String("testAcc_replace_with_uuid"),
+//				Description: pulumi.String("testing"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			invokeFormat, err := std.Format(ctx, map[string]interface{}{
+//				"input": "%s/api/v1/users",
+//				"args": []string{
+//					"https://tien-oie-2023-26-26.oktapreview.com",
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			testResourceSet, err := okta.NewResourceSet(ctx, "test", &okta.ResourceSetArgs{
+//				Label:       pulumi.String("test"),
+//				Description: pulumi.String("testing, testing"),
+//				Resources: pulumi.StringArray{
+//					invokeFormat.Result,
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			testAdminRoleCustom, err := okta.NewAdminRoleCustom(ctx, "test", &okta.AdminRoleCustomArgs{
+//				Label:       pulumi.String("testt"),
+//				Description: pulumi.String("testing, testing"),
+//				Permissions: pulumi.StringArray{
+//					pulumi.String("okta.apps.assignment.manage"),
+//					pulumi.String("okta.users.manage"),
+//					pulumi.String("okta.apps.manage"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = group.NewRole(ctx, "test", &group.RoleArgs{
+//				GroupId:       test.ID(),
+//				RoleId:        testAdminRoleCustom.ID(),
+//				ResourceSetId: testResourceSet.ID(),
+//				RoleType:      pulumi.String("CUSTOM"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // ```sh

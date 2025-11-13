@@ -13,6 +13,55 @@ import (
 
 // Manages a device assurance policy for android.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v6/go/okta/policy"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			invokeToset, err := std.Toset(ctx, map[string]interface{}{
+//				"input": []string{
+//					"FULL",
+//					"USER",
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			invokeToset1, err := std.Toset(ctx, map[string]interface{}{
+//				"input": []string{
+//					"BIOMETRIC",
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = policy.NewDeviceAssuranceAndroid(ctx, "example", &policy.DeviceAssuranceAndroidArgs{
+//				Name:                  pulumi.String("example"),
+//				OsVersion:             pulumi.String("12"),
+//				DiskEncryptionTypes:   []pulumi.String(invokeToset.Result),
+//				Jailbreak:             pulumi.Bool(false),
+//				SecureHardwarePresent: pulumi.Bool(true),
+//				ScreenlockTypes:       []pulumi.String(invokeToset1.Result),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // ```sh

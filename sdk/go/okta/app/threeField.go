@@ -21,6 +21,34 @@ import (
 //
 // ## Example Usage
 //
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v6/go/okta/app"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := app.NewThreeField(ctx, "example", &app.ThreeFieldArgs{
+//				Label:             pulumi.String("Example App"),
+//				SignOnUrl:         "https://example.com/login.html",
+//				SignOnRedirectUrl: "https://example.com",
+//				RevealPassword:    pulumi.Bool(true),
+//				CredentialsScheme: pulumi.String("EDIT_USERNAME_AND_PASSWORD"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // ```sh
