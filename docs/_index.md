@@ -47,10 +47,12 @@ config:
         value: '[COMMA,SEPARATED,SCOPE,VALUES]'
 
 ```
+
 ```typescript
 import * as pulumi from "@pulumi/pulumi";
 
 ```
+
 {{% /choosable %}}
 {{% choosable language python %}}
 ```yaml
@@ -72,10 +74,12 @@ config:
         value: '[COMMA,SEPARATED,SCOPE,VALUES]'
 
 ```
+
 ```python
 import pulumi
 
 ```
+
 {{% /choosable %}}
 {{% choosable language csharp %}}
 ```yaml
@@ -97,6 +101,7 @@ config:
         value: '[COMMA,SEPARATED,SCOPE,VALUES]'
 
 ```
+
 ```csharp
 using System.Collections.Generic;
 using System.Linq;
@@ -107,6 +112,7 @@ return await Deployment.RunAsync(() =>
 });
 
 ```
+
 {{% /choosable %}}
 {{% choosable language go %}}
 ```yaml
@@ -128,6 +134,7 @@ config:
         value: '[COMMA,SEPARATED,SCOPE,VALUES]'
 
 ```
+
 ```go
 package main
 
@@ -141,6 +148,7 @@ func main() {
 	})
 }
 ```
+
 {{% /choosable %}}
 {{% choosable language yaml %}}
 ```yaml
@@ -162,9 +170,11 @@ config:
         value: '[COMMA,SEPARATED,SCOPE,VALUES]'
 
 ```
+
 ```yaml
 {}
 ```
+
 {{% /choosable %}}
 {{% choosable language java %}}
 ```yaml
@@ -186,6 +196,7 @@ config:
         value: '[COMMA,SEPARATED,SCOPE,VALUES]'
 
 ```
+
 ```java
 package generated_program;
 
@@ -208,6 +219,7 @@ public class App {
     }
 }
 ```
+
 {{% /choosable %}}
 {{< /chooser >}}
 
