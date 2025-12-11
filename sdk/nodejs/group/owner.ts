@@ -26,6 +26,30 @@ import * as utilities from "../utilities";
  *     type: "USER",
  * });
  * ```
+ *
+ * ## Import
+ *
+ * An okta_group_owner resource can be imported using the following format:
+ *
+ * bash
+ *
+ * ```sh
+ * $ pulumi import okta:group/owner:Owner example group_id/group_owner_id
+ * ```
+ *
+ * Where:
+ *
+ * - `group_id` is the ID of the group
+ *
+ * - `group_owner_id` is the ID of the group owner resource
+ *
+ * **Example:**
+ *
+ * bash
+ *
+ * ```sh
+ * $ pulumi import okta:group/owner:Owner example group_123/group_owner_456
+ * ```
  */
 export class Owner extends pulumi.CustomResource {
     /**

@@ -6,6 +6,18 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
+/**
+ * Get the request fields for catalog entry.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const test = okta.getCatalogEntryUserAccessRequestFields({});
+ * ```
+ */
 export function getCatalogEntryUserAccessRequestFields(args: GetCatalogEntryUserAccessRequestFieldsArgs, opts?: pulumi.InvokeOptions): Promise<GetCatalogEntryUserAccessRequestFieldsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("okta:index/getCatalogEntryUserAccessRequestFields:getCatalogEntryUserAccessRequestFields", {
@@ -20,7 +32,13 @@ export function getCatalogEntryUserAccessRequestFields(args: GetCatalogEntryUser
  */
 export interface GetCatalogEntryUserAccessRequestFieldsArgs {
     datas?: inputs.GetCatalogEntryUserAccessRequestFieldsData[];
+    /**
+     * TThe ID of the catalog entry.
+     */
     entryId: string;
+    /**
+     * The ID of the user.
+     */
     userId: string;
 }
 
@@ -29,10 +47,28 @@ export interface GetCatalogEntryUserAccessRequestFieldsArgs {
  */
 export interface GetCatalogEntryUserAccessRequestFieldsResult {
     readonly datas?: outputs.GetCatalogEntryUserAccessRequestFieldsData[];
+    /**
+     * TThe ID of the catalog entry.
+     */
     readonly entryId: string;
     readonly id: string;
+    /**
+     * The ID of the user.
+     */
     readonly userId: string;
 }
+/**
+ * Get the request fields for catalog entry.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const test = okta.getCatalogEntryUserAccessRequestFields({});
+ * ```
+ */
 export function getCatalogEntryUserAccessRequestFieldsOutput(args: GetCatalogEntryUserAccessRequestFieldsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCatalogEntryUserAccessRequestFieldsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("okta:index/getCatalogEntryUserAccessRequestFields:getCatalogEntryUserAccessRequestFields", {
@@ -47,6 +83,12 @@ export function getCatalogEntryUserAccessRequestFieldsOutput(args: GetCatalogEnt
  */
 export interface GetCatalogEntryUserAccessRequestFieldsOutputArgs {
     datas?: pulumi.Input<pulumi.Input<inputs.GetCatalogEntryUserAccessRequestFieldsDataArgs>[]>;
+    /**
+     * TThe ID of the catalog entry.
+     */
     entryId: pulumi.Input<string>;
+    /**
+     * The ID of the user.
+     */
     userId: pulumi.Input<string>;
 }

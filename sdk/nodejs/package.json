@@ -1,7 +1,7 @@
 {
     "name": "@pulumi/okta",
     "version": "6.0.0-alpha.0+dev",
-    "description": "A Pulumi package for creating and managing okta resources.. Based on terraform-provider-okta: version v6.4.0",
+    "description": "A Pulumi package for creating and managing okta resources.. Based on terraform-provider-okta: version v6.5.2",
     "keywords": [
         "pulumi",
         "okta"

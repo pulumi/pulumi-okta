@@ -11,12 +11,66 @@ namespace Pulumi.Okta
 {
     public static class GetCatalogEntryUserAccessRequestFields
     {
+        /// <summary>
+        /// Get the request fields for catalog entry.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Okta = Pulumi.Okta;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Okta.GetCatalogEntryUserAccessRequestFields.Invoke();
+        /// 
+        /// });
+        /// ```
+        /// </summary>
         public static Task<GetCatalogEntryUserAccessRequestFieldsResult> InvokeAsync(GetCatalogEntryUserAccessRequestFieldsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCatalogEntryUserAccessRequestFieldsResult>("okta:index/getCatalogEntryUserAccessRequestFields:getCatalogEntryUserAccessRequestFields", args ?? new GetCatalogEntryUserAccessRequestFieldsArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Get the request fields for catalog entry.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Okta = Pulumi.Okta;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Okta.GetCatalogEntryUserAccessRequestFields.Invoke();
+        /// 
+        /// });
+        /// ```
+        /// </summary>
         public static Output<GetCatalogEntryUserAccessRequestFieldsResult> Invoke(GetCatalogEntryUserAccessRequestFieldsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCatalogEntryUserAccessRequestFieldsResult>("okta:index/getCatalogEntryUserAccessRequestFields:getCatalogEntryUserAccessRequestFields", args ?? new GetCatalogEntryUserAccessRequestFieldsInvokeArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Get the request fields for catalog entry.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Okta = Pulumi.Okta;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Okta.GetCatalogEntryUserAccessRequestFields.Invoke();
+        /// 
+        /// });
+        /// ```
+        /// </summary>
         public static Output<GetCatalogEntryUserAccessRequestFieldsResult> Invoke(GetCatalogEntryUserAccessRequestFieldsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetCatalogEntryUserAccessRequestFieldsResult>("okta:index/getCatalogEntryUserAccessRequestFields:getCatalogEntryUserAccessRequestFields", args ?? new GetCatalogEntryUserAccessRequestFieldsInvokeArgs(), options.WithDefaults());
     }
@@ -32,9 +86,15 @@ namespace Pulumi.Okta
             set => _datas = value;
         }
 
+        /// <summary>
+        /// TThe ID of the catalog entry.
+        /// </summary>
         [Input("entryId", required: true)]
         public string EntryId { get; set; } = null!;
 
+        /// <summary>
+        /// The ID of the user.
+        /// </summary>
         [Input("userId", required: true)]
         public string UserId { get; set; } = null!;
 
@@ -54,9 +114,15 @@ namespace Pulumi.Okta
             set => _datas = value;
         }
 
+        /// <summary>
+        /// TThe ID of the catalog entry.
+        /// </summary>
         [Input("entryId", required: true)]
         public Input<string> EntryId { get; set; } = null!;
 
+        /// <summary>
+        /// The ID of the user.
+        /// </summary>
         [Input("userId", required: true)]
         public Input<string> UserId { get; set; } = null!;
 
@@ -71,8 +137,14 @@ namespace Pulumi.Okta
     public sealed class GetCatalogEntryUserAccessRequestFieldsResult
     {
         public readonly ImmutableArray<Outputs.GetCatalogEntryUserAccessRequestFieldsDataResult> Datas;
+        /// <summary>
+        /// TThe ID of the catalog entry.
+        /// </summary>
         public readonly string EntryId;
         public readonly string Id;
+        /// <summary>
+        /// The ID of the user.
+        /// </summary>
         public readonly string UserId;
 
         [OutputConstructor]

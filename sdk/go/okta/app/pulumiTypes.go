@@ -13,6 +13,2786 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type ConnectionProfile struct {
+	// Authentication scheme. Valid values are TOKEN or OAUTH2.
+	AuthScheme string `pulumi:"authScheme"`
+	// OAuth2 client ID (required for OAUTH2 auth scheme).
+	ClientId *string `pulumi:"clientId"`
+	// Additional settings for OAuth2 authentication.
+	Settings *ConnectionProfileSettings `pulumi:"settings"`
+	// Signing configuration.
+	Signing *ConnectionProfileSigning `pulumi:"signing"`
+	// Authentication token (required for TOKEN auth scheme).
+	Token *string `pulumi:"token"`
+}
+
+// ConnectionProfileInput is an input type that accepts ConnectionProfileArgs and ConnectionProfileOutput values.
+// You can construct a concrete instance of `ConnectionProfileInput` via:
+//
+//	ConnectionProfileArgs{...}
+type ConnectionProfileInput interface {
+	pulumi.Input
+
+	ToConnectionProfileOutput() ConnectionProfileOutput
+	ToConnectionProfileOutputWithContext(context.Context) ConnectionProfileOutput
+}
+
+type ConnectionProfileArgs struct {
+	// Authentication scheme. Valid values are TOKEN or OAUTH2.
+	AuthScheme pulumi.StringInput `pulumi:"authScheme"`
+	// OAuth2 client ID (required for OAUTH2 auth scheme).
+	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
+	// Additional settings for OAuth2 authentication.
+	Settings ConnectionProfileSettingsPtrInput `pulumi:"settings"`
+	// Signing configuration.
+	Signing ConnectionProfileSigningPtrInput `pulumi:"signing"`
+	// Authentication token (required for TOKEN auth scheme).
+	Token pulumi.StringPtrInput `pulumi:"token"`
+}
+
+func (ConnectionProfileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionProfile)(nil)).Elem()
+}
+
+func (i ConnectionProfileArgs) ToConnectionProfileOutput() ConnectionProfileOutput {
+	return i.ToConnectionProfileOutputWithContext(context.Background())
+}
+
+func (i ConnectionProfileArgs) ToConnectionProfileOutputWithContext(ctx context.Context) ConnectionProfileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionProfileOutput)
+}
+
+func (i ConnectionProfileArgs) ToConnectionProfilePtrOutput() ConnectionProfilePtrOutput {
+	return i.ToConnectionProfilePtrOutputWithContext(context.Background())
+}
+
+func (i ConnectionProfileArgs) ToConnectionProfilePtrOutputWithContext(ctx context.Context) ConnectionProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionProfileOutput).ToConnectionProfilePtrOutputWithContext(ctx)
+}
+
+// ConnectionProfilePtrInput is an input type that accepts ConnectionProfileArgs, ConnectionProfilePtr and ConnectionProfilePtrOutput values.
+// You can construct a concrete instance of `ConnectionProfilePtrInput` via:
+//
+//	        ConnectionProfileArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConnectionProfilePtrInput interface {
+	pulumi.Input
+
+	ToConnectionProfilePtrOutput() ConnectionProfilePtrOutput
+	ToConnectionProfilePtrOutputWithContext(context.Context) ConnectionProfilePtrOutput
+}
+
+type connectionProfilePtrType ConnectionProfileArgs
+
+func ConnectionProfilePtr(v *ConnectionProfileArgs) ConnectionProfilePtrInput {
+	return (*connectionProfilePtrType)(v)
+}
+
+func (*connectionProfilePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionProfile)(nil)).Elem()
+}
+
+func (i *connectionProfilePtrType) ToConnectionProfilePtrOutput() ConnectionProfilePtrOutput {
+	return i.ToConnectionProfilePtrOutputWithContext(context.Background())
+}
+
+func (i *connectionProfilePtrType) ToConnectionProfilePtrOutputWithContext(ctx context.Context) ConnectionProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionProfilePtrOutput)
+}
+
+type ConnectionProfileOutput struct{ *pulumi.OutputState }
+
+func (ConnectionProfileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionProfile)(nil)).Elem()
+}
+
+func (o ConnectionProfileOutput) ToConnectionProfileOutput() ConnectionProfileOutput {
+	return o
+}
+
+func (o ConnectionProfileOutput) ToConnectionProfileOutputWithContext(ctx context.Context) ConnectionProfileOutput {
+	return o
+}
+
+func (o ConnectionProfileOutput) ToConnectionProfilePtrOutput() ConnectionProfilePtrOutput {
+	return o.ToConnectionProfilePtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionProfileOutput) ToConnectionProfilePtrOutputWithContext(ctx context.Context) ConnectionProfilePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionProfile) *ConnectionProfile {
+		return &v
+	}).(ConnectionProfilePtrOutput)
+}
+
+// Authentication scheme. Valid values are TOKEN or OAUTH2.
+func (o ConnectionProfileOutput) AuthScheme() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnectionProfile) string { return v.AuthScheme }).(pulumi.StringOutput)
+}
+
+// OAuth2 client ID (required for OAUTH2 auth scheme).
+func (o ConnectionProfileOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectionProfile) *string { return v.ClientId }).(pulumi.StringPtrOutput)
+}
+
+// Additional settings for OAuth2 authentication.
+func (o ConnectionProfileOutput) Settings() ConnectionProfileSettingsPtrOutput {
+	return o.ApplyT(func(v ConnectionProfile) *ConnectionProfileSettings { return v.Settings }).(ConnectionProfileSettingsPtrOutput)
+}
+
+// Signing configuration.
+func (o ConnectionProfileOutput) Signing() ConnectionProfileSigningPtrOutput {
+	return o.ApplyT(func(v ConnectionProfile) *ConnectionProfileSigning { return v.Signing }).(ConnectionProfileSigningPtrOutput)
+}
+
+// Authentication token (required for TOKEN auth scheme).
+func (o ConnectionProfileOutput) Token() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectionProfile) *string { return v.Token }).(pulumi.StringPtrOutput)
+}
+
+type ConnectionProfilePtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectionProfilePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionProfile)(nil)).Elem()
+}
+
+func (o ConnectionProfilePtrOutput) ToConnectionProfilePtrOutput() ConnectionProfilePtrOutput {
+	return o
+}
+
+func (o ConnectionProfilePtrOutput) ToConnectionProfilePtrOutputWithContext(ctx context.Context) ConnectionProfilePtrOutput {
+	return o
+}
+
+func (o ConnectionProfilePtrOutput) Elem() ConnectionProfileOutput {
+	return o.ApplyT(func(v *ConnectionProfile) ConnectionProfile {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectionProfile
+		return ret
+	}).(ConnectionProfileOutput)
+}
+
+// Authentication scheme. Valid values are TOKEN or OAUTH2.
+func (o ConnectionProfilePtrOutput) AuthScheme() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AuthScheme
+	}).(pulumi.StringPtrOutput)
+}
+
+// OAuth2 client ID (required for OAUTH2 auth scheme).
+func (o ConnectionProfilePtrOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClientId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Additional settings for OAuth2 authentication.
+func (o ConnectionProfilePtrOutput) Settings() ConnectionProfileSettingsPtrOutput {
+	return o.ApplyT(func(v *ConnectionProfile) *ConnectionProfileSettings {
+		if v == nil {
+			return nil
+		}
+		return v.Settings
+	}).(ConnectionProfileSettingsPtrOutput)
+}
+
+// Signing configuration.
+func (o ConnectionProfilePtrOutput) Signing() ConnectionProfileSigningPtrOutput {
+	return o.ApplyT(func(v *ConnectionProfile) *ConnectionProfileSigning {
+		if v == nil {
+			return nil
+		}
+		return v.Signing
+	}).(ConnectionProfileSigningPtrOutput)
+}
+
+// Authentication token (required for TOKEN auth scheme).
+func (o ConnectionProfilePtrOutput) Token() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Token
+	}).(pulumi.StringPtrOutput)
+}
+
+type ConnectionProfileSettings struct {
+	// Admin password for OAuth2.
+	AdminPassword *string `pulumi:"adminPassword"`
+	// Admin username for OAuth2.
+	AdminUsername *string `pulumi:"adminUsername"`
+}
+
+// ConnectionProfileSettingsInput is an input type that accepts ConnectionProfileSettingsArgs and ConnectionProfileSettingsOutput values.
+// You can construct a concrete instance of `ConnectionProfileSettingsInput` via:
+//
+//	ConnectionProfileSettingsArgs{...}
+type ConnectionProfileSettingsInput interface {
+	pulumi.Input
+
+	ToConnectionProfileSettingsOutput() ConnectionProfileSettingsOutput
+	ToConnectionProfileSettingsOutputWithContext(context.Context) ConnectionProfileSettingsOutput
+}
+
+type ConnectionProfileSettingsArgs struct {
+	// Admin password for OAuth2.
+	AdminPassword pulumi.StringPtrInput `pulumi:"adminPassword"`
+	// Admin username for OAuth2.
+	AdminUsername pulumi.StringPtrInput `pulumi:"adminUsername"`
+}
+
+func (ConnectionProfileSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionProfileSettings)(nil)).Elem()
+}
+
+func (i ConnectionProfileSettingsArgs) ToConnectionProfileSettingsOutput() ConnectionProfileSettingsOutput {
+	return i.ToConnectionProfileSettingsOutputWithContext(context.Background())
+}
+
+func (i ConnectionProfileSettingsArgs) ToConnectionProfileSettingsOutputWithContext(ctx context.Context) ConnectionProfileSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionProfileSettingsOutput)
+}
+
+func (i ConnectionProfileSettingsArgs) ToConnectionProfileSettingsPtrOutput() ConnectionProfileSettingsPtrOutput {
+	return i.ToConnectionProfileSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i ConnectionProfileSettingsArgs) ToConnectionProfileSettingsPtrOutputWithContext(ctx context.Context) ConnectionProfileSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionProfileSettingsOutput).ToConnectionProfileSettingsPtrOutputWithContext(ctx)
+}
+
+// ConnectionProfileSettingsPtrInput is an input type that accepts ConnectionProfileSettingsArgs, ConnectionProfileSettingsPtr and ConnectionProfileSettingsPtrOutput values.
+// You can construct a concrete instance of `ConnectionProfileSettingsPtrInput` via:
+//
+//	        ConnectionProfileSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConnectionProfileSettingsPtrInput interface {
+	pulumi.Input
+
+	ToConnectionProfileSettingsPtrOutput() ConnectionProfileSettingsPtrOutput
+	ToConnectionProfileSettingsPtrOutputWithContext(context.Context) ConnectionProfileSettingsPtrOutput
+}
+
+type connectionProfileSettingsPtrType ConnectionProfileSettingsArgs
+
+func ConnectionProfileSettingsPtr(v *ConnectionProfileSettingsArgs) ConnectionProfileSettingsPtrInput {
+	return (*connectionProfileSettingsPtrType)(v)
+}
+
+func (*connectionProfileSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionProfileSettings)(nil)).Elem()
+}
+
+func (i *connectionProfileSettingsPtrType) ToConnectionProfileSettingsPtrOutput() ConnectionProfileSettingsPtrOutput {
+	return i.ToConnectionProfileSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *connectionProfileSettingsPtrType) ToConnectionProfileSettingsPtrOutputWithContext(ctx context.Context) ConnectionProfileSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionProfileSettingsPtrOutput)
+}
+
+type ConnectionProfileSettingsOutput struct{ *pulumi.OutputState }
+
+func (ConnectionProfileSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionProfileSettings)(nil)).Elem()
+}
+
+func (o ConnectionProfileSettingsOutput) ToConnectionProfileSettingsOutput() ConnectionProfileSettingsOutput {
+	return o
+}
+
+func (o ConnectionProfileSettingsOutput) ToConnectionProfileSettingsOutputWithContext(ctx context.Context) ConnectionProfileSettingsOutput {
+	return o
+}
+
+func (o ConnectionProfileSettingsOutput) ToConnectionProfileSettingsPtrOutput() ConnectionProfileSettingsPtrOutput {
+	return o.ToConnectionProfileSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionProfileSettingsOutput) ToConnectionProfileSettingsPtrOutputWithContext(ctx context.Context) ConnectionProfileSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionProfileSettings) *ConnectionProfileSettings {
+		return &v
+	}).(ConnectionProfileSettingsPtrOutput)
+}
+
+// Admin password for OAuth2.
+func (o ConnectionProfileSettingsOutput) AdminPassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectionProfileSettings) *string { return v.AdminPassword }).(pulumi.StringPtrOutput)
+}
+
+// Admin username for OAuth2.
+func (o ConnectionProfileSettingsOutput) AdminUsername() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectionProfileSettings) *string { return v.AdminUsername }).(pulumi.StringPtrOutput)
+}
+
+type ConnectionProfileSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectionProfileSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionProfileSettings)(nil)).Elem()
+}
+
+func (o ConnectionProfileSettingsPtrOutput) ToConnectionProfileSettingsPtrOutput() ConnectionProfileSettingsPtrOutput {
+	return o
+}
+
+func (o ConnectionProfileSettingsPtrOutput) ToConnectionProfileSettingsPtrOutputWithContext(ctx context.Context) ConnectionProfileSettingsPtrOutput {
+	return o
+}
+
+func (o ConnectionProfileSettingsPtrOutput) Elem() ConnectionProfileSettingsOutput {
+	return o.ApplyT(func(v *ConnectionProfileSettings) ConnectionProfileSettings {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectionProfileSettings
+		return ret
+	}).(ConnectionProfileSettingsOutput)
+}
+
+// Admin password for OAuth2.
+func (o ConnectionProfileSettingsPtrOutput) AdminPassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionProfileSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AdminPassword
+	}).(pulumi.StringPtrOutput)
+}
+
+// Admin username for OAuth2.
+func (o ConnectionProfileSettingsPtrOutput) AdminUsername() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionProfileSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AdminUsername
+	}).(pulumi.StringPtrOutput)
+}
+
+type ConnectionProfileSigning struct {
+	// Token rotation mode.
+	RotationMode *string `pulumi:"rotationMode"`
+}
+
+// ConnectionProfileSigningInput is an input type that accepts ConnectionProfileSigningArgs and ConnectionProfileSigningOutput values.
+// You can construct a concrete instance of `ConnectionProfileSigningInput` via:
+//
+//	ConnectionProfileSigningArgs{...}
+type ConnectionProfileSigningInput interface {
+	pulumi.Input
+
+	ToConnectionProfileSigningOutput() ConnectionProfileSigningOutput
+	ToConnectionProfileSigningOutputWithContext(context.Context) ConnectionProfileSigningOutput
+}
+
+type ConnectionProfileSigningArgs struct {
+	// Token rotation mode.
+	RotationMode pulumi.StringPtrInput `pulumi:"rotationMode"`
+}
+
+func (ConnectionProfileSigningArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionProfileSigning)(nil)).Elem()
+}
+
+func (i ConnectionProfileSigningArgs) ToConnectionProfileSigningOutput() ConnectionProfileSigningOutput {
+	return i.ToConnectionProfileSigningOutputWithContext(context.Background())
+}
+
+func (i ConnectionProfileSigningArgs) ToConnectionProfileSigningOutputWithContext(ctx context.Context) ConnectionProfileSigningOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionProfileSigningOutput)
+}
+
+func (i ConnectionProfileSigningArgs) ToConnectionProfileSigningPtrOutput() ConnectionProfileSigningPtrOutput {
+	return i.ToConnectionProfileSigningPtrOutputWithContext(context.Background())
+}
+
+func (i ConnectionProfileSigningArgs) ToConnectionProfileSigningPtrOutputWithContext(ctx context.Context) ConnectionProfileSigningPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionProfileSigningOutput).ToConnectionProfileSigningPtrOutputWithContext(ctx)
+}
+
+// ConnectionProfileSigningPtrInput is an input type that accepts ConnectionProfileSigningArgs, ConnectionProfileSigningPtr and ConnectionProfileSigningPtrOutput values.
+// You can construct a concrete instance of `ConnectionProfileSigningPtrInput` via:
+//
+//	        ConnectionProfileSigningArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConnectionProfileSigningPtrInput interface {
+	pulumi.Input
+
+	ToConnectionProfileSigningPtrOutput() ConnectionProfileSigningPtrOutput
+	ToConnectionProfileSigningPtrOutputWithContext(context.Context) ConnectionProfileSigningPtrOutput
+}
+
+type connectionProfileSigningPtrType ConnectionProfileSigningArgs
+
+func ConnectionProfileSigningPtr(v *ConnectionProfileSigningArgs) ConnectionProfileSigningPtrInput {
+	return (*connectionProfileSigningPtrType)(v)
+}
+
+func (*connectionProfileSigningPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionProfileSigning)(nil)).Elem()
+}
+
+func (i *connectionProfileSigningPtrType) ToConnectionProfileSigningPtrOutput() ConnectionProfileSigningPtrOutput {
+	return i.ToConnectionProfileSigningPtrOutputWithContext(context.Background())
+}
+
+func (i *connectionProfileSigningPtrType) ToConnectionProfileSigningPtrOutputWithContext(ctx context.Context) ConnectionProfileSigningPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionProfileSigningPtrOutput)
+}
+
+type ConnectionProfileSigningOutput struct{ *pulumi.OutputState }
+
+func (ConnectionProfileSigningOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionProfileSigning)(nil)).Elem()
+}
+
+func (o ConnectionProfileSigningOutput) ToConnectionProfileSigningOutput() ConnectionProfileSigningOutput {
+	return o
+}
+
+func (o ConnectionProfileSigningOutput) ToConnectionProfileSigningOutputWithContext(ctx context.Context) ConnectionProfileSigningOutput {
+	return o
+}
+
+func (o ConnectionProfileSigningOutput) ToConnectionProfileSigningPtrOutput() ConnectionProfileSigningPtrOutput {
+	return o.ToConnectionProfileSigningPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionProfileSigningOutput) ToConnectionProfileSigningPtrOutputWithContext(ctx context.Context) ConnectionProfileSigningPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionProfileSigning) *ConnectionProfileSigning {
+		return &v
+	}).(ConnectionProfileSigningPtrOutput)
+}
+
+// Token rotation mode.
+func (o ConnectionProfileSigningOutput) RotationMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectionProfileSigning) *string { return v.RotationMode }).(pulumi.StringPtrOutput)
+}
+
+type ConnectionProfileSigningPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectionProfileSigningPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionProfileSigning)(nil)).Elem()
+}
+
+func (o ConnectionProfileSigningPtrOutput) ToConnectionProfileSigningPtrOutput() ConnectionProfileSigningPtrOutput {
+	return o
+}
+
+func (o ConnectionProfileSigningPtrOutput) ToConnectionProfileSigningPtrOutputWithContext(ctx context.Context) ConnectionProfileSigningPtrOutput {
+	return o
+}
+
+func (o ConnectionProfileSigningPtrOutput) Elem() ConnectionProfileSigningOutput {
+	return o.ApplyT(func(v *ConnectionProfileSigning) ConnectionProfileSigning {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectionProfileSigning
+		return ret
+	}).(ConnectionProfileSigningOutput)
+}
+
+// Token rotation mode.
+func (o ConnectionProfileSigningPtrOutput) RotationMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionProfileSigning) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RotationMode
+	}).(pulumi.StringPtrOutput)
+}
+
+type FeaturesCapabilities struct {
+	// (Optional) Block for create lifecycle settings:
+	Create *FeaturesCapabilitiesCreate `pulumi:"create"`
+	// (Optional) Block for import rules configuration:
+	ImportRules *FeaturesCapabilitiesImportRules `pulumi:"importRules"`
+	// (Optional) Block for import settings configuration:
+	ImportSettings *FeaturesCapabilitiesImportSettings `pulumi:"importSettings"`
+	// (Optional) Block for update settings:
+	Update *FeaturesCapabilitiesUpdate `pulumi:"update"`
+}
+
+// FeaturesCapabilitiesInput is an input type that accepts FeaturesCapabilitiesArgs and FeaturesCapabilitiesOutput values.
+// You can construct a concrete instance of `FeaturesCapabilitiesInput` via:
+//
+//	FeaturesCapabilitiesArgs{...}
+type FeaturesCapabilitiesInput interface {
+	pulumi.Input
+
+	ToFeaturesCapabilitiesOutput() FeaturesCapabilitiesOutput
+	ToFeaturesCapabilitiesOutputWithContext(context.Context) FeaturesCapabilitiesOutput
+}
+
+type FeaturesCapabilitiesArgs struct {
+	// (Optional) Block for create lifecycle settings:
+	Create FeaturesCapabilitiesCreatePtrInput `pulumi:"create"`
+	// (Optional) Block for import rules configuration:
+	ImportRules FeaturesCapabilitiesImportRulesPtrInput `pulumi:"importRules"`
+	// (Optional) Block for import settings configuration:
+	ImportSettings FeaturesCapabilitiesImportSettingsPtrInput `pulumi:"importSettings"`
+	// (Optional) Block for update settings:
+	Update FeaturesCapabilitiesUpdatePtrInput `pulumi:"update"`
+}
+
+func (FeaturesCapabilitiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FeaturesCapabilities)(nil)).Elem()
+}
+
+func (i FeaturesCapabilitiesArgs) ToFeaturesCapabilitiesOutput() FeaturesCapabilitiesOutput {
+	return i.ToFeaturesCapabilitiesOutputWithContext(context.Background())
+}
+
+func (i FeaturesCapabilitiesArgs) ToFeaturesCapabilitiesOutputWithContext(ctx context.Context) FeaturesCapabilitiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeaturesCapabilitiesOutput)
+}
+
+func (i FeaturesCapabilitiesArgs) ToFeaturesCapabilitiesPtrOutput() FeaturesCapabilitiesPtrOutput {
+	return i.ToFeaturesCapabilitiesPtrOutputWithContext(context.Background())
+}
+
+func (i FeaturesCapabilitiesArgs) ToFeaturesCapabilitiesPtrOutputWithContext(ctx context.Context) FeaturesCapabilitiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeaturesCapabilitiesOutput).ToFeaturesCapabilitiesPtrOutputWithContext(ctx)
+}
+
+// FeaturesCapabilitiesPtrInput is an input type that accepts FeaturesCapabilitiesArgs, FeaturesCapabilitiesPtr and FeaturesCapabilitiesPtrOutput values.
+// You can construct a concrete instance of `FeaturesCapabilitiesPtrInput` via:
+//
+//	        FeaturesCapabilitiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type FeaturesCapabilitiesPtrInput interface {
+	pulumi.Input
+
+	ToFeaturesCapabilitiesPtrOutput() FeaturesCapabilitiesPtrOutput
+	ToFeaturesCapabilitiesPtrOutputWithContext(context.Context) FeaturesCapabilitiesPtrOutput
+}
+
+type featuresCapabilitiesPtrType FeaturesCapabilitiesArgs
+
+func FeaturesCapabilitiesPtr(v *FeaturesCapabilitiesArgs) FeaturesCapabilitiesPtrInput {
+	return (*featuresCapabilitiesPtrType)(v)
+}
+
+func (*featuresCapabilitiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FeaturesCapabilities)(nil)).Elem()
+}
+
+func (i *featuresCapabilitiesPtrType) ToFeaturesCapabilitiesPtrOutput() FeaturesCapabilitiesPtrOutput {
+	return i.ToFeaturesCapabilitiesPtrOutputWithContext(context.Background())
+}
+
+func (i *featuresCapabilitiesPtrType) ToFeaturesCapabilitiesPtrOutputWithContext(ctx context.Context) FeaturesCapabilitiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeaturesCapabilitiesPtrOutput)
+}
+
+type FeaturesCapabilitiesOutput struct{ *pulumi.OutputState }
+
+func (FeaturesCapabilitiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FeaturesCapabilities)(nil)).Elem()
+}
+
+func (o FeaturesCapabilitiesOutput) ToFeaturesCapabilitiesOutput() FeaturesCapabilitiesOutput {
+	return o
+}
+
+func (o FeaturesCapabilitiesOutput) ToFeaturesCapabilitiesOutputWithContext(ctx context.Context) FeaturesCapabilitiesOutput {
+	return o
+}
+
+func (o FeaturesCapabilitiesOutput) ToFeaturesCapabilitiesPtrOutput() FeaturesCapabilitiesPtrOutput {
+	return o.ToFeaturesCapabilitiesPtrOutputWithContext(context.Background())
+}
+
+func (o FeaturesCapabilitiesOutput) ToFeaturesCapabilitiesPtrOutputWithContext(ctx context.Context) FeaturesCapabilitiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FeaturesCapabilities) *FeaturesCapabilities {
+		return &v
+	}).(FeaturesCapabilitiesPtrOutput)
+}
+
+// (Optional) Block for create lifecycle settings:
+func (o FeaturesCapabilitiesOutput) Create() FeaturesCapabilitiesCreatePtrOutput {
+	return o.ApplyT(func(v FeaturesCapabilities) *FeaturesCapabilitiesCreate { return v.Create }).(FeaturesCapabilitiesCreatePtrOutput)
+}
+
+// (Optional) Block for import rules configuration:
+func (o FeaturesCapabilitiesOutput) ImportRules() FeaturesCapabilitiesImportRulesPtrOutput {
+	return o.ApplyT(func(v FeaturesCapabilities) *FeaturesCapabilitiesImportRules { return v.ImportRules }).(FeaturesCapabilitiesImportRulesPtrOutput)
+}
+
+// (Optional) Block for import settings configuration:
+func (o FeaturesCapabilitiesOutput) ImportSettings() FeaturesCapabilitiesImportSettingsPtrOutput {
+	return o.ApplyT(func(v FeaturesCapabilities) *FeaturesCapabilitiesImportSettings { return v.ImportSettings }).(FeaturesCapabilitiesImportSettingsPtrOutput)
+}
+
+// (Optional) Block for update settings:
+func (o FeaturesCapabilitiesOutput) Update() FeaturesCapabilitiesUpdatePtrOutput {
+	return o.ApplyT(func(v FeaturesCapabilities) *FeaturesCapabilitiesUpdate { return v.Update }).(FeaturesCapabilitiesUpdatePtrOutput)
+}
+
+type FeaturesCapabilitiesPtrOutput struct{ *pulumi.OutputState }
+
+func (FeaturesCapabilitiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FeaturesCapabilities)(nil)).Elem()
+}
+
+func (o FeaturesCapabilitiesPtrOutput) ToFeaturesCapabilitiesPtrOutput() FeaturesCapabilitiesPtrOutput {
+	return o
+}
+
+func (o FeaturesCapabilitiesPtrOutput) ToFeaturesCapabilitiesPtrOutputWithContext(ctx context.Context) FeaturesCapabilitiesPtrOutput {
+	return o
+}
+
+func (o FeaturesCapabilitiesPtrOutput) Elem() FeaturesCapabilitiesOutput {
+	return o.ApplyT(func(v *FeaturesCapabilities) FeaturesCapabilities {
+		if v != nil {
+			return *v
+		}
+		var ret FeaturesCapabilities
+		return ret
+	}).(FeaturesCapabilitiesOutput)
+}
+
+// (Optional) Block for create lifecycle settings:
+func (o FeaturesCapabilitiesPtrOutput) Create() FeaturesCapabilitiesCreatePtrOutput {
+	return o.ApplyT(func(v *FeaturesCapabilities) *FeaturesCapabilitiesCreate {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(FeaturesCapabilitiesCreatePtrOutput)
+}
+
+// (Optional) Block for import rules configuration:
+func (o FeaturesCapabilitiesPtrOutput) ImportRules() FeaturesCapabilitiesImportRulesPtrOutput {
+	return o.ApplyT(func(v *FeaturesCapabilities) *FeaturesCapabilitiesImportRules {
+		if v == nil {
+			return nil
+		}
+		return v.ImportRules
+	}).(FeaturesCapabilitiesImportRulesPtrOutput)
+}
+
+// (Optional) Block for import settings configuration:
+func (o FeaturesCapabilitiesPtrOutput) ImportSettings() FeaturesCapabilitiesImportSettingsPtrOutput {
+	return o.ApplyT(func(v *FeaturesCapabilities) *FeaturesCapabilitiesImportSettings {
+		if v == nil {
+			return nil
+		}
+		return v.ImportSettings
+	}).(FeaturesCapabilitiesImportSettingsPtrOutput)
+}
+
+// (Optional) Block for update settings:
+func (o FeaturesCapabilitiesPtrOutput) Update() FeaturesCapabilitiesUpdatePtrOutput {
+	return o.ApplyT(func(v *FeaturesCapabilities) *FeaturesCapabilitiesUpdate {
+		if v == nil {
+			return nil
+		}
+		return v.Update
+	}).(FeaturesCapabilitiesUpdatePtrOutput)
+}
+
+type FeaturesCapabilitiesCreate struct {
+	// (Optional) Block for create lifecycle configuration:
+	LifecycleCreate *FeaturesCapabilitiesCreateLifecycleCreate `pulumi:"lifecycleCreate"`
+}
+
+// FeaturesCapabilitiesCreateInput is an input type that accepts FeaturesCapabilitiesCreateArgs and FeaturesCapabilitiesCreateOutput values.
+// You can construct a concrete instance of `FeaturesCapabilitiesCreateInput` via:
+//
+//	FeaturesCapabilitiesCreateArgs{...}
+type FeaturesCapabilitiesCreateInput interface {
+	pulumi.Input
+
+	ToFeaturesCapabilitiesCreateOutput() FeaturesCapabilitiesCreateOutput
+	ToFeaturesCapabilitiesCreateOutputWithContext(context.Context) FeaturesCapabilitiesCreateOutput
+}
+
+type FeaturesCapabilitiesCreateArgs struct {
+	// (Optional) Block for create lifecycle configuration:
+	LifecycleCreate FeaturesCapabilitiesCreateLifecycleCreatePtrInput `pulumi:"lifecycleCreate"`
+}
+
+func (FeaturesCapabilitiesCreateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FeaturesCapabilitiesCreate)(nil)).Elem()
+}
+
+func (i FeaturesCapabilitiesCreateArgs) ToFeaturesCapabilitiesCreateOutput() FeaturesCapabilitiesCreateOutput {
+	return i.ToFeaturesCapabilitiesCreateOutputWithContext(context.Background())
+}
+
+func (i FeaturesCapabilitiesCreateArgs) ToFeaturesCapabilitiesCreateOutputWithContext(ctx context.Context) FeaturesCapabilitiesCreateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeaturesCapabilitiesCreateOutput)
+}
+
+func (i FeaturesCapabilitiesCreateArgs) ToFeaturesCapabilitiesCreatePtrOutput() FeaturesCapabilitiesCreatePtrOutput {
+	return i.ToFeaturesCapabilitiesCreatePtrOutputWithContext(context.Background())
+}
+
+func (i FeaturesCapabilitiesCreateArgs) ToFeaturesCapabilitiesCreatePtrOutputWithContext(ctx context.Context) FeaturesCapabilitiesCreatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeaturesCapabilitiesCreateOutput).ToFeaturesCapabilitiesCreatePtrOutputWithContext(ctx)
+}
+
+// FeaturesCapabilitiesCreatePtrInput is an input type that accepts FeaturesCapabilitiesCreateArgs, FeaturesCapabilitiesCreatePtr and FeaturesCapabilitiesCreatePtrOutput values.
+// You can construct a concrete instance of `FeaturesCapabilitiesCreatePtrInput` via:
+//
+//	        FeaturesCapabilitiesCreateArgs{...}
+//
+//	or:
+//
+//	        nil
+type FeaturesCapabilitiesCreatePtrInput interface {
+	pulumi.Input
+
+	ToFeaturesCapabilitiesCreatePtrOutput() FeaturesCapabilitiesCreatePtrOutput
+	ToFeaturesCapabilitiesCreatePtrOutputWithContext(context.Context) FeaturesCapabilitiesCreatePtrOutput
+}
+
+type featuresCapabilitiesCreatePtrType FeaturesCapabilitiesCreateArgs
+
+func FeaturesCapabilitiesCreatePtr(v *FeaturesCapabilitiesCreateArgs) FeaturesCapabilitiesCreatePtrInput {
+	return (*featuresCapabilitiesCreatePtrType)(v)
+}
+
+func (*featuresCapabilitiesCreatePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FeaturesCapabilitiesCreate)(nil)).Elem()
+}
+
+func (i *featuresCapabilitiesCreatePtrType) ToFeaturesCapabilitiesCreatePtrOutput() FeaturesCapabilitiesCreatePtrOutput {
+	return i.ToFeaturesCapabilitiesCreatePtrOutputWithContext(context.Background())
+}
+
+func (i *featuresCapabilitiesCreatePtrType) ToFeaturesCapabilitiesCreatePtrOutputWithContext(ctx context.Context) FeaturesCapabilitiesCreatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeaturesCapabilitiesCreatePtrOutput)
+}
+
+type FeaturesCapabilitiesCreateOutput struct{ *pulumi.OutputState }
+
+func (FeaturesCapabilitiesCreateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FeaturesCapabilitiesCreate)(nil)).Elem()
+}
+
+func (o FeaturesCapabilitiesCreateOutput) ToFeaturesCapabilitiesCreateOutput() FeaturesCapabilitiesCreateOutput {
+	return o
+}
+
+func (o FeaturesCapabilitiesCreateOutput) ToFeaturesCapabilitiesCreateOutputWithContext(ctx context.Context) FeaturesCapabilitiesCreateOutput {
+	return o
+}
+
+func (o FeaturesCapabilitiesCreateOutput) ToFeaturesCapabilitiesCreatePtrOutput() FeaturesCapabilitiesCreatePtrOutput {
+	return o.ToFeaturesCapabilitiesCreatePtrOutputWithContext(context.Background())
+}
+
+func (o FeaturesCapabilitiesCreateOutput) ToFeaturesCapabilitiesCreatePtrOutputWithContext(ctx context.Context) FeaturesCapabilitiesCreatePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FeaturesCapabilitiesCreate) *FeaturesCapabilitiesCreate {
+		return &v
+	}).(FeaturesCapabilitiesCreatePtrOutput)
+}
+
+// (Optional) Block for create lifecycle configuration:
+func (o FeaturesCapabilitiesCreateOutput) LifecycleCreate() FeaturesCapabilitiesCreateLifecycleCreatePtrOutput {
+	return o.ApplyT(func(v FeaturesCapabilitiesCreate) *FeaturesCapabilitiesCreateLifecycleCreate {
+		return v.LifecycleCreate
+	}).(FeaturesCapabilitiesCreateLifecycleCreatePtrOutput)
+}
+
+type FeaturesCapabilitiesCreatePtrOutput struct{ *pulumi.OutputState }
+
+func (FeaturesCapabilitiesCreatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FeaturesCapabilitiesCreate)(nil)).Elem()
+}
+
+func (o FeaturesCapabilitiesCreatePtrOutput) ToFeaturesCapabilitiesCreatePtrOutput() FeaturesCapabilitiesCreatePtrOutput {
+	return o
+}
+
+func (o FeaturesCapabilitiesCreatePtrOutput) ToFeaturesCapabilitiesCreatePtrOutputWithContext(ctx context.Context) FeaturesCapabilitiesCreatePtrOutput {
+	return o
+}
+
+func (o FeaturesCapabilitiesCreatePtrOutput) Elem() FeaturesCapabilitiesCreateOutput {
+	return o.ApplyT(func(v *FeaturesCapabilitiesCreate) FeaturesCapabilitiesCreate {
+		if v != nil {
+			return *v
+		}
+		var ret FeaturesCapabilitiesCreate
+		return ret
+	}).(FeaturesCapabilitiesCreateOutput)
+}
+
+// (Optional) Block for create lifecycle configuration:
+func (o FeaturesCapabilitiesCreatePtrOutput) LifecycleCreate() FeaturesCapabilitiesCreateLifecycleCreatePtrOutput {
+	return o.ApplyT(func(v *FeaturesCapabilitiesCreate) *FeaturesCapabilitiesCreateLifecycleCreate {
+		if v == nil {
+			return nil
+		}
+		return v.LifecycleCreate
+	}).(FeaturesCapabilitiesCreateLifecycleCreatePtrOutput)
+}
+
+type FeaturesCapabilitiesCreateLifecycleCreate struct {
+	// The status of the feature. Valid values are `ENABLED` or `DISABLED`.
+	Status *string `pulumi:"status"`
+}
+
+// FeaturesCapabilitiesCreateLifecycleCreateInput is an input type that accepts FeaturesCapabilitiesCreateLifecycleCreateArgs and FeaturesCapabilitiesCreateLifecycleCreateOutput values.
+// You can construct a concrete instance of `FeaturesCapabilitiesCreateLifecycleCreateInput` via:
+//
+//	FeaturesCapabilitiesCreateLifecycleCreateArgs{...}
+type FeaturesCapabilitiesCreateLifecycleCreateInput interface {
+	pulumi.Input
+
+	ToFeaturesCapabilitiesCreateLifecycleCreateOutput() FeaturesCapabilitiesCreateLifecycleCreateOutput
+	ToFeaturesCapabilitiesCreateLifecycleCreateOutputWithContext(context.Context) FeaturesCapabilitiesCreateLifecycleCreateOutput
+}
+
+type FeaturesCapabilitiesCreateLifecycleCreateArgs struct {
+	// The status of the feature. Valid values are `ENABLED` or `DISABLED`.
+	Status pulumi.StringPtrInput `pulumi:"status"`
+}
+
+func (FeaturesCapabilitiesCreateLifecycleCreateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FeaturesCapabilitiesCreateLifecycleCreate)(nil)).Elem()
+}
+
+func (i FeaturesCapabilitiesCreateLifecycleCreateArgs) ToFeaturesCapabilitiesCreateLifecycleCreateOutput() FeaturesCapabilitiesCreateLifecycleCreateOutput {
+	return i.ToFeaturesCapabilitiesCreateLifecycleCreateOutputWithContext(context.Background())
+}
+
+func (i FeaturesCapabilitiesCreateLifecycleCreateArgs) ToFeaturesCapabilitiesCreateLifecycleCreateOutputWithContext(ctx context.Context) FeaturesCapabilitiesCreateLifecycleCreateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeaturesCapabilitiesCreateLifecycleCreateOutput)
+}
+
+func (i FeaturesCapabilitiesCreateLifecycleCreateArgs) ToFeaturesCapabilitiesCreateLifecycleCreatePtrOutput() FeaturesCapabilitiesCreateLifecycleCreatePtrOutput {
+	return i.ToFeaturesCapabilitiesCreateLifecycleCreatePtrOutputWithContext(context.Background())
+}
+
+func (i FeaturesCapabilitiesCreateLifecycleCreateArgs) ToFeaturesCapabilitiesCreateLifecycleCreatePtrOutputWithContext(ctx context.Context) FeaturesCapabilitiesCreateLifecycleCreatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeaturesCapabilitiesCreateLifecycleCreateOutput).ToFeaturesCapabilitiesCreateLifecycleCreatePtrOutputWithContext(ctx)
+}
+
+// FeaturesCapabilitiesCreateLifecycleCreatePtrInput is an input type that accepts FeaturesCapabilitiesCreateLifecycleCreateArgs, FeaturesCapabilitiesCreateLifecycleCreatePtr and FeaturesCapabilitiesCreateLifecycleCreatePtrOutput values.
+// You can construct a concrete instance of `FeaturesCapabilitiesCreateLifecycleCreatePtrInput` via:
+//
+//	        FeaturesCapabilitiesCreateLifecycleCreateArgs{...}
+//
+//	or:
+//
+//	        nil
+type FeaturesCapabilitiesCreateLifecycleCreatePtrInput interface {
+	pulumi.Input
+
+	ToFeaturesCapabilitiesCreateLifecycleCreatePtrOutput() FeaturesCapabilitiesCreateLifecycleCreatePtrOutput
+	ToFeaturesCapabilitiesCreateLifecycleCreatePtrOutputWithContext(context.Context) FeaturesCapabilitiesCreateLifecycleCreatePtrOutput
+}
+
+type featuresCapabilitiesCreateLifecycleCreatePtrType FeaturesCapabilitiesCreateLifecycleCreateArgs
+
+func FeaturesCapabilitiesCreateLifecycleCreatePtr(v *FeaturesCapabilitiesCreateLifecycleCreateArgs) FeaturesCapabilitiesCreateLifecycleCreatePtrInput {
+	return (*featuresCapabilitiesCreateLifecycleCreatePtrType)(v)
+}
+
+func (*featuresCapabilitiesCreateLifecycleCreatePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FeaturesCapabilitiesCreateLifecycleCreate)(nil)).Elem()
+}
+
+func (i *featuresCapabilitiesCreateLifecycleCreatePtrType) ToFeaturesCapabilitiesCreateLifecycleCreatePtrOutput() FeaturesCapabilitiesCreateLifecycleCreatePtrOutput {
+	return i.ToFeaturesCapabilitiesCreateLifecycleCreatePtrOutputWithContext(context.Background())
+}
+
+func (i *featuresCapabilitiesCreateLifecycleCreatePtrType) ToFeaturesCapabilitiesCreateLifecycleCreatePtrOutputWithContext(ctx context.Context) FeaturesCapabilitiesCreateLifecycleCreatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeaturesCapabilitiesCreateLifecycleCreatePtrOutput)
+}
+
+type FeaturesCapabilitiesCreateLifecycleCreateOutput struct{ *pulumi.OutputState }
+
+func (FeaturesCapabilitiesCreateLifecycleCreateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FeaturesCapabilitiesCreateLifecycleCreate)(nil)).Elem()
+}
+
+func (o FeaturesCapabilitiesCreateLifecycleCreateOutput) ToFeaturesCapabilitiesCreateLifecycleCreateOutput() FeaturesCapabilitiesCreateLifecycleCreateOutput {
+	return o
+}
+
+func (o FeaturesCapabilitiesCreateLifecycleCreateOutput) ToFeaturesCapabilitiesCreateLifecycleCreateOutputWithContext(ctx context.Context) FeaturesCapabilitiesCreateLifecycleCreateOutput {
+	return o
+}
+
+func (o FeaturesCapabilitiesCreateLifecycleCreateOutput) ToFeaturesCapabilitiesCreateLifecycleCreatePtrOutput() FeaturesCapabilitiesCreateLifecycleCreatePtrOutput {
+	return o.ToFeaturesCapabilitiesCreateLifecycleCreatePtrOutputWithContext(context.Background())
+}
+
+func (o FeaturesCapabilitiesCreateLifecycleCreateOutput) ToFeaturesCapabilitiesCreateLifecycleCreatePtrOutputWithContext(ctx context.Context) FeaturesCapabilitiesCreateLifecycleCreatePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FeaturesCapabilitiesCreateLifecycleCreate) *FeaturesCapabilitiesCreateLifecycleCreate {
+		return &v
+	}).(FeaturesCapabilitiesCreateLifecycleCreatePtrOutput)
+}
+
+// The status of the feature. Valid values are `ENABLED` or `DISABLED`.
+func (o FeaturesCapabilitiesCreateLifecycleCreateOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FeaturesCapabilitiesCreateLifecycleCreate) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+type FeaturesCapabilitiesCreateLifecycleCreatePtrOutput struct{ *pulumi.OutputState }
+
+func (FeaturesCapabilitiesCreateLifecycleCreatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FeaturesCapabilitiesCreateLifecycleCreate)(nil)).Elem()
+}
+
+func (o FeaturesCapabilitiesCreateLifecycleCreatePtrOutput) ToFeaturesCapabilitiesCreateLifecycleCreatePtrOutput() FeaturesCapabilitiesCreateLifecycleCreatePtrOutput {
+	return o
+}
+
+func (o FeaturesCapabilitiesCreateLifecycleCreatePtrOutput) ToFeaturesCapabilitiesCreateLifecycleCreatePtrOutputWithContext(ctx context.Context) FeaturesCapabilitiesCreateLifecycleCreatePtrOutput {
+	return o
+}
+
+func (o FeaturesCapabilitiesCreateLifecycleCreatePtrOutput) Elem() FeaturesCapabilitiesCreateLifecycleCreateOutput {
+	return o.ApplyT(func(v *FeaturesCapabilitiesCreateLifecycleCreate) FeaturesCapabilitiesCreateLifecycleCreate {
+		if v != nil {
+			return *v
+		}
+		var ret FeaturesCapabilitiesCreateLifecycleCreate
+		return ret
+	}).(FeaturesCapabilitiesCreateLifecycleCreateOutput)
+}
+
+// The status of the feature. Valid values are `ENABLED` or `DISABLED`.
+func (o FeaturesCapabilitiesCreateLifecycleCreatePtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FeaturesCapabilitiesCreateLifecycleCreate) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Status
+	}).(pulumi.StringPtrOutput)
+}
+
+type FeaturesCapabilitiesImportRules struct {
+	// (Optional) Block for user matching and creation rules:
+	UserCreateAndMatch *FeaturesCapabilitiesImportRulesUserCreateAndMatch `pulumi:"userCreateAndMatch"`
+}
+
+// FeaturesCapabilitiesImportRulesInput is an input type that accepts FeaturesCapabilitiesImportRulesArgs and FeaturesCapabilitiesImportRulesOutput values.
+// You can construct a concrete instance of `FeaturesCapabilitiesImportRulesInput` via:
+//
+//	FeaturesCapabilitiesImportRulesArgs{...}
+type FeaturesCapabilitiesImportRulesInput interface {
+	pulumi.Input
+
+	ToFeaturesCapabilitiesImportRulesOutput() FeaturesCapabilitiesImportRulesOutput
+	ToFeaturesCapabilitiesImportRulesOutputWithContext(context.Context) FeaturesCapabilitiesImportRulesOutput
+}
+
+type FeaturesCapabilitiesImportRulesArgs struct {
+	// (Optional) Block for user matching and creation rules:
+	UserCreateAndMatch FeaturesCapabilitiesImportRulesUserCreateAndMatchPtrInput `pulumi:"userCreateAndMatch"`
+}
+
+func (FeaturesCapabilitiesImportRulesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FeaturesCapabilitiesImportRules)(nil)).Elem()
+}
+
+func (i FeaturesCapabilitiesImportRulesArgs) ToFeaturesCapabilitiesImportRulesOutput() FeaturesCapabilitiesImportRulesOutput {
+	return i.ToFeaturesCapabilitiesImportRulesOutputWithContext(context.Background())
+}
+
+func (i FeaturesCapabilitiesImportRulesArgs) ToFeaturesCapabilitiesImportRulesOutputWithContext(ctx context.Context) FeaturesCapabilitiesImportRulesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeaturesCapabilitiesImportRulesOutput)
+}
+
+func (i FeaturesCapabilitiesImportRulesArgs) ToFeaturesCapabilitiesImportRulesPtrOutput() FeaturesCapabilitiesImportRulesPtrOutput {
+	return i.ToFeaturesCapabilitiesImportRulesPtrOutputWithContext(context.Background())
+}
+
+func (i FeaturesCapabilitiesImportRulesArgs) ToFeaturesCapabilitiesImportRulesPtrOutputWithContext(ctx context.Context) FeaturesCapabilitiesImportRulesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeaturesCapabilitiesImportRulesOutput).ToFeaturesCapabilitiesImportRulesPtrOutputWithContext(ctx)
+}
+
+// FeaturesCapabilitiesImportRulesPtrInput is an input type that accepts FeaturesCapabilitiesImportRulesArgs, FeaturesCapabilitiesImportRulesPtr and FeaturesCapabilitiesImportRulesPtrOutput values.
+// You can construct a concrete instance of `FeaturesCapabilitiesImportRulesPtrInput` via:
+//
+//	        FeaturesCapabilitiesImportRulesArgs{...}
+//
+//	or:
+//
+//	        nil
+type FeaturesCapabilitiesImportRulesPtrInput interface {
+	pulumi.Input
+
+	ToFeaturesCapabilitiesImportRulesPtrOutput() FeaturesCapabilitiesImportRulesPtrOutput
+	ToFeaturesCapabilitiesImportRulesPtrOutputWithContext(context.Context) FeaturesCapabilitiesImportRulesPtrOutput
+}
+
+type featuresCapabilitiesImportRulesPtrType FeaturesCapabilitiesImportRulesArgs
+
+func FeaturesCapabilitiesImportRulesPtr(v *FeaturesCapabilitiesImportRulesArgs) FeaturesCapabilitiesImportRulesPtrInput {
+	return (*featuresCapabilitiesImportRulesPtrType)(v)
+}
+
+func (*featuresCapabilitiesImportRulesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FeaturesCapabilitiesImportRules)(nil)).Elem()
+}
+
+func (i *featuresCapabilitiesImportRulesPtrType) ToFeaturesCapabilitiesImportRulesPtrOutput() FeaturesCapabilitiesImportRulesPtrOutput {
+	return i.ToFeaturesCapabilitiesImportRulesPtrOutputWithContext(context.Background())
+}
+
+func (i *featuresCapabilitiesImportRulesPtrType) ToFeaturesCapabilitiesImportRulesPtrOutputWithContext(ctx context.Context) FeaturesCapabilitiesImportRulesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeaturesCapabilitiesImportRulesPtrOutput)
+}
+
+type FeaturesCapabilitiesImportRulesOutput struct{ *pulumi.OutputState }
+
+func (FeaturesCapabilitiesImportRulesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FeaturesCapabilitiesImportRules)(nil)).Elem()
+}
+
+func (o FeaturesCapabilitiesImportRulesOutput) ToFeaturesCapabilitiesImportRulesOutput() FeaturesCapabilitiesImportRulesOutput {
+	return o
+}
+
+func (o FeaturesCapabilitiesImportRulesOutput) ToFeaturesCapabilitiesImportRulesOutputWithContext(ctx context.Context) FeaturesCapabilitiesImportRulesOutput {
+	return o
+}
+
+func (o FeaturesCapabilitiesImportRulesOutput) ToFeaturesCapabilitiesImportRulesPtrOutput() FeaturesCapabilitiesImportRulesPtrOutput {
+	return o.ToFeaturesCapabilitiesImportRulesPtrOutputWithContext(context.Background())
+}
+
+func (o FeaturesCapabilitiesImportRulesOutput) ToFeaturesCapabilitiesImportRulesPtrOutputWithContext(ctx context.Context) FeaturesCapabilitiesImportRulesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FeaturesCapabilitiesImportRules) *FeaturesCapabilitiesImportRules {
+		return &v
+	}).(FeaturesCapabilitiesImportRulesPtrOutput)
+}
+
+// (Optional) Block for user matching and creation rules:
+func (o FeaturesCapabilitiesImportRulesOutput) UserCreateAndMatch() FeaturesCapabilitiesImportRulesUserCreateAndMatchPtrOutput {
+	return o.ApplyT(func(v FeaturesCapabilitiesImportRules) *FeaturesCapabilitiesImportRulesUserCreateAndMatch {
+		return v.UserCreateAndMatch
+	}).(FeaturesCapabilitiesImportRulesUserCreateAndMatchPtrOutput)
+}
+
+type FeaturesCapabilitiesImportRulesPtrOutput struct{ *pulumi.OutputState }
+
+func (FeaturesCapabilitiesImportRulesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FeaturesCapabilitiesImportRules)(nil)).Elem()
+}
+
+func (o FeaturesCapabilitiesImportRulesPtrOutput) ToFeaturesCapabilitiesImportRulesPtrOutput() FeaturesCapabilitiesImportRulesPtrOutput {
+	return o
+}
+
+func (o FeaturesCapabilitiesImportRulesPtrOutput) ToFeaturesCapabilitiesImportRulesPtrOutputWithContext(ctx context.Context) FeaturesCapabilitiesImportRulesPtrOutput {
+	return o
+}
+
+func (o FeaturesCapabilitiesImportRulesPtrOutput) Elem() FeaturesCapabilitiesImportRulesOutput {
+	return o.ApplyT(func(v *FeaturesCapabilitiesImportRules) FeaturesCapabilitiesImportRules {
+		if v != nil {
+			return *v
+		}
+		var ret FeaturesCapabilitiesImportRules
+		return ret
+	}).(FeaturesCapabilitiesImportRulesOutput)
+}
+
+// (Optional) Block for user matching and creation rules:
+func (o FeaturesCapabilitiesImportRulesPtrOutput) UserCreateAndMatch() FeaturesCapabilitiesImportRulesUserCreateAndMatchPtrOutput {
+	return o.ApplyT(func(v *FeaturesCapabilitiesImportRules) *FeaturesCapabilitiesImportRulesUserCreateAndMatch {
+		if v == nil {
+			return nil
+		}
+		return v.UserCreateAndMatch
+	}).(FeaturesCapabilitiesImportRulesUserCreateAndMatchPtrOutput)
+}
+
+type FeaturesCapabilitiesImportRulesUserCreateAndMatch struct {
+	// (Optional) Whether to allow partial matching based on first and last names.
+	AllowPartialMatch *bool `pulumi:"allowPartialMatch"`
+	// (Optional) Whether imported new users are automatically activated.
+	AutoActivateNewUsers *bool `pulumi:"autoActivateNewUsers"`
+	// (Optional) Whether exact-matched users are automatically confirmed.
+	AutoconfirmExactMatch *bool `pulumi:"autoconfirmExactMatch"`
+	// (Optional) Whether imported new users are automatically confirmed.
+	AutoconfirmNewUsers *bool `pulumi:"autoconfirmNewUsers"`
+	// (Optional) Whether partially matched users are automatically confirmed.
+	AutoconfirmPartialMatch *bool `pulumi:"autoconfirmPartialMatch"`
+	// (Optional) Attribute used for exact matching (e.g., `USERNAME`, `EMAIL`).
+	ExactMatchCriteria *string `pulumi:"exactMatchCriteria"`
+}
+
+// FeaturesCapabilitiesImportRulesUserCreateAndMatchInput is an input type that accepts FeaturesCapabilitiesImportRulesUserCreateAndMatchArgs and FeaturesCapabilitiesImportRulesUserCreateAndMatchOutput values.
+// You can construct a concrete instance of `FeaturesCapabilitiesImportRulesUserCreateAndMatchInput` via:
+//
+//	FeaturesCapabilitiesImportRulesUserCreateAndMatchArgs{...}
+type FeaturesCapabilitiesImportRulesUserCreateAndMatchInput interface {
+	pulumi.Input
+
+	ToFeaturesCapabilitiesImportRulesUserCreateAndMatchOutput() FeaturesCapabilitiesImportRulesUserCreateAndMatchOutput
+	ToFeaturesCapabilitiesImportRulesUserCreateAndMatchOutputWithContext(context.Context) FeaturesCapabilitiesImportRulesUserCreateAndMatchOutput
+}
+
+type FeaturesCapabilitiesImportRulesUserCreateAndMatchArgs struct {
+	// (Optional) Whether to allow partial matching based on first and last names.
+	AllowPartialMatch pulumi.BoolPtrInput `pulumi:"allowPartialMatch"`
+	// (Optional) Whether imported new users are automatically activated.
+	AutoActivateNewUsers pulumi.BoolPtrInput `pulumi:"autoActivateNewUsers"`
+	// (Optional) Whether exact-matched users are automatically confirmed.
+	AutoconfirmExactMatch pulumi.BoolPtrInput `pulumi:"autoconfirmExactMatch"`
+	// (Optional) Whether imported new users are automatically confirmed.
+	AutoconfirmNewUsers pulumi.BoolPtrInput `pulumi:"autoconfirmNewUsers"`
+	// (Optional) Whether partially matched users are automatically confirmed.
+	AutoconfirmPartialMatch pulumi.BoolPtrInput `pulumi:"autoconfirmPartialMatch"`
+	// (Optional) Attribute used for exact matching (e.g., `USERNAME`, `EMAIL`).
+	ExactMatchCriteria pulumi.StringPtrInput `pulumi:"exactMatchCriteria"`
+}
+
+func (FeaturesCapabilitiesImportRulesUserCreateAndMatchArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FeaturesCapabilitiesImportRulesUserCreateAndMatch)(nil)).Elem()
+}
+
+func (i FeaturesCapabilitiesImportRulesUserCreateAndMatchArgs) ToFeaturesCapabilitiesImportRulesUserCreateAndMatchOutput() FeaturesCapabilitiesImportRulesUserCreateAndMatchOutput {
+	return i.ToFeaturesCapabilitiesImportRulesUserCreateAndMatchOutputWithContext(context.Background())
+}
+
+func (i FeaturesCapabilitiesImportRulesUserCreateAndMatchArgs) ToFeaturesCapabilitiesImportRulesUserCreateAndMatchOutputWithContext(ctx context.Context) FeaturesCapabilitiesImportRulesUserCreateAndMatchOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeaturesCapabilitiesImportRulesUserCreateAndMatchOutput)
+}
+
+func (i FeaturesCapabilitiesImportRulesUserCreateAndMatchArgs) ToFeaturesCapabilitiesImportRulesUserCreateAndMatchPtrOutput() FeaturesCapabilitiesImportRulesUserCreateAndMatchPtrOutput {
+	return i.ToFeaturesCapabilitiesImportRulesUserCreateAndMatchPtrOutputWithContext(context.Background())
+}
+
+func (i FeaturesCapabilitiesImportRulesUserCreateAndMatchArgs) ToFeaturesCapabilitiesImportRulesUserCreateAndMatchPtrOutputWithContext(ctx context.Context) FeaturesCapabilitiesImportRulesUserCreateAndMatchPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeaturesCapabilitiesImportRulesUserCreateAndMatchOutput).ToFeaturesCapabilitiesImportRulesUserCreateAndMatchPtrOutputWithContext(ctx)
+}
+
+// FeaturesCapabilitiesImportRulesUserCreateAndMatchPtrInput is an input type that accepts FeaturesCapabilitiesImportRulesUserCreateAndMatchArgs, FeaturesCapabilitiesImportRulesUserCreateAndMatchPtr and FeaturesCapabilitiesImportRulesUserCreateAndMatchPtrOutput values.
+// You can construct a concrete instance of `FeaturesCapabilitiesImportRulesUserCreateAndMatchPtrInput` via:
+//
+//	        FeaturesCapabilitiesImportRulesUserCreateAndMatchArgs{...}
+//
+//	or:
+//
+//	        nil
+type FeaturesCapabilitiesImportRulesUserCreateAndMatchPtrInput interface {
+	pulumi.Input
+
+	ToFeaturesCapabilitiesImportRulesUserCreateAndMatchPtrOutput() FeaturesCapabilitiesImportRulesUserCreateAndMatchPtrOutput
+	ToFeaturesCapabilitiesImportRulesUserCreateAndMatchPtrOutputWithContext(context.Context) FeaturesCapabilitiesImportRulesUserCreateAndMatchPtrOutput
+}
+
+type featuresCapabilitiesImportRulesUserCreateAndMatchPtrType FeaturesCapabilitiesImportRulesUserCreateAndMatchArgs
+
+func FeaturesCapabilitiesImportRulesUserCreateAndMatchPtr(v *FeaturesCapabilitiesImportRulesUserCreateAndMatchArgs) FeaturesCapabilitiesImportRulesUserCreateAndMatchPtrInput {
+	return (*featuresCapabilitiesImportRulesUserCreateAndMatchPtrType)(v)
+}
+
+func (*featuresCapabilitiesImportRulesUserCreateAndMatchPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FeaturesCapabilitiesImportRulesUserCreateAndMatch)(nil)).Elem()
+}
+
+func (i *featuresCapabilitiesImportRulesUserCreateAndMatchPtrType) ToFeaturesCapabilitiesImportRulesUserCreateAndMatchPtrOutput() FeaturesCapabilitiesImportRulesUserCreateAndMatchPtrOutput {
+	return i.ToFeaturesCapabilitiesImportRulesUserCreateAndMatchPtrOutputWithContext(context.Background())
+}
+
+func (i *featuresCapabilitiesImportRulesUserCreateAndMatchPtrType) ToFeaturesCapabilitiesImportRulesUserCreateAndMatchPtrOutputWithContext(ctx context.Context) FeaturesCapabilitiesImportRulesUserCreateAndMatchPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeaturesCapabilitiesImportRulesUserCreateAndMatchPtrOutput)
+}
+
+type FeaturesCapabilitiesImportRulesUserCreateAndMatchOutput struct{ *pulumi.OutputState }
+
+func (FeaturesCapabilitiesImportRulesUserCreateAndMatchOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FeaturesCapabilitiesImportRulesUserCreateAndMatch)(nil)).Elem()
+}
+
+func (o FeaturesCapabilitiesImportRulesUserCreateAndMatchOutput) ToFeaturesCapabilitiesImportRulesUserCreateAndMatchOutput() FeaturesCapabilitiesImportRulesUserCreateAndMatchOutput {
+	return o
+}
+
+func (o FeaturesCapabilitiesImportRulesUserCreateAndMatchOutput) ToFeaturesCapabilitiesImportRulesUserCreateAndMatchOutputWithContext(ctx context.Context) FeaturesCapabilitiesImportRulesUserCreateAndMatchOutput {
+	return o
+}
+
+func (o FeaturesCapabilitiesImportRulesUserCreateAndMatchOutput) ToFeaturesCapabilitiesImportRulesUserCreateAndMatchPtrOutput() FeaturesCapabilitiesImportRulesUserCreateAndMatchPtrOutput {
+	return o.ToFeaturesCapabilitiesImportRulesUserCreateAndMatchPtrOutputWithContext(context.Background())
+}
+
+func (o FeaturesCapabilitiesImportRulesUserCreateAndMatchOutput) ToFeaturesCapabilitiesImportRulesUserCreateAndMatchPtrOutputWithContext(ctx context.Context) FeaturesCapabilitiesImportRulesUserCreateAndMatchPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FeaturesCapabilitiesImportRulesUserCreateAndMatch) *FeaturesCapabilitiesImportRulesUserCreateAndMatch {
+		return &v
+	}).(FeaturesCapabilitiesImportRulesUserCreateAndMatchPtrOutput)
+}
+
+// (Optional) Whether to allow partial matching based on first and last names.
+func (o FeaturesCapabilitiesImportRulesUserCreateAndMatchOutput) AllowPartialMatch() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FeaturesCapabilitiesImportRulesUserCreateAndMatch) *bool { return v.AllowPartialMatch }).(pulumi.BoolPtrOutput)
+}
+
+// (Optional) Whether imported new users are automatically activated.
+func (o FeaturesCapabilitiesImportRulesUserCreateAndMatchOutput) AutoActivateNewUsers() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FeaturesCapabilitiesImportRulesUserCreateAndMatch) *bool { return v.AutoActivateNewUsers }).(pulumi.BoolPtrOutput)
+}
+
+// (Optional) Whether exact-matched users are automatically confirmed.
+func (o FeaturesCapabilitiesImportRulesUserCreateAndMatchOutput) AutoconfirmExactMatch() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FeaturesCapabilitiesImportRulesUserCreateAndMatch) *bool { return v.AutoconfirmExactMatch }).(pulumi.BoolPtrOutput)
+}
+
+// (Optional) Whether imported new users are automatically confirmed.
+func (o FeaturesCapabilitiesImportRulesUserCreateAndMatchOutput) AutoconfirmNewUsers() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FeaturesCapabilitiesImportRulesUserCreateAndMatch) *bool { return v.AutoconfirmNewUsers }).(pulumi.BoolPtrOutput)
+}
+
+// (Optional) Whether partially matched users are automatically confirmed.
+func (o FeaturesCapabilitiesImportRulesUserCreateAndMatchOutput) AutoconfirmPartialMatch() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FeaturesCapabilitiesImportRulesUserCreateAndMatch) *bool { return v.AutoconfirmPartialMatch }).(pulumi.BoolPtrOutput)
+}
+
+// (Optional) Attribute used for exact matching (e.g., `USERNAME`, `EMAIL`).
+func (o FeaturesCapabilitiesImportRulesUserCreateAndMatchOutput) ExactMatchCriteria() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FeaturesCapabilitiesImportRulesUserCreateAndMatch) *string { return v.ExactMatchCriteria }).(pulumi.StringPtrOutput)
+}
+
+type FeaturesCapabilitiesImportRulesUserCreateAndMatchPtrOutput struct{ *pulumi.OutputState }
+
+func (FeaturesCapabilitiesImportRulesUserCreateAndMatchPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FeaturesCapabilitiesImportRulesUserCreateAndMatch)(nil)).Elem()
+}
+
+func (o FeaturesCapabilitiesImportRulesUserCreateAndMatchPtrOutput) ToFeaturesCapabilitiesImportRulesUserCreateAndMatchPtrOutput() FeaturesCapabilitiesImportRulesUserCreateAndMatchPtrOutput {
+	return o
+}
+
+func (o FeaturesCapabilitiesImportRulesUserCreateAndMatchPtrOutput) ToFeaturesCapabilitiesImportRulesUserCreateAndMatchPtrOutputWithContext(ctx context.Context) FeaturesCapabilitiesImportRulesUserCreateAndMatchPtrOutput {
+	return o
+}
+
+func (o FeaturesCapabilitiesImportRulesUserCreateAndMatchPtrOutput) Elem() FeaturesCapabilitiesImportRulesUserCreateAndMatchOutput {
+	return o.ApplyT(func(v *FeaturesCapabilitiesImportRulesUserCreateAndMatch) FeaturesCapabilitiesImportRulesUserCreateAndMatch {
+		if v != nil {
+			return *v
+		}
+		var ret FeaturesCapabilitiesImportRulesUserCreateAndMatch
+		return ret
+	}).(FeaturesCapabilitiesImportRulesUserCreateAndMatchOutput)
+}
+
+// (Optional) Whether to allow partial matching based on first and last names.
+func (o FeaturesCapabilitiesImportRulesUserCreateAndMatchPtrOutput) AllowPartialMatch() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FeaturesCapabilitiesImportRulesUserCreateAndMatch) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AllowPartialMatch
+	}).(pulumi.BoolPtrOutput)
+}
+
+// (Optional) Whether imported new users are automatically activated.
+func (o FeaturesCapabilitiesImportRulesUserCreateAndMatchPtrOutput) AutoActivateNewUsers() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FeaturesCapabilitiesImportRulesUserCreateAndMatch) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AutoActivateNewUsers
+	}).(pulumi.BoolPtrOutput)
+}
+
+// (Optional) Whether exact-matched users are automatically confirmed.
+func (o FeaturesCapabilitiesImportRulesUserCreateAndMatchPtrOutput) AutoconfirmExactMatch() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FeaturesCapabilitiesImportRulesUserCreateAndMatch) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AutoconfirmExactMatch
+	}).(pulumi.BoolPtrOutput)
+}
+
+// (Optional) Whether imported new users are automatically confirmed.
+func (o FeaturesCapabilitiesImportRulesUserCreateAndMatchPtrOutput) AutoconfirmNewUsers() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FeaturesCapabilitiesImportRulesUserCreateAndMatch) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AutoconfirmNewUsers
+	}).(pulumi.BoolPtrOutput)
+}
+
+// (Optional) Whether partially matched users are automatically confirmed.
+func (o FeaturesCapabilitiesImportRulesUserCreateAndMatchPtrOutput) AutoconfirmPartialMatch() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FeaturesCapabilitiesImportRulesUserCreateAndMatch) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AutoconfirmPartialMatch
+	}).(pulumi.BoolPtrOutput)
+}
+
+// (Optional) Attribute used for exact matching (e.g., `USERNAME`, `EMAIL`).
+func (o FeaturesCapabilitiesImportRulesUserCreateAndMatchPtrOutput) ExactMatchCriteria() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FeaturesCapabilitiesImportRulesUserCreateAndMatch) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ExactMatchCriteria
+	}).(pulumi.StringPtrOutput)
+}
+
+type FeaturesCapabilitiesImportSettings struct {
+	// (Optional) Block for import schedule configuration:
+	Schedule *FeaturesCapabilitiesImportSettingsSchedule `pulumi:"schedule"`
+	// (Optional) Block for username configuration:
+	Username *FeaturesCapabilitiesImportSettingsUsername `pulumi:"username"`
+}
+
+// FeaturesCapabilitiesImportSettingsInput is an input type that accepts FeaturesCapabilitiesImportSettingsArgs and FeaturesCapabilitiesImportSettingsOutput values.
+// You can construct a concrete instance of `FeaturesCapabilitiesImportSettingsInput` via:
+//
+//	FeaturesCapabilitiesImportSettingsArgs{...}
+type FeaturesCapabilitiesImportSettingsInput interface {
+	pulumi.Input
+
+	ToFeaturesCapabilitiesImportSettingsOutput() FeaturesCapabilitiesImportSettingsOutput
+	ToFeaturesCapabilitiesImportSettingsOutputWithContext(context.Context) FeaturesCapabilitiesImportSettingsOutput
+}
+
+type FeaturesCapabilitiesImportSettingsArgs struct {
+	// (Optional) Block for import schedule configuration:
+	Schedule FeaturesCapabilitiesImportSettingsSchedulePtrInput `pulumi:"schedule"`
+	// (Optional) Block for username configuration:
+	Username FeaturesCapabilitiesImportSettingsUsernamePtrInput `pulumi:"username"`
+}
+
+func (FeaturesCapabilitiesImportSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FeaturesCapabilitiesImportSettings)(nil)).Elem()
+}
+
+func (i FeaturesCapabilitiesImportSettingsArgs) ToFeaturesCapabilitiesImportSettingsOutput() FeaturesCapabilitiesImportSettingsOutput {
+	return i.ToFeaturesCapabilitiesImportSettingsOutputWithContext(context.Background())
+}
+
+func (i FeaturesCapabilitiesImportSettingsArgs) ToFeaturesCapabilitiesImportSettingsOutputWithContext(ctx context.Context) FeaturesCapabilitiesImportSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeaturesCapabilitiesImportSettingsOutput)
+}
+
+func (i FeaturesCapabilitiesImportSettingsArgs) ToFeaturesCapabilitiesImportSettingsPtrOutput() FeaturesCapabilitiesImportSettingsPtrOutput {
+	return i.ToFeaturesCapabilitiesImportSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i FeaturesCapabilitiesImportSettingsArgs) ToFeaturesCapabilitiesImportSettingsPtrOutputWithContext(ctx context.Context) FeaturesCapabilitiesImportSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeaturesCapabilitiesImportSettingsOutput).ToFeaturesCapabilitiesImportSettingsPtrOutputWithContext(ctx)
+}
+
+// FeaturesCapabilitiesImportSettingsPtrInput is an input type that accepts FeaturesCapabilitiesImportSettingsArgs, FeaturesCapabilitiesImportSettingsPtr and FeaturesCapabilitiesImportSettingsPtrOutput values.
+// You can construct a concrete instance of `FeaturesCapabilitiesImportSettingsPtrInput` via:
+//
+//	        FeaturesCapabilitiesImportSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type FeaturesCapabilitiesImportSettingsPtrInput interface {
+	pulumi.Input
+
+	ToFeaturesCapabilitiesImportSettingsPtrOutput() FeaturesCapabilitiesImportSettingsPtrOutput
+	ToFeaturesCapabilitiesImportSettingsPtrOutputWithContext(context.Context) FeaturesCapabilitiesImportSettingsPtrOutput
+}
+
+type featuresCapabilitiesImportSettingsPtrType FeaturesCapabilitiesImportSettingsArgs
+
+func FeaturesCapabilitiesImportSettingsPtr(v *FeaturesCapabilitiesImportSettingsArgs) FeaturesCapabilitiesImportSettingsPtrInput {
+	return (*featuresCapabilitiesImportSettingsPtrType)(v)
+}
+
+func (*featuresCapabilitiesImportSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FeaturesCapabilitiesImportSettings)(nil)).Elem()
+}
+
+func (i *featuresCapabilitiesImportSettingsPtrType) ToFeaturesCapabilitiesImportSettingsPtrOutput() FeaturesCapabilitiesImportSettingsPtrOutput {
+	return i.ToFeaturesCapabilitiesImportSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *featuresCapabilitiesImportSettingsPtrType) ToFeaturesCapabilitiesImportSettingsPtrOutputWithContext(ctx context.Context) FeaturesCapabilitiesImportSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeaturesCapabilitiesImportSettingsPtrOutput)
+}
+
+type FeaturesCapabilitiesImportSettingsOutput struct{ *pulumi.OutputState }
+
+func (FeaturesCapabilitiesImportSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FeaturesCapabilitiesImportSettings)(nil)).Elem()
+}
+
+func (o FeaturesCapabilitiesImportSettingsOutput) ToFeaturesCapabilitiesImportSettingsOutput() FeaturesCapabilitiesImportSettingsOutput {
+	return o
+}
+
+func (o FeaturesCapabilitiesImportSettingsOutput) ToFeaturesCapabilitiesImportSettingsOutputWithContext(ctx context.Context) FeaturesCapabilitiesImportSettingsOutput {
+	return o
+}
+
+func (o FeaturesCapabilitiesImportSettingsOutput) ToFeaturesCapabilitiesImportSettingsPtrOutput() FeaturesCapabilitiesImportSettingsPtrOutput {
+	return o.ToFeaturesCapabilitiesImportSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o FeaturesCapabilitiesImportSettingsOutput) ToFeaturesCapabilitiesImportSettingsPtrOutputWithContext(ctx context.Context) FeaturesCapabilitiesImportSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FeaturesCapabilitiesImportSettings) *FeaturesCapabilitiesImportSettings {
+		return &v
+	}).(FeaturesCapabilitiesImportSettingsPtrOutput)
+}
+
+// (Optional) Block for import schedule configuration:
+func (o FeaturesCapabilitiesImportSettingsOutput) Schedule() FeaturesCapabilitiesImportSettingsSchedulePtrOutput {
+	return o.ApplyT(func(v FeaturesCapabilitiesImportSettings) *FeaturesCapabilitiesImportSettingsSchedule {
+		return v.Schedule
+	}).(FeaturesCapabilitiesImportSettingsSchedulePtrOutput)
+}
+
+// (Optional) Block for username configuration:
+func (o FeaturesCapabilitiesImportSettingsOutput) Username() FeaturesCapabilitiesImportSettingsUsernamePtrOutput {
+	return o.ApplyT(func(v FeaturesCapabilitiesImportSettings) *FeaturesCapabilitiesImportSettingsUsername {
+		return v.Username
+	}).(FeaturesCapabilitiesImportSettingsUsernamePtrOutput)
+}
+
+type FeaturesCapabilitiesImportSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (FeaturesCapabilitiesImportSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FeaturesCapabilitiesImportSettings)(nil)).Elem()
+}
+
+func (o FeaturesCapabilitiesImportSettingsPtrOutput) ToFeaturesCapabilitiesImportSettingsPtrOutput() FeaturesCapabilitiesImportSettingsPtrOutput {
+	return o
+}
+
+func (o FeaturesCapabilitiesImportSettingsPtrOutput) ToFeaturesCapabilitiesImportSettingsPtrOutputWithContext(ctx context.Context) FeaturesCapabilitiesImportSettingsPtrOutput {
+	return o
+}
+
+func (o FeaturesCapabilitiesImportSettingsPtrOutput) Elem() FeaturesCapabilitiesImportSettingsOutput {
+	return o.ApplyT(func(v *FeaturesCapabilitiesImportSettings) FeaturesCapabilitiesImportSettings {
+		if v != nil {
+			return *v
+		}
+		var ret FeaturesCapabilitiesImportSettings
+		return ret
+	}).(FeaturesCapabilitiesImportSettingsOutput)
+}
+
+// (Optional) Block for import schedule configuration:
+func (o FeaturesCapabilitiesImportSettingsPtrOutput) Schedule() FeaturesCapabilitiesImportSettingsSchedulePtrOutput {
+	return o.ApplyT(func(v *FeaturesCapabilitiesImportSettings) *FeaturesCapabilitiesImportSettingsSchedule {
+		if v == nil {
+			return nil
+		}
+		return v.Schedule
+	}).(FeaturesCapabilitiesImportSettingsSchedulePtrOutput)
+}
+
+// (Optional) Block for username configuration:
+func (o FeaturesCapabilitiesImportSettingsPtrOutput) Username() FeaturesCapabilitiesImportSettingsUsernamePtrOutput {
+	return o.ApplyT(func(v *FeaturesCapabilitiesImportSettings) *FeaturesCapabilitiesImportSettingsUsername {
+		if v == nil {
+			return nil
+		}
+		return v.Username
+	}).(FeaturesCapabilitiesImportSettingsUsernamePtrOutput)
+}
+
+type FeaturesCapabilitiesImportSettingsSchedule struct {
+	// (Optional) Block for full import schedule:
+	FullImport *FeaturesCapabilitiesImportSettingsScheduleFullImport `pulumi:"fullImport"`
+	// (Optional) Block for incremental import schedule:
+	IncrementalImport *FeaturesCapabilitiesImportSettingsScheduleIncrementalImport `pulumi:"incrementalImport"`
+	// The status of the feature. Valid values are `ENABLED` or `DISABLED`.
+	Status *string `pulumi:"status"`
+}
+
+// FeaturesCapabilitiesImportSettingsScheduleInput is an input type that accepts FeaturesCapabilitiesImportSettingsScheduleArgs and FeaturesCapabilitiesImportSettingsScheduleOutput values.
+// You can construct a concrete instance of `FeaturesCapabilitiesImportSettingsScheduleInput` via:
+//
+//	FeaturesCapabilitiesImportSettingsScheduleArgs{...}
+type FeaturesCapabilitiesImportSettingsScheduleInput interface {
+	pulumi.Input
+
+	ToFeaturesCapabilitiesImportSettingsScheduleOutput() FeaturesCapabilitiesImportSettingsScheduleOutput
+	ToFeaturesCapabilitiesImportSettingsScheduleOutputWithContext(context.Context) FeaturesCapabilitiesImportSettingsScheduleOutput
+}
+
+type FeaturesCapabilitiesImportSettingsScheduleArgs struct {
+	// (Optional) Block for full import schedule:
+	FullImport FeaturesCapabilitiesImportSettingsScheduleFullImportPtrInput `pulumi:"fullImport"`
+	// (Optional) Block for incremental import schedule:
+	IncrementalImport FeaturesCapabilitiesImportSettingsScheduleIncrementalImportPtrInput `pulumi:"incrementalImport"`
+	// The status of the feature. Valid values are `ENABLED` or `DISABLED`.
+	Status pulumi.StringPtrInput `pulumi:"status"`
+}
+
+func (FeaturesCapabilitiesImportSettingsScheduleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FeaturesCapabilitiesImportSettingsSchedule)(nil)).Elem()
+}
+
+func (i FeaturesCapabilitiesImportSettingsScheduleArgs) ToFeaturesCapabilitiesImportSettingsScheduleOutput() FeaturesCapabilitiesImportSettingsScheduleOutput {
+	return i.ToFeaturesCapabilitiesImportSettingsScheduleOutputWithContext(context.Background())
+}
+
+func (i FeaturesCapabilitiesImportSettingsScheduleArgs) ToFeaturesCapabilitiesImportSettingsScheduleOutputWithContext(ctx context.Context) FeaturesCapabilitiesImportSettingsScheduleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeaturesCapabilitiesImportSettingsScheduleOutput)
+}
+
+func (i FeaturesCapabilitiesImportSettingsScheduleArgs) ToFeaturesCapabilitiesImportSettingsSchedulePtrOutput() FeaturesCapabilitiesImportSettingsSchedulePtrOutput {
+	return i.ToFeaturesCapabilitiesImportSettingsSchedulePtrOutputWithContext(context.Background())
+}
+
+func (i FeaturesCapabilitiesImportSettingsScheduleArgs) ToFeaturesCapabilitiesImportSettingsSchedulePtrOutputWithContext(ctx context.Context) FeaturesCapabilitiesImportSettingsSchedulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeaturesCapabilitiesImportSettingsScheduleOutput).ToFeaturesCapabilitiesImportSettingsSchedulePtrOutputWithContext(ctx)
+}
+
+// FeaturesCapabilitiesImportSettingsSchedulePtrInput is an input type that accepts FeaturesCapabilitiesImportSettingsScheduleArgs, FeaturesCapabilitiesImportSettingsSchedulePtr and FeaturesCapabilitiesImportSettingsSchedulePtrOutput values.
+// You can construct a concrete instance of `FeaturesCapabilitiesImportSettingsSchedulePtrInput` via:
+//
+//	        FeaturesCapabilitiesImportSettingsScheduleArgs{...}
+//
+//	or:
+//
+//	        nil
+type FeaturesCapabilitiesImportSettingsSchedulePtrInput interface {
+	pulumi.Input
+
+	ToFeaturesCapabilitiesImportSettingsSchedulePtrOutput() FeaturesCapabilitiesImportSettingsSchedulePtrOutput
+	ToFeaturesCapabilitiesImportSettingsSchedulePtrOutputWithContext(context.Context) FeaturesCapabilitiesImportSettingsSchedulePtrOutput
+}
+
+type featuresCapabilitiesImportSettingsSchedulePtrType FeaturesCapabilitiesImportSettingsScheduleArgs
+
+func FeaturesCapabilitiesImportSettingsSchedulePtr(v *FeaturesCapabilitiesImportSettingsScheduleArgs) FeaturesCapabilitiesImportSettingsSchedulePtrInput {
+	return (*featuresCapabilitiesImportSettingsSchedulePtrType)(v)
+}
+
+func (*featuresCapabilitiesImportSettingsSchedulePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FeaturesCapabilitiesImportSettingsSchedule)(nil)).Elem()
+}
+
+func (i *featuresCapabilitiesImportSettingsSchedulePtrType) ToFeaturesCapabilitiesImportSettingsSchedulePtrOutput() FeaturesCapabilitiesImportSettingsSchedulePtrOutput {
+	return i.ToFeaturesCapabilitiesImportSettingsSchedulePtrOutputWithContext(context.Background())
+}
+
+func (i *featuresCapabilitiesImportSettingsSchedulePtrType) ToFeaturesCapabilitiesImportSettingsSchedulePtrOutputWithContext(ctx context.Context) FeaturesCapabilitiesImportSettingsSchedulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeaturesCapabilitiesImportSettingsSchedulePtrOutput)
+}
+
+type FeaturesCapabilitiesImportSettingsScheduleOutput struct{ *pulumi.OutputState }
+
+func (FeaturesCapabilitiesImportSettingsScheduleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FeaturesCapabilitiesImportSettingsSchedule)(nil)).Elem()
+}
+
+func (o FeaturesCapabilitiesImportSettingsScheduleOutput) ToFeaturesCapabilitiesImportSettingsScheduleOutput() FeaturesCapabilitiesImportSettingsScheduleOutput {
+	return o
+}
+
+func (o FeaturesCapabilitiesImportSettingsScheduleOutput) ToFeaturesCapabilitiesImportSettingsScheduleOutputWithContext(ctx context.Context) FeaturesCapabilitiesImportSettingsScheduleOutput {
+	return o
+}
+
+func (o FeaturesCapabilitiesImportSettingsScheduleOutput) ToFeaturesCapabilitiesImportSettingsSchedulePtrOutput() FeaturesCapabilitiesImportSettingsSchedulePtrOutput {
+	return o.ToFeaturesCapabilitiesImportSettingsSchedulePtrOutputWithContext(context.Background())
+}
+
+func (o FeaturesCapabilitiesImportSettingsScheduleOutput) ToFeaturesCapabilitiesImportSettingsSchedulePtrOutputWithContext(ctx context.Context) FeaturesCapabilitiesImportSettingsSchedulePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FeaturesCapabilitiesImportSettingsSchedule) *FeaturesCapabilitiesImportSettingsSchedule {
+		return &v
+	}).(FeaturesCapabilitiesImportSettingsSchedulePtrOutput)
+}
+
+// (Optional) Block for full import schedule:
+func (o FeaturesCapabilitiesImportSettingsScheduleOutput) FullImport() FeaturesCapabilitiesImportSettingsScheduleFullImportPtrOutput {
+	return o.ApplyT(func(v FeaturesCapabilitiesImportSettingsSchedule) *FeaturesCapabilitiesImportSettingsScheduleFullImport {
+		return v.FullImport
+	}).(FeaturesCapabilitiesImportSettingsScheduleFullImportPtrOutput)
+}
+
+// (Optional) Block for incremental import schedule:
+func (o FeaturesCapabilitiesImportSettingsScheduleOutput) IncrementalImport() FeaturesCapabilitiesImportSettingsScheduleIncrementalImportPtrOutput {
+	return o.ApplyT(func(v FeaturesCapabilitiesImportSettingsSchedule) *FeaturesCapabilitiesImportSettingsScheduleIncrementalImport {
+		return v.IncrementalImport
+	}).(FeaturesCapabilitiesImportSettingsScheduleIncrementalImportPtrOutput)
+}
+
+// The status of the feature. Valid values are `ENABLED` or `DISABLED`.
+func (o FeaturesCapabilitiesImportSettingsScheduleOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FeaturesCapabilitiesImportSettingsSchedule) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+type FeaturesCapabilitiesImportSettingsSchedulePtrOutput struct{ *pulumi.OutputState }
+
+func (FeaturesCapabilitiesImportSettingsSchedulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FeaturesCapabilitiesImportSettingsSchedule)(nil)).Elem()
+}
+
+func (o FeaturesCapabilitiesImportSettingsSchedulePtrOutput) ToFeaturesCapabilitiesImportSettingsSchedulePtrOutput() FeaturesCapabilitiesImportSettingsSchedulePtrOutput {
+	return o
+}
+
+func (o FeaturesCapabilitiesImportSettingsSchedulePtrOutput) ToFeaturesCapabilitiesImportSettingsSchedulePtrOutputWithContext(ctx context.Context) FeaturesCapabilitiesImportSettingsSchedulePtrOutput {
+	return o
+}
+
+func (o FeaturesCapabilitiesImportSettingsSchedulePtrOutput) Elem() FeaturesCapabilitiesImportSettingsScheduleOutput {
+	return o.ApplyT(func(v *FeaturesCapabilitiesImportSettingsSchedule) FeaturesCapabilitiesImportSettingsSchedule {
+		if v != nil {
+			return *v
+		}
+		var ret FeaturesCapabilitiesImportSettingsSchedule
+		return ret
+	}).(FeaturesCapabilitiesImportSettingsScheduleOutput)
+}
+
+// (Optional) Block for full import schedule:
+func (o FeaturesCapabilitiesImportSettingsSchedulePtrOutput) FullImport() FeaturesCapabilitiesImportSettingsScheduleFullImportPtrOutput {
+	return o.ApplyT(func(v *FeaturesCapabilitiesImportSettingsSchedule) *FeaturesCapabilitiesImportSettingsScheduleFullImport {
+		if v == nil {
+			return nil
+		}
+		return v.FullImport
+	}).(FeaturesCapabilitiesImportSettingsScheduleFullImportPtrOutput)
+}
+
+// (Optional) Block for incremental import schedule:
+func (o FeaturesCapabilitiesImportSettingsSchedulePtrOutput) IncrementalImport() FeaturesCapabilitiesImportSettingsScheduleIncrementalImportPtrOutput {
+	return o.ApplyT(func(v *FeaturesCapabilitiesImportSettingsSchedule) *FeaturesCapabilitiesImportSettingsScheduleIncrementalImport {
+		if v == nil {
+			return nil
+		}
+		return v.IncrementalImport
+	}).(FeaturesCapabilitiesImportSettingsScheduleIncrementalImportPtrOutput)
+}
+
+// The status of the feature. Valid values are `ENABLED` or `DISABLED`.
+func (o FeaturesCapabilitiesImportSettingsSchedulePtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FeaturesCapabilitiesImportSettingsSchedule) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Status
+	}).(pulumi.StringPtrOutput)
+}
+
+type FeaturesCapabilitiesImportSettingsScheduleFullImport struct {
+	// (Optional) UNIX cron expression for incremental import schedule.
+	Expression *string `pulumi:"expression"`
+	// (Optional) IANA timezone name for the schedule.
+	Timezone *string `pulumi:"timezone"`
+}
+
+// FeaturesCapabilitiesImportSettingsScheduleFullImportInput is an input type that accepts FeaturesCapabilitiesImportSettingsScheduleFullImportArgs and FeaturesCapabilitiesImportSettingsScheduleFullImportOutput values.
+// You can construct a concrete instance of `FeaturesCapabilitiesImportSettingsScheduleFullImportInput` via:
+//
+//	FeaturesCapabilitiesImportSettingsScheduleFullImportArgs{...}
+type FeaturesCapabilitiesImportSettingsScheduleFullImportInput interface {
+	pulumi.Input
+
+	ToFeaturesCapabilitiesImportSettingsScheduleFullImportOutput() FeaturesCapabilitiesImportSettingsScheduleFullImportOutput
+	ToFeaturesCapabilitiesImportSettingsScheduleFullImportOutputWithContext(context.Context) FeaturesCapabilitiesImportSettingsScheduleFullImportOutput
+}
+
+type FeaturesCapabilitiesImportSettingsScheduleFullImportArgs struct {
+	// (Optional) UNIX cron expression for incremental import schedule.
+	Expression pulumi.StringPtrInput `pulumi:"expression"`
+	// (Optional) IANA timezone name for the schedule.
+	Timezone pulumi.StringPtrInput `pulumi:"timezone"`
+}
+
+func (FeaturesCapabilitiesImportSettingsScheduleFullImportArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FeaturesCapabilitiesImportSettingsScheduleFullImport)(nil)).Elem()
+}
+
+func (i FeaturesCapabilitiesImportSettingsScheduleFullImportArgs) ToFeaturesCapabilitiesImportSettingsScheduleFullImportOutput() FeaturesCapabilitiesImportSettingsScheduleFullImportOutput {
+	return i.ToFeaturesCapabilitiesImportSettingsScheduleFullImportOutputWithContext(context.Background())
+}
+
+func (i FeaturesCapabilitiesImportSettingsScheduleFullImportArgs) ToFeaturesCapabilitiesImportSettingsScheduleFullImportOutputWithContext(ctx context.Context) FeaturesCapabilitiesImportSettingsScheduleFullImportOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeaturesCapabilitiesImportSettingsScheduleFullImportOutput)
+}
+
+func (i FeaturesCapabilitiesImportSettingsScheduleFullImportArgs) ToFeaturesCapabilitiesImportSettingsScheduleFullImportPtrOutput() FeaturesCapabilitiesImportSettingsScheduleFullImportPtrOutput {
+	return i.ToFeaturesCapabilitiesImportSettingsScheduleFullImportPtrOutputWithContext(context.Background())
+}
+
+func (i FeaturesCapabilitiesImportSettingsScheduleFullImportArgs) ToFeaturesCapabilitiesImportSettingsScheduleFullImportPtrOutputWithContext(ctx context.Context) FeaturesCapabilitiesImportSettingsScheduleFullImportPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeaturesCapabilitiesImportSettingsScheduleFullImportOutput).ToFeaturesCapabilitiesImportSettingsScheduleFullImportPtrOutputWithContext(ctx)
+}
+
+// FeaturesCapabilitiesImportSettingsScheduleFullImportPtrInput is an input type that accepts FeaturesCapabilitiesImportSettingsScheduleFullImportArgs, FeaturesCapabilitiesImportSettingsScheduleFullImportPtr and FeaturesCapabilitiesImportSettingsScheduleFullImportPtrOutput values.
+// You can construct a concrete instance of `FeaturesCapabilitiesImportSettingsScheduleFullImportPtrInput` via:
+//
+//	        FeaturesCapabilitiesImportSettingsScheduleFullImportArgs{...}
+//
+//	or:
+//
+//	        nil
+type FeaturesCapabilitiesImportSettingsScheduleFullImportPtrInput interface {
+	pulumi.Input
+
+	ToFeaturesCapabilitiesImportSettingsScheduleFullImportPtrOutput() FeaturesCapabilitiesImportSettingsScheduleFullImportPtrOutput
+	ToFeaturesCapabilitiesImportSettingsScheduleFullImportPtrOutputWithContext(context.Context) FeaturesCapabilitiesImportSettingsScheduleFullImportPtrOutput
+}
+
+type featuresCapabilitiesImportSettingsScheduleFullImportPtrType FeaturesCapabilitiesImportSettingsScheduleFullImportArgs
+
+func FeaturesCapabilitiesImportSettingsScheduleFullImportPtr(v *FeaturesCapabilitiesImportSettingsScheduleFullImportArgs) FeaturesCapabilitiesImportSettingsScheduleFullImportPtrInput {
+	return (*featuresCapabilitiesImportSettingsScheduleFullImportPtrType)(v)
+}
+
+func (*featuresCapabilitiesImportSettingsScheduleFullImportPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FeaturesCapabilitiesImportSettingsScheduleFullImport)(nil)).Elem()
+}
+
+func (i *featuresCapabilitiesImportSettingsScheduleFullImportPtrType) ToFeaturesCapabilitiesImportSettingsScheduleFullImportPtrOutput() FeaturesCapabilitiesImportSettingsScheduleFullImportPtrOutput {
+	return i.ToFeaturesCapabilitiesImportSettingsScheduleFullImportPtrOutputWithContext(context.Background())
+}
+
+func (i *featuresCapabilitiesImportSettingsScheduleFullImportPtrType) ToFeaturesCapabilitiesImportSettingsScheduleFullImportPtrOutputWithContext(ctx context.Context) FeaturesCapabilitiesImportSettingsScheduleFullImportPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeaturesCapabilitiesImportSettingsScheduleFullImportPtrOutput)
+}
+
+type FeaturesCapabilitiesImportSettingsScheduleFullImportOutput struct{ *pulumi.OutputState }
+
+func (FeaturesCapabilitiesImportSettingsScheduleFullImportOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FeaturesCapabilitiesImportSettingsScheduleFullImport)(nil)).Elem()
+}
+
+func (o FeaturesCapabilitiesImportSettingsScheduleFullImportOutput) ToFeaturesCapabilitiesImportSettingsScheduleFullImportOutput() FeaturesCapabilitiesImportSettingsScheduleFullImportOutput {
+	return o
+}
+
+func (o FeaturesCapabilitiesImportSettingsScheduleFullImportOutput) ToFeaturesCapabilitiesImportSettingsScheduleFullImportOutputWithContext(ctx context.Context) FeaturesCapabilitiesImportSettingsScheduleFullImportOutput {
+	return o
+}
+
+func (o FeaturesCapabilitiesImportSettingsScheduleFullImportOutput) ToFeaturesCapabilitiesImportSettingsScheduleFullImportPtrOutput() FeaturesCapabilitiesImportSettingsScheduleFullImportPtrOutput {
+	return o.ToFeaturesCapabilitiesImportSettingsScheduleFullImportPtrOutputWithContext(context.Background())
+}
+
+func (o FeaturesCapabilitiesImportSettingsScheduleFullImportOutput) ToFeaturesCapabilitiesImportSettingsScheduleFullImportPtrOutputWithContext(ctx context.Context) FeaturesCapabilitiesImportSettingsScheduleFullImportPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FeaturesCapabilitiesImportSettingsScheduleFullImport) *FeaturesCapabilitiesImportSettingsScheduleFullImport {
+		return &v
+	}).(FeaturesCapabilitiesImportSettingsScheduleFullImportPtrOutput)
+}
+
+// (Optional) UNIX cron expression for incremental import schedule.
+func (o FeaturesCapabilitiesImportSettingsScheduleFullImportOutput) Expression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FeaturesCapabilitiesImportSettingsScheduleFullImport) *string { return v.Expression }).(pulumi.StringPtrOutput)
+}
+
+// (Optional) IANA timezone name for the schedule.
+func (o FeaturesCapabilitiesImportSettingsScheduleFullImportOutput) Timezone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FeaturesCapabilitiesImportSettingsScheduleFullImport) *string { return v.Timezone }).(pulumi.StringPtrOutput)
+}
+
+type FeaturesCapabilitiesImportSettingsScheduleFullImportPtrOutput struct{ *pulumi.OutputState }
+
+func (FeaturesCapabilitiesImportSettingsScheduleFullImportPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FeaturesCapabilitiesImportSettingsScheduleFullImport)(nil)).Elem()
+}
+
+func (o FeaturesCapabilitiesImportSettingsScheduleFullImportPtrOutput) ToFeaturesCapabilitiesImportSettingsScheduleFullImportPtrOutput() FeaturesCapabilitiesImportSettingsScheduleFullImportPtrOutput {
+	return o
+}
+
+func (o FeaturesCapabilitiesImportSettingsScheduleFullImportPtrOutput) ToFeaturesCapabilitiesImportSettingsScheduleFullImportPtrOutputWithContext(ctx context.Context) FeaturesCapabilitiesImportSettingsScheduleFullImportPtrOutput {
+	return o
+}
+
+func (o FeaturesCapabilitiesImportSettingsScheduleFullImportPtrOutput) Elem() FeaturesCapabilitiesImportSettingsScheduleFullImportOutput {
+	return o.ApplyT(func(v *FeaturesCapabilitiesImportSettingsScheduleFullImport) FeaturesCapabilitiesImportSettingsScheduleFullImport {
+		if v != nil {
+			return *v
+		}
+		var ret FeaturesCapabilitiesImportSettingsScheduleFullImport
+		return ret
+	}).(FeaturesCapabilitiesImportSettingsScheduleFullImportOutput)
+}
+
+// (Optional) UNIX cron expression for incremental import schedule.
+func (o FeaturesCapabilitiesImportSettingsScheduleFullImportPtrOutput) Expression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FeaturesCapabilitiesImportSettingsScheduleFullImport) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Expression
+	}).(pulumi.StringPtrOutput)
+}
+
+// (Optional) IANA timezone name for the schedule.
+func (o FeaturesCapabilitiesImportSettingsScheduleFullImportPtrOutput) Timezone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FeaturesCapabilitiesImportSettingsScheduleFullImport) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Timezone
+	}).(pulumi.StringPtrOutput)
+}
+
+type FeaturesCapabilitiesImportSettingsScheduleIncrementalImport struct {
+	// (Optional) UNIX cron expression for incremental import schedule.
+	Expression *string `pulumi:"expression"`
+	// (Optional) IANA timezone name for the schedule.
+	Timezone *string `pulumi:"timezone"`
+}
+
+// FeaturesCapabilitiesImportSettingsScheduleIncrementalImportInput is an input type that accepts FeaturesCapabilitiesImportSettingsScheduleIncrementalImportArgs and FeaturesCapabilitiesImportSettingsScheduleIncrementalImportOutput values.
+// You can construct a concrete instance of `FeaturesCapabilitiesImportSettingsScheduleIncrementalImportInput` via:
+//
+//	FeaturesCapabilitiesImportSettingsScheduleIncrementalImportArgs{...}
+type FeaturesCapabilitiesImportSettingsScheduleIncrementalImportInput interface {
+	pulumi.Input
+
+	ToFeaturesCapabilitiesImportSettingsScheduleIncrementalImportOutput() FeaturesCapabilitiesImportSettingsScheduleIncrementalImportOutput
+	ToFeaturesCapabilitiesImportSettingsScheduleIncrementalImportOutputWithContext(context.Context) FeaturesCapabilitiesImportSettingsScheduleIncrementalImportOutput
+}
+
+type FeaturesCapabilitiesImportSettingsScheduleIncrementalImportArgs struct {
+	// (Optional) UNIX cron expression for incremental import schedule.
+	Expression pulumi.StringPtrInput `pulumi:"expression"`
+	// (Optional) IANA timezone name for the schedule.
+	Timezone pulumi.StringPtrInput `pulumi:"timezone"`
+}
+
+func (FeaturesCapabilitiesImportSettingsScheduleIncrementalImportArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FeaturesCapabilitiesImportSettingsScheduleIncrementalImport)(nil)).Elem()
+}
+
+func (i FeaturesCapabilitiesImportSettingsScheduleIncrementalImportArgs) ToFeaturesCapabilitiesImportSettingsScheduleIncrementalImportOutput() FeaturesCapabilitiesImportSettingsScheduleIncrementalImportOutput {
+	return i.ToFeaturesCapabilitiesImportSettingsScheduleIncrementalImportOutputWithContext(context.Background())
+}
+
+func (i FeaturesCapabilitiesImportSettingsScheduleIncrementalImportArgs) ToFeaturesCapabilitiesImportSettingsScheduleIncrementalImportOutputWithContext(ctx context.Context) FeaturesCapabilitiesImportSettingsScheduleIncrementalImportOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeaturesCapabilitiesImportSettingsScheduleIncrementalImportOutput)
+}
+
+func (i FeaturesCapabilitiesImportSettingsScheduleIncrementalImportArgs) ToFeaturesCapabilitiesImportSettingsScheduleIncrementalImportPtrOutput() FeaturesCapabilitiesImportSettingsScheduleIncrementalImportPtrOutput {
+	return i.ToFeaturesCapabilitiesImportSettingsScheduleIncrementalImportPtrOutputWithContext(context.Background())
+}
+
+func (i FeaturesCapabilitiesImportSettingsScheduleIncrementalImportArgs) ToFeaturesCapabilitiesImportSettingsScheduleIncrementalImportPtrOutputWithContext(ctx context.Context) FeaturesCapabilitiesImportSettingsScheduleIncrementalImportPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeaturesCapabilitiesImportSettingsScheduleIncrementalImportOutput).ToFeaturesCapabilitiesImportSettingsScheduleIncrementalImportPtrOutputWithContext(ctx)
+}
+
+// FeaturesCapabilitiesImportSettingsScheduleIncrementalImportPtrInput is an input type that accepts FeaturesCapabilitiesImportSettingsScheduleIncrementalImportArgs, FeaturesCapabilitiesImportSettingsScheduleIncrementalImportPtr and FeaturesCapabilitiesImportSettingsScheduleIncrementalImportPtrOutput values.
+// You can construct a concrete instance of `FeaturesCapabilitiesImportSettingsScheduleIncrementalImportPtrInput` via:
+//
+//	        FeaturesCapabilitiesImportSettingsScheduleIncrementalImportArgs{...}
+//
+//	or:
+//
+//	        nil
+type FeaturesCapabilitiesImportSettingsScheduleIncrementalImportPtrInput interface {
+	pulumi.Input
+
+	ToFeaturesCapabilitiesImportSettingsScheduleIncrementalImportPtrOutput() FeaturesCapabilitiesImportSettingsScheduleIncrementalImportPtrOutput
+	ToFeaturesCapabilitiesImportSettingsScheduleIncrementalImportPtrOutputWithContext(context.Context) FeaturesCapabilitiesImportSettingsScheduleIncrementalImportPtrOutput
+}
+
+type featuresCapabilitiesImportSettingsScheduleIncrementalImportPtrType FeaturesCapabilitiesImportSettingsScheduleIncrementalImportArgs
+
+func FeaturesCapabilitiesImportSettingsScheduleIncrementalImportPtr(v *FeaturesCapabilitiesImportSettingsScheduleIncrementalImportArgs) FeaturesCapabilitiesImportSettingsScheduleIncrementalImportPtrInput {
+	return (*featuresCapabilitiesImportSettingsScheduleIncrementalImportPtrType)(v)
+}
+
+func (*featuresCapabilitiesImportSettingsScheduleIncrementalImportPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FeaturesCapabilitiesImportSettingsScheduleIncrementalImport)(nil)).Elem()
+}
+
+func (i *featuresCapabilitiesImportSettingsScheduleIncrementalImportPtrType) ToFeaturesCapabilitiesImportSettingsScheduleIncrementalImportPtrOutput() FeaturesCapabilitiesImportSettingsScheduleIncrementalImportPtrOutput {
+	return i.ToFeaturesCapabilitiesImportSettingsScheduleIncrementalImportPtrOutputWithContext(context.Background())
+}
+
+func (i *featuresCapabilitiesImportSettingsScheduleIncrementalImportPtrType) ToFeaturesCapabilitiesImportSettingsScheduleIncrementalImportPtrOutputWithContext(ctx context.Context) FeaturesCapabilitiesImportSettingsScheduleIncrementalImportPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeaturesCapabilitiesImportSettingsScheduleIncrementalImportPtrOutput)
+}
+
+type FeaturesCapabilitiesImportSettingsScheduleIncrementalImportOutput struct{ *pulumi.OutputState }
+
+func (FeaturesCapabilitiesImportSettingsScheduleIncrementalImportOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FeaturesCapabilitiesImportSettingsScheduleIncrementalImport)(nil)).Elem()
+}
+
+func (o FeaturesCapabilitiesImportSettingsScheduleIncrementalImportOutput) ToFeaturesCapabilitiesImportSettingsScheduleIncrementalImportOutput() FeaturesCapabilitiesImportSettingsScheduleIncrementalImportOutput {
+	return o
+}
+
+func (o FeaturesCapabilitiesImportSettingsScheduleIncrementalImportOutput) ToFeaturesCapabilitiesImportSettingsScheduleIncrementalImportOutputWithContext(ctx context.Context) FeaturesCapabilitiesImportSettingsScheduleIncrementalImportOutput {
+	return o
+}
+
+func (o FeaturesCapabilitiesImportSettingsScheduleIncrementalImportOutput) ToFeaturesCapabilitiesImportSettingsScheduleIncrementalImportPtrOutput() FeaturesCapabilitiesImportSettingsScheduleIncrementalImportPtrOutput {
+	return o.ToFeaturesCapabilitiesImportSettingsScheduleIncrementalImportPtrOutputWithContext(context.Background())
+}
+
+func (o FeaturesCapabilitiesImportSettingsScheduleIncrementalImportOutput) ToFeaturesCapabilitiesImportSettingsScheduleIncrementalImportPtrOutputWithContext(ctx context.Context) FeaturesCapabilitiesImportSettingsScheduleIncrementalImportPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FeaturesCapabilitiesImportSettingsScheduleIncrementalImport) *FeaturesCapabilitiesImportSettingsScheduleIncrementalImport {
+		return &v
+	}).(FeaturesCapabilitiesImportSettingsScheduleIncrementalImportPtrOutput)
+}
+
+// (Optional) UNIX cron expression for incremental import schedule.
+func (o FeaturesCapabilitiesImportSettingsScheduleIncrementalImportOutput) Expression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FeaturesCapabilitiesImportSettingsScheduleIncrementalImport) *string { return v.Expression }).(pulumi.StringPtrOutput)
+}
+
+// (Optional) IANA timezone name for the schedule.
+func (o FeaturesCapabilitiesImportSettingsScheduleIncrementalImportOutput) Timezone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FeaturesCapabilitiesImportSettingsScheduleIncrementalImport) *string { return v.Timezone }).(pulumi.StringPtrOutput)
+}
+
+type FeaturesCapabilitiesImportSettingsScheduleIncrementalImportPtrOutput struct{ *pulumi.OutputState }
+
+func (FeaturesCapabilitiesImportSettingsScheduleIncrementalImportPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FeaturesCapabilitiesImportSettingsScheduleIncrementalImport)(nil)).Elem()
+}
+
+func (o FeaturesCapabilitiesImportSettingsScheduleIncrementalImportPtrOutput) ToFeaturesCapabilitiesImportSettingsScheduleIncrementalImportPtrOutput() FeaturesCapabilitiesImportSettingsScheduleIncrementalImportPtrOutput {
+	return o
+}
+
+func (o FeaturesCapabilitiesImportSettingsScheduleIncrementalImportPtrOutput) ToFeaturesCapabilitiesImportSettingsScheduleIncrementalImportPtrOutputWithContext(ctx context.Context) FeaturesCapabilitiesImportSettingsScheduleIncrementalImportPtrOutput {
+	return o
+}
+
+func (o FeaturesCapabilitiesImportSettingsScheduleIncrementalImportPtrOutput) Elem() FeaturesCapabilitiesImportSettingsScheduleIncrementalImportOutput {
+	return o.ApplyT(func(v *FeaturesCapabilitiesImportSettingsScheduleIncrementalImport) FeaturesCapabilitiesImportSettingsScheduleIncrementalImport {
+		if v != nil {
+			return *v
+		}
+		var ret FeaturesCapabilitiesImportSettingsScheduleIncrementalImport
+		return ret
+	}).(FeaturesCapabilitiesImportSettingsScheduleIncrementalImportOutput)
+}
+
+// (Optional) UNIX cron expression for incremental import schedule.
+func (o FeaturesCapabilitiesImportSettingsScheduleIncrementalImportPtrOutput) Expression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FeaturesCapabilitiesImportSettingsScheduleIncrementalImport) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Expression
+	}).(pulumi.StringPtrOutput)
+}
+
+// (Optional) IANA timezone name for the schedule.
+func (o FeaturesCapabilitiesImportSettingsScheduleIncrementalImportPtrOutput) Timezone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FeaturesCapabilitiesImportSettingsScheduleIncrementalImport) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Timezone
+	}).(pulumi.StringPtrOutput)
+}
+
+type FeaturesCapabilitiesImportSettingsUsername struct {
+	// (Optional) Okta Expression Language statement for custom username format.
+	UsernameExpression *string `pulumi:"usernameExpression"`
+	// (Optional) Format for usernames (e.g., `EMAIL`, `CUSTOM`).
+	UsernameFormat *string `pulumi:"usernameFormat"`
+}
+
+// FeaturesCapabilitiesImportSettingsUsernameInput is an input type that accepts FeaturesCapabilitiesImportSettingsUsernameArgs and FeaturesCapabilitiesImportSettingsUsernameOutput values.
+// You can construct a concrete instance of `FeaturesCapabilitiesImportSettingsUsernameInput` via:
+//
+//	FeaturesCapabilitiesImportSettingsUsernameArgs{...}
+type FeaturesCapabilitiesImportSettingsUsernameInput interface {
+	pulumi.Input
+
+	ToFeaturesCapabilitiesImportSettingsUsernameOutput() FeaturesCapabilitiesImportSettingsUsernameOutput
+	ToFeaturesCapabilitiesImportSettingsUsernameOutputWithContext(context.Context) FeaturesCapabilitiesImportSettingsUsernameOutput
+}
+
+type FeaturesCapabilitiesImportSettingsUsernameArgs struct {
+	// (Optional) Okta Expression Language statement for custom username format.
+	UsernameExpression pulumi.StringPtrInput `pulumi:"usernameExpression"`
+	// (Optional) Format for usernames (e.g., `EMAIL`, `CUSTOM`).
+	UsernameFormat pulumi.StringPtrInput `pulumi:"usernameFormat"`
+}
+
+func (FeaturesCapabilitiesImportSettingsUsernameArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FeaturesCapabilitiesImportSettingsUsername)(nil)).Elem()
+}
+
+func (i FeaturesCapabilitiesImportSettingsUsernameArgs) ToFeaturesCapabilitiesImportSettingsUsernameOutput() FeaturesCapabilitiesImportSettingsUsernameOutput {
+	return i.ToFeaturesCapabilitiesImportSettingsUsernameOutputWithContext(context.Background())
+}
+
+func (i FeaturesCapabilitiesImportSettingsUsernameArgs) ToFeaturesCapabilitiesImportSettingsUsernameOutputWithContext(ctx context.Context) FeaturesCapabilitiesImportSettingsUsernameOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeaturesCapabilitiesImportSettingsUsernameOutput)
+}
+
+func (i FeaturesCapabilitiesImportSettingsUsernameArgs) ToFeaturesCapabilitiesImportSettingsUsernamePtrOutput() FeaturesCapabilitiesImportSettingsUsernamePtrOutput {
+	return i.ToFeaturesCapabilitiesImportSettingsUsernamePtrOutputWithContext(context.Background())
+}
+
+func (i FeaturesCapabilitiesImportSettingsUsernameArgs) ToFeaturesCapabilitiesImportSettingsUsernamePtrOutputWithContext(ctx context.Context) FeaturesCapabilitiesImportSettingsUsernamePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeaturesCapabilitiesImportSettingsUsernameOutput).ToFeaturesCapabilitiesImportSettingsUsernamePtrOutputWithContext(ctx)
+}
+
+// FeaturesCapabilitiesImportSettingsUsernamePtrInput is an input type that accepts FeaturesCapabilitiesImportSettingsUsernameArgs, FeaturesCapabilitiesImportSettingsUsernamePtr and FeaturesCapabilitiesImportSettingsUsernamePtrOutput values.
+// You can construct a concrete instance of `FeaturesCapabilitiesImportSettingsUsernamePtrInput` via:
+//
+//	        FeaturesCapabilitiesImportSettingsUsernameArgs{...}
+//
+//	or:
+//
+//	        nil
+type FeaturesCapabilitiesImportSettingsUsernamePtrInput interface {
+	pulumi.Input
+
+	ToFeaturesCapabilitiesImportSettingsUsernamePtrOutput() FeaturesCapabilitiesImportSettingsUsernamePtrOutput
+	ToFeaturesCapabilitiesImportSettingsUsernamePtrOutputWithContext(context.Context) FeaturesCapabilitiesImportSettingsUsernamePtrOutput
+}
+
+type featuresCapabilitiesImportSettingsUsernamePtrType FeaturesCapabilitiesImportSettingsUsernameArgs
+
+func FeaturesCapabilitiesImportSettingsUsernamePtr(v *FeaturesCapabilitiesImportSettingsUsernameArgs) FeaturesCapabilitiesImportSettingsUsernamePtrInput {
+	return (*featuresCapabilitiesImportSettingsUsernamePtrType)(v)
+}
+
+func (*featuresCapabilitiesImportSettingsUsernamePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FeaturesCapabilitiesImportSettingsUsername)(nil)).Elem()
+}
+
+func (i *featuresCapabilitiesImportSettingsUsernamePtrType) ToFeaturesCapabilitiesImportSettingsUsernamePtrOutput() FeaturesCapabilitiesImportSettingsUsernamePtrOutput {
+	return i.ToFeaturesCapabilitiesImportSettingsUsernamePtrOutputWithContext(context.Background())
+}
+
+func (i *featuresCapabilitiesImportSettingsUsernamePtrType) ToFeaturesCapabilitiesImportSettingsUsernamePtrOutputWithContext(ctx context.Context) FeaturesCapabilitiesImportSettingsUsernamePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeaturesCapabilitiesImportSettingsUsernamePtrOutput)
+}
+
+type FeaturesCapabilitiesImportSettingsUsernameOutput struct{ *pulumi.OutputState }
+
+func (FeaturesCapabilitiesImportSettingsUsernameOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FeaturesCapabilitiesImportSettingsUsername)(nil)).Elem()
+}
+
+func (o FeaturesCapabilitiesImportSettingsUsernameOutput) ToFeaturesCapabilitiesImportSettingsUsernameOutput() FeaturesCapabilitiesImportSettingsUsernameOutput {
+	return o
+}
+
+func (o FeaturesCapabilitiesImportSettingsUsernameOutput) ToFeaturesCapabilitiesImportSettingsUsernameOutputWithContext(ctx context.Context) FeaturesCapabilitiesImportSettingsUsernameOutput {
+	return o
+}
+
+func (o FeaturesCapabilitiesImportSettingsUsernameOutput) ToFeaturesCapabilitiesImportSettingsUsernamePtrOutput() FeaturesCapabilitiesImportSettingsUsernamePtrOutput {
+	return o.ToFeaturesCapabilitiesImportSettingsUsernamePtrOutputWithContext(context.Background())
+}
+
+func (o FeaturesCapabilitiesImportSettingsUsernameOutput) ToFeaturesCapabilitiesImportSettingsUsernamePtrOutputWithContext(ctx context.Context) FeaturesCapabilitiesImportSettingsUsernamePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FeaturesCapabilitiesImportSettingsUsername) *FeaturesCapabilitiesImportSettingsUsername {
+		return &v
+	}).(FeaturesCapabilitiesImportSettingsUsernamePtrOutput)
+}
+
+// (Optional) Okta Expression Language statement for custom username format.
+func (o FeaturesCapabilitiesImportSettingsUsernameOutput) UsernameExpression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FeaturesCapabilitiesImportSettingsUsername) *string { return v.UsernameExpression }).(pulumi.StringPtrOutput)
+}
+
+// (Optional) Format for usernames (e.g., `EMAIL`, `CUSTOM`).
+func (o FeaturesCapabilitiesImportSettingsUsernameOutput) UsernameFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FeaturesCapabilitiesImportSettingsUsername) *string { return v.UsernameFormat }).(pulumi.StringPtrOutput)
+}
+
+type FeaturesCapabilitiesImportSettingsUsernamePtrOutput struct{ *pulumi.OutputState }
+
+func (FeaturesCapabilitiesImportSettingsUsernamePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FeaturesCapabilitiesImportSettingsUsername)(nil)).Elem()
+}
+
+func (o FeaturesCapabilitiesImportSettingsUsernamePtrOutput) ToFeaturesCapabilitiesImportSettingsUsernamePtrOutput() FeaturesCapabilitiesImportSettingsUsernamePtrOutput {
+	return o
+}
+
+func (o FeaturesCapabilitiesImportSettingsUsernamePtrOutput) ToFeaturesCapabilitiesImportSettingsUsernamePtrOutputWithContext(ctx context.Context) FeaturesCapabilitiesImportSettingsUsernamePtrOutput {
+	return o
+}
+
+func (o FeaturesCapabilitiesImportSettingsUsernamePtrOutput) Elem() FeaturesCapabilitiesImportSettingsUsernameOutput {
+	return o.ApplyT(func(v *FeaturesCapabilitiesImportSettingsUsername) FeaturesCapabilitiesImportSettingsUsername {
+		if v != nil {
+			return *v
+		}
+		var ret FeaturesCapabilitiesImportSettingsUsername
+		return ret
+	}).(FeaturesCapabilitiesImportSettingsUsernameOutput)
+}
+
+// (Optional) Okta Expression Language statement for custom username format.
+func (o FeaturesCapabilitiesImportSettingsUsernamePtrOutput) UsernameExpression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FeaturesCapabilitiesImportSettingsUsername) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UsernameExpression
+	}).(pulumi.StringPtrOutput)
+}
+
+// (Optional) Format for usernames (e.g., `EMAIL`, `CUSTOM`).
+func (o FeaturesCapabilitiesImportSettingsUsernamePtrOutput) UsernameFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FeaturesCapabilitiesImportSettingsUsername) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UsernameFormat
+	}).(pulumi.StringPtrOutput)
+}
+
+type FeaturesCapabilitiesUpdate struct {
+	// (Optional) Block for deactivation lifecycle configuration:
+	LifecycleDeactivate *FeaturesCapabilitiesUpdateLifecycleDeactivate `pulumi:"lifecycleDeactivate"`
+	// (Optional) Block for password synchronization settings:
+	Password *FeaturesCapabilitiesUpdatePassword `pulumi:"password"`
+	// (Optional) Block for profile update settings:
+	Profile *FeaturesCapabilitiesUpdateProfile `pulumi:"profile"`
+}
+
+// FeaturesCapabilitiesUpdateInput is an input type that accepts FeaturesCapabilitiesUpdateArgs and FeaturesCapabilitiesUpdateOutput values.
+// You can construct a concrete instance of `FeaturesCapabilitiesUpdateInput` via:
+//
+//	FeaturesCapabilitiesUpdateArgs{...}
+type FeaturesCapabilitiesUpdateInput interface {
+	pulumi.Input
+
+	ToFeaturesCapabilitiesUpdateOutput() FeaturesCapabilitiesUpdateOutput
+	ToFeaturesCapabilitiesUpdateOutputWithContext(context.Context) FeaturesCapabilitiesUpdateOutput
+}
+
+type FeaturesCapabilitiesUpdateArgs struct {
+	// (Optional) Block for deactivation lifecycle configuration:
+	LifecycleDeactivate FeaturesCapabilitiesUpdateLifecycleDeactivatePtrInput `pulumi:"lifecycleDeactivate"`
+	// (Optional) Block for password synchronization settings:
+	Password FeaturesCapabilitiesUpdatePasswordPtrInput `pulumi:"password"`
+	// (Optional) Block for profile update settings:
+	Profile FeaturesCapabilitiesUpdateProfilePtrInput `pulumi:"profile"`
+}
+
+func (FeaturesCapabilitiesUpdateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FeaturesCapabilitiesUpdate)(nil)).Elem()
+}
+
+func (i FeaturesCapabilitiesUpdateArgs) ToFeaturesCapabilitiesUpdateOutput() FeaturesCapabilitiesUpdateOutput {
+	return i.ToFeaturesCapabilitiesUpdateOutputWithContext(context.Background())
+}
+
+func (i FeaturesCapabilitiesUpdateArgs) ToFeaturesCapabilitiesUpdateOutputWithContext(ctx context.Context) FeaturesCapabilitiesUpdateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeaturesCapabilitiesUpdateOutput)
+}
+
+func (i FeaturesCapabilitiesUpdateArgs) ToFeaturesCapabilitiesUpdatePtrOutput() FeaturesCapabilitiesUpdatePtrOutput {
+	return i.ToFeaturesCapabilitiesUpdatePtrOutputWithContext(context.Background())
+}
+
+func (i FeaturesCapabilitiesUpdateArgs) ToFeaturesCapabilitiesUpdatePtrOutputWithContext(ctx context.Context) FeaturesCapabilitiesUpdatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeaturesCapabilitiesUpdateOutput).ToFeaturesCapabilitiesUpdatePtrOutputWithContext(ctx)
+}
+
+// FeaturesCapabilitiesUpdatePtrInput is an input type that accepts FeaturesCapabilitiesUpdateArgs, FeaturesCapabilitiesUpdatePtr and FeaturesCapabilitiesUpdatePtrOutput values.
+// You can construct a concrete instance of `FeaturesCapabilitiesUpdatePtrInput` via:
+//
+//	        FeaturesCapabilitiesUpdateArgs{...}
+//
+//	or:
+//
+//	        nil
+type FeaturesCapabilitiesUpdatePtrInput interface {
+	pulumi.Input
+
+	ToFeaturesCapabilitiesUpdatePtrOutput() FeaturesCapabilitiesUpdatePtrOutput
+	ToFeaturesCapabilitiesUpdatePtrOutputWithContext(context.Context) FeaturesCapabilitiesUpdatePtrOutput
+}
+
+type featuresCapabilitiesUpdatePtrType FeaturesCapabilitiesUpdateArgs
+
+func FeaturesCapabilitiesUpdatePtr(v *FeaturesCapabilitiesUpdateArgs) FeaturesCapabilitiesUpdatePtrInput {
+	return (*featuresCapabilitiesUpdatePtrType)(v)
+}
+
+func (*featuresCapabilitiesUpdatePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FeaturesCapabilitiesUpdate)(nil)).Elem()
+}
+
+func (i *featuresCapabilitiesUpdatePtrType) ToFeaturesCapabilitiesUpdatePtrOutput() FeaturesCapabilitiesUpdatePtrOutput {
+	return i.ToFeaturesCapabilitiesUpdatePtrOutputWithContext(context.Background())
+}
+
+func (i *featuresCapabilitiesUpdatePtrType) ToFeaturesCapabilitiesUpdatePtrOutputWithContext(ctx context.Context) FeaturesCapabilitiesUpdatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeaturesCapabilitiesUpdatePtrOutput)
+}
+
+type FeaturesCapabilitiesUpdateOutput struct{ *pulumi.OutputState }
+
+func (FeaturesCapabilitiesUpdateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FeaturesCapabilitiesUpdate)(nil)).Elem()
+}
+
+func (o FeaturesCapabilitiesUpdateOutput) ToFeaturesCapabilitiesUpdateOutput() FeaturesCapabilitiesUpdateOutput {
+	return o
+}
+
+func (o FeaturesCapabilitiesUpdateOutput) ToFeaturesCapabilitiesUpdateOutputWithContext(ctx context.Context) FeaturesCapabilitiesUpdateOutput {
+	return o
+}
+
+func (o FeaturesCapabilitiesUpdateOutput) ToFeaturesCapabilitiesUpdatePtrOutput() FeaturesCapabilitiesUpdatePtrOutput {
+	return o.ToFeaturesCapabilitiesUpdatePtrOutputWithContext(context.Background())
+}
+
+func (o FeaturesCapabilitiesUpdateOutput) ToFeaturesCapabilitiesUpdatePtrOutputWithContext(ctx context.Context) FeaturesCapabilitiesUpdatePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FeaturesCapabilitiesUpdate) *FeaturesCapabilitiesUpdate {
+		return &v
+	}).(FeaturesCapabilitiesUpdatePtrOutput)
+}
+
+// (Optional) Block for deactivation lifecycle configuration:
+func (o FeaturesCapabilitiesUpdateOutput) LifecycleDeactivate() FeaturesCapabilitiesUpdateLifecycleDeactivatePtrOutput {
+	return o.ApplyT(func(v FeaturesCapabilitiesUpdate) *FeaturesCapabilitiesUpdateLifecycleDeactivate {
+		return v.LifecycleDeactivate
+	}).(FeaturesCapabilitiesUpdateLifecycleDeactivatePtrOutput)
+}
+
+// (Optional) Block for password synchronization settings:
+func (o FeaturesCapabilitiesUpdateOutput) Password() FeaturesCapabilitiesUpdatePasswordPtrOutput {
+	return o.ApplyT(func(v FeaturesCapabilitiesUpdate) *FeaturesCapabilitiesUpdatePassword { return v.Password }).(FeaturesCapabilitiesUpdatePasswordPtrOutput)
+}
+
+// (Optional) Block for profile update settings:
+func (o FeaturesCapabilitiesUpdateOutput) Profile() FeaturesCapabilitiesUpdateProfilePtrOutput {
+	return o.ApplyT(func(v FeaturesCapabilitiesUpdate) *FeaturesCapabilitiesUpdateProfile { return v.Profile }).(FeaturesCapabilitiesUpdateProfilePtrOutput)
+}
+
+type FeaturesCapabilitiesUpdatePtrOutput struct{ *pulumi.OutputState }
+
+func (FeaturesCapabilitiesUpdatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FeaturesCapabilitiesUpdate)(nil)).Elem()
+}
+
+func (o FeaturesCapabilitiesUpdatePtrOutput) ToFeaturesCapabilitiesUpdatePtrOutput() FeaturesCapabilitiesUpdatePtrOutput {
+	return o
+}
+
+func (o FeaturesCapabilitiesUpdatePtrOutput) ToFeaturesCapabilitiesUpdatePtrOutputWithContext(ctx context.Context) FeaturesCapabilitiesUpdatePtrOutput {
+	return o
+}
+
+func (o FeaturesCapabilitiesUpdatePtrOutput) Elem() FeaturesCapabilitiesUpdateOutput {
+	return o.ApplyT(func(v *FeaturesCapabilitiesUpdate) FeaturesCapabilitiesUpdate {
+		if v != nil {
+			return *v
+		}
+		var ret FeaturesCapabilitiesUpdate
+		return ret
+	}).(FeaturesCapabilitiesUpdateOutput)
+}
+
+// (Optional) Block for deactivation lifecycle configuration:
+func (o FeaturesCapabilitiesUpdatePtrOutput) LifecycleDeactivate() FeaturesCapabilitiesUpdateLifecycleDeactivatePtrOutput {
+	return o.ApplyT(func(v *FeaturesCapabilitiesUpdate) *FeaturesCapabilitiesUpdateLifecycleDeactivate {
+		if v == nil {
+			return nil
+		}
+		return v.LifecycleDeactivate
+	}).(FeaturesCapabilitiesUpdateLifecycleDeactivatePtrOutput)
+}
+
+// (Optional) Block for password synchronization settings:
+func (o FeaturesCapabilitiesUpdatePtrOutput) Password() FeaturesCapabilitiesUpdatePasswordPtrOutput {
+	return o.ApplyT(func(v *FeaturesCapabilitiesUpdate) *FeaturesCapabilitiesUpdatePassword {
+		if v == nil {
+			return nil
+		}
+		return v.Password
+	}).(FeaturesCapabilitiesUpdatePasswordPtrOutput)
+}
+
+// (Optional) Block for profile update settings:
+func (o FeaturesCapabilitiesUpdatePtrOutput) Profile() FeaturesCapabilitiesUpdateProfilePtrOutput {
+	return o.ApplyT(func(v *FeaturesCapabilitiesUpdate) *FeaturesCapabilitiesUpdateProfile {
+		if v == nil {
+			return nil
+		}
+		return v.Profile
+	}).(FeaturesCapabilitiesUpdateProfilePtrOutput)
+}
+
+type FeaturesCapabilitiesUpdateLifecycleDeactivate struct {
+	// The status of the feature. Valid values are `ENABLED` or `DISABLED`.
+	Status *string `pulumi:"status"`
+}
+
+// FeaturesCapabilitiesUpdateLifecycleDeactivateInput is an input type that accepts FeaturesCapabilitiesUpdateLifecycleDeactivateArgs and FeaturesCapabilitiesUpdateLifecycleDeactivateOutput values.
+// You can construct a concrete instance of `FeaturesCapabilitiesUpdateLifecycleDeactivateInput` via:
+//
+//	FeaturesCapabilitiesUpdateLifecycleDeactivateArgs{...}
+type FeaturesCapabilitiesUpdateLifecycleDeactivateInput interface {
+	pulumi.Input
+
+	ToFeaturesCapabilitiesUpdateLifecycleDeactivateOutput() FeaturesCapabilitiesUpdateLifecycleDeactivateOutput
+	ToFeaturesCapabilitiesUpdateLifecycleDeactivateOutputWithContext(context.Context) FeaturesCapabilitiesUpdateLifecycleDeactivateOutput
+}
+
+type FeaturesCapabilitiesUpdateLifecycleDeactivateArgs struct {
+	// The status of the feature. Valid values are `ENABLED` or `DISABLED`.
+	Status pulumi.StringPtrInput `pulumi:"status"`
+}
+
+func (FeaturesCapabilitiesUpdateLifecycleDeactivateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FeaturesCapabilitiesUpdateLifecycleDeactivate)(nil)).Elem()
+}
+
+func (i FeaturesCapabilitiesUpdateLifecycleDeactivateArgs) ToFeaturesCapabilitiesUpdateLifecycleDeactivateOutput() FeaturesCapabilitiesUpdateLifecycleDeactivateOutput {
+	return i.ToFeaturesCapabilitiesUpdateLifecycleDeactivateOutputWithContext(context.Background())
+}
+
+func (i FeaturesCapabilitiesUpdateLifecycleDeactivateArgs) ToFeaturesCapabilitiesUpdateLifecycleDeactivateOutputWithContext(ctx context.Context) FeaturesCapabilitiesUpdateLifecycleDeactivateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeaturesCapabilitiesUpdateLifecycleDeactivateOutput)
+}
+
+func (i FeaturesCapabilitiesUpdateLifecycleDeactivateArgs) ToFeaturesCapabilitiesUpdateLifecycleDeactivatePtrOutput() FeaturesCapabilitiesUpdateLifecycleDeactivatePtrOutput {
+	return i.ToFeaturesCapabilitiesUpdateLifecycleDeactivatePtrOutputWithContext(context.Background())
+}
+
+func (i FeaturesCapabilitiesUpdateLifecycleDeactivateArgs) ToFeaturesCapabilitiesUpdateLifecycleDeactivatePtrOutputWithContext(ctx context.Context) FeaturesCapabilitiesUpdateLifecycleDeactivatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeaturesCapabilitiesUpdateLifecycleDeactivateOutput).ToFeaturesCapabilitiesUpdateLifecycleDeactivatePtrOutputWithContext(ctx)
+}
+
+// FeaturesCapabilitiesUpdateLifecycleDeactivatePtrInput is an input type that accepts FeaturesCapabilitiesUpdateLifecycleDeactivateArgs, FeaturesCapabilitiesUpdateLifecycleDeactivatePtr and FeaturesCapabilitiesUpdateLifecycleDeactivatePtrOutput values.
+// You can construct a concrete instance of `FeaturesCapabilitiesUpdateLifecycleDeactivatePtrInput` via:
+//
+//	        FeaturesCapabilitiesUpdateLifecycleDeactivateArgs{...}
+//
+//	or:
+//
+//	        nil
+type FeaturesCapabilitiesUpdateLifecycleDeactivatePtrInput interface {
+	pulumi.Input
+
+	ToFeaturesCapabilitiesUpdateLifecycleDeactivatePtrOutput() FeaturesCapabilitiesUpdateLifecycleDeactivatePtrOutput
+	ToFeaturesCapabilitiesUpdateLifecycleDeactivatePtrOutputWithContext(context.Context) FeaturesCapabilitiesUpdateLifecycleDeactivatePtrOutput
+}
+
+type featuresCapabilitiesUpdateLifecycleDeactivatePtrType FeaturesCapabilitiesUpdateLifecycleDeactivateArgs
+
+func FeaturesCapabilitiesUpdateLifecycleDeactivatePtr(v *FeaturesCapabilitiesUpdateLifecycleDeactivateArgs) FeaturesCapabilitiesUpdateLifecycleDeactivatePtrInput {
+	return (*featuresCapabilitiesUpdateLifecycleDeactivatePtrType)(v)
+}
+
+func (*featuresCapabilitiesUpdateLifecycleDeactivatePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FeaturesCapabilitiesUpdateLifecycleDeactivate)(nil)).Elem()
+}
+
+func (i *featuresCapabilitiesUpdateLifecycleDeactivatePtrType) ToFeaturesCapabilitiesUpdateLifecycleDeactivatePtrOutput() FeaturesCapabilitiesUpdateLifecycleDeactivatePtrOutput {
+	return i.ToFeaturesCapabilitiesUpdateLifecycleDeactivatePtrOutputWithContext(context.Background())
+}
+
+func (i *featuresCapabilitiesUpdateLifecycleDeactivatePtrType) ToFeaturesCapabilitiesUpdateLifecycleDeactivatePtrOutputWithContext(ctx context.Context) FeaturesCapabilitiesUpdateLifecycleDeactivatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeaturesCapabilitiesUpdateLifecycleDeactivatePtrOutput)
+}
+
+type FeaturesCapabilitiesUpdateLifecycleDeactivateOutput struct{ *pulumi.OutputState }
+
+func (FeaturesCapabilitiesUpdateLifecycleDeactivateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FeaturesCapabilitiesUpdateLifecycleDeactivate)(nil)).Elem()
+}
+
+func (o FeaturesCapabilitiesUpdateLifecycleDeactivateOutput) ToFeaturesCapabilitiesUpdateLifecycleDeactivateOutput() FeaturesCapabilitiesUpdateLifecycleDeactivateOutput {
+	return o
+}
+
+func (o FeaturesCapabilitiesUpdateLifecycleDeactivateOutput) ToFeaturesCapabilitiesUpdateLifecycleDeactivateOutputWithContext(ctx context.Context) FeaturesCapabilitiesUpdateLifecycleDeactivateOutput {
+	return o
+}
+
+func (o FeaturesCapabilitiesUpdateLifecycleDeactivateOutput) ToFeaturesCapabilitiesUpdateLifecycleDeactivatePtrOutput() FeaturesCapabilitiesUpdateLifecycleDeactivatePtrOutput {
+	return o.ToFeaturesCapabilitiesUpdateLifecycleDeactivatePtrOutputWithContext(context.Background())
+}
+
+func (o FeaturesCapabilitiesUpdateLifecycleDeactivateOutput) ToFeaturesCapabilitiesUpdateLifecycleDeactivatePtrOutputWithContext(ctx context.Context) FeaturesCapabilitiesUpdateLifecycleDeactivatePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FeaturesCapabilitiesUpdateLifecycleDeactivate) *FeaturesCapabilitiesUpdateLifecycleDeactivate {
+		return &v
+	}).(FeaturesCapabilitiesUpdateLifecycleDeactivatePtrOutput)
+}
+
+// The status of the feature. Valid values are `ENABLED` or `DISABLED`.
+func (o FeaturesCapabilitiesUpdateLifecycleDeactivateOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FeaturesCapabilitiesUpdateLifecycleDeactivate) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+type FeaturesCapabilitiesUpdateLifecycleDeactivatePtrOutput struct{ *pulumi.OutputState }
+
+func (FeaturesCapabilitiesUpdateLifecycleDeactivatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FeaturesCapabilitiesUpdateLifecycleDeactivate)(nil)).Elem()
+}
+
+func (o FeaturesCapabilitiesUpdateLifecycleDeactivatePtrOutput) ToFeaturesCapabilitiesUpdateLifecycleDeactivatePtrOutput() FeaturesCapabilitiesUpdateLifecycleDeactivatePtrOutput {
+	return o
+}
+
+func (o FeaturesCapabilitiesUpdateLifecycleDeactivatePtrOutput) ToFeaturesCapabilitiesUpdateLifecycleDeactivatePtrOutputWithContext(ctx context.Context) FeaturesCapabilitiesUpdateLifecycleDeactivatePtrOutput {
+	return o
+}
+
+func (o FeaturesCapabilitiesUpdateLifecycleDeactivatePtrOutput) Elem() FeaturesCapabilitiesUpdateLifecycleDeactivateOutput {
+	return o.ApplyT(func(v *FeaturesCapabilitiesUpdateLifecycleDeactivate) FeaturesCapabilitiesUpdateLifecycleDeactivate {
+		if v != nil {
+			return *v
+		}
+		var ret FeaturesCapabilitiesUpdateLifecycleDeactivate
+		return ret
+	}).(FeaturesCapabilitiesUpdateLifecycleDeactivateOutput)
+}
+
+// The status of the feature. Valid values are `ENABLED` or `DISABLED`.
+func (o FeaturesCapabilitiesUpdateLifecycleDeactivatePtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FeaturesCapabilitiesUpdateLifecycleDeactivate) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Status
+	}).(pulumi.StringPtrOutput)
+}
+
+type FeaturesCapabilitiesUpdatePassword struct {
+	// (Optional) Determines password change behavior. Valid values are `CHANGE` or `KEEP_EXISTING`.
+	Change *string `pulumi:"change"`
+	// (Optional) Determines password source. Valid values are `OKTA` or `RANDOM`.
+	Seed *string `pulumi:"seed"`
+	// The status of the feature. Valid values are `ENABLED` or `DISABLED`.
+	Status *string `pulumi:"status"`
+}
+
+// FeaturesCapabilitiesUpdatePasswordInput is an input type that accepts FeaturesCapabilitiesUpdatePasswordArgs and FeaturesCapabilitiesUpdatePasswordOutput values.
+// You can construct a concrete instance of `FeaturesCapabilitiesUpdatePasswordInput` via:
+//
+//	FeaturesCapabilitiesUpdatePasswordArgs{...}
+type FeaturesCapabilitiesUpdatePasswordInput interface {
+	pulumi.Input
+
+	ToFeaturesCapabilitiesUpdatePasswordOutput() FeaturesCapabilitiesUpdatePasswordOutput
+	ToFeaturesCapabilitiesUpdatePasswordOutputWithContext(context.Context) FeaturesCapabilitiesUpdatePasswordOutput
+}
+
+type FeaturesCapabilitiesUpdatePasswordArgs struct {
+	// (Optional) Determines password change behavior. Valid values are `CHANGE` or `KEEP_EXISTING`.
+	Change pulumi.StringPtrInput `pulumi:"change"`
+	// (Optional) Determines password source. Valid values are `OKTA` or `RANDOM`.
+	Seed pulumi.StringPtrInput `pulumi:"seed"`
+	// The status of the feature. Valid values are `ENABLED` or `DISABLED`.
+	Status pulumi.StringPtrInput `pulumi:"status"`
+}
+
+func (FeaturesCapabilitiesUpdatePasswordArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FeaturesCapabilitiesUpdatePassword)(nil)).Elem()
+}
+
+func (i FeaturesCapabilitiesUpdatePasswordArgs) ToFeaturesCapabilitiesUpdatePasswordOutput() FeaturesCapabilitiesUpdatePasswordOutput {
+	return i.ToFeaturesCapabilitiesUpdatePasswordOutputWithContext(context.Background())
+}
+
+func (i FeaturesCapabilitiesUpdatePasswordArgs) ToFeaturesCapabilitiesUpdatePasswordOutputWithContext(ctx context.Context) FeaturesCapabilitiesUpdatePasswordOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeaturesCapabilitiesUpdatePasswordOutput)
+}
+
+func (i FeaturesCapabilitiesUpdatePasswordArgs) ToFeaturesCapabilitiesUpdatePasswordPtrOutput() FeaturesCapabilitiesUpdatePasswordPtrOutput {
+	return i.ToFeaturesCapabilitiesUpdatePasswordPtrOutputWithContext(context.Background())
+}
+
+func (i FeaturesCapabilitiesUpdatePasswordArgs) ToFeaturesCapabilitiesUpdatePasswordPtrOutputWithContext(ctx context.Context) FeaturesCapabilitiesUpdatePasswordPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeaturesCapabilitiesUpdatePasswordOutput).ToFeaturesCapabilitiesUpdatePasswordPtrOutputWithContext(ctx)
+}
+
+// FeaturesCapabilitiesUpdatePasswordPtrInput is an input type that accepts FeaturesCapabilitiesUpdatePasswordArgs, FeaturesCapabilitiesUpdatePasswordPtr and FeaturesCapabilitiesUpdatePasswordPtrOutput values.
+// You can construct a concrete instance of `FeaturesCapabilitiesUpdatePasswordPtrInput` via:
+//
+//	        FeaturesCapabilitiesUpdatePasswordArgs{...}
+//
+//	or:
+//
+//	        nil
+type FeaturesCapabilitiesUpdatePasswordPtrInput interface {
+	pulumi.Input
+
+	ToFeaturesCapabilitiesUpdatePasswordPtrOutput() FeaturesCapabilitiesUpdatePasswordPtrOutput
+	ToFeaturesCapabilitiesUpdatePasswordPtrOutputWithContext(context.Context) FeaturesCapabilitiesUpdatePasswordPtrOutput
+}
+
+type featuresCapabilitiesUpdatePasswordPtrType FeaturesCapabilitiesUpdatePasswordArgs
+
+func FeaturesCapabilitiesUpdatePasswordPtr(v *FeaturesCapabilitiesUpdatePasswordArgs) FeaturesCapabilitiesUpdatePasswordPtrInput {
+	return (*featuresCapabilitiesUpdatePasswordPtrType)(v)
+}
+
+func (*featuresCapabilitiesUpdatePasswordPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FeaturesCapabilitiesUpdatePassword)(nil)).Elem()
+}
+
+func (i *featuresCapabilitiesUpdatePasswordPtrType) ToFeaturesCapabilitiesUpdatePasswordPtrOutput() FeaturesCapabilitiesUpdatePasswordPtrOutput {
+	return i.ToFeaturesCapabilitiesUpdatePasswordPtrOutputWithContext(context.Background())
+}
+
+func (i *featuresCapabilitiesUpdatePasswordPtrType) ToFeaturesCapabilitiesUpdatePasswordPtrOutputWithContext(ctx context.Context) FeaturesCapabilitiesUpdatePasswordPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeaturesCapabilitiesUpdatePasswordPtrOutput)
+}
+
+type FeaturesCapabilitiesUpdatePasswordOutput struct{ *pulumi.OutputState }
+
+func (FeaturesCapabilitiesUpdatePasswordOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FeaturesCapabilitiesUpdatePassword)(nil)).Elem()
+}
+
+func (o FeaturesCapabilitiesUpdatePasswordOutput) ToFeaturesCapabilitiesUpdatePasswordOutput() FeaturesCapabilitiesUpdatePasswordOutput {
+	return o
+}
+
+func (o FeaturesCapabilitiesUpdatePasswordOutput) ToFeaturesCapabilitiesUpdatePasswordOutputWithContext(ctx context.Context) FeaturesCapabilitiesUpdatePasswordOutput {
+	return o
+}
+
+func (o FeaturesCapabilitiesUpdatePasswordOutput) ToFeaturesCapabilitiesUpdatePasswordPtrOutput() FeaturesCapabilitiesUpdatePasswordPtrOutput {
+	return o.ToFeaturesCapabilitiesUpdatePasswordPtrOutputWithContext(context.Background())
+}
+
+func (o FeaturesCapabilitiesUpdatePasswordOutput) ToFeaturesCapabilitiesUpdatePasswordPtrOutputWithContext(ctx context.Context) FeaturesCapabilitiesUpdatePasswordPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FeaturesCapabilitiesUpdatePassword) *FeaturesCapabilitiesUpdatePassword {
+		return &v
+	}).(FeaturesCapabilitiesUpdatePasswordPtrOutput)
+}
+
+// (Optional) Determines password change behavior. Valid values are `CHANGE` or `KEEP_EXISTING`.
+func (o FeaturesCapabilitiesUpdatePasswordOutput) Change() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FeaturesCapabilitiesUpdatePassword) *string { return v.Change }).(pulumi.StringPtrOutput)
+}
+
+// (Optional) Determines password source. Valid values are `OKTA` or `RANDOM`.
+func (o FeaturesCapabilitiesUpdatePasswordOutput) Seed() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FeaturesCapabilitiesUpdatePassword) *string { return v.Seed }).(pulumi.StringPtrOutput)
+}
+
+// The status of the feature. Valid values are `ENABLED` or `DISABLED`.
+func (o FeaturesCapabilitiesUpdatePasswordOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FeaturesCapabilitiesUpdatePassword) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+type FeaturesCapabilitiesUpdatePasswordPtrOutput struct{ *pulumi.OutputState }
+
+func (FeaturesCapabilitiesUpdatePasswordPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FeaturesCapabilitiesUpdatePassword)(nil)).Elem()
+}
+
+func (o FeaturesCapabilitiesUpdatePasswordPtrOutput) ToFeaturesCapabilitiesUpdatePasswordPtrOutput() FeaturesCapabilitiesUpdatePasswordPtrOutput {
+	return o
+}
+
+func (o FeaturesCapabilitiesUpdatePasswordPtrOutput) ToFeaturesCapabilitiesUpdatePasswordPtrOutputWithContext(ctx context.Context) FeaturesCapabilitiesUpdatePasswordPtrOutput {
+	return o
+}
+
+func (o FeaturesCapabilitiesUpdatePasswordPtrOutput) Elem() FeaturesCapabilitiesUpdatePasswordOutput {
+	return o.ApplyT(func(v *FeaturesCapabilitiesUpdatePassword) FeaturesCapabilitiesUpdatePassword {
+		if v != nil {
+			return *v
+		}
+		var ret FeaturesCapabilitiesUpdatePassword
+		return ret
+	}).(FeaturesCapabilitiesUpdatePasswordOutput)
+}
+
+// (Optional) Determines password change behavior. Valid values are `CHANGE` or `KEEP_EXISTING`.
+func (o FeaturesCapabilitiesUpdatePasswordPtrOutput) Change() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FeaturesCapabilitiesUpdatePassword) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Change
+	}).(pulumi.StringPtrOutput)
+}
+
+// (Optional) Determines password source. Valid values are `OKTA` or `RANDOM`.
+func (o FeaturesCapabilitiesUpdatePasswordPtrOutput) Seed() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FeaturesCapabilitiesUpdatePassword) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Seed
+	}).(pulumi.StringPtrOutput)
+}
+
+// The status of the feature. Valid values are `ENABLED` or `DISABLED`.
+func (o FeaturesCapabilitiesUpdatePasswordPtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FeaturesCapabilitiesUpdatePassword) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Status
+	}).(pulumi.StringPtrOutput)
+}
+
+type FeaturesCapabilitiesUpdateProfile struct {
+	// The status of the feature. Valid values are `ENABLED` or `DISABLED`.
+	Status *string `pulumi:"status"`
+}
+
+// FeaturesCapabilitiesUpdateProfileInput is an input type that accepts FeaturesCapabilitiesUpdateProfileArgs and FeaturesCapabilitiesUpdateProfileOutput values.
+// You can construct a concrete instance of `FeaturesCapabilitiesUpdateProfileInput` via:
+//
+//	FeaturesCapabilitiesUpdateProfileArgs{...}
+type FeaturesCapabilitiesUpdateProfileInput interface {
+	pulumi.Input
+
+	ToFeaturesCapabilitiesUpdateProfileOutput() FeaturesCapabilitiesUpdateProfileOutput
+	ToFeaturesCapabilitiesUpdateProfileOutputWithContext(context.Context) FeaturesCapabilitiesUpdateProfileOutput
+}
+
+type FeaturesCapabilitiesUpdateProfileArgs struct {
+	// The status of the feature. Valid values are `ENABLED` or `DISABLED`.
+	Status pulumi.StringPtrInput `pulumi:"status"`
+}
+
+func (FeaturesCapabilitiesUpdateProfileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FeaturesCapabilitiesUpdateProfile)(nil)).Elem()
+}
+
+func (i FeaturesCapabilitiesUpdateProfileArgs) ToFeaturesCapabilitiesUpdateProfileOutput() FeaturesCapabilitiesUpdateProfileOutput {
+	return i.ToFeaturesCapabilitiesUpdateProfileOutputWithContext(context.Background())
+}
+
+func (i FeaturesCapabilitiesUpdateProfileArgs) ToFeaturesCapabilitiesUpdateProfileOutputWithContext(ctx context.Context) FeaturesCapabilitiesUpdateProfileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeaturesCapabilitiesUpdateProfileOutput)
+}
+
+func (i FeaturesCapabilitiesUpdateProfileArgs) ToFeaturesCapabilitiesUpdateProfilePtrOutput() FeaturesCapabilitiesUpdateProfilePtrOutput {
+	return i.ToFeaturesCapabilitiesUpdateProfilePtrOutputWithContext(context.Background())
+}
+
+func (i FeaturesCapabilitiesUpdateProfileArgs) ToFeaturesCapabilitiesUpdateProfilePtrOutputWithContext(ctx context.Context) FeaturesCapabilitiesUpdateProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeaturesCapabilitiesUpdateProfileOutput).ToFeaturesCapabilitiesUpdateProfilePtrOutputWithContext(ctx)
+}
+
+// FeaturesCapabilitiesUpdateProfilePtrInput is an input type that accepts FeaturesCapabilitiesUpdateProfileArgs, FeaturesCapabilitiesUpdateProfilePtr and FeaturesCapabilitiesUpdateProfilePtrOutput values.
+// You can construct a concrete instance of `FeaturesCapabilitiesUpdateProfilePtrInput` via:
+//
+//	        FeaturesCapabilitiesUpdateProfileArgs{...}
+//
+//	or:
+//
+//	        nil
+type FeaturesCapabilitiesUpdateProfilePtrInput interface {
+	pulumi.Input
+
+	ToFeaturesCapabilitiesUpdateProfilePtrOutput() FeaturesCapabilitiesUpdateProfilePtrOutput
+	ToFeaturesCapabilitiesUpdateProfilePtrOutputWithContext(context.Context) FeaturesCapabilitiesUpdateProfilePtrOutput
+}
+
+type featuresCapabilitiesUpdateProfilePtrType FeaturesCapabilitiesUpdateProfileArgs
+
+func FeaturesCapabilitiesUpdateProfilePtr(v *FeaturesCapabilitiesUpdateProfileArgs) FeaturesCapabilitiesUpdateProfilePtrInput {
+	return (*featuresCapabilitiesUpdateProfilePtrType)(v)
+}
+
+func (*featuresCapabilitiesUpdateProfilePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FeaturesCapabilitiesUpdateProfile)(nil)).Elem()
+}
+
+func (i *featuresCapabilitiesUpdateProfilePtrType) ToFeaturesCapabilitiesUpdateProfilePtrOutput() FeaturesCapabilitiesUpdateProfilePtrOutput {
+	return i.ToFeaturesCapabilitiesUpdateProfilePtrOutputWithContext(context.Background())
+}
+
+func (i *featuresCapabilitiesUpdateProfilePtrType) ToFeaturesCapabilitiesUpdateProfilePtrOutputWithContext(ctx context.Context) FeaturesCapabilitiesUpdateProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeaturesCapabilitiesUpdateProfilePtrOutput)
+}
+
+type FeaturesCapabilitiesUpdateProfileOutput struct{ *pulumi.OutputState }
+
+func (FeaturesCapabilitiesUpdateProfileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FeaturesCapabilitiesUpdateProfile)(nil)).Elem()
+}
+
+func (o FeaturesCapabilitiesUpdateProfileOutput) ToFeaturesCapabilitiesUpdateProfileOutput() FeaturesCapabilitiesUpdateProfileOutput {
+	return o
+}
+
+func (o FeaturesCapabilitiesUpdateProfileOutput) ToFeaturesCapabilitiesUpdateProfileOutputWithContext(ctx context.Context) FeaturesCapabilitiesUpdateProfileOutput {
+	return o
+}
+
+func (o FeaturesCapabilitiesUpdateProfileOutput) ToFeaturesCapabilitiesUpdateProfilePtrOutput() FeaturesCapabilitiesUpdateProfilePtrOutput {
+	return o.ToFeaturesCapabilitiesUpdateProfilePtrOutputWithContext(context.Background())
+}
+
+func (o FeaturesCapabilitiesUpdateProfileOutput) ToFeaturesCapabilitiesUpdateProfilePtrOutputWithContext(ctx context.Context) FeaturesCapabilitiesUpdateProfilePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FeaturesCapabilitiesUpdateProfile) *FeaturesCapabilitiesUpdateProfile {
+		return &v
+	}).(FeaturesCapabilitiesUpdateProfilePtrOutput)
+}
+
+// The status of the feature. Valid values are `ENABLED` or `DISABLED`.
+func (o FeaturesCapabilitiesUpdateProfileOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FeaturesCapabilitiesUpdateProfile) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+type FeaturesCapabilitiesUpdateProfilePtrOutput struct{ *pulumi.OutputState }
+
+func (FeaturesCapabilitiesUpdateProfilePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FeaturesCapabilitiesUpdateProfile)(nil)).Elem()
+}
+
+func (o FeaturesCapabilitiesUpdateProfilePtrOutput) ToFeaturesCapabilitiesUpdateProfilePtrOutput() FeaturesCapabilitiesUpdateProfilePtrOutput {
+	return o
+}
+
+func (o FeaturesCapabilitiesUpdateProfilePtrOutput) ToFeaturesCapabilitiesUpdateProfilePtrOutputWithContext(ctx context.Context) FeaturesCapabilitiesUpdateProfilePtrOutput {
+	return o
+}
+
+func (o FeaturesCapabilitiesUpdateProfilePtrOutput) Elem() FeaturesCapabilitiesUpdateProfileOutput {
+	return o.ApplyT(func(v *FeaturesCapabilitiesUpdateProfile) FeaturesCapabilitiesUpdateProfile {
+		if v != nil {
+			return *v
+		}
+		var ret FeaturesCapabilitiesUpdateProfile
+		return ret
+	}).(FeaturesCapabilitiesUpdateProfileOutput)
+}
+
+// The status of the feature. Valid values are `ENABLED` or `DISABLED`.
+func (o FeaturesCapabilitiesUpdateProfilePtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FeaturesCapabilitiesUpdateProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Status
+	}).(pulumi.StringPtrOutput)
+}
+
 type OAuthGroupsClaim struct {
 	// Groups claim filter. Can only be set if type is FILTER.
 	FilterType *string `pulumi:"filterType"`
@@ -785,6 +3565,2417 @@ func (o SamlKeyArrayOutput) Index(i pulumi.IntInput) SamlKeyOutput {
 	}).(SamlKeyOutput)
 }
 
+type GetConnectionProfile struct {
+	// Defines the method of authentication.
+	AuthScheme string `pulumi:"authScheme"`
+}
+
+// GetConnectionProfileInput is an input type that accepts GetConnectionProfileArgs and GetConnectionProfileOutput values.
+// You can construct a concrete instance of `GetConnectionProfileInput` via:
+//
+//	GetConnectionProfileArgs{...}
+type GetConnectionProfileInput interface {
+	pulumi.Input
+
+	ToGetConnectionProfileOutput() GetConnectionProfileOutput
+	ToGetConnectionProfileOutputWithContext(context.Context) GetConnectionProfileOutput
+}
+
+type GetConnectionProfileArgs struct {
+	// Defines the method of authentication.
+	AuthScheme pulumi.StringInput `pulumi:"authScheme"`
+}
+
+func (GetConnectionProfileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetConnectionProfile)(nil)).Elem()
+}
+
+func (i GetConnectionProfileArgs) ToGetConnectionProfileOutput() GetConnectionProfileOutput {
+	return i.ToGetConnectionProfileOutputWithContext(context.Background())
+}
+
+func (i GetConnectionProfileArgs) ToGetConnectionProfileOutputWithContext(ctx context.Context) GetConnectionProfileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetConnectionProfileOutput)
+}
+
+func (i GetConnectionProfileArgs) ToGetConnectionProfilePtrOutput() GetConnectionProfilePtrOutput {
+	return i.ToGetConnectionProfilePtrOutputWithContext(context.Background())
+}
+
+func (i GetConnectionProfileArgs) ToGetConnectionProfilePtrOutputWithContext(ctx context.Context) GetConnectionProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetConnectionProfileOutput).ToGetConnectionProfilePtrOutputWithContext(ctx)
+}
+
+// GetConnectionProfilePtrInput is an input type that accepts GetConnectionProfileArgs, GetConnectionProfilePtr and GetConnectionProfilePtrOutput values.
+// You can construct a concrete instance of `GetConnectionProfilePtrInput` via:
+//
+//	        GetConnectionProfileArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetConnectionProfilePtrInput interface {
+	pulumi.Input
+
+	ToGetConnectionProfilePtrOutput() GetConnectionProfilePtrOutput
+	ToGetConnectionProfilePtrOutputWithContext(context.Context) GetConnectionProfilePtrOutput
+}
+
+type getConnectionProfilePtrType GetConnectionProfileArgs
+
+func GetConnectionProfilePtr(v *GetConnectionProfileArgs) GetConnectionProfilePtrInput {
+	return (*getConnectionProfilePtrType)(v)
+}
+
+func (*getConnectionProfilePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetConnectionProfile)(nil)).Elem()
+}
+
+func (i *getConnectionProfilePtrType) ToGetConnectionProfilePtrOutput() GetConnectionProfilePtrOutput {
+	return i.ToGetConnectionProfilePtrOutputWithContext(context.Background())
+}
+
+func (i *getConnectionProfilePtrType) ToGetConnectionProfilePtrOutputWithContext(ctx context.Context) GetConnectionProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetConnectionProfilePtrOutput)
+}
+
+type GetConnectionProfileOutput struct{ *pulumi.OutputState }
+
+func (GetConnectionProfileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetConnectionProfile)(nil)).Elem()
+}
+
+func (o GetConnectionProfileOutput) ToGetConnectionProfileOutput() GetConnectionProfileOutput {
+	return o
+}
+
+func (o GetConnectionProfileOutput) ToGetConnectionProfileOutputWithContext(ctx context.Context) GetConnectionProfileOutput {
+	return o
+}
+
+func (o GetConnectionProfileOutput) ToGetConnectionProfilePtrOutput() GetConnectionProfilePtrOutput {
+	return o.ToGetConnectionProfilePtrOutputWithContext(context.Background())
+}
+
+func (o GetConnectionProfileOutput) ToGetConnectionProfilePtrOutputWithContext(ctx context.Context) GetConnectionProfilePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetConnectionProfile) *GetConnectionProfile {
+		return &v
+	}).(GetConnectionProfilePtrOutput)
+}
+
+// Defines the method of authentication.
+func (o GetConnectionProfileOutput) AuthScheme() pulumi.StringOutput {
+	return o.ApplyT(func(v GetConnectionProfile) string { return v.AuthScheme }).(pulumi.StringOutput)
+}
+
+type GetConnectionProfilePtrOutput struct{ *pulumi.OutputState }
+
+func (GetConnectionProfilePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetConnectionProfile)(nil)).Elem()
+}
+
+func (o GetConnectionProfilePtrOutput) ToGetConnectionProfilePtrOutput() GetConnectionProfilePtrOutput {
+	return o
+}
+
+func (o GetConnectionProfilePtrOutput) ToGetConnectionProfilePtrOutputWithContext(ctx context.Context) GetConnectionProfilePtrOutput {
+	return o
+}
+
+func (o GetConnectionProfilePtrOutput) Elem() GetConnectionProfileOutput {
+	return o.ApplyT(func(v *GetConnectionProfile) GetConnectionProfile {
+		if v != nil {
+			return *v
+		}
+		var ret GetConnectionProfile
+		return ret
+	}).(GetConnectionProfileOutput)
+}
+
+// Defines the method of authentication.
+func (o GetConnectionProfilePtrOutput) AuthScheme() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetConnectionProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AuthScheme
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetFeaturesCapabilities struct {
+	// Block for create lifecycle settings:
+	Create *GetFeaturesCapabilitiesCreate `pulumi:"create"`
+	// Block for import rules configuration:
+	ImportRules *GetFeaturesCapabilitiesImportRules `pulumi:"importRules"`
+	// Block for import settings configuration:
+	ImportSettings *GetFeaturesCapabilitiesImportSettings `pulumi:"importSettings"`
+	// Block for update settings:
+	Update *GetFeaturesCapabilitiesUpdate `pulumi:"update"`
+}
+
+// GetFeaturesCapabilitiesInput is an input type that accepts GetFeaturesCapabilitiesArgs and GetFeaturesCapabilitiesOutput values.
+// You can construct a concrete instance of `GetFeaturesCapabilitiesInput` via:
+//
+//	GetFeaturesCapabilitiesArgs{...}
+type GetFeaturesCapabilitiesInput interface {
+	pulumi.Input
+
+	ToGetFeaturesCapabilitiesOutput() GetFeaturesCapabilitiesOutput
+	ToGetFeaturesCapabilitiesOutputWithContext(context.Context) GetFeaturesCapabilitiesOutput
+}
+
+type GetFeaturesCapabilitiesArgs struct {
+	// Block for create lifecycle settings:
+	Create GetFeaturesCapabilitiesCreatePtrInput `pulumi:"create"`
+	// Block for import rules configuration:
+	ImportRules GetFeaturesCapabilitiesImportRulesPtrInput `pulumi:"importRules"`
+	// Block for import settings configuration:
+	ImportSettings GetFeaturesCapabilitiesImportSettingsPtrInput `pulumi:"importSettings"`
+	// Block for update settings:
+	Update GetFeaturesCapabilitiesUpdatePtrInput `pulumi:"update"`
+}
+
+func (GetFeaturesCapabilitiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFeaturesCapabilities)(nil)).Elem()
+}
+
+func (i GetFeaturesCapabilitiesArgs) ToGetFeaturesCapabilitiesOutput() GetFeaturesCapabilitiesOutput {
+	return i.ToGetFeaturesCapabilitiesOutputWithContext(context.Background())
+}
+
+func (i GetFeaturesCapabilitiesArgs) ToGetFeaturesCapabilitiesOutputWithContext(ctx context.Context) GetFeaturesCapabilitiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFeaturesCapabilitiesOutput)
+}
+
+func (i GetFeaturesCapabilitiesArgs) ToGetFeaturesCapabilitiesPtrOutput() GetFeaturesCapabilitiesPtrOutput {
+	return i.ToGetFeaturesCapabilitiesPtrOutputWithContext(context.Background())
+}
+
+func (i GetFeaturesCapabilitiesArgs) ToGetFeaturesCapabilitiesPtrOutputWithContext(ctx context.Context) GetFeaturesCapabilitiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFeaturesCapabilitiesOutput).ToGetFeaturesCapabilitiesPtrOutputWithContext(ctx)
+}
+
+// GetFeaturesCapabilitiesPtrInput is an input type that accepts GetFeaturesCapabilitiesArgs, GetFeaturesCapabilitiesPtr and GetFeaturesCapabilitiesPtrOutput values.
+// You can construct a concrete instance of `GetFeaturesCapabilitiesPtrInput` via:
+//
+//	        GetFeaturesCapabilitiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetFeaturesCapabilitiesPtrInput interface {
+	pulumi.Input
+
+	ToGetFeaturesCapabilitiesPtrOutput() GetFeaturesCapabilitiesPtrOutput
+	ToGetFeaturesCapabilitiesPtrOutputWithContext(context.Context) GetFeaturesCapabilitiesPtrOutput
+}
+
+type getFeaturesCapabilitiesPtrType GetFeaturesCapabilitiesArgs
+
+func GetFeaturesCapabilitiesPtr(v *GetFeaturesCapabilitiesArgs) GetFeaturesCapabilitiesPtrInput {
+	return (*getFeaturesCapabilitiesPtrType)(v)
+}
+
+func (*getFeaturesCapabilitiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetFeaturesCapabilities)(nil)).Elem()
+}
+
+func (i *getFeaturesCapabilitiesPtrType) ToGetFeaturesCapabilitiesPtrOutput() GetFeaturesCapabilitiesPtrOutput {
+	return i.ToGetFeaturesCapabilitiesPtrOutputWithContext(context.Background())
+}
+
+func (i *getFeaturesCapabilitiesPtrType) ToGetFeaturesCapabilitiesPtrOutputWithContext(ctx context.Context) GetFeaturesCapabilitiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFeaturesCapabilitiesPtrOutput)
+}
+
+type GetFeaturesCapabilitiesOutput struct{ *pulumi.OutputState }
+
+func (GetFeaturesCapabilitiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFeaturesCapabilities)(nil)).Elem()
+}
+
+func (o GetFeaturesCapabilitiesOutput) ToGetFeaturesCapabilitiesOutput() GetFeaturesCapabilitiesOutput {
+	return o
+}
+
+func (o GetFeaturesCapabilitiesOutput) ToGetFeaturesCapabilitiesOutputWithContext(ctx context.Context) GetFeaturesCapabilitiesOutput {
+	return o
+}
+
+func (o GetFeaturesCapabilitiesOutput) ToGetFeaturesCapabilitiesPtrOutput() GetFeaturesCapabilitiesPtrOutput {
+	return o.ToGetFeaturesCapabilitiesPtrOutputWithContext(context.Background())
+}
+
+func (o GetFeaturesCapabilitiesOutput) ToGetFeaturesCapabilitiesPtrOutputWithContext(ctx context.Context) GetFeaturesCapabilitiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetFeaturesCapabilities) *GetFeaturesCapabilities {
+		return &v
+	}).(GetFeaturesCapabilitiesPtrOutput)
+}
+
+// Block for create lifecycle settings:
+func (o GetFeaturesCapabilitiesOutput) Create() GetFeaturesCapabilitiesCreatePtrOutput {
+	return o.ApplyT(func(v GetFeaturesCapabilities) *GetFeaturesCapabilitiesCreate { return v.Create }).(GetFeaturesCapabilitiesCreatePtrOutput)
+}
+
+// Block for import rules configuration:
+func (o GetFeaturesCapabilitiesOutput) ImportRules() GetFeaturesCapabilitiesImportRulesPtrOutput {
+	return o.ApplyT(func(v GetFeaturesCapabilities) *GetFeaturesCapabilitiesImportRules { return v.ImportRules }).(GetFeaturesCapabilitiesImportRulesPtrOutput)
+}
+
+// Block for import settings configuration:
+func (o GetFeaturesCapabilitiesOutput) ImportSettings() GetFeaturesCapabilitiesImportSettingsPtrOutput {
+	return o.ApplyT(func(v GetFeaturesCapabilities) *GetFeaturesCapabilitiesImportSettings { return v.ImportSettings }).(GetFeaturesCapabilitiesImportSettingsPtrOutput)
+}
+
+// Block for update settings:
+func (o GetFeaturesCapabilitiesOutput) Update() GetFeaturesCapabilitiesUpdatePtrOutput {
+	return o.ApplyT(func(v GetFeaturesCapabilities) *GetFeaturesCapabilitiesUpdate { return v.Update }).(GetFeaturesCapabilitiesUpdatePtrOutput)
+}
+
+type GetFeaturesCapabilitiesPtrOutput struct{ *pulumi.OutputState }
+
+func (GetFeaturesCapabilitiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetFeaturesCapabilities)(nil)).Elem()
+}
+
+func (o GetFeaturesCapabilitiesPtrOutput) ToGetFeaturesCapabilitiesPtrOutput() GetFeaturesCapabilitiesPtrOutput {
+	return o
+}
+
+func (o GetFeaturesCapabilitiesPtrOutput) ToGetFeaturesCapabilitiesPtrOutputWithContext(ctx context.Context) GetFeaturesCapabilitiesPtrOutput {
+	return o
+}
+
+func (o GetFeaturesCapabilitiesPtrOutput) Elem() GetFeaturesCapabilitiesOutput {
+	return o.ApplyT(func(v *GetFeaturesCapabilities) GetFeaturesCapabilities {
+		if v != nil {
+			return *v
+		}
+		var ret GetFeaturesCapabilities
+		return ret
+	}).(GetFeaturesCapabilitiesOutput)
+}
+
+// Block for create lifecycle settings:
+func (o GetFeaturesCapabilitiesPtrOutput) Create() GetFeaturesCapabilitiesCreatePtrOutput {
+	return o.ApplyT(func(v *GetFeaturesCapabilities) *GetFeaturesCapabilitiesCreate {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(GetFeaturesCapabilitiesCreatePtrOutput)
+}
+
+// Block for import rules configuration:
+func (o GetFeaturesCapabilitiesPtrOutput) ImportRules() GetFeaturesCapabilitiesImportRulesPtrOutput {
+	return o.ApplyT(func(v *GetFeaturesCapabilities) *GetFeaturesCapabilitiesImportRules {
+		if v == nil {
+			return nil
+		}
+		return v.ImportRules
+	}).(GetFeaturesCapabilitiesImportRulesPtrOutput)
+}
+
+// Block for import settings configuration:
+func (o GetFeaturesCapabilitiesPtrOutput) ImportSettings() GetFeaturesCapabilitiesImportSettingsPtrOutput {
+	return o.ApplyT(func(v *GetFeaturesCapabilities) *GetFeaturesCapabilitiesImportSettings {
+		if v == nil {
+			return nil
+		}
+		return v.ImportSettings
+	}).(GetFeaturesCapabilitiesImportSettingsPtrOutput)
+}
+
+// Block for update settings:
+func (o GetFeaturesCapabilitiesPtrOutput) Update() GetFeaturesCapabilitiesUpdatePtrOutput {
+	return o.ApplyT(func(v *GetFeaturesCapabilities) *GetFeaturesCapabilitiesUpdate {
+		if v == nil {
+			return nil
+		}
+		return v.Update
+	}).(GetFeaturesCapabilitiesUpdatePtrOutput)
+}
+
+type GetFeaturesCapabilitiesCreate struct {
+	// Block for create lifecycle configuration:
+	LifecycleCreate *GetFeaturesCapabilitiesCreateLifecycleCreate `pulumi:"lifecycleCreate"`
+}
+
+// GetFeaturesCapabilitiesCreateInput is an input type that accepts GetFeaturesCapabilitiesCreateArgs and GetFeaturesCapabilitiesCreateOutput values.
+// You can construct a concrete instance of `GetFeaturesCapabilitiesCreateInput` via:
+//
+//	GetFeaturesCapabilitiesCreateArgs{...}
+type GetFeaturesCapabilitiesCreateInput interface {
+	pulumi.Input
+
+	ToGetFeaturesCapabilitiesCreateOutput() GetFeaturesCapabilitiesCreateOutput
+	ToGetFeaturesCapabilitiesCreateOutputWithContext(context.Context) GetFeaturesCapabilitiesCreateOutput
+}
+
+type GetFeaturesCapabilitiesCreateArgs struct {
+	// Block for create lifecycle configuration:
+	LifecycleCreate GetFeaturesCapabilitiesCreateLifecycleCreatePtrInput `pulumi:"lifecycleCreate"`
+}
+
+func (GetFeaturesCapabilitiesCreateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFeaturesCapabilitiesCreate)(nil)).Elem()
+}
+
+func (i GetFeaturesCapabilitiesCreateArgs) ToGetFeaturesCapabilitiesCreateOutput() GetFeaturesCapabilitiesCreateOutput {
+	return i.ToGetFeaturesCapabilitiesCreateOutputWithContext(context.Background())
+}
+
+func (i GetFeaturesCapabilitiesCreateArgs) ToGetFeaturesCapabilitiesCreateOutputWithContext(ctx context.Context) GetFeaturesCapabilitiesCreateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFeaturesCapabilitiesCreateOutput)
+}
+
+func (i GetFeaturesCapabilitiesCreateArgs) ToGetFeaturesCapabilitiesCreatePtrOutput() GetFeaturesCapabilitiesCreatePtrOutput {
+	return i.ToGetFeaturesCapabilitiesCreatePtrOutputWithContext(context.Background())
+}
+
+func (i GetFeaturesCapabilitiesCreateArgs) ToGetFeaturesCapabilitiesCreatePtrOutputWithContext(ctx context.Context) GetFeaturesCapabilitiesCreatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFeaturesCapabilitiesCreateOutput).ToGetFeaturesCapabilitiesCreatePtrOutputWithContext(ctx)
+}
+
+// GetFeaturesCapabilitiesCreatePtrInput is an input type that accepts GetFeaturesCapabilitiesCreateArgs, GetFeaturesCapabilitiesCreatePtr and GetFeaturesCapabilitiesCreatePtrOutput values.
+// You can construct a concrete instance of `GetFeaturesCapabilitiesCreatePtrInput` via:
+//
+//	        GetFeaturesCapabilitiesCreateArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetFeaturesCapabilitiesCreatePtrInput interface {
+	pulumi.Input
+
+	ToGetFeaturesCapabilitiesCreatePtrOutput() GetFeaturesCapabilitiesCreatePtrOutput
+	ToGetFeaturesCapabilitiesCreatePtrOutputWithContext(context.Context) GetFeaturesCapabilitiesCreatePtrOutput
+}
+
+type getFeaturesCapabilitiesCreatePtrType GetFeaturesCapabilitiesCreateArgs
+
+func GetFeaturesCapabilitiesCreatePtr(v *GetFeaturesCapabilitiesCreateArgs) GetFeaturesCapabilitiesCreatePtrInput {
+	return (*getFeaturesCapabilitiesCreatePtrType)(v)
+}
+
+func (*getFeaturesCapabilitiesCreatePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetFeaturesCapabilitiesCreate)(nil)).Elem()
+}
+
+func (i *getFeaturesCapabilitiesCreatePtrType) ToGetFeaturesCapabilitiesCreatePtrOutput() GetFeaturesCapabilitiesCreatePtrOutput {
+	return i.ToGetFeaturesCapabilitiesCreatePtrOutputWithContext(context.Background())
+}
+
+func (i *getFeaturesCapabilitiesCreatePtrType) ToGetFeaturesCapabilitiesCreatePtrOutputWithContext(ctx context.Context) GetFeaturesCapabilitiesCreatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFeaturesCapabilitiesCreatePtrOutput)
+}
+
+type GetFeaturesCapabilitiesCreateOutput struct{ *pulumi.OutputState }
+
+func (GetFeaturesCapabilitiesCreateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFeaturesCapabilitiesCreate)(nil)).Elem()
+}
+
+func (o GetFeaturesCapabilitiesCreateOutput) ToGetFeaturesCapabilitiesCreateOutput() GetFeaturesCapabilitiesCreateOutput {
+	return o
+}
+
+func (o GetFeaturesCapabilitiesCreateOutput) ToGetFeaturesCapabilitiesCreateOutputWithContext(ctx context.Context) GetFeaturesCapabilitiesCreateOutput {
+	return o
+}
+
+func (o GetFeaturesCapabilitiesCreateOutput) ToGetFeaturesCapabilitiesCreatePtrOutput() GetFeaturesCapabilitiesCreatePtrOutput {
+	return o.ToGetFeaturesCapabilitiesCreatePtrOutputWithContext(context.Background())
+}
+
+func (o GetFeaturesCapabilitiesCreateOutput) ToGetFeaturesCapabilitiesCreatePtrOutputWithContext(ctx context.Context) GetFeaturesCapabilitiesCreatePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetFeaturesCapabilitiesCreate) *GetFeaturesCapabilitiesCreate {
+		return &v
+	}).(GetFeaturesCapabilitiesCreatePtrOutput)
+}
+
+// Block for create lifecycle configuration:
+func (o GetFeaturesCapabilitiesCreateOutput) LifecycleCreate() GetFeaturesCapabilitiesCreateLifecycleCreatePtrOutput {
+	return o.ApplyT(func(v GetFeaturesCapabilitiesCreate) *GetFeaturesCapabilitiesCreateLifecycleCreate {
+		return v.LifecycleCreate
+	}).(GetFeaturesCapabilitiesCreateLifecycleCreatePtrOutput)
+}
+
+type GetFeaturesCapabilitiesCreatePtrOutput struct{ *pulumi.OutputState }
+
+func (GetFeaturesCapabilitiesCreatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetFeaturesCapabilitiesCreate)(nil)).Elem()
+}
+
+func (o GetFeaturesCapabilitiesCreatePtrOutput) ToGetFeaturesCapabilitiesCreatePtrOutput() GetFeaturesCapabilitiesCreatePtrOutput {
+	return o
+}
+
+func (o GetFeaturesCapabilitiesCreatePtrOutput) ToGetFeaturesCapabilitiesCreatePtrOutputWithContext(ctx context.Context) GetFeaturesCapabilitiesCreatePtrOutput {
+	return o
+}
+
+func (o GetFeaturesCapabilitiesCreatePtrOutput) Elem() GetFeaturesCapabilitiesCreateOutput {
+	return o.ApplyT(func(v *GetFeaturesCapabilitiesCreate) GetFeaturesCapabilitiesCreate {
+		if v != nil {
+			return *v
+		}
+		var ret GetFeaturesCapabilitiesCreate
+		return ret
+	}).(GetFeaturesCapabilitiesCreateOutput)
+}
+
+// Block for create lifecycle configuration:
+func (o GetFeaturesCapabilitiesCreatePtrOutput) LifecycleCreate() GetFeaturesCapabilitiesCreateLifecycleCreatePtrOutput {
+	return o.ApplyT(func(v *GetFeaturesCapabilitiesCreate) *GetFeaturesCapabilitiesCreateLifecycleCreate {
+		if v == nil {
+			return nil
+		}
+		return v.LifecycleCreate
+	}).(GetFeaturesCapabilitiesCreateLifecycleCreatePtrOutput)
+}
+
+type GetFeaturesCapabilitiesCreateLifecycleCreate struct {
+	// (String) Status of the import schedule. Valid values are `ENABLED` or `DISABLED`.
+	Status string `pulumi:"status"`
+}
+
+// GetFeaturesCapabilitiesCreateLifecycleCreateInput is an input type that accepts GetFeaturesCapabilitiesCreateLifecycleCreateArgs and GetFeaturesCapabilitiesCreateLifecycleCreateOutput values.
+// You can construct a concrete instance of `GetFeaturesCapabilitiesCreateLifecycleCreateInput` via:
+//
+//	GetFeaturesCapabilitiesCreateLifecycleCreateArgs{...}
+type GetFeaturesCapabilitiesCreateLifecycleCreateInput interface {
+	pulumi.Input
+
+	ToGetFeaturesCapabilitiesCreateLifecycleCreateOutput() GetFeaturesCapabilitiesCreateLifecycleCreateOutput
+	ToGetFeaturesCapabilitiesCreateLifecycleCreateOutputWithContext(context.Context) GetFeaturesCapabilitiesCreateLifecycleCreateOutput
+}
+
+type GetFeaturesCapabilitiesCreateLifecycleCreateArgs struct {
+	// (String) Status of the import schedule. Valid values are `ENABLED` or `DISABLED`.
+	Status pulumi.StringInput `pulumi:"status"`
+}
+
+func (GetFeaturesCapabilitiesCreateLifecycleCreateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFeaturesCapabilitiesCreateLifecycleCreate)(nil)).Elem()
+}
+
+func (i GetFeaturesCapabilitiesCreateLifecycleCreateArgs) ToGetFeaturesCapabilitiesCreateLifecycleCreateOutput() GetFeaturesCapabilitiesCreateLifecycleCreateOutput {
+	return i.ToGetFeaturesCapabilitiesCreateLifecycleCreateOutputWithContext(context.Background())
+}
+
+func (i GetFeaturesCapabilitiesCreateLifecycleCreateArgs) ToGetFeaturesCapabilitiesCreateLifecycleCreateOutputWithContext(ctx context.Context) GetFeaturesCapabilitiesCreateLifecycleCreateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFeaturesCapabilitiesCreateLifecycleCreateOutput)
+}
+
+func (i GetFeaturesCapabilitiesCreateLifecycleCreateArgs) ToGetFeaturesCapabilitiesCreateLifecycleCreatePtrOutput() GetFeaturesCapabilitiesCreateLifecycleCreatePtrOutput {
+	return i.ToGetFeaturesCapabilitiesCreateLifecycleCreatePtrOutputWithContext(context.Background())
+}
+
+func (i GetFeaturesCapabilitiesCreateLifecycleCreateArgs) ToGetFeaturesCapabilitiesCreateLifecycleCreatePtrOutputWithContext(ctx context.Context) GetFeaturesCapabilitiesCreateLifecycleCreatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFeaturesCapabilitiesCreateLifecycleCreateOutput).ToGetFeaturesCapabilitiesCreateLifecycleCreatePtrOutputWithContext(ctx)
+}
+
+// GetFeaturesCapabilitiesCreateLifecycleCreatePtrInput is an input type that accepts GetFeaturesCapabilitiesCreateLifecycleCreateArgs, GetFeaturesCapabilitiesCreateLifecycleCreatePtr and GetFeaturesCapabilitiesCreateLifecycleCreatePtrOutput values.
+// You can construct a concrete instance of `GetFeaturesCapabilitiesCreateLifecycleCreatePtrInput` via:
+//
+//	        GetFeaturesCapabilitiesCreateLifecycleCreateArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetFeaturesCapabilitiesCreateLifecycleCreatePtrInput interface {
+	pulumi.Input
+
+	ToGetFeaturesCapabilitiesCreateLifecycleCreatePtrOutput() GetFeaturesCapabilitiesCreateLifecycleCreatePtrOutput
+	ToGetFeaturesCapabilitiesCreateLifecycleCreatePtrOutputWithContext(context.Context) GetFeaturesCapabilitiesCreateLifecycleCreatePtrOutput
+}
+
+type getFeaturesCapabilitiesCreateLifecycleCreatePtrType GetFeaturesCapabilitiesCreateLifecycleCreateArgs
+
+func GetFeaturesCapabilitiesCreateLifecycleCreatePtr(v *GetFeaturesCapabilitiesCreateLifecycleCreateArgs) GetFeaturesCapabilitiesCreateLifecycleCreatePtrInput {
+	return (*getFeaturesCapabilitiesCreateLifecycleCreatePtrType)(v)
+}
+
+func (*getFeaturesCapabilitiesCreateLifecycleCreatePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetFeaturesCapabilitiesCreateLifecycleCreate)(nil)).Elem()
+}
+
+func (i *getFeaturesCapabilitiesCreateLifecycleCreatePtrType) ToGetFeaturesCapabilitiesCreateLifecycleCreatePtrOutput() GetFeaturesCapabilitiesCreateLifecycleCreatePtrOutput {
+	return i.ToGetFeaturesCapabilitiesCreateLifecycleCreatePtrOutputWithContext(context.Background())
+}
+
+func (i *getFeaturesCapabilitiesCreateLifecycleCreatePtrType) ToGetFeaturesCapabilitiesCreateLifecycleCreatePtrOutputWithContext(ctx context.Context) GetFeaturesCapabilitiesCreateLifecycleCreatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFeaturesCapabilitiesCreateLifecycleCreatePtrOutput)
+}
+
+type GetFeaturesCapabilitiesCreateLifecycleCreateOutput struct{ *pulumi.OutputState }
+
+func (GetFeaturesCapabilitiesCreateLifecycleCreateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFeaturesCapabilitiesCreateLifecycleCreate)(nil)).Elem()
+}
+
+func (o GetFeaturesCapabilitiesCreateLifecycleCreateOutput) ToGetFeaturesCapabilitiesCreateLifecycleCreateOutput() GetFeaturesCapabilitiesCreateLifecycleCreateOutput {
+	return o
+}
+
+func (o GetFeaturesCapabilitiesCreateLifecycleCreateOutput) ToGetFeaturesCapabilitiesCreateLifecycleCreateOutputWithContext(ctx context.Context) GetFeaturesCapabilitiesCreateLifecycleCreateOutput {
+	return o
+}
+
+func (o GetFeaturesCapabilitiesCreateLifecycleCreateOutput) ToGetFeaturesCapabilitiesCreateLifecycleCreatePtrOutput() GetFeaturesCapabilitiesCreateLifecycleCreatePtrOutput {
+	return o.ToGetFeaturesCapabilitiesCreateLifecycleCreatePtrOutputWithContext(context.Background())
+}
+
+func (o GetFeaturesCapabilitiesCreateLifecycleCreateOutput) ToGetFeaturesCapabilitiesCreateLifecycleCreatePtrOutputWithContext(ctx context.Context) GetFeaturesCapabilitiesCreateLifecycleCreatePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetFeaturesCapabilitiesCreateLifecycleCreate) *GetFeaturesCapabilitiesCreateLifecycleCreate {
+		return &v
+	}).(GetFeaturesCapabilitiesCreateLifecycleCreatePtrOutput)
+}
+
+// (String) Status of the import schedule. Valid values are `ENABLED` or `DISABLED`.
+func (o GetFeaturesCapabilitiesCreateLifecycleCreateOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFeaturesCapabilitiesCreateLifecycleCreate) string { return v.Status }).(pulumi.StringOutput)
+}
+
+type GetFeaturesCapabilitiesCreateLifecycleCreatePtrOutput struct{ *pulumi.OutputState }
+
+func (GetFeaturesCapabilitiesCreateLifecycleCreatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetFeaturesCapabilitiesCreateLifecycleCreate)(nil)).Elem()
+}
+
+func (o GetFeaturesCapabilitiesCreateLifecycleCreatePtrOutput) ToGetFeaturesCapabilitiesCreateLifecycleCreatePtrOutput() GetFeaturesCapabilitiesCreateLifecycleCreatePtrOutput {
+	return o
+}
+
+func (o GetFeaturesCapabilitiesCreateLifecycleCreatePtrOutput) ToGetFeaturesCapabilitiesCreateLifecycleCreatePtrOutputWithContext(ctx context.Context) GetFeaturesCapabilitiesCreateLifecycleCreatePtrOutput {
+	return o
+}
+
+func (o GetFeaturesCapabilitiesCreateLifecycleCreatePtrOutput) Elem() GetFeaturesCapabilitiesCreateLifecycleCreateOutput {
+	return o.ApplyT(func(v *GetFeaturesCapabilitiesCreateLifecycleCreate) GetFeaturesCapabilitiesCreateLifecycleCreate {
+		if v != nil {
+			return *v
+		}
+		var ret GetFeaturesCapabilitiesCreateLifecycleCreate
+		return ret
+	}).(GetFeaturesCapabilitiesCreateLifecycleCreateOutput)
+}
+
+// (String) Status of the import schedule. Valid values are `ENABLED` or `DISABLED`.
+func (o GetFeaturesCapabilitiesCreateLifecycleCreatePtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetFeaturesCapabilitiesCreateLifecycleCreate) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Status
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetFeaturesCapabilitiesImportRules struct {
+	// Block for user matching and creation rules:
+	UserCreateAndMatch *GetFeaturesCapabilitiesImportRulesUserCreateAndMatch `pulumi:"userCreateAndMatch"`
+}
+
+// GetFeaturesCapabilitiesImportRulesInput is an input type that accepts GetFeaturesCapabilitiesImportRulesArgs and GetFeaturesCapabilitiesImportRulesOutput values.
+// You can construct a concrete instance of `GetFeaturesCapabilitiesImportRulesInput` via:
+//
+//	GetFeaturesCapabilitiesImportRulesArgs{...}
+type GetFeaturesCapabilitiesImportRulesInput interface {
+	pulumi.Input
+
+	ToGetFeaturesCapabilitiesImportRulesOutput() GetFeaturesCapabilitiesImportRulesOutput
+	ToGetFeaturesCapabilitiesImportRulesOutputWithContext(context.Context) GetFeaturesCapabilitiesImportRulesOutput
+}
+
+type GetFeaturesCapabilitiesImportRulesArgs struct {
+	// Block for user matching and creation rules:
+	UserCreateAndMatch GetFeaturesCapabilitiesImportRulesUserCreateAndMatchPtrInput `pulumi:"userCreateAndMatch"`
+}
+
+func (GetFeaturesCapabilitiesImportRulesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFeaturesCapabilitiesImportRules)(nil)).Elem()
+}
+
+func (i GetFeaturesCapabilitiesImportRulesArgs) ToGetFeaturesCapabilitiesImportRulesOutput() GetFeaturesCapabilitiesImportRulesOutput {
+	return i.ToGetFeaturesCapabilitiesImportRulesOutputWithContext(context.Background())
+}
+
+func (i GetFeaturesCapabilitiesImportRulesArgs) ToGetFeaturesCapabilitiesImportRulesOutputWithContext(ctx context.Context) GetFeaturesCapabilitiesImportRulesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFeaturesCapabilitiesImportRulesOutput)
+}
+
+func (i GetFeaturesCapabilitiesImportRulesArgs) ToGetFeaturesCapabilitiesImportRulesPtrOutput() GetFeaturesCapabilitiesImportRulesPtrOutput {
+	return i.ToGetFeaturesCapabilitiesImportRulesPtrOutputWithContext(context.Background())
+}
+
+func (i GetFeaturesCapabilitiesImportRulesArgs) ToGetFeaturesCapabilitiesImportRulesPtrOutputWithContext(ctx context.Context) GetFeaturesCapabilitiesImportRulesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFeaturesCapabilitiesImportRulesOutput).ToGetFeaturesCapabilitiesImportRulesPtrOutputWithContext(ctx)
+}
+
+// GetFeaturesCapabilitiesImportRulesPtrInput is an input type that accepts GetFeaturesCapabilitiesImportRulesArgs, GetFeaturesCapabilitiesImportRulesPtr and GetFeaturesCapabilitiesImportRulesPtrOutput values.
+// You can construct a concrete instance of `GetFeaturesCapabilitiesImportRulesPtrInput` via:
+//
+//	        GetFeaturesCapabilitiesImportRulesArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetFeaturesCapabilitiesImportRulesPtrInput interface {
+	pulumi.Input
+
+	ToGetFeaturesCapabilitiesImportRulesPtrOutput() GetFeaturesCapabilitiesImportRulesPtrOutput
+	ToGetFeaturesCapabilitiesImportRulesPtrOutputWithContext(context.Context) GetFeaturesCapabilitiesImportRulesPtrOutput
+}
+
+type getFeaturesCapabilitiesImportRulesPtrType GetFeaturesCapabilitiesImportRulesArgs
+
+func GetFeaturesCapabilitiesImportRulesPtr(v *GetFeaturesCapabilitiesImportRulesArgs) GetFeaturesCapabilitiesImportRulesPtrInput {
+	return (*getFeaturesCapabilitiesImportRulesPtrType)(v)
+}
+
+func (*getFeaturesCapabilitiesImportRulesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetFeaturesCapabilitiesImportRules)(nil)).Elem()
+}
+
+func (i *getFeaturesCapabilitiesImportRulesPtrType) ToGetFeaturesCapabilitiesImportRulesPtrOutput() GetFeaturesCapabilitiesImportRulesPtrOutput {
+	return i.ToGetFeaturesCapabilitiesImportRulesPtrOutputWithContext(context.Background())
+}
+
+func (i *getFeaturesCapabilitiesImportRulesPtrType) ToGetFeaturesCapabilitiesImportRulesPtrOutputWithContext(ctx context.Context) GetFeaturesCapabilitiesImportRulesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFeaturesCapabilitiesImportRulesPtrOutput)
+}
+
+type GetFeaturesCapabilitiesImportRulesOutput struct{ *pulumi.OutputState }
+
+func (GetFeaturesCapabilitiesImportRulesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFeaturesCapabilitiesImportRules)(nil)).Elem()
+}
+
+func (o GetFeaturesCapabilitiesImportRulesOutput) ToGetFeaturesCapabilitiesImportRulesOutput() GetFeaturesCapabilitiesImportRulesOutput {
+	return o
+}
+
+func (o GetFeaturesCapabilitiesImportRulesOutput) ToGetFeaturesCapabilitiesImportRulesOutputWithContext(ctx context.Context) GetFeaturesCapabilitiesImportRulesOutput {
+	return o
+}
+
+func (o GetFeaturesCapabilitiesImportRulesOutput) ToGetFeaturesCapabilitiesImportRulesPtrOutput() GetFeaturesCapabilitiesImportRulesPtrOutput {
+	return o.ToGetFeaturesCapabilitiesImportRulesPtrOutputWithContext(context.Background())
+}
+
+func (o GetFeaturesCapabilitiesImportRulesOutput) ToGetFeaturesCapabilitiesImportRulesPtrOutputWithContext(ctx context.Context) GetFeaturesCapabilitiesImportRulesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetFeaturesCapabilitiesImportRules) *GetFeaturesCapabilitiesImportRules {
+		return &v
+	}).(GetFeaturesCapabilitiesImportRulesPtrOutput)
+}
+
+// Block for user matching and creation rules:
+func (o GetFeaturesCapabilitiesImportRulesOutput) UserCreateAndMatch() GetFeaturesCapabilitiesImportRulesUserCreateAndMatchPtrOutput {
+	return o.ApplyT(func(v GetFeaturesCapabilitiesImportRules) *GetFeaturesCapabilitiesImportRulesUserCreateAndMatch {
+		return v.UserCreateAndMatch
+	}).(GetFeaturesCapabilitiesImportRulesUserCreateAndMatchPtrOutput)
+}
+
+type GetFeaturesCapabilitiesImportRulesPtrOutput struct{ *pulumi.OutputState }
+
+func (GetFeaturesCapabilitiesImportRulesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetFeaturesCapabilitiesImportRules)(nil)).Elem()
+}
+
+func (o GetFeaturesCapabilitiesImportRulesPtrOutput) ToGetFeaturesCapabilitiesImportRulesPtrOutput() GetFeaturesCapabilitiesImportRulesPtrOutput {
+	return o
+}
+
+func (o GetFeaturesCapabilitiesImportRulesPtrOutput) ToGetFeaturesCapabilitiesImportRulesPtrOutputWithContext(ctx context.Context) GetFeaturesCapabilitiesImportRulesPtrOutput {
+	return o
+}
+
+func (o GetFeaturesCapabilitiesImportRulesPtrOutput) Elem() GetFeaturesCapabilitiesImportRulesOutput {
+	return o.ApplyT(func(v *GetFeaturesCapabilitiesImportRules) GetFeaturesCapabilitiesImportRules {
+		if v != nil {
+			return *v
+		}
+		var ret GetFeaturesCapabilitiesImportRules
+		return ret
+	}).(GetFeaturesCapabilitiesImportRulesOutput)
+}
+
+// Block for user matching and creation rules:
+func (o GetFeaturesCapabilitiesImportRulesPtrOutput) UserCreateAndMatch() GetFeaturesCapabilitiesImportRulesUserCreateAndMatchPtrOutput {
+	return o.ApplyT(func(v *GetFeaturesCapabilitiesImportRules) *GetFeaturesCapabilitiesImportRulesUserCreateAndMatch {
+		if v == nil {
+			return nil
+		}
+		return v.UserCreateAndMatch
+	}).(GetFeaturesCapabilitiesImportRulesUserCreateAndMatchPtrOutput)
+}
+
+type GetFeaturesCapabilitiesImportRulesUserCreateAndMatch struct {
+	// (Boolean) Whether to allow partial matching based on first and last names.
+	AllowPartialMatch bool `pulumi:"allowPartialMatch"`
+	// (Boolean) Whether imported new users are automatically activated.
+	AutoActivateNewUsers bool `pulumi:"autoActivateNewUsers"`
+	// (Boolean) Whether exact-matched users are automatically confirmed.
+	AutoconfirmExactMatch bool `pulumi:"autoconfirmExactMatch"`
+	// (Boolean) Whether imported new users are automatically confirmed.
+	AutoconfirmNewUsers bool `pulumi:"autoconfirmNewUsers"`
+	// (Boolean) Whether partially matched users are automatically confirmed.
+	AutoconfirmPartialMatch bool `pulumi:"autoconfirmPartialMatch"`
+	// (String) Attribute used for exact matching (e.g., `USERNAME`, `EMAIL`).
+	ExactMatchCriteria string `pulumi:"exactMatchCriteria"`
+}
+
+// GetFeaturesCapabilitiesImportRulesUserCreateAndMatchInput is an input type that accepts GetFeaturesCapabilitiesImportRulesUserCreateAndMatchArgs and GetFeaturesCapabilitiesImportRulesUserCreateAndMatchOutput values.
+// You can construct a concrete instance of `GetFeaturesCapabilitiesImportRulesUserCreateAndMatchInput` via:
+//
+//	GetFeaturesCapabilitiesImportRulesUserCreateAndMatchArgs{...}
+type GetFeaturesCapabilitiesImportRulesUserCreateAndMatchInput interface {
+	pulumi.Input
+
+	ToGetFeaturesCapabilitiesImportRulesUserCreateAndMatchOutput() GetFeaturesCapabilitiesImportRulesUserCreateAndMatchOutput
+	ToGetFeaturesCapabilitiesImportRulesUserCreateAndMatchOutputWithContext(context.Context) GetFeaturesCapabilitiesImportRulesUserCreateAndMatchOutput
+}
+
+type GetFeaturesCapabilitiesImportRulesUserCreateAndMatchArgs struct {
+	// (Boolean) Whether to allow partial matching based on first and last names.
+	AllowPartialMatch pulumi.BoolInput `pulumi:"allowPartialMatch"`
+	// (Boolean) Whether imported new users are automatically activated.
+	AutoActivateNewUsers pulumi.BoolInput `pulumi:"autoActivateNewUsers"`
+	// (Boolean) Whether exact-matched users are automatically confirmed.
+	AutoconfirmExactMatch pulumi.BoolInput `pulumi:"autoconfirmExactMatch"`
+	// (Boolean) Whether imported new users are automatically confirmed.
+	AutoconfirmNewUsers pulumi.BoolInput `pulumi:"autoconfirmNewUsers"`
+	// (Boolean) Whether partially matched users are automatically confirmed.
+	AutoconfirmPartialMatch pulumi.BoolInput `pulumi:"autoconfirmPartialMatch"`
+	// (String) Attribute used for exact matching (e.g., `USERNAME`, `EMAIL`).
+	ExactMatchCriteria pulumi.StringInput `pulumi:"exactMatchCriteria"`
+}
+
+func (GetFeaturesCapabilitiesImportRulesUserCreateAndMatchArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFeaturesCapabilitiesImportRulesUserCreateAndMatch)(nil)).Elem()
+}
+
+func (i GetFeaturesCapabilitiesImportRulesUserCreateAndMatchArgs) ToGetFeaturesCapabilitiesImportRulesUserCreateAndMatchOutput() GetFeaturesCapabilitiesImportRulesUserCreateAndMatchOutput {
+	return i.ToGetFeaturesCapabilitiesImportRulesUserCreateAndMatchOutputWithContext(context.Background())
+}
+
+func (i GetFeaturesCapabilitiesImportRulesUserCreateAndMatchArgs) ToGetFeaturesCapabilitiesImportRulesUserCreateAndMatchOutputWithContext(ctx context.Context) GetFeaturesCapabilitiesImportRulesUserCreateAndMatchOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFeaturesCapabilitiesImportRulesUserCreateAndMatchOutput)
+}
+
+func (i GetFeaturesCapabilitiesImportRulesUserCreateAndMatchArgs) ToGetFeaturesCapabilitiesImportRulesUserCreateAndMatchPtrOutput() GetFeaturesCapabilitiesImportRulesUserCreateAndMatchPtrOutput {
+	return i.ToGetFeaturesCapabilitiesImportRulesUserCreateAndMatchPtrOutputWithContext(context.Background())
+}
+
+func (i GetFeaturesCapabilitiesImportRulesUserCreateAndMatchArgs) ToGetFeaturesCapabilitiesImportRulesUserCreateAndMatchPtrOutputWithContext(ctx context.Context) GetFeaturesCapabilitiesImportRulesUserCreateAndMatchPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFeaturesCapabilitiesImportRulesUserCreateAndMatchOutput).ToGetFeaturesCapabilitiesImportRulesUserCreateAndMatchPtrOutputWithContext(ctx)
+}
+
+// GetFeaturesCapabilitiesImportRulesUserCreateAndMatchPtrInput is an input type that accepts GetFeaturesCapabilitiesImportRulesUserCreateAndMatchArgs, GetFeaturesCapabilitiesImportRulesUserCreateAndMatchPtr and GetFeaturesCapabilitiesImportRulesUserCreateAndMatchPtrOutput values.
+// You can construct a concrete instance of `GetFeaturesCapabilitiesImportRulesUserCreateAndMatchPtrInput` via:
+//
+//	        GetFeaturesCapabilitiesImportRulesUserCreateAndMatchArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetFeaturesCapabilitiesImportRulesUserCreateAndMatchPtrInput interface {
+	pulumi.Input
+
+	ToGetFeaturesCapabilitiesImportRulesUserCreateAndMatchPtrOutput() GetFeaturesCapabilitiesImportRulesUserCreateAndMatchPtrOutput
+	ToGetFeaturesCapabilitiesImportRulesUserCreateAndMatchPtrOutputWithContext(context.Context) GetFeaturesCapabilitiesImportRulesUserCreateAndMatchPtrOutput
+}
+
+type getFeaturesCapabilitiesImportRulesUserCreateAndMatchPtrType GetFeaturesCapabilitiesImportRulesUserCreateAndMatchArgs
+
+func GetFeaturesCapabilitiesImportRulesUserCreateAndMatchPtr(v *GetFeaturesCapabilitiesImportRulesUserCreateAndMatchArgs) GetFeaturesCapabilitiesImportRulesUserCreateAndMatchPtrInput {
+	return (*getFeaturesCapabilitiesImportRulesUserCreateAndMatchPtrType)(v)
+}
+
+func (*getFeaturesCapabilitiesImportRulesUserCreateAndMatchPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetFeaturesCapabilitiesImportRulesUserCreateAndMatch)(nil)).Elem()
+}
+
+func (i *getFeaturesCapabilitiesImportRulesUserCreateAndMatchPtrType) ToGetFeaturesCapabilitiesImportRulesUserCreateAndMatchPtrOutput() GetFeaturesCapabilitiesImportRulesUserCreateAndMatchPtrOutput {
+	return i.ToGetFeaturesCapabilitiesImportRulesUserCreateAndMatchPtrOutputWithContext(context.Background())
+}
+
+func (i *getFeaturesCapabilitiesImportRulesUserCreateAndMatchPtrType) ToGetFeaturesCapabilitiesImportRulesUserCreateAndMatchPtrOutputWithContext(ctx context.Context) GetFeaturesCapabilitiesImportRulesUserCreateAndMatchPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFeaturesCapabilitiesImportRulesUserCreateAndMatchPtrOutput)
+}
+
+type GetFeaturesCapabilitiesImportRulesUserCreateAndMatchOutput struct{ *pulumi.OutputState }
+
+func (GetFeaturesCapabilitiesImportRulesUserCreateAndMatchOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFeaturesCapabilitiesImportRulesUserCreateAndMatch)(nil)).Elem()
+}
+
+func (o GetFeaturesCapabilitiesImportRulesUserCreateAndMatchOutput) ToGetFeaturesCapabilitiesImportRulesUserCreateAndMatchOutput() GetFeaturesCapabilitiesImportRulesUserCreateAndMatchOutput {
+	return o
+}
+
+func (o GetFeaturesCapabilitiesImportRulesUserCreateAndMatchOutput) ToGetFeaturesCapabilitiesImportRulesUserCreateAndMatchOutputWithContext(ctx context.Context) GetFeaturesCapabilitiesImportRulesUserCreateAndMatchOutput {
+	return o
+}
+
+func (o GetFeaturesCapabilitiesImportRulesUserCreateAndMatchOutput) ToGetFeaturesCapabilitiesImportRulesUserCreateAndMatchPtrOutput() GetFeaturesCapabilitiesImportRulesUserCreateAndMatchPtrOutput {
+	return o.ToGetFeaturesCapabilitiesImportRulesUserCreateAndMatchPtrOutputWithContext(context.Background())
+}
+
+func (o GetFeaturesCapabilitiesImportRulesUserCreateAndMatchOutput) ToGetFeaturesCapabilitiesImportRulesUserCreateAndMatchPtrOutputWithContext(ctx context.Context) GetFeaturesCapabilitiesImportRulesUserCreateAndMatchPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetFeaturesCapabilitiesImportRulesUserCreateAndMatch) *GetFeaturesCapabilitiesImportRulesUserCreateAndMatch {
+		return &v
+	}).(GetFeaturesCapabilitiesImportRulesUserCreateAndMatchPtrOutput)
+}
+
+// (Boolean) Whether to allow partial matching based on first and last names.
+func (o GetFeaturesCapabilitiesImportRulesUserCreateAndMatchOutput) AllowPartialMatch() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetFeaturesCapabilitiesImportRulesUserCreateAndMatch) bool { return v.AllowPartialMatch }).(pulumi.BoolOutput)
+}
+
+// (Boolean) Whether imported new users are automatically activated.
+func (o GetFeaturesCapabilitiesImportRulesUserCreateAndMatchOutput) AutoActivateNewUsers() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetFeaturesCapabilitiesImportRulesUserCreateAndMatch) bool { return v.AutoActivateNewUsers }).(pulumi.BoolOutput)
+}
+
+// (Boolean) Whether exact-matched users are automatically confirmed.
+func (o GetFeaturesCapabilitiesImportRulesUserCreateAndMatchOutput) AutoconfirmExactMatch() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetFeaturesCapabilitiesImportRulesUserCreateAndMatch) bool { return v.AutoconfirmExactMatch }).(pulumi.BoolOutput)
+}
+
+// (Boolean) Whether imported new users are automatically confirmed.
+func (o GetFeaturesCapabilitiesImportRulesUserCreateAndMatchOutput) AutoconfirmNewUsers() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetFeaturesCapabilitiesImportRulesUserCreateAndMatch) bool { return v.AutoconfirmNewUsers }).(pulumi.BoolOutput)
+}
+
+// (Boolean) Whether partially matched users are automatically confirmed.
+func (o GetFeaturesCapabilitiesImportRulesUserCreateAndMatchOutput) AutoconfirmPartialMatch() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetFeaturesCapabilitiesImportRulesUserCreateAndMatch) bool { return v.AutoconfirmPartialMatch }).(pulumi.BoolOutput)
+}
+
+// (String) Attribute used for exact matching (e.g., `USERNAME`, `EMAIL`).
+func (o GetFeaturesCapabilitiesImportRulesUserCreateAndMatchOutput) ExactMatchCriteria() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFeaturesCapabilitiesImportRulesUserCreateAndMatch) string { return v.ExactMatchCriteria }).(pulumi.StringOutput)
+}
+
+type GetFeaturesCapabilitiesImportRulesUserCreateAndMatchPtrOutput struct{ *pulumi.OutputState }
+
+func (GetFeaturesCapabilitiesImportRulesUserCreateAndMatchPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetFeaturesCapabilitiesImportRulesUserCreateAndMatch)(nil)).Elem()
+}
+
+func (o GetFeaturesCapabilitiesImportRulesUserCreateAndMatchPtrOutput) ToGetFeaturesCapabilitiesImportRulesUserCreateAndMatchPtrOutput() GetFeaturesCapabilitiesImportRulesUserCreateAndMatchPtrOutput {
+	return o
+}
+
+func (o GetFeaturesCapabilitiesImportRulesUserCreateAndMatchPtrOutput) ToGetFeaturesCapabilitiesImportRulesUserCreateAndMatchPtrOutputWithContext(ctx context.Context) GetFeaturesCapabilitiesImportRulesUserCreateAndMatchPtrOutput {
+	return o
+}
+
+func (o GetFeaturesCapabilitiesImportRulesUserCreateAndMatchPtrOutput) Elem() GetFeaturesCapabilitiesImportRulesUserCreateAndMatchOutput {
+	return o.ApplyT(func(v *GetFeaturesCapabilitiesImportRulesUserCreateAndMatch) GetFeaturesCapabilitiesImportRulesUserCreateAndMatch {
+		if v != nil {
+			return *v
+		}
+		var ret GetFeaturesCapabilitiesImportRulesUserCreateAndMatch
+		return ret
+	}).(GetFeaturesCapabilitiesImportRulesUserCreateAndMatchOutput)
+}
+
+// (Boolean) Whether to allow partial matching based on first and last names.
+func (o GetFeaturesCapabilitiesImportRulesUserCreateAndMatchPtrOutput) AllowPartialMatch() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetFeaturesCapabilitiesImportRulesUserCreateAndMatch) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.AllowPartialMatch
+	}).(pulumi.BoolPtrOutput)
+}
+
+// (Boolean) Whether imported new users are automatically activated.
+func (o GetFeaturesCapabilitiesImportRulesUserCreateAndMatchPtrOutput) AutoActivateNewUsers() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetFeaturesCapabilitiesImportRulesUserCreateAndMatch) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.AutoActivateNewUsers
+	}).(pulumi.BoolPtrOutput)
+}
+
+// (Boolean) Whether exact-matched users are automatically confirmed.
+func (o GetFeaturesCapabilitiesImportRulesUserCreateAndMatchPtrOutput) AutoconfirmExactMatch() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetFeaturesCapabilitiesImportRulesUserCreateAndMatch) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.AutoconfirmExactMatch
+	}).(pulumi.BoolPtrOutput)
+}
+
+// (Boolean) Whether imported new users are automatically confirmed.
+func (o GetFeaturesCapabilitiesImportRulesUserCreateAndMatchPtrOutput) AutoconfirmNewUsers() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetFeaturesCapabilitiesImportRulesUserCreateAndMatch) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.AutoconfirmNewUsers
+	}).(pulumi.BoolPtrOutput)
+}
+
+// (Boolean) Whether partially matched users are automatically confirmed.
+func (o GetFeaturesCapabilitiesImportRulesUserCreateAndMatchPtrOutput) AutoconfirmPartialMatch() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetFeaturesCapabilitiesImportRulesUserCreateAndMatch) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.AutoconfirmPartialMatch
+	}).(pulumi.BoolPtrOutput)
+}
+
+// (String) Attribute used for exact matching (e.g., `USERNAME`, `EMAIL`).
+func (o GetFeaturesCapabilitiesImportRulesUserCreateAndMatchPtrOutput) ExactMatchCriteria() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetFeaturesCapabilitiesImportRulesUserCreateAndMatch) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ExactMatchCriteria
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetFeaturesCapabilitiesImportSettings struct {
+	// Block for import schedule configuration:
+	Schedule *GetFeaturesCapabilitiesImportSettingsSchedule `pulumi:"schedule"`
+	// Block for username configuration:
+	Username *GetFeaturesCapabilitiesImportSettingsUsername `pulumi:"username"`
+}
+
+// GetFeaturesCapabilitiesImportSettingsInput is an input type that accepts GetFeaturesCapabilitiesImportSettingsArgs and GetFeaturesCapabilitiesImportSettingsOutput values.
+// You can construct a concrete instance of `GetFeaturesCapabilitiesImportSettingsInput` via:
+//
+//	GetFeaturesCapabilitiesImportSettingsArgs{...}
+type GetFeaturesCapabilitiesImportSettingsInput interface {
+	pulumi.Input
+
+	ToGetFeaturesCapabilitiesImportSettingsOutput() GetFeaturesCapabilitiesImportSettingsOutput
+	ToGetFeaturesCapabilitiesImportSettingsOutputWithContext(context.Context) GetFeaturesCapabilitiesImportSettingsOutput
+}
+
+type GetFeaturesCapabilitiesImportSettingsArgs struct {
+	// Block for import schedule configuration:
+	Schedule GetFeaturesCapabilitiesImportSettingsSchedulePtrInput `pulumi:"schedule"`
+	// Block for username configuration:
+	Username GetFeaturesCapabilitiesImportSettingsUsernamePtrInput `pulumi:"username"`
+}
+
+func (GetFeaturesCapabilitiesImportSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFeaturesCapabilitiesImportSettings)(nil)).Elem()
+}
+
+func (i GetFeaturesCapabilitiesImportSettingsArgs) ToGetFeaturesCapabilitiesImportSettingsOutput() GetFeaturesCapabilitiesImportSettingsOutput {
+	return i.ToGetFeaturesCapabilitiesImportSettingsOutputWithContext(context.Background())
+}
+
+func (i GetFeaturesCapabilitiesImportSettingsArgs) ToGetFeaturesCapabilitiesImportSettingsOutputWithContext(ctx context.Context) GetFeaturesCapabilitiesImportSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFeaturesCapabilitiesImportSettingsOutput)
+}
+
+func (i GetFeaturesCapabilitiesImportSettingsArgs) ToGetFeaturesCapabilitiesImportSettingsPtrOutput() GetFeaturesCapabilitiesImportSettingsPtrOutput {
+	return i.ToGetFeaturesCapabilitiesImportSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i GetFeaturesCapabilitiesImportSettingsArgs) ToGetFeaturesCapabilitiesImportSettingsPtrOutputWithContext(ctx context.Context) GetFeaturesCapabilitiesImportSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFeaturesCapabilitiesImportSettingsOutput).ToGetFeaturesCapabilitiesImportSettingsPtrOutputWithContext(ctx)
+}
+
+// GetFeaturesCapabilitiesImportSettingsPtrInput is an input type that accepts GetFeaturesCapabilitiesImportSettingsArgs, GetFeaturesCapabilitiesImportSettingsPtr and GetFeaturesCapabilitiesImportSettingsPtrOutput values.
+// You can construct a concrete instance of `GetFeaturesCapabilitiesImportSettingsPtrInput` via:
+//
+//	        GetFeaturesCapabilitiesImportSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetFeaturesCapabilitiesImportSettingsPtrInput interface {
+	pulumi.Input
+
+	ToGetFeaturesCapabilitiesImportSettingsPtrOutput() GetFeaturesCapabilitiesImportSettingsPtrOutput
+	ToGetFeaturesCapabilitiesImportSettingsPtrOutputWithContext(context.Context) GetFeaturesCapabilitiesImportSettingsPtrOutput
+}
+
+type getFeaturesCapabilitiesImportSettingsPtrType GetFeaturesCapabilitiesImportSettingsArgs
+
+func GetFeaturesCapabilitiesImportSettingsPtr(v *GetFeaturesCapabilitiesImportSettingsArgs) GetFeaturesCapabilitiesImportSettingsPtrInput {
+	return (*getFeaturesCapabilitiesImportSettingsPtrType)(v)
+}
+
+func (*getFeaturesCapabilitiesImportSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetFeaturesCapabilitiesImportSettings)(nil)).Elem()
+}
+
+func (i *getFeaturesCapabilitiesImportSettingsPtrType) ToGetFeaturesCapabilitiesImportSettingsPtrOutput() GetFeaturesCapabilitiesImportSettingsPtrOutput {
+	return i.ToGetFeaturesCapabilitiesImportSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *getFeaturesCapabilitiesImportSettingsPtrType) ToGetFeaturesCapabilitiesImportSettingsPtrOutputWithContext(ctx context.Context) GetFeaturesCapabilitiesImportSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFeaturesCapabilitiesImportSettingsPtrOutput)
+}
+
+type GetFeaturesCapabilitiesImportSettingsOutput struct{ *pulumi.OutputState }
+
+func (GetFeaturesCapabilitiesImportSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFeaturesCapabilitiesImportSettings)(nil)).Elem()
+}
+
+func (o GetFeaturesCapabilitiesImportSettingsOutput) ToGetFeaturesCapabilitiesImportSettingsOutput() GetFeaturesCapabilitiesImportSettingsOutput {
+	return o
+}
+
+func (o GetFeaturesCapabilitiesImportSettingsOutput) ToGetFeaturesCapabilitiesImportSettingsOutputWithContext(ctx context.Context) GetFeaturesCapabilitiesImportSettingsOutput {
+	return o
+}
+
+func (o GetFeaturesCapabilitiesImportSettingsOutput) ToGetFeaturesCapabilitiesImportSettingsPtrOutput() GetFeaturesCapabilitiesImportSettingsPtrOutput {
+	return o.ToGetFeaturesCapabilitiesImportSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o GetFeaturesCapabilitiesImportSettingsOutput) ToGetFeaturesCapabilitiesImportSettingsPtrOutputWithContext(ctx context.Context) GetFeaturesCapabilitiesImportSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetFeaturesCapabilitiesImportSettings) *GetFeaturesCapabilitiesImportSettings {
+		return &v
+	}).(GetFeaturesCapabilitiesImportSettingsPtrOutput)
+}
+
+// Block for import schedule configuration:
+func (o GetFeaturesCapabilitiesImportSettingsOutput) Schedule() GetFeaturesCapabilitiesImportSettingsSchedulePtrOutput {
+	return o.ApplyT(func(v GetFeaturesCapabilitiesImportSettings) *GetFeaturesCapabilitiesImportSettingsSchedule {
+		return v.Schedule
+	}).(GetFeaturesCapabilitiesImportSettingsSchedulePtrOutput)
+}
+
+// Block for username configuration:
+func (o GetFeaturesCapabilitiesImportSettingsOutput) Username() GetFeaturesCapabilitiesImportSettingsUsernamePtrOutput {
+	return o.ApplyT(func(v GetFeaturesCapabilitiesImportSettings) *GetFeaturesCapabilitiesImportSettingsUsername {
+		return v.Username
+	}).(GetFeaturesCapabilitiesImportSettingsUsernamePtrOutput)
+}
+
+type GetFeaturesCapabilitiesImportSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (GetFeaturesCapabilitiesImportSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetFeaturesCapabilitiesImportSettings)(nil)).Elem()
+}
+
+func (o GetFeaturesCapabilitiesImportSettingsPtrOutput) ToGetFeaturesCapabilitiesImportSettingsPtrOutput() GetFeaturesCapabilitiesImportSettingsPtrOutput {
+	return o
+}
+
+func (o GetFeaturesCapabilitiesImportSettingsPtrOutput) ToGetFeaturesCapabilitiesImportSettingsPtrOutputWithContext(ctx context.Context) GetFeaturesCapabilitiesImportSettingsPtrOutput {
+	return o
+}
+
+func (o GetFeaturesCapabilitiesImportSettingsPtrOutput) Elem() GetFeaturesCapabilitiesImportSettingsOutput {
+	return o.ApplyT(func(v *GetFeaturesCapabilitiesImportSettings) GetFeaturesCapabilitiesImportSettings {
+		if v != nil {
+			return *v
+		}
+		var ret GetFeaturesCapabilitiesImportSettings
+		return ret
+	}).(GetFeaturesCapabilitiesImportSettingsOutput)
+}
+
+// Block for import schedule configuration:
+func (o GetFeaturesCapabilitiesImportSettingsPtrOutput) Schedule() GetFeaturesCapabilitiesImportSettingsSchedulePtrOutput {
+	return o.ApplyT(func(v *GetFeaturesCapabilitiesImportSettings) *GetFeaturesCapabilitiesImportSettingsSchedule {
+		if v == nil {
+			return nil
+		}
+		return v.Schedule
+	}).(GetFeaturesCapabilitiesImportSettingsSchedulePtrOutput)
+}
+
+// Block for username configuration:
+func (o GetFeaturesCapabilitiesImportSettingsPtrOutput) Username() GetFeaturesCapabilitiesImportSettingsUsernamePtrOutput {
+	return o.ApplyT(func(v *GetFeaturesCapabilitiesImportSettings) *GetFeaturesCapabilitiesImportSettingsUsername {
+		if v == nil {
+			return nil
+		}
+		return v.Username
+	}).(GetFeaturesCapabilitiesImportSettingsUsernamePtrOutput)
+}
+
+type GetFeaturesCapabilitiesImportSettingsSchedule struct {
+	// Block for full import schedule:
+	FullImport *GetFeaturesCapabilitiesImportSettingsScheduleFullImport `pulumi:"fullImport"`
+	// Block for incremental import schedule:
+	IncrementalImport *GetFeaturesCapabilitiesImportSettingsScheduleIncrementalImport `pulumi:"incrementalImport"`
+	// (String) Status of the import schedule. Valid values are `ENABLED` or `DISABLED`.
+	Status string `pulumi:"status"`
+}
+
+// GetFeaturesCapabilitiesImportSettingsScheduleInput is an input type that accepts GetFeaturesCapabilitiesImportSettingsScheduleArgs and GetFeaturesCapabilitiesImportSettingsScheduleOutput values.
+// You can construct a concrete instance of `GetFeaturesCapabilitiesImportSettingsScheduleInput` via:
+//
+//	GetFeaturesCapabilitiesImportSettingsScheduleArgs{...}
+type GetFeaturesCapabilitiesImportSettingsScheduleInput interface {
+	pulumi.Input
+
+	ToGetFeaturesCapabilitiesImportSettingsScheduleOutput() GetFeaturesCapabilitiesImportSettingsScheduleOutput
+	ToGetFeaturesCapabilitiesImportSettingsScheduleOutputWithContext(context.Context) GetFeaturesCapabilitiesImportSettingsScheduleOutput
+}
+
+type GetFeaturesCapabilitiesImportSettingsScheduleArgs struct {
+	// Block for full import schedule:
+	FullImport GetFeaturesCapabilitiesImportSettingsScheduleFullImportPtrInput `pulumi:"fullImport"`
+	// Block for incremental import schedule:
+	IncrementalImport GetFeaturesCapabilitiesImportSettingsScheduleIncrementalImportPtrInput `pulumi:"incrementalImport"`
+	// (String) Status of the import schedule. Valid values are `ENABLED` or `DISABLED`.
+	Status pulumi.StringInput `pulumi:"status"`
+}
+
+func (GetFeaturesCapabilitiesImportSettingsScheduleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFeaturesCapabilitiesImportSettingsSchedule)(nil)).Elem()
+}
+
+func (i GetFeaturesCapabilitiesImportSettingsScheduleArgs) ToGetFeaturesCapabilitiesImportSettingsScheduleOutput() GetFeaturesCapabilitiesImportSettingsScheduleOutput {
+	return i.ToGetFeaturesCapabilitiesImportSettingsScheduleOutputWithContext(context.Background())
+}
+
+func (i GetFeaturesCapabilitiesImportSettingsScheduleArgs) ToGetFeaturesCapabilitiesImportSettingsScheduleOutputWithContext(ctx context.Context) GetFeaturesCapabilitiesImportSettingsScheduleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFeaturesCapabilitiesImportSettingsScheduleOutput)
+}
+
+func (i GetFeaturesCapabilitiesImportSettingsScheduleArgs) ToGetFeaturesCapabilitiesImportSettingsSchedulePtrOutput() GetFeaturesCapabilitiesImportSettingsSchedulePtrOutput {
+	return i.ToGetFeaturesCapabilitiesImportSettingsSchedulePtrOutputWithContext(context.Background())
+}
+
+func (i GetFeaturesCapabilitiesImportSettingsScheduleArgs) ToGetFeaturesCapabilitiesImportSettingsSchedulePtrOutputWithContext(ctx context.Context) GetFeaturesCapabilitiesImportSettingsSchedulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFeaturesCapabilitiesImportSettingsScheduleOutput).ToGetFeaturesCapabilitiesImportSettingsSchedulePtrOutputWithContext(ctx)
+}
+
+// GetFeaturesCapabilitiesImportSettingsSchedulePtrInput is an input type that accepts GetFeaturesCapabilitiesImportSettingsScheduleArgs, GetFeaturesCapabilitiesImportSettingsSchedulePtr and GetFeaturesCapabilitiesImportSettingsSchedulePtrOutput values.
+// You can construct a concrete instance of `GetFeaturesCapabilitiesImportSettingsSchedulePtrInput` via:
+//
+//	        GetFeaturesCapabilitiesImportSettingsScheduleArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetFeaturesCapabilitiesImportSettingsSchedulePtrInput interface {
+	pulumi.Input
+
+	ToGetFeaturesCapabilitiesImportSettingsSchedulePtrOutput() GetFeaturesCapabilitiesImportSettingsSchedulePtrOutput
+	ToGetFeaturesCapabilitiesImportSettingsSchedulePtrOutputWithContext(context.Context) GetFeaturesCapabilitiesImportSettingsSchedulePtrOutput
+}
+
+type getFeaturesCapabilitiesImportSettingsSchedulePtrType GetFeaturesCapabilitiesImportSettingsScheduleArgs
+
+func GetFeaturesCapabilitiesImportSettingsSchedulePtr(v *GetFeaturesCapabilitiesImportSettingsScheduleArgs) GetFeaturesCapabilitiesImportSettingsSchedulePtrInput {
+	return (*getFeaturesCapabilitiesImportSettingsSchedulePtrType)(v)
+}
+
+func (*getFeaturesCapabilitiesImportSettingsSchedulePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetFeaturesCapabilitiesImportSettingsSchedule)(nil)).Elem()
+}
+
+func (i *getFeaturesCapabilitiesImportSettingsSchedulePtrType) ToGetFeaturesCapabilitiesImportSettingsSchedulePtrOutput() GetFeaturesCapabilitiesImportSettingsSchedulePtrOutput {
+	return i.ToGetFeaturesCapabilitiesImportSettingsSchedulePtrOutputWithContext(context.Background())
+}
+
+func (i *getFeaturesCapabilitiesImportSettingsSchedulePtrType) ToGetFeaturesCapabilitiesImportSettingsSchedulePtrOutputWithContext(ctx context.Context) GetFeaturesCapabilitiesImportSettingsSchedulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFeaturesCapabilitiesImportSettingsSchedulePtrOutput)
+}
+
+type GetFeaturesCapabilitiesImportSettingsScheduleOutput struct{ *pulumi.OutputState }
+
+func (GetFeaturesCapabilitiesImportSettingsScheduleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFeaturesCapabilitiesImportSettingsSchedule)(nil)).Elem()
+}
+
+func (o GetFeaturesCapabilitiesImportSettingsScheduleOutput) ToGetFeaturesCapabilitiesImportSettingsScheduleOutput() GetFeaturesCapabilitiesImportSettingsScheduleOutput {
+	return o
+}
+
+func (o GetFeaturesCapabilitiesImportSettingsScheduleOutput) ToGetFeaturesCapabilitiesImportSettingsScheduleOutputWithContext(ctx context.Context) GetFeaturesCapabilitiesImportSettingsScheduleOutput {
+	return o
+}
+
+func (o GetFeaturesCapabilitiesImportSettingsScheduleOutput) ToGetFeaturesCapabilitiesImportSettingsSchedulePtrOutput() GetFeaturesCapabilitiesImportSettingsSchedulePtrOutput {
+	return o.ToGetFeaturesCapabilitiesImportSettingsSchedulePtrOutputWithContext(context.Background())
+}
+
+func (o GetFeaturesCapabilitiesImportSettingsScheduleOutput) ToGetFeaturesCapabilitiesImportSettingsSchedulePtrOutputWithContext(ctx context.Context) GetFeaturesCapabilitiesImportSettingsSchedulePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetFeaturesCapabilitiesImportSettingsSchedule) *GetFeaturesCapabilitiesImportSettingsSchedule {
+		return &v
+	}).(GetFeaturesCapabilitiesImportSettingsSchedulePtrOutput)
+}
+
+// Block for full import schedule:
+func (o GetFeaturesCapabilitiesImportSettingsScheduleOutput) FullImport() GetFeaturesCapabilitiesImportSettingsScheduleFullImportPtrOutput {
+	return o.ApplyT(func(v GetFeaturesCapabilitiesImportSettingsSchedule) *GetFeaturesCapabilitiesImportSettingsScheduleFullImport {
+		return v.FullImport
+	}).(GetFeaturesCapabilitiesImportSettingsScheduleFullImportPtrOutput)
+}
+
+// Block for incremental import schedule:
+func (o GetFeaturesCapabilitiesImportSettingsScheduleOutput) IncrementalImport() GetFeaturesCapabilitiesImportSettingsScheduleIncrementalImportPtrOutput {
+	return o.ApplyT(func(v GetFeaturesCapabilitiesImportSettingsSchedule) *GetFeaturesCapabilitiesImportSettingsScheduleIncrementalImport {
+		return v.IncrementalImport
+	}).(GetFeaturesCapabilitiesImportSettingsScheduleIncrementalImportPtrOutput)
+}
+
+// (String) Status of the import schedule. Valid values are `ENABLED` or `DISABLED`.
+func (o GetFeaturesCapabilitiesImportSettingsScheduleOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFeaturesCapabilitiesImportSettingsSchedule) string { return v.Status }).(pulumi.StringOutput)
+}
+
+type GetFeaturesCapabilitiesImportSettingsSchedulePtrOutput struct{ *pulumi.OutputState }
+
+func (GetFeaturesCapabilitiesImportSettingsSchedulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetFeaturesCapabilitiesImportSettingsSchedule)(nil)).Elem()
+}
+
+func (o GetFeaturesCapabilitiesImportSettingsSchedulePtrOutput) ToGetFeaturesCapabilitiesImportSettingsSchedulePtrOutput() GetFeaturesCapabilitiesImportSettingsSchedulePtrOutput {
+	return o
+}
+
+func (o GetFeaturesCapabilitiesImportSettingsSchedulePtrOutput) ToGetFeaturesCapabilitiesImportSettingsSchedulePtrOutputWithContext(ctx context.Context) GetFeaturesCapabilitiesImportSettingsSchedulePtrOutput {
+	return o
+}
+
+func (o GetFeaturesCapabilitiesImportSettingsSchedulePtrOutput) Elem() GetFeaturesCapabilitiesImportSettingsScheduleOutput {
+	return o.ApplyT(func(v *GetFeaturesCapabilitiesImportSettingsSchedule) GetFeaturesCapabilitiesImportSettingsSchedule {
+		if v != nil {
+			return *v
+		}
+		var ret GetFeaturesCapabilitiesImportSettingsSchedule
+		return ret
+	}).(GetFeaturesCapabilitiesImportSettingsScheduleOutput)
+}
+
+// Block for full import schedule:
+func (o GetFeaturesCapabilitiesImportSettingsSchedulePtrOutput) FullImport() GetFeaturesCapabilitiesImportSettingsScheduleFullImportPtrOutput {
+	return o.ApplyT(func(v *GetFeaturesCapabilitiesImportSettingsSchedule) *GetFeaturesCapabilitiesImportSettingsScheduleFullImport {
+		if v == nil {
+			return nil
+		}
+		return v.FullImport
+	}).(GetFeaturesCapabilitiesImportSettingsScheduleFullImportPtrOutput)
+}
+
+// Block for incremental import schedule:
+func (o GetFeaturesCapabilitiesImportSettingsSchedulePtrOutput) IncrementalImport() GetFeaturesCapabilitiesImportSettingsScheduleIncrementalImportPtrOutput {
+	return o.ApplyT(func(v *GetFeaturesCapabilitiesImportSettingsSchedule) *GetFeaturesCapabilitiesImportSettingsScheduleIncrementalImport {
+		if v == nil {
+			return nil
+		}
+		return v.IncrementalImport
+	}).(GetFeaturesCapabilitiesImportSettingsScheduleIncrementalImportPtrOutput)
+}
+
+// (String) Status of the import schedule. Valid values are `ENABLED` or `DISABLED`.
+func (o GetFeaturesCapabilitiesImportSettingsSchedulePtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetFeaturesCapabilitiesImportSettingsSchedule) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Status
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetFeaturesCapabilitiesImportSettingsScheduleFullImport struct {
+	// (String) UNIX cron expression for incremental import schedule.
+	Expression string `pulumi:"expression"`
+	// (String) IANA timezone name for the schedule.
+	Timezone string `pulumi:"timezone"`
+}
+
+// GetFeaturesCapabilitiesImportSettingsScheduleFullImportInput is an input type that accepts GetFeaturesCapabilitiesImportSettingsScheduleFullImportArgs and GetFeaturesCapabilitiesImportSettingsScheduleFullImportOutput values.
+// You can construct a concrete instance of `GetFeaturesCapabilitiesImportSettingsScheduleFullImportInput` via:
+//
+//	GetFeaturesCapabilitiesImportSettingsScheduleFullImportArgs{...}
+type GetFeaturesCapabilitiesImportSettingsScheduleFullImportInput interface {
+	pulumi.Input
+
+	ToGetFeaturesCapabilitiesImportSettingsScheduleFullImportOutput() GetFeaturesCapabilitiesImportSettingsScheduleFullImportOutput
+	ToGetFeaturesCapabilitiesImportSettingsScheduleFullImportOutputWithContext(context.Context) GetFeaturesCapabilitiesImportSettingsScheduleFullImportOutput
+}
+
+type GetFeaturesCapabilitiesImportSettingsScheduleFullImportArgs struct {
+	// (String) UNIX cron expression for incremental import schedule.
+	Expression pulumi.StringInput `pulumi:"expression"`
+	// (String) IANA timezone name for the schedule.
+	Timezone pulumi.StringInput `pulumi:"timezone"`
+}
+
+func (GetFeaturesCapabilitiesImportSettingsScheduleFullImportArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFeaturesCapabilitiesImportSettingsScheduleFullImport)(nil)).Elem()
+}
+
+func (i GetFeaturesCapabilitiesImportSettingsScheduleFullImportArgs) ToGetFeaturesCapabilitiesImportSettingsScheduleFullImportOutput() GetFeaturesCapabilitiesImportSettingsScheduleFullImportOutput {
+	return i.ToGetFeaturesCapabilitiesImportSettingsScheduleFullImportOutputWithContext(context.Background())
+}
+
+func (i GetFeaturesCapabilitiesImportSettingsScheduleFullImportArgs) ToGetFeaturesCapabilitiesImportSettingsScheduleFullImportOutputWithContext(ctx context.Context) GetFeaturesCapabilitiesImportSettingsScheduleFullImportOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFeaturesCapabilitiesImportSettingsScheduleFullImportOutput)
+}
+
+func (i GetFeaturesCapabilitiesImportSettingsScheduleFullImportArgs) ToGetFeaturesCapabilitiesImportSettingsScheduleFullImportPtrOutput() GetFeaturesCapabilitiesImportSettingsScheduleFullImportPtrOutput {
+	return i.ToGetFeaturesCapabilitiesImportSettingsScheduleFullImportPtrOutputWithContext(context.Background())
+}
+
+func (i GetFeaturesCapabilitiesImportSettingsScheduleFullImportArgs) ToGetFeaturesCapabilitiesImportSettingsScheduleFullImportPtrOutputWithContext(ctx context.Context) GetFeaturesCapabilitiesImportSettingsScheduleFullImportPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFeaturesCapabilitiesImportSettingsScheduleFullImportOutput).ToGetFeaturesCapabilitiesImportSettingsScheduleFullImportPtrOutputWithContext(ctx)
+}
+
+// GetFeaturesCapabilitiesImportSettingsScheduleFullImportPtrInput is an input type that accepts GetFeaturesCapabilitiesImportSettingsScheduleFullImportArgs, GetFeaturesCapabilitiesImportSettingsScheduleFullImportPtr and GetFeaturesCapabilitiesImportSettingsScheduleFullImportPtrOutput values.
+// You can construct a concrete instance of `GetFeaturesCapabilitiesImportSettingsScheduleFullImportPtrInput` via:
+//
+//	        GetFeaturesCapabilitiesImportSettingsScheduleFullImportArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetFeaturesCapabilitiesImportSettingsScheduleFullImportPtrInput interface {
+	pulumi.Input
+
+	ToGetFeaturesCapabilitiesImportSettingsScheduleFullImportPtrOutput() GetFeaturesCapabilitiesImportSettingsScheduleFullImportPtrOutput
+	ToGetFeaturesCapabilitiesImportSettingsScheduleFullImportPtrOutputWithContext(context.Context) GetFeaturesCapabilitiesImportSettingsScheduleFullImportPtrOutput
+}
+
+type getFeaturesCapabilitiesImportSettingsScheduleFullImportPtrType GetFeaturesCapabilitiesImportSettingsScheduleFullImportArgs
+
+func GetFeaturesCapabilitiesImportSettingsScheduleFullImportPtr(v *GetFeaturesCapabilitiesImportSettingsScheduleFullImportArgs) GetFeaturesCapabilitiesImportSettingsScheduleFullImportPtrInput {
+	return (*getFeaturesCapabilitiesImportSettingsScheduleFullImportPtrType)(v)
+}
+
+func (*getFeaturesCapabilitiesImportSettingsScheduleFullImportPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetFeaturesCapabilitiesImportSettingsScheduleFullImport)(nil)).Elem()
+}
+
+func (i *getFeaturesCapabilitiesImportSettingsScheduleFullImportPtrType) ToGetFeaturesCapabilitiesImportSettingsScheduleFullImportPtrOutput() GetFeaturesCapabilitiesImportSettingsScheduleFullImportPtrOutput {
+	return i.ToGetFeaturesCapabilitiesImportSettingsScheduleFullImportPtrOutputWithContext(context.Background())
+}
+
+func (i *getFeaturesCapabilitiesImportSettingsScheduleFullImportPtrType) ToGetFeaturesCapabilitiesImportSettingsScheduleFullImportPtrOutputWithContext(ctx context.Context) GetFeaturesCapabilitiesImportSettingsScheduleFullImportPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFeaturesCapabilitiesImportSettingsScheduleFullImportPtrOutput)
+}
+
+type GetFeaturesCapabilitiesImportSettingsScheduleFullImportOutput struct{ *pulumi.OutputState }
+
+func (GetFeaturesCapabilitiesImportSettingsScheduleFullImportOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFeaturesCapabilitiesImportSettingsScheduleFullImport)(nil)).Elem()
+}
+
+func (o GetFeaturesCapabilitiesImportSettingsScheduleFullImportOutput) ToGetFeaturesCapabilitiesImportSettingsScheduleFullImportOutput() GetFeaturesCapabilitiesImportSettingsScheduleFullImportOutput {
+	return o
+}
+
+func (o GetFeaturesCapabilitiesImportSettingsScheduleFullImportOutput) ToGetFeaturesCapabilitiesImportSettingsScheduleFullImportOutputWithContext(ctx context.Context) GetFeaturesCapabilitiesImportSettingsScheduleFullImportOutput {
+	return o
+}
+
+func (o GetFeaturesCapabilitiesImportSettingsScheduleFullImportOutput) ToGetFeaturesCapabilitiesImportSettingsScheduleFullImportPtrOutput() GetFeaturesCapabilitiesImportSettingsScheduleFullImportPtrOutput {
+	return o.ToGetFeaturesCapabilitiesImportSettingsScheduleFullImportPtrOutputWithContext(context.Background())
+}
+
+func (o GetFeaturesCapabilitiesImportSettingsScheduleFullImportOutput) ToGetFeaturesCapabilitiesImportSettingsScheduleFullImportPtrOutputWithContext(ctx context.Context) GetFeaturesCapabilitiesImportSettingsScheduleFullImportPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetFeaturesCapabilitiesImportSettingsScheduleFullImport) *GetFeaturesCapabilitiesImportSettingsScheduleFullImport {
+		return &v
+	}).(GetFeaturesCapabilitiesImportSettingsScheduleFullImportPtrOutput)
+}
+
+// (String) UNIX cron expression for incremental import schedule.
+func (o GetFeaturesCapabilitiesImportSettingsScheduleFullImportOutput) Expression() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFeaturesCapabilitiesImportSettingsScheduleFullImport) string { return v.Expression }).(pulumi.StringOutput)
+}
+
+// (String) IANA timezone name for the schedule.
+func (o GetFeaturesCapabilitiesImportSettingsScheduleFullImportOutput) Timezone() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFeaturesCapabilitiesImportSettingsScheduleFullImport) string { return v.Timezone }).(pulumi.StringOutput)
+}
+
+type GetFeaturesCapabilitiesImportSettingsScheduleFullImportPtrOutput struct{ *pulumi.OutputState }
+
+func (GetFeaturesCapabilitiesImportSettingsScheduleFullImportPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetFeaturesCapabilitiesImportSettingsScheduleFullImport)(nil)).Elem()
+}
+
+func (o GetFeaturesCapabilitiesImportSettingsScheduleFullImportPtrOutput) ToGetFeaturesCapabilitiesImportSettingsScheduleFullImportPtrOutput() GetFeaturesCapabilitiesImportSettingsScheduleFullImportPtrOutput {
+	return o
+}
+
+func (o GetFeaturesCapabilitiesImportSettingsScheduleFullImportPtrOutput) ToGetFeaturesCapabilitiesImportSettingsScheduleFullImportPtrOutputWithContext(ctx context.Context) GetFeaturesCapabilitiesImportSettingsScheduleFullImportPtrOutput {
+	return o
+}
+
+func (o GetFeaturesCapabilitiesImportSettingsScheduleFullImportPtrOutput) Elem() GetFeaturesCapabilitiesImportSettingsScheduleFullImportOutput {
+	return o.ApplyT(func(v *GetFeaturesCapabilitiesImportSettingsScheduleFullImport) GetFeaturesCapabilitiesImportSettingsScheduleFullImport {
+		if v != nil {
+			return *v
+		}
+		var ret GetFeaturesCapabilitiesImportSettingsScheduleFullImport
+		return ret
+	}).(GetFeaturesCapabilitiesImportSettingsScheduleFullImportOutput)
+}
+
+// (String) UNIX cron expression for incremental import schedule.
+func (o GetFeaturesCapabilitiesImportSettingsScheduleFullImportPtrOutput) Expression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetFeaturesCapabilitiesImportSettingsScheduleFullImport) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Expression
+	}).(pulumi.StringPtrOutput)
+}
+
+// (String) IANA timezone name for the schedule.
+func (o GetFeaturesCapabilitiesImportSettingsScheduleFullImportPtrOutput) Timezone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetFeaturesCapabilitiesImportSettingsScheduleFullImport) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Timezone
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetFeaturesCapabilitiesImportSettingsScheduleIncrementalImport struct {
+	// (String) UNIX cron expression for incremental import schedule.
+	Expression string `pulumi:"expression"`
+	// (String) IANA timezone name for the schedule.
+	Timezone string `pulumi:"timezone"`
+}
+
+// GetFeaturesCapabilitiesImportSettingsScheduleIncrementalImportInput is an input type that accepts GetFeaturesCapabilitiesImportSettingsScheduleIncrementalImportArgs and GetFeaturesCapabilitiesImportSettingsScheduleIncrementalImportOutput values.
+// You can construct a concrete instance of `GetFeaturesCapabilitiesImportSettingsScheduleIncrementalImportInput` via:
+//
+//	GetFeaturesCapabilitiesImportSettingsScheduleIncrementalImportArgs{...}
+type GetFeaturesCapabilitiesImportSettingsScheduleIncrementalImportInput interface {
+	pulumi.Input
+
+	ToGetFeaturesCapabilitiesImportSettingsScheduleIncrementalImportOutput() GetFeaturesCapabilitiesImportSettingsScheduleIncrementalImportOutput
+	ToGetFeaturesCapabilitiesImportSettingsScheduleIncrementalImportOutputWithContext(context.Context) GetFeaturesCapabilitiesImportSettingsScheduleIncrementalImportOutput
+}
+
+type GetFeaturesCapabilitiesImportSettingsScheduleIncrementalImportArgs struct {
+	// (String) UNIX cron expression for incremental import schedule.
+	Expression pulumi.StringInput `pulumi:"expression"`
+	// (String) IANA timezone name for the schedule.
+	Timezone pulumi.StringInput `pulumi:"timezone"`
+}
+
+func (GetFeaturesCapabilitiesImportSettingsScheduleIncrementalImportArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFeaturesCapabilitiesImportSettingsScheduleIncrementalImport)(nil)).Elem()
+}
+
+func (i GetFeaturesCapabilitiesImportSettingsScheduleIncrementalImportArgs) ToGetFeaturesCapabilitiesImportSettingsScheduleIncrementalImportOutput() GetFeaturesCapabilitiesImportSettingsScheduleIncrementalImportOutput {
+	return i.ToGetFeaturesCapabilitiesImportSettingsScheduleIncrementalImportOutputWithContext(context.Background())
+}
+
+func (i GetFeaturesCapabilitiesImportSettingsScheduleIncrementalImportArgs) ToGetFeaturesCapabilitiesImportSettingsScheduleIncrementalImportOutputWithContext(ctx context.Context) GetFeaturesCapabilitiesImportSettingsScheduleIncrementalImportOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFeaturesCapabilitiesImportSettingsScheduleIncrementalImportOutput)
+}
+
+func (i GetFeaturesCapabilitiesImportSettingsScheduleIncrementalImportArgs) ToGetFeaturesCapabilitiesImportSettingsScheduleIncrementalImportPtrOutput() GetFeaturesCapabilitiesImportSettingsScheduleIncrementalImportPtrOutput {
+	return i.ToGetFeaturesCapabilitiesImportSettingsScheduleIncrementalImportPtrOutputWithContext(context.Background())
+}
+
+func (i GetFeaturesCapabilitiesImportSettingsScheduleIncrementalImportArgs) ToGetFeaturesCapabilitiesImportSettingsScheduleIncrementalImportPtrOutputWithContext(ctx context.Context) GetFeaturesCapabilitiesImportSettingsScheduleIncrementalImportPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFeaturesCapabilitiesImportSettingsScheduleIncrementalImportOutput).ToGetFeaturesCapabilitiesImportSettingsScheduleIncrementalImportPtrOutputWithContext(ctx)
+}
+
+// GetFeaturesCapabilitiesImportSettingsScheduleIncrementalImportPtrInput is an input type that accepts GetFeaturesCapabilitiesImportSettingsScheduleIncrementalImportArgs, GetFeaturesCapabilitiesImportSettingsScheduleIncrementalImportPtr and GetFeaturesCapabilitiesImportSettingsScheduleIncrementalImportPtrOutput values.
+// You can construct a concrete instance of `GetFeaturesCapabilitiesImportSettingsScheduleIncrementalImportPtrInput` via:
+//
+//	        GetFeaturesCapabilitiesImportSettingsScheduleIncrementalImportArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetFeaturesCapabilitiesImportSettingsScheduleIncrementalImportPtrInput interface {
+	pulumi.Input
+
+	ToGetFeaturesCapabilitiesImportSettingsScheduleIncrementalImportPtrOutput() GetFeaturesCapabilitiesImportSettingsScheduleIncrementalImportPtrOutput
+	ToGetFeaturesCapabilitiesImportSettingsScheduleIncrementalImportPtrOutputWithContext(context.Context) GetFeaturesCapabilitiesImportSettingsScheduleIncrementalImportPtrOutput
+}
+
+type getFeaturesCapabilitiesImportSettingsScheduleIncrementalImportPtrType GetFeaturesCapabilitiesImportSettingsScheduleIncrementalImportArgs
+
+func GetFeaturesCapabilitiesImportSettingsScheduleIncrementalImportPtr(v *GetFeaturesCapabilitiesImportSettingsScheduleIncrementalImportArgs) GetFeaturesCapabilitiesImportSettingsScheduleIncrementalImportPtrInput {
+	return (*getFeaturesCapabilitiesImportSettingsScheduleIncrementalImportPtrType)(v)
+}
+
+func (*getFeaturesCapabilitiesImportSettingsScheduleIncrementalImportPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetFeaturesCapabilitiesImportSettingsScheduleIncrementalImport)(nil)).Elem()
+}
+
+func (i *getFeaturesCapabilitiesImportSettingsScheduleIncrementalImportPtrType) ToGetFeaturesCapabilitiesImportSettingsScheduleIncrementalImportPtrOutput() GetFeaturesCapabilitiesImportSettingsScheduleIncrementalImportPtrOutput {
+	return i.ToGetFeaturesCapabilitiesImportSettingsScheduleIncrementalImportPtrOutputWithContext(context.Background())
+}
+
+func (i *getFeaturesCapabilitiesImportSettingsScheduleIncrementalImportPtrType) ToGetFeaturesCapabilitiesImportSettingsScheduleIncrementalImportPtrOutputWithContext(ctx context.Context) GetFeaturesCapabilitiesImportSettingsScheduleIncrementalImportPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFeaturesCapabilitiesImportSettingsScheduleIncrementalImportPtrOutput)
+}
+
+type GetFeaturesCapabilitiesImportSettingsScheduleIncrementalImportOutput struct{ *pulumi.OutputState }
+
+func (GetFeaturesCapabilitiesImportSettingsScheduleIncrementalImportOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFeaturesCapabilitiesImportSettingsScheduleIncrementalImport)(nil)).Elem()
+}
+
+func (o GetFeaturesCapabilitiesImportSettingsScheduleIncrementalImportOutput) ToGetFeaturesCapabilitiesImportSettingsScheduleIncrementalImportOutput() GetFeaturesCapabilitiesImportSettingsScheduleIncrementalImportOutput {
+	return o
+}
+
+func (o GetFeaturesCapabilitiesImportSettingsScheduleIncrementalImportOutput) ToGetFeaturesCapabilitiesImportSettingsScheduleIncrementalImportOutputWithContext(ctx context.Context) GetFeaturesCapabilitiesImportSettingsScheduleIncrementalImportOutput {
+	return o
+}
+
+func (o GetFeaturesCapabilitiesImportSettingsScheduleIncrementalImportOutput) ToGetFeaturesCapabilitiesImportSettingsScheduleIncrementalImportPtrOutput() GetFeaturesCapabilitiesImportSettingsScheduleIncrementalImportPtrOutput {
+	return o.ToGetFeaturesCapabilitiesImportSettingsScheduleIncrementalImportPtrOutputWithContext(context.Background())
+}
+
+func (o GetFeaturesCapabilitiesImportSettingsScheduleIncrementalImportOutput) ToGetFeaturesCapabilitiesImportSettingsScheduleIncrementalImportPtrOutputWithContext(ctx context.Context) GetFeaturesCapabilitiesImportSettingsScheduleIncrementalImportPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetFeaturesCapabilitiesImportSettingsScheduleIncrementalImport) *GetFeaturesCapabilitiesImportSettingsScheduleIncrementalImport {
+		return &v
+	}).(GetFeaturesCapabilitiesImportSettingsScheduleIncrementalImportPtrOutput)
+}
+
+// (String) UNIX cron expression for incremental import schedule.
+func (o GetFeaturesCapabilitiesImportSettingsScheduleIncrementalImportOutput) Expression() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFeaturesCapabilitiesImportSettingsScheduleIncrementalImport) string { return v.Expression }).(pulumi.StringOutput)
+}
+
+// (String) IANA timezone name for the schedule.
+func (o GetFeaturesCapabilitiesImportSettingsScheduleIncrementalImportOutput) Timezone() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFeaturesCapabilitiesImportSettingsScheduleIncrementalImport) string { return v.Timezone }).(pulumi.StringOutput)
+}
+
+type GetFeaturesCapabilitiesImportSettingsScheduleIncrementalImportPtrOutput struct{ *pulumi.OutputState }
+
+func (GetFeaturesCapabilitiesImportSettingsScheduleIncrementalImportPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetFeaturesCapabilitiesImportSettingsScheduleIncrementalImport)(nil)).Elem()
+}
+
+func (o GetFeaturesCapabilitiesImportSettingsScheduleIncrementalImportPtrOutput) ToGetFeaturesCapabilitiesImportSettingsScheduleIncrementalImportPtrOutput() GetFeaturesCapabilitiesImportSettingsScheduleIncrementalImportPtrOutput {
+	return o
+}
+
+func (o GetFeaturesCapabilitiesImportSettingsScheduleIncrementalImportPtrOutput) ToGetFeaturesCapabilitiesImportSettingsScheduleIncrementalImportPtrOutputWithContext(ctx context.Context) GetFeaturesCapabilitiesImportSettingsScheduleIncrementalImportPtrOutput {
+	return o
+}
+
+func (o GetFeaturesCapabilitiesImportSettingsScheduleIncrementalImportPtrOutput) Elem() GetFeaturesCapabilitiesImportSettingsScheduleIncrementalImportOutput {
+	return o.ApplyT(func(v *GetFeaturesCapabilitiesImportSettingsScheduleIncrementalImport) GetFeaturesCapabilitiesImportSettingsScheduleIncrementalImport {
+		if v != nil {
+			return *v
+		}
+		var ret GetFeaturesCapabilitiesImportSettingsScheduleIncrementalImport
+		return ret
+	}).(GetFeaturesCapabilitiesImportSettingsScheduleIncrementalImportOutput)
+}
+
+// (String) UNIX cron expression for incremental import schedule.
+func (o GetFeaturesCapabilitiesImportSettingsScheduleIncrementalImportPtrOutput) Expression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetFeaturesCapabilitiesImportSettingsScheduleIncrementalImport) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Expression
+	}).(pulumi.StringPtrOutput)
+}
+
+// (String) IANA timezone name for the schedule.
+func (o GetFeaturesCapabilitiesImportSettingsScheduleIncrementalImportPtrOutput) Timezone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetFeaturesCapabilitiesImportSettingsScheduleIncrementalImport) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Timezone
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetFeaturesCapabilitiesImportSettingsUsername struct {
+	// (String) Okta Expression Language statement for custom username format.
+	UsernameExpression string `pulumi:"usernameExpression"`
+	// (String) Format for usernames (e.g., `EMAIL`, `CUSTOM`).
+	UsernameFormat string `pulumi:"usernameFormat"`
+}
+
+// GetFeaturesCapabilitiesImportSettingsUsernameInput is an input type that accepts GetFeaturesCapabilitiesImportSettingsUsernameArgs and GetFeaturesCapabilitiesImportSettingsUsernameOutput values.
+// You can construct a concrete instance of `GetFeaturesCapabilitiesImportSettingsUsernameInput` via:
+//
+//	GetFeaturesCapabilitiesImportSettingsUsernameArgs{...}
+type GetFeaturesCapabilitiesImportSettingsUsernameInput interface {
+	pulumi.Input
+
+	ToGetFeaturesCapabilitiesImportSettingsUsernameOutput() GetFeaturesCapabilitiesImportSettingsUsernameOutput
+	ToGetFeaturesCapabilitiesImportSettingsUsernameOutputWithContext(context.Context) GetFeaturesCapabilitiesImportSettingsUsernameOutput
+}
+
+type GetFeaturesCapabilitiesImportSettingsUsernameArgs struct {
+	// (String) Okta Expression Language statement for custom username format.
+	UsernameExpression pulumi.StringInput `pulumi:"usernameExpression"`
+	// (String) Format for usernames (e.g., `EMAIL`, `CUSTOM`).
+	UsernameFormat pulumi.StringInput `pulumi:"usernameFormat"`
+}
+
+func (GetFeaturesCapabilitiesImportSettingsUsernameArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFeaturesCapabilitiesImportSettingsUsername)(nil)).Elem()
+}
+
+func (i GetFeaturesCapabilitiesImportSettingsUsernameArgs) ToGetFeaturesCapabilitiesImportSettingsUsernameOutput() GetFeaturesCapabilitiesImportSettingsUsernameOutput {
+	return i.ToGetFeaturesCapabilitiesImportSettingsUsernameOutputWithContext(context.Background())
+}
+
+func (i GetFeaturesCapabilitiesImportSettingsUsernameArgs) ToGetFeaturesCapabilitiesImportSettingsUsernameOutputWithContext(ctx context.Context) GetFeaturesCapabilitiesImportSettingsUsernameOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFeaturesCapabilitiesImportSettingsUsernameOutput)
+}
+
+func (i GetFeaturesCapabilitiesImportSettingsUsernameArgs) ToGetFeaturesCapabilitiesImportSettingsUsernamePtrOutput() GetFeaturesCapabilitiesImportSettingsUsernamePtrOutput {
+	return i.ToGetFeaturesCapabilitiesImportSettingsUsernamePtrOutputWithContext(context.Background())
+}
+
+func (i GetFeaturesCapabilitiesImportSettingsUsernameArgs) ToGetFeaturesCapabilitiesImportSettingsUsernamePtrOutputWithContext(ctx context.Context) GetFeaturesCapabilitiesImportSettingsUsernamePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFeaturesCapabilitiesImportSettingsUsernameOutput).ToGetFeaturesCapabilitiesImportSettingsUsernamePtrOutputWithContext(ctx)
+}
+
+// GetFeaturesCapabilitiesImportSettingsUsernamePtrInput is an input type that accepts GetFeaturesCapabilitiesImportSettingsUsernameArgs, GetFeaturesCapabilitiesImportSettingsUsernamePtr and GetFeaturesCapabilitiesImportSettingsUsernamePtrOutput values.
+// You can construct a concrete instance of `GetFeaturesCapabilitiesImportSettingsUsernamePtrInput` via:
+//
+//	        GetFeaturesCapabilitiesImportSettingsUsernameArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetFeaturesCapabilitiesImportSettingsUsernamePtrInput interface {
+	pulumi.Input
+
+	ToGetFeaturesCapabilitiesImportSettingsUsernamePtrOutput() GetFeaturesCapabilitiesImportSettingsUsernamePtrOutput
+	ToGetFeaturesCapabilitiesImportSettingsUsernamePtrOutputWithContext(context.Context) GetFeaturesCapabilitiesImportSettingsUsernamePtrOutput
+}
+
+type getFeaturesCapabilitiesImportSettingsUsernamePtrType GetFeaturesCapabilitiesImportSettingsUsernameArgs
+
+func GetFeaturesCapabilitiesImportSettingsUsernamePtr(v *GetFeaturesCapabilitiesImportSettingsUsernameArgs) GetFeaturesCapabilitiesImportSettingsUsernamePtrInput {
+	return (*getFeaturesCapabilitiesImportSettingsUsernamePtrType)(v)
+}
+
+func (*getFeaturesCapabilitiesImportSettingsUsernamePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetFeaturesCapabilitiesImportSettingsUsername)(nil)).Elem()
+}
+
+func (i *getFeaturesCapabilitiesImportSettingsUsernamePtrType) ToGetFeaturesCapabilitiesImportSettingsUsernamePtrOutput() GetFeaturesCapabilitiesImportSettingsUsernamePtrOutput {
+	return i.ToGetFeaturesCapabilitiesImportSettingsUsernamePtrOutputWithContext(context.Background())
+}
+
+func (i *getFeaturesCapabilitiesImportSettingsUsernamePtrType) ToGetFeaturesCapabilitiesImportSettingsUsernamePtrOutputWithContext(ctx context.Context) GetFeaturesCapabilitiesImportSettingsUsernamePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFeaturesCapabilitiesImportSettingsUsernamePtrOutput)
+}
+
+type GetFeaturesCapabilitiesImportSettingsUsernameOutput struct{ *pulumi.OutputState }
+
+func (GetFeaturesCapabilitiesImportSettingsUsernameOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFeaturesCapabilitiesImportSettingsUsername)(nil)).Elem()
+}
+
+func (o GetFeaturesCapabilitiesImportSettingsUsernameOutput) ToGetFeaturesCapabilitiesImportSettingsUsernameOutput() GetFeaturesCapabilitiesImportSettingsUsernameOutput {
+	return o
+}
+
+func (o GetFeaturesCapabilitiesImportSettingsUsernameOutput) ToGetFeaturesCapabilitiesImportSettingsUsernameOutputWithContext(ctx context.Context) GetFeaturesCapabilitiesImportSettingsUsernameOutput {
+	return o
+}
+
+func (o GetFeaturesCapabilitiesImportSettingsUsernameOutput) ToGetFeaturesCapabilitiesImportSettingsUsernamePtrOutput() GetFeaturesCapabilitiesImportSettingsUsernamePtrOutput {
+	return o.ToGetFeaturesCapabilitiesImportSettingsUsernamePtrOutputWithContext(context.Background())
+}
+
+func (o GetFeaturesCapabilitiesImportSettingsUsernameOutput) ToGetFeaturesCapabilitiesImportSettingsUsernamePtrOutputWithContext(ctx context.Context) GetFeaturesCapabilitiesImportSettingsUsernamePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetFeaturesCapabilitiesImportSettingsUsername) *GetFeaturesCapabilitiesImportSettingsUsername {
+		return &v
+	}).(GetFeaturesCapabilitiesImportSettingsUsernamePtrOutput)
+}
+
+// (String) Okta Expression Language statement for custom username format.
+func (o GetFeaturesCapabilitiesImportSettingsUsernameOutput) UsernameExpression() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFeaturesCapabilitiesImportSettingsUsername) string { return v.UsernameExpression }).(pulumi.StringOutput)
+}
+
+// (String) Format for usernames (e.g., `EMAIL`, `CUSTOM`).
+func (o GetFeaturesCapabilitiesImportSettingsUsernameOutput) UsernameFormat() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFeaturesCapabilitiesImportSettingsUsername) string { return v.UsernameFormat }).(pulumi.StringOutput)
+}
+
+type GetFeaturesCapabilitiesImportSettingsUsernamePtrOutput struct{ *pulumi.OutputState }
+
+func (GetFeaturesCapabilitiesImportSettingsUsernamePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetFeaturesCapabilitiesImportSettingsUsername)(nil)).Elem()
+}
+
+func (o GetFeaturesCapabilitiesImportSettingsUsernamePtrOutput) ToGetFeaturesCapabilitiesImportSettingsUsernamePtrOutput() GetFeaturesCapabilitiesImportSettingsUsernamePtrOutput {
+	return o
+}
+
+func (o GetFeaturesCapabilitiesImportSettingsUsernamePtrOutput) ToGetFeaturesCapabilitiesImportSettingsUsernamePtrOutputWithContext(ctx context.Context) GetFeaturesCapabilitiesImportSettingsUsernamePtrOutput {
+	return o
+}
+
+func (o GetFeaturesCapabilitiesImportSettingsUsernamePtrOutput) Elem() GetFeaturesCapabilitiesImportSettingsUsernameOutput {
+	return o.ApplyT(func(v *GetFeaturesCapabilitiesImportSettingsUsername) GetFeaturesCapabilitiesImportSettingsUsername {
+		if v != nil {
+			return *v
+		}
+		var ret GetFeaturesCapabilitiesImportSettingsUsername
+		return ret
+	}).(GetFeaturesCapabilitiesImportSettingsUsernameOutput)
+}
+
+// (String) Okta Expression Language statement for custom username format.
+func (o GetFeaturesCapabilitiesImportSettingsUsernamePtrOutput) UsernameExpression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetFeaturesCapabilitiesImportSettingsUsername) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.UsernameExpression
+	}).(pulumi.StringPtrOutput)
+}
+
+// (String) Format for usernames (e.g., `EMAIL`, `CUSTOM`).
+func (o GetFeaturesCapabilitiesImportSettingsUsernamePtrOutput) UsernameFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetFeaturesCapabilitiesImportSettingsUsername) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.UsernameFormat
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetFeaturesCapabilitiesUpdate struct {
+	// Block for deactivation lifecycle configuration:
+	LifecycleDeactivate *GetFeaturesCapabilitiesUpdateLifecycleDeactivate `pulumi:"lifecycleDeactivate"`
+	// Block for password synchronization settings:
+	Password *GetFeaturesCapabilitiesUpdatePassword `pulumi:"password"`
+	// Block for profile update settings:
+	Profile *GetFeaturesCapabilitiesUpdateProfile `pulumi:"profile"`
+}
+
+// GetFeaturesCapabilitiesUpdateInput is an input type that accepts GetFeaturesCapabilitiesUpdateArgs and GetFeaturesCapabilitiesUpdateOutput values.
+// You can construct a concrete instance of `GetFeaturesCapabilitiesUpdateInput` via:
+//
+//	GetFeaturesCapabilitiesUpdateArgs{...}
+type GetFeaturesCapabilitiesUpdateInput interface {
+	pulumi.Input
+
+	ToGetFeaturesCapabilitiesUpdateOutput() GetFeaturesCapabilitiesUpdateOutput
+	ToGetFeaturesCapabilitiesUpdateOutputWithContext(context.Context) GetFeaturesCapabilitiesUpdateOutput
+}
+
+type GetFeaturesCapabilitiesUpdateArgs struct {
+	// Block for deactivation lifecycle configuration:
+	LifecycleDeactivate GetFeaturesCapabilitiesUpdateLifecycleDeactivatePtrInput `pulumi:"lifecycleDeactivate"`
+	// Block for password synchronization settings:
+	Password GetFeaturesCapabilitiesUpdatePasswordPtrInput `pulumi:"password"`
+	// Block for profile update settings:
+	Profile GetFeaturesCapabilitiesUpdateProfilePtrInput `pulumi:"profile"`
+}
+
+func (GetFeaturesCapabilitiesUpdateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFeaturesCapabilitiesUpdate)(nil)).Elem()
+}
+
+func (i GetFeaturesCapabilitiesUpdateArgs) ToGetFeaturesCapabilitiesUpdateOutput() GetFeaturesCapabilitiesUpdateOutput {
+	return i.ToGetFeaturesCapabilitiesUpdateOutputWithContext(context.Background())
+}
+
+func (i GetFeaturesCapabilitiesUpdateArgs) ToGetFeaturesCapabilitiesUpdateOutputWithContext(ctx context.Context) GetFeaturesCapabilitiesUpdateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFeaturesCapabilitiesUpdateOutput)
+}
+
+func (i GetFeaturesCapabilitiesUpdateArgs) ToGetFeaturesCapabilitiesUpdatePtrOutput() GetFeaturesCapabilitiesUpdatePtrOutput {
+	return i.ToGetFeaturesCapabilitiesUpdatePtrOutputWithContext(context.Background())
+}
+
+func (i GetFeaturesCapabilitiesUpdateArgs) ToGetFeaturesCapabilitiesUpdatePtrOutputWithContext(ctx context.Context) GetFeaturesCapabilitiesUpdatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFeaturesCapabilitiesUpdateOutput).ToGetFeaturesCapabilitiesUpdatePtrOutputWithContext(ctx)
+}
+
+// GetFeaturesCapabilitiesUpdatePtrInput is an input type that accepts GetFeaturesCapabilitiesUpdateArgs, GetFeaturesCapabilitiesUpdatePtr and GetFeaturesCapabilitiesUpdatePtrOutput values.
+// You can construct a concrete instance of `GetFeaturesCapabilitiesUpdatePtrInput` via:
+//
+//	        GetFeaturesCapabilitiesUpdateArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetFeaturesCapabilitiesUpdatePtrInput interface {
+	pulumi.Input
+
+	ToGetFeaturesCapabilitiesUpdatePtrOutput() GetFeaturesCapabilitiesUpdatePtrOutput
+	ToGetFeaturesCapabilitiesUpdatePtrOutputWithContext(context.Context) GetFeaturesCapabilitiesUpdatePtrOutput
+}
+
+type getFeaturesCapabilitiesUpdatePtrType GetFeaturesCapabilitiesUpdateArgs
+
+func GetFeaturesCapabilitiesUpdatePtr(v *GetFeaturesCapabilitiesUpdateArgs) GetFeaturesCapabilitiesUpdatePtrInput {
+	return (*getFeaturesCapabilitiesUpdatePtrType)(v)
+}
+
+func (*getFeaturesCapabilitiesUpdatePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetFeaturesCapabilitiesUpdate)(nil)).Elem()
+}
+
+func (i *getFeaturesCapabilitiesUpdatePtrType) ToGetFeaturesCapabilitiesUpdatePtrOutput() GetFeaturesCapabilitiesUpdatePtrOutput {
+	return i.ToGetFeaturesCapabilitiesUpdatePtrOutputWithContext(context.Background())
+}
+
+func (i *getFeaturesCapabilitiesUpdatePtrType) ToGetFeaturesCapabilitiesUpdatePtrOutputWithContext(ctx context.Context) GetFeaturesCapabilitiesUpdatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFeaturesCapabilitiesUpdatePtrOutput)
+}
+
+type GetFeaturesCapabilitiesUpdateOutput struct{ *pulumi.OutputState }
+
+func (GetFeaturesCapabilitiesUpdateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFeaturesCapabilitiesUpdate)(nil)).Elem()
+}
+
+func (o GetFeaturesCapabilitiesUpdateOutput) ToGetFeaturesCapabilitiesUpdateOutput() GetFeaturesCapabilitiesUpdateOutput {
+	return o
+}
+
+func (o GetFeaturesCapabilitiesUpdateOutput) ToGetFeaturesCapabilitiesUpdateOutputWithContext(ctx context.Context) GetFeaturesCapabilitiesUpdateOutput {
+	return o
+}
+
+func (o GetFeaturesCapabilitiesUpdateOutput) ToGetFeaturesCapabilitiesUpdatePtrOutput() GetFeaturesCapabilitiesUpdatePtrOutput {
+	return o.ToGetFeaturesCapabilitiesUpdatePtrOutputWithContext(context.Background())
+}
+
+func (o GetFeaturesCapabilitiesUpdateOutput) ToGetFeaturesCapabilitiesUpdatePtrOutputWithContext(ctx context.Context) GetFeaturesCapabilitiesUpdatePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetFeaturesCapabilitiesUpdate) *GetFeaturesCapabilitiesUpdate {
+		return &v
+	}).(GetFeaturesCapabilitiesUpdatePtrOutput)
+}
+
+// Block for deactivation lifecycle configuration:
+func (o GetFeaturesCapabilitiesUpdateOutput) LifecycleDeactivate() GetFeaturesCapabilitiesUpdateLifecycleDeactivatePtrOutput {
+	return o.ApplyT(func(v GetFeaturesCapabilitiesUpdate) *GetFeaturesCapabilitiesUpdateLifecycleDeactivate {
+		return v.LifecycleDeactivate
+	}).(GetFeaturesCapabilitiesUpdateLifecycleDeactivatePtrOutput)
+}
+
+// Block for password synchronization settings:
+func (o GetFeaturesCapabilitiesUpdateOutput) Password() GetFeaturesCapabilitiesUpdatePasswordPtrOutput {
+	return o.ApplyT(func(v GetFeaturesCapabilitiesUpdate) *GetFeaturesCapabilitiesUpdatePassword { return v.Password }).(GetFeaturesCapabilitiesUpdatePasswordPtrOutput)
+}
+
+// Block for profile update settings:
+func (o GetFeaturesCapabilitiesUpdateOutput) Profile() GetFeaturesCapabilitiesUpdateProfilePtrOutput {
+	return o.ApplyT(func(v GetFeaturesCapabilitiesUpdate) *GetFeaturesCapabilitiesUpdateProfile { return v.Profile }).(GetFeaturesCapabilitiesUpdateProfilePtrOutput)
+}
+
+type GetFeaturesCapabilitiesUpdatePtrOutput struct{ *pulumi.OutputState }
+
+func (GetFeaturesCapabilitiesUpdatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetFeaturesCapabilitiesUpdate)(nil)).Elem()
+}
+
+func (o GetFeaturesCapabilitiesUpdatePtrOutput) ToGetFeaturesCapabilitiesUpdatePtrOutput() GetFeaturesCapabilitiesUpdatePtrOutput {
+	return o
+}
+
+func (o GetFeaturesCapabilitiesUpdatePtrOutput) ToGetFeaturesCapabilitiesUpdatePtrOutputWithContext(ctx context.Context) GetFeaturesCapabilitiesUpdatePtrOutput {
+	return o
+}
+
+func (o GetFeaturesCapabilitiesUpdatePtrOutput) Elem() GetFeaturesCapabilitiesUpdateOutput {
+	return o.ApplyT(func(v *GetFeaturesCapabilitiesUpdate) GetFeaturesCapabilitiesUpdate {
+		if v != nil {
+			return *v
+		}
+		var ret GetFeaturesCapabilitiesUpdate
+		return ret
+	}).(GetFeaturesCapabilitiesUpdateOutput)
+}
+
+// Block for deactivation lifecycle configuration:
+func (o GetFeaturesCapabilitiesUpdatePtrOutput) LifecycleDeactivate() GetFeaturesCapabilitiesUpdateLifecycleDeactivatePtrOutput {
+	return o.ApplyT(func(v *GetFeaturesCapabilitiesUpdate) *GetFeaturesCapabilitiesUpdateLifecycleDeactivate {
+		if v == nil {
+			return nil
+		}
+		return v.LifecycleDeactivate
+	}).(GetFeaturesCapabilitiesUpdateLifecycleDeactivatePtrOutput)
+}
+
+// Block for password synchronization settings:
+func (o GetFeaturesCapabilitiesUpdatePtrOutput) Password() GetFeaturesCapabilitiesUpdatePasswordPtrOutput {
+	return o.ApplyT(func(v *GetFeaturesCapabilitiesUpdate) *GetFeaturesCapabilitiesUpdatePassword {
+		if v == nil {
+			return nil
+		}
+		return v.Password
+	}).(GetFeaturesCapabilitiesUpdatePasswordPtrOutput)
+}
+
+// Block for profile update settings:
+func (o GetFeaturesCapabilitiesUpdatePtrOutput) Profile() GetFeaturesCapabilitiesUpdateProfilePtrOutput {
+	return o.ApplyT(func(v *GetFeaturesCapabilitiesUpdate) *GetFeaturesCapabilitiesUpdateProfile {
+		if v == nil {
+			return nil
+		}
+		return v.Profile
+	}).(GetFeaturesCapabilitiesUpdateProfilePtrOutput)
+}
+
+type GetFeaturesCapabilitiesUpdateLifecycleDeactivate struct {
+	// (String) Status of the import schedule. Valid values are `ENABLED` or `DISABLED`.
+	Status string `pulumi:"status"`
+}
+
+// GetFeaturesCapabilitiesUpdateLifecycleDeactivateInput is an input type that accepts GetFeaturesCapabilitiesUpdateLifecycleDeactivateArgs and GetFeaturesCapabilitiesUpdateLifecycleDeactivateOutput values.
+// You can construct a concrete instance of `GetFeaturesCapabilitiesUpdateLifecycleDeactivateInput` via:
+//
+//	GetFeaturesCapabilitiesUpdateLifecycleDeactivateArgs{...}
+type GetFeaturesCapabilitiesUpdateLifecycleDeactivateInput interface {
+	pulumi.Input
+
+	ToGetFeaturesCapabilitiesUpdateLifecycleDeactivateOutput() GetFeaturesCapabilitiesUpdateLifecycleDeactivateOutput
+	ToGetFeaturesCapabilitiesUpdateLifecycleDeactivateOutputWithContext(context.Context) GetFeaturesCapabilitiesUpdateLifecycleDeactivateOutput
+}
+
+type GetFeaturesCapabilitiesUpdateLifecycleDeactivateArgs struct {
+	// (String) Status of the import schedule. Valid values are `ENABLED` or `DISABLED`.
+	Status pulumi.StringInput `pulumi:"status"`
+}
+
+func (GetFeaturesCapabilitiesUpdateLifecycleDeactivateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFeaturesCapabilitiesUpdateLifecycleDeactivate)(nil)).Elem()
+}
+
+func (i GetFeaturesCapabilitiesUpdateLifecycleDeactivateArgs) ToGetFeaturesCapabilitiesUpdateLifecycleDeactivateOutput() GetFeaturesCapabilitiesUpdateLifecycleDeactivateOutput {
+	return i.ToGetFeaturesCapabilitiesUpdateLifecycleDeactivateOutputWithContext(context.Background())
+}
+
+func (i GetFeaturesCapabilitiesUpdateLifecycleDeactivateArgs) ToGetFeaturesCapabilitiesUpdateLifecycleDeactivateOutputWithContext(ctx context.Context) GetFeaturesCapabilitiesUpdateLifecycleDeactivateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFeaturesCapabilitiesUpdateLifecycleDeactivateOutput)
+}
+
+func (i GetFeaturesCapabilitiesUpdateLifecycleDeactivateArgs) ToGetFeaturesCapabilitiesUpdateLifecycleDeactivatePtrOutput() GetFeaturesCapabilitiesUpdateLifecycleDeactivatePtrOutput {
+	return i.ToGetFeaturesCapabilitiesUpdateLifecycleDeactivatePtrOutputWithContext(context.Background())
+}
+
+func (i GetFeaturesCapabilitiesUpdateLifecycleDeactivateArgs) ToGetFeaturesCapabilitiesUpdateLifecycleDeactivatePtrOutputWithContext(ctx context.Context) GetFeaturesCapabilitiesUpdateLifecycleDeactivatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFeaturesCapabilitiesUpdateLifecycleDeactivateOutput).ToGetFeaturesCapabilitiesUpdateLifecycleDeactivatePtrOutputWithContext(ctx)
+}
+
+// GetFeaturesCapabilitiesUpdateLifecycleDeactivatePtrInput is an input type that accepts GetFeaturesCapabilitiesUpdateLifecycleDeactivateArgs, GetFeaturesCapabilitiesUpdateLifecycleDeactivatePtr and GetFeaturesCapabilitiesUpdateLifecycleDeactivatePtrOutput values.
+// You can construct a concrete instance of `GetFeaturesCapabilitiesUpdateLifecycleDeactivatePtrInput` via:
+//
+//	        GetFeaturesCapabilitiesUpdateLifecycleDeactivateArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetFeaturesCapabilitiesUpdateLifecycleDeactivatePtrInput interface {
+	pulumi.Input
+
+	ToGetFeaturesCapabilitiesUpdateLifecycleDeactivatePtrOutput() GetFeaturesCapabilitiesUpdateLifecycleDeactivatePtrOutput
+	ToGetFeaturesCapabilitiesUpdateLifecycleDeactivatePtrOutputWithContext(context.Context) GetFeaturesCapabilitiesUpdateLifecycleDeactivatePtrOutput
+}
+
+type getFeaturesCapabilitiesUpdateLifecycleDeactivatePtrType GetFeaturesCapabilitiesUpdateLifecycleDeactivateArgs
+
+func GetFeaturesCapabilitiesUpdateLifecycleDeactivatePtr(v *GetFeaturesCapabilitiesUpdateLifecycleDeactivateArgs) GetFeaturesCapabilitiesUpdateLifecycleDeactivatePtrInput {
+	return (*getFeaturesCapabilitiesUpdateLifecycleDeactivatePtrType)(v)
+}
+
+func (*getFeaturesCapabilitiesUpdateLifecycleDeactivatePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetFeaturesCapabilitiesUpdateLifecycleDeactivate)(nil)).Elem()
+}
+
+func (i *getFeaturesCapabilitiesUpdateLifecycleDeactivatePtrType) ToGetFeaturesCapabilitiesUpdateLifecycleDeactivatePtrOutput() GetFeaturesCapabilitiesUpdateLifecycleDeactivatePtrOutput {
+	return i.ToGetFeaturesCapabilitiesUpdateLifecycleDeactivatePtrOutputWithContext(context.Background())
+}
+
+func (i *getFeaturesCapabilitiesUpdateLifecycleDeactivatePtrType) ToGetFeaturesCapabilitiesUpdateLifecycleDeactivatePtrOutputWithContext(ctx context.Context) GetFeaturesCapabilitiesUpdateLifecycleDeactivatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFeaturesCapabilitiesUpdateLifecycleDeactivatePtrOutput)
+}
+
+type GetFeaturesCapabilitiesUpdateLifecycleDeactivateOutput struct{ *pulumi.OutputState }
+
+func (GetFeaturesCapabilitiesUpdateLifecycleDeactivateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFeaturesCapabilitiesUpdateLifecycleDeactivate)(nil)).Elem()
+}
+
+func (o GetFeaturesCapabilitiesUpdateLifecycleDeactivateOutput) ToGetFeaturesCapabilitiesUpdateLifecycleDeactivateOutput() GetFeaturesCapabilitiesUpdateLifecycleDeactivateOutput {
+	return o
+}
+
+func (o GetFeaturesCapabilitiesUpdateLifecycleDeactivateOutput) ToGetFeaturesCapabilitiesUpdateLifecycleDeactivateOutputWithContext(ctx context.Context) GetFeaturesCapabilitiesUpdateLifecycleDeactivateOutput {
+	return o
+}
+
+func (o GetFeaturesCapabilitiesUpdateLifecycleDeactivateOutput) ToGetFeaturesCapabilitiesUpdateLifecycleDeactivatePtrOutput() GetFeaturesCapabilitiesUpdateLifecycleDeactivatePtrOutput {
+	return o.ToGetFeaturesCapabilitiesUpdateLifecycleDeactivatePtrOutputWithContext(context.Background())
+}
+
+func (o GetFeaturesCapabilitiesUpdateLifecycleDeactivateOutput) ToGetFeaturesCapabilitiesUpdateLifecycleDeactivatePtrOutputWithContext(ctx context.Context) GetFeaturesCapabilitiesUpdateLifecycleDeactivatePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetFeaturesCapabilitiesUpdateLifecycleDeactivate) *GetFeaturesCapabilitiesUpdateLifecycleDeactivate {
+		return &v
+	}).(GetFeaturesCapabilitiesUpdateLifecycleDeactivatePtrOutput)
+}
+
+// (String) Status of the import schedule. Valid values are `ENABLED` or `DISABLED`.
+func (o GetFeaturesCapabilitiesUpdateLifecycleDeactivateOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFeaturesCapabilitiesUpdateLifecycleDeactivate) string { return v.Status }).(pulumi.StringOutput)
+}
+
+type GetFeaturesCapabilitiesUpdateLifecycleDeactivatePtrOutput struct{ *pulumi.OutputState }
+
+func (GetFeaturesCapabilitiesUpdateLifecycleDeactivatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetFeaturesCapabilitiesUpdateLifecycleDeactivate)(nil)).Elem()
+}
+
+func (o GetFeaturesCapabilitiesUpdateLifecycleDeactivatePtrOutput) ToGetFeaturesCapabilitiesUpdateLifecycleDeactivatePtrOutput() GetFeaturesCapabilitiesUpdateLifecycleDeactivatePtrOutput {
+	return o
+}
+
+func (o GetFeaturesCapabilitiesUpdateLifecycleDeactivatePtrOutput) ToGetFeaturesCapabilitiesUpdateLifecycleDeactivatePtrOutputWithContext(ctx context.Context) GetFeaturesCapabilitiesUpdateLifecycleDeactivatePtrOutput {
+	return o
+}
+
+func (o GetFeaturesCapabilitiesUpdateLifecycleDeactivatePtrOutput) Elem() GetFeaturesCapabilitiesUpdateLifecycleDeactivateOutput {
+	return o.ApplyT(func(v *GetFeaturesCapabilitiesUpdateLifecycleDeactivate) GetFeaturesCapabilitiesUpdateLifecycleDeactivate {
+		if v != nil {
+			return *v
+		}
+		var ret GetFeaturesCapabilitiesUpdateLifecycleDeactivate
+		return ret
+	}).(GetFeaturesCapabilitiesUpdateLifecycleDeactivateOutput)
+}
+
+// (String) Status of the import schedule. Valid values are `ENABLED` or `DISABLED`.
+func (o GetFeaturesCapabilitiesUpdateLifecycleDeactivatePtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetFeaturesCapabilitiesUpdateLifecycleDeactivate) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Status
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetFeaturesCapabilitiesUpdatePassword struct {
+	// (String) Determines password change behavior. Valid values are `CHANGE` or `KEEP_EXISTING`.
+	Change string `pulumi:"change"`
+	// (String) Determines password source. Valid values are `OKTA` or `RANDOM`.
+	Seed string `pulumi:"seed"`
+	// (String) Status of the import schedule. Valid values are `ENABLED` or `DISABLED`.
+	Status string `pulumi:"status"`
+}
+
+// GetFeaturesCapabilitiesUpdatePasswordInput is an input type that accepts GetFeaturesCapabilitiesUpdatePasswordArgs and GetFeaturesCapabilitiesUpdatePasswordOutput values.
+// You can construct a concrete instance of `GetFeaturesCapabilitiesUpdatePasswordInput` via:
+//
+//	GetFeaturesCapabilitiesUpdatePasswordArgs{...}
+type GetFeaturesCapabilitiesUpdatePasswordInput interface {
+	pulumi.Input
+
+	ToGetFeaturesCapabilitiesUpdatePasswordOutput() GetFeaturesCapabilitiesUpdatePasswordOutput
+	ToGetFeaturesCapabilitiesUpdatePasswordOutputWithContext(context.Context) GetFeaturesCapabilitiesUpdatePasswordOutput
+}
+
+type GetFeaturesCapabilitiesUpdatePasswordArgs struct {
+	// (String) Determines password change behavior. Valid values are `CHANGE` or `KEEP_EXISTING`.
+	Change pulumi.StringInput `pulumi:"change"`
+	// (String) Determines password source. Valid values are `OKTA` or `RANDOM`.
+	Seed pulumi.StringInput `pulumi:"seed"`
+	// (String) Status of the import schedule. Valid values are `ENABLED` or `DISABLED`.
+	Status pulumi.StringInput `pulumi:"status"`
+}
+
+func (GetFeaturesCapabilitiesUpdatePasswordArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFeaturesCapabilitiesUpdatePassword)(nil)).Elem()
+}
+
+func (i GetFeaturesCapabilitiesUpdatePasswordArgs) ToGetFeaturesCapabilitiesUpdatePasswordOutput() GetFeaturesCapabilitiesUpdatePasswordOutput {
+	return i.ToGetFeaturesCapabilitiesUpdatePasswordOutputWithContext(context.Background())
+}
+
+func (i GetFeaturesCapabilitiesUpdatePasswordArgs) ToGetFeaturesCapabilitiesUpdatePasswordOutputWithContext(ctx context.Context) GetFeaturesCapabilitiesUpdatePasswordOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFeaturesCapabilitiesUpdatePasswordOutput)
+}
+
+func (i GetFeaturesCapabilitiesUpdatePasswordArgs) ToGetFeaturesCapabilitiesUpdatePasswordPtrOutput() GetFeaturesCapabilitiesUpdatePasswordPtrOutput {
+	return i.ToGetFeaturesCapabilitiesUpdatePasswordPtrOutputWithContext(context.Background())
+}
+
+func (i GetFeaturesCapabilitiesUpdatePasswordArgs) ToGetFeaturesCapabilitiesUpdatePasswordPtrOutputWithContext(ctx context.Context) GetFeaturesCapabilitiesUpdatePasswordPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFeaturesCapabilitiesUpdatePasswordOutput).ToGetFeaturesCapabilitiesUpdatePasswordPtrOutputWithContext(ctx)
+}
+
+// GetFeaturesCapabilitiesUpdatePasswordPtrInput is an input type that accepts GetFeaturesCapabilitiesUpdatePasswordArgs, GetFeaturesCapabilitiesUpdatePasswordPtr and GetFeaturesCapabilitiesUpdatePasswordPtrOutput values.
+// You can construct a concrete instance of `GetFeaturesCapabilitiesUpdatePasswordPtrInput` via:
+//
+//	        GetFeaturesCapabilitiesUpdatePasswordArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetFeaturesCapabilitiesUpdatePasswordPtrInput interface {
+	pulumi.Input
+
+	ToGetFeaturesCapabilitiesUpdatePasswordPtrOutput() GetFeaturesCapabilitiesUpdatePasswordPtrOutput
+	ToGetFeaturesCapabilitiesUpdatePasswordPtrOutputWithContext(context.Context) GetFeaturesCapabilitiesUpdatePasswordPtrOutput
+}
+
+type getFeaturesCapabilitiesUpdatePasswordPtrType GetFeaturesCapabilitiesUpdatePasswordArgs
+
+func GetFeaturesCapabilitiesUpdatePasswordPtr(v *GetFeaturesCapabilitiesUpdatePasswordArgs) GetFeaturesCapabilitiesUpdatePasswordPtrInput {
+	return (*getFeaturesCapabilitiesUpdatePasswordPtrType)(v)
+}
+
+func (*getFeaturesCapabilitiesUpdatePasswordPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetFeaturesCapabilitiesUpdatePassword)(nil)).Elem()
+}
+
+func (i *getFeaturesCapabilitiesUpdatePasswordPtrType) ToGetFeaturesCapabilitiesUpdatePasswordPtrOutput() GetFeaturesCapabilitiesUpdatePasswordPtrOutput {
+	return i.ToGetFeaturesCapabilitiesUpdatePasswordPtrOutputWithContext(context.Background())
+}
+
+func (i *getFeaturesCapabilitiesUpdatePasswordPtrType) ToGetFeaturesCapabilitiesUpdatePasswordPtrOutputWithContext(ctx context.Context) GetFeaturesCapabilitiesUpdatePasswordPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFeaturesCapabilitiesUpdatePasswordPtrOutput)
+}
+
+type GetFeaturesCapabilitiesUpdatePasswordOutput struct{ *pulumi.OutputState }
+
+func (GetFeaturesCapabilitiesUpdatePasswordOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFeaturesCapabilitiesUpdatePassword)(nil)).Elem()
+}
+
+func (o GetFeaturesCapabilitiesUpdatePasswordOutput) ToGetFeaturesCapabilitiesUpdatePasswordOutput() GetFeaturesCapabilitiesUpdatePasswordOutput {
+	return o
+}
+
+func (o GetFeaturesCapabilitiesUpdatePasswordOutput) ToGetFeaturesCapabilitiesUpdatePasswordOutputWithContext(ctx context.Context) GetFeaturesCapabilitiesUpdatePasswordOutput {
+	return o
+}
+
+func (o GetFeaturesCapabilitiesUpdatePasswordOutput) ToGetFeaturesCapabilitiesUpdatePasswordPtrOutput() GetFeaturesCapabilitiesUpdatePasswordPtrOutput {
+	return o.ToGetFeaturesCapabilitiesUpdatePasswordPtrOutputWithContext(context.Background())
+}
+
+func (o GetFeaturesCapabilitiesUpdatePasswordOutput) ToGetFeaturesCapabilitiesUpdatePasswordPtrOutputWithContext(ctx context.Context) GetFeaturesCapabilitiesUpdatePasswordPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetFeaturesCapabilitiesUpdatePassword) *GetFeaturesCapabilitiesUpdatePassword {
+		return &v
+	}).(GetFeaturesCapabilitiesUpdatePasswordPtrOutput)
+}
+
+// (String) Determines password change behavior. Valid values are `CHANGE` or `KEEP_EXISTING`.
+func (o GetFeaturesCapabilitiesUpdatePasswordOutput) Change() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFeaturesCapabilitiesUpdatePassword) string { return v.Change }).(pulumi.StringOutput)
+}
+
+// (String) Determines password source. Valid values are `OKTA` or `RANDOM`.
+func (o GetFeaturesCapabilitiesUpdatePasswordOutput) Seed() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFeaturesCapabilitiesUpdatePassword) string { return v.Seed }).(pulumi.StringOutput)
+}
+
+// (String) Status of the import schedule. Valid values are `ENABLED` or `DISABLED`.
+func (o GetFeaturesCapabilitiesUpdatePasswordOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFeaturesCapabilitiesUpdatePassword) string { return v.Status }).(pulumi.StringOutput)
+}
+
+type GetFeaturesCapabilitiesUpdatePasswordPtrOutput struct{ *pulumi.OutputState }
+
+func (GetFeaturesCapabilitiesUpdatePasswordPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetFeaturesCapabilitiesUpdatePassword)(nil)).Elem()
+}
+
+func (o GetFeaturesCapabilitiesUpdatePasswordPtrOutput) ToGetFeaturesCapabilitiesUpdatePasswordPtrOutput() GetFeaturesCapabilitiesUpdatePasswordPtrOutput {
+	return o
+}
+
+func (o GetFeaturesCapabilitiesUpdatePasswordPtrOutput) ToGetFeaturesCapabilitiesUpdatePasswordPtrOutputWithContext(ctx context.Context) GetFeaturesCapabilitiesUpdatePasswordPtrOutput {
+	return o
+}
+
+func (o GetFeaturesCapabilitiesUpdatePasswordPtrOutput) Elem() GetFeaturesCapabilitiesUpdatePasswordOutput {
+	return o.ApplyT(func(v *GetFeaturesCapabilitiesUpdatePassword) GetFeaturesCapabilitiesUpdatePassword {
+		if v != nil {
+			return *v
+		}
+		var ret GetFeaturesCapabilitiesUpdatePassword
+		return ret
+	}).(GetFeaturesCapabilitiesUpdatePasswordOutput)
+}
+
+// (String) Determines password change behavior. Valid values are `CHANGE` or `KEEP_EXISTING`.
+func (o GetFeaturesCapabilitiesUpdatePasswordPtrOutput) Change() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetFeaturesCapabilitiesUpdatePassword) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Change
+	}).(pulumi.StringPtrOutput)
+}
+
+// (String) Determines password source. Valid values are `OKTA` or `RANDOM`.
+func (o GetFeaturesCapabilitiesUpdatePasswordPtrOutput) Seed() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetFeaturesCapabilitiesUpdatePassword) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Seed
+	}).(pulumi.StringPtrOutput)
+}
+
+// (String) Status of the import schedule. Valid values are `ENABLED` or `DISABLED`.
+func (o GetFeaturesCapabilitiesUpdatePasswordPtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetFeaturesCapabilitiesUpdatePassword) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Status
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetFeaturesCapabilitiesUpdateProfile struct {
+	// (String) Status of the import schedule. Valid values are `ENABLED` or `DISABLED`.
+	Status string `pulumi:"status"`
+}
+
+// GetFeaturesCapabilitiesUpdateProfileInput is an input type that accepts GetFeaturesCapabilitiesUpdateProfileArgs and GetFeaturesCapabilitiesUpdateProfileOutput values.
+// You can construct a concrete instance of `GetFeaturesCapabilitiesUpdateProfileInput` via:
+//
+//	GetFeaturesCapabilitiesUpdateProfileArgs{...}
+type GetFeaturesCapabilitiesUpdateProfileInput interface {
+	pulumi.Input
+
+	ToGetFeaturesCapabilitiesUpdateProfileOutput() GetFeaturesCapabilitiesUpdateProfileOutput
+	ToGetFeaturesCapabilitiesUpdateProfileOutputWithContext(context.Context) GetFeaturesCapabilitiesUpdateProfileOutput
+}
+
+type GetFeaturesCapabilitiesUpdateProfileArgs struct {
+	// (String) Status of the import schedule. Valid values are `ENABLED` or `DISABLED`.
+	Status pulumi.StringInput `pulumi:"status"`
+}
+
+func (GetFeaturesCapabilitiesUpdateProfileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFeaturesCapabilitiesUpdateProfile)(nil)).Elem()
+}
+
+func (i GetFeaturesCapabilitiesUpdateProfileArgs) ToGetFeaturesCapabilitiesUpdateProfileOutput() GetFeaturesCapabilitiesUpdateProfileOutput {
+	return i.ToGetFeaturesCapabilitiesUpdateProfileOutputWithContext(context.Background())
+}
+
+func (i GetFeaturesCapabilitiesUpdateProfileArgs) ToGetFeaturesCapabilitiesUpdateProfileOutputWithContext(ctx context.Context) GetFeaturesCapabilitiesUpdateProfileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFeaturesCapabilitiesUpdateProfileOutput)
+}
+
+func (i GetFeaturesCapabilitiesUpdateProfileArgs) ToGetFeaturesCapabilitiesUpdateProfilePtrOutput() GetFeaturesCapabilitiesUpdateProfilePtrOutput {
+	return i.ToGetFeaturesCapabilitiesUpdateProfilePtrOutputWithContext(context.Background())
+}
+
+func (i GetFeaturesCapabilitiesUpdateProfileArgs) ToGetFeaturesCapabilitiesUpdateProfilePtrOutputWithContext(ctx context.Context) GetFeaturesCapabilitiesUpdateProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFeaturesCapabilitiesUpdateProfileOutput).ToGetFeaturesCapabilitiesUpdateProfilePtrOutputWithContext(ctx)
+}
+
+// GetFeaturesCapabilitiesUpdateProfilePtrInput is an input type that accepts GetFeaturesCapabilitiesUpdateProfileArgs, GetFeaturesCapabilitiesUpdateProfilePtr and GetFeaturesCapabilitiesUpdateProfilePtrOutput values.
+// You can construct a concrete instance of `GetFeaturesCapabilitiesUpdateProfilePtrInput` via:
+//
+//	        GetFeaturesCapabilitiesUpdateProfileArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetFeaturesCapabilitiesUpdateProfilePtrInput interface {
+	pulumi.Input
+
+	ToGetFeaturesCapabilitiesUpdateProfilePtrOutput() GetFeaturesCapabilitiesUpdateProfilePtrOutput
+	ToGetFeaturesCapabilitiesUpdateProfilePtrOutputWithContext(context.Context) GetFeaturesCapabilitiesUpdateProfilePtrOutput
+}
+
+type getFeaturesCapabilitiesUpdateProfilePtrType GetFeaturesCapabilitiesUpdateProfileArgs
+
+func GetFeaturesCapabilitiesUpdateProfilePtr(v *GetFeaturesCapabilitiesUpdateProfileArgs) GetFeaturesCapabilitiesUpdateProfilePtrInput {
+	return (*getFeaturesCapabilitiesUpdateProfilePtrType)(v)
+}
+
+func (*getFeaturesCapabilitiesUpdateProfilePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetFeaturesCapabilitiesUpdateProfile)(nil)).Elem()
+}
+
+func (i *getFeaturesCapabilitiesUpdateProfilePtrType) ToGetFeaturesCapabilitiesUpdateProfilePtrOutput() GetFeaturesCapabilitiesUpdateProfilePtrOutput {
+	return i.ToGetFeaturesCapabilitiesUpdateProfilePtrOutputWithContext(context.Background())
+}
+
+func (i *getFeaturesCapabilitiesUpdateProfilePtrType) ToGetFeaturesCapabilitiesUpdateProfilePtrOutputWithContext(ctx context.Context) GetFeaturesCapabilitiesUpdateProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFeaturesCapabilitiesUpdateProfilePtrOutput)
+}
+
+type GetFeaturesCapabilitiesUpdateProfileOutput struct{ *pulumi.OutputState }
+
+func (GetFeaturesCapabilitiesUpdateProfileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFeaturesCapabilitiesUpdateProfile)(nil)).Elem()
+}
+
+func (o GetFeaturesCapabilitiesUpdateProfileOutput) ToGetFeaturesCapabilitiesUpdateProfileOutput() GetFeaturesCapabilitiesUpdateProfileOutput {
+	return o
+}
+
+func (o GetFeaturesCapabilitiesUpdateProfileOutput) ToGetFeaturesCapabilitiesUpdateProfileOutputWithContext(ctx context.Context) GetFeaturesCapabilitiesUpdateProfileOutput {
+	return o
+}
+
+func (o GetFeaturesCapabilitiesUpdateProfileOutput) ToGetFeaturesCapabilitiesUpdateProfilePtrOutput() GetFeaturesCapabilitiesUpdateProfilePtrOutput {
+	return o.ToGetFeaturesCapabilitiesUpdateProfilePtrOutputWithContext(context.Background())
+}
+
+func (o GetFeaturesCapabilitiesUpdateProfileOutput) ToGetFeaturesCapabilitiesUpdateProfilePtrOutputWithContext(ctx context.Context) GetFeaturesCapabilitiesUpdateProfilePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetFeaturesCapabilitiesUpdateProfile) *GetFeaturesCapabilitiesUpdateProfile {
+		return &v
+	}).(GetFeaturesCapabilitiesUpdateProfilePtrOutput)
+}
+
+// (String) Status of the import schedule. Valid values are `ENABLED` or `DISABLED`.
+func (o GetFeaturesCapabilitiesUpdateProfileOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFeaturesCapabilitiesUpdateProfile) string { return v.Status }).(pulumi.StringOutput)
+}
+
+type GetFeaturesCapabilitiesUpdateProfilePtrOutput struct{ *pulumi.OutputState }
+
+func (GetFeaturesCapabilitiesUpdateProfilePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetFeaturesCapabilitiesUpdateProfile)(nil)).Elem()
+}
+
+func (o GetFeaturesCapabilitiesUpdateProfilePtrOutput) ToGetFeaturesCapabilitiesUpdateProfilePtrOutput() GetFeaturesCapabilitiesUpdateProfilePtrOutput {
+	return o
+}
+
+func (o GetFeaturesCapabilitiesUpdateProfilePtrOutput) ToGetFeaturesCapabilitiesUpdateProfilePtrOutputWithContext(ctx context.Context) GetFeaturesCapabilitiesUpdateProfilePtrOutput {
+	return o
+}
+
+func (o GetFeaturesCapabilitiesUpdateProfilePtrOutput) Elem() GetFeaturesCapabilitiesUpdateProfileOutput {
+	return o.ApplyT(func(v *GetFeaturesCapabilitiesUpdateProfile) GetFeaturesCapabilitiesUpdateProfile {
+		if v != nil {
+			return *v
+		}
+		var ret GetFeaturesCapabilitiesUpdateProfile
+		return ret
+	}).(GetFeaturesCapabilitiesUpdateProfileOutput)
+}
+
+// (String) Status of the import schedule. Valid values are `ENABLED` or `DISABLED`.
+func (o GetFeaturesCapabilitiesUpdateProfilePtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetFeaturesCapabilitiesUpdateProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Status
+	}).(pulumi.StringPtrOutput)
+}
+
 type GetSamlAttributeStatement struct {
 	// Type of group attribute filter
 	FilterType string `pulumi:"filterType"`
@@ -925,6 +6116,40 @@ func (o GetSamlAttributeStatementArrayOutput) Index(i pulumi.IntInput) GetSamlAt
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionProfileInput)(nil)).Elem(), ConnectionProfileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionProfilePtrInput)(nil)).Elem(), ConnectionProfileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionProfileSettingsInput)(nil)).Elem(), ConnectionProfileSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionProfileSettingsPtrInput)(nil)).Elem(), ConnectionProfileSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionProfileSigningInput)(nil)).Elem(), ConnectionProfileSigningArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionProfileSigningPtrInput)(nil)).Elem(), ConnectionProfileSigningArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FeaturesCapabilitiesInput)(nil)).Elem(), FeaturesCapabilitiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FeaturesCapabilitiesPtrInput)(nil)).Elem(), FeaturesCapabilitiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FeaturesCapabilitiesCreateInput)(nil)).Elem(), FeaturesCapabilitiesCreateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FeaturesCapabilitiesCreatePtrInput)(nil)).Elem(), FeaturesCapabilitiesCreateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FeaturesCapabilitiesCreateLifecycleCreateInput)(nil)).Elem(), FeaturesCapabilitiesCreateLifecycleCreateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FeaturesCapabilitiesCreateLifecycleCreatePtrInput)(nil)).Elem(), FeaturesCapabilitiesCreateLifecycleCreateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FeaturesCapabilitiesImportRulesInput)(nil)).Elem(), FeaturesCapabilitiesImportRulesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FeaturesCapabilitiesImportRulesPtrInput)(nil)).Elem(), FeaturesCapabilitiesImportRulesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FeaturesCapabilitiesImportRulesUserCreateAndMatchInput)(nil)).Elem(), FeaturesCapabilitiesImportRulesUserCreateAndMatchArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FeaturesCapabilitiesImportRulesUserCreateAndMatchPtrInput)(nil)).Elem(), FeaturesCapabilitiesImportRulesUserCreateAndMatchArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FeaturesCapabilitiesImportSettingsInput)(nil)).Elem(), FeaturesCapabilitiesImportSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FeaturesCapabilitiesImportSettingsPtrInput)(nil)).Elem(), FeaturesCapabilitiesImportSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FeaturesCapabilitiesImportSettingsScheduleInput)(nil)).Elem(), FeaturesCapabilitiesImportSettingsScheduleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FeaturesCapabilitiesImportSettingsSchedulePtrInput)(nil)).Elem(), FeaturesCapabilitiesImportSettingsScheduleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FeaturesCapabilitiesImportSettingsScheduleFullImportInput)(nil)).Elem(), FeaturesCapabilitiesImportSettingsScheduleFullImportArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FeaturesCapabilitiesImportSettingsScheduleFullImportPtrInput)(nil)).Elem(), FeaturesCapabilitiesImportSettingsScheduleFullImportArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FeaturesCapabilitiesImportSettingsScheduleIncrementalImportInput)(nil)).Elem(), FeaturesCapabilitiesImportSettingsScheduleIncrementalImportArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FeaturesCapabilitiesImportSettingsScheduleIncrementalImportPtrInput)(nil)).Elem(), FeaturesCapabilitiesImportSettingsScheduleIncrementalImportArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FeaturesCapabilitiesImportSettingsUsernameInput)(nil)).Elem(), FeaturesCapabilitiesImportSettingsUsernameArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FeaturesCapabilitiesImportSettingsUsernamePtrInput)(nil)).Elem(), FeaturesCapabilitiesImportSettingsUsernameArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FeaturesCapabilitiesUpdateInput)(nil)).Elem(), FeaturesCapabilitiesUpdateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FeaturesCapabilitiesUpdatePtrInput)(nil)).Elem(), FeaturesCapabilitiesUpdateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FeaturesCapabilitiesUpdateLifecycleDeactivateInput)(nil)).Elem(), FeaturesCapabilitiesUpdateLifecycleDeactivateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FeaturesCapabilitiesUpdateLifecycleDeactivatePtrInput)(nil)).Elem(), FeaturesCapabilitiesUpdateLifecycleDeactivateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FeaturesCapabilitiesUpdatePasswordInput)(nil)).Elem(), FeaturesCapabilitiesUpdatePasswordArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FeaturesCapabilitiesUpdatePasswordPtrInput)(nil)).Elem(), FeaturesCapabilitiesUpdatePasswordArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FeaturesCapabilitiesUpdateProfileInput)(nil)).Elem(), FeaturesCapabilitiesUpdateProfileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FeaturesCapabilitiesUpdateProfilePtrInput)(nil)).Elem(), FeaturesCapabilitiesUpdateProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OAuthGroupsClaimInput)(nil)).Elem(), OAuthGroupsClaimArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OAuthGroupsClaimPtrInput)(nil)).Elem(), OAuthGroupsClaimArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OAuthJwkInput)(nil)).Elem(), OAuthJwkArgs{})
@@ -935,8 +6160,72 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SamlAttributeStatementArrayInput)(nil)).Elem(), SamlAttributeStatementArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SamlKeyInput)(nil)).Elem(), SamlKeyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SamlKeyArrayInput)(nil)).Elem(), SamlKeyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetConnectionProfileInput)(nil)).Elem(), GetConnectionProfileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetConnectionProfilePtrInput)(nil)).Elem(), GetConnectionProfileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFeaturesCapabilitiesInput)(nil)).Elem(), GetFeaturesCapabilitiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFeaturesCapabilitiesPtrInput)(nil)).Elem(), GetFeaturesCapabilitiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFeaturesCapabilitiesCreateInput)(nil)).Elem(), GetFeaturesCapabilitiesCreateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFeaturesCapabilitiesCreatePtrInput)(nil)).Elem(), GetFeaturesCapabilitiesCreateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFeaturesCapabilitiesCreateLifecycleCreateInput)(nil)).Elem(), GetFeaturesCapabilitiesCreateLifecycleCreateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFeaturesCapabilitiesCreateLifecycleCreatePtrInput)(nil)).Elem(), GetFeaturesCapabilitiesCreateLifecycleCreateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFeaturesCapabilitiesImportRulesInput)(nil)).Elem(), GetFeaturesCapabilitiesImportRulesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFeaturesCapabilitiesImportRulesPtrInput)(nil)).Elem(), GetFeaturesCapabilitiesImportRulesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFeaturesCapabilitiesImportRulesUserCreateAndMatchInput)(nil)).Elem(), GetFeaturesCapabilitiesImportRulesUserCreateAndMatchArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFeaturesCapabilitiesImportRulesUserCreateAndMatchPtrInput)(nil)).Elem(), GetFeaturesCapabilitiesImportRulesUserCreateAndMatchArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFeaturesCapabilitiesImportSettingsInput)(nil)).Elem(), GetFeaturesCapabilitiesImportSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFeaturesCapabilitiesImportSettingsPtrInput)(nil)).Elem(), GetFeaturesCapabilitiesImportSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFeaturesCapabilitiesImportSettingsScheduleInput)(nil)).Elem(), GetFeaturesCapabilitiesImportSettingsScheduleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFeaturesCapabilitiesImportSettingsSchedulePtrInput)(nil)).Elem(), GetFeaturesCapabilitiesImportSettingsScheduleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFeaturesCapabilitiesImportSettingsScheduleFullImportInput)(nil)).Elem(), GetFeaturesCapabilitiesImportSettingsScheduleFullImportArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFeaturesCapabilitiesImportSettingsScheduleFullImportPtrInput)(nil)).Elem(), GetFeaturesCapabilitiesImportSettingsScheduleFullImportArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFeaturesCapabilitiesImportSettingsScheduleIncrementalImportInput)(nil)).Elem(), GetFeaturesCapabilitiesImportSettingsScheduleIncrementalImportArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFeaturesCapabilitiesImportSettingsScheduleIncrementalImportPtrInput)(nil)).Elem(), GetFeaturesCapabilitiesImportSettingsScheduleIncrementalImportArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFeaturesCapabilitiesImportSettingsUsernameInput)(nil)).Elem(), GetFeaturesCapabilitiesImportSettingsUsernameArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFeaturesCapabilitiesImportSettingsUsernamePtrInput)(nil)).Elem(), GetFeaturesCapabilitiesImportSettingsUsernameArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFeaturesCapabilitiesUpdateInput)(nil)).Elem(), GetFeaturesCapabilitiesUpdateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFeaturesCapabilitiesUpdatePtrInput)(nil)).Elem(), GetFeaturesCapabilitiesUpdateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFeaturesCapabilitiesUpdateLifecycleDeactivateInput)(nil)).Elem(), GetFeaturesCapabilitiesUpdateLifecycleDeactivateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFeaturesCapabilitiesUpdateLifecycleDeactivatePtrInput)(nil)).Elem(), GetFeaturesCapabilitiesUpdateLifecycleDeactivateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFeaturesCapabilitiesUpdatePasswordInput)(nil)).Elem(), GetFeaturesCapabilitiesUpdatePasswordArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFeaturesCapabilitiesUpdatePasswordPtrInput)(nil)).Elem(), GetFeaturesCapabilitiesUpdatePasswordArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFeaturesCapabilitiesUpdateProfileInput)(nil)).Elem(), GetFeaturesCapabilitiesUpdateProfileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFeaturesCapabilitiesUpdateProfilePtrInput)(nil)).Elem(), GetFeaturesCapabilitiesUpdateProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSamlAttributeStatementInput)(nil)).Elem(), GetSamlAttributeStatementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSamlAttributeStatementArrayInput)(nil)).Elem(), GetSamlAttributeStatementArray{})
+	pulumi.RegisterOutputType(ConnectionProfileOutput{})
+	pulumi.RegisterOutputType(ConnectionProfilePtrOutput{})
+	pulumi.RegisterOutputType(ConnectionProfileSettingsOutput{})
+	pulumi.RegisterOutputType(ConnectionProfileSettingsPtrOutput{})
+	pulumi.RegisterOutputType(ConnectionProfileSigningOutput{})
+	pulumi.RegisterOutputType(ConnectionProfileSigningPtrOutput{})
+	pulumi.RegisterOutputType(FeaturesCapabilitiesOutput{})
+	pulumi.RegisterOutputType(FeaturesCapabilitiesPtrOutput{})
+	pulumi.RegisterOutputType(FeaturesCapabilitiesCreateOutput{})
+	pulumi.RegisterOutputType(FeaturesCapabilitiesCreatePtrOutput{})
+	pulumi.RegisterOutputType(FeaturesCapabilitiesCreateLifecycleCreateOutput{})
+	pulumi.RegisterOutputType(FeaturesCapabilitiesCreateLifecycleCreatePtrOutput{})
+	pulumi.RegisterOutputType(FeaturesCapabilitiesImportRulesOutput{})
+	pulumi.RegisterOutputType(FeaturesCapabilitiesImportRulesPtrOutput{})
+	pulumi.RegisterOutputType(FeaturesCapabilitiesImportRulesUserCreateAndMatchOutput{})
+	pulumi.RegisterOutputType(FeaturesCapabilitiesImportRulesUserCreateAndMatchPtrOutput{})
+	pulumi.RegisterOutputType(FeaturesCapabilitiesImportSettingsOutput{})
+	pulumi.RegisterOutputType(FeaturesCapabilitiesImportSettingsPtrOutput{})
+	pulumi.RegisterOutputType(FeaturesCapabilitiesImportSettingsScheduleOutput{})
+	pulumi.RegisterOutputType(FeaturesCapabilitiesImportSettingsSchedulePtrOutput{})
+	pulumi.RegisterOutputType(FeaturesCapabilitiesImportSettingsScheduleFullImportOutput{})
+	pulumi.RegisterOutputType(FeaturesCapabilitiesImportSettingsScheduleFullImportPtrOutput{})
+	pulumi.RegisterOutputType(FeaturesCapabilitiesImportSettingsScheduleIncrementalImportOutput{})
+	pulumi.RegisterOutputType(FeaturesCapabilitiesImportSettingsScheduleIncrementalImportPtrOutput{})
+	pulumi.RegisterOutputType(FeaturesCapabilitiesImportSettingsUsernameOutput{})
+	pulumi.RegisterOutputType(FeaturesCapabilitiesImportSettingsUsernamePtrOutput{})
+	pulumi.RegisterOutputType(FeaturesCapabilitiesUpdateOutput{})
+	pulumi.RegisterOutputType(FeaturesCapabilitiesUpdatePtrOutput{})
+	pulumi.RegisterOutputType(FeaturesCapabilitiesUpdateLifecycleDeactivateOutput{})
+	pulumi.RegisterOutputType(FeaturesCapabilitiesUpdateLifecycleDeactivatePtrOutput{})
+	pulumi.RegisterOutputType(FeaturesCapabilitiesUpdatePasswordOutput{})
+	pulumi.RegisterOutputType(FeaturesCapabilitiesUpdatePasswordPtrOutput{})
+	pulumi.RegisterOutputType(FeaturesCapabilitiesUpdateProfileOutput{})
+	pulumi.RegisterOutputType(FeaturesCapabilitiesUpdateProfilePtrOutput{})
 	pulumi.RegisterOutputType(OAuthGroupsClaimOutput{})
 	pulumi.RegisterOutputType(OAuthGroupsClaimPtrOutput{})
 	pulumi.RegisterOutputType(OAuthJwkOutput{})
@@ -947,6 +6236,36 @@ func init() {
 	pulumi.RegisterOutputType(SamlAttributeStatementArrayOutput{})
 	pulumi.RegisterOutputType(SamlKeyOutput{})
 	pulumi.RegisterOutputType(SamlKeyArrayOutput{})
+	pulumi.RegisterOutputType(GetConnectionProfileOutput{})
+	pulumi.RegisterOutputType(GetConnectionProfilePtrOutput{})
+	pulumi.RegisterOutputType(GetFeaturesCapabilitiesOutput{})
+	pulumi.RegisterOutputType(GetFeaturesCapabilitiesPtrOutput{})
+	pulumi.RegisterOutputType(GetFeaturesCapabilitiesCreateOutput{})
+	pulumi.RegisterOutputType(GetFeaturesCapabilitiesCreatePtrOutput{})
+	pulumi.RegisterOutputType(GetFeaturesCapabilitiesCreateLifecycleCreateOutput{})
+	pulumi.RegisterOutputType(GetFeaturesCapabilitiesCreateLifecycleCreatePtrOutput{})
+	pulumi.RegisterOutputType(GetFeaturesCapabilitiesImportRulesOutput{})
+	pulumi.RegisterOutputType(GetFeaturesCapabilitiesImportRulesPtrOutput{})
+	pulumi.RegisterOutputType(GetFeaturesCapabilitiesImportRulesUserCreateAndMatchOutput{})
+	pulumi.RegisterOutputType(GetFeaturesCapabilitiesImportRulesUserCreateAndMatchPtrOutput{})
+	pulumi.RegisterOutputType(GetFeaturesCapabilitiesImportSettingsOutput{})
+	pulumi.RegisterOutputType(GetFeaturesCapabilitiesImportSettingsPtrOutput{})
+	pulumi.RegisterOutputType(GetFeaturesCapabilitiesImportSettingsScheduleOutput{})
+	pulumi.RegisterOutputType(GetFeaturesCapabilitiesImportSettingsSchedulePtrOutput{})
+	pulumi.RegisterOutputType(GetFeaturesCapabilitiesImportSettingsScheduleFullImportOutput{})
+	pulumi.RegisterOutputType(GetFeaturesCapabilitiesImportSettingsScheduleFullImportPtrOutput{})
+	pulumi.RegisterOutputType(GetFeaturesCapabilitiesImportSettingsScheduleIncrementalImportOutput{})
+	pulumi.RegisterOutputType(GetFeaturesCapabilitiesImportSettingsScheduleIncrementalImportPtrOutput{})
+	pulumi.RegisterOutputType(GetFeaturesCapabilitiesImportSettingsUsernameOutput{})
+	pulumi.RegisterOutputType(GetFeaturesCapabilitiesImportSettingsUsernamePtrOutput{})
+	pulumi.RegisterOutputType(GetFeaturesCapabilitiesUpdateOutput{})
+	pulumi.RegisterOutputType(GetFeaturesCapabilitiesUpdatePtrOutput{})
+	pulumi.RegisterOutputType(GetFeaturesCapabilitiesUpdateLifecycleDeactivateOutput{})
+	pulumi.RegisterOutputType(GetFeaturesCapabilitiesUpdateLifecycleDeactivatePtrOutput{})
+	pulumi.RegisterOutputType(GetFeaturesCapabilitiesUpdatePasswordOutput{})
+	pulumi.RegisterOutputType(GetFeaturesCapabilitiesUpdatePasswordPtrOutput{})
+	pulumi.RegisterOutputType(GetFeaturesCapabilitiesUpdateProfileOutput{})
+	pulumi.RegisterOutputType(GetFeaturesCapabilitiesUpdateProfilePtrOutput{})
 	pulumi.RegisterOutputType(GetSamlAttributeStatementOutput{})
 	pulumi.RegisterOutputType(GetSamlAttributeStatementArrayOutput{})
 }

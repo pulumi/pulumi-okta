@@ -19,13 +19,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Manages a sign-on policy rules for the application.
- * &gt; **WARNING:** This feature is only available as a part of the Identity Engine. Contact support for further information.
- * This resource allows you to create and configure a sign-on policy rule for the application.
- * A default or &#39;Catch-all Rule&#39; sign-on policy rule can be imported and managed as a custom rule.
- * The only difference is that these fields are immutable and can not be managed: &#39;network_connection&#39;, &#39;network_excludes&#39;,
- * &#39;network_includes&#39;, &#39;platform_include&#39;, &#39;custom_expression&#39;, &#39;device_is_registered&#39;, &#39;device_is_managed&#39;, &#39;users_excluded&#39;,
- * &#39;users_included&#39;, &#39;groups_excluded&#39;, &#39;groups_included&#39;, &#39;user_types_excluded&#39; and &#39;user_types_included&#39;.
+ * ## Example Usage
  * 
  * ## Import
  * 

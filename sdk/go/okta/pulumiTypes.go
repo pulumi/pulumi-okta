@@ -13,6 +13,278 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type ApiServiceIntegrationGrantedScope struct {
+	// The scope of the API service integration
+	Scope string `pulumi:"scope"`
+}
+
+// ApiServiceIntegrationGrantedScopeInput is an input type that accepts ApiServiceIntegrationGrantedScopeArgs and ApiServiceIntegrationGrantedScopeOutput values.
+// You can construct a concrete instance of `ApiServiceIntegrationGrantedScopeInput` via:
+//
+//	ApiServiceIntegrationGrantedScopeArgs{...}
+type ApiServiceIntegrationGrantedScopeInput interface {
+	pulumi.Input
+
+	ToApiServiceIntegrationGrantedScopeOutput() ApiServiceIntegrationGrantedScopeOutput
+	ToApiServiceIntegrationGrantedScopeOutputWithContext(context.Context) ApiServiceIntegrationGrantedScopeOutput
+}
+
+type ApiServiceIntegrationGrantedScopeArgs struct {
+	// The scope of the API service integration
+	Scope pulumi.StringInput `pulumi:"scope"`
+}
+
+func (ApiServiceIntegrationGrantedScopeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiServiceIntegrationGrantedScope)(nil)).Elem()
+}
+
+func (i ApiServiceIntegrationGrantedScopeArgs) ToApiServiceIntegrationGrantedScopeOutput() ApiServiceIntegrationGrantedScopeOutput {
+	return i.ToApiServiceIntegrationGrantedScopeOutputWithContext(context.Background())
+}
+
+func (i ApiServiceIntegrationGrantedScopeArgs) ToApiServiceIntegrationGrantedScopeOutputWithContext(ctx context.Context) ApiServiceIntegrationGrantedScopeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiServiceIntegrationGrantedScopeOutput)
+}
+
+// ApiServiceIntegrationGrantedScopeArrayInput is an input type that accepts ApiServiceIntegrationGrantedScopeArray and ApiServiceIntegrationGrantedScopeArrayOutput values.
+// You can construct a concrete instance of `ApiServiceIntegrationGrantedScopeArrayInput` via:
+//
+//	ApiServiceIntegrationGrantedScopeArray{ ApiServiceIntegrationGrantedScopeArgs{...} }
+type ApiServiceIntegrationGrantedScopeArrayInput interface {
+	pulumi.Input
+
+	ToApiServiceIntegrationGrantedScopeArrayOutput() ApiServiceIntegrationGrantedScopeArrayOutput
+	ToApiServiceIntegrationGrantedScopeArrayOutputWithContext(context.Context) ApiServiceIntegrationGrantedScopeArrayOutput
+}
+
+type ApiServiceIntegrationGrantedScopeArray []ApiServiceIntegrationGrantedScopeInput
+
+func (ApiServiceIntegrationGrantedScopeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApiServiceIntegrationGrantedScope)(nil)).Elem()
+}
+
+func (i ApiServiceIntegrationGrantedScopeArray) ToApiServiceIntegrationGrantedScopeArrayOutput() ApiServiceIntegrationGrantedScopeArrayOutput {
+	return i.ToApiServiceIntegrationGrantedScopeArrayOutputWithContext(context.Background())
+}
+
+func (i ApiServiceIntegrationGrantedScopeArray) ToApiServiceIntegrationGrantedScopeArrayOutputWithContext(ctx context.Context) ApiServiceIntegrationGrantedScopeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiServiceIntegrationGrantedScopeArrayOutput)
+}
+
+type ApiServiceIntegrationGrantedScopeOutput struct{ *pulumi.OutputState }
+
+func (ApiServiceIntegrationGrantedScopeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiServiceIntegrationGrantedScope)(nil)).Elem()
+}
+
+func (o ApiServiceIntegrationGrantedScopeOutput) ToApiServiceIntegrationGrantedScopeOutput() ApiServiceIntegrationGrantedScopeOutput {
+	return o
+}
+
+func (o ApiServiceIntegrationGrantedScopeOutput) ToApiServiceIntegrationGrantedScopeOutputWithContext(ctx context.Context) ApiServiceIntegrationGrantedScopeOutput {
+	return o
+}
+
+// The scope of the API service integration
+func (o ApiServiceIntegrationGrantedScopeOutput) Scope() pulumi.StringOutput {
+	return o.ApplyT(func(v ApiServiceIntegrationGrantedScope) string { return v.Scope }).(pulumi.StringOutput)
+}
+
+type ApiServiceIntegrationGrantedScopeArrayOutput struct{ *pulumi.OutputState }
+
+func (ApiServiceIntegrationGrantedScopeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApiServiceIntegrationGrantedScope)(nil)).Elem()
+}
+
+func (o ApiServiceIntegrationGrantedScopeArrayOutput) ToApiServiceIntegrationGrantedScopeArrayOutput() ApiServiceIntegrationGrantedScopeArrayOutput {
+	return o
+}
+
+func (o ApiServiceIntegrationGrantedScopeArrayOutput) ToApiServiceIntegrationGrantedScopeArrayOutputWithContext(ctx context.Context) ApiServiceIntegrationGrantedScopeArrayOutput {
+	return o
+}
+
+func (o ApiServiceIntegrationGrantedScopeArrayOutput) Index(i pulumi.IntInput) ApiServiceIntegrationGrantedScopeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApiServiceIntegrationGrantedScope {
+		return vs[0].([]ApiServiceIntegrationGrantedScope)[vs[1].(int)]
+	}).(ApiServiceIntegrationGrantedScopeOutput)
+}
+
+type ApiTokenNetwork struct {
+	// The connection type of the Network Condition.
+	Connection *string `pulumi:"connection"`
+	// The IP address the excluded zone.
+	Excludes []string `pulumi:"excludes"`
+	// The IP address the included zone.
+	Includes []string `pulumi:"includes"`
+}
+
+// ApiTokenNetworkInput is an input type that accepts ApiTokenNetworkArgs and ApiTokenNetworkOutput values.
+// You can construct a concrete instance of `ApiTokenNetworkInput` via:
+//
+//	ApiTokenNetworkArgs{...}
+type ApiTokenNetworkInput interface {
+	pulumi.Input
+
+	ToApiTokenNetworkOutput() ApiTokenNetworkOutput
+	ToApiTokenNetworkOutputWithContext(context.Context) ApiTokenNetworkOutput
+}
+
+type ApiTokenNetworkArgs struct {
+	// The connection type of the Network Condition.
+	Connection pulumi.StringPtrInput `pulumi:"connection"`
+	// The IP address the excluded zone.
+	Excludes pulumi.StringArrayInput `pulumi:"excludes"`
+	// The IP address the included zone.
+	Includes pulumi.StringArrayInput `pulumi:"includes"`
+}
+
+func (ApiTokenNetworkArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiTokenNetwork)(nil)).Elem()
+}
+
+func (i ApiTokenNetworkArgs) ToApiTokenNetworkOutput() ApiTokenNetworkOutput {
+	return i.ToApiTokenNetworkOutputWithContext(context.Background())
+}
+
+func (i ApiTokenNetworkArgs) ToApiTokenNetworkOutputWithContext(ctx context.Context) ApiTokenNetworkOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiTokenNetworkOutput)
+}
+
+func (i ApiTokenNetworkArgs) ToApiTokenNetworkPtrOutput() ApiTokenNetworkPtrOutput {
+	return i.ToApiTokenNetworkPtrOutputWithContext(context.Background())
+}
+
+func (i ApiTokenNetworkArgs) ToApiTokenNetworkPtrOutputWithContext(ctx context.Context) ApiTokenNetworkPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiTokenNetworkOutput).ToApiTokenNetworkPtrOutputWithContext(ctx)
+}
+
+// ApiTokenNetworkPtrInput is an input type that accepts ApiTokenNetworkArgs, ApiTokenNetworkPtr and ApiTokenNetworkPtrOutput values.
+// You can construct a concrete instance of `ApiTokenNetworkPtrInput` via:
+//
+//	        ApiTokenNetworkArgs{...}
+//
+//	or:
+//
+//	        nil
+type ApiTokenNetworkPtrInput interface {
+	pulumi.Input
+
+	ToApiTokenNetworkPtrOutput() ApiTokenNetworkPtrOutput
+	ToApiTokenNetworkPtrOutputWithContext(context.Context) ApiTokenNetworkPtrOutput
+}
+
+type apiTokenNetworkPtrType ApiTokenNetworkArgs
+
+func ApiTokenNetworkPtr(v *ApiTokenNetworkArgs) ApiTokenNetworkPtrInput {
+	return (*apiTokenNetworkPtrType)(v)
+}
+
+func (*apiTokenNetworkPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApiTokenNetwork)(nil)).Elem()
+}
+
+func (i *apiTokenNetworkPtrType) ToApiTokenNetworkPtrOutput() ApiTokenNetworkPtrOutput {
+	return i.ToApiTokenNetworkPtrOutputWithContext(context.Background())
+}
+
+func (i *apiTokenNetworkPtrType) ToApiTokenNetworkPtrOutputWithContext(ctx context.Context) ApiTokenNetworkPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiTokenNetworkPtrOutput)
+}
+
+type ApiTokenNetworkOutput struct{ *pulumi.OutputState }
+
+func (ApiTokenNetworkOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiTokenNetwork)(nil)).Elem()
+}
+
+func (o ApiTokenNetworkOutput) ToApiTokenNetworkOutput() ApiTokenNetworkOutput {
+	return o
+}
+
+func (o ApiTokenNetworkOutput) ToApiTokenNetworkOutputWithContext(ctx context.Context) ApiTokenNetworkOutput {
+	return o
+}
+
+func (o ApiTokenNetworkOutput) ToApiTokenNetworkPtrOutput() ApiTokenNetworkPtrOutput {
+	return o.ToApiTokenNetworkPtrOutputWithContext(context.Background())
+}
+
+func (o ApiTokenNetworkOutput) ToApiTokenNetworkPtrOutputWithContext(ctx context.Context) ApiTokenNetworkPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiTokenNetwork) *ApiTokenNetwork {
+		return &v
+	}).(ApiTokenNetworkPtrOutput)
+}
+
+// The connection type of the Network Condition.
+func (o ApiTokenNetworkOutput) Connection() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApiTokenNetwork) *string { return v.Connection }).(pulumi.StringPtrOutput)
+}
+
+// The IP address the excluded zone.
+func (o ApiTokenNetworkOutput) Excludes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ApiTokenNetwork) []string { return v.Excludes }).(pulumi.StringArrayOutput)
+}
+
+// The IP address the included zone.
+func (o ApiTokenNetworkOutput) Includes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ApiTokenNetwork) []string { return v.Includes }).(pulumi.StringArrayOutput)
+}
+
+type ApiTokenNetworkPtrOutput struct{ *pulumi.OutputState }
+
+func (ApiTokenNetworkPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApiTokenNetwork)(nil)).Elem()
+}
+
+func (o ApiTokenNetworkPtrOutput) ToApiTokenNetworkPtrOutput() ApiTokenNetworkPtrOutput {
+	return o
+}
+
+func (o ApiTokenNetworkPtrOutput) ToApiTokenNetworkPtrOutputWithContext(ctx context.Context) ApiTokenNetworkPtrOutput {
+	return o
+}
+
+func (o ApiTokenNetworkPtrOutput) Elem() ApiTokenNetworkOutput {
+	return o.ApplyT(func(v *ApiTokenNetwork) ApiTokenNetwork {
+		if v != nil {
+			return *v
+		}
+		var ret ApiTokenNetwork
+		return ret
+	}).(ApiTokenNetworkOutput)
+}
+
+// The connection type of the Network Condition.
+func (o ApiTokenNetworkPtrOutput) Connection() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApiTokenNetwork) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Connection
+	}).(pulumi.StringPtrOutput)
+}
+
+// The IP address the excluded zone.
+func (o ApiTokenNetworkPtrOutput) Excludes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ApiTokenNetwork) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Excludes
+	}).(pulumi.StringArrayOutput)
+}
+
+// The IP address the included zone.
+func (o ApiTokenNetworkPtrOutput) Includes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ApiTokenNetwork) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Includes
+	}).(pulumi.StringArrayOutput)
+}
+
 type AppGroupAssignmentsGroup struct {
 	// A group to associate with the application
 	Id string `pulumi:"id"`
@@ -6474,6 +6746,822 @@ func (o PreviewSigninPageWidgetCustomizationsPtrOutput) WidgetGeneration() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
+type PushProviderConfiguration struct {
+	ApnsConfiguration *PushProviderConfigurationApnsConfiguration `pulumi:"apnsConfiguration"`
+	FcmConfiguration  *PushProviderConfigurationFcmConfiguration  `pulumi:"fcmConfiguration"`
+}
+
+// PushProviderConfigurationInput is an input type that accepts PushProviderConfigurationArgs and PushProviderConfigurationOutput values.
+// You can construct a concrete instance of `PushProviderConfigurationInput` via:
+//
+//	PushProviderConfigurationArgs{...}
+type PushProviderConfigurationInput interface {
+	pulumi.Input
+
+	ToPushProviderConfigurationOutput() PushProviderConfigurationOutput
+	ToPushProviderConfigurationOutputWithContext(context.Context) PushProviderConfigurationOutput
+}
+
+type PushProviderConfigurationArgs struct {
+	ApnsConfiguration PushProviderConfigurationApnsConfigurationPtrInput `pulumi:"apnsConfiguration"`
+	FcmConfiguration  PushProviderConfigurationFcmConfigurationPtrInput  `pulumi:"fcmConfiguration"`
+}
+
+func (PushProviderConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PushProviderConfiguration)(nil)).Elem()
+}
+
+func (i PushProviderConfigurationArgs) ToPushProviderConfigurationOutput() PushProviderConfigurationOutput {
+	return i.ToPushProviderConfigurationOutputWithContext(context.Background())
+}
+
+func (i PushProviderConfigurationArgs) ToPushProviderConfigurationOutputWithContext(ctx context.Context) PushProviderConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PushProviderConfigurationOutput)
+}
+
+func (i PushProviderConfigurationArgs) ToPushProviderConfigurationPtrOutput() PushProviderConfigurationPtrOutput {
+	return i.ToPushProviderConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i PushProviderConfigurationArgs) ToPushProviderConfigurationPtrOutputWithContext(ctx context.Context) PushProviderConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PushProviderConfigurationOutput).ToPushProviderConfigurationPtrOutputWithContext(ctx)
+}
+
+// PushProviderConfigurationPtrInput is an input type that accepts PushProviderConfigurationArgs, PushProviderConfigurationPtr and PushProviderConfigurationPtrOutput values.
+// You can construct a concrete instance of `PushProviderConfigurationPtrInput` via:
+//
+//	        PushProviderConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type PushProviderConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToPushProviderConfigurationPtrOutput() PushProviderConfigurationPtrOutput
+	ToPushProviderConfigurationPtrOutputWithContext(context.Context) PushProviderConfigurationPtrOutput
+}
+
+type pushProviderConfigurationPtrType PushProviderConfigurationArgs
+
+func PushProviderConfigurationPtr(v *PushProviderConfigurationArgs) PushProviderConfigurationPtrInput {
+	return (*pushProviderConfigurationPtrType)(v)
+}
+
+func (*pushProviderConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PushProviderConfiguration)(nil)).Elem()
+}
+
+func (i *pushProviderConfigurationPtrType) ToPushProviderConfigurationPtrOutput() PushProviderConfigurationPtrOutput {
+	return i.ToPushProviderConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *pushProviderConfigurationPtrType) ToPushProviderConfigurationPtrOutputWithContext(ctx context.Context) PushProviderConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PushProviderConfigurationPtrOutput)
+}
+
+type PushProviderConfigurationOutput struct{ *pulumi.OutputState }
+
+func (PushProviderConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PushProviderConfiguration)(nil)).Elem()
+}
+
+func (o PushProviderConfigurationOutput) ToPushProviderConfigurationOutput() PushProviderConfigurationOutput {
+	return o
+}
+
+func (o PushProviderConfigurationOutput) ToPushProviderConfigurationOutputWithContext(ctx context.Context) PushProviderConfigurationOutput {
+	return o
+}
+
+func (o PushProviderConfigurationOutput) ToPushProviderConfigurationPtrOutput() PushProviderConfigurationPtrOutput {
+	return o.ToPushProviderConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o PushProviderConfigurationOutput) ToPushProviderConfigurationPtrOutputWithContext(ctx context.Context) PushProviderConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PushProviderConfiguration) *PushProviderConfiguration {
+		return &v
+	}).(PushProviderConfigurationPtrOutput)
+}
+
+func (o PushProviderConfigurationOutput) ApnsConfiguration() PushProviderConfigurationApnsConfigurationPtrOutput {
+	return o.ApplyT(func(v PushProviderConfiguration) *PushProviderConfigurationApnsConfiguration {
+		return v.ApnsConfiguration
+	}).(PushProviderConfigurationApnsConfigurationPtrOutput)
+}
+
+func (o PushProviderConfigurationOutput) FcmConfiguration() PushProviderConfigurationFcmConfigurationPtrOutput {
+	return o.ApplyT(func(v PushProviderConfiguration) *PushProviderConfigurationFcmConfiguration {
+		return v.FcmConfiguration
+	}).(PushProviderConfigurationFcmConfigurationPtrOutput)
+}
+
+type PushProviderConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (PushProviderConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PushProviderConfiguration)(nil)).Elem()
+}
+
+func (o PushProviderConfigurationPtrOutput) ToPushProviderConfigurationPtrOutput() PushProviderConfigurationPtrOutput {
+	return o
+}
+
+func (o PushProviderConfigurationPtrOutput) ToPushProviderConfigurationPtrOutputWithContext(ctx context.Context) PushProviderConfigurationPtrOutput {
+	return o
+}
+
+func (o PushProviderConfigurationPtrOutput) Elem() PushProviderConfigurationOutput {
+	return o.ApplyT(func(v *PushProviderConfiguration) PushProviderConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret PushProviderConfiguration
+		return ret
+	}).(PushProviderConfigurationOutput)
+}
+
+func (o PushProviderConfigurationPtrOutput) ApnsConfiguration() PushProviderConfigurationApnsConfigurationPtrOutput {
+	return o.ApplyT(func(v *PushProviderConfiguration) *PushProviderConfigurationApnsConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.ApnsConfiguration
+	}).(PushProviderConfigurationApnsConfigurationPtrOutput)
+}
+
+func (o PushProviderConfigurationPtrOutput) FcmConfiguration() PushProviderConfigurationFcmConfigurationPtrOutput {
+	return o.ApplyT(func(v *PushProviderConfiguration) *PushProviderConfigurationFcmConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.FcmConfiguration
+	}).(PushProviderConfigurationFcmConfigurationPtrOutput)
+}
+
+type PushProviderConfigurationApnsConfiguration struct {
+	// File name for Admin Console display.
+	FileName *string `pulumi:"fileName"`
+	// 10-character Key ID obtained from the Apple developer account. Required for APNS provider type.
+	KeyId *string `pulumi:"keyId"`
+	// 10-character Team ID used to develop the iOS app. Required for APNS provider type.
+	TeamId *string `pulumi:"teamId"`
+	// APNs private authentication token signing key. Required for APNS provider type.
+	TokenSigningKey *string `pulumi:"tokenSigningKey"`
+}
+
+// PushProviderConfigurationApnsConfigurationInput is an input type that accepts PushProviderConfigurationApnsConfigurationArgs and PushProviderConfigurationApnsConfigurationOutput values.
+// You can construct a concrete instance of `PushProviderConfigurationApnsConfigurationInput` via:
+//
+//	PushProviderConfigurationApnsConfigurationArgs{...}
+type PushProviderConfigurationApnsConfigurationInput interface {
+	pulumi.Input
+
+	ToPushProviderConfigurationApnsConfigurationOutput() PushProviderConfigurationApnsConfigurationOutput
+	ToPushProviderConfigurationApnsConfigurationOutputWithContext(context.Context) PushProviderConfigurationApnsConfigurationOutput
+}
+
+type PushProviderConfigurationApnsConfigurationArgs struct {
+	// File name for Admin Console display.
+	FileName pulumi.StringPtrInput `pulumi:"fileName"`
+	// 10-character Key ID obtained from the Apple developer account. Required for APNS provider type.
+	KeyId pulumi.StringPtrInput `pulumi:"keyId"`
+	// 10-character Team ID used to develop the iOS app. Required for APNS provider type.
+	TeamId pulumi.StringPtrInput `pulumi:"teamId"`
+	// APNs private authentication token signing key. Required for APNS provider type.
+	TokenSigningKey pulumi.StringPtrInput `pulumi:"tokenSigningKey"`
+}
+
+func (PushProviderConfigurationApnsConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PushProviderConfigurationApnsConfiguration)(nil)).Elem()
+}
+
+func (i PushProviderConfigurationApnsConfigurationArgs) ToPushProviderConfigurationApnsConfigurationOutput() PushProviderConfigurationApnsConfigurationOutput {
+	return i.ToPushProviderConfigurationApnsConfigurationOutputWithContext(context.Background())
+}
+
+func (i PushProviderConfigurationApnsConfigurationArgs) ToPushProviderConfigurationApnsConfigurationOutputWithContext(ctx context.Context) PushProviderConfigurationApnsConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PushProviderConfigurationApnsConfigurationOutput)
+}
+
+func (i PushProviderConfigurationApnsConfigurationArgs) ToPushProviderConfigurationApnsConfigurationPtrOutput() PushProviderConfigurationApnsConfigurationPtrOutput {
+	return i.ToPushProviderConfigurationApnsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i PushProviderConfigurationApnsConfigurationArgs) ToPushProviderConfigurationApnsConfigurationPtrOutputWithContext(ctx context.Context) PushProviderConfigurationApnsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PushProviderConfigurationApnsConfigurationOutput).ToPushProviderConfigurationApnsConfigurationPtrOutputWithContext(ctx)
+}
+
+// PushProviderConfigurationApnsConfigurationPtrInput is an input type that accepts PushProviderConfigurationApnsConfigurationArgs, PushProviderConfigurationApnsConfigurationPtr and PushProviderConfigurationApnsConfigurationPtrOutput values.
+// You can construct a concrete instance of `PushProviderConfigurationApnsConfigurationPtrInput` via:
+//
+//	        PushProviderConfigurationApnsConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type PushProviderConfigurationApnsConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToPushProviderConfigurationApnsConfigurationPtrOutput() PushProviderConfigurationApnsConfigurationPtrOutput
+	ToPushProviderConfigurationApnsConfigurationPtrOutputWithContext(context.Context) PushProviderConfigurationApnsConfigurationPtrOutput
+}
+
+type pushProviderConfigurationApnsConfigurationPtrType PushProviderConfigurationApnsConfigurationArgs
+
+func PushProviderConfigurationApnsConfigurationPtr(v *PushProviderConfigurationApnsConfigurationArgs) PushProviderConfigurationApnsConfigurationPtrInput {
+	return (*pushProviderConfigurationApnsConfigurationPtrType)(v)
+}
+
+func (*pushProviderConfigurationApnsConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PushProviderConfigurationApnsConfiguration)(nil)).Elem()
+}
+
+func (i *pushProviderConfigurationApnsConfigurationPtrType) ToPushProviderConfigurationApnsConfigurationPtrOutput() PushProviderConfigurationApnsConfigurationPtrOutput {
+	return i.ToPushProviderConfigurationApnsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *pushProviderConfigurationApnsConfigurationPtrType) ToPushProviderConfigurationApnsConfigurationPtrOutputWithContext(ctx context.Context) PushProviderConfigurationApnsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PushProviderConfigurationApnsConfigurationPtrOutput)
+}
+
+type PushProviderConfigurationApnsConfigurationOutput struct{ *pulumi.OutputState }
+
+func (PushProviderConfigurationApnsConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PushProviderConfigurationApnsConfiguration)(nil)).Elem()
+}
+
+func (o PushProviderConfigurationApnsConfigurationOutput) ToPushProviderConfigurationApnsConfigurationOutput() PushProviderConfigurationApnsConfigurationOutput {
+	return o
+}
+
+func (o PushProviderConfigurationApnsConfigurationOutput) ToPushProviderConfigurationApnsConfigurationOutputWithContext(ctx context.Context) PushProviderConfigurationApnsConfigurationOutput {
+	return o
+}
+
+func (o PushProviderConfigurationApnsConfigurationOutput) ToPushProviderConfigurationApnsConfigurationPtrOutput() PushProviderConfigurationApnsConfigurationPtrOutput {
+	return o.ToPushProviderConfigurationApnsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o PushProviderConfigurationApnsConfigurationOutput) ToPushProviderConfigurationApnsConfigurationPtrOutputWithContext(ctx context.Context) PushProviderConfigurationApnsConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PushProviderConfigurationApnsConfiguration) *PushProviderConfigurationApnsConfiguration {
+		return &v
+	}).(PushProviderConfigurationApnsConfigurationPtrOutput)
+}
+
+// File name for Admin Console display.
+func (o PushProviderConfigurationApnsConfigurationOutput) FileName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PushProviderConfigurationApnsConfiguration) *string { return v.FileName }).(pulumi.StringPtrOutput)
+}
+
+// 10-character Key ID obtained from the Apple developer account. Required for APNS provider type.
+func (o PushProviderConfigurationApnsConfigurationOutput) KeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PushProviderConfigurationApnsConfiguration) *string { return v.KeyId }).(pulumi.StringPtrOutput)
+}
+
+// 10-character Team ID used to develop the iOS app. Required for APNS provider type.
+func (o PushProviderConfigurationApnsConfigurationOutput) TeamId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PushProviderConfigurationApnsConfiguration) *string { return v.TeamId }).(pulumi.StringPtrOutput)
+}
+
+// APNs private authentication token signing key. Required for APNS provider type.
+func (o PushProviderConfigurationApnsConfigurationOutput) TokenSigningKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PushProviderConfigurationApnsConfiguration) *string { return v.TokenSigningKey }).(pulumi.StringPtrOutput)
+}
+
+type PushProviderConfigurationApnsConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (PushProviderConfigurationApnsConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PushProviderConfigurationApnsConfiguration)(nil)).Elem()
+}
+
+func (o PushProviderConfigurationApnsConfigurationPtrOutput) ToPushProviderConfigurationApnsConfigurationPtrOutput() PushProviderConfigurationApnsConfigurationPtrOutput {
+	return o
+}
+
+func (o PushProviderConfigurationApnsConfigurationPtrOutput) ToPushProviderConfigurationApnsConfigurationPtrOutputWithContext(ctx context.Context) PushProviderConfigurationApnsConfigurationPtrOutput {
+	return o
+}
+
+func (o PushProviderConfigurationApnsConfigurationPtrOutput) Elem() PushProviderConfigurationApnsConfigurationOutput {
+	return o.ApplyT(func(v *PushProviderConfigurationApnsConfiguration) PushProviderConfigurationApnsConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret PushProviderConfigurationApnsConfiguration
+		return ret
+	}).(PushProviderConfigurationApnsConfigurationOutput)
+}
+
+// File name for Admin Console display.
+func (o PushProviderConfigurationApnsConfigurationPtrOutput) FileName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PushProviderConfigurationApnsConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FileName
+	}).(pulumi.StringPtrOutput)
+}
+
+// 10-character Key ID obtained from the Apple developer account. Required for APNS provider type.
+func (o PushProviderConfigurationApnsConfigurationPtrOutput) KeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PushProviderConfigurationApnsConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KeyId
+	}).(pulumi.StringPtrOutput)
+}
+
+// 10-character Team ID used to develop the iOS app. Required for APNS provider type.
+func (o PushProviderConfigurationApnsConfigurationPtrOutput) TeamId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PushProviderConfigurationApnsConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TeamId
+	}).(pulumi.StringPtrOutput)
+}
+
+// APNs private authentication token signing key. Required for APNS provider type.
+func (o PushProviderConfigurationApnsConfigurationPtrOutput) TokenSigningKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PushProviderConfigurationApnsConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TokenSigningKey
+	}).(pulumi.StringPtrOutput)
+}
+
+type PushProviderConfigurationFcmConfiguration struct {
+	// JSON containing the private service account key and service account details. Required for FCM provider type.
+	ServiceAccountJson *PushProviderConfigurationFcmConfigurationServiceAccountJson `pulumi:"serviceAccountJson"`
+}
+
+// PushProviderConfigurationFcmConfigurationInput is an input type that accepts PushProviderConfigurationFcmConfigurationArgs and PushProviderConfigurationFcmConfigurationOutput values.
+// You can construct a concrete instance of `PushProviderConfigurationFcmConfigurationInput` via:
+//
+//	PushProviderConfigurationFcmConfigurationArgs{...}
+type PushProviderConfigurationFcmConfigurationInput interface {
+	pulumi.Input
+
+	ToPushProviderConfigurationFcmConfigurationOutput() PushProviderConfigurationFcmConfigurationOutput
+	ToPushProviderConfigurationFcmConfigurationOutputWithContext(context.Context) PushProviderConfigurationFcmConfigurationOutput
+}
+
+type PushProviderConfigurationFcmConfigurationArgs struct {
+	// JSON containing the private service account key and service account details. Required for FCM provider type.
+	ServiceAccountJson PushProviderConfigurationFcmConfigurationServiceAccountJsonPtrInput `pulumi:"serviceAccountJson"`
+}
+
+func (PushProviderConfigurationFcmConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PushProviderConfigurationFcmConfiguration)(nil)).Elem()
+}
+
+func (i PushProviderConfigurationFcmConfigurationArgs) ToPushProviderConfigurationFcmConfigurationOutput() PushProviderConfigurationFcmConfigurationOutput {
+	return i.ToPushProviderConfigurationFcmConfigurationOutputWithContext(context.Background())
+}
+
+func (i PushProviderConfigurationFcmConfigurationArgs) ToPushProviderConfigurationFcmConfigurationOutputWithContext(ctx context.Context) PushProviderConfigurationFcmConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PushProviderConfigurationFcmConfigurationOutput)
+}
+
+func (i PushProviderConfigurationFcmConfigurationArgs) ToPushProviderConfigurationFcmConfigurationPtrOutput() PushProviderConfigurationFcmConfigurationPtrOutput {
+	return i.ToPushProviderConfigurationFcmConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i PushProviderConfigurationFcmConfigurationArgs) ToPushProviderConfigurationFcmConfigurationPtrOutputWithContext(ctx context.Context) PushProviderConfigurationFcmConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PushProviderConfigurationFcmConfigurationOutput).ToPushProviderConfigurationFcmConfigurationPtrOutputWithContext(ctx)
+}
+
+// PushProviderConfigurationFcmConfigurationPtrInput is an input type that accepts PushProviderConfigurationFcmConfigurationArgs, PushProviderConfigurationFcmConfigurationPtr and PushProviderConfigurationFcmConfigurationPtrOutput values.
+// You can construct a concrete instance of `PushProviderConfigurationFcmConfigurationPtrInput` via:
+//
+//	        PushProviderConfigurationFcmConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type PushProviderConfigurationFcmConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToPushProviderConfigurationFcmConfigurationPtrOutput() PushProviderConfigurationFcmConfigurationPtrOutput
+	ToPushProviderConfigurationFcmConfigurationPtrOutputWithContext(context.Context) PushProviderConfigurationFcmConfigurationPtrOutput
+}
+
+type pushProviderConfigurationFcmConfigurationPtrType PushProviderConfigurationFcmConfigurationArgs
+
+func PushProviderConfigurationFcmConfigurationPtr(v *PushProviderConfigurationFcmConfigurationArgs) PushProviderConfigurationFcmConfigurationPtrInput {
+	return (*pushProviderConfigurationFcmConfigurationPtrType)(v)
+}
+
+func (*pushProviderConfigurationFcmConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PushProviderConfigurationFcmConfiguration)(nil)).Elem()
+}
+
+func (i *pushProviderConfigurationFcmConfigurationPtrType) ToPushProviderConfigurationFcmConfigurationPtrOutput() PushProviderConfigurationFcmConfigurationPtrOutput {
+	return i.ToPushProviderConfigurationFcmConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *pushProviderConfigurationFcmConfigurationPtrType) ToPushProviderConfigurationFcmConfigurationPtrOutputWithContext(ctx context.Context) PushProviderConfigurationFcmConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PushProviderConfigurationFcmConfigurationPtrOutput)
+}
+
+type PushProviderConfigurationFcmConfigurationOutput struct{ *pulumi.OutputState }
+
+func (PushProviderConfigurationFcmConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PushProviderConfigurationFcmConfiguration)(nil)).Elem()
+}
+
+func (o PushProviderConfigurationFcmConfigurationOutput) ToPushProviderConfigurationFcmConfigurationOutput() PushProviderConfigurationFcmConfigurationOutput {
+	return o
+}
+
+func (o PushProviderConfigurationFcmConfigurationOutput) ToPushProviderConfigurationFcmConfigurationOutputWithContext(ctx context.Context) PushProviderConfigurationFcmConfigurationOutput {
+	return o
+}
+
+func (o PushProviderConfigurationFcmConfigurationOutput) ToPushProviderConfigurationFcmConfigurationPtrOutput() PushProviderConfigurationFcmConfigurationPtrOutput {
+	return o.ToPushProviderConfigurationFcmConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o PushProviderConfigurationFcmConfigurationOutput) ToPushProviderConfigurationFcmConfigurationPtrOutputWithContext(ctx context.Context) PushProviderConfigurationFcmConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PushProviderConfigurationFcmConfiguration) *PushProviderConfigurationFcmConfiguration {
+		return &v
+	}).(PushProviderConfigurationFcmConfigurationPtrOutput)
+}
+
+// JSON containing the private service account key and service account details. Required for FCM provider type.
+func (o PushProviderConfigurationFcmConfigurationOutput) ServiceAccountJson() PushProviderConfigurationFcmConfigurationServiceAccountJsonPtrOutput {
+	return o.ApplyT(func(v PushProviderConfigurationFcmConfiguration) *PushProviderConfigurationFcmConfigurationServiceAccountJson {
+		return v.ServiceAccountJson
+	}).(PushProviderConfigurationFcmConfigurationServiceAccountJsonPtrOutput)
+}
+
+type PushProviderConfigurationFcmConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (PushProviderConfigurationFcmConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PushProviderConfigurationFcmConfiguration)(nil)).Elem()
+}
+
+func (o PushProviderConfigurationFcmConfigurationPtrOutput) ToPushProviderConfigurationFcmConfigurationPtrOutput() PushProviderConfigurationFcmConfigurationPtrOutput {
+	return o
+}
+
+func (o PushProviderConfigurationFcmConfigurationPtrOutput) ToPushProviderConfigurationFcmConfigurationPtrOutputWithContext(ctx context.Context) PushProviderConfigurationFcmConfigurationPtrOutput {
+	return o
+}
+
+func (o PushProviderConfigurationFcmConfigurationPtrOutput) Elem() PushProviderConfigurationFcmConfigurationOutput {
+	return o.ApplyT(func(v *PushProviderConfigurationFcmConfiguration) PushProviderConfigurationFcmConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret PushProviderConfigurationFcmConfiguration
+		return ret
+	}).(PushProviderConfigurationFcmConfigurationOutput)
+}
+
+// JSON containing the private service account key and service account details. Required for FCM provider type.
+func (o PushProviderConfigurationFcmConfigurationPtrOutput) ServiceAccountJson() PushProviderConfigurationFcmConfigurationServiceAccountJsonPtrOutput {
+	return o.ApplyT(func(v *PushProviderConfigurationFcmConfiguration) *PushProviderConfigurationFcmConfigurationServiceAccountJson {
+		if v == nil {
+			return nil
+		}
+		return v.ServiceAccountJson
+	}).(PushProviderConfigurationFcmConfigurationServiceAccountJsonPtrOutput)
+}
+
+type PushProviderConfigurationFcmConfigurationServiceAccountJson struct {
+	// The auth provider x509 cert URL.
+	AuthProviderX509CertUrl *string `pulumi:"authProviderX509CertUrl"`
+	// The auth URI.
+	AuthUri *string `pulumi:"authUri"`
+	// The client email.
+	ClientEmail *string `pulumi:"clientEmail"`
+	// The client ID.
+	ClientId *string `pulumi:"clientId"`
+	// The client x509 cert URL.
+	ClientX509CertUrl *string `pulumi:"clientX509CertUrl"`
+	// File name for Admin Console display.
+	FileName *string `pulumi:"fileName"`
+	// The private key.
+	PrivateKey *string `pulumi:"privateKey"`
+	// The private key ID.
+	PrivateKeyId *string `pulumi:"privateKeyId"`
+	// The project ID.
+	ProjectId *string `pulumi:"projectId"`
+	// The token URI.
+	TokenUri *string `pulumi:"tokenUri"`
+	// The type of the service account.
+	Type *string `pulumi:"type"`
+}
+
+// PushProviderConfigurationFcmConfigurationServiceAccountJsonInput is an input type that accepts PushProviderConfigurationFcmConfigurationServiceAccountJsonArgs and PushProviderConfigurationFcmConfigurationServiceAccountJsonOutput values.
+// You can construct a concrete instance of `PushProviderConfigurationFcmConfigurationServiceAccountJsonInput` via:
+//
+//	PushProviderConfigurationFcmConfigurationServiceAccountJsonArgs{...}
+type PushProviderConfigurationFcmConfigurationServiceAccountJsonInput interface {
+	pulumi.Input
+
+	ToPushProviderConfigurationFcmConfigurationServiceAccountJsonOutput() PushProviderConfigurationFcmConfigurationServiceAccountJsonOutput
+	ToPushProviderConfigurationFcmConfigurationServiceAccountJsonOutputWithContext(context.Context) PushProviderConfigurationFcmConfigurationServiceAccountJsonOutput
+}
+
+type PushProviderConfigurationFcmConfigurationServiceAccountJsonArgs struct {
+	// The auth provider x509 cert URL.
+	AuthProviderX509CertUrl pulumi.StringPtrInput `pulumi:"authProviderX509CertUrl"`
+	// The auth URI.
+	AuthUri pulumi.StringPtrInput `pulumi:"authUri"`
+	// The client email.
+	ClientEmail pulumi.StringPtrInput `pulumi:"clientEmail"`
+	// The client ID.
+	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
+	// The client x509 cert URL.
+	ClientX509CertUrl pulumi.StringPtrInput `pulumi:"clientX509CertUrl"`
+	// File name for Admin Console display.
+	FileName pulumi.StringPtrInput `pulumi:"fileName"`
+	// The private key.
+	PrivateKey pulumi.StringPtrInput `pulumi:"privateKey"`
+	// The private key ID.
+	PrivateKeyId pulumi.StringPtrInput `pulumi:"privateKeyId"`
+	// The project ID.
+	ProjectId pulumi.StringPtrInput `pulumi:"projectId"`
+	// The token URI.
+	TokenUri pulumi.StringPtrInput `pulumi:"tokenUri"`
+	// The type of the service account.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (PushProviderConfigurationFcmConfigurationServiceAccountJsonArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PushProviderConfigurationFcmConfigurationServiceAccountJson)(nil)).Elem()
+}
+
+func (i PushProviderConfigurationFcmConfigurationServiceAccountJsonArgs) ToPushProviderConfigurationFcmConfigurationServiceAccountJsonOutput() PushProviderConfigurationFcmConfigurationServiceAccountJsonOutput {
+	return i.ToPushProviderConfigurationFcmConfigurationServiceAccountJsonOutputWithContext(context.Background())
+}
+
+func (i PushProviderConfigurationFcmConfigurationServiceAccountJsonArgs) ToPushProviderConfigurationFcmConfigurationServiceAccountJsonOutputWithContext(ctx context.Context) PushProviderConfigurationFcmConfigurationServiceAccountJsonOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PushProviderConfigurationFcmConfigurationServiceAccountJsonOutput)
+}
+
+func (i PushProviderConfigurationFcmConfigurationServiceAccountJsonArgs) ToPushProviderConfigurationFcmConfigurationServiceAccountJsonPtrOutput() PushProviderConfigurationFcmConfigurationServiceAccountJsonPtrOutput {
+	return i.ToPushProviderConfigurationFcmConfigurationServiceAccountJsonPtrOutputWithContext(context.Background())
+}
+
+func (i PushProviderConfigurationFcmConfigurationServiceAccountJsonArgs) ToPushProviderConfigurationFcmConfigurationServiceAccountJsonPtrOutputWithContext(ctx context.Context) PushProviderConfigurationFcmConfigurationServiceAccountJsonPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PushProviderConfigurationFcmConfigurationServiceAccountJsonOutput).ToPushProviderConfigurationFcmConfigurationServiceAccountJsonPtrOutputWithContext(ctx)
+}
+
+// PushProviderConfigurationFcmConfigurationServiceAccountJsonPtrInput is an input type that accepts PushProviderConfigurationFcmConfigurationServiceAccountJsonArgs, PushProviderConfigurationFcmConfigurationServiceAccountJsonPtr and PushProviderConfigurationFcmConfigurationServiceAccountJsonPtrOutput values.
+// You can construct a concrete instance of `PushProviderConfigurationFcmConfigurationServiceAccountJsonPtrInput` via:
+//
+//	        PushProviderConfigurationFcmConfigurationServiceAccountJsonArgs{...}
+//
+//	or:
+//
+//	        nil
+type PushProviderConfigurationFcmConfigurationServiceAccountJsonPtrInput interface {
+	pulumi.Input
+
+	ToPushProviderConfigurationFcmConfigurationServiceAccountJsonPtrOutput() PushProviderConfigurationFcmConfigurationServiceAccountJsonPtrOutput
+	ToPushProviderConfigurationFcmConfigurationServiceAccountJsonPtrOutputWithContext(context.Context) PushProviderConfigurationFcmConfigurationServiceAccountJsonPtrOutput
+}
+
+type pushProviderConfigurationFcmConfigurationServiceAccountJsonPtrType PushProviderConfigurationFcmConfigurationServiceAccountJsonArgs
+
+func PushProviderConfigurationFcmConfigurationServiceAccountJsonPtr(v *PushProviderConfigurationFcmConfigurationServiceAccountJsonArgs) PushProviderConfigurationFcmConfigurationServiceAccountJsonPtrInput {
+	return (*pushProviderConfigurationFcmConfigurationServiceAccountJsonPtrType)(v)
+}
+
+func (*pushProviderConfigurationFcmConfigurationServiceAccountJsonPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PushProviderConfigurationFcmConfigurationServiceAccountJson)(nil)).Elem()
+}
+
+func (i *pushProviderConfigurationFcmConfigurationServiceAccountJsonPtrType) ToPushProviderConfigurationFcmConfigurationServiceAccountJsonPtrOutput() PushProviderConfigurationFcmConfigurationServiceAccountJsonPtrOutput {
+	return i.ToPushProviderConfigurationFcmConfigurationServiceAccountJsonPtrOutputWithContext(context.Background())
+}
+
+func (i *pushProviderConfigurationFcmConfigurationServiceAccountJsonPtrType) ToPushProviderConfigurationFcmConfigurationServiceAccountJsonPtrOutputWithContext(ctx context.Context) PushProviderConfigurationFcmConfigurationServiceAccountJsonPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PushProviderConfigurationFcmConfigurationServiceAccountJsonPtrOutput)
+}
+
+type PushProviderConfigurationFcmConfigurationServiceAccountJsonOutput struct{ *pulumi.OutputState }
+
+func (PushProviderConfigurationFcmConfigurationServiceAccountJsonOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PushProviderConfigurationFcmConfigurationServiceAccountJson)(nil)).Elem()
+}
+
+func (o PushProviderConfigurationFcmConfigurationServiceAccountJsonOutput) ToPushProviderConfigurationFcmConfigurationServiceAccountJsonOutput() PushProviderConfigurationFcmConfigurationServiceAccountJsonOutput {
+	return o
+}
+
+func (o PushProviderConfigurationFcmConfigurationServiceAccountJsonOutput) ToPushProviderConfigurationFcmConfigurationServiceAccountJsonOutputWithContext(ctx context.Context) PushProviderConfigurationFcmConfigurationServiceAccountJsonOutput {
+	return o
+}
+
+func (o PushProviderConfigurationFcmConfigurationServiceAccountJsonOutput) ToPushProviderConfigurationFcmConfigurationServiceAccountJsonPtrOutput() PushProviderConfigurationFcmConfigurationServiceAccountJsonPtrOutput {
+	return o.ToPushProviderConfigurationFcmConfigurationServiceAccountJsonPtrOutputWithContext(context.Background())
+}
+
+func (o PushProviderConfigurationFcmConfigurationServiceAccountJsonOutput) ToPushProviderConfigurationFcmConfigurationServiceAccountJsonPtrOutputWithContext(ctx context.Context) PushProviderConfigurationFcmConfigurationServiceAccountJsonPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PushProviderConfigurationFcmConfigurationServiceAccountJson) *PushProviderConfigurationFcmConfigurationServiceAccountJson {
+		return &v
+	}).(PushProviderConfigurationFcmConfigurationServiceAccountJsonPtrOutput)
+}
+
+// The auth provider x509 cert URL.
+func (o PushProviderConfigurationFcmConfigurationServiceAccountJsonOutput) AuthProviderX509CertUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PushProviderConfigurationFcmConfigurationServiceAccountJson) *string {
+		return v.AuthProviderX509CertUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+// The auth URI.
+func (o PushProviderConfigurationFcmConfigurationServiceAccountJsonOutput) AuthUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PushProviderConfigurationFcmConfigurationServiceAccountJson) *string { return v.AuthUri }).(pulumi.StringPtrOutput)
+}
+
+// The client email.
+func (o PushProviderConfigurationFcmConfigurationServiceAccountJsonOutput) ClientEmail() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PushProviderConfigurationFcmConfigurationServiceAccountJson) *string { return v.ClientEmail }).(pulumi.StringPtrOutput)
+}
+
+// The client ID.
+func (o PushProviderConfigurationFcmConfigurationServiceAccountJsonOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PushProviderConfigurationFcmConfigurationServiceAccountJson) *string { return v.ClientId }).(pulumi.StringPtrOutput)
+}
+
+// The client x509 cert URL.
+func (o PushProviderConfigurationFcmConfigurationServiceAccountJsonOutput) ClientX509CertUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PushProviderConfigurationFcmConfigurationServiceAccountJson) *string {
+		return v.ClientX509CertUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+// File name for Admin Console display.
+func (o PushProviderConfigurationFcmConfigurationServiceAccountJsonOutput) FileName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PushProviderConfigurationFcmConfigurationServiceAccountJson) *string { return v.FileName }).(pulumi.StringPtrOutput)
+}
+
+// The private key.
+func (o PushProviderConfigurationFcmConfigurationServiceAccountJsonOutput) PrivateKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PushProviderConfigurationFcmConfigurationServiceAccountJson) *string { return v.PrivateKey }).(pulumi.StringPtrOutput)
+}
+
+// The private key ID.
+func (o PushProviderConfigurationFcmConfigurationServiceAccountJsonOutput) PrivateKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PushProviderConfigurationFcmConfigurationServiceAccountJson) *string { return v.PrivateKeyId }).(pulumi.StringPtrOutput)
+}
+
+// The project ID.
+func (o PushProviderConfigurationFcmConfigurationServiceAccountJsonOutput) ProjectId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PushProviderConfigurationFcmConfigurationServiceAccountJson) *string { return v.ProjectId }).(pulumi.StringPtrOutput)
+}
+
+// The token URI.
+func (o PushProviderConfigurationFcmConfigurationServiceAccountJsonOutput) TokenUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PushProviderConfigurationFcmConfigurationServiceAccountJson) *string { return v.TokenUri }).(pulumi.StringPtrOutput)
+}
+
+// The type of the service account.
+func (o PushProviderConfigurationFcmConfigurationServiceAccountJsonOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PushProviderConfigurationFcmConfigurationServiceAccountJson) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type PushProviderConfigurationFcmConfigurationServiceAccountJsonPtrOutput struct{ *pulumi.OutputState }
+
+func (PushProviderConfigurationFcmConfigurationServiceAccountJsonPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PushProviderConfigurationFcmConfigurationServiceAccountJson)(nil)).Elem()
+}
+
+func (o PushProviderConfigurationFcmConfigurationServiceAccountJsonPtrOutput) ToPushProviderConfigurationFcmConfigurationServiceAccountJsonPtrOutput() PushProviderConfigurationFcmConfigurationServiceAccountJsonPtrOutput {
+	return o
+}
+
+func (o PushProviderConfigurationFcmConfigurationServiceAccountJsonPtrOutput) ToPushProviderConfigurationFcmConfigurationServiceAccountJsonPtrOutputWithContext(ctx context.Context) PushProviderConfigurationFcmConfigurationServiceAccountJsonPtrOutput {
+	return o
+}
+
+func (o PushProviderConfigurationFcmConfigurationServiceAccountJsonPtrOutput) Elem() PushProviderConfigurationFcmConfigurationServiceAccountJsonOutput {
+	return o.ApplyT(func(v *PushProviderConfigurationFcmConfigurationServiceAccountJson) PushProviderConfigurationFcmConfigurationServiceAccountJson {
+		if v != nil {
+			return *v
+		}
+		var ret PushProviderConfigurationFcmConfigurationServiceAccountJson
+		return ret
+	}).(PushProviderConfigurationFcmConfigurationServiceAccountJsonOutput)
+}
+
+// The auth provider x509 cert URL.
+func (o PushProviderConfigurationFcmConfigurationServiceAccountJsonPtrOutput) AuthProviderX509CertUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PushProviderConfigurationFcmConfigurationServiceAccountJson) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AuthProviderX509CertUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+// The auth URI.
+func (o PushProviderConfigurationFcmConfigurationServiceAccountJsonPtrOutput) AuthUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PushProviderConfigurationFcmConfigurationServiceAccountJson) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AuthUri
+	}).(pulumi.StringPtrOutput)
+}
+
+// The client email.
+func (o PushProviderConfigurationFcmConfigurationServiceAccountJsonPtrOutput) ClientEmail() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PushProviderConfigurationFcmConfigurationServiceAccountJson) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClientEmail
+	}).(pulumi.StringPtrOutput)
+}
+
+// The client ID.
+func (o PushProviderConfigurationFcmConfigurationServiceAccountJsonPtrOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PushProviderConfigurationFcmConfigurationServiceAccountJson) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClientId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The client x509 cert URL.
+func (o PushProviderConfigurationFcmConfigurationServiceAccountJsonPtrOutput) ClientX509CertUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PushProviderConfigurationFcmConfigurationServiceAccountJson) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClientX509CertUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+// File name for Admin Console display.
+func (o PushProviderConfigurationFcmConfigurationServiceAccountJsonPtrOutput) FileName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PushProviderConfigurationFcmConfigurationServiceAccountJson) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FileName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The private key.
+func (o PushProviderConfigurationFcmConfigurationServiceAccountJsonPtrOutput) PrivateKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PushProviderConfigurationFcmConfigurationServiceAccountJson) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrivateKey
+	}).(pulumi.StringPtrOutput)
+}
+
+// The private key ID.
+func (o PushProviderConfigurationFcmConfigurationServiceAccountJsonPtrOutput) PrivateKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PushProviderConfigurationFcmConfigurationServiceAccountJson) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrivateKeyId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The project ID.
+func (o PushProviderConfigurationFcmConfigurationServiceAccountJsonPtrOutput) ProjectId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PushProviderConfigurationFcmConfigurationServiceAccountJson) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ProjectId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The token URI.
+func (o PushProviderConfigurationFcmConfigurationServiceAccountJsonPtrOutput) TokenUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PushProviderConfigurationFcmConfigurationServiceAccountJson) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TokenUri
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of the service account.
+func (o PushProviderConfigurationFcmConfigurationServiceAccountJsonPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PushProviderConfigurationFcmConfigurationServiceAccountJson) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
 type RateLimitingUseCaseModeOverrides struct {
 	LoginPage       *string `pulumi:"loginPage"`
 	Oauth2Authorize *string `pulumi:"oauth2Authorize"`
@@ -8642,6 +9730,181 @@ func (o RequestV2RequesterFieldValueValueArrayOutput) Index(i pulumi.IntInput) R
 	}).(RequestV2RequesterFieldValueValueOutput)
 }
 
+type SecurityEventsProviderSettings struct {
+	// Issuer URL. Maximum length: 700 characters. To be used along with `jwksUrl`.
+	Issuer *string `pulumi:"issuer"`
+	// The public URL where the JWKS public key is uploaded. Maximum length: 1000 characters. To be used along with `issuer`.
+	JwksUrl *string `pulumi:"jwksUrl"`
+	// The published well-known URL of the Security Events Provider (the SSF transmitter). Maximum length: 1000 characters.
+	WellKnownUrl *string `pulumi:"wellKnownUrl"`
+}
+
+// SecurityEventsProviderSettingsInput is an input type that accepts SecurityEventsProviderSettingsArgs and SecurityEventsProviderSettingsOutput values.
+// You can construct a concrete instance of `SecurityEventsProviderSettingsInput` via:
+//
+//	SecurityEventsProviderSettingsArgs{...}
+type SecurityEventsProviderSettingsInput interface {
+	pulumi.Input
+
+	ToSecurityEventsProviderSettingsOutput() SecurityEventsProviderSettingsOutput
+	ToSecurityEventsProviderSettingsOutputWithContext(context.Context) SecurityEventsProviderSettingsOutput
+}
+
+type SecurityEventsProviderSettingsArgs struct {
+	// Issuer URL. Maximum length: 700 characters. To be used along with `jwksUrl`.
+	Issuer pulumi.StringPtrInput `pulumi:"issuer"`
+	// The public URL where the JWKS public key is uploaded. Maximum length: 1000 characters. To be used along with `issuer`.
+	JwksUrl pulumi.StringPtrInput `pulumi:"jwksUrl"`
+	// The published well-known URL of the Security Events Provider (the SSF transmitter). Maximum length: 1000 characters.
+	WellKnownUrl pulumi.StringPtrInput `pulumi:"wellKnownUrl"`
+}
+
+func (SecurityEventsProviderSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityEventsProviderSettings)(nil)).Elem()
+}
+
+func (i SecurityEventsProviderSettingsArgs) ToSecurityEventsProviderSettingsOutput() SecurityEventsProviderSettingsOutput {
+	return i.ToSecurityEventsProviderSettingsOutputWithContext(context.Background())
+}
+
+func (i SecurityEventsProviderSettingsArgs) ToSecurityEventsProviderSettingsOutputWithContext(ctx context.Context) SecurityEventsProviderSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityEventsProviderSettingsOutput)
+}
+
+func (i SecurityEventsProviderSettingsArgs) ToSecurityEventsProviderSettingsPtrOutput() SecurityEventsProviderSettingsPtrOutput {
+	return i.ToSecurityEventsProviderSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i SecurityEventsProviderSettingsArgs) ToSecurityEventsProviderSettingsPtrOutputWithContext(ctx context.Context) SecurityEventsProviderSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityEventsProviderSettingsOutput).ToSecurityEventsProviderSettingsPtrOutputWithContext(ctx)
+}
+
+// SecurityEventsProviderSettingsPtrInput is an input type that accepts SecurityEventsProviderSettingsArgs, SecurityEventsProviderSettingsPtr and SecurityEventsProviderSettingsPtrOutput values.
+// You can construct a concrete instance of `SecurityEventsProviderSettingsPtrInput` via:
+//
+//	        SecurityEventsProviderSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type SecurityEventsProviderSettingsPtrInput interface {
+	pulumi.Input
+
+	ToSecurityEventsProviderSettingsPtrOutput() SecurityEventsProviderSettingsPtrOutput
+	ToSecurityEventsProviderSettingsPtrOutputWithContext(context.Context) SecurityEventsProviderSettingsPtrOutput
+}
+
+type securityEventsProviderSettingsPtrType SecurityEventsProviderSettingsArgs
+
+func SecurityEventsProviderSettingsPtr(v *SecurityEventsProviderSettingsArgs) SecurityEventsProviderSettingsPtrInput {
+	return (*securityEventsProviderSettingsPtrType)(v)
+}
+
+func (*securityEventsProviderSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurityEventsProviderSettings)(nil)).Elem()
+}
+
+func (i *securityEventsProviderSettingsPtrType) ToSecurityEventsProviderSettingsPtrOutput() SecurityEventsProviderSettingsPtrOutput {
+	return i.ToSecurityEventsProviderSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *securityEventsProviderSettingsPtrType) ToSecurityEventsProviderSettingsPtrOutputWithContext(ctx context.Context) SecurityEventsProviderSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityEventsProviderSettingsPtrOutput)
+}
+
+type SecurityEventsProviderSettingsOutput struct{ *pulumi.OutputState }
+
+func (SecurityEventsProviderSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityEventsProviderSettings)(nil)).Elem()
+}
+
+func (o SecurityEventsProviderSettingsOutput) ToSecurityEventsProviderSettingsOutput() SecurityEventsProviderSettingsOutput {
+	return o
+}
+
+func (o SecurityEventsProviderSettingsOutput) ToSecurityEventsProviderSettingsOutputWithContext(ctx context.Context) SecurityEventsProviderSettingsOutput {
+	return o
+}
+
+func (o SecurityEventsProviderSettingsOutput) ToSecurityEventsProviderSettingsPtrOutput() SecurityEventsProviderSettingsPtrOutput {
+	return o.ToSecurityEventsProviderSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o SecurityEventsProviderSettingsOutput) ToSecurityEventsProviderSettingsPtrOutputWithContext(ctx context.Context) SecurityEventsProviderSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecurityEventsProviderSettings) *SecurityEventsProviderSettings {
+		return &v
+	}).(SecurityEventsProviderSettingsPtrOutput)
+}
+
+// Issuer URL. Maximum length: 700 characters. To be used along with `jwksUrl`.
+func (o SecurityEventsProviderSettingsOutput) Issuer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityEventsProviderSettings) *string { return v.Issuer }).(pulumi.StringPtrOutput)
+}
+
+// The public URL where the JWKS public key is uploaded. Maximum length: 1000 characters. To be used along with `issuer`.
+func (o SecurityEventsProviderSettingsOutput) JwksUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityEventsProviderSettings) *string { return v.JwksUrl }).(pulumi.StringPtrOutput)
+}
+
+// The published well-known URL of the Security Events Provider (the SSF transmitter). Maximum length: 1000 characters.
+func (o SecurityEventsProviderSettingsOutput) WellKnownUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityEventsProviderSettings) *string { return v.WellKnownUrl }).(pulumi.StringPtrOutput)
+}
+
+type SecurityEventsProviderSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (SecurityEventsProviderSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurityEventsProviderSettings)(nil)).Elem()
+}
+
+func (o SecurityEventsProviderSettingsPtrOutput) ToSecurityEventsProviderSettingsPtrOutput() SecurityEventsProviderSettingsPtrOutput {
+	return o
+}
+
+func (o SecurityEventsProviderSettingsPtrOutput) ToSecurityEventsProviderSettingsPtrOutputWithContext(ctx context.Context) SecurityEventsProviderSettingsPtrOutput {
+	return o
+}
+
+func (o SecurityEventsProviderSettingsPtrOutput) Elem() SecurityEventsProviderSettingsOutput {
+	return o.ApplyT(func(v *SecurityEventsProviderSettings) SecurityEventsProviderSettings {
+		if v != nil {
+			return *v
+		}
+		var ret SecurityEventsProviderSettings
+		return ret
+	}).(SecurityEventsProviderSettingsOutput)
+}
+
+// Issuer URL. Maximum length: 700 characters. To be used along with `jwksUrl`.
+func (o SecurityEventsProviderSettingsPtrOutput) Issuer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityEventsProviderSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Issuer
+	}).(pulumi.StringPtrOutput)
+}
+
+// The public URL where the JWKS public key is uploaded. Maximum length: 1000 characters. To be used along with `issuer`.
+func (o SecurityEventsProviderSettingsPtrOutput) JwksUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityEventsProviderSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.JwksUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+// The published well-known URL of the Security Events Provider (the SSF transmitter). Maximum length: 1000 characters.
+func (o SecurityEventsProviderSettingsPtrOutput) WellKnownUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityEventsProviderSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.WellKnownUrl
+	}).(pulumi.StringPtrOutput)
+}
+
 type TemplateSmsTranslation struct {
 	// The language to map the template to.
 	Language string `pulumi:"language"`
@@ -9058,6 +10321,278 @@ func (o UserSchemaPropertyOneOfArrayOutput) Index(i pulumi.IntInput) UserSchemaP
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) UserSchemaPropertyOneOf {
 		return vs[0].([]UserSchemaPropertyOneOf)[vs[1].(int)]
 	}).(UserSchemaPropertyOneOfOutput)
+}
+
+type GetApiServiceIntegrationGrantedScope struct {
+	// The scope of the API service integration granted.
+	Scope string `pulumi:"scope"`
+}
+
+// GetApiServiceIntegrationGrantedScopeInput is an input type that accepts GetApiServiceIntegrationGrantedScopeArgs and GetApiServiceIntegrationGrantedScopeOutput values.
+// You can construct a concrete instance of `GetApiServiceIntegrationGrantedScopeInput` via:
+//
+//	GetApiServiceIntegrationGrantedScopeArgs{...}
+type GetApiServiceIntegrationGrantedScopeInput interface {
+	pulumi.Input
+
+	ToGetApiServiceIntegrationGrantedScopeOutput() GetApiServiceIntegrationGrantedScopeOutput
+	ToGetApiServiceIntegrationGrantedScopeOutputWithContext(context.Context) GetApiServiceIntegrationGrantedScopeOutput
+}
+
+type GetApiServiceIntegrationGrantedScopeArgs struct {
+	// The scope of the API service integration granted.
+	Scope pulumi.StringInput `pulumi:"scope"`
+}
+
+func (GetApiServiceIntegrationGrantedScopeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApiServiceIntegrationGrantedScope)(nil)).Elem()
+}
+
+func (i GetApiServiceIntegrationGrantedScopeArgs) ToGetApiServiceIntegrationGrantedScopeOutput() GetApiServiceIntegrationGrantedScopeOutput {
+	return i.ToGetApiServiceIntegrationGrantedScopeOutputWithContext(context.Background())
+}
+
+func (i GetApiServiceIntegrationGrantedScopeArgs) ToGetApiServiceIntegrationGrantedScopeOutputWithContext(ctx context.Context) GetApiServiceIntegrationGrantedScopeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApiServiceIntegrationGrantedScopeOutput)
+}
+
+// GetApiServiceIntegrationGrantedScopeArrayInput is an input type that accepts GetApiServiceIntegrationGrantedScopeArray and GetApiServiceIntegrationGrantedScopeArrayOutput values.
+// You can construct a concrete instance of `GetApiServiceIntegrationGrantedScopeArrayInput` via:
+//
+//	GetApiServiceIntegrationGrantedScopeArray{ GetApiServiceIntegrationGrantedScopeArgs{...} }
+type GetApiServiceIntegrationGrantedScopeArrayInput interface {
+	pulumi.Input
+
+	ToGetApiServiceIntegrationGrantedScopeArrayOutput() GetApiServiceIntegrationGrantedScopeArrayOutput
+	ToGetApiServiceIntegrationGrantedScopeArrayOutputWithContext(context.Context) GetApiServiceIntegrationGrantedScopeArrayOutput
+}
+
+type GetApiServiceIntegrationGrantedScopeArray []GetApiServiceIntegrationGrantedScopeInput
+
+func (GetApiServiceIntegrationGrantedScopeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetApiServiceIntegrationGrantedScope)(nil)).Elem()
+}
+
+func (i GetApiServiceIntegrationGrantedScopeArray) ToGetApiServiceIntegrationGrantedScopeArrayOutput() GetApiServiceIntegrationGrantedScopeArrayOutput {
+	return i.ToGetApiServiceIntegrationGrantedScopeArrayOutputWithContext(context.Background())
+}
+
+func (i GetApiServiceIntegrationGrantedScopeArray) ToGetApiServiceIntegrationGrantedScopeArrayOutputWithContext(ctx context.Context) GetApiServiceIntegrationGrantedScopeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApiServiceIntegrationGrantedScopeArrayOutput)
+}
+
+type GetApiServiceIntegrationGrantedScopeOutput struct{ *pulumi.OutputState }
+
+func (GetApiServiceIntegrationGrantedScopeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApiServiceIntegrationGrantedScope)(nil)).Elem()
+}
+
+func (o GetApiServiceIntegrationGrantedScopeOutput) ToGetApiServiceIntegrationGrantedScopeOutput() GetApiServiceIntegrationGrantedScopeOutput {
+	return o
+}
+
+func (o GetApiServiceIntegrationGrantedScopeOutput) ToGetApiServiceIntegrationGrantedScopeOutputWithContext(ctx context.Context) GetApiServiceIntegrationGrantedScopeOutput {
+	return o
+}
+
+// The scope of the API service integration granted.
+func (o GetApiServiceIntegrationGrantedScopeOutput) Scope() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApiServiceIntegrationGrantedScope) string { return v.Scope }).(pulumi.StringOutput)
+}
+
+type GetApiServiceIntegrationGrantedScopeArrayOutput struct{ *pulumi.OutputState }
+
+func (GetApiServiceIntegrationGrantedScopeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetApiServiceIntegrationGrantedScope)(nil)).Elem()
+}
+
+func (o GetApiServiceIntegrationGrantedScopeArrayOutput) ToGetApiServiceIntegrationGrantedScopeArrayOutput() GetApiServiceIntegrationGrantedScopeArrayOutput {
+	return o
+}
+
+func (o GetApiServiceIntegrationGrantedScopeArrayOutput) ToGetApiServiceIntegrationGrantedScopeArrayOutputWithContext(ctx context.Context) GetApiServiceIntegrationGrantedScopeArrayOutput {
+	return o
+}
+
+func (o GetApiServiceIntegrationGrantedScopeArrayOutput) Index(i pulumi.IntInput) GetApiServiceIntegrationGrantedScopeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetApiServiceIntegrationGrantedScope {
+		return vs[0].([]GetApiServiceIntegrationGrantedScope)[vs[1].(int)]
+	}).(GetApiServiceIntegrationGrantedScopeOutput)
+}
+
+type GetApiTokenNetwork struct {
+	// The connection type of the Network Condition.
+	Connection string `pulumi:"connection"`
+	// The IP address the excluded zone.
+	Excludes []string `pulumi:"excludes"`
+	// The IP address the included zone.
+	Includes []string `pulumi:"includes"`
+}
+
+// GetApiTokenNetworkInput is an input type that accepts GetApiTokenNetworkArgs and GetApiTokenNetworkOutput values.
+// You can construct a concrete instance of `GetApiTokenNetworkInput` via:
+//
+//	GetApiTokenNetworkArgs{...}
+type GetApiTokenNetworkInput interface {
+	pulumi.Input
+
+	ToGetApiTokenNetworkOutput() GetApiTokenNetworkOutput
+	ToGetApiTokenNetworkOutputWithContext(context.Context) GetApiTokenNetworkOutput
+}
+
+type GetApiTokenNetworkArgs struct {
+	// The connection type of the Network Condition.
+	Connection pulumi.StringInput `pulumi:"connection"`
+	// The IP address the excluded zone.
+	Excludes pulumi.StringArrayInput `pulumi:"excludes"`
+	// The IP address the included zone.
+	Includes pulumi.StringArrayInput `pulumi:"includes"`
+}
+
+func (GetApiTokenNetworkArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApiTokenNetwork)(nil)).Elem()
+}
+
+func (i GetApiTokenNetworkArgs) ToGetApiTokenNetworkOutput() GetApiTokenNetworkOutput {
+	return i.ToGetApiTokenNetworkOutputWithContext(context.Background())
+}
+
+func (i GetApiTokenNetworkArgs) ToGetApiTokenNetworkOutputWithContext(ctx context.Context) GetApiTokenNetworkOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApiTokenNetworkOutput)
+}
+
+func (i GetApiTokenNetworkArgs) ToGetApiTokenNetworkPtrOutput() GetApiTokenNetworkPtrOutput {
+	return i.ToGetApiTokenNetworkPtrOutputWithContext(context.Background())
+}
+
+func (i GetApiTokenNetworkArgs) ToGetApiTokenNetworkPtrOutputWithContext(ctx context.Context) GetApiTokenNetworkPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApiTokenNetworkOutput).ToGetApiTokenNetworkPtrOutputWithContext(ctx)
+}
+
+// GetApiTokenNetworkPtrInput is an input type that accepts GetApiTokenNetworkArgs, GetApiTokenNetworkPtr and GetApiTokenNetworkPtrOutput values.
+// You can construct a concrete instance of `GetApiTokenNetworkPtrInput` via:
+//
+//	        GetApiTokenNetworkArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetApiTokenNetworkPtrInput interface {
+	pulumi.Input
+
+	ToGetApiTokenNetworkPtrOutput() GetApiTokenNetworkPtrOutput
+	ToGetApiTokenNetworkPtrOutputWithContext(context.Context) GetApiTokenNetworkPtrOutput
+}
+
+type getApiTokenNetworkPtrType GetApiTokenNetworkArgs
+
+func GetApiTokenNetworkPtr(v *GetApiTokenNetworkArgs) GetApiTokenNetworkPtrInput {
+	return (*getApiTokenNetworkPtrType)(v)
+}
+
+func (*getApiTokenNetworkPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetApiTokenNetwork)(nil)).Elem()
+}
+
+func (i *getApiTokenNetworkPtrType) ToGetApiTokenNetworkPtrOutput() GetApiTokenNetworkPtrOutput {
+	return i.ToGetApiTokenNetworkPtrOutputWithContext(context.Background())
+}
+
+func (i *getApiTokenNetworkPtrType) ToGetApiTokenNetworkPtrOutputWithContext(ctx context.Context) GetApiTokenNetworkPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApiTokenNetworkPtrOutput)
+}
+
+type GetApiTokenNetworkOutput struct{ *pulumi.OutputState }
+
+func (GetApiTokenNetworkOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApiTokenNetwork)(nil)).Elem()
+}
+
+func (o GetApiTokenNetworkOutput) ToGetApiTokenNetworkOutput() GetApiTokenNetworkOutput {
+	return o
+}
+
+func (o GetApiTokenNetworkOutput) ToGetApiTokenNetworkOutputWithContext(ctx context.Context) GetApiTokenNetworkOutput {
+	return o
+}
+
+func (o GetApiTokenNetworkOutput) ToGetApiTokenNetworkPtrOutput() GetApiTokenNetworkPtrOutput {
+	return o.ToGetApiTokenNetworkPtrOutputWithContext(context.Background())
+}
+
+func (o GetApiTokenNetworkOutput) ToGetApiTokenNetworkPtrOutputWithContext(ctx context.Context) GetApiTokenNetworkPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetApiTokenNetwork) *GetApiTokenNetwork {
+		return &v
+	}).(GetApiTokenNetworkPtrOutput)
+}
+
+// The connection type of the Network Condition.
+func (o GetApiTokenNetworkOutput) Connection() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApiTokenNetwork) string { return v.Connection }).(pulumi.StringOutput)
+}
+
+// The IP address the excluded zone.
+func (o GetApiTokenNetworkOutput) Excludes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetApiTokenNetwork) []string { return v.Excludes }).(pulumi.StringArrayOutput)
+}
+
+// The IP address the included zone.
+func (o GetApiTokenNetworkOutput) Includes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetApiTokenNetwork) []string { return v.Includes }).(pulumi.StringArrayOutput)
+}
+
+type GetApiTokenNetworkPtrOutput struct{ *pulumi.OutputState }
+
+func (GetApiTokenNetworkPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetApiTokenNetwork)(nil)).Elem()
+}
+
+func (o GetApiTokenNetworkPtrOutput) ToGetApiTokenNetworkPtrOutput() GetApiTokenNetworkPtrOutput {
+	return o
+}
+
+func (o GetApiTokenNetworkPtrOutput) ToGetApiTokenNetworkPtrOutputWithContext(ctx context.Context) GetApiTokenNetworkPtrOutput {
+	return o
+}
+
+func (o GetApiTokenNetworkPtrOutput) Elem() GetApiTokenNetworkOutput {
+	return o.ApplyT(func(v *GetApiTokenNetwork) GetApiTokenNetwork {
+		if v != nil {
+			return *v
+		}
+		var ret GetApiTokenNetwork
+		return ret
+	}).(GetApiTokenNetworkOutput)
+}
+
+// The connection type of the Network Condition.
+func (o GetApiTokenNetworkPtrOutput) Connection() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetApiTokenNetwork) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Connection
+	}).(pulumi.StringPtrOutput)
+}
+
+// The IP address the excluded zone.
+func (o GetApiTokenNetworkPtrOutput) Excludes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *GetApiTokenNetwork) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Excludes
+	}).(pulumi.StringArrayOutput)
+}
+
+// The IP address the included zone.
+func (o GetApiTokenNetworkPtrOutput) Includes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *GetApiTokenNetwork) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Includes
+	}).(pulumi.StringArrayOutput)
 }
 
 type GetAppsApp struct {
@@ -15019,6 +16554,565 @@ func (o GetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersionPtrOutput) M
 	}).(pulumi.StringPtrOutput)
 }
 
+type GetDeviceProfile struct {
+	// The disk encryption type of the device.
+	DiskEncryptionType string `pulumi:"diskEncryptionType"`
+	// The display name of the device.
+	DisplayName string `pulumi:"displayName"`
+	// The International Mobile Equipment Identity (IMEI) of the device.
+	Imei string `pulumi:"imei"`
+	// Indicates if the device is jailbroken or rooted. Only applicable to IOS and ANDROID platforms.
+	IntegrityJailBreak bool `pulumi:"integrityJailBreak"`
+	// The manufacturer of the device.
+	Manufacturer string `pulumi:"manufacturer"`
+	// The Mobile Equipment Identifier (MEID) of the device.
+	Meid string `pulumi:"meid"`
+	// The model of the device.
+	Model string `pulumi:"model"`
+	// The OS version of the device.
+	OsVersion string `pulumi:"osVersion"`
+	// The platform of the device.
+	Platform string `pulumi:"platform"`
+	// Indicates if the device is registered at Okta.
+	Registered bool `pulumi:"registered"`
+	// Indicates if secure hardware is present on the device.
+	SecureHardwarePresent bool `pulumi:"secureHardwarePresent"`
+	// The serial number of the device.
+	SerialNumber string `pulumi:"serialNumber"`
+	// The Security Identifier (SID) of the device.
+	Sid string `pulumi:"sid"`
+	// Windows Trusted Platform Module hash value.
+	TpmPublicKeyHash string `pulumi:"tpmPublicKeyHash"`
+	// MacOS Unique device identifier of the device.
+	Udid string `pulumi:"udid"`
+}
+
+// GetDeviceProfileInput is an input type that accepts GetDeviceProfileArgs and GetDeviceProfileOutput values.
+// You can construct a concrete instance of `GetDeviceProfileInput` via:
+//
+//	GetDeviceProfileArgs{...}
+type GetDeviceProfileInput interface {
+	pulumi.Input
+
+	ToGetDeviceProfileOutput() GetDeviceProfileOutput
+	ToGetDeviceProfileOutputWithContext(context.Context) GetDeviceProfileOutput
+}
+
+type GetDeviceProfileArgs struct {
+	// The disk encryption type of the device.
+	DiskEncryptionType pulumi.StringInput `pulumi:"diskEncryptionType"`
+	// The display name of the device.
+	DisplayName pulumi.StringInput `pulumi:"displayName"`
+	// The International Mobile Equipment Identity (IMEI) of the device.
+	Imei pulumi.StringInput `pulumi:"imei"`
+	// Indicates if the device is jailbroken or rooted. Only applicable to IOS and ANDROID platforms.
+	IntegrityJailBreak pulumi.BoolInput `pulumi:"integrityJailBreak"`
+	// The manufacturer of the device.
+	Manufacturer pulumi.StringInput `pulumi:"manufacturer"`
+	// The Mobile Equipment Identifier (MEID) of the device.
+	Meid pulumi.StringInput `pulumi:"meid"`
+	// The model of the device.
+	Model pulumi.StringInput `pulumi:"model"`
+	// The OS version of the device.
+	OsVersion pulumi.StringInput `pulumi:"osVersion"`
+	// The platform of the device.
+	Platform pulumi.StringInput `pulumi:"platform"`
+	// Indicates if the device is registered at Okta.
+	Registered pulumi.BoolInput `pulumi:"registered"`
+	// Indicates if secure hardware is present on the device.
+	SecureHardwarePresent pulumi.BoolInput `pulumi:"secureHardwarePresent"`
+	// The serial number of the device.
+	SerialNumber pulumi.StringInput `pulumi:"serialNumber"`
+	// The Security Identifier (SID) of the device.
+	Sid pulumi.StringInput `pulumi:"sid"`
+	// Windows Trusted Platform Module hash value.
+	TpmPublicKeyHash pulumi.StringInput `pulumi:"tpmPublicKeyHash"`
+	// MacOS Unique device identifier of the device.
+	Udid pulumi.StringInput `pulumi:"udid"`
+}
+
+func (GetDeviceProfileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDeviceProfile)(nil)).Elem()
+}
+
+func (i GetDeviceProfileArgs) ToGetDeviceProfileOutput() GetDeviceProfileOutput {
+	return i.ToGetDeviceProfileOutputWithContext(context.Background())
+}
+
+func (i GetDeviceProfileArgs) ToGetDeviceProfileOutputWithContext(ctx context.Context) GetDeviceProfileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDeviceProfileOutput)
+}
+
+func (i GetDeviceProfileArgs) ToGetDeviceProfilePtrOutput() GetDeviceProfilePtrOutput {
+	return i.ToGetDeviceProfilePtrOutputWithContext(context.Background())
+}
+
+func (i GetDeviceProfileArgs) ToGetDeviceProfilePtrOutputWithContext(ctx context.Context) GetDeviceProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDeviceProfileOutput).ToGetDeviceProfilePtrOutputWithContext(ctx)
+}
+
+// GetDeviceProfilePtrInput is an input type that accepts GetDeviceProfileArgs, GetDeviceProfilePtr and GetDeviceProfilePtrOutput values.
+// You can construct a concrete instance of `GetDeviceProfilePtrInput` via:
+//
+//	        GetDeviceProfileArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetDeviceProfilePtrInput interface {
+	pulumi.Input
+
+	ToGetDeviceProfilePtrOutput() GetDeviceProfilePtrOutput
+	ToGetDeviceProfilePtrOutputWithContext(context.Context) GetDeviceProfilePtrOutput
+}
+
+type getDeviceProfilePtrType GetDeviceProfileArgs
+
+func GetDeviceProfilePtr(v *GetDeviceProfileArgs) GetDeviceProfilePtrInput {
+	return (*getDeviceProfilePtrType)(v)
+}
+
+func (*getDeviceProfilePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetDeviceProfile)(nil)).Elem()
+}
+
+func (i *getDeviceProfilePtrType) ToGetDeviceProfilePtrOutput() GetDeviceProfilePtrOutput {
+	return i.ToGetDeviceProfilePtrOutputWithContext(context.Background())
+}
+
+func (i *getDeviceProfilePtrType) ToGetDeviceProfilePtrOutputWithContext(ctx context.Context) GetDeviceProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDeviceProfilePtrOutput)
+}
+
+type GetDeviceProfileOutput struct{ *pulumi.OutputState }
+
+func (GetDeviceProfileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDeviceProfile)(nil)).Elem()
+}
+
+func (o GetDeviceProfileOutput) ToGetDeviceProfileOutput() GetDeviceProfileOutput {
+	return o
+}
+
+func (o GetDeviceProfileOutput) ToGetDeviceProfileOutputWithContext(ctx context.Context) GetDeviceProfileOutput {
+	return o
+}
+
+func (o GetDeviceProfileOutput) ToGetDeviceProfilePtrOutput() GetDeviceProfilePtrOutput {
+	return o.ToGetDeviceProfilePtrOutputWithContext(context.Background())
+}
+
+func (o GetDeviceProfileOutput) ToGetDeviceProfilePtrOutputWithContext(ctx context.Context) GetDeviceProfilePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetDeviceProfile) *GetDeviceProfile {
+		return &v
+	}).(GetDeviceProfilePtrOutput)
+}
+
+// The disk encryption type of the device.
+func (o GetDeviceProfileOutput) DiskEncryptionType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDeviceProfile) string { return v.DiskEncryptionType }).(pulumi.StringOutput)
+}
+
+// The display name of the device.
+func (o GetDeviceProfileOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDeviceProfile) string { return v.DisplayName }).(pulumi.StringOutput)
+}
+
+// The International Mobile Equipment Identity (IMEI) of the device.
+func (o GetDeviceProfileOutput) Imei() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDeviceProfile) string { return v.Imei }).(pulumi.StringOutput)
+}
+
+// Indicates if the device is jailbroken or rooted. Only applicable to IOS and ANDROID platforms.
+func (o GetDeviceProfileOutput) IntegrityJailBreak() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetDeviceProfile) bool { return v.IntegrityJailBreak }).(pulumi.BoolOutput)
+}
+
+// The manufacturer of the device.
+func (o GetDeviceProfileOutput) Manufacturer() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDeviceProfile) string { return v.Manufacturer }).(pulumi.StringOutput)
+}
+
+// The Mobile Equipment Identifier (MEID) of the device.
+func (o GetDeviceProfileOutput) Meid() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDeviceProfile) string { return v.Meid }).(pulumi.StringOutput)
+}
+
+// The model of the device.
+func (o GetDeviceProfileOutput) Model() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDeviceProfile) string { return v.Model }).(pulumi.StringOutput)
+}
+
+// The OS version of the device.
+func (o GetDeviceProfileOutput) OsVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDeviceProfile) string { return v.OsVersion }).(pulumi.StringOutput)
+}
+
+// The platform of the device.
+func (o GetDeviceProfileOutput) Platform() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDeviceProfile) string { return v.Platform }).(pulumi.StringOutput)
+}
+
+// Indicates if the device is registered at Okta.
+func (o GetDeviceProfileOutput) Registered() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetDeviceProfile) bool { return v.Registered }).(pulumi.BoolOutput)
+}
+
+// Indicates if secure hardware is present on the device.
+func (o GetDeviceProfileOutput) SecureHardwarePresent() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetDeviceProfile) bool { return v.SecureHardwarePresent }).(pulumi.BoolOutput)
+}
+
+// The serial number of the device.
+func (o GetDeviceProfileOutput) SerialNumber() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDeviceProfile) string { return v.SerialNumber }).(pulumi.StringOutput)
+}
+
+// The Security Identifier (SID) of the device.
+func (o GetDeviceProfileOutput) Sid() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDeviceProfile) string { return v.Sid }).(pulumi.StringOutput)
+}
+
+// Windows Trusted Platform Module hash value.
+func (o GetDeviceProfileOutput) TpmPublicKeyHash() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDeviceProfile) string { return v.TpmPublicKeyHash }).(pulumi.StringOutput)
+}
+
+// MacOS Unique device identifier of the device.
+func (o GetDeviceProfileOutput) Udid() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDeviceProfile) string { return v.Udid }).(pulumi.StringOutput)
+}
+
+type GetDeviceProfilePtrOutput struct{ *pulumi.OutputState }
+
+func (GetDeviceProfilePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetDeviceProfile)(nil)).Elem()
+}
+
+func (o GetDeviceProfilePtrOutput) ToGetDeviceProfilePtrOutput() GetDeviceProfilePtrOutput {
+	return o
+}
+
+func (o GetDeviceProfilePtrOutput) ToGetDeviceProfilePtrOutputWithContext(ctx context.Context) GetDeviceProfilePtrOutput {
+	return o
+}
+
+func (o GetDeviceProfilePtrOutput) Elem() GetDeviceProfileOutput {
+	return o.ApplyT(func(v *GetDeviceProfile) GetDeviceProfile {
+		if v != nil {
+			return *v
+		}
+		var ret GetDeviceProfile
+		return ret
+	}).(GetDeviceProfileOutput)
+}
+
+// The disk encryption type of the device.
+func (o GetDeviceProfilePtrOutput) DiskEncryptionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetDeviceProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DiskEncryptionType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The display name of the device.
+func (o GetDeviceProfilePtrOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetDeviceProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DisplayName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The International Mobile Equipment Identity (IMEI) of the device.
+func (o GetDeviceProfilePtrOutput) Imei() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetDeviceProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Imei
+	}).(pulumi.StringPtrOutput)
+}
+
+// Indicates if the device is jailbroken or rooted. Only applicable to IOS and ANDROID platforms.
+func (o GetDeviceProfilePtrOutput) IntegrityJailBreak() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetDeviceProfile) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.IntegrityJailBreak
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The manufacturer of the device.
+func (o GetDeviceProfilePtrOutput) Manufacturer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetDeviceProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Manufacturer
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Mobile Equipment Identifier (MEID) of the device.
+func (o GetDeviceProfilePtrOutput) Meid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetDeviceProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Meid
+	}).(pulumi.StringPtrOutput)
+}
+
+// The model of the device.
+func (o GetDeviceProfilePtrOutput) Model() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetDeviceProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Model
+	}).(pulumi.StringPtrOutput)
+}
+
+// The OS version of the device.
+func (o GetDeviceProfilePtrOutput) OsVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetDeviceProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.OsVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+// The platform of the device.
+func (o GetDeviceProfilePtrOutput) Platform() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetDeviceProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Platform
+	}).(pulumi.StringPtrOutput)
+}
+
+// Indicates if the device is registered at Okta.
+func (o GetDeviceProfilePtrOutput) Registered() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetDeviceProfile) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Registered
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Indicates if secure hardware is present on the device.
+func (o GetDeviceProfilePtrOutput) SecureHardwarePresent() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetDeviceProfile) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.SecureHardwarePresent
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The serial number of the device.
+func (o GetDeviceProfilePtrOutput) SerialNumber() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetDeviceProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SerialNumber
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Security Identifier (SID) of the device.
+func (o GetDeviceProfilePtrOutput) Sid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetDeviceProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Sid
+	}).(pulumi.StringPtrOutput)
+}
+
+// Windows Trusted Platform Module hash value.
+func (o GetDeviceProfilePtrOutput) TpmPublicKeyHash() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetDeviceProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TpmPublicKeyHash
+	}).(pulumi.StringPtrOutput)
+}
+
+// MacOS Unique device identifier of the device.
+func (o GetDeviceProfilePtrOutput) Udid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetDeviceProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Udid
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetDeviceResourceDisplayName struct {
+	// Indicates if the resource display name is sensitive.
+	Sensitive bool `pulumi:"sensitive"`
+	// The value of the resource display name.
+	Value string `pulumi:"value"`
+}
+
+// GetDeviceResourceDisplayNameInput is an input type that accepts GetDeviceResourceDisplayNameArgs and GetDeviceResourceDisplayNameOutput values.
+// You can construct a concrete instance of `GetDeviceResourceDisplayNameInput` via:
+//
+//	GetDeviceResourceDisplayNameArgs{...}
+type GetDeviceResourceDisplayNameInput interface {
+	pulumi.Input
+
+	ToGetDeviceResourceDisplayNameOutput() GetDeviceResourceDisplayNameOutput
+	ToGetDeviceResourceDisplayNameOutputWithContext(context.Context) GetDeviceResourceDisplayNameOutput
+}
+
+type GetDeviceResourceDisplayNameArgs struct {
+	// Indicates if the resource display name is sensitive.
+	Sensitive pulumi.BoolInput `pulumi:"sensitive"`
+	// The value of the resource display name.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetDeviceResourceDisplayNameArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDeviceResourceDisplayName)(nil)).Elem()
+}
+
+func (i GetDeviceResourceDisplayNameArgs) ToGetDeviceResourceDisplayNameOutput() GetDeviceResourceDisplayNameOutput {
+	return i.ToGetDeviceResourceDisplayNameOutputWithContext(context.Background())
+}
+
+func (i GetDeviceResourceDisplayNameArgs) ToGetDeviceResourceDisplayNameOutputWithContext(ctx context.Context) GetDeviceResourceDisplayNameOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDeviceResourceDisplayNameOutput)
+}
+
+func (i GetDeviceResourceDisplayNameArgs) ToGetDeviceResourceDisplayNamePtrOutput() GetDeviceResourceDisplayNamePtrOutput {
+	return i.ToGetDeviceResourceDisplayNamePtrOutputWithContext(context.Background())
+}
+
+func (i GetDeviceResourceDisplayNameArgs) ToGetDeviceResourceDisplayNamePtrOutputWithContext(ctx context.Context) GetDeviceResourceDisplayNamePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDeviceResourceDisplayNameOutput).ToGetDeviceResourceDisplayNamePtrOutputWithContext(ctx)
+}
+
+// GetDeviceResourceDisplayNamePtrInput is an input type that accepts GetDeviceResourceDisplayNameArgs, GetDeviceResourceDisplayNamePtr and GetDeviceResourceDisplayNamePtrOutput values.
+// You can construct a concrete instance of `GetDeviceResourceDisplayNamePtrInput` via:
+//
+//	        GetDeviceResourceDisplayNameArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetDeviceResourceDisplayNamePtrInput interface {
+	pulumi.Input
+
+	ToGetDeviceResourceDisplayNamePtrOutput() GetDeviceResourceDisplayNamePtrOutput
+	ToGetDeviceResourceDisplayNamePtrOutputWithContext(context.Context) GetDeviceResourceDisplayNamePtrOutput
+}
+
+type getDeviceResourceDisplayNamePtrType GetDeviceResourceDisplayNameArgs
+
+func GetDeviceResourceDisplayNamePtr(v *GetDeviceResourceDisplayNameArgs) GetDeviceResourceDisplayNamePtrInput {
+	return (*getDeviceResourceDisplayNamePtrType)(v)
+}
+
+func (*getDeviceResourceDisplayNamePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetDeviceResourceDisplayName)(nil)).Elem()
+}
+
+func (i *getDeviceResourceDisplayNamePtrType) ToGetDeviceResourceDisplayNamePtrOutput() GetDeviceResourceDisplayNamePtrOutput {
+	return i.ToGetDeviceResourceDisplayNamePtrOutputWithContext(context.Background())
+}
+
+func (i *getDeviceResourceDisplayNamePtrType) ToGetDeviceResourceDisplayNamePtrOutputWithContext(ctx context.Context) GetDeviceResourceDisplayNamePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDeviceResourceDisplayNamePtrOutput)
+}
+
+type GetDeviceResourceDisplayNameOutput struct{ *pulumi.OutputState }
+
+func (GetDeviceResourceDisplayNameOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDeviceResourceDisplayName)(nil)).Elem()
+}
+
+func (o GetDeviceResourceDisplayNameOutput) ToGetDeviceResourceDisplayNameOutput() GetDeviceResourceDisplayNameOutput {
+	return o
+}
+
+func (o GetDeviceResourceDisplayNameOutput) ToGetDeviceResourceDisplayNameOutputWithContext(ctx context.Context) GetDeviceResourceDisplayNameOutput {
+	return o
+}
+
+func (o GetDeviceResourceDisplayNameOutput) ToGetDeviceResourceDisplayNamePtrOutput() GetDeviceResourceDisplayNamePtrOutput {
+	return o.ToGetDeviceResourceDisplayNamePtrOutputWithContext(context.Background())
+}
+
+func (o GetDeviceResourceDisplayNameOutput) ToGetDeviceResourceDisplayNamePtrOutputWithContext(ctx context.Context) GetDeviceResourceDisplayNamePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetDeviceResourceDisplayName) *GetDeviceResourceDisplayName {
+		return &v
+	}).(GetDeviceResourceDisplayNamePtrOutput)
+}
+
+// Indicates if the resource display name is sensitive.
+func (o GetDeviceResourceDisplayNameOutput) Sensitive() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetDeviceResourceDisplayName) bool { return v.Sensitive }).(pulumi.BoolOutput)
+}
+
+// The value of the resource display name.
+func (o GetDeviceResourceDisplayNameOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDeviceResourceDisplayName) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetDeviceResourceDisplayNamePtrOutput struct{ *pulumi.OutputState }
+
+func (GetDeviceResourceDisplayNamePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetDeviceResourceDisplayName)(nil)).Elem()
+}
+
+func (o GetDeviceResourceDisplayNamePtrOutput) ToGetDeviceResourceDisplayNamePtrOutput() GetDeviceResourceDisplayNamePtrOutput {
+	return o
+}
+
+func (o GetDeviceResourceDisplayNamePtrOutput) ToGetDeviceResourceDisplayNamePtrOutputWithContext(ctx context.Context) GetDeviceResourceDisplayNamePtrOutput {
+	return o
+}
+
+func (o GetDeviceResourceDisplayNamePtrOutput) Elem() GetDeviceResourceDisplayNameOutput {
+	return o.ApplyT(func(v *GetDeviceResourceDisplayName) GetDeviceResourceDisplayName {
+		if v != nil {
+			return *v
+		}
+		var ret GetDeviceResourceDisplayName
+		return ret
+	}).(GetDeviceResourceDisplayNameOutput)
+}
+
+// Indicates if the resource display name is sensitive.
+func (o GetDeviceResourceDisplayNamePtrOutput) Sensitive() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetDeviceResourceDisplayName) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Sensitive
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The value of the resource display name.
+func (o GetDeviceResourceDisplayNamePtrOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetDeviceResourceDisplayName) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Value
+	}).(pulumi.StringPtrOutput)
+}
+
 type GetDomainDnsRecord struct {
 	// TXT record expiration
 	Expiration string `pulumi:"expiration"`
@@ -18754,6 +20848,628 @@ func (o GetPrincipalEntitlementsTargetPrincipalPtrOutput) Type() pulumi.StringPt
 			return nil
 		}
 		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetPushProviderConfiguration struct {
+	ApnsConfiguration *GetPushProviderConfigurationApnsConfiguration `pulumi:"apnsConfiguration"`
+	FcmConfiguration  *GetPushProviderConfigurationFcmConfiguration  `pulumi:"fcmConfiguration"`
+}
+
+// GetPushProviderConfigurationInput is an input type that accepts GetPushProviderConfigurationArgs and GetPushProviderConfigurationOutput values.
+// You can construct a concrete instance of `GetPushProviderConfigurationInput` via:
+//
+//	GetPushProviderConfigurationArgs{...}
+type GetPushProviderConfigurationInput interface {
+	pulumi.Input
+
+	ToGetPushProviderConfigurationOutput() GetPushProviderConfigurationOutput
+	ToGetPushProviderConfigurationOutputWithContext(context.Context) GetPushProviderConfigurationOutput
+}
+
+type GetPushProviderConfigurationArgs struct {
+	ApnsConfiguration GetPushProviderConfigurationApnsConfigurationPtrInput `pulumi:"apnsConfiguration"`
+	FcmConfiguration  GetPushProviderConfigurationFcmConfigurationPtrInput  `pulumi:"fcmConfiguration"`
+}
+
+func (GetPushProviderConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPushProviderConfiguration)(nil)).Elem()
+}
+
+func (i GetPushProviderConfigurationArgs) ToGetPushProviderConfigurationOutput() GetPushProviderConfigurationOutput {
+	return i.ToGetPushProviderConfigurationOutputWithContext(context.Background())
+}
+
+func (i GetPushProviderConfigurationArgs) ToGetPushProviderConfigurationOutputWithContext(ctx context.Context) GetPushProviderConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPushProviderConfigurationOutput)
+}
+
+func (i GetPushProviderConfigurationArgs) ToGetPushProviderConfigurationPtrOutput() GetPushProviderConfigurationPtrOutput {
+	return i.ToGetPushProviderConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i GetPushProviderConfigurationArgs) ToGetPushProviderConfigurationPtrOutputWithContext(ctx context.Context) GetPushProviderConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPushProviderConfigurationOutput).ToGetPushProviderConfigurationPtrOutputWithContext(ctx)
+}
+
+// GetPushProviderConfigurationPtrInput is an input type that accepts GetPushProviderConfigurationArgs, GetPushProviderConfigurationPtr and GetPushProviderConfigurationPtrOutput values.
+// You can construct a concrete instance of `GetPushProviderConfigurationPtrInput` via:
+//
+//	        GetPushProviderConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetPushProviderConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToGetPushProviderConfigurationPtrOutput() GetPushProviderConfigurationPtrOutput
+	ToGetPushProviderConfigurationPtrOutputWithContext(context.Context) GetPushProviderConfigurationPtrOutput
+}
+
+type getPushProviderConfigurationPtrType GetPushProviderConfigurationArgs
+
+func GetPushProviderConfigurationPtr(v *GetPushProviderConfigurationArgs) GetPushProviderConfigurationPtrInput {
+	return (*getPushProviderConfigurationPtrType)(v)
+}
+
+func (*getPushProviderConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetPushProviderConfiguration)(nil)).Elem()
+}
+
+func (i *getPushProviderConfigurationPtrType) ToGetPushProviderConfigurationPtrOutput() GetPushProviderConfigurationPtrOutput {
+	return i.ToGetPushProviderConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *getPushProviderConfigurationPtrType) ToGetPushProviderConfigurationPtrOutputWithContext(ctx context.Context) GetPushProviderConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPushProviderConfigurationPtrOutput)
+}
+
+type GetPushProviderConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GetPushProviderConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPushProviderConfiguration)(nil)).Elem()
+}
+
+func (o GetPushProviderConfigurationOutput) ToGetPushProviderConfigurationOutput() GetPushProviderConfigurationOutput {
+	return o
+}
+
+func (o GetPushProviderConfigurationOutput) ToGetPushProviderConfigurationOutputWithContext(ctx context.Context) GetPushProviderConfigurationOutput {
+	return o
+}
+
+func (o GetPushProviderConfigurationOutput) ToGetPushProviderConfigurationPtrOutput() GetPushProviderConfigurationPtrOutput {
+	return o.ToGetPushProviderConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o GetPushProviderConfigurationOutput) ToGetPushProviderConfigurationPtrOutputWithContext(ctx context.Context) GetPushProviderConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetPushProviderConfiguration) *GetPushProviderConfiguration {
+		return &v
+	}).(GetPushProviderConfigurationPtrOutput)
+}
+
+func (o GetPushProviderConfigurationOutput) ApnsConfiguration() GetPushProviderConfigurationApnsConfigurationPtrOutput {
+	return o.ApplyT(func(v GetPushProviderConfiguration) *GetPushProviderConfigurationApnsConfiguration {
+		return v.ApnsConfiguration
+	}).(GetPushProviderConfigurationApnsConfigurationPtrOutput)
+}
+
+func (o GetPushProviderConfigurationOutput) FcmConfiguration() GetPushProviderConfigurationFcmConfigurationPtrOutput {
+	return o.ApplyT(func(v GetPushProviderConfiguration) *GetPushProviderConfigurationFcmConfiguration {
+		return v.FcmConfiguration
+	}).(GetPushProviderConfigurationFcmConfigurationPtrOutput)
+}
+
+type GetPushProviderConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (GetPushProviderConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetPushProviderConfiguration)(nil)).Elem()
+}
+
+func (o GetPushProviderConfigurationPtrOutput) ToGetPushProviderConfigurationPtrOutput() GetPushProviderConfigurationPtrOutput {
+	return o
+}
+
+func (o GetPushProviderConfigurationPtrOutput) ToGetPushProviderConfigurationPtrOutputWithContext(ctx context.Context) GetPushProviderConfigurationPtrOutput {
+	return o
+}
+
+func (o GetPushProviderConfigurationPtrOutput) Elem() GetPushProviderConfigurationOutput {
+	return o.ApplyT(func(v *GetPushProviderConfiguration) GetPushProviderConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret GetPushProviderConfiguration
+		return ret
+	}).(GetPushProviderConfigurationOutput)
+}
+
+func (o GetPushProviderConfigurationPtrOutput) ApnsConfiguration() GetPushProviderConfigurationApnsConfigurationPtrOutput {
+	return o.ApplyT(func(v *GetPushProviderConfiguration) *GetPushProviderConfigurationApnsConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.ApnsConfiguration
+	}).(GetPushProviderConfigurationApnsConfigurationPtrOutput)
+}
+
+func (o GetPushProviderConfigurationPtrOutput) FcmConfiguration() GetPushProviderConfigurationFcmConfigurationPtrOutput {
+	return o.ApplyT(func(v *GetPushProviderConfiguration) *GetPushProviderConfigurationFcmConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.FcmConfiguration
+	}).(GetPushProviderConfigurationFcmConfigurationPtrOutput)
+}
+
+type GetPushProviderConfigurationApnsConfiguration struct {
+	// File name for Admin Console display.
+	FileName string `pulumi:"fileName"`
+	// 10-character Key ID obtained from the Apple developer account. Required for APNS provider type.
+	KeyId string `pulumi:"keyId"`
+	// 10-character Team ID used to develop the iOS app. Required for APNS provider type.
+	TeamId string `pulumi:"teamId"`
+}
+
+// GetPushProviderConfigurationApnsConfigurationInput is an input type that accepts GetPushProviderConfigurationApnsConfigurationArgs and GetPushProviderConfigurationApnsConfigurationOutput values.
+// You can construct a concrete instance of `GetPushProviderConfigurationApnsConfigurationInput` via:
+//
+//	GetPushProviderConfigurationApnsConfigurationArgs{...}
+type GetPushProviderConfigurationApnsConfigurationInput interface {
+	pulumi.Input
+
+	ToGetPushProviderConfigurationApnsConfigurationOutput() GetPushProviderConfigurationApnsConfigurationOutput
+	ToGetPushProviderConfigurationApnsConfigurationOutputWithContext(context.Context) GetPushProviderConfigurationApnsConfigurationOutput
+}
+
+type GetPushProviderConfigurationApnsConfigurationArgs struct {
+	// File name for Admin Console display.
+	FileName pulumi.StringInput `pulumi:"fileName"`
+	// 10-character Key ID obtained from the Apple developer account. Required for APNS provider type.
+	KeyId pulumi.StringInput `pulumi:"keyId"`
+	// 10-character Team ID used to develop the iOS app. Required for APNS provider type.
+	TeamId pulumi.StringInput `pulumi:"teamId"`
+}
+
+func (GetPushProviderConfigurationApnsConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPushProviderConfigurationApnsConfiguration)(nil)).Elem()
+}
+
+func (i GetPushProviderConfigurationApnsConfigurationArgs) ToGetPushProviderConfigurationApnsConfigurationOutput() GetPushProviderConfigurationApnsConfigurationOutput {
+	return i.ToGetPushProviderConfigurationApnsConfigurationOutputWithContext(context.Background())
+}
+
+func (i GetPushProviderConfigurationApnsConfigurationArgs) ToGetPushProviderConfigurationApnsConfigurationOutputWithContext(ctx context.Context) GetPushProviderConfigurationApnsConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPushProviderConfigurationApnsConfigurationOutput)
+}
+
+func (i GetPushProviderConfigurationApnsConfigurationArgs) ToGetPushProviderConfigurationApnsConfigurationPtrOutput() GetPushProviderConfigurationApnsConfigurationPtrOutput {
+	return i.ToGetPushProviderConfigurationApnsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i GetPushProviderConfigurationApnsConfigurationArgs) ToGetPushProviderConfigurationApnsConfigurationPtrOutputWithContext(ctx context.Context) GetPushProviderConfigurationApnsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPushProviderConfigurationApnsConfigurationOutput).ToGetPushProviderConfigurationApnsConfigurationPtrOutputWithContext(ctx)
+}
+
+// GetPushProviderConfigurationApnsConfigurationPtrInput is an input type that accepts GetPushProviderConfigurationApnsConfigurationArgs, GetPushProviderConfigurationApnsConfigurationPtr and GetPushProviderConfigurationApnsConfigurationPtrOutput values.
+// You can construct a concrete instance of `GetPushProviderConfigurationApnsConfigurationPtrInput` via:
+//
+//	        GetPushProviderConfigurationApnsConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetPushProviderConfigurationApnsConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToGetPushProviderConfigurationApnsConfigurationPtrOutput() GetPushProviderConfigurationApnsConfigurationPtrOutput
+	ToGetPushProviderConfigurationApnsConfigurationPtrOutputWithContext(context.Context) GetPushProviderConfigurationApnsConfigurationPtrOutput
+}
+
+type getPushProviderConfigurationApnsConfigurationPtrType GetPushProviderConfigurationApnsConfigurationArgs
+
+func GetPushProviderConfigurationApnsConfigurationPtr(v *GetPushProviderConfigurationApnsConfigurationArgs) GetPushProviderConfigurationApnsConfigurationPtrInput {
+	return (*getPushProviderConfigurationApnsConfigurationPtrType)(v)
+}
+
+func (*getPushProviderConfigurationApnsConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetPushProviderConfigurationApnsConfiguration)(nil)).Elem()
+}
+
+func (i *getPushProviderConfigurationApnsConfigurationPtrType) ToGetPushProviderConfigurationApnsConfigurationPtrOutput() GetPushProviderConfigurationApnsConfigurationPtrOutput {
+	return i.ToGetPushProviderConfigurationApnsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *getPushProviderConfigurationApnsConfigurationPtrType) ToGetPushProviderConfigurationApnsConfigurationPtrOutputWithContext(ctx context.Context) GetPushProviderConfigurationApnsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPushProviderConfigurationApnsConfigurationPtrOutput)
+}
+
+type GetPushProviderConfigurationApnsConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GetPushProviderConfigurationApnsConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPushProviderConfigurationApnsConfiguration)(nil)).Elem()
+}
+
+func (o GetPushProviderConfigurationApnsConfigurationOutput) ToGetPushProviderConfigurationApnsConfigurationOutput() GetPushProviderConfigurationApnsConfigurationOutput {
+	return o
+}
+
+func (o GetPushProviderConfigurationApnsConfigurationOutput) ToGetPushProviderConfigurationApnsConfigurationOutputWithContext(ctx context.Context) GetPushProviderConfigurationApnsConfigurationOutput {
+	return o
+}
+
+func (o GetPushProviderConfigurationApnsConfigurationOutput) ToGetPushProviderConfigurationApnsConfigurationPtrOutput() GetPushProviderConfigurationApnsConfigurationPtrOutput {
+	return o.ToGetPushProviderConfigurationApnsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o GetPushProviderConfigurationApnsConfigurationOutput) ToGetPushProviderConfigurationApnsConfigurationPtrOutputWithContext(ctx context.Context) GetPushProviderConfigurationApnsConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetPushProviderConfigurationApnsConfiguration) *GetPushProviderConfigurationApnsConfiguration {
+		return &v
+	}).(GetPushProviderConfigurationApnsConfigurationPtrOutput)
+}
+
+// File name for Admin Console display.
+func (o GetPushProviderConfigurationApnsConfigurationOutput) FileName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPushProviderConfigurationApnsConfiguration) string { return v.FileName }).(pulumi.StringOutput)
+}
+
+// 10-character Key ID obtained from the Apple developer account. Required for APNS provider type.
+func (o GetPushProviderConfigurationApnsConfigurationOutput) KeyId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPushProviderConfigurationApnsConfiguration) string { return v.KeyId }).(pulumi.StringOutput)
+}
+
+// 10-character Team ID used to develop the iOS app. Required for APNS provider type.
+func (o GetPushProviderConfigurationApnsConfigurationOutput) TeamId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPushProviderConfigurationApnsConfiguration) string { return v.TeamId }).(pulumi.StringOutput)
+}
+
+type GetPushProviderConfigurationApnsConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (GetPushProviderConfigurationApnsConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetPushProviderConfigurationApnsConfiguration)(nil)).Elem()
+}
+
+func (o GetPushProviderConfigurationApnsConfigurationPtrOutput) ToGetPushProviderConfigurationApnsConfigurationPtrOutput() GetPushProviderConfigurationApnsConfigurationPtrOutput {
+	return o
+}
+
+func (o GetPushProviderConfigurationApnsConfigurationPtrOutput) ToGetPushProviderConfigurationApnsConfigurationPtrOutputWithContext(ctx context.Context) GetPushProviderConfigurationApnsConfigurationPtrOutput {
+	return o
+}
+
+func (o GetPushProviderConfigurationApnsConfigurationPtrOutput) Elem() GetPushProviderConfigurationApnsConfigurationOutput {
+	return o.ApplyT(func(v *GetPushProviderConfigurationApnsConfiguration) GetPushProviderConfigurationApnsConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret GetPushProviderConfigurationApnsConfiguration
+		return ret
+	}).(GetPushProviderConfigurationApnsConfigurationOutput)
+}
+
+// File name for Admin Console display.
+func (o GetPushProviderConfigurationApnsConfigurationPtrOutput) FileName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetPushProviderConfigurationApnsConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.FileName
+	}).(pulumi.StringPtrOutput)
+}
+
+// 10-character Key ID obtained from the Apple developer account. Required for APNS provider type.
+func (o GetPushProviderConfigurationApnsConfigurationPtrOutput) KeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetPushProviderConfigurationApnsConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.KeyId
+	}).(pulumi.StringPtrOutput)
+}
+
+// 10-character Team ID used to develop the iOS app. Required for APNS provider type.
+func (o GetPushProviderConfigurationApnsConfigurationPtrOutput) TeamId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetPushProviderConfigurationApnsConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TeamId
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetPushProviderConfigurationFcmConfiguration struct {
+	// JSON containing the private service account key and service account details. Required for FCM provider type.
+	ServiceAccountJson *GetPushProviderConfigurationFcmConfigurationServiceAccountJson `pulumi:"serviceAccountJson"`
+}
+
+// GetPushProviderConfigurationFcmConfigurationInput is an input type that accepts GetPushProviderConfigurationFcmConfigurationArgs and GetPushProviderConfigurationFcmConfigurationOutput values.
+// You can construct a concrete instance of `GetPushProviderConfigurationFcmConfigurationInput` via:
+//
+//	GetPushProviderConfigurationFcmConfigurationArgs{...}
+type GetPushProviderConfigurationFcmConfigurationInput interface {
+	pulumi.Input
+
+	ToGetPushProviderConfigurationFcmConfigurationOutput() GetPushProviderConfigurationFcmConfigurationOutput
+	ToGetPushProviderConfigurationFcmConfigurationOutputWithContext(context.Context) GetPushProviderConfigurationFcmConfigurationOutput
+}
+
+type GetPushProviderConfigurationFcmConfigurationArgs struct {
+	// JSON containing the private service account key and service account details. Required for FCM provider type.
+	ServiceAccountJson GetPushProviderConfigurationFcmConfigurationServiceAccountJsonPtrInput `pulumi:"serviceAccountJson"`
+}
+
+func (GetPushProviderConfigurationFcmConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPushProviderConfigurationFcmConfiguration)(nil)).Elem()
+}
+
+func (i GetPushProviderConfigurationFcmConfigurationArgs) ToGetPushProviderConfigurationFcmConfigurationOutput() GetPushProviderConfigurationFcmConfigurationOutput {
+	return i.ToGetPushProviderConfigurationFcmConfigurationOutputWithContext(context.Background())
+}
+
+func (i GetPushProviderConfigurationFcmConfigurationArgs) ToGetPushProviderConfigurationFcmConfigurationOutputWithContext(ctx context.Context) GetPushProviderConfigurationFcmConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPushProviderConfigurationFcmConfigurationOutput)
+}
+
+func (i GetPushProviderConfigurationFcmConfigurationArgs) ToGetPushProviderConfigurationFcmConfigurationPtrOutput() GetPushProviderConfigurationFcmConfigurationPtrOutput {
+	return i.ToGetPushProviderConfigurationFcmConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i GetPushProviderConfigurationFcmConfigurationArgs) ToGetPushProviderConfigurationFcmConfigurationPtrOutputWithContext(ctx context.Context) GetPushProviderConfigurationFcmConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPushProviderConfigurationFcmConfigurationOutput).ToGetPushProviderConfigurationFcmConfigurationPtrOutputWithContext(ctx)
+}
+
+// GetPushProviderConfigurationFcmConfigurationPtrInput is an input type that accepts GetPushProviderConfigurationFcmConfigurationArgs, GetPushProviderConfigurationFcmConfigurationPtr and GetPushProviderConfigurationFcmConfigurationPtrOutput values.
+// You can construct a concrete instance of `GetPushProviderConfigurationFcmConfigurationPtrInput` via:
+//
+//	        GetPushProviderConfigurationFcmConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetPushProviderConfigurationFcmConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToGetPushProviderConfigurationFcmConfigurationPtrOutput() GetPushProviderConfigurationFcmConfigurationPtrOutput
+	ToGetPushProviderConfigurationFcmConfigurationPtrOutputWithContext(context.Context) GetPushProviderConfigurationFcmConfigurationPtrOutput
+}
+
+type getPushProviderConfigurationFcmConfigurationPtrType GetPushProviderConfigurationFcmConfigurationArgs
+
+func GetPushProviderConfigurationFcmConfigurationPtr(v *GetPushProviderConfigurationFcmConfigurationArgs) GetPushProviderConfigurationFcmConfigurationPtrInput {
+	return (*getPushProviderConfigurationFcmConfigurationPtrType)(v)
+}
+
+func (*getPushProviderConfigurationFcmConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetPushProviderConfigurationFcmConfiguration)(nil)).Elem()
+}
+
+func (i *getPushProviderConfigurationFcmConfigurationPtrType) ToGetPushProviderConfigurationFcmConfigurationPtrOutput() GetPushProviderConfigurationFcmConfigurationPtrOutput {
+	return i.ToGetPushProviderConfigurationFcmConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *getPushProviderConfigurationFcmConfigurationPtrType) ToGetPushProviderConfigurationFcmConfigurationPtrOutputWithContext(ctx context.Context) GetPushProviderConfigurationFcmConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPushProviderConfigurationFcmConfigurationPtrOutput)
+}
+
+type GetPushProviderConfigurationFcmConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GetPushProviderConfigurationFcmConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPushProviderConfigurationFcmConfiguration)(nil)).Elem()
+}
+
+func (o GetPushProviderConfigurationFcmConfigurationOutput) ToGetPushProviderConfigurationFcmConfigurationOutput() GetPushProviderConfigurationFcmConfigurationOutput {
+	return o
+}
+
+func (o GetPushProviderConfigurationFcmConfigurationOutput) ToGetPushProviderConfigurationFcmConfigurationOutputWithContext(ctx context.Context) GetPushProviderConfigurationFcmConfigurationOutput {
+	return o
+}
+
+func (o GetPushProviderConfigurationFcmConfigurationOutput) ToGetPushProviderConfigurationFcmConfigurationPtrOutput() GetPushProviderConfigurationFcmConfigurationPtrOutput {
+	return o.ToGetPushProviderConfigurationFcmConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o GetPushProviderConfigurationFcmConfigurationOutput) ToGetPushProviderConfigurationFcmConfigurationPtrOutputWithContext(ctx context.Context) GetPushProviderConfigurationFcmConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetPushProviderConfigurationFcmConfiguration) *GetPushProviderConfigurationFcmConfiguration {
+		return &v
+	}).(GetPushProviderConfigurationFcmConfigurationPtrOutput)
+}
+
+// JSON containing the private service account key and service account details. Required for FCM provider type.
+func (o GetPushProviderConfigurationFcmConfigurationOutput) ServiceAccountJson() GetPushProviderConfigurationFcmConfigurationServiceAccountJsonPtrOutput {
+	return o.ApplyT(func(v GetPushProviderConfigurationFcmConfiguration) *GetPushProviderConfigurationFcmConfigurationServiceAccountJson {
+		return v.ServiceAccountJson
+	}).(GetPushProviderConfigurationFcmConfigurationServiceAccountJsonPtrOutput)
+}
+
+type GetPushProviderConfigurationFcmConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (GetPushProviderConfigurationFcmConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetPushProviderConfigurationFcmConfiguration)(nil)).Elem()
+}
+
+func (o GetPushProviderConfigurationFcmConfigurationPtrOutput) ToGetPushProviderConfigurationFcmConfigurationPtrOutput() GetPushProviderConfigurationFcmConfigurationPtrOutput {
+	return o
+}
+
+func (o GetPushProviderConfigurationFcmConfigurationPtrOutput) ToGetPushProviderConfigurationFcmConfigurationPtrOutputWithContext(ctx context.Context) GetPushProviderConfigurationFcmConfigurationPtrOutput {
+	return o
+}
+
+func (o GetPushProviderConfigurationFcmConfigurationPtrOutput) Elem() GetPushProviderConfigurationFcmConfigurationOutput {
+	return o.ApplyT(func(v *GetPushProviderConfigurationFcmConfiguration) GetPushProviderConfigurationFcmConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret GetPushProviderConfigurationFcmConfiguration
+		return ret
+	}).(GetPushProviderConfigurationFcmConfigurationOutput)
+}
+
+// JSON containing the private service account key and service account details. Required for FCM provider type.
+func (o GetPushProviderConfigurationFcmConfigurationPtrOutput) ServiceAccountJson() GetPushProviderConfigurationFcmConfigurationServiceAccountJsonPtrOutput {
+	return o.ApplyT(func(v *GetPushProviderConfigurationFcmConfiguration) *GetPushProviderConfigurationFcmConfigurationServiceAccountJson {
+		if v == nil {
+			return nil
+		}
+		return v.ServiceAccountJson
+	}).(GetPushProviderConfigurationFcmConfigurationServiceAccountJsonPtrOutput)
+}
+
+type GetPushProviderConfigurationFcmConfigurationServiceAccountJson struct {
+	// File name for Admin Console display.
+	FileName string `pulumi:"fileName"`
+	// The project ID.
+	ProjectId string `pulumi:"projectId"`
+}
+
+// GetPushProviderConfigurationFcmConfigurationServiceAccountJsonInput is an input type that accepts GetPushProviderConfigurationFcmConfigurationServiceAccountJsonArgs and GetPushProviderConfigurationFcmConfigurationServiceAccountJsonOutput values.
+// You can construct a concrete instance of `GetPushProviderConfigurationFcmConfigurationServiceAccountJsonInput` via:
+//
+//	GetPushProviderConfigurationFcmConfigurationServiceAccountJsonArgs{...}
+type GetPushProviderConfigurationFcmConfigurationServiceAccountJsonInput interface {
+	pulumi.Input
+
+	ToGetPushProviderConfigurationFcmConfigurationServiceAccountJsonOutput() GetPushProviderConfigurationFcmConfigurationServiceAccountJsonOutput
+	ToGetPushProviderConfigurationFcmConfigurationServiceAccountJsonOutputWithContext(context.Context) GetPushProviderConfigurationFcmConfigurationServiceAccountJsonOutput
+}
+
+type GetPushProviderConfigurationFcmConfigurationServiceAccountJsonArgs struct {
+	// File name for Admin Console display.
+	FileName pulumi.StringInput `pulumi:"fileName"`
+	// The project ID.
+	ProjectId pulumi.StringInput `pulumi:"projectId"`
+}
+
+func (GetPushProviderConfigurationFcmConfigurationServiceAccountJsonArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPushProviderConfigurationFcmConfigurationServiceAccountJson)(nil)).Elem()
+}
+
+func (i GetPushProviderConfigurationFcmConfigurationServiceAccountJsonArgs) ToGetPushProviderConfigurationFcmConfigurationServiceAccountJsonOutput() GetPushProviderConfigurationFcmConfigurationServiceAccountJsonOutput {
+	return i.ToGetPushProviderConfigurationFcmConfigurationServiceAccountJsonOutputWithContext(context.Background())
+}
+
+func (i GetPushProviderConfigurationFcmConfigurationServiceAccountJsonArgs) ToGetPushProviderConfigurationFcmConfigurationServiceAccountJsonOutputWithContext(ctx context.Context) GetPushProviderConfigurationFcmConfigurationServiceAccountJsonOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPushProviderConfigurationFcmConfigurationServiceAccountJsonOutput)
+}
+
+func (i GetPushProviderConfigurationFcmConfigurationServiceAccountJsonArgs) ToGetPushProviderConfigurationFcmConfigurationServiceAccountJsonPtrOutput() GetPushProviderConfigurationFcmConfigurationServiceAccountJsonPtrOutput {
+	return i.ToGetPushProviderConfigurationFcmConfigurationServiceAccountJsonPtrOutputWithContext(context.Background())
+}
+
+func (i GetPushProviderConfigurationFcmConfigurationServiceAccountJsonArgs) ToGetPushProviderConfigurationFcmConfigurationServiceAccountJsonPtrOutputWithContext(ctx context.Context) GetPushProviderConfigurationFcmConfigurationServiceAccountJsonPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPushProviderConfigurationFcmConfigurationServiceAccountJsonOutput).ToGetPushProviderConfigurationFcmConfigurationServiceAccountJsonPtrOutputWithContext(ctx)
+}
+
+// GetPushProviderConfigurationFcmConfigurationServiceAccountJsonPtrInput is an input type that accepts GetPushProviderConfigurationFcmConfigurationServiceAccountJsonArgs, GetPushProviderConfigurationFcmConfigurationServiceAccountJsonPtr and GetPushProviderConfigurationFcmConfigurationServiceAccountJsonPtrOutput values.
+// You can construct a concrete instance of `GetPushProviderConfigurationFcmConfigurationServiceAccountJsonPtrInput` via:
+//
+//	        GetPushProviderConfigurationFcmConfigurationServiceAccountJsonArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetPushProviderConfigurationFcmConfigurationServiceAccountJsonPtrInput interface {
+	pulumi.Input
+
+	ToGetPushProviderConfigurationFcmConfigurationServiceAccountJsonPtrOutput() GetPushProviderConfigurationFcmConfigurationServiceAccountJsonPtrOutput
+	ToGetPushProviderConfigurationFcmConfigurationServiceAccountJsonPtrOutputWithContext(context.Context) GetPushProviderConfigurationFcmConfigurationServiceAccountJsonPtrOutput
+}
+
+type getPushProviderConfigurationFcmConfigurationServiceAccountJsonPtrType GetPushProviderConfigurationFcmConfigurationServiceAccountJsonArgs
+
+func GetPushProviderConfigurationFcmConfigurationServiceAccountJsonPtr(v *GetPushProviderConfigurationFcmConfigurationServiceAccountJsonArgs) GetPushProviderConfigurationFcmConfigurationServiceAccountJsonPtrInput {
+	return (*getPushProviderConfigurationFcmConfigurationServiceAccountJsonPtrType)(v)
+}
+
+func (*getPushProviderConfigurationFcmConfigurationServiceAccountJsonPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetPushProviderConfigurationFcmConfigurationServiceAccountJson)(nil)).Elem()
+}
+
+func (i *getPushProviderConfigurationFcmConfigurationServiceAccountJsonPtrType) ToGetPushProviderConfigurationFcmConfigurationServiceAccountJsonPtrOutput() GetPushProviderConfigurationFcmConfigurationServiceAccountJsonPtrOutput {
+	return i.ToGetPushProviderConfigurationFcmConfigurationServiceAccountJsonPtrOutputWithContext(context.Background())
+}
+
+func (i *getPushProviderConfigurationFcmConfigurationServiceAccountJsonPtrType) ToGetPushProviderConfigurationFcmConfigurationServiceAccountJsonPtrOutputWithContext(ctx context.Context) GetPushProviderConfigurationFcmConfigurationServiceAccountJsonPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPushProviderConfigurationFcmConfigurationServiceAccountJsonPtrOutput)
+}
+
+type GetPushProviderConfigurationFcmConfigurationServiceAccountJsonOutput struct{ *pulumi.OutputState }
+
+func (GetPushProviderConfigurationFcmConfigurationServiceAccountJsonOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPushProviderConfigurationFcmConfigurationServiceAccountJson)(nil)).Elem()
+}
+
+func (o GetPushProviderConfigurationFcmConfigurationServiceAccountJsonOutput) ToGetPushProviderConfigurationFcmConfigurationServiceAccountJsonOutput() GetPushProviderConfigurationFcmConfigurationServiceAccountJsonOutput {
+	return o
+}
+
+func (o GetPushProviderConfigurationFcmConfigurationServiceAccountJsonOutput) ToGetPushProviderConfigurationFcmConfigurationServiceAccountJsonOutputWithContext(ctx context.Context) GetPushProviderConfigurationFcmConfigurationServiceAccountJsonOutput {
+	return o
+}
+
+func (o GetPushProviderConfigurationFcmConfigurationServiceAccountJsonOutput) ToGetPushProviderConfigurationFcmConfigurationServiceAccountJsonPtrOutput() GetPushProviderConfigurationFcmConfigurationServiceAccountJsonPtrOutput {
+	return o.ToGetPushProviderConfigurationFcmConfigurationServiceAccountJsonPtrOutputWithContext(context.Background())
+}
+
+func (o GetPushProviderConfigurationFcmConfigurationServiceAccountJsonOutput) ToGetPushProviderConfigurationFcmConfigurationServiceAccountJsonPtrOutputWithContext(ctx context.Context) GetPushProviderConfigurationFcmConfigurationServiceAccountJsonPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetPushProviderConfigurationFcmConfigurationServiceAccountJson) *GetPushProviderConfigurationFcmConfigurationServiceAccountJson {
+		return &v
+	}).(GetPushProviderConfigurationFcmConfigurationServiceAccountJsonPtrOutput)
+}
+
+// File name for Admin Console display.
+func (o GetPushProviderConfigurationFcmConfigurationServiceAccountJsonOutput) FileName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPushProviderConfigurationFcmConfigurationServiceAccountJson) string { return v.FileName }).(pulumi.StringOutput)
+}
+
+// The project ID.
+func (o GetPushProviderConfigurationFcmConfigurationServiceAccountJsonOutput) ProjectId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPushProviderConfigurationFcmConfigurationServiceAccountJson) string { return v.ProjectId }).(pulumi.StringOutput)
+}
+
+type GetPushProviderConfigurationFcmConfigurationServiceAccountJsonPtrOutput struct{ *pulumi.OutputState }
+
+func (GetPushProviderConfigurationFcmConfigurationServiceAccountJsonPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetPushProviderConfigurationFcmConfigurationServiceAccountJson)(nil)).Elem()
+}
+
+func (o GetPushProviderConfigurationFcmConfigurationServiceAccountJsonPtrOutput) ToGetPushProviderConfigurationFcmConfigurationServiceAccountJsonPtrOutput() GetPushProviderConfigurationFcmConfigurationServiceAccountJsonPtrOutput {
+	return o
+}
+
+func (o GetPushProviderConfigurationFcmConfigurationServiceAccountJsonPtrOutput) ToGetPushProviderConfigurationFcmConfigurationServiceAccountJsonPtrOutputWithContext(ctx context.Context) GetPushProviderConfigurationFcmConfigurationServiceAccountJsonPtrOutput {
+	return o
+}
+
+func (o GetPushProviderConfigurationFcmConfigurationServiceAccountJsonPtrOutput) Elem() GetPushProviderConfigurationFcmConfigurationServiceAccountJsonOutput {
+	return o.ApplyT(func(v *GetPushProviderConfigurationFcmConfigurationServiceAccountJson) GetPushProviderConfigurationFcmConfigurationServiceAccountJson {
+		if v != nil {
+			return *v
+		}
+		var ret GetPushProviderConfigurationFcmConfigurationServiceAccountJson
+		return ret
+	}).(GetPushProviderConfigurationFcmConfigurationServiceAccountJsonOutput)
+}
+
+// File name for Admin Console display.
+func (o GetPushProviderConfigurationFcmConfigurationServiceAccountJsonPtrOutput) FileName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetPushProviderConfigurationFcmConfigurationServiceAccountJson) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.FileName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The project ID.
+func (o GetPushProviderConfigurationFcmConfigurationServiceAccountJsonPtrOutput) ProjectId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetPushProviderConfigurationFcmConfigurationServiceAccountJson) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ProjectId
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -22681,6 +25397,181 @@ func (o GetReviewReviewerProfilePtrOutput) Status() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type GetSecurityEventsProviderSettings struct {
+	// Issuer URL.
+	Issuer string `pulumi:"issuer"`
+	// The public URL where the JWKS public key is uploaded.
+	JwksUrl string `pulumi:"jwksUrl"`
+	// The published well-known URL of the Security Events Provider (the SSF transmitter).
+	WellKnownUrl string `pulumi:"wellKnownUrl"`
+}
+
+// GetSecurityEventsProviderSettingsInput is an input type that accepts GetSecurityEventsProviderSettingsArgs and GetSecurityEventsProviderSettingsOutput values.
+// You can construct a concrete instance of `GetSecurityEventsProviderSettingsInput` via:
+//
+//	GetSecurityEventsProviderSettingsArgs{...}
+type GetSecurityEventsProviderSettingsInput interface {
+	pulumi.Input
+
+	ToGetSecurityEventsProviderSettingsOutput() GetSecurityEventsProviderSettingsOutput
+	ToGetSecurityEventsProviderSettingsOutputWithContext(context.Context) GetSecurityEventsProviderSettingsOutput
+}
+
+type GetSecurityEventsProviderSettingsArgs struct {
+	// Issuer URL.
+	Issuer pulumi.StringInput `pulumi:"issuer"`
+	// The public URL where the JWKS public key is uploaded.
+	JwksUrl pulumi.StringInput `pulumi:"jwksUrl"`
+	// The published well-known URL of the Security Events Provider (the SSF transmitter).
+	WellKnownUrl pulumi.StringInput `pulumi:"wellKnownUrl"`
+}
+
+func (GetSecurityEventsProviderSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSecurityEventsProviderSettings)(nil)).Elem()
+}
+
+func (i GetSecurityEventsProviderSettingsArgs) ToGetSecurityEventsProviderSettingsOutput() GetSecurityEventsProviderSettingsOutput {
+	return i.ToGetSecurityEventsProviderSettingsOutputWithContext(context.Background())
+}
+
+func (i GetSecurityEventsProviderSettingsArgs) ToGetSecurityEventsProviderSettingsOutputWithContext(ctx context.Context) GetSecurityEventsProviderSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSecurityEventsProviderSettingsOutput)
+}
+
+func (i GetSecurityEventsProviderSettingsArgs) ToGetSecurityEventsProviderSettingsPtrOutput() GetSecurityEventsProviderSettingsPtrOutput {
+	return i.ToGetSecurityEventsProviderSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i GetSecurityEventsProviderSettingsArgs) ToGetSecurityEventsProviderSettingsPtrOutputWithContext(ctx context.Context) GetSecurityEventsProviderSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSecurityEventsProviderSettingsOutput).ToGetSecurityEventsProviderSettingsPtrOutputWithContext(ctx)
+}
+
+// GetSecurityEventsProviderSettingsPtrInput is an input type that accepts GetSecurityEventsProviderSettingsArgs, GetSecurityEventsProviderSettingsPtr and GetSecurityEventsProviderSettingsPtrOutput values.
+// You can construct a concrete instance of `GetSecurityEventsProviderSettingsPtrInput` via:
+//
+//	        GetSecurityEventsProviderSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetSecurityEventsProviderSettingsPtrInput interface {
+	pulumi.Input
+
+	ToGetSecurityEventsProviderSettingsPtrOutput() GetSecurityEventsProviderSettingsPtrOutput
+	ToGetSecurityEventsProviderSettingsPtrOutputWithContext(context.Context) GetSecurityEventsProviderSettingsPtrOutput
+}
+
+type getSecurityEventsProviderSettingsPtrType GetSecurityEventsProviderSettingsArgs
+
+func GetSecurityEventsProviderSettingsPtr(v *GetSecurityEventsProviderSettingsArgs) GetSecurityEventsProviderSettingsPtrInput {
+	return (*getSecurityEventsProviderSettingsPtrType)(v)
+}
+
+func (*getSecurityEventsProviderSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetSecurityEventsProviderSettings)(nil)).Elem()
+}
+
+func (i *getSecurityEventsProviderSettingsPtrType) ToGetSecurityEventsProviderSettingsPtrOutput() GetSecurityEventsProviderSettingsPtrOutput {
+	return i.ToGetSecurityEventsProviderSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *getSecurityEventsProviderSettingsPtrType) ToGetSecurityEventsProviderSettingsPtrOutputWithContext(ctx context.Context) GetSecurityEventsProviderSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSecurityEventsProviderSettingsPtrOutput)
+}
+
+type GetSecurityEventsProviderSettingsOutput struct{ *pulumi.OutputState }
+
+func (GetSecurityEventsProviderSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSecurityEventsProviderSettings)(nil)).Elem()
+}
+
+func (o GetSecurityEventsProviderSettingsOutput) ToGetSecurityEventsProviderSettingsOutput() GetSecurityEventsProviderSettingsOutput {
+	return o
+}
+
+func (o GetSecurityEventsProviderSettingsOutput) ToGetSecurityEventsProviderSettingsOutputWithContext(ctx context.Context) GetSecurityEventsProviderSettingsOutput {
+	return o
+}
+
+func (o GetSecurityEventsProviderSettingsOutput) ToGetSecurityEventsProviderSettingsPtrOutput() GetSecurityEventsProviderSettingsPtrOutput {
+	return o.ToGetSecurityEventsProviderSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o GetSecurityEventsProviderSettingsOutput) ToGetSecurityEventsProviderSettingsPtrOutputWithContext(ctx context.Context) GetSecurityEventsProviderSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetSecurityEventsProviderSettings) *GetSecurityEventsProviderSettings {
+		return &v
+	}).(GetSecurityEventsProviderSettingsPtrOutput)
+}
+
+// Issuer URL.
+func (o GetSecurityEventsProviderSettingsOutput) Issuer() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSecurityEventsProviderSettings) string { return v.Issuer }).(pulumi.StringOutput)
+}
+
+// The public URL where the JWKS public key is uploaded.
+func (o GetSecurityEventsProviderSettingsOutput) JwksUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSecurityEventsProviderSettings) string { return v.JwksUrl }).(pulumi.StringOutput)
+}
+
+// The published well-known URL of the Security Events Provider (the SSF transmitter).
+func (o GetSecurityEventsProviderSettingsOutput) WellKnownUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSecurityEventsProviderSettings) string { return v.WellKnownUrl }).(pulumi.StringOutput)
+}
+
+type GetSecurityEventsProviderSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (GetSecurityEventsProviderSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetSecurityEventsProviderSettings)(nil)).Elem()
+}
+
+func (o GetSecurityEventsProviderSettingsPtrOutput) ToGetSecurityEventsProviderSettingsPtrOutput() GetSecurityEventsProviderSettingsPtrOutput {
+	return o
+}
+
+func (o GetSecurityEventsProviderSettingsPtrOutput) ToGetSecurityEventsProviderSettingsPtrOutputWithContext(ctx context.Context) GetSecurityEventsProviderSettingsPtrOutput {
+	return o
+}
+
+func (o GetSecurityEventsProviderSettingsPtrOutput) Elem() GetSecurityEventsProviderSettingsOutput {
+	return o.ApplyT(func(v *GetSecurityEventsProviderSettings) GetSecurityEventsProviderSettings {
+		if v != nil {
+			return *v
+		}
+		var ret GetSecurityEventsProviderSettings
+		return ret
+	}).(GetSecurityEventsProviderSettingsOutput)
+}
+
+// Issuer URL.
+func (o GetSecurityEventsProviderSettingsPtrOutput) Issuer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetSecurityEventsProviderSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Issuer
+	}).(pulumi.StringPtrOutput)
+}
+
+// The public URL where the JWKS public key is uploaded.
+func (o GetSecurityEventsProviderSettingsPtrOutput) JwksUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetSecurityEventsProviderSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.JwksUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+// The published well-known URL of the Security Events Provider (the SSF transmitter).
+func (o GetSecurityEventsProviderSettingsPtrOutput) WellKnownUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetSecurityEventsProviderSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.WellKnownUrl
+	}).(pulumi.StringPtrOutput)
+}
+
 type GetTemplatesEmailTemplate struct {
 	// Link relations for this object - JSON HAL - Discoverable resources related to the email template
 	Links string `pulumi:"links"`
@@ -23226,6 +26117,10 @@ func (o GetUserSecurityQuestionsQuestionArrayOutput) Index(i pulumi.IntInput) Ge
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ApiServiceIntegrationGrantedScopeInput)(nil)).Elem(), ApiServiceIntegrationGrantedScopeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApiServiceIntegrationGrantedScopeArrayInput)(nil)).Elem(), ApiServiceIntegrationGrantedScopeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApiTokenNetworkInput)(nil)).Elem(), ApiTokenNetworkArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApiTokenNetworkPtrInput)(nil)).Elem(), ApiTokenNetworkArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppGroupAssignmentsGroupInput)(nil)).Elem(), AppGroupAssignmentsGroupArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppGroupAssignmentsGroupArrayInput)(nil)).Elem(), AppGroupAssignmentsGroupArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppSignonPolicyRulePlatformIncludeInput)(nil)).Elem(), AppSignonPolicyRulePlatformIncludeArgs{})
@@ -23308,6 +26203,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PreviewSigninPageContentSecurityPolicySettingPtrInput)(nil)).Elem(), PreviewSigninPageContentSecurityPolicySettingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PreviewSigninPageWidgetCustomizationsInput)(nil)).Elem(), PreviewSigninPageWidgetCustomizationsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PreviewSigninPageWidgetCustomizationsPtrInput)(nil)).Elem(), PreviewSigninPageWidgetCustomizationsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PushProviderConfigurationInput)(nil)).Elem(), PushProviderConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PushProviderConfigurationPtrInput)(nil)).Elem(), PushProviderConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PushProviderConfigurationApnsConfigurationInput)(nil)).Elem(), PushProviderConfigurationApnsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PushProviderConfigurationApnsConfigurationPtrInput)(nil)).Elem(), PushProviderConfigurationApnsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PushProviderConfigurationFcmConfigurationInput)(nil)).Elem(), PushProviderConfigurationFcmConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PushProviderConfigurationFcmConfigurationPtrInput)(nil)).Elem(), PushProviderConfigurationFcmConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PushProviderConfigurationFcmConfigurationServiceAccountJsonInput)(nil)).Elem(), PushProviderConfigurationFcmConfigurationServiceAccountJsonArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PushProviderConfigurationFcmConfigurationServiceAccountJsonPtrInput)(nil)).Elem(), PushProviderConfigurationFcmConfigurationServiceAccountJsonArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RateLimitingUseCaseModeOverridesInput)(nil)).Elem(), RateLimitingUseCaseModeOverridesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RateLimitingUseCaseModeOverridesPtrInput)(nil)).Elem(), RateLimitingUseCaseModeOverridesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RequestConditionAccessDurationSettingsInput)(nil)).Elem(), RequestConditionAccessDurationSettingsArgs{})
@@ -23338,6 +26241,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RequestV2RequesterFieldValueArrayInput)(nil)).Elem(), RequestV2RequesterFieldValueArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RequestV2RequesterFieldValueValueInput)(nil)).Elem(), RequestV2RequesterFieldValueValueArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RequestV2RequesterFieldValueValueArrayInput)(nil)).Elem(), RequestV2RequesterFieldValueValueArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityEventsProviderSettingsInput)(nil)).Elem(), SecurityEventsProviderSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityEventsProviderSettingsPtrInput)(nil)).Elem(), SecurityEventsProviderSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateSmsTranslationInput)(nil)).Elem(), TemplateSmsTranslationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateSmsTranslationArrayInput)(nil)).Elem(), TemplateSmsTranslationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserSchemaPropertyArrayOneOfInput)(nil)).Elem(), UserSchemaPropertyArrayOneOfArgs{})
@@ -23346,6 +26251,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UserSchemaPropertyMasterOverridePriorityArrayInput)(nil)).Elem(), UserSchemaPropertyMasterOverridePriorityArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserSchemaPropertyOneOfInput)(nil)).Elem(), UserSchemaPropertyOneOfArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserSchemaPropertyOneOfArrayInput)(nil)).Elem(), UserSchemaPropertyOneOfArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApiServiceIntegrationGrantedScopeInput)(nil)).Elem(), GetApiServiceIntegrationGrantedScopeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApiServiceIntegrationGrantedScopeArrayInput)(nil)).Elem(), GetApiServiceIntegrationGrantedScopeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApiTokenNetworkInput)(nil)).Elem(), GetApiTokenNetworkArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApiTokenNetworkPtrInput)(nil)).Elem(), GetApiTokenNetworkArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAppsAppInput)(nil)).Elem(), GetAppsAppArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAppsAppArrayInput)(nil)).Elem(), GetAppsAppArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAppsAppVisibilityInput)(nil)).Elem(), GetAppsAppVisibilityArgs{})
@@ -23421,6 +26330,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersionPtrInput)(nil)).Elem(), GetDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersionInput)(nil)).Elem(), GetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersionPtrInput)(nil)).Elem(), GetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDeviceProfileInput)(nil)).Elem(), GetDeviceProfileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDeviceProfilePtrInput)(nil)).Elem(), GetDeviceProfileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDeviceResourceDisplayNameInput)(nil)).Elem(), GetDeviceResourceDisplayNameArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDeviceResourceDisplayNamePtrInput)(nil)).Elem(), GetDeviceResourceDisplayNameArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainDnsRecordInput)(nil)).Elem(), GetDomainDnsRecordArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainDnsRecordArrayInput)(nil)).Elem(), GetDomainDnsRecordArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEmailCustomizationsEmailCustomizationInput)(nil)).Elem(), GetEmailCustomizationsEmailCustomizationArgs{})
@@ -23470,6 +26383,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPrincipalEntitlementsParentPtrInput)(nil)).Elem(), GetPrincipalEntitlementsParentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPrincipalEntitlementsTargetPrincipalInput)(nil)).Elem(), GetPrincipalEntitlementsTargetPrincipalArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPrincipalEntitlementsTargetPrincipalPtrInput)(nil)).Elem(), GetPrincipalEntitlementsTargetPrincipalArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPushProviderConfigurationInput)(nil)).Elem(), GetPushProviderConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPushProviderConfigurationPtrInput)(nil)).Elem(), GetPushProviderConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPushProviderConfigurationApnsConfigurationInput)(nil)).Elem(), GetPushProviderConfigurationApnsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPushProviderConfigurationApnsConfigurationPtrInput)(nil)).Elem(), GetPushProviderConfigurationApnsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPushProviderConfigurationFcmConfigurationInput)(nil)).Elem(), GetPushProviderConfigurationFcmConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPushProviderConfigurationFcmConfigurationPtrInput)(nil)).Elem(), GetPushProviderConfigurationFcmConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPushProviderConfigurationFcmConfigurationServiceAccountJsonInput)(nil)).Elem(), GetPushProviderConfigurationFcmConfigurationServiceAccountJsonArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPushProviderConfigurationFcmConfigurationServiceAccountJsonPtrInput)(nil)).Elem(), GetPushProviderConfigurationFcmConfigurationServiceAccountJsonArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRequestConditionAccessScopeSettingsInput)(nil)).Elem(), GetRequestConditionAccessScopeSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRequestConditionAccessScopeSettingsPtrInput)(nil)).Elem(), GetRequestConditionAccessScopeSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRequestConditionAccessScopeSettingsIdInput)(nil)).Elem(), GetRequestConditionAccessScopeSettingsIdArgs{})
@@ -23522,6 +26443,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetReviewPrincipalProfilePtrInput)(nil)).Elem(), GetReviewPrincipalProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetReviewReviewerProfileInput)(nil)).Elem(), GetReviewReviewerProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetReviewReviewerProfilePtrInput)(nil)).Elem(), GetReviewReviewerProfileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSecurityEventsProviderSettingsInput)(nil)).Elem(), GetSecurityEventsProviderSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSecurityEventsProviderSettingsPtrInput)(nil)).Elem(), GetSecurityEventsProviderSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTemplatesEmailTemplateInput)(nil)).Elem(), GetTemplatesEmailTemplateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTemplatesEmailTemplateArrayInput)(nil)).Elem(), GetTemplatesEmailTemplateArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetThemesThemeInput)(nil)).Elem(), GetThemesThemeArgs{})
@@ -23530,6 +26453,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTrustedOriginsTrustedOriginArrayInput)(nil)).Elem(), GetTrustedOriginsTrustedOriginArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUserSecurityQuestionsQuestionInput)(nil)).Elem(), GetUserSecurityQuestionsQuestionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUserSecurityQuestionsQuestionArrayInput)(nil)).Elem(), GetUserSecurityQuestionsQuestionArray{})
+	pulumi.RegisterOutputType(ApiServiceIntegrationGrantedScopeOutput{})
+	pulumi.RegisterOutputType(ApiServiceIntegrationGrantedScopeArrayOutput{})
+	pulumi.RegisterOutputType(ApiTokenNetworkOutput{})
+	pulumi.RegisterOutputType(ApiTokenNetworkPtrOutput{})
 	pulumi.RegisterOutputType(AppGroupAssignmentsGroupOutput{})
 	pulumi.RegisterOutputType(AppGroupAssignmentsGroupArrayOutput{})
 	pulumi.RegisterOutputType(AppSignonPolicyRulePlatformIncludeOutput{})
@@ -23612,6 +26539,14 @@ func init() {
 	pulumi.RegisterOutputType(PreviewSigninPageContentSecurityPolicySettingPtrOutput{})
 	pulumi.RegisterOutputType(PreviewSigninPageWidgetCustomizationsOutput{})
 	pulumi.RegisterOutputType(PreviewSigninPageWidgetCustomizationsPtrOutput{})
+	pulumi.RegisterOutputType(PushProviderConfigurationOutput{})
+	pulumi.RegisterOutputType(PushProviderConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(PushProviderConfigurationApnsConfigurationOutput{})
+	pulumi.RegisterOutputType(PushProviderConfigurationApnsConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(PushProviderConfigurationFcmConfigurationOutput{})
+	pulumi.RegisterOutputType(PushProviderConfigurationFcmConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(PushProviderConfigurationFcmConfigurationServiceAccountJsonOutput{})
+	pulumi.RegisterOutputType(PushProviderConfigurationFcmConfigurationServiceAccountJsonPtrOutput{})
 	pulumi.RegisterOutputType(RateLimitingUseCaseModeOverridesOutput{})
 	pulumi.RegisterOutputType(RateLimitingUseCaseModeOverridesPtrOutput{})
 	pulumi.RegisterOutputType(RequestConditionAccessDurationSettingsOutput{})
@@ -23642,6 +26577,8 @@ func init() {
 	pulumi.RegisterOutputType(RequestV2RequesterFieldValueArrayOutput{})
 	pulumi.RegisterOutputType(RequestV2RequesterFieldValueValueOutput{})
 	pulumi.RegisterOutputType(RequestV2RequesterFieldValueValueArrayOutput{})
+	pulumi.RegisterOutputType(SecurityEventsProviderSettingsOutput{})
+	pulumi.RegisterOutputType(SecurityEventsProviderSettingsPtrOutput{})
 	pulumi.RegisterOutputType(TemplateSmsTranslationOutput{})
 	pulumi.RegisterOutputType(TemplateSmsTranslationArrayOutput{})
 	pulumi.RegisterOutputType(UserSchemaPropertyArrayOneOfOutput{})
@@ -23650,6 +26587,10 @@ func init() {
 	pulumi.RegisterOutputType(UserSchemaPropertyMasterOverridePriorityArrayOutput{})
 	pulumi.RegisterOutputType(UserSchemaPropertyOneOfOutput{})
 	pulumi.RegisterOutputType(UserSchemaPropertyOneOfArrayOutput{})
+	pulumi.RegisterOutputType(GetApiServiceIntegrationGrantedScopeOutput{})
+	pulumi.RegisterOutputType(GetApiServiceIntegrationGrantedScopeArrayOutput{})
+	pulumi.RegisterOutputType(GetApiTokenNetworkOutput{})
+	pulumi.RegisterOutputType(GetApiTokenNetworkPtrOutput{})
 	pulumi.RegisterOutputType(GetAppsAppOutput{})
 	pulumi.RegisterOutputType(GetAppsAppArrayOutput{})
 	pulumi.RegisterOutputType(GetAppsAppVisibilityOutput{})
@@ -23725,6 +26666,10 @@ func init() {
 	pulumi.RegisterOutputType(GetDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersionPtrOutput{})
 	pulumi.RegisterOutputType(GetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersionOutput{})
 	pulumi.RegisterOutputType(GetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersionPtrOutput{})
+	pulumi.RegisterOutputType(GetDeviceProfileOutput{})
+	pulumi.RegisterOutputType(GetDeviceProfilePtrOutput{})
+	pulumi.RegisterOutputType(GetDeviceResourceDisplayNameOutput{})
+	pulumi.RegisterOutputType(GetDeviceResourceDisplayNamePtrOutput{})
 	pulumi.RegisterOutputType(GetDomainDnsRecordOutput{})
 	pulumi.RegisterOutputType(GetDomainDnsRecordArrayOutput{})
 	pulumi.RegisterOutputType(GetEmailCustomizationsEmailCustomizationOutput{})
@@ -23774,6 +26719,14 @@ func init() {
 	pulumi.RegisterOutputType(GetPrincipalEntitlementsParentPtrOutput{})
 	pulumi.RegisterOutputType(GetPrincipalEntitlementsTargetPrincipalOutput{})
 	pulumi.RegisterOutputType(GetPrincipalEntitlementsTargetPrincipalPtrOutput{})
+	pulumi.RegisterOutputType(GetPushProviderConfigurationOutput{})
+	pulumi.RegisterOutputType(GetPushProviderConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(GetPushProviderConfigurationApnsConfigurationOutput{})
+	pulumi.RegisterOutputType(GetPushProviderConfigurationApnsConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(GetPushProviderConfigurationFcmConfigurationOutput{})
+	pulumi.RegisterOutputType(GetPushProviderConfigurationFcmConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(GetPushProviderConfigurationFcmConfigurationServiceAccountJsonOutput{})
+	pulumi.RegisterOutputType(GetPushProviderConfigurationFcmConfigurationServiceAccountJsonPtrOutput{})
 	pulumi.RegisterOutputType(GetRequestConditionAccessScopeSettingsOutput{})
 	pulumi.RegisterOutputType(GetRequestConditionAccessScopeSettingsPtrOutput{})
 	pulumi.RegisterOutputType(GetRequestConditionAccessScopeSettingsIdOutput{})
@@ -23826,6 +26779,8 @@ func init() {
 	pulumi.RegisterOutputType(GetReviewPrincipalProfilePtrOutput{})
 	pulumi.RegisterOutputType(GetReviewReviewerProfileOutput{})
 	pulumi.RegisterOutputType(GetReviewReviewerProfilePtrOutput{})
+	pulumi.RegisterOutputType(GetSecurityEventsProviderSettingsOutput{})
+	pulumi.RegisterOutputType(GetSecurityEventsProviderSettingsPtrOutput{})
 	pulumi.RegisterOutputType(GetTemplatesEmailTemplateOutput{})
 	pulumi.RegisterOutputType(GetTemplatesEmailTemplateArrayOutput{})
 	pulumi.RegisterOutputType(GetThemesThemeOutput{})

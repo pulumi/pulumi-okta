@@ -14,20 +14,36 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetCatalogEntryUserAccessRequestFieldsResult {
     private @Nullable List<GetCatalogEntryUserAccessRequestFieldsData> datas;
+    /**
+     * @return TThe ID of the catalog entry.
+     * 
+     */
     private String entryId;
     private String id;
+    /**
+     * @return The ID of the user.
+     * 
+     */
     private String userId;
 
     private GetCatalogEntryUserAccessRequestFieldsResult() {}
     public List<GetCatalogEntryUserAccessRequestFieldsData> datas() {
         return this.datas == null ? List.of() : this.datas;
     }
+    /**
+     * @return TThe ID of the catalog entry.
+     * 
+     */
     public String entryId() {
         return this.entryId;
     }
     public String id() {
         return this.id;
     }
+    /**
+     * @return The ID of the user.
+     * 
+     */
     public String userId() {
         return this.userId;
     }

@@ -9,6 +9,8 @@ import typing
 from .admin_role_custom import *
 from .admin_role_custom_assignments import *
 from .admin_role_targets import *
+from .api_service_integration import *
+from .api_token import *
 from .app_group_assignments import *
 from .app_oauth_api_scope import *
 from .app_saml_app_settings import *
@@ -26,6 +28,7 @@ from .campaign import *
 from .captcha import *
 from .captcha_org_wide_settings import *
 from .customized_signin_page import *
+from .device import *
 from .domain import *
 from .domain_certificate import *
 from .domain_verification import *
@@ -43,6 +46,8 @@ from .event_hook import *
 from .event_hook_verification import *
 from .factor_totp import *
 from .feature import *
+from .get_api_service_integration import *
+from .get_api_token import *
 from .get_app_group_assignments import *
 from .get_app_signon_policy import *
 from .get_app_user_assignments import *
@@ -58,6 +63,7 @@ from .get_campaign import *
 from .get_catalog_entry_default import *
 from .get_catalog_entry_user_access_request_fields import *
 from .get_default_signin_page import *
+from .get_device import *
 from .get_device_assurance_policy import *
 from .get_domain import *
 from .get_email_customization import *
@@ -68,11 +74,13 @@ from .get_entitlement import *
 from .get_entitlement_bundle import *
 from .get_features import *
 from .get_groups import *
+from .get_hook_key import *
 from .get_log_stream import *
 from .get_network_zone import *
 from .get_org_metadata import *
 from .get_principal_entitlements import *
 from .get_principal_rate_limits import *
+from .get_push_provider import *
 from .get_rate_limit_admin_notification_settings import *
 from .get_rate_limit_warning_threshold_percentage import *
 from .get_realm import *
@@ -84,6 +92,7 @@ from .get_request_setting_resource import *
 from .get_request_v2 import *
 from .get_review import *
 from .get_role_subscription import *
+from .get_security_events_provider import *
 from .get_template import *
 from .get_templates import *
 from .get_theme import *
@@ -92,6 +101,7 @@ from .get_trusted_origins import *
 from .get_user_security_questions import *
 from .group_memberships import *
 from .group_schema_property import *
+from .hook_key import *
 from .link_definition import *
 from .link_value import *
 from .log_stream import *
@@ -105,6 +115,7 @@ from .policy_rule_profile_enrollment import *
 from .preview_signin_page import *
 from .principal_rate_limits import *
 from .provider import *
+from .push_provider import *
 from .rate_limit_admin_notification_settings import *
 from .rate_limit_warning_threshold_percentage import *
 from .rate_limiting import *
@@ -118,6 +129,7 @@ from .request_v2 import *
 from .resource_set import *
 from .review import *
 from .role_subscription import *
+from .security_events_provider import *
 from .security_notification_emails import *
 from .template_sms import *
 from .theme import *
@@ -208,6 +220,22 @@ _utilities.register(
  },
  {
   "pkg": "okta",
+  "mod": "app/connection",
+  "fqn": "pulumi_okta.app",
+  "classes": {
+   "okta:app/connection:Connection": "Connection"
+  }
+ },
+ {
+  "pkg": "okta",
+  "mod": "app/features",
+  "fqn": "pulumi_okta.app",
+  "classes": {
+   "okta:app/features:Features": "Features"
+  }
+ },
+ {
+  "pkg": "okta",
   "mod": "app/groupAssignment",
   "fqn": "pulumi_okta.app",
   "classes": {
@@ -276,6 +304,14 @@ _utilities.register(
   "fqn": "pulumi_okta.app",
   "classes": {
    "okta:app/threeField:ThreeField": "ThreeField"
+  }
+ },
+ {
+  "pkg": "okta",
+  "mod": "app/token",
+  "fqn": "pulumi_okta.app",
+  "classes": {
+   "okta:app/token:Token": "Token"
   }
  },
  {
@@ -424,6 +460,22 @@ _utilities.register(
  },
  {
   "pkg": "okta",
+  "mod": "index/apiServiceIntegration",
+  "fqn": "pulumi_okta",
+  "classes": {
+   "okta:index/apiServiceIntegration:ApiServiceIntegration": "ApiServiceIntegration"
+  }
+ },
+ {
+  "pkg": "okta",
+  "mod": "index/apiToken",
+  "fqn": "pulumi_okta",
+  "classes": {
+   "okta:index/apiToken:ApiToken": "ApiToken"
+  }
+ },
+ {
+  "pkg": "okta",
   "mod": "index/appGroupAssignments",
   "fqn": "pulumi_okta",
   "classes": {
@@ -556,6 +608,14 @@ _utilities.register(
   "fqn": "pulumi_okta",
   "classes": {
    "okta:index/customizedSigninPage:CustomizedSigninPage": "CustomizedSigninPage"
+  }
+ },
+ {
+  "pkg": "okta",
+  "mod": "index/device",
+  "fqn": "pulumi_okta",
+  "classes": {
+   "okta:index/device:Device": "Device"
   }
  },
  {
@@ -712,6 +772,14 @@ _utilities.register(
  },
  {
   "pkg": "okta",
+  "mod": "index/hookKey",
+  "fqn": "pulumi_okta",
+  "classes": {
+   "okta:index/hookKey:HookKey": "HookKey"
+  }
+ },
+ {
+  "pkg": "okta",
   "mod": "index/linkDefinition",
   "fqn": "pulumi_okta",
   "classes": {
@@ -804,6 +872,14 @@ _utilities.register(
   "fqn": "pulumi_okta",
   "classes": {
    "okta:index/principalRateLimits:PrincipalRateLimits": "PrincipalRateLimits"
+  }
+ },
+ {
+  "pkg": "okta",
+  "mod": "index/pushProvider",
+  "fqn": "pulumi_okta",
+  "classes": {
+   "okta:index/pushProvider:PushProvider": "PushProvider"
   }
  },
  {
@@ -908,6 +984,14 @@ _utilities.register(
   "fqn": "pulumi_okta",
   "classes": {
    "okta:index/roleSubscription:RoleSubscription": "RoleSubscription"
+  }
+ },
+ {
+  "pkg": "okta",
+  "mod": "index/securityEventsProvider",
+  "fqn": "pulumi_okta",
+  "classes": {
+   "okta:index/securityEventsProvider:SecurityEventsProvider": "SecurityEventsProvider"
   }
  },
  {
