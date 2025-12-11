@@ -10,6 +10,16 @@ export const getServer: typeof import("./getServer").getServer = null as any;
 export const getServerOutput: typeof import("./getServer").getServerOutput = null as any;
 utilities.lazyLoad(exports, ["getServer","getServerOutput"], () => require("./getServer"));
 
+export { GetServerClientsArgs, GetServerClientsResult, GetServerClientsOutputArgs } from "./getServerClients";
+export const getServerClients: typeof import("./getServerClients").getServerClients = null as any;
+export const getServerClientsOutput: typeof import("./getServerClients").getServerClientsOutput = null as any;
+utilities.lazyLoad(exports, ["getServerClients","getServerClientsOutput"], () => require("./getServerClients"));
+
+export { GetServerKeysArgs, GetServerKeysResult, GetServerKeysOutputArgs } from "./getServerKeys";
+export const getServerKeys: typeof import("./getServerKeys").getServerKeys = null as any;
+export const getServerKeysOutput: typeof import("./getServerKeys").getServerKeysOutput = null as any;
+utilities.lazyLoad(exports, ["getServerKeys","getServerKeysOutput"], () => require("./getServerKeys"));
+
 export { GetServerPolicyArgs, GetServerPolicyResult, GetServerPolicyOutputArgs } from "./getServerPolicy";
 export const getServerPolicy: typeof import("./getServerPolicy").getServerPolicy = null as any;
 export const getServerPolicyOutput: typeof import("./getServerPolicy").getServerPolicyOutput = null as any;

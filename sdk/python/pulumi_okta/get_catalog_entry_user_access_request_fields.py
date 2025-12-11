@@ -50,6 +50,9 @@ class GetCatalogEntryUserAccessRequestFieldsResult:
     @_builtins.property
     @pulumi.getter(name="entryId")
     def entry_id(self) -> _builtins.str:
+        """
+        TThe ID of the catalog entry.
+        """
         return pulumi.get(self, "entry_id")
 
     @_builtins.property
@@ -60,6 +63,9 @@ class GetCatalogEntryUserAccessRequestFieldsResult:
     @_builtins.property
     @pulumi.getter(name="userId")
     def user_id(self) -> _builtins.str:
+        """
+        The ID of the user.
+        """
         return pulumi.get(self, "user_id")
 
 
@@ -80,7 +86,20 @@ def get_catalog_entry_user_access_request_fields(datas: Optional[Sequence[Union[
                                                  user_id: Optional[_builtins.str] = None,
                                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCatalogEntryUserAccessRequestFieldsResult:
     """
-    Use this data source to access information about an existing resource.
+    Get the request fields for catalog entry.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_okta as okta
+
+    test = okta.get_catalog_entry_user_access_request_fields()
+    ```
+
+
+    :param _builtins.str entry_id: TThe ID of the catalog entry.
+    :param _builtins.str user_id: The ID of the user.
     """
     __args__ = dict()
     __args__['datas'] = datas
@@ -99,7 +118,20 @@ def get_catalog_entry_user_access_request_fields_output(datas: Optional[pulumi.I
                                                         user_id: Optional[pulumi.Input[_builtins.str]] = None,
                                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCatalogEntryUserAccessRequestFieldsResult]:
     """
-    Use this data source to access information about an existing resource.
+    Get the request fields for catalog entry.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_okta as okta
+
+    test = okta.get_catalog_entry_user_access_request_fields()
+    ```
+
+
+    :param _builtins.str entry_id: TThe ID of the catalog entry.
+    :param _builtins.str user_id: The ID of the user.
     """
     __args__ = dict()
     __args__['datas'] = datas

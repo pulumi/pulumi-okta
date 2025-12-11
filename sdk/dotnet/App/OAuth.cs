@@ -133,6 +133,18 @@ namespace Pulumi.Okta.App
         public Output<string?> EnduserNote { get; private set; } = null!;
 
         /// <summary>
+        /// *Early Access Property*. Determines whether Okta sends sid and iss in the logout request.
+        /// </summary>
+        [Output("frontchannelLogoutSessionRequired")]
+        public Output<bool?> FrontchannelLogoutSessionRequired { get; private set; } = null!;
+
+        /// <summary>
+        /// *Early Access Property*. URL where Okta sends the logout request. Required when ParticipateSlo is true.
+        /// </summary>
+        [Output("frontchannelLogoutUri")]
+        public Output<string?> FrontchannelLogoutUri { get; private set; } = null!;
+
+        /// <summary>
         /// List of OAuth 2.0 grant types. Conditional validation params found here https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum requirements per app type.
         /// </summary>
         [Output("grantTypes")]
@@ -168,6 +180,9 @@ namespace Pulumi.Okta.App
         [Output("issuerMode")]
         public Output<string?> IssuerMode { get; private set; } = null!;
 
+        /// <summary>
+        /// JSON Web Key Set (JWKS) for application. Note: Inline JWKS may have compatibility issues with v6 SDK. Consider using JwksUri instead.
+        /// </summary>
         [Output("jwks")]
         public Output<ImmutableArray<Outputs.OAuthJwk>> Jwks { get; private set; } = null!;
 
@@ -230,6 +245,12 @@ namespace Pulumi.Okta.App
         /// </summary>
         [Output("omitSecret")]
         public Output<bool?> OmitSecret { get; private set; } = null!;
+
+        /// <summary>
+        /// *Early Access Property*. Allows the app to participate in front-channel Single Logout. Note: You can only enable ParticipateSlo for web and browser application types. When set to true, FrontchannelLogoutUri must also be provided.
+        /// </summary>
+        [Output("participateSlo")]
+        public Output<bool?> ParticipateSlo { get; private set; } = null!;
 
         /// <summary>
         /// Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
@@ -488,6 +509,18 @@ namespace Pulumi.Okta.App
         [Input("enduserNote")]
         public Input<string>? EnduserNote { get; set; }
 
+        /// <summary>
+        /// *Early Access Property*. Determines whether Okta sends sid and iss in the logout request.
+        /// </summary>
+        [Input("frontchannelLogoutSessionRequired")]
+        public Input<bool>? FrontchannelLogoutSessionRequired { get; set; }
+
+        /// <summary>
+        /// *Early Access Property*. URL where Okta sends the logout request. Required when ParticipateSlo is true.
+        /// </summary>
+        [Input("frontchannelLogoutUri")]
+        public Input<string>? FrontchannelLogoutUri { get; set; }
+
         [Input("grantTypes")]
         private InputList<string>? _grantTypes;
 
@@ -532,6 +565,10 @@ namespace Pulumi.Okta.App
 
         [Input("jwks")]
         private InputList<Inputs.OAuthJwkArgs>? _jwks;
+
+        /// <summary>
+        /// JSON Web Key Set (JWKS) for application. Note: Inline JWKS may have compatibility issues with v6 SDK. Consider using JwksUri instead.
+        /// </summary>
         public InputList<Inputs.OAuthJwkArgs> Jwks
         {
             get => _jwks ?? (_jwks = new InputList<Inputs.OAuthJwkArgs>());
@@ -591,6 +628,12 @@ namespace Pulumi.Okta.App
         /// </summary>
         [Input("omitSecret")]
         public Input<bool>? OmitSecret { get; set; }
+
+        /// <summary>
+        /// *Early Access Property*. Allows the app to participate in front-channel Single Logout. Note: You can only enable ParticipateSlo for web and browser application types. When set to true, FrontchannelLogoutUri must also be provided.
+        /// </summary>
+        [Input("participateSlo")]
+        public Input<bool>? ParticipateSlo { get; set; }
 
         /// <summary>
         /// Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
@@ -834,6 +877,18 @@ namespace Pulumi.Okta.App
         [Input("enduserNote")]
         public Input<string>? EnduserNote { get; set; }
 
+        /// <summary>
+        /// *Early Access Property*. Determines whether Okta sends sid and iss in the logout request.
+        /// </summary>
+        [Input("frontchannelLogoutSessionRequired")]
+        public Input<bool>? FrontchannelLogoutSessionRequired { get; set; }
+
+        /// <summary>
+        /// *Early Access Property*. URL where Okta sends the logout request. Required when ParticipateSlo is true.
+        /// </summary>
+        [Input("frontchannelLogoutUri")]
+        public Input<string>? FrontchannelLogoutUri { get; set; }
+
         [Input("grantTypes")]
         private InputList<string>? _grantTypes;
 
@@ -878,6 +933,10 @@ namespace Pulumi.Okta.App
 
         [Input("jwks")]
         private InputList<Inputs.OAuthJwkGetArgs>? _jwks;
+
+        /// <summary>
+        /// JSON Web Key Set (JWKS) for application. Note: Inline JWKS may have compatibility issues with v6 SDK. Consider using JwksUri instead.
+        /// </summary>
         public InputList<Inputs.OAuthJwkGetArgs> Jwks
         {
             get => _jwks ?? (_jwks = new InputList<Inputs.OAuthJwkGetArgs>());
@@ -949,6 +1008,12 @@ namespace Pulumi.Okta.App
         /// </summary>
         [Input("omitSecret")]
         public Input<bool>? OmitSecret { get; set; }
+
+        /// <summary>
+        /// *Early Access Property*. Allows the app to participate in front-channel Single Logout. Note: You can only enable ParticipateSlo for web and browser application types. When set to true, FrontchannelLogoutUri must also be provided.
+        /// </summary>
+        [Input("participateSlo")]
+        public Input<bool>? ParticipateSlo { get; set; }
 
         /// <summary>
         /// Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object

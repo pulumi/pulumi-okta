@@ -24,16 +24,32 @@ public final class GetCatalogEntryUserAccessRequestFieldsPlainArgs extends com.p
         return Optional.ofNullable(this.datas);
     }
 
+    /**
+     * TThe ID of the catalog entry.
+     * 
+     */
     @Import(name="entryId", required=true)
     private String entryId;
 
+    /**
+     * @return TThe ID of the catalog entry.
+     * 
+     */
     public String entryId() {
         return this.entryId;
     }
 
+    /**
+     * The ID of the user.
+     * 
+     */
     @Import(name="userId", required=true)
     private String userId;
 
+    /**
+     * @return The ID of the user.
+     * 
+     */
     public String userId() {
         return this.userId;
     }
@@ -73,11 +89,23 @@ public final class GetCatalogEntryUserAccessRequestFieldsPlainArgs extends com.p
             return datas(List.of(datas));
         }
 
+        /**
+         * @param entryId TThe ID of the catalog entry.
+         * 
+         * @return builder
+         * 
+         */
         public Builder entryId(String entryId) {
             $.entryId = entryId;
             return this;
         }
 
+        /**
+         * @param userId The ID of the user.
+         * 
+         * @return builder
+         * 
+         */
         public Builder userId(String userId) {
             $.userId = userId;
             return this;

@@ -5,6 +5,28 @@ import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 
+export interface ApiServiceIntegrationGrantedScope {
+    /**
+     * The scope of the API service integration
+     */
+    scope: string;
+}
+
+export interface ApiTokenNetwork {
+    /**
+     * The connection type of the Network Condition.
+     */
+    connection?: string;
+    /**
+     * The IP address the excluded zone.
+     */
+    excludes: string[];
+    /**
+     * The IP address the included zone.
+     */
+    includes: string[];
+}
+
 export interface AppGroupAssignmentsGroup {
     /**
      * A group to associate with the application
@@ -542,6 +564,28 @@ export interface FeatureStage {
     value: string;
 }
 
+export interface GetApiServiceIntegrationGrantedScope {
+    /**
+     * The scope of the API service integration granted.
+     */
+    scope: string;
+}
+
+export interface GetApiTokenNetwork {
+    /**
+     * The connection type of the Network Condition.
+     */
+    connection: string;
+    /**
+     * The IP address the excluded zone.
+     */
+    excludes: string[];
+    /**
+     * The IP address the included zone.
+     */
+    includes: string[];
+}
+
 export interface GetAppsApp {
     adminNote: string;
     created: string;
@@ -1013,6 +1057,80 @@ export interface GetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersion {
     minimum: string;
 }
 
+export interface GetDeviceProfile {
+    /**
+     * The disk encryption type of the device.
+     */
+    diskEncryptionType: string;
+    /**
+     * The display name of the device.
+     */
+    displayName: string;
+    /**
+     * The International Mobile Equipment Identity (IMEI) of the device.
+     */
+    imei: string;
+    /**
+     * Indicates if the device is jailbroken or rooted. Only applicable to IOS and ANDROID platforms.
+     */
+    integrityJailBreak: boolean;
+    /**
+     * The manufacturer of the device.
+     */
+    manufacturer: string;
+    /**
+     * The Mobile Equipment Identifier (MEID) of the device.
+     */
+    meid: string;
+    /**
+     * The model of the device.
+     */
+    model: string;
+    /**
+     * The OS version of the device.
+     */
+    osVersion: string;
+    /**
+     * The platform of the device.
+     */
+    platform: string;
+    /**
+     * Indicates if the device is registered at Okta.
+     */
+    registered: boolean;
+    /**
+     * Indicates if secure hardware is present on the device.
+     */
+    secureHardwarePresent: boolean;
+    /**
+     * The serial number of the device.
+     */
+    serialNumber: string;
+    /**
+     * The Security Identifier (SID) of the device.
+     */
+    sid: string;
+    /**
+     * Windows Trusted Platform Module hash value.
+     */
+    tpmPublicKeyHash: string;
+    /**
+     * MacOS Unique device identifier of the device.
+     */
+    udid: string;
+}
+
+export interface GetDeviceResourceDisplayName {
+    /**
+     * Indicates if the resource display name is sensitive.
+     */
+    sensitive: boolean;
+    /**
+     * The value of the resource display name.
+     */
+    value: string;
+}
+
 export interface GetDomainDnsRecord {
     /**
      * TXT record expiration
@@ -1443,6 +1561,44 @@ export interface GetPrincipalEntitlementsTargetPrincipal {
     type: string;
 }
 
+export interface GetPushProviderConfiguration {
+    apnsConfiguration?: outputs.GetPushProviderConfigurationApnsConfiguration;
+    fcmConfiguration?: outputs.GetPushProviderConfigurationFcmConfiguration;
+}
+
+export interface GetPushProviderConfigurationApnsConfiguration {
+    /**
+     * File name for Admin Console display.
+     */
+    fileName: string;
+    /**
+     * 10-character Key ID obtained from the Apple developer account. Required for APNS provider type.
+     */
+    keyId: string;
+    /**
+     * 10-character Team ID used to develop the iOS app. Required for APNS provider type.
+     */
+    teamId: string;
+}
+
+export interface GetPushProviderConfigurationFcmConfiguration {
+    /**
+     * JSON containing the private service account key and service account details. Required for FCM provider type.
+     */
+    serviceAccountJson?: outputs.GetPushProviderConfigurationFcmConfigurationServiceAccountJson;
+}
+
+export interface GetPushProviderConfigurationFcmConfigurationServiceAccountJson {
+    /**
+     * File name for Admin Console display.
+     */
+    fileName: string;
+    /**
+     * The project ID.
+     */
+    projectId: string;
+}
+
 export interface GetRequestConditionAccessScopeSettings {
     /**
      * Block list of groups/entitlement bundles ids.
@@ -1694,6 +1850,21 @@ export interface GetReviewReviewerProfile {
     status: string;
 }
 
+export interface GetSecurityEventsProviderSettings {
+    /**
+     * Issuer URL.
+     */
+    issuer: string;
+    /**
+     * The public URL where the JWKS public key is uploaded.
+     */
+    jwksUrl: string;
+    /**
+     * The published well-known URL of the Security Events Provider (the SSF transmitter).
+     */
+    wellKnownUrl: string;
+}
+
 export interface GetTemplatesEmailTemplate {
     /**
      * Link relations for this object - JSON HAL - Discoverable resources related to the email template
@@ -1890,6 +2061,84 @@ export interface PreviewSigninPageWidgetCustomizations {
     widgetGeneration: string;
 }
 
+export interface PushProviderConfiguration {
+    apnsConfiguration?: outputs.PushProviderConfigurationApnsConfiguration;
+    fcmConfiguration?: outputs.PushProviderConfigurationFcmConfiguration;
+}
+
+export interface PushProviderConfigurationApnsConfiguration {
+    /**
+     * File name for Admin Console display.
+     */
+    fileName?: string;
+    /**
+     * 10-character Key ID obtained from the Apple developer account. Required for APNS provider type.
+     */
+    keyId?: string;
+    /**
+     * 10-character Team ID used to develop the iOS app. Required for APNS provider type.
+     */
+    teamId?: string;
+    /**
+     * APNs private authentication token signing key. Required for APNS provider type.
+     */
+    tokenSigningKey?: string;
+}
+
+export interface PushProviderConfigurationFcmConfiguration {
+    /**
+     * JSON containing the private service account key and service account details. Required for FCM provider type.
+     */
+    serviceAccountJson?: outputs.PushProviderConfigurationFcmConfigurationServiceAccountJson;
+}
+
+export interface PushProviderConfigurationFcmConfigurationServiceAccountJson {
+    /**
+     * The auth provider x509 cert URL.
+     */
+    authProviderX509CertUrl?: string;
+    /**
+     * The auth URI.
+     */
+    authUri?: string;
+    /**
+     * The client email.
+     */
+    clientEmail?: string;
+    /**
+     * The client ID.
+     */
+    clientId?: string;
+    /**
+     * The client x509 cert URL.
+     */
+    clientX509CertUrl?: string;
+    /**
+     * File name for Admin Console display.
+     */
+    fileName?: string;
+    /**
+     * The private key.
+     */
+    privateKey?: string;
+    /**
+     * The private key ID.
+     */
+    privateKeyId?: string;
+    /**
+     * The project ID.
+     */
+    projectId?: string;
+    /**
+     * The token URI.
+     */
+    tokenUri?: string;
+    /**
+     * The type of the service account.
+     */
+    type?: string;
+}
+
 export interface RateLimitingUseCaseModeOverrides {
     loginPage?: string;
     oauth2Authorize?: string;
@@ -2048,6 +2297,21 @@ export interface RequestV2RequesterFieldValueValue {
     value?: string;
 }
 
+export interface SecurityEventsProviderSettings {
+    /**
+     * Issuer URL. Maximum length: 700 characters. To be used along with `jwksUrl`.
+     */
+    issuer?: string;
+    /**
+     * The public URL where the JWKS public key is uploaded. Maximum length: 1000 characters. To be used along with `issuer`.
+     */
+    jwksUrl?: string;
+    /**
+     * The published well-known URL of the Security Events Provider (the SSF transmitter). Maximum length: 1000 characters.
+     */
+    wellKnownUrl?: string;
+}
+
 export interface TemplateSmsTranslation {
     /**
      * The language to map the template to.
@@ -2087,6 +2351,394 @@ export interface UserSchemaPropertyOneOf {
 }
 
 export namespace app {
+    export interface ConnectionProfile {
+        /**
+         * Authentication scheme. Valid values are TOKEN or OAUTH2.
+         */
+        authScheme: string;
+        /**
+         * OAuth2 client ID (required for OAUTH2 auth scheme).
+         */
+        clientId?: string;
+        /**
+         * Additional settings for OAuth2 authentication.
+         */
+        settings?: outputs.app.ConnectionProfileSettings;
+        /**
+         * Signing configuration.
+         */
+        signing?: outputs.app.ConnectionProfileSigning;
+        /**
+         * Authentication token (required for TOKEN auth scheme).
+         */
+        token?: string;
+    }
+
+    export interface ConnectionProfileSettings {
+        /**
+         * Admin password for OAuth2.
+         */
+        adminPassword?: string;
+        /**
+         * Admin username for OAuth2.
+         */
+        adminUsername?: string;
+    }
+
+    export interface ConnectionProfileSigning {
+        /**
+         * Token rotation mode.
+         */
+        rotationMode?: string;
+    }
+
+    export interface FeaturesCapabilities {
+        /**
+         * (Optional) Block for create lifecycle settings:
+         */
+        create?: outputs.app.FeaturesCapabilitiesCreate;
+        /**
+         * (Optional) Block for import rules configuration:
+         */
+        importRules?: outputs.app.FeaturesCapabilitiesImportRules;
+        /**
+         * (Optional) Block for import settings configuration:
+         */
+        importSettings?: outputs.app.FeaturesCapabilitiesImportSettings;
+        /**
+         * (Optional) Block for update settings:
+         */
+        update?: outputs.app.FeaturesCapabilitiesUpdate;
+    }
+
+    export interface FeaturesCapabilitiesCreate {
+        /**
+         * (Optional) Block for create lifecycle configuration:
+         */
+        lifecycleCreate?: outputs.app.FeaturesCapabilitiesCreateLifecycleCreate;
+    }
+
+    export interface FeaturesCapabilitiesCreateLifecycleCreate {
+        /**
+         * The status of the feature. Valid values are `ENABLED` or `DISABLED`.
+         */
+        status?: string;
+    }
+
+    export interface FeaturesCapabilitiesImportRules {
+        /**
+         * (Optional) Block for user matching and creation rules:
+         */
+        userCreateAndMatch?: outputs.app.FeaturesCapabilitiesImportRulesUserCreateAndMatch;
+    }
+
+    export interface FeaturesCapabilitiesImportRulesUserCreateAndMatch {
+        /**
+         * (Optional) Whether to allow partial matching based on first and last names.
+         */
+        allowPartialMatch?: boolean;
+        /**
+         * (Optional) Whether imported new users are automatically activated.
+         */
+        autoActivateNewUsers?: boolean;
+        /**
+         * (Optional) Whether exact-matched users are automatically confirmed.
+         */
+        autoconfirmExactMatch?: boolean;
+        /**
+         * (Optional) Whether imported new users are automatically confirmed.
+         */
+        autoconfirmNewUsers?: boolean;
+        /**
+         * (Optional) Whether partially matched users are automatically confirmed.
+         */
+        autoconfirmPartialMatch?: boolean;
+        /**
+         * (Optional) Attribute used for exact matching (e.g., `USERNAME`, `EMAIL`).
+         */
+        exactMatchCriteria?: string;
+    }
+
+    export interface FeaturesCapabilitiesImportSettings {
+        /**
+         * (Optional) Block for import schedule configuration:
+         */
+        schedule?: outputs.app.FeaturesCapabilitiesImportSettingsSchedule;
+        /**
+         * (Optional) Block for username configuration:
+         */
+        username?: outputs.app.FeaturesCapabilitiesImportSettingsUsername;
+    }
+
+    export interface FeaturesCapabilitiesImportSettingsSchedule {
+        /**
+         * (Optional) Block for full import schedule:
+         */
+        fullImport?: outputs.app.FeaturesCapabilitiesImportSettingsScheduleFullImport;
+        /**
+         * (Optional) Block for incremental import schedule:
+         */
+        incrementalImport?: outputs.app.FeaturesCapabilitiesImportSettingsScheduleIncrementalImport;
+        /**
+         * The status of the feature. Valid values are `ENABLED` or `DISABLED`.
+         */
+        status?: string;
+    }
+
+    export interface FeaturesCapabilitiesImportSettingsScheduleFullImport {
+        /**
+         * (Optional) UNIX cron expression for incremental import schedule.
+         */
+        expression?: string;
+        /**
+         * (Optional) IANA timezone name for the schedule.
+         */
+        timezone?: string;
+    }
+
+    export interface FeaturesCapabilitiesImportSettingsScheduleIncrementalImport {
+        /**
+         * (Optional) UNIX cron expression for incremental import schedule.
+         */
+        expression?: string;
+        /**
+         * (Optional) IANA timezone name for the schedule.
+         */
+        timezone?: string;
+    }
+
+    export interface FeaturesCapabilitiesImportSettingsUsername {
+        /**
+         * (Optional) Okta Expression Language statement for custom username format.
+         */
+        usernameExpression?: string;
+        /**
+         * (Optional) Format for usernames (e.g., `EMAIL`, `CUSTOM`).
+         */
+        usernameFormat?: string;
+    }
+
+    export interface FeaturesCapabilitiesUpdate {
+        /**
+         * (Optional) Block for deactivation lifecycle configuration:
+         */
+        lifecycleDeactivate?: outputs.app.FeaturesCapabilitiesUpdateLifecycleDeactivate;
+        /**
+         * (Optional) Block for password synchronization settings:
+         */
+        password?: outputs.app.FeaturesCapabilitiesUpdatePassword;
+        /**
+         * (Optional) Block for profile update settings:
+         */
+        profile?: outputs.app.FeaturesCapabilitiesUpdateProfile;
+    }
+
+    export interface FeaturesCapabilitiesUpdateLifecycleDeactivate {
+        /**
+         * The status of the feature. Valid values are `ENABLED` or `DISABLED`.
+         */
+        status?: string;
+    }
+
+    export interface FeaturesCapabilitiesUpdatePassword {
+        /**
+         * (Optional) Determines password change behavior. Valid values are `CHANGE` or `KEEP_EXISTING`.
+         */
+        change?: string;
+        /**
+         * (Optional) Determines password source. Valid values are `OKTA` or `RANDOM`.
+         */
+        seed?: string;
+        /**
+         * The status of the feature. Valid values are `ENABLED` or `DISABLED`.
+         */
+        status?: string;
+    }
+
+    export interface FeaturesCapabilitiesUpdateProfile {
+        /**
+         * The status of the feature. Valid values are `ENABLED` or `DISABLED`.
+         */
+        status?: string;
+    }
+
+    export interface GetConnectionProfile {
+        /**
+         * Defines the method of authentication.
+         */
+        authScheme: string;
+    }
+
+    export interface GetFeaturesCapabilities {
+        /**
+         * Block for create lifecycle settings:
+         */
+        create?: outputs.app.GetFeaturesCapabilitiesCreate;
+        /**
+         * Block for import rules configuration:
+         */
+        importRules?: outputs.app.GetFeaturesCapabilitiesImportRules;
+        /**
+         * Block for import settings configuration:
+         */
+        importSettings?: outputs.app.GetFeaturesCapabilitiesImportSettings;
+        /**
+         * Block for update settings:
+         */
+        update?: outputs.app.GetFeaturesCapabilitiesUpdate;
+    }
+
+    export interface GetFeaturesCapabilitiesCreate {
+        /**
+         * Block for create lifecycle configuration:
+         */
+        lifecycleCreate?: outputs.app.GetFeaturesCapabilitiesCreateLifecycleCreate;
+    }
+
+    export interface GetFeaturesCapabilitiesCreateLifecycleCreate {
+        /**
+         * (String) Status of the import schedule. Valid values are `ENABLED` or `DISABLED`.
+         */
+        status: string;
+    }
+
+    export interface GetFeaturesCapabilitiesImportRules {
+        /**
+         * Block for user matching and creation rules:
+         */
+        userCreateAndMatch?: outputs.app.GetFeaturesCapabilitiesImportRulesUserCreateAndMatch;
+    }
+
+    export interface GetFeaturesCapabilitiesImportRulesUserCreateAndMatch {
+        /**
+         * (Boolean) Whether to allow partial matching based on first and last names.
+         */
+        allowPartialMatch: boolean;
+        /**
+         * (Boolean) Whether imported new users are automatically activated.
+         */
+        autoActivateNewUsers: boolean;
+        /**
+         * (Boolean) Whether exact-matched users are automatically confirmed.
+         */
+        autoconfirmExactMatch: boolean;
+        /**
+         * (Boolean) Whether imported new users are automatically confirmed.
+         */
+        autoconfirmNewUsers: boolean;
+        /**
+         * (Boolean) Whether partially matched users are automatically confirmed.
+         */
+        autoconfirmPartialMatch: boolean;
+        /**
+         * (String) Attribute used for exact matching (e.g., `USERNAME`, `EMAIL`).
+         */
+        exactMatchCriteria: string;
+    }
+
+    export interface GetFeaturesCapabilitiesImportSettings {
+        /**
+         * Block for import schedule configuration:
+         */
+        schedule?: outputs.app.GetFeaturesCapabilitiesImportSettingsSchedule;
+        /**
+         * Block for username configuration:
+         */
+        username?: outputs.app.GetFeaturesCapabilitiesImportSettingsUsername;
+    }
+
+    export interface GetFeaturesCapabilitiesImportSettingsSchedule {
+        /**
+         * Block for full import schedule:
+         */
+        fullImport?: outputs.app.GetFeaturesCapabilitiesImportSettingsScheduleFullImport;
+        /**
+         * Block for incremental import schedule:
+         */
+        incrementalImport?: outputs.app.GetFeaturesCapabilitiesImportSettingsScheduleIncrementalImport;
+        /**
+         * (String) Status of the import schedule. Valid values are `ENABLED` or `DISABLED`.
+         */
+        status: string;
+    }
+
+    export interface GetFeaturesCapabilitiesImportSettingsScheduleFullImport {
+        /**
+         * (String) UNIX cron expression for incremental import schedule.
+         */
+        expression: string;
+        /**
+         * (String) IANA timezone name for the schedule.
+         */
+        timezone: string;
+    }
+
+    export interface GetFeaturesCapabilitiesImportSettingsScheduleIncrementalImport {
+        /**
+         * (String) UNIX cron expression for incremental import schedule.
+         */
+        expression: string;
+        /**
+         * (String) IANA timezone name for the schedule.
+         */
+        timezone: string;
+    }
+
+    export interface GetFeaturesCapabilitiesImportSettingsUsername {
+        /**
+         * (String) Okta Expression Language statement for custom username format.
+         */
+        usernameExpression: string;
+        /**
+         * (String) Format for usernames (e.g., `EMAIL`, `CUSTOM`).
+         */
+        usernameFormat: string;
+    }
+
+    export interface GetFeaturesCapabilitiesUpdate {
+        /**
+         * Block for deactivation lifecycle configuration:
+         */
+        lifecycleDeactivate?: outputs.app.GetFeaturesCapabilitiesUpdateLifecycleDeactivate;
+        /**
+         * Block for password synchronization settings:
+         */
+        password?: outputs.app.GetFeaturesCapabilitiesUpdatePassword;
+        /**
+         * Block for profile update settings:
+         */
+        profile?: outputs.app.GetFeaturesCapabilitiesUpdateProfile;
+    }
+
+    export interface GetFeaturesCapabilitiesUpdateLifecycleDeactivate {
+        /**
+         * (String) Status of the import schedule. Valid values are `ENABLED` or `DISABLED`.
+         */
+        status: string;
+    }
+
+    export interface GetFeaturesCapabilitiesUpdatePassword {
+        /**
+         * (String) Determines password change behavior. Valid values are `CHANGE` or `KEEP_EXISTING`.
+         */
+        change: string;
+        /**
+         * (String) Determines password source. Valid values are `OKTA` or `RANDOM`.
+         */
+        seed: string;
+        /**
+         * (String) Status of the import schedule. Valid values are `ENABLED` or `DISABLED`.
+         */
+        status: string;
+    }
+
+    export interface GetFeaturesCapabilitiesUpdateProfile {
+        /**
+         * (String) Status of the import schedule. Valid values are `ENABLED` or `DISABLED`.
+         */
+        status: string;
+    }
+
     export interface GetSamlAttributeStatement {
         /**
          * Type of group attribute filter

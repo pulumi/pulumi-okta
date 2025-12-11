@@ -27,6 +27,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &AdminRoleCustomAssignments{}
 	case "okta:index/adminRoleTargets:AdminRoleTargets":
 		r = &AdminRoleTargets{}
+	case "okta:index/apiServiceIntegration:ApiServiceIntegration":
+		r = &ApiServiceIntegration{}
+	case "okta:index/apiToken:ApiToken":
+		r = &ApiToken{}
 	case "okta:index/appGroupAssignments:AppGroupAssignments":
 		r = &AppGroupAssignments{}
 	case "okta:index/appOauthApiScope:AppOauthApiScope":
@@ -61,6 +65,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &CaptchaOrgWideSettings{}
 	case "okta:index/customizedSigninPage:CustomizedSigninPage":
 		r = &CustomizedSigninPage{}
+	case "okta:index/device:Device":
+		r = &Device{}
 	case "okta:index/domain:Domain":
 		r = &Domain{}
 	case "okta:index/domainCertificate:DomainCertificate":
@@ -99,6 +105,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &GroupMemberships{}
 	case "okta:index/groupSchemaProperty:GroupSchemaProperty":
 		r = &GroupSchemaProperty{}
+	case "okta:index/hookKey:HookKey":
+		r = &HookKey{}
 	case "okta:index/linkDefinition:LinkDefinition":
 		r = &LinkDefinition{}
 	case "okta:index/linkValue:LinkValue":
@@ -123,6 +131,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &PreviewSigninPage{}
 	case "okta:index/principalRateLimits:PrincipalRateLimits":
 		r = &PrincipalRateLimits{}
+	case "okta:index/pushProvider:PushProvider":
+		r = &PushProvider{}
 	case "okta:index/rateLimitAdminNotificationSettings:RateLimitAdminNotificationSettings":
 		r = &RateLimitAdminNotificationSettings{}
 	case "okta:index/rateLimitWarningThresholdPercentage:RateLimitWarningThresholdPercentage":
@@ -149,6 +159,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Review{}
 	case "okta:index/roleSubscription:RoleSubscription":
 		r = &RoleSubscription{}
+	case "okta:index/securityEventsProvider:SecurityEventsProvider":
+		r = &SecurityEventsProvider{}
 	case "okta:index/securityNotificationEmails:SecurityNotificationEmails":
 		r = &SecurityNotificationEmails{}
 	case "okta:index/templateSms:TemplateSms":
@@ -213,6 +225,16 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"okta",
 		"index/adminRoleTargets",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"okta",
+		"index/apiServiceIntegration",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"okta",
+		"index/apiToken",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -298,6 +320,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"okta",
 		"index/customizedSigninPage",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"okta",
+		"index/device",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -397,6 +424,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"okta",
+		"index/hookKey",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"okta",
 		"index/linkDefinition",
 		&module{version},
 	)
@@ -453,6 +485,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"okta",
 		"index/principalRateLimits",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"okta",
+		"index/pushProvider",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -518,6 +555,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"okta",
 		"index/roleSubscription",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"okta",
+		"index/securityEventsProvider",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

@@ -254,6 +254,36 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * *Early Access Property*. Determines whether Okta sends sid and iss in the logout request.
+     * 
+     */
+    @Import(name="frontchannelLogoutSessionRequired")
+    private @Nullable Output<Boolean> frontchannelLogoutSessionRequired;
+
+    /**
+     * @return *Early Access Property*. Determines whether Okta sends sid and iss in the logout request.
+     * 
+     */
+    public Optional<Output<Boolean>> frontchannelLogoutSessionRequired() {
+        return Optional.ofNullable(this.frontchannelLogoutSessionRequired);
+    }
+
+    /**
+     * *Early Access Property*. URL where Okta sends the logout request. Required when participateSlo is true.
+     * 
+     */
+    @Import(name="frontchannelLogoutUri")
+    private @Nullable Output<String> frontchannelLogoutUri;
+
+    /**
+     * @return *Early Access Property*. URL where Okta sends the logout request. Required when participateSlo is true.
+     * 
+     */
+    public Optional<Output<String>> frontchannelLogoutUri() {
+        return Optional.ofNullable(this.frontchannelLogoutUri);
+    }
+
+    /**
      * List of OAuth 2.0 grant types. Conditional validation params found here https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum requirements per app type.
      * 
      */
@@ -271,14 +301,22 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
     /**
      * Groups claim for an OpenID Connect client application (argument is ignored when API auth is done with OAuth 2.0 credentials)
      * 
+     * @deprecated
+     * The groupsClaim field is deprecated and will be removed in a future version. Use Authorization Server Claims (okta_auth_server_claim) or app profile configuration instead.
+     * 
      */
+    @Deprecated /* The groupsClaim field is deprecated and will be removed in a future version. Use Authorization Server Claims (okta_auth_server_claim) or app profile configuration instead. */
     @Import(name="groupsClaim")
     private @Nullable Output<OAuthGroupsClaimArgs> groupsClaim;
 
     /**
      * @return Groups claim for an OpenID Connect client application (argument is ignored when API auth is done with OAuth 2.0 credentials)
      * 
+     * @deprecated
+     * The groupsClaim field is deprecated and will be removed in a future version. Use Authorization Server Claims (okta_auth_server_claim) or app profile configuration instead.
+     * 
      */
+    @Deprecated /* The groupsClaim field is deprecated and will be removed in a future version. Use Authorization Server Claims (okta_auth_server_claim) or app profile configuration instead. */
     public Optional<Output<OAuthGroupsClaimArgs>> groupsClaim() {
         return Optional.ofNullable(this.groupsClaim);
     }
@@ -343,9 +381,17 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.issuerMode);
     }
 
+    /**
+     * JSON Web Key Set (JWKS) for application. Note: Inline JWKS may have compatibility issues with v6 SDK. Consider using jwksUri instead.
+     * 
+     */
     @Import(name="jwks")
     private @Nullable Output<List<OAuthJwkArgs>> jwks;
 
+    /**
+     * @return JSON Web Key Set (JWKS) for application. Note: Inline JWKS may have compatibility issues with v6 SDK. Consider using jwksUri instead.
+     * 
+     */
     public Optional<Output<List<OAuthJwkArgs>>> jwks() {
         return Optional.ofNullable(this.jwks);
     }
@@ -498,6 +544,21 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<Boolean>> omitSecret() {
         return Optional.ofNullable(this.omitSecret);
+    }
+
+    /**
+     * *Early Access Property*. Allows the app to participate in front-channel Single Logout. Note: You can only enable participateSlo for web and browser application types. When set to true, frontchannelLogoutUri must also be provided.
+     * 
+     */
+    @Import(name="participateSlo")
+    private @Nullable Output<Boolean> participateSlo;
+
+    /**
+     * @return *Early Access Property*. Allows the app to participate in front-channel Single Logout. Note: You can only enable participateSlo for web and browser application types. When set to true, frontchannelLogoutUri must also be provided.
+     * 
+     */
+    public Optional<Output<Boolean>> participateSlo() {
+        return Optional.ofNullable(this.participateSlo);
     }
 
     /**
@@ -788,6 +849,8 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
         this.clientUri = $.clientUri;
         this.consentMethod = $.consentMethod;
         this.enduserNote = $.enduserNote;
+        this.frontchannelLogoutSessionRequired = $.frontchannelLogoutSessionRequired;
+        this.frontchannelLogoutUri = $.frontchannelLogoutUri;
         this.grantTypes = $.grantTypes;
         this.groupsClaim = $.groupsClaim;
         this.hideIos = $.hideIos;
@@ -805,6 +868,7 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
         this.logoUrl = $.logoUrl;
         this.name = $.name;
         this.omitSecret = $.omitSecret;
+        this.participateSlo = $.participateSlo;
         this.pkceRequired = $.pkceRequired;
         this.policyUri = $.policyUri;
         this.postLogoutRedirectUris = $.postLogoutRedirectUris;
@@ -1167,6 +1231,48 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param frontchannelLogoutSessionRequired *Early Access Property*. Determines whether Okta sends sid and iss in the logout request.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder frontchannelLogoutSessionRequired(@Nullable Output<Boolean> frontchannelLogoutSessionRequired) {
+            $.frontchannelLogoutSessionRequired = frontchannelLogoutSessionRequired;
+            return this;
+        }
+
+        /**
+         * @param frontchannelLogoutSessionRequired *Early Access Property*. Determines whether Okta sends sid and iss in the logout request.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder frontchannelLogoutSessionRequired(Boolean frontchannelLogoutSessionRequired) {
+            return frontchannelLogoutSessionRequired(Output.of(frontchannelLogoutSessionRequired));
+        }
+
+        /**
+         * @param frontchannelLogoutUri *Early Access Property*. URL where Okta sends the logout request. Required when participateSlo is true.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder frontchannelLogoutUri(@Nullable Output<String> frontchannelLogoutUri) {
+            $.frontchannelLogoutUri = frontchannelLogoutUri;
+            return this;
+        }
+
+        /**
+         * @param frontchannelLogoutUri *Early Access Property*. URL where Okta sends the logout request. Required when participateSlo is true.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder frontchannelLogoutUri(String frontchannelLogoutUri) {
+            return frontchannelLogoutUri(Output.of(frontchannelLogoutUri));
+        }
+
+        /**
          * @param grantTypes List of OAuth 2.0 grant types. Conditional validation params found here https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum requirements per app type.
          * 
          * @return builder
@@ -1202,7 +1308,11 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
+         * @deprecated
+         * The groupsClaim field is deprecated and will be removed in a future version. Use Authorization Server Claims (okta_auth_server_claim) or app profile configuration instead.
+         * 
          */
+        @Deprecated /* The groupsClaim field is deprecated and will be removed in a future version. Use Authorization Server Claims (okta_auth_server_claim) or app profile configuration instead. */
         public Builder groupsClaim(@Nullable Output<OAuthGroupsClaimArgs> groupsClaim) {
             $.groupsClaim = groupsClaim;
             return this;
@@ -1213,7 +1323,11 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
+         * @deprecated
+         * The groupsClaim field is deprecated and will be removed in a future version. Use Authorization Server Claims (okta_auth_server_claim) or app profile configuration instead.
+         * 
          */
+        @Deprecated /* The groupsClaim field is deprecated and will be removed in a future version. Use Authorization Server Claims (okta_auth_server_claim) or app profile configuration instead. */
         public Builder groupsClaim(OAuthGroupsClaimArgs groupsClaim) {
             return groupsClaim(Output.of(groupsClaim));
         }
@@ -1302,15 +1416,33 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
             return issuerMode(Output.of(issuerMode));
         }
 
+        /**
+         * @param jwks JSON Web Key Set (JWKS) for application. Note: Inline JWKS may have compatibility issues with v6 SDK. Consider using jwksUri instead.
+         * 
+         * @return builder
+         * 
+         */
         public Builder jwks(@Nullable Output<List<OAuthJwkArgs>> jwks) {
             $.jwks = jwks;
             return this;
         }
 
+        /**
+         * @param jwks JSON Web Key Set (JWKS) for application. Note: Inline JWKS may have compatibility issues with v6 SDK. Consider using jwksUri instead.
+         * 
+         * @return builder
+         * 
+         */
         public Builder jwks(List<OAuthJwkArgs> jwks) {
             return jwks(Output.of(jwks));
         }
 
+        /**
+         * @param jwks JSON Web Key Set (JWKS) for application. Note: Inline JWKS may have compatibility issues with v6 SDK. Consider using jwksUri instead.
+         * 
+         * @return builder
+         * 
+         */
         public Builder jwks(OAuthJwkArgs... jwks) {
             return jwks(List.of(jwks));
         }
@@ -1533,6 +1665,27 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder omitSecret(Boolean omitSecret) {
             return omitSecret(Output.of(omitSecret));
+        }
+
+        /**
+         * @param participateSlo *Early Access Property*. Allows the app to participate in front-channel Single Logout. Note: You can only enable participateSlo for web and browser application types. When set to true, frontchannelLogoutUri must also be provided.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder participateSlo(@Nullable Output<Boolean> participateSlo) {
+            $.participateSlo = participateSlo;
+            return this;
+        }
+
+        /**
+         * @param participateSlo *Early Access Property*. Allows the app to participate in front-channel Single Logout. Note: You can only enable participateSlo for web and browser application types. When set to true, frontchannelLogoutUri must also be provided.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder participateSlo(Boolean participateSlo) {
+            return participateSlo(Output.of(participateSlo));
         }
 
         /**

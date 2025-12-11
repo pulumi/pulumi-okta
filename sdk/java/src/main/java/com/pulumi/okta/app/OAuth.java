@@ -267,6 +267,34 @@ public class OAuth extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.enduserNote);
     }
     /**
+     * *Early Access Property*. Determines whether Okta sends sid and iss in the logout request.
+     * 
+     */
+    @Export(name="frontchannelLogoutSessionRequired", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> frontchannelLogoutSessionRequired;
+
+    /**
+     * @return *Early Access Property*. Determines whether Okta sends sid and iss in the logout request.
+     * 
+     */
+    public Output<Optional<Boolean>> frontchannelLogoutSessionRequired() {
+        return Codegen.optional(this.frontchannelLogoutSessionRequired);
+    }
+    /**
+     * *Early Access Property*. URL where Okta sends the logout request. Required when participateSlo is true.
+     * 
+     */
+    @Export(name="frontchannelLogoutUri", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> frontchannelLogoutUri;
+
+    /**
+     * @return *Early Access Property*. URL where Okta sends the logout request. Required when participateSlo is true.
+     * 
+     */
+    public Output<Optional<String>> frontchannelLogoutUri() {
+        return Codegen.optional(this.frontchannelLogoutUri);
+    }
+    /**
      * List of OAuth 2.0 grant types. Conditional validation params found here https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum requirements per app type.
      * 
      */
@@ -283,7 +311,11 @@ public class OAuth extends com.pulumi.resources.CustomResource {
     /**
      * Groups claim for an OpenID Connect client application (argument is ignored when API auth is done with OAuth 2.0 credentials)
      * 
+     * @deprecated
+     * The groupsClaim field is deprecated and will be removed in a future version. Use Authorization Server Claims (okta_auth_server_claim) or app profile configuration instead.
+     * 
      */
+    @Deprecated /* The groupsClaim field is deprecated and will be removed in a future version. Use Authorization Server Claims (okta_auth_server_claim) or app profile configuration instead. */
     @Export(name="groupsClaim", refs={OAuthGroupsClaim.class}, tree="[0]")
     private Output</* @Nullable */ OAuthGroupsClaim> groupsClaim;
 
@@ -350,9 +382,17 @@ public class OAuth extends com.pulumi.resources.CustomResource {
     public Output<Optional<String>> issuerMode() {
         return Codegen.optional(this.issuerMode);
     }
+    /**
+     * JSON Web Key Set (JWKS) for application. Note: Inline JWKS may have compatibility issues with v6 SDK. Consider using jwksUri instead.
+     * 
+     */
     @Export(name="jwks", refs={List.class,OAuthJwk.class}, tree="[0,1]")
     private Output</* @Nullable */ List<OAuthJwk>> jwks;
 
+    /**
+     * @return JSON Web Key Set (JWKS) for application. Note: Inline JWKS may have compatibility issues with v6 SDK. Consider using jwksUri instead.
+     * 
+     */
     public Output<Optional<List<OAuthJwk>>> jwks() {
         return Codegen.optional(this.jwks);
     }
@@ -495,6 +535,20 @@ public class OAuth extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<Boolean>> omitSecret() {
         return Codegen.optional(this.omitSecret);
+    }
+    /**
+     * *Early Access Property*. Allows the app to participate in front-channel Single Logout. Note: You can only enable participateSlo for web and browser application types. When set to true, frontchannelLogoutUri must also be provided.
+     * 
+     */
+    @Export(name="participateSlo", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> participateSlo;
+
+    /**
+     * @return *Early Access Property*. Allows the app to participate in front-channel Single Logout. Note: You can only enable participateSlo for web and browser application types. When set to true, frontchannelLogoutUri must also be provided.
+     * 
+     */
+    public Output<Optional<Boolean>> participateSlo() {
+        return Codegen.optional(this.participateSlo);
     }
     /**
      * Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object

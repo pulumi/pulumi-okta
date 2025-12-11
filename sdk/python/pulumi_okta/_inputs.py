@@ -15,6 +15,10 @@ else:
 from . import _utilities
 
 __all__ = [
+    'ApiServiceIntegrationGrantedScopeArgs',
+    'ApiServiceIntegrationGrantedScopeArgsDict',
+    'ApiTokenNetworkArgs',
+    'ApiTokenNetworkArgsDict',
     'AppGroupAssignmentsGroupArgs',
     'AppGroupAssignmentsGroupArgsDict',
     'AppSignonPolicyRulePlatformIncludeArgs',
@@ -97,6 +101,14 @@ __all__ = [
     'PreviewSigninPageContentSecurityPolicySettingArgsDict',
     'PreviewSigninPageWidgetCustomizationsArgs',
     'PreviewSigninPageWidgetCustomizationsArgsDict',
+    'PushProviderConfigurationArgs',
+    'PushProviderConfigurationArgsDict',
+    'PushProviderConfigurationApnsConfigurationArgs',
+    'PushProviderConfigurationApnsConfigurationArgsDict',
+    'PushProviderConfigurationFcmConfigurationArgs',
+    'PushProviderConfigurationFcmConfigurationArgsDict',
+    'PushProviderConfigurationFcmConfigurationServiceAccountJsonArgs',
+    'PushProviderConfigurationFcmConfigurationServiceAccountJsonArgsDict',
     'RateLimitingUseCaseModeOverridesArgs',
     'RateLimitingUseCaseModeOverridesArgsDict',
     'RequestConditionAccessDurationSettingsArgs',
@@ -127,6 +139,8 @@ __all__ = [
     'RequestV2RequesterFieldValueArgsDict',
     'RequestV2RequesterFieldValueValueArgs',
     'RequestV2RequesterFieldValueValueArgsDict',
+    'SecurityEventsProviderSettingsArgs',
+    'SecurityEventsProviderSettingsArgsDict',
     'TemplateSmsTranslationArgs',
     'TemplateSmsTranslationArgsDict',
     'UserSchemaPropertyArrayOneOfArgs',
@@ -135,6 +149,10 @@ __all__ = [
     'UserSchemaPropertyMasterOverridePriorityArgsDict',
     'UserSchemaPropertyOneOfArgs',
     'UserSchemaPropertyOneOfArgsDict',
+    'GetApiServiceIntegrationGrantedScopeArgs',
+    'GetApiServiceIntegrationGrantedScopeArgsDict',
+    'GetApiTokenNetworkArgs',
+    'GetApiTokenNetworkArgsDict',
     'GetCampaignNotificationSettingsArgs',
     'GetCampaignNotificationSettingsArgsDict',
     'GetCampaignPrincipalScopeSettingsArgs',
@@ -193,6 +211,10 @@ __all__ = [
     'GetDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersionArgsDict',
     'GetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersionArgs',
     'GetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersionArgsDict',
+    'GetDeviceProfileArgs',
+    'GetDeviceProfileArgsDict',
+    'GetDeviceResourceDisplayNameArgs',
+    'GetDeviceResourceDisplayNameArgsDict',
     'GetEndUserMyRequestsRequestedArgs',
     'GetEndUserMyRequestsRequestedArgsDict',
     'GetEndUserMyRequestsRequestedByArgs',
@@ -233,6 +255,14 @@ __all__ = [
     'GetPrincipalEntitlementsParentArgsDict',
     'GetPrincipalEntitlementsTargetPrincipalArgs',
     'GetPrincipalEntitlementsTargetPrincipalArgsDict',
+    'GetPushProviderConfigurationArgs',
+    'GetPushProviderConfigurationArgsDict',
+    'GetPushProviderConfigurationApnsConfigurationArgs',
+    'GetPushProviderConfigurationApnsConfigurationArgsDict',
+    'GetPushProviderConfigurationFcmConfigurationArgs',
+    'GetPushProviderConfigurationFcmConfigurationArgsDict',
+    'GetPushProviderConfigurationFcmConfigurationServiceAccountJsonArgs',
+    'GetPushProviderConfigurationFcmConfigurationServiceAccountJsonArgsDict',
     'GetRequestConditionAccessScopeSettingsArgs',
     'GetRequestConditionAccessScopeSettingsArgsDict',
     'GetRequestConditionAccessScopeSettingsIdArgs',
@@ -285,9 +315,114 @@ __all__ = [
     'GetReviewPrincipalProfileArgsDict',
     'GetReviewReviewerProfileArgs',
     'GetReviewReviewerProfileArgsDict',
+    'GetSecurityEventsProviderSettingsArgs',
+    'GetSecurityEventsProviderSettingsArgsDict',
 ]
 
 MYPY = False
+
+if not MYPY:
+    class ApiServiceIntegrationGrantedScopeArgsDict(TypedDict):
+        scope: pulumi.Input[_builtins.str]
+        """
+        The scope of the API service integration
+        """
+elif False:
+    ApiServiceIntegrationGrantedScopeArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ApiServiceIntegrationGrantedScopeArgs:
+    def __init__(__self__, *,
+                 scope: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] scope: The scope of the API service integration
+        """
+        pulumi.set(__self__, "scope", scope)
+
+    @_builtins.property
+    @pulumi.getter
+    def scope(self) -> pulumi.Input[_builtins.str]:
+        """
+        The scope of the API service integration
+        """
+        return pulumi.get(self, "scope")
+
+    @scope.setter
+    def scope(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "scope", value)
+
+
+if not MYPY:
+    class ApiTokenNetworkArgsDict(TypedDict):
+        connection: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The connection type of the Network Condition.
+        """
+        excludes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+        """
+        The IP address the excluded zone.
+        """
+        includes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+        """
+        The IP address the included zone.
+        """
+elif False:
+    ApiTokenNetworkArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ApiTokenNetworkArgs:
+    def __init__(__self__, *,
+                 connection: Optional[pulumi.Input[_builtins.str]] = None,
+                 excludes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 includes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[_builtins.str] connection: The connection type of the Network Condition.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] excludes: The IP address the excluded zone.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] includes: The IP address the included zone.
+        """
+        if connection is not None:
+            pulumi.set(__self__, "connection", connection)
+        if excludes is not None:
+            pulumi.set(__self__, "excludes", excludes)
+        if includes is not None:
+            pulumi.set(__self__, "includes", includes)
+
+    @_builtins.property
+    @pulumi.getter
+    def connection(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The connection type of the Network Condition.
+        """
+        return pulumi.get(self, "connection")
+
+    @connection.setter
+    def connection(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "connection", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def excludes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        The IP address the excluded zone.
+        """
+        return pulumi.get(self, "excludes")
+
+    @excludes.setter
+    def excludes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "excludes", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def includes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        The IP address the included zone.
+        """
+        return pulumi.get(self, "includes")
+
+    @includes.setter
+    def includes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "includes", value)
+
 
 if not MYPY:
     class AppGroupAssignmentsGroupArgsDict(TypedDict):
@@ -3796,6 +3931,398 @@ class PreviewSigninPageWidgetCustomizationsArgs:
 
 
 if not MYPY:
+    class PushProviderConfigurationArgsDict(TypedDict):
+        apns_configuration: NotRequired[pulumi.Input['PushProviderConfigurationApnsConfigurationArgsDict']]
+        fcm_configuration: NotRequired[pulumi.Input['PushProviderConfigurationFcmConfigurationArgsDict']]
+elif False:
+    PushProviderConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PushProviderConfigurationArgs:
+    def __init__(__self__, *,
+                 apns_configuration: Optional[pulumi.Input['PushProviderConfigurationApnsConfigurationArgs']] = None,
+                 fcm_configuration: Optional[pulumi.Input['PushProviderConfigurationFcmConfigurationArgs']] = None):
+        if apns_configuration is not None:
+            pulumi.set(__self__, "apns_configuration", apns_configuration)
+        if fcm_configuration is not None:
+            pulumi.set(__self__, "fcm_configuration", fcm_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="apnsConfiguration")
+    def apns_configuration(self) -> Optional[pulumi.Input['PushProviderConfigurationApnsConfigurationArgs']]:
+        return pulumi.get(self, "apns_configuration")
+
+    @apns_configuration.setter
+    def apns_configuration(self, value: Optional[pulumi.Input['PushProviderConfigurationApnsConfigurationArgs']]):
+        pulumi.set(self, "apns_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="fcmConfiguration")
+    def fcm_configuration(self) -> Optional[pulumi.Input['PushProviderConfigurationFcmConfigurationArgs']]:
+        return pulumi.get(self, "fcm_configuration")
+
+    @fcm_configuration.setter
+    def fcm_configuration(self, value: Optional[pulumi.Input['PushProviderConfigurationFcmConfigurationArgs']]):
+        pulumi.set(self, "fcm_configuration", value)
+
+
+if not MYPY:
+    class PushProviderConfigurationApnsConfigurationArgsDict(TypedDict):
+        file_name: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        File name for Admin Console display.
+        """
+        key_id: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        10-character Key ID obtained from the Apple developer account. Required for APNS provider type.
+        """
+        team_id: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        10-character Team ID used to develop the iOS app. Required for APNS provider type.
+        """
+        token_signing_key: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        APNs private authentication token signing key. Required for APNS provider type.
+        """
+elif False:
+    PushProviderConfigurationApnsConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PushProviderConfigurationApnsConfigurationArgs:
+    def __init__(__self__, *,
+                 file_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 key_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 team_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 token_signing_key: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] file_name: File name for Admin Console display.
+        :param pulumi.Input[_builtins.str] key_id: 10-character Key ID obtained from the Apple developer account. Required for APNS provider type.
+        :param pulumi.Input[_builtins.str] team_id: 10-character Team ID used to develop the iOS app. Required for APNS provider type.
+        :param pulumi.Input[_builtins.str] token_signing_key: APNs private authentication token signing key. Required for APNS provider type.
+        """
+        if file_name is not None:
+            pulumi.set(__self__, "file_name", file_name)
+        if key_id is not None:
+            pulumi.set(__self__, "key_id", key_id)
+        if team_id is not None:
+            pulumi.set(__self__, "team_id", team_id)
+        if token_signing_key is not None:
+            pulumi.set(__self__, "token_signing_key", token_signing_key)
+
+    @_builtins.property
+    @pulumi.getter(name="fileName")
+    def file_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        File name for Admin Console display.
+        """
+        return pulumi.get(self, "file_name")
+
+    @file_name.setter
+    def file_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "file_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="keyId")
+    def key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        10-character Key ID obtained from the Apple developer account. Required for APNS provider type.
+        """
+        return pulumi.get(self, "key_id")
+
+    @key_id.setter
+    def key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "key_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="teamId")
+    def team_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        10-character Team ID used to develop the iOS app. Required for APNS provider type.
+        """
+        return pulumi.get(self, "team_id")
+
+    @team_id.setter
+    def team_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "team_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="tokenSigningKey")
+    def token_signing_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        APNs private authentication token signing key. Required for APNS provider type.
+        """
+        return pulumi.get(self, "token_signing_key")
+
+    @token_signing_key.setter
+    def token_signing_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "token_signing_key", value)
+
+
+if not MYPY:
+    class PushProviderConfigurationFcmConfigurationArgsDict(TypedDict):
+        service_account_json: NotRequired[pulumi.Input['PushProviderConfigurationFcmConfigurationServiceAccountJsonArgsDict']]
+        """
+        JSON containing the private service account key and service account details. Required for FCM provider type.
+        """
+elif False:
+    PushProviderConfigurationFcmConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PushProviderConfigurationFcmConfigurationArgs:
+    def __init__(__self__, *,
+                 service_account_json: Optional[pulumi.Input['PushProviderConfigurationFcmConfigurationServiceAccountJsonArgs']] = None):
+        """
+        :param pulumi.Input['PushProviderConfigurationFcmConfigurationServiceAccountJsonArgs'] service_account_json: JSON containing the private service account key and service account details. Required for FCM provider type.
+        """
+        if service_account_json is not None:
+            pulumi.set(__self__, "service_account_json", service_account_json)
+
+    @_builtins.property
+    @pulumi.getter(name="serviceAccountJson")
+    def service_account_json(self) -> Optional[pulumi.Input['PushProviderConfigurationFcmConfigurationServiceAccountJsonArgs']]:
+        """
+        JSON containing the private service account key and service account details. Required for FCM provider type.
+        """
+        return pulumi.get(self, "service_account_json")
+
+    @service_account_json.setter
+    def service_account_json(self, value: Optional[pulumi.Input['PushProviderConfigurationFcmConfigurationServiceAccountJsonArgs']]):
+        pulumi.set(self, "service_account_json", value)
+
+
+if not MYPY:
+    class PushProviderConfigurationFcmConfigurationServiceAccountJsonArgsDict(TypedDict):
+        auth_provider_x509_cert_url: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The auth provider x509 cert URL.
+        """
+        auth_uri: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The auth URI.
+        """
+        client_email: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The client email.
+        """
+        client_id: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The client ID.
+        """
+        client_x509_cert_url: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The client x509 cert URL.
+        """
+        file_name: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        File name for Admin Console display.
+        """
+        private_key: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The private key.
+        """
+        private_key_id: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The private key ID.
+        """
+        project_id: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The project ID.
+        """
+        token_uri: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The token URI.
+        """
+        type: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The type of the service account.
+        """
+elif False:
+    PushProviderConfigurationFcmConfigurationServiceAccountJsonArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PushProviderConfigurationFcmConfigurationServiceAccountJsonArgs:
+    def __init__(__self__, *,
+                 auth_provider_x509_cert_url: Optional[pulumi.Input[_builtins.str]] = None,
+                 auth_uri: Optional[pulumi.Input[_builtins.str]] = None,
+                 client_email: Optional[pulumi.Input[_builtins.str]] = None,
+                 client_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 client_x509_cert_url: Optional[pulumi.Input[_builtins.str]] = None,
+                 file_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 private_key: Optional[pulumi.Input[_builtins.str]] = None,
+                 private_key_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 project_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 token_uri: Optional[pulumi.Input[_builtins.str]] = None,
+                 type: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] auth_provider_x509_cert_url: The auth provider x509 cert URL.
+        :param pulumi.Input[_builtins.str] auth_uri: The auth URI.
+        :param pulumi.Input[_builtins.str] client_email: The client email.
+        :param pulumi.Input[_builtins.str] client_id: The client ID.
+        :param pulumi.Input[_builtins.str] client_x509_cert_url: The client x509 cert URL.
+        :param pulumi.Input[_builtins.str] file_name: File name for Admin Console display.
+        :param pulumi.Input[_builtins.str] private_key: The private key.
+        :param pulumi.Input[_builtins.str] private_key_id: The private key ID.
+        :param pulumi.Input[_builtins.str] project_id: The project ID.
+        :param pulumi.Input[_builtins.str] token_uri: The token URI.
+        :param pulumi.Input[_builtins.str] type: The type of the service account.
+        """
+        if auth_provider_x509_cert_url is not None:
+            pulumi.set(__self__, "auth_provider_x509_cert_url", auth_provider_x509_cert_url)
+        if auth_uri is not None:
+            pulumi.set(__self__, "auth_uri", auth_uri)
+        if client_email is not None:
+            pulumi.set(__self__, "client_email", client_email)
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if client_x509_cert_url is not None:
+            pulumi.set(__self__, "client_x509_cert_url", client_x509_cert_url)
+        if file_name is not None:
+            pulumi.set(__self__, "file_name", file_name)
+        if private_key is not None:
+            pulumi.set(__self__, "private_key", private_key)
+        if private_key_id is not None:
+            pulumi.set(__self__, "private_key_id", private_key_id)
+        if project_id is not None:
+            pulumi.set(__self__, "project_id", project_id)
+        if token_uri is not None:
+            pulumi.set(__self__, "token_uri", token_uri)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter(name="authProviderX509CertUrl")
+    def auth_provider_x509_cert_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The auth provider x509 cert URL.
+        """
+        return pulumi.get(self, "auth_provider_x509_cert_url")
+
+    @auth_provider_x509_cert_url.setter
+    def auth_provider_x509_cert_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "auth_provider_x509_cert_url", value)
+
+    @_builtins.property
+    @pulumi.getter(name="authUri")
+    def auth_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The auth URI.
+        """
+        return pulumi.get(self, "auth_uri")
+
+    @auth_uri.setter
+    def auth_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "auth_uri", value)
+
+    @_builtins.property
+    @pulumi.getter(name="clientEmail")
+    def client_email(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The client email.
+        """
+        return pulumi.get(self, "client_email")
+
+    @client_email.setter
+    def client_email(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "client_email", value)
+
+    @_builtins.property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The client ID.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "client_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="clientX509CertUrl")
+    def client_x509_cert_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The client x509 cert URL.
+        """
+        return pulumi.get(self, "client_x509_cert_url")
+
+    @client_x509_cert_url.setter
+    def client_x509_cert_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "client_x509_cert_url", value)
+
+    @_builtins.property
+    @pulumi.getter(name="fileName")
+    def file_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        File name for Admin Console display.
+        """
+        return pulumi.get(self, "file_name")
+
+    @file_name.setter
+    def file_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "file_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="privateKey")
+    def private_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The private key.
+        """
+        return pulumi.get(self, "private_key")
+
+    @private_key.setter
+    def private_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "private_key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="privateKeyId")
+    def private_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The private key ID.
+        """
+        return pulumi.get(self, "private_key_id")
+
+    @private_key_id.setter
+    def private_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "private_key_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="projectId")
+    def project_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The project ID.
+        """
+        return pulumi.get(self, "project_id")
+
+    @project_id.setter
+    def project_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "project_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="tokenUri")
+    def token_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The token URI.
+        """
+        return pulumi.get(self, "token_uri")
+
+    @token_uri.setter
+    def token_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "token_uri", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The type of the service account.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "type", value)
+
+
+if not MYPY:
     class RateLimitingUseCaseModeOverridesArgsDict(TypedDict):
         login_page: NotRequired[pulumi.Input[_builtins.str]]
         oauth2_authorize: NotRequired[pulumi.Input[_builtins.str]]
@@ -4603,6 +5130,78 @@ class RequestV2RequesterFieldValueValueArgs:
 
 
 if not MYPY:
+    class SecurityEventsProviderSettingsArgsDict(TypedDict):
+        issuer: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Issuer URL. Maximum length: 700 characters. To be used along with `jwks_url`.
+        """
+        jwks_url: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The public URL where the JWKS public key is uploaded. Maximum length: 1000 characters. To be used along with `issuer`.
+        """
+        well_known_url: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The published well-known URL of the Security Events Provider (the SSF transmitter). Maximum length: 1000 characters.
+        """
+elif False:
+    SecurityEventsProviderSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class SecurityEventsProviderSettingsArgs:
+    def __init__(__self__, *,
+                 issuer: Optional[pulumi.Input[_builtins.str]] = None,
+                 jwks_url: Optional[pulumi.Input[_builtins.str]] = None,
+                 well_known_url: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] issuer: Issuer URL. Maximum length: 700 characters. To be used along with `jwks_url`.
+        :param pulumi.Input[_builtins.str] jwks_url: The public URL where the JWKS public key is uploaded. Maximum length: 1000 characters. To be used along with `issuer`.
+        :param pulumi.Input[_builtins.str] well_known_url: The published well-known URL of the Security Events Provider (the SSF transmitter). Maximum length: 1000 characters.
+        """
+        if issuer is not None:
+            pulumi.set(__self__, "issuer", issuer)
+        if jwks_url is not None:
+            pulumi.set(__self__, "jwks_url", jwks_url)
+        if well_known_url is not None:
+            pulumi.set(__self__, "well_known_url", well_known_url)
+
+    @_builtins.property
+    @pulumi.getter
+    def issuer(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Issuer URL. Maximum length: 700 characters. To be used along with `jwks_url`.
+        """
+        return pulumi.get(self, "issuer")
+
+    @issuer.setter
+    def issuer(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "issuer", value)
+
+    @_builtins.property
+    @pulumi.getter(name="jwksUrl")
+    def jwks_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The public URL where the JWKS public key is uploaded. Maximum length: 1000 characters. To be used along with `issuer`.
+        """
+        return pulumi.get(self, "jwks_url")
+
+    @jwks_url.setter
+    def jwks_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "jwks_url", value)
+
+    @_builtins.property
+    @pulumi.getter(name="wellKnownUrl")
+    def well_known_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The published well-known URL of the Security Events Provider (the SSF transmitter). Maximum length: 1000 characters.
+        """
+        return pulumi.get(self, "well_known_url")
+
+    @well_known_url.setter
+    def well_known_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "well_known_url", value)
+
+
+if not MYPY:
     class TemplateSmsTranslationArgsDict(TypedDict):
         language: pulumi.Input[_builtins.str]
         """
@@ -4785,6 +5384,106 @@ class UserSchemaPropertyOneOfArgs:
     @title.setter
     def title(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "title", value)
+
+
+if not MYPY:
+    class GetApiServiceIntegrationGrantedScopeArgsDict(TypedDict):
+        scope: _builtins.str
+        """
+        The scope of the API service integration granted.
+        """
+elif False:
+    GetApiServiceIntegrationGrantedScopeArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GetApiServiceIntegrationGrantedScopeArgs:
+    def __init__(__self__, *,
+                 scope: _builtins.str):
+        """
+        :param _builtins.str scope: The scope of the API service integration granted.
+        """
+        pulumi.set(__self__, "scope", scope)
+
+    @_builtins.property
+    @pulumi.getter
+    def scope(self) -> _builtins.str:
+        """
+        The scope of the API service integration granted.
+        """
+        return pulumi.get(self, "scope")
+
+    @scope.setter
+    def scope(self, value: _builtins.str):
+        pulumi.set(self, "scope", value)
+
+
+if not MYPY:
+    class GetApiTokenNetworkArgsDict(TypedDict):
+        connection: _builtins.str
+        """
+        The connection type of the Network Condition.
+        """
+        excludes: Sequence[_builtins.str]
+        """
+        The IP address the excluded zone.
+        """
+        includes: Sequence[_builtins.str]
+        """
+        The IP address the included zone.
+        """
+elif False:
+    GetApiTokenNetworkArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GetApiTokenNetworkArgs:
+    def __init__(__self__, *,
+                 connection: _builtins.str,
+                 excludes: Sequence[_builtins.str],
+                 includes: Sequence[_builtins.str]):
+        """
+        :param _builtins.str connection: The connection type of the Network Condition.
+        :param Sequence[_builtins.str] excludes: The IP address the excluded zone.
+        :param Sequence[_builtins.str] includes: The IP address the included zone.
+        """
+        pulumi.set(__self__, "connection", connection)
+        pulumi.set(__self__, "excludes", excludes)
+        pulumi.set(__self__, "includes", includes)
+
+    @_builtins.property
+    @pulumi.getter
+    def connection(self) -> _builtins.str:
+        """
+        The connection type of the Network Condition.
+        """
+        return pulumi.get(self, "connection")
+
+    @connection.setter
+    def connection(self, value: _builtins.str):
+        pulumi.set(self, "connection", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def excludes(self) -> Sequence[_builtins.str]:
+        """
+        The IP address the excluded zone.
+        """
+        return pulumi.get(self, "excludes")
+
+    @excludes.setter
+    def excludes(self, value: Sequence[_builtins.str]):
+        pulumi.set(self, "excludes", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def includes(self) -> Sequence[_builtins.str]:
+        """
+        The IP address the included zone.
+        """
+        return pulumi.get(self, "includes")
+
+    @includes.setter
+    def includes(self, value: Sequence[_builtins.str]):
+        pulumi.set(self, "includes", value)
 
 
 if not MYPY:
@@ -6969,6 +7668,353 @@ class GetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersionArgs:
 
 
 if not MYPY:
+    class GetDeviceProfileArgsDict(TypedDict):
+        disk_encryption_type: _builtins.str
+        """
+        The disk encryption type of the device.
+        """
+        display_name: _builtins.str
+        """
+        The display name of the device.
+        """
+        imei: _builtins.str
+        """
+        The International Mobile Equipment Identity (IMEI) of the device.
+        """
+        integrity_jail_break: _builtins.bool
+        """
+        Indicates if the device is jailbroken or rooted. Only applicable to IOS and ANDROID platforms.
+        """
+        manufacturer: _builtins.str
+        """
+        The manufacturer of the device.
+        """
+        meid: _builtins.str
+        """
+        The Mobile Equipment Identifier (MEID) of the device.
+        """
+        model: _builtins.str
+        """
+        The model of the device.
+        """
+        os_version: _builtins.str
+        """
+        The OS version of the device.
+        """
+        platform: _builtins.str
+        """
+        The platform of the device.
+        """
+        registered: _builtins.bool
+        """
+        Indicates if the device is registered at Okta.
+        """
+        secure_hardware_present: _builtins.bool
+        """
+        Indicates if secure hardware is present on the device.
+        """
+        serial_number: _builtins.str
+        """
+        The serial number of the device.
+        """
+        sid: _builtins.str
+        """
+        The Security Identifier (SID) of the device.
+        """
+        tpm_public_key_hash: _builtins.str
+        """
+        Windows Trusted Platform Module hash value.
+        """
+        udid: _builtins.str
+        """
+        MacOS Unique device identifier of the device.
+        """
+elif False:
+    GetDeviceProfileArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GetDeviceProfileArgs:
+    def __init__(__self__, *,
+                 disk_encryption_type: _builtins.str,
+                 display_name: _builtins.str,
+                 imei: _builtins.str,
+                 integrity_jail_break: _builtins.bool,
+                 manufacturer: _builtins.str,
+                 meid: _builtins.str,
+                 model: _builtins.str,
+                 os_version: _builtins.str,
+                 platform: _builtins.str,
+                 registered: _builtins.bool,
+                 secure_hardware_present: _builtins.bool,
+                 serial_number: _builtins.str,
+                 sid: _builtins.str,
+                 tpm_public_key_hash: _builtins.str,
+                 udid: _builtins.str):
+        """
+        :param _builtins.str disk_encryption_type: The disk encryption type of the device.
+        :param _builtins.str display_name: The display name of the device.
+        :param _builtins.str imei: The International Mobile Equipment Identity (IMEI) of the device.
+        :param _builtins.bool integrity_jail_break: Indicates if the device is jailbroken or rooted. Only applicable to IOS and ANDROID platforms.
+        :param _builtins.str manufacturer: The manufacturer of the device.
+        :param _builtins.str meid: The Mobile Equipment Identifier (MEID) of the device.
+        :param _builtins.str model: The model of the device.
+        :param _builtins.str os_version: The OS version of the device.
+        :param _builtins.str platform: The platform of the device.
+        :param _builtins.bool registered: Indicates if the device is registered at Okta.
+        :param _builtins.bool secure_hardware_present: Indicates if secure hardware is present on the device.
+        :param _builtins.str serial_number: The serial number of the device.
+        :param _builtins.str sid: The Security Identifier (SID) of the device.
+        :param _builtins.str tpm_public_key_hash: Windows Trusted Platform Module hash value.
+        :param _builtins.str udid: MacOS Unique device identifier of the device.
+        """
+        pulumi.set(__self__, "disk_encryption_type", disk_encryption_type)
+        pulumi.set(__self__, "display_name", display_name)
+        pulumi.set(__self__, "imei", imei)
+        pulumi.set(__self__, "integrity_jail_break", integrity_jail_break)
+        pulumi.set(__self__, "manufacturer", manufacturer)
+        pulumi.set(__self__, "meid", meid)
+        pulumi.set(__self__, "model", model)
+        pulumi.set(__self__, "os_version", os_version)
+        pulumi.set(__self__, "platform", platform)
+        pulumi.set(__self__, "registered", registered)
+        pulumi.set(__self__, "secure_hardware_present", secure_hardware_present)
+        pulumi.set(__self__, "serial_number", serial_number)
+        pulumi.set(__self__, "sid", sid)
+        pulumi.set(__self__, "tpm_public_key_hash", tpm_public_key_hash)
+        pulumi.set(__self__, "udid", udid)
+
+    @_builtins.property
+    @pulumi.getter(name="diskEncryptionType")
+    def disk_encryption_type(self) -> _builtins.str:
+        """
+        The disk encryption type of the device.
+        """
+        return pulumi.get(self, "disk_encryption_type")
+
+    @disk_encryption_type.setter
+    def disk_encryption_type(self, value: _builtins.str):
+        pulumi.set(self, "disk_encryption_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> _builtins.str:
+        """
+        The display name of the device.
+        """
+        return pulumi.get(self, "display_name")
+
+    @display_name.setter
+    def display_name(self, value: _builtins.str):
+        pulumi.set(self, "display_name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def imei(self) -> _builtins.str:
+        """
+        The International Mobile Equipment Identity (IMEI) of the device.
+        """
+        return pulumi.get(self, "imei")
+
+    @imei.setter
+    def imei(self, value: _builtins.str):
+        pulumi.set(self, "imei", value)
+
+    @_builtins.property
+    @pulumi.getter(name="integrityJailBreak")
+    def integrity_jail_break(self) -> _builtins.bool:
+        """
+        Indicates if the device is jailbroken or rooted. Only applicable to IOS and ANDROID platforms.
+        """
+        return pulumi.get(self, "integrity_jail_break")
+
+    @integrity_jail_break.setter
+    def integrity_jail_break(self, value: _builtins.bool):
+        pulumi.set(self, "integrity_jail_break", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def manufacturer(self) -> _builtins.str:
+        """
+        The manufacturer of the device.
+        """
+        return pulumi.get(self, "manufacturer")
+
+    @manufacturer.setter
+    def manufacturer(self, value: _builtins.str):
+        pulumi.set(self, "manufacturer", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def meid(self) -> _builtins.str:
+        """
+        The Mobile Equipment Identifier (MEID) of the device.
+        """
+        return pulumi.get(self, "meid")
+
+    @meid.setter
+    def meid(self, value: _builtins.str):
+        pulumi.set(self, "meid", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def model(self) -> _builtins.str:
+        """
+        The model of the device.
+        """
+        return pulumi.get(self, "model")
+
+    @model.setter
+    def model(self, value: _builtins.str):
+        pulumi.set(self, "model", value)
+
+    @_builtins.property
+    @pulumi.getter(name="osVersion")
+    def os_version(self) -> _builtins.str:
+        """
+        The OS version of the device.
+        """
+        return pulumi.get(self, "os_version")
+
+    @os_version.setter
+    def os_version(self, value: _builtins.str):
+        pulumi.set(self, "os_version", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def platform(self) -> _builtins.str:
+        """
+        The platform of the device.
+        """
+        return pulumi.get(self, "platform")
+
+    @platform.setter
+    def platform(self, value: _builtins.str):
+        pulumi.set(self, "platform", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def registered(self) -> _builtins.bool:
+        """
+        Indicates if the device is registered at Okta.
+        """
+        return pulumi.get(self, "registered")
+
+    @registered.setter
+    def registered(self, value: _builtins.bool):
+        pulumi.set(self, "registered", value)
+
+    @_builtins.property
+    @pulumi.getter(name="secureHardwarePresent")
+    def secure_hardware_present(self) -> _builtins.bool:
+        """
+        Indicates if secure hardware is present on the device.
+        """
+        return pulumi.get(self, "secure_hardware_present")
+
+    @secure_hardware_present.setter
+    def secure_hardware_present(self, value: _builtins.bool):
+        pulumi.set(self, "secure_hardware_present", value)
+
+    @_builtins.property
+    @pulumi.getter(name="serialNumber")
+    def serial_number(self) -> _builtins.str:
+        """
+        The serial number of the device.
+        """
+        return pulumi.get(self, "serial_number")
+
+    @serial_number.setter
+    def serial_number(self, value: _builtins.str):
+        pulumi.set(self, "serial_number", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def sid(self) -> _builtins.str:
+        """
+        The Security Identifier (SID) of the device.
+        """
+        return pulumi.get(self, "sid")
+
+    @sid.setter
+    def sid(self, value: _builtins.str):
+        pulumi.set(self, "sid", value)
+
+    @_builtins.property
+    @pulumi.getter(name="tpmPublicKeyHash")
+    def tpm_public_key_hash(self) -> _builtins.str:
+        """
+        Windows Trusted Platform Module hash value.
+        """
+        return pulumi.get(self, "tpm_public_key_hash")
+
+    @tpm_public_key_hash.setter
+    def tpm_public_key_hash(self, value: _builtins.str):
+        pulumi.set(self, "tpm_public_key_hash", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def udid(self) -> _builtins.str:
+        """
+        MacOS Unique device identifier of the device.
+        """
+        return pulumi.get(self, "udid")
+
+    @udid.setter
+    def udid(self, value: _builtins.str):
+        pulumi.set(self, "udid", value)
+
+
+if not MYPY:
+    class GetDeviceResourceDisplayNameArgsDict(TypedDict):
+        sensitive: _builtins.bool
+        """
+        Indicates if the resource display name is sensitive.
+        """
+        value: _builtins.str
+        """
+        The value of the resource display name.
+        """
+elif False:
+    GetDeviceResourceDisplayNameArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GetDeviceResourceDisplayNameArgs:
+    def __init__(__self__, *,
+                 sensitive: _builtins.bool,
+                 value: _builtins.str):
+        """
+        :param _builtins.bool sensitive: Indicates if the resource display name is sensitive.
+        :param _builtins.str value: The value of the resource display name.
+        """
+        pulumi.set(__self__, "sensitive", sensitive)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def sensitive(self) -> _builtins.bool:
+        """
+        Indicates if the resource display name is sensitive.
+        """
+        return pulumi.get(self, "sensitive")
+
+    @sensitive.setter
+    def sensitive(self, value: _builtins.bool):
+        pulumi.set(self, "sensitive", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        """
+        The value of the resource display name.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: _builtins.str):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
     class GetEndUserMyRequestsRequestedArgsDict(TypedDict):
         access_scope_id: _builtins.str
         """
@@ -8613,6 +9659,193 @@ class GetPrincipalEntitlementsTargetPrincipalArgs:
 
 
 if not MYPY:
+    class GetPushProviderConfigurationArgsDict(TypedDict):
+        apns_configuration: NotRequired['GetPushProviderConfigurationApnsConfigurationArgsDict']
+        fcm_configuration: NotRequired['GetPushProviderConfigurationFcmConfigurationArgsDict']
+elif False:
+    GetPushProviderConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GetPushProviderConfigurationArgs:
+    def __init__(__self__, *,
+                 apns_configuration: Optional['GetPushProviderConfigurationApnsConfigurationArgs'] = None,
+                 fcm_configuration: Optional['GetPushProviderConfigurationFcmConfigurationArgs'] = None):
+        if apns_configuration is not None:
+            pulumi.set(__self__, "apns_configuration", apns_configuration)
+        if fcm_configuration is not None:
+            pulumi.set(__self__, "fcm_configuration", fcm_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="apnsConfiguration")
+    def apns_configuration(self) -> Optional['GetPushProviderConfigurationApnsConfigurationArgs']:
+        return pulumi.get(self, "apns_configuration")
+
+    @apns_configuration.setter
+    def apns_configuration(self, value: Optional['GetPushProviderConfigurationApnsConfigurationArgs']):
+        pulumi.set(self, "apns_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="fcmConfiguration")
+    def fcm_configuration(self) -> Optional['GetPushProviderConfigurationFcmConfigurationArgs']:
+        return pulumi.get(self, "fcm_configuration")
+
+    @fcm_configuration.setter
+    def fcm_configuration(self, value: Optional['GetPushProviderConfigurationFcmConfigurationArgs']):
+        pulumi.set(self, "fcm_configuration", value)
+
+
+if not MYPY:
+    class GetPushProviderConfigurationApnsConfigurationArgsDict(TypedDict):
+        file_name: _builtins.str
+        """
+        File name for Admin Console display.
+        """
+        key_id: _builtins.str
+        """
+        10-character Key ID obtained from the Apple developer account. Required for APNS provider type.
+        """
+        team_id: _builtins.str
+        """
+        10-character Team ID used to develop the iOS app. Required for APNS provider type.
+        """
+elif False:
+    GetPushProviderConfigurationApnsConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GetPushProviderConfigurationApnsConfigurationArgs:
+    def __init__(__self__, *,
+                 file_name: _builtins.str,
+                 key_id: _builtins.str,
+                 team_id: _builtins.str):
+        """
+        :param _builtins.str file_name: File name for Admin Console display.
+        :param _builtins.str key_id: 10-character Key ID obtained from the Apple developer account. Required for APNS provider type.
+        :param _builtins.str team_id: 10-character Team ID used to develop the iOS app. Required for APNS provider type.
+        """
+        pulumi.set(__self__, "file_name", file_name)
+        pulumi.set(__self__, "key_id", key_id)
+        pulumi.set(__self__, "team_id", team_id)
+
+    @_builtins.property
+    @pulumi.getter(name="fileName")
+    def file_name(self) -> _builtins.str:
+        """
+        File name for Admin Console display.
+        """
+        return pulumi.get(self, "file_name")
+
+    @file_name.setter
+    def file_name(self, value: _builtins.str):
+        pulumi.set(self, "file_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="keyId")
+    def key_id(self) -> _builtins.str:
+        """
+        10-character Key ID obtained from the Apple developer account. Required for APNS provider type.
+        """
+        return pulumi.get(self, "key_id")
+
+    @key_id.setter
+    def key_id(self, value: _builtins.str):
+        pulumi.set(self, "key_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="teamId")
+    def team_id(self) -> _builtins.str:
+        """
+        10-character Team ID used to develop the iOS app. Required for APNS provider type.
+        """
+        return pulumi.get(self, "team_id")
+
+    @team_id.setter
+    def team_id(self, value: _builtins.str):
+        pulumi.set(self, "team_id", value)
+
+
+if not MYPY:
+    class GetPushProviderConfigurationFcmConfigurationArgsDict(TypedDict):
+        service_account_json: NotRequired['GetPushProviderConfigurationFcmConfigurationServiceAccountJsonArgsDict']
+        """
+        JSON containing the private service account key and service account details. Required for FCM provider type.
+        """
+elif False:
+    GetPushProviderConfigurationFcmConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GetPushProviderConfigurationFcmConfigurationArgs:
+    def __init__(__self__, *,
+                 service_account_json: Optional['GetPushProviderConfigurationFcmConfigurationServiceAccountJsonArgs'] = None):
+        """
+        :param 'GetPushProviderConfigurationFcmConfigurationServiceAccountJsonArgs' service_account_json: JSON containing the private service account key and service account details. Required for FCM provider type.
+        """
+        if service_account_json is not None:
+            pulumi.set(__self__, "service_account_json", service_account_json)
+
+    @_builtins.property
+    @pulumi.getter(name="serviceAccountJson")
+    def service_account_json(self) -> Optional['GetPushProviderConfigurationFcmConfigurationServiceAccountJsonArgs']:
+        """
+        JSON containing the private service account key and service account details. Required for FCM provider type.
+        """
+        return pulumi.get(self, "service_account_json")
+
+    @service_account_json.setter
+    def service_account_json(self, value: Optional['GetPushProviderConfigurationFcmConfigurationServiceAccountJsonArgs']):
+        pulumi.set(self, "service_account_json", value)
+
+
+if not MYPY:
+    class GetPushProviderConfigurationFcmConfigurationServiceAccountJsonArgsDict(TypedDict):
+        file_name: _builtins.str
+        """
+        File name for Admin Console display.
+        """
+        project_id: _builtins.str
+        """
+        The project ID.
+        """
+elif False:
+    GetPushProviderConfigurationFcmConfigurationServiceAccountJsonArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GetPushProviderConfigurationFcmConfigurationServiceAccountJsonArgs:
+    def __init__(__self__, *,
+                 file_name: _builtins.str,
+                 project_id: _builtins.str):
+        """
+        :param _builtins.str file_name: File name for Admin Console display.
+        :param _builtins.str project_id: The project ID.
+        """
+        pulumi.set(__self__, "file_name", file_name)
+        pulumi.set(__self__, "project_id", project_id)
+
+    @_builtins.property
+    @pulumi.getter(name="fileName")
+    def file_name(self) -> _builtins.str:
+        """
+        File name for Admin Console display.
+        """
+        return pulumi.get(self, "file_name")
+
+    @file_name.setter
+    def file_name(self, value: _builtins.str):
+        pulumi.set(self, "file_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="projectId")
+    def project_id(self) -> _builtins.str:
+        """
+        The project ID.
+        """
+        return pulumi.get(self, "project_id")
+
+    @project_id.setter
+    def project_id(self, value: _builtins.str):
+        pulumi.set(self, "project_id", value)
+
+
+if not MYPY:
     class GetRequestConditionAccessScopeSettingsArgsDict(TypedDict):
         type: _builtins.str
         ids: NotRequired[Sequence['GetRequestConditionAccessScopeSettingsIdArgsDict']]
@@ -10029,5 +11262,74 @@ class GetReviewReviewerProfileArgs:
     @status.setter
     def status(self, value: _builtins.str):
         pulumi.set(self, "status", value)
+
+
+if not MYPY:
+    class GetSecurityEventsProviderSettingsArgsDict(TypedDict):
+        issuer: _builtins.str
+        """
+        Issuer URL.
+        """
+        jwks_url: _builtins.str
+        """
+        The public URL where the JWKS public key is uploaded.
+        """
+        well_known_url: _builtins.str
+        """
+        The published well-known URL of the Security Events Provider (the SSF transmitter).
+        """
+elif False:
+    GetSecurityEventsProviderSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GetSecurityEventsProviderSettingsArgs:
+    def __init__(__self__, *,
+                 issuer: _builtins.str,
+                 jwks_url: _builtins.str,
+                 well_known_url: _builtins.str):
+        """
+        :param _builtins.str issuer: Issuer URL.
+        :param _builtins.str jwks_url: The public URL where the JWKS public key is uploaded.
+        :param _builtins.str well_known_url: The published well-known URL of the Security Events Provider (the SSF transmitter).
+        """
+        pulumi.set(__self__, "issuer", issuer)
+        pulumi.set(__self__, "jwks_url", jwks_url)
+        pulumi.set(__self__, "well_known_url", well_known_url)
+
+    @_builtins.property
+    @pulumi.getter
+    def issuer(self) -> _builtins.str:
+        """
+        Issuer URL.
+        """
+        return pulumi.get(self, "issuer")
+
+    @issuer.setter
+    def issuer(self, value: _builtins.str):
+        pulumi.set(self, "issuer", value)
+
+    @_builtins.property
+    @pulumi.getter(name="jwksUrl")
+    def jwks_url(self) -> _builtins.str:
+        """
+        The public URL where the JWKS public key is uploaded.
+        """
+        return pulumi.get(self, "jwks_url")
+
+    @jwks_url.setter
+    def jwks_url(self, value: _builtins.str):
+        pulumi.set(self, "jwks_url", value)
+
+    @_builtins.property
+    @pulumi.getter(name="wellKnownUrl")
+    def well_known_url(self) -> _builtins.str:
+        """
+        The published well-known URL of the Security Events Provider (the SSF transmitter).
+        """
+        return pulumi.get(self, "well_known_url")
+
+    @well_known_url.setter
+    def well_known_url(self, value: _builtins.str):
+        pulumi.set(self, "well_known_url", value)
 
 

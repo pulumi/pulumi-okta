@@ -29,6 +29,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &BasicAuth{}
 	case "okta:app/bookmark:Bookmark":
 		r = &Bookmark{}
+	case "okta:app/connection:Connection":
+		r = &Connection{}
+	case "okta:app/features:Features":
+		r = &Features{}
 	case "okta:app/groupAssignment:GroupAssignment":
 		r = &GroupAssignment{}
 	case "okta:app/oAuth:OAuth":
@@ -47,6 +51,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Swa{}
 	case "okta:app/threeField:ThreeField":
 		r = &ThreeField{}
+	case "okta:app/token:Token":
+		r = &Token{}
 	case "okta:app/user:User":
 		r = &User{}
 	default:
@@ -80,6 +86,16 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"okta",
 		"app/bookmark",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"okta",
+		"app/connection",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"okta",
+		"app/features",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -125,6 +141,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"okta",
 		"app/threeField",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"okta",
+		"app/token",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

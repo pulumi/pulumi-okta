@@ -11,16 +11,25 @@ import com.pulumi.deployment.InvokeOutputOptions;
 import com.pulumi.okta.Utilities;
 import com.pulumi.okta.app.inputs.GetAppArgs;
 import com.pulumi.okta.app.inputs.GetAppPlainArgs;
+import com.pulumi.okta.app.inputs.GetConnectionArgs;
+import com.pulumi.okta.app.inputs.GetConnectionPlainArgs;
+import com.pulumi.okta.app.inputs.GetFeaturesArgs;
+import com.pulumi.okta.app.inputs.GetFeaturesPlainArgs;
 import com.pulumi.okta.app.inputs.GetMetadataSamlArgs;
 import com.pulumi.okta.app.inputs.GetMetadataSamlPlainArgs;
 import com.pulumi.okta.app.inputs.GetOauthArgs;
 import com.pulumi.okta.app.inputs.GetOauthPlainArgs;
 import com.pulumi.okta.app.inputs.GetSamlArgs;
 import com.pulumi.okta.app.inputs.GetSamlPlainArgs;
+import com.pulumi.okta.app.inputs.GetTokenArgs;
+import com.pulumi.okta.app.inputs.GetTokenPlainArgs;
 import com.pulumi.okta.app.outputs.GetAppResult;
+import com.pulumi.okta.app.outputs.GetConnectionResult;
+import com.pulumi.okta.app.outputs.GetFeaturesResult;
 import com.pulumi.okta.app.outputs.GetMetadataSamlResult;
 import com.pulumi.okta.app.outputs.GetOauthResult;
 import com.pulumi.okta.app.outputs.GetSamlResult;
+import com.pulumi.okta.app.outputs.GetTokenResult;
 import java.util.concurrent.CompletableFuture;
 
 public final class AppFunctions {
@@ -303,6 +312,796 @@ public final class AppFunctions {
      */
     public static CompletableFuture<GetAppResult> getAppPlain(GetAppPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("okta:app/getApp:getApp", TypeShape.of(GetAppResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieves the default provisioning connection for an app.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.app.AppFunctions;
+     * import com.pulumi.okta.app.inputs.GetConnectionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AppFunctions.getConnection(GetConnectionArgs.builder()
+     *             .id("0oa1234567890abcdef")
+     *             .build());
+     * 
+     *         ctx.export("connectionStatus", example.status());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetConnectionResult> getConnection(GetConnectionArgs args) {
+        return getConnection(args, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieves the default provisioning connection for an app.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.app.AppFunctions;
+     * import com.pulumi.okta.app.inputs.GetConnectionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AppFunctions.getConnection(GetConnectionArgs.builder()
+     *             .id("0oa1234567890abcdef")
+     *             .build());
+     * 
+     *         ctx.export("connectionStatus", example.status());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetConnectionResult> getConnectionPlain(GetConnectionPlainArgs args) {
+        return getConnectionPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieves the default provisioning connection for an app.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.app.AppFunctions;
+     * import com.pulumi.okta.app.inputs.GetConnectionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AppFunctions.getConnection(GetConnectionArgs.builder()
+     *             .id("0oa1234567890abcdef")
+     *             .build());
+     * 
+     *         ctx.export("connectionStatus", example.status());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetConnectionResult> getConnection(GetConnectionArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("okta:app/getConnection:getConnection", TypeShape.of(GetConnectionResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieves the default provisioning connection for an app.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.app.AppFunctions;
+     * import com.pulumi.okta.app.inputs.GetConnectionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AppFunctions.getConnection(GetConnectionArgs.builder()
+     *             .id("0oa1234567890abcdef")
+     *             .build());
+     * 
+     *         ctx.export("connectionStatus", example.status());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetConnectionResult> getConnection(GetConnectionArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("okta:app/getConnection:getConnection", TypeShape.of(GetConnectionResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieves the default provisioning connection for an app.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.app.AppFunctions;
+     * import com.pulumi.okta.app.inputs.GetConnectionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AppFunctions.getConnection(GetConnectionArgs.builder()
+     *             .id("0oa1234567890abcdef")
+     *             .build());
+     * 
+     *         ctx.export("connectionStatus", example.status());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetConnectionResult> getConnectionPlain(GetConnectionPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("okta:app/getConnection:getConnection", TypeShape.of(GetConnectionResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieves a Feature object for an app.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.app.AppFunctions;
+     * import com.pulumi.okta.app.inputs.GetFeaturesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AppFunctions.getFeatures(GetFeaturesArgs.builder()
+     *             .appId("0oarblaf7hWdLawNg1d7")
+     *             .name("INBOUND_PROVISIONING")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### User Provisioning Feature
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.app.AppFunctions;
+     * import com.pulumi.okta.app.inputs.GetFeaturesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var userProvisioning = AppFunctions.getFeatures(GetFeaturesArgs.builder()
+     *             .appId(example.id())
+     *             .name("USER_PROVISIONING")
+     *             .build());
+     * 
+     *         ctx.export("provisioningStatus", userProvisioning.status());
+     *         ctx.export("passwordSyncEnabled", userProvisioning.capabilities().update().password().status());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Inbound Provisioning Feature
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.app.AppFunctions;
+     * import com.pulumi.okta.app.inputs.GetFeaturesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var inboundProvisioning = AppFunctions.getFeatures(GetFeaturesArgs.builder()
+     *             .appId(example.id())
+     *             .name("INBOUND_PROVISIONING")
+     *             .build());
+     * 
+     *         ctx.export("importScheduleStatus", inboundProvisioning.capabilities().importSettings().schedule().status());
+     *         ctx.export("autoActivateUsers", inboundProvisioning.capabilities().importRules().userCreateAndMatch().autoActivateNewUsers());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetFeaturesResult> getFeatures(GetFeaturesArgs args) {
+        return getFeatures(args, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieves a Feature object for an app.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.app.AppFunctions;
+     * import com.pulumi.okta.app.inputs.GetFeaturesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AppFunctions.getFeatures(GetFeaturesArgs.builder()
+     *             .appId("0oarblaf7hWdLawNg1d7")
+     *             .name("INBOUND_PROVISIONING")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### User Provisioning Feature
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.app.AppFunctions;
+     * import com.pulumi.okta.app.inputs.GetFeaturesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var userProvisioning = AppFunctions.getFeatures(GetFeaturesArgs.builder()
+     *             .appId(example.id())
+     *             .name("USER_PROVISIONING")
+     *             .build());
+     * 
+     *         ctx.export("provisioningStatus", userProvisioning.status());
+     *         ctx.export("passwordSyncEnabled", userProvisioning.capabilities().update().password().status());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Inbound Provisioning Feature
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.app.AppFunctions;
+     * import com.pulumi.okta.app.inputs.GetFeaturesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var inboundProvisioning = AppFunctions.getFeatures(GetFeaturesArgs.builder()
+     *             .appId(example.id())
+     *             .name("INBOUND_PROVISIONING")
+     *             .build());
+     * 
+     *         ctx.export("importScheduleStatus", inboundProvisioning.capabilities().importSettings().schedule().status());
+     *         ctx.export("autoActivateUsers", inboundProvisioning.capabilities().importRules().userCreateAndMatch().autoActivateNewUsers());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetFeaturesResult> getFeaturesPlain(GetFeaturesPlainArgs args) {
+        return getFeaturesPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieves a Feature object for an app.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.app.AppFunctions;
+     * import com.pulumi.okta.app.inputs.GetFeaturesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AppFunctions.getFeatures(GetFeaturesArgs.builder()
+     *             .appId("0oarblaf7hWdLawNg1d7")
+     *             .name("INBOUND_PROVISIONING")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### User Provisioning Feature
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.app.AppFunctions;
+     * import com.pulumi.okta.app.inputs.GetFeaturesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var userProvisioning = AppFunctions.getFeatures(GetFeaturesArgs.builder()
+     *             .appId(example.id())
+     *             .name("USER_PROVISIONING")
+     *             .build());
+     * 
+     *         ctx.export("provisioningStatus", userProvisioning.status());
+     *         ctx.export("passwordSyncEnabled", userProvisioning.capabilities().update().password().status());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Inbound Provisioning Feature
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.app.AppFunctions;
+     * import com.pulumi.okta.app.inputs.GetFeaturesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var inboundProvisioning = AppFunctions.getFeatures(GetFeaturesArgs.builder()
+     *             .appId(example.id())
+     *             .name("INBOUND_PROVISIONING")
+     *             .build());
+     * 
+     *         ctx.export("importScheduleStatus", inboundProvisioning.capabilities().importSettings().schedule().status());
+     *         ctx.export("autoActivateUsers", inboundProvisioning.capabilities().importRules().userCreateAndMatch().autoActivateNewUsers());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetFeaturesResult> getFeatures(GetFeaturesArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("okta:app/getFeatures:getFeatures", TypeShape.of(GetFeaturesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieves a Feature object for an app.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.app.AppFunctions;
+     * import com.pulumi.okta.app.inputs.GetFeaturesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AppFunctions.getFeatures(GetFeaturesArgs.builder()
+     *             .appId("0oarblaf7hWdLawNg1d7")
+     *             .name("INBOUND_PROVISIONING")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### User Provisioning Feature
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.app.AppFunctions;
+     * import com.pulumi.okta.app.inputs.GetFeaturesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var userProvisioning = AppFunctions.getFeatures(GetFeaturesArgs.builder()
+     *             .appId(example.id())
+     *             .name("USER_PROVISIONING")
+     *             .build());
+     * 
+     *         ctx.export("provisioningStatus", userProvisioning.status());
+     *         ctx.export("passwordSyncEnabled", userProvisioning.capabilities().update().password().status());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Inbound Provisioning Feature
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.app.AppFunctions;
+     * import com.pulumi.okta.app.inputs.GetFeaturesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var inboundProvisioning = AppFunctions.getFeatures(GetFeaturesArgs.builder()
+     *             .appId(example.id())
+     *             .name("INBOUND_PROVISIONING")
+     *             .build());
+     * 
+     *         ctx.export("importScheduleStatus", inboundProvisioning.capabilities().importSettings().schedule().status());
+     *         ctx.export("autoActivateUsers", inboundProvisioning.capabilities().importRules().userCreateAndMatch().autoActivateNewUsers());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetFeaturesResult> getFeatures(GetFeaturesArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("okta:app/getFeatures:getFeatures", TypeShape.of(GetFeaturesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieves a Feature object for an app.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.app.AppFunctions;
+     * import com.pulumi.okta.app.inputs.GetFeaturesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AppFunctions.getFeatures(GetFeaturesArgs.builder()
+     *             .appId("0oarblaf7hWdLawNg1d7")
+     *             .name("INBOUND_PROVISIONING")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### User Provisioning Feature
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.app.AppFunctions;
+     * import com.pulumi.okta.app.inputs.GetFeaturesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var userProvisioning = AppFunctions.getFeatures(GetFeaturesArgs.builder()
+     *             .appId(example.id())
+     *             .name("USER_PROVISIONING")
+     *             .build());
+     * 
+     *         ctx.export("provisioningStatus", userProvisioning.status());
+     *         ctx.export("passwordSyncEnabled", userProvisioning.capabilities().update().password().status());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Inbound Provisioning Feature
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.app.AppFunctions;
+     * import com.pulumi.okta.app.inputs.GetFeaturesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var inboundProvisioning = AppFunctions.getFeatures(GetFeaturesArgs.builder()
+     *             .appId(example.id())
+     *             .name("INBOUND_PROVISIONING")
+     *             .build());
+     * 
+     *         ctx.export("importScheduleStatus", inboundProvisioning.capabilities().importSettings().schedule().status());
+     *         ctx.export("autoActivateUsers", inboundProvisioning.capabilities().importRules().userCreateAndMatch().autoActivateNewUsers());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetFeaturesResult> getFeaturesPlain(GetFeaturesPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("okta:app/getFeatures:getFeatures", TypeShape.of(GetFeaturesResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Get a SAML application&#39;s metadata from Okta.
@@ -1068,5 +1867,230 @@ public final class AppFunctions {
      */
     public static CompletableFuture<GetSamlResult> getSamlPlain(GetSamlPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("okta:app/getSaml:getSaml", TypeShape.of(GetSamlResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieves a refresh token for the specified app.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Token Information
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.app.AppFunctions;
+     * import com.pulumi.okta.app.inputs.GetTokenArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AppFunctions.getToken(GetTokenArgs.builder()
+     *             .clientId("0oardd5r32PWsF4421d7")
+     *             .id("oar1godmqw4QUiX4C1d7")
+     *             .build());
+     * 
+     *         ctx.export("tokenStatus", example.status());
+     *         ctx.export("tokenUser", example.userId());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetTokenResult> getToken(GetTokenArgs args) {
+        return getToken(args, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieves a refresh token for the specified app.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Token Information
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.app.AppFunctions;
+     * import com.pulumi.okta.app.inputs.GetTokenArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AppFunctions.getToken(GetTokenArgs.builder()
+     *             .clientId("0oardd5r32PWsF4421d7")
+     *             .id("oar1godmqw4QUiX4C1d7")
+     *             .build());
+     * 
+     *         ctx.export("tokenStatus", example.status());
+     *         ctx.export("tokenUser", example.userId());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetTokenResult> getTokenPlain(GetTokenPlainArgs args) {
+        return getTokenPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieves a refresh token for the specified app.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Token Information
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.app.AppFunctions;
+     * import com.pulumi.okta.app.inputs.GetTokenArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AppFunctions.getToken(GetTokenArgs.builder()
+     *             .clientId("0oardd5r32PWsF4421d7")
+     *             .id("oar1godmqw4QUiX4C1d7")
+     *             .build());
+     * 
+     *         ctx.export("tokenStatus", example.status());
+     *         ctx.export("tokenUser", example.userId());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetTokenResult> getToken(GetTokenArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("okta:app/getToken:getToken", TypeShape.of(GetTokenResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieves a refresh token for the specified app.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Token Information
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.app.AppFunctions;
+     * import com.pulumi.okta.app.inputs.GetTokenArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AppFunctions.getToken(GetTokenArgs.builder()
+     *             .clientId("0oardd5r32PWsF4421d7")
+     *             .id("oar1godmqw4QUiX4C1d7")
+     *             .build());
+     * 
+     *         ctx.export("tokenStatus", example.status());
+     *         ctx.export("tokenUser", example.userId());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetTokenResult> getToken(GetTokenArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("okta:app/getToken:getToken", TypeShape.of(GetTokenResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieves a refresh token for the specified app.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Token Information
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.app.AppFunctions;
+     * import com.pulumi.okta.app.inputs.GetTokenArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AppFunctions.getToken(GetTokenArgs.builder()
+     *             .clientId("0oardd5r32PWsF4421d7")
+     *             .id("oar1godmqw4QUiX4C1d7")
+     *             .build());
+     * 
+     *         ctx.export("tokenStatus", example.status());
+     *         ctx.export("tokenUser", example.userId());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetTokenResult> getTokenPlain(GetTokenPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("okta:app/getToken:getToken", TypeShape.of(GetTokenResult.class), args, Utilities.withVersion(options));
     }
 }

@@ -5,6 +5,28 @@ import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 
+export interface ApiServiceIntegrationGrantedScope {
+    /**
+     * The scope of the API service integration
+     */
+    scope: pulumi.Input<string>;
+}
+
+export interface ApiTokenNetwork {
+    /**
+     * The connection type of the Network Condition.
+     */
+    connection?: pulumi.Input<string>;
+    /**
+     * The IP address the excluded zone.
+     */
+    excludes?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The IP address the included zone.
+     */
+    includes?: pulumi.Input<pulumi.Input<string>[]>;
+}
+
 export interface AppGroupAssignmentsGroup {
     /**
      * A group to associate with the application
@@ -540,6 +562,50 @@ export interface EventHookHeader {
 export interface FeatureStage {
     state: pulumi.Input<string>;
     value: pulumi.Input<string>;
+}
+
+export interface GetApiServiceIntegrationGrantedScope {
+    /**
+     * The scope of the API service integration granted.
+     */
+    scope?: string;
+}
+
+export interface GetApiServiceIntegrationGrantedScopeArgs {
+    /**
+     * The scope of the API service integration granted.
+     */
+    scope?: pulumi.Input<string>;
+}
+
+export interface GetApiTokenNetwork {
+    /**
+     * The connection type of the Network Condition.
+     */
+    connection?: string;
+    /**
+     * The IP address the excluded zone.
+     */
+    excludes?: string[];
+    /**
+     * The IP address the included zone.
+     */
+    includes?: string[];
+}
+
+export interface GetApiTokenNetworkArgs {
+    /**
+     * The connection type of the Network Condition.
+     */
+    connection?: pulumi.Input<string>;
+    /**
+     * The IP address the excluded zone.
+     */
+    excludes?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The IP address the included zone.
+     */
+    includes?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 export interface GetCampaignNotificationSettings {
@@ -1210,6 +1276,154 @@ export interface GetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersion {
 
 export interface GetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersionArgs {
     minimum: pulumi.Input<string>;
+}
+
+export interface GetDeviceProfile {
+    /**
+     * The disk encryption type of the device.
+     */
+    diskEncryptionType?: string;
+    /**
+     * The display name of the device.
+     */
+    displayName?: string;
+    /**
+     * The International Mobile Equipment Identity (IMEI) of the device.
+     */
+    imei?: string;
+    /**
+     * Indicates if the device is jailbroken or rooted. Only applicable to IOS and ANDROID platforms.
+     */
+    integrityJailBreak?: boolean;
+    /**
+     * The manufacturer of the device.
+     */
+    manufacturer?: string;
+    /**
+     * The Mobile Equipment Identifier (MEID) of the device.
+     */
+    meid?: string;
+    /**
+     * The model of the device.
+     */
+    model?: string;
+    /**
+     * The OS version of the device.
+     */
+    osVersion?: string;
+    /**
+     * The platform of the device.
+     */
+    platform?: string;
+    /**
+     * Indicates if the device is registered at Okta.
+     */
+    registered?: boolean;
+    /**
+     * Indicates if secure hardware is present on the device.
+     */
+    secureHardwarePresent?: boolean;
+    /**
+     * The serial number of the device.
+     */
+    serialNumber?: string;
+    /**
+     * The Security Identifier (SID) of the device.
+     */
+    sid?: string;
+    /**
+     * Windows Trusted Platform Module hash value.
+     */
+    tpmPublicKeyHash?: string;
+    /**
+     * MacOS Unique device identifier of the device.
+     */
+    udid?: string;
+}
+
+export interface GetDeviceProfileArgs {
+    /**
+     * The disk encryption type of the device.
+     */
+    diskEncryptionType?: pulumi.Input<string>;
+    /**
+     * The display name of the device.
+     */
+    displayName?: pulumi.Input<string>;
+    /**
+     * The International Mobile Equipment Identity (IMEI) of the device.
+     */
+    imei?: pulumi.Input<string>;
+    /**
+     * Indicates if the device is jailbroken or rooted. Only applicable to IOS and ANDROID platforms.
+     */
+    integrityJailBreak?: pulumi.Input<boolean>;
+    /**
+     * The manufacturer of the device.
+     */
+    manufacturer?: pulumi.Input<string>;
+    /**
+     * The Mobile Equipment Identifier (MEID) of the device.
+     */
+    meid?: pulumi.Input<string>;
+    /**
+     * The model of the device.
+     */
+    model?: pulumi.Input<string>;
+    /**
+     * The OS version of the device.
+     */
+    osVersion?: pulumi.Input<string>;
+    /**
+     * The platform of the device.
+     */
+    platform?: pulumi.Input<string>;
+    /**
+     * Indicates if the device is registered at Okta.
+     */
+    registered?: pulumi.Input<boolean>;
+    /**
+     * Indicates if secure hardware is present on the device.
+     */
+    secureHardwarePresent?: pulumi.Input<boolean>;
+    /**
+     * The serial number of the device.
+     */
+    serialNumber?: pulumi.Input<string>;
+    /**
+     * The Security Identifier (SID) of the device.
+     */
+    sid?: pulumi.Input<string>;
+    /**
+     * Windows Trusted Platform Module hash value.
+     */
+    tpmPublicKeyHash?: pulumi.Input<string>;
+    /**
+     * MacOS Unique device identifier of the device.
+     */
+    udid?: pulumi.Input<string>;
+}
+
+export interface GetDeviceResourceDisplayName {
+    /**
+     * Indicates if the resource display name is sensitive.
+     */
+    sensitive?: boolean;
+    /**
+     * The value of the resource display name.
+     */
+    value?: string;
+}
+
+export interface GetDeviceResourceDisplayNameArgs {
+    /**
+     * Indicates if the resource display name is sensitive.
+     */
+    sensitive?: pulumi.Input<boolean>;
+    /**
+     * The value of the resource display name.
+     */
+    value?: pulumi.Input<string>;
 }
 
 export interface GetEndUserMyRequestsRequested {
@@ -1898,6 +2112,82 @@ export interface GetPrincipalEntitlementsTargetPrincipalArgs {
     type: pulumi.Input<string>;
 }
 
+export interface GetPushProviderConfiguration {
+    apnsConfiguration?: inputs.GetPushProviderConfigurationApnsConfiguration;
+    fcmConfiguration?: inputs.GetPushProviderConfigurationFcmConfiguration;
+}
+
+export interface GetPushProviderConfigurationArgs {
+    apnsConfiguration?: pulumi.Input<inputs.GetPushProviderConfigurationApnsConfigurationArgs>;
+    fcmConfiguration?: pulumi.Input<inputs.GetPushProviderConfigurationFcmConfigurationArgs>;
+}
+
+export interface GetPushProviderConfigurationApnsConfiguration {
+    /**
+     * File name for Admin Console display.
+     */
+    fileName?: string;
+    /**
+     * 10-character Key ID obtained from the Apple developer account. Required for APNS provider type.
+     */
+    keyId?: string;
+    /**
+     * 10-character Team ID used to develop the iOS app. Required for APNS provider type.
+     */
+    teamId?: string;
+}
+
+export interface GetPushProviderConfigurationApnsConfigurationArgs {
+    /**
+     * File name for Admin Console display.
+     */
+    fileName?: pulumi.Input<string>;
+    /**
+     * 10-character Key ID obtained from the Apple developer account. Required for APNS provider type.
+     */
+    keyId?: pulumi.Input<string>;
+    /**
+     * 10-character Team ID used to develop the iOS app. Required for APNS provider type.
+     */
+    teamId?: pulumi.Input<string>;
+}
+
+export interface GetPushProviderConfigurationFcmConfiguration {
+    /**
+     * JSON containing the private service account key and service account details. Required for FCM provider type.
+     */
+    serviceAccountJson?: inputs.GetPushProviderConfigurationFcmConfigurationServiceAccountJson;
+}
+
+export interface GetPushProviderConfigurationFcmConfigurationArgs {
+    /**
+     * JSON containing the private service account key and service account details. Required for FCM provider type.
+     */
+    serviceAccountJson?: pulumi.Input<inputs.GetPushProviderConfigurationFcmConfigurationServiceAccountJsonArgs>;
+}
+
+export interface GetPushProviderConfigurationFcmConfigurationServiceAccountJson {
+    /**
+     * File name for Admin Console display.
+     */
+    fileName?: string;
+    /**
+     * The project ID.
+     */
+    projectId?: string;
+}
+
+export interface GetPushProviderConfigurationFcmConfigurationServiceAccountJsonArgs {
+    /**
+     * File name for Admin Console display.
+     */
+    fileName?: pulumi.Input<string>;
+    /**
+     * The project ID.
+     */
+    projectId?: pulumi.Input<string>;
+}
+
 export interface GetRequestConditionAccessScopeSettings {
     /**
      * Block list of groups/entitlement bundles ids.
@@ -2400,6 +2690,36 @@ export interface GetReviewReviewerProfileArgs {
     status?: pulumi.Input<string>;
 }
 
+export interface GetSecurityEventsProviderSettings {
+    /**
+     * Issuer URL.
+     */
+    issuer?: string;
+    /**
+     * The public URL where the JWKS public key is uploaded.
+     */
+    jwksUrl?: string;
+    /**
+     * The published well-known URL of the Security Events Provider (the SSF transmitter).
+     */
+    wellKnownUrl?: string;
+}
+
+export interface GetSecurityEventsProviderSettingsArgs {
+    /**
+     * Issuer URL.
+     */
+    issuer?: pulumi.Input<string>;
+    /**
+     * The public URL where the JWKS public key is uploaded.
+     */
+    jwksUrl?: pulumi.Input<string>;
+    /**
+     * The published well-known URL of the Security Events Provider (the SSF transmitter).
+     */
+    wellKnownUrl?: pulumi.Input<string>;
+}
+
 export interface GroupSchemaPropertyArrayOneOf {
     /**
      * Value mapping to member of `arrayEnum`
@@ -2500,6 +2820,84 @@ export interface PreviewSigninPageWidgetCustomizations {
     usernameInfoTip?: pulumi.Input<string>;
     usernameLabel?: pulumi.Input<string>;
     widgetGeneration: pulumi.Input<string>;
+}
+
+export interface PushProviderConfiguration {
+    apnsConfiguration?: pulumi.Input<inputs.PushProviderConfigurationApnsConfiguration>;
+    fcmConfiguration?: pulumi.Input<inputs.PushProviderConfigurationFcmConfiguration>;
+}
+
+export interface PushProviderConfigurationApnsConfiguration {
+    /**
+     * File name for Admin Console display.
+     */
+    fileName?: pulumi.Input<string>;
+    /**
+     * 10-character Key ID obtained from the Apple developer account. Required for APNS provider type.
+     */
+    keyId?: pulumi.Input<string>;
+    /**
+     * 10-character Team ID used to develop the iOS app. Required for APNS provider type.
+     */
+    teamId?: pulumi.Input<string>;
+    /**
+     * APNs private authentication token signing key. Required for APNS provider type.
+     */
+    tokenSigningKey?: pulumi.Input<string>;
+}
+
+export interface PushProviderConfigurationFcmConfiguration {
+    /**
+     * JSON containing the private service account key and service account details. Required for FCM provider type.
+     */
+    serviceAccountJson?: pulumi.Input<inputs.PushProviderConfigurationFcmConfigurationServiceAccountJson>;
+}
+
+export interface PushProviderConfigurationFcmConfigurationServiceAccountJson {
+    /**
+     * The auth provider x509 cert URL.
+     */
+    authProviderX509CertUrl?: pulumi.Input<string>;
+    /**
+     * The auth URI.
+     */
+    authUri?: pulumi.Input<string>;
+    /**
+     * The client email.
+     */
+    clientEmail?: pulumi.Input<string>;
+    /**
+     * The client ID.
+     */
+    clientId?: pulumi.Input<string>;
+    /**
+     * The client x509 cert URL.
+     */
+    clientX509CertUrl?: pulumi.Input<string>;
+    /**
+     * File name for Admin Console display.
+     */
+    fileName?: pulumi.Input<string>;
+    /**
+     * The private key.
+     */
+    privateKey?: pulumi.Input<string>;
+    /**
+     * The private key ID.
+     */
+    privateKeyId?: pulumi.Input<string>;
+    /**
+     * The project ID.
+     */
+    projectId?: pulumi.Input<string>;
+    /**
+     * The token URI.
+     */
+    tokenUri?: pulumi.Input<string>;
+    /**
+     * The type of the service account.
+     */
+    type?: pulumi.Input<string>;
 }
 
 export interface RateLimitingUseCaseModeOverrides {
@@ -2660,6 +3058,21 @@ export interface RequestV2RequesterFieldValueValue {
     value?: pulumi.Input<string>;
 }
 
+export interface SecurityEventsProviderSettings {
+    /**
+     * Issuer URL. Maximum length: 700 characters. To be used along with `jwksUrl`.
+     */
+    issuer?: pulumi.Input<string>;
+    /**
+     * The public URL where the JWKS public key is uploaded. Maximum length: 1000 characters. To be used along with `issuer`.
+     */
+    jwksUrl?: pulumi.Input<string>;
+    /**
+     * The published well-known URL of the Security Events Provider (the SSF transmitter). Maximum length: 1000 characters.
+     */
+    wellKnownUrl?: pulumi.Input<string>;
+}
+
 export interface TemplateSmsTranslation {
     /**
      * The language to map the template to.
@@ -2698,6 +3111,571 @@ export interface UserSchemaPropertyOneOf {
     title: pulumi.Input<string>;
 }
 export namespace app {
+    export interface ConnectionProfile {
+        /**
+         * Authentication scheme. Valid values are TOKEN or OAUTH2.
+         */
+        authScheme: pulumi.Input<string>;
+        /**
+         * OAuth2 client ID (required for OAUTH2 auth scheme).
+         */
+        clientId?: pulumi.Input<string>;
+        /**
+         * Additional settings for OAuth2 authentication.
+         */
+        settings?: pulumi.Input<inputs.app.ConnectionProfileSettings>;
+        /**
+         * Signing configuration.
+         */
+        signing?: pulumi.Input<inputs.app.ConnectionProfileSigning>;
+        /**
+         * Authentication token (required for TOKEN auth scheme).
+         */
+        token?: pulumi.Input<string>;
+    }
+
+    export interface ConnectionProfileSettings {
+        /**
+         * Admin password for OAuth2.
+         */
+        adminPassword?: pulumi.Input<string>;
+        /**
+         * Admin username for OAuth2.
+         */
+        adminUsername?: pulumi.Input<string>;
+    }
+
+    export interface ConnectionProfileSigning {
+        /**
+         * Token rotation mode.
+         */
+        rotationMode?: pulumi.Input<string>;
+    }
+
+    export interface FeaturesCapabilities {
+        /**
+         * (Optional) Block for create lifecycle settings:
+         */
+        create?: pulumi.Input<inputs.app.FeaturesCapabilitiesCreate>;
+        /**
+         * (Optional) Block for import rules configuration:
+         */
+        importRules?: pulumi.Input<inputs.app.FeaturesCapabilitiesImportRules>;
+        /**
+         * (Optional) Block for import settings configuration:
+         */
+        importSettings?: pulumi.Input<inputs.app.FeaturesCapabilitiesImportSettings>;
+        /**
+         * (Optional) Block for update settings:
+         */
+        update?: pulumi.Input<inputs.app.FeaturesCapabilitiesUpdate>;
+    }
+
+    export interface FeaturesCapabilitiesCreate {
+        /**
+         * (Optional) Block for create lifecycle configuration:
+         */
+        lifecycleCreate?: pulumi.Input<inputs.app.FeaturesCapabilitiesCreateLifecycleCreate>;
+    }
+
+    export interface FeaturesCapabilitiesCreateLifecycleCreate {
+        /**
+         * The status of the feature. Valid values are `ENABLED` or `DISABLED`.
+         */
+        status?: pulumi.Input<string>;
+    }
+
+    export interface FeaturesCapabilitiesImportRules {
+        /**
+         * (Optional) Block for user matching and creation rules:
+         */
+        userCreateAndMatch?: pulumi.Input<inputs.app.FeaturesCapabilitiesImportRulesUserCreateAndMatch>;
+    }
+
+    export interface FeaturesCapabilitiesImportRulesUserCreateAndMatch {
+        /**
+         * (Optional) Whether to allow partial matching based on first and last names.
+         */
+        allowPartialMatch?: pulumi.Input<boolean>;
+        /**
+         * (Optional) Whether imported new users are automatically activated.
+         */
+        autoActivateNewUsers?: pulumi.Input<boolean>;
+        /**
+         * (Optional) Whether exact-matched users are automatically confirmed.
+         */
+        autoconfirmExactMatch?: pulumi.Input<boolean>;
+        /**
+         * (Optional) Whether imported new users are automatically confirmed.
+         */
+        autoconfirmNewUsers?: pulumi.Input<boolean>;
+        /**
+         * (Optional) Whether partially matched users are automatically confirmed.
+         */
+        autoconfirmPartialMatch?: pulumi.Input<boolean>;
+        /**
+         * (Optional) Attribute used for exact matching (e.g., `USERNAME`, `EMAIL`).
+         */
+        exactMatchCriteria?: pulumi.Input<string>;
+    }
+
+    export interface FeaturesCapabilitiesImportSettings {
+        /**
+         * (Optional) Block for import schedule configuration:
+         */
+        schedule?: pulumi.Input<inputs.app.FeaturesCapabilitiesImportSettingsSchedule>;
+        /**
+         * (Optional) Block for username configuration:
+         */
+        username?: pulumi.Input<inputs.app.FeaturesCapabilitiesImportSettingsUsername>;
+    }
+
+    export interface FeaturesCapabilitiesImportSettingsSchedule {
+        /**
+         * (Optional) Block for full import schedule:
+         */
+        fullImport?: pulumi.Input<inputs.app.FeaturesCapabilitiesImportSettingsScheduleFullImport>;
+        /**
+         * (Optional) Block for incremental import schedule:
+         */
+        incrementalImport?: pulumi.Input<inputs.app.FeaturesCapabilitiesImportSettingsScheduleIncrementalImport>;
+        /**
+         * The status of the feature. Valid values are `ENABLED` or `DISABLED`.
+         */
+        status?: pulumi.Input<string>;
+    }
+
+    export interface FeaturesCapabilitiesImportSettingsScheduleFullImport {
+        /**
+         * (Optional) UNIX cron expression for incremental import schedule.
+         */
+        expression?: pulumi.Input<string>;
+        /**
+         * (Optional) IANA timezone name for the schedule.
+         */
+        timezone?: pulumi.Input<string>;
+    }
+
+    export interface FeaturesCapabilitiesImportSettingsScheduleIncrementalImport {
+        /**
+         * (Optional) UNIX cron expression for incremental import schedule.
+         */
+        expression?: pulumi.Input<string>;
+        /**
+         * (Optional) IANA timezone name for the schedule.
+         */
+        timezone?: pulumi.Input<string>;
+    }
+
+    export interface FeaturesCapabilitiesImportSettingsUsername {
+        /**
+         * (Optional) Okta Expression Language statement for custom username format.
+         */
+        usernameExpression?: pulumi.Input<string>;
+        /**
+         * (Optional) Format for usernames (e.g., `EMAIL`, `CUSTOM`).
+         */
+        usernameFormat?: pulumi.Input<string>;
+    }
+
+    export interface FeaturesCapabilitiesUpdate {
+        /**
+         * (Optional) Block for deactivation lifecycle configuration:
+         */
+        lifecycleDeactivate?: pulumi.Input<inputs.app.FeaturesCapabilitiesUpdateLifecycleDeactivate>;
+        /**
+         * (Optional) Block for password synchronization settings:
+         */
+        password?: pulumi.Input<inputs.app.FeaturesCapabilitiesUpdatePassword>;
+        /**
+         * (Optional) Block for profile update settings:
+         */
+        profile?: pulumi.Input<inputs.app.FeaturesCapabilitiesUpdateProfile>;
+    }
+
+    export interface FeaturesCapabilitiesUpdateLifecycleDeactivate {
+        /**
+         * The status of the feature. Valid values are `ENABLED` or `DISABLED`.
+         */
+        status?: pulumi.Input<string>;
+    }
+
+    export interface FeaturesCapabilitiesUpdatePassword {
+        /**
+         * (Optional) Determines password change behavior. Valid values are `CHANGE` or `KEEP_EXISTING`.
+         */
+        change?: pulumi.Input<string>;
+        /**
+         * (Optional) Determines password source. Valid values are `OKTA` or `RANDOM`.
+         */
+        seed?: pulumi.Input<string>;
+        /**
+         * The status of the feature. Valid values are `ENABLED` or `DISABLED`.
+         */
+        status?: pulumi.Input<string>;
+    }
+
+    export interface FeaturesCapabilitiesUpdateProfile {
+        /**
+         * The status of the feature. Valid values are `ENABLED` or `DISABLED`.
+         */
+        status?: pulumi.Input<string>;
+    }
+
+    export interface GetConnectionProfile {
+        /**
+         * Defines the method of authentication.
+         */
+        authScheme?: string;
+    }
+
+    export interface GetConnectionProfileArgs {
+        /**
+         * Defines the method of authentication.
+         */
+        authScheme?: pulumi.Input<string>;
+    }
+
+    export interface GetFeaturesCapabilities {
+        /**
+         * Block for create lifecycle settings:
+         */
+        create?: inputs.app.GetFeaturesCapabilitiesCreate;
+        /**
+         * Block for import rules configuration:
+         */
+        importRules?: inputs.app.GetFeaturesCapabilitiesImportRules;
+        /**
+         * Block for import settings configuration:
+         */
+        importSettings?: inputs.app.GetFeaturesCapabilitiesImportSettings;
+        /**
+         * Block for update settings:
+         */
+        update?: inputs.app.GetFeaturesCapabilitiesUpdate;
+    }
+
+    export interface GetFeaturesCapabilitiesArgs {
+        /**
+         * Block for create lifecycle settings:
+         */
+        create?: pulumi.Input<inputs.app.GetFeaturesCapabilitiesCreateArgs>;
+        /**
+         * Block for import rules configuration:
+         */
+        importRules?: pulumi.Input<inputs.app.GetFeaturesCapabilitiesImportRulesArgs>;
+        /**
+         * Block for import settings configuration:
+         */
+        importSettings?: pulumi.Input<inputs.app.GetFeaturesCapabilitiesImportSettingsArgs>;
+        /**
+         * Block for update settings:
+         */
+        update?: pulumi.Input<inputs.app.GetFeaturesCapabilitiesUpdateArgs>;
+    }
+
+    export interface GetFeaturesCapabilitiesCreate {
+        /**
+         * Block for create lifecycle configuration:
+         */
+        lifecycleCreate?: inputs.app.GetFeaturesCapabilitiesCreateLifecycleCreate;
+    }
+
+    export interface GetFeaturesCapabilitiesCreateArgs {
+        /**
+         * Block for create lifecycle configuration:
+         */
+        lifecycleCreate?: pulumi.Input<inputs.app.GetFeaturesCapabilitiesCreateLifecycleCreateArgs>;
+    }
+
+    export interface GetFeaturesCapabilitiesCreateLifecycleCreate {
+        /**
+         * (String) Status of the import schedule. Valid values are `ENABLED` or `DISABLED`.
+         */
+        status?: string;
+    }
+
+    export interface GetFeaturesCapabilitiesCreateLifecycleCreateArgs {
+        /**
+         * (String) Status of the import schedule. Valid values are `ENABLED` or `DISABLED`.
+         */
+        status?: pulumi.Input<string>;
+    }
+
+    export interface GetFeaturesCapabilitiesImportRules {
+        /**
+         * Block for user matching and creation rules:
+         */
+        userCreateAndMatch?: inputs.app.GetFeaturesCapabilitiesImportRulesUserCreateAndMatch;
+    }
+
+    export interface GetFeaturesCapabilitiesImportRulesArgs {
+        /**
+         * Block for user matching and creation rules:
+         */
+        userCreateAndMatch?: pulumi.Input<inputs.app.GetFeaturesCapabilitiesImportRulesUserCreateAndMatchArgs>;
+    }
+
+    export interface GetFeaturesCapabilitiesImportRulesUserCreateAndMatch {
+        /**
+         * (Boolean) Whether to allow partial matching based on first and last names.
+         */
+        allowPartialMatch?: boolean;
+        /**
+         * (Boolean) Whether imported new users are automatically activated.
+         */
+        autoActivateNewUsers?: boolean;
+        /**
+         * (Boolean) Whether exact-matched users are automatically confirmed.
+         */
+        autoconfirmExactMatch?: boolean;
+        /**
+         * (Boolean) Whether imported new users are automatically confirmed.
+         */
+        autoconfirmNewUsers?: boolean;
+        /**
+         * (Boolean) Whether partially matched users are automatically confirmed.
+         */
+        autoconfirmPartialMatch?: boolean;
+        /**
+         * (String) Attribute used for exact matching (e.g., `USERNAME`, `EMAIL`).
+         */
+        exactMatchCriteria?: string;
+    }
+
+    export interface GetFeaturesCapabilitiesImportRulesUserCreateAndMatchArgs {
+        /**
+         * (Boolean) Whether to allow partial matching based on first and last names.
+         */
+        allowPartialMatch?: pulumi.Input<boolean>;
+        /**
+         * (Boolean) Whether imported new users are automatically activated.
+         */
+        autoActivateNewUsers?: pulumi.Input<boolean>;
+        /**
+         * (Boolean) Whether exact-matched users are automatically confirmed.
+         */
+        autoconfirmExactMatch?: pulumi.Input<boolean>;
+        /**
+         * (Boolean) Whether imported new users are automatically confirmed.
+         */
+        autoconfirmNewUsers?: pulumi.Input<boolean>;
+        /**
+         * (Boolean) Whether partially matched users are automatically confirmed.
+         */
+        autoconfirmPartialMatch?: pulumi.Input<boolean>;
+        /**
+         * (String) Attribute used for exact matching (e.g., `USERNAME`, `EMAIL`).
+         */
+        exactMatchCriteria?: pulumi.Input<string>;
+    }
+
+    export interface GetFeaturesCapabilitiesImportSettings {
+        /**
+         * Block for import schedule configuration:
+         */
+        schedule?: inputs.app.GetFeaturesCapabilitiesImportSettingsSchedule;
+        /**
+         * Block for username configuration:
+         */
+        username?: inputs.app.GetFeaturesCapabilitiesImportSettingsUsername;
+    }
+
+    export interface GetFeaturesCapabilitiesImportSettingsArgs {
+        /**
+         * Block for import schedule configuration:
+         */
+        schedule?: pulumi.Input<inputs.app.GetFeaturesCapabilitiesImportSettingsScheduleArgs>;
+        /**
+         * Block for username configuration:
+         */
+        username?: pulumi.Input<inputs.app.GetFeaturesCapabilitiesImportSettingsUsernameArgs>;
+    }
+
+    export interface GetFeaturesCapabilitiesImportSettingsSchedule {
+        /**
+         * Block for full import schedule:
+         */
+        fullImport?: inputs.app.GetFeaturesCapabilitiesImportSettingsScheduleFullImport;
+        /**
+         * Block for incremental import schedule:
+         */
+        incrementalImport?: inputs.app.GetFeaturesCapabilitiesImportSettingsScheduleIncrementalImport;
+        /**
+         * (String) Status of the import schedule. Valid values are `ENABLED` or `DISABLED`.
+         */
+        status?: string;
+    }
+
+    export interface GetFeaturesCapabilitiesImportSettingsScheduleArgs {
+        /**
+         * Block for full import schedule:
+         */
+        fullImport?: pulumi.Input<inputs.app.GetFeaturesCapabilitiesImportSettingsScheduleFullImportArgs>;
+        /**
+         * Block for incremental import schedule:
+         */
+        incrementalImport?: pulumi.Input<inputs.app.GetFeaturesCapabilitiesImportSettingsScheduleIncrementalImportArgs>;
+        /**
+         * (String) Status of the import schedule. Valid values are `ENABLED` or `DISABLED`.
+         */
+        status?: pulumi.Input<string>;
+    }
+
+    export interface GetFeaturesCapabilitiesImportSettingsScheduleFullImport {
+        /**
+         * (String) UNIX cron expression for incremental import schedule.
+         */
+        expression?: string;
+        /**
+         * (String) IANA timezone name for the schedule.
+         */
+        timezone?: string;
+    }
+
+    export interface GetFeaturesCapabilitiesImportSettingsScheduleFullImportArgs {
+        /**
+         * (String) UNIX cron expression for incremental import schedule.
+         */
+        expression?: pulumi.Input<string>;
+        /**
+         * (String) IANA timezone name for the schedule.
+         */
+        timezone?: pulumi.Input<string>;
+    }
+
+    export interface GetFeaturesCapabilitiesImportSettingsScheduleIncrementalImport {
+        /**
+         * (String) UNIX cron expression for incremental import schedule.
+         */
+        expression?: string;
+        /**
+         * (String) IANA timezone name for the schedule.
+         */
+        timezone?: string;
+    }
+
+    export interface GetFeaturesCapabilitiesImportSettingsScheduleIncrementalImportArgs {
+        /**
+         * (String) UNIX cron expression for incremental import schedule.
+         */
+        expression?: pulumi.Input<string>;
+        /**
+         * (String) IANA timezone name for the schedule.
+         */
+        timezone?: pulumi.Input<string>;
+    }
+
+    export interface GetFeaturesCapabilitiesImportSettingsUsername {
+        /**
+         * (String) Okta Expression Language statement for custom username format.
+         */
+        usernameExpression?: string;
+        /**
+         * (String) Format for usernames (e.g., `EMAIL`, `CUSTOM`).
+         */
+        usernameFormat?: string;
+    }
+
+    export interface GetFeaturesCapabilitiesImportSettingsUsernameArgs {
+        /**
+         * (String) Okta Expression Language statement for custom username format.
+         */
+        usernameExpression?: pulumi.Input<string>;
+        /**
+         * (String) Format for usernames (e.g., `EMAIL`, `CUSTOM`).
+         */
+        usernameFormat?: pulumi.Input<string>;
+    }
+
+    export interface GetFeaturesCapabilitiesUpdate {
+        /**
+         * Block for deactivation lifecycle configuration:
+         */
+        lifecycleDeactivate?: inputs.app.GetFeaturesCapabilitiesUpdateLifecycleDeactivate;
+        /**
+         * Block for password synchronization settings:
+         */
+        password?: inputs.app.GetFeaturesCapabilitiesUpdatePassword;
+        /**
+         * Block for profile update settings:
+         */
+        profile?: inputs.app.GetFeaturesCapabilitiesUpdateProfile;
+    }
+
+    export interface GetFeaturesCapabilitiesUpdateArgs {
+        /**
+         * Block for deactivation lifecycle configuration:
+         */
+        lifecycleDeactivate?: pulumi.Input<inputs.app.GetFeaturesCapabilitiesUpdateLifecycleDeactivateArgs>;
+        /**
+         * Block for password synchronization settings:
+         */
+        password?: pulumi.Input<inputs.app.GetFeaturesCapabilitiesUpdatePasswordArgs>;
+        /**
+         * Block for profile update settings:
+         */
+        profile?: pulumi.Input<inputs.app.GetFeaturesCapabilitiesUpdateProfileArgs>;
+    }
+
+    export interface GetFeaturesCapabilitiesUpdateLifecycleDeactivate {
+        /**
+         * (String) Status of the import schedule. Valid values are `ENABLED` or `DISABLED`.
+         */
+        status?: string;
+    }
+
+    export interface GetFeaturesCapabilitiesUpdateLifecycleDeactivateArgs {
+        /**
+         * (String) Status of the import schedule. Valid values are `ENABLED` or `DISABLED`.
+         */
+        status?: pulumi.Input<string>;
+    }
+
+    export interface GetFeaturesCapabilitiesUpdatePassword {
+        /**
+         * (String) Determines password change behavior. Valid values are `CHANGE` or `KEEP_EXISTING`.
+         */
+        change?: string;
+        /**
+         * (String) Determines password source. Valid values are `OKTA` or `RANDOM`.
+         */
+        seed?: string;
+        /**
+         * (String) Status of the import schedule. Valid values are `ENABLED` or `DISABLED`.
+         */
+        status?: string;
+    }
+
+    export interface GetFeaturesCapabilitiesUpdatePasswordArgs {
+        /**
+         * (String) Determines password change behavior. Valid values are `CHANGE` or `KEEP_EXISTING`.
+         */
+        change?: pulumi.Input<string>;
+        /**
+         * (String) Determines password source. Valid values are `OKTA` or `RANDOM`.
+         */
+        seed?: pulumi.Input<string>;
+        /**
+         * (String) Status of the import schedule. Valid values are `ENABLED` or `DISABLED`.
+         */
+        status?: pulumi.Input<string>;
+    }
+
+    export interface GetFeaturesCapabilitiesUpdateProfile {
+        /**
+         * (String) Status of the import schedule. Valid values are `ENABLED` or `DISABLED`.
+         */
+        status?: string;
+    }
+
+    export interface GetFeaturesCapabilitiesUpdateProfileArgs {
+        /**
+         * (String) Status of the import schedule. Valid values are `ENABLED` or `DISABLED`.
+         */
+        status?: pulumi.Input<string>;
+    }
+
     export interface OAuthGroupsClaim {
         /**
          * Groups claim filter. Can only be set if type is FILTER.

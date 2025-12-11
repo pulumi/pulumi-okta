@@ -10,11 +10,17 @@ import com.pulumi.deployment.InvokeOptions;
 import com.pulumi.deployment.InvokeOutputOptions;
 import com.pulumi.okta.Utilities;
 import com.pulumi.okta.auth.inputs.GetServerArgs;
+import com.pulumi.okta.auth.inputs.GetServerClientsArgs;
+import com.pulumi.okta.auth.inputs.GetServerClientsPlainArgs;
+import com.pulumi.okta.auth.inputs.GetServerKeysArgs;
+import com.pulumi.okta.auth.inputs.GetServerKeysPlainArgs;
 import com.pulumi.okta.auth.inputs.GetServerPlainArgs;
 import com.pulumi.okta.auth.inputs.GetServerPolicyArgs;
 import com.pulumi.okta.auth.inputs.GetServerPolicyPlainArgs;
 import com.pulumi.okta.auth.inputs.GetServerScopesArgs;
 import com.pulumi.okta.auth.inputs.GetServerScopesPlainArgs;
+import com.pulumi.okta.auth.outputs.GetServerClientsResult;
+import com.pulumi.okta.auth.outputs.GetServerKeysResult;
 import com.pulumi.okta.auth.outputs.GetServerPolicyResult;
 import com.pulumi.okta.auth.outputs.GetServerResult;
 import com.pulumi.okta.auth.outputs.GetServerScopesResult;
@@ -220,6 +226,461 @@ public final class AuthFunctions {
      */
     public static CompletableFuture<GetServerResult> getServerPlain(GetServerPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("okta:auth/getServer:getServer", TypeShape.of(GetServerResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Get OAuth 2.0 refresh token information for an authorization server client from Okta.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.auth.AuthFunctions;
+     * import com.pulumi.okta.auth.inputs.GetServerClientsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AuthFunctions.getServerClients(GetServerClientsArgs.builder()
+     *             .id("oar123456abcdefghijklm")
+     *             .authServerId("aus123456abcdefghijklm")
+     *             .clientId("0oa123456abcdefghijklm")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetServerClientsResult> getServerClients(GetServerClientsArgs args) {
+        return getServerClients(args, InvokeOptions.Empty);
+    }
+    /**
+     * Get OAuth 2.0 refresh token information for an authorization server client from Okta.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.auth.AuthFunctions;
+     * import com.pulumi.okta.auth.inputs.GetServerClientsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AuthFunctions.getServerClients(GetServerClientsArgs.builder()
+     *             .id("oar123456abcdefghijklm")
+     *             .authServerId("aus123456abcdefghijklm")
+     *             .clientId("0oa123456abcdefghijklm")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetServerClientsResult> getServerClientsPlain(GetServerClientsPlainArgs args) {
+        return getServerClientsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Get OAuth 2.0 refresh token information for an authorization server client from Okta.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.auth.AuthFunctions;
+     * import com.pulumi.okta.auth.inputs.GetServerClientsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AuthFunctions.getServerClients(GetServerClientsArgs.builder()
+     *             .id("oar123456abcdefghijklm")
+     *             .authServerId("aus123456abcdefghijklm")
+     *             .clientId("0oa123456abcdefghijklm")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetServerClientsResult> getServerClients(GetServerClientsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("okta:auth/getServerClients:getServerClients", TypeShape.of(GetServerClientsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Get OAuth 2.0 refresh token information for an authorization server client from Okta.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.auth.AuthFunctions;
+     * import com.pulumi.okta.auth.inputs.GetServerClientsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AuthFunctions.getServerClients(GetServerClientsArgs.builder()
+     *             .id("oar123456abcdefghijklm")
+     *             .authServerId("aus123456abcdefghijklm")
+     *             .clientId("0oa123456abcdefghijklm")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetServerClientsResult> getServerClients(GetServerClientsArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("okta:auth/getServerClients:getServerClients", TypeShape.of(GetServerClientsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Get OAuth 2.0 refresh token information for an authorization server client from Okta.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.auth.AuthFunctions;
+     * import com.pulumi.okta.auth.inputs.GetServerClientsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AuthFunctions.getServerClients(GetServerClientsArgs.builder()
+     *             .id("oar123456abcdefghijklm")
+     *             .authServerId("aus123456abcdefghijklm")
+     *             .clientId("0oa123456abcdefghijklm")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetServerClientsResult> getServerClientsPlain(GetServerClientsPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("okta:auth/getServerClients:getServerClients", TypeShape.of(GetServerClientsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Get a specific authorization server credential key from Okta. Authorization server keys are JSON Web Keys (JWK) used for signing tokens issued by the authorization server.
+     * 
+     * This data source allows you to retrieve information about a specific key used by an authorization server for token signing operations.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.auth.AuthFunctions;
+     * import com.pulumi.okta.auth.inputs.GetServerKeysArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AuthFunctions.getServerKeys(GetServerKeysArgs.builder()
+     *             .authServerId("aus123456789abcdefgh")
+     *             .keyId("abcdefghijk0123456789")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## Notes
+     * 
+     * - To find available key IDs for an authorization server, you can use the Okta Admin Console or make a direct API call to `/api/v1/authorizationServers/{authServerId}/credentials/keys`
+     * - The key ID (`kid`) is automatically generated by Okta and is unique within the authorization server
+     * - This data source is useful for retrieving key information for verification purposes or to reference in other configurations
+     * 
+     */
+    public static Output<GetServerKeysResult> getServerKeys(GetServerKeysArgs args) {
+        return getServerKeys(args, InvokeOptions.Empty);
+    }
+    /**
+     * Get a specific authorization server credential key from Okta. Authorization server keys are JSON Web Keys (JWK) used for signing tokens issued by the authorization server.
+     * 
+     * This data source allows you to retrieve information about a specific key used by an authorization server for token signing operations.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.auth.AuthFunctions;
+     * import com.pulumi.okta.auth.inputs.GetServerKeysArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AuthFunctions.getServerKeys(GetServerKeysArgs.builder()
+     *             .authServerId("aus123456789abcdefgh")
+     *             .keyId("abcdefghijk0123456789")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## Notes
+     * 
+     * - To find available key IDs for an authorization server, you can use the Okta Admin Console or make a direct API call to `/api/v1/authorizationServers/{authServerId}/credentials/keys`
+     * - The key ID (`kid`) is automatically generated by Okta and is unique within the authorization server
+     * - This data source is useful for retrieving key information for verification purposes or to reference in other configurations
+     * 
+     */
+    public static CompletableFuture<GetServerKeysResult> getServerKeysPlain(GetServerKeysPlainArgs args) {
+        return getServerKeysPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Get a specific authorization server credential key from Okta. Authorization server keys are JSON Web Keys (JWK) used for signing tokens issued by the authorization server.
+     * 
+     * This data source allows you to retrieve information about a specific key used by an authorization server for token signing operations.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.auth.AuthFunctions;
+     * import com.pulumi.okta.auth.inputs.GetServerKeysArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AuthFunctions.getServerKeys(GetServerKeysArgs.builder()
+     *             .authServerId("aus123456789abcdefgh")
+     *             .keyId("abcdefghijk0123456789")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## Notes
+     * 
+     * - To find available key IDs for an authorization server, you can use the Okta Admin Console or make a direct API call to `/api/v1/authorizationServers/{authServerId}/credentials/keys`
+     * - The key ID (`kid`) is automatically generated by Okta and is unique within the authorization server
+     * - This data source is useful for retrieving key information for verification purposes or to reference in other configurations
+     * 
+     */
+    public static Output<GetServerKeysResult> getServerKeys(GetServerKeysArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("okta:auth/getServerKeys:getServerKeys", TypeShape.of(GetServerKeysResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Get a specific authorization server credential key from Okta. Authorization server keys are JSON Web Keys (JWK) used for signing tokens issued by the authorization server.
+     * 
+     * This data source allows you to retrieve information about a specific key used by an authorization server for token signing operations.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.auth.AuthFunctions;
+     * import com.pulumi.okta.auth.inputs.GetServerKeysArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AuthFunctions.getServerKeys(GetServerKeysArgs.builder()
+     *             .authServerId("aus123456789abcdefgh")
+     *             .keyId("abcdefghijk0123456789")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## Notes
+     * 
+     * - To find available key IDs for an authorization server, you can use the Okta Admin Console or make a direct API call to `/api/v1/authorizationServers/{authServerId}/credentials/keys`
+     * - The key ID (`kid`) is automatically generated by Okta and is unique within the authorization server
+     * - This data source is useful for retrieving key information for verification purposes or to reference in other configurations
+     * 
+     */
+    public static Output<GetServerKeysResult> getServerKeys(GetServerKeysArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("okta:auth/getServerKeys:getServerKeys", TypeShape.of(GetServerKeysResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Get a specific authorization server credential key from Okta. Authorization server keys are JSON Web Keys (JWK) used for signing tokens issued by the authorization server.
+     * 
+     * This data source allows you to retrieve information about a specific key used by an authorization server for token signing operations.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.auth.AuthFunctions;
+     * import com.pulumi.okta.auth.inputs.GetServerKeysArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AuthFunctions.getServerKeys(GetServerKeysArgs.builder()
+     *             .authServerId("aus123456789abcdefgh")
+     *             .keyId("abcdefghijk0123456789")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## Notes
+     * 
+     * - To find available key IDs for an authorization server, you can use the Okta Admin Console or make a direct API call to `/api/v1/authorizationServers/{authServerId}/credentials/keys`
+     * - The key ID (`kid`) is automatically generated by Okta and is unique within the authorization server
+     * - This data source is useful for retrieving key information for verification purposes or to reference in other configurations
+     * 
+     */
+    public static CompletableFuture<GetServerKeysResult> getServerKeysPlain(GetServerKeysPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("okta:auth/getServerKeys:getServerKeys", TypeShape.of(GetServerKeysResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Get an authorization server policy from Okta.

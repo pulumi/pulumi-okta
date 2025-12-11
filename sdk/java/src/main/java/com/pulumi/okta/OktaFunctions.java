@@ -9,6 +9,10 @@ import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
 import com.pulumi.deployment.InvokeOutputOptions;
 import com.pulumi.okta.Utilities;
+import com.pulumi.okta.inputs.GetApiServiceIntegrationArgs;
+import com.pulumi.okta.inputs.GetApiServiceIntegrationPlainArgs;
+import com.pulumi.okta.inputs.GetApiTokenArgs;
+import com.pulumi.okta.inputs.GetApiTokenPlainArgs;
 import com.pulumi.okta.inputs.GetAppGroupAssignmentsArgs;
 import com.pulumi.okta.inputs.GetAppGroupAssignmentsPlainArgs;
 import com.pulumi.okta.inputs.GetAppSignonPolicyArgs;
@@ -37,8 +41,10 @@ import com.pulumi.okta.inputs.GetCatalogEntryUserAccessRequestFieldsArgs;
 import com.pulumi.okta.inputs.GetCatalogEntryUserAccessRequestFieldsPlainArgs;
 import com.pulumi.okta.inputs.GetDefaultSigninPageArgs;
 import com.pulumi.okta.inputs.GetDefaultSigninPagePlainArgs;
+import com.pulumi.okta.inputs.GetDeviceArgs;
 import com.pulumi.okta.inputs.GetDeviceAssurancePolicyArgs;
 import com.pulumi.okta.inputs.GetDeviceAssurancePolicyPlainArgs;
+import com.pulumi.okta.inputs.GetDevicePlainArgs;
 import com.pulumi.okta.inputs.GetDomainArgs;
 import com.pulumi.okta.inputs.GetDomainPlainArgs;
 import com.pulumi.okta.inputs.GetEmailCustomizationArgs;
@@ -57,6 +63,8 @@ import com.pulumi.okta.inputs.GetFeaturesArgs;
 import com.pulumi.okta.inputs.GetFeaturesPlainArgs;
 import com.pulumi.okta.inputs.GetGroupsArgs;
 import com.pulumi.okta.inputs.GetGroupsPlainArgs;
+import com.pulumi.okta.inputs.GetHookKeyArgs;
+import com.pulumi.okta.inputs.GetHookKeyPlainArgs;
 import com.pulumi.okta.inputs.GetLogStreamArgs;
 import com.pulumi.okta.inputs.GetLogStreamPlainArgs;
 import com.pulumi.okta.inputs.GetNetworkZoneArgs;
@@ -67,6 +75,8 @@ import com.pulumi.okta.inputs.GetPrincipalEntitlementsArgs;
 import com.pulumi.okta.inputs.GetPrincipalEntitlementsPlainArgs;
 import com.pulumi.okta.inputs.GetPrincipalRateLimitsArgs;
 import com.pulumi.okta.inputs.GetPrincipalRateLimitsPlainArgs;
+import com.pulumi.okta.inputs.GetPushProviderArgs;
+import com.pulumi.okta.inputs.GetPushProviderPlainArgs;
 import com.pulumi.okta.inputs.GetRealmArgs;
 import com.pulumi.okta.inputs.GetRealmAssignmentArgs;
 import com.pulumi.okta.inputs.GetRealmAssignmentPlainArgs;
@@ -85,6 +95,8 @@ import com.pulumi.okta.inputs.GetReviewArgs;
 import com.pulumi.okta.inputs.GetReviewPlainArgs;
 import com.pulumi.okta.inputs.GetRoleSubscriptionArgs;
 import com.pulumi.okta.inputs.GetRoleSubscriptionPlainArgs;
+import com.pulumi.okta.inputs.GetSecurityEventsProviderArgs;
+import com.pulumi.okta.inputs.GetSecurityEventsProviderPlainArgs;
 import com.pulumi.okta.inputs.GetTemplateArgs;
 import com.pulumi.okta.inputs.GetTemplatePlainArgs;
 import com.pulumi.okta.inputs.GetTemplatesArgs;
@@ -97,6 +109,8 @@ import com.pulumi.okta.inputs.GetTrustedOriginsArgs;
 import com.pulumi.okta.inputs.GetTrustedOriginsPlainArgs;
 import com.pulumi.okta.inputs.GetUserSecurityQuestionsArgs;
 import com.pulumi.okta.inputs.GetUserSecurityQuestionsPlainArgs;
+import com.pulumi.okta.outputs.GetApiServiceIntegrationResult;
+import com.pulumi.okta.outputs.GetApiTokenResult;
 import com.pulumi.okta.outputs.GetAppGroupAssignmentsResult;
 import com.pulumi.okta.outputs.GetAppSignonPolicyResult;
 import com.pulumi.okta.outputs.GetAppUserAssignmentsResult;
@@ -113,6 +127,7 @@ import com.pulumi.okta.outputs.GetCatalogEntryDefaultResult;
 import com.pulumi.okta.outputs.GetCatalogEntryUserAccessRequestFieldsResult;
 import com.pulumi.okta.outputs.GetDefaultSigninPageResult;
 import com.pulumi.okta.outputs.GetDeviceAssurancePolicyResult;
+import com.pulumi.okta.outputs.GetDeviceResult;
 import com.pulumi.okta.outputs.GetDomainResult;
 import com.pulumi.okta.outputs.GetEmailCustomizationResult;
 import com.pulumi.okta.outputs.GetEmailCustomizationsResult;
@@ -122,11 +137,13 @@ import com.pulumi.okta.outputs.GetEntitlementBundleResult;
 import com.pulumi.okta.outputs.GetEntitlementResult;
 import com.pulumi.okta.outputs.GetFeaturesResult;
 import com.pulumi.okta.outputs.GetGroupsResult;
+import com.pulumi.okta.outputs.GetHookKeyResult;
 import com.pulumi.okta.outputs.GetLogStreamResult;
 import com.pulumi.okta.outputs.GetNetworkZoneResult;
 import com.pulumi.okta.outputs.GetOrgMetadataResult;
 import com.pulumi.okta.outputs.GetPrincipalEntitlementsResult;
 import com.pulumi.okta.outputs.GetPrincipalRateLimitsResult;
+import com.pulumi.okta.outputs.GetPushProviderResult;
 import com.pulumi.okta.outputs.GetRateLimitAdminNotificationSettingsResult;
 import com.pulumi.okta.outputs.GetRateLimitWarningThresholdPercentageResult;
 import com.pulumi.okta.outputs.GetRealmAssignmentResult;
@@ -138,6 +155,7 @@ import com.pulumi.okta.outputs.GetRequestSettingResourceResult;
 import com.pulumi.okta.outputs.GetRequestV2Result;
 import com.pulumi.okta.outputs.GetReviewResult;
 import com.pulumi.okta.outputs.GetRoleSubscriptionResult;
+import com.pulumi.okta.outputs.GetSecurityEventsProviderResult;
 import com.pulumi.okta.outputs.GetTemplateResult;
 import com.pulumi.okta.outputs.GetTemplatesResult;
 import com.pulumi.okta.outputs.GetThemeResult;
@@ -148,6 +166,471 @@ import com.pulumi.resources.InvokeArgs;
 import java.util.concurrent.CompletableFuture;
 
 public final class OktaFunctions {
+    /**
+     * Retrieves an API Service Integration instance by id
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetApiServiceIntegrationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = OktaFunctions.getApiServiceIntegration(GetApiServiceIntegrationArgs.builder()
+     *             .id("<api_service_integration_id>")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## Required
+     * 
+     * - `id` (String) The id of the API Service Integration instance.
+     * 
+     * ### Read-Only
+     * 
+     * - `configGuideUrl` (String) The URL to the API service integration configuration guide.
+     * - `created` (String) The created timestamp of the API Service Integration instance.
+     * - `createdAt` (String) Timestamp when the API Service Integration instance was created.
+     * - `grantedScopes` (List of String) The list of Okta management scopes granted to the API Service Integration instance.(see below for nested schema).
+     * - `name` (String) The name of the API service integration that corresponds with the type property. This is the full name of the API service integration listed in the Okta Integration Network (OIN) catalog.
+     * - `type` (String) The type of the API service integration. This string is an underscore-concatenated, lowercased API service integration name. For example, my_api_log_integration.
+     * 
+     */
+    public static Output<GetApiServiceIntegrationResult> getApiServiceIntegration(GetApiServiceIntegrationArgs args) {
+        return getApiServiceIntegration(args, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieves an API Service Integration instance by id
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetApiServiceIntegrationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = OktaFunctions.getApiServiceIntegration(GetApiServiceIntegrationArgs.builder()
+     *             .id("<api_service_integration_id>")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## Required
+     * 
+     * - `id` (String) The id of the API Service Integration instance.
+     * 
+     * ### Read-Only
+     * 
+     * - `configGuideUrl` (String) The URL to the API service integration configuration guide.
+     * - `created` (String) The created timestamp of the API Service Integration instance.
+     * - `createdAt` (String) Timestamp when the API Service Integration instance was created.
+     * - `grantedScopes` (List of String) The list of Okta management scopes granted to the API Service Integration instance.(see below for nested schema).
+     * - `name` (String) The name of the API service integration that corresponds with the type property. This is the full name of the API service integration listed in the Okta Integration Network (OIN) catalog.
+     * - `type` (String) The type of the API service integration. This string is an underscore-concatenated, lowercased API service integration name. For example, my_api_log_integration.
+     * 
+     */
+    public static CompletableFuture<GetApiServiceIntegrationResult> getApiServiceIntegrationPlain(GetApiServiceIntegrationPlainArgs args) {
+        return getApiServiceIntegrationPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieves an API Service Integration instance by id
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetApiServiceIntegrationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = OktaFunctions.getApiServiceIntegration(GetApiServiceIntegrationArgs.builder()
+     *             .id("<api_service_integration_id>")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## Required
+     * 
+     * - `id` (String) The id of the API Service Integration instance.
+     * 
+     * ### Read-Only
+     * 
+     * - `configGuideUrl` (String) The URL to the API service integration configuration guide.
+     * - `created` (String) The created timestamp of the API Service Integration instance.
+     * - `createdAt` (String) Timestamp when the API Service Integration instance was created.
+     * - `grantedScopes` (List of String) The list of Okta management scopes granted to the API Service Integration instance.(see below for nested schema).
+     * - `name` (String) The name of the API service integration that corresponds with the type property. This is the full name of the API service integration listed in the Okta Integration Network (OIN) catalog.
+     * - `type` (String) The type of the API service integration. This string is an underscore-concatenated, lowercased API service integration name. For example, my_api_log_integration.
+     * 
+     */
+    public static Output<GetApiServiceIntegrationResult> getApiServiceIntegration(GetApiServiceIntegrationArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("okta:index/getApiServiceIntegration:getApiServiceIntegration", TypeShape.of(GetApiServiceIntegrationResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieves an API Service Integration instance by id
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetApiServiceIntegrationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = OktaFunctions.getApiServiceIntegration(GetApiServiceIntegrationArgs.builder()
+     *             .id("<api_service_integration_id>")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## Required
+     * 
+     * - `id` (String) The id of the API Service Integration instance.
+     * 
+     * ### Read-Only
+     * 
+     * - `configGuideUrl` (String) The URL to the API service integration configuration guide.
+     * - `created` (String) The created timestamp of the API Service Integration instance.
+     * - `createdAt` (String) Timestamp when the API Service Integration instance was created.
+     * - `grantedScopes` (List of String) The list of Okta management scopes granted to the API Service Integration instance.(see below for nested schema).
+     * - `name` (String) The name of the API service integration that corresponds with the type property. This is the full name of the API service integration listed in the Okta Integration Network (OIN) catalog.
+     * - `type` (String) The type of the API service integration. This string is an underscore-concatenated, lowercased API service integration name. For example, my_api_log_integration.
+     * 
+     */
+    public static Output<GetApiServiceIntegrationResult> getApiServiceIntegration(GetApiServiceIntegrationArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("okta:index/getApiServiceIntegration:getApiServiceIntegration", TypeShape.of(GetApiServiceIntegrationResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieves an API Service Integration instance by id
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetApiServiceIntegrationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = OktaFunctions.getApiServiceIntegration(GetApiServiceIntegrationArgs.builder()
+     *             .id("<api_service_integration_id>")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## Required
+     * 
+     * - `id` (String) The id of the API Service Integration instance.
+     * 
+     * ### Read-Only
+     * 
+     * - `configGuideUrl` (String) The URL to the API service integration configuration guide.
+     * - `created` (String) The created timestamp of the API Service Integration instance.
+     * - `createdAt` (String) Timestamp when the API Service Integration instance was created.
+     * - `grantedScopes` (List of String) The list of Okta management scopes granted to the API Service Integration instance.(see below for nested schema).
+     * - `name` (String) The name of the API service integration that corresponds with the type property. This is the full name of the API service integration listed in the Okta Integration Network (OIN) catalog.
+     * - `type` (String) The type of the API service integration. This string is an underscore-concatenated, lowercased API service integration name. For example, my_api_log_integration.
+     * 
+     */
+    public static CompletableFuture<GetApiServiceIntegrationResult> getApiServiceIntegrationPlain(GetApiServiceIntegrationPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("okta:index/getApiServiceIntegration:getApiServiceIntegration", TypeShape.of(GetApiServiceIntegrationResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about an Okta API token.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetApiTokenArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OktaFunctions.getApiToken(GetApiTokenArgs.builder()
+     *             .id("00T1fxzubpq2epw11d38")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetApiTokenResult> getApiToken(GetApiTokenArgs args) {
+        return getApiToken(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about an Okta API token.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetApiTokenArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OktaFunctions.getApiToken(GetApiTokenArgs.builder()
+     *             .id("00T1fxzubpq2epw11d38")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetApiTokenResult> getApiTokenPlain(GetApiTokenPlainArgs args) {
+        return getApiTokenPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about an Okta API token.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetApiTokenArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OktaFunctions.getApiToken(GetApiTokenArgs.builder()
+     *             .id("00T1fxzubpq2epw11d38")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetApiTokenResult> getApiToken(GetApiTokenArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("okta:index/getApiToken:getApiToken", TypeShape.of(GetApiTokenResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about an Okta API token.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetApiTokenArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OktaFunctions.getApiToken(GetApiTokenArgs.builder()
+     *             .id("00T1fxzubpq2epw11d38")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetApiTokenResult> getApiToken(GetApiTokenArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("okta:index/getApiToken:getApiToken", TypeShape.of(GetApiTokenResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about an Okta API token.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetApiTokenArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OktaFunctions.getApiToken(GetApiTokenArgs.builder()
+     *             .id("00T1fxzubpq2epw11d38")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetApiTokenResult> getApiTokenPlain(GetApiTokenPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("okta:index/getApiToken:getApiToken", TypeShape.of(GetApiTokenResult.class), args, Utilities.withVersion(options));
+    }
     /**
      * Get a set of groups assigned to an Okta application.
      * 
@@ -2857,18 +3340,198 @@ public final class OktaFunctions {
     public static CompletableFuture<GetCatalogEntryDefaultResult> getCatalogEntryDefaultPlain(GetCatalogEntryDefaultPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("okta:index/getCatalogEntryDefault:getCatalogEntryDefault", TypeShape.of(GetCatalogEntryDefaultResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Get the request fields for catalog entry.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetCatalogEntryUserAccessRequestFieldsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = OktaFunctions.getCatalogEntryUserAccessRequestFields(GetCatalogEntryUserAccessRequestFieldsArgs.builder()
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
     public static Output<GetCatalogEntryUserAccessRequestFieldsResult> getCatalogEntryUserAccessRequestFields(GetCatalogEntryUserAccessRequestFieldsArgs args) {
         return getCatalogEntryUserAccessRequestFields(args, InvokeOptions.Empty);
     }
+    /**
+     * Get the request fields for catalog entry.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetCatalogEntryUserAccessRequestFieldsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = OktaFunctions.getCatalogEntryUserAccessRequestFields(GetCatalogEntryUserAccessRequestFieldsArgs.builder()
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
     public static CompletableFuture<GetCatalogEntryUserAccessRequestFieldsResult> getCatalogEntryUserAccessRequestFieldsPlain(GetCatalogEntryUserAccessRequestFieldsPlainArgs args) {
         return getCatalogEntryUserAccessRequestFieldsPlain(args, InvokeOptions.Empty);
     }
+    /**
+     * Get the request fields for catalog entry.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetCatalogEntryUserAccessRequestFieldsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = OktaFunctions.getCatalogEntryUserAccessRequestFields(GetCatalogEntryUserAccessRequestFieldsArgs.builder()
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
     public static Output<GetCatalogEntryUserAccessRequestFieldsResult> getCatalogEntryUserAccessRequestFields(GetCatalogEntryUserAccessRequestFieldsArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("okta:index/getCatalogEntryUserAccessRequestFields:getCatalogEntryUserAccessRequestFields", TypeShape.of(GetCatalogEntryUserAccessRequestFieldsResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Get the request fields for catalog entry.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetCatalogEntryUserAccessRequestFieldsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = OktaFunctions.getCatalogEntryUserAccessRequestFields(GetCatalogEntryUserAccessRequestFieldsArgs.builder()
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
     public static Output<GetCatalogEntryUserAccessRequestFieldsResult> getCatalogEntryUserAccessRequestFields(GetCatalogEntryUserAccessRequestFieldsArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("okta:index/getCatalogEntryUserAccessRequestFields:getCatalogEntryUserAccessRequestFields", TypeShape.of(GetCatalogEntryUserAccessRequestFieldsResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Get the request fields for catalog entry.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetCatalogEntryUserAccessRequestFieldsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = OktaFunctions.getCatalogEntryUserAccessRequestFields(GetCatalogEntryUserAccessRequestFieldsArgs.builder()
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
     public static CompletableFuture<GetCatalogEntryUserAccessRequestFieldsResult> getCatalogEntryUserAccessRequestFieldsPlain(GetCatalogEntryUserAccessRequestFieldsPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("okta:index/getCatalogEntryUserAccessRequestFields:getCatalogEntryUserAccessRequestFields", TypeShape.of(GetCatalogEntryUserAccessRequestFieldsResult.class), args, Utilities.withVersion(options));
     }
@@ -2906,6 +3569,206 @@ public final class OktaFunctions {
      */
     public static CompletableFuture<GetDefaultSigninPageResult> getDefaultSigninPagePlain(GetDefaultSigninPagePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("okta:index/getDefaultSigninPage:getDefaultSigninPage", TypeShape.of(GetDefaultSigninPageResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Get information about a device in Okta.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetDeviceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OktaFunctions.getDevice(GetDeviceArgs.builder()
+     *             .id("<device_id>")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetDeviceResult> getDevice(GetDeviceArgs args) {
+        return getDevice(args, InvokeOptions.Empty);
+    }
+    /**
+     * Get information about a device in Okta.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetDeviceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OktaFunctions.getDevice(GetDeviceArgs.builder()
+     *             .id("<device_id>")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetDeviceResult> getDevicePlain(GetDevicePlainArgs args) {
+        return getDevicePlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Get information about a device in Okta.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetDeviceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OktaFunctions.getDevice(GetDeviceArgs.builder()
+     *             .id("<device_id>")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetDeviceResult> getDevice(GetDeviceArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("okta:index/getDevice:getDevice", TypeShape.of(GetDeviceResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Get information about a device in Okta.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetDeviceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OktaFunctions.getDevice(GetDeviceArgs.builder()
+     *             .id("<device_id>")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetDeviceResult> getDevice(GetDeviceArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("okta:index/getDevice:getDevice", TypeShape.of(GetDeviceResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Get information about a device in Okta.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetDeviceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OktaFunctions.getDevice(GetDeviceArgs.builder()
+     *             .id("<device_id>")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetDeviceResult> getDevicePlain(GetDevicePlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("okta:index/getDevice:getDevice", TypeShape.of(GetDeviceResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Get a policy assurance from Okta.
@@ -5262,6 +6125,211 @@ public final class OktaFunctions {
         return Deployment.getInstance().invokeAsync("okta:index/getGroups:getGroups", TypeShape.of(GetGroupsResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Use Key Management to create and manage JSON Web Keys (JWKS) that support OAuth 2.0 client authentication. The key is composed of a public and private key pair. The private key signs the JSON Web Token (JWT) and the public key validates it on the client side.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetHookKeyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Get hook key by ID
+     *         final var example = OktaFunctions.getHookKey(GetHookKeyArgs.builder()
+     *             .id("abcdefghij0123456789")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetHookKeyResult> getHookKey(GetHookKeyArgs args) {
+        return getHookKey(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use Key Management to create and manage JSON Web Keys (JWKS) that support OAuth 2.0 client authentication. The key is composed of a public and private key pair. The private key signs the JSON Web Token (JWT) and the public key validates it on the client side.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetHookKeyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Get hook key by ID
+     *         final var example = OktaFunctions.getHookKey(GetHookKeyArgs.builder()
+     *             .id("abcdefghij0123456789")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetHookKeyResult> getHookKeyPlain(GetHookKeyPlainArgs args) {
+        return getHookKeyPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use Key Management to create and manage JSON Web Keys (JWKS) that support OAuth 2.0 client authentication. The key is composed of a public and private key pair. The private key signs the JSON Web Token (JWT) and the public key validates it on the client side.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetHookKeyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Get hook key by ID
+     *         final var example = OktaFunctions.getHookKey(GetHookKeyArgs.builder()
+     *             .id("abcdefghij0123456789")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetHookKeyResult> getHookKey(GetHookKeyArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("okta:index/getHookKey:getHookKey", TypeShape.of(GetHookKeyResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use Key Management to create and manage JSON Web Keys (JWKS) that support OAuth 2.0 client authentication. The key is composed of a public and private key pair. The private key signs the JSON Web Token (JWT) and the public key validates it on the client side.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetHookKeyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Get hook key by ID
+     *         final var example = OktaFunctions.getHookKey(GetHookKeyArgs.builder()
+     *             .id("abcdefghij0123456789")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetHookKeyResult> getHookKey(GetHookKeyArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("okta:index/getHookKey:getHookKey", TypeShape.of(GetHookKeyResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use Key Management to create and manage JSON Web Keys (JWKS) that support OAuth 2.0 client authentication. The key is composed of a public and private key pair. The private key signs the JSON Web Token (JWT) and the public key validates it on the client side.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetHookKeyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Get hook key by ID
+     *         final var example = OktaFunctions.getHookKey(GetHookKeyArgs.builder()
+     *             .id("abcdefghij0123456789")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetHookKeyResult> getHookKeyPlain(GetHookKeyPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("okta:index/getHookKey:getHookKey", TypeShape.of(GetHookKeyResult.class), args, Utilities.withVersion(options));
+    }
+    /**
      * Log Streams
      * 
      */
@@ -6461,6 +7529,401 @@ public final class OktaFunctions {
      */
     public static CompletableFuture<GetPrincipalRateLimitsResult> getPrincipalRateLimitsPlain(GetPrincipalRateLimitsPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("okta:index/getPrincipalRateLimits:getPrincipalRateLimits", TypeShape.of(GetPrincipalRateLimitsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieves information about an Okta Push Provider configuration. This data source allows you to fetch details about existing push providers for Apple Push Notification Service (APNS) and Firebase Cloud Messaging (FCM).
+     * 
+     * ## Example Usage
+     * 
+     * ### Retrieve an APNS Push Provider
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetPushProviderArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var apnsExample = OktaFunctions.getPushProvider(GetPushProviderArgs.builder()
+     *             .id("ppc1234567890abcdef")
+     *             .build());
+     * 
+     *         ctx.export("apnsProviderName", apnsExample.name());
+     *         ctx.export("apnsKeyId", apnsExample.configuration().apnsConfiguration().keyId());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Retrieve an FCM Push Provider
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetPushProviderArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var fcmExample = OktaFunctions.getPushProvider(GetPushProviderArgs.builder()
+     *             .id("ppc0987654321fedcba")
+     *             .build());
+     * 
+     *         ctx.export("fcmProviderName", fcmExample.name());
+     *         ctx.export("fcmProjectId", fcmExample.configuration().fcmConfiguration().serviceAccountJson().projectId());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetPushProviderResult> getPushProvider(GetPushProviderArgs args) {
+        return getPushProvider(args, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieves information about an Okta Push Provider configuration. This data source allows you to fetch details about existing push providers for Apple Push Notification Service (APNS) and Firebase Cloud Messaging (FCM).
+     * 
+     * ## Example Usage
+     * 
+     * ### Retrieve an APNS Push Provider
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetPushProviderArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var apnsExample = OktaFunctions.getPushProvider(GetPushProviderArgs.builder()
+     *             .id("ppc1234567890abcdef")
+     *             .build());
+     * 
+     *         ctx.export("apnsProviderName", apnsExample.name());
+     *         ctx.export("apnsKeyId", apnsExample.configuration().apnsConfiguration().keyId());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Retrieve an FCM Push Provider
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetPushProviderArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var fcmExample = OktaFunctions.getPushProvider(GetPushProviderArgs.builder()
+     *             .id("ppc0987654321fedcba")
+     *             .build());
+     * 
+     *         ctx.export("fcmProviderName", fcmExample.name());
+     *         ctx.export("fcmProjectId", fcmExample.configuration().fcmConfiguration().serviceAccountJson().projectId());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetPushProviderResult> getPushProviderPlain(GetPushProviderPlainArgs args) {
+        return getPushProviderPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieves information about an Okta Push Provider configuration. This data source allows you to fetch details about existing push providers for Apple Push Notification Service (APNS) and Firebase Cloud Messaging (FCM).
+     * 
+     * ## Example Usage
+     * 
+     * ### Retrieve an APNS Push Provider
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetPushProviderArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var apnsExample = OktaFunctions.getPushProvider(GetPushProviderArgs.builder()
+     *             .id("ppc1234567890abcdef")
+     *             .build());
+     * 
+     *         ctx.export("apnsProviderName", apnsExample.name());
+     *         ctx.export("apnsKeyId", apnsExample.configuration().apnsConfiguration().keyId());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Retrieve an FCM Push Provider
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetPushProviderArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var fcmExample = OktaFunctions.getPushProvider(GetPushProviderArgs.builder()
+     *             .id("ppc0987654321fedcba")
+     *             .build());
+     * 
+     *         ctx.export("fcmProviderName", fcmExample.name());
+     *         ctx.export("fcmProjectId", fcmExample.configuration().fcmConfiguration().serviceAccountJson().projectId());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetPushProviderResult> getPushProvider(GetPushProviderArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("okta:index/getPushProvider:getPushProvider", TypeShape.of(GetPushProviderResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieves information about an Okta Push Provider configuration. This data source allows you to fetch details about existing push providers for Apple Push Notification Service (APNS) and Firebase Cloud Messaging (FCM).
+     * 
+     * ## Example Usage
+     * 
+     * ### Retrieve an APNS Push Provider
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetPushProviderArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var apnsExample = OktaFunctions.getPushProvider(GetPushProviderArgs.builder()
+     *             .id("ppc1234567890abcdef")
+     *             .build());
+     * 
+     *         ctx.export("apnsProviderName", apnsExample.name());
+     *         ctx.export("apnsKeyId", apnsExample.configuration().apnsConfiguration().keyId());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Retrieve an FCM Push Provider
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetPushProviderArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var fcmExample = OktaFunctions.getPushProvider(GetPushProviderArgs.builder()
+     *             .id("ppc0987654321fedcba")
+     *             .build());
+     * 
+     *         ctx.export("fcmProviderName", fcmExample.name());
+     *         ctx.export("fcmProjectId", fcmExample.configuration().fcmConfiguration().serviceAccountJson().projectId());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetPushProviderResult> getPushProvider(GetPushProviderArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("okta:index/getPushProvider:getPushProvider", TypeShape.of(GetPushProviderResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieves information about an Okta Push Provider configuration. This data source allows you to fetch details about existing push providers for Apple Push Notification Service (APNS) and Firebase Cloud Messaging (FCM).
+     * 
+     * ## Example Usage
+     * 
+     * ### Retrieve an APNS Push Provider
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetPushProviderArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var apnsExample = OktaFunctions.getPushProvider(GetPushProviderArgs.builder()
+     *             .id("ppc1234567890abcdef")
+     *             .build());
+     * 
+     *         ctx.export("apnsProviderName", apnsExample.name());
+     *         ctx.export("apnsKeyId", apnsExample.configuration().apnsConfiguration().keyId());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Retrieve an FCM Push Provider
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetPushProviderArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var fcmExample = OktaFunctions.getPushProvider(GetPushProviderArgs.builder()
+     *             .id("ppc0987654321fedcba")
+     *             .build());
+     * 
+     *         ctx.export("fcmProviderName", fcmExample.name());
+     *         ctx.export("fcmProjectId", fcmExample.configuration().fcmConfiguration().serviceAccountJson().projectId());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetPushProviderResult> getPushProviderPlain(GetPushProviderPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("okta:index/getPushProvider:getPushProvider", TypeShape.of(GetPushProviderResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Retrieves the currently configured Rate Limit Admin Notification Settings
@@ -8738,6 +10201,206 @@ public final class OktaFunctions {
      */
     public static CompletableFuture<GetRoleSubscriptionResult> getRoleSubscriptionPlain(GetRoleSubscriptionPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("okta:index/getRoleSubscription:getRoleSubscription", TypeShape.of(GetRoleSubscriptionResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Get information about a Security Events Provider instance for signal ingestion.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetSecurityEventsProviderArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OktaFunctions.getSecurityEventsProvider(GetSecurityEventsProviderArgs.builder()
+     *             .id("<security_events_provider_id>")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetSecurityEventsProviderResult> getSecurityEventsProvider(GetSecurityEventsProviderArgs args) {
+        return getSecurityEventsProvider(args, InvokeOptions.Empty);
+    }
+    /**
+     * Get information about a Security Events Provider instance for signal ingestion.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetSecurityEventsProviderArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OktaFunctions.getSecurityEventsProvider(GetSecurityEventsProviderArgs.builder()
+     *             .id("<security_events_provider_id>")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetSecurityEventsProviderResult> getSecurityEventsProviderPlain(GetSecurityEventsProviderPlainArgs args) {
+        return getSecurityEventsProviderPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Get information about a Security Events Provider instance for signal ingestion.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetSecurityEventsProviderArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OktaFunctions.getSecurityEventsProvider(GetSecurityEventsProviderArgs.builder()
+     *             .id("<security_events_provider_id>")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetSecurityEventsProviderResult> getSecurityEventsProvider(GetSecurityEventsProviderArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("okta:index/getSecurityEventsProvider:getSecurityEventsProvider", TypeShape.of(GetSecurityEventsProviderResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Get information about a Security Events Provider instance for signal ingestion.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetSecurityEventsProviderArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OktaFunctions.getSecurityEventsProvider(GetSecurityEventsProviderArgs.builder()
+     *             .id("<security_events_provider_id>")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetSecurityEventsProviderResult> getSecurityEventsProvider(GetSecurityEventsProviderArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("okta:index/getSecurityEventsProvider:getSecurityEventsProvider", TypeShape.of(GetSecurityEventsProviderResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Get information about a Security Events Provider instance for signal ingestion.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetSecurityEventsProviderArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OktaFunctions.getSecurityEventsProvider(GetSecurityEventsProviderArgs.builder()
+     *             .id("<security_events_provider_id>")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetSecurityEventsProviderResult> getSecurityEventsProviderPlain(GetSecurityEventsProviderPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("okta:index/getSecurityEventsProvider:getSecurityEventsProvider", TypeShape.of(GetSecurityEventsProviderResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Get a single Email Template for a Brand belonging to an Okta organization.

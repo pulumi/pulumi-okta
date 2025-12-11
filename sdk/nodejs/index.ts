@@ -20,6 +20,16 @@ export type AdminRoleTargets = import("./adminRoleTargets").AdminRoleTargets;
 export const AdminRoleTargets: typeof import("./adminRoleTargets").AdminRoleTargets = null as any;
 utilities.lazyLoad(exports, ["AdminRoleTargets"], () => require("./adminRoleTargets"));
 
+export { ApiServiceIntegrationArgs, ApiServiceIntegrationState } from "./apiServiceIntegration";
+export type ApiServiceIntegration = import("./apiServiceIntegration").ApiServiceIntegration;
+export const ApiServiceIntegration: typeof import("./apiServiceIntegration").ApiServiceIntegration = null as any;
+utilities.lazyLoad(exports, ["ApiServiceIntegration"], () => require("./apiServiceIntegration"));
+
+export { ApiTokenArgs, ApiTokenState } from "./apiToken";
+export type ApiToken = import("./apiToken").ApiToken;
+export const ApiToken: typeof import("./apiToken").ApiToken = null as any;
+utilities.lazyLoad(exports, ["ApiToken"], () => require("./apiToken"));
+
 export { AppGroupAssignmentsArgs, AppGroupAssignmentsState } from "./appGroupAssignments";
 export type AppGroupAssignments = import("./appGroupAssignments").AppGroupAssignments;
 export const AppGroupAssignments: typeof import("./appGroupAssignments").AppGroupAssignments = null as any;
@@ -104,6 +114,11 @@ export { CustomizedSigninPageArgs, CustomizedSigninPageState } from "./customize
 export type CustomizedSigninPage = import("./customizedSigninPage").CustomizedSigninPage;
 export const CustomizedSigninPage: typeof import("./customizedSigninPage").CustomizedSigninPage = null as any;
 utilities.lazyLoad(exports, ["CustomizedSigninPage"], () => require("./customizedSigninPage"));
+
+export { DeviceArgs, DeviceState } from "./device";
+export type Device = import("./device").Device;
+export const Device: typeof import("./device").Device = null as any;
+utilities.lazyLoad(exports, ["Device"], () => require("./device"));
 
 export { DomainArgs, DomainState } from "./domain";
 export type Domain = import("./domain").Domain;
@@ -190,6 +205,16 @@ export type Feature = import("./feature").Feature;
 export const Feature: typeof import("./feature").Feature = null as any;
 utilities.lazyLoad(exports, ["Feature"], () => require("./feature"));
 
+export { GetApiServiceIntegrationArgs, GetApiServiceIntegrationResult, GetApiServiceIntegrationOutputArgs } from "./getApiServiceIntegration";
+export const getApiServiceIntegration: typeof import("./getApiServiceIntegration").getApiServiceIntegration = null as any;
+export const getApiServiceIntegrationOutput: typeof import("./getApiServiceIntegration").getApiServiceIntegrationOutput = null as any;
+utilities.lazyLoad(exports, ["getApiServiceIntegration","getApiServiceIntegrationOutput"], () => require("./getApiServiceIntegration"));
+
+export { GetApiTokenArgs, GetApiTokenResult, GetApiTokenOutputArgs } from "./getApiToken";
+export const getApiToken: typeof import("./getApiToken").getApiToken = null as any;
+export const getApiTokenOutput: typeof import("./getApiToken").getApiTokenOutput = null as any;
+utilities.lazyLoad(exports, ["getApiToken","getApiTokenOutput"], () => require("./getApiToken"));
+
 export { GetAppGroupAssignmentsArgs, GetAppGroupAssignmentsResult, GetAppGroupAssignmentsOutputArgs } from "./getAppGroupAssignments";
 export const getAppGroupAssignments: typeof import("./getAppGroupAssignments").getAppGroupAssignments = null as any;
 export const getAppGroupAssignmentsOutput: typeof import("./getAppGroupAssignments").getAppGroupAssignmentsOutput = null as any;
@@ -265,6 +290,11 @@ export const getDefaultSigninPage: typeof import("./getDefaultSigninPage").getDe
 export const getDefaultSigninPageOutput: typeof import("./getDefaultSigninPage").getDefaultSigninPageOutput = null as any;
 utilities.lazyLoad(exports, ["getDefaultSigninPage","getDefaultSigninPageOutput"], () => require("./getDefaultSigninPage"));
 
+export { GetDeviceArgs, GetDeviceResult, GetDeviceOutputArgs } from "./getDevice";
+export const getDevice: typeof import("./getDevice").getDevice = null as any;
+export const getDeviceOutput: typeof import("./getDevice").getDeviceOutput = null as any;
+utilities.lazyLoad(exports, ["getDevice","getDeviceOutput"], () => require("./getDevice"));
+
 export { GetDeviceAssurancePolicyArgs, GetDeviceAssurancePolicyResult, GetDeviceAssurancePolicyOutputArgs } from "./getDeviceAssurancePolicy";
 export const getDeviceAssurancePolicy: typeof import("./getDeviceAssurancePolicy").getDeviceAssurancePolicy = null as any;
 export const getDeviceAssurancePolicyOutput: typeof import("./getDeviceAssurancePolicy").getDeviceAssurancePolicyOutput = null as any;
@@ -315,6 +345,11 @@ export const getGroups: typeof import("./getGroups").getGroups = null as any;
 export const getGroupsOutput: typeof import("./getGroups").getGroupsOutput = null as any;
 utilities.lazyLoad(exports, ["getGroups","getGroupsOutput"], () => require("./getGroups"));
 
+export { GetHookKeyArgs, GetHookKeyResult, GetHookKeyOutputArgs } from "./getHookKey";
+export const getHookKey: typeof import("./getHookKey").getHookKey = null as any;
+export const getHookKeyOutput: typeof import("./getHookKey").getHookKeyOutput = null as any;
+utilities.lazyLoad(exports, ["getHookKey","getHookKeyOutput"], () => require("./getHookKey"));
+
 export { GetLogStreamArgs, GetLogStreamResult, GetLogStreamOutputArgs } from "./getLogStream";
 export const getLogStream: typeof import("./getLogStream").getLogStream = null as any;
 export const getLogStreamOutput: typeof import("./getLogStream").getLogStreamOutput = null as any;
@@ -339,6 +374,11 @@ export { GetPrincipalRateLimitsArgs, GetPrincipalRateLimitsResult, GetPrincipalR
 export const getPrincipalRateLimits: typeof import("./getPrincipalRateLimits").getPrincipalRateLimits = null as any;
 export const getPrincipalRateLimitsOutput: typeof import("./getPrincipalRateLimits").getPrincipalRateLimitsOutput = null as any;
 utilities.lazyLoad(exports, ["getPrincipalRateLimits","getPrincipalRateLimitsOutput"], () => require("./getPrincipalRateLimits"));
+
+export { GetPushProviderArgs, GetPushProviderResult, GetPushProviderOutputArgs } from "./getPushProvider";
+export const getPushProvider: typeof import("./getPushProvider").getPushProvider = null as any;
+export const getPushProviderOutput: typeof import("./getPushProvider").getPushProviderOutput = null as any;
+utilities.lazyLoad(exports, ["getPushProvider","getPushProviderOutput"], () => require("./getPushProvider"));
 
 export { GetRateLimitAdminNotificationSettingsResult } from "./getRateLimitAdminNotificationSettings";
 export const getRateLimitAdminNotificationSettings: typeof import("./getRateLimitAdminNotificationSettings").getRateLimitAdminNotificationSettings = null as any;
@@ -395,6 +435,11 @@ export const getRoleSubscription: typeof import("./getRoleSubscription").getRole
 export const getRoleSubscriptionOutput: typeof import("./getRoleSubscription").getRoleSubscriptionOutput = null as any;
 utilities.lazyLoad(exports, ["getRoleSubscription","getRoleSubscriptionOutput"], () => require("./getRoleSubscription"));
 
+export { GetSecurityEventsProviderArgs, GetSecurityEventsProviderResult, GetSecurityEventsProviderOutputArgs } from "./getSecurityEventsProvider";
+export const getSecurityEventsProvider: typeof import("./getSecurityEventsProvider").getSecurityEventsProvider = null as any;
+export const getSecurityEventsProviderOutput: typeof import("./getSecurityEventsProvider").getSecurityEventsProviderOutput = null as any;
+utilities.lazyLoad(exports, ["getSecurityEventsProvider","getSecurityEventsProviderOutput"], () => require("./getSecurityEventsProvider"));
+
 export { GetTemplateArgs, GetTemplateResult, GetTemplateOutputArgs } from "./getTemplate";
 export const getTemplate: typeof import("./getTemplate").getTemplate = null as any;
 export const getTemplateOutput: typeof import("./getTemplate").getTemplateOutput = null as any;
@@ -434,6 +479,11 @@ export { GroupSchemaPropertyArgs, GroupSchemaPropertyState } from "./groupSchema
 export type GroupSchemaProperty = import("./groupSchemaProperty").GroupSchemaProperty;
 export const GroupSchemaProperty: typeof import("./groupSchemaProperty").GroupSchemaProperty = null as any;
 utilities.lazyLoad(exports, ["GroupSchemaProperty"], () => require("./groupSchemaProperty"));
+
+export { HookKeyArgs, HookKeyState } from "./hookKey";
+export type HookKey = import("./hookKey").HookKey;
+export const HookKey: typeof import("./hookKey").HookKey = null as any;
+utilities.lazyLoad(exports, ["HookKey"], () => require("./hookKey"));
 
 export { LinkDefinitionArgs, LinkDefinitionState } from "./linkDefinition";
 export type LinkDefinition = import("./linkDefinition").LinkDefinition;
@@ -497,6 +547,11 @@ utilities.lazyLoad(exports, ["PrincipalRateLimits"], () => require("./principalR
 
 export * from "./provider";
 import { Provider } from "./provider";
+
+export { PushProviderArgs, PushProviderState } from "./pushProvider";
+export type PushProvider = import("./pushProvider").PushProvider;
+export const PushProvider: typeof import("./pushProvider").PushProvider = null as any;
+utilities.lazyLoad(exports, ["PushProvider"], () => require("./pushProvider"));
 
 export { RateLimitAdminNotificationSettingsArgs, RateLimitAdminNotificationSettingsState } from "./rateLimitAdminNotificationSettings";
 export type RateLimitAdminNotificationSettings = import("./rateLimitAdminNotificationSettings").RateLimitAdminNotificationSettings;
@@ -562,6 +617,11 @@ export { RoleSubscriptionArgs, RoleSubscriptionState } from "./roleSubscription"
 export type RoleSubscription = import("./roleSubscription").RoleSubscription;
 export const RoleSubscription: typeof import("./roleSubscription").RoleSubscription = null as any;
 utilities.lazyLoad(exports, ["RoleSubscription"], () => require("./roleSubscription"));
+
+export { SecurityEventsProviderArgs, SecurityEventsProviderState } from "./securityEventsProvider";
+export type SecurityEventsProvider = import("./securityEventsProvider").SecurityEventsProvider;
+export const SecurityEventsProvider: typeof import("./securityEventsProvider").SecurityEventsProvider = null as any;
+utilities.lazyLoad(exports, ["SecurityEventsProvider"], () => require("./securityEventsProvider"));
 
 export { SecurityNotificationEmailsArgs, SecurityNotificationEmailsState } from "./securityNotificationEmails";
 export type SecurityNotificationEmails = import("./securityNotificationEmails").SecurityNotificationEmails;
@@ -655,6 +715,10 @@ const _module = {
                 return new AdminRoleCustomAssignments(name, <any>undefined, { urn })
             case "okta:index/adminRoleTargets:AdminRoleTargets":
                 return new AdminRoleTargets(name, <any>undefined, { urn })
+            case "okta:index/apiServiceIntegration:ApiServiceIntegration":
+                return new ApiServiceIntegration(name, <any>undefined, { urn })
+            case "okta:index/apiToken:ApiToken":
+                return new ApiToken(name, <any>undefined, { urn })
             case "okta:index/appGroupAssignments:AppGroupAssignments":
                 return new AppGroupAssignments(name, <any>undefined, { urn })
             case "okta:index/appOauthApiScope:AppOauthApiScope":
@@ -689,6 +753,8 @@ const _module = {
                 return new CaptchaOrgWideSettings(name, <any>undefined, { urn })
             case "okta:index/customizedSigninPage:CustomizedSigninPage":
                 return new CustomizedSigninPage(name, <any>undefined, { urn })
+            case "okta:index/device:Device":
+                return new Device(name, <any>undefined, { urn })
             case "okta:index/domain:Domain":
                 return new Domain(name, <any>undefined, { urn })
             case "okta:index/domainCertificate:DomainCertificate":
@@ -727,6 +793,8 @@ const _module = {
                 return new GroupMemberships(name, <any>undefined, { urn })
             case "okta:index/groupSchemaProperty:GroupSchemaProperty":
                 return new GroupSchemaProperty(name, <any>undefined, { urn })
+            case "okta:index/hookKey:HookKey":
+                return new HookKey(name, <any>undefined, { urn })
             case "okta:index/linkDefinition:LinkDefinition":
                 return new LinkDefinition(name, <any>undefined, { urn })
             case "okta:index/linkValue:LinkValue":
@@ -751,6 +819,8 @@ const _module = {
                 return new PreviewSigninPage(name, <any>undefined, { urn })
             case "okta:index/principalRateLimits:PrincipalRateLimits":
                 return new PrincipalRateLimits(name, <any>undefined, { urn })
+            case "okta:index/pushProvider:PushProvider":
+                return new PushProvider(name, <any>undefined, { urn })
             case "okta:index/rateLimitAdminNotificationSettings:RateLimitAdminNotificationSettings":
                 return new RateLimitAdminNotificationSettings(name, <any>undefined, { urn })
             case "okta:index/rateLimitWarningThresholdPercentage:RateLimitWarningThresholdPercentage":
@@ -777,6 +847,8 @@ const _module = {
                 return new Review(name, <any>undefined, { urn })
             case "okta:index/roleSubscription:RoleSubscription":
                 return new RoleSubscription(name, <any>undefined, { urn })
+            case "okta:index/securityEventsProvider:SecurityEventsProvider":
+                return new SecurityEventsProvider(name, <any>undefined, { urn })
             case "okta:index/securityNotificationEmails:SecurityNotificationEmails":
                 return new SecurityNotificationEmails(name, <any>undefined, { urn })
             case "okta:index/templateSms:TemplateSms":
@@ -805,6 +877,8 @@ const _module = {
 pulumi.runtime.registerResourceModule("okta", "index/adminRoleCustom", _module)
 pulumi.runtime.registerResourceModule("okta", "index/adminRoleCustomAssignments", _module)
 pulumi.runtime.registerResourceModule("okta", "index/adminRoleTargets", _module)
+pulumi.runtime.registerResourceModule("okta", "index/apiServiceIntegration", _module)
+pulumi.runtime.registerResourceModule("okta", "index/apiToken", _module)
 pulumi.runtime.registerResourceModule("okta", "index/appGroupAssignments", _module)
 pulumi.runtime.registerResourceModule("okta", "index/appOauthApiScope", _module)
 pulumi.runtime.registerResourceModule("okta", "index/appSamlAppSettings", _module)
@@ -822,6 +896,7 @@ pulumi.runtime.registerResourceModule("okta", "index/campaign", _module)
 pulumi.runtime.registerResourceModule("okta", "index/captcha", _module)
 pulumi.runtime.registerResourceModule("okta", "index/captchaOrgWideSettings", _module)
 pulumi.runtime.registerResourceModule("okta", "index/customizedSigninPage", _module)
+pulumi.runtime.registerResourceModule("okta", "index/device", _module)
 pulumi.runtime.registerResourceModule("okta", "index/domain", _module)
 pulumi.runtime.registerResourceModule("okta", "index/domainCertificate", _module)
 pulumi.runtime.registerResourceModule("okta", "index/domainVerification", _module)
@@ -841,6 +916,7 @@ pulumi.runtime.registerResourceModule("okta", "index/factorTotp", _module)
 pulumi.runtime.registerResourceModule("okta", "index/feature", _module)
 pulumi.runtime.registerResourceModule("okta", "index/groupMemberships", _module)
 pulumi.runtime.registerResourceModule("okta", "index/groupSchemaProperty", _module)
+pulumi.runtime.registerResourceModule("okta", "index/hookKey", _module)
 pulumi.runtime.registerResourceModule("okta", "index/linkDefinition", _module)
 pulumi.runtime.registerResourceModule("okta", "index/linkValue", _module)
 pulumi.runtime.registerResourceModule("okta", "index/logStream", _module)
@@ -853,6 +929,7 @@ pulumi.runtime.registerResourceModule("okta", "index/policyProfileEnrollmentApps
 pulumi.runtime.registerResourceModule("okta", "index/policyRuleProfileEnrollment", _module)
 pulumi.runtime.registerResourceModule("okta", "index/previewSigninPage", _module)
 pulumi.runtime.registerResourceModule("okta", "index/principalRateLimits", _module)
+pulumi.runtime.registerResourceModule("okta", "index/pushProvider", _module)
 pulumi.runtime.registerResourceModule("okta", "index/rateLimitAdminNotificationSettings", _module)
 pulumi.runtime.registerResourceModule("okta", "index/rateLimitWarningThresholdPercentage", _module)
 pulumi.runtime.registerResourceModule("okta", "index/rateLimiting", _module)
@@ -866,6 +943,7 @@ pulumi.runtime.registerResourceModule("okta", "index/requestV2", _module)
 pulumi.runtime.registerResourceModule("okta", "index/resourceSet", _module)
 pulumi.runtime.registerResourceModule("okta", "index/review", _module)
 pulumi.runtime.registerResourceModule("okta", "index/roleSubscription", _module)
+pulumi.runtime.registerResourceModule("okta", "index/securityEventsProvider", _module)
 pulumi.runtime.registerResourceModule("okta", "index/securityNotificationEmails", _module)
 pulumi.runtime.registerResourceModule("okta", "index/templateSms", _module)
 pulumi.runtime.registerResourceModule("okta", "index/theme", _module)

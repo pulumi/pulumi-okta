@@ -25,16 +25,32 @@ public final class GetCatalogEntryUserAccessRequestFieldsArgs extends com.pulumi
         return Optional.ofNullable(this.datas);
     }
 
+    /**
+     * TThe ID of the catalog entry.
+     * 
+     */
     @Import(name="entryId", required=true)
     private Output<String> entryId;
 
+    /**
+     * @return TThe ID of the catalog entry.
+     * 
+     */
     public Output<String> entryId() {
         return this.entryId;
     }
 
+    /**
+     * The ID of the user.
+     * 
+     */
     @Import(name="userId", required=true)
     private Output<String> userId;
 
+    /**
+     * @return The ID of the user.
+     * 
+     */
     public Output<String> userId() {
         return this.userId;
     }
@@ -78,20 +94,44 @@ public final class GetCatalogEntryUserAccessRequestFieldsArgs extends com.pulumi
             return datas(List.of(datas));
         }
 
+        /**
+         * @param entryId TThe ID of the catalog entry.
+         * 
+         * @return builder
+         * 
+         */
         public Builder entryId(Output<String> entryId) {
             $.entryId = entryId;
             return this;
         }
 
+        /**
+         * @param entryId TThe ID of the catalog entry.
+         * 
+         * @return builder
+         * 
+         */
         public Builder entryId(String entryId) {
             return entryId(Output.of(entryId));
         }
 
+        /**
+         * @param userId The ID of the user.
+         * 
+         * @return builder
+         * 
+         */
         public Builder userId(Output<String> userId) {
             $.userId = userId;
             return this;
         }
 
+        /**
+         * @param userId The ID of the user.
+         * 
+         * @return builder
+         * 
+         */
         public Builder userId(String userId) {
             return userId(Output.of(userId));
         }

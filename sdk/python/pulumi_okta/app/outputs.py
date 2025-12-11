@@ -13,15 +13,836 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 
 __all__ = [
+    'ConnectionProfile',
+    'ConnectionProfileSettings',
+    'ConnectionProfileSigning',
+    'FeaturesCapabilities',
+    'FeaturesCapabilitiesCreate',
+    'FeaturesCapabilitiesCreateLifecycleCreate',
+    'FeaturesCapabilitiesImportRules',
+    'FeaturesCapabilitiesImportRulesUserCreateAndMatch',
+    'FeaturesCapabilitiesImportSettings',
+    'FeaturesCapabilitiesImportSettingsSchedule',
+    'FeaturesCapabilitiesImportSettingsScheduleFullImport',
+    'FeaturesCapabilitiesImportSettingsScheduleIncrementalImport',
+    'FeaturesCapabilitiesImportSettingsUsername',
+    'FeaturesCapabilitiesUpdate',
+    'FeaturesCapabilitiesUpdateLifecycleDeactivate',
+    'FeaturesCapabilitiesUpdatePassword',
+    'FeaturesCapabilitiesUpdateProfile',
     'OAuthGroupsClaim',
     'OAuthJwk',
     'SamlAcsEndpointsIndex',
     'SamlAttributeStatement',
     'SamlKey',
+    'GetConnectionProfileResult',
+    'GetFeaturesCapabilitiesResult',
+    'GetFeaturesCapabilitiesCreateResult',
+    'GetFeaturesCapabilitiesCreateLifecycleCreateResult',
+    'GetFeaturesCapabilitiesImportRulesResult',
+    'GetFeaturesCapabilitiesImportRulesUserCreateAndMatchResult',
+    'GetFeaturesCapabilitiesImportSettingsResult',
+    'GetFeaturesCapabilitiesImportSettingsScheduleResult',
+    'GetFeaturesCapabilitiesImportSettingsScheduleFullImportResult',
+    'GetFeaturesCapabilitiesImportSettingsScheduleIncrementalImportResult',
+    'GetFeaturesCapabilitiesImportSettingsUsernameResult',
+    'GetFeaturesCapabilitiesUpdateResult',
+    'GetFeaturesCapabilitiesUpdateLifecycleDeactivateResult',
+    'GetFeaturesCapabilitiesUpdatePasswordResult',
+    'GetFeaturesCapabilitiesUpdateProfileResult',
     'GetSamlAttributeStatementResult',
 ]
+
+@pulumi.output_type
+class ConnectionProfile(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authScheme":
+            suggest = "auth_scheme"
+        elif key == "clientId":
+            suggest = "client_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectionProfile. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectionProfile.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectionProfile.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 auth_scheme: _builtins.str,
+                 client_id: Optional[_builtins.str] = None,
+                 settings: Optional['outputs.ConnectionProfileSettings'] = None,
+                 signing: Optional['outputs.ConnectionProfileSigning'] = None,
+                 token: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str auth_scheme: Authentication scheme. Valid values are TOKEN or OAUTH2.
+        :param _builtins.str client_id: OAuth2 client ID (required for OAUTH2 auth scheme).
+        :param 'ConnectionProfileSettingsArgs' settings: Additional settings for OAuth2 authentication.
+        :param 'ConnectionProfileSigningArgs' signing: Signing configuration.
+        :param _builtins.str token: Authentication token (required for TOKEN auth scheme).
+        """
+        pulumi.set(__self__, "auth_scheme", auth_scheme)
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if settings is not None:
+            pulumi.set(__self__, "settings", settings)
+        if signing is not None:
+            pulumi.set(__self__, "signing", signing)
+        if token is not None:
+            pulumi.set(__self__, "token", token)
+
+    @_builtins.property
+    @pulumi.getter(name="authScheme")
+    def auth_scheme(self) -> _builtins.str:
+        """
+        Authentication scheme. Valid values are TOKEN or OAUTH2.
+        """
+        return pulumi.get(self, "auth_scheme")
+
+    @_builtins.property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[_builtins.str]:
+        """
+        OAuth2 client ID (required for OAUTH2 auth scheme).
+        """
+        return pulumi.get(self, "client_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def settings(self) -> Optional['outputs.ConnectionProfileSettings']:
+        """
+        Additional settings for OAuth2 authentication.
+        """
+        return pulumi.get(self, "settings")
+
+    @_builtins.property
+    @pulumi.getter
+    def signing(self) -> Optional['outputs.ConnectionProfileSigning']:
+        """
+        Signing configuration.
+        """
+        return pulumi.get(self, "signing")
+
+    @_builtins.property
+    @pulumi.getter
+    def token(self) -> Optional[_builtins.str]:
+        """
+        Authentication token (required for TOKEN auth scheme).
+        """
+        return pulumi.get(self, "token")
+
+
+@pulumi.output_type
+class ConnectionProfileSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "adminPassword":
+            suggest = "admin_password"
+        elif key == "adminUsername":
+            suggest = "admin_username"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectionProfileSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectionProfileSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectionProfileSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 admin_password: Optional[_builtins.str] = None,
+                 admin_username: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str admin_password: Admin password for OAuth2.
+        :param _builtins.str admin_username: Admin username for OAuth2.
+        """
+        if admin_password is not None:
+            pulumi.set(__self__, "admin_password", admin_password)
+        if admin_username is not None:
+            pulumi.set(__self__, "admin_username", admin_username)
+
+    @_builtins.property
+    @pulumi.getter(name="adminPassword")
+    def admin_password(self) -> Optional[_builtins.str]:
+        """
+        Admin password for OAuth2.
+        """
+        return pulumi.get(self, "admin_password")
+
+    @_builtins.property
+    @pulumi.getter(name="adminUsername")
+    def admin_username(self) -> Optional[_builtins.str]:
+        """
+        Admin username for OAuth2.
+        """
+        return pulumi.get(self, "admin_username")
+
+
+@pulumi.output_type
+class ConnectionProfileSigning(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "rotationMode":
+            suggest = "rotation_mode"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectionProfileSigning. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectionProfileSigning.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectionProfileSigning.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 rotation_mode: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str rotation_mode: Token rotation mode.
+        """
+        if rotation_mode is not None:
+            pulumi.set(__self__, "rotation_mode", rotation_mode)
+
+    @_builtins.property
+    @pulumi.getter(name="rotationMode")
+    def rotation_mode(self) -> Optional[_builtins.str]:
+        """
+        Token rotation mode.
+        """
+        return pulumi.get(self, "rotation_mode")
+
+
+@pulumi.output_type
+class FeaturesCapabilities(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "importRules":
+            suggest = "import_rules"
+        elif key == "importSettings":
+            suggest = "import_settings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FeaturesCapabilities. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FeaturesCapabilities.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FeaturesCapabilities.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 create: Optional['outputs.FeaturesCapabilitiesCreate'] = None,
+                 import_rules: Optional['outputs.FeaturesCapabilitiesImportRules'] = None,
+                 import_settings: Optional['outputs.FeaturesCapabilitiesImportSettings'] = None,
+                 update: Optional['outputs.FeaturesCapabilitiesUpdate'] = None):
+        """
+        :param 'FeaturesCapabilitiesCreateArgs' create: (Optional) Block for create lifecycle settings:
+        :param 'FeaturesCapabilitiesImportRulesArgs' import_rules: (Optional) Block for import rules configuration:
+        :param 'FeaturesCapabilitiesImportSettingsArgs' import_settings: (Optional) Block for import settings configuration:
+        :param 'FeaturesCapabilitiesUpdateArgs' update: (Optional) Block for update settings:
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if import_rules is not None:
+            pulumi.set(__self__, "import_rules", import_rules)
+        if import_settings is not None:
+            pulumi.set(__self__, "import_settings", import_settings)
+        if update is not None:
+            pulumi.set(__self__, "update", update)
+
+    @_builtins.property
+    @pulumi.getter
+    def create(self) -> Optional['outputs.FeaturesCapabilitiesCreate']:
+        """
+        (Optional) Block for create lifecycle settings:
+        """
+        return pulumi.get(self, "create")
+
+    @_builtins.property
+    @pulumi.getter(name="importRules")
+    def import_rules(self) -> Optional['outputs.FeaturesCapabilitiesImportRules']:
+        """
+        (Optional) Block for import rules configuration:
+        """
+        return pulumi.get(self, "import_rules")
+
+    @_builtins.property
+    @pulumi.getter(name="importSettings")
+    def import_settings(self) -> Optional['outputs.FeaturesCapabilitiesImportSettings']:
+        """
+        (Optional) Block for import settings configuration:
+        """
+        return pulumi.get(self, "import_settings")
+
+    @_builtins.property
+    @pulumi.getter
+    def update(self) -> Optional['outputs.FeaturesCapabilitiesUpdate']:
+        """
+        (Optional) Block for update settings:
+        """
+        return pulumi.get(self, "update")
+
+
+@pulumi.output_type
+class FeaturesCapabilitiesCreate(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "lifecycleCreate":
+            suggest = "lifecycle_create"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FeaturesCapabilitiesCreate. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FeaturesCapabilitiesCreate.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FeaturesCapabilitiesCreate.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 lifecycle_create: Optional['outputs.FeaturesCapabilitiesCreateLifecycleCreate'] = None):
+        """
+        :param 'FeaturesCapabilitiesCreateLifecycleCreateArgs' lifecycle_create: (Optional) Block for create lifecycle configuration:
+        """
+        if lifecycle_create is not None:
+            pulumi.set(__self__, "lifecycle_create", lifecycle_create)
+
+    @_builtins.property
+    @pulumi.getter(name="lifecycleCreate")
+    def lifecycle_create(self) -> Optional['outputs.FeaturesCapabilitiesCreateLifecycleCreate']:
+        """
+        (Optional) Block for create lifecycle configuration:
+        """
+        return pulumi.get(self, "lifecycle_create")
+
+
+@pulumi.output_type
+class FeaturesCapabilitiesCreateLifecycleCreate(dict):
+    def __init__(__self__, *,
+                 status: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str status: The status of the feature. Valid values are `ENABLED` or `DISABLED`.
+        """
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> Optional[_builtins.str]:
+        """
+        The status of the feature. Valid values are `ENABLED` or `DISABLED`.
+        """
+        return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class FeaturesCapabilitiesImportRules(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "userCreateAndMatch":
+            suggest = "user_create_and_match"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FeaturesCapabilitiesImportRules. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FeaturesCapabilitiesImportRules.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FeaturesCapabilitiesImportRules.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 user_create_and_match: Optional['outputs.FeaturesCapabilitiesImportRulesUserCreateAndMatch'] = None):
+        """
+        :param 'FeaturesCapabilitiesImportRulesUserCreateAndMatchArgs' user_create_and_match: (Optional) Block for user matching and creation rules:
+        """
+        if user_create_and_match is not None:
+            pulumi.set(__self__, "user_create_and_match", user_create_and_match)
+
+    @_builtins.property
+    @pulumi.getter(name="userCreateAndMatch")
+    def user_create_and_match(self) -> Optional['outputs.FeaturesCapabilitiesImportRulesUserCreateAndMatch']:
+        """
+        (Optional) Block for user matching and creation rules:
+        """
+        return pulumi.get(self, "user_create_and_match")
+
+
+@pulumi.output_type
+class FeaturesCapabilitiesImportRulesUserCreateAndMatch(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowPartialMatch":
+            suggest = "allow_partial_match"
+        elif key == "autoActivateNewUsers":
+            suggest = "auto_activate_new_users"
+        elif key == "autoconfirmExactMatch":
+            suggest = "autoconfirm_exact_match"
+        elif key == "autoconfirmNewUsers":
+            suggest = "autoconfirm_new_users"
+        elif key == "autoconfirmPartialMatch":
+            suggest = "autoconfirm_partial_match"
+        elif key == "exactMatchCriteria":
+            suggest = "exact_match_criteria"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FeaturesCapabilitiesImportRulesUserCreateAndMatch. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FeaturesCapabilitiesImportRulesUserCreateAndMatch.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FeaturesCapabilitiesImportRulesUserCreateAndMatch.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 allow_partial_match: Optional[_builtins.bool] = None,
+                 auto_activate_new_users: Optional[_builtins.bool] = None,
+                 autoconfirm_exact_match: Optional[_builtins.bool] = None,
+                 autoconfirm_new_users: Optional[_builtins.bool] = None,
+                 autoconfirm_partial_match: Optional[_builtins.bool] = None,
+                 exact_match_criteria: Optional[_builtins.str] = None):
+        """
+        :param _builtins.bool allow_partial_match: (Optional) Whether to allow partial matching based on first and last names.
+        :param _builtins.bool auto_activate_new_users: (Optional) Whether imported new users are automatically activated.
+        :param _builtins.bool autoconfirm_exact_match: (Optional) Whether exact-matched users are automatically confirmed.
+        :param _builtins.bool autoconfirm_new_users: (Optional) Whether imported new users are automatically confirmed.
+        :param _builtins.bool autoconfirm_partial_match: (Optional) Whether partially matched users are automatically confirmed.
+        :param _builtins.str exact_match_criteria: (Optional) Attribute used for exact matching (e.g., `USERNAME`, `EMAIL`).
+        """
+        if allow_partial_match is not None:
+            pulumi.set(__self__, "allow_partial_match", allow_partial_match)
+        if auto_activate_new_users is not None:
+            pulumi.set(__self__, "auto_activate_new_users", auto_activate_new_users)
+        if autoconfirm_exact_match is not None:
+            pulumi.set(__self__, "autoconfirm_exact_match", autoconfirm_exact_match)
+        if autoconfirm_new_users is not None:
+            pulumi.set(__self__, "autoconfirm_new_users", autoconfirm_new_users)
+        if autoconfirm_partial_match is not None:
+            pulumi.set(__self__, "autoconfirm_partial_match", autoconfirm_partial_match)
+        if exact_match_criteria is not None:
+            pulumi.set(__self__, "exact_match_criteria", exact_match_criteria)
+
+    @_builtins.property
+    @pulumi.getter(name="allowPartialMatch")
+    def allow_partial_match(self) -> Optional[_builtins.bool]:
+        """
+        (Optional) Whether to allow partial matching based on first and last names.
+        """
+        return pulumi.get(self, "allow_partial_match")
+
+    @_builtins.property
+    @pulumi.getter(name="autoActivateNewUsers")
+    def auto_activate_new_users(self) -> Optional[_builtins.bool]:
+        """
+        (Optional) Whether imported new users are automatically activated.
+        """
+        return pulumi.get(self, "auto_activate_new_users")
+
+    @_builtins.property
+    @pulumi.getter(name="autoconfirmExactMatch")
+    def autoconfirm_exact_match(self) -> Optional[_builtins.bool]:
+        """
+        (Optional) Whether exact-matched users are automatically confirmed.
+        """
+        return pulumi.get(self, "autoconfirm_exact_match")
+
+    @_builtins.property
+    @pulumi.getter(name="autoconfirmNewUsers")
+    def autoconfirm_new_users(self) -> Optional[_builtins.bool]:
+        """
+        (Optional) Whether imported new users are automatically confirmed.
+        """
+        return pulumi.get(self, "autoconfirm_new_users")
+
+    @_builtins.property
+    @pulumi.getter(name="autoconfirmPartialMatch")
+    def autoconfirm_partial_match(self) -> Optional[_builtins.bool]:
+        """
+        (Optional) Whether partially matched users are automatically confirmed.
+        """
+        return pulumi.get(self, "autoconfirm_partial_match")
+
+    @_builtins.property
+    @pulumi.getter(name="exactMatchCriteria")
+    def exact_match_criteria(self) -> Optional[_builtins.str]:
+        """
+        (Optional) Attribute used for exact matching (e.g., `USERNAME`, `EMAIL`).
+        """
+        return pulumi.get(self, "exact_match_criteria")
+
+
+@pulumi.output_type
+class FeaturesCapabilitiesImportSettings(dict):
+    def __init__(__self__, *,
+                 schedule: Optional['outputs.FeaturesCapabilitiesImportSettingsSchedule'] = None,
+                 username: Optional['outputs.FeaturesCapabilitiesImportSettingsUsername'] = None):
+        """
+        :param 'FeaturesCapabilitiesImportSettingsScheduleArgs' schedule: (Optional) Block for import schedule configuration:
+        :param 'FeaturesCapabilitiesImportSettingsUsernameArgs' username: (Optional) Block for username configuration:
+        """
+        if schedule is not None:
+            pulumi.set(__self__, "schedule", schedule)
+        if username is not None:
+            pulumi.set(__self__, "username", username)
+
+    @_builtins.property
+    @pulumi.getter
+    def schedule(self) -> Optional['outputs.FeaturesCapabilitiesImportSettingsSchedule']:
+        """
+        (Optional) Block for import schedule configuration:
+        """
+        return pulumi.get(self, "schedule")
+
+    @_builtins.property
+    @pulumi.getter
+    def username(self) -> Optional['outputs.FeaturesCapabilitiesImportSettingsUsername']:
+        """
+        (Optional) Block for username configuration:
+        """
+        return pulumi.get(self, "username")
+
+
+@pulumi.output_type
+class FeaturesCapabilitiesImportSettingsSchedule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fullImport":
+            suggest = "full_import"
+        elif key == "incrementalImport":
+            suggest = "incremental_import"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FeaturesCapabilitiesImportSettingsSchedule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FeaturesCapabilitiesImportSettingsSchedule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FeaturesCapabilitiesImportSettingsSchedule.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 full_import: Optional['outputs.FeaturesCapabilitiesImportSettingsScheduleFullImport'] = None,
+                 incremental_import: Optional['outputs.FeaturesCapabilitiesImportSettingsScheduleIncrementalImport'] = None,
+                 status: Optional[_builtins.str] = None):
+        """
+        :param 'FeaturesCapabilitiesImportSettingsScheduleFullImportArgs' full_import: (Optional) Block for full import schedule:
+        :param 'FeaturesCapabilitiesImportSettingsScheduleIncrementalImportArgs' incremental_import: (Optional) Block for incremental import schedule:
+        :param _builtins.str status: The status of the feature. Valid values are `ENABLED` or `DISABLED`.
+        """
+        if full_import is not None:
+            pulumi.set(__self__, "full_import", full_import)
+        if incremental_import is not None:
+            pulumi.set(__self__, "incremental_import", incremental_import)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @_builtins.property
+    @pulumi.getter(name="fullImport")
+    def full_import(self) -> Optional['outputs.FeaturesCapabilitiesImportSettingsScheduleFullImport']:
+        """
+        (Optional) Block for full import schedule:
+        """
+        return pulumi.get(self, "full_import")
+
+    @_builtins.property
+    @pulumi.getter(name="incrementalImport")
+    def incremental_import(self) -> Optional['outputs.FeaturesCapabilitiesImportSettingsScheduleIncrementalImport']:
+        """
+        (Optional) Block for incremental import schedule:
+        """
+        return pulumi.get(self, "incremental_import")
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> Optional[_builtins.str]:
+        """
+        The status of the feature. Valid values are `ENABLED` or `DISABLED`.
+        """
+        return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class FeaturesCapabilitiesImportSettingsScheduleFullImport(dict):
+    def __init__(__self__, *,
+                 expression: Optional[_builtins.str] = None,
+                 timezone: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str expression: (Optional) UNIX cron expression for incremental import schedule.
+        :param _builtins.str timezone: (Optional) IANA timezone name for the schedule.
+        """
+        if expression is not None:
+            pulumi.set(__self__, "expression", expression)
+        if timezone is not None:
+            pulumi.set(__self__, "timezone", timezone)
+
+    @_builtins.property
+    @pulumi.getter
+    def expression(self) -> Optional[_builtins.str]:
+        """
+        (Optional) UNIX cron expression for incremental import schedule.
+        """
+        return pulumi.get(self, "expression")
+
+    @_builtins.property
+    @pulumi.getter
+    def timezone(self) -> Optional[_builtins.str]:
+        """
+        (Optional) IANA timezone name for the schedule.
+        """
+        return pulumi.get(self, "timezone")
+
+
+@pulumi.output_type
+class FeaturesCapabilitiesImportSettingsScheduleIncrementalImport(dict):
+    def __init__(__self__, *,
+                 expression: Optional[_builtins.str] = None,
+                 timezone: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str expression: (Optional) UNIX cron expression for incremental import schedule.
+        :param _builtins.str timezone: (Optional) IANA timezone name for the schedule.
+        """
+        if expression is not None:
+            pulumi.set(__self__, "expression", expression)
+        if timezone is not None:
+            pulumi.set(__self__, "timezone", timezone)
+
+    @_builtins.property
+    @pulumi.getter
+    def expression(self) -> Optional[_builtins.str]:
+        """
+        (Optional) UNIX cron expression for incremental import schedule.
+        """
+        return pulumi.get(self, "expression")
+
+    @_builtins.property
+    @pulumi.getter
+    def timezone(self) -> Optional[_builtins.str]:
+        """
+        (Optional) IANA timezone name for the schedule.
+        """
+        return pulumi.get(self, "timezone")
+
+
+@pulumi.output_type
+class FeaturesCapabilitiesImportSettingsUsername(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "usernameExpression":
+            suggest = "username_expression"
+        elif key == "usernameFormat":
+            suggest = "username_format"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FeaturesCapabilitiesImportSettingsUsername. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FeaturesCapabilitiesImportSettingsUsername.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FeaturesCapabilitiesImportSettingsUsername.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 username_expression: Optional[_builtins.str] = None,
+                 username_format: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str username_expression: (Optional) Okta Expression Language statement for custom username format.
+        :param _builtins.str username_format: (Optional) Format for usernames (e.g., `EMAIL`, `CUSTOM`).
+        """
+        if username_expression is not None:
+            pulumi.set(__self__, "username_expression", username_expression)
+        if username_format is not None:
+            pulumi.set(__self__, "username_format", username_format)
+
+    @_builtins.property
+    @pulumi.getter(name="usernameExpression")
+    def username_expression(self) -> Optional[_builtins.str]:
+        """
+        (Optional) Okta Expression Language statement for custom username format.
+        """
+        return pulumi.get(self, "username_expression")
+
+    @_builtins.property
+    @pulumi.getter(name="usernameFormat")
+    def username_format(self) -> Optional[_builtins.str]:
+        """
+        (Optional) Format for usernames (e.g., `EMAIL`, `CUSTOM`).
+        """
+        return pulumi.get(self, "username_format")
+
+
+@pulumi.output_type
+class FeaturesCapabilitiesUpdate(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "lifecycleDeactivate":
+            suggest = "lifecycle_deactivate"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FeaturesCapabilitiesUpdate. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FeaturesCapabilitiesUpdate.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FeaturesCapabilitiesUpdate.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 lifecycle_deactivate: Optional['outputs.FeaturesCapabilitiesUpdateLifecycleDeactivate'] = None,
+                 password: Optional['outputs.FeaturesCapabilitiesUpdatePassword'] = None,
+                 profile: Optional['outputs.FeaturesCapabilitiesUpdateProfile'] = None):
+        """
+        :param 'FeaturesCapabilitiesUpdateLifecycleDeactivateArgs' lifecycle_deactivate: (Optional) Block for deactivation lifecycle configuration:
+        :param 'FeaturesCapabilitiesUpdatePasswordArgs' password: (Optional) Block for password synchronization settings:
+        :param 'FeaturesCapabilitiesUpdateProfileArgs' profile: (Optional) Block for profile update settings:
+        """
+        if lifecycle_deactivate is not None:
+            pulumi.set(__self__, "lifecycle_deactivate", lifecycle_deactivate)
+        if password is not None:
+            pulumi.set(__self__, "password", password)
+        if profile is not None:
+            pulumi.set(__self__, "profile", profile)
+
+    @_builtins.property
+    @pulumi.getter(name="lifecycleDeactivate")
+    def lifecycle_deactivate(self) -> Optional['outputs.FeaturesCapabilitiesUpdateLifecycleDeactivate']:
+        """
+        (Optional) Block for deactivation lifecycle configuration:
+        """
+        return pulumi.get(self, "lifecycle_deactivate")
+
+    @_builtins.property
+    @pulumi.getter
+    def password(self) -> Optional['outputs.FeaturesCapabilitiesUpdatePassword']:
+        """
+        (Optional) Block for password synchronization settings:
+        """
+        return pulumi.get(self, "password")
+
+    @_builtins.property
+    @pulumi.getter
+    def profile(self) -> Optional['outputs.FeaturesCapabilitiesUpdateProfile']:
+        """
+        (Optional) Block for profile update settings:
+        """
+        return pulumi.get(self, "profile")
+
+
+@pulumi.output_type
+class FeaturesCapabilitiesUpdateLifecycleDeactivate(dict):
+    def __init__(__self__, *,
+                 status: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str status: The status of the feature. Valid values are `ENABLED` or `DISABLED`.
+        """
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> Optional[_builtins.str]:
+        """
+        The status of the feature. Valid values are `ENABLED` or `DISABLED`.
+        """
+        return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class FeaturesCapabilitiesUpdatePassword(dict):
+    def __init__(__self__, *,
+                 change: Optional[_builtins.str] = None,
+                 seed: Optional[_builtins.str] = None,
+                 status: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str change: (Optional) Determines password change behavior. Valid values are `CHANGE` or `KEEP_EXISTING`.
+        :param _builtins.str seed: (Optional) Determines password source. Valid values are `OKTA` or `RANDOM`.
+        :param _builtins.str status: The status of the feature. Valid values are `ENABLED` or `DISABLED`.
+        """
+        if change is not None:
+            pulumi.set(__self__, "change", change)
+        if seed is not None:
+            pulumi.set(__self__, "seed", seed)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @_builtins.property
+    @pulumi.getter
+    def change(self) -> Optional[_builtins.str]:
+        """
+        (Optional) Determines password change behavior. Valid values are `CHANGE` or `KEEP_EXISTING`.
+        """
+        return pulumi.get(self, "change")
+
+    @_builtins.property
+    @pulumi.getter
+    def seed(self) -> Optional[_builtins.str]:
+        """
+        (Optional) Determines password source. Valid values are `OKTA` or `RANDOM`.
+        """
+        return pulumi.get(self, "seed")
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> Optional[_builtins.str]:
+        """
+        The status of the feature. Valid values are `ENABLED` or `DISABLED`.
+        """
+        return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class FeaturesCapabilitiesUpdateProfile(dict):
+    def __init__(__self__, *,
+                 status: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str status: The status of the feature. Valid values are `ENABLED` or `DISABLED`.
+        """
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> Optional[_builtins.str]:
+        """
+        The status of the feature. Valid values are `ENABLED` or `DISABLED`.
+        """
+        return pulumi.get(self, "status")
+
 
 @pulumi.output_type
 class OAuthGroupsClaim(dict):
@@ -441,6 +1262,487 @@ class SamlKey(dict):
         X.509 certificate SHA-256 thumbprint
         """
         return pulumi.get(self, "x5t_s256")
+
+
+@pulumi.output_type
+class GetConnectionProfileResult(dict):
+    def __init__(__self__, *,
+                 auth_scheme: _builtins.str):
+        """
+        :param _builtins.str auth_scheme: Defines the method of authentication.
+        """
+        pulumi.set(__self__, "auth_scheme", auth_scheme)
+
+    @_builtins.property
+    @pulumi.getter(name="authScheme")
+    def auth_scheme(self) -> _builtins.str:
+        """
+        Defines the method of authentication.
+        """
+        return pulumi.get(self, "auth_scheme")
+
+
+@pulumi.output_type
+class GetFeaturesCapabilitiesResult(dict):
+    def __init__(__self__, *,
+                 create: Optional['outputs.GetFeaturesCapabilitiesCreateResult'] = None,
+                 import_rules: Optional['outputs.GetFeaturesCapabilitiesImportRulesResult'] = None,
+                 import_settings: Optional['outputs.GetFeaturesCapabilitiesImportSettingsResult'] = None,
+                 update: Optional['outputs.GetFeaturesCapabilitiesUpdateResult'] = None):
+        """
+        :param 'GetFeaturesCapabilitiesCreateArgs' create: Block for create lifecycle settings:
+        :param 'GetFeaturesCapabilitiesImportRulesArgs' import_rules: Block for import rules configuration:
+        :param 'GetFeaturesCapabilitiesImportSettingsArgs' import_settings: Block for import settings configuration:
+        :param 'GetFeaturesCapabilitiesUpdateArgs' update: Block for update settings:
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if import_rules is not None:
+            pulumi.set(__self__, "import_rules", import_rules)
+        if import_settings is not None:
+            pulumi.set(__self__, "import_settings", import_settings)
+        if update is not None:
+            pulumi.set(__self__, "update", update)
+
+    @_builtins.property
+    @pulumi.getter
+    def create(self) -> Optional['outputs.GetFeaturesCapabilitiesCreateResult']:
+        """
+        Block for create lifecycle settings:
+        """
+        return pulumi.get(self, "create")
+
+    @_builtins.property
+    @pulumi.getter(name="importRules")
+    def import_rules(self) -> Optional['outputs.GetFeaturesCapabilitiesImportRulesResult']:
+        """
+        Block for import rules configuration:
+        """
+        return pulumi.get(self, "import_rules")
+
+    @_builtins.property
+    @pulumi.getter(name="importSettings")
+    def import_settings(self) -> Optional['outputs.GetFeaturesCapabilitiesImportSettingsResult']:
+        """
+        Block for import settings configuration:
+        """
+        return pulumi.get(self, "import_settings")
+
+    @_builtins.property
+    @pulumi.getter
+    def update(self) -> Optional['outputs.GetFeaturesCapabilitiesUpdateResult']:
+        """
+        Block for update settings:
+        """
+        return pulumi.get(self, "update")
+
+
+@pulumi.output_type
+class GetFeaturesCapabilitiesCreateResult(dict):
+    def __init__(__self__, *,
+                 lifecycle_create: Optional['outputs.GetFeaturesCapabilitiesCreateLifecycleCreateResult'] = None):
+        """
+        :param 'GetFeaturesCapabilitiesCreateLifecycleCreateArgs' lifecycle_create: Block for create lifecycle configuration:
+        """
+        if lifecycle_create is not None:
+            pulumi.set(__self__, "lifecycle_create", lifecycle_create)
+
+    @_builtins.property
+    @pulumi.getter(name="lifecycleCreate")
+    def lifecycle_create(self) -> Optional['outputs.GetFeaturesCapabilitiesCreateLifecycleCreateResult']:
+        """
+        Block for create lifecycle configuration:
+        """
+        return pulumi.get(self, "lifecycle_create")
+
+
+@pulumi.output_type
+class GetFeaturesCapabilitiesCreateLifecycleCreateResult(dict):
+    def __init__(__self__, *,
+                 status: _builtins.str):
+        """
+        :param _builtins.str status: (String) Status of the import schedule. Valid values are `ENABLED` or `DISABLED`.
+        """
+        pulumi.set(__self__, "status", status)
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> _builtins.str:
+        """
+        (String) Status of the import schedule. Valid values are `ENABLED` or `DISABLED`.
+        """
+        return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class GetFeaturesCapabilitiesImportRulesResult(dict):
+    def __init__(__self__, *,
+                 user_create_and_match: Optional['outputs.GetFeaturesCapabilitiesImportRulesUserCreateAndMatchResult'] = None):
+        """
+        :param 'GetFeaturesCapabilitiesImportRulesUserCreateAndMatchArgs' user_create_and_match: Block for user matching and creation rules:
+        """
+        if user_create_and_match is not None:
+            pulumi.set(__self__, "user_create_and_match", user_create_and_match)
+
+    @_builtins.property
+    @pulumi.getter(name="userCreateAndMatch")
+    def user_create_and_match(self) -> Optional['outputs.GetFeaturesCapabilitiesImportRulesUserCreateAndMatchResult']:
+        """
+        Block for user matching and creation rules:
+        """
+        return pulumi.get(self, "user_create_and_match")
+
+
+@pulumi.output_type
+class GetFeaturesCapabilitiesImportRulesUserCreateAndMatchResult(dict):
+    def __init__(__self__, *,
+                 allow_partial_match: _builtins.bool,
+                 auto_activate_new_users: _builtins.bool,
+                 autoconfirm_exact_match: _builtins.bool,
+                 autoconfirm_new_users: _builtins.bool,
+                 autoconfirm_partial_match: _builtins.bool,
+                 exact_match_criteria: _builtins.str):
+        """
+        :param _builtins.bool allow_partial_match: (Boolean) Whether to allow partial matching based on first and last names.
+        :param _builtins.bool auto_activate_new_users: (Boolean) Whether imported new users are automatically activated.
+        :param _builtins.bool autoconfirm_exact_match: (Boolean) Whether exact-matched users are automatically confirmed.
+        :param _builtins.bool autoconfirm_new_users: (Boolean) Whether imported new users are automatically confirmed.
+        :param _builtins.bool autoconfirm_partial_match: (Boolean) Whether partially matched users are automatically confirmed.
+        :param _builtins.str exact_match_criteria: (String) Attribute used for exact matching (e.g., `USERNAME`, `EMAIL`).
+        """
+        pulumi.set(__self__, "allow_partial_match", allow_partial_match)
+        pulumi.set(__self__, "auto_activate_new_users", auto_activate_new_users)
+        pulumi.set(__self__, "autoconfirm_exact_match", autoconfirm_exact_match)
+        pulumi.set(__self__, "autoconfirm_new_users", autoconfirm_new_users)
+        pulumi.set(__self__, "autoconfirm_partial_match", autoconfirm_partial_match)
+        pulumi.set(__self__, "exact_match_criteria", exact_match_criteria)
+
+    @_builtins.property
+    @pulumi.getter(name="allowPartialMatch")
+    def allow_partial_match(self) -> _builtins.bool:
+        """
+        (Boolean) Whether to allow partial matching based on first and last names.
+        """
+        return pulumi.get(self, "allow_partial_match")
+
+    @_builtins.property
+    @pulumi.getter(name="autoActivateNewUsers")
+    def auto_activate_new_users(self) -> _builtins.bool:
+        """
+        (Boolean) Whether imported new users are automatically activated.
+        """
+        return pulumi.get(self, "auto_activate_new_users")
+
+    @_builtins.property
+    @pulumi.getter(name="autoconfirmExactMatch")
+    def autoconfirm_exact_match(self) -> _builtins.bool:
+        """
+        (Boolean) Whether exact-matched users are automatically confirmed.
+        """
+        return pulumi.get(self, "autoconfirm_exact_match")
+
+    @_builtins.property
+    @pulumi.getter(name="autoconfirmNewUsers")
+    def autoconfirm_new_users(self) -> _builtins.bool:
+        """
+        (Boolean) Whether imported new users are automatically confirmed.
+        """
+        return pulumi.get(self, "autoconfirm_new_users")
+
+    @_builtins.property
+    @pulumi.getter(name="autoconfirmPartialMatch")
+    def autoconfirm_partial_match(self) -> _builtins.bool:
+        """
+        (Boolean) Whether partially matched users are automatically confirmed.
+        """
+        return pulumi.get(self, "autoconfirm_partial_match")
+
+    @_builtins.property
+    @pulumi.getter(name="exactMatchCriteria")
+    def exact_match_criteria(self) -> _builtins.str:
+        """
+        (String) Attribute used for exact matching (e.g., `USERNAME`, `EMAIL`).
+        """
+        return pulumi.get(self, "exact_match_criteria")
+
+
+@pulumi.output_type
+class GetFeaturesCapabilitiesImportSettingsResult(dict):
+    def __init__(__self__, *,
+                 schedule: Optional['outputs.GetFeaturesCapabilitiesImportSettingsScheduleResult'] = None,
+                 username: Optional['outputs.GetFeaturesCapabilitiesImportSettingsUsernameResult'] = None):
+        """
+        :param 'GetFeaturesCapabilitiesImportSettingsScheduleArgs' schedule: Block for import schedule configuration:
+        :param 'GetFeaturesCapabilitiesImportSettingsUsernameArgs' username: Block for username configuration:
+        """
+        if schedule is not None:
+            pulumi.set(__self__, "schedule", schedule)
+        if username is not None:
+            pulumi.set(__self__, "username", username)
+
+    @_builtins.property
+    @pulumi.getter
+    def schedule(self) -> Optional['outputs.GetFeaturesCapabilitiesImportSettingsScheduleResult']:
+        """
+        Block for import schedule configuration:
+        """
+        return pulumi.get(self, "schedule")
+
+    @_builtins.property
+    @pulumi.getter
+    def username(self) -> Optional['outputs.GetFeaturesCapabilitiesImportSettingsUsernameResult']:
+        """
+        Block for username configuration:
+        """
+        return pulumi.get(self, "username")
+
+
+@pulumi.output_type
+class GetFeaturesCapabilitiesImportSettingsScheduleResult(dict):
+    def __init__(__self__, *,
+                 status: _builtins.str,
+                 full_import: Optional['outputs.GetFeaturesCapabilitiesImportSettingsScheduleFullImportResult'] = None,
+                 incremental_import: Optional['outputs.GetFeaturesCapabilitiesImportSettingsScheduleIncrementalImportResult'] = None):
+        """
+        :param _builtins.str status: (String) Status of the import schedule. Valid values are `ENABLED` or `DISABLED`.
+        :param 'GetFeaturesCapabilitiesImportSettingsScheduleFullImportArgs' full_import: Block for full import schedule:
+        :param 'GetFeaturesCapabilitiesImportSettingsScheduleIncrementalImportArgs' incremental_import: Block for incremental import schedule:
+        """
+        pulumi.set(__self__, "status", status)
+        if full_import is not None:
+            pulumi.set(__self__, "full_import", full_import)
+        if incremental_import is not None:
+            pulumi.set(__self__, "incremental_import", incremental_import)
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> _builtins.str:
+        """
+        (String) Status of the import schedule. Valid values are `ENABLED` or `DISABLED`.
+        """
+        return pulumi.get(self, "status")
+
+    @_builtins.property
+    @pulumi.getter(name="fullImport")
+    def full_import(self) -> Optional['outputs.GetFeaturesCapabilitiesImportSettingsScheduleFullImportResult']:
+        """
+        Block for full import schedule:
+        """
+        return pulumi.get(self, "full_import")
+
+    @_builtins.property
+    @pulumi.getter(name="incrementalImport")
+    def incremental_import(self) -> Optional['outputs.GetFeaturesCapabilitiesImportSettingsScheduleIncrementalImportResult']:
+        """
+        Block for incremental import schedule:
+        """
+        return pulumi.get(self, "incremental_import")
+
+
+@pulumi.output_type
+class GetFeaturesCapabilitiesImportSettingsScheduleFullImportResult(dict):
+    def __init__(__self__, *,
+                 expression: _builtins.str,
+                 timezone: _builtins.str):
+        """
+        :param _builtins.str expression: (String) UNIX cron expression for incremental import schedule.
+        :param _builtins.str timezone: (String) IANA timezone name for the schedule.
+        """
+        pulumi.set(__self__, "expression", expression)
+        pulumi.set(__self__, "timezone", timezone)
+
+    @_builtins.property
+    @pulumi.getter
+    def expression(self) -> _builtins.str:
+        """
+        (String) UNIX cron expression for incremental import schedule.
+        """
+        return pulumi.get(self, "expression")
+
+    @_builtins.property
+    @pulumi.getter
+    def timezone(self) -> _builtins.str:
+        """
+        (String) IANA timezone name for the schedule.
+        """
+        return pulumi.get(self, "timezone")
+
+
+@pulumi.output_type
+class GetFeaturesCapabilitiesImportSettingsScheduleIncrementalImportResult(dict):
+    def __init__(__self__, *,
+                 expression: _builtins.str,
+                 timezone: _builtins.str):
+        """
+        :param _builtins.str expression: (String) UNIX cron expression for incremental import schedule.
+        :param _builtins.str timezone: (String) IANA timezone name for the schedule.
+        """
+        pulumi.set(__self__, "expression", expression)
+        pulumi.set(__self__, "timezone", timezone)
+
+    @_builtins.property
+    @pulumi.getter
+    def expression(self) -> _builtins.str:
+        """
+        (String) UNIX cron expression for incremental import schedule.
+        """
+        return pulumi.get(self, "expression")
+
+    @_builtins.property
+    @pulumi.getter
+    def timezone(self) -> _builtins.str:
+        """
+        (String) IANA timezone name for the schedule.
+        """
+        return pulumi.get(self, "timezone")
+
+
+@pulumi.output_type
+class GetFeaturesCapabilitiesImportSettingsUsernameResult(dict):
+    def __init__(__self__, *,
+                 username_expression: _builtins.str,
+                 username_format: _builtins.str):
+        """
+        :param _builtins.str username_expression: (String) Okta Expression Language statement for custom username format.
+        :param _builtins.str username_format: (String) Format for usernames (e.g., `EMAIL`, `CUSTOM`).
+        """
+        pulumi.set(__self__, "username_expression", username_expression)
+        pulumi.set(__self__, "username_format", username_format)
+
+    @_builtins.property
+    @pulumi.getter(name="usernameExpression")
+    def username_expression(self) -> _builtins.str:
+        """
+        (String) Okta Expression Language statement for custom username format.
+        """
+        return pulumi.get(self, "username_expression")
+
+    @_builtins.property
+    @pulumi.getter(name="usernameFormat")
+    def username_format(self) -> _builtins.str:
+        """
+        (String) Format for usernames (e.g., `EMAIL`, `CUSTOM`).
+        """
+        return pulumi.get(self, "username_format")
+
+
+@pulumi.output_type
+class GetFeaturesCapabilitiesUpdateResult(dict):
+    def __init__(__self__, *,
+                 lifecycle_deactivate: Optional['outputs.GetFeaturesCapabilitiesUpdateLifecycleDeactivateResult'] = None,
+                 password: Optional['outputs.GetFeaturesCapabilitiesUpdatePasswordResult'] = None,
+                 profile: Optional['outputs.GetFeaturesCapabilitiesUpdateProfileResult'] = None):
+        """
+        :param 'GetFeaturesCapabilitiesUpdateLifecycleDeactivateArgs' lifecycle_deactivate: Block for deactivation lifecycle configuration:
+        :param 'GetFeaturesCapabilitiesUpdatePasswordArgs' password: Block for password synchronization settings:
+        :param 'GetFeaturesCapabilitiesUpdateProfileArgs' profile: Block for profile update settings:
+        """
+        if lifecycle_deactivate is not None:
+            pulumi.set(__self__, "lifecycle_deactivate", lifecycle_deactivate)
+        if password is not None:
+            pulumi.set(__self__, "password", password)
+        if profile is not None:
+            pulumi.set(__self__, "profile", profile)
+
+    @_builtins.property
+    @pulumi.getter(name="lifecycleDeactivate")
+    def lifecycle_deactivate(self) -> Optional['outputs.GetFeaturesCapabilitiesUpdateLifecycleDeactivateResult']:
+        """
+        Block for deactivation lifecycle configuration:
+        """
+        return pulumi.get(self, "lifecycle_deactivate")
+
+    @_builtins.property
+    @pulumi.getter
+    def password(self) -> Optional['outputs.GetFeaturesCapabilitiesUpdatePasswordResult']:
+        """
+        Block for password synchronization settings:
+        """
+        return pulumi.get(self, "password")
+
+    @_builtins.property
+    @pulumi.getter
+    def profile(self) -> Optional['outputs.GetFeaturesCapabilitiesUpdateProfileResult']:
+        """
+        Block for profile update settings:
+        """
+        return pulumi.get(self, "profile")
+
+
+@pulumi.output_type
+class GetFeaturesCapabilitiesUpdateLifecycleDeactivateResult(dict):
+    def __init__(__self__, *,
+                 status: _builtins.str):
+        """
+        :param _builtins.str status: (String) Status of the import schedule. Valid values are `ENABLED` or `DISABLED`.
+        """
+        pulumi.set(__self__, "status", status)
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> _builtins.str:
+        """
+        (String) Status of the import schedule. Valid values are `ENABLED` or `DISABLED`.
+        """
+        return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class GetFeaturesCapabilitiesUpdatePasswordResult(dict):
+    def __init__(__self__, *,
+                 change: _builtins.str,
+                 seed: _builtins.str,
+                 status: _builtins.str):
+        """
+        :param _builtins.str change: (String) Determines password change behavior. Valid values are `CHANGE` or `KEEP_EXISTING`.
+        :param _builtins.str seed: (String) Determines password source. Valid values are `OKTA` or `RANDOM`.
+        :param _builtins.str status: (String) Status of the import schedule. Valid values are `ENABLED` or `DISABLED`.
+        """
+        pulumi.set(__self__, "change", change)
+        pulumi.set(__self__, "seed", seed)
+        pulumi.set(__self__, "status", status)
+
+    @_builtins.property
+    @pulumi.getter
+    def change(self) -> _builtins.str:
+        """
+        (String) Determines password change behavior. Valid values are `CHANGE` or `KEEP_EXISTING`.
+        """
+        return pulumi.get(self, "change")
+
+    @_builtins.property
+    @pulumi.getter
+    def seed(self) -> _builtins.str:
+        """
+        (String) Determines password source. Valid values are `OKTA` or `RANDOM`.
+        """
+        return pulumi.get(self, "seed")
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> _builtins.str:
+        """
+        (String) Status of the import schedule. Valid values are `ENABLED` or `DISABLED`.
+        """
+        return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class GetFeaturesCapabilitiesUpdateProfileResult(dict):
+    def __init__(__self__, *,
+                 status: _builtins.str):
+        """
+        :param _builtins.str status: (String) Status of the import schedule. Valid values are `ENABLED` or `DISABLED`.
+        """
+        pulumi.set(__self__, "status", status)
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> _builtins.str:
+        """
+        (String) Status of the import schedule. Valid values are `ENABLED` or `DISABLED`.
+        """
+        return pulumi.get(self, "status")
 
 
 @pulumi.output_type

@@ -73,9 +73,15 @@ type OAuth struct {
 	ConsentMethod pulumi.StringPtrOutput `pulumi:"consentMethod"`
 	// Application notes for end users.
 	EnduserNote pulumi.StringPtrOutput `pulumi:"enduserNote"`
+	// *Early Access Property*. Determines whether Okta sends sid and iss in the logout request.
+	FrontchannelLogoutSessionRequired pulumi.BoolPtrOutput `pulumi:"frontchannelLogoutSessionRequired"`
+	// *Early Access Property*. URL where Okta sends the logout request. Required when participateSlo is true.
+	FrontchannelLogoutUri pulumi.StringPtrOutput `pulumi:"frontchannelLogoutUri"`
 	// List of OAuth 2.0 grant types. Conditional validation params found here https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum requirements per app type.
 	GrantTypes pulumi.StringArrayOutput `pulumi:"grantTypes"`
 	// Groups claim for an OpenID Connect client application (argument is ignored when API auth is done with OAuth 2.0 credentials)
+	//
+	// Deprecated: The groupsClaim field is deprecated and will be removed in a future version. Use Authorization Server Claims (okta_auth_server_claim) or app profile configuration instead.
 	GroupsClaim OAuthGroupsClaimPtrOutput `pulumi:"groupsClaim"`
 	// Do not display application icon on mobile app
 	HideIos pulumi.BoolPtrOutput `pulumi:"hideIos"`
@@ -85,7 +91,8 @@ type OAuth struct {
 	ImplicitAssignment pulumi.BoolPtrOutput `pulumi:"implicitAssignment"`
 	// *Early Access Property*. Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a custom domain URL as the issuer of ID token for this client.
 	IssuerMode pulumi.StringPtrOutput `pulumi:"issuerMode"`
-	Jwks       OAuthJwkArrayOutput    `pulumi:"jwks"`
+	// JSON Web Key Set (JWKS) for application. Note: Inline JWKS may have compatibility issues with v6 SDK. Consider using jwksUri instead.
+	Jwks OAuthJwkArrayOutput `pulumi:"jwks"`
 	// URL reference to JWKS
 	JwksUri pulumi.StringPtrOutput `pulumi:"jwksUri"`
 	// The Application's display name.
@@ -106,6 +113,8 @@ type OAuth struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// This tells the provider not manage the client*secret value in state. When this is false (the default), it will cause the auto-generated client*secret to be persisted in the clientSecret attribute in state. This also means that every time an update to this app is run, this value is also set on the API. If this changes from false => true, the `clientSecret` is dropped from state and the secret at the time of the apply is what remains. If this is ever changes from true => false your app will be recreated, due to the need to regenerate a secret we can store in state.
 	OmitSecret pulumi.BoolPtrOutput `pulumi:"omitSecret"`
+	// *Early Access Property*. Allows the app to participate in front-channel Single Logout. Note: You can only enable participateSlo for web and browser application types. When set to true, frontchannelLogoutUri must also be provided.
+	ParticipateSlo pulumi.BoolPtrOutput `pulumi:"participateSlo"`
 	// Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
 	PkceRequired pulumi.BoolOutput `pulumi:"pkceRequired"`
 	// URI to web page providing client policy document.
@@ -222,9 +231,15 @@ type oauthState struct {
 	ConsentMethod *string `pulumi:"consentMethod"`
 	// Application notes for end users.
 	EnduserNote *string `pulumi:"enduserNote"`
+	// *Early Access Property*. Determines whether Okta sends sid and iss in the logout request.
+	FrontchannelLogoutSessionRequired *bool `pulumi:"frontchannelLogoutSessionRequired"`
+	// *Early Access Property*. URL where Okta sends the logout request. Required when participateSlo is true.
+	FrontchannelLogoutUri *string `pulumi:"frontchannelLogoutUri"`
 	// List of OAuth 2.0 grant types. Conditional validation params found here https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum requirements per app type.
 	GrantTypes []string `pulumi:"grantTypes"`
 	// Groups claim for an OpenID Connect client application (argument is ignored when API auth is done with OAuth 2.0 credentials)
+	//
+	// Deprecated: The groupsClaim field is deprecated and will be removed in a future version. Use Authorization Server Claims (okta_auth_server_claim) or app profile configuration instead.
 	GroupsClaim *OAuthGroupsClaim `pulumi:"groupsClaim"`
 	// Do not display application icon on mobile app
 	HideIos *bool `pulumi:"hideIos"`
@@ -233,8 +248,9 @@ type oauthState struct {
 	// *Early Access Property*. Enable Federation Broker Mode.
 	ImplicitAssignment *bool `pulumi:"implicitAssignment"`
 	// *Early Access Property*. Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a custom domain URL as the issuer of ID token for this client.
-	IssuerMode *string    `pulumi:"issuerMode"`
-	Jwks       []OAuthJwk `pulumi:"jwks"`
+	IssuerMode *string `pulumi:"issuerMode"`
+	// JSON Web Key Set (JWKS) for application. Note: Inline JWKS may have compatibility issues with v6 SDK. Consider using jwksUri instead.
+	Jwks []OAuthJwk `pulumi:"jwks"`
 	// URL reference to JWKS
 	JwksUri *string `pulumi:"jwksUri"`
 	// The Application's display name.
@@ -255,6 +271,8 @@ type oauthState struct {
 	Name *string `pulumi:"name"`
 	// This tells the provider not manage the client*secret value in state. When this is false (the default), it will cause the auto-generated client*secret to be persisted in the clientSecret attribute in state. This also means that every time an update to this app is run, this value is also set on the API. If this changes from false => true, the `clientSecret` is dropped from state and the secret at the time of the apply is what remains. If this is ever changes from true => false your app will be recreated, due to the need to regenerate a secret we can store in state.
 	OmitSecret *bool `pulumi:"omitSecret"`
+	// *Early Access Property*. Allows the app to participate in front-channel Single Logout. Note: You can only enable participateSlo for web and browser application types. When set to true, frontchannelLogoutUri must also be provided.
+	ParticipateSlo *bool `pulumi:"participateSlo"`
 	// Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
 	PkceRequired *bool `pulumi:"pkceRequired"`
 	// URI to web page providing client policy document.
@@ -328,9 +346,15 @@ type OAuthState struct {
 	ConsentMethod pulumi.StringPtrInput
 	// Application notes for end users.
 	EnduserNote pulumi.StringPtrInput
+	// *Early Access Property*. Determines whether Okta sends sid and iss in the logout request.
+	FrontchannelLogoutSessionRequired pulumi.BoolPtrInput
+	// *Early Access Property*. URL where Okta sends the logout request. Required when participateSlo is true.
+	FrontchannelLogoutUri pulumi.StringPtrInput
 	// List of OAuth 2.0 grant types. Conditional validation params found here https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum requirements per app type.
 	GrantTypes pulumi.StringArrayInput
 	// Groups claim for an OpenID Connect client application (argument is ignored when API auth is done with OAuth 2.0 credentials)
+	//
+	// Deprecated: The groupsClaim field is deprecated and will be removed in a future version. Use Authorization Server Claims (okta_auth_server_claim) or app profile configuration instead.
 	GroupsClaim OAuthGroupsClaimPtrInput
 	// Do not display application icon on mobile app
 	HideIos pulumi.BoolPtrInput
@@ -340,7 +364,8 @@ type OAuthState struct {
 	ImplicitAssignment pulumi.BoolPtrInput
 	// *Early Access Property*. Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a custom domain URL as the issuer of ID token for this client.
 	IssuerMode pulumi.StringPtrInput
-	Jwks       OAuthJwkArrayInput
+	// JSON Web Key Set (JWKS) for application. Note: Inline JWKS may have compatibility issues with v6 SDK. Consider using jwksUri instead.
+	Jwks OAuthJwkArrayInput
 	// URL reference to JWKS
 	JwksUri pulumi.StringPtrInput
 	// The Application's display name.
@@ -361,6 +386,8 @@ type OAuthState struct {
 	Name pulumi.StringPtrInput
 	// This tells the provider not manage the client*secret value in state. When this is false (the default), it will cause the auto-generated client*secret to be persisted in the clientSecret attribute in state. This also means that every time an update to this app is run, this value is also set on the API. If this changes from false => true, the `clientSecret` is dropped from state and the secret at the time of the apply is what remains. If this is ever changes from true => false your app will be recreated, due to the need to regenerate a secret we can store in state.
 	OmitSecret pulumi.BoolPtrInput
+	// *Early Access Property*. Allows the app to participate in front-channel Single Logout. Note: You can only enable participateSlo for web and browser application types. When set to true, frontchannelLogoutUri must also be provided.
+	ParticipateSlo pulumi.BoolPtrInput
 	// Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
 	PkceRequired pulumi.BoolPtrInput
 	// URI to web page providing client policy document.
@@ -436,9 +463,15 @@ type oauthArgs struct {
 	ConsentMethod *string `pulumi:"consentMethod"`
 	// Application notes for end users.
 	EnduserNote *string `pulumi:"enduserNote"`
+	// *Early Access Property*. Determines whether Okta sends sid and iss in the logout request.
+	FrontchannelLogoutSessionRequired *bool `pulumi:"frontchannelLogoutSessionRequired"`
+	// *Early Access Property*. URL where Okta sends the logout request. Required when participateSlo is true.
+	FrontchannelLogoutUri *string `pulumi:"frontchannelLogoutUri"`
 	// List of OAuth 2.0 grant types. Conditional validation params found here https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum requirements per app type.
 	GrantTypes []string `pulumi:"grantTypes"`
 	// Groups claim for an OpenID Connect client application (argument is ignored when API auth is done with OAuth 2.0 credentials)
+	//
+	// Deprecated: The groupsClaim field is deprecated and will be removed in a future version. Use Authorization Server Claims (okta_auth_server_claim) or app profile configuration instead.
 	GroupsClaim *OAuthGroupsClaim `pulumi:"groupsClaim"`
 	// Do not display application icon on mobile app
 	HideIos *bool `pulumi:"hideIos"`
@@ -447,8 +480,9 @@ type oauthArgs struct {
 	// *Early Access Property*. Enable Federation Broker Mode.
 	ImplicitAssignment *bool `pulumi:"implicitAssignment"`
 	// *Early Access Property*. Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a custom domain URL as the issuer of ID token for this client.
-	IssuerMode *string    `pulumi:"issuerMode"`
-	Jwks       []OAuthJwk `pulumi:"jwks"`
+	IssuerMode *string `pulumi:"issuerMode"`
+	// JSON Web Key Set (JWKS) for application. Note: Inline JWKS may have compatibility issues with v6 SDK. Consider using jwksUri instead.
+	Jwks []OAuthJwk `pulumi:"jwks"`
 	// URL reference to JWKS
 	JwksUri *string `pulumi:"jwksUri"`
 	// The Application's display name.
@@ -465,6 +499,8 @@ type oauthArgs struct {
 	LogoUri *string `pulumi:"logoUri"`
 	// This tells the provider not manage the client*secret value in state. When this is false (the default), it will cause the auto-generated client*secret to be persisted in the clientSecret attribute in state. This also means that every time an update to this app is run, this value is also set on the API. If this changes from false => true, the `clientSecret` is dropped from state and the secret at the time of the apply is what remains. If this is ever changes from true => false your app will be recreated, due to the need to regenerate a secret we can store in state.
 	OmitSecret *bool `pulumi:"omitSecret"`
+	// *Early Access Property*. Allows the app to participate in front-channel Single Logout. Note: You can only enable participateSlo for web and browser application types. When set to true, frontchannelLogoutUri must also be provided.
+	ParticipateSlo *bool `pulumi:"participateSlo"`
 	// Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
 	PkceRequired *bool `pulumi:"pkceRequired"`
 	// URI to web page providing client policy document.
@@ -535,9 +571,15 @@ type OAuthArgs struct {
 	ConsentMethod pulumi.StringPtrInput
 	// Application notes for end users.
 	EnduserNote pulumi.StringPtrInput
+	// *Early Access Property*. Determines whether Okta sends sid and iss in the logout request.
+	FrontchannelLogoutSessionRequired pulumi.BoolPtrInput
+	// *Early Access Property*. URL where Okta sends the logout request. Required when participateSlo is true.
+	FrontchannelLogoutUri pulumi.StringPtrInput
 	// List of OAuth 2.0 grant types. Conditional validation params found here https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum requirements per app type.
 	GrantTypes pulumi.StringArrayInput
 	// Groups claim for an OpenID Connect client application (argument is ignored when API auth is done with OAuth 2.0 credentials)
+	//
+	// Deprecated: The groupsClaim field is deprecated and will be removed in a future version. Use Authorization Server Claims (okta_auth_server_claim) or app profile configuration instead.
 	GroupsClaim OAuthGroupsClaimPtrInput
 	// Do not display application icon on mobile app
 	HideIos pulumi.BoolPtrInput
@@ -547,7 +589,8 @@ type OAuthArgs struct {
 	ImplicitAssignment pulumi.BoolPtrInput
 	// *Early Access Property*. Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a custom domain URL as the issuer of ID token for this client.
 	IssuerMode pulumi.StringPtrInput
-	Jwks       OAuthJwkArrayInput
+	// JSON Web Key Set (JWKS) for application. Note: Inline JWKS may have compatibility issues with v6 SDK. Consider using jwksUri instead.
+	Jwks OAuthJwkArrayInput
 	// URL reference to JWKS
 	JwksUri pulumi.StringPtrInput
 	// The Application's display name.
@@ -564,6 +607,8 @@ type OAuthArgs struct {
 	LogoUri pulumi.StringPtrInput
 	// This tells the provider not manage the client*secret value in state. When this is false (the default), it will cause the auto-generated client*secret to be persisted in the clientSecret attribute in state. This also means that every time an update to this app is run, this value is also set on the API. If this changes from false => true, the `clientSecret` is dropped from state and the secret at the time of the apply is what remains. If this is ever changes from true => false your app will be recreated, due to the need to regenerate a secret we can store in state.
 	OmitSecret pulumi.BoolPtrInput
+	// *Early Access Property*. Allows the app to participate in front-channel Single Logout. Note: You can only enable participateSlo for web and browser application types. When set to true, frontchannelLogoutUri must also be provided.
+	ParticipateSlo pulumi.BoolPtrInput
 	// Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
 	PkceRequired pulumi.BoolPtrInput
 	// URI to web page providing client policy document.
@@ -767,12 +812,24 @@ func (o OAuthOutput) EnduserNote() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OAuth) pulumi.StringPtrOutput { return v.EnduserNote }).(pulumi.StringPtrOutput)
 }
 
+// *Early Access Property*. Determines whether Okta sends sid and iss in the logout request.
+func (o OAuthOutput) FrontchannelLogoutSessionRequired() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *OAuth) pulumi.BoolPtrOutput { return v.FrontchannelLogoutSessionRequired }).(pulumi.BoolPtrOutput)
+}
+
+// *Early Access Property*. URL where Okta sends the logout request. Required when participateSlo is true.
+func (o OAuthOutput) FrontchannelLogoutUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OAuth) pulumi.StringPtrOutput { return v.FrontchannelLogoutUri }).(pulumi.StringPtrOutput)
+}
+
 // List of OAuth 2.0 grant types. Conditional validation params found here https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum requirements per app type.
 func (o OAuthOutput) GrantTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *OAuth) pulumi.StringArrayOutput { return v.GrantTypes }).(pulumi.StringArrayOutput)
 }
 
 // Groups claim for an OpenID Connect client application (argument is ignored when API auth is done with OAuth 2.0 credentials)
+//
+// Deprecated: The groupsClaim field is deprecated and will be removed in a future version. Use Authorization Server Claims (okta_auth_server_claim) or app profile configuration instead.
 func (o OAuthOutput) GroupsClaim() OAuthGroupsClaimPtrOutput {
 	return o.ApplyT(func(v *OAuth) OAuthGroupsClaimPtrOutput { return v.GroupsClaim }).(OAuthGroupsClaimPtrOutput)
 }
@@ -797,6 +854,7 @@ func (o OAuthOutput) IssuerMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OAuth) pulumi.StringPtrOutput { return v.IssuerMode }).(pulumi.StringPtrOutput)
 }
 
+// JSON Web Key Set (JWKS) for application. Note: Inline JWKS may have compatibility issues with v6 SDK. Consider using jwksUri instead.
 func (o OAuthOutput) Jwks() OAuthJwkArrayOutput {
 	return o.ApplyT(func(v *OAuth) OAuthJwkArrayOutput { return v.Jwks }).(OAuthJwkArrayOutput)
 }
@@ -849,6 +907,11 @@ func (o OAuthOutput) Name() pulumi.StringOutput {
 // This tells the provider not manage the client*secret value in state. When this is false (the default), it will cause the auto-generated client*secret to be persisted in the clientSecret attribute in state. This also means that every time an update to this app is run, this value is also set on the API. If this changes from false => true, the `clientSecret` is dropped from state and the secret at the time of the apply is what remains. If this is ever changes from true => false your app will be recreated, due to the need to regenerate a secret we can store in state.
 func (o OAuthOutput) OmitSecret() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *OAuth) pulumi.BoolPtrOutput { return v.OmitSecret }).(pulumi.BoolPtrOutput)
+}
+
+// *Early Access Property*. Allows the app to participate in front-channel Single Logout. Note: You can only enable participateSlo for web and browser application types. When set to true, frontchannelLogoutUri must also be provided.
+func (o OAuthOutput) ParticipateSlo() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *OAuth) pulumi.BoolPtrOutput { return v.ParticipateSlo }).(pulumi.BoolPtrOutput)
 }
 
 // Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object

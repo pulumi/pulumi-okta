@@ -11,6 +11,31 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Get the request fields for catalog entry.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v6/go/okta"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := okta.GetCatalogEntryUserAccessRequestFields(ctx, &okta.GetCatalogEntryUserAccessRequestFieldsArgs{}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func GetCatalogEntryUserAccessRequestFields(ctx *pulumi.Context, args *GetCatalogEntryUserAccessRequestFieldsArgs, opts ...pulumi.InvokeOption) (*GetCatalogEntryUserAccessRequestFieldsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetCatalogEntryUserAccessRequestFieldsResult
@@ -23,17 +48,21 @@ func GetCatalogEntryUserAccessRequestFields(ctx *pulumi.Context, args *GetCatalo
 
 // A collection of arguments for invoking getCatalogEntryUserAccessRequestFields.
 type GetCatalogEntryUserAccessRequestFieldsArgs struct {
-	Datas   []GetCatalogEntryUserAccessRequestFieldsData `pulumi:"datas"`
-	EntryId string                                       `pulumi:"entryId"`
-	UserId  string                                       `pulumi:"userId"`
+	Datas []GetCatalogEntryUserAccessRequestFieldsData `pulumi:"datas"`
+	// TThe ID of the catalog entry.
+	EntryId string `pulumi:"entryId"`
+	// The ID of the user.
+	UserId string `pulumi:"userId"`
 }
 
 // A collection of values returned by getCatalogEntryUserAccessRequestFields.
 type GetCatalogEntryUserAccessRequestFieldsResult struct {
-	Datas   []GetCatalogEntryUserAccessRequestFieldsData `pulumi:"datas"`
-	EntryId string                                       `pulumi:"entryId"`
-	Id      string                                       `pulumi:"id"`
-	UserId  string                                       `pulumi:"userId"`
+	Datas []GetCatalogEntryUserAccessRequestFieldsData `pulumi:"datas"`
+	// TThe ID of the catalog entry.
+	EntryId string `pulumi:"entryId"`
+	Id      string `pulumi:"id"`
+	// The ID of the user.
+	UserId string `pulumi:"userId"`
 }
 
 func GetCatalogEntryUserAccessRequestFieldsOutput(ctx *pulumi.Context, args GetCatalogEntryUserAccessRequestFieldsOutputArgs, opts ...pulumi.InvokeOption) GetCatalogEntryUserAccessRequestFieldsResultOutput {
@@ -47,9 +76,11 @@ func GetCatalogEntryUserAccessRequestFieldsOutput(ctx *pulumi.Context, args GetC
 
 // A collection of arguments for invoking getCatalogEntryUserAccessRequestFields.
 type GetCatalogEntryUserAccessRequestFieldsOutputArgs struct {
-	Datas   GetCatalogEntryUserAccessRequestFieldsDataArrayInput `pulumi:"datas"`
-	EntryId pulumi.StringInput                                   `pulumi:"entryId"`
-	UserId  pulumi.StringInput                                   `pulumi:"userId"`
+	Datas GetCatalogEntryUserAccessRequestFieldsDataArrayInput `pulumi:"datas"`
+	// TThe ID of the catalog entry.
+	EntryId pulumi.StringInput `pulumi:"entryId"`
+	// The ID of the user.
+	UserId pulumi.StringInput `pulumi:"userId"`
 }
 
 func (GetCatalogEntryUserAccessRequestFieldsOutputArgs) ElementType() reflect.Type {
@@ -77,6 +108,7 @@ func (o GetCatalogEntryUserAccessRequestFieldsResultOutput) Datas() GetCatalogEn
 	}).(GetCatalogEntryUserAccessRequestFieldsDataArrayOutput)
 }
 
+// TThe ID of the catalog entry.
 func (o GetCatalogEntryUserAccessRequestFieldsResultOutput) EntryId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCatalogEntryUserAccessRequestFieldsResult) string { return v.EntryId }).(pulumi.StringOutput)
 }
@@ -85,6 +117,7 @@ func (o GetCatalogEntryUserAccessRequestFieldsResultOutput) Id() pulumi.StringOu
 	return o.ApplyT(func(v GetCatalogEntryUserAccessRequestFieldsResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// The ID of the user.
 func (o GetCatalogEntryUserAccessRequestFieldsResultOutput) UserId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCatalogEntryUserAccessRequestFieldsResult) string { return v.UserId }).(pulumi.StringOutput)
 }

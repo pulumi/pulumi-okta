@@ -25,10 +25,30 @@ export type Bookmark = import("./bookmark").Bookmark;
 export const Bookmark: typeof import("./bookmark").Bookmark = null as any;
 utilities.lazyLoad(exports, ["Bookmark"], () => require("./bookmark"));
 
+export { ConnectionArgs, ConnectionState } from "./connection";
+export type Connection = import("./connection").Connection;
+export const Connection: typeof import("./connection").Connection = null as any;
+utilities.lazyLoad(exports, ["Connection"], () => require("./connection"));
+
+export { FeaturesArgs, FeaturesState } from "./features";
+export type Features = import("./features").Features;
+export const Features: typeof import("./features").Features = null as any;
+utilities.lazyLoad(exports, ["Features"], () => require("./features"));
+
 export { GetAppArgs, GetAppResult, GetAppOutputArgs } from "./getApp";
 export const getApp: typeof import("./getApp").getApp = null as any;
 export const getAppOutput: typeof import("./getApp").getAppOutput = null as any;
 utilities.lazyLoad(exports, ["getApp","getAppOutput"], () => require("./getApp"));
+
+export { GetConnectionArgs, GetConnectionResult, GetConnectionOutputArgs } from "./getConnection";
+export const getConnection: typeof import("./getConnection").getConnection = null as any;
+export const getConnectionOutput: typeof import("./getConnection").getConnectionOutput = null as any;
+utilities.lazyLoad(exports, ["getConnection","getConnectionOutput"], () => require("./getConnection"));
+
+export { GetFeaturesArgs, GetFeaturesResult, GetFeaturesOutputArgs } from "./getFeatures";
+export const getFeatures: typeof import("./getFeatures").getFeatures = null as any;
+export const getFeaturesOutput: typeof import("./getFeatures").getFeaturesOutput = null as any;
+utilities.lazyLoad(exports, ["getFeatures","getFeaturesOutput"], () => require("./getFeatures"));
 
 export { GetMetadataSamlArgs, GetMetadataSamlResult, GetMetadataSamlOutputArgs } from "./getMetadataSaml";
 export const getMetadataSaml: typeof import("./getMetadataSaml").getMetadataSaml = null as any;
@@ -44,6 +64,11 @@ export { GetSamlArgs, GetSamlResult, GetSamlOutputArgs } from "./getSaml";
 export const getSaml: typeof import("./getSaml").getSaml = null as any;
 export const getSamlOutput: typeof import("./getSaml").getSamlOutput = null as any;
 utilities.lazyLoad(exports, ["getSaml","getSamlOutput"], () => require("./getSaml"));
+
+export { GetTokenArgs, GetTokenResult, GetTokenOutputArgs } from "./getToken";
+export const getToken: typeof import("./getToken").getToken = null as any;
+export const getTokenOutput: typeof import("./getToken").getTokenOutput = null as any;
+utilities.lazyLoad(exports, ["getToken","getTokenOutput"], () => require("./getToken"));
 
 export { GroupAssignmentArgs, GroupAssignmentState } from "./groupAssignment";
 export type GroupAssignment = import("./groupAssignment").GroupAssignment;
@@ -90,6 +115,11 @@ export type ThreeField = import("./threeField").ThreeField;
 export const ThreeField: typeof import("./threeField").ThreeField = null as any;
 utilities.lazyLoad(exports, ["ThreeField"], () => require("./threeField"));
 
+export { TokenArgs, TokenState } from "./token";
+export type Token = import("./token").Token;
+export const Token: typeof import("./token").Token = null as any;
+utilities.lazyLoad(exports, ["Token"], () => require("./token"));
+
 export { UserArgs, UserState } from "./user";
 export type User = import("./user").User;
 export const User: typeof import("./user").User = null as any;
@@ -108,6 +138,10 @@ const _module = {
                 return new BasicAuth(name, <any>undefined, { urn })
             case "okta:app/bookmark:Bookmark":
                 return new Bookmark(name, <any>undefined, { urn })
+            case "okta:app/connection:Connection":
+                return new Connection(name, <any>undefined, { urn })
+            case "okta:app/features:Features":
+                return new Features(name, <any>undefined, { urn })
             case "okta:app/groupAssignment:GroupAssignment":
                 return new GroupAssignment(name, <any>undefined, { urn })
             case "okta:app/oAuth:OAuth":
@@ -126,6 +160,8 @@ const _module = {
                 return new Swa(name, <any>undefined, { urn })
             case "okta:app/threeField:ThreeField":
                 return new ThreeField(name, <any>undefined, { urn })
+            case "okta:app/token:Token":
+                return new Token(name, <any>undefined, { urn })
             case "okta:app/user:User":
                 return new User(name, <any>undefined, { urn })
             default:
@@ -137,6 +173,8 @@ pulumi.runtime.registerResourceModule("okta", "app/accessPolicyAssignment", _mod
 pulumi.runtime.registerResourceModule("okta", "app/autoLogin", _module)
 pulumi.runtime.registerResourceModule("okta", "app/basicAuth", _module)
 pulumi.runtime.registerResourceModule("okta", "app/bookmark", _module)
+pulumi.runtime.registerResourceModule("okta", "app/connection", _module)
+pulumi.runtime.registerResourceModule("okta", "app/features", _module)
 pulumi.runtime.registerResourceModule("okta", "app/groupAssignment", _module)
 pulumi.runtime.registerResourceModule("okta", "app/oAuth", _module)
 pulumi.runtime.registerResourceModule("okta", "app/oAuthPostLogoutRedirectUri", _module)
@@ -146,4 +184,5 @@ pulumi.runtime.registerResourceModule("okta", "app/saml", _module)
 pulumi.runtime.registerResourceModule("okta", "app/securePasswordStore", _module)
 pulumi.runtime.registerResourceModule("okta", "app/swa", _module)
 pulumi.runtime.registerResourceModule("okta", "app/threeField", _module)
+pulumi.runtime.registerResourceModule("okta", "app/token", _module)
 pulumi.runtime.registerResourceModule("okta", "app/user", _module)
