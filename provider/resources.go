@@ -235,6 +235,39 @@ func Provider() tfbridge.ProviderInfo {
 				ComputeID: tfbridge.DelegateIDField(resource.PropertyKey("idProperty"),
 					"pulumi-okta", "https://github.com/pulumi/pulumi-okta"),
 			},
+			"okta_api_token": {
+				Fields: map[string]*info.Schema{
+					"id": {
+						Name: "idProperty",
+					},
+				},
+				ComputeID: tfbridge.DelegateIDField(
+					"idProperty",
+					"pulumi-okta",
+					"https://github.com/pulumi/pulumi-okta"),
+			},
+			"okta_app_token": {
+				Fields: map[string]*info.Schema{
+					"id": {
+						Name: "idProperty",
+					},
+				},
+				ComputeID: tfbridge.DelegateIDField(
+					"idProperty",
+					"pulumi-okta",
+					"https://github.com/pulumi/pulumi-okta"),
+			},
+			"okta_app_connection": {
+				Fields: map[string]*info.Schema{
+					"id": {
+						Name: "idProperty",
+					},
+				},
+				ComputeID: tfbridge.DelegateIDField(
+					"idProperty",
+					"pulumi-okta",
+					"https://github.com/pulumi/pulumi-okta"),
+			},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			// App DataSources

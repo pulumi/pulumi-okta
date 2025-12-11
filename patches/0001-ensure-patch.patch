@@ -5,7 +5,7 @@ Subject: [PATCH] ensure patch
 
 
 diff --git a/go.mod b/go.mod
-index e7305894..d620c3e6 100644
+index ca376f34..79d23535 100644
 --- a/go.mod
 +++ b/go.mod
 @@ -1,4 +1,4 @@
