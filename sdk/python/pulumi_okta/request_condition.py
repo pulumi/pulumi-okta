@@ -28,7 +28,8 @@ class RequestConditionArgs:
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  priority: Optional[pulumi.Input[_builtins.int]] = None,
-                 requester_settings: Optional[pulumi.Input['RequestConditionRequesterSettingsArgs']] = None):
+                 requester_settings: Optional[pulumi.Input['RequestConditionRequesterSettingsArgs']] = None,
+                 status: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a RequestCondition resource.
         :param pulumi.Input[_builtins.str] approval_sequence_id: The ID of the approval sequence.
@@ -37,6 +38,7 @@ class RequestConditionArgs:
         :param pulumi.Input[_builtins.str] description: The description of the request condition.
         :param pulumi.Input[_builtins.str] name: The name of the request condition.
         :param pulumi.Input[_builtins.int] priority: The priority of the request condition. Lower numbers indicate higher priority.
+        :param pulumi.Input[_builtins.str] status: Status of the condition. Valid values: `ACTIVE`, `INACTIVE`. Default is `INACTIVE`. Note: `DELETED` and `INVALID` statuses are system-managed and cannot be set directly.
         """
         pulumi.set(__self__, "approval_sequence_id", approval_sequence_id)
         pulumi.set(__self__, "resource_id", resource_id)
@@ -52,6 +54,8 @@ class RequestConditionArgs:
             pulumi.set(__self__, "priority", priority)
         if requester_settings is not None:
             pulumi.set(__self__, "requester_settings", requester_settings)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
 
     @_builtins.property
     @pulumi.getter(name="approvalSequenceId")
@@ -143,6 +147,18 @@ class RequestConditionArgs:
     def requester_settings(self, value: Optional[pulumi.Input['RequestConditionRequesterSettingsArgs']]):
         pulumi.set(self, "requester_settings", value)
 
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Status of the condition. Valid values: `ACTIVE`, `INACTIVE`. Default is `INACTIVE`. Note: `DELETED` and `INVALID` statuses are system-managed and cannot be set directly.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "status", value)
+
 
 @pulumi.input_type
 class _RequestConditionState:
@@ -172,7 +188,7 @@ class _RequestConditionState:
         :param pulumi.Input[_builtins.str] name: The name of the request condition.
         :param pulumi.Input[_builtins.int] priority: The priority of the request condition. Lower numbers indicate higher priority.
         :param pulumi.Input[_builtins.str] resource_id: The id of the resource in Okta ID format.
-        :param pulumi.Input[_builtins.str] status: Status indicates if this condition is active or not. Default status is INACTIVE. Enum: `ACTIVE`, `INACTIVE`, `DELETED`, `INVALID`.
+        :param pulumi.Input[_builtins.str] status: Status of the condition. Valid values: `ACTIVE`, `INACTIVE`. Default is `INACTIVE`. Note: `DELETED` and `INVALID` statuses are system-managed and cannot be set directly.
         """
         if access_duration_settings is not None:
             pulumi.set(__self__, "access_duration_settings", access_duration_settings)
@@ -343,7 +359,7 @@ class _RequestConditionState:
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Status indicates if this condition is active or not. Default status is INACTIVE. Enum: `ACTIVE`, `INACTIVE`, `DELETED`, `INVALID`.
+        Status of the condition. Valid values: `ACTIVE`, `INACTIVE`. Default is `INACTIVE`. Note: `DELETED` and `INVALID` statuses are system-managed and cannot be set directly.
         """
         return pulumi.get(self, "status")
 
@@ -366,17 +382,39 @@ class RequestCondition(pulumi.CustomResource):
                  priority: Optional[pulumi.Input[_builtins.int]] = None,
                  requester_settings: Optional[pulumi.Input[Union['RequestConditionRequesterSettingsArgs', 'RequestConditionRequesterSettingsArgsDict']]] = None,
                  resource_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 status: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         Manages request conditions. This resource allows you to create and configure an Okta [request-condition](https://developer.okta.com/docs/api/iga/openapi/governance.requests.admin.v2/tag/Request-Conditions/#tag/Request-Conditions).
 
         ## Example Usage
 
+        ### Basic Example
+
         ```python
         import pulumi
         import pulumi_okta as okta
 
         example = okta.RequestCondition("example",
+            resource_id="<resource_id>",
+            approval_sequence_id="<approval_sequence_id>",
+            name="<name>",
+            access_scope_settings={
+                "type": "RESOURCE_DEFAULT",
+            },
+            requester_settings={
+                "type": "EVERYONE",
+            })
+        ```
+
+        ### Example with Active Status
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        example_active = okta.RequestCondition("example_active",
+            status="ACTIVE",
             resource_id="<resource_id>",
             approval_sequence_id="<approval_sequence_id>",
             name="<name>",
@@ -402,6 +440,7 @@ class RequestCondition(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: The name of the request condition.
         :param pulumi.Input[_builtins.int] priority: The priority of the request condition. Lower numbers indicate higher priority.
         :param pulumi.Input[_builtins.str] resource_id: The id of the resource in Okta ID format.
+        :param pulumi.Input[_builtins.str] status: Status of the condition. Valid values: `ACTIVE`, `INACTIVE`. Default is `INACTIVE`. Note: `DELETED` and `INVALID` statuses are system-managed and cannot be set directly.
         """
         ...
     @overload
@@ -414,11 +453,32 @@ class RequestCondition(pulumi.CustomResource):
 
         ## Example Usage
 
+        ### Basic Example
+
         ```python
         import pulumi
         import pulumi_okta as okta
 
         example = okta.RequestCondition("example",
+            resource_id="<resource_id>",
+            approval_sequence_id="<approval_sequence_id>",
+            name="<name>",
+            access_scope_settings={
+                "type": "RESOURCE_DEFAULT",
+            },
+            requester_settings={
+                "type": "EVERYONE",
+            })
+        ```
+
+        ### Example with Active Status
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        example_active = okta.RequestCondition("example_active",
+            status="ACTIVE",
             resource_id="<resource_id>",
             approval_sequence_id="<approval_sequence_id>",
             name="<name>",
@@ -459,6 +519,7 @@ class RequestCondition(pulumi.CustomResource):
                  priority: Optional[pulumi.Input[_builtins.int]] = None,
                  requester_settings: Optional[pulumi.Input[Union['RequestConditionRequesterSettingsArgs', 'RequestConditionRequesterSettingsArgsDict']]] = None,
                  resource_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 status: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -480,11 +541,11 @@ class RequestCondition(pulumi.CustomResource):
             if resource_id is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_id'")
             __props__.__dict__["resource_id"] = resource_id
+            __props__.__dict__["status"] = status
             __props__.__dict__["created"] = None
             __props__.__dict__["created_by"] = None
             __props__.__dict__["last_updated"] = None
             __props__.__dict__["last_updated_by"] = None
-            __props__.__dict__["status"] = None
         super(RequestCondition, __self__).__init__(
             'okta:index/requestCondition:RequestCondition',
             resource_name,
@@ -525,7 +586,7 @@ class RequestCondition(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: The name of the request condition.
         :param pulumi.Input[_builtins.int] priority: The priority of the request condition. Lower numbers indicate higher priority.
         :param pulumi.Input[_builtins.str] resource_id: The id of the resource in Okta ID format.
-        :param pulumi.Input[_builtins.str] status: Status indicates if this condition is active or not. Default status is INACTIVE. Enum: `ACTIVE`, `INACTIVE`, `DELETED`, `INVALID`.
+        :param pulumi.Input[_builtins.str] status: Status of the condition. Valid values: `ACTIVE`, `INACTIVE`. Default is `INACTIVE`. Note: `DELETED` and `INVALID` statuses are system-managed and cannot be set directly.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -640,7 +701,7 @@ class RequestCondition(pulumi.CustomResource):
     @pulumi.getter
     def status(self) -> pulumi.Output[_builtins.str]:
         """
-        Status indicates if this condition is active or not. Default status is INACTIVE. Enum: `ACTIVE`, `INACTIVE`, `DELETED`, `INVALID`.
+        Status of the condition. Valid values: `ACTIVE`, `INACTIVE`. Default is `INACTIVE`. Note: `DELETED` and `INVALID` statuses are system-managed and cannot be set directly.
         """
         return pulumi.get(self, "status")
 

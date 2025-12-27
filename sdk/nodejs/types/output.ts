@@ -1954,6 +1954,48 @@ export interface GetTrustedOriginsTrustedOrigin {
     scopes: string[];
 }
 
+export interface GetUiSchemaUiSchema {
+    /**
+     * Specifies the button label for the Submit button at the bottom of the enrollment form.
+     */
+    buttonLabel: string;
+    elements?: outputs.GetUiSchemaUiSchemaElement[];
+    /**
+     * Specifies the label at the top of the enrollment form under the logo.
+     */
+    label: string;
+    /**
+     * Specifies the type of layout.
+     */
+    type: string;
+}
+
+export interface GetUiSchemaUiSchemaElement {
+    /**
+     * Label name for the UI element.
+     */
+    label: string;
+    /**
+     * UI Schema element options object.
+     */
+    options?: outputs.GetUiSchemaUiSchemaElementOptions;
+    /**
+     * Specifies the property bound to the input field. It must follow the format #/properties/PROPERTY_NAME where PROPERTY_NAME is a variable name for an attribute in profile editor.
+     */
+    scope: string;
+    /**
+     * Specifies the relationship between this input element and scope. The Control value specifies that this input controls the value represented by scope.
+     */
+    type: string;
+}
+
+export interface GetUiSchemaUiSchemaElementOptions {
+    /**
+     * Specifies how the input appears.
+     */
+    format: string;
+}
+
 export interface GetUserSecurityQuestionsQuestion {
     key: string;
     text: string;
@@ -2321,6 +2363,48 @@ export interface TemplateSmsTranslation {
      * The SMS message.
      */
     template: string;
+}
+
+export interface UiSchemaUiSchema {
+    /**
+     * Specifies the button label for the Submit button at the bottom of the enrollment form.
+     */
+    buttonLabel?: string;
+    elements?: outputs.UiSchemaUiSchemaElement[];
+    /**
+     * Specifies the label at the top of the enrollment form under the logo.
+     */
+    label?: string;
+    /**
+     * Specifies the type of layout.
+     */
+    type?: string;
+}
+
+export interface UiSchemaUiSchemaElement {
+    /**
+     * Label name for the UI element.
+     */
+    label?: string;
+    /**
+     * UI Schema element options object.
+     */
+    options?: outputs.UiSchemaUiSchemaElementOptions;
+    /**
+     * Specifies the property bound to the input field. It must follow the format #/properties/PROPERTY_NAME where PROPERTY_NAME is a variable name for an attribute in profile editor.
+     */
+    scope: string;
+    /**
+     * Specifies the relationship between this input element and scope. The Control value specifies that this input controls the value represented by scope.
+     */
+    type?: string;
+}
+
+export interface UiSchemaUiSchemaElementOptions {
+    /**
+     * Specifies how the input appears.
+     */
+    format?: string;
 }
 
 export interface UserSchemaPropertyArrayOneOf {
@@ -3080,6 +3164,10 @@ export namespace user {
         preferredLanguage: string;
         primaryPhone: string;
         profileUrl: string;
+        /**
+         * The Realm ID associated with the user.
+         */
+        realmId: string;
         roles: string[];
         secondEmail: string;
         state: string;

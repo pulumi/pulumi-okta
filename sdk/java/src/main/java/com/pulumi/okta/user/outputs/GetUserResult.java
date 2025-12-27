@@ -57,6 +57,7 @@ public final class GetUserResult {
     private String preferredLanguage;
     private String primaryPhone;
     private String profileUrl;
+    private String realmId;
     private List<String> roles;
     /**
      * @return Filter to find user/users. Each filter will be concatenated with the compound search operator. Please be aware profile properties must match what is in Okta, which is likely camel case. Expression is a free form expression filter https://developer.okta.com/docs/reference/core-okta-api/#filter . The set name/value/comparison properties will be ignored if expression is present
@@ -190,6 +191,9 @@ public final class GetUserResult {
     public String profileUrl() {
         return this.profileUrl;
     }
+    public String realmId() {
+        return this.realmId;
+    }
     public List<String> roles() {
         return this.roles;
     }
@@ -285,6 +289,7 @@ public final class GetUserResult {
         private String preferredLanguage;
         private String primaryPhone;
         private String profileUrl;
+        private String realmId;
         private List<String> roles;
         private @Nullable List<GetUserSearch> searches;
         private String secondEmail;
@@ -331,6 +336,7 @@ public final class GetUserResult {
     	      this.preferredLanguage = defaults.preferredLanguage;
     	      this.primaryPhone = defaults.primaryPhone;
     	      this.profileUrl = defaults.profileUrl;
+    	      this.realmId = defaults.realmId;
     	      this.roles = defaults.roles;
     	      this.searches = defaults.searches;
     	      this.secondEmail = defaults.secondEmail;
@@ -589,6 +595,14 @@ public final class GetUserResult {
             return this;
         }
         @CustomType.Setter
+        public Builder realmId(String realmId) {
+            if (realmId == null) {
+              throw new MissingRequiredPropertyException("GetUserResult", "realmId");
+            }
+            this.realmId = realmId;
+            return this;
+        }
+        @CustomType.Setter
         public Builder roles(List<String> roles) {
             if (roles == null) {
               throw new MissingRequiredPropertyException("GetUserResult", "roles");
@@ -722,6 +736,7 @@ public final class GetUserResult {
             _resultValue.preferredLanguage = preferredLanguage;
             _resultValue.primaryPhone = primaryPhone;
             _resultValue.profileUrl = profileUrl;
+            _resultValue.realmId = realmId;
             _resultValue.roles = roles;
             _resultValue.searches = searches;
             _resultValue.secondEmail = secondEmail;

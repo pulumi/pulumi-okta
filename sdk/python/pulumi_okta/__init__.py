@@ -98,6 +98,7 @@ from .get_templates import *
 from .get_theme import *
 from .get_themes import *
 from .get_trusted_origins import *
+from .get_ui_schema import *
 from .get_user_security_questions import *
 from .group_memberships import *
 from .group_schema_property import *
@@ -135,6 +136,7 @@ from .template_sms import *
 from .theme import *
 from .threat_insight_settings import *
 from .trusted_server import *
+from .ui_schema import *
 from .user_admin_roles import *
 from .user_base_schema_property import *
 from .user_factor_question import *
@@ -1032,6 +1034,14 @@ _utilities.register(
   "fqn": "pulumi_okta",
   "classes": {
    "okta:index/trustedServer:TrustedServer": "TrustedServer"
+  }
+ },
+ {
+  "pkg": "okta",
+  "mod": "index/uiSchema",
+  "fqn": "pulumi_okta",
+  "classes": {
+   "okta:index/uiSchema:UiSchema": "UiSchema"
   }
  },
  {

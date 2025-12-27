@@ -21,6 +21,8 @@ import (
 type Mfa struct {
 	pulumi.CustomResourceState
 
+	// List of custom authenticators, specify entry like {"enroll": "OPTIONAL", "id": "<id_of_custom_app>"} to mark specific custom app optional, list must contain at least 1 entry.
+	CustomApps pulumi.StringMapArrayOutput `pulumi:"customApps"`
 	// Policy Description
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	Duo         pulumi.StringMapOutput `pulumi:"duo"`
@@ -89,6 +91,8 @@ func GetMfa(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Mfa resources.
 type mfaState struct {
+	// List of custom authenticators, specify entry like {"enroll": "OPTIONAL", "id": "<id_of_custom_app>"} to mark specific custom app optional, list must contain at least 1 entry.
+	CustomApps []map[string]string `pulumi:"customApps"`
 	// Policy Description
 	Description *string           `pulumi:"description"`
 	Duo         map[string]string `pulumi:"duo"`
@@ -128,6 +132,8 @@ type mfaState struct {
 }
 
 type MfaState struct {
+	// List of custom authenticators, specify entry like {"enroll": "OPTIONAL", "id": "<id_of_custom_app>"} to mark specific custom app optional, list must contain at least 1 entry.
+	CustomApps pulumi.StringMapArrayInput
 	// Policy Description
 	Description pulumi.StringPtrInput
 	Duo         pulumi.StringMapInput
@@ -171,6 +177,8 @@ func (MfaState) ElementType() reflect.Type {
 }
 
 type mfaArgs struct {
+	// List of custom authenticators, specify entry like {"enroll": "OPTIONAL", "id": "<id_of_custom_app>"} to mark specific custom app optional, list must contain at least 1 entry.
+	CustomApps []map[string]string `pulumi:"customApps"`
 	// Policy Description
 	Description *string           `pulumi:"description"`
 	Duo         map[string]string `pulumi:"duo"`
@@ -211,6 +219,8 @@ type mfaArgs struct {
 
 // The set of arguments for constructing a Mfa resource.
 type MfaArgs struct {
+	// List of custom authenticators, specify entry like {"enroll": "OPTIONAL", "id": "<id_of_custom_app>"} to mark specific custom app optional, list must contain at least 1 entry.
+	CustomApps pulumi.StringMapArrayInput
 	// Policy Description
 	Description pulumi.StringPtrInput
 	Duo         pulumi.StringMapInput
@@ -334,6 +344,11 @@ func (o MfaOutput) ToMfaOutput() MfaOutput {
 
 func (o MfaOutput) ToMfaOutputWithContext(ctx context.Context) MfaOutput {
 	return o
+}
+
+// List of custom authenticators, specify entry like {"enroll": "OPTIONAL", "id": "<id_of_custom_app>"} to mark specific custom app optional, list must contain at least 1 entry.
+func (o MfaOutput) CustomApps() pulumi.StringMapArrayOutput {
+	return o.ApplyT(func(v *Mfa) pulumi.StringMapArrayOutput { return v.CustomApps }).(pulumi.StringMapArrayOutput)
 }
 
 // Policy Description

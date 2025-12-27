@@ -68,6 +68,8 @@ import (
 type PolicyMfaDefault struct {
 	pulumi.CustomResourceState
 
+	// List of custom authenticators, specify entry like {"enroll": "OPTIONAL", "id": "<id_of_custom_app>"} to mark specific custom app optional, list must contain at least 1 entry.
+	CustomApps pulumi.StringMapArrayOutput `pulumi:"customApps"`
 	// Default group ID (always included)
 	DefaultIncludedGroupId pulumi.StringOutput `pulumi:"defaultIncludedGroupId"`
 	// Default policy description
@@ -136,6 +138,8 @@ func GetPolicyMfaDefault(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PolicyMfaDefault resources.
 type policyMfaDefaultState struct {
+	// List of custom authenticators, specify entry like {"enroll": "OPTIONAL", "id": "<id_of_custom_app>"} to mark specific custom app optional, list must contain at least 1 entry.
+	CustomApps []map[string]string `pulumi:"customApps"`
 	// Default group ID (always included)
 	DefaultIncludedGroupId *string `pulumi:"defaultIncludedGroupId"`
 	// Default policy description
@@ -175,6 +179,8 @@ type policyMfaDefaultState struct {
 }
 
 type PolicyMfaDefaultState struct {
+	// List of custom authenticators, specify entry like {"enroll": "OPTIONAL", "id": "<id_of_custom_app>"} to mark specific custom app optional, list must contain at least 1 entry.
+	CustomApps pulumi.StringMapArrayInput
 	// Default group ID (always included)
 	DefaultIncludedGroupId pulumi.StringPtrInput
 	// Default policy description
@@ -218,7 +224,9 @@ func (PolicyMfaDefaultState) ElementType() reflect.Type {
 }
 
 type policyMfaDefaultArgs struct {
-	Duo map[string]string `pulumi:"duo"`
+	// List of custom authenticators, specify entry like {"enroll": "OPTIONAL", "id": "<id_of_custom_app>"} to mark specific custom app optional, list must contain at least 1 entry.
+	CustomApps []map[string]string `pulumi:"customApps"`
+	Duo        map[string]string   `pulumi:"duo"`
 	// Deprecated: Since okta now support multiple external_idps, this will be deprecated. Please use `externalIdps` instead
 	ExternalIdp  map[string]string   `pulumi:"externalIdp"`
 	ExternalIdps []map[string]string `pulumi:"externalIdps"`
@@ -248,7 +256,9 @@ type policyMfaDefaultArgs struct {
 
 // The set of arguments for constructing a PolicyMfaDefault resource.
 type PolicyMfaDefaultArgs struct {
-	Duo pulumi.StringMapInput
+	// List of custom authenticators, specify entry like {"enroll": "OPTIONAL", "id": "<id_of_custom_app>"} to mark specific custom app optional, list must contain at least 1 entry.
+	CustomApps pulumi.StringMapArrayInput
+	Duo        pulumi.StringMapInput
 	// Deprecated: Since okta now support multiple external_idps, this will be deprecated. Please use `externalIdps` instead
 	ExternalIdp  pulumi.StringMapInput
 	ExternalIdps pulumi.StringMapArrayInput
@@ -361,6 +371,11 @@ func (o PolicyMfaDefaultOutput) ToPolicyMfaDefaultOutput() PolicyMfaDefaultOutpu
 
 func (o PolicyMfaDefaultOutput) ToPolicyMfaDefaultOutputWithContext(ctx context.Context) PolicyMfaDefaultOutput {
 	return o
+}
+
+// List of custom authenticators, specify entry like {"enroll": "OPTIONAL", "id": "<id_of_custom_app>"} to mark specific custom app optional, list must contain at least 1 entry.
+func (o PolicyMfaDefaultOutput) CustomApps() pulumi.StringMapArrayOutput {
+	return o.ApplyT(func(v *PolicyMfaDefault) pulumi.StringMapArrayOutput { return v.CustomApps }).(pulumi.StringMapArrayOutput)
 }
 
 // Default group ID (always included)

@@ -543,6 +543,20 @@ public class User extends com.pulumi.resources.CustomResource {
         return this.rawStatus;
     }
     /**
+     * The Realm ID to associate the user with
+     * 
+     */
+    @Export(name="realmId", refs={String.class}, tree="[0]")
+    private Output<String> realmId;
+
+    /**
+     * @return The Realm ID to associate the user with
+     * 
+     */
+    public Output<String> realmId() {
+        return this.realmId;
+    }
+    /**
      * User Password Recovery Answer
      * 
      */

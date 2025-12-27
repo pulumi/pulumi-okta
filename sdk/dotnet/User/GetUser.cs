@@ -174,6 +174,7 @@ namespace Pulumi.Okta.User
         public readonly string PreferredLanguage;
         public readonly string PrimaryPhone;
         public readonly string ProfileUrl;
+        public readonly string RealmId;
         public readonly ImmutableArray<string> Roles;
         /// <summary>
         /// Filter to find user/users. Each filter will be concatenated with the compound search operator. Please be aware profile properties must match what is in Okta, which is likely camel case. Expression is a free form expression filter https://developer.okta.com/docs/reference/core-okta-api/#filter . The set name/value/comparison properties will be ignored if expression is present
@@ -262,6 +263,8 @@ namespace Pulumi.Okta.User
 
             string profileUrl,
 
+            string realmId,
+
             ImmutableArray<string> roles,
 
             ImmutableArray<Outputs.GetUserSearchResult> searches,
@@ -318,6 +321,7 @@ namespace Pulumi.Okta.User
             PreferredLanguage = preferredLanguage;
             PrimaryPhone = primaryPhone;
             ProfileUrl = profileUrl;
+            RealmId = realmId;
             Roles = roles;
             Searches = searches;
             SecondEmail = secondEmail;

@@ -31,6 +31,20 @@ import javax.annotation.Nullable;
 @ResourceType(type="okta:policy/mfa:Mfa")
 public class Mfa extends com.pulumi.resources.CustomResource {
     /**
+     * List of custom authenticators, specify entry like {&#34;enroll&#34;: &#34;OPTIONAL&#34;, &#34;id&#34;: &#34;&lt;id_of_custom_app&gt;&#34;} to mark specific custom app optional, list must contain at least 1 entry.
+     * 
+     */
+    @Export(name="customApps", refs={List.class,Map.class,String.class}, tree="[0,[1,2,2]]")
+    private Output</* @Nullable */ List<Map<String,String>>> customApps;
+
+    /**
+     * @return List of custom authenticators, specify entry like {&#34;enroll&#34;: &#34;OPTIONAL&#34;, &#34;id&#34;: &#34;&lt;id_of_custom_app&gt;&#34;} to mark specific custom app optional, list must contain at least 1 entry.
+     * 
+     */
+    public Output<Optional<List<Map<String,String>>>> customApps() {
+        return Codegen.optional(this.customApps);
+    }
+    /**
      * Policy Description
      * 
      */

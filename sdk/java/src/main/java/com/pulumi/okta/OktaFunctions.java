@@ -107,6 +107,8 @@ import com.pulumi.okta.inputs.GetThemesArgs;
 import com.pulumi.okta.inputs.GetThemesPlainArgs;
 import com.pulumi.okta.inputs.GetTrustedOriginsArgs;
 import com.pulumi.okta.inputs.GetTrustedOriginsPlainArgs;
+import com.pulumi.okta.inputs.GetUiSchemaArgs;
+import com.pulumi.okta.inputs.GetUiSchemaPlainArgs;
 import com.pulumi.okta.inputs.GetUserSecurityQuestionsArgs;
 import com.pulumi.okta.inputs.GetUserSecurityQuestionsPlainArgs;
 import com.pulumi.okta.outputs.GetApiServiceIntegrationResult;
@@ -161,6 +163,7 @@ import com.pulumi.okta.outputs.GetTemplatesResult;
 import com.pulumi.okta.outputs.GetThemeResult;
 import com.pulumi.okta.outputs.GetThemesResult;
 import com.pulumi.okta.outputs.GetTrustedOriginsResult;
+import com.pulumi.okta.outputs.GetUiSchemaResult;
 import com.pulumi.okta.outputs.GetUserSecurityQuestionsResult;
 import com.pulumi.resources.InvokeArgs;
 import java.util.concurrent.CompletableFuture;
@@ -11524,6 +11527,206 @@ public final class OktaFunctions {
      */
     public static CompletableFuture<GetTrustedOriginsResult> getTrustedOriginsPlain(GetTrustedOriginsPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("okta:index/getTrustedOrigins:getTrustedOrigins", TypeShape.of(GetTrustedOriginsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about an Okta UI Schema.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetUiSchemaArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OktaFunctions.getUiSchema(GetUiSchemaArgs.builder()
+     *             .id("ui_schema_id")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetUiSchemaResult> getUiSchema(GetUiSchemaArgs args) {
+        return getUiSchema(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about an Okta UI Schema.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetUiSchemaArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OktaFunctions.getUiSchema(GetUiSchemaArgs.builder()
+     *             .id("ui_schema_id")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetUiSchemaResult> getUiSchemaPlain(GetUiSchemaPlainArgs args) {
+        return getUiSchemaPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information about an Okta UI Schema.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetUiSchemaArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OktaFunctions.getUiSchema(GetUiSchemaArgs.builder()
+     *             .id("ui_schema_id")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetUiSchemaResult> getUiSchema(GetUiSchemaArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("okta:index/getUiSchema:getUiSchema", TypeShape.of(GetUiSchemaResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about an Okta UI Schema.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetUiSchemaArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OktaFunctions.getUiSchema(GetUiSchemaArgs.builder()
+     *             .id("ui_schema_id")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetUiSchemaResult> getUiSchema(GetUiSchemaArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("okta:index/getUiSchema:getUiSchema", TypeShape.of(GetUiSchemaResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information about an Okta UI Schema.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetUiSchemaArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OktaFunctions.getUiSchema(GetUiSchemaArgs.builder()
+     *             .id("ui_schema_id")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetUiSchemaResult> getUiSchemaPlain(GetUiSchemaPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("okta:index/getUiSchema:getUiSchema", TypeShape.of(GetUiSchemaResult.class), args, Utilities.withVersion(options));
     }
     /**
      * ## Example Usage

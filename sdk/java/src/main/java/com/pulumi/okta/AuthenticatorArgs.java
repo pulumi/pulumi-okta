@@ -19,14 +19,29 @@ public final class AuthenticatorArgs extends com.pulumi.resources.ResourceArgs {
     public static final AuthenticatorArgs Empty = new AuthenticatorArgs();
 
     /**
-     * A human-readable string that identifies the authenticator. Some authenticators are available by feature flag on the organization. Possible values inclue: `duo`, `externalIdp`, `googleOtp`, `oktaEmail`, `oktaPassword`, `oktaVerify`, `onpremMfa`, `phoneNumber`, `rsaToken`, `securityQuestion`, `webauthn`
+     * A value of true indicates that the administrator accepts the terms for creating a new authenticator. Okta requires that you accept the terms when creating a new customApp authenticator. Other authenticators don&#39;t require this field.
+     * 
+     */
+    @Import(name="agreeToTerms")
+    private @Nullable Output<Boolean> agreeToTerms;
+
+    /**
+     * @return A value of true indicates that the administrator accepts the terms for creating a new authenticator. Okta requires that you accept the terms when creating a new customApp authenticator. Other authenticators don&#39;t require this field.
+     * 
+     */
+    public Optional<Output<Boolean>> agreeToTerms() {
+        return Optional.ofNullable(this.agreeToTerms);
+    }
+
+    /**
+     * A human-readable string that identifies the authenticator. Some authenticators are available by feature flag on the organization. Possible values inclue: `customApp`, `customOtp`, `duo`, `externalIdp`, `googleOtp`, `oktaEmail`, `oktaPassword`, `oktaVerify`, `onpremMfa`, `phoneNumber`, `rsaToken`, `securityQuestion`, `webauthn`
      * 
      */
     @Import(name="key", required=true)
     private Output<String> key;
 
     /**
-     * @return A human-readable string that identifies the authenticator. Some authenticators are available by feature flag on the organization. Possible values inclue: `duo`, `externalIdp`, `googleOtp`, `oktaEmail`, `oktaPassword`, `oktaVerify`, `onpremMfa`, `phoneNumber`, `rsaToken`, `securityQuestion`, `webauthn`
+     * @return A human-readable string that identifies the authenticator. Some authenticators are available by feature flag on the organization. Possible values inclue: `customApp`, `customOtp`, `duo`, `externalIdp`, `googleOtp`, `oktaEmail`, `oktaPassword`, `oktaVerify`, `onpremMfa`, `phoneNumber`, `rsaToken`, `securityQuestion`, `webauthn`
      * 
      */
     public Output<String> key() {
@@ -34,14 +49,14 @@ public final class AuthenticatorArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Name does not trigger change detection (legacy behavior)
+     * Name does not trigger change detection (legacy behavior). Must be set to false for customApp authenticators.
      * 
      */
     @Import(name="legacyIgnoreName")
     private @Nullable Output<Boolean> legacyIgnoreName;
 
     /**
-     * @return Name does not trigger change detection (legacy behavior)
+     * @return Name does not trigger change detection (legacy behavior). Must be set to false for customApp authenticators.
      * 
      */
     public Optional<Output<Boolean>> legacyIgnoreName() {
@@ -216,6 +231,7 @@ public final class AuthenticatorArgs extends com.pulumi.resources.ResourceArgs {
     private AuthenticatorArgs() {}
 
     private AuthenticatorArgs(AuthenticatorArgs $) {
+        this.agreeToTerms = $.agreeToTerms;
         this.key = $.key;
         this.legacyIgnoreName = $.legacyIgnoreName;
         this.name = $.name;
@@ -250,7 +266,28 @@ public final class AuthenticatorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param key A human-readable string that identifies the authenticator. Some authenticators are available by feature flag on the organization. Possible values inclue: `duo`, `externalIdp`, `googleOtp`, `oktaEmail`, `oktaPassword`, `oktaVerify`, `onpremMfa`, `phoneNumber`, `rsaToken`, `securityQuestion`, `webauthn`
+         * @param agreeToTerms A value of true indicates that the administrator accepts the terms for creating a new authenticator. Okta requires that you accept the terms when creating a new customApp authenticator. Other authenticators don&#39;t require this field.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder agreeToTerms(@Nullable Output<Boolean> agreeToTerms) {
+            $.agreeToTerms = agreeToTerms;
+            return this;
+        }
+
+        /**
+         * @param agreeToTerms A value of true indicates that the administrator accepts the terms for creating a new authenticator. Okta requires that you accept the terms when creating a new customApp authenticator. Other authenticators don&#39;t require this field.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder agreeToTerms(Boolean agreeToTerms) {
+            return agreeToTerms(Output.of(agreeToTerms));
+        }
+
+        /**
+         * @param key A human-readable string that identifies the authenticator. Some authenticators are available by feature flag on the organization. Possible values inclue: `customApp`, `customOtp`, `duo`, `externalIdp`, `googleOtp`, `oktaEmail`, `oktaPassword`, `oktaVerify`, `onpremMfa`, `phoneNumber`, `rsaToken`, `securityQuestion`, `webauthn`
          * 
          * @return builder
          * 
@@ -261,7 +298,7 @@ public final class AuthenticatorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param key A human-readable string that identifies the authenticator. Some authenticators are available by feature flag on the organization. Possible values inclue: `duo`, `externalIdp`, `googleOtp`, `oktaEmail`, `oktaPassword`, `oktaVerify`, `onpremMfa`, `phoneNumber`, `rsaToken`, `securityQuestion`, `webauthn`
+         * @param key A human-readable string that identifies the authenticator. Some authenticators are available by feature flag on the organization. Possible values inclue: `customApp`, `customOtp`, `duo`, `externalIdp`, `googleOtp`, `oktaEmail`, `oktaPassword`, `oktaVerify`, `onpremMfa`, `phoneNumber`, `rsaToken`, `securityQuestion`, `webauthn`
          * 
          * @return builder
          * 
@@ -271,7 +308,7 @@ public final class AuthenticatorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param legacyIgnoreName Name does not trigger change detection (legacy behavior)
+         * @param legacyIgnoreName Name does not trigger change detection (legacy behavior). Must be set to false for customApp authenticators.
          * 
          * @return builder
          * 
@@ -282,7 +319,7 @@ public final class AuthenticatorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param legacyIgnoreName Name does not trigger change detection (legacy behavior)
+         * @param legacyIgnoreName Name does not trigger change detection (legacy behavior). Must be set to false for customApp authenticators.
          * 
          * @return builder
          * 
