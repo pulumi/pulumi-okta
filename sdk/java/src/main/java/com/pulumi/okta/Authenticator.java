@@ -27,10 +27,11 @@ import javax.annotation.Nullable;
  * create the authenticator (hard create) will be performed. Thereafter, that
  * authenticator is never deleted, it is only deactivated (soft delete). Therefore,
  * if the authenticator already exists create is just a soft import of an existing
- * authenticator. This does not apply to customOtp authenticator. There can be
- * multiple customOtp authenticator. To create new customOtp authenticator, a new
- * name and key = customOtp is required. If an old name is used, it will simply
- * reactivate the old customOtp authenticator
+ * authenticator. This does not apply to customOtp and customApp authenticators.
+ * There can be multiple customOtp authenticators. To create new customOtp
+ * authenticator, a new name and key = customOtp is required. If an old name is
+ * used, it will simply reactivate the old customOtp authenticator. For customApp
+ * authenticators, legacyIgnoreName must be set to false.
  * 
  * &gt; **Update:** customOtp authenticator cannot be updated
  * 
@@ -88,6 +89,28 @@ import javax.annotation.Nullable;
  *             .legacyIgnoreName(false)
  *             .build());
  * 
+ *         var customApp = new Authenticator("customApp", AuthenticatorArgs.builder()
+ *             .key("custom_app")
+ *             .name("Custom Push Auth")
+ *             .status("ACTIVE")
+ *             .agreeToTerms(true)
+ *             .legacyIgnoreName(false)
+ *             .settings(serializeJson(
+ *                 jsonObject(
+ *                     jsonProperty("userVerification", "REQUIRED"),
+ *                     jsonProperty("appInstanceId", "0oasontedmcepr0Uf1d7")
+ *                 )))
+ *             .providerJson(serializeJson(
+ *                 jsonObject(
+ *                     jsonProperty("type", "PUSH"),
+ *                     jsonProperty("configuration", jsonObject(
+ *                         jsonProperty("fcm", jsonObject(
+ *                             jsonProperty("id", "ppcrb12345678ABCDEF")
+ *                         ))
+ *                     ))
+ *                 )))
+ *             .build());
+ * 
  *     }
  * }
  * }
@@ -103,28 +126,42 @@ import javax.annotation.Nullable;
 @ResourceType(type="okta:index/authenticator:Authenticator")
 public class Authenticator extends com.pulumi.resources.CustomResource {
     /**
-     * A human-readable string that identifies the authenticator. Some authenticators are available by feature flag on the organization. Possible values inclue: `duo`, `externalIdp`, `googleOtp`, `oktaEmail`, `oktaPassword`, `oktaVerify`, `onpremMfa`, `phoneNumber`, `rsaToken`, `securityQuestion`, `webauthn`
+     * A value of true indicates that the administrator accepts the terms for creating a new authenticator. Okta requires that you accept the terms when creating a new customApp authenticator. Other authenticators don&#39;t require this field.
+     * 
+     */
+    @Export(name="agreeToTerms", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> agreeToTerms;
+
+    /**
+     * @return A value of true indicates that the administrator accepts the terms for creating a new authenticator. Okta requires that you accept the terms when creating a new customApp authenticator. Other authenticators don&#39;t require this field.
+     * 
+     */
+    public Output<Optional<Boolean>> agreeToTerms() {
+        return Codegen.optional(this.agreeToTerms);
+    }
+    /**
+     * A human-readable string that identifies the authenticator. Some authenticators are available by feature flag on the organization. Possible values inclue: `customApp`, `customOtp`, `duo`, `externalIdp`, `googleOtp`, `oktaEmail`, `oktaPassword`, `oktaVerify`, `onpremMfa`, `phoneNumber`, `rsaToken`, `securityQuestion`, `webauthn`
      * 
      */
     @Export(name="key", refs={String.class}, tree="[0]")
     private Output<String> key;
 
     /**
-     * @return A human-readable string that identifies the authenticator. Some authenticators are available by feature flag on the organization. Possible values inclue: `duo`, `externalIdp`, `googleOtp`, `oktaEmail`, `oktaPassword`, `oktaVerify`, `onpremMfa`, `phoneNumber`, `rsaToken`, `securityQuestion`, `webauthn`
+     * @return A human-readable string that identifies the authenticator. Some authenticators are available by feature flag on the organization. Possible values inclue: `customApp`, `customOtp`, `duo`, `externalIdp`, `googleOtp`, `oktaEmail`, `oktaPassword`, `oktaVerify`, `onpremMfa`, `phoneNumber`, `rsaToken`, `securityQuestion`, `webauthn`
      * 
      */
     public Output<String> key() {
         return this.key;
     }
     /**
-     * Name does not trigger change detection (legacy behavior)
+     * Name does not trigger change detection (legacy behavior). Must be set to false for customApp authenticators.
      * 
      */
     @Export(name="legacyIgnoreName", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> legacyIgnoreName;
 
     /**
-     * @return Name does not trigger change detection (legacy behavior)
+     * @return Name does not trigger change detection (legacy behavior). Must be set to false for customApp authenticators.
      * 
      */
     public Output<Optional<Boolean>> legacyIgnoreName() {

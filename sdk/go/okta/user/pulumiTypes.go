@@ -491,15 +491,17 @@ type GetUsersUser struct {
 	PreferredLanguage       string   `pulumi:"preferredLanguage"`
 	PrimaryPhone            string   `pulumi:"primaryPhone"`
 	ProfileUrl              string   `pulumi:"profileUrl"`
-	Roles                   []string `pulumi:"roles"`
-	SecondEmail             string   `pulumi:"secondEmail"`
-	State                   string   `pulumi:"state"`
-	Status                  string   `pulumi:"status"`
-	StreetAddress           string   `pulumi:"streetAddress"`
-	Timezone                string   `pulumi:"timezone"`
-	Title                   string   `pulumi:"title"`
-	UserType                string   `pulumi:"userType"`
-	ZipCode                 string   `pulumi:"zipCode"`
+	// The Realm ID associated with the user.
+	RealmId       string   `pulumi:"realmId"`
+	Roles         []string `pulumi:"roles"`
+	SecondEmail   string   `pulumi:"secondEmail"`
+	State         string   `pulumi:"state"`
+	Status        string   `pulumi:"status"`
+	StreetAddress string   `pulumi:"streetAddress"`
+	Timezone      string   `pulumi:"timezone"`
+	Title         string   `pulumi:"title"`
+	UserType      string   `pulumi:"userType"`
+	ZipCode       string   `pulumi:"zipCode"`
 }
 
 // GetUsersUserInput is an input type that accepts GetUsersUserArgs and GetUsersUserOutput values.
@@ -542,15 +544,17 @@ type GetUsersUserArgs struct {
 	PreferredLanguage       pulumi.StringInput      `pulumi:"preferredLanguage"`
 	PrimaryPhone            pulumi.StringInput      `pulumi:"primaryPhone"`
 	ProfileUrl              pulumi.StringInput      `pulumi:"profileUrl"`
-	Roles                   pulumi.StringArrayInput `pulumi:"roles"`
-	SecondEmail             pulumi.StringInput      `pulumi:"secondEmail"`
-	State                   pulumi.StringInput      `pulumi:"state"`
-	Status                  pulumi.StringInput      `pulumi:"status"`
-	StreetAddress           pulumi.StringInput      `pulumi:"streetAddress"`
-	Timezone                pulumi.StringInput      `pulumi:"timezone"`
-	Title                   pulumi.StringInput      `pulumi:"title"`
-	UserType                pulumi.StringInput      `pulumi:"userType"`
-	ZipCode                 pulumi.StringInput      `pulumi:"zipCode"`
+	// The Realm ID associated with the user.
+	RealmId       pulumi.StringInput      `pulumi:"realmId"`
+	Roles         pulumi.StringArrayInput `pulumi:"roles"`
+	SecondEmail   pulumi.StringInput      `pulumi:"secondEmail"`
+	State         pulumi.StringInput      `pulumi:"state"`
+	Status        pulumi.StringInput      `pulumi:"status"`
+	StreetAddress pulumi.StringInput      `pulumi:"streetAddress"`
+	Timezone      pulumi.StringInput      `pulumi:"timezone"`
+	Title         pulumi.StringInput      `pulumi:"title"`
+	UserType      pulumi.StringInput      `pulumi:"userType"`
+	ZipCode       pulumi.StringInput      `pulumi:"zipCode"`
 }
 
 func (GetUsersUserArgs) ElementType() reflect.Type {
@@ -714,6 +718,11 @@ func (o GetUsersUserOutput) PrimaryPhone() pulumi.StringOutput {
 
 func (o GetUsersUserOutput) ProfileUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUsersUser) string { return v.ProfileUrl }).(pulumi.StringOutput)
+}
+
+// The Realm ID associated with the user.
+func (o GetUsersUserOutput) RealmId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUsersUser) string { return v.RealmId }).(pulumi.StringOutput)
 }
 
 func (o GetUsersUserOutput) Roles() pulumi.StringArrayOutput {

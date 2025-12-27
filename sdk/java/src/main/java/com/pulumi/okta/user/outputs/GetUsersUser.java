@@ -39,6 +39,11 @@ public final class GetUsersUser {
     private String preferredLanguage;
     private String primaryPhone;
     private String profileUrl;
+    /**
+     * @return The Realm ID associated with the user.
+     * 
+     */
+    private String realmId;
     private List<String> roles;
     private String secondEmail;
     private String state;
@@ -134,6 +139,13 @@ public final class GetUsersUser {
     public String profileUrl() {
         return this.profileUrl;
     }
+    /**
+     * @return The Realm ID associated with the user.
+     * 
+     */
+    public String realmId() {
+        return this.realmId;
+    }
     public List<String> roles() {
         return this.roles;
     }
@@ -199,6 +211,7 @@ public final class GetUsersUser {
         private String preferredLanguage;
         private String primaryPhone;
         private String profileUrl;
+        private String realmId;
         private List<String> roles;
         private String secondEmail;
         private String state;
@@ -239,6 +252,7 @@ public final class GetUsersUser {
     	      this.preferredLanguage = defaults.preferredLanguage;
     	      this.primaryPhone = defaults.primaryPhone;
     	      this.profileUrl = defaults.profileUrl;
+    	      this.realmId = defaults.realmId;
     	      this.roles = defaults.roles;
     	      this.secondEmail = defaults.secondEmail;
     	      this.state = defaults.state;
@@ -481,6 +495,14 @@ public final class GetUsersUser {
             return this;
         }
         @CustomType.Setter
+        public Builder realmId(String realmId) {
+            if (realmId == null) {
+              throw new MissingRequiredPropertyException("GetUsersUser", "realmId");
+            }
+            this.realmId = realmId;
+            return this;
+        }
+        @CustomType.Setter
         public Builder roles(List<String> roles) {
             if (roles == null) {
               throw new MissingRequiredPropertyException("GetUsersUser", "roles");
@@ -585,6 +607,7 @@ public final class GetUsersUser {
             _resultValue.preferredLanguage = preferredLanguage;
             _resultValue.primaryPhone = primaryPhone;
             _resultValue.profileUrl = profileUrl;
+            _resultValue.realmId = realmId;
             _resultValue.roles = roles;
             _resultValue.secondEmail = secondEmail;
             _resultValue.state = state;

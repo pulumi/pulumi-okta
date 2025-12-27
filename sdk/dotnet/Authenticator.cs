@@ -19,10 +19,11 @@ namespace Pulumi.Okta
     /// create the authenticator (hard create) will be performed. Thereafter, that
     /// authenticator is never deleted, it is only deactivated (soft delete). Therefore,
     /// if the authenticator already exists create is just a soft import of an existing
-    /// authenticator. This does not apply to CustomOtp authenticator. There can be
-    /// multiple CustomOtp authenticator. To create new CustomOtp authenticator, a new
-    /// name and key = CustomOtp is required. If an old name is used, it will simply
-    /// reactivate the old CustomOtp authenticator
+    /// authenticator. This does not apply to CustomOtp and CustomApp authenticators.
+    /// There can be multiple CustomOtp authenticators. To create new CustomOtp
+    /// authenticator, a new name and key = CustomOtp is required. If an old name is
+    /// used, it will simply reactivate the old CustomOtp authenticator. For CustomApp
+    /// authenticators, LegacyIgnoreName must be set to false.
     /// 
     /// &gt; **Update:** CustomOtp authenticator cannot be updated
     /// 
@@ -68,6 +69,31 @@ namespace Pulumi.Okta
     ///         LegacyIgnoreName = false,
     ///     });
     /// 
+    ///     var customApp = new Okta.Authenticator("custom_app", new()
+    ///     {
+    ///         Key = "custom_app",
+    ///         Name = "Custom Push Auth",
+    ///         Status = "ACTIVE",
+    ///         AgreeToTerms = true,
+    ///         LegacyIgnoreName = false,
+    ///         Settings = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///         {
+    ///             ["userVerification"] = "REQUIRED",
+    ///             ["appInstanceId"] = "0oasontedmcepr0Uf1d7",
+    ///         }),
+    ///         ProviderJson = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///         {
+    ///             ["type"] = "PUSH",
+    ///             ["configuration"] = new Dictionary&lt;string, object?&gt;
+    ///             {
+    ///                 ["fcm"] = new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["id"] = "ppcrb12345678ABCDEF",
+    ///                 },
+    ///             },
+    ///         }),
+    ///     });
+    /// 
     /// });
     /// ```
     /// 
@@ -81,13 +107,19 @@ namespace Pulumi.Okta
     public partial class Authenticator : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// A human-readable string that identifies the authenticator. Some authenticators are available by feature flag on the organization. Possible values inclue: `Duo`, `ExternalIdp`, `GoogleOtp`, `OktaEmail`, `OktaPassword`, `OktaVerify`, `OnpremMfa`, `PhoneNumber`, `RsaToken`, `SecurityQuestion`, `Webauthn`
+        /// A value of true indicates that the administrator accepts the terms for creating a new authenticator. Okta requires that you accept the terms when creating a new CustomApp authenticator. Other authenticators don't require this field.
+        /// </summary>
+        [Output("agreeToTerms")]
+        public Output<bool?> AgreeToTerms { get; private set; } = null!;
+
+        /// <summary>
+        /// A human-readable string that identifies the authenticator. Some authenticators are available by feature flag on the organization. Possible values inclue: `CustomApp`, `CustomOtp`, `Duo`, `ExternalIdp`, `GoogleOtp`, `OktaEmail`, `OktaPassword`, `OktaVerify`, `OnpremMfa`, `PhoneNumber`, `RsaToken`, `SecurityQuestion`, `Webauthn`
         /// </summary>
         [Output("key")]
         public Output<string> Key { get; private set; } = null!;
 
         /// <summary>
-        /// Name does not trigger change detection (legacy behavior)
+        /// Name does not trigger change detection (legacy behavior). Must be set to false for CustomApp authenticators.
         /// </summary>
         [Output("legacyIgnoreName")]
         public Output<bool?> LegacyIgnoreName { get; private set; } = null!;
@@ -227,13 +259,19 @@ namespace Pulumi.Okta
     public sealed class AuthenticatorArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A human-readable string that identifies the authenticator. Some authenticators are available by feature flag on the organization. Possible values inclue: `Duo`, `ExternalIdp`, `GoogleOtp`, `OktaEmail`, `OktaPassword`, `OktaVerify`, `OnpremMfa`, `PhoneNumber`, `RsaToken`, `SecurityQuestion`, `Webauthn`
+        /// A value of true indicates that the administrator accepts the terms for creating a new authenticator. Okta requires that you accept the terms when creating a new CustomApp authenticator. Other authenticators don't require this field.
+        /// </summary>
+        [Input("agreeToTerms")]
+        public Input<bool>? AgreeToTerms { get; set; }
+
+        /// <summary>
+        /// A human-readable string that identifies the authenticator. Some authenticators are available by feature flag on the organization. Possible values inclue: `CustomApp`, `CustomOtp`, `Duo`, `ExternalIdp`, `GoogleOtp`, `OktaEmail`, `OktaPassword`, `OktaVerify`, `OnpremMfa`, `PhoneNumber`, `RsaToken`, `SecurityQuestion`, `Webauthn`
         /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
         /// <summary>
-        /// Name does not trigger change detection (legacy behavior)
+        /// Name does not trigger change detection (legacy behavior). Must be set to false for CustomApp authenticators.
         /// </summary>
         [Input("legacyIgnoreName")]
         public Input<bool>? LegacyIgnoreName { get; set; }
@@ -323,13 +361,19 @@ namespace Pulumi.Okta
     public sealed class AuthenticatorState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A human-readable string that identifies the authenticator. Some authenticators are available by feature flag on the organization. Possible values inclue: `Duo`, `ExternalIdp`, `GoogleOtp`, `OktaEmail`, `OktaPassword`, `OktaVerify`, `OnpremMfa`, `PhoneNumber`, `RsaToken`, `SecurityQuestion`, `Webauthn`
+        /// A value of true indicates that the administrator accepts the terms for creating a new authenticator. Okta requires that you accept the terms when creating a new CustomApp authenticator. Other authenticators don't require this field.
+        /// </summary>
+        [Input("agreeToTerms")]
+        public Input<bool>? AgreeToTerms { get; set; }
+
+        /// <summary>
+        /// A human-readable string that identifies the authenticator. Some authenticators are available by feature flag on the organization. Possible values inclue: `CustomApp`, `CustomOtp`, `Duo`, `ExternalIdp`, `GoogleOtp`, `OktaEmail`, `OktaPassword`, `OktaVerify`, `OnpremMfa`, `PhoneNumber`, `RsaToken`, `SecurityQuestion`, `Webauthn`
         /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }
 
         /// <summary>
-        /// Name does not trigger change detection (legacy behavior)
+        /// Name does not trigger change detection (legacy behavior). Must be set to false for CustomApp authenticators.
         /// </summary>
         [Input("legacyIgnoreName")]
         public Input<bool>? LegacyIgnoreName { get; set; }

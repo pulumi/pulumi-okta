@@ -41,6 +41,10 @@ namespace Pulumi.Okta.User.Outputs
         public readonly string PreferredLanguage;
         public readonly string PrimaryPhone;
         public readonly string ProfileUrl;
+        /// <summary>
+        /// The Realm ID associated with the user.
+        /// </summary>
+        public readonly string RealmId;
         public readonly ImmutableArray<string> Roles;
         public readonly string SecondEmail;
         public readonly string State;
@@ -109,6 +113,8 @@ namespace Pulumi.Okta.User.Outputs
 
             string profileUrl,
 
+            string realmId,
+
             ImmutableArray<string> roles,
 
             string secondEmail,
@@ -155,6 +161,7 @@ namespace Pulumi.Okta.User.Outputs
             PreferredLanguage = preferredLanguage;
             PrimaryPhone = primaryPhone;
             ProfileUrl = profileUrl;
+            RealmId = realmId;
             Roles = roles;
             SecondEmail = secondEmail;
             State = state;

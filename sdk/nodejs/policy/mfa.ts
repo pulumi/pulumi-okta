@@ -42,6 +42,10 @@ export class Mfa extends pulumi.CustomResource {
     }
 
     /**
+     * List of custom authenticators, specify entry like {"enroll": "OPTIONAL", "id": "<id_of_custom_app>"} to mark specific custom app optional, list must contain at least 1 entry.
+     */
+    declare public readonly customApps: pulumi.Output<{[key: string]: string}[] | undefined>;
+    /**
      * Policy Description
      */
     declare public readonly description: pulumi.Output<string | undefined>;
@@ -105,6 +109,7 @@ export class Mfa extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as MfaState | undefined;
+            resourceInputs["customApps"] = state?.customApps;
             resourceInputs["description"] = state?.description;
             resourceInputs["duo"] = state?.duo;
             resourceInputs["externalIdp"] = state?.externalIdp;
@@ -136,6 +141,7 @@ export class Mfa extends pulumi.CustomResource {
             resourceInputs["yubikeyToken"] = state?.yubikeyToken;
         } else {
             const args = argsOrState as MfaArgs | undefined;
+            resourceInputs["customApps"] = args?.customApps;
             resourceInputs["description"] = args?.description;
             resourceInputs["duo"] = args?.duo;
             resourceInputs["externalIdp"] = args?.externalIdp;
@@ -175,6 +181,10 @@ export class Mfa extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Mfa resources.
  */
 export interface MfaState {
+    /**
+     * List of custom authenticators, specify entry like {"enroll": "OPTIONAL", "id": "<id_of_custom_app>"} to mark specific custom app optional, list must contain at least 1 entry.
+     */
+    customApps?: pulumi.Input<pulumi.Input<{[key: string]: pulumi.Input<string>}>[]>;
     /**
      * Policy Description
      */
@@ -231,6 +241,10 @@ export interface MfaState {
  * The set of arguments for constructing a Mfa resource.
  */
 export interface MfaArgs {
+    /**
+     * List of custom authenticators, specify entry like {"enroll": "OPTIONAL", "id": "<id_of_custom_app>"} to mark specific custom app optional, list must contain at least 1 entry.
+     */
+    customApps?: pulumi.Input<pulumi.Input<{[key: string]: pulumi.Input<string>}>[]>;
     /**
      * Policy Description
      */

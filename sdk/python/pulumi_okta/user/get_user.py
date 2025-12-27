@@ -28,7 +28,7 @@ class GetUserResult:
     """
     A collection of values returned by getUser.
     """
-    def __init__(__self__, admin_roles=None, city=None, compound_search_operator=None, cost_center=None, country_code=None, custom_profile_attributes=None, delay_read_seconds=None, department=None, display_name=None, division=None, email=None, employee_number=None, first_name=None, group_memberships=None, honorific_prefix=None, honorific_suffix=None, id=None, last_name=None, locale=None, login=None, manager=None, manager_id=None, middle_name=None, mobile_phone=None, nick_name=None, organization=None, postal_address=None, preferred_language=None, primary_phone=None, profile_url=None, roles=None, searches=None, second_email=None, skip_groups=None, skip_roles=None, state=None, status=None, street_address=None, timezone=None, title=None, user_id=None, user_type=None, zip_code=None):
+    def __init__(__self__, admin_roles=None, city=None, compound_search_operator=None, cost_center=None, country_code=None, custom_profile_attributes=None, delay_read_seconds=None, department=None, display_name=None, division=None, email=None, employee_number=None, first_name=None, group_memberships=None, honorific_prefix=None, honorific_suffix=None, id=None, last_name=None, locale=None, login=None, manager=None, manager_id=None, middle_name=None, mobile_phone=None, nick_name=None, organization=None, postal_address=None, preferred_language=None, primary_phone=None, profile_url=None, realm_id=None, roles=None, searches=None, second_email=None, skip_groups=None, skip_roles=None, state=None, status=None, street_address=None, timezone=None, title=None, user_id=None, user_type=None, zip_code=None):
         if admin_roles and not isinstance(admin_roles, list):
             raise TypeError("Expected argument 'admin_roles' to be a list")
         pulumi.set(__self__, "admin_roles", admin_roles)
@@ -119,6 +119,9 @@ class GetUserResult:
         if profile_url and not isinstance(profile_url, str):
             raise TypeError("Expected argument 'profile_url' to be a str")
         pulumi.set(__self__, "profile_url", profile_url)
+        if realm_id and not isinstance(realm_id, str):
+            raise TypeError("Expected argument 'realm_id' to be a str")
+        pulumi.set(__self__, "realm_id", realm_id)
         if roles and not isinstance(roles, list):
             raise TypeError("Expected argument 'roles' to be a list")
         pulumi.set(__self__, "roles", roles)
@@ -319,6 +322,11 @@ class GetUserResult:
         return pulumi.get(self, "profile_url")
 
     @_builtins.property
+    @pulumi.getter(name="realmId")
+    def realm_id(self) -> _builtins.str:
+        return pulumi.get(self, "realm_id")
+
+    @_builtins.property
     @pulumi.getter
     def roles(self) -> Sequence[_builtins.str]:
         return pulumi.get(self, "roles")
@@ -432,6 +440,7 @@ class AwaitableGetUserResult(GetUserResult):
             preferred_language=self.preferred_language,
             primary_phone=self.primary_phone,
             profile_url=self.profile_url,
+            realm_id=self.realm_id,
             roles=self.roles,
             searches=self.searches,
             second_email=self.second_email,
@@ -506,6 +515,7 @@ def get_user(compound_search_operator: Optional[_builtins.str] = None,
         preferred_language=pulumi.get(__ret__, 'preferred_language'),
         primary_phone=pulumi.get(__ret__, 'primary_phone'),
         profile_url=pulumi.get(__ret__, 'profile_url'),
+        realm_id=pulumi.get(__ret__, 'realm_id'),
         roles=pulumi.get(__ret__, 'roles'),
         searches=pulumi.get(__ret__, 'searches'),
         second_email=pulumi.get(__ret__, 'second_email'),
@@ -577,6 +587,7 @@ def get_user_output(compound_search_operator: Optional[pulumi.Input[Optional[_bu
         preferred_language=pulumi.get(__response__, 'preferred_language'),
         primary_phone=pulumi.get(__response__, 'primary_phone'),
         profile_url=pulumi.get(__response__, 'profile_url'),
+        realm_id=pulumi.get(__response__, 'realm_id'),
         roles=pulumi.get(__response__, 'roles'),
         searches=pulumi.get(__response__, 'searches'),
         second_email=pulumi.get(__response__, 'second_email'),

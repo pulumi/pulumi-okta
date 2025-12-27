@@ -10011,6 +10011,457 @@ func (o TemplateSmsTranslationArrayOutput) Index(i pulumi.IntInput) TemplateSmsT
 	}).(TemplateSmsTranslationOutput)
 }
 
+type UiSchemaUiSchema struct {
+	// Specifies the button label for the Submit button at the bottom of the enrollment form.
+	ButtonLabel *string                   `pulumi:"buttonLabel"`
+	Elements    []UiSchemaUiSchemaElement `pulumi:"elements"`
+	// Specifies the label at the top of the enrollment form under the logo.
+	Label *string `pulumi:"label"`
+	// Specifies the type of layout.
+	Type *string `pulumi:"type"`
+}
+
+// UiSchemaUiSchemaInput is an input type that accepts UiSchemaUiSchemaArgs and UiSchemaUiSchemaOutput values.
+// You can construct a concrete instance of `UiSchemaUiSchemaInput` via:
+//
+//	UiSchemaUiSchemaArgs{...}
+type UiSchemaUiSchemaInput interface {
+	pulumi.Input
+
+	ToUiSchemaUiSchemaOutput() UiSchemaUiSchemaOutput
+	ToUiSchemaUiSchemaOutputWithContext(context.Context) UiSchemaUiSchemaOutput
+}
+
+type UiSchemaUiSchemaArgs struct {
+	// Specifies the button label for the Submit button at the bottom of the enrollment form.
+	ButtonLabel pulumi.StringPtrInput             `pulumi:"buttonLabel"`
+	Elements    UiSchemaUiSchemaElementArrayInput `pulumi:"elements"`
+	// Specifies the label at the top of the enrollment form under the logo.
+	Label pulumi.StringPtrInput `pulumi:"label"`
+	// Specifies the type of layout.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (UiSchemaUiSchemaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UiSchemaUiSchema)(nil)).Elem()
+}
+
+func (i UiSchemaUiSchemaArgs) ToUiSchemaUiSchemaOutput() UiSchemaUiSchemaOutput {
+	return i.ToUiSchemaUiSchemaOutputWithContext(context.Background())
+}
+
+func (i UiSchemaUiSchemaArgs) ToUiSchemaUiSchemaOutputWithContext(ctx context.Context) UiSchemaUiSchemaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UiSchemaUiSchemaOutput)
+}
+
+func (i UiSchemaUiSchemaArgs) ToUiSchemaUiSchemaPtrOutput() UiSchemaUiSchemaPtrOutput {
+	return i.ToUiSchemaUiSchemaPtrOutputWithContext(context.Background())
+}
+
+func (i UiSchemaUiSchemaArgs) ToUiSchemaUiSchemaPtrOutputWithContext(ctx context.Context) UiSchemaUiSchemaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UiSchemaUiSchemaOutput).ToUiSchemaUiSchemaPtrOutputWithContext(ctx)
+}
+
+// UiSchemaUiSchemaPtrInput is an input type that accepts UiSchemaUiSchemaArgs, UiSchemaUiSchemaPtr and UiSchemaUiSchemaPtrOutput values.
+// You can construct a concrete instance of `UiSchemaUiSchemaPtrInput` via:
+//
+//	        UiSchemaUiSchemaArgs{...}
+//
+//	or:
+//
+//	        nil
+type UiSchemaUiSchemaPtrInput interface {
+	pulumi.Input
+
+	ToUiSchemaUiSchemaPtrOutput() UiSchemaUiSchemaPtrOutput
+	ToUiSchemaUiSchemaPtrOutputWithContext(context.Context) UiSchemaUiSchemaPtrOutput
+}
+
+type uiSchemaUiSchemaPtrType UiSchemaUiSchemaArgs
+
+func UiSchemaUiSchemaPtr(v *UiSchemaUiSchemaArgs) UiSchemaUiSchemaPtrInput {
+	return (*uiSchemaUiSchemaPtrType)(v)
+}
+
+func (*uiSchemaUiSchemaPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UiSchemaUiSchema)(nil)).Elem()
+}
+
+func (i *uiSchemaUiSchemaPtrType) ToUiSchemaUiSchemaPtrOutput() UiSchemaUiSchemaPtrOutput {
+	return i.ToUiSchemaUiSchemaPtrOutputWithContext(context.Background())
+}
+
+func (i *uiSchemaUiSchemaPtrType) ToUiSchemaUiSchemaPtrOutputWithContext(ctx context.Context) UiSchemaUiSchemaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UiSchemaUiSchemaPtrOutput)
+}
+
+type UiSchemaUiSchemaOutput struct{ *pulumi.OutputState }
+
+func (UiSchemaUiSchemaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UiSchemaUiSchema)(nil)).Elem()
+}
+
+func (o UiSchemaUiSchemaOutput) ToUiSchemaUiSchemaOutput() UiSchemaUiSchemaOutput {
+	return o
+}
+
+func (o UiSchemaUiSchemaOutput) ToUiSchemaUiSchemaOutputWithContext(ctx context.Context) UiSchemaUiSchemaOutput {
+	return o
+}
+
+func (o UiSchemaUiSchemaOutput) ToUiSchemaUiSchemaPtrOutput() UiSchemaUiSchemaPtrOutput {
+	return o.ToUiSchemaUiSchemaPtrOutputWithContext(context.Background())
+}
+
+func (o UiSchemaUiSchemaOutput) ToUiSchemaUiSchemaPtrOutputWithContext(ctx context.Context) UiSchemaUiSchemaPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UiSchemaUiSchema) *UiSchemaUiSchema {
+		return &v
+	}).(UiSchemaUiSchemaPtrOutput)
+}
+
+// Specifies the button label for the Submit button at the bottom of the enrollment form.
+func (o UiSchemaUiSchemaOutput) ButtonLabel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UiSchemaUiSchema) *string { return v.ButtonLabel }).(pulumi.StringPtrOutput)
+}
+
+func (o UiSchemaUiSchemaOutput) Elements() UiSchemaUiSchemaElementArrayOutput {
+	return o.ApplyT(func(v UiSchemaUiSchema) []UiSchemaUiSchemaElement { return v.Elements }).(UiSchemaUiSchemaElementArrayOutput)
+}
+
+// Specifies the label at the top of the enrollment form under the logo.
+func (o UiSchemaUiSchemaOutput) Label() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UiSchemaUiSchema) *string { return v.Label }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the type of layout.
+func (o UiSchemaUiSchemaOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UiSchemaUiSchema) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type UiSchemaUiSchemaPtrOutput struct{ *pulumi.OutputState }
+
+func (UiSchemaUiSchemaPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UiSchemaUiSchema)(nil)).Elem()
+}
+
+func (o UiSchemaUiSchemaPtrOutput) ToUiSchemaUiSchemaPtrOutput() UiSchemaUiSchemaPtrOutput {
+	return o
+}
+
+func (o UiSchemaUiSchemaPtrOutput) ToUiSchemaUiSchemaPtrOutputWithContext(ctx context.Context) UiSchemaUiSchemaPtrOutput {
+	return o
+}
+
+func (o UiSchemaUiSchemaPtrOutput) Elem() UiSchemaUiSchemaOutput {
+	return o.ApplyT(func(v *UiSchemaUiSchema) UiSchemaUiSchema {
+		if v != nil {
+			return *v
+		}
+		var ret UiSchemaUiSchema
+		return ret
+	}).(UiSchemaUiSchemaOutput)
+}
+
+// Specifies the button label for the Submit button at the bottom of the enrollment form.
+func (o UiSchemaUiSchemaPtrOutput) ButtonLabel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UiSchemaUiSchema) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ButtonLabel
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o UiSchemaUiSchemaPtrOutput) Elements() UiSchemaUiSchemaElementArrayOutput {
+	return o.ApplyT(func(v *UiSchemaUiSchema) []UiSchemaUiSchemaElement {
+		if v == nil {
+			return nil
+		}
+		return v.Elements
+	}).(UiSchemaUiSchemaElementArrayOutput)
+}
+
+// Specifies the label at the top of the enrollment form under the logo.
+func (o UiSchemaUiSchemaPtrOutput) Label() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UiSchemaUiSchema) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Label
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the type of layout.
+func (o UiSchemaUiSchemaPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UiSchemaUiSchema) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type UiSchemaUiSchemaElement struct {
+	// Label name for the UI element.
+	Label *string `pulumi:"label"`
+	// UI Schema element options object.
+	Options *UiSchemaUiSchemaElementOptions `pulumi:"options"`
+	// Specifies the property bound to the input field. It must follow the format #/properties/PROPERTY_NAME where PROPERTY_NAME is a variable name for an attribute in profile editor.
+	Scope string `pulumi:"scope"`
+	// Specifies the relationship between this input element and scope. The Control value specifies that this input controls the value represented by scope.
+	Type *string `pulumi:"type"`
+}
+
+// UiSchemaUiSchemaElementInput is an input type that accepts UiSchemaUiSchemaElementArgs and UiSchemaUiSchemaElementOutput values.
+// You can construct a concrete instance of `UiSchemaUiSchemaElementInput` via:
+//
+//	UiSchemaUiSchemaElementArgs{...}
+type UiSchemaUiSchemaElementInput interface {
+	pulumi.Input
+
+	ToUiSchemaUiSchemaElementOutput() UiSchemaUiSchemaElementOutput
+	ToUiSchemaUiSchemaElementOutputWithContext(context.Context) UiSchemaUiSchemaElementOutput
+}
+
+type UiSchemaUiSchemaElementArgs struct {
+	// Label name for the UI element.
+	Label pulumi.StringPtrInput `pulumi:"label"`
+	// UI Schema element options object.
+	Options UiSchemaUiSchemaElementOptionsPtrInput `pulumi:"options"`
+	// Specifies the property bound to the input field. It must follow the format #/properties/PROPERTY_NAME where PROPERTY_NAME is a variable name for an attribute in profile editor.
+	Scope pulumi.StringInput `pulumi:"scope"`
+	// Specifies the relationship between this input element and scope. The Control value specifies that this input controls the value represented by scope.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (UiSchemaUiSchemaElementArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UiSchemaUiSchemaElement)(nil)).Elem()
+}
+
+func (i UiSchemaUiSchemaElementArgs) ToUiSchemaUiSchemaElementOutput() UiSchemaUiSchemaElementOutput {
+	return i.ToUiSchemaUiSchemaElementOutputWithContext(context.Background())
+}
+
+func (i UiSchemaUiSchemaElementArgs) ToUiSchemaUiSchemaElementOutputWithContext(ctx context.Context) UiSchemaUiSchemaElementOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UiSchemaUiSchemaElementOutput)
+}
+
+// UiSchemaUiSchemaElementArrayInput is an input type that accepts UiSchemaUiSchemaElementArray and UiSchemaUiSchemaElementArrayOutput values.
+// You can construct a concrete instance of `UiSchemaUiSchemaElementArrayInput` via:
+//
+//	UiSchemaUiSchemaElementArray{ UiSchemaUiSchemaElementArgs{...} }
+type UiSchemaUiSchemaElementArrayInput interface {
+	pulumi.Input
+
+	ToUiSchemaUiSchemaElementArrayOutput() UiSchemaUiSchemaElementArrayOutput
+	ToUiSchemaUiSchemaElementArrayOutputWithContext(context.Context) UiSchemaUiSchemaElementArrayOutput
+}
+
+type UiSchemaUiSchemaElementArray []UiSchemaUiSchemaElementInput
+
+func (UiSchemaUiSchemaElementArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UiSchemaUiSchemaElement)(nil)).Elem()
+}
+
+func (i UiSchemaUiSchemaElementArray) ToUiSchemaUiSchemaElementArrayOutput() UiSchemaUiSchemaElementArrayOutput {
+	return i.ToUiSchemaUiSchemaElementArrayOutputWithContext(context.Background())
+}
+
+func (i UiSchemaUiSchemaElementArray) ToUiSchemaUiSchemaElementArrayOutputWithContext(ctx context.Context) UiSchemaUiSchemaElementArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UiSchemaUiSchemaElementArrayOutput)
+}
+
+type UiSchemaUiSchemaElementOutput struct{ *pulumi.OutputState }
+
+func (UiSchemaUiSchemaElementOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UiSchemaUiSchemaElement)(nil)).Elem()
+}
+
+func (o UiSchemaUiSchemaElementOutput) ToUiSchemaUiSchemaElementOutput() UiSchemaUiSchemaElementOutput {
+	return o
+}
+
+func (o UiSchemaUiSchemaElementOutput) ToUiSchemaUiSchemaElementOutputWithContext(ctx context.Context) UiSchemaUiSchemaElementOutput {
+	return o
+}
+
+// Label name for the UI element.
+func (o UiSchemaUiSchemaElementOutput) Label() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UiSchemaUiSchemaElement) *string { return v.Label }).(pulumi.StringPtrOutput)
+}
+
+// UI Schema element options object.
+func (o UiSchemaUiSchemaElementOutput) Options() UiSchemaUiSchemaElementOptionsPtrOutput {
+	return o.ApplyT(func(v UiSchemaUiSchemaElement) *UiSchemaUiSchemaElementOptions { return v.Options }).(UiSchemaUiSchemaElementOptionsPtrOutput)
+}
+
+// Specifies the property bound to the input field. It must follow the format #/properties/PROPERTY_NAME where PROPERTY_NAME is a variable name for an attribute in profile editor.
+func (o UiSchemaUiSchemaElementOutput) Scope() pulumi.StringOutput {
+	return o.ApplyT(func(v UiSchemaUiSchemaElement) string { return v.Scope }).(pulumi.StringOutput)
+}
+
+// Specifies the relationship between this input element and scope. The Control value specifies that this input controls the value represented by scope.
+func (o UiSchemaUiSchemaElementOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UiSchemaUiSchemaElement) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type UiSchemaUiSchemaElementArrayOutput struct{ *pulumi.OutputState }
+
+func (UiSchemaUiSchemaElementArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UiSchemaUiSchemaElement)(nil)).Elem()
+}
+
+func (o UiSchemaUiSchemaElementArrayOutput) ToUiSchemaUiSchemaElementArrayOutput() UiSchemaUiSchemaElementArrayOutput {
+	return o
+}
+
+func (o UiSchemaUiSchemaElementArrayOutput) ToUiSchemaUiSchemaElementArrayOutputWithContext(ctx context.Context) UiSchemaUiSchemaElementArrayOutput {
+	return o
+}
+
+func (o UiSchemaUiSchemaElementArrayOutput) Index(i pulumi.IntInput) UiSchemaUiSchemaElementOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) UiSchemaUiSchemaElement {
+		return vs[0].([]UiSchemaUiSchemaElement)[vs[1].(int)]
+	}).(UiSchemaUiSchemaElementOutput)
+}
+
+type UiSchemaUiSchemaElementOptions struct {
+	// Specifies how the input appears.
+	Format *string `pulumi:"format"`
+}
+
+// UiSchemaUiSchemaElementOptionsInput is an input type that accepts UiSchemaUiSchemaElementOptionsArgs and UiSchemaUiSchemaElementOptionsOutput values.
+// You can construct a concrete instance of `UiSchemaUiSchemaElementOptionsInput` via:
+//
+//	UiSchemaUiSchemaElementOptionsArgs{...}
+type UiSchemaUiSchemaElementOptionsInput interface {
+	pulumi.Input
+
+	ToUiSchemaUiSchemaElementOptionsOutput() UiSchemaUiSchemaElementOptionsOutput
+	ToUiSchemaUiSchemaElementOptionsOutputWithContext(context.Context) UiSchemaUiSchemaElementOptionsOutput
+}
+
+type UiSchemaUiSchemaElementOptionsArgs struct {
+	// Specifies how the input appears.
+	Format pulumi.StringPtrInput `pulumi:"format"`
+}
+
+func (UiSchemaUiSchemaElementOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UiSchemaUiSchemaElementOptions)(nil)).Elem()
+}
+
+func (i UiSchemaUiSchemaElementOptionsArgs) ToUiSchemaUiSchemaElementOptionsOutput() UiSchemaUiSchemaElementOptionsOutput {
+	return i.ToUiSchemaUiSchemaElementOptionsOutputWithContext(context.Background())
+}
+
+func (i UiSchemaUiSchemaElementOptionsArgs) ToUiSchemaUiSchemaElementOptionsOutputWithContext(ctx context.Context) UiSchemaUiSchemaElementOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UiSchemaUiSchemaElementOptionsOutput)
+}
+
+func (i UiSchemaUiSchemaElementOptionsArgs) ToUiSchemaUiSchemaElementOptionsPtrOutput() UiSchemaUiSchemaElementOptionsPtrOutput {
+	return i.ToUiSchemaUiSchemaElementOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i UiSchemaUiSchemaElementOptionsArgs) ToUiSchemaUiSchemaElementOptionsPtrOutputWithContext(ctx context.Context) UiSchemaUiSchemaElementOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UiSchemaUiSchemaElementOptionsOutput).ToUiSchemaUiSchemaElementOptionsPtrOutputWithContext(ctx)
+}
+
+// UiSchemaUiSchemaElementOptionsPtrInput is an input type that accepts UiSchemaUiSchemaElementOptionsArgs, UiSchemaUiSchemaElementOptionsPtr and UiSchemaUiSchemaElementOptionsPtrOutput values.
+// You can construct a concrete instance of `UiSchemaUiSchemaElementOptionsPtrInput` via:
+//
+//	        UiSchemaUiSchemaElementOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type UiSchemaUiSchemaElementOptionsPtrInput interface {
+	pulumi.Input
+
+	ToUiSchemaUiSchemaElementOptionsPtrOutput() UiSchemaUiSchemaElementOptionsPtrOutput
+	ToUiSchemaUiSchemaElementOptionsPtrOutputWithContext(context.Context) UiSchemaUiSchemaElementOptionsPtrOutput
+}
+
+type uiSchemaUiSchemaElementOptionsPtrType UiSchemaUiSchemaElementOptionsArgs
+
+func UiSchemaUiSchemaElementOptionsPtr(v *UiSchemaUiSchemaElementOptionsArgs) UiSchemaUiSchemaElementOptionsPtrInput {
+	return (*uiSchemaUiSchemaElementOptionsPtrType)(v)
+}
+
+func (*uiSchemaUiSchemaElementOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UiSchemaUiSchemaElementOptions)(nil)).Elem()
+}
+
+func (i *uiSchemaUiSchemaElementOptionsPtrType) ToUiSchemaUiSchemaElementOptionsPtrOutput() UiSchemaUiSchemaElementOptionsPtrOutput {
+	return i.ToUiSchemaUiSchemaElementOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *uiSchemaUiSchemaElementOptionsPtrType) ToUiSchemaUiSchemaElementOptionsPtrOutputWithContext(ctx context.Context) UiSchemaUiSchemaElementOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UiSchemaUiSchemaElementOptionsPtrOutput)
+}
+
+type UiSchemaUiSchemaElementOptionsOutput struct{ *pulumi.OutputState }
+
+func (UiSchemaUiSchemaElementOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UiSchemaUiSchemaElementOptions)(nil)).Elem()
+}
+
+func (o UiSchemaUiSchemaElementOptionsOutput) ToUiSchemaUiSchemaElementOptionsOutput() UiSchemaUiSchemaElementOptionsOutput {
+	return o
+}
+
+func (o UiSchemaUiSchemaElementOptionsOutput) ToUiSchemaUiSchemaElementOptionsOutputWithContext(ctx context.Context) UiSchemaUiSchemaElementOptionsOutput {
+	return o
+}
+
+func (o UiSchemaUiSchemaElementOptionsOutput) ToUiSchemaUiSchemaElementOptionsPtrOutput() UiSchemaUiSchemaElementOptionsPtrOutput {
+	return o.ToUiSchemaUiSchemaElementOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o UiSchemaUiSchemaElementOptionsOutput) ToUiSchemaUiSchemaElementOptionsPtrOutputWithContext(ctx context.Context) UiSchemaUiSchemaElementOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UiSchemaUiSchemaElementOptions) *UiSchemaUiSchemaElementOptions {
+		return &v
+	}).(UiSchemaUiSchemaElementOptionsPtrOutput)
+}
+
+// Specifies how the input appears.
+func (o UiSchemaUiSchemaElementOptionsOutput) Format() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UiSchemaUiSchemaElementOptions) *string { return v.Format }).(pulumi.StringPtrOutput)
+}
+
+type UiSchemaUiSchemaElementOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (UiSchemaUiSchemaElementOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UiSchemaUiSchemaElementOptions)(nil)).Elem()
+}
+
+func (o UiSchemaUiSchemaElementOptionsPtrOutput) ToUiSchemaUiSchemaElementOptionsPtrOutput() UiSchemaUiSchemaElementOptionsPtrOutput {
+	return o
+}
+
+func (o UiSchemaUiSchemaElementOptionsPtrOutput) ToUiSchemaUiSchemaElementOptionsPtrOutputWithContext(ctx context.Context) UiSchemaUiSchemaElementOptionsPtrOutput {
+	return o
+}
+
+func (o UiSchemaUiSchemaElementOptionsPtrOutput) Elem() UiSchemaUiSchemaElementOptionsOutput {
+	return o.ApplyT(func(v *UiSchemaUiSchemaElementOptions) UiSchemaUiSchemaElementOptions {
+		if v != nil {
+			return *v
+		}
+		var ret UiSchemaUiSchemaElementOptions
+		return ret
+	}).(UiSchemaUiSchemaElementOptionsOutput)
+}
+
+// Specifies how the input appears.
+func (o UiSchemaUiSchemaElementOptionsPtrOutput) Format() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UiSchemaUiSchemaElementOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Format
+	}).(pulumi.StringPtrOutput)
+}
+
 type UserSchemaPropertyArrayOneOf struct {
 	// Value mapping to member of `arrayEnum`
 	Const string `pulumi:"const"`
@@ -26016,6 +26467,457 @@ func (o GetTrustedOriginsTrustedOriginArrayOutput) Index(i pulumi.IntInput) GetT
 	}).(GetTrustedOriginsTrustedOriginOutput)
 }
 
+type GetUiSchemaUiSchema struct {
+	// Specifies the button label for the Submit button at the bottom of the enrollment form.
+	ButtonLabel string                       `pulumi:"buttonLabel"`
+	Elements    []GetUiSchemaUiSchemaElement `pulumi:"elements"`
+	// Specifies the label at the top of the enrollment form under the logo.
+	Label string `pulumi:"label"`
+	// Specifies the type of layout.
+	Type string `pulumi:"type"`
+}
+
+// GetUiSchemaUiSchemaInput is an input type that accepts GetUiSchemaUiSchemaArgs and GetUiSchemaUiSchemaOutput values.
+// You can construct a concrete instance of `GetUiSchemaUiSchemaInput` via:
+//
+//	GetUiSchemaUiSchemaArgs{...}
+type GetUiSchemaUiSchemaInput interface {
+	pulumi.Input
+
+	ToGetUiSchemaUiSchemaOutput() GetUiSchemaUiSchemaOutput
+	ToGetUiSchemaUiSchemaOutputWithContext(context.Context) GetUiSchemaUiSchemaOutput
+}
+
+type GetUiSchemaUiSchemaArgs struct {
+	// Specifies the button label for the Submit button at the bottom of the enrollment form.
+	ButtonLabel pulumi.StringInput                   `pulumi:"buttonLabel"`
+	Elements    GetUiSchemaUiSchemaElementArrayInput `pulumi:"elements"`
+	// Specifies the label at the top of the enrollment form under the logo.
+	Label pulumi.StringInput `pulumi:"label"`
+	// Specifies the type of layout.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetUiSchemaUiSchemaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUiSchemaUiSchema)(nil)).Elem()
+}
+
+func (i GetUiSchemaUiSchemaArgs) ToGetUiSchemaUiSchemaOutput() GetUiSchemaUiSchemaOutput {
+	return i.ToGetUiSchemaUiSchemaOutputWithContext(context.Background())
+}
+
+func (i GetUiSchemaUiSchemaArgs) ToGetUiSchemaUiSchemaOutputWithContext(ctx context.Context) GetUiSchemaUiSchemaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetUiSchemaUiSchemaOutput)
+}
+
+func (i GetUiSchemaUiSchemaArgs) ToGetUiSchemaUiSchemaPtrOutput() GetUiSchemaUiSchemaPtrOutput {
+	return i.ToGetUiSchemaUiSchemaPtrOutputWithContext(context.Background())
+}
+
+func (i GetUiSchemaUiSchemaArgs) ToGetUiSchemaUiSchemaPtrOutputWithContext(ctx context.Context) GetUiSchemaUiSchemaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetUiSchemaUiSchemaOutput).ToGetUiSchemaUiSchemaPtrOutputWithContext(ctx)
+}
+
+// GetUiSchemaUiSchemaPtrInput is an input type that accepts GetUiSchemaUiSchemaArgs, GetUiSchemaUiSchemaPtr and GetUiSchemaUiSchemaPtrOutput values.
+// You can construct a concrete instance of `GetUiSchemaUiSchemaPtrInput` via:
+//
+//	        GetUiSchemaUiSchemaArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetUiSchemaUiSchemaPtrInput interface {
+	pulumi.Input
+
+	ToGetUiSchemaUiSchemaPtrOutput() GetUiSchemaUiSchemaPtrOutput
+	ToGetUiSchemaUiSchemaPtrOutputWithContext(context.Context) GetUiSchemaUiSchemaPtrOutput
+}
+
+type getUiSchemaUiSchemaPtrType GetUiSchemaUiSchemaArgs
+
+func GetUiSchemaUiSchemaPtr(v *GetUiSchemaUiSchemaArgs) GetUiSchemaUiSchemaPtrInput {
+	return (*getUiSchemaUiSchemaPtrType)(v)
+}
+
+func (*getUiSchemaUiSchemaPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetUiSchemaUiSchema)(nil)).Elem()
+}
+
+func (i *getUiSchemaUiSchemaPtrType) ToGetUiSchemaUiSchemaPtrOutput() GetUiSchemaUiSchemaPtrOutput {
+	return i.ToGetUiSchemaUiSchemaPtrOutputWithContext(context.Background())
+}
+
+func (i *getUiSchemaUiSchemaPtrType) ToGetUiSchemaUiSchemaPtrOutputWithContext(ctx context.Context) GetUiSchemaUiSchemaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetUiSchemaUiSchemaPtrOutput)
+}
+
+type GetUiSchemaUiSchemaOutput struct{ *pulumi.OutputState }
+
+func (GetUiSchemaUiSchemaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUiSchemaUiSchema)(nil)).Elem()
+}
+
+func (o GetUiSchemaUiSchemaOutput) ToGetUiSchemaUiSchemaOutput() GetUiSchemaUiSchemaOutput {
+	return o
+}
+
+func (o GetUiSchemaUiSchemaOutput) ToGetUiSchemaUiSchemaOutputWithContext(ctx context.Context) GetUiSchemaUiSchemaOutput {
+	return o
+}
+
+func (o GetUiSchemaUiSchemaOutput) ToGetUiSchemaUiSchemaPtrOutput() GetUiSchemaUiSchemaPtrOutput {
+	return o.ToGetUiSchemaUiSchemaPtrOutputWithContext(context.Background())
+}
+
+func (o GetUiSchemaUiSchemaOutput) ToGetUiSchemaUiSchemaPtrOutputWithContext(ctx context.Context) GetUiSchemaUiSchemaPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetUiSchemaUiSchema) *GetUiSchemaUiSchema {
+		return &v
+	}).(GetUiSchemaUiSchemaPtrOutput)
+}
+
+// Specifies the button label for the Submit button at the bottom of the enrollment form.
+func (o GetUiSchemaUiSchemaOutput) ButtonLabel() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUiSchemaUiSchema) string { return v.ButtonLabel }).(pulumi.StringOutput)
+}
+
+func (o GetUiSchemaUiSchemaOutput) Elements() GetUiSchemaUiSchemaElementArrayOutput {
+	return o.ApplyT(func(v GetUiSchemaUiSchema) []GetUiSchemaUiSchemaElement { return v.Elements }).(GetUiSchemaUiSchemaElementArrayOutput)
+}
+
+// Specifies the label at the top of the enrollment form under the logo.
+func (o GetUiSchemaUiSchemaOutput) Label() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUiSchemaUiSchema) string { return v.Label }).(pulumi.StringOutput)
+}
+
+// Specifies the type of layout.
+func (o GetUiSchemaUiSchemaOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUiSchemaUiSchema) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetUiSchemaUiSchemaPtrOutput struct{ *pulumi.OutputState }
+
+func (GetUiSchemaUiSchemaPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetUiSchemaUiSchema)(nil)).Elem()
+}
+
+func (o GetUiSchemaUiSchemaPtrOutput) ToGetUiSchemaUiSchemaPtrOutput() GetUiSchemaUiSchemaPtrOutput {
+	return o
+}
+
+func (o GetUiSchemaUiSchemaPtrOutput) ToGetUiSchemaUiSchemaPtrOutputWithContext(ctx context.Context) GetUiSchemaUiSchemaPtrOutput {
+	return o
+}
+
+func (o GetUiSchemaUiSchemaPtrOutput) Elem() GetUiSchemaUiSchemaOutput {
+	return o.ApplyT(func(v *GetUiSchemaUiSchema) GetUiSchemaUiSchema {
+		if v != nil {
+			return *v
+		}
+		var ret GetUiSchemaUiSchema
+		return ret
+	}).(GetUiSchemaUiSchemaOutput)
+}
+
+// Specifies the button label for the Submit button at the bottom of the enrollment form.
+func (o GetUiSchemaUiSchemaPtrOutput) ButtonLabel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetUiSchemaUiSchema) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ButtonLabel
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o GetUiSchemaUiSchemaPtrOutput) Elements() GetUiSchemaUiSchemaElementArrayOutput {
+	return o.ApplyT(func(v *GetUiSchemaUiSchema) []GetUiSchemaUiSchemaElement {
+		if v == nil {
+			return nil
+		}
+		return v.Elements
+	}).(GetUiSchemaUiSchemaElementArrayOutput)
+}
+
+// Specifies the label at the top of the enrollment form under the logo.
+func (o GetUiSchemaUiSchemaPtrOutput) Label() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetUiSchemaUiSchema) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Label
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the type of layout.
+func (o GetUiSchemaUiSchemaPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetUiSchemaUiSchema) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetUiSchemaUiSchemaElement struct {
+	// Label name for the UI element.
+	Label string `pulumi:"label"`
+	// UI Schema element options object.
+	Options *GetUiSchemaUiSchemaElementOptions `pulumi:"options"`
+	// Specifies the property bound to the input field. It must follow the format #/properties/PROPERTY_NAME where PROPERTY_NAME is a variable name for an attribute in profile editor.
+	Scope string `pulumi:"scope"`
+	// Specifies the relationship between this input element and scope. The Control value specifies that this input controls the value represented by scope.
+	Type string `pulumi:"type"`
+}
+
+// GetUiSchemaUiSchemaElementInput is an input type that accepts GetUiSchemaUiSchemaElementArgs and GetUiSchemaUiSchemaElementOutput values.
+// You can construct a concrete instance of `GetUiSchemaUiSchemaElementInput` via:
+//
+//	GetUiSchemaUiSchemaElementArgs{...}
+type GetUiSchemaUiSchemaElementInput interface {
+	pulumi.Input
+
+	ToGetUiSchemaUiSchemaElementOutput() GetUiSchemaUiSchemaElementOutput
+	ToGetUiSchemaUiSchemaElementOutputWithContext(context.Context) GetUiSchemaUiSchemaElementOutput
+}
+
+type GetUiSchemaUiSchemaElementArgs struct {
+	// Label name for the UI element.
+	Label pulumi.StringInput `pulumi:"label"`
+	// UI Schema element options object.
+	Options GetUiSchemaUiSchemaElementOptionsPtrInput `pulumi:"options"`
+	// Specifies the property bound to the input field. It must follow the format #/properties/PROPERTY_NAME where PROPERTY_NAME is a variable name for an attribute in profile editor.
+	Scope pulumi.StringInput `pulumi:"scope"`
+	// Specifies the relationship between this input element and scope. The Control value specifies that this input controls the value represented by scope.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetUiSchemaUiSchemaElementArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUiSchemaUiSchemaElement)(nil)).Elem()
+}
+
+func (i GetUiSchemaUiSchemaElementArgs) ToGetUiSchemaUiSchemaElementOutput() GetUiSchemaUiSchemaElementOutput {
+	return i.ToGetUiSchemaUiSchemaElementOutputWithContext(context.Background())
+}
+
+func (i GetUiSchemaUiSchemaElementArgs) ToGetUiSchemaUiSchemaElementOutputWithContext(ctx context.Context) GetUiSchemaUiSchemaElementOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetUiSchemaUiSchemaElementOutput)
+}
+
+// GetUiSchemaUiSchemaElementArrayInput is an input type that accepts GetUiSchemaUiSchemaElementArray and GetUiSchemaUiSchemaElementArrayOutput values.
+// You can construct a concrete instance of `GetUiSchemaUiSchemaElementArrayInput` via:
+//
+//	GetUiSchemaUiSchemaElementArray{ GetUiSchemaUiSchemaElementArgs{...} }
+type GetUiSchemaUiSchemaElementArrayInput interface {
+	pulumi.Input
+
+	ToGetUiSchemaUiSchemaElementArrayOutput() GetUiSchemaUiSchemaElementArrayOutput
+	ToGetUiSchemaUiSchemaElementArrayOutputWithContext(context.Context) GetUiSchemaUiSchemaElementArrayOutput
+}
+
+type GetUiSchemaUiSchemaElementArray []GetUiSchemaUiSchemaElementInput
+
+func (GetUiSchemaUiSchemaElementArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetUiSchemaUiSchemaElement)(nil)).Elem()
+}
+
+func (i GetUiSchemaUiSchemaElementArray) ToGetUiSchemaUiSchemaElementArrayOutput() GetUiSchemaUiSchemaElementArrayOutput {
+	return i.ToGetUiSchemaUiSchemaElementArrayOutputWithContext(context.Background())
+}
+
+func (i GetUiSchemaUiSchemaElementArray) ToGetUiSchemaUiSchemaElementArrayOutputWithContext(ctx context.Context) GetUiSchemaUiSchemaElementArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetUiSchemaUiSchemaElementArrayOutput)
+}
+
+type GetUiSchemaUiSchemaElementOutput struct{ *pulumi.OutputState }
+
+func (GetUiSchemaUiSchemaElementOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUiSchemaUiSchemaElement)(nil)).Elem()
+}
+
+func (o GetUiSchemaUiSchemaElementOutput) ToGetUiSchemaUiSchemaElementOutput() GetUiSchemaUiSchemaElementOutput {
+	return o
+}
+
+func (o GetUiSchemaUiSchemaElementOutput) ToGetUiSchemaUiSchemaElementOutputWithContext(ctx context.Context) GetUiSchemaUiSchemaElementOutput {
+	return o
+}
+
+// Label name for the UI element.
+func (o GetUiSchemaUiSchemaElementOutput) Label() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUiSchemaUiSchemaElement) string { return v.Label }).(pulumi.StringOutput)
+}
+
+// UI Schema element options object.
+func (o GetUiSchemaUiSchemaElementOutput) Options() GetUiSchemaUiSchemaElementOptionsPtrOutput {
+	return o.ApplyT(func(v GetUiSchemaUiSchemaElement) *GetUiSchemaUiSchemaElementOptions { return v.Options }).(GetUiSchemaUiSchemaElementOptionsPtrOutput)
+}
+
+// Specifies the property bound to the input field. It must follow the format #/properties/PROPERTY_NAME where PROPERTY_NAME is a variable name for an attribute in profile editor.
+func (o GetUiSchemaUiSchemaElementOutput) Scope() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUiSchemaUiSchemaElement) string { return v.Scope }).(pulumi.StringOutput)
+}
+
+// Specifies the relationship between this input element and scope. The Control value specifies that this input controls the value represented by scope.
+func (o GetUiSchemaUiSchemaElementOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUiSchemaUiSchemaElement) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetUiSchemaUiSchemaElementArrayOutput struct{ *pulumi.OutputState }
+
+func (GetUiSchemaUiSchemaElementArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetUiSchemaUiSchemaElement)(nil)).Elem()
+}
+
+func (o GetUiSchemaUiSchemaElementArrayOutput) ToGetUiSchemaUiSchemaElementArrayOutput() GetUiSchemaUiSchemaElementArrayOutput {
+	return o
+}
+
+func (o GetUiSchemaUiSchemaElementArrayOutput) ToGetUiSchemaUiSchemaElementArrayOutputWithContext(ctx context.Context) GetUiSchemaUiSchemaElementArrayOutput {
+	return o
+}
+
+func (o GetUiSchemaUiSchemaElementArrayOutput) Index(i pulumi.IntInput) GetUiSchemaUiSchemaElementOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetUiSchemaUiSchemaElement {
+		return vs[0].([]GetUiSchemaUiSchemaElement)[vs[1].(int)]
+	}).(GetUiSchemaUiSchemaElementOutput)
+}
+
+type GetUiSchemaUiSchemaElementOptions struct {
+	// Specifies how the input appears.
+	Format string `pulumi:"format"`
+}
+
+// GetUiSchemaUiSchemaElementOptionsInput is an input type that accepts GetUiSchemaUiSchemaElementOptionsArgs and GetUiSchemaUiSchemaElementOptionsOutput values.
+// You can construct a concrete instance of `GetUiSchemaUiSchemaElementOptionsInput` via:
+//
+//	GetUiSchemaUiSchemaElementOptionsArgs{...}
+type GetUiSchemaUiSchemaElementOptionsInput interface {
+	pulumi.Input
+
+	ToGetUiSchemaUiSchemaElementOptionsOutput() GetUiSchemaUiSchemaElementOptionsOutput
+	ToGetUiSchemaUiSchemaElementOptionsOutputWithContext(context.Context) GetUiSchemaUiSchemaElementOptionsOutput
+}
+
+type GetUiSchemaUiSchemaElementOptionsArgs struct {
+	// Specifies how the input appears.
+	Format pulumi.StringInput `pulumi:"format"`
+}
+
+func (GetUiSchemaUiSchemaElementOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUiSchemaUiSchemaElementOptions)(nil)).Elem()
+}
+
+func (i GetUiSchemaUiSchemaElementOptionsArgs) ToGetUiSchemaUiSchemaElementOptionsOutput() GetUiSchemaUiSchemaElementOptionsOutput {
+	return i.ToGetUiSchemaUiSchemaElementOptionsOutputWithContext(context.Background())
+}
+
+func (i GetUiSchemaUiSchemaElementOptionsArgs) ToGetUiSchemaUiSchemaElementOptionsOutputWithContext(ctx context.Context) GetUiSchemaUiSchemaElementOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetUiSchemaUiSchemaElementOptionsOutput)
+}
+
+func (i GetUiSchemaUiSchemaElementOptionsArgs) ToGetUiSchemaUiSchemaElementOptionsPtrOutput() GetUiSchemaUiSchemaElementOptionsPtrOutput {
+	return i.ToGetUiSchemaUiSchemaElementOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i GetUiSchemaUiSchemaElementOptionsArgs) ToGetUiSchemaUiSchemaElementOptionsPtrOutputWithContext(ctx context.Context) GetUiSchemaUiSchemaElementOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetUiSchemaUiSchemaElementOptionsOutput).ToGetUiSchemaUiSchemaElementOptionsPtrOutputWithContext(ctx)
+}
+
+// GetUiSchemaUiSchemaElementOptionsPtrInput is an input type that accepts GetUiSchemaUiSchemaElementOptionsArgs, GetUiSchemaUiSchemaElementOptionsPtr and GetUiSchemaUiSchemaElementOptionsPtrOutput values.
+// You can construct a concrete instance of `GetUiSchemaUiSchemaElementOptionsPtrInput` via:
+//
+//	        GetUiSchemaUiSchemaElementOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetUiSchemaUiSchemaElementOptionsPtrInput interface {
+	pulumi.Input
+
+	ToGetUiSchemaUiSchemaElementOptionsPtrOutput() GetUiSchemaUiSchemaElementOptionsPtrOutput
+	ToGetUiSchemaUiSchemaElementOptionsPtrOutputWithContext(context.Context) GetUiSchemaUiSchemaElementOptionsPtrOutput
+}
+
+type getUiSchemaUiSchemaElementOptionsPtrType GetUiSchemaUiSchemaElementOptionsArgs
+
+func GetUiSchemaUiSchemaElementOptionsPtr(v *GetUiSchemaUiSchemaElementOptionsArgs) GetUiSchemaUiSchemaElementOptionsPtrInput {
+	return (*getUiSchemaUiSchemaElementOptionsPtrType)(v)
+}
+
+func (*getUiSchemaUiSchemaElementOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetUiSchemaUiSchemaElementOptions)(nil)).Elem()
+}
+
+func (i *getUiSchemaUiSchemaElementOptionsPtrType) ToGetUiSchemaUiSchemaElementOptionsPtrOutput() GetUiSchemaUiSchemaElementOptionsPtrOutput {
+	return i.ToGetUiSchemaUiSchemaElementOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *getUiSchemaUiSchemaElementOptionsPtrType) ToGetUiSchemaUiSchemaElementOptionsPtrOutputWithContext(ctx context.Context) GetUiSchemaUiSchemaElementOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetUiSchemaUiSchemaElementOptionsPtrOutput)
+}
+
+type GetUiSchemaUiSchemaElementOptionsOutput struct{ *pulumi.OutputState }
+
+func (GetUiSchemaUiSchemaElementOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUiSchemaUiSchemaElementOptions)(nil)).Elem()
+}
+
+func (o GetUiSchemaUiSchemaElementOptionsOutput) ToGetUiSchemaUiSchemaElementOptionsOutput() GetUiSchemaUiSchemaElementOptionsOutput {
+	return o
+}
+
+func (o GetUiSchemaUiSchemaElementOptionsOutput) ToGetUiSchemaUiSchemaElementOptionsOutputWithContext(ctx context.Context) GetUiSchemaUiSchemaElementOptionsOutput {
+	return o
+}
+
+func (o GetUiSchemaUiSchemaElementOptionsOutput) ToGetUiSchemaUiSchemaElementOptionsPtrOutput() GetUiSchemaUiSchemaElementOptionsPtrOutput {
+	return o.ToGetUiSchemaUiSchemaElementOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o GetUiSchemaUiSchemaElementOptionsOutput) ToGetUiSchemaUiSchemaElementOptionsPtrOutputWithContext(ctx context.Context) GetUiSchemaUiSchemaElementOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetUiSchemaUiSchemaElementOptions) *GetUiSchemaUiSchemaElementOptions {
+		return &v
+	}).(GetUiSchemaUiSchemaElementOptionsPtrOutput)
+}
+
+// Specifies how the input appears.
+func (o GetUiSchemaUiSchemaElementOptionsOutput) Format() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUiSchemaUiSchemaElementOptions) string { return v.Format }).(pulumi.StringOutput)
+}
+
+type GetUiSchemaUiSchemaElementOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (GetUiSchemaUiSchemaElementOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetUiSchemaUiSchemaElementOptions)(nil)).Elem()
+}
+
+func (o GetUiSchemaUiSchemaElementOptionsPtrOutput) ToGetUiSchemaUiSchemaElementOptionsPtrOutput() GetUiSchemaUiSchemaElementOptionsPtrOutput {
+	return o
+}
+
+func (o GetUiSchemaUiSchemaElementOptionsPtrOutput) ToGetUiSchemaUiSchemaElementOptionsPtrOutputWithContext(ctx context.Context) GetUiSchemaUiSchemaElementOptionsPtrOutput {
+	return o
+}
+
+func (o GetUiSchemaUiSchemaElementOptionsPtrOutput) Elem() GetUiSchemaUiSchemaElementOptionsOutput {
+	return o.ApplyT(func(v *GetUiSchemaUiSchemaElementOptions) GetUiSchemaUiSchemaElementOptions {
+		if v != nil {
+			return *v
+		}
+		var ret GetUiSchemaUiSchemaElementOptions
+		return ret
+	}).(GetUiSchemaUiSchemaElementOptionsOutput)
+}
+
+// Specifies how the input appears.
+func (o GetUiSchemaUiSchemaElementOptionsPtrOutput) Format() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetUiSchemaUiSchemaElementOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Format
+	}).(pulumi.StringPtrOutput)
+}
+
 type GetUserSecurityQuestionsQuestion struct {
 	Key  string `pulumi:"key"`
 	Text string `pulumi:"text"`
@@ -26245,6 +27147,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityEventsProviderSettingsPtrInput)(nil)).Elem(), SecurityEventsProviderSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateSmsTranslationInput)(nil)).Elem(), TemplateSmsTranslationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateSmsTranslationArrayInput)(nil)).Elem(), TemplateSmsTranslationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UiSchemaUiSchemaInput)(nil)).Elem(), UiSchemaUiSchemaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UiSchemaUiSchemaPtrInput)(nil)).Elem(), UiSchemaUiSchemaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UiSchemaUiSchemaElementInput)(nil)).Elem(), UiSchemaUiSchemaElementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UiSchemaUiSchemaElementArrayInput)(nil)).Elem(), UiSchemaUiSchemaElementArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UiSchemaUiSchemaElementOptionsInput)(nil)).Elem(), UiSchemaUiSchemaElementOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UiSchemaUiSchemaElementOptionsPtrInput)(nil)).Elem(), UiSchemaUiSchemaElementOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserSchemaPropertyArrayOneOfInput)(nil)).Elem(), UserSchemaPropertyArrayOneOfArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserSchemaPropertyArrayOneOfArrayInput)(nil)).Elem(), UserSchemaPropertyArrayOneOfArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserSchemaPropertyMasterOverridePriorityInput)(nil)).Elem(), UserSchemaPropertyMasterOverridePriorityArgs{})
@@ -26451,6 +27359,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetThemesThemeArrayInput)(nil)).Elem(), GetThemesThemeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTrustedOriginsTrustedOriginInput)(nil)).Elem(), GetTrustedOriginsTrustedOriginArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTrustedOriginsTrustedOriginArrayInput)(nil)).Elem(), GetTrustedOriginsTrustedOriginArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetUiSchemaUiSchemaInput)(nil)).Elem(), GetUiSchemaUiSchemaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetUiSchemaUiSchemaPtrInput)(nil)).Elem(), GetUiSchemaUiSchemaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetUiSchemaUiSchemaElementInput)(nil)).Elem(), GetUiSchemaUiSchemaElementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetUiSchemaUiSchemaElementArrayInput)(nil)).Elem(), GetUiSchemaUiSchemaElementArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetUiSchemaUiSchemaElementOptionsInput)(nil)).Elem(), GetUiSchemaUiSchemaElementOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetUiSchemaUiSchemaElementOptionsPtrInput)(nil)).Elem(), GetUiSchemaUiSchemaElementOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUserSecurityQuestionsQuestionInput)(nil)).Elem(), GetUserSecurityQuestionsQuestionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUserSecurityQuestionsQuestionArrayInput)(nil)).Elem(), GetUserSecurityQuestionsQuestionArray{})
 	pulumi.RegisterOutputType(ApiServiceIntegrationGrantedScopeOutput{})
@@ -26581,6 +27495,12 @@ func init() {
 	pulumi.RegisterOutputType(SecurityEventsProviderSettingsPtrOutput{})
 	pulumi.RegisterOutputType(TemplateSmsTranslationOutput{})
 	pulumi.RegisterOutputType(TemplateSmsTranslationArrayOutput{})
+	pulumi.RegisterOutputType(UiSchemaUiSchemaOutput{})
+	pulumi.RegisterOutputType(UiSchemaUiSchemaPtrOutput{})
+	pulumi.RegisterOutputType(UiSchemaUiSchemaElementOutput{})
+	pulumi.RegisterOutputType(UiSchemaUiSchemaElementArrayOutput{})
+	pulumi.RegisterOutputType(UiSchemaUiSchemaElementOptionsOutput{})
+	pulumi.RegisterOutputType(UiSchemaUiSchemaElementOptionsPtrOutput{})
 	pulumi.RegisterOutputType(UserSchemaPropertyArrayOneOfOutput{})
 	pulumi.RegisterOutputType(UserSchemaPropertyArrayOneOfArrayOutput{})
 	pulumi.RegisterOutputType(UserSchemaPropertyMasterOverridePriorityOutput{})
@@ -26787,6 +27707,12 @@ func init() {
 	pulumi.RegisterOutputType(GetThemesThemeArrayOutput{})
 	pulumi.RegisterOutputType(GetTrustedOriginsTrustedOriginOutput{})
 	pulumi.RegisterOutputType(GetTrustedOriginsTrustedOriginArrayOutput{})
+	pulumi.RegisterOutputType(GetUiSchemaUiSchemaOutput{})
+	pulumi.RegisterOutputType(GetUiSchemaUiSchemaPtrOutput{})
+	pulumi.RegisterOutputType(GetUiSchemaUiSchemaElementOutput{})
+	pulumi.RegisterOutputType(GetUiSchemaUiSchemaElementArrayOutput{})
+	pulumi.RegisterOutputType(GetUiSchemaUiSchemaElementOptionsOutput{})
+	pulumi.RegisterOutputType(GetUiSchemaUiSchemaElementOptionsPtrOutput{})
 	pulumi.RegisterOutputType(GetUserSecurityQuestionsQuestionOutput{})
 	pulumi.RegisterOutputType(GetUserSecurityQuestionsQuestionArrayOutput{})
 }
