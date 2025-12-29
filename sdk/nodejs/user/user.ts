@@ -219,6 +219,10 @@ export class User extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly rawStatus: pulumi.Output<string>;
     /**
+     * The Realm ID to associate the user with
+     */
+    declare public readonly realmId: pulumi.Output<string>;
+    /**
      * User Password Recovery Answer
      */
     declare public readonly recoveryAnswer: pulumi.Output<string | undefined>;
@@ -310,6 +314,7 @@ export class User extends pulumi.CustomResource {
             resourceInputs["primaryPhone"] = state?.primaryPhone;
             resourceInputs["profileUrl"] = state?.profileUrl;
             resourceInputs["rawStatus"] = state?.rawStatus;
+            resourceInputs["realmId"] = state?.realmId;
             resourceInputs["recoveryAnswer"] = state?.recoveryAnswer;
             resourceInputs["recoveryQuestion"] = state?.recoveryQuestion;
             resourceInputs["secondEmail"] = state?.secondEmail;
@@ -366,6 +371,7 @@ export class User extends pulumi.CustomResource {
             resourceInputs["preferredLanguage"] = args?.preferredLanguage;
             resourceInputs["primaryPhone"] = args?.primaryPhone;
             resourceInputs["profileUrl"] = args?.profileUrl;
+            resourceInputs["realmId"] = args?.realmId;
             resourceInputs["recoveryAnswer"] = args?.recoveryAnswer ? pulumi.secret(args.recoveryAnswer) : undefined;
             resourceInputs["recoveryQuestion"] = args?.recoveryQuestion;
             resourceInputs["secondEmail"] = args?.secondEmail;
@@ -515,6 +521,10 @@ export interface UserState {
      * The raw status of the User in Okta - (status is mapped)
      */
     rawStatus?: pulumi.Input<string>;
+    /**
+     * The Realm ID to associate the user with
+     */
+    realmId?: pulumi.Input<string>;
     /**
      * User Password Recovery Answer
      */
@@ -688,6 +698,10 @@ export interface UserArgs {
      * User online profile (web page)
      */
     profileUrl?: pulumi.Input<string>;
+    /**
+     * The Realm ID to associate the user with
+     */
+    realmId?: pulumi.Input<string>;
     /**
      * User Password Recovery Answer
      */

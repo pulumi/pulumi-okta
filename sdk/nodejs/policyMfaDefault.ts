@@ -71,6 +71,10 @@ export class PolicyMfaDefault extends pulumi.CustomResource {
     }
 
     /**
+     * List of custom authenticators, specify entry like {"enroll": "OPTIONAL", "id": "<id_of_custom_app>"} to mark specific custom app optional, list must contain at least 1 entry.
+     */
+    declare public readonly customApps: pulumi.Output<{[key: string]: string}[] | undefined>;
+    /**
      * Default group ID (always included)
      */
     declare public /*out*/ readonly defaultIncludedGroupId: pulumi.Output<string>;
@@ -134,6 +138,7 @@ export class PolicyMfaDefault extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PolicyMfaDefaultState | undefined;
+            resourceInputs["customApps"] = state?.customApps;
             resourceInputs["defaultIncludedGroupId"] = state?.defaultIncludedGroupId;
             resourceInputs["description"] = state?.description;
             resourceInputs["duo"] = state?.duo;
@@ -165,6 +170,7 @@ export class PolicyMfaDefault extends pulumi.CustomResource {
             resourceInputs["yubikeyToken"] = state?.yubikeyToken;
         } else {
             const args = argsOrState as PolicyMfaDefaultArgs | undefined;
+            resourceInputs["customApps"] = args?.customApps;
             resourceInputs["duo"] = args?.duo;
             resourceInputs["externalIdp"] = args?.externalIdp;
             resourceInputs["externalIdps"] = args?.externalIdps;
@@ -204,6 +210,10 @@ export class PolicyMfaDefault extends pulumi.CustomResource {
  * Input properties used for looking up and filtering PolicyMfaDefault resources.
  */
 export interface PolicyMfaDefaultState {
+    /**
+     * List of custom authenticators, specify entry like {"enroll": "OPTIONAL", "id": "<id_of_custom_app>"} to mark specific custom app optional, list must contain at least 1 entry.
+     */
+    customApps?: pulumi.Input<pulumi.Input<{[key: string]: pulumi.Input<string>}>[]>;
     /**
      * Default group ID (always included)
      */
@@ -260,6 +270,10 @@ export interface PolicyMfaDefaultState {
  * The set of arguments for constructing a PolicyMfaDefault resource.
  */
 export interface PolicyMfaDefaultArgs {
+    /**
+     * List of custom authenticators, specify entry like {"enroll": "OPTIONAL", "id": "<id_of_custom_app>"} to mark specific custom app optional, list must contain at least 1 entry.
+     */
+    customApps?: pulumi.Input<pulumi.Input<{[key: string]: pulumi.Input<string>}>[]>;
     duo?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * @deprecated Since okta now support multiple external_idps, this will be deprecated. Please use `externalIdps` instead

@@ -230,6 +230,7 @@ class GetUsersUserResult(dict):
                  preferred_language: _builtins.str,
                  primary_phone: _builtins.str,
                  profile_url: _builtins.str,
+                 realm_id: _builtins.str,
                  roles: Sequence[_builtins.str],
                  second_email: _builtins.str,
                  state: _builtins.str,
@@ -239,6 +240,9 @@ class GetUsersUserResult(dict):
                  title: _builtins.str,
                  user_type: _builtins.str,
                  zip_code: _builtins.str):
+        """
+        :param _builtins.str realm_id: The Realm ID associated with the user.
+        """
         pulumi.set(__self__, "admin_roles", admin_roles)
         pulumi.set(__self__, "city", city)
         pulumi.set(__self__, "cost_center", cost_center)
@@ -267,6 +271,7 @@ class GetUsersUserResult(dict):
         pulumi.set(__self__, "preferred_language", preferred_language)
         pulumi.set(__self__, "primary_phone", primary_phone)
         pulumi.set(__self__, "profile_url", profile_url)
+        pulumi.set(__self__, "realm_id", realm_id)
         pulumi.set(__self__, "roles", roles)
         pulumi.set(__self__, "second_email", second_email)
         pulumi.set(__self__, "state", state)
@@ -416,6 +421,14 @@ class GetUsersUserResult(dict):
     @pulumi.getter(name="profileUrl")
     def profile_url(self) -> _builtins.str:
         return pulumi.get(self, "profile_url")
+
+    @_builtins.property
+    @pulumi.getter(name="realmId")
+    def realm_id(self) -> _builtins.str:
+        """
+        The Realm ID associated with the user.
+        """
+        return pulumi.get(self, "realm_id")
 
     @_builtins.property
     @pulumi.getter

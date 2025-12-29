@@ -465,6 +465,11 @@ export const getTrustedOrigins: typeof import("./getTrustedOrigins").getTrustedO
 export const getTrustedOriginsOutput: typeof import("./getTrustedOrigins").getTrustedOriginsOutput = null as any;
 utilities.lazyLoad(exports, ["getTrustedOrigins","getTrustedOriginsOutput"], () => require("./getTrustedOrigins"));
 
+export { GetUiSchemaArgs, GetUiSchemaResult, GetUiSchemaOutputArgs } from "./getUiSchema";
+export const getUiSchema: typeof import("./getUiSchema").getUiSchema = null as any;
+export const getUiSchemaOutput: typeof import("./getUiSchema").getUiSchemaOutput = null as any;
+utilities.lazyLoad(exports, ["getUiSchema","getUiSchemaOutput"], () => require("./getUiSchema"));
+
 export { GetUserSecurityQuestionsArgs, GetUserSecurityQuestionsResult, GetUserSecurityQuestionsOutputArgs } from "./getUserSecurityQuestions";
 export const getUserSecurityQuestions: typeof import("./getUserSecurityQuestions").getUserSecurityQuestions = null as any;
 export const getUserSecurityQuestionsOutput: typeof import("./getUserSecurityQuestions").getUserSecurityQuestionsOutput = null as any;
@@ -647,6 +652,11 @@ export { TrustedServerArgs, TrustedServerState } from "./trustedServer";
 export type TrustedServer = import("./trustedServer").TrustedServer;
 export const TrustedServer: typeof import("./trustedServer").TrustedServer = null as any;
 utilities.lazyLoad(exports, ["TrustedServer"], () => require("./trustedServer"));
+
+export { UiSchemaArgs, UiSchemaState } from "./uiSchema";
+export type UiSchema = import("./uiSchema").UiSchema;
+export const UiSchema: typeof import("./uiSchema").UiSchema = null as any;
+utilities.lazyLoad(exports, ["UiSchema"], () => require("./uiSchema"));
 
 export { UserAdminRolesArgs, UserAdminRolesState } from "./userAdminRoles";
 export type UserAdminRoles = import("./userAdminRoles").UserAdminRoles;
@@ -859,6 +869,8 @@ const _module = {
                 return new ThreatInsightSettings(name, <any>undefined, { urn })
             case "okta:index/trustedServer:TrustedServer":
                 return new TrustedServer(name, <any>undefined, { urn })
+            case "okta:index/uiSchema:UiSchema":
+                return new UiSchema(name, <any>undefined, { urn })
             case "okta:index/userAdminRoles:UserAdminRoles":
                 return new UserAdminRoles(name, <any>undefined, { urn })
             case "okta:index/userBaseSchemaProperty:UserBaseSchemaProperty":
@@ -949,6 +961,7 @@ pulumi.runtime.registerResourceModule("okta", "index/templateSms", _module)
 pulumi.runtime.registerResourceModule("okta", "index/theme", _module)
 pulumi.runtime.registerResourceModule("okta", "index/threatInsightSettings", _module)
 pulumi.runtime.registerResourceModule("okta", "index/trustedServer", _module)
+pulumi.runtime.registerResourceModule("okta", "index/uiSchema", _module)
 pulumi.runtime.registerResourceModule("okta", "index/userAdminRoles", _module)
 pulumi.runtime.registerResourceModule("okta", "index/userBaseSchemaProperty", _module)
 pulumi.runtime.registerResourceModule("okta", "index/userFactorQuestion", _module)

@@ -124,6 +124,21 @@ public final class RequestConditionArgs extends com.pulumi.resources.ResourceArg
         return this.resourceId;
     }
 
+    /**
+     * Status of the condition. Valid values: `ACTIVE`, `INACTIVE`. Default is `INACTIVE`. Note: `DELETED` and `INVALID` statuses are system-managed and cannot be set directly.
+     * 
+     */
+    @Import(name="status")
+    private @Nullable Output<String> status;
+
+    /**
+     * @return Status of the condition. Valid values: `ACTIVE`, `INACTIVE`. Default is `INACTIVE`. Note: `DELETED` and `INVALID` statuses are system-managed and cannot be set directly.
+     * 
+     */
+    public Optional<Output<String>> status() {
+        return Optional.ofNullable(this.status);
+    }
+
     private RequestConditionArgs() {}
 
     private RequestConditionArgs(RequestConditionArgs $) {
@@ -135,6 +150,7 @@ public final class RequestConditionArgs extends com.pulumi.resources.ResourceArg
         this.priority = $.priority;
         this.requesterSettings = $.requesterSettings;
         this.resourceId = $.resourceId;
+        this.status = $.status;
     }
 
     public static Builder builder() {
@@ -297,6 +313,27 @@ public final class RequestConditionArgs extends com.pulumi.resources.ResourceArg
          */
         public Builder resourceId(String resourceId) {
             return resourceId(Output.of(resourceId));
+        }
+
+        /**
+         * @param status Status of the condition. Valid values: `ACTIVE`, `INACTIVE`. Default is `INACTIVE`. Note: `DELETED` and `INVALID` statuses are system-managed and cannot be set directly.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder status(@Nullable Output<String> status) {
+            $.status = status;
+            return this;
+        }
+
+        /**
+         * @param status Status of the condition. Valid values: `ACTIVE`, `INACTIVE`. Default is `INACTIVE`. Note: `DELETED` and `INVALID` statuses are system-managed and cannot be set directly.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder status(String status) {
+            return status(Output.of(status));
         }
 
         public RequestConditionArgs build() {

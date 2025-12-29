@@ -11,11 +11,33 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * ### Basic Example
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
  *
  * const example = new okta.RequestCondition("example", {
+ *     resourceId: "<resource_id>",
+ *     approvalSequenceId: "<approval_sequence_id>",
+ *     name: "<name>",
+ *     accessScopeSettings: {
+ *         type: "RESOURCE_DEFAULT",
+ *     },
+ *     requesterSettings: {
+ *         type: "EVERYONE",
+ *     },
+ * });
+ * ```
+ *
+ * ### Example with Active Status
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const exampleActive = new okta.RequestCondition("example_active", {
+ *     status: "ACTIVE",
  *     resourceId: "<resource_id>",
  *     approvalSequenceId: "<approval_sequence_id>",
  *     name: "<name>",
@@ -105,9 +127,9 @@ export class RequestCondition extends pulumi.CustomResource {
      */
     declare public readonly resourceId: pulumi.Output<string>;
     /**
-     * Status indicates if this condition is active or not. Default status is INACTIVE. Enum: `ACTIVE`, `INACTIVE`, `DELETED`, `INVALID`.
+     * Status of the condition. Valid values: `ACTIVE`, `INACTIVE`. Default is `INACTIVE`. Note: `DELETED` and `INVALID` statuses are system-managed and cannot be set directly.
      */
-    declare public /*out*/ readonly status: pulumi.Output<string>;
+    declare public readonly status: pulumi.Output<string>;
 
     /**
      * Create a RequestCondition resource with the given unique name, arguments, and options.
@@ -151,11 +173,11 @@ export class RequestCondition extends pulumi.CustomResource {
             resourceInputs["priority"] = args?.priority;
             resourceInputs["requesterSettings"] = args?.requesterSettings;
             resourceInputs["resourceId"] = args?.resourceId;
+            resourceInputs["status"] = args?.status;
             resourceInputs["created"] = undefined /*out*/;
             resourceInputs["createdBy"] = undefined /*out*/;
             resourceInputs["lastUpdated"] = undefined /*out*/;
             resourceInputs["lastUpdatedBy"] = undefined /*out*/;
-            resourceInputs["status"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(RequestCondition.__pulumiType, name, resourceInputs, opts);
@@ -209,7 +231,7 @@ export interface RequestConditionState {
      */
     resourceId?: pulumi.Input<string>;
     /**
-     * Status indicates if this condition is active or not. Default status is INACTIVE. Enum: `ACTIVE`, `INACTIVE`, `DELETED`, `INVALID`.
+     * Status of the condition. Valid values: `ACTIVE`, `INACTIVE`. Default is `INACTIVE`. Note: `DELETED` and `INVALID` statuses are system-managed and cannot be set directly.
      */
     status?: pulumi.Input<string>;
 }
@@ -244,4 +266,8 @@ export interface RequestConditionArgs {
      * The id of the resource in Okta ID format.
      */
     resourceId: pulumi.Input<string>;
+    /**
+     * Status of the condition. Valid values: `ACTIVE`, `INACTIVE`. Default is `INACTIVE`. Note: `DELETED` and `INVALID` statuses are system-managed and cannot be set directly.
+     */
+    status?: pulumi.Input<string>;
 }

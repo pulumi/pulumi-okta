@@ -184,14 +184,14 @@ public final class RequestConditionState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Status indicates if this condition is active or not. Default status is INACTIVE. Enum: `ACTIVE`, `INACTIVE`, `DELETED`, `INVALID`.
+     * Status of the condition. Valid values: `ACTIVE`, `INACTIVE`. Default is `INACTIVE`. Note: `DELETED` and `INVALID` statuses are system-managed and cannot be set directly.
      * 
      */
     @Import(name="status")
     private @Nullable Output<String> status;
 
     /**
-     * @return Status indicates if this condition is active or not. Default status is INACTIVE. Enum: `ACTIVE`, `INACTIVE`, `DELETED`, `INVALID`.
+     * @return Status of the condition. Valid values: `ACTIVE`, `INACTIVE`. Default is `INACTIVE`. Note: `DELETED` and `INVALID` statuses are system-managed and cannot be set directly.
      * 
      */
     public Optional<Output<String>> status() {
@@ -463,7 +463,7 @@ public final class RequestConditionState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param status Status indicates if this condition is active or not. Default status is INACTIVE. Enum: `ACTIVE`, `INACTIVE`, `DELETED`, `INVALID`.
+         * @param status Status of the condition. Valid values: `ACTIVE`, `INACTIVE`. Default is `INACTIVE`. Note: `DELETED` and `INVALID` statuses are system-managed and cannot be set directly.
          * 
          * @return builder
          * 
@@ -474,7 +474,7 @@ public final class RequestConditionState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param status Status indicates if this condition is active or not. Default status is INACTIVE. Enum: `ACTIVE`, `INACTIVE`, `DELETED`, `INVALID`.
+         * @param status Status of the condition. Valid values: `ACTIVE`, `INACTIVE`. Default is `INACTIVE`. Note: `DELETED` and `INVALID` statuses are system-managed and cannot be set directly.
          * 
          * @return builder
          * 

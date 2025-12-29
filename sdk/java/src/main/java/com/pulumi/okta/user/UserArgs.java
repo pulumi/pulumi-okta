@@ -477,6 +477,21 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The Realm ID to associate the user with
+     * 
+     */
+    @Import(name="realmId")
+    private @Nullable Output<String> realmId;
+
+    /**
+     * @return The Realm ID to associate the user with
+     * 
+     */
+    public Optional<Output<String>> realmId() {
+        return Optional.ofNullable(this.realmId);
+    }
+
+    /**
      * User Password Recovery Answer
      * 
      */
@@ -683,6 +698,7 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
         this.preferredLanguage = $.preferredLanguage;
         this.primaryPhone = $.primaryPhone;
         this.profileUrl = $.profileUrl;
+        this.realmId = $.realmId;
         this.recoveryAnswer = $.recoveryAnswer;
         this.recoveryQuestion = $.recoveryQuestion;
         this.secondEmail = $.secondEmail;
@@ -1355,6 +1371,27 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder profileUrl(String profileUrl) {
             return profileUrl(Output.of(profileUrl));
+        }
+
+        /**
+         * @param realmId The Realm ID to associate the user with
+         * 
+         * @return builder
+         * 
+         */
+        public Builder realmId(@Nullable Output<String> realmId) {
+            $.realmId = realmId;
+            return this;
+        }
+
+        /**
+         * @param realmId The Realm ID to associate the user with
+         * 
+         * @return builder
+         * 
+         */
+        public Builder realmId(String realmId) {
+            return realmId(Output.of(realmId));
         }
 
         /**

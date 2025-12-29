@@ -153,6 +153,8 @@ type User struct {
 	ProfileUrl pulumi.StringPtrOutput `pulumi:"profileUrl"`
 	// The raw status of the User in Okta - (status is mapped)
 	RawStatus pulumi.StringOutput `pulumi:"rawStatus"`
+	// The Realm ID to associate the user with
+	RealmId pulumi.StringOutput `pulumi:"realmId"`
 	// User Password Recovery Answer
 	RecoveryAnswer pulumi.StringPtrOutput `pulumi:"recoveryAnswer"`
 	// User Password Recovery Question
@@ -299,6 +301,8 @@ type userState struct {
 	ProfileUrl *string `pulumi:"profileUrl"`
 	// The raw status of the User in Okta - (status is mapped)
 	RawStatus *string `pulumi:"rawStatus"`
+	// The Realm ID to associate the user with
+	RealmId *string `pulumi:"realmId"`
 	// User Password Recovery Answer
 	RecoveryAnswer *string `pulumi:"recoveryAnswer"`
 	// User Password Recovery Question
@@ -389,6 +393,8 @@ type UserState struct {
 	ProfileUrl pulumi.StringPtrInput
 	// The raw status of the User in Okta - (status is mapped)
 	RawStatus pulumi.StringPtrInput
+	// The Realm ID to associate the user with
+	RealmId pulumi.StringPtrInput
 	// User Password Recovery Answer
 	RecoveryAnswer pulumi.StringPtrInput
 	// User Password Recovery Question
@@ -481,6 +487,8 @@ type userArgs struct {
 	PrimaryPhone *string `pulumi:"primaryPhone"`
 	// User online profile (web page)
 	ProfileUrl *string `pulumi:"profileUrl"`
+	// The Realm ID to associate the user with
+	RealmId *string `pulumi:"realmId"`
 	// User Password Recovery Answer
 	RecoveryAnswer *string `pulumi:"recoveryAnswer"`
 	// User Password Recovery Question
@@ -570,6 +578,8 @@ type UserArgs struct {
 	PrimaryPhone pulumi.StringPtrInput
 	// User online profile (web page)
 	ProfileUrl pulumi.StringPtrInput
+	// The Realm ID to associate the user with
+	RealmId pulumi.StringPtrInput
 	// User Password Recovery Answer
 	RecoveryAnswer pulumi.StringPtrInput
 	// User Password Recovery Question
@@ -840,6 +850,11 @@ func (o UserOutput) ProfileUrl() pulumi.StringPtrOutput {
 // The raw status of the User in Okta - (status is mapped)
 func (o UserOutput) RawStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.RawStatus }).(pulumi.StringOutput)
+}
+
+// The Realm ID to associate the user with
+func (o UserOutput) RealmId() pulumi.StringOutput {
+	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.RealmId }).(pulumi.StringOutput)
 }
 
 // User Password Recovery Answer

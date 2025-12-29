@@ -52,6 +52,7 @@ class UserArgs:
                  preferred_language: Optional[pulumi.Input[_builtins.str]] = None,
                  primary_phone: Optional[pulumi.Input[_builtins.str]] = None,
                  profile_url: Optional[pulumi.Input[_builtins.str]] = None,
+                 realm_id: Optional[pulumi.Input[_builtins.str]] = None,
                  recovery_answer: Optional[pulumi.Input[_builtins.str]] = None,
                  recovery_question: Optional[pulumi.Input[_builtins.str]] = None,
                  second_email: Optional[pulumi.Input[_builtins.str]] = None,
@@ -95,6 +96,7 @@ class UserArgs:
         :param pulumi.Input[_builtins.str] preferred_language: User preferred language
         :param pulumi.Input[_builtins.str] primary_phone: User primary phone number
         :param pulumi.Input[_builtins.str] profile_url: User online profile (web page)
+        :param pulumi.Input[_builtins.str] realm_id: The Realm ID to associate the user with
         :param pulumi.Input[_builtins.str] recovery_answer: User Password Recovery Answer
         :param pulumi.Input[_builtins.str] recovery_question: User Password Recovery Question
         :param pulumi.Input[_builtins.str] second_email: User secondary email address, used for account recovery
@@ -165,6 +167,8 @@ class UserArgs:
             pulumi.set(__self__, "primary_phone", primary_phone)
         if profile_url is not None:
             pulumi.set(__self__, "profile_url", profile_url)
+        if realm_id is not None:
+            pulumi.set(__self__, "realm_id", realm_id)
         if recovery_answer is not None:
             pulumi.set(__self__, "recovery_answer", recovery_answer)
         if recovery_question is not None:
@@ -561,6 +565,18 @@ class UserArgs:
         pulumi.set(self, "profile_url", value)
 
     @_builtins.property
+    @pulumi.getter(name="realmId")
+    def realm_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The Realm ID to associate the user with
+        """
+        return pulumi.get(self, "realm_id")
+
+    @realm_id.setter
+    def realm_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "realm_id", value)
+
+    @_builtins.property
     @pulumi.getter(name="recoveryAnswer")
     def recovery_answer(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -729,6 +745,7 @@ class _UserState:
                  primary_phone: Optional[pulumi.Input[_builtins.str]] = None,
                  profile_url: Optional[pulumi.Input[_builtins.str]] = None,
                  raw_status: Optional[pulumi.Input[_builtins.str]] = None,
+                 realm_id: Optional[pulumi.Input[_builtins.str]] = None,
                  recovery_answer: Optional[pulumi.Input[_builtins.str]] = None,
                  recovery_question: Optional[pulumi.Input[_builtins.str]] = None,
                  second_email: Optional[pulumi.Input[_builtins.str]] = None,
@@ -773,6 +790,7 @@ class _UserState:
         :param pulumi.Input[_builtins.str] primary_phone: User primary phone number
         :param pulumi.Input[_builtins.str] profile_url: User online profile (web page)
         :param pulumi.Input[_builtins.str] raw_status: The raw status of the User in Okta - (status is mapped)
+        :param pulumi.Input[_builtins.str] realm_id: The Realm ID to associate the user with
         :param pulumi.Input[_builtins.str] recovery_answer: User Password Recovery Answer
         :param pulumi.Input[_builtins.str] recovery_question: User Password Recovery Question
         :param pulumi.Input[_builtins.str] second_email: User secondary email address, used for account recovery
@@ -849,6 +867,8 @@ class _UserState:
             pulumi.set(__self__, "profile_url", profile_url)
         if raw_status is not None:
             pulumi.set(__self__, "raw_status", raw_status)
+        if realm_id is not None:
+            pulumi.set(__self__, "realm_id", realm_id)
         if recovery_answer is not None:
             pulumi.set(__self__, "recovery_answer", recovery_answer)
         if recovery_question is not None:
@@ -1257,6 +1277,18 @@ class _UserState:
         pulumi.set(self, "raw_status", value)
 
     @_builtins.property
+    @pulumi.getter(name="realmId")
+    def realm_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The Realm ID to associate the user with
+        """
+        return pulumi.get(self, "realm_id")
+
+    @realm_id.setter
+    def realm_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "realm_id", value)
+
+    @_builtins.property
     @pulumi.getter(name="recoveryAnswer")
     def recovery_answer(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -1427,6 +1459,7 @@ class User(pulumi.CustomResource):
                  preferred_language: Optional[pulumi.Input[_builtins.str]] = None,
                  primary_phone: Optional[pulumi.Input[_builtins.str]] = None,
                  profile_url: Optional[pulumi.Input[_builtins.str]] = None,
+                 realm_id: Optional[pulumi.Input[_builtins.str]] = None,
                  recovery_answer: Optional[pulumi.Input[_builtins.str]] = None,
                  recovery_question: Optional[pulumi.Input[_builtins.str]] = None,
                  second_email: Optional[pulumi.Input[_builtins.str]] = None,
@@ -1528,6 +1561,7 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] preferred_language: User preferred language
         :param pulumi.Input[_builtins.str] primary_phone: User primary phone number
         :param pulumi.Input[_builtins.str] profile_url: User online profile (web page)
+        :param pulumi.Input[_builtins.str] realm_id: The Realm ID to associate the user with
         :param pulumi.Input[_builtins.str] recovery_answer: User Password Recovery Answer
         :param pulumi.Input[_builtins.str] recovery_question: User Password Recovery Question
         :param pulumi.Input[_builtins.str] second_email: User secondary email address, used for account recovery
@@ -1649,6 +1683,7 @@ class User(pulumi.CustomResource):
                  preferred_language: Optional[pulumi.Input[_builtins.str]] = None,
                  primary_phone: Optional[pulumi.Input[_builtins.str]] = None,
                  profile_url: Optional[pulumi.Input[_builtins.str]] = None,
+                 realm_id: Optional[pulumi.Input[_builtins.str]] = None,
                  recovery_answer: Optional[pulumi.Input[_builtins.str]] = None,
                  recovery_question: Optional[pulumi.Input[_builtins.str]] = None,
                  second_email: Optional[pulumi.Input[_builtins.str]] = None,
@@ -1708,6 +1743,7 @@ class User(pulumi.CustomResource):
             __props__.__dict__["preferred_language"] = preferred_language
             __props__.__dict__["primary_phone"] = primary_phone
             __props__.__dict__["profile_url"] = profile_url
+            __props__.__dict__["realm_id"] = realm_id
             __props__.__dict__["recovery_answer"] = None if recovery_answer is None else pulumi.Output.secret(recovery_answer)
             __props__.__dict__["recovery_question"] = recovery_question
             __props__.__dict__["second_email"] = second_email
@@ -1764,6 +1800,7 @@ class User(pulumi.CustomResource):
             primary_phone: Optional[pulumi.Input[_builtins.str]] = None,
             profile_url: Optional[pulumi.Input[_builtins.str]] = None,
             raw_status: Optional[pulumi.Input[_builtins.str]] = None,
+            realm_id: Optional[pulumi.Input[_builtins.str]] = None,
             recovery_answer: Optional[pulumi.Input[_builtins.str]] = None,
             recovery_question: Optional[pulumi.Input[_builtins.str]] = None,
             second_email: Optional[pulumi.Input[_builtins.str]] = None,
@@ -1813,6 +1850,7 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] primary_phone: User primary phone number
         :param pulumi.Input[_builtins.str] profile_url: User online profile (web page)
         :param pulumi.Input[_builtins.str] raw_status: The raw status of the User in Okta - (status is mapped)
+        :param pulumi.Input[_builtins.str] realm_id: The Realm ID to associate the user with
         :param pulumi.Input[_builtins.str] recovery_answer: User Password Recovery Answer
         :param pulumi.Input[_builtins.str] recovery_question: User Password Recovery Question
         :param pulumi.Input[_builtins.str] second_email: User secondary email address, used for account recovery
@@ -1861,6 +1899,7 @@ class User(pulumi.CustomResource):
         __props__.__dict__["primary_phone"] = primary_phone
         __props__.__dict__["profile_url"] = profile_url
         __props__.__dict__["raw_status"] = raw_status
+        __props__.__dict__["realm_id"] = realm_id
         __props__.__dict__["recovery_answer"] = recovery_answer
         __props__.__dict__["recovery_question"] = recovery_question
         __props__.__dict__["second_email"] = second_email
@@ -2126,6 +2165,14 @@ class User(pulumi.CustomResource):
         The raw status of the User in Okta - (status is mapped)
         """
         return pulumi.get(self, "raw_status")
+
+    @_builtins.property
+    @pulumi.getter(name="realmId")
+    def realm_id(self) -> pulumi.Output[_builtins.str]:
+        """
+        The Realm ID to associate the user with
+        """
+        return pulumi.get(self, "realm_id")
 
     @_builtins.property
     @pulumi.getter(name="recoveryAnswer")

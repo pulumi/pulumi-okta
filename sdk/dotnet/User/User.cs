@@ -270,6 +270,12 @@ namespace Pulumi.Okta.User
         public Output<string> RawStatus { get; private set; } = null!;
 
         /// <summary>
+        /// The Realm ID to associate the user with
+        /// </summary>
+        [Output("realmId")]
+        public Output<string> RealmId { get; private set; } = null!;
+
+        /// <summary>
         /// User Password Recovery Answer
         /// </summary>
         [Output("recoveryAnswer")]
@@ -595,6 +601,12 @@ namespace Pulumi.Okta.User
         [Input("profileUrl")]
         public Input<string>? ProfileUrl { get; set; }
 
+        /// <summary>
+        /// The Realm ID to associate the user with
+        /// </summary>
+        [Input("realmId")]
+        public Input<string>? RealmId { get; set; }
+
         [Input("recoveryAnswer")]
         private Input<string>? _recoveryAnswer;
 
@@ -892,6 +904,12 @@ namespace Pulumi.Okta.User
         /// </summary>
         [Input("rawStatus")]
         public Input<string>? RawStatus { get; set; }
+
+        /// <summary>
+        /// The Realm ID to associate the user with
+        /// </summary>
+        [Input("realmId")]
+        public Input<string>? RealmId { get; set; }
 
         [Input("recoveryAnswer")]
         private Input<string>? _recoveryAnswer;

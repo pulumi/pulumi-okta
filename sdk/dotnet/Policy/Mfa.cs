@@ -22,6 +22,12 @@ namespace Pulumi.Okta.Policy
     public partial class Mfa : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// List of custom authenticators, specify entry like {"enroll": "OPTIONAL", "id": "&lt;id_of_custom_app&gt;"} to mark specific custom app optional, list must contain at least 1 entry.
+        /// </summary>
+        [Output("customApps")]
+        public Output<ImmutableArray<ImmutableDictionary<string, string>>> CustomApps { get; private set; } = null!;
+
+        /// <summary>
         /// Policy Description
         /// </summary>
         [Output("description")]
@@ -172,6 +178,18 @@ namespace Pulumi.Okta.Policy
 
     public sealed class MfaArgs : global::Pulumi.ResourceArgs
     {
+        [Input("customApps")]
+        private InputList<ImmutableDictionary<string, string>>? _customApps;
+
+        /// <summary>
+        /// List of custom authenticators, specify entry like {"enroll": "OPTIONAL", "id": "&lt;id_of_custom_app&gt;"} to mark specific custom app optional, list must contain at least 1 entry.
+        /// </summary>
+        public InputList<ImmutableDictionary<string, string>> CustomApps
+        {
+            get => _customApps ?? (_customApps = new InputList<ImmutableDictionary<string, string>>());
+            set => _customApps = value;
+        }
+
         /// <summary>
         /// Policy Description
         /// </summary>
@@ -407,6 +425,18 @@ namespace Pulumi.Okta.Policy
 
     public sealed class MfaState : global::Pulumi.ResourceArgs
     {
+        [Input("customApps")]
+        private InputList<ImmutableDictionary<string, string>>? _customApps;
+
+        /// <summary>
+        /// List of custom authenticators, specify entry like {"enroll": "OPTIONAL", "id": "&lt;id_of_custom_app&gt;"} to mark specific custom app optional, list must contain at least 1 entry.
+        /// </summary>
+        public InputList<ImmutableDictionary<string, string>> CustomApps
+        {
+            get => _customApps ?? (_customApps = new InputList<ImmutableDictionary<string, string>>());
+            set => _customApps = value;
+        }
+
         /// <summary>
         /// Policy Description
         /// </summary>

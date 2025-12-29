@@ -16,6 +16,8 @@ import (
 //
 // ## Example Usage
 //
+// ### Basic Example
+//
 // ```go
 // package main
 //
@@ -29,6 +31,41 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := okta.NewRequestCondition(ctx, "example", &okta.RequestConditionArgs{
+//				ResourceId:         pulumi.String("<resource_id>"),
+//				ApprovalSequenceId: pulumi.String("<approval_sequence_id>"),
+//				Name:               pulumi.String("<name>"),
+//				AccessScopeSettings: &okta.RequestConditionAccessScopeSettingsArgs{
+//					Type: pulumi.String("RESOURCE_DEFAULT"),
+//				},
+//				RequesterSettings: &okta.RequestConditionRequesterSettingsArgs{
+//					Type: pulumi.String("EVERYONE"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### Example with Active Status
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v6/go/okta"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := okta.NewRequestCondition(ctx, "example_active", &okta.RequestConditionArgs{
+//				Status:             pulumi.String("ACTIVE"),
 //				ResourceId:         pulumi.String("<resource_id>"),
 //				ApprovalSequenceId: pulumi.String("<approval_sequence_id>"),
 //				Name:               pulumi.String("<name>"),
@@ -78,7 +115,7 @@ type RequestCondition struct {
 	RequesterSettings RequestConditionRequesterSettingsPtrOutput `pulumi:"requesterSettings"`
 	// The id of the resource in Okta ID format.
 	ResourceId pulumi.StringOutput `pulumi:"resourceId"`
-	// Status indicates if this condition is active or not. Default status is INACTIVE. Enum: `ACTIVE`, `INACTIVE`, `DELETED`, `INVALID`.
+	// Status of the condition. Valid values: `ACTIVE`, `INACTIVE`. Default is `INACTIVE`. Note: `DELETED` and `INVALID` statuses are system-managed and cannot be set directly.
 	Status pulumi.StringOutput `pulumi:"status"`
 }
 
@@ -140,7 +177,7 @@ type requestConditionState struct {
 	RequesterSettings *RequestConditionRequesterSettings `pulumi:"requesterSettings"`
 	// The id of the resource in Okta ID format.
 	ResourceId *string `pulumi:"resourceId"`
-	// Status indicates if this condition is active or not. Default status is INACTIVE. Enum: `ACTIVE`, `INACTIVE`, `DELETED`, `INVALID`.
+	// Status of the condition. Valid values: `ACTIVE`, `INACTIVE`. Default is `INACTIVE`. Note: `DELETED` and `INVALID` statuses are system-managed and cannot be set directly.
 	Status *string `pulumi:"status"`
 }
 
@@ -167,7 +204,7 @@ type RequestConditionState struct {
 	RequesterSettings RequestConditionRequesterSettingsPtrInput
 	// The id of the resource in Okta ID format.
 	ResourceId pulumi.StringPtrInput
-	// Status indicates if this condition is active or not. Default status is INACTIVE. Enum: `ACTIVE`, `INACTIVE`, `DELETED`, `INVALID`.
+	// Status of the condition. Valid values: `ACTIVE`, `INACTIVE`. Default is `INACTIVE`. Note: `DELETED` and `INVALID` statuses are system-managed and cannot be set directly.
 	Status pulumi.StringPtrInput
 }
 
@@ -190,6 +227,8 @@ type requestConditionArgs struct {
 	RequesterSettings *RequestConditionRequesterSettings `pulumi:"requesterSettings"`
 	// The id of the resource in Okta ID format.
 	ResourceId string `pulumi:"resourceId"`
+	// Status of the condition. Valid values: `ACTIVE`, `INACTIVE`. Default is `INACTIVE`. Note: `DELETED` and `INVALID` statuses are system-managed and cannot be set directly.
+	Status *string `pulumi:"status"`
 }
 
 // The set of arguments for constructing a RequestCondition resource.
@@ -208,6 +247,8 @@ type RequestConditionArgs struct {
 	RequesterSettings RequestConditionRequesterSettingsPtrInput
 	// The id of the resource in Okta ID format.
 	ResourceId pulumi.StringInput
+	// Status of the condition. Valid values: `ACTIVE`, `INACTIVE`. Default is `INACTIVE`. Note: `DELETED` and `INVALID` statuses are system-managed and cannot be set directly.
+	Status pulumi.StringPtrInput
 }
 
 func (RequestConditionArgs) ElementType() reflect.Type {
@@ -357,7 +398,7 @@ func (o RequestConditionOutput) ResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *RequestCondition) pulumi.StringOutput { return v.ResourceId }).(pulumi.StringOutput)
 }
 
-// Status indicates if this condition is active or not. Default status is INACTIVE. Enum: `ACTIVE`, `INACTIVE`, `DELETED`, `INVALID`.
+// Status of the condition. Valid values: `ACTIVE`, `INACTIVE`. Default is `INACTIVE`. Note: `DELETED` and `INVALID` statuses are system-managed and cannot be set directly.
 func (o RequestConditionOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *RequestCondition) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }

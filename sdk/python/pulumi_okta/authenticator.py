@@ -20,6 +20,7 @@ __all__ = ['AuthenticatorArgs', 'Authenticator']
 class AuthenticatorArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[_builtins.str],
+                 agree_to_terms: Optional[pulumi.Input[_builtins.bool]] = None,
                  legacy_ignore_name: Optional[pulumi.Input[_builtins.bool]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  provider_auth_port: Optional[pulumi.Input[_builtins.int]] = None,
@@ -34,8 +35,9 @@ class AuthenticatorArgs:
                  status: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Authenticator resource.
-        :param pulumi.Input[_builtins.str] key: A human-readable string that identifies the authenticator. Some authenticators are available by feature flag on the organization. Possible values inclue: `duo`, `external_idp`, `google_otp`, `okta_email`, `okta_password`, `okta_verify`, `onprem_mfa`, `phone_number`, `rsa_token`, `security_question`, `webauthn`
-        :param pulumi.Input[_builtins.bool] legacy_ignore_name: Name does not trigger change detection (legacy behavior)
+        :param pulumi.Input[_builtins.str] key: A human-readable string that identifies the authenticator. Some authenticators are available by feature flag on the organization. Possible values inclue: `custom_app`, `custom_otp`, `duo`, `external_idp`, `google_otp`, `okta_email`, `okta_password`, `okta_verify`, `onprem_mfa`, `phone_number`, `rsa_token`, `security_question`, `webauthn`
+        :param pulumi.Input[_builtins.bool] agree_to_terms: A value of true indicates that the administrator accepts the terms for creating a new authenticator. Okta requires that you accept the terms when creating a new custom_app authenticator. Other authenticators don't require this field.
+        :param pulumi.Input[_builtins.bool] legacy_ignore_name: Name does not trigger change detection (legacy behavior). Must be set to false for custom_app authenticators.
         :param pulumi.Input[_builtins.str] name: Display name of the Authenticator
         :param pulumi.Input[_builtins.int] provider_auth_port: The RADIUS server port (for example 1812). This is defined when the On-Prem RADIUS server is configured. Used only for authenticators with type `security_key`.  Conflicts with `provider_json` argument.
         :param pulumi.Input[_builtins.str] provider_host: (DUO specific) - The Duo Security API hostname. Conflicts with `provider_json` argument.
@@ -49,6 +51,8 @@ class AuthenticatorArgs:
         :param pulumi.Input[_builtins.str] status: Authenticator status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
         """
         pulumi.set(__self__, "key", key)
+        if agree_to_terms is not None:
+            pulumi.set(__self__, "agree_to_terms", agree_to_terms)
         if legacy_ignore_name is not None:
             pulumi.set(__self__, "legacy_ignore_name", legacy_ignore_name)
         if name is not None:
@@ -78,7 +82,7 @@ class AuthenticatorArgs:
     @pulumi.getter
     def key(self) -> pulumi.Input[_builtins.str]:
         """
-        A human-readable string that identifies the authenticator. Some authenticators are available by feature flag on the organization. Possible values inclue: `duo`, `external_idp`, `google_otp`, `okta_email`, `okta_password`, `okta_verify`, `onprem_mfa`, `phone_number`, `rsa_token`, `security_question`, `webauthn`
+        A human-readable string that identifies the authenticator. Some authenticators are available by feature flag on the organization. Possible values inclue: `custom_app`, `custom_otp`, `duo`, `external_idp`, `google_otp`, `okta_email`, `okta_password`, `okta_verify`, `onprem_mfa`, `phone_number`, `rsa_token`, `security_question`, `webauthn`
         """
         return pulumi.get(self, "key")
 
@@ -87,10 +91,22 @@ class AuthenticatorArgs:
         pulumi.set(self, "key", value)
 
     @_builtins.property
+    @pulumi.getter(name="agreeToTerms")
+    def agree_to_terms(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        A value of true indicates that the administrator accepts the terms for creating a new authenticator. Okta requires that you accept the terms when creating a new custom_app authenticator. Other authenticators don't require this field.
+        """
+        return pulumi.get(self, "agree_to_terms")
+
+    @agree_to_terms.setter
+    def agree_to_terms(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "agree_to_terms", value)
+
+    @_builtins.property
     @pulumi.getter(name="legacyIgnoreName")
     def legacy_ignore_name(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Name does not trigger change detection (legacy behavior)
+        Name does not trigger change detection (legacy behavior). Must be set to false for custom_app authenticators.
         """
         return pulumi.get(self, "legacy_ignore_name")
 
@@ -234,6 +250,7 @@ class AuthenticatorArgs:
 @pulumi.input_type
 class _AuthenticatorState:
     def __init__(__self__, *,
+                 agree_to_terms: Optional[pulumi.Input[_builtins.bool]] = None,
                  key: Optional[pulumi.Input[_builtins.str]] = None,
                  legacy_ignore_name: Optional[pulumi.Input[_builtins.bool]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -252,8 +269,9 @@ class _AuthenticatorState:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Authenticator resources.
-        :param pulumi.Input[_builtins.str] key: A human-readable string that identifies the authenticator. Some authenticators are available by feature flag on the organization. Possible values inclue: `duo`, `external_idp`, `google_otp`, `okta_email`, `okta_password`, `okta_verify`, `onprem_mfa`, `phone_number`, `rsa_token`, `security_question`, `webauthn`
-        :param pulumi.Input[_builtins.bool] legacy_ignore_name: Name does not trigger change detection (legacy behavior)
+        :param pulumi.Input[_builtins.bool] agree_to_terms: A value of true indicates that the administrator accepts the terms for creating a new authenticator. Okta requires that you accept the terms when creating a new custom_app authenticator. Other authenticators don't require this field.
+        :param pulumi.Input[_builtins.str] key: A human-readable string that identifies the authenticator. Some authenticators are available by feature flag on the organization. Possible values inclue: `custom_app`, `custom_otp`, `duo`, `external_idp`, `google_otp`, `okta_email`, `okta_password`, `okta_verify`, `onprem_mfa`, `phone_number`, `rsa_token`, `security_question`, `webauthn`
+        :param pulumi.Input[_builtins.bool] legacy_ignore_name: Name does not trigger change detection (legacy behavior). Must be set to false for custom_app authenticators.
         :param pulumi.Input[_builtins.str] name: Display name of the Authenticator
         :param pulumi.Input[_builtins.int] provider_auth_port: The RADIUS server port (for example 1812). This is defined when the On-Prem RADIUS server is configured. Used only for authenticators with type `security_key`.  Conflicts with `provider_json` argument.
         :param pulumi.Input[_builtins.str] provider_host: (DUO specific) - The Duo Security API hostname. Conflicts with `provider_json` argument.
@@ -269,6 +287,8 @@ class _AuthenticatorState:
         :param pulumi.Input[_builtins.str] status: Authenticator status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
         :param pulumi.Input[_builtins.str] type: he type of Authenticator. Values include: `password`, `security_question`, `phone`, `email`, `app`, `federated`, and `security_key`.
         """
+        if agree_to_terms is not None:
+            pulumi.set(__self__, "agree_to_terms", agree_to_terms)
         if key is not None:
             pulumi.set(__self__, "key", key)
         if legacy_ignore_name is not None:
@@ -303,10 +323,22 @@ class _AuthenticatorState:
             pulumi.set(__self__, "type", type)
 
     @_builtins.property
+    @pulumi.getter(name="agreeToTerms")
+    def agree_to_terms(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        A value of true indicates that the administrator accepts the terms for creating a new authenticator. Okta requires that you accept the terms when creating a new custom_app authenticator. Other authenticators don't require this field.
+        """
+        return pulumi.get(self, "agree_to_terms")
+
+    @agree_to_terms.setter
+    def agree_to_terms(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "agree_to_terms", value)
+
+    @_builtins.property
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        A human-readable string that identifies the authenticator. Some authenticators are available by feature flag on the organization. Possible values inclue: `duo`, `external_idp`, `google_otp`, `okta_email`, `okta_password`, `okta_verify`, `onprem_mfa`, `phone_number`, `rsa_token`, `security_question`, `webauthn`
+        A human-readable string that identifies the authenticator. Some authenticators are available by feature flag on the organization. Possible values inclue: `custom_app`, `custom_otp`, `duo`, `external_idp`, `google_otp`, `okta_email`, `okta_password`, `okta_verify`, `onprem_mfa`, `phone_number`, `rsa_token`, `security_question`, `webauthn`
         """
         return pulumi.get(self, "key")
 
@@ -318,7 +350,7 @@ class _AuthenticatorState:
     @pulumi.getter(name="legacyIgnoreName")
     def legacy_ignore_name(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Name does not trigger change detection (legacy behavior)
+        Name does not trigger change detection (legacy behavior). Must be set to false for custom_app authenticators.
         """
         return pulumi.get(self, "legacy_ignore_name")
 
@@ -501,6 +533,7 @@ class Authenticator(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 agree_to_terms: Optional[pulumi.Input[_builtins.bool]] = None,
                  key: Optional[pulumi.Input[_builtins.str]] = None,
                  legacy_ignore_name: Optional[pulumi.Input[_builtins.bool]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -525,10 +558,11 @@ class Authenticator(pulumi.CustomResource):
         create the authenticator (hard create) will be performed. Thereafter, that
         authenticator is never deleted, it is only deactivated (soft delete). Therefore,
         if the authenticator already exists create is just a soft import of an existing
-        authenticator. This does not apply to custom_otp authenticator. There can be
-        multiple custom_otp authenticator. To create new custom_otp authenticator, a new
-        name and key = custom_otp is required. If an old name is used, it will simply
-        reactivate the old custom_otp authenticator
+        authenticator. This does not apply to custom_otp and custom_app authenticators.
+        There can be multiple custom_otp authenticators. To create new custom_otp
+        authenticator, a new name and key = custom_otp is required. If an old name is
+        used, it will simply reactivate the old custom_otp authenticator. For custom_app
+        authenticators, legacy_ignore_name must be set to false.
 
         > **Update:** custom_otp authenticator cannot be updated
 
@@ -562,6 +596,24 @@ class Authenticator(pulumi.CustomResource):
                 "passCodeLength": 6,
             }),
             legacy_ignore_name=False)
+        custom_app = okta.Authenticator("custom_app",
+            key="custom_app",
+            name="Custom Push Auth",
+            status="ACTIVE",
+            agree_to_terms=True,
+            legacy_ignore_name=False,
+            settings=json.dumps({
+                "userVerification": "REQUIRED",
+                "appInstanceId": "0oasontedmcepr0Uf1d7",
+            }),
+            provider_json=json.dumps({
+                "type": "PUSH",
+                "configuration": {
+                    "fcm": {
+                        "id": "ppcrb12345678ABCDEF",
+                    },
+                },
+            }))
         ```
 
         ## Import
@@ -572,8 +624,9 @@ class Authenticator(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] key: A human-readable string that identifies the authenticator. Some authenticators are available by feature flag on the organization. Possible values inclue: `duo`, `external_idp`, `google_otp`, `okta_email`, `okta_password`, `okta_verify`, `onprem_mfa`, `phone_number`, `rsa_token`, `security_question`, `webauthn`
-        :param pulumi.Input[_builtins.bool] legacy_ignore_name: Name does not trigger change detection (legacy behavior)
+        :param pulumi.Input[_builtins.bool] agree_to_terms: A value of true indicates that the administrator accepts the terms for creating a new authenticator. Okta requires that you accept the terms when creating a new custom_app authenticator. Other authenticators don't require this field.
+        :param pulumi.Input[_builtins.str] key: A human-readable string that identifies the authenticator. Some authenticators are available by feature flag on the organization. Possible values inclue: `custom_app`, `custom_otp`, `duo`, `external_idp`, `google_otp`, `okta_email`, `okta_password`, `okta_verify`, `onprem_mfa`, `phone_number`, `rsa_token`, `security_question`, `webauthn`
+        :param pulumi.Input[_builtins.bool] legacy_ignore_name: Name does not trigger change detection (legacy behavior). Must be set to false for custom_app authenticators.
         :param pulumi.Input[_builtins.str] name: Display name of the Authenticator
         :param pulumi.Input[_builtins.int] provider_auth_port: The RADIUS server port (for example 1812). This is defined when the On-Prem RADIUS server is configured. Used only for authenticators with type `security_key`.  Conflicts with `provider_json` argument.
         :param pulumi.Input[_builtins.str] provider_host: (DUO specific) - The Duo Security API hostname. Conflicts with `provider_json` argument.
@@ -602,10 +655,11 @@ class Authenticator(pulumi.CustomResource):
         create the authenticator (hard create) will be performed. Thereafter, that
         authenticator is never deleted, it is only deactivated (soft delete). Therefore,
         if the authenticator already exists create is just a soft import of an existing
-        authenticator. This does not apply to custom_otp authenticator. There can be
-        multiple custom_otp authenticator. To create new custom_otp authenticator, a new
-        name and key = custom_otp is required. If an old name is used, it will simply
-        reactivate the old custom_otp authenticator
+        authenticator. This does not apply to custom_otp and custom_app authenticators.
+        There can be multiple custom_otp authenticators. To create new custom_otp
+        authenticator, a new name and key = custom_otp is required. If an old name is
+        used, it will simply reactivate the old custom_otp authenticator. For custom_app
+        authenticators, legacy_ignore_name must be set to false.
 
         > **Update:** custom_otp authenticator cannot be updated
 
@@ -639,6 +693,24 @@ class Authenticator(pulumi.CustomResource):
                 "passCodeLength": 6,
             }),
             legacy_ignore_name=False)
+        custom_app = okta.Authenticator("custom_app",
+            key="custom_app",
+            name="Custom Push Auth",
+            status="ACTIVE",
+            agree_to_terms=True,
+            legacy_ignore_name=False,
+            settings=json.dumps({
+                "userVerification": "REQUIRED",
+                "appInstanceId": "0oasontedmcepr0Uf1d7",
+            }),
+            provider_json=json.dumps({
+                "type": "PUSH",
+                "configuration": {
+                    "fcm": {
+                        "id": "ppcrb12345678ABCDEF",
+                    },
+                },
+            }))
         ```
 
         ## Import
@@ -662,6 +734,7 @@ class Authenticator(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 agree_to_terms: Optional[pulumi.Input[_builtins.bool]] = None,
                  key: Optional[pulumi.Input[_builtins.str]] = None,
                  legacy_ignore_name: Optional[pulumi.Input[_builtins.bool]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -684,6 +757,7 @@ class Authenticator(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AuthenticatorArgs.__new__(AuthenticatorArgs)
 
+            __props__.__dict__["agree_to_terms"] = agree_to_terms
             if key is None and not opts.urn:
                 raise TypeError("Missing required property 'key'")
             __props__.__dict__["key"] = key
@@ -714,6 +788,7 @@ class Authenticator(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            agree_to_terms: Optional[pulumi.Input[_builtins.bool]] = None,
             key: Optional[pulumi.Input[_builtins.str]] = None,
             legacy_ignore_name: Optional[pulumi.Input[_builtins.bool]] = None,
             name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -737,8 +812,9 @@ class Authenticator(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] key: A human-readable string that identifies the authenticator. Some authenticators are available by feature flag on the organization. Possible values inclue: `duo`, `external_idp`, `google_otp`, `okta_email`, `okta_password`, `okta_verify`, `onprem_mfa`, `phone_number`, `rsa_token`, `security_question`, `webauthn`
-        :param pulumi.Input[_builtins.bool] legacy_ignore_name: Name does not trigger change detection (legacy behavior)
+        :param pulumi.Input[_builtins.bool] agree_to_terms: A value of true indicates that the administrator accepts the terms for creating a new authenticator. Okta requires that you accept the terms when creating a new custom_app authenticator. Other authenticators don't require this field.
+        :param pulumi.Input[_builtins.str] key: A human-readable string that identifies the authenticator. Some authenticators are available by feature flag on the organization. Possible values inclue: `custom_app`, `custom_otp`, `duo`, `external_idp`, `google_otp`, `okta_email`, `okta_password`, `okta_verify`, `onprem_mfa`, `phone_number`, `rsa_token`, `security_question`, `webauthn`
+        :param pulumi.Input[_builtins.bool] legacy_ignore_name: Name does not trigger change detection (legacy behavior). Must be set to false for custom_app authenticators.
         :param pulumi.Input[_builtins.str] name: Display name of the Authenticator
         :param pulumi.Input[_builtins.int] provider_auth_port: The RADIUS server port (for example 1812). This is defined when the On-Prem RADIUS server is configured. Used only for authenticators with type `security_key`.  Conflicts with `provider_json` argument.
         :param pulumi.Input[_builtins.str] provider_host: (DUO specific) - The Duo Security API hostname. Conflicts with `provider_json` argument.
@@ -758,6 +834,7 @@ class Authenticator(pulumi.CustomResource):
 
         __props__ = _AuthenticatorState.__new__(_AuthenticatorState)
 
+        __props__.__dict__["agree_to_terms"] = agree_to_terms
         __props__.__dict__["key"] = key
         __props__.__dict__["legacy_ignore_name"] = legacy_ignore_name
         __props__.__dict__["name"] = name
@@ -777,10 +854,18 @@ class Authenticator(pulumi.CustomResource):
         return Authenticator(resource_name, opts=opts, __props__=__props__)
 
     @_builtins.property
+    @pulumi.getter(name="agreeToTerms")
+    def agree_to_terms(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        A value of true indicates that the administrator accepts the terms for creating a new authenticator. Okta requires that you accept the terms when creating a new custom_app authenticator. Other authenticators don't require this field.
+        """
+        return pulumi.get(self, "agree_to_terms")
+
+    @_builtins.property
     @pulumi.getter
     def key(self) -> pulumi.Output[_builtins.str]:
         """
-        A human-readable string that identifies the authenticator. Some authenticators are available by feature flag on the organization. Possible values inclue: `duo`, `external_idp`, `google_otp`, `okta_email`, `okta_password`, `okta_verify`, `onprem_mfa`, `phone_number`, `rsa_token`, `security_question`, `webauthn`
+        A human-readable string that identifies the authenticator. Some authenticators are available by feature flag on the organization. Possible values inclue: `custom_app`, `custom_otp`, `duo`, `external_idp`, `google_otp`, `okta_email`, `okta_password`, `okta_verify`, `onprem_mfa`, `phone_number`, `rsa_token`, `security_question`, `webauthn`
         """
         return pulumi.get(self, "key")
 
@@ -788,7 +873,7 @@ class Authenticator(pulumi.CustomResource):
     @pulumi.getter(name="legacyIgnoreName")
     def legacy_ignore_name(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
-        Name does not trigger change detection (legacy behavior)
+        Name does not trigger change detection (legacy behavior). Must be set to false for custom_app authenticators.
         """
         return pulumi.get(self, "legacy_ignore_name")
 

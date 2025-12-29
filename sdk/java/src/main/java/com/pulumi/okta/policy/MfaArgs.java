@@ -20,6 +20,21 @@ public final class MfaArgs extends com.pulumi.resources.ResourceArgs {
     public static final MfaArgs Empty = new MfaArgs();
 
     /**
+     * List of custom authenticators, specify entry like {&#34;enroll&#34;: &#34;OPTIONAL&#34;, &#34;id&#34;: &#34;&lt;id_of_custom_app&gt;&#34;} to mark specific custom app optional, list must contain at least 1 entry.
+     * 
+     */
+    @Import(name="customApps")
+    private @Nullable Output<List<Map<String,String>>> customApps;
+
+    /**
+     * @return List of custom authenticators, specify entry like {&#34;enroll&#34;: &#34;OPTIONAL&#34;, &#34;id&#34;: &#34;&lt;id_of_custom_app&gt;&#34;} to mark specific custom app optional, list must contain at least 1 entry.
+     * 
+     */
+    public Optional<Output<List<Map<String,String>>>> customApps() {
+        return Optional.ofNullable(this.customApps);
+    }
+
+    /**
      * Policy Description
      * 
      */
@@ -285,6 +300,7 @@ public final class MfaArgs extends com.pulumi.resources.ResourceArgs {
     private MfaArgs() {}
 
     private MfaArgs(MfaArgs $) {
+        this.customApps = $.customApps;
         this.description = $.description;
         this.duo = $.duo;
         this.externalIdp = $.externalIdp;
@@ -332,6 +348,37 @@ public final class MfaArgs extends com.pulumi.resources.ResourceArgs {
 
         public Builder(MfaArgs defaults) {
             $ = new MfaArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param customApps List of custom authenticators, specify entry like {&#34;enroll&#34;: &#34;OPTIONAL&#34;, &#34;id&#34;: &#34;&lt;id_of_custom_app&gt;&#34;} to mark specific custom app optional, list must contain at least 1 entry.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customApps(@Nullable Output<List<Map<String,String>>> customApps) {
+            $.customApps = customApps;
+            return this;
+        }
+
+        /**
+         * @param customApps List of custom authenticators, specify entry like {&#34;enroll&#34;: &#34;OPTIONAL&#34;, &#34;id&#34;: &#34;&lt;id_of_custom_app&gt;&#34;} to mark specific custom app optional, list must contain at least 1 entry.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customApps(List<Map<String,String>> customApps) {
+            return customApps(Output.of(customApps));
+        }
+
+        /**
+         * @param customApps List of custom authenticators, specify entry like {&#34;enroll&#34;: &#34;OPTIONAL&#34;, &#34;id&#34;: &#34;&lt;id_of_custom_app&gt;&#34;} to mark specific custom app optional, list must contain at least 1 entry.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customApps(Map<String,String>... customApps) {
+            return customApps(List.of(customApps));
         }
 
         /**
