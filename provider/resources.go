@@ -268,6 +268,13 @@ func Provider() tfbridge.ProviderInfo {
 					"pulumi-okta",
 					"https://github.com/pulumi/pulumi-okta"),
 			},
+			"okta_ui_schema": {
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"ui_schema": {
+						CSharpName: "UiSchemaName",
+					},
+				},
+			},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			// App DataSources

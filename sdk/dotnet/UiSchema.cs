@@ -24,7 +24,7 @@ namespace Pulumi.Okta
     /// {
     ///     var example = new Okta.UiSchema("example", new()
     ///     {
-    ///         UiSchema = new Okta.Inputs.UiSchemaUiSchemaArgs
+    ///         UiSchemaName = new Okta.Inputs.UiSchemaUiSchemaArgs
     ///         {
     ///             ButtonLabel = "submit",
     ///             Type = "Group",
@@ -54,7 +54,7 @@ namespace Pulumi.Okta
         /// Properties of the UI schema.
         /// </summary>
         [Output("uiSchema")]
-        public Output<Outputs.UiSchemaUiSchema?> UiSchema { get; private set; } = null!;
+        public Output<Outputs.UiSchemaUiSchema?> UiSchemaName { get; private set; } = null!;
 
 
         /// <summary>
@@ -106,7 +106,7 @@ namespace Pulumi.Okta
         /// Properties of the UI schema.
         /// </summary>
         [Input("uiSchema")]
-        public Input<Inputs.UiSchemaUiSchemaArgs>? UiSchema { get; set; }
+        public Input<Inputs.UiSchemaUiSchemaArgs>? UiSchemaName { get; set; }
 
         public UiSchemaArgs()
         {
@@ -120,7 +120,7 @@ namespace Pulumi.Okta
         /// Properties of the UI schema.
         /// </summary>
         [Input("uiSchema")]
-        public Input<Inputs.UiSchemaUiSchemaGetArgs>? UiSchema { get; set; }
+        public Input<Inputs.UiSchemaUiSchemaGetArgs>? UiSchemaName { get; set; }
 
         public UiSchemaState()
         {

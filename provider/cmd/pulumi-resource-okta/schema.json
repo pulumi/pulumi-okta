@@ -21640,17 +21640,27 @@
             }
         },
         "okta:index/uiSchema:UiSchema": {
-            "description": "Manages UI Schema. This resource allows you to create and configure an Okta [UI Schema](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UISchema/#tag/UISchema) for form layouts and controls.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst example = new okta.UiSchema(\"example\", {uiSchema: {\n    buttonLabel: \"submit\",\n    type: \"Group\",\n    elements: [{\n        scope: \"#/properties/lastName\",\n    }],\n}});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample = okta.UiSchema(\"example\", ui_schema={\n    \"button_label\": \"submit\",\n    \"type\": \"Group\",\n    \"elements\": [{\n        \"scope\": \"#/properties/lastName\",\n    }],\n})\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new Okta.UiSchema(\"example\", new()\n    {\n        UiSchema = new Okta.Inputs.UiSchemaUiSchemaArgs\n        {\n            ButtonLabel = \"submit\",\n            Type = \"Group\",\n            Elements = new[]\n            {\n                new Okta.Inputs.UiSchemaUiSchemaElementArgs\n                {\n                    Scope = \"#/properties/lastName\",\n                },\n            },\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v6/go/okta\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := okta.NewUiSchema(ctx, \"example\", \u0026okta.UiSchemaArgs{\n\t\t\tUiSchema: \u0026okta.UiSchemaUiSchemaArgs{\n\t\t\t\tButtonLabel: pulumi.String(\"submit\"),\n\t\t\t\tType:        pulumi.String(\"Group\"),\n\t\t\t\tElements: okta.UiSchemaUiSchemaElementArray{\n\t\t\t\t\t\u0026okta.UiSchemaUiSchemaElementArgs{\n\t\t\t\t\t\tScope: pulumi.String(\"#/properties/lastName\"),\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.okta.UiSchema;\nimport com.pulumi.okta.UiSchemaArgs;\nimport com.pulumi.okta.inputs.UiSchemaUiSchemaArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new UiSchema(\"example\", UiSchemaArgs.builder()\n            .uiSchema(UiSchemaUiSchemaArgs.builder()\n                .buttonLabel(\"submit\")\n                .type(\"Group\")\n                .elements(UiSchemaUiSchemaElementArgs.builder()\n                    .scope(\"#/properties/lastName\")\n                    .build())\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: okta:UiSchema\n    properties:\n      uiSchema:\n        buttonLabel: submit\n        type: Group\n        elements:\n          - scope: '#/properties/lastName'\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n```sh\n$ pulumi import okta:index/uiSchema:UiSchema example \u003cui_schema_id\u003e\n```\n\n",
+            "description": "Manages UI Schema. This resource allows you to create and configure an Okta [UI Schema](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UISchema/#tag/UISchema) for form layouts and controls.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst example = new okta.UiSchema(\"example\", {uiSchema: {\n    buttonLabel: \"submit\",\n    type: \"Group\",\n    elements: [{\n        scope: \"#/properties/lastName\",\n    }],\n}});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample = okta.UiSchema(\"example\", ui_schema={\n    \"button_label\": \"submit\",\n    \"type\": \"Group\",\n    \"elements\": [{\n        \"scope\": \"#/properties/lastName\",\n    }],\n})\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new Okta.UiSchema(\"example\", new()\n    {\n        UiSchemaName = new Okta.Inputs.UiSchemaUiSchemaArgs\n        {\n            ButtonLabel = \"submit\",\n            Type = \"Group\",\n            Elements = new[]\n            {\n                new Okta.Inputs.UiSchemaUiSchemaElementArgs\n                {\n                    Scope = \"#/properties/lastName\",\n                },\n            },\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v6/go/okta\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := okta.NewUiSchema(ctx, \"example\", \u0026okta.UiSchemaArgs{\n\t\t\tUiSchema: \u0026okta.UiSchemaUiSchemaArgs{\n\t\t\t\tButtonLabel: pulumi.String(\"submit\"),\n\t\t\t\tType:        pulumi.String(\"Group\"),\n\t\t\t\tElements: okta.UiSchemaUiSchemaElementArray{\n\t\t\t\t\t\u0026okta.UiSchemaUiSchemaElementArgs{\n\t\t\t\t\t\tScope: pulumi.String(\"#/properties/lastName\"),\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.okta.UiSchema;\nimport com.pulumi.okta.UiSchemaArgs;\nimport com.pulumi.okta.inputs.UiSchemaUiSchemaArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new UiSchema(\"example\", UiSchemaArgs.builder()\n            .uiSchema(UiSchemaUiSchemaArgs.builder()\n                .buttonLabel(\"submit\")\n                .type(\"Group\")\n                .elements(UiSchemaUiSchemaElementArgs.builder()\n                    .scope(\"#/properties/lastName\")\n                    .build())\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: okta:UiSchema\n    properties:\n      uiSchema:\n        buttonLabel: submit\n        type: Group\n        elements:\n          - scope: '#/properties/lastName'\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n```sh\n$ pulumi import okta:index/uiSchema:UiSchema example \u003cui_schema_id\u003e\n```\n\n",
             "properties": {
                 "uiSchema": {
                     "$ref": "#/types/okta:index/UiSchemaUiSchema:UiSchemaUiSchema",
-                    "description": "Properties of the UI schema.\n"
+                    "description": "Properties of the UI schema.\n",
+                    "language": {
+                        "csharp": {
+                            "name": "UiSchemaName"
+                        }
+                    }
                 }
             },
             "inputProperties": {
                 "uiSchema": {
                     "$ref": "#/types/okta:index/UiSchemaUiSchema:UiSchemaUiSchema",
-                    "description": "Properties of the UI schema.\n"
+                    "description": "Properties of the UI schema.\n",
+                    "language": {
+                        "csharp": {
+                            "name": "UiSchemaName"
+                        }
+                    }
                 }
             },
             "stateInputs": {
@@ -21658,7 +21668,12 @@
                 "properties": {
                     "uiSchema": {
                         "$ref": "#/types/okta:index/UiSchemaUiSchema:UiSchemaUiSchema",
-                        "description": "Properties of the UI schema.\n"
+                        "description": "Properties of the UI schema.\n",
+                        "language": {
+                            "csharp": {
+                                "name": "UiSchemaName"
+                            }
+                        }
                     }
                 },
                 "type": "object"
