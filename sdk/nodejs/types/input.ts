@@ -2720,6 +2720,90 @@ export interface GetSecurityEventsProviderSettingsArgs {
     wellKnownUrl?: pulumi.Input<string>;
 }
 
+export interface GetUiSchemaUiSchema {
+    /**
+     * Specifies the button label for the Submit button at the bottom of the enrollment form.
+     */
+    buttonLabel?: string;
+    elements?: inputs.GetUiSchemaUiSchemaElement[];
+    /**
+     * Specifies the label at the top of the enrollment form under the logo.
+     */
+    label?: string;
+    /**
+     * Specifies the type of layout.
+     */
+    type?: string;
+}
+
+export interface GetUiSchemaUiSchemaArgs {
+    /**
+     * Specifies the button label for the Submit button at the bottom of the enrollment form.
+     */
+    buttonLabel?: pulumi.Input<string>;
+    elements?: pulumi.Input<pulumi.Input<inputs.GetUiSchemaUiSchemaElementArgs>[]>;
+    /**
+     * Specifies the label at the top of the enrollment form under the logo.
+     */
+    label?: pulumi.Input<string>;
+    /**
+     * Specifies the type of layout.
+     */
+    type?: pulumi.Input<string>;
+}
+
+export interface GetUiSchemaUiSchemaElement {
+    /**
+     * Label name for the UI element.
+     */
+    label?: string;
+    /**
+     * UI Schema element options object.
+     */
+    options?: inputs.GetUiSchemaUiSchemaElementOptions;
+    /**
+     * Specifies the property bound to the input field. It must follow the format #/properties/PROPERTY_NAME where PROPERTY_NAME is a variable name for an attribute in profile editor.
+     */
+    scope?: string;
+    /**
+     * Specifies the relationship between this input element and scope. The Control value specifies that this input controls the value represented by scope.
+     */
+    type?: string;
+}
+
+export interface GetUiSchemaUiSchemaElementArgs {
+    /**
+     * Label name for the UI element.
+     */
+    label?: pulumi.Input<string>;
+    /**
+     * UI Schema element options object.
+     */
+    options?: pulumi.Input<inputs.GetUiSchemaUiSchemaElementOptionsArgs>;
+    /**
+     * Specifies the property bound to the input field. It must follow the format #/properties/PROPERTY_NAME where PROPERTY_NAME is a variable name for an attribute in profile editor.
+     */
+    scope?: pulumi.Input<string>;
+    /**
+     * Specifies the relationship between this input element and scope. The Control value specifies that this input controls the value represented by scope.
+     */
+    type?: pulumi.Input<string>;
+}
+
+export interface GetUiSchemaUiSchemaElementOptions {
+    /**
+     * Specifies how the input appears.
+     */
+    format?: string;
+}
+
+export interface GetUiSchemaUiSchemaElementOptionsArgs {
+    /**
+     * Specifies how the input appears.
+     */
+    format?: pulumi.Input<string>;
+}
+
 export interface GroupSchemaPropertyArrayOneOf {
     /**
      * Value mapping to member of `arrayEnum`
@@ -3082,6 +3166,48 @@ export interface TemplateSmsTranslation {
      * The SMS message.
      */
     template: pulumi.Input<string>;
+}
+
+export interface UiSchemaUiSchema {
+    /**
+     * Specifies the button label for the Submit button at the bottom of the enrollment form.
+     */
+    buttonLabel?: pulumi.Input<string>;
+    elements?: pulumi.Input<pulumi.Input<inputs.UiSchemaUiSchemaElement>[]>;
+    /**
+     * Specifies the label at the top of the enrollment form under the logo.
+     */
+    label?: pulumi.Input<string>;
+    /**
+     * Specifies the type of layout.
+     */
+    type?: pulumi.Input<string>;
+}
+
+export interface UiSchemaUiSchemaElement {
+    /**
+     * Label name for the UI element.
+     */
+    label?: pulumi.Input<string>;
+    /**
+     * UI Schema element options object.
+     */
+    options?: pulumi.Input<inputs.UiSchemaUiSchemaElementOptions>;
+    /**
+     * Specifies the property bound to the input field. It must follow the format #/properties/PROPERTY_NAME where PROPERTY_NAME is a variable name for an attribute in profile editor.
+     */
+    scope: pulumi.Input<string>;
+    /**
+     * Specifies the relationship between this input element and scope. The Control value specifies that this input controls the value represented by scope.
+     */
+    type?: pulumi.Input<string>;
+}
+
+export interface UiSchemaUiSchemaElementOptions {
+    /**
+     * Specifies how the input appears.
+     */
+    format?: pulumi.Input<string>;
 }
 
 export interface UserSchemaPropertyArrayOneOf {

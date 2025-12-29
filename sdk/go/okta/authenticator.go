@@ -21,10 +21,11 @@ import (
 // create the authenticator (hard create) will be performed. Thereafter, that
 // authenticator is never deleted, it is only deactivated (soft delete). Therefore,
 // if the authenticator already exists create is just a soft import of an existing
-// authenticator. This does not apply to customOtp authenticator. There can be
-// multiple customOtp authenticator. To create new customOtp authenticator, a new
-// name and key = customOtp is required. If an old name is used, it will simply
-// reactivate the old customOtp authenticator
+// authenticator. This does not apply to customOtp and customApp authenticators.
+// There can be multiple customOtp authenticators. To create new customOtp
+// authenticator, a new name and key = customOtp is required. If an old name is
+// used, it will simply reactivate the old customOtp authenticator. For customApp
+// authenticators, legacyIgnoreName must be set to false.
 //
 // > **Update:** customOtp authenticator cannot be updated
 //
@@ -85,6 +86,38 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			tmpJSON2, err := json.Marshal(map[string]interface{}{
+//				"userVerification": "REQUIRED",
+//				"appInstanceId":    "0oasontedmcepr0Uf1d7",
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json2 := string(tmpJSON2)
+//			tmpJSON3, err := json.Marshal(map[string]interface{}{
+//				"type": "PUSH",
+//				"configuration": map[string]interface{}{
+//					"fcm": map[string]interface{}{
+//						"id": "ppcrb12345678ABCDEF",
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json3 := string(tmpJSON3)
+//			_, err = okta.NewAuthenticator(ctx, "custom_app", &okta.AuthenticatorArgs{
+//				Key:              pulumi.String("custom_app"),
+//				Name:             pulumi.String("Custom Push Auth"),
+//				Status:           pulumi.String("ACTIVE"),
+//				AgreeToTerms:     pulumi.Bool(true),
+//				LegacyIgnoreName: pulumi.Bool(false),
+//				Settings:         pulumi.String(json2),
+//				ProviderJson:     pulumi.String(json3),
+//			})
+//			if err != nil {
+//				return err
+//			}
 //			return nil
 //		})
 //	}
@@ -99,9 +132,11 @@ import (
 type Authenticator struct {
 	pulumi.CustomResourceState
 
-	// A human-readable string that identifies the authenticator. Some authenticators are available by feature flag on the organization. Possible values inclue: `duo`, `externalIdp`, `googleOtp`, `oktaEmail`, `oktaPassword`, `oktaVerify`, `onpremMfa`, `phoneNumber`, `rsaToken`, `securityQuestion`, `webauthn`
+	// A value of true indicates that the administrator accepts the terms for creating a new authenticator. Okta requires that you accept the terms when creating a new customApp authenticator. Other authenticators don't require this field.
+	AgreeToTerms pulumi.BoolPtrOutput `pulumi:"agreeToTerms"`
+	// A human-readable string that identifies the authenticator. Some authenticators are available by feature flag on the organization. Possible values inclue: `customApp`, `customOtp`, `duo`, `externalIdp`, `googleOtp`, `oktaEmail`, `oktaPassword`, `oktaVerify`, `onpremMfa`, `phoneNumber`, `rsaToken`, `securityQuestion`, `webauthn`
 	Key pulumi.StringOutput `pulumi:"key"`
-	// Name does not trigger change detection (legacy behavior)
+	// Name does not trigger change detection (legacy behavior). Must be set to false for customApp authenticators.
 	LegacyIgnoreName pulumi.BoolPtrOutput `pulumi:"legacyIgnoreName"`
 	// Display name of the Authenticator
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -173,9 +208,11 @@ func GetAuthenticator(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Authenticator resources.
 type authenticatorState struct {
-	// A human-readable string that identifies the authenticator. Some authenticators are available by feature flag on the organization. Possible values inclue: `duo`, `externalIdp`, `googleOtp`, `oktaEmail`, `oktaPassword`, `oktaVerify`, `onpremMfa`, `phoneNumber`, `rsaToken`, `securityQuestion`, `webauthn`
+	// A value of true indicates that the administrator accepts the terms for creating a new authenticator. Okta requires that you accept the terms when creating a new customApp authenticator. Other authenticators don't require this field.
+	AgreeToTerms *bool `pulumi:"agreeToTerms"`
+	// A human-readable string that identifies the authenticator. Some authenticators are available by feature flag on the organization. Possible values inclue: `customApp`, `customOtp`, `duo`, `externalIdp`, `googleOtp`, `oktaEmail`, `oktaPassword`, `oktaVerify`, `onpremMfa`, `phoneNumber`, `rsaToken`, `securityQuestion`, `webauthn`
 	Key *string `pulumi:"key"`
-	// Name does not trigger change detection (legacy behavior)
+	// Name does not trigger change detection (legacy behavior). Must be set to false for customApp authenticators.
 	LegacyIgnoreName *bool `pulumi:"legacyIgnoreName"`
 	// Display name of the Authenticator
 	Name *string `pulumi:"name"`
@@ -208,9 +245,11 @@ type authenticatorState struct {
 }
 
 type AuthenticatorState struct {
-	// A human-readable string that identifies the authenticator. Some authenticators are available by feature flag on the organization. Possible values inclue: `duo`, `externalIdp`, `googleOtp`, `oktaEmail`, `oktaPassword`, `oktaVerify`, `onpremMfa`, `phoneNumber`, `rsaToken`, `securityQuestion`, `webauthn`
+	// A value of true indicates that the administrator accepts the terms for creating a new authenticator. Okta requires that you accept the terms when creating a new customApp authenticator. Other authenticators don't require this field.
+	AgreeToTerms pulumi.BoolPtrInput
+	// A human-readable string that identifies the authenticator. Some authenticators are available by feature flag on the organization. Possible values inclue: `customApp`, `customOtp`, `duo`, `externalIdp`, `googleOtp`, `oktaEmail`, `oktaPassword`, `oktaVerify`, `onpremMfa`, `phoneNumber`, `rsaToken`, `securityQuestion`, `webauthn`
 	Key pulumi.StringPtrInput
-	// Name does not trigger change detection (legacy behavior)
+	// Name does not trigger change detection (legacy behavior). Must be set to false for customApp authenticators.
 	LegacyIgnoreName pulumi.BoolPtrInput
 	// Display name of the Authenticator
 	Name pulumi.StringPtrInput
@@ -247,9 +286,11 @@ func (AuthenticatorState) ElementType() reflect.Type {
 }
 
 type authenticatorArgs struct {
-	// A human-readable string that identifies the authenticator. Some authenticators are available by feature flag on the organization. Possible values inclue: `duo`, `externalIdp`, `googleOtp`, `oktaEmail`, `oktaPassword`, `oktaVerify`, `onpremMfa`, `phoneNumber`, `rsaToken`, `securityQuestion`, `webauthn`
+	// A value of true indicates that the administrator accepts the terms for creating a new authenticator. Okta requires that you accept the terms when creating a new customApp authenticator. Other authenticators don't require this field.
+	AgreeToTerms *bool `pulumi:"agreeToTerms"`
+	// A human-readable string that identifies the authenticator. Some authenticators are available by feature flag on the organization. Possible values inclue: `customApp`, `customOtp`, `duo`, `externalIdp`, `googleOtp`, `oktaEmail`, `oktaPassword`, `oktaVerify`, `onpremMfa`, `phoneNumber`, `rsaToken`, `securityQuestion`, `webauthn`
 	Key string `pulumi:"key"`
-	// Name does not trigger change detection (legacy behavior)
+	// Name does not trigger change detection (legacy behavior). Must be set to false for customApp authenticators.
 	LegacyIgnoreName *bool `pulumi:"legacyIgnoreName"`
 	// Display name of the Authenticator
 	Name *string `pulumi:"name"`
@@ -277,9 +318,11 @@ type authenticatorArgs struct {
 
 // The set of arguments for constructing a Authenticator resource.
 type AuthenticatorArgs struct {
-	// A human-readable string that identifies the authenticator. Some authenticators are available by feature flag on the organization. Possible values inclue: `duo`, `externalIdp`, `googleOtp`, `oktaEmail`, `oktaPassword`, `oktaVerify`, `onpremMfa`, `phoneNumber`, `rsaToken`, `securityQuestion`, `webauthn`
+	// A value of true indicates that the administrator accepts the terms for creating a new authenticator. Okta requires that you accept the terms when creating a new customApp authenticator. Other authenticators don't require this field.
+	AgreeToTerms pulumi.BoolPtrInput
+	// A human-readable string that identifies the authenticator. Some authenticators are available by feature flag on the organization. Possible values inclue: `customApp`, `customOtp`, `duo`, `externalIdp`, `googleOtp`, `oktaEmail`, `oktaPassword`, `oktaVerify`, `onpremMfa`, `phoneNumber`, `rsaToken`, `securityQuestion`, `webauthn`
 	Key pulumi.StringInput
-	// Name does not trigger change detection (legacy behavior)
+	// Name does not trigger change detection (legacy behavior). Must be set to false for customApp authenticators.
 	LegacyIgnoreName pulumi.BoolPtrInput
 	// Display name of the Authenticator
 	Name pulumi.StringPtrInput
@@ -392,12 +435,17 @@ func (o AuthenticatorOutput) ToAuthenticatorOutputWithContext(ctx context.Contex
 	return o
 }
 
-// A human-readable string that identifies the authenticator. Some authenticators are available by feature flag on the organization. Possible values inclue: `duo`, `externalIdp`, `googleOtp`, `oktaEmail`, `oktaPassword`, `oktaVerify`, `onpremMfa`, `phoneNumber`, `rsaToken`, `securityQuestion`, `webauthn`
+// A value of true indicates that the administrator accepts the terms for creating a new authenticator. Okta requires that you accept the terms when creating a new customApp authenticator. Other authenticators don't require this field.
+func (o AuthenticatorOutput) AgreeToTerms() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Authenticator) pulumi.BoolPtrOutput { return v.AgreeToTerms }).(pulumi.BoolPtrOutput)
+}
+
+// A human-readable string that identifies the authenticator. Some authenticators are available by feature flag on the organization. Possible values inclue: `customApp`, `customOtp`, `duo`, `externalIdp`, `googleOtp`, `oktaEmail`, `oktaPassword`, `oktaVerify`, `onpremMfa`, `phoneNumber`, `rsaToken`, `securityQuestion`, `webauthn`
 func (o AuthenticatorOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v *Authenticator) pulumi.StringOutput { return v.Key }).(pulumi.StringOutput)
 }
 
-// Name does not trigger change detection (legacy behavior)
+// Name does not trigger change detection (legacy behavior). Must be set to false for customApp authenticators.
 func (o AuthenticatorOutput) LegacyIgnoreName() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Authenticator) pulumi.BoolPtrOutput { return v.LegacyIgnoreName }).(pulumi.BoolPtrOutput)
 }

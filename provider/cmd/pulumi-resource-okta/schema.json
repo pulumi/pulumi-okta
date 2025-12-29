@@ -42,7 +42,7 @@
             "respectSchemaVersion": true
         },
         "nodejs": {
-            "packageDescription": "A Pulumi package for creating and managing okta resources.. Based on terraform-provider-okta: version v6.5.2",
+            "packageDescription": "A Pulumi package for creating and managing okta resources.. Based on terraform-provider-okta: version v6.5.3",
             "readme": "\u003e This provider is a derived work of the [Terraform Provider](https://github.com/okta/terraform-provider-okta)\n\u003e distributed under [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/). If you encounter a bug or missing feature,\n\u003e first check the [`pulumi-okta` repo](https://github.com/pulumi/pulumi-okta/issues); however, if that doesn't turn up anything,\n\u003e please consult the source [`terraform-provider-okta` repo](https://github.com/okta/terraform-provider-okta/issues).",
             "devDependencies": {
                 "@types/mime": "^2.0.0",
@@ -2539,6 +2539,62 @@
                 "language",
                 "template"
             ]
+        },
+        "okta:index/UiSchemaUiSchema:UiSchemaUiSchema": {
+            "properties": {
+                "buttonLabel": {
+                    "type": "string",
+                    "description": "Specifies the button label for the Submit button at the bottom of the enrollment form.\n"
+                },
+                "elements": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/okta:index/UiSchemaUiSchemaElement:UiSchemaUiSchemaElement"
+                    }
+                },
+                "label": {
+                    "type": "string",
+                    "description": "Specifies the label at the top of the enrollment form under the logo.\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "Specifies the type of layout.\n"
+                }
+            },
+            "type": "object"
+        },
+        "okta:index/UiSchemaUiSchemaElement:UiSchemaUiSchemaElement": {
+            "properties": {
+                "label": {
+                    "type": "string",
+                    "description": "Label name for the UI element.\n"
+                },
+                "options": {
+                    "$ref": "#/types/okta:index/UiSchemaUiSchemaElementOptions:UiSchemaUiSchemaElementOptions",
+                    "description": "UI Schema element options object.\n"
+                },
+                "scope": {
+                    "type": "string",
+                    "description": "Specifies the property bound to the input field. It must follow the format #/properties/PROPERTY_NAME where PROPERTY_NAME is a variable name for an attribute in profile editor.\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "Specifies the relationship between this input element and scope. The Control value specifies that this input controls the value represented by scope.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "scope"
+            ]
+        },
+        "okta:index/UiSchemaUiSchemaElementOptions:UiSchemaUiSchemaElementOptions": {
+            "properties": {
+                "format": {
+                    "type": "string",
+                    "description": "Specifies how the input appears.\n"
+                }
+            },
+            "type": "object"
         },
         "okta:index/UserSchemaPropertyArrayOneOf:UserSchemaPropertyArrayOneOf": {
             "properties": {
@@ -5642,6 +5698,87 @@
                 }
             }
         },
+        "okta:index/getUiSchemaUiSchema:getUiSchemaUiSchema": {
+            "properties": {
+                "buttonLabel": {
+                    "type": "string",
+                    "description": "Specifies the button label for the Submit button at the bottom of the enrollment form.\n"
+                },
+                "elements": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/okta:index/getUiSchemaUiSchemaElement:getUiSchemaUiSchemaElement"
+                    }
+                },
+                "label": {
+                    "type": "string",
+                    "description": "Specifies the label at the top of the enrollment form under the logo.\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "Specifies the type of layout.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "buttonLabel",
+                "label",
+                "type"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "okta:index/getUiSchemaUiSchemaElement:getUiSchemaUiSchemaElement": {
+            "properties": {
+                "label": {
+                    "type": "string",
+                    "description": "Label name for the UI element.\n"
+                },
+                "options": {
+                    "$ref": "#/types/okta:index/getUiSchemaUiSchemaElementOptions:getUiSchemaUiSchemaElementOptions",
+                    "description": "UI Schema element options object.\n"
+                },
+                "scope": {
+                    "type": "string",
+                    "description": "Specifies the property bound to the input field. It must follow the format #/properties/PROPERTY_NAME where PROPERTY_NAME is a variable name for an attribute in profile editor.\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "Specifies the relationship between this input element and scope. The Control value specifies that this input controls the value represented by scope.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "label",
+                "scope",
+                "type"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "okta:index/getUiSchemaUiSchemaElementOptions:getUiSchemaUiSchemaElementOptions": {
+            "properties": {
+                "format": {
+                    "type": "string",
+                    "description": "Specifies how the input appears.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "format"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
         "okta:index/getUserSecurityQuestionsQuestion:getUserSecurityQuestionsQuestion": {
             "properties": {
                 "key": {
@@ -5998,6 +6135,10 @@
                 "profileUrl": {
                     "type": "string"
                 },
+                "realmId": {
+                    "type": "string",
+                    "description": "The Realm ID associated with the user.\n"
+                },
                 "roles": {
                     "type": "array",
                     "items": {
@@ -6059,6 +6200,7 @@
                 "preferredLanguage",
                 "primaryPhone",
                 "profileUrl",
+                "realmId",
                 "roles",
                 "secondEmail",
                 "state",
@@ -15248,15 +15390,19 @@
             }
         },
         "okta:index/authenticator:Authenticator": {
-            "description": "\u003e **WARNING:** This feature is only available as a part of the Identity Engine. Contact support for further information.\n\nThis resource allows you to configure different authenticators.\n\n\u003e **Create:** The Okta API has an odd notion of create for authenticators. If\nthe authenticator doesn't exist then a one time 'POST /api/v1/authenticators' to\ncreate the authenticator (hard create) will be performed. Thereafter, that\nauthenticator is never deleted, it is only deactivated (soft delete). Therefore,\nif the authenticator already exists create is just a soft import of an existing\nauthenticator. This does not apply to\u003cspan pulumi-lang-nodejs=\" customOtp \" pulumi-lang-dotnet=\" CustomOtp \" pulumi-lang-go=\" customOtp \" pulumi-lang-python=\" custom_otp \" pulumi-lang-yaml=\" customOtp \" pulumi-lang-java=\" customOtp \"\u003e custom_otp \u003c/span\u003eauthenticator. There can be \nmultiple\u003cspan pulumi-lang-nodejs=\" customOtp \" pulumi-lang-dotnet=\" CustomOtp \" pulumi-lang-go=\" customOtp \" pulumi-lang-python=\" custom_otp \" pulumi-lang-yaml=\" customOtp \" pulumi-lang-java=\" customOtp \"\u003e custom_otp \u003c/span\u003eauthenticator. To create new\u003cspan pulumi-lang-nodejs=\" customOtp \" pulumi-lang-dotnet=\" CustomOtp \" pulumi-lang-go=\" customOtp \" pulumi-lang-python=\" custom_otp \" pulumi-lang-yaml=\" customOtp \" pulumi-lang-java=\" customOtp \"\u003e custom_otp \u003c/span\u003eauthenticator, a new \nname and key =\u003cspan pulumi-lang-nodejs=\" customOtp \" pulumi-lang-dotnet=\" CustomOtp \" pulumi-lang-go=\" customOtp \" pulumi-lang-python=\" custom_otp \" pulumi-lang-yaml=\" customOtp \" pulumi-lang-java=\" customOtp \"\u003e custom_otp \u003c/span\u003eis required. If an old name is used, it will simply \nreactivate the old\u003cspan pulumi-lang-nodejs=\" customOtp \" pulumi-lang-dotnet=\" CustomOtp \" pulumi-lang-go=\" customOtp \" pulumi-lang-python=\" custom_otp \" pulumi-lang-yaml=\" customOtp \" pulumi-lang-java=\" customOtp \"\u003e custom_otp \u003c/span\u003eauthenticator\n\n\u003e **Update:**\u003cspan pulumi-lang-nodejs=\" customOtp \" pulumi-lang-dotnet=\" CustomOtp \" pulumi-lang-go=\" customOtp \" pulumi-lang-python=\" custom_otp \" pulumi-lang-yaml=\" customOtp \" pulumi-lang-java=\" customOtp \"\u003e custom_otp \u003c/span\u003eauthenticator cannot be updated\n\n\u003e **Delete:** Authenticators can not be truly deleted therefore delete is soft.\nDelete will attempt to deativate the authenticator. An authenticator can only be\ndeactivated if it's not in use by any other policy.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst test = new okta.Authenticator(\"test\", {\n    name: \"Security Question\",\n    key: \"security_question\",\n    settings: JSON.stringify({\n        allowedFor: \"recovery\",\n    }),\n});\nconst otp = new okta.Authenticator(\"otp\", {\n    name: \"Custom OTP\",\n    key: \"custom_otp\",\n    status: \"ACTIVE\",\n    settings: JSON.stringify({\n        protocol: \"TOTP\",\n        acceptableAdjacentIntervals: 3,\n        timeIntervalInSeconds: 30,\n        encoding: \"base32\",\n        algorithm: \"HMacSHA256\",\n        passCodeLength: 6,\n    }),\n    legacyIgnoreName: false,\n});\n```\n```python\nimport pulumi\nimport json\nimport pulumi_okta as okta\n\ntest = okta.Authenticator(\"test\",\n    name=\"Security Question\",\n    key=\"security_question\",\n    settings=json.dumps({\n        \"allowedFor\": \"recovery\",\n    }))\notp = okta.Authenticator(\"otp\",\n    name=\"Custom OTP\",\n    key=\"custom_otp\",\n    status=\"ACTIVE\",\n    settings=json.dumps({\n        \"protocol\": \"TOTP\",\n        \"acceptableAdjacentIntervals\": 3,\n        \"timeIntervalInSeconds\": 30,\n        \"encoding\": \"base32\",\n        \"algorithm\": \"HMacSHA256\",\n        \"passCodeLength\": 6,\n    }),\n    legacy_ignore_name=False)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing System.Text.Json;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var test = new Okta.Authenticator(\"test\", new()\n    {\n        Name = \"Security Question\",\n        Key = \"security_question\",\n        Settings = JsonSerializer.Serialize(new Dictionary\u003cstring, object?\u003e\n        {\n            [\"allowedFor\"] = \"recovery\",\n        }),\n    });\n\n    var otp = new Okta.Authenticator(\"otp\", new()\n    {\n        Name = \"Custom OTP\",\n        Key = \"custom_otp\",\n        Status = \"ACTIVE\",\n        Settings = JsonSerializer.Serialize(new Dictionary\u003cstring, object?\u003e\n        {\n            [\"protocol\"] = \"TOTP\",\n            [\"acceptableAdjacentIntervals\"] = 3,\n            [\"timeIntervalInSeconds\"] = 30,\n            [\"encoding\"] = \"base32\",\n            [\"algorithm\"] = \"HMacSHA256\",\n            [\"passCodeLength\"] = 6,\n        }),\n        LegacyIgnoreName = false,\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"encoding/json\"\n\n\t\"github.com/pulumi/pulumi-okta/sdk/v6/go/okta\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\ttmpJSON0, err := json.Marshal(map[string]interface{}{\n\t\t\t\"allowedFor\": \"recovery\",\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tjson0 := string(tmpJSON0)\n\t\t_, err = okta.NewAuthenticator(ctx, \"test\", \u0026okta.AuthenticatorArgs{\n\t\t\tName:     pulumi.String(\"Security Question\"),\n\t\t\tKey:      pulumi.String(\"security_question\"),\n\t\t\tSettings: pulumi.String(json0),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\ttmpJSON1, err := json.Marshal(map[string]interface{}{\n\t\t\t\"protocol\":                    \"TOTP\",\n\t\t\t\"acceptableAdjacentIntervals\": 3,\n\t\t\t\"timeIntervalInSeconds\":       30,\n\t\t\t\"encoding\":                    \"base32\",\n\t\t\t\"algorithm\":                   \"HMacSHA256\",\n\t\t\t\"passCodeLength\":              6,\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tjson1 := string(tmpJSON1)\n\t\t_, err = okta.NewAuthenticator(ctx, \"otp\", \u0026okta.AuthenticatorArgs{\n\t\t\tName:             pulumi.String(\"Custom OTP\"),\n\t\t\tKey:              pulumi.String(\"custom_otp\"),\n\t\t\tStatus:           pulumi.String(\"ACTIVE\"),\n\t\t\tSettings:         pulumi.String(json1),\n\t\t\tLegacyIgnoreName: pulumi.Bool(false),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.okta.Authenticator;\nimport com.pulumi.okta.AuthenticatorArgs;\nimport static com.pulumi.codegen.internal.Serialization.*;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var test = new Authenticator(\"test\", AuthenticatorArgs.builder()\n            .name(\"Security Question\")\n            .key(\"security_question\")\n            .settings(serializeJson(\n                jsonObject(\n                    jsonProperty(\"allowedFor\", \"recovery\")\n                )))\n            .build());\n\n        var otp = new Authenticator(\"otp\", AuthenticatorArgs.builder()\n            .name(\"Custom OTP\")\n            .key(\"custom_otp\")\n            .status(\"ACTIVE\")\n            .settings(serializeJson(\n                jsonObject(\n                    jsonProperty(\"protocol\", \"TOTP\"),\n                    jsonProperty(\"acceptableAdjacentIntervals\", 3),\n                    jsonProperty(\"timeIntervalInSeconds\", 30),\n                    jsonProperty(\"encoding\", \"base32\"),\n                    jsonProperty(\"algorithm\", \"HMacSHA256\"),\n                    jsonProperty(\"passCodeLength\", 6)\n                )))\n            .legacyIgnoreName(false)\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  test:\n    type: okta:Authenticator\n    properties:\n      name: Security Question\n      key: security_question\n      settings:\n        fn::toJSON:\n          allowedFor: recovery\n  otp:\n    type: okta:Authenticator\n    properties:\n      name: Custom OTP\n      key: custom_otp\n      status: ACTIVE\n      settings:\n        fn::toJSON:\n          protocol: TOTP\n          acceptableAdjacentIntervals: 3\n          timeIntervalInSeconds: 30\n          encoding: base32\n          algorithm: HMacSHA256\n          passCodeLength: 6\n      legacyIgnoreName: false\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n```sh\n$ pulumi import okta:index/authenticator:Authenticator example \u003cauthenticator_id\u003e\n```\n\n",
+            "description": "\u003e **WARNING:** This feature is only available as a part of the Identity Engine. Contact support for further information.\n\nThis resource allows you to configure different authenticators.\n\n\u003e **Create:** The Okta API has an odd notion of create for authenticators. If\nthe authenticator doesn't exist then a one time 'POST /api/v1/authenticators' to\ncreate the authenticator (hard create) will be performed. Thereafter, that\nauthenticator is never deleted, it is only deactivated (soft delete). Therefore,\nif the authenticator already exists create is just a soft import of an existing\nauthenticator. This does not apply to\u003cspan pulumi-lang-nodejs=\" customOtp \" pulumi-lang-dotnet=\" CustomOtp \" pulumi-lang-go=\" customOtp \" pulumi-lang-python=\" custom_otp \" pulumi-lang-yaml=\" customOtp \" pulumi-lang-java=\" customOtp \"\u003e custom_otp \u003c/span\u003eand\u003cspan pulumi-lang-nodejs=\" customApp \" pulumi-lang-dotnet=\" CustomApp \" pulumi-lang-go=\" customApp \" pulumi-lang-python=\" custom_app \" pulumi-lang-yaml=\" customApp \" pulumi-lang-java=\" customApp \"\u003e custom_app \u003c/span\u003eauthenticators. \nThere can be multiple\u003cspan pulumi-lang-nodejs=\" customOtp \" pulumi-lang-dotnet=\" CustomOtp \" pulumi-lang-go=\" customOtp \" pulumi-lang-python=\" custom_otp \" pulumi-lang-yaml=\" customOtp \" pulumi-lang-java=\" customOtp \"\u003e custom_otp \u003c/span\u003eauthenticators. To create new\u003cspan pulumi-lang-nodejs=\" customOtp \" pulumi-lang-dotnet=\" CustomOtp \" pulumi-lang-go=\" customOtp \" pulumi-lang-python=\" custom_otp \" pulumi-lang-yaml=\" customOtp \" pulumi-lang-java=\" customOtp \"\u003e custom_otp \u003c/span\u003e\nauthenticator, a new name and key =\u003cspan pulumi-lang-nodejs=\" customOtp \" pulumi-lang-dotnet=\" CustomOtp \" pulumi-lang-go=\" customOtp \" pulumi-lang-python=\" custom_otp \" pulumi-lang-yaml=\" customOtp \" pulumi-lang-java=\" customOtp \"\u003e custom_otp \u003c/span\u003eis required. If an old name is \nused, it will simply reactivate the old\u003cspan pulumi-lang-nodejs=\" customOtp \" pulumi-lang-dotnet=\" CustomOtp \" pulumi-lang-go=\" customOtp \" pulumi-lang-python=\" custom_otp \" pulumi-lang-yaml=\" customOtp \" pulumi-lang-java=\" customOtp \"\u003e custom_otp \u003c/span\u003eauthenticator. For\u003cspan pulumi-lang-nodejs=\" customApp \" pulumi-lang-dotnet=\" CustomApp \" pulumi-lang-go=\" customApp \" pulumi-lang-python=\" custom_app \" pulumi-lang-yaml=\" customApp \" pulumi-lang-java=\" customApp \"\u003e custom_app \u003c/span\u003e\nauthenticators,\u003cspan pulumi-lang-nodejs=\" legacyIgnoreName \" pulumi-lang-dotnet=\" LegacyIgnoreName \" pulumi-lang-go=\" legacyIgnoreName \" pulumi-lang-python=\" legacy_ignore_name \" pulumi-lang-yaml=\" legacyIgnoreName \" pulumi-lang-java=\" legacyIgnoreName \"\u003e legacy_ignore_name \u003c/span\u003emust be set to false.\n\n\u003e **Update:**\u003cspan pulumi-lang-nodejs=\" customOtp \" pulumi-lang-dotnet=\" CustomOtp \" pulumi-lang-go=\" customOtp \" pulumi-lang-python=\" custom_otp \" pulumi-lang-yaml=\" customOtp \" pulumi-lang-java=\" customOtp \"\u003e custom_otp \u003c/span\u003eauthenticator cannot be updated\n\n\u003e **Delete:** Authenticators can not be truly deleted therefore delete is soft.\nDelete will attempt to deativate the authenticator. An authenticator can only be\ndeactivated if it's not in use by any other policy.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst test = new okta.Authenticator(\"test\", {\n    name: \"Security Question\",\n    key: \"security_question\",\n    settings: JSON.stringify({\n        allowedFor: \"recovery\",\n    }),\n});\nconst otp = new okta.Authenticator(\"otp\", {\n    name: \"Custom OTP\",\n    key: \"custom_otp\",\n    status: \"ACTIVE\",\n    settings: JSON.stringify({\n        protocol: \"TOTP\",\n        acceptableAdjacentIntervals: 3,\n        timeIntervalInSeconds: 30,\n        encoding: \"base32\",\n        algorithm: \"HMacSHA256\",\n        passCodeLength: 6,\n    }),\n    legacyIgnoreName: false,\n});\nconst customApp = new okta.Authenticator(\"custom_app\", {\n    key: \"custom_app\",\n    name: \"Custom Push Auth\",\n    status: \"ACTIVE\",\n    agreeToTerms: true,\n    legacyIgnoreName: false,\n    settings: JSON.stringify({\n        userVerification: \"REQUIRED\",\n        appInstanceId: \"0oasontedmcepr0Uf1d7\",\n    }),\n    providerJson: JSON.stringify({\n        type: \"PUSH\",\n        configuration: {\n            fcm: {\n                id: \"ppcrb12345678ABCDEF\",\n            },\n        },\n    }),\n});\n```\n```python\nimport pulumi\nimport json\nimport pulumi_okta as okta\n\ntest = okta.Authenticator(\"test\",\n    name=\"Security Question\",\n    key=\"security_question\",\n    settings=json.dumps({\n        \"allowedFor\": \"recovery\",\n    }))\notp = okta.Authenticator(\"otp\",\n    name=\"Custom OTP\",\n    key=\"custom_otp\",\n    status=\"ACTIVE\",\n    settings=json.dumps({\n        \"protocol\": \"TOTP\",\n        \"acceptableAdjacentIntervals\": 3,\n        \"timeIntervalInSeconds\": 30,\n        \"encoding\": \"base32\",\n        \"algorithm\": \"HMacSHA256\",\n        \"passCodeLength\": 6,\n    }),\n    legacy_ignore_name=False)\ncustom_app = okta.Authenticator(\"custom_app\",\n    key=\"custom_app\",\n    name=\"Custom Push Auth\",\n    status=\"ACTIVE\",\n    agree_to_terms=True,\n    legacy_ignore_name=False,\n    settings=json.dumps({\n        \"userVerification\": \"REQUIRED\",\n        \"appInstanceId\": \"0oasontedmcepr0Uf1d7\",\n    }),\n    provider_json=json.dumps({\n        \"type\": \"PUSH\",\n        \"configuration\": {\n            \"fcm\": {\n                \"id\": \"ppcrb12345678ABCDEF\",\n            },\n        },\n    }))\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing System.Text.Json;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var test = new Okta.Authenticator(\"test\", new()\n    {\n        Name = \"Security Question\",\n        Key = \"security_question\",\n        Settings = JsonSerializer.Serialize(new Dictionary\u003cstring, object?\u003e\n        {\n            [\"allowedFor\"] = \"recovery\",\n        }),\n    });\n\n    var otp = new Okta.Authenticator(\"otp\", new()\n    {\n        Name = \"Custom OTP\",\n        Key = \"custom_otp\",\n        Status = \"ACTIVE\",\n        Settings = JsonSerializer.Serialize(new Dictionary\u003cstring, object?\u003e\n        {\n            [\"protocol\"] = \"TOTP\",\n            [\"acceptableAdjacentIntervals\"] = 3,\n            [\"timeIntervalInSeconds\"] = 30,\n            [\"encoding\"] = \"base32\",\n            [\"algorithm\"] = \"HMacSHA256\",\n            [\"passCodeLength\"] = 6,\n        }),\n        LegacyIgnoreName = false,\n    });\n\n    var customApp = new Okta.Authenticator(\"custom_app\", new()\n    {\n        Key = \"custom_app\",\n        Name = \"Custom Push Auth\",\n        Status = \"ACTIVE\",\n        AgreeToTerms = true,\n        LegacyIgnoreName = false,\n        Settings = JsonSerializer.Serialize(new Dictionary\u003cstring, object?\u003e\n        {\n            [\"userVerification\"] = \"REQUIRED\",\n            [\"appInstanceId\"] = \"0oasontedmcepr0Uf1d7\",\n        }),\n        ProviderJson = JsonSerializer.Serialize(new Dictionary\u003cstring, object?\u003e\n        {\n            [\"type\"] = \"PUSH\",\n            [\"configuration\"] = new Dictionary\u003cstring, object?\u003e\n            {\n                [\"fcm\"] = new Dictionary\u003cstring, object?\u003e\n                {\n                    [\"id\"] = \"ppcrb12345678ABCDEF\",\n                },\n            },\n        }),\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"encoding/json\"\n\n\t\"github.com/pulumi/pulumi-okta/sdk/v6/go/okta\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\ttmpJSON0, err := json.Marshal(map[string]interface{}{\n\t\t\t\"allowedFor\": \"recovery\",\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tjson0 := string(tmpJSON0)\n\t\t_, err = okta.NewAuthenticator(ctx, \"test\", \u0026okta.AuthenticatorArgs{\n\t\t\tName:     pulumi.String(\"Security Question\"),\n\t\t\tKey:      pulumi.String(\"security_question\"),\n\t\t\tSettings: pulumi.String(json0),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\ttmpJSON1, err := json.Marshal(map[string]interface{}{\n\t\t\t\"protocol\":                    \"TOTP\",\n\t\t\t\"acceptableAdjacentIntervals\": 3,\n\t\t\t\"timeIntervalInSeconds\":       30,\n\t\t\t\"encoding\":                    \"base32\",\n\t\t\t\"algorithm\":                   \"HMacSHA256\",\n\t\t\t\"passCodeLength\":              6,\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tjson1 := string(tmpJSON1)\n\t\t_, err = okta.NewAuthenticator(ctx, \"otp\", \u0026okta.AuthenticatorArgs{\n\t\t\tName:             pulumi.String(\"Custom OTP\"),\n\t\t\tKey:              pulumi.String(\"custom_otp\"),\n\t\t\tStatus:           pulumi.String(\"ACTIVE\"),\n\t\t\tSettings:         pulumi.String(json1),\n\t\t\tLegacyIgnoreName: pulumi.Bool(false),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\ttmpJSON2, err := json.Marshal(map[string]interface{}{\n\t\t\t\"userVerification\": \"REQUIRED\",\n\t\t\t\"appInstanceId\":    \"0oasontedmcepr0Uf1d7\",\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tjson2 := string(tmpJSON2)\n\t\ttmpJSON3, err := json.Marshal(map[string]interface{}{\n\t\t\t\"type\": \"PUSH\",\n\t\t\t\"configuration\": map[string]interface{}{\n\t\t\t\t\"fcm\": map[string]interface{}{\n\t\t\t\t\t\"id\": \"ppcrb12345678ABCDEF\",\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tjson3 := string(tmpJSON3)\n\t\t_, err = okta.NewAuthenticator(ctx, \"custom_app\", \u0026okta.AuthenticatorArgs{\n\t\t\tKey:              pulumi.String(\"custom_app\"),\n\t\t\tName:             pulumi.String(\"Custom Push Auth\"),\n\t\t\tStatus:           pulumi.String(\"ACTIVE\"),\n\t\t\tAgreeToTerms:     pulumi.Bool(true),\n\t\t\tLegacyIgnoreName: pulumi.Bool(false),\n\t\t\tSettings:         pulumi.String(json2),\n\t\t\tProviderJson:     pulumi.String(json3),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.okta.Authenticator;\nimport com.pulumi.okta.AuthenticatorArgs;\nimport static com.pulumi.codegen.internal.Serialization.*;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var test = new Authenticator(\"test\", AuthenticatorArgs.builder()\n            .name(\"Security Question\")\n            .key(\"security_question\")\n            .settings(serializeJson(\n                jsonObject(\n                    jsonProperty(\"allowedFor\", \"recovery\")\n                )))\n            .build());\n\n        var otp = new Authenticator(\"otp\", AuthenticatorArgs.builder()\n            .name(\"Custom OTP\")\n            .key(\"custom_otp\")\n            .status(\"ACTIVE\")\n            .settings(serializeJson(\n                jsonObject(\n                    jsonProperty(\"protocol\", \"TOTP\"),\n                    jsonProperty(\"acceptableAdjacentIntervals\", 3),\n                    jsonProperty(\"timeIntervalInSeconds\", 30),\n                    jsonProperty(\"encoding\", \"base32\"),\n                    jsonProperty(\"algorithm\", \"HMacSHA256\"),\n                    jsonProperty(\"passCodeLength\", 6)\n                )))\n            .legacyIgnoreName(false)\n            .build());\n\n        var customApp = new Authenticator(\"customApp\", AuthenticatorArgs.builder()\n            .key(\"custom_app\")\n            .name(\"Custom Push Auth\")\n            .status(\"ACTIVE\")\n            .agreeToTerms(true)\n            .legacyIgnoreName(false)\n            .settings(serializeJson(\n                jsonObject(\n                    jsonProperty(\"userVerification\", \"REQUIRED\"),\n                    jsonProperty(\"appInstanceId\", \"0oasontedmcepr0Uf1d7\")\n                )))\n            .providerJson(serializeJson(\n                jsonObject(\n                    jsonProperty(\"type\", \"PUSH\"),\n                    jsonProperty(\"configuration\", jsonObject(\n                        jsonProperty(\"fcm\", jsonObject(\n                            jsonProperty(\"id\", \"ppcrb12345678ABCDEF\")\n                        ))\n                    ))\n                )))\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  test:\n    type: okta:Authenticator\n    properties:\n      name: Security Question\n      key: security_question\n      settings:\n        fn::toJSON:\n          allowedFor: recovery\n  otp:\n    type: okta:Authenticator\n    properties:\n      name: Custom OTP\n      key: custom_otp\n      status: ACTIVE\n      settings:\n        fn::toJSON:\n          protocol: TOTP\n          acceptableAdjacentIntervals: 3\n          timeIntervalInSeconds: 30\n          encoding: base32\n          algorithm: HMacSHA256\n          passCodeLength: 6\n      legacyIgnoreName: false\n  customApp:\n    type: okta:Authenticator\n    name: custom_app\n    properties:\n      key: custom_app\n      name: Custom Push Auth\n      status: ACTIVE\n      agreeToTerms: true\n      legacyIgnoreName: false # must be false for custom_app\n      settings:\n        fn::toJSON:\n          userVerification: REQUIRED\n          appInstanceId: 0oasontedmcepr0Uf1d7\n      providerJson:\n        fn::toJSON:\n          type: PUSH\n          configuration:\n            fcm:\n              id: ppcrb12345678ABCDEF\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n```sh\n$ pulumi import okta:index/authenticator:Authenticator example \u003cauthenticator_id\u003e\n```\n\n",
             "properties": {
+                "agreeToTerms": {
+                    "type": "boolean",
+                    "description": "A value of true indicates that the administrator accepts the terms for creating a new authenticator. Okta requires that you accept the terms when creating a new\u003cspan pulumi-lang-nodejs=\" customApp \" pulumi-lang-dotnet=\" CustomApp \" pulumi-lang-go=\" customApp \" pulumi-lang-python=\" custom_app \" pulumi-lang-yaml=\" customApp \" pulumi-lang-java=\" customApp \"\u003e custom_app \u003c/span\u003eauthenticator. Other authenticators don't require this field.\n"
+                },
                 "key": {
                     "type": "string",
-                    "description": "A human-readable string that identifies the authenticator. Some authenticators are available by feature flag on the organization. Possible values inclue: \u003cspan pulumi-lang-nodejs=\"`duo`\" pulumi-lang-dotnet=\"`Duo`\" pulumi-lang-go=\"`duo`\" pulumi-lang-python=\"`duo`\" pulumi-lang-yaml=\"`duo`\" pulumi-lang-java=\"`duo`\"\u003e`duo`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`externalIdp`\" pulumi-lang-dotnet=\"`ExternalIdp`\" pulumi-lang-go=\"`externalIdp`\" pulumi-lang-python=\"`external_idp`\" pulumi-lang-yaml=\"`externalIdp`\" pulumi-lang-java=\"`externalIdp`\"\u003e`external_idp`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`googleOtp`\" pulumi-lang-dotnet=\"`GoogleOtp`\" pulumi-lang-go=\"`googleOtp`\" pulumi-lang-python=\"`google_otp`\" pulumi-lang-yaml=\"`googleOtp`\" pulumi-lang-java=\"`googleOtp`\"\u003e`google_otp`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`oktaEmail`\" pulumi-lang-dotnet=\"`OktaEmail`\" pulumi-lang-go=\"`oktaEmail`\" pulumi-lang-python=\"`okta_email`\" pulumi-lang-yaml=\"`oktaEmail`\" pulumi-lang-java=\"`oktaEmail`\"\u003e`okta_email`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`oktaPassword`\" pulumi-lang-dotnet=\"`OktaPassword`\" pulumi-lang-go=\"`oktaPassword`\" pulumi-lang-python=\"`okta_password`\" pulumi-lang-yaml=\"`oktaPassword`\" pulumi-lang-java=\"`oktaPassword`\"\u003e`okta_password`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`oktaVerify`\" pulumi-lang-dotnet=\"`OktaVerify`\" pulumi-lang-go=\"`oktaVerify`\" pulumi-lang-python=\"`okta_verify`\" pulumi-lang-yaml=\"`oktaVerify`\" pulumi-lang-java=\"`oktaVerify`\"\u003e`okta_verify`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`onpremMfa`\" pulumi-lang-dotnet=\"`OnpremMfa`\" pulumi-lang-go=\"`onpremMfa`\" pulumi-lang-python=\"`onprem_mfa`\" pulumi-lang-yaml=\"`onpremMfa`\" pulumi-lang-java=\"`onpremMfa`\"\u003e`onprem_mfa`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`phoneNumber`\" pulumi-lang-dotnet=\"`PhoneNumber`\" pulumi-lang-go=\"`phoneNumber`\" pulumi-lang-python=\"`phone_number`\" pulumi-lang-yaml=\"`phoneNumber`\" pulumi-lang-java=\"`phoneNumber`\"\u003e`phone_number`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`rsaToken`\" pulumi-lang-dotnet=\"`RsaToken`\" pulumi-lang-go=\"`rsaToken`\" pulumi-lang-python=\"`rsa_token`\" pulumi-lang-yaml=\"`rsaToken`\" pulumi-lang-java=\"`rsaToken`\"\u003e`rsa_token`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`securityQuestion`\" pulumi-lang-dotnet=\"`SecurityQuestion`\" pulumi-lang-go=\"`securityQuestion`\" pulumi-lang-python=\"`security_question`\" pulumi-lang-yaml=\"`securityQuestion`\" pulumi-lang-java=\"`securityQuestion`\"\u003e`security_question`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`webauthn`\" pulumi-lang-dotnet=\"`Webauthn`\" pulumi-lang-go=\"`webauthn`\" pulumi-lang-python=\"`webauthn`\" pulumi-lang-yaml=\"`webauthn`\" pulumi-lang-java=\"`webauthn`\"\u003e`webauthn`\u003c/span\u003e\n"
+                    "description": "A human-readable string that identifies the authenticator. Some authenticators are available by feature flag on the organization. Possible values inclue: \u003cspan pulumi-lang-nodejs=\"`customApp`\" pulumi-lang-dotnet=\"`CustomApp`\" pulumi-lang-go=\"`customApp`\" pulumi-lang-python=\"`custom_app`\" pulumi-lang-yaml=\"`customApp`\" pulumi-lang-java=\"`customApp`\"\u003e`custom_app`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`customOtp`\" pulumi-lang-dotnet=\"`CustomOtp`\" pulumi-lang-go=\"`customOtp`\" pulumi-lang-python=\"`custom_otp`\" pulumi-lang-yaml=\"`customOtp`\" pulumi-lang-java=\"`customOtp`\"\u003e`custom_otp`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`duo`\" pulumi-lang-dotnet=\"`Duo`\" pulumi-lang-go=\"`duo`\" pulumi-lang-python=\"`duo`\" pulumi-lang-yaml=\"`duo`\" pulumi-lang-java=\"`duo`\"\u003e`duo`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`externalIdp`\" pulumi-lang-dotnet=\"`ExternalIdp`\" pulumi-lang-go=\"`externalIdp`\" pulumi-lang-python=\"`external_idp`\" pulumi-lang-yaml=\"`externalIdp`\" pulumi-lang-java=\"`externalIdp`\"\u003e`external_idp`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`googleOtp`\" pulumi-lang-dotnet=\"`GoogleOtp`\" pulumi-lang-go=\"`googleOtp`\" pulumi-lang-python=\"`google_otp`\" pulumi-lang-yaml=\"`googleOtp`\" pulumi-lang-java=\"`googleOtp`\"\u003e`google_otp`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`oktaEmail`\" pulumi-lang-dotnet=\"`OktaEmail`\" pulumi-lang-go=\"`oktaEmail`\" pulumi-lang-python=\"`okta_email`\" pulumi-lang-yaml=\"`oktaEmail`\" pulumi-lang-java=\"`oktaEmail`\"\u003e`okta_email`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`oktaPassword`\" pulumi-lang-dotnet=\"`OktaPassword`\" pulumi-lang-go=\"`oktaPassword`\" pulumi-lang-python=\"`okta_password`\" pulumi-lang-yaml=\"`oktaPassword`\" pulumi-lang-java=\"`oktaPassword`\"\u003e`okta_password`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`oktaVerify`\" pulumi-lang-dotnet=\"`OktaVerify`\" pulumi-lang-go=\"`oktaVerify`\" pulumi-lang-python=\"`okta_verify`\" pulumi-lang-yaml=\"`oktaVerify`\" pulumi-lang-java=\"`oktaVerify`\"\u003e`okta_verify`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`onpremMfa`\" pulumi-lang-dotnet=\"`OnpremMfa`\" pulumi-lang-go=\"`onpremMfa`\" pulumi-lang-python=\"`onprem_mfa`\" pulumi-lang-yaml=\"`onpremMfa`\" pulumi-lang-java=\"`onpremMfa`\"\u003e`onprem_mfa`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`phoneNumber`\" pulumi-lang-dotnet=\"`PhoneNumber`\" pulumi-lang-go=\"`phoneNumber`\" pulumi-lang-python=\"`phone_number`\" pulumi-lang-yaml=\"`phoneNumber`\" pulumi-lang-java=\"`phoneNumber`\"\u003e`phone_number`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`rsaToken`\" pulumi-lang-dotnet=\"`RsaToken`\" pulumi-lang-go=\"`rsaToken`\" pulumi-lang-python=\"`rsa_token`\" pulumi-lang-yaml=\"`rsaToken`\" pulumi-lang-java=\"`rsaToken`\"\u003e`rsa_token`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`securityQuestion`\" pulumi-lang-dotnet=\"`SecurityQuestion`\" pulumi-lang-go=\"`securityQuestion`\" pulumi-lang-python=\"`security_question`\" pulumi-lang-yaml=\"`securityQuestion`\" pulumi-lang-java=\"`securityQuestion`\"\u003e`security_question`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`webauthn`\" pulumi-lang-dotnet=\"`Webauthn`\" pulumi-lang-go=\"`webauthn`\" pulumi-lang-python=\"`webauthn`\" pulumi-lang-yaml=\"`webauthn`\" pulumi-lang-java=\"`webauthn`\"\u003e`webauthn`\u003c/span\u003e\n"
                 },
                 "legacyIgnoreName": {
                     "type": "boolean",
-                    "description": "Name does not trigger change detection (legacy behavior)\n"
+                    "description": "Name does not trigger change detection (legacy behavior). Must be set to false for\u003cspan pulumi-lang-nodejs=\" customApp \" pulumi-lang-dotnet=\" CustomApp \" pulumi-lang-go=\" customApp \" pulumi-lang-python=\" custom_app \" pulumi-lang-yaml=\" customApp \" pulumi-lang-java=\" customApp \"\u003e custom_app \u003c/span\u003eauthenticators.\n"
                 },
                 "name": {
                     "type": "string",
@@ -15324,14 +15470,18 @@
                 "type"
             ],
             "inputProperties": {
+                "agreeToTerms": {
+                    "type": "boolean",
+                    "description": "A value of true indicates that the administrator accepts the terms for creating a new authenticator. Okta requires that you accept the terms when creating a new\u003cspan pulumi-lang-nodejs=\" customApp \" pulumi-lang-dotnet=\" CustomApp \" pulumi-lang-go=\" customApp \" pulumi-lang-python=\" custom_app \" pulumi-lang-yaml=\" customApp \" pulumi-lang-java=\" customApp \"\u003e custom_app \u003c/span\u003eauthenticator. Other authenticators don't require this field.\n"
+                },
                 "key": {
                     "type": "string",
-                    "description": "A human-readable string that identifies the authenticator. Some authenticators are available by feature flag on the organization. Possible values inclue: \u003cspan pulumi-lang-nodejs=\"`duo`\" pulumi-lang-dotnet=\"`Duo`\" pulumi-lang-go=\"`duo`\" pulumi-lang-python=\"`duo`\" pulumi-lang-yaml=\"`duo`\" pulumi-lang-java=\"`duo`\"\u003e`duo`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`externalIdp`\" pulumi-lang-dotnet=\"`ExternalIdp`\" pulumi-lang-go=\"`externalIdp`\" pulumi-lang-python=\"`external_idp`\" pulumi-lang-yaml=\"`externalIdp`\" pulumi-lang-java=\"`externalIdp`\"\u003e`external_idp`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`googleOtp`\" pulumi-lang-dotnet=\"`GoogleOtp`\" pulumi-lang-go=\"`googleOtp`\" pulumi-lang-python=\"`google_otp`\" pulumi-lang-yaml=\"`googleOtp`\" pulumi-lang-java=\"`googleOtp`\"\u003e`google_otp`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`oktaEmail`\" pulumi-lang-dotnet=\"`OktaEmail`\" pulumi-lang-go=\"`oktaEmail`\" pulumi-lang-python=\"`okta_email`\" pulumi-lang-yaml=\"`oktaEmail`\" pulumi-lang-java=\"`oktaEmail`\"\u003e`okta_email`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`oktaPassword`\" pulumi-lang-dotnet=\"`OktaPassword`\" pulumi-lang-go=\"`oktaPassword`\" pulumi-lang-python=\"`okta_password`\" pulumi-lang-yaml=\"`oktaPassword`\" pulumi-lang-java=\"`oktaPassword`\"\u003e`okta_password`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`oktaVerify`\" pulumi-lang-dotnet=\"`OktaVerify`\" pulumi-lang-go=\"`oktaVerify`\" pulumi-lang-python=\"`okta_verify`\" pulumi-lang-yaml=\"`oktaVerify`\" pulumi-lang-java=\"`oktaVerify`\"\u003e`okta_verify`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`onpremMfa`\" pulumi-lang-dotnet=\"`OnpremMfa`\" pulumi-lang-go=\"`onpremMfa`\" pulumi-lang-python=\"`onprem_mfa`\" pulumi-lang-yaml=\"`onpremMfa`\" pulumi-lang-java=\"`onpremMfa`\"\u003e`onprem_mfa`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`phoneNumber`\" pulumi-lang-dotnet=\"`PhoneNumber`\" pulumi-lang-go=\"`phoneNumber`\" pulumi-lang-python=\"`phone_number`\" pulumi-lang-yaml=\"`phoneNumber`\" pulumi-lang-java=\"`phoneNumber`\"\u003e`phone_number`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`rsaToken`\" pulumi-lang-dotnet=\"`RsaToken`\" pulumi-lang-go=\"`rsaToken`\" pulumi-lang-python=\"`rsa_token`\" pulumi-lang-yaml=\"`rsaToken`\" pulumi-lang-java=\"`rsaToken`\"\u003e`rsa_token`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`securityQuestion`\" pulumi-lang-dotnet=\"`SecurityQuestion`\" pulumi-lang-go=\"`securityQuestion`\" pulumi-lang-python=\"`security_question`\" pulumi-lang-yaml=\"`securityQuestion`\" pulumi-lang-java=\"`securityQuestion`\"\u003e`security_question`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`webauthn`\" pulumi-lang-dotnet=\"`Webauthn`\" pulumi-lang-go=\"`webauthn`\" pulumi-lang-python=\"`webauthn`\" pulumi-lang-yaml=\"`webauthn`\" pulumi-lang-java=\"`webauthn`\"\u003e`webauthn`\u003c/span\u003e\n",
+                    "description": "A human-readable string that identifies the authenticator. Some authenticators are available by feature flag on the organization. Possible values inclue: \u003cspan pulumi-lang-nodejs=\"`customApp`\" pulumi-lang-dotnet=\"`CustomApp`\" pulumi-lang-go=\"`customApp`\" pulumi-lang-python=\"`custom_app`\" pulumi-lang-yaml=\"`customApp`\" pulumi-lang-java=\"`customApp`\"\u003e`custom_app`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`customOtp`\" pulumi-lang-dotnet=\"`CustomOtp`\" pulumi-lang-go=\"`customOtp`\" pulumi-lang-python=\"`custom_otp`\" pulumi-lang-yaml=\"`customOtp`\" pulumi-lang-java=\"`customOtp`\"\u003e`custom_otp`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`duo`\" pulumi-lang-dotnet=\"`Duo`\" pulumi-lang-go=\"`duo`\" pulumi-lang-python=\"`duo`\" pulumi-lang-yaml=\"`duo`\" pulumi-lang-java=\"`duo`\"\u003e`duo`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`externalIdp`\" pulumi-lang-dotnet=\"`ExternalIdp`\" pulumi-lang-go=\"`externalIdp`\" pulumi-lang-python=\"`external_idp`\" pulumi-lang-yaml=\"`externalIdp`\" pulumi-lang-java=\"`externalIdp`\"\u003e`external_idp`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`googleOtp`\" pulumi-lang-dotnet=\"`GoogleOtp`\" pulumi-lang-go=\"`googleOtp`\" pulumi-lang-python=\"`google_otp`\" pulumi-lang-yaml=\"`googleOtp`\" pulumi-lang-java=\"`googleOtp`\"\u003e`google_otp`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`oktaEmail`\" pulumi-lang-dotnet=\"`OktaEmail`\" pulumi-lang-go=\"`oktaEmail`\" pulumi-lang-python=\"`okta_email`\" pulumi-lang-yaml=\"`oktaEmail`\" pulumi-lang-java=\"`oktaEmail`\"\u003e`okta_email`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`oktaPassword`\" pulumi-lang-dotnet=\"`OktaPassword`\" pulumi-lang-go=\"`oktaPassword`\" pulumi-lang-python=\"`okta_password`\" pulumi-lang-yaml=\"`oktaPassword`\" pulumi-lang-java=\"`oktaPassword`\"\u003e`okta_password`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`oktaVerify`\" pulumi-lang-dotnet=\"`OktaVerify`\" pulumi-lang-go=\"`oktaVerify`\" pulumi-lang-python=\"`okta_verify`\" pulumi-lang-yaml=\"`oktaVerify`\" pulumi-lang-java=\"`oktaVerify`\"\u003e`okta_verify`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`onpremMfa`\" pulumi-lang-dotnet=\"`OnpremMfa`\" pulumi-lang-go=\"`onpremMfa`\" pulumi-lang-python=\"`onprem_mfa`\" pulumi-lang-yaml=\"`onpremMfa`\" pulumi-lang-java=\"`onpremMfa`\"\u003e`onprem_mfa`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`phoneNumber`\" pulumi-lang-dotnet=\"`PhoneNumber`\" pulumi-lang-go=\"`phoneNumber`\" pulumi-lang-python=\"`phone_number`\" pulumi-lang-yaml=\"`phoneNumber`\" pulumi-lang-java=\"`phoneNumber`\"\u003e`phone_number`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`rsaToken`\" pulumi-lang-dotnet=\"`RsaToken`\" pulumi-lang-go=\"`rsaToken`\" pulumi-lang-python=\"`rsa_token`\" pulumi-lang-yaml=\"`rsaToken`\" pulumi-lang-java=\"`rsaToken`\"\u003e`rsa_token`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`securityQuestion`\" pulumi-lang-dotnet=\"`SecurityQuestion`\" pulumi-lang-go=\"`securityQuestion`\" pulumi-lang-python=\"`security_question`\" pulumi-lang-yaml=\"`securityQuestion`\" pulumi-lang-java=\"`securityQuestion`\"\u003e`security_question`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`webauthn`\" pulumi-lang-dotnet=\"`Webauthn`\" pulumi-lang-go=\"`webauthn`\" pulumi-lang-python=\"`webauthn`\" pulumi-lang-yaml=\"`webauthn`\" pulumi-lang-java=\"`webauthn`\"\u003e`webauthn`\u003c/span\u003e\n",
                     "willReplaceOnChanges": true
                 },
                 "legacyIgnoreName": {
                     "type": "boolean",
-                    "description": "Name does not trigger change detection (legacy behavior)\n"
+                    "description": "Name does not trigger change detection (legacy behavior). Must be set to false for\u003cspan pulumi-lang-nodejs=\" customApp \" pulumi-lang-dotnet=\" CustomApp \" pulumi-lang-go=\" customApp \" pulumi-lang-python=\" custom_app \" pulumi-lang-yaml=\" customApp \" pulumi-lang-java=\" customApp \"\u003e custom_app \u003c/span\u003eauthenticators.\n"
                 },
                 "name": {
                     "type": "string",
@@ -15385,14 +15535,18 @@
             "stateInputs": {
                 "description": "Input properties used for looking up and filtering Authenticator resources.\n",
                 "properties": {
+                    "agreeToTerms": {
+                        "type": "boolean",
+                        "description": "A value of true indicates that the administrator accepts the terms for creating a new authenticator. Okta requires that you accept the terms when creating a new\u003cspan pulumi-lang-nodejs=\" customApp \" pulumi-lang-dotnet=\" CustomApp \" pulumi-lang-go=\" customApp \" pulumi-lang-python=\" custom_app \" pulumi-lang-yaml=\" customApp \" pulumi-lang-java=\" customApp \"\u003e custom_app \u003c/span\u003eauthenticator. Other authenticators don't require this field.\n"
+                    },
                     "key": {
                         "type": "string",
-                        "description": "A human-readable string that identifies the authenticator. Some authenticators are available by feature flag on the organization. Possible values inclue: \u003cspan pulumi-lang-nodejs=\"`duo`\" pulumi-lang-dotnet=\"`Duo`\" pulumi-lang-go=\"`duo`\" pulumi-lang-python=\"`duo`\" pulumi-lang-yaml=\"`duo`\" pulumi-lang-java=\"`duo`\"\u003e`duo`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`externalIdp`\" pulumi-lang-dotnet=\"`ExternalIdp`\" pulumi-lang-go=\"`externalIdp`\" pulumi-lang-python=\"`external_idp`\" pulumi-lang-yaml=\"`externalIdp`\" pulumi-lang-java=\"`externalIdp`\"\u003e`external_idp`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`googleOtp`\" pulumi-lang-dotnet=\"`GoogleOtp`\" pulumi-lang-go=\"`googleOtp`\" pulumi-lang-python=\"`google_otp`\" pulumi-lang-yaml=\"`googleOtp`\" pulumi-lang-java=\"`googleOtp`\"\u003e`google_otp`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`oktaEmail`\" pulumi-lang-dotnet=\"`OktaEmail`\" pulumi-lang-go=\"`oktaEmail`\" pulumi-lang-python=\"`okta_email`\" pulumi-lang-yaml=\"`oktaEmail`\" pulumi-lang-java=\"`oktaEmail`\"\u003e`okta_email`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`oktaPassword`\" pulumi-lang-dotnet=\"`OktaPassword`\" pulumi-lang-go=\"`oktaPassword`\" pulumi-lang-python=\"`okta_password`\" pulumi-lang-yaml=\"`oktaPassword`\" pulumi-lang-java=\"`oktaPassword`\"\u003e`okta_password`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`oktaVerify`\" pulumi-lang-dotnet=\"`OktaVerify`\" pulumi-lang-go=\"`oktaVerify`\" pulumi-lang-python=\"`okta_verify`\" pulumi-lang-yaml=\"`oktaVerify`\" pulumi-lang-java=\"`oktaVerify`\"\u003e`okta_verify`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`onpremMfa`\" pulumi-lang-dotnet=\"`OnpremMfa`\" pulumi-lang-go=\"`onpremMfa`\" pulumi-lang-python=\"`onprem_mfa`\" pulumi-lang-yaml=\"`onpremMfa`\" pulumi-lang-java=\"`onpremMfa`\"\u003e`onprem_mfa`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`phoneNumber`\" pulumi-lang-dotnet=\"`PhoneNumber`\" pulumi-lang-go=\"`phoneNumber`\" pulumi-lang-python=\"`phone_number`\" pulumi-lang-yaml=\"`phoneNumber`\" pulumi-lang-java=\"`phoneNumber`\"\u003e`phone_number`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`rsaToken`\" pulumi-lang-dotnet=\"`RsaToken`\" pulumi-lang-go=\"`rsaToken`\" pulumi-lang-python=\"`rsa_token`\" pulumi-lang-yaml=\"`rsaToken`\" pulumi-lang-java=\"`rsaToken`\"\u003e`rsa_token`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`securityQuestion`\" pulumi-lang-dotnet=\"`SecurityQuestion`\" pulumi-lang-go=\"`securityQuestion`\" pulumi-lang-python=\"`security_question`\" pulumi-lang-yaml=\"`securityQuestion`\" pulumi-lang-java=\"`securityQuestion`\"\u003e`security_question`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`webauthn`\" pulumi-lang-dotnet=\"`Webauthn`\" pulumi-lang-go=\"`webauthn`\" pulumi-lang-python=\"`webauthn`\" pulumi-lang-yaml=\"`webauthn`\" pulumi-lang-java=\"`webauthn`\"\u003e`webauthn`\u003c/span\u003e\n",
+                        "description": "A human-readable string that identifies the authenticator. Some authenticators are available by feature flag on the organization. Possible values inclue: \u003cspan pulumi-lang-nodejs=\"`customApp`\" pulumi-lang-dotnet=\"`CustomApp`\" pulumi-lang-go=\"`customApp`\" pulumi-lang-python=\"`custom_app`\" pulumi-lang-yaml=\"`customApp`\" pulumi-lang-java=\"`customApp`\"\u003e`custom_app`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`customOtp`\" pulumi-lang-dotnet=\"`CustomOtp`\" pulumi-lang-go=\"`customOtp`\" pulumi-lang-python=\"`custom_otp`\" pulumi-lang-yaml=\"`customOtp`\" pulumi-lang-java=\"`customOtp`\"\u003e`custom_otp`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`duo`\" pulumi-lang-dotnet=\"`Duo`\" pulumi-lang-go=\"`duo`\" pulumi-lang-python=\"`duo`\" pulumi-lang-yaml=\"`duo`\" pulumi-lang-java=\"`duo`\"\u003e`duo`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`externalIdp`\" pulumi-lang-dotnet=\"`ExternalIdp`\" pulumi-lang-go=\"`externalIdp`\" pulumi-lang-python=\"`external_idp`\" pulumi-lang-yaml=\"`externalIdp`\" pulumi-lang-java=\"`externalIdp`\"\u003e`external_idp`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`googleOtp`\" pulumi-lang-dotnet=\"`GoogleOtp`\" pulumi-lang-go=\"`googleOtp`\" pulumi-lang-python=\"`google_otp`\" pulumi-lang-yaml=\"`googleOtp`\" pulumi-lang-java=\"`googleOtp`\"\u003e`google_otp`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`oktaEmail`\" pulumi-lang-dotnet=\"`OktaEmail`\" pulumi-lang-go=\"`oktaEmail`\" pulumi-lang-python=\"`okta_email`\" pulumi-lang-yaml=\"`oktaEmail`\" pulumi-lang-java=\"`oktaEmail`\"\u003e`okta_email`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`oktaPassword`\" pulumi-lang-dotnet=\"`OktaPassword`\" pulumi-lang-go=\"`oktaPassword`\" pulumi-lang-python=\"`okta_password`\" pulumi-lang-yaml=\"`oktaPassword`\" pulumi-lang-java=\"`oktaPassword`\"\u003e`okta_password`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`oktaVerify`\" pulumi-lang-dotnet=\"`OktaVerify`\" pulumi-lang-go=\"`oktaVerify`\" pulumi-lang-python=\"`okta_verify`\" pulumi-lang-yaml=\"`oktaVerify`\" pulumi-lang-java=\"`oktaVerify`\"\u003e`okta_verify`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`onpremMfa`\" pulumi-lang-dotnet=\"`OnpremMfa`\" pulumi-lang-go=\"`onpremMfa`\" pulumi-lang-python=\"`onprem_mfa`\" pulumi-lang-yaml=\"`onpremMfa`\" pulumi-lang-java=\"`onpremMfa`\"\u003e`onprem_mfa`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`phoneNumber`\" pulumi-lang-dotnet=\"`PhoneNumber`\" pulumi-lang-go=\"`phoneNumber`\" pulumi-lang-python=\"`phone_number`\" pulumi-lang-yaml=\"`phoneNumber`\" pulumi-lang-java=\"`phoneNumber`\"\u003e`phone_number`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`rsaToken`\" pulumi-lang-dotnet=\"`RsaToken`\" pulumi-lang-go=\"`rsaToken`\" pulumi-lang-python=\"`rsa_token`\" pulumi-lang-yaml=\"`rsaToken`\" pulumi-lang-java=\"`rsaToken`\"\u003e`rsa_token`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`securityQuestion`\" pulumi-lang-dotnet=\"`SecurityQuestion`\" pulumi-lang-go=\"`securityQuestion`\" pulumi-lang-python=\"`security_question`\" pulumi-lang-yaml=\"`securityQuestion`\" pulumi-lang-java=\"`securityQuestion`\"\u003e`security_question`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`webauthn`\" pulumi-lang-dotnet=\"`Webauthn`\" pulumi-lang-go=\"`webauthn`\" pulumi-lang-python=\"`webauthn`\" pulumi-lang-yaml=\"`webauthn`\" pulumi-lang-java=\"`webauthn`\"\u003e`webauthn`\u003c/span\u003e\n",
                         "willReplaceOnChanges": true
                     },
                     "legacyIgnoreName": {
                         "type": "boolean",
-                        "description": "Name does not trigger change detection (legacy behavior)\n"
+                        "description": "Name does not trigger change detection (legacy behavior). Must be set to false for\u003cspan pulumi-lang-nodejs=\" customApp \" pulumi-lang-dotnet=\" CustomApp \" pulumi-lang-go=\" customApp \" pulumi-lang-python=\" custom_app \" pulumi-lang-yaml=\" customApp \" pulumi-lang-java=\" customApp \"\u003e custom_app \u003c/span\u003eauthenticators.\n"
                     },
                     "name": {
                         "type": "string",
@@ -18445,6 +18599,16 @@
         "okta:index/policyMfaDefault:PolicyMfaDefault": {
             "description": "Configures default MFA Policy.\nThis resource allows you to configure default MFA Policy.\n\u003e Requires Org Feature Flag 'OKTA_MFA_POLICY'. Contact support to have this feature flag ***enabled***.\n\u003e Unless Org Feature Flag 'ENG_ENABLE_OPTIONAL_PASSWORD_ENROLLMENT' is ***disabled*** 'okta_password' or 'okta_email' must be present and its 'enroll' value set to 'REQUIRED'. Contact support to have this feature flag ***disabled***.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst classicExample = new okta.PolicyMfaDefault(\"classic_example\", {\n    isOie: false,\n    oktaPassword: {\n        enroll: \"REQUIRED\",\n    },\n    oktaOtp: {\n        enroll: \"REQUIRED\",\n    },\n});\nconst oieExample = new okta.PolicyMfaDefault(\"oie_example\", {\n    isOie: true,\n    oktaPassword: {\n        enroll: \"REQUIRED\",\n    },\n    oktaVerify: {\n        enroll: \"REQUIRED\",\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nclassic_example = okta.PolicyMfaDefault(\"classic_example\",\n    is_oie=False,\n    okta_password={\n        \"enroll\": \"REQUIRED\",\n    },\n    okta_otp={\n        \"enroll\": \"REQUIRED\",\n    })\noie_example = okta.PolicyMfaDefault(\"oie_example\",\n    is_oie=True,\n    okta_password={\n        \"enroll\": \"REQUIRED\",\n    },\n    okta_verify={\n        \"enroll\": \"REQUIRED\",\n    })\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var classicExample = new Okta.PolicyMfaDefault(\"classic_example\", new()\n    {\n        IsOie = false,\n        OktaPassword = \n        {\n            { \"enroll\", \"REQUIRED\" },\n        },\n        OktaOtp = \n        {\n            { \"enroll\", \"REQUIRED\" },\n        },\n    });\n\n    var oieExample = new Okta.PolicyMfaDefault(\"oie_example\", new()\n    {\n        IsOie = true,\n        OktaPassword = \n        {\n            { \"enroll\", \"REQUIRED\" },\n        },\n        OktaVerify = \n        {\n            { \"enroll\", \"REQUIRED\" },\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v6/go/okta\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := okta.NewPolicyMfaDefault(ctx, \"classic_example\", \u0026okta.PolicyMfaDefaultArgs{\n\t\t\tIsOie: pulumi.Bool(false),\n\t\t\tOktaPassword: pulumi.StringMap{\n\t\t\t\t\"enroll\": pulumi.String(\"REQUIRED\"),\n\t\t\t},\n\t\t\tOktaOtp: pulumi.StringMap{\n\t\t\t\t\"enroll\": pulumi.String(\"REQUIRED\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = okta.NewPolicyMfaDefault(ctx, \"oie_example\", \u0026okta.PolicyMfaDefaultArgs{\n\t\t\tIsOie: pulumi.Bool(true),\n\t\t\tOktaPassword: pulumi.StringMap{\n\t\t\t\t\"enroll\": pulumi.String(\"REQUIRED\"),\n\t\t\t},\n\t\t\tOktaVerify: pulumi.StringMap{\n\t\t\t\t\"enroll\": pulumi.String(\"REQUIRED\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.okta.PolicyMfaDefault;\nimport com.pulumi.okta.PolicyMfaDefaultArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var classicExample = new PolicyMfaDefault(\"classicExample\", PolicyMfaDefaultArgs.builder()\n            .isOie(false)\n            .oktaPassword(Map.of(\"enroll\", \"REQUIRED\"))\n            .oktaOtp(Map.of(\"enroll\", \"REQUIRED\"))\n            .build());\n\n        var oieExample = new PolicyMfaDefault(\"oieExample\", PolicyMfaDefaultArgs.builder()\n            .isOie(true)\n            .oktaPassword(Map.of(\"enroll\", \"REQUIRED\"))\n            .oktaVerify(Map.of(\"enroll\", \"REQUIRED\"))\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  classicExample:\n    type: okta:PolicyMfaDefault\n    name: classic_example\n    properties:\n      isOie: false\n      oktaPassword:\n        enroll: REQUIRED\n      oktaOtp:\n        enroll: REQUIRED\n  oieExample:\n    type: okta:PolicyMfaDefault\n    name: oie_example\n    properties:\n      isOie: true\n      oktaPassword:\n        enroll: REQUIRED\n      oktaVerify:\n        enroll: REQUIRED\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n```sh\n$ pulumi import okta:index/policyMfaDefault:PolicyMfaDefault example .\n```\n\n",
             "properties": {
+                "customApps": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        }
+                    },
+                    "description": "List of custom authenticators, specify entry like {\"enroll\": \"OPTIONAL\", \"id\": \"\u003cid_of_custom_app\u003e\"} to mark specific custom app optional, list must contain at least 1 entry."
+                },
                 "defaultIncludedGroupId": {
                     "type": "string",
                     "description": "Default group ID (always included)\n"
@@ -18620,6 +18784,16 @@
                 "status"
             ],
             "inputProperties": {
+                "customApps": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        }
+                    },
+                    "description": "List of custom authenticators, specify entry like {\"enroll\": \"OPTIONAL\", \"id\": \"\u003cid_of_custom_app\u003e\"} to mark specific custom app optional, list must contain at least 1 entry."
+                },
                 "duo": {
                     "type": "object",
                     "additionalProperties": {
@@ -18770,6 +18944,16 @@
             "stateInputs": {
                 "description": "Input properties used for looking up and filtering PolicyMfaDefault resources.\n",
                 "properties": {
+                    "customApps": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "additionalProperties": {
+                                "type": "string"
+                            }
+                        },
+                        "description": "List of custom authenticators, specify entry like {\"enroll\": \"OPTIONAL\", \"id\": \"\u003cid_of_custom_app\u003e\"} to mark specific custom app optional, list must contain at least 1 entry."
+                    },
                     "defaultIncludedGroupId": {
                         "type": "string",
                         "description": "Default group ID (always included)\n"
@@ -20102,7 +20286,7 @@
             }
         },
         "okta:index/requestCondition:RequestCondition": {
-            "description": "Manages request conditions. This resource allows you to create and configure an Okta [request-condition](https://developer.okta.com/docs/api/iga/openapi/governance.requests.admin.v2/tag/Request-Conditions/#tag/Request-Conditions).\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst example = new okta.RequestCondition(\"example\", {\n    resourceId: \"\u003cresource_id\u003e\",\n    approvalSequenceId: \"\u003capproval_sequence_id\u003e\",\n    name: \"\u003cname\u003e\",\n    accessScopeSettings: {\n        type: \"RESOURCE_DEFAULT\",\n    },\n    requesterSettings: {\n        type: \"EVERYONE\",\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample = okta.RequestCondition(\"example\",\n    resource_id=\"\u003cresource_id\u003e\",\n    approval_sequence_id=\"\u003capproval_sequence_id\u003e\",\n    name=\"\u003cname\u003e\",\n    access_scope_settings={\n        \"type\": \"RESOURCE_DEFAULT\",\n    },\n    requester_settings={\n        \"type\": \"EVERYONE\",\n    })\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new Okta.RequestCondition(\"example\", new()\n    {\n        ResourceId = \"\u003cresource_id\u003e\",\n        ApprovalSequenceId = \"\u003capproval_sequence_id\u003e\",\n        Name = \"\u003cname\u003e\",\n        AccessScopeSettings = new Okta.Inputs.RequestConditionAccessScopeSettingsArgs\n        {\n            Type = \"RESOURCE_DEFAULT\",\n        },\n        RequesterSettings = new Okta.Inputs.RequestConditionRequesterSettingsArgs\n        {\n            Type = \"EVERYONE\",\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v6/go/okta\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := okta.NewRequestCondition(ctx, \"example\", \u0026okta.RequestConditionArgs{\n\t\t\tResourceId:         pulumi.String(\"\u003cresource_id\u003e\"),\n\t\t\tApprovalSequenceId: pulumi.String(\"\u003capproval_sequence_id\u003e\"),\n\t\t\tName:               pulumi.String(\"\u003cname\u003e\"),\n\t\t\tAccessScopeSettings: \u0026okta.RequestConditionAccessScopeSettingsArgs{\n\t\t\t\tType: pulumi.String(\"RESOURCE_DEFAULT\"),\n\t\t\t},\n\t\t\tRequesterSettings: \u0026okta.RequestConditionRequesterSettingsArgs{\n\t\t\t\tType: pulumi.String(\"EVERYONE\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.okta.RequestCondition;\nimport com.pulumi.okta.RequestConditionArgs;\nimport com.pulumi.okta.inputs.RequestConditionAccessScopeSettingsArgs;\nimport com.pulumi.okta.inputs.RequestConditionRequesterSettingsArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new RequestCondition(\"example\", RequestConditionArgs.builder()\n            .resourceId(\"\u003cresource_id\u003e\")\n            .approvalSequenceId(\"\u003capproval_sequence_id\u003e\")\n            .name(\"\u003cname\u003e\")\n            .accessScopeSettings(RequestConditionAccessScopeSettingsArgs.builder()\n                .type(\"RESOURCE_DEFAULT\")\n                .build())\n            .requesterSettings(RequestConditionRequesterSettingsArgs.builder()\n                .type(\"EVERYONE\")\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: okta:RequestCondition\n    properties:\n      resourceId: \u003cresource_id\u003e\n      approvalSequenceId: \u003capproval_sequence_id\u003e\n      name: \u003cname\u003e\n      accessScopeSettings:\n        type: RESOURCE_DEFAULT\n      requesterSettings:\n        type: EVERYONE\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n```sh\n$ pulumi import okta:index/requestCondition:RequestCondition example \u003cresource_id\u003e/\u003crequest_condition_id\u003e\n```\n\n",
+            "description": "Manages request conditions. This resource allows you to create and configure an Okta [request-condition](https://developer.okta.com/docs/api/iga/openapi/governance.requests.admin.v2/tag/Request-Conditions/#tag/Request-Conditions).\n\n## Example Usage\n\n### Basic Example\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst example = new okta.RequestCondition(\"example\", {\n    resourceId: \"\u003cresource_id\u003e\",\n    approvalSequenceId: \"\u003capproval_sequence_id\u003e\",\n    name: \"\u003cname\u003e\",\n    accessScopeSettings: {\n        type: \"RESOURCE_DEFAULT\",\n    },\n    requesterSettings: {\n        type: \"EVERYONE\",\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample = okta.RequestCondition(\"example\",\n    resource_id=\"\u003cresource_id\u003e\",\n    approval_sequence_id=\"\u003capproval_sequence_id\u003e\",\n    name=\"\u003cname\u003e\",\n    access_scope_settings={\n        \"type\": \"RESOURCE_DEFAULT\",\n    },\n    requester_settings={\n        \"type\": \"EVERYONE\",\n    })\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new Okta.RequestCondition(\"example\", new()\n    {\n        ResourceId = \"\u003cresource_id\u003e\",\n        ApprovalSequenceId = \"\u003capproval_sequence_id\u003e\",\n        Name = \"\u003cname\u003e\",\n        AccessScopeSettings = new Okta.Inputs.RequestConditionAccessScopeSettingsArgs\n        {\n            Type = \"RESOURCE_DEFAULT\",\n        },\n        RequesterSettings = new Okta.Inputs.RequestConditionRequesterSettingsArgs\n        {\n            Type = \"EVERYONE\",\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v6/go/okta\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := okta.NewRequestCondition(ctx, \"example\", \u0026okta.RequestConditionArgs{\n\t\t\tResourceId:         pulumi.String(\"\u003cresource_id\u003e\"),\n\t\t\tApprovalSequenceId: pulumi.String(\"\u003capproval_sequence_id\u003e\"),\n\t\t\tName:               pulumi.String(\"\u003cname\u003e\"),\n\t\t\tAccessScopeSettings: \u0026okta.RequestConditionAccessScopeSettingsArgs{\n\t\t\t\tType: pulumi.String(\"RESOURCE_DEFAULT\"),\n\t\t\t},\n\t\t\tRequesterSettings: \u0026okta.RequestConditionRequesterSettingsArgs{\n\t\t\t\tType: pulumi.String(\"EVERYONE\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.okta.RequestCondition;\nimport com.pulumi.okta.RequestConditionArgs;\nimport com.pulumi.okta.inputs.RequestConditionAccessScopeSettingsArgs;\nimport com.pulumi.okta.inputs.RequestConditionRequesterSettingsArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new RequestCondition(\"example\", RequestConditionArgs.builder()\n            .resourceId(\"\u003cresource_id\u003e\")\n            .approvalSequenceId(\"\u003capproval_sequence_id\u003e\")\n            .name(\"\u003cname\u003e\")\n            .accessScopeSettings(RequestConditionAccessScopeSettingsArgs.builder()\n                .type(\"RESOURCE_DEFAULT\")\n                .build())\n            .requesterSettings(RequestConditionRequesterSettingsArgs.builder()\n                .type(\"EVERYONE\")\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: okta:RequestCondition\n    properties:\n      resourceId: \u003cresource_id\u003e\n      approvalSequenceId: \u003capproval_sequence_id\u003e\n      name: \u003cname\u003e\n      accessScopeSettings:\n        type: RESOURCE_DEFAULT\n      requesterSettings:\n        type: EVERYONE\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n### Example with Active Status\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst exampleActive = new okta.RequestCondition(\"example_active\", {\n    status: \"ACTIVE\",\n    resourceId: \"\u003cresource_id\u003e\",\n    approvalSequenceId: \"\u003capproval_sequence_id\u003e\",\n    name: \"\u003cname\u003e\",\n    accessScopeSettings: {\n        type: \"RESOURCE_DEFAULT\",\n    },\n    requesterSettings: {\n        type: \"EVERYONE\",\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample_active = okta.RequestCondition(\"example_active\",\n    status=\"ACTIVE\",\n    resource_id=\"\u003cresource_id\u003e\",\n    approval_sequence_id=\"\u003capproval_sequence_id\u003e\",\n    name=\"\u003cname\u003e\",\n    access_scope_settings={\n        \"type\": \"RESOURCE_DEFAULT\",\n    },\n    requester_settings={\n        \"type\": \"EVERYONE\",\n    })\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var exampleActive = new Okta.RequestCondition(\"example_active\", new()\n    {\n        Status = \"ACTIVE\",\n        ResourceId = \"\u003cresource_id\u003e\",\n        ApprovalSequenceId = \"\u003capproval_sequence_id\u003e\",\n        Name = \"\u003cname\u003e\",\n        AccessScopeSettings = new Okta.Inputs.RequestConditionAccessScopeSettingsArgs\n        {\n            Type = \"RESOURCE_DEFAULT\",\n        },\n        RequesterSettings = new Okta.Inputs.RequestConditionRequesterSettingsArgs\n        {\n            Type = \"EVERYONE\",\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v6/go/okta\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := okta.NewRequestCondition(ctx, \"example_active\", \u0026okta.RequestConditionArgs{\n\t\t\tStatus:             pulumi.String(\"ACTIVE\"),\n\t\t\tResourceId:         pulumi.String(\"\u003cresource_id\u003e\"),\n\t\t\tApprovalSequenceId: pulumi.String(\"\u003capproval_sequence_id\u003e\"),\n\t\t\tName:               pulumi.String(\"\u003cname\u003e\"),\n\t\t\tAccessScopeSettings: \u0026okta.RequestConditionAccessScopeSettingsArgs{\n\t\t\t\tType: pulumi.String(\"RESOURCE_DEFAULT\"),\n\t\t\t},\n\t\t\tRequesterSettings: \u0026okta.RequestConditionRequesterSettingsArgs{\n\t\t\t\tType: pulumi.String(\"EVERYONE\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.okta.RequestCondition;\nimport com.pulumi.okta.RequestConditionArgs;\nimport com.pulumi.okta.inputs.RequestConditionAccessScopeSettingsArgs;\nimport com.pulumi.okta.inputs.RequestConditionRequesterSettingsArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var exampleActive = new RequestCondition(\"exampleActive\", RequestConditionArgs.builder()\n            .status(\"ACTIVE\")\n            .resourceId(\"\u003cresource_id\u003e\")\n            .approvalSequenceId(\"\u003capproval_sequence_id\u003e\")\n            .name(\"\u003cname\u003e\")\n            .accessScopeSettings(RequestConditionAccessScopeSettingsArgs.builder()\n                .type(\"RESOURCE_DEFAULT\")\n                .build())\n            .requesterSettings(RequestConditionRequesterSettingsArgs.builder()\n                .type(\"EVERYONE\")\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  exampleActive:\n    type: okta:RequestCondition\n    name: example_active\n    properties:\n      status: ACTIVE\n      resourceId: \u003cresource_id\u003e\n      approvalSequenceId: \u003capproval_sequence_id\u003e\n      name: \u003cname\u003e\n      accessScopeSettings:\n        type: RESOURCE_DEFAULT\n      requesterSettings:\n        type: EVERYONE\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n```sh\n$ pulumi import okta:index/requestCondition:RequestCondition example \u003cresource_id\u003e/\u003crequest_condition_id\u003e\n```\n\n",
             "properties": {
                 "accessDurationSettings": {
                     "$ref": "#/types/okta:index/RequestConditionAccessDurationSettings:RequestConditionAccessDurationSettings",
@@ -20152,7 +20336,7 @@
                 },
                 "status": {
                     "type": "string",
-                    "description": "Status indicates if this condition is active or not. Default status is INACTIVE. Enum: `ACTIVE`, `INACTIVE`, `DELETED`, `INVALID`.\n"
+                    "description": "Status of the condition. Valid values: `ACTIVE`, `INACTIVE`. Default is `INACTIVE`. Note: `DELETED` and `INVALID` statuses are system-managed and cannot be set directly.\n"
                 }
             },
             "required": [
@@ -20196,6 +20380,10 @@
                 "resourceId": {
                     "type": "string",
                     "description": "The id of the resource in Okta ID format.\n"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "Status of the condition. Valid values: `ACTIVE`, `INACTIVE`. Default is `INACTIVE`. Note: `DELETED` and `INVALID` statuses are system-managed and cannot be set directly.\n"
                 }
             },
             "requiredInputs": [
@@ -20253,7 +20441,7 @@
                     },
                     "status": {
                         "type": "string",
-                        "description": "Status indicates if this condition is active or not. Default status is INACTIVE. Enum: `ACTIVE`, `INACTIVE`, `DELETED`, `INVALID`.\n"
+                        "description": "Status of the condition. Valid values: `ACTIVE`, `INACTIVE`. Default is `INACTIVE`. Note: `DELETED` and `INVALID` statuses are system-managed and cannot be set directly.\n"
                     }
                 },
                 "type": "object"
@@ -21446,6 +21634,46 @@
                             "type": "string"
                         },
                         "description": "A list of the authorization server IDs user want to trust\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "okta:index/uiSchema:UiSchema": {
+            "description": "Manages UI Schema. This resource allows you to create and configure an Okta [UI Schema](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UISchema/#tag/UISchema) for form layouts and controls.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst example = new okta.UiSchema(\"example\", {uiSchema: {\n    buttonLabel: \"submit\",\n    type: \"Group\",\n    elements: [{\n        scope: \"#/properties/lastName\",\n    }],\n}});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample = okta.UiSchema(\"example\", ui_schema={\n    \"button_label\": \"submit\",\n    \"type\": \"Group\",\n    \"elements\": [{\n        \"scope\": \"#/properties/lastName\",\n    }],\n})\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new Okta.UiSchema(\"example\", new()\n    {\n        UiSchemaName = new Okta.Inputs.UiSchemaUiSchemaArgs\n        {\n            ButtonLabel = \"submit\",\n            Type = \"Group\",\n            Elements = new[]\n            {\n                new Okta.Inputs.UiSchemaUiSchemaElementArgs\n                {\n                    Scope = \"#/properties/lastName\",\n                },\n            },\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v6/go/okta\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := okta.NewUiSchema(ctx, \"example\", \u0026okta.UiSchemaArgs{\n\t\t\tUiSchema: \u0026okta.UiSchemaUiSchemaArgs{\n\t\t\t\tButtonLabel: pulumi.String(\"submit\"),\n\t\t\t\tType:        pulumi.String(\"Group\"),\n\t\t\t\tElements: okta.UiSchemaUiSchemaElementArray{\n\t\t\t\t\t\u0026okta.UiSchemaUiSchemaElementArgs{\n\t\t\t\t\t\tScope: pulumi.String(\"#/properties/lastName\"),\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.okta.UiSchema;\nimport com.pulumi.okta.UiSchemaArgs;\nimport com.pulumi.okta.inputs.UiSchemaUiSchemaArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new UiSchema(\"example\", UiSchemaArgs.builder()\n            .uiSchema(UiSchemaUiSchemaArgs.builder()\n                .buttonLabel(\"submit\")\n                .type(\"Group\")\n                .elements(UiSchemaUiSchemaElementArgs.builder()\n                    .scope(\"#/properties/lastName\")\n                    .build())\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: okta:UiSchema\n    properties:\n      uiSchema:\n        buttonLabel: submit\n        type: Group\n        elements:\n          - scope: '#/properties/lastName'\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n```sh\n$ pulumi import okta:index/uiSchema:UiSchema example \u003cui_schema_id\u003e\n```\n\n",
+            "properties": {
+                "uiSchema": {
+                    "$ref": "#/types/okta:index/UiSchemaUiSchema:UiSchemaUiSchema",
+                    "description": "Properties of the UI schema.\n",
+                    "language": {
+                        "csharp": {
+                            "name": "UiSchemaName"
+                        }
+                    }
+                }
+            },
+            "inputProperties": {
+                "uiSchema": {
+                    "$ref": "#/types/okta:index/UiSchemaUiSchema:UiSchemaUiSchema",
+                    "description": "Properties of the UI schema.\n",
+                    "language": {
+                        "csharp": {
+                            "name": "UiSchemaName"
+                        }
+                    }
+                }
+            },
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering UiSchema resources.\n",
+                "properties": {
+                    "uiSchema": {
+                        "$ref": "#/types/okta:index/UiSchemaUiSchema:UiSchemaUiSchema",
+                        "description": "Properties of the UI schema.\n",
+                        "language": {
+                            "csharp": {
+                                "name": "UiSchemaName"
+                            }
+                        }
                     }
                 },
                 "type": "object"
@@ -23679,6 +23907,16 @@
         "okta:policy/mfa:Mfa": {
             "description": "## Example Usage\n\n## Import\n\n```sh\n$ pulumi import okta:policy/mfa:Mfa example \u003cpolicy_id\u003e\n```\n\n",
             "properties": {
+                "customApps": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        }
+                    },
+                    "description": "List of custom authenticators, specify entry like {\"enroll\": \"OPTIONAL\", \"id\": \"\u003cid_of_custom_app\u003e\"} to mark specific custom app optional, list must contain at least 1 entry."
+                },
                 "description": {
                     "type": "string",
                     "description": "Policy Description\n"
@@ -23853,6 +24091,16 @@
                 "name"
             ],
             "inputProperties": {
+                "customApps": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        }
+                    },
+                    "description": "List of custom authenticators, specify entry like {\"enroll\": \"OPTIONAL\", \"id\": \"\u003cid_of_custom_app\u003e\"} to mark specific custom app optional, list must contain at least 1 entry."
+                },
                 "description": {
                     "type": "string",
                     "description": "Policy Description\n"
@@ -24026,6 +24274,16 @@
             "stateInputs": {
                 "description": "Input properties used for looking up and filtering Mfa resources.\n",
                 "properties": {
+                    "customApps": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "additionalProperties": {
+                                "type": "string"
+                            }
+                        },
+                        "description": "List of custom authenticators, specify entry like {\"enroll\": \"OPTIONAL\", \"id\": \"\u003cid_of_custom_app\u003e\"} to mark specific custom app optional, list must contain at least 1 entry."
+                    },
                     "description": {
                         "type": "string",
                         "description": "Policy Description\n"
@@ -26021,6 +26279,10 @@
                     "type": "string",
                     "description": "The raw status of the User in Okta - (status is mapped)\n"
                 },
+                "realmId": {
+                    "type": "string",
+                    "description": "The Realm ID to associate the user with"
+                },
                 "recoveryAnswer": {
                     "type": "string",
                     "description": "User Password Recovery Answer\n",
@@ -26074,7 +26336,8 @@
                 "firstName",
                 "lastName",
                 "login",
-                "rawStatus"
+                "rawStatus",
+                "realmId"
             ],
             "inputProperties": {
                 "city": {
@@ -26204,6 +26467,10 @@
                 "profileUrl": {
                     "type": "string",
                     "description": "User online profile (web page)\n"
+                },
+                "realmId": {
+                    "type": "string",
+                    "description": "The Realm ID to associate the user with"
                 },
                 "recoveryAnswer": {
                     "type": "string",
@@ -26392,6 +26659,10 @@
                     "rawStatus": {
                         "type": "string",
                         "description": "The raw status of the User in Okta - (status is mapped)\n"
+                    },
+                    "realmId": {
+                        "type": "string",
+                        "description": "The Realm ID to associate the user with"
                     },
                     "recoveryAnswer": {
                         "type": "string",
@@ -31539,6 +31810,53 @@
                 "type": "object"
             }
         },
+        "okta:index/getUiSchema:getUiSchema": {
+            "description": "Use this data source to retrieve information about an Okta UI Schema.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst example = okta.getUiSchema({\n    id: \"ui_schema_id\",\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample = okta.get_ui_schema(id=\"ui_schema_id\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = Okta.GetUiSchema.Invoke(new()\n    {\n        Id = \"ui_schema_id\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v6/go/okta\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := okta.LookupUiSchema(ctx, \u0026okta.LookupUiSchemaArgs{\n\t\t\tId: \"ui_schema_id\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.okta.OktaFunctions;\nimport com.pulumi.okta.inputs.GetUiSchemaArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var example = OktaFunctions.getUiSchema(GetUiSchemaArgs.builder()\n            .id(\"ui_schema_id\")\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  example:\n    fn::invoke:\n      function: okta:getUiSchema\n      arguments:\n        id: ui_schema_id\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getUiSchema.\n",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "The ID property of an UI Schema.\n"
+                    },
+                    "uiSchema": {
+                        "$ref": "#/types/okta:index/getUiSchemaUiSchema:getUiSchemaUiSchema",
+                        "description": "- (Object) Representation of a resource.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "id"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getUiSchema.\n",
+                "properties": {
+                    "created": {
+                        "description": "Timestamp when the UI Schema was created. (ISO 86001).\n",
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "The ID property of an UI Schema.\n",
+                        "type": "string"
+                    },
+                    "lastUpdated": {
+                        "description": "Timestamp when the UI Schema was last modified (ISO 86001).\n",
+                        "type": "string"
+                    },
+                    "uiSchema": {
+                        "$ref": "#/types/okta:index/getUiSchemaUiSchema:getUiSchemaUiSchema",
+                        "description": "- (Object) Representation of a resource.\n"
+                    }
+                },
+                "required": [
+                    "created",
+                    "id",
+                    "lastUpdated"
+                ],
+                "type": "object"
+            }
+        },
         "okta:index/getUserSecurityQuestions:getUserSecurityQuestions": {
             "description": "## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst exampleUser = new okta.user.User(\"example\", {\n    firstName: \"John\",\n    lastName: \"Smith\",\n    login: \"john.smith@example.com\",\n    email: \"john.smith@example.com\",\n});\nconst example = okta.getUserSecurityQuestionsOutput({\n    userId: exampleUser.id,\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample_user = okta.user.User(\"example\",\n    first_name=\"John\",\n    last_name=\"Smith\",\n    login=\"john.smith@example.com\",\n    email=\"john.smith@example.com\")\nexample = okta.get_user_security_questions_output(user_id=example_user.id)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var exampleUser = new Okta.User.User(\"example\", new()\n    {\n        FirstName = \"John\",\n        LastName = \"Smith\",\n        Login = \"john.smith@example.com\",\n        Email = \"john.smith@example.com\",\n    });\n\n    var example = Okta.GetUserSecurityQuestions.Invoke(new()\n    {\n        UserId = exampleUser.Id,\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v6/go/okta\"\n\t\"github.com/pulumi/pulumi-okta/sdk/v6/go/okta/user\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texampleUser, err := user.NewUser(ctx, \"example\", \u0026user.UserArgs{\n\t\t\tFirstName: pulumi.String(\"John\"),\n\t\t\tLastName:  pulumi.String(\"Smith\"),\n\t\t\tLogin:     pulumi.String(\"john.smith@example.com\"),\n\t\t\tEmail:     pulumi.String(\"john.smith@example.com\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_ = okta.GetUserSecurityQuestionsOutput(ctx, okta.GetUserSecurityQuestionsOutputArgs{\n\t\t\tUserId: exampleUser.ID(),\n\t\t}, nil)\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.okta.user.User;\nimport com.pulumi.okta.user.UserArgs;\nimport com.pulumi.okta.OktaFunctions;\nimport com.pulumi.okta.inputs.GetUserSecurityQuestionsArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var exampleUser = new User(\"exampleUser\", UserArgs.builder()\n            .firstName(\"John\")\n            .lastName(\"Smith\")\n            .login(\"john.smith@example.com\")\n            .email(\"john.smith@example.com\")\n            .build());\n\n        final var example = OktaFunctions.getUserSecurityQuestions(GetUserSecurityQuestionsArgs.builder()\n            .userId(exampleUser.id())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  exampleUser:\n    type: okta:user:User\n    name: example\n    properties:\n      firstName: John\n      lastName: Smith\n      login: john.smith@example.com\n      email: john.smith@example.com\nvariables:\n  example:\n    fn::invoke:\n      function: okta:getUserSecurityQuestions\n      arguments:\n        userId: ${exampleUser.id}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
             "inputs": {
@@ -31800,6 +32118,9 @@
                     "profileUrl": {
                         "type": "string"
                     },
+                    "realmId": {
+                        "type": "string"
+                    },
                     "roles": {
                         "items": {
                             "type": "string"
@@ -31878,6 +32199,7 @@
                     "preferredLanguage",
                     "primaryPhone",
                     "profileUrl",
+                    "realmId",
                     "roles",
                     "secondEmail",
                     "state",

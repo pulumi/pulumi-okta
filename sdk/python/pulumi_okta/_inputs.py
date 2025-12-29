@@ -143,6 +143,12 @@ __all__ = [
     'SecurityEventsProviderSettingsArgsDict',
     'TemplateSmsTranslationArgs',
     'TemplateSmsTranslationArgsDict',
+    'UiSchemaUiSchemaArgs',
+    'UiSchemaUiSchemaArgsDict',
+    'UiSchemaUiSchemaElementArgs',
+    'UiSchemaUiSchemaElementArgsDict',
+    'UiSchemaUiSchemaElementOptionsArgs',
+    'UiSchemaUiSchemaElementOptionsArgsDict',
     'UserSchemaPropertyArrayOneOfArgs',
     'UserSchemaPropertyArrayOneOfArgsDict',
     'UserSchemaPropertyMasterOverridePriorityArgs',
@@ -317,6 +323,12 @@ __all__ = [
     'GetReviewReviewerProfileArgsDict',
     'GetSecurityEventsProviderSettingsArgs',
     'GetSecurityEventsProviderSettingsArgsDict',
+    'GetUiSchemaUiSchemaArgs',
+    'GetUiSchemaUiSchemaArgsDict',
+    'GetUiSchemaUiSchemaElementArgs',
+    'GetUiSchemaUiSchemaElementArgsDict',
+    'GetUiSchemaUiSchemaElementOptionsArgs',
+    'GetUiSchemaUiSchemaElementOptionsArgsDict',
 ]
 
 MYPY = False
@@ -5249,6 +5261,214 @@ class TemplateSmsTranslationArgs:
     @template.setter
     def template(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "template", value)
+
+
+if not MYPY:
+    class UiSchemaUiSchemaArgsDict(TypedDict):
+        button_label: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Specifies the button label for the Submit button at the bottom of the enrollment form.
+        """
+        elements: NotRequired[pulumi.Input[Sequence[pulumi.Input['UiSchemaUiSchemaElementArgsDict']]]]
+        label: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Specifies the label at the top of the enrollment form under the logo.
+        """
+        type: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Specifies the type of layout.
+        """
+elif False:
+    UiSchemaUiSchemaArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class UiSchemaUiSchemaArgs:
+    def __init__(__self__, *,
+                 button_label: Optional[pulumi.Input[_builtins.str]] = None,
+                 elements: Optional[pulumi.Input[Sequence[pulumi.Input['UiSchemaUiSchemaElementArgs']]]] = None,
+                 label: Optional[pulumi.Input[_builtins.str]] = None,
+                 type: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] button_label: Specifies the button label for the Submit button at the bottom of the enrollment form.
+        :param pulumi.Input[_builtins.str] label: Specifies the label at the top of the enrollment form under the logo.
+        :param pulumi.Input[_builtins.str] type: Specifies the type of layout.
+        """
+        if button_label is not None:
+            pulumi.set(__self__, "button_label", button_label)
+        if elements is not None:
+            pulumi.set(__self__, "elements", elements)
+        if label is not None:
+            pulumi.set(__self__, "label", label)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter(name="buttonLabel")
+    def button_label(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specifies the button label for the Submit button at the bottom of the enrollment form.
+        """
+        return pulumi.get(self, "button_label")
+
+    @button_label.setter
+    def button_label(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "button_label", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def elements(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UiSchemaUiSchemaElementArgs']]]]:
+        return pulumi.get(self, "elements")
+
+    @elements.setter
+    def elements(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UiSchemaUiSchemaElementArgs']]]]):
+        pulumi.set(self, "elements", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def label(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specifies the label at the top of the enrollment form under the logo.
+        """
+        return pulumi.get(self, "label")
+
+    @label.setter
+    def label(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "label", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specifies the type of layout.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "type", value)
+
+
+if not MYPY:
+    class UiSchemaUiSchemaElementArgsDict(TypedDict):
+        scope: pulumi.Input[_builtins.str]
+        """
+        Specifies the property bound to the input field. It must follow the format #/properties/PROPERTY_NAME where PROPERTY_NAME is a variable name for an attribute in profile editor.
+        """
+        label: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Label name for the UI element.
+        """
+        options: NotRequired[pulumi.Input['UiSchemaUiSchemaElementOptionsArgsDict']]
+        """
+        UI Schema element options object.
+        """
+        type: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Specifies the relationship between this input element and scope. The Control value specifies that this input controls the value represented by scope.
+        """
+elif False:
+    UiSchemaUiSchemaElementArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class UiSchemaUiSchemaElementArgs:
+    def __init__(__self__, *,
+                 scope: pulumi.Input[_builtins.str],
+                 label: Optional[pulumi.Input[_builtins.str]] = None,
+                 options: Optional[pulumi.Input['UiSchemaUiSchemaElementOptionsArgs']] = None,
+                 type: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] scope: Specifies the property bound to the input field. It must follow the format #/properties/PROPERTY_NAME where PROPERTY_NAME is a variable name for an attribute in profile editor.
+        :param pulumi.Input[_builtins.str] label: Label name for the UI element.
+        :param pulumi.Input['UiSchemaUiSchemaElementOptionsArgs'] options: UI Schema element options object.
+        :param pulumi.Input[_builtins.str] type: Specifies the relationship between this input element and scope. The Control value specifies that this input controls the value represented by scope.
+        """
+        pulumi.set(__self__, "scope", scope)
+        if label is not None:
+            pulumi.set(__self__, "label", label)
+        if options is not None:
+            pulumi.set(__self__, "options", options)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def scope(self) -> pulumi.Input[_builtins.str]:
+        """
+        Specifies the property bound to the input field. It must follow the format #/properties/PROPERTY_NAME where PROPERTY_NAME is a variable name for an attribute in profile editor.
+        """
+        return pulumi.get(self, "scope")
+
+    @scope.setter
+    def scope(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "scope", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def label(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Label name for the UI element.
+        """
+        return pulumi.get(self, "label")
+
+    @label.setter
+    def label(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "label", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def options(self) -> Optional[pulumi.Input['UiSchemaUiSchemaElementOptionsArgs']]:
+        """
+        UI Schema element options object.
+        """
+        return pulumi.get(self, "options")
+
+    @options.setter
+    def options(self, value: Optional[pulumi.Input['UiSchemaUiSchemaElementOptionsArgs']]):
+        pulumi.set(self, "options", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specifies the relationship between this input element and scope. The Control value specifies that this input controls the value represented by scope.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "type", value)
+
+
+if not MYPY:
+    class UiSchemaUiSchemaElementOptionsArgsDict(TypedDict):
+        format: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Specifies how the input appears.
+        """
+elif False:
+    UiSchemaUiSchemaElementOptionsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class UiSchemaUiSchemaElementOptionsArgs:
+    def __init__(__self__, *,
+                 format: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] format: Specifies how the input appears.
+        """
+        if format is not None:
+            pulumi.set(__self__, "format", format)
+
+    @_builtins.property
+    @pulumi.getter
+    def format(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specifies how the input appears.
+        """
+        return pulumi.get(self, "format")
+
+    @format.setter
+    def format(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "format", value)
 
 
 if not MYPY:
@@ -11331,5 +11551,207 @@ class GetSecurityEventsProviderSettingsArgs:
     @well_known_url.setter
     def well_known_url(self, value: _builtins.str):
         pulumi.set(self, "well_known_url", value)
+
+
+if not MYPY:
+    class GetUiSchemaUiSchemaArgsDict(TypedDict):
+        button_label: _builtins.str
+        """
+        Specifies the button label for the Submit button at the bottom of the enrollment form.
+        """
+        label: _builtins.str
+        """
+        Specifies the label at the top of the enrollment form under the logo.
+        """
+        type: _builtins.str
+        """
+        Specifies the type of layout.
+        """
+        elements: NotRequired[Sequence['GetUiSchemaUiSchemaElementArgsDict']]
+elif False:
+    GetUiSchemaUiSchemaArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GetUiSchemaUiSchemaArgs:
+    def __init__(__self__, *,
+                 button_label: _builtins.str,
+                 label: _builtins.str,
+                 type: _builtins.str,
+                 elements: Optional[Sequence['GetUiSchemaUiSchemaElementArgs']] = None):
+        """
+        :param _builtins.str button_label: Specifies the button label for the Submit button at the bottom of the enrollment form.
+        :param _builtins.str label: Specifies the label at the top of the enrollment form under the logo.
+        :param _builtins.str type: Specifies the type of layout.
+        """
+        pulumi.set(__self__, "button_label", button_label)
+        pulumi.set(__self__, "label", label)
+        pulumi.set(__self__, "type", type)
+        if elements is not None:
+            pulumi.set(__self__, "elements", elements)
+
+    @_builtins.property
+    @pulumi.getter(name="buttonLabel")
+    def button_label(self) -> _builtins.str:
+        """
+        Specifies the button label for the Submit button at the bottom of the enrollment form.
+        """
+        return pulumi.get(self, "button_label")
+
+    @button_label.setter
+    def button_label(self, value: _builtins.str):
+        pulumi.set(self, "button_label", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def label(self) -> _builtins.str:
+        """
+        Specifies the label at the top of the enrollment form under the logo.
+        """
+        return pulumi.get(self, "label")
+
+    @label.setter
+    def label(self, value: _builtins.str):
+        pulumi.set(self, "label", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        Specifies the type of layout.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: _builtins.str):
+        pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def elements(self) -> Optional[Sequence['GetUiSchemaUiSchemaElementArgs']]:
+        return pulumi.get(self, "elements")
+
+    @elements.setter
+    def elements(self, value: Optional[Sequence['GetUiSchemaUiSchemaElementArgs']]):
+        pulumi.set(self, "elements", value)
+
+
+if not MYPY:
+    class GetUiSchemaUiSchemaElementArgsDict(TypedDict):
+        label: _builtins.str
+        """
+        Label name for the UI element.
+        """
+        scope: _builtins.str
+        """
+        Specifies the property bound to the input field. It must follow the format #/properties/PROPERTY_NAME where PROPERTY_NAME is a variable name for an attribute in profile editor.
+        """
+        type: _builtins.str
+        """
+        Specifies the relationship between this input element and scope. The Control value specifies that this input controls the value represented by scope.
+        """
+        options: NotRequired['GetUiSchemaUiSchemaElementOptionsArgsDict']
+        """
+        UI Schema element options object.
+        """
+elif False:
+    GetUiSchemaUiSchemaElementArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GetUiSchemaUiSchemaElementArgs:
+    def __init__(__self__, *,
+                 label: _builtins.str,
+                 scope: _builtins.str,
+                 type: _builtins.str,
+                 options: Optional['GetUiSchemaUiSchemaElementOptionsArgs'] = None):
+        """
+        :param _builtins.str label: Label name for the UI element.
+        :param _builtins.str scope: Specifies the property bound to the input field. It must follow the format #/properties/PROPERTY_NAME where PROPERTY_NAME is a variable name for an attribute in profile editor.
+        :param _builtins.str type: Specifies the relationship between this input element and scope. The Control value specifies that this input controls the value represented by scope.
+        :param 'GetUiSchemaUiSchemaElementOptionsArgs' options: UI Schema element options object.
+        """
+        pulumi.set(__self__, "label", label)
+        pulumi.set(__self__, "scope", scope)
+        pulumi.set(__self__, "type", type)
+        if options is not None:
+            pulumi.set(__self__, "options", options)
+
+    @_builtins.property
+    @pulumi.getter
+    def label(self) -> _builtins.str:
+        """
+        Label name for the UI element.
+        """
+        return pulumi.get(self, "label")
+
+    @label.setter
+    def label(self, value: _builtins.str):
+        pulumi.set(self, "label", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def scope(self) -> _builtins.str:
+        """
+        Specifies the property bound to the input field. It must follow the format #/properties/PROPERTY_NAME where PROPERTY_NAME is a variable name for an attribute in profile editor.
+        """
+        return pulumi.get(self, "scope")
+
+    @scope.setter
+    def scope(self, value: _builtins.str):
+        pulumi.set(self, "scope", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        Specifies the relationship between this input element and scope. The Control value specifies that this input controls the value represented by scope.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: _builtins.str):
+        pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def options(self) -> Optional['GetUiSchemaUiSchemaElementOptionsArgs']:
+        """
+        UI Schema element options object.
+        """
+        return pulumi.get(self, "options")
+
+    @options.setter
+    def options(self, value: Optional['GetUiSchemaUiSchemaElementOptionsArgs']):
+        pulumi.set(self, "options", value)
+
+
+if not MYPY:
+    class GetUiSchemaUiSchemaElementOptionsArgsDict(TypedDict):
+        format: _builtins.str
+        """
+        Specifies how the input appears.
+        """
+elif False:
+    GetUiSchemaUiSchemaElementOptionsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GetUiSchemaUiSchemaElementOptionsArgs:
+    def __init__(__self__, *,
+                 format: _builtins.str):
+        """
+        :param _builtins.str format: Specifies how the input appears.
+        """
+        pulumi.set(__self__, "format", format)
+
+    @_builtins.property
+    @pulumi.getter
+    def format(self) -> _builtins.str:
+        """
+        Specifies how the input appears.
+        """
+        return pulumi.get(self, "format")
+
+    @format.setter
+    def format(self, value: _builtins.str):
+        pulumi.set(self, "format", value)
 
 

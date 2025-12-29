@@ -856,6 +856,9 @@
                 "current": "okta:policy/mfa:Mfa",
                 "majorVersion": 6,
                 "fields": {
+                    "custom_app": {
+                        "maxItemsOne": false
+                    },
                     "external_idps": {
                         "maxItemsOne": false
                     },
@@ -868,6 +871,9 @@
                 "current": "okta:index/policyMfaDefault:PolicyMfaDefault",
                 "majorVersion": 6,
                 "fields": {
+                    "custom_app": {
+                        "maxItemsOne": false
+                    },
                     "external_idps": {
                         "maxItemsOne": false
                     }
@@ -1215,6 +1221,19 @@
                 "fields": {
                     "trusted": {
                         "maxItemsOne": false
+                    }
+                }
+            },
+            "okta_ui_schema": {
+                "current": "okta:index/uiSchema:UiSchema",
+                "majorVersion": 6,
+                "fields": {
+                    "ui_schema": {
+                        "fields": {
+                            "elements": {
+                                "maxItemsOne": false
+                            }
+                        }
                     }
                 }
             },
@@ -2060,6 +2079,19 @@
                     }
                 }
             },
+            "okta_ui_schema": {
+                "current": "okta:index/getUiSchema:getUiSchema",
+                "majorVersion": 6,
+                "fields": {
+                    "ui_schema": {
+                        "fields": {
+                            "elements": {
+                                "maxItemsOne": false
+                            }
+                        }
+                    }
+                }
+            },
             "okta_user": {
                 "current": "okta:user/getUser:getUser",
                 "majorVersion": 6,
@@ -2239,6 +2271,7 @@
             "okta:index/theme:Theme": 0,
             "okta:index/threatInsightSettings:ThreatInsightSettings": 0,
             "okta:index/trustedServer:TrustedServer": 1,
+            "okta:index/uiSchema:UiSchema": 1,
             "okta:index/userAdminRoles:UserAdminRoles": 0,
             "okta:index/userBaseSchemaProperty:UserBaseSchemaProperty": 0,
             "okta:index/userFactorQuestion:UserFactorQuestion": 0,
@@ -2335,6 +2368,7 @@
             "okta:index/getTheme:getTheme": 0,
             "okta:index/getThemes:getThemes": 0,
             "okta:index/getTrustedOrigins:getTrustedOrigins": 0,
+            "okta:index/getUiSchema:getUiSchema": 1,
             "okta:index/getUserSecurityQuestions:getUserSecurityQuestions": 0,
             "okta:policy/getDefaultPolicy:getDefaultPolicy": 0,
             "okta:policy/getPolicy:getPolicy": 0,

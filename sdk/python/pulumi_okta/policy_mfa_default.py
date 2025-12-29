@@ -19,6 +19,7 @@ __all__ = ['PolicyMfaDefaultArgs', 'PolicyMfaDefault']
 @pulumi.input_type
 class PolicyMfaDefaultArgs:
     def __init__(__self__, *,
+                 custom_apps: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]]] = None,
                  duo: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  external_idp: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  external_idps: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]]] = None,
@@ -45,8 +46,11 @@ class PolicyMfaDefaultArgs:
                  yubikey_token: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a PolicyMfaDefault resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]] custom_apps: List of custom authenticators, specify entry like {"enroll": "OPTIONAL", "id": "<id_of_custom_app>"} to mark specific custom app optional, list must contain at least 1 entry.
         :param pulumi.Input[_builtins.bool] is_oie: Is the policy using Okta Identity Engine (OIE) with authenticators instead of factors?
         """
+        if custom_apps is not None:
+            pulumi.set(__self__, "custom_apps", custom_apps)
         if duo is not None:
             pulumi.set(__self__, "duo", duo)
         if external_idp is not None:
@@ -98,6 +102,18 @@ class PolicyMfaDefaultArgs:
             pulumi.set(__self__, "webauthn", webauthn)
         if yubikey_token is not None:
             pulumi.set(__self__, "yubikey_token", yubikey_token)
+
+    @_builtins.property
+    @pulumi.getter(name="customApps")
+    def custom_apps(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]]]:
+        """
+        List of custom authenticators, specify entry like {"enroll": "OPTIONAL", "id": "<id_of_custom_app>"} to mark specific custom app optional, list must contain at least 1 entry.
+        """
+        return pulumi.get(self, "custom_apps")
+
+    @custom_apps.setter
+    def custom_apps(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]]]):
+        pulumi.set(self, "custom_apps", value)
 
     @_builtins.property
     @pulumi.getter
@@ -323,6 +339,7 @@ class PolicyMfaDefaultArgs:
 @pulumi.input_type
 class _PolicyMfaDefaultState:
     def __init__(__self__, *,
+                 custom_apps: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]]] = None,
                  default_included_group_id: Optional[pulumi.Input[_builtins.str]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  duo: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -354,6 +371,7 @@ class _PolicyMfaDefaultState:
                  yubikey_token: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering PolicyMfaDefault resources.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]] custom_apps: List of custom authenticators, specify entry like {"enroll": "OPTIONAL", "id": "<id_of_custom_app>"} to mark specific custom app optional, list must contain at least 1 entry.
         :param pulumi.Input[_builtins.str] default_included_group_id: Default group ID (always included)
         :param pulumi.Input[_builtins.str] description: Default policy description
         :param pulumi.Input[_builtins.bool] is_oie: Is the policy using Okta Identity Engine (OIE) with authenticators instead of factors?
@@ -361,6 +379,8 @@ class _PolicyMfaDefaultState:
         :param pulumi.Input[_builtins.int] priority: Default policy priority
         :param pulumi.Input[_builtins.str] status: Default policy status
         """
+        if custom_apps is not None:
+            pulumi.set(__self__, "custom_apps", custom_apps)
         if default_included_group_id is not None:
             pulumi.set(__self__, "default_included_group_id", default_included_group_id)
         if description is not None:
@@ -422,6 +442,18 @@ class _PolicyMfaDefaultState:
             pulumi.set(__self__, "webauthn", webauthn)
         if yubikey_token is not None:
             pulumi.set(__self__, "yubikey_token", yubikey_token)
+
+    @_builtins.property
+    @pulumi.getter(name="customApps")
+    def custom_apps(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]]]:
+        """
+        List of custom authenticators, specify entry like {"enroll": "OPTIONAL", "id": "<id_of_custom_app>"} to mark specific custom app optional, list must contain at least 1 entry.
+        """
+        return pulumi.get(self, "custom_apps")
+
+    @custom_apps.setter
+    def custom_apps(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]]]):
+        pulumi.set(self, "custom_apps", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultIncludedGroupId")
@@ -710,6 +742,7 @@ class PolicyMfaDefault(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 custom_apps: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]]] = None,
                  duo: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  external_idp: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  external_idps: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]]] = None,
@@ -773,6 +806,7 @@ class PolicyMfaDefault(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]] custom_apps: List of custom authenticators, specify entry like {"enroll": "OPTIONAL", "id": "<id_of_custom_app>"} to mark specific custom app optional, list must contain at least 1 entry.
         :param pulumi.Input[_builtins.bool] is_oie: Is the policy using Okta Identity Engine (OIE) with authenticators instead of factors?
         """
         ...
@@ -832,6 +866,7 @@ class PolicyMfaDefault(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 custom_apps: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]]] = None,
                  duo: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  external_idp: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  external_idps: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]]] = None,
@@ -865,6 +900,7 @@ class PolicyMfaDefault(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = PolicyMfaDefaultArgs.__new__(PolicyMfaDefaultArgs)
 
+            __props__.__dict__["custom_apps"] = custom_apps
             __props__.__dict__["duo"] = duo
             __props__.__dict__["external_idp"] = external_idp
             __props__.__dict__["external_idps"] = external_idps
@@ -904,6 +940,7 @@ class PolicyMfaDefault(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            custom_apps: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]]] = None,
             default_included_group_id: Optional[pulumi.Input[_builtins.str]] = None,
             description: Optional[pulumi.Input[_builtins.str]] = None,
             duo: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -940,6 +977,7 @@ class PolicyMfaDefault(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]] custom_apps: List of custom authenticators, specify entry like {"enroll": "OPTIONAL", "id": "<id_of_custom_app>"} to mark specific custom app optional, list must contain at least 1 entry.
         :param pulumi.Input[_builtins.str] default_included_group_id: Default group ID (always included)
         :param pulumi.Input[_builtins.str] description: Default policy description
         :param pulumi.Input[_builtins.bool] is_oie: Is the policy using Okta Identity Engine (OIE) with authenticators instead of factors?
@@ -951,6 +989,7 @@ class PolicyMfaDefault(pulumi.CustomResource):
 
         __props__ = _PolicyMfaDefaultState.__new__(_PolicyMfaDefaultState)
 
+        __props__.__dict__["custom_apps"] = custom_apps
         __props__.__dict__["default_included_group_id"] = default_included_group_id
         __props__.__dict__["description"] = description
         __props__.__dict__["duo"] = duo
@@ -981,6 +1020,14 @@ class PolicyMfaDefault(pulumi.CustomResource):
         __props__.__dict__["webauthn"] = webauthn
         __props__.__dict__["yubikey_token"] = yubikey_token
         return PolicyMfaDefault(resource_name, opts=opts, __props__=__props__)
+
+    @_builtins.property
+    @pulumi.getter(name="customApps")
+    def custom_apps(self) -> pulumi.Output[Optional[Sequence[Mapping[str, _builtins.str]]]]:
+        """
+        List of custom authenticators, specify entry like {"enroll": "OPTIONAL", "id": "<id_of_custom_app>"} to mark specific custom app optional, list must contain at least 1 entry.
+        """
+        return pulumi.get(self, "custom_apps")
 
     @_builtins.property
     @pulumi.getter(name="defaultIncludedGroupId")

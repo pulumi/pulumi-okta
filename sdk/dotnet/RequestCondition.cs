@@ -14,6 +14,8 @@ namespace Pulumi.Okta
     /// 
     /// ## Example Usage
     /// 
+    /// ### Basic Example
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -24,6 +26,35 @@ namespace Pulumi.Okta
     /// {
     ///     var example = new Okta.RequestCondition("example", new()
     ///     {
+    ///         ResourceId = "&lt;resource_id&gt;",
+    ///         ApprovalSequenceId = "&lt;approval_sequence_id&gt;",
+    ///         Name = "&lt;name&gt;",
+    ///         AccessScopeSettings = new Okta.Inputs.RequestConditionAccessScopeSettingsArgs
+    ///         {
+    ///             Type = "RESOURCE_DEFAULT",
+    ///         },
+    ///         RequesterSettings = new Okta.Inputs.RequestConditionRequesterSettingsArgs
+    ///         {
+    ///             Type = "EVERYONE",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### Example with Active Status
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Okta = Pulumi.Okta;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleActive = new Okta.RequestCondition("example_active", new()
+    ///     {
+    ///         Status = "ACTIVE",
     ///         ResourceId = "&lt;resource_id&gt;",
     ///         ApprovalSequenceId = "&lt;approval_sequence_id&gt;",
     ///         Name = "&lt;name&gt;",
@@ -116,7 +147,7 @@ namespace Pulumi.Okta
         public Output<string> ResourceId { get; private set; } = null!;
 
         /// <summary>
-        /// Status indicates if this condition is active or not. Default status is INACTIVE. Enum: `ACTIVE`, `INACTIVE`, `DELETED`, `INVALID`.
+        /// Status of the condition. Valid values: `ACTIVE`, `INACTIVE`. Default is `INACTIVE`. Note: `DELETED` and `INVALID` statuses are system-managed and cannot be set directly.
         /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
@@ -209,6 +240,12 @@ namespace Pulumi.Okta
         [Input("resourceId", required: true)]
         public Input<string> ResourceId { get; set; } = null!;
 
+        /// <summary>
+        /// Status of the condition. Valid values: `ACTIVE`, `INACTIVE`. Default is `INACTIVE`. Note: `DELETED` and `INVALID` statuses are system-managed and cannot be set directly.
+        /// </summary>
+        [Input("status")]
+        public Input<string>? Status { get; set; }
+
         public RequestConditionArgs()
         {
         }
@@ -284,7 +321,7 @@ namespace Pulumi.Okta
         public Input<string>? ResourceId { get; set; }
 
         /// <summary>
-        /// Status indicates if this condition is active or not. Default status is INACTIVE. Enum: `ACTIVE`, `INACTIVE`, `DELETED`, `INVALID`.
+        /// Status of the condition. Valid values: `ACTIVE`, `INACTIVE`. Default is `INACTIVE`. Note: `DELETED` and `INVALID` statuses are system-managed and cannot be set directly.
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }

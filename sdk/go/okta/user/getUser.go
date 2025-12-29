@@ -73,6 +73,7 @@ type LookupUserResult struct {
 	PreferredLanguage string   `pulumi:"preferredLanguage"`
 	PrimaryPhone      string   `pulumi:"primaryPhone"`
 	ProfileUrl        string   `pulumi:"profileUrl"`
+	RealmId           string   `pulumi:"realmId"`
 	Roles             []string `pulumi:"roles"`
 	// Filter to find user/users. Each filter will be concatenated with the compound search operator. Please be aware profile properties must match what is in Okta, which is likely camel case. Expression is a free form expression filter https://developer.okta.com/docs/reference/core-okta-api/#filter . The set name/value/comparison properties will be ignored if expression is present
 	Searches    []GetUserSearch `pulumi:"searches"`
@@ -257,6 +258,10 @@ func (o LookupUserResultOutput) PrimaryPhone() pulumi.StringOutput {
 
 func (o LookupUserResultOutput) ProfileUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserResult) string { return v.ProfileUrl }).(pulumi.StringOutput)
+}
+
+func (o LookupUserResultOutput) RealmId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupUserResult) string { return v.RealmId }).(pulumi.StringOutput)
 }
 
 func (o LookupUserResultOutput) Roles() pulumi.StringArrayOutput {

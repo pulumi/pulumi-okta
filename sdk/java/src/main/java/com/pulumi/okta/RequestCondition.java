@@ -23,6 +23,8 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
+ * ### Basic Example
+ * 
  * <pre>
  * {@code
  * package generated_program;
@@ -48,6 +50,50 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new RequestCondition("example", RequestConditionArgs.builder()
+ *             .resourceId("<resource_id>")
+ *             .approvalSequenceId("<approval_sequence_id>")
+ *             .name("<name>")
+ *             .accessScopeSettings(RequestConditionAccessScopeSettingsArgs.builder()
+ *                 .type("RESOURCE_DEFAULT")
+ *                 .build())
+ *             .requesterSettings(RequestConditionRequesterSettingsArgs.builder()
+ *                 .type("EVERYONE")
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ### Example with Active Status
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.okta.RequestCondition;
+ * import com.pulumi.okta.RequestConditionArgs;
+ * import com.pulumi.okta.inputs.RequestConditionAccessScopeSettingsArgs;
+ * import com.pulumi.okta.inputs.RequestConditionRequesterSettingsArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleActive = new RequestCondition("exampleActive", RequestConditionArgs.builder()
+ *             .status("ACTIVE")
  *             .resourceId("<resource_id>")
  *             .approvalSequenceId("<approval_sequence_id>")
  *             .name("<name>")
@@ -226,14 +272,14 @@ public class RequestCondition extends com.pulumi.resources.CustomResource {
         return this.resourceId;
     }
     /**
-     * Status indicates if this condition is active or not. Default status is INACTIVE. Enum: `ACTIVE`, `INACTIVE`, `DELETED`, `INVALID`.
+     * Status of the condition. Valid values: `ACTIVE`, `INACTIVE`. Default is `INACTIVE`. Note: `DELETED` and `INVALID` statuses are system-managed and cannot be set directly.
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**
-     * @return Status indicates if this condition is active or not. Default status is INACTIVE. Enum: `ACTIVE`, `INACTIVE`, `DELETED`, `INVALID`.
+     * @return Status of the condition. Valid values: `ACTIVE`, `INACTIVE`. Default is `INACTIVE`. Note: `DELETED` and `INVALID` statuses are system-managed and cannot be set directly.
      * 
      */
     public Output<String> status() {

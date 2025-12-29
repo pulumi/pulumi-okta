@@ -95,6 +95,7 @@ export interface GetUserResult {
     readonly preferredLanguage: string;
     readonly primaryPhone: string;
     readonly profileUrl: string;
+    readonly realmId: string;
     readonly roles: string[];
     /**
      * Filter to find user/users. Each filter will be concatenated with the compound search operator. Please be aware profile properties must match what is in Okta, which is likely camel case. Expression is a free form expression filter https://developer.okta.com/docs/reference/core-okta-api/#filter . The set name/value/comparison properties will be ignored if expression is present
