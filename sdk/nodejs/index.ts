@@ -20,6 +20,11 @@ export type AdminRoleTargets = import("./adminRoleTargets").AdminRoleTargets;
 export const AdminRoleTargets: typeof import("./adminRoleTargets").AdminRoleTargets = null as any;
 utilities.lazyLoad(exports, ["AdminRoleTargets"], () => require("./adminRoleTargets"));
 
+export { AgentPoolUpdateArgs, AgentPoolUpdateState } from "./agentPoolUpdate";
+export type AgentPoolUpdate = import("./agentPoolUpdate").AgentPoolUpdate;
+export const AgentPoolUpdate: typeof import("./agentPoolUpdate").AgentPoolUpdate = null as any;
+utilities.lazyLoad(exports, ["AgentPoolUpdate"], () => require("./agentPoolUpdate"));
+
 export { ApiServiceIntegrationArgs, ApiServiceIntegrationState } from "./apiServiceIntegration";
 export type ApiServiceIntegration = import("./apiServiceIntegration").ApiServiceIntegration;
 export const ApiServiceIntegration: typeof import("./apiServiceIntegration").ApiServiceIntegration = null as any;
@@ -204,6 +209,11 @@ export { FeatureArgs, FeatureState } from "./feature";
 export type Feature = import("./feature").Feature;
 export const Feature: typeof import("./feature").Feature = null as any;
 utilities.lazyLoad(exports, ["Feature"], () => require("./feature"));
+
+export { GetAgentPoolUpdateArgs, GetAgentPoolUpdateResult, GetAgentPoolUpdateOutputArgs } from "./getAgentPoolUpdate";
+export const getAgentPoolUpdate: typeof import("./getAgentPoolUpdate").getAgentPoolUpdate = null as any;
+export const getAgentPoolUpdateOutput: typeof import("./getAgentPoolUpdate").getAgentPoolUpdateOutput = null as any;
+utilities.lazyLoad(exports, ["getAgentPoolUpdate","getAgentPoolUpdateOutput"], () => require("./getAgentPoolUpdate"));
 
 export { GetApiServiceIntegrationArgs, GetApiServiceIntegrationResult, GetApiServiceIntegrationOutputArgs } from "./getApiServiceIntegration";
 export const getApiServiceIntegration: typeof import("./getApiServiceIntegration").getApiServiceIntegration = null as any;
@@ -725,6 +735,8 @@ const _module = {
                 return new AdminRoleCustomAssignments(name, <any>undefined, { urn })
             case "okta:index/adminRoleTargets:AdminRoleTargets":
                 return new AdminRoleTargets(name, <any>undefined, { urn })
+            case "okta:index/agentPoolUpdate:AgentPoolUpdate":
+                return new AgentPoolUpdate(name, <any>undefined, { urn })
             case "okta:index/apiServiceIntegration:ApiServiceIntegration":
                 return new ApiServiceIntegration(name, <any>undefined, { urn })
             case "okta:index/apiToken:ApiToken":
@@ -889,6 +901,7 @@ const _module = {
 pulumi.runtime.registerResourceModule("okta", "index/adminRoleCustom", _module)
 pulumi.runtime.registerResourceModule("okta", "index/adminRoleCustomAssignments", _module)
 pulumi.runtime.registerResourceModule("okta", "index/adminRoleTargets", _module)
+pulumi.runtime.registerResourceModule("okta", "index/agentPoolUpdate", _module)
 pulumi.runtime.registerResourceModule("okta", "index/apiServiceIntegration", _module)
 pulumi.runtime.registerResourceModule("okta", "index/apiToken", _module)
 pulumi.runtime.registerResourceModule("okta", "index/appGroupAssignments", _module)

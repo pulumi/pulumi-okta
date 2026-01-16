@@ -112,7 +112,7 @@ type PreviewSigninPage struct {
 	BrandId                      pulumi.StringOutput                                    `pulumi:"brandId"`
 	ContentSecurityPolicySetting PreviewSigninPageContentSecurityPolicySettingPtrOutput `pulumi:"contentSecurityPolicySetting"`
 	// page content of the preview signin page
-	PageContent          pulumi.StringOutput                            `pulumi:"pageContent"`
+	PageContent          pulumi.StringPtrOutput                         `pulumi:"pageContent"`
 	WidgetCustomizations PreviewSigninPageWidgetCustomizationsPtrOutput `pulumi:"widgetCustomizations"`
 	// widget version specified as a Semver. The following are currently supported
 	// 		*, ^1, ^2, ^3, ^4, ^5, ^6, ^7, 1.6, 1.7, 1.8, 1.9, 1.10, 1.11, 1.12, 1.13, 2.1, 2.2, 2.3, 2.4,
@@ -120,7 +120,7 @@ type PreviewSigninPage struct {
 	// 		3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6, 3.7, 3.8, 3.9, 4.0, 4.1, 4.2, 4.3, 4.4, 4.5, 5.0, 5.1, 5.2, 5.3,
 	// 		5.4, 5.5, 5.6, 5.7, 5.8, 5.9, 5.10, 5.11, 5.12, 5.13, 5.14, 5.15, 5.16, 6.0, 6.1, 6.2, 6.3, 6.4, 6.5,
 	// 		6.6, 6.7, 6.8, 6.9, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, 7.7, 7.8, 7.9, 7.10, 7.11, 7.12, 7.13.
-	WidgetVersion pulumi.StringOutput `pulumi:"widgetVersion"`
+	WidgetVersion pulumi.StringPtrOutput `pulumi:"widgetVersion"`
 }
 
 // NewPreviewSigninPage registers a new resource with the given unique name, arguments, and options.
@@ -132,12 +132,6 @@ func NewPreviewSigninPage(ctx *pulumi.Context,
 
 	if args.BrandId == nil {
 		return nil, errors.New("invalid value for required argument 'BrandId'")
-	}
-	if args.PageContent == nil {
-		return nil, errors.New("invalid value for required argument 'PageContent'")
-	}
-	if args.WidgetVersion == nil {
-		return nil, errors.New("invalid value for required argument 'WidgetVersion'")
 	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource PreviewSigninPage
@@ -202,7 +196,7 @@ type previewSigninPageArgs struct {
 	BrandId                      string                                         `pulumi:"brandId"`
 	ContentSecurityPolicySetting *PreviewSigninPageContentSecurityPolicySetting `pulumi:"contentSecurityPolicySetting"`
 	// page content of the preview signin page
-	PageContent          string                                 `pulumi:"pageContent"`
+	PageContent          *string                                `pulumi:"pageContent"`
 	WidgetCustomizations *PreviewSigninPageWidgetCustomizations `pulumi:"widgetCustomizations"`
 	// widget version specified as a Semver. The following are currently supported
 	// 		*, ^1, ^2, ^3, ^4, ^5, ^6, ^7, 1.6, 1.7, 1.8, 1.9, 1.10, 1.11, 1.12, 1.13, 2.1, 2.2, 2.3, 2.4,
@@ -210,7 +204,7 @@ type previewSigninPageArgs struct {
 	// 		3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6, 3.7, 3.8, 3.9, 4.0, 4.1, 4.2, 4.3, 4.4, 4.5, 5.0, 5.1, 5.2, 5.3,
 	// 		5.4, 5.5, 5.6, 5.7, 5.8, 5.9, 5.10, 5.11, 5.12, 5.13, 5.14, 5.15, 5.16, 6.0, 6.1, 6.2, 6.3, 6.4, 6.5,
 	// 		6.6, 6.7, 6.8, 6.9, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, 7.7, 7.8, 7.9, 7.10, 7.11, 7.12, 7.13.
-	WidgetVersion string `pulumi:"widgetVersion"`
+	WidgetVersion *string `pulumi:"widgetVersion"`
 }
 
 // The set of arguments for constructing a PreviewSigninPage resource.
@@ -219,7 +213,7 @@ type PreviewSigninPageArgs struct {
 	BrandId                      pulumi.StringInput
 	ContentSecurityPolicySetting PreviewSigninPageContentSecurityPolicySettingPtrInput
 	// page content of the preview signin page
-	PageContent          pulumi.StringInput
+	PageContent          pulumi.StringPtrInput
 	WidgetCustomizations PreviewSigninPageWidgetCustomizationsPtrInput
 	// widget version specified as a Semver. The following are currently supported
 	// 		*, ^1, ^2, ^3, ^4, ^5, ^6, ^7, 1.6, 1.7, 1.8, 1.9, 1.10, 1.11, 1.12, 1.13, 2.1, 2.2, 2.3, 2.4,
@@ -227,7 +221,7 @@ type PreviewSigninPageArgs struct {
 	// 		3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6, 3.7, 3.8, 3.9, 4.0, 4.1, 4.2, 4.3, 4.4, 4.5, 5.0, 5.1, 5.2, 5.3,
 	// 		5.4, 5.5, 5.6, 5.7, 5.8, 5.9, 5.10, 5.11, 5.12, 5.13, 5.14, 5.15, 5.16, 6.0, 6.1, 6.2, 6.3, 6.4, 6.5,
 	// 		6.6, 6.7, 6.8, 6.9, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, 7.7, 7.8, 7.9, 7.10, 7.11, 7.12, 7.13.
-	WidgetVersion pulumi.StringInput
+	WidgetVersion pulumi.StringPtrInput
 }
 
 func (PreviewSigninPageArgs) ElementType() reflect.Type {
@@ -329,8 +323,8 @@ func (o PreviewSigninPageOutput) ContentSecurityPolicySetting() PreviewSigninPag
 }
 
 // page content of the preview signin page
-func (o PreviewSigninPageOutput) PageContent() pulumi.StringOutput {
-	return o.ApplyT(func(v *PreviewSigninPage) pulumi.StringOutput { return v.PageContent }).(pulumi.StringOutput)
+func (o PreviewSigninPageOutput) PageContent() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PreviewSigninPage) pulumi.StringPtrOutput { return v.PageContent }).(pulumi.StringPtrOutput)
 }
 
 func (o PreviewSigninPageOutput) WidgetCustomizations() PreviewSigninPageWidgetCustomizationsPtrOutput {
@@ -346,8 +340,8 @@ func (o PreviewSigninPageOutput) WidgetCustomizations() PreviewSigninPageWidgetC
 //	3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6, 3.7, 3.8, 3.9, 4.0, 4.1, 4.2, 4.3, 4.4, 4.5, 5.0, 5.1, 5.2, 5.3,
 //	5.4, 5.5, 5.6, 5.7, 5.8, 5.9, 5.10, 5.11, 5.12, 5.13, 5.14, 5.15, 5.16, 6.0, 6.1, 6.2, 6.3, 6.4, 6.5,
 //	6.6, 6.7, 6.8, 6.9, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, 7.7, 7.8, 7.9, 7.10, 7.11, 7.12, 7.13.
-func (o PreviewSigninPageOutput) WidgetVersion() pulumi.StringOutput {
-	return o.ApplyT(func(v *PreviewSigninPage) pulumi.StringOutput { return v.WidgetVersion }).(pulumi.StringOutput)
+func (o PreviewSigninPageOutput) WidgetVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PreviewSigninPage) pulumi.StringPtrOutput { return v.WidgetVersion }).(pulumi.StringPtrOutput)
 }
 
 type PreviewSigninPageArrayOutput struct{ *pulumi.OutputState }

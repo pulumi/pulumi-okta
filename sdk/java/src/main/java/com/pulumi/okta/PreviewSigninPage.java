@@ -142,14 +142,14 @@ public class PreviewSigninPage extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="pageContent", refs={String.class}, tree="[0]")
-    private Output<String> pageContent;
+    private Output</* @Nullable */ String> pageContent;
 
     /**
      * @return page content of the preview signin page
      * 
      */
-    public Output<String> pageContent() {
-        return this.pageContent;
+    public Output<Optional<String>> pageContent() {
+        return Codegen.optional(this.pageContent);
     }
     @Export(name="widgetCustomizations", refs={PreviewSigninPageWidgetCustomizations.class}, tree="[0]")
     private Output</* @Nullable */ PreviewSigninPageWidgetCustomizations> widgetCustomizations;
@@ -167,7 +167,7 @@ public class PreviewSigninPage extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="widgetVersion", refs={String.class}, tree="[0]")
-    private Output<String> widgetVersion;
+    private Output</* @Nullable */ String> widgetVersion;
 
     /**
      * @return widget version specified as a Semver. The following are currently supported
@@ -178,8 +178,8 @@ public class PreviewSigninPage extends com.pulumi.resources.CustomResource {
      * 		6.6, 6.7, 6.8, 6.9, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, 7.7, 7.8, 7.9, 7.10, 7.11, 7.12, 7.13.
      * 
      */
-    public Output<String> widgetVersion() {
-        return this.widgetVersion;
+    public Output<Optional<String>> widgetVersion() {
+        return Codegen.optional(this.widgetVersion);
     }
 
     /**

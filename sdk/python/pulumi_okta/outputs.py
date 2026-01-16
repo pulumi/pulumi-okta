@@ -16,6 +16,8 @@ from . import _utilities
 from . import outputs
 
 __all__ = [
+    'AgentPoolUpdateAgent',
+    'AgentPoolUpdateSchedule',
     'ApiServiceIntegrationGrantedScope',
     'ApiTokenNetwork',
     'AppGroupAssignmentsGroup',
@@ -86,6 +88,8 @@ __all__ = [
     'UserSchemaPropertyArrayOneOf',
     'UserSchemaPropertyMasterOverridePriority',
     'UserSchemaPropertyOneOf',
+    'GetAgentPoolUpdateAgentResult',
+    'GetAgentPoolUpdateScheduleResult',
     'GetApiServiceIntegrationGrantedScopeResult',
     'GetApiTokenNetworkResult',
     'GetAppsAppResult',
@@ -195,6 +199,138 @@ __all__ = [
     'GetUiSchemaUiSchemaElementOptionsResult',
     'GetUserSecurityQuestionsQuestionResult',
 ]
+
+@pulumi.output_type
+class AgentPoolUpdateAgent(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "poolId":
+            suggest = "pool_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentPoolUpdateAgent. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentPoolUpdateAgent.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentPoolUpdateAgent.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 id: Optional[_builtins.str] = None,
+                 pool_id: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str id: The unique identifier of the agent.
+        :param _builtins.str pool_id: Pool ID.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if pool_id is not None:
+            pulumi.set(__self__, "pool_id", pool_id)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> Optional[_builtins.str]:
+        """
+        The unique identifier of the agent.
+        """
+        return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter(name="poolId")
+    def pool_id(self) -> Optional[_builtins.str]:
+        """
+        Pool ID.
+        """
+        return pulumi.get(self, "pool_id")
+
+
+@pulumi.output_type
+class AgentPoolUpdateSchedule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "lastUpdated":
+            suggest = "last_updated"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentPoolUpdateSchedule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentPoolUpdateSchedule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentPoolUpdateSchedule.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cron: Optional[_builtins.str] = None,
+                 delay: Optional[_builtins.int] = None,
+                 duration: Optional[_builtins.int] = None,
+                 last_updated: Optional[_builtins.str] = None,
+                 timezone: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str cron: The schedule of the update in cron format.
+        :param _builtins.int delay: Delay in days.
+        :param _builtins.int duration: Duration in minutes.
+        :param _builtins.str last_updated: Timestamp when the update finished (only for a successful or failed update, not for a cancelled update). Null is returned if the job hasn't finished once yet.
+        :param _builtins.str timezone: Timezone of where the scheduled job takes place.
+        """
+        if cron is not None:
+            pulumi.set(__self__, "cron", cron)
+        if delay is not None:
+            pulumi.set(__self__, "delay", delay)
+        if duration is not None:
+            pulumi.set(__self__, "duration", duration)
+        if last_updated is not None:
+            pulumi.set(__self__, "last_updated", last_updated)
+        if timezone is not None:
+            pulumi.set(__self__, "timezone", timezone)
+
+    @_builtins.property
+    @pulumi.getter
+    def cron(self) -> Optional[_builtins.str]:
+        """
+        The schedule of the update in cron format.
+        """
+        return pulumi.get(self, "cron")
+
+    @_builtins.property
+    @pulumi.getter
+    def delay(self) -> Optional[_builtins.int]:
+        """
+        Delay in days.
+        """
+        return pulumi.get(self, "delay")
+
+    @_builtins.property
+    @pulumi.getter
+    def duration(self) -> Optional[_builtins.int]:
+        """
+        Duration in minutes.
+        """
+        return pulumi.get(self, "duration")
+
+    @_builtins.property
+    @pulumi.getter(name="lastUpdated")
+    def last_updated(self) -> Optional[_builtins.str]:
+        """
+        Timestamp when the update finished (only for a successful or failed update, not for a cancelled update). Null is returned if the job hasn't finished once yet.
+        """
+        return pulumi.get(self, "last_updated")
+
+    @_builtins.property
+    @pulumi.getter
+    def timezone(self) -> Optional[_builtins.str]:
+        """
+        Timezone of where the scheduled job takes place.
+        """
+        return pulumi.get(self, "timezone")
+
 
 @pulumi.output_type
 class ApiServiceIntegrationGrantedScope(dict):
@@ -4205,6 +4341,196 @@ class UserSchemaPropertyOneOf(dict):
         Enum title
         """
         return pulumi.get(self, "title")
+
+
+@pulumi.output_type
+class GetAgentPoolUpdateAgentResult(dict):
+    def __init__(__self__, *,
+                 id: _builtins.str,
+                 is_hidden: _builtins.bool,
+                 is_latest_gaed_version: _builtins.bool,
+                 last_connection: _builtins.int,
+                 name: _builtins.str,
+                 operational_status: _builtins.str,
+                 pool_id: _builtins.str,
+                 type: _builtins.str,
+                 update_message: _builtins.str,
+                 update_status: _builtins.str,
+                 version: _builtins.str):
+        """
+        :param _builtins.str id: The unique identifier of the agent.
+        :param _builtins.bool is_hidden: Determines if an agent is hidden from the Admin Console.
+        :param _builtins.bool is_latest_gaed_version: Determines if the agent is on the latest generally available version.
+        :param _builtins.int last_connection: Timestamp when the agent last connected to Okta.
+        :param _builtins.str name: The name of the agent.
+        :param _builtins.str operational_status: Operational status of a given agent (e.g., DEGRADED, DISRUPTED, INACTIVE, OPERATIONAL).
+        :param _builtins.str pool_id: Pool ID.
+        :param _builtins.str type: Agent types that are being monitored.
+        :param _builtins.str update_message: Status message of the agent.
+        :param _builtins.str update_status: Status for one agent regarding the status to auto-update that agent.
+        :param _builtins.str version: Agent version number.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "is_hidden", is_hidden)
+        pulumi.set(__self__, "is_latest_gaed_version", is_latest_gaed_version)
+        pulumi.set(__self__, "last_connection", last_connection)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "operational_status", operational_status)
+        pulumi.set(__self__, "pool_id", pool_id)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "update_message", update_message)
+        pulumi.set(__self__, "update_status", update_status)
+        pulumi.set(__self__, "version", version)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.str:
+        """
+        The unique identifier of the agent.
+        """
+        return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter(name="isHidden")
+    def is_hidden(self) -> _builtins.bool:
+        """
+        Determines if an agent is hidden from the Admin Console.
+        """
+        return pulumi.get(self, "is_hidden")
+
+    @_builtins.property
+    @pulumi.getter(name="isLatestGaedVersion")
+    def is_latest_gaed_version(self) -> _builtins.bool:
+        """
+        Determines if the agent is on the latest generally available version.
+        """
+        return pulumi.get(self, "is_latest_gaed_version")
+
+    @_builtins.property
+    @pulumi.getter(name="lastConnection")
+    def last_connection(self) -> _builtins.int:
+        """
+        Timestamp when the agent last connected to Okta.
+        """
+        return pulumi.get(self, "last_connection")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        The name of the agent.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="operationalStatus")
+    def operational_status(self) -> _builtins.str:
+        """
+        Operational status of a given agent (e.g., DEGRADED, DISRUPTED, INACTIVE, OPERATIONAL).
+        """
+        return pulumi.get(self, "operational_status")
+
+    @_builtins.property
+    @pulumi.getter(name="poolId")
+    def pool_id(self) -> _builtins.str:
+        """
+        Pool ID.
+        """
+        return pulumi.get(self, "pool_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        Agent types that are being monitored.
+        """
+        return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter(name="updateMessage")
+    def update_message(self) -> _builtins.str:
+        """
+        Status message of the agent.
+        """
+        return pulumi.get(self, "update_message")
+
+    @_builtins.property
+    @pulumi.getter(name="updateStatus")
+    def update_status(self) -> _builtins.str:
+        """
+        Status for one agent regarding the status to auto-update that agent.
+        """
+        return pulumi.get(self, "update_status")
+
+    @_builtins.property
+    @pulumi.getter
+    def version(self) -> _builtins.str:
+        """
+        Agent version number.
+        """
+        return pulumi.get(self, "version")
+
+
+@pulumi.output_type
+class GetAgentPoolUpdateScheduleResult(dict):
+    def __init__(__self__, *,
+                 cron: _builtins.str,
+                 delay: _builtins.int,
+                 duration: _builtins.int,
+                 last_updated: _builtins.str,
+                 timezone: _builtins.str):
+        """
+        :param _builtins.str cron: The schedule of the update in cron format.
+        :param _builtins.int delay: Delay in days.
+        :param _builtins.int duration: Duration in minutes.
+        :param _builtins.str last_updated: Timestamp when the update finished.
+        :param _builtins.str timezone: Timezone of where the scheduled job takes place.
+        """
+        pulumi.set(__self__, "cron", cron)
+        pulumi.set(__self__, "delay", delay)
+        pulumi.set(__self__, "duration", duration)
+        pulumi.set(__self__, "last_updated", last_updated)
+        pulumi.set(__self__, "timezone", timezone)
+
+    @_builtins.property
+    @pulumi.getter
+    def cron(self) -> _builtins.str:
+        """
+        The schedule of the update in cron format.
+        """
+        return pulumi.get(self, "cron")
+
+    @_builtins.property
+    @pulumi.getter
+    def delay(self) -> _builtins.int:
+        """
+        Delay in days.
+        """
+        return pulumi.get(self, "delay")
+
+    @_builtins.property
+    @pulumi.getter
+    def duration(self) -> _builtins.int:
+        """
+        Duration in minutes.
+        """
+        return pulumi.get(self, "duration")
+
+    @_builtins.property
+    @pulumi.getter(name="lastUpdated")
+    def last_updated(self) -> _builtins.str:
+        """
+        Timestamp when the update finished.
+        """
+        return pulumi.get(self, "last_updated")
+
+    @_builtins.property
+    @pulumi.getter
+    def timezone(self) -> _builtins.str:
+        """
+        Timezone of where the scheduled job takes place.
+        """
+        return pulumi.get(self, "timezone")
 
 
 @pulumi.output_type

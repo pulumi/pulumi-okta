@@ -9,6 +9,8 @@ import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
 import com.pulumi.deployment.InvokeOutputOptions;
 import com.pulumi.okta.Utilities;
+import com.pulumi.okta.inputs.GetAgentPoolUpdateArgs;
+import com.pulumi.okta.inputs.GetAgentPoolUpdatePlainArgs;
 import com.pulumi.okta.inputs.GetApiServiceIntegrationArgs;
 import com.pulumi.okta.inputs.GetApiServiceIntegrationPlainArgs;
 import com.pulumi.okta.inputs.GetApiTokenArgs;
@@ -111,6 +113,7 @@ import com.pulumi.okta.inputs.GetUiSchemaArgs;
 import com.pulumi.okta.inputs.GetUiSchemaPlainArgs;
 import com.pulumi.okta.inputs.GetUserSecurityQuestionsArgs;
 import com.pulumi.okta.inputs.GetUserSecurityQuestionsPlainArgs;
+import com.pulumi.okta.outputs.GetAgentPoolUpdateResult;
 import com.pulumi.okta.outputs.GetApiServiceIntegrationResult;
 import com.pulumi.okta.outputs.GetApiTokenResult;
 import com.pulumi.okta.outputs.GetAppGroupAssignmentsResult;
@@ -169,6 +172,211 @@ import com.pulumi.resources.InvokeArgs;
 import java.util.concurrent.CompletableFuture;
 
 public final class OktaFunctions {
+    /**
+     * Retrieves an Okta Agent Pool Update. Agent pool updates allow you to schedule and manage updates for agent pools.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetAgentPoolUpdateArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OktaFunctions.getAgentPoolUpdate(GetAgentPoolUpdateArgs.builder()
+     *             .id("<update_id>")
+     *             .poolId("<pool_id>")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetAgentPoolUpdateResult> getAgentPoolUpdate(GetAgentPoolUpdateArgs args) {
+        return getAgentPoolUpdate(args, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieves an Okta Agent Pool Update. Agent pool updates allow you to schedule and manage updates for agent pools.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetAgentPoolUpdateArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OktaFunctions.getAgentPoolUpdate(GetAgentPoolUpdateArgs.builder()
+     *             .id("<update_id>")
+     *             .poolId("<pool_id>")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetAgentPoolUpdateResult> getAgentPoolUpdatePlain(GetAgentPoolUpdatePlainArgs args) {
+        return getAgentPoolUpdatePlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieves an Okta Agent Pool Update. Agent pool updates allow you to schedule and manage updates for agent pools.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetAgentPoolUpdateArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OktaFunctions.getAgentPoolUpdate(GetAgentPoolUpdateArgs.builder()
+     *             .id("<update_id>")
+     *             .poolId("<pool_id>")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetAgentPoolUpdateResult> getAgentPoolUpdate(GetAgentPoolUpdateArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("okta:index/getAgentPoolUpdate:getAgentPoolUpdate", TypeShape.of(GetAgentPoolUpdateResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieves an Okta Agent Pool Update. Agent pool updates allow you to schedule and manage updates for agent pools.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetAgentPoolUpdateArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OktaFunctions.getAgentPoolUpdate(GetAgentPoolUpdateArgs.builder()
+     *             .id("<update_id>")
+     *             .poolId("<pool_id>")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetAgentPoolUpdateResult> getAgentPoolUpdate(GetAgentPoolUpdateArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("okta:index/getAgentPoolUpdate:getAgentPoolUpdate", TypeShape.of(GetAgentPoolUpdateResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieves an Okta Agent Pool Update. Agent pool updates allow you to schedule and manage updates for agent pools.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetAgentPoolUpdateArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OktaFunctions.getAgentPoolUpdate(GetAgentPoolUpdateArgs.builder()
+     *             .id("<update_id>")
+     *             .poolId("<pool_id>")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetAgentPoolUpdateResult> getAgentPoolUpdatePlain(GetAgentPoolUpdatePlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("okta:index/getAgentPoolUpdate:getAgentPoolUpdate", TypeShape.of(GetAgentPoolUpdateResult.class), args, Utilities.withVersion(options));
+    }
     /**
      * Retrieves an API Service Integration instance by id
      * 
