@@ -31,6 +31,15 @@
                     }
                 }
             },
+            "okta_agent_pool_update": {
+                "current": "okta:index/agentPoolUpdate:AgentPoolUpdate",
+                "majorVersion": 6,
+                "fields": {
+                    "agents": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "okta_api_service_integration": {
                 "current": "okta:index/apiServiceIntegration:ApiServiceIntegration",
                 "majorVersion": 6,
@@ -1302,6 +1311,15 @@
             }
         },
         "datasources": {
+            "okta_agent_pool_update": {
+                "current": "okta:index/getAgentPoolUpdate:getAgentPoolUpdate",
+                "majorVersion": 6,
+                "fields": {
+                    "agents": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "okta_api_service_integration": {
                 "current": "okta:index/getApiServiceIntegration:getApiServiceIntegration",
                 "majorVersion": 6,
@@ -2199,6 +2217,7 @@
             "okta:index/adminRoleCustom:AdminRoleCustom": 0,
             "okta:index/adminRoleCustomAssignments:AdminRoleCustomAssignments": 0,
             "okta:index/adminRoleTargets:AdminRoleTargets": 0,
+            "okta:index/agentPoolUpdate:AgentPoolUpdate": 1,
             "okta:index/apiServiceIntegration:ApiServiceIntegration": 1,
             "okta:index/apiToken:ApiToken": 1,
             "okta:index/appGroupAssignments:AppGroupAssignments": 0,
@@ -2316,6 +2335,7 @@
             "okta:idp/getOidc:getOidc": 0,
             "okta:idp/getSaml:getSaml": 0,
             "okta:idp/getSocial:getSocial": 0,
+            "okta:index/getAgentPoolUpdate:getAgentPoolUpdate": 1,
             "okta:index/getApiServiceIntegration:getApiServiceIntegration": 1,
             "okta:index/getApiToken:getApiToken": 1,
             "okta:index/getAppGroupAssignments:getAppGroupAssignments": 0,

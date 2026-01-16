@@ -42,7 +42,7 @@
             "respectSchemaVersion": true
         },
         "nodejs": {
-            "packageDescription": "A Pulumi package for creating and managing okta resources.. Based on terraform-provider-okta: version v6.5.3",
+            "packageDescription": "A Pulumi package for creating and managing okta resources.. Based on terraform-provider-okta: version v6.5.4",
             "readme": "\u003e This provider is a derived work of the [Terraform Provider](https://github.com/okta/terraform-provider-okta)\n\u003e distributed under [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/). If you encounter a bug or missing feature,\n\u003e first check the [`pulumi-okta` repo](https://github.com/pulumi/pulumi-okta/issues); however, if that doesn't turn up anything,\n\u003e please consult the source [`terraform-provider-okta` repo](https://github.com/okta/terraform-provider-okta/issues).",
             "devDependencies": {
                 "@types/mime": "^2.0.0",
@@ -971,6 +971,59 @@
             "language": {
                 "nodejs": {
                     "requiredInputs": []
+                }
+            }
+        },
+        "okta:index/AgentPoolUpdateAgent:AgentPoolUpdateAgent": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The unique identifier of the agent.\n"
+                },
+                "poolId": {
+                    "type": "string",
+                    "description": "Pool ID.\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "id",
+                        "poolId"
+                    ]
+                }
+            }
+        },
+        "okta:index/AgentPoolUpdateSchedule:AgentPoolUpdateSchedule": {
+            "properties": {
+                "cron": {
+                    "type": "string",
+                    "description": "The schedule of the update in cron format.\n"
+                },
+                "delay": {
+                    "type": "integer",
+                    "description": "Delay in days.\n"
+                },
+                "duration": {
+                    "type": "integer",
+                    "description": "Duration in minutes.\n"
+                },
+                "lastUpdated": {
+                    "type": "string",
+                    "description": "Timestamp when the update finished (only for a successful or failed update, not for a cancelled update). Null is returned if the job hasn't finished once yet.\n"
+                },
+                "timezone": {
+                    "type": "string",
+                    "description": "Timezone of where the scheduled job takes place.\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "lastUpdated"
+                    ]
                 }
             }
         },
@@ -2643,6 +2696,110 @@
                 "const",
                 "title"
             ]
+        },
+        "okta:index/getAgentPoolUpdateAgent:getAgentPoolUpdateAgent": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The unique identifier of the agent.\n"
+                },
+                "isHidden": {
+                    "type": "boolean",
+                    "description": "Determines if an agent is hidden from the Admin Console.\n"
+                },
+                "isLatestGaedVersion": {
+                    "type": "boolean",
+                    "description": "Determines if the agent is on the latest generally available version.\n"
+                },
+                "lastConnection": {
+                    "type": "integer",
+                    "description": "Timestamp when the agent last connected to Okta.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the agent.\n"
+                },
+                "operationalStatus": {
+                    "type": "string",
+                    "description": "Operational status of a given agent (e.g., DEGRADED, DISRUPTED, INACTIVE, OPERATIONAL).\n"
+                },
+                "poolId": {
+                    "type": "string",
+                    "description": "Pool ID.\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "Agent types that are being monitored.\n"
+                },
+                "updateMessage": {
+                    "type": "string",
+                    "description": "Status message of the agent.\n"
+                },
+                "updateStatus": {
+                    "type": "string",
+                    "description": "Status for one agent regarding the status to auto-update that agent.\n"
+                },
+                "version": {
+                    "type": "string",
+                    "description": "Agent version number.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "id",
+                "isHidden",
+                "isLatestGaedVersion",
+                "lastConnection",
+                "name",
+                "operationalStatus",
+                "poolId",
+                "type",
+                "updateMessage",
+                "updateStatus",
+                "version"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "okta:index/getAgentPoolUpdateSchedule:getAgentPoolUpdateSchedule": {
+            "properties": {
+                "cron": {
+                    "type": "string",
+                    "description": "The schedule of the update in cron format.\n"
+                },
+                "delay": {
+                    "type": "integer",
+                    "description": "Delay in days.\n"
+                },
+                "duration": {
+                    "type": "integer",
+                    "description": "Duration in minutes.\n"
+                },
+                "lastUpdated": {
+                    "type": "string",
+                    "description": "Timestamp when the update finished.\n"
+                },
+                "timezone": {
+                    "type": "string",
+                    "description": "Timezone of where the scheduled job takes place.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "cron",
+                "delay",
+                "duration",
+                "lastUpdated",
+                "timezone"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
         },
         "okta:index/getApiServiceIntegrationGrantedScope:getApiServiceIntegrationGrantedScope": {
             "properties": {
@@ -13464,6 +13621,192 @@
                 "type": "object"
             }
         },
+        "okta:index/agentPoolUpdate:AgentPoolUpdate": {
+            "description": "Manages an Okta Agent Pool Update. Agent pool updates allow you to schedule and manage updates for agent pools.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst example = new okta.AgentPoolUpdate(\"example\", {\n    name: \"scheduled_update\",\n    agentType: \"AD\",\n    notifyAdmins: true,\n    poolId: \"0oaspf3cfatE1nDO31d7\",\n    agents: [{\n        id: \"a53slzqkptH2xEJ1r1d7\",\n        poolId: \"0oaspf3cfatE1nDO31d7\",\n    }],\n    schedule: {\n        cron: \"0 3 * * MON\",\n        timezone: \"America/Los_Angeles\",\n        delay: 0,\n        duration: 1020,\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample = okta.AgentPoolUpdate(\"example\",\n    name=\"scheduled_update\",\n    agent_type=\"AD\",\n    notify_admins=True,\n    pool_id=\"0oaspf3cfatE1nDO31d7\",\n    agents=[{\n        \"id\": \"a53slzqkptH2xEJ1r1d7\",\n        \"pool_id\": \"0oaspf3cfatE1nDO31d7\",\n    }],\n    schedule={\n        \"cron\": \"0 3 * * MON\",\n        \"timezone\": \"America/Los_Angeles\",\n        \"delay\": 0,\n        \"duration\": 1020,\n    })\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new Okta.AgentPoolUpdate(\"example\", new()\n    {\n        Name = \"scheduled_update\",\n        AgentType = \"AD\",\n        NotifyAdmins = true,\n        PoolId = \"0oaspf3cfatE1nDO31d7\",\n        Agents = new[]\n        {\n            new Okta.Inputs.AgentPoolUpdateAgentArgs\n            {\n                Id = \"a53slzqkptH2xEJ1r1d7\",\n                PoolId = \"0oaspf3cfatE1nDO31d7\",\n            },\n        },\n        Schedule = new Okta.Inputs.AgentPoolUpdateScheduleArgs\n        {\n            Cron = \"0 3 * * MON\",\n            Timezone = \"America/Los_Angeles\",\n            Delay = 0,\n            Duration = 1020,\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v6/go/okta\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := okta.NewAgentPoolUpdate(ctx, \"example\", \u0026okta.AgentPoolUpdateArgs{\n\t\t\tName:         pulumi.String(\"scheduled_update\"),\n\t\t\tAgentType:    pulumi.String(\"AD\"),\n\t\t\tNotifyAdmins: pulumi.Bool(true),\n\t\t\tPoolId:       pulumi.String(\"0oaspf3cfatE1nDO31d7\"),\n\t\t\tAgents: okta.AgentPoolUpdateAgentArray{\n\t\t\t\t\u0026okta.AgentPoolUpdateAgentArgs{\n\t\t\t\t\tId:     pulumi.String(\"a53slzqkptH2xEJ1r1d7\"),\n\t\t\t\t\tPoolId: pulumi.String(\"0oaspf3cfatE1nDO31d7\"),\n\t\t\t\t},\n\t\t\t},\n\t\t\tSchedule: \u0026okta.AgentPoolUpdateScheduleArgs{\n\t\t\t\tCron:     pulumi.String(\"0 3 * * MON\"),\n\t\t\t\tTimezone: pulumi.String(\"America/Los_Angeles\"),\n\t\t\t\tDelay:    pulumi.Int(0),\n\t\t\t\tDuration: pulumi.Int(1020),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.okta.AgentPoolUpdate;\nimport com.pulumi.okta.AgentPoolUpdateArgs;\nimport com.pulumi.okta.inputs.AgentPoolUpdateAgentArgs;\nimport com.pulumi.okta.inputs.AgentPoolUpdateScheduleArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new AgentPoolUpdate(\"example\", AgentPoolUpdateArgs.builder()\n            .name(\"scheduled_update\")\n            .agentType(\"AD\")\n            .notifyAdmins(true)\n            .poolId(\"0oaspf3cfatE1nDO31d7\")\n            .agents(AgentPoolUpdateAgentArgs.builder()\n                .id(\"a53slzqkptH2xEJ1r1d7\")\n                .poolId(\"0oaspf3cfatE1nDO31d7\")\n                .build())\n            .schedule(AgentPoolUpdateScheduleArgs.builder()\n                .cron(\"0 3 * * MON\")\n                .timezone(\"America/Los_Angeles\")\n                .delay(0)\n                .duration(1020)\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: okta:AgentPoolUpdate\n    properties:\n      name: scheduled_update\n      agentType: AD\n      notifyAdmins: true\n      poolId: 0oaspf3cfatE1nDO31d7\n      agents:\n        - id: a53slzqkptH2xEJ1r1d7\n          poolId: 0oaspf3cfatE1nDO31d7\n      schedule:\n        cron: 0 3 * * MON\n        timezone: America/Los_Angeles\n        delay: 0\n        duration: 1020\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n```sh\n$ pulumi import okta:index/agentPoolUpdate:AgentPoolUpdate example \u003cpool_id\u003e/\u003cupdate_id\u003e\n```\n\n",
+            "properties": {
+                "agentType": {
+                    "type": "string",
+                    "description": "Agent types that are being monitored (e.g., AD, IWA, LDAP, MFA, OPP, RUM, Radius).\n"
+                },
+                "agents": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/okta:index/AgentPoolUpdateAgent:AgentPoolUpdateAgent"
+                    },
+                    "description": "The agents associated with the agent pool update.\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "The description of the agent pool update.\n"
+                },
+                "enabled": {
+                    "type": "boolean",
+                    "description": "Whether auto-update is enabled for the agent pool.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the agent pool update.\n"
+                },
+                "notifyAdmins": {
+                    "type": "boolean",
+                    "description": "Whether to notify admins about the update.\n"
+                },
+                "notifyOnCompletion": {
+                    "type": "boolean",
+                    "description": "Whether to send notifications when the update completes.\n"
+                },
+                "poolId": {
+                    "type": "string",
+                    "description": "The unique identifier of the agent pool to update.\n"
+                },
+                "reason": {
+                    "type": "string",
+                    "description": "Reason for the update.\n"
+                },
+                "schedule": {
+                    "$ref": "#/types/okta:index/AgentPoolUpdateSchedule:AgentPoolUpdateSchedule",
+                    "description": "The schedule configuration for the agent pool update.\n"
+                },
+                "sortOrder": {
+                    "type": "integer",
+                    "description": "Specifies the sort order.\n"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "The status of the agent pool update (e.g., Scheduled, InProgress, Completed, Failed).\n"
+                },
+                "targetVersion": {
+                    "type": "string",
+                    "description": "The agent version to update to.\n"
+                }
+            },
+            "required": [
+                "enabled",
+                "name",
+                "poolId",
+                "reason",
+                "sortOrder",
+                "status",
+                "targetVersion"
+            ],
+            "inputProperties": {
+                "agentType": {
+                    "type": "string",
+                    "description": "Agent types that are being monitored (e.g., AD, IWA, LDAP, MFA, OPP, RUM, Radius).\n"
+                },
+                "agents": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/okta:index/AgentPoolUpdateAgent:AgentPoolUpdateAgent"
+                    },
+                    "description": "The agents associated with the agent pool update.\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "The description of the agent pool update.\n"
+                },
+                "enabled": {
+                    "type": "boolean",
+                    "description": "Whether auto-update is enabled for the agent pool.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the agent pool update.\n"
+                },
+                "notifyAdmins": {
+                    "type": "boolean",
+                    "description": "Whether to notify admins about the update.\n"
+                },
+                "notifyOnCompletion": {
+                    "type": "boolean",
+                    "description": "Whether to send notifications when the update completes.\n"
+                },
+                "poolId": {
+                    "type": "string",
+                    "description": "The unique identifier of the agent pool to update.\n"
+                },
+                "reason": {
+                    "type": "string",
+                    "description": "Reason for the update.\n"
+                },
+                "schedule": {
+                    "$ref": "#/types/okta:index/AgentPoolUpdateSchedule:AgentPoolUpdateSchedule",
+                    "description": "The schedule configuration for the agent pool update.\n"
+                },
+                "sortOrder": {
+                    "type": "integer",
+                    "description": "Specifies the sort order.\n"
+                },
+                "targetVersion": {
+                    "type": "string",
+                    "description": "The agent version to update to.\n"
+                }
+            },
+            "requiredInputs": [
+                "poolId"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering AgentPoolUpdate resources.\n",
+                "properties": {
+                    "agentType": {
+                        "type": "string",
+                        "description": "Agent types that are being monitored (e.g., AD, IWA, LDAP, MFA, OPP, RUM, Radius).\n"
+                    },
+                    "agents": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/okta:index/AgentPoolUpdateAgent:AgentPoolUpdateAgent"
+                        },
+                        "description": "The agents associated with the agent pool update.\n"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "The description of the agent pool update.\n"
+                    },
+                    "enabled": {
+                        "type": "boolean",
+                        "description": "Whether auto-update is enabled for the agent pool.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The name of the agent pool update.\n"
+                    },
+                    "notifyAdmins": {
+                        "type": "boolean",
+                        "description": "Whether to notify admins about the update.\n"
+                    },
+                    "notifyOnCompletion": {
+                        "type": "boolean",
+                        "description": "Whether to send notifications when the update completes.\n"
+                    },
+                    "poolId": {
+                        "type": "string",
+                        "description": "The unique identifier of the agent pool to update.\n"
+                    },
+                    "reason": {
+                        "type": "string",
+                        "description": "Reason for the update.\n"
+                    },
+                    "schedule": {
+                        "$ref": "#/types/okta:index/AgentPoolUpdateSchedule:AgentPoolUpdateSchedule",
+                        "description": "The schedule configuration for the agent pool update.\n"
+                    },
+                    "sortOrder": {
+                        "type": "integer",
+                        "description": "Specifies the sort order.\n"
+                    },
+                    "status": {
+                        "type": "string",
+                        "description": "The status of the agent pool update (e.g., Scheduled, InProgress, Completed, Failed).\n"
+                    },
+                    "targetVersion": {
+                        "type": "string",
+                        "description": "The agent version to update to.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
         "okta:index/apiServiceIntegration:ApiServiceIntegration": {
             "description": "##                                                                                   ---\n\npage_title: \"Resource:\u003cspan pulumi-lang-nodejs=\" okta.ApiServiceIntegration\"\" pulumi-lang-dotnet=\" okta.ApiServiceIntegration\"\" pulumi-lang-go=\" ApiServiceIntegration\"\" pulumi-lang-python=\" ApiServiceIntegration\"\" pulumi-lang-yaml=\" okta.ApiServiceIntegration\"\" pulumi-lang-java=\" okta.ApiServiceIntegration\"\"\u003e okta.ApiServiceIntegration\"\u003c/span\u003e\ndescription: |-\n  \n---\n\n# Resource:\u003cspan pulumi-lang-nodejs=\" okta.ApiServiceIntegration\n\" pulumi-lang-dotnet=\" okta.ApiServiceIntegration\n\" pulumi-lang-go=\" ApiServiceIntegration\n\" pulumi-lang-python=\" ApiServiceIntegration\n\" pulumi-lang-yaml=\" okta.ApiServiceIntegration\n\" pulumi-lang-java=\" okta.ApiServiceIntegration\n\"\u003e okta.ApiServiceIntegration\n\u003c/span\u003e\n\n\nThis API provides operations to manage API service integration instances in your org.\n\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst example = new okta.ApiServiceIntegration(\"example\", {\n    type: \"anzennaapiservice\",\n    grantedScopes: [\n        {\n            scope: \"okta.users.read\",\n        },\n        {\n            scope: \"okta.groups.read\",\n        },\n        {\n            scope: \"okta.logs.read\",\n        },\n    ],\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample = okta.ApiServiceIntegration(\"example\",\n    type=\"anzennaapiservice\",\n    granted_scopes=[\n        {\n            \"scope\": \"okta.users.read\",\n        },\n        {\n            \"scope\": \"okta.groups.read\",\n        },\n        {\n            \"scope\": \"okta.logs.read\",\n        },\n    ])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new Okta.ApiServiceIntegration(\"example\", new()\n    {\n        Type = \"anzennaapiservice\",\n        GrantedScopes = new[]\n        {\n            new Okta.Inputs.ApiServiceIntegrationGrantedScopeArgs\n            {\n                Scope = \"okta.users.read\",\n            },\n            new Okta.Inputs.ApiServiceIntegrationGrantedScopeArgs\n            {\n                Scope = \"okta.groups.read\",\n            },\n            new Okta.Inputs.ApiServiceIntegrationGrantedScopeArgs\n            {\n                Scope = \"okta.logs.read\",\n            },\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v6/go/okta\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := okta.NewApiServiceIntegration(ctx, \"example\", \u0026okta.ApiServiceIntegrationArgs{\n\t\t\tType: pulumi.String(\"anzennaapiservice\"),\n\t\t\tGrantedScopes: okta.ApiServiceIntegrationGrantedScopeArray{\n\t\t\t\t\u0026okta.ApiServiceIntegrationGrantedScopeArgs{\n\t\t\t\t\tScope: pulumi.String(\"okta.users.read\"),\n\t\t\t\t},\n\t\t\t\t\u0026okta.ApiServiceIntegrationGrantedScopeArgs{\n\t\t\t\t\tScope: pulumi.String(\"okta.groups.read\"),\n\t\t\t\t},\n\t\t\t\t\u0026okta.ApiServiceIntegrationGrantedScopeArgs{\n\t\t\t\t\tScope: pulumi.String(\"okta.logs.read\"),\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.okta.ApiServiceIntegration;\nimport com.pulumi.okta.ApiServiceIntegrationArgs;\nimport com.pulumi.okta.inputs.ApiServiceIntegrationGrantedScopeArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new ApiServiceIntegration(\"example\", ApiServiceIntegrationArgs.builder()\n            .type(\"anzennaapiservice\")\n            .grantedScopes(            \n                ApiServiceIntegrationGrantedScopeArgs.builder()\n                    .scope(\"okta.users.read\")\n                    .build(),\n                ApiServiceIntegrationGrantedScopeArgs.builder()\n                    .scope(\"okta.groups.read\")\n                    .build(),\n                ApiServiceIntegrationGrantedScopeArgs.builder()\n                    .scope(\"okta.logs.read\")\n                    .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: okta:ApiServiceIntegration\n    properties:\n      type: anzennaapiservice\n      grantedScopes:\n        - scope: okta.users.read\n        - scope: okta.groups.read\n        - scope: okta.logs.read\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n```sh\n$ pulumi import okta:index/apiServiceIntegration:ApiServiceIntegration example \u003capi_service_integration_id\u003e\n```\n\n",
             "properties": {
@@ -16165,9 +16508,7 @@
                 }
             },
             "required": [
-                "brandId",
-                "pageContent",
-                "widgetVersion"
+                "brandId"
             ],
             "inputProperties": {
                 "brandId": {
@@ -16190,9 +16531,7 @@
                 }
             },
             "requiredInputs": [
-                "brandId",
-                "pageContent",
-                "widgetVersion"
+                "brandId"
             ],
             "stateInputs": {
                 "description": "Input properties used for looking up and filtering CustomizedSigninPage resources.\n",
@@ -19795,9 +20134,7 @@
                 }
             },
             "required": [
-                "brandId",
-                "pageContent",
-                "widgetVersion"
+                "brandId"
             ],
             "inputProperties": {
                 "brandId": {
@@ -19820,9 +20157,7 @@
                 }
             },
             "requiredInputs": [
-                "brandId",
-                "pageContent",
-                "widgetVersion"
+                "brandId"
             ],
             "stateInputs": {
                 "description": "Input properties used for looking up and filtering PreviewSigninPage resources.\n",
@@ -28584,6 +28919,107 @@
                     "tokenUrl",
                     "type",
                     "usernameTemplate"
+                ],
+                "type": "object"
+            }
+        },
+        "okta:index/getAgentPoolUpdate:getAgentPoolUpdate": {
+            "description": "Retrieves an Okta Agent Pool Update. Agent pool updates allow you to schedule and manage updates for agent pools.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst example = okta.getAgentPoolUpdate({\n    id: \"\u003cupdate_id\u003e\",\n    poolId: \"\u003cpool_id\u003e\",\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample = okta.get_agent_pool_update(id=\"\u003cupdate_id\u003e\",\n    pool_id=\"\u003cpool_id\u003e\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = Okta.GetAgentPoolUpdate.Invoke(new()\n    {\n        Id = \"\u003cupdate_id\u003e\",\n        PoolId = \"\u003cpool_id\u003e\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v6/go/okta\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := okta.LookupAgentPoolUpdate(ctx, \u0026okta.LookupAgentPoolUpdateArgs{\n\t\t\tId:     \"\u003cupdate_id\u003e\",\n\t\t\tPoolId: \"\u003cpool_id\u003e\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.okta.OktaFunctions;\nimport com.pulumi.okta.inputs.GetAgentPoolUpdateArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var example = OktaFunctions.getAgentPoolUpdate(GetAgentPoolUpdateArgs.builder()\n            .id(\"\u003cupdate_id\u003e\")\n            .poolId(\"\u003cpool_id\u003e\")\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  example:\n    fn::invoke:\n      function: okta:getAgentPoolUpdate\n      arguments:\n        id: \u003cupdate_id\u003e\n        poolId: \u003cpool_id\u003e\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getAgentPoolUpdate.\n",
+                "properties": {
+                    "agents": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/okta:index/getAgentPoolUpdateAgent:getAgentPoolUpdateAgent"
+                        },
+                        "description": "The agents associated with the agent pool update.\n"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The unique identifier of the agent pool update.\n"
+                    },
+                    "poolId": {
+                        "type": "string",
+                        "description": "The unique identifier of the agent pool.\n"
+                    },
+                    "schedule": {
+                        "$ref": "#/types/okta:index/getAgentPoolUpdateSchedule:getAgentPoolUpdateSchedule",
+                        "description": "The schedule configuration for the agent pool update.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "id",
+                    "poolId"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getAgentPoolUpdate.\n",
+                "properties": {
+                    "agentType": {
+                        "description": "Agent types that are being monitored (e.g. AD, LDAP, IWA, RADIUS, MFA, OPP, RUM, Radius).\n",
+                        "type": "string"
+                    },
+                    "agents": {
+                        "description": "The agents associated with the agent pool update.\n",
+                        "items": {
+                            "$ref": "#/types/okta:index/getAgentPoolUpdateAgent:getAgentPoolUpdateAgent"
+                        },
+                        "type": "array"
+                    },
+                    "enabled": {
+                        "description": "Indicates if auto-update is enabled for the agent pool.\n",
+                        "type": "boolean"
+                    },
+                    "id": {
+                        "description": "The unique identifier of the agent pool update.\n",
+                        "type": "string"
+                    },
+                    "name": {
+                        "description": "The name of the agent pool update.\n",
+                        "type": "string"
+                    },
+                    "notifyAdmin": {
+                        "description": "Indicates if the admin is notified about the update.\n",
+                        "type": "boolean"
+                    },
+                    "poolId": {
+                        "description": "The unique identifier of the agent pool.\n",
+                        "type": "string"
+                    },
+                    "reason": {
+                        "description": "Reason for the update.\n",
+                        "type": "string"
+                    },
+                    "schedule": {
+                        "$ref": "#/types/okta:index/getAgentPoolUpdateSchedule:getAgentPoolUpdateSchedule",
+                        "description": "The schedule configuration for the agent pool update.\n"
+                    },
+                    "sortOrder": {
+                        "description": "Specifies the sort order.\n",
+                        "type": "integer"
+                    },
+                    "status": {
+                        "description": "Overall state for the auto-update job from the admin perspective (e.g., Cancelled, Failed, InProgress, Paused, Scheduled, Success).\n",
+                        "type": "string"
+                    },
+                    "targetVersion": {
+                        "description": "The agent version to update to.\n",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "agentType",
+                    "enabled",
+                    "id",
+                    "name",
+                    "notifyAdmin",
+                    "poolId",
+                    "reason",
+                    "sortOrder",
+                    "status",
+                    "targetVersion"
                 ],
                 "type": "object"
             }
