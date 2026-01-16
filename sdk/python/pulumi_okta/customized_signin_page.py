@@ -22,10 +22,10 @@ __all__ = ['CustomizedSigninPageArgs', 'CustomizedSigninPage']
 class CustomizedSigninPageArgs:
     def __init__(__self__, *,
                  brand_id: pulumi.Input[_builtins.str],
-                 page_content: pulumi.Input[_builtins.str],
-                 widget_version: pulumi.Input[_builtins.str],
                  content_security_policy_setting: Optional[pulumi.Input['CustomizedSigninPageContentSecurityPolicySettingArgs']] = None,
-                 widget_customizations: Optional[pulumi.Input['CustomizedSigninPageWidgetCustomizationsArgs']] = None):
+                 page_content: Optional[pulumi.Input[_builtins.str]] = None,
+                 widget_customizations: Optional[pulumi.Input['CustomizedSigninPageWidgetCustomizationsArgs']] = None,
+                 widget_version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a CustomizedSigninPage resource.
         :param pulumi.Input[_builtins.str] brand_id: brand id of the preview signin page
@@ -38,12 +38,14 @@ class CustomizedSigninPageArgs:
                		6.6, 6.7, 6.8, 6.9, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, 7.7, 7.8, 7.9, 7.10, 7.11, 7.12, 7.13.
         """
         pulumi.set(__self__, "brand_id", brand_id)
-        pulumi.set(__self__, "page_content", page_content)
-        pulumi.set(__self__, "widget_version", widget_version)
         if content_security_policy_setting is not None:
             pulumi.set(__self__, "content_security_policy_setting", content_security_policy_setting)
+        if page_content is not None:
+            pulumi.set(__self__, "page_content", page_content)
         if widget_customizations is not None:
             pulumi.set(__self__, "widget_customizations", widget_customizations)
+        if widget_version is not None:
+            pulumi.set(__self__, "widget_version", widget_version)
 
     @_builtins.property
     @pulumi.getter(name="brandId")
@@ -58,20 +60,38 @@ class CustomizedSigninPageArgs:
         pulumi.set(self, "brand_id", value)
 
     @_builtins.property
+    @pulumi.getter(name="contentSecurityPolicySetting")
+    def content_security_policy_setting(self) -> Optional[pulumi.Input['CustomizedSigninPageContentSecurityPolicySettingArgs']]:
+        return pulumi.get(self, "content_security_policy_setting")
+
+    @content_security_policy_setting.setter
+    def content_security_policy_setting(self, value: Optional[pulumi.Input['CustomizedSigninPageContentSecurityPolicySettingArgs']]):
+        pulumi.set(self, "content_security_policy_setting", value)
+
+    @_builtins.property
     @pulumi.getter(name="pageContent")
-    def page_content(self) -> pulumi.Input[_builtins.str]:
+    def page_content(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         page content of the preview signin page
         """
         return pulumi.get(self, "page_content")
 
     @page_content.setter
-    def page_content(self, value: pulumi.Input[_builtins.str]):
+    def page_content(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "page_content", value)
 
     @_builtins.property
+    @pulumi.getter(name="widgetCustomizations")
+    def widget_customizations(self) -> Optional[pulumi.Input['CustomizedSigninPageWidgetCustomizationsArgs']]:
+        return pulumi.get(self, "widget_customizations")
+
+    @widget_customizations.setter
+    def widget_customizations(self, value: Optional[pulumi.Input['CustomizedSigninPageWidgetCustomizationsArgs']]):
+        pulumi.set(self, "widget_customizations", value)
+
+    @_builtins.property
     @pulumi.getter(name="widgetVersion")
-    def widget_version(self) -> pulumi.Input[_builtins.str]:
+    def widget_version(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         widget version specified as a Semver. The following are currently supported
         		*, ^1, ^2, ^3, ^4, ^5, ^6, ^7, 1.6, 1.7, 1.8, 1.9, 1.10, 1.11, 1.12, 1.13, 2.1, 2.2, 2.3, 2.4,
@@ -83,26 +103,8 @@ class CustomizedSigninPageArgs:
         return pulumi.get(self, "widget_version")
 
     @widget_version.setter
-    def widget_version(self, value: pulumi.Input[_builtins.str]):
+    def widget_version(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "widget_version", value)
-
-    @_builtins.property
-    @pulumi.getter(name="contentSecurityPolicySetting")
-    def content_security_policy_setting(self) -> Optional[pulumi.Input['CustomizedSigninPageContentSecurityPolicySettingArgs']]:
-        return pulumi.get(self, "content_security_policy_setting")
-
-    @content_security_policy_setting.setter
-    def content_security_policy_setting(self, value: Optional[pulumi.Input['CustomizedSigninPageContentSecurityPolicySettingArgs']]):
-        pulumi.set(self, "content_security_policy_setting", value)
-
-    @_builtins.property
-    @pulumi.getter(name="widgetCustomizations")
-    def widget_customizations(self) -> Optional[pulumi.Input['CustomizedSigninPageWidgetCustomizationsArgs']]:
-        return pulumi.get(self, "widget_customizations")
-
-    @widget_customizations.setter
-    def widget_customizations(self, value: Optional[pulumi.Input['CustomizedSigninPageWidgetCustomizationsArgs']]):
-        pulumi.set(self, "widget_customizations", value)
 
 
 @pulumi.input_type
@@ -407,12 +409,8 @@ class CustomizedSigninPage(pulumi.CustomResource):
                 raise TypeError("Missing required property 'brand_id'")
             __props__.__dict__["brand_id"] = brand_id
             __props__.__dict__["content_security_policy_setting"] = content_security_policy_setting
-            if page_content is None and not opts.urn:
-                raise TypeError("Missing required property 'page_content'")
             __props__.__dict__["page_content"] = page_content
             __props__.__dict__["widget_customizations"] = widget_customizations
-            if widget_version is None and not opts.urn:
-                raise TypeError("Missing required property 'widget_version'")
             __props__.__dict__["widget_version"] = widget_version
         super(CustomizedSigninPage, __self__).__init__(
             'okta:index/customizedSigninPage:CustomizedSigninPage',
@@ -471,7 +469,7 @@ class CustomizedSigninPage(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="pageContent")
-    def page_content(self) -> pulumi.Output[_builtins.str]:
+    def page_content(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
         page content of the preview signin page
         """
@@ -484,7 +482,7 @@ class CustomizedSigninPage(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="widgetVersion")
-    def widget_version(self) -> pulumi.Output[_builtins.str]:
+    def widget_version(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
         widget version specified as a Semver. The following are currently supported
         		*, ^1, ^2, ^3, ^4, ^5, ^6, ^7, 1.6, 1.7, 1.8, 1.9, 1.10, 1.11, 1.12, 1.13, 2.1, 2.2, 2.3, 2.4,

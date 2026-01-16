@@ -9,6 +9,7 @@ import typing
 from .admin_role_custom import *
 from .admin_role_custom_assignments import *
 from .admin_role_targets import *
+from .agent_pool_update import *
 from .api_service_integration import *
 from .api_token import *
 from .app_group_assignments import *
@@ -46,6 +47,7 @@ from .event_hook import *
 from .event_hook_verification import *
 from .factor_totp import *
 from .feature import *
+from .get_agent_pool_update import *
 from .get_api_service_integration import *
 from .get_api_token import *
 from .get_app_group_assignments import *
@@ -458,6 +460,14 @@ _utilities.register(
   "fqn": "pulumi_okta",
   "classes": {
    "okta:index/adminRoleTargets:AdminRoleTargets": "AdminRoleTargets"
+  }
+ },
+ {
+  "pkg": "okta",
+  "mod": "index/agentPoolUpdate",
+  "fqn": "pulumi_okta",
+  "classes": {
+   "okta:index/agentPoolUpdate:AgentPoolUpdate": "AgentPoolUpdate"
   }
  },
  {

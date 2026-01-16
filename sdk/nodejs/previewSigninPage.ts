@@ -113,7 +113,7 @@ export class PreviewSigninPage extends pulumi.CustomResource {
     /**
      * page content of the preview signin page
      */
-    declare public readonly pageContent: pulumi.Output<string>;
+    declare public readonly pageContent: pulumi.Output<string | undefined>;
     declare public readonly widgetCustomizations: pulumi.Output<outputs.PreviewSigninPageWidgetCustomizations | undefined>;
     /**
      * widget version specified as a Semver. The following are currently supported
@@ -123,7 +123,7 @@ export class PreviewSigninPage extends pulumi.CustomResource {
      * 		5.4, 5.5, 5.6, 5.7, 5.8, 5.9, 5.10, 5.11, 5.12, 5.13, 5.14, 5.15, 5.16, 6.0, 6.1, 6.2, 6.3, 6.4, 6.5,
      * 		6.6, 6.7, 6.8, 6.9, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, 7.7, 7.8, 7.9, 7.10, 7.11, 7.12, 7.13.
      */
-    declare public readonly widgetVersion: pulumi.Output<string>;
+    declare public readonly widgetVersion: pulumi.Output<string | undefined>;
 
     /**
      * Create a PreviewSigninPage resource with the given unique name, arguments, and options.
@@ -147,12 +147,6 @@ export class PreviewSigninPage extends pulumi.CustomResource {
             const args = argsOrState as PreviewSigninPageArgs | undefined;
             if (args?.brandId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'brandId'");
-            }
-            if (args?.pageContent === undefined && !opts.urn) {
-                throw new Error("Missing required property 'pageContent'");
-            }
-            if (args?.widgetVersion === undefined && !opts.urn) {
-                throw new Error("Missing required property 'widgetVersion'");
             }
             resourceInputs["brandId"] = args?.brandId;
             resourceInputs["contentSecurityPolicySetting"] = args?.contentSecurityPolicySetting;
@@ -202,7 +196,7 @@ export interface PreviewSigninPageArgs {
     /**
      * page content of the preview signin page
      */
-    pageContent: pulumi.Input<string>;
+    pageContent?: pulumi.Input<string>;
     widgetCustomizations?: pulumi.Input<inputs.PreviewSigninPageWidgetCustomizations>;
     /**
      * widget version specified as a Semver. The following are currently supported
@@ -212,5 +206,5 @@ export interface PreviewSigninPageArgs {
      * 		5.4, 5.5, 5.6, 5.7, 5.8, 5.9, 5.10, 5.11, 5.12, 5.13, 5.14, 5.15, 5.16, 6.0, 6.1, 6.2, 6.3, 6.4, 6.5,
      * 		6.6, 6.7, 6.8, 6.9, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, 7.7, 7.8, 7.9, 7.10, 7.11, 7.12, 7.13.
      */
-    widgetVersion: pulumi.Input<string>;
+    widgetVersion?: pulumi.Input<string>;
 }

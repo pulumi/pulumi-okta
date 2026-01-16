@@ -27,6 +27,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &AdminRoleCustomAssignments{}
 	case "okta:index/adminRoleTargets:AdminRoleTargets":
 		r = &AdminRoleTargets{}
+	case "okta:index/agentPoolUpdate:AgentPoolUpdate":
+		r = &AgentPoolUpdate{}
 	case "okta:index/apiServiceIntegration:ApiServiceIntegration":
 		r = &ApiServiceIntegration{}
 	case "okta:index/apiToken:ApiToken":
@@ -227,6 +229,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"okta",
 		"index/adminRoleTargets",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"okta",
+		"index/agentPoolUpdate",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

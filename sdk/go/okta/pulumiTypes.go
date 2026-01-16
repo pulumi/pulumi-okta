@@ -13,6 +13,325 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type AgentPoolUpdateAgent struct {
+	// The unique identifier of the agent.
+	Id *string `pulumi:"id"`
+	// Pool ID.
+	PoolId *string `pulumi:"poolId"`
+}
+
+// AgentPoolUpdateAgentInput is an input type that accepts AgentPoolUpdateAgentArgs and AgentPoolUpdateAgentOutput values.
+// You can construct a concrete instance of `AgentPoolUpdateAgentInput` via:
+//
+//	AgentPoolUpdateAgentArgs{...}
+type AgentPoolUpdateAgentInput interface {
+	pulumi.Input
+
+	ToAgentPoolUpdateAgentOutput() AgentPoolUpdateAgentOutput
+	ToAgentPoolUpdateAgentOutputWithContext(context.Context) AgentPoolUpdateAgentOutput
+}
+
+type AgentPoolUpdateAgentArgs struct {
+	// The unique identifier of the agent.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Pool ID.
+	PoolId pulumi.StringPtrInput `pulumi:"poolId"`
+}
+
+func (AgentPoolUpdateAgentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentPoolUpdateAgent)(nil)).Elem()
+}
+
+func (i AgentPoolUpdateAgentArgs) ToAgentPoolUpdateAgentOutput() AgentPoolUpdateAgentOutput {
+	return i.ToAgentPoolUpdateAgentOutputWithContext(context.Background())
+}
+
+func (i AgentPoolUpdateAgentArgs) ToAgentPoolUpdateAgentOutputWithContext(ctx context.Context) AgentPoolUpdateAgentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentPoolUpdateAgentOutput)
+}
+
+// AgentPoolUpdateAgentArrayInput is an input type that accepts AgentPoolUpdateAgentArray and AgentPoolUpdateAgentArrayOutput values.
+// You can construct a concrete instance of `AgentPoolUpdateAgentArrayInput` via:
+//
+//	AgentPoolUpdateAgentArray{ AgentPoolUpdateAgentArgs{...} }
+type AgentPoolUpdateAgentArrayInput interface {
+	pulumi.Input
+
+	ToAgentPoolUpdateAgentArrayOutput() AgentPoolUpdateAgentArrayOutput
+	ToAgentPoolUpdateAgentArrayOutputWithContext(context.Context) AgentPoolUpdateAgentArrayOutput
+}
+
+type AgentPoolUpdateAgentArray []AgentPoolUpdateAgentInput
+
+func (AgentPoolUpdateAgentArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentPoolUpdateAgent)(nil)).Elem()
+}
+
+func (i AgentPoolUpdateAgentArray) ToAgentPoolUpdateAgentArrayOutput() AgentPoolUpdateAgentArrayOutput {
+	return i.ToAgentPoolUpdateAgentArrayOutputWithContext(context.Background())
+}
+
+func (i AgentPoolUpdateAgentArray) ToAgentPoolUpdateAgentArrayOutputWithContext(ctx context.Context) AgentPoolUpdateAgentArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentPoolUpdateAgentArrayOutput)
+}
+
+type AgentPoolUpdateAgentOutput struct{ *pulumi.OutputState }
+
+func (AgentPoolUpdateAgentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentPoolUpdateAgent)(nil)).Elem()
+}
+
+func (o AgentPoolUpdateAgentOutput) ToAgentPoolUpdateAgentOutput() AgentPoolUpdateAgentOutput {
+	return o
+}
+
+func (o AgentPoolUpdateAgentOutput) ToAgentPoolUpdateAgentOutputWithContext(ctx context.Context) AgentPoolUpdateAgentOutput {
+	return o
+}
+
+// The unique identifier of the agent.
+func (o AgentPoolUpdateAgentOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentPoolUpdateAgent) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// Pool ID.
+func (o AgentPoolUpdateAgentOutput) PoolId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentPoolUpdateAgent) *string { return v.PoolId }).(pulumi.StringPtrOutput)
+}
+
+type AgentPoolUpdateAgentArrayOutput struct{ *pulumi.OutputState }
+
+func (AgentPoolUpdateAgentArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentPoolUpdateAgent)(nil)).Elem()
+}
+
+func (o AgentPoolUpdateAgentArrayOutput) ToAgentPoolUpdateAgentArrayOutput() AgentPoolUpdateAgentArrayOutput {
+	return o
+}
+
+func (o AgentPoolUpdateAgentArrayOutput) ToAgentPoolUpdateAgentArrayOutputWithContext(ctx context.Context) AgentPoolUpdateAgentArrayOutput {
+	return o
+}
+
+func (o AgentPoolUpdateAgentArrayOutput) Index(i pulumi.IntInput) AgentPoolUpdateAgentOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AgentPoolUpdateAgent {
+		return vs[0].([]AgentPoolUpdateAgent)[vs[1].(int)]
+	}).(AgentPoolUpdateAgentOutput)
+}
+
+type AgentPoolUpdateSchedule struct {
+	// The schedule of the update in cron format.
+	Cron *string `pulumi:"cron"`
+	// Delay in days.
+	Delay *int `pulumi:"delay"`
+	// Duration in minutes.
+	Duration *int `pulumi:"duration"`
+	// Timestamp when the update finished (only for a successful or failed update, not for a cancelled update). Null is returned if the job hasn't finished once yet.
+	LastUpdated *string `pulumi:"lastUpdated"`
+	// Timezone of where the scheduled job takes place.
+	Timezone *string `pulumi:"timezone"`
+}
+
+// AgentPoolUpdateScheduleInput is an input type that accepts AgentPoolUpdateScheduleArgs and AgentPoolUpdateScheduleOutput values.
+// You can construct a concrete instance of `AgentPoolUpdateScheduleInput` via:
+//
+//	AgentPoolUpdateScheduleArgs{...}
+type AgentPoolUpdateScheduleInput interface {
+	pulumi.Input
+
+	ToAgentPoolUpdateScheduleOutput() AgentPoolUpdateScheduleOutput
+	ToAgentPoolUpdateScheduleOutputWithContext(context.Context) AgentPoolUpdateScheduleOutput
+}
+
+type AgentPoolUpdateScheduleArgs struct {
+	// The schedule of the update in cron format.
+	Cron pulumi.StringPtrInput `pulumi:"cron"`
+	// Delay in days.
+	Delay pulumi.IntPtrInput `pulumi:"delay"`
+	// Duration in minutes.
+	Duration pulumi.IntPtrInput `pulumi:"duration"`
+	// Timestamp when the update finished (only for a successful or failed update, not for a cancelled update). Null is returned if the job hasn't finished once yet.
+	LastUpdated pulumi.StringPtrInput `pulumi:"lastUpdated"`
+	// Timezone of where the scheduled job takes place.
+	Timezone pulumi.StringPtrInput `pulumi:"timezone"`
+}
+
+func (AgentPoolUpdateScheduleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentPoolUpdateSchedule)(nil)).Elem()
+}
+
+func (i AgentPoolUpdateScheduleArgs) ToAgentPoolUpdateScheduleOutput() AgentPoolUpdateScheduleOutput {
+	return i.ToAgentPoolUpdateScheduleOutputWithContext(context.Background())
+}
+
+func (i AgentPoolUpdateScheduleArgs) ToAgentPoolUpdateScheduleOutputWithContext(ctx context.Context) AgentPoolUpdateScheduleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentPoolUpdateScheduleOutput)
+}
+
+func (i AgentPoolUpdateScheduleArgs) ToAgentPoolUpdateSchedulePtrOutput() AgentPoolUpdateSchedulePtrOutput {
+	return i.ToAgentPoolUpdateSchedulePtrOutputWithContext(context.Background())
+}
+
+func (i AgentPoolUpdateScheduleArgs) ToAgentPoolUpdateSchedulePtrOutputWithContext(ctx context.Context) AgentPoolUpdateSchedulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentPoolUpdateScheduleOutput).ToAgentPoolUpdateSchedulePtrOutputWithContext(ctx)
+}
+
+// AgentPoolUpdateSchedulePtrInput is an input type that accepts AgentPoolUpdateScheduleArgs, AgentPoolUpdateSchedulePtr and AgentPoolUpdateSchedulePtrOutput values.
+// You can construct a concrete instance of `AgentPoolUpdateSchedulePtrInput` via:
+//
+//	        AgentPoolUpdateScheduleArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentPoolUpdateSchedulePtrInput interface {
+	pulumi.Input
+
+	ToAgentPoolUpdateSchedulePtrOutput() AgentPoolUpdateSchedulePtrOutput
+	ToAgentPoolUpdateSchedulePtrOutputWithContext(context.Context) AgentPoolUpdateSchedulePtrOutput
+}
+
+type agentPoolUpdateSchedulePtrType AgentPoolUpdateScheduleArgs
+
+func AgentPoolUpdateSchedulePtr(v *AgentPoolUpdateScheduleArgs) AgentPoolUpdateSchedulePtrInput {
+	return (*agentPoolUpdateSchedulePtrType)(v)
+}
+
+func (*agentPoolUpdateSchedulePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentPoolUpdateSchedule)(nil)).Elem()
+}
+
+func (i *agentPoolUpdateSchedulePtrType) ToAgentPoolUpdateSchedulePtrOutput() AgentPoolUpdateSchedulePtrOutput {
+	return i.ToAgentPoolUpdateSchedulePtrOutputWithContext(context.Background())
+}
+
+func (i *agentPoolUpdateSchedulePtrType) ToAgentPoolUpdateSchedulePtrOutputWithContext(ctx context.Context) AgentPoolUpdateSchedulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentPoolUpdateSchedulePtrOutput)
+}
+
+type AgentPoolUpdateScheduleOutput struct{ *pulumi.OutputState }
+
+func (AgentPoolUpdateScheduleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentPoolUpdateSchedule)(nil)).Elem()
+}
+
+func (o AgentPoolUpdateScheduleOutput) ToAgentPoolUpdateScheduleOutput() AgentPoolUpdateScheduleOutput {
+	return o
+}
+
+func (o AgentPoolUpdateScheduleOutput) ToAgentPoolUpdateScheduleOutputWithContext(ctx context.Context) AgentPoolUpdateScheduleOutput {
+	return o
+}
+
+func (o AgentPoolUpdateScheduleOutput) ToAgentPoolUpdateSchedulePtrOutput() AgentPoolUpdateSchedulePtrOutput {
+	return o.ToAgentPoolUpdateSchedulePtrOutputWithContext(context.Background())
+}
+
+func (o AgentPoolUpdateScheduleOutput) ToAgentPoolUpdateSchedulePtrOutputWithContext(ctx context.Context) AgentPoolUpdateSchedulePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentPoolUpdateSchedule) *AgentPoolUpdateSchedule {
+		return &v
+	}).(AgentPoolUpdateSchedulePtrOutput)
+}
+
+// The schedule of the update in cron format.
+func (o AgentPoolUpdateScheduleOutput) Cron() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentPoolUpdateSchedule) *string { return v.Cron }).(pulumi.StringPtrOutput)
+}
+
+// Delay in days.
+func (o AgentPoolUpdateScheduleOutput) Delay() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AgentPoolUpdateSchedule) *int { return v.Delay }).(pulumi.IntPtrOutput)
+}
+
+// Duration in minutes.
+func (o AgentPoolUpdateScheduleOutput) Duration() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AgentPoolUpdateSchedule) *int { return v.Duration }).(pulumi.IntPtrOutput)
+}
+
+// Timestamp when the update finished (only for a successful or failed update, not for a cancelled update). Null is returned if the job hasn't finished once yet.
+func (o AgentPoolUpdateScheduleOutput) LastUpdated() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentPoolUpdateSchedule) *string { return v.LastUpdated }).(pulumi.StringPtrOutput)
+}
+
+// Timezone of where the scheduled job takes place.
+func (o AgentPoolUpdateScheduleOutput) Timezone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentPoolUpdateSchedule) *string { return v.Timezone }).(pulumi.StringPtrOutput)
+}
+
+type AgentPoolUpdateSchedulePtrOutput struct{ *pulumi.OutputState }
+
+func (AgentPoolUpdateSchedulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentPoolUpdateSchedule)(nil)).Elem()
+}
+
+func (o AgentPoolUpdateSchedulePtrOutput) ToAgentPoolUpdateSchedulePtrOutput() AgentPoolUpdateSchedulePtrOutput {
+	return o
+}
+
+func (o AgentPoolUpdateSchedulePtrOutput) ToAgentPoolUpdateSchedulePtrOutputWithContext(ctx context.Context) AgentPoolUpdateSchedulePtrOutput {
+	return o
+}
+
+func (o AgentPoolUpdateSchedulePtrOutput) Elem() AgentPoolUpdateScheduleOutput {
+	return o.ApplyT(func(v *AgentPoolUpdateSchedule) AgentPoolUpdateSchedule {
+		if v != nil {
+			return *v
+		}
+		var ret AgentPoolUpdateSchedule
+		return ret
+	}).(AgentPoolUpdateScheduleOutput)
+}
+
+// The schedule of the update in cron format.
+func (o AgentPoolUpdateSchedulePtrOutput) Cron() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentPoolUpdateSchedule) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Cron
+	}).(pulumi.StringPtrOutput)
+}
+
+// Delay in days.
+func (o AgentPoolUpdateSchedulePtrOutput) Delay() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AgentPoolUpdateSchedule) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Delay
+	}).(pulumi.IntPtrOutput)
+}
+
+// Duration in minutes.
+func (o AgentPoolUpdateSchedulePtrOutput) Duration() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AgentPoolUpdateSchedule) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Duration
+	}).(pulumi.IntPtrOutput)
+}
+
+// Timestamp when the update finished (only for a successful or failed update, not for a cancelled update). Null is returned if the job hasn't finished once yet.
+func (o AgentPoolUpdateSchedulePtrOutput) LastUpdated() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentPoolUpdateSchedule) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastUpdated
+	}).(pulumi.StringPtrOutput)
+}
+
+// Timezone of where the scheduled job takes place.
+func (o AgentPoolUpdateSchedulePtrOutput) Timezone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentPoolUpdateSchedule) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Timezone
+	}).(pulumi.StringPtrOutput)
+}
+
 type ApiServiceIntegrationGrantedScope struct {
 	// The scope of the API service integration
 	Scope string `pulumi:"scope"`
@@ -10772,6 +11091,406 @@ func (o UserSchemaPropertyOneOfArrayOutput) Index(i pulumi.IntInput) UserSchemaP
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) UserSchemaPropertyOneOf {
 		return vs[0].([]UserSchemaPropertyOneOf)[vs[1].(int)]
 	}).(UserSchemaPropertyOneOfOutput)
+}
+
+type GetAgentPoolUpdateAgent struct {
+	// The unique identifier of the agent.
+	Id string `pulumi:"id"`
+	// Determines if an agent is hidden from the Admin Console.
+	IsHidden bool `pulumi:"isHidden"`
+	// Determines if the agent is on the latest generally available version.
+	IsLatestGaedVersion bool `pulumi:"isLatestGaedVersion"`
+	// Timestamp when the agent last connected to Okta.
+	LastConnection int `pulumi:"lastConnection"`
+	// The name of the agent.
+	Name string `pulumi:"name"`
+	// Operational status of a given agent (e.g., DEGRADED, DISRUPTED, INACTIVE, OPERATIONAL).
+	OperationalStatus string `pulumi:"operationalStatus"`
+	// Pool ID.
+	PoolId string `pulumi:"poolId"`
+	// Agent types that are being monitored.
+	Type string `pulumi:"type"`
+	// Status message of the agent.
+	UpdateMessage string `pulumi:"updateMessage"`
+	// Status for one agent regarding the status to auto-update that agent.
+	UpdateStatus string `pulumi:"updateStatus"`
+	// Agent version number.
+	Version string `pulumi:"version"`
+}
+
+// GetAgentPoolUpdateAgentInput is an input type that accepts GetAgentPoolUpdateAgentArgs and GetAgentPoolUpdateAgentOutput values.
+// You can construct a concrete instance of `GetAgentPoolUpdateAgentInput` via:
+//
+//	GetAgentPoolUpdateAgentArgs{...}
+type GetAgentPoolUpdateAgentInput interface {
+	pulumi.Input
+
+	ToGetAgentPoolUpdateAgentOutput() GetAgentPoolUpdateAgentOutput
+	ToGetAgentPoolUpdateAgentOutputWithContext(context.Context) GetAgentPoolUpdateAgentOutput
+}
+
+type GetAgentPoolUpdateAgentArgs struct {
+	// The unique identifier of the agent.
+	Id pulumi.StringInput `pulumi:"id"`
+	// Determines if an agent is hidden from the Admin Console.
+	IsHidden pulumi.BoolInput `pulumi:"isHidden"`
+	// Determines if the agent is on the latest generally available version.
+	IsLatestGaedVersion pulumi.BoolInput `pulumi:"isLatestGaedVersion"`
+	// Timestamp when the agent last connected to Okta.
+	LastConnection pulumi.IntInput `pulumi:"lastConnection"`
+	// The name of the agent.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Operational status of a given agent (e.g., DEGRADED, DISRUPTED, INACTIVE, OPERATIONAL).
+	OperationalStatus pulumi.StringInput `pulumi:"operationalStatus"`
+	// Pool ID.
+	PoolId pulumi.StringInput `pulumi:"poolId"`
+	// Agent types that are being monitored.
+	Type pulumi.StringInput `pulumi:"type"`
+	// Status message of the agent.
+	UpdateMessage pulumi.StringInput `pulumi:"updateMessage"`
+	// Status for one agent regarding the status to auto-update that agent.
+	UpdateStatus pulumi.StringInput `pulumi:"updateStatus"`
+	// Agent version number.
+	Version pulumi.StringInput `pulumi:"version"`
+}
+
+func (GetAgentPoolUpdateAgentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAgentPoolUpdateAgent)(nil)).Elem()
+}
+
+func (i GetAgentPoolUpdateAgentArgs) ToGetAgentPoolUpdateAgentOutput() GetAgentPoolUpdateAgentOutput {
+	return i.ToGetAgentPoolUpdateAgentOutputWithContext(context.Background())
+}
+
+func (i GetAgentPoolUpdateAgentArgs) ToGetAgentPoolUpdateAgentOutputWithContext(ctx context.Context) GetAgentPoolUpdateAgentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAgentPoolUpdateAgentOutput)
+}
+
+// GetAgentPoolUpdateAgentArrayInput is an input type that accepts GetAgentPoolUpdateAgentArray and GetAgentPoolUpdateAgentArrayOutput values.
+// You can construct a concrete instance of `GetAgentPoolUpdateAgentArrayInput` via:
+//
+//	GetAgentPoolUpdateAgentArray{ GetAgentPoolUpdateAgentArgs{...} }
+type GetAgentPoolUpdateAgentArrayInput interface {
+	pulumi.Input
+
+	ToGetAgentPoolUpdateAgentArrayOutput() GetAgentPoolUpdateAgentArrayOutput
+	ToGetAgentPoolUpdateAgentArrayOutputWithContext(context.Context) GetAgentPoolUpdateAgentArrayOutput
+}
+
+type GetAgentPoolUpdateAgentArray []GetAgentPoolUpdateAgentInput
+
+func (GetAgentPoolUpdateAgentArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAgentPoolUpdateAgent)(nil)).Elem()
+}
+
+func (i GetAgentPoolUpdateAgentArray) ToGetAgentPoolUpdateAgentArrayOutput() GetAgentPoolUpdateAgentArrayOutput {
+	return i.ToGetAgentPoolUpdateAgentArrayOutputWithContext(context.Background())
+}
+
+func (i GetAgentPoolUpdateAgentArray) ToGetAgentPoolUpdateAgentArrayOutputWithContext(ctx context.Context) GetAgentPoolUpdateAgentArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAgentPoolUpdateAgentArrayOutput)
+}
+
+type GetAgentPoolUpdateAgentOutput struct{ *pulumi.OutputState }
+
+func (GetAgentPoolUpdateAgentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAgentPoolUpdateAgent)(nil)).Elem()
+}
+
+func (o GetAgentPoolUpdateAgentOutput) ToGetAgentPoolUpdateAgentOutput() GetAgentPoolUpdateAgentOutput {
+	return o
+}
+
+func (o GetAgentPoolUpdateAgentOutput) ToGetAgentPoolUpdateAgentOutputWithContext(ctx context.Context) GetAgentPoolUpdateAgentOutput {
+	return o
+}
+
+// The unique identifier of the agent.
+func (o GetAgentPoolUpdateAgentOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAgentPoolUpdateAgent) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Determines if an agent is hidden from the Admin Console.
+func (o GetAgentPoolUpdateAgentOutput) IsHidden() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetAgentPoolUpdateAgent) bool { return v.IsHidden }).(pulumi.BoolOutput)
+}
+
+// Determines if the agent is on the latest generally available version.
+func (o GetAgentPoolUpdateAgentOutput) IsLatestGaedVersion() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetAgentPoolUpdateAgent) bool { return v.IsLatestGaedVersion }).(pulumi.BoolOutput)
+}
+
+// Timestamp when the agent last connected to Okta.
+func (o GetAgentPoolUpdateAgentOutput) LastConnection() pulumi.IntOutput {
+	return o.ApplyT(func(v GetAgentPoolUpdateAgent) int { return v.LastConnection }).(pulumi.IntOutput)
+}
+
+// The name of the agent.
+func (o GetAgentPoolUpdateAgentOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAgentPoolUpdateAgent) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Operational status of a given agent (e.g., DEGRADED, DISRUPTED, INACTIVE, OPERATIONAL).
+func (o GetAgentPoolUpdateAgentOutput) OperationalStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAgentPoolUpdateAgent) string { return v.OperationalStatus }).(pulumi.StringOutput)
+}
+
+// Pool ID.
+func (o GetAgentPoolUpdateAgentOutput) PoolId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAgentPoolUpdateAgent) string { return v.PoolId }).(pulumi.StringOutput)
+}
+
+// Agent types that are being monitored.
+func (o GetAgentPoolUpdateAgentOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAgentPoolUpdateAgent) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Status message of the agent.
+func (o GetAgentPoolUpdateAgentOutput) UpdateMessage() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAgentPoolUpdateAgent) string { return v.UpdateMessage }).(pulumi.StringOutput)
+}
+
+// Status for one agent regarding the status to auto-update that agent.
+func (o GetAgentPoolUpdateAgentOutput) UpdateStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAgentPoolUpdateAgent) string { return v.UpdateStatus }).(pulumi.StringOutput)
+}
+
+// Agent version number.
+func (o GetAgentPoolUpdateAgentOutput) Version() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAgentPoolUpdateAgent) string { return v.Version }).(pulumi.StringOutput)
+}
+
+type GetAgentPoolUpdateAgentArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAgentPoolUpdateAgentArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAgentPoolUpdateAgent)(nil)).Elem()
+}
+
+func (o GetAgentPoolUpdateAgentArrayOutput) ToGetAgentPoolUpdateAgentArrayOutput() GetAgentPoolUpdateAgentArrayOutput {
+	return o
+}
+
+func (o GetAgentPoolUpdateAgentArrayOutput) ToGetAgentPoolUpdateAgentArrayOutputWithContext(ctx context.Context) GetAgentPoolUpdateAgentArrayOutput {
+	return o
+}
+
+func (o GetAgentPoolUpdateAgentArrayOutput) Index(i pulumi.IntInput) GetAgentPoolUpdateAgentOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAgentPoolUpdateAgent {
+		return vs[0].([]GetAgentPoolUpdateAgent)[vs[1].(int)]
+	}).(GetAgentPoolUpdateAgentOutput)
+}
+
+type GetAgentPoolUpdateSchedule struct {
+	// The schedule of the update in cron format.
+	Cron string `pulumi:"cron"`
+	// Delay in days.
+	Delay int `pulumi:"delay"`
+	// Duration in minutes.
+	Duration int `pulumi:"duration"`
+	// Timestamp when the update finished.
+	LastUpdated string `pulumi:"lastUpdated"`
+	// Timezone of where the scheduled job takes place.
+	Timezone string `pulumi:"timezone"`
+}
+
+// GetAgentPoolUpdateScheduleInput is an input type that accepts GetAgentPoolUpdateScheduleArgs and GetAgentPoolUpdateScheduleOutput values.
+// You can construct a concrete instance of `GetAgentPoolUpdateScheduleInput` via:
+//
+//	GetAgentPoolUpdateScheduleArgs{...}
+type GetAgentPoolUpdateScheduleInput interface {
+	pulumi.Input
+
+	ToGetAgentPoolUpdateScheduleOutput() GetAgentPoolUpdateScheduleOutput
+	ToGetAgentPoolUpdateScheduleOutputWithContext(context.Context) GetAgentPoolUpdateScheduleOutput
+}
+
+type GetAgentPoolUpdateScheduleArgs struct {
+	// The schedule of the update in cron format.
+	Cron pulumi.StringInput `pulumi:"cron"`
+	// Delay in days.
+	Delay pulumi.IntInput `pulumi:"delay"`
+	// Duration in minutes.
+	Duration pulumi.IntInput `pulumi:"duration"`
+	// Timestamp when the update finished.
+	LastUpdated pulumi.StringInput `pulumi:"lastUpdated"`
+	// Timezone of where the scheduled job takes place.
+	Timezone pulumi.StringInput `pulumi:"timezone"`
+}
+
+func (GetAgentPoolUpdateScheduleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAgentPoolUpdateSchedule)(nil)).Elem()
+}
+
+func (i GetAgentPoolUpdateScheduleArgs) ToGetAgentPoolUpdateScheduleOutput() GetAgentPoolUpdateScheduleOutput {
+	return i.ToGetAgentPoolUpdateScheduleOutputWithContext(context.Background())
+}
+
+func (i GetAgentPoolUpdateScheduleArgs) ToGetAgentPoolUpdateScheduleOutputWithContext(ctx context.Context) GetAgentPoolUpdateScheduleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAgentPoolUpdateScheduleOutput)
+}
+
+func (i GetAgentPoolUpdateScheduleArgs) ToGetAgentPoolUpdateSchedulePtrOutput() GetAgentPoolUpdateSchedulePtrOutput {
+	return i.ToGetAgentPoolUpdateSchedulePtrOutputWithContext(context.Background())
+}
+
+func (i GetAgentPoolUpdateScheduleArgs) ToGetAgentPoolUpdateSchedulePtrOutputWithContext(ctx context.Context) GetAgentPoolUpdateSchedulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAgentPoolUpdateScheduleOutput).ToGetAgentPoolUpdateSchedulePtrOutputWithContext(ctx)
+}
+
+// GetAgentPoolUpdateSchedulePtrInput is an input type that accepts GetAgentPoolUpdateScheduleArgs, GetAgentPoolUpdateSchedulePtr and GetAgentPoolUpdateSchedulePtrOutput values.
+// You can construct a concrete instance of `GetAgentPoolUpdateSchedulePtrInput` via:
+//
+//	        GetAgentPoolUpdateScheduleArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetAgentPoolUpdateSchedulePtrInput interface {
+	pulumi.Input
+
+	ToGetAgentPoolUpdateSchedulePtrOutput() GetAgentPoolUpdateSchedulePtrOutput
+	ToGetAgentPoolUpdateSchedulePtrOutputWithContext(context.Context) GetAgentPoolUpdateSchedulePtrOutput
+}
+
+type getAgentPoolUpdateSchedulePtrType GetAgentPoolUpdateScheduleArgs
+
+func GetAgentPoolUpdateSchedulePtr(v *GetAgentPoolUpdateScheduleArgs) GetAgentPoolUpdateSchedulePtrInput {
+	return (*getAgentPoolUpdateSchedulePtrType)(v)
+}
+
+func (*getAgentPoolUpdateSchedulePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetAgentPoolUpdateSchedule)(nil)).Elem()
+}
+
+func (i *getAgentPoolUpdateSchedulePtrType) ToGetAgentPoolUpdateSchedulePtrOutput() GetAgentPoolUpdateSchedulePtrOutput {
+	return i.ToGetAgentPoolUpdateSchedulePtrOutputWithContext(context.Background())
+}
+
+func (i *getAgentPoolUpdateSchedulePtrType) ToGetAgentPoolUpdateSchedulePtrOutputWithContext(ctx context.Context) GetAgentPoolUpdateSchedulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAgentPoolUpdateSchedulePtrOutput)
+}
+
+type GetAgentPoolUpdateScheduleOutput struct{ *pulumi.OutputState }
+
+func (GetAgentPoolUpdateScheduleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAgentPoolUpdateSchedule)(nil)).Elem()
+}
+
+func (o GetAgentPoolUpdateScheduleOutput) ToGetAgentPoolUpdateScheduleOutput() GetAgentPoolUpdateScheduleOutput {
+	return o
+}
+
+func (o GetAgentPoolUpdateScheduleOutput) ToGetAgentPoolUpdateScheduleOutputWithContext(ctx context.Context) GetAgentPoolUpdateScheduleOutput {
+	return o
+}
+
+func (o GetAgentPoolUpdateScheduleOutput) ToGetAgentPoolUpdateSchedulePtrOutput() GetAgentPoolUpdateSchedulePtrOutput {
+	return o.ToGetAgentPoolUpdateSchedulePtrOutputWithContext(context.Background())
+}
+
+func (o GetAgentPoolUpdateScheduleOutput) ToGetAgentPoolUpdateSchedulePtrOutputWithContext(ctx context.Context) GetAgentPoolUpdateSchedulePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetAgentPoolUpdateSchedule) *GetAgentPoolUpdateSchedule {
+		return &v
+	}).(GetAgentPoolUpdateSchedulePtrOutput)
+}
+
+// The schedule of the update in cron format.
+func (o GetAgentPoolUpdateScheduleOutput) Cron() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAgentPoolUpdateSchedule) string { return v.Cron }).(pulumi.StringOutput)
+}
+
+// Delay in days.
+func (o GetAgentPoolUpdateScheduleOutput) Delay() pulumi.IntOutput {
+	return o.ApplyT(func(v GetAgentPoolUpdateSchedule) int { return v.Delay }).(pulumi.IntOutput)
+}
+
+// Duration in minutes.
+func (o GetAgentPoolUpdateScheduleOutput) Duration() pulumi.IntOutput {
+	return o.ApplyT(func(v GetAgentPoolUpdateSchedule) int { return v.Duration }).(pulumi.IntOutput)
+}
+
+// Timestamp when the update finished.
+func (o GetAgentPoolUpdateScheduleOutput) LastUpdated() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAgentPoolUpdateSchedule) string { return v.LastUpdated }).(pulumi.StringOutput)
+}
+
+// Timezone of where the scheduled job takes place.
+func (o GetAgentPoolUpdateScheduleOutput) Timezone() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAgentPoolUpdateSchedule) string { return v.Timezone }).(pulumi.StringOutput)
+}
+
+type GetAgentPoolUpdateSchedulePtrOutput struct{ *pulumi.OutputState }
+
+func (GetAgentPoolUpdateSchedulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetAgentPoolUpdateSchedule)(nil)).Elem()
+}
+
+func (o GetAgentPoolUpdateSchedulePtrOutput) ToGetAgentPoolUpdateSchedulePtrOutput() GetAgentPoolUpdateSchedulePtrOutput {
+	return o
+}
+
+func (o GetAgentPoolUpdateSchedulePtrOutput) ToGetAgentPoolUpdateSchedulePtrOutputWithContext(ctx context.Context) GetAgentPoolUpdateSchedulePtrOutput {
+	return o
+}
+
+func (o GetAgentPoolUpdateSchedulePtrOutput) Elem() GetAgentPoolUpdateScheduleOutput {
+	return o.ApplyT(func(v *GetAgentPoolUpdateSchedule) GetAgentPoolUpdateSchedule {
+		if v != nil {
+			return *v
+		}
+		var ret GetAgentPoolUpdateSchedule
+		return ret
+	}).(GetAgentPoolUpdateScheduleOutput)
+}
+
+// The schedule of the update in cron format.
+func (o GetAgentPoolUpdateSchedulePtrOutput) Cron() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetAgentPoolUpdateSchedule) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Cron
+	}).(pulumi.StringPtrOutput)
+}
+
+// Delay in days.
+func (o GetAgentPoolUpdateSchedulePtrOutput) Delay() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GetAgentPoolUpdateSchedule) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Delay
+	}).(pulumi.IntPtrOutput)
+}
+
+// Duration in minutes.
+func (o GetAgentPoolUpdateSchedulePtrOutput) Duration() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GetAgentPoolUpdateSchedule) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Duration
+	}).(pulumi.IntPtrOutput)
+}
+
+// Timestamp when the update finished.
+func (o GetAgentPoolUpdateSchedulePtrOutput) LastUpdated() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetAgentPoolUpdateSchedule) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LastUpdated
+	}).(pulumi.StringPtrOutput)
+}
+
+// Timezone of where the scheduled job takes place.
+func (o GetAgentPoolUpdateSchedulePtrOutput) Timezone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetAgentPoolUpdateSchedule) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Timezone
+	}).(pulumi.StringPtrOutput)
 }
 
 type GetApiServiceIntegrationGrantedScope struct {
@@ -27019,6 +27738,10 @@ func (o GetUserSecurityQuestionsQuestionArrayOutput) Index(i pulumi.IntInput) Ge
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentPoolUpdateAgentInput)(nil)).Elem(), AgentPoolUpdateAgentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentPoolUpdateAgentArrayInput)(nil)).Elem(), AgentPoolUpdateAgentArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentPoolUpdateScheduleInput)(nil)).Elem(), AgentPoolUpdateScheduleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentPoolUpdateSchedulePtrInput)(nil)).Elem(), AgentPoolUpdateScheduleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApiServiceIntegrationGrantedScopeInput)(nil)).Elem(), ApiServiceIntegrationGrantedScopeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApiServiceIntegrationGrantedScopeArrayInput)(nil)).Elem(), ApiServiceIntegrationGrantedScopeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApiTokenNetworkInput)(nil)).Elem(), ApiTokenNetworkArgs{})
@@ -27159,6 +27882,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UserSchemaPropertyMasterOverridePriorityArrayInput)(nil)).Elem(), UserSchemaPropertyMasterOverridePriorityArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserSchemaPropertyOneOfInput)(nil)).Elem(), UserSchemaPropertyOneOfArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserSchemaPropertyOneOfArrayInput)(nil)).Elem(), UserSchemaPropertyOneOfArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAgentPoolUpdateAgentInput)(nil)).Elem(), GetAgentPoolUpdateAgentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAgentPoolUpdateAgentArrayInput)(nil)).Elem(), GetAgentPoolUpdateAgentArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAgentPoolUpdateScheduleInput)(nil)).Elem(), GetAgentPoolUpdateScheduleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAgentPoolUpdateSchedulePtrInput)(nil)).Elem(), GetAgentPoolUpdateScheduleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetApiServiceIntegrationGrantedScopeInput)(nil)).Elem(), GetApiServiceIntegrationGrantedScopeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetApiServiceIntegrationGrantedScopeArrayInput)(nil)).Elem(), GetApiServiceIntegrationGrantedScopeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetApiTokenNetworkInput)(nil)).Elem(), GetApiTokenNetworkArgs{})
@@ -27367,6 +28094,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUiSchemaUiSchemaElementOptionsPtrInput)(nil)).Elem(), GetUiSchemaUiSchemaElementOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUserSecurityQuestionsQuestionInput)(nil)).Elem(), GetUserSecurityQuestionsQuestionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUserSecurityQuestionsQuestionArrayInput)(nil)).Elem(), GetUserSecurityQuestionsQuestionArray{})
+	pulumi.RegisterOutputType(AgentPoolUpdateAgentOutput{})
+	pulumi.RegisterOutputType(AgentPoolUpdateAgentArrayOutput{})
+	pulumi.RegisterOutputType(AgentPoolUpdateScheduleOutput{})
+	pulumi.RegisterOutputType(AgentPoolUpdateSchedulePtrOutput{})
 	pulumi.RegisterOutputType(ApiServiceIntegrationGrantedScopeOutput{})
 	pulumi.RegisterOutputType(ApiServiceIntegrationGrantedScopeArrayOutput{})
 	pulumi.RegisterOutputType(ApiTokenNetworkOutput{})
@@ -27507,6 +28238,10 @@ func init() {
 	pulumi.RegisterOutputType(UserSchemaPropertyMasterOverridePriorityArrayOutput{})
 	pulumi.RegisterOutputType(UserSchemaPropertyOneOfOutput{})
 	pulumi.RegisterOutputType(UserSchemaPropertyOneOfArrayOutput{})
+	pulumi.RegisterOutputType(GetAgentPoolUpdateAgentOutput{})
+	pulumi.RegisterOutputType(GetAgentPoolUpdateAgentArrayOutput{})
+	pulumi.RegisterOutputType(GetAgentPoolUpdateScheduleOutput{})
+	pulumi.RegisterOutputType(GetAgentPoolUpdateSchedulePtrOutput{})
 	pulumi.RegisterOutputType(GetApiServiceIntegrationGrantedScopeOutput{})
 	pulumi.RegisterOutputType(GetApiServiceIntegrationGrantedScopeArrayOutput{})
 	pulumi.RegisterOutputType(GetApiTokenNetworkOutput{})

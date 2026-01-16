@@ -5,6 +5,40 @@ import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 
+export interface AgentPoolUpdateAgent {
+    /**
+     * The unique identifier of the agent.
+     */
+    id?: pulumi.Input<string>;
+    /**
+     * Pool ID.
+     */
+    poolId?: pulumi.Input<string>;
+}
+
+export interface AgentPoolUpdateSchedule {
+    /**
+     * The schedule of the update in cron format.
+     */
+    cron?: pulumi.Input<string>;
+    /**
+     * Delay in days.
+     */
+    delay?: pulumi.Input<number>;
+    /**
+     * Duration in minutes.
+     */
+    duration?: pulumi.Input<number>;
+    /**
+     * Timestamp when the update finished (only for a successful or failed update, not for a cancelled update). Null is returned if the job hasn't finished once yet.
+     */
+    lastUpdated?: pulumi.Input<string>;
+    /**
+     * Timezone of where the scheduled job takes place.
+     */
+    timezone?: pulumi.Input<string>;
+}
+
 export interface ApiServiceIntegrationGrantedScope {
     /**
      * The scope of the API service integration
@@ -562,6 +596,146 @@ export interface EventHookHeader {
 export interface FeatureStage {
     state: pulumi.Input<string>;
     value: pulumi.Input<string>;
+}
+
+export interface GetAgentPoolUpdateAgent {
+    /**
+     * The unique identifier of the agent.
+     */
+    id?: string;
+    /**
+     * Determines if an agent is hidden from the Admin Console.
+     */
+    isHidden?: boolean;
+    /**
+     * Determines if the agent is on the latest generally available version.
+     */
+    isLatestGaedVersion?: boolean;
+    /**
+     * Timestamp when the agent last connected to Okta.
+     */
+    lastConnection?: number;
+    /**
+     * The name of the agent.
+     */
+    name?: string;
+    /**
+     * Operational status of a given agent (e.g., DEGRADED, DISRUPTED, INACTIVE, OPERATIONAL).
+     */
+    operationalStatus?: string;
+    /**
+     * Pool ID.
+     */
+    poolId?: string;
+    /**
+     * Agent types that are being monitored.
+     */
+    type?: string;
+    /**
+     * Status message of the agent.
+     */
+    updateMessage?: string;
+    /**
+     * Status for one agent regarding the status to auto-update that agent.
+     */
+    updateStatus?: string;
+    /**
+     * Agent version number.
+     */
+    version?: string;
+}
+
+export interface GetAgentPoolUpdateAgentArgs {
+    /**
+     * The unique identifier of the agent.
+     */
+    id?: pulumi.Input<string>;
+    /**
+     * Determines if an agent is hidden from the Admin Console.
+     */
+    isHidden?: pulumi.Input<boolean>;
+    /**
+     * Determines if the agent is on the latest generally available version.
+     */
+    isLatestGaedVersion?: pulumi.Input<boolean>;
+    /**
+     * Timestamp when the agent last connected to Okta.
+     */
+    lastConnection?: pulumi.Input<number>;
+    /**
+     * The name of the agent.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * Operational status of a given agent (e.g., DEGRADED, DISRUPTED, INACTIVE, OPERATIONAL).
+     */
+    operationalStatus?: pulumi.Input<string>;
+    /**
+     * Pool ID.
+     */
+    poolId?: pulumi.Input<string>;
+    /**
+     * Agent types that are being monitored.
+     */
+    type?: pulumi.Input<string>;
+    /**
+     * Status message of the agent.
+     */
+    updateMessage?: pulumi.Input<string>;
+    /**
+     * Status for one agent regarding the status to auto-update that agent.
+     */
+    updateStatus?: pulumi.Input<string>;
+    /**
+     * Agent version number.
+     */
+    version?: pulumi.Input<string>;
+}
+
+export interface GetAgentPoolUpdateSchedule {
+    /**
+     * The schedule of the update in cron format.
+     */
+    cron?: string;
+    /**
+     * Delay in days.
+     */
+    delay?: number;
+    /**
+     * Duration in minutes.
+     */
+    duration?: number;
+    /**
+     * Timestamp when the update finished.
+     */
+    lastUpdated?: string;
+    /**
+     * Timezone of where the scheduled job takes place.
+     */
+    timezone?: string;
+}
+
+export interface GetAgentPoolUpdateScheduleArgs {
+    /**
+     * The schedule of the update in cron format.
+     */
+    cron?: pulumi.Input<string>;
+    /**
+     * Delay in days.
+     */
+    delay?: pulumi.Input<number>;
+    /**
+     * Duration in minutes.
+     */
+    duration?: pulumi.Input<number>;
+    /**
+     * Timestamp when the update finished.
+     */
+    lastUpdated?: pulumi.Input<string>;
+    /**
+     * Timezone of where the scheduled job takes place.
+     */
+    timezone?: pulumi.Input<string>;
 }
 
 export interface GetApiServiceIntegrationGrantedScope {
