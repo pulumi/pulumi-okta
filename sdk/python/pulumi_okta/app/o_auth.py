@@ -1764,6 +1764,57 @@ class OAuth(pulumi.CustomResource):
         `-----BEGIN RSA PRIVATE KEY-----`) they can generate a PKCS#8 format
         key with `openssl`:
 
+        ### Advanced PEM and JWKS example
+
+        ```python
+        import pulumi
+        import pulumi_jwks as jwks
+        import pulumi_okta as okta
+        import pulumi_std as std
+        import pulumi_tls as tls
+
+        # NOTE: Example to generate a PEM easily as a tool. These secrets will be saved
+        # to the state file and shouldn't be persisted. Instead, save the secrets into
+        # a secrets manager to be reused.
+        # https://registry.terraform.io/providers/hashicorp/tls/latest/docs/resources/private_key
+        #
+        # NOTE: Even though tls is a Hashicorp provider you should still audit its code
+        # to be satisfied with its security.
+        # https://github.com/hashicorp/terraform-provider-tls
+        #
+        rsa = tls.index.PrivateKey("rsa",
+            algorithm=RSA,
+            rsa_bits=4096)
+        #
+        # Pretty print a PEM with TF show and jq
+        # terraform show -json | jq -r '.values.root_module.resources[] | select(.address == "tls_private_key.rsa").values.private_key_pem'
+        #
+        # Delete the secrets explicitly or just remove them from the config and run
+        # apply again.
+        # pulumi up -destroy -auto-approve -target=tls_private_key.rsa
+        # NOTE: Even though the iwarapter/jwks is listed in the registry you should
+        # still audit its code to be satisfied with its security.
+        # https://registry.terraform.io/providers/iwarapter/jwks/latest/docs/data-sources/from_key
+        # https://github.com/iwarapter/terraform-provider-jwks
+        #
+        jwks_from_key = jwks.index.from_key(key=rsa["privateKeyPem"],
+            kid="my-kid")
+        jwks = std.index.jsondecode(input=jwks_from_key["jwks"])["result"]
+        # https://registry.terraform.io/providers/okta/okta/latest/docs/resources/app_oauth
+        app = okta.app.OAuth("app",
+            label="My OAuth App",
+            type="service",
+            response_types=["token"],
+            grant_types=["client_credentials"],
+            token_endpoint_auth_method="private_key_jwt",
+            jwks=[{
+                "kty": jwks["kty"],
+                "kid": jwks["kid"],
+                "e": jwks["e"],
+                "n": jwks["n"],
+            }])
+        ```
+
         ## Import
 
         ```sh
@@ -1851,6 +1902,57 @@ class OAuth(pulumi.CustomResource):
         operator has a PKCS#1 (unencrypted) format private key (the header starts with
         `-----BEGIN RSA PRIVATE KEY-----`) they can generate a PKCS#8 format
         key with `openssl`:
+
+        ### Advanced PEM and JWKS example
+
+        ```python
+        import pulumi
+        import pulumi_jwks as jwks
+        import pulumi_okta as okta
+        import pulumi_std as std
+        import pulumi_tls as tls
+
+        # NOTE: Example to generate a PEM easily as a tool. These secrets will be saved
+        # to the state file and shouldn't be persisted. Instead, save the secrets into
+        # a secrets manager to be reused.
+        # https://registry.terraform.io/providers/hashicorp/tls/latest/docs/resources/private_key
+        #
+        # NOTE: Even though tls is a Hashicorp provider you should still audit its code
+        # to be satisfied with its security.
+        # https://github.com/hashicorp/terraform-provider-tls
+        #
+        rsa = tls.index.PrivateKey("rsa",
+            algorithm=RSA,
+            rsa_bits=4096)
+        #
+        # Pretty print a PEM with TF show and jq
+        # terraform show -json | jq -r '.values.root_module.resources[] | select(.address == "tls_private_key.rsa").values.private_key_pem'
+        #
+        # Delete the secrets explicitly or just remove them from the config and run
+        # apply again.
+        # pulumi up -destroy -auto-approve -target=tls_private_key.rsa
+        # NOTE: Even though the iwarapter/jwks is listed in the registry you should
+        # still audit its code to be satisfied with its security.
+        # https://registry.terraform.io/providers/iwarapter/jwks/latest/docs/data-sources/from_key
+        # https://github.com/iwarapter/terraform-provider-jwks
+        #
+        jwks_from_key = jwks.index.from_key(key=rsa["privateKeyPem"],
+            kid="my-kid")
+        jwks = std.index.jsondecode(input=jwks_from_key["jwks"])["result"]
+        # https://registry.terraform.io/providers/okta/okta/latest/docs/resources/app_oauth
+        app = okta.app.OAuth("app",
+            label="My OAuth App",
+            type="service",
+            response_types=["token"],
+            grant_types=["client_credentials"],
+            token_endpoint_auth_method="private_key_jwt",
+            jwks=[{
+                "kty": jwks["kty"],
+                "kid": jwks["kid"],
+                "e": jwks["e"],
+                "n": jwks["n"],
+            }])
+        ```
 
         ## Import
 
