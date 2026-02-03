@@ -31,6 +31,81 @@ import (
 // `-----BEGIN RSA PRIVATE KEY-----`) they can generate a PKCS#8 format
 // key with `openssl`:
 //
+// ### Advanced PEM and JWKS example
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-jwks/sdk/go/jwks"
+//	"github.com/pulumi/pulumi-okta/sdk/v6/go/okta/app"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
+//	"github.com/pulumi/pulumi-tls/sdk/go/tls"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// NOTE: Example to generate a PEM easily as a tool. These secrets will be saved
+//			// to the state file and shouldn't be persisted. Instead, save the secrets into
+//			// a secrets manager to be reused.
+//			// https://registry.terraform.io/providers/hashicorp/tls/latest/docs/resources/private_key
+//			//
+//			// NOTE: Even though tls is a Hashicorp provider you should still audit its code
+//			// to be satisfied with its security.
+//			// https://github.com/hashicorp/terraform-provider-tls
+//			rsa, err := tls.NewPrivateKey(ctx, "rsa", &tls.PrivateKeyArgs{
+//				Algorithm: "RSA",
+//				RsaBits:   4096,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			// NOTE: Even though the iwarapter/jwks is listed in the registry you should
+//			// still audit its code to be satisfied with its security.
+//			// https://registry.terraform.io/providers/iwarapter/jwks/latest/docs/data-sources/from_key
+//			// https://github.com/iwarapter/terraform-provider-jwks
+//			jwksFromKey, err := jwks.FromKey(ctx, map[string]interface{}{
+//				"key": rsa.PrivateKeyPem,
+//				"kid": "my-kid",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			jwks := std.Jsondecode(ctx, map[string]interface{}{
+//				"input": jwksFromKey.Jwks,
+//			}, nil).Result
+//			// https://registry.terraform.io/providers/okta/okta/latest/docs/resources/app_oauth
+//			_, err = app.NewOAuth(ctx, "app", &app.OAuthArgs{
+//				Label: pulumi.String("My OAuth App"),
+//				Type:  pulumi.String("service"),
+//				ResponseTypes: pulumi.StringArray{
+//					pulumi.String("token"),
+//				},
+//				GrantTypes: pulumi.StringArray{
+//					pulumi.String("client_credentials"),
+//				},
+//				TokenEndpointAuthMethod: pulumi.String("private_key_jwt"),
+//				Jwks: app.OAuthJwkArray{
+//					&app.OAuthJwkArgs{
+//						Kty: pulumi.Any(jwks.Kty),
+//						Kid: pulumi.Any(jwks.Kid),
+//						E:   pulumi.Any(jwks.E),
+//						N:   pulumi.Any(jwks.N),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // ```sh

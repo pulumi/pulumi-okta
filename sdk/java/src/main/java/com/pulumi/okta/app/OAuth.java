@@ -39,6 +39,88 @@ import javax.annotation.Nullable;
  * `-----BEGIN RSA PRIVATE KEY-----`) they can generate a PKCS#8 format
  * key with `openssl`:
  * 
+ * ### Advanced PEM and JWKS example
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.tls.PrivateKey;
+ * import com.pulumi.tls.PrivateKeyArgs;
+ * import com.pulumi.jwks.JwksFunctions;
+ * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.okta.app.OAuth;
+ * import com.pulumi.okta.app.OAuthArgs;
+ * import com.pulumi.okta.app.inputs.OAuthJwkArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         // NOTE: Example to generate a PEM easily as a tool. These secrets will be saved
+ *         // to the state file and shouldn't be persisted. Instead, save the secrets into
+ *         // a secrets manager to be reused.
+ *         // https://registry.terraform.io/providers/hashicorp/tls/latest/docs/resources/private_key
+ *         //
+ *         // NOTE: Even though tls is a Hashicorp provider you should still audit its code
+ *         // to be satisfied with its security.
+ *         // https://github.com/hashicorp/terraform-provider-tls
+ *         //
+ *         var rsa = new PrivateKey("rsa", PrivateKeyArgs.builder()
+ *             .algorithm("RSA")
+ *             .rsaBits(4096)
+ *             .build());
+ * 
+ *         //
+ *         // Pretty print a PEM with TF show and jq
+ *         // terraform show -json | jq -r '.values.root_module.resources[] | select(.address == "tls_private_key.rsa").values.private_key_pem'
+ *         //
+ *         // Delete the secrets explicitly or just remove them from the config and run
+ *         // apply again.
+ *         // pulumi up -destroy -auto-approve -target=tls_private_key.rsa
+ *         // NOTE: Even though the iwarapter/jwks is listed in the registry you should
+ *         // still audit its code to be satisfied with its security.
+ *         // https://registry.terraform.io/providers/iwarapter/jwks/latest/docs/data-sources/from_key
+ *         // https://github.com/iwarapter/terraform-provider-jwks
+ *         //
+ *         final var jwksFromKey = JwksFunctions.FromKey(Map.ofEntries(
+ *             Map.entry("key", rsa.privateKeyPem()),
+ *             Map.entry("kid", "my-kid")
+ *         ));
+ * 
+ *         final var jwks = StdFunctions.jsondecode(Map.of("input", jwksFromKey.jwks())).result();
+ * 
+ *         // https://registry.terraform.io/providers/okta/okta/latest/docs/resources/app_oauth
+ *         var app = new OAuth("app", OAuthArgs.builder()
+ *             .label("My OAuth App")
+ *             .type("service")
+ *             .responseTypes("token")
+ *             .grantTypes("client_credentials")
+ *             .tokenEndpointAuthMethod("private_key_jwt")
+ *             .jwks(OAuthJwkArgs.builder()
+ *                 .kty(jwks.kty())
+ *                 .kid(jwks.kid())
+ *                 .e(jwks.e())
+ *                 .n(jwks.n())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
  * ```sh
