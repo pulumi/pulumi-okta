@@ -29,6 +29,86 @@ namespace Pulumi.Okta.App
     /// `-----BEGIN RSA PRIVATE KEY-----`) they can generate a PKCS#8 format
     /// key with `Openssl`:
     /// 
+    /// ### Advanced PEM and JWKS example
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Jwks = Pulumi.Jwks;
+    /// using Okta = Pulumi.Okta;
+    /// using Std = Pulumi.Std;
+    /// using Tls = Pulumi.Tls;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     // NOTE: Example to generate a PEM easily as a tool. These secrets will be saved
+    ///     // to the state file and shouldn't be persisted. Instead, save the secrets into
+    ///     // a secrets manager to be reused.
+    ///     // https://registry.terraform.io/providers/hashicorp/tls/latest/docs/resources/private_key
+    ///     //
+    ///     // NOTE: Even though tls is a Hashicorp provider you should still audit its code
+    ///     // to be satisfied with its security.
+    ///     // https://github.com/hashicorp/terraform-provider-tls
+    ///     //
+    ///     var rsa = new Tls.Index.PrivateKey("rsa", new()
+    ///     {
+    ///         Algorithm = "RSA",
+    ///         RsaBits = 4096,
+    ///     });
+    /// 
+    ///     //
+    ///     // Pretty print a PEM with TF show and jq
+    ///     // terraform show -json | jq -r '.values.root_module.resources[] | select(.address == "tls_private_key.rsa").values.private_key_pem'
+    ///     //
+    ///     // Delete the secrets explicitly or just remove them from the config and run
+    ///     // apply again.
+    ///     // pulumi up -destroy -auto-approve -target=tls_private_key.rsa
+    ///     // NOTE: Even though the iwarapter/jwks is listed in the registry you should
+    ///     // still audit its code to be satisfied with its security.
+    ///     // https://registry.terraform.io/providers/iwarapter/jwks/latest/docs/data-sources/from_key
+    ///     // https://github.com/iwarapter/terraform-provider-jwks
+    ///     //
+    ///     var jwksFromKey = Jwks.Index.FromKey.Invoke(new()
+    ///     {
+    ///         Key = rsa.PrivateKeyPem,
+    ///         Kid = "my-kid",
+    ///     });
+    /// 
+    ///     var jwks = Std.Index.Jsondecode.Invoke(new()
+    ///     {
+    ///         Input = jwksFromKey.Jwks,
+    ///     }).Result;
+    /// 
+    ///     // https://registry.terraform.io/providers/okta/okta/latest/docs/resources/app_oauth
+    ///     var app = new Okta.App.OAuth("app", new()
+    ///     {
+    ///         Label = "My OAuth App",
+    ///         Type = "service",
+    ///         ResponseTypes = new[]
+    ///         {
+    ///             "token",
+    ///         },
+    ///         GrantTypes = new[]
+    ///         {
+    ///             "client_credentials",
+    ///         },
+    ///         TokenEndpointAuthMethod = "private_key_jwt",
+    ///         Jwks = new[]
+    ///         {
+    ///             new Okta.App.Inputs.OAuthJwkArgs
+    ///             {
+    ///                 Kty = jwks.Kty,
+    ///                 Kid = jwks.Kid,
+    ///                 E = jwks.E,
+    ///                 N = jwks.N,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// ```sh

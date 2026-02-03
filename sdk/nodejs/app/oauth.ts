@@ -26,6 +26,63 @@ import * as utilities from "../utilities";
  * `-----BEGIN RSA PRIVATE KEY-----`) they can generate a PKCS#8 format
  * key with `openssl`:
  *
+ * ### Advanced PEM and JWKS example
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as jwks from "@pulumi/jwks";
+ * import * as okta from "@pulumi/okta";
+ * import * as std from "@pulumi/std";
+ * import * as tls from "@pulumi/tls";
+ *
+ * // NOTE: Example to generate a PEM easily as a tool. These secrets will be saved
+ * // to the state file and shouldn't be persisted. Instead, save the secrets into
+ * // a secrets manager to be reused.
+ * // https://registry.terraform.io/providers/hashicorp/tls/latest/docs/resources/private_key
+ * //
+ * // NOTE: Even though tls is a Hashicorp provider you should still audit its code
+ * // to be satisfied with its security.
+ * // https://github.com/hashicorp/terraform-provider-tls
+ * //
+ * const rsa = new tls.index.PrivateKey("rsa", {
+ *     algorithm: "RSA",
+ *     rsaBits: 4096,
+ * });
+ * //
+ * // Pretty print a PEM with TF show and jq
+ * // terraform show -json | jq -r '.values.root_module.resources[] | select(.address == "tls_private_key.rsa").values.private_key_pem'
+ * //
+ * // Delete the secrets explicitly or just remove them from the config and run
+ * // apply again.
+ * // pulumi up -destroy -auto-approve -target=tls_private_key.rsa
+ * // NOTE: Even though the iwarapter/jwks is listed in the registry you should
+ * // still audit its code to be satisfied with its security.
+ * // https://registry.terraform.io/providers/iwarapter/jwks/latest/docs/data-sources/from_key
+ * // https://github.com/iwarapter/terraform-provider-jwks
+ * //
+ * const jwksFromKey = jwks.index.FromKey({
+ *     key: rsa.privateKeyPem,
+ *     kid: "my-kid",
+ * });
+ * const jwks = std.index.jsondecode({
+ *     input: jwksFromKey.jwks,
+ * }).result;
+ * // https://registry.terraform.io/providers/okta/okta/latest/docs/resources/app_oauth
+ * const app = new okta.app.OAuth("app", {
+ *     label: "My OAuth App",
+ *     type: "service",
+ *     responseTypes: ["token"],
+ *     grantTypes: ["client_credentials"],
+ *     tokenEndpointAuthMethod: "private_key_jwt",
+ *     jwks: [{
+ *         kty: jwks.kty,
+ *         kid: jwks.kid,
+ *         e: jwks.e,
+ *         n: jwks.n,
+ *     }],
+ * });
+ * ```
+ *
  * ## Import
  *
  * ```sh
