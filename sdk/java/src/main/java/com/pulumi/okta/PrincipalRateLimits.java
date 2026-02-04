@@ -73,6 +73,20 @@ public class PrincipalRateLimits extends com.pulumi.resources.CustomResource {
         return this.defaultPercentage;
     }
     /**
+     * The unique identifier of the principle rate limit entity.
+     * 
+     */
+    @Export(name="idProperty", refs={String.class}, tree="[0]")
+    private Output<String> idProperty;
+
+    /**
+     * @return The unique identifier of the principle rate limit entity.
+     * 
+     */
+    public Output<String> idProperty() {
+        return this.idProperty;
+    }
+    /**
      * The date and time the principle rate limit entity was last updated.
      * 
      */

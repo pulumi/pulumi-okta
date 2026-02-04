@@ -174,6 +174,9 @@ namespace Pulumi.Okta.User
         public readonly string PreferredLanguage;
         public readonly string PrimaryPhone;
         public readonly string ProfileUrl;
+        /// <summary>
+        /// The Realm ID associated with the user.
+        /// </summary>
         public readonly string RealmId;
         public readonly ImmutableArray<string> Roles;
         /// <summary>

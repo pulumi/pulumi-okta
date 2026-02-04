@@ -49,6 +49,10 @@ export class PrincipalRateLimits extends pulumi.CustomResource {
      */
     declare public readonly defaultPercentage: pulumi.Output<number>;
     /**
+     * The unique identifier of the principle rate limit entity.
+     */
+    declare public readonly idProperty: pulumi.Output<string>;
+    /**
      * The date and time the principle rate limit entity was last updated.
      */
     declare public /*out*/ readonly lastUpdate: pulumi.Output<string>;
@@ -86,6 +90,7 @@ export class PrincipalRateLimits extends pulumi.CustomResource {
             resourceInputs["createdDate"] = state?.createdDate;
             resourceInputs["defaultConcurrencyPercentage"] = state?.defaultConcurrencyPercentage;
             resourceInputs["defaultPercentage"] = state?.defaultPercentage;
+            resourceInputs["idProperty"] = state?.idProperty;
             resourceInputs["lastUpdate"] = state?.lastUpdate;
             resourceInputs["lastUpdatedBy"] = state?.lastUpdatedBy;
             resourceInputs["orgId"] = state?.orgId;
@@ -101,6 +106,7 @@ export class PrincipalRateLimits extends pulumi.CustomResource {
             }
             resourceInputs["defaultConcurrencyPercentage"] = args?.defaultConcurrencyPercentage;
             resourceInputs["defaultPercentage"] = args?.defaultPercentage;
+            resourceInputs["idProperty"] = args?.idProperty;
             resourceInputs["principalId"] = args?.principalId;
             resourceInputs["principalType"] = args?.principalType;
             resourceInputs["createdBy"] = undefined /*out*/;
@@ -135,6 +141,10 @@ export interface PrincipalRateLimitsState {
      */
     defaultPercentage?: pulumi.Input<number>;
     /**
+     * The unique identifier of the principle rate limit entity.
+     */
+    idProperty?: pulumi.Input<string>;
+    /**
      * The date and time the principle rate limit entity was last updated.
      */
     lastUpdate?: pulumi.Input<string>;
@@ -168,6 +178,10 @@ export interface PrincipalRateLimitsArgs {
      * The default percentage of a given rate limit threshold that the owning principal can consume.
      */
     defaultPercentage?: pulumi.Input<number>;
+    /**
+     * The unique identifier of the principle rate limit entity.
+     */
+    idProperty?: pulumi.Input<string>;
     /**
      * The unique identifier of the principal. This is the ID of the API token or OAuth 2.0 app.
      */

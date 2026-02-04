@@ -275,6 +275,17 @@ func Provider() tfbridge.ProviderInfo {
 					},
 				},
 			},
+			"okta_principal_rate_limits": {
+				Fields: map[string]*info.Schema{
+					"id": {
+						Name: "idProperty",
+					},
+				},
+				ComputeID: tfbridge.DelegateIDField(
+					"idProperty",
+					"pulumi-okta",
+					"https://github.com/pulumi/pulumi-okta"),
+			},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			// App DataSources

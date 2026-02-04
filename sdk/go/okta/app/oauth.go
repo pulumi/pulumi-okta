@@ -144,7 +144,7 @@ type OAuth struct {
 	ClientSecret pulumi.StringOutput `pulumi:"clientSecret"`
 	// URI to a web page providing information about the client.
 	ClientUri pulumi.StringPtrOutput `pulumi:"clientUri"`
-	// *Early Access Property*. Indicates whether user consent is required or implicit. Valid values: REQUIRED, TRUSTED. Default value is TRUSTED
+	// *Early Access Property*. Indicates whether user consent is required or implicit. Valid values: REQUIRED, TRUSTED. Default value is TRUSTED. Note: Enable `API_ACCESS_MANAGEMENT`, `API_ACCESS_MANAGEMENT_CONSENT` feature flags in your org to use this property.
 	ConsentMethod pulumi.StringPtrOutput `pulumi:"consentMethod"`
 	// Application notes for end users.
 	EnduserNote pulumi.StringPtrOutput `pulumi:"enduserNote"`
@@ -188,7 +188,7 @@ type OAuth struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// This tells the provider not manage the client*secret value in state. When this is false (the default), it will cause the auto-generated client*secret to be persisted in the clientSecret attribute in state. This also means that every time an update to this app is run, this value is also set on the API. If this changes from false => true, the `clientSecret` is dropped from state and the secret at the time of the apply is what remains. If this is ever changes from true => false your app will be recreated, due to the need to regenerate a secret we can store in state.
 	OmitSecret pulumi.BoolPtrOutput `pulumi:"omitSecret"`
-	// *Early Access Property*. Allows the app to participate in front-channel Single Logout. Note: You can only enable participateSlo for web and browser application types. When set to true, frontchannelLogoutUri must also be provided.
+	// *Early Access Property*. Allows the app to participate in front-channel Single Logout. Note: You can only enable participate*slo for web and browser application types. When set to true, frontchannel*logout_uri must also be provided. Enable `SINGLE_LOGOUT_SUPPORT` feature flag in your org to use this property.
 	ParticipateSlo pulumi.BoolPtrOutput `pulumi:"participateSlo"`
 	// Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
 	PkceRequired pulumi.BoolOutput `pulumi:"pkceRequired"`
@@ -224,7 +224,7 @@ type OAuth struct {
 	UserNameTemplateSuffix pulumi.StringPtrOutput `pulumi:"userNameTemplateSuffix"`
 	// Username template type. Default: `BUILT_IN`
 	UserNameTemplateType pulumi.StringPtrOutput `pulumi:"userNameTemplateType"`
-	// *Early Access Property*. Indicates if the client is allowed to use wildcard matching of redirect_uris
+	// *Early Access Property*. Indicates if the client is allowed to use wildcard matching of redirect_uris.
 	WildcardRedirect pulumi.StringPtrOutput `pulumi:"wildcardRedirect"`
 }
 
@@ -302,7 +302,7 @@ type oauthState struct {
 	ClientSecret *string `pulumi:"clientSecret"`
 	// URI to a web page providing information about the client.
 	ClientUri *string `pulumi:"clientUri"`
-	// *Early Access Property*. Indicates whether user consent is required or implicit. Valid values: REQUIRED, TRUSTED. Default value is TRUSTED
+	// *Early Access Property*. Indicates whether user consent is required or implicit. Valid values: REQUIRED, TRUSTED. Default value is TRUSTED. Note: Enable `API_ACCESS_MANAGEMENT`, `API_ACCESS_MANAGEMENT_CONSENT` feature flags in your org to use this property.
 	ConsentMethod *string `pulumi:"consentMethod"`
 	// Application notes for end users.
 	EnduserNote *string `pulumi:"enduserNote"`
@@ -346,7 +346,7 @@ type oauthState struct {
 	Name *string `pulumi:"name"`
 	// This tells the provider not manage the client*secret value in state. When this is false (the default), it will cause the auto-generated client*secret to be persisted in the clientSecret attribute in state. This also means that every time an update to this app is run, this value is also set on the API. If this changes from false => true, the `clientSecret` is dropped from state and the secret at the time of the apply is what remains. If this is ever changes from true => false your app will be recreated, due to the need to regenerate a secret we can store in state.
 	OmitSecret *bool `pulumi:"omitSecret"`
-	// *Early Access Property*. Allows the app to participate in front-channel Single Logout. Note: You can only enable participateSlo for web and browser application types. When set to true, frontchannelLogoutUri must also be provided.
+	// *Early Access Property*. Allows the app to participate in front-channel Single Logout. Note: You can only enable participate*slo for web and browser application types. When set to true, frontchannel*logout_uri must also be provided. Enable `SINGLE_LOGOUT_SUPPORT` feature flag in your org to use this property.
 	ParticipateSlo *bool `pulumi:"participateSlo"`
 	// Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
 	PkceRequired *bool `pulumi:"pkceRequired"`
@@ -382,7 +382,7 @@ type oauthState struct {
 	UserNameTemplateSuffix *string `pulumi:"userNameTemplateSuffix"`
 	// Username template type. Default: `BUILT_IN`
 	UserNameTemplateType *string `pulumi:"userNameTemplateType"`
-	// *Early Access Property*. Indicates if the client is allowed to use wildcard matching of redirect_uris
+	// *Early Access Property*. Indicates if the client is allowed to use wildcard matching of redirect_uris.
 	WildcardRedirect *string `pulumi:"wildcardRedirect"`
 }
 
@@ -417,7 +417,7 @@ type OAuthState struct {
 	ClientSecret pulumi.StringPtrInput
 	// URI to a web page providing information about the client.
 	ClientUri pulumi.StringPtrInput
-	// *Early Access Property*. Indicates whether user consent is required or implicit. Valid values: REQUIRED, TRUSTED. Default value is TRUSTED
+	// *Early Access Property*. Indicates whether user consent is required or implicit. Valid values: REQUIRED, TRUSTED. Default value is TRUSTED. Note: Enable `API_ACCESS_MANAGEMENT`, `API_ACCESS_MANAGEMENT_CONSENT` feature flags in your org to use this property.
 	ConsentMethod pulumi.StringPtrInput
 	// Application notes for end users.
 	EnduserNote pulumi.StringPtrInput
@@ -461,7 +461,7 @@ type OAuthState struct {
 	Name pulumi.StringPtrInput
 	// This tells the provider not manage the client*secret value in state. When this is false (the default), it will cause the auto-generated client*secret to be persisted in the clientSecret attribute in state. This also means that every time an update to this app is run, this value is also set on the API. If this changes from false => true, the `clientSecret` is dropped from state and the secret at the time of the apply is what remains. If this is ever changes from true => false your app will be recreated, due to the need to regenerate a secret we can store in state.
 	OmitSecret pulumi.BoolPtrInput
-	// *Early Access Property*. Allows the app to participate in front-channel Single Logout. Note: You can only enable participateSlo for web and browser application types. When set to true, frontchannelLogoutUri must also be provided.
+	// *Early Access Property*. Allows the app to participate in front-channel Single Logout. Note: You can only enable participate*slo for web and browser application types. When set to true, frontchannel*logout_uri must also be provided. Enable `SINGLE_LOGOUT_SUPPORT` feature flag in your org to use this property.
 	ParticipateSlo pulumi.BoolPtrInput
 	// Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
 	PkceRequired pulumi.BoolPtrInput
@@ -497,7 +497,7 @@ type OAuthState struct {
 	UserNameTemplateSuffix pulumi.StringPtrInput
 	// Username template type. Default: `BUILT_IN`
 	UserNameTemplateType pulumi.StringPtrInput
-	// *Early Access Property*. Indicates if the client is allowed to use wildcard matching of redirect_uris
+	// *Early Access Property*. Indicates if the client is allowed to use wildcard matching of redirect_uris.
 	WildcardRedirect pulumi.StringPtrInput
 }
 
@@ -534,7 +534,7 @@ type oauthArgs struct {
 	ClientId *string `pulumi:"clientId"`
 	// URI to a web page providing information about the client.
 	ClientUri *string `pulumi:"clientUri"`
-	// *Early Access Property*. Indicates whether user consent is required or implicit. Valid values: REQUIRED, TRUSTED. Default value is TRUSTED
+	// *Early Access Property*. Indicates whether user consent is required or implicit. Valid values: REQUIRED, TRUSTED. Default value is TRUSTED. Note: Enable `API_ACCESS_MANAGEMENT`, `API_ACCESS_MANAGEMENT_CONSENT` feature flags in your org to use this property.
 	ConsentMethod *string `pulumi:"consentMethod"`
 	// Application notes for end users.
 	EnduserNote *string `pulumi:"enduserNote"`
@@ -574,7 +574,7 @@ type oauthArgs struct {
 	LogoUri *string `pulumi:"logoUri"`
 	// This tells the provider not manage the client*secret value in state. When this is false (the default), it will cause the auto-generated client*secret to be persisted in the clientSecret attribute in state. This also means that every time an update to this app is run, this value is also set on the API. If this changes from false => true, the `clientSecret` is dropped from state and the secret at the time of the apply is what remains. If this is ever changes from true => false your app will be recreated, due to the need to regenerate a secret we can store in state.
 	OmitSecret *bool `pulumi:"omitSecret"`
-	// *Early Access Property*. Allows the app to participate in front-channel Single Logout. Note: You can only enable participateSlo for web and browser application types. When set to true, frontchannelLogoutUri must also be provided.
+	// *Early Access Property*. Allows the app to participate in front-channel Single Logout. Note: You can only enable participate*slo for web and browser application types. When set to true, frontchannel*logout_uri must also be provided. Enable `SINGLE_LOGOUT_SUPPORT` feature flag in your org to use this property.
 	ParticipateSlo *bool `pulumi:"participateSlo"`
 	// Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
 	PkceRequired *bool `pulumi:"pkceRequired"`
@@ -608,7 +608,7 @@ type oauthArgs struct {
 	UserNameTemplateSuffix *string `pulumi:"userNameTemplateSuffix"`
 	// Username template type. Default: `BUILT_IN`
 	UserNameTemplateType *string `pulumi:"userNameTemplateType"`
-	// *Early Access Property*. Indicates if the client is allowed to use wildcard matching of redirect_uris
+	// *Early Access Property*. Indicates if the client is allowed to use wildcard matching of redirect_uris.
 	WildcardRedirect *string `pulumi:"wildcardRedirect"`
 }
 
@@ -642,7 +642,7 @@ type OAuthArgs struct {
 	ClientId pulumi.StringPtrInput
 	// URI to a web page providing information about the client.
 	ClientUri pulumi.StringPtrInput
-	// *Early Access Property*. Indicates whether user consent is required or implicit. Valid values: REQUIRED, TRUSTED. Default value is TRUSTED
+	// *Early Access Property*. Indicates whether user consent is required or implicit. Valid values: REQUIRED, TRUSTED. Default value is TRUSTED. Note: Enable `API_ACCESS_MANAGEMENT`, `API_ACCESS_MANAGEMENT_CONSENT` feature flags in your org to use this property.
 	ConsentMethod pulumi.StringPtrInput
 	// Application notes for end users.
 	EnduserNote pulumi.StringPtrInput
@@ -682,7 +682,7 @@ type OAuthArgs struct {
 	LogoUri pulumi.StringPtrInput
 	// This tells the provider not manage the client*secret value in state. When this is false (the default), it will cause the auto-generated client*secret to be persisted in the clientSecret attribute in state. This also means that every time an update to this app is run, this value is also set on the API. If this changes from false => true, the `clientSecret` is dropped from state and the secret at the time of the apply is what remains. If this is ever changes from true => false your app will be recreated, due to the need to regenerate a secret we can store in state.
 	OmitSecret pulumi.BoolPtrInput
-	// *Early Access Property*. Allows the app to participate in front-channel Single Logout. Note: You can only enable participateSlo for web and browser application types. When set to true, frontchannelLogoutUri must also be provided.
+	// *Early Access Property*. Allows the app to participate in front-channel Single Logout. Note: You can only enable participate*slo for web and browser application types. When set to true, frontchannel*logout_uri must also be provided. Enable `SINGLE_LOGOUT_SUPPORT` feature flag in your org to use this property.
 	ParticipateSlo pulumi.BoolPtrInput
 	// Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
 	PkceRequired pulumi.BoolPtrInput
@@ -716,7 +716,7 @@ type OAuthArgs struct {
 	UserNameTemplateSuffix pulumi.StringPtrInput
 	// Username template type. Default: `BUILT_IN`
 	UserNameTemplateType pulumi.StringPtrInput
-	// *Early Access Property*. Indicates if the client is allowed to use wildcard matching of redirect_uris
+	// *Early Access Property*. Indicates if the client is allowed to use wildcard matching of redirect_uris.
 	WildcardRedirect pulumi.StringPtrInput
 }
 
@@ -877,7 +877,7 @@ func (o OAuthOutput) ClientUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OAuth) pulumi.StringPtrOutput { return v.ClientUri }).(pulumi.StringPtrOutput)
 }
 
-// *Early Access Property*. Indicates whether user consent is required or implicit. Valid values: REQUIRED, TRUSTED. Default value is TRUSTED
+// *Early Access Property*. Indicates whether user consent is required or implicit. Valid values: REQUIRED, TRUSTED. Default value is TRUSTED. Note: Enable `API_ACCESS_MANAGEMENT`, `API_ACCESS_MANAGEMENT_CONSENT` feature flags in your org to use this property.
 func (o OAuthOutput) ConsentMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OAuth) pulumi.StringPtrOutput { return v.ConsentMethod }).(pulumi.StringPtrOutput)
 }
@@ -984,7 +984,7 @@ func (o OAuthOutput) OmitSecret() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *OAuth) pulumi.BoolPtrOutput { return v.OmitSecret }).(pulumi.BoolPtrOutput)
 }
 
-// *Early Access Property*. Allows the app to participate in front-channel Single Logout. Note: You can only enable participateSlo for web and browser application types. When set to true, frontchannelLogoutUri must also be provided.
+// *Early Access Property*. Allows the app to participate in front-channel Single Logout. Note: You can only enable participate*slo for web and browser application types. When set to true, frontchannel*logout_uri must also be provided. Enable `SINGLE_LOGOUT_SUPPORT` feature flag in your org to use this property.
 func (o OAuthOutput) ParticipateSlo() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *OAuth) pulumi.BoolPtrOutput { return v.ParticipateSlo }).(pulumi.BoolPtrOutput)
 }
@@ -1074,7 +1074,7 @@ func (o OAuthOutput) UserNameTemplateType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OAuth) pulumi.StringPtrOutput { return v.UserNameTemplateType }).(pulumi.StringPtrOutput)
 }
 
-// *Early Access Property*. Indicates if the client is allowed to use wildcard matching of redirect_uris
+// *Early Access Property*. Indicates if the client is allowed to use wildcard matching of redirect_uris.
 func (o OAuthOutput) WildcardRedirect() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OAuth) pulumi.StringPtrOutput { return v.WildcardRedirect }).(pulumi.StringPtrOutput)
 }

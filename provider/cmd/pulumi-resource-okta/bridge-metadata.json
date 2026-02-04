@@ -89,6 +89,10 @@
                 "current": "okta:app/features:Features",
                 "majorVersion": 6
             },
+            "okta_app_federated_claim": {
+                "current": "okta:app/federatedClaim:FederatedClaim",
+                "majorVersion": 6
+            },
             "okta_app_group_assignment": {
                 "current": "okta:app/groupAssignment:GroupAssignment",
                 "majorVersion": 6
@@ -1365,6 +1369,10 @@
                 "current": "okta:app/getFeatures:getFeatures",
                 "majorVersion": 6
             },
+            "okta_app_federated_claim": {
+                "current": "okta:app/getFederatedClaim:getFederatedClaim",
+                "majorVersion": 6
+            },
             "okta_app_group_assignments": {
                 "current": "okta:index/getAppGroupAssignments:getAppGroupAssignments",
                 "majorVersion": 6,
@@ -2189,6 +2197,7 @@
             "okta:app/bookmark:Bookmark": 0,
             "okta:app/connection:Connection": 1,
             "okta:app/features:Features": 1,
+            "okta:app/federatedClaim:FederatedClaim": 1,
             "okta:app/groupAssignment:GroupAssignment": 0,
             "okta:app/oAuth:OAuth": 0,
             "okta:app/oAuthPostLogoutRedirectUri:OAuthPostLogoutRedirectUri": 0,
@@ -2319,6 +2328,7 @@
             "okta:app/getApp:getApp": 0,
             "okta:app/getConnection:getConnection": 1,
             "okta:app/getFeatures:getFeatures": 1,
+            "okta:app/getFederatedClaim:getFederatedClaim": 1,
             "okta:app/getMetadataSaml:getMetadataSaml": 0,
             "okta:app/getOauth:getOauth": 0,
             "okta:app/getSaml:getSaml": 0,

@@ -15,6 +15,8 @@ import com.pulumi.okta.app.inputs.GetConnectionArgs;
 import com.pulumi.okta.app.inputs.GetConnectionPlainArgs;
 import com.pulumi.okta.app.inputs.GetFeaturesArgs;
 import com.pulumi.okta.app.inputs.GetFeaturesPlainArgs;
+import com.pulumi.okta.app.inputs.GetFederatedClaimArgs;
+import com.pulumi.okta.app.inputs.GetFederatedClaimPlainArgs;
 import com.pulumi.okta.app.inputs.GetMetadataSamlArgs;
 import com.pulumi.okta.app.inputs.GetMetadataSamlPlainArgs;
 import com.pulumi.okta.app.inputs.GetOauthArgs;
@@ -26,6 +28,7 @@ import com.pulumi.okta.app.inputs.GetTokenPlainArgs;
 import com.pulumi.okta.app.outputs.GetAppResult;
 import com.pulumi.okta.app.outputs.GetConnectionResult;
 import com.pulumi.okta.app.outputs.GetFeaturesResult;
+import com.pulumi.okta.app.outputs.GetFederatedClaimResult;
 import com.pulumi.okta.app.outputs.GetMetadataSamlResult;
 import com.pulumi.okta.app.outputs.GetOauthResult;
 import com.pulumi.okta.app.outputs.GetSamlResult;
@@ -1102,6 +1105,521 @@ public final class AppFunctions {
      */
     public static CompletableFuture<GetFeaturesResult> getFeaturesPlain(GetFeaturesPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("okta:app/getFeatures:getFeatures", TypeShape.of(GetFeaturesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Get a federated claim for an Okta application.
+     * 
+     * Use this data source to retrieve information about a federated claim that has been configured for an application. Federated claims add custom claims to tokens produced for an application using Okta Expression Language.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.app.AppFunctions;
+     * import com.pulumi.okta.app.inputs.GetFederatedClaimArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AppFunctions.getFederatedClaim(GetFederatedClaimArgs.builder()
+     *             .appId("0oa1234567890abcdef")
+     *             .id("ofcu234567890abcdef")
+     *             .build());
+     * 
+     *         ctx.export("claimExpression", example.expression());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Using with a Resource
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.app.Saml;
+     * import com.pulumi.okta.app.SamlArgs;
+     * import com.pulumi.okta.app.FederatedClaim;
+     * import com.pulumi.okta.app.FederatedClaimArgs;
+     * import com.pulumi.okta.app.AppFunctions;
+     * import com.pulumi.okta.app.inputs.GetFederatedClaimArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var testApp = new Saml("testApp", SamlArgs.builder()
+     *             .label("example")
+     *             .ssoUrl("https://example.com")
+     *             .recipient("https://example.com")
+     *             .destination("https://example.com")
+     *             .audience("https://example.com/audience")
+     *             .subjectNameIdTemplate("${user.userName}")
+     *             .subjectNameIdFormat("urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress")
+     *             .responseSigned(true)
+     *             .signatureAlgorithm("RSA_SHA256")
+     *             .digestAlgorithm("SHA256")
+     *             .build());
+     * 
+     *         var exampleFederatedClaim = new FederatedClaim("exampleFederatedClaim", FederatedClaimArgs.builder()
+     *             .appId(testApp.id())
+     *             .name("role_last_name")
+     *             .expression("user.profile.lastName")
+     *             .build());
+     * 
+     *         final var example = AppFunctions.getFederatedClaim(GetFederatedClaimArgs.builder()
+     *             .appId(testApp.id())
+     *             .id(exampleFederatedClaim.id())
+     *             .build());
+     * 
+     *         ctx.export("claimName", example.applyValue(_example -> _example.name()));
+     *         ctx.export("claimExpression", example.applyValue(_example -> _example.expression()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetFederatedClaimResult> getFederatedClaim(GetFederatedClaimArgs args) {
+        return getFederatedClaim(args, InvokeOptions.Empty);
+    }
+    /**
+     * Get a federated claim for an Okta application.
+     * 
+     * Use this data source to retrieve information about a federated claim that has been configured for an application. Federated claims add custom claims to tokens produced for an application using Okta Expression Language.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.app.AppFunctions;
+     * import com.pulumi.okta.app.inputs.GetFederatedClaimArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AppFunctions.getFederatedClaim(GetFederatedClaimArgs.builder()
+     *             .appId("0oa1234567890abcdef")
+     *             .id("ofcu234567890abcdef")
+     *             .build());
+     * 
+     *         ctx.export("claimExpression", example.expression());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Using with a Resource
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.app.Saml;
+     * import com.pulumi.okta.app.SamlArgs;
+     * import com.pulumi.okta.app.FederatedClaim;
+     * import com.pulumi.okta.app.FederatedClaimArgs;
+     * import com.pulumi.okta.app.AppFunctions;
+     * import com.pulumi.okta.app.inputs.GetFederatedClaimArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var testApp = new Saml("testApp", SamlArgs.builder()
+     *             .label("example")
+     *             .ssoUrl("https://example.com")
+     *             .recipient("https://example.com")
+     *             .destination("https://example.com")
+     *             .audience("https://example.com/audience")
+     *             .subjectNameIdTemplate("${user.userName}")
+     *             .subjectNameIdFormat("urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress")
+     *             .responseSigned(true)
+     *             .signatureAlgorithm("RSA_SHA256")
+     *             .digestAlgorithm("SHA256")
+     *             .build());
+     * 
+     *         var exampleFederatedClaim = new FederatedClaim("exampleFederatedClaim", FederatedClaimArgs.builder()
+     *             .appId(testApp.id())
+     *             .name("role_last_name")
+     *             .expression("user.profile.lastName")
+     *             .build());
+     * 
+     *         final var example = AppFunctions.getFederatedClaim(GetFederatedClaimArgs.builder()
+     *             .appId(testApp.id())
+     *             .id(exampleFederatedClaim.id())
+     *             .build());
+     * 
+     *         ctx.export("claimName", example.applyValue(_example -> _example.name()));
+     *         ctx.export("claimExpression", example.applyValue(_example -> _example.expression()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetFederatedClaimResult> getFederatedClaimPlain(GetFederatedClaimPlainArgs args) {
+        return getFederatedClaimPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Get a federated claim for an Okta application.
+     * 
+     * Use this data source to retrieve information about a federated claim that has been configured for an application. Federated claims add custom claims to tokens produced for an application using Okta Expression Language.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.app.AppFunctions;
+     * import com.pulumi.okta.app.inputs.GetFederatedClaimArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AppFunctions.getFederatedClaim(GetFederatedClaimArgs.builder()
+     *             .appId("0oa1234567890abcdef")
+     *             .id("ofcu234567890abcdef")
+     *             .build());
+     * 
+     *         ctx.export("claimExpression", example.expression());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Using with a Resource
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.app.Saml;
+     * import com.pulumi.okta.app.SamlArgs;
+     * import com.pulumi.okta.app.FederatedClaim;
+     * import com.pulumi.okta.app.FederatedClaimArgs;
+     * import com.pulumi.okta.app.AppFunctions;
+     * import com.pulumi.okta.app.inputs.GetFederatedClaimArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var testApp = new Saml("testApp", SamlArgs.builder()
+     *             .label("example")
+     *             .ssoUrl("https://example.com")
+     *             .recipient("https://example.com")
+     *             .destination("https://example.com")
+     *             .audience("https://example.com/audience")
+     *             .subjectNameIdTemplate("${user.userName}")
+     *             .subjectNameIdFormat("urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress")
+     *             .responseSigned(true)
+     *             .signatureAlgorithm("RSA_SHA256")
+     *             .digestAlgorithm("SHA256")
+     *             .build());
+     * 
+     *         var exampleFederatedClaim = new FederatedClaim("exampleFederatedClaim", FederatedClaimArgs.builder()
+     *             .appId(testApp.id())
+     *             .name("role_last_name")
+     *             .expression("user.profile.lastName")
+     *             .build());
+     * 
+     *         final var example = AppFunctions.getFederatedClaim(GetFederatedClaimArgs.builder()
+     *             .appId(testApp.id())
+     *             .id(exampleFederatedClaim.id())
+     *             .build());
+     * 
+     *         ctx.export("claimName", example.applyValue(_example -> _example.name()));
+     *         ctx.export("claimExpression", example.applyValue(_example -> _example.expression()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetFederatedClaimResult> getFederatedClaim(GetFederatedClaimArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("okta:app/getFederatedClaim:getFederatedClaim", TypeShape.of(GetFederatedClaimResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Get a federated claim for an Okta application.
+     * 
+     * Use this data source to retrieve information about a federated claim that has been configured for an application. Federated claims add custom claims to tokens produced for an application using Okta Expression Language.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.app.AppFunctions;
+     * import com.pulumi.okta.app.inputs.GetFederatedClaimArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AppFunctions.getFederatedClaim(GetFederatedClaimArgs.builder()
+     *             .appId("0oa1234567890abcdef")
+     *             .id("ofcu234567890abcdef")
+     *             .build());
+     * 
+     *         ctx.export("claimExpression", example.expression());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Using with a Resource
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.app.Saml;
+     * import com.pulumi.okta.app.SamlArgs;
+     * import com.pulumi.okta.app.FederatedClaim;
+     * import com.pulumi.okta.app.FederatedClaimArgs;
+     * import com.pulumi.okta.app.AppFunctions;
+     * import com.pulumi.okta.app.inputs.GetFederatedClaimArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var testApp = new Saml("testApp", SamlArgs.builder()
+     *             .label("example")
+     *             .ssoUrl("https://example.com")
+     *             .recipient("https://example.com")
+     *             .destination("https://example.com")
+     *             .audience("https://example.com/audience")
+     *             .subjectNameIdTemplate("${user.userName}")
+     *             .subjectNameIdFormat("urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress")
+     *             .responseSigned(true)
+     *             .signatureAlgorithm("RSA_SHA256")
+     *             .digestAlgorithm("SHA256")
+     *             .build());
+     * 
+     *         var exampleFederatedClaim = new FederatedClaim("exampleFederatedClaim", FederatedClaimArgs.builder()
+     *             .appId(testApp.id())
+     *             .name("role_last_name")
+     *             .expression("user.profile.lastName")
+     *             .build());
+     * 
+     *         final var example = AppFunctions.getFederatedClaim(GetFederatedClaimArgs.builder()
+     *             .appId(testApp.id())
+     *             .id(exampleFederatedClaim.id())
+     *             .build());
+     * 
+     *         ctx.export("claimName", example.applyValue(_example -> _example.name()));
+     *         ctx.export("claimExpression", example.applyValue(_example -> _example.expression()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetFederatedClaimResult> getFederatedClaim(GetFederatedClaimArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("okta:app/getFederatedClaim:getFederatedClaim", TypeShape.of(GetFederatedClaimResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Get a federated claim for an Okta application.
+     * 
+     * Use this data source to retrieve information about a federated claim that has been configured for an application. Federated claims add custom claims to tokens produced for an application using Okta Expression Language.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.app.AppFunctions;
+     * import com.pulumi.okta.app.inputs.GetFederatedClaimArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AppFunctions.getFederatedClaim(GetFederatedClaimArgs.builder()
+     *             .appId("0oa1234567890abcdef")
+     *             .id("ofcu234567890abcdef")
+     *             .build());
+     * 
+     *         ctx.export("claimExpression", example.expression());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Using with a Resource
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.app.Saml;
+     * import com.pulumi.okta.app.SamlArgs;
+     * import com.pulumi.okta.app.FederatedClaim;
+     * import com.pulumi.okta.app.FederatedClaimArgs;
+     * import com.pulumi.okta.app.AppFunctions;
+     * import com.pulumi.okta.app.inputs.GetFederatedClaimArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var testApp = new Saml("testApp", SamlArgs.builder()
+     *             .label("example")
+     *             .ssoUrl("https://example.com")
+     *             .recipient("https://example.com")
+     *             .destination("https://example.com")
+     *             .audience("https://example.com/audience")
+     *             .subjectNameIdTemplate("${user.userName}")
+     *             .subjectNameIdFormat("urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress")
+     *             .responseSigned(true)
+     *             .signatureAlgorithm("RSA_SHA256")
+     *             .digestAlgorithm("SHA256")
+     *             .build());
+     * 
+     *         var exampleFederatedClaim = new FederatedClaim("exampleFederatedClaim", FederatedClaimArgs.builder()
+     *             .appId(testApp.id())
+     *             .name("role_last_name")
+     *             .expression("user.profile.lastName")
+     *             .build());
+     * 
+     *         final var example = AppFunctions.getFederatedClaim(GetFederatedClaimArgs.builder()
+     *             .appId(testApp.id())
+     *             .id(exampleFederatedClaim.id())
+     *             .build());
+     * 
+     *         ctx.export("claimName", example.applyValue(_example -> _example.name()));
+     *         ctx.export("claimExpression", example.applyValue(_example -> _example.expression()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetFederatedClaimResult> getFederatedClaimPlain(GetFederatedClaimPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("okta:app/getFederatedClaim:getFederatedClaim", TypeShape.of(GetFederatedClaimResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Get a SAML application&#39;s metadata from Okta.

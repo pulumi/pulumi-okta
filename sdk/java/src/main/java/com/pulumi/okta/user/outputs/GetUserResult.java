@@ -57,6 +57,10 @@ public final class GetUserResult {
     private String preferredLanguage;
     private String primaryPhone;
     private String profileUrl;
+    /**
+     * @return The Realm ID associated with the user.
+     * 
+     */
     private String realmId;
     private List<String> roles;
     /**
@@ -191,6 +195,10 @@ public final class GetUserResult {
     public String profileUrl() {
         return this.profileUrl;
     }
+    /**
+     * @return The Realm ID associated with the user.
+     * 
+     */
     public String realmId() {
         return this.realmId;
     }

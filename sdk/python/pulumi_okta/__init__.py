@@ -240,6 +240,14 @@ _utilities.register(
  },
  {
   "pkg": "okta",
+  "mod": "app/federatedClaim",
+  "fqn": "pulumi_okta.app",
+  "classes": {
+   "okta:app/federatedClaim:FederatedClaim": "FederatedClaim"
+  }
+ },
+ {
+  "pkg": "okta",
   "mod": "app/groupAssignment",
   "fqn": "pulumi_okta.app",
   "classes": {

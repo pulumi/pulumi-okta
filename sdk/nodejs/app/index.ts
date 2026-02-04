@@ -35,6 +35,11 @@ export type Features = import("./features").Features;
 export const Features: typeof import("./features").Features = null as any;
 utilities.lazyLoad(exports, ["Features"], () => require("./features"));
 
+export { FederatedClaimArgs, FederatedClaimState } from "./federatedClaim";
+export type FederatedClaim = import("./federatedClaim").FederatedClaim;
+export const FederatedClaim: typeof import("./federatedClaim").FederatedClaim = null as any;
+utilities.lazyLoad(exports, ["FederatedClaim"], () => require("./federatedClaim"));
+
 export { GetAppArgs, GetAppResult, GetAppOutputArgs } from "./getApp";
 export const getApp: typeof import("./getApp").getApp = null as any;
 export const getAppOutput: typeof import("./getApp").getAppOutput = null as any;
@@ -49,6 +54,11 @@ export { GetFeaturesArgs, GetFeaturesResult, GetFeaturesOutputArgs } from "./get
 export const getFeatures: typeof import("./getFeatures").getFeatures = null as any;
 export const getFeaturesOutput: typeof import("./getFeatures").getFeaturesOutput = null as any;
 utilities.lazyLoad(exports, ["getFeatures","getFeaturesOutput"], () => require("./getFeatures"));
+
+export { GetFederatedClaimArgs, GetFederatedClaimResult, GetFederatedClaimOutputArgs } from "./getFederatedClaim";
+export const getFederatedClaim: typeof import("./getFederatedClaim").getFederatedClaim = null as any;
+export const getFederatedClaimOutput: typeof import("./getFederatedClaim").getFederatedClaimOutput = null as any;
+utilities.lazyLoad(exports, ["getFederatedClaim","getFederatedClaimOutput"], () => require("./getFederatedClaim"));
 
 export { GetMetadataSamlArgs, GetMetadataSamlResult, GetMetadataSamlOutputArgs } from "./getMetadataSaml";
 export const getMetadataSaml: typeof import("./getMetadataSaml").getMetadataSaml = null as any;
@@ -142,6 +152,8 @@ const _module = {
                 return new Connection(name, <any>undefined, { urn })
             case "okta:app/features:Features":
                 return new Features(name, <any>undefined, { urn })
+            case "okta:app/federatedClaim:FederatedClaim":
+                return new FederatedClaim(name, <any>undefined, { urn })
             case "okta:app/groupAssignment:GroupAssignment":
                 return new GroupAssignment(name, <any>undefined, { urn })
             case "okta:app/oAuth:OAuth":
@@ -175,6 +187,7 @@ pulumi.runtime.registerResourceModule("okta", "app/basicAuth", _module)
 pulumi.runtime.registerResourceModule("okta", "app/bookmark", _module)
 pulumi.runtime.registerResourceModule("okta", "app/connection", _module)
 pulumi.runtime.registerResourceModule("okta", "app/features", _module)
+pulumi.runtime.registerResourceModule("okta", "app/federatedClaim", _module)
 pulumi.runtime.registerResourceModule("okta", "app/groupAssignment", _module)
 pulumi.runtime.registerResourceModule("okta", "app/oAuth", _module)
 pulumi.runtime.registerResourceModule("okta", "app/oAuthPostLogoutRedirectUri", _module)

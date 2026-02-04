@@ -201,7 +201,7 @@ namespace Pulumi.Okta.App
         public Output<string?> ClientUri { get; private set; } = null!;
 
         /// <summary>
-        /// *Early Access Property*. Indicates whether user consent is required or implicit. Valid values: REQUIRED, TRUSTED. Default value is TRUSTED
+        /// *Early Access Property*. Indicates whether user consent is required or implicit. Valid values: REQUIRED, TRUSTED. Default value is TRUSTED. Note: Enable `API_ACCESS_MANAGEMENT`, `API_ACCESS_MANAGEMENT_CONSENT` feature flags in your org to use this property.
         /// </summary>
         [Output("consentMethod")]
         public Output<string?> ConsentMethod { get; private set; } = null!;
@@ -327,7 +327,7 @@ namespace Pulumi.Okta.App
         public Output<bool?> OmitSecret { get; private set; } = null!;
 
         /// <summary>
-        /// *Early Access Property*. Allows the app to participate in front-channel Single Logout. Note: You can only enable ParticipateSlo for web and browser application types. When set to true, FrontchannelLogoutUri must also be provided.
+        /// *Early Access Property*. Allows the app to participate in front-channel Single Logout. Note: You can only enable participate*slo for web and browser application types. When set to true, frontchannel*logout_uri must also be provided. Enable `SINGLE_LOGOUT_SUPPORT` feature flag in your org to use this property.
         /// </summary>
         [Output("participateSlo")]
         public Output<bool?> ParticipateSlo { get; private set; } = null!;
@@ -435,7 +435,7 @@ namespace Pulumi.Okta.App
         public Output<string?> UserNameTemplateType { get; private set; } = null!;
 
         /// <summary>
-        /// *Early Access Property*. Indicates if the client is allowed to use wildcard matching of redirect_uris
+        /// *Early Access Property*. Indicates if the client is allowed to use wildcard matching of redirect_uris.
         /// </summary>
         [Output("wildcardRedirect")]
         public Output<string?> WildcardRedirect { get; private set; } = null!;
@@ -578,7 +578,7 @@ namespace Pulumi.Okta.App
         public Input<string>? ClientUri { get; set; }
 
         /// <summary>
-        /// *Early Access Property*. Indicates whether user consent is required or implicit. Valid values: REQUIRED, TRUSTED. Default value is TRUSTED
+        /// *Early Access Property*. Indicates whether user consent is required or implicit. Valid values: REQUIRED, TRUSTED. Default value is TRUSTED. Note: Enable `API_ACCESS_MANAGEMENT`, `API_ACCESS_MANAGEMENT_CONSENT` feature flags in your org to use this property.
         /// </summary>
         [Input("consentMethod")]
         public Input<string>? ConsentMethod { get; set; }
@@ -710,7 +710,7 @@ namespace Pulumi.Okta.App
         public Input<bool>? OmitSecret { get; set; }
 
         /// <summary>
-        /// *Early Access Property*. Allows the app to participate in front-channel Single Logout. Note: You can only enable ParticipateSlo for web and browser application types. When set to true, FrontchannelLogoutUri must also be provided.
+        /// *Early Access Property*. Allows the app to participate in front-channel Single Logout. Note: You can only enable participate*slo for web and browser application types. When set to true, frontchannel*logout_uri must also be provided. Enable `SINGLE_LOGOUT_SUPPORT` feature flag in your org to use this property.
         /// </summary>
         [Input("participateSlo")]
         public Input<bool>? ParticipateSlo { get; set; }
@@ -830,7 +830,7 @@ namespace Pulumi.Okta.App
         public Input<string>? UserNameTemplateType { get; set; }
 
         /// <summary>
-        /// *Early Access Property*. Indicates if the client is allowed to use wildcard matching of redirect_uris
+        /// *Early Access Property*. Indicates if the client is allowed to use wildcard matching of redirect_uris.
         /// </summary>
         [Input("wildcardRedirect")]
         public Input<string>? WildcardRedirect { get; set; }
@@ -946,7 +946,7 @@ namespace Pulumi.Okta.App
         public Input<string>? ClientUri { get; set; }
 
         /// <summary>
-        /// *Early Access Property*. Indicates whether user consent is required or implicit. Valid values: REQUIRED, TRUSTED. Default value is TRUSTED
+        /// *Early Access Property*. Indicates whether user consent is required or implicit. Valid values: REQUIRED, TRUSTED. Default value is TRUSTED. Note: Enable `API_ACCESS_MANAGEMENT`, `API_ACCESS_MANAGEMENT_CONSENT` feature flags in your org to use this property.
         /// </summary>
         [Input("consentMethod")]
         public Input<string>? ConsentMethod { get; set; }
@@ -1090,7 +1090,7 @@ namespace Pulumi.Okta.App
         public Input<bool>? OmitSecret { get; set; }
 
         /// <summary>
-        /// *Early Access Property*. Allows the app to participate in front-channel Single Logout. Note: You can only enable ParticipateSlo for web and browser application types. When set to true, FrontchannelLogoutUri must also be provided.
+        /// *Early Access Property*. Allows the app to participate in front-channel Single Logout. Note: You can only enable participate*slo for web and browser application types. When set to true, frontchannel*logout_uri must also be provided. Enable `SINGLE_LOGOUT_SUPPORT` feature flag in your org to use this property.
         /// </summary>
         [Input("participateSlo")]
         public Input<bool>? ParticipateSlo { get; set; }
@@ -1216,7 +1216,7 @@ namespace Pulumi.Okta.App
         public Input<string>? UserNameTemplateType { get; set; }
 
         /// <summary>
-        /// *Early Access Property*. Indicates if the client is allowed to use wildcard matching of redirect_uris
+        /// *Early Access Property*. Indicates if the client is allowed to use wildcard matching of redirect_uris.
         /// </summary>
         [Input("wildcardRedirect")]
         public Input<string>? WildcardRedirect { get; set; }

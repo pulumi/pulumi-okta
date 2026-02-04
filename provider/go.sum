@@ -2042,8 +2042,8 @@ github.com/hashicorp/terraform-json v0.27.2 h1:BwGuzM6iUPqf9JYM/Z4AF1OJ5VVJEEzoK
 github.com/hashicorp/terraform-json v0.27.2/go.mod h1:GzPLJ1PLdUG5xL6xn1OXWIjteQRT2CNT9o/6A9mi9hE=
 github.com/hashicorp/terraform-plugin-framework v1.17.0 h1:JdX50CFrYcYFY31gkmitAEAzLKoBgsK+iaJjDC8OexY=
 github.com/hashicorp/terraform-plugin-framework v1.17.0/go.mod h1:4OUXKdHNosX+ys6rLgVlgklfxN3WHR5VHSOABeS/BM0=
-github.com/hashicorp/terraform-plugin-framework-validators v0.18.0 h1:OQnlOt98ua//rCw+QhBbSqfW3QbwtVrcdWeQN5gI3Hw=
-github.com/hashicorp/terraform-plugin-framework-validators v0.18.0/go.mod h1:lZvZvagw5hsJwuY7mAY6KUz45/U6fiDR0CzQAwWD0CA=
+github.com/hashicorp/terraform-plugin-framework-validators v0.19.0 h1:Zz3iGgzxe/1XBkooZCewS0nJAaCFPFPHdNJd8FgE4Ow=
+github.com/hashicorp/terraform-plugin-framework-validators v0.19.0/go.mod h1:GBKTNGbGVJohU03dZ7U8wHqc2zYnMUawgCN+gC0itLc=
 github.com/hashicorp/terraform-plugin-go v0.29.0 h1:1nXKl/nSpaYIUBU1IG/EsDOX0vv+9JxAltQyDMpq5mU=
 github.com/hashicorp/terraform-plugin-go v0.29.0/go.mod h1:vYZbIyvxyy0FWSmDHChCqKvI40cFTDGSb3D8D70i9GM=
 github.com/hashicorp/terraform-plugin-log v0.9.0/go.mod h1:rKL8egZQ/eXSyDqzLUuwUYLVdlYeamldAHSxjUFADow=
@@ -2313,8 +2313,8 @@ github.com/okta/okta-sdk-golang/v4 v4.1.2 h1:gSycAYWGrvYeXBW8HakMZnNu/ptMuTvTQ/z
 github.com/okta/okta-sdk-golang/v4 v4.1.2/go.mod h1:01oiHDXvZQHlZo1Uw084VDYwXIqJe19z34b53PBZpUY=
 github.com/okta/okta-sdk-golang/v5 v5.0.6 h1:p7ptDMB1KxQ/7xSh+6FhMSybwl+ubTV4f1oL4N0Bu6U=
 github.com/okta/okta-sdk-golang/v5 v5.0.6/go.mod h1:T/vmECtJX33YPZSVD+sorebd8LLhe38Bi/VrFTjgVX0=
-github.com/okta/okta-sdk-golang/v6 v6.0.2 h1:eaKjSSjlS5YnuG7jX4P4BFZLfIriZuq4ro/QVirq+oI=
-github.com/okta/okta-sdk-golang/v6 v6.0.2/go.mod h1:EzV8yrIDarJfL8lAwUmfcuVQmaXe7gbhWyzKoCSb/WU=
+github.com/okta/okta-sdk-golang/v6 v6.0.3 h1:8qrcm97FcEY+EIndGtyqdz6ZbI060n87xAmrNwfST6M=
+github.com/okta/okta-sdk-golang/v6 v6.0.3/go.mod h1:EzV8yrIDarJfL8lAwUmfcuVQmaXe7gbhWyzKoCSb/WU=
 github.com/olekukonko/tablewriter v0.0.0-20170122224234-a0225b3f23b5/go.mod h1:vsDQFd/mU46D+Z4whnwzcISnGGzXWMclvtLoiIKAKIo=
 github.com/olekukonko/tablewriter v0.0.5 h1:P2Ga83D34wi1o9J6Wh1mRuqd4mF/x/lgBS7N7AbDhec=
 github.com/olekukonko/tablewriter v0.0.5/go.mod h1:hPp6KlRPjbx+hW8ykQs1w3UBbZlj6HuIJcUGPhkA7kY=

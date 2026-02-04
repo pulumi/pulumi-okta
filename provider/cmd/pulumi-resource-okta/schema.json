@@ -42,7 +42,7 @@
             "respectSchemaVersion": true
         },
         "nodejs": {
-            "packageDescription": "A Pulumi package for creating and managing okta resources.. Based on terraform-provider-okta: version v6.5.4",
+            "packageDescription": "A Pulumi package for creating and managing okta resources.. Based on terraform-provider-okta: version v6.5.5",
             "readme": "\u003e This provider is a derived work of the [Terraform Provider](https://github.com/okta/terraform-provider-okta)\n\u003e distributed under [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/). If you encounter a bug or missing feature,\n\u003e first check the [`pulumi-okta` repo](https://github.com/pulumi/pulumi-okta/issues); however, if that doesn't turn up anything,\n\u003e please consult the source [`terraform-provider-okta` repo](https://github.com/okta/terraform-provider-okta/issues).",
             "devDependencies": {
                 "@types/mime": "^2.0.0",
@@ -7616,6 +7616,64 @@
                 "type": "object"
             }
         },
+        "okta:app/federatedClaim:FederatedClaim": {
+            "description": "Manages a federated claim for an Okta application.\n\nFederated claims allow you to pass user information from Okta to your app integrations.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst testApp = new okta.app.Saml(\"test_app\", {\n    label: \"example\",\n    ssoUrl: \"https://example.com\",\n    recipient: \"https://example.com\",\n    destination: \"https://example.com\",\n    audience: \"https://example.com/audience\",\n    subjectNameIdTemplate: \"${user.userName}\",\n    subjectNameIdFormat: \"urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress\",\n    responseSigned: true,\n    signatureAlgorithm: \"RSA_SHA256\",\n    digestAlgorithm: \"SHA256\",\n});\nconst example = new okta.app.FederatedClaim(\"example\", {\n    appId: testApp.id,\n    name: \"role_last_name\",\n    expression: \"user.profile.lastName\",\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\ntest_app = okta.app.Saml(\"test_app\",\n    label=\"example\",\n    sso_url=\"https://example.com\",\n    recipient=\"https://example.com\",\n    destination=\"https://example.com\",\n    audience=\"https://example.com/audience\",\n    subject_name_id_template=\"${user.userName}\",\n    subject_name_id_format=\"urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress\",\n    response_signed=True,\n    signature_algorithm=\"RSA_SHA256\",\n    digest_algorithm=\"SHA256\")\nexample = okta.app.FederatedClaim(\"example\",\n    app_id=test_app.id,\n    name=\"role_last_name\",\n    expression=\"user.profile.lastName\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var testApp = new Okta.App.Saml(\"test_app\", new()\n    {\n        Label = \"example\",\n        SsoUrl = \"https://example.com\",\n        Recipient = \"https://example.com\",\n        Destination = \"https://example.com\",\n        Audience = \"https://example.com/audience\",\n        SubjectNameIdTemplate = \"${user.userName}\",\n        SubjectNameIdFormat = \"urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress\",\n        ResponseSigned = true,\n        SignatureAlgorithm = \"RSA_SHA256\",\n        DigestAlgorithm = \"SHA256\",\n    });\n\n    var example = new Okta.App.FederatedClaim(\"example\", new()\n    {\n        AppId = testApp.Id,\n        Name = \"role_last_name\",\n        Expression = \"user.profile.lastName\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v6/go/okta/app\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\ttestApp, err := app.NewSaml(ctx, \"test_app\", \u0026app.SamlArgs{\n\t\t\tLabel:                 pulumi.String(\"example\"),\n\t\t\tSsoUrl:                pulumi.String(\"https://example.com\"),\n\t\t\tRecipient:             pulumi.String(\"https://example.com\"),\n\t\t\tDestination:           pulumi.String(\"https://example.com\"),\n\t\t\tAudience:              pulumi.String(\"https://example.com/audience\"),\n\t\t\tSubjectNameIdTemplate: pulumi.String(\"${user.userName}\"),\n\t\t\tSubjectNameIdFormat:   pulumi.String(\"urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress\"),\n\t\t\tResponseSigned:        pulumi.Bool(true),\n\t\t\tSignatureAlgorithm:    pulumi.String(\"RSA_SHA256\"),\n\t\t\tDigestAlgorithm:       pulumi.String(\"SHA256\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = app.NewFederatedClaim(ctx, \"example\", \u0026app.FederatedClaimArgs{\n\t\t\tAppId:      testApp.ID(),\n\t\t\tName:       pulumi.String(\"role_last_name\"),\n\t\t\tExpression: pulumi.String(\"user.profile.lastName\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.okta.app.Saml;\nimport com.pulumi.okta.app.SamlArgs;\nimport com.pulumi.okta.app.FederatedClaim;\nimport com.pulumi.okta.app.FederatedClaimArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var testApp = new Saml(\"testApp\", SamlArgs.builder()\n            .label(\"example\")\n            .ssoUrl(\"https://example.com\")\n            .recipient(\"https://example.com\")\n            .destination(\"https://example.com\")\n            .audience(\"https://example.com/audience\")\n            .subjectNameIdTemplate(\"${user.userName}\")\n            .subjectNameIdFormat(\"urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress\")\n            .responseSigned(true)\n            .signatureAlgorithm(\"RSA_SHA256\")\n            .digestAlgorithm(\"SHA256\")\n            .build());\n\n        var example = new FederatedClaim(\"example\", FederatedClaimArgs.builder()\n            .appId(testApp.id())\n            .name(\"role_last_name\")\n            .expression(\"user.profile.lastName\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  testApp:\n    type: okta:app:Saml\n    name: test_app\n    properties:\n      label: example\n      ssoUrl: https://example.com\n      recipient: https://example.com\n      destination: https://example.com\n      audience: https://example.com/audience\n      subjectNameIdTemplate: $${user.userName}\n      subjectNameIdFormat: urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress\n      responseSigned: true\n      signatureAlgorithm: RSA_SHA256\n      digestAlgorithm: SHA256\n  example:\n    type: okta:app:FederatedClaim\n    properties:\n      appId: ${testApp.id}\n      name: role_last_name\n      expression: user.profile.lastName\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n### Multiple Claims Example\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst testApp = new okta.app.Saml(\"test_app\", {\n    label: \"example\",\n    ssoUrl: \"https://example.com\",\n    recipient: \"https://example.com\",\n    destination: \"https://example.com\",\n    audience: \"https://example.com/audience\",\n    subjectNameIdTemplate: \"${user.userName}\",\n    subjectNameIdFormat: \"urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress\",\n    responseSigned: true,\n    signatureAlgorithm: \"RSA_SHA256\",\n    digestAlgorithm: \"SHA256\",\n});\nconst lastName = new okta.app.FederatedClaim(\"last_name\", {\n    appId: testApp.id,\n    name: \"lastName\",\n    expression: \"user.profile.lastName\",\n});\nconst firstName = new okta.app.FederatedClaim(\"first_name\", {\n    appId: testApp.id,\n    name: \"firstName\",\n    expression: \"user.profile.firstName\",\n});\nconst department = new okta.app.FederatedClaim(\"department\", {\n    appId: testApp.id,\n    name: \"department\",\n    expression: \"user.profile.department\",\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\ntest_app = okta.app.Saml(\"test_app\",\n    label=\"example\",\n    sso_url=\"https://example.com\",\n    recipient=\"https://example.com\",\n    destination=\"https://example.com\",\n    audience=\"https://example.com/audience\",\n    subject_name_id_template=\"${user.userName}\",\n    subject_name_id_format=\"urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress\",\n    response_signed=True,\n    signature_algorithm=\"RSA_SHA256\",\n    digest_algorithm=\"SHA256\")\nlast_name = okta.app.FederatedClaim(\"last_name\",\n    app_id=test_app.id,\n    name=\"lastName\",\n    expression=\"user.profile.lastName\")\nfirst_name = okta.app.FederatedClaim(\"first_name\",\n    app_id=test_app.id,\n    name=\"firstName\",\n    expression=\"user.profile.firstName\")\ndepartment = okta.app.FederatedClaim(\"department\",\n    app_id=test_app.id,\n    name=\"department\",\n    expression=\"user.profile.department\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var testApp = new Okta.App.Saml(\"test_app\", new()\n    {\n        Label = \"example\",\n        SsoUrl = \"https://example.com\",\n        Recipient = \"https://example.com\",\n        Destination = \"https://example.com\",\n        Audience = \"https://example.com/audience\",\n        SubjectNameIdTemplate = \"${user.userName}\",\n        SubjectNameIdFormat = \"urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress\",\n        ResponseSigned = true,\n        SignatureAlgorithm = \"RSA_SHA256\",\n        DigestAlgorithm = \"SHA256\",\n    });\n\n    var lastName = new Okta.App.FederatedClaim(\"last_name\", new()\n    {\n        AppId = testApp.Id,\n        Name = \"lastName\",\n        Expression = \"user.profile.lastName\",\n    });\n\n    var firstName = new Okta.App.FederatedClaim(\"first_name\", new()\n    {\n        AppId = testApp.Id,\n        Name = \"firstName\",\n        Expression = \"user.profile.firstName\",\n    });\n\n    var department = new Okta.App.FederatedClaim(\"department\", new()\n    {\n        AppId = testApp.Id,\n        Name = \"department\",\n        Expression = \"user.profile.department\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v6/go/okta/app\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\ttestApp, err := app.NewSaml(ctx, \"test_app\", \u0026app.SamlArgs{\n\t\t\tLabel:                 pulumi.String(\"example\"),\n\t\t\tSsoUrl:                pulumi.String(\"https://example.com\"),\n\t\t\tRecipient:             pulumi.String(\"https://example.com\"),\n\t\t\tDestination:           pulumi.String(\"https://example.com\"),\n\t\t\tAudience:              pulumi.String(\"https://example.com/audience\"),\n\t\t\tSubjectNameIdTemplate: pulumi.String(\"${user.userName}\"),\n\t\t\tSubjectNameIdFormat:   pulumi.String(\"urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress\"),\n\t\t\tResponseSigned:        pulumi.Bool(true),\n\t\t\tSignatureAlgorithm:    pulumi.String(\"RSA_SHA256\"),\n\t\t\tDigestAlgorithm:       pulumi.String(\"SHA256\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = app.NewFederatedClaim(ctx, \"last_name\", \u0026app.FederatedClaimArgs{\n\t\t\tAppId:      testApp.ID(),\n\t\t\tName:       pulumi.String(\"lastName\"),\n\t\t\tExpression: pulumi.String(\"user.profile.lastName\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = app.NewFederatedClaim(ctx, \"first_name\", \u0026app.FederatedClaimArgs{\n\t\t\tAppId:      testApp.ID(),\n\t\t\tName:       pulumi.String(\"firstName\"),\n\t\t\tExpression: pulumi.String(\"user.profile.firstName\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = app.NewFederatedClaim(ctx, \"department\", \u0026app.FederatedClaimArgs{\n\t\t\tAppId:      testApp.ID(),\n\t\t\tName:       pulumi.String(\"department\"),\n\t\t\tExpression: pulumi.String(\"user.profile.department\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.okta.app.Saml;\nimport com.pulumi.okta.app.SamlArgs;\nimport com.pulumi.okta.app.FederatedClaim;\nimport com.pulumi.okta.app.FederatedClaimArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var testApp = new Saml(\"testApp\", SamlArgs.builder()\n            .label(\"example\")\n            .ssoUrl(\"https://example.com\")\n            .recipient(\"https://example.com\")\n            .destination(\"https://example.com\")\n            .audience(\"https://example.com/audience\")\n            .subjectNameIdTemplate(\"${user.userName}\")\n            .subjectNameIdFormat(\"urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress\")\n            .responseSigned(true)\n            .signatureAlgorithm(\"RSA_SHA256\")\n            .digestAlgorithm(\"SHA256\")\n            .build());\n\n        var lastName = new FederatedClaim(\"lastName\", FederatedClaimArgs.builder()\n            .appId(testApp.id())\n            .name(\"lastName\")\n            .expression(\"user.profile.lastName\")\n            .build());\n\n        var firstName = new FederatedClaim(\"firstName\", FederatedClaimArgs.builder()\n            .appId(testApp.id())\n            .name(\"firstName\")\n            .expression(\"user.profile.firstName\")\n            .build());\n\n        var department = new FederatedClaim(\"department\", FederatedClaimArgs.builder()\n            .appId(testApp.id())\n            .name(\"department\")\n            .expression(\"user.profile.department\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  testApp:\n    type: okta:app:Saml\n    name: test_app\n    properties:\n      label: example\n      ssoUrl: https://example.com\n      recipient: https://example.com\n      destination: https://example.com\n      audience: https://example.com/audience\n      subjectNameIdTemplate: $${user.userName}\n      subjectNameIdFormat: urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress\n      responseSigned: true\n      signatureAlgorithm: RSA_SHA256\n      digestAlgorithm: SHA256\n  lastName:\n    type: okta:app:FederatedClaim\n    name: last_name\n    properties:\n      appId: ${testApp.id}\n      name: lastName\n      expression: user.profile.lastName\n  firstName:\n    type: okta:app:FederatedClaim\n    name: first_name\n    properties:\n      appId: ${testApp.id}\n      name: firstName\n      expression: user.profile.firstName\n  department:\n    type: okta:app:FederatedClaim\n    properties:\n      appId: ${testApp.id}\n      name: department\n      expression: user.profile.department\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nAn app federated claim can be imported using the format `app_id/id`:\n\n```sh\n$ pulumi import okta:app/federatedClaim:FederatedClaim example \u003capp_id\u003e/\u003cid\u003e\n```\n\nExample:\n\n```sh\n$ pulumi import okta:app/federatedClaim:FederatedClaim example 0oa1234567890abcdef/clm1234567890abcdef\n```\n\n",
+            "properties": {
+                "appId": {
+                    "type": "string",
+                    "description": "The ID of the application to add the federated claim to.\n"
+                },
+                "expression": {
+                    "type": "string",
+                    "description": "The Okta Expression Language expression to be evaluated at runtime. See [Okta Expression Language](https://developer.okta.com/docs/reference/okta-expression-language/) for more information.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the claim to be used in the produced token.\n"
+                }
+            },
+            "required": [
+                "appId",
+                "expression",
+                "name"
+            ],
+            "inputProperties": {
+                "appId": {
+                    "type": "string",
+                    "description": "The ID of the application to add the federated claim to.\n"
+                },
+                "expression": {
+                    "type": "string",
+                    "description": "The Okta Expression Language expression to be evaluated at runtime. See [Okta Expression Language](https://developer.okta.com/docs/reference/okta-expression-language/) for more information.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the claim to be used in the produced token.\n"
+                }
+            },
+            "requiredInputs": [
+                "appId",
+                "expression"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering FederatedClaim resources.\n",
+                "properties": {
+                    "appId": {
+                        "type": "string",
+                        "description": "The ID of the application to add the federated claim to.\n"
+                    },
+                    "expression": {
+                        "type": "string",
+                        "description": "The Okta Expression Language expression to be evaluated at runtime. See [Okta Expression Language](https://developer.okta.com/docs/reference/okta-expression-language/) for more information.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The name of the claim to be used in the produced token.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
         "okta:app/groupAssignment:GroupAssignment": {
             "description": "## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst example = new okta.app.GroupAssignment(\"example\", {\n    appId: \"\u003capp id\u003e\",\n    groupId: \"\u003cgroup id\u003e\",\n    profile: `{\n  \\\\\"\u003capp_profile_field\u003e\\\\\": \\\\\"\u003cvalue\u003e\\\\\"\n}\n`,\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample = okta.app.GroupAssignment(\"example\",\n    app_id=\"\u003capp id\u003e\",\n    group_id=\"\u003cgroup id\u003e\",\n    profile=\"\"\"{\n  \\\"\u003capp_profile_field\u003e\\\": \\\"\u003cvalue\u003e\\\"\n}\n\"\"\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new Okta.App.GroupAssignment(\"example\", new()\n    {\n        AppId = \"\u003capp id\u003e\",\n        GroupId = \"\u003cgroup id\u003e\",\n        Profile = @\"{\n  \\\"\"\u003capp_profile_field\u003e\\\"\": \\\"\"\u003cvalue\u003e\\\"\"\n}\n\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v6/go/okta/app\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := app.NewGroupAssignment(ctx, \"example\", \u0026app.GroupAssignmentArgs{\n\t\t\tAppId:   pulumi.String(\"\u003capp id\u003e\"),\n\t\t\tGroupId: pulumi.String(\"\u003cgroup id\u003e\"),\n\t\t\tProfile: pulumi.String(\"{\\n  \\\\\\\"\u003capp_profile_field\u003e\\\\\\\": \\\\\\\"\u003cvalue\u003e\\\\\\\"\\n}\\n\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.okta.app.GroupAssignment;\nimport com.pulumi.okta.app.GroupAssignmentArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new GroupAssignment(\"example\", GroupAssignmentArgs.builder()\n            .appId(\"\u003capp id\u003e\")\n            .groupId(\"\u003cgroup id\u003e\")\n            .profile(\"\"\"\n{\n  \\\"\u003capp_profile_field\u003e\\\": \\\"\u003cvalue\u003e\\\"\n}\n            \"\"\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: okta:app:GroupAssignment\n    properties:\n      appId: \u003capp id\u003e\n      groupId: \u003cgroup id\u003e\n      profile: |\n        {\n          \\\"\u003capp_profile_field\u003e\\\": \\\"\u003cvalue\u003e\\\"\n        }\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n```sh\n$ pulumi import okta:app/groupAssignment:GroupAssignment example \u003capp_id\u003e/\u003cgroup_id\u003e\n```\n\n",
             "properties": {
@@ -7760,7 +7818,7 @@
                 },
                 "consentMethod": {
                     "type": "string",
-                    "description": "*Early Access Property*. Indicates whether user consent is required or implicit. Valid values: REQUIRED, TRUSTED. Default value is TRUSTED\n"
+                    "description": "*Early Access Property*. Indicates whether user consent is required or implicit. Valid values: REQUIRED, TRUSTED. Default value is TRUSTED. Note: Enable `API_ACCESS_MANAGEMENT`, `API_ACCESS_MANAGEMENT_CONSENT` feature flags in your org to use this property.\n"
                 },
                 "enduserNote": {
                     "type": "string",
@@ -7768,11 +7826,11 @@
                 },
                 "frontchannelLogoutSessionRequired": {
                     "type": "boolean",
-                    "description": "*Early Access Property*. Determines whether Okta sends sid and iss in the logout request."
+                    "description": "*Early Access Property*. Determines whether Okta sends sid and iss in the logout request.\n"
                 },
                 "frontchannelLogoutUri": {
                     "type": "string",
-                    "description": "*Early Access Property*. URL where Okta sends the logout request. Required when\u003cspan pulumi-lang-nodejs=\" participateSlo \" pulumi-lang-dotnet=\" ParticipateSlo \" pulumi-lang-go=\" participateSlo \" pulumi-lang-python=\" participate_slo \" pulumi-lang-yaml=\" participateSlo \" pulumi-lang-java=\" participateSlo \"\u003e participate_slo \u003c/span\u003eis true."
+                    "description": "*Early Access Property*. URL where Okta sends the logout request. Required when\u003cspan pulumi-lang-nodejs=\" participateSlo \" pulumi-lang-dotnet=\" ParticipateSlo \" pulumi-lang-go=\" participateSlo \" pulumi-lang-python=\" participate_slo \" pulumi-lang-yaml=\" participateSlo \" pulumi-lang-java=\" participateSlo \"\u003e participate_slo \u003c/span\u003eis true.\n"
                 },
                 "grantTypes": {
                     "type": "array",
@@ -7854,7 +7912,7 @@
                 },
                 "participateSlo": {
                     "type": "boolean",
-                    "description": "*Early Access Property*. Allows the app to participate in front-channel Single Logout. Note: You can only enable\u003cspan pulumi-lang-nodejs=\" participateSlo \" pulumi-lang-dotnet=\" ParticipateSlo \" pulumi-lang-go=\" participateSlo \" pulumi-lang-python=\" participate_slo \" pulumi-lang-yaml=\" participateSlo \" pulumi-lang-java=\" participateSlo \"\u003e participate_slo \u003c/span\u003efor web and browser application types. When set to true,\u003cspan pulumi-lang-nodejs=\" frontchannelLogoutUri \" pulumi-lang-dotnet=\" FrontchannelLogoutUri \" pulumi-lang-go=\" frontchannelLogoutUri \" pulumi-lang-python=\" frontchannel_logout_uri \" pulumi-lang-yaml=\" frontchannelLogoutUri \" pulumi-lang-java=\" frontchannelLogoutUri \"\u003e frontchannel_logout_uri \u003c/span\u003emust also be provided."
+                    "description": "*Early Access Property*. Allows the app to participate in front-channel Single Logout. Note: You can only enable participate*slo for web and browser application types. When set to true, frontchannel*logout_uri must also be provided. Enable `SINGLE_LOGOUT_SUPPORT` feature flag in your org to use this property.\n"
                 },
                 "pkceRequired": {
                     "type": "boolean",
@@ -7935,7 +7993,7 @@
                 },
                 "wildcardRedirect": {
                     "type": "string",
-                    "description": "*Early Access Property*. Indicates if the client is allowed to use wildcard matching of redirect_uris\n"
+                    "description": "*Early Access Property*. Indicates if the client is allowed to use wildcard matching of redirect_uris.\n"
                 }
             },
             "required": [
@@ -8004,7 +8062,7 @@
                 },
                 "consentMethod": {
                     "type": "string",
-                    "description": "*Early Access Property*. Indicates whether user consent is required or implicit. Valid values: REQUIRED, TRUSTED. Default value is TRUSTED\n"
+                    "description": "*Early Access Property*. Indicates whether user consent is required or implicit. Valid values: REQUIRED, TRUSTED. Default value is TRUSTED. Note: Enable `API_ACCESS_MANAGEMENT`, `API_ACCESS_MANAGEMENT_CONSENT` feature flags in your org to use this property.\n"
                 },
                 "enduserNote": {
                     "type": "string",
@@ -8012,11 +8070,11 @@
                 },
                 "frontchannelLogoutSessionRequired": {
                     "type": "boolean",
-                    "description": "*Early Access Property*. Determines whether Okta sends sid and iss in the logout request."
+                    "description": "*Early Access Property*. Determines whether Okta sends sid and iss in the logout request.\n"
                 },
                 "frontchannelLogoutUri": {
                     "type": "string",
-                    "description": "*Early Access Property*. URL where Okta sends the logout request. Required when\u003cspan pulumi-lang-nodejs=\" participateSlo \" pulumi-lang-dotnet=\" ParticipateSlo \" pulumi-lang-go=\" participateSlo \" pulumi-lang-python=\" participate_slo \" pulumi-lang-yaml=\" participateSlo \" pulumi-lang-java=\" participateSlo \"\u003e participate_slo \u003c/span\u003eis true."
+                    "description": "*Early Access Property*. URL where Okta sends the logout request. Required when\u003cspan pulumi-lang-nodejs=\" participateSlo \" pulumi-lang-dotnet=\" ParticipateSlo \" pulumi-lang-go=\" participateSlo \" pulumi-lang-python=\" participate_slo \" pulumi-lang-yaml=\" participateSlo \" pulumi-lang-java=\" participateSlo \"\u003e participate_slo \u003c/span\u003eis true.\n"
                 },
                 "grantTypes": {
                     "type": "array",
@@ -8090,7 +8148,7 @@
                 },
                 "participateSlo": {
                     "type": "boolean",
-                    "description": "*Early Access Property*. Allows the app to participate in front-channel Single Logout. Note: You can only enable\u003cspan pulumi-lang-nodejs=\" participateSlo \" pulumi-lang-dotnet=\" ParticipateSlo \" pulumi-lang-go=\" participateSlo \" pulumi-lang-python=\" participate_slo \" pulumi-lang-yaml=\" participateSlo \" pulumi-lang-java=\" participateSlo \"\u003e participate_slo \u003c/span\u003efor web and browser application types. When set to true,\u003cspan pulumi-lang-nodejs=\" frontchannelLogoutUri \" pulumi-lang-dotnet=\" FrontchannelLogoutUri \" pulumi-lang-go=\" frontchannelLogoutUri \" pulumi-lang-python=\" frontchannel_logout_uri \" pulumi-lang-yaml=\" frontchannelLogoutUri \" pulumi-lang-java=\" frontchannelLogoutUri \"\u003e frontchannel_logout_uri \u003c/span\u003emust also be provided."
+                    "description": "*Early Access Property*. Allows the app to participate in front-channel Single Logout. Note: You can only enable participate*slo for web and browser application types. When set to true, frontchannel*logout_uri must also be provided. Enable `SINGLE_LOGOUT_SUPPORT` feature flag in your org to use this property.\n"
                 },
                 "pkceRequired": {
                     "type": "boolean",
@@ -8168,7 +8226,7 @@
                 },
                 "wildcardRedirect": {
                     "type": "string",
-                    "description": "*Early Access Property*. Indicates if the client is allowed to use wildcard matching of redirect_uris\n"
+                    "description": "*Early Access Property*. Indicates if the client is allowed to use wildcard matching of redirect_uris.\n"
                 }
             },
             "requiredInputs": [
@@ -8235,7 +8293,7 @@
                     },
                     "consentMethod": {
                         "type": "string",
-                        "description": "*Early Access Property*. Indicates whether user consent is required or implicit. Valid values: REQUIRED, TRUSTED. Default value is TRUSTED\n"
+                        "description": "*Early Access Property*. Indicates whether user consent is required or implicit. Valid values: REQUIRED, TRUSTED. Default value is TRUSTED. Note: Enable `API_ACCESS_MANAGEMENT`, `API_ACCESS_MANAGEMENT_CONSENT` feature flags in your org to use this property.\n"
                     },
                     "enduserNote": {
                         "type": "string",
@@ -8243,11 +8301,11 @@
                     },
                     "frontchannelLogoutSessionRequired": {
                         "type": "boolean",
-                        "description": "*Early Access Property*. Determines whether Okta sends sid and iss in the logout request."
+                        "description": "*Early Access Property*. Determines whether Okta sends sid and iss in the logout request.\n"
                     },
                     "frontchannelLogoutUri": {
                         "type": "string",
-                        "description": "*Early Access Property*. URL where Okta sends the logout request. Required when\u003cspan pulumi-lang-nodejs=\" participateSlo \" pulumi-lang-dotnet=\" ParticipateSlo \" pulumi-lang-go=\" participateSlo \" pulumi-lang-python=\" participate_slo \" pulumi-lang-yaml=\" participateSlo \" pulumi-lang-java=\" participateSlo \"\u003e participate_slo \u003c/span\u003eis true."
+                        "description": "*Early Access Property*. URL where Okta sends the logout request. Required when\u003cspan pulumi-lang-nodejs=\" participateSlo \" pulumi-lang-dotnet=\" ParticipateSlo \" pulumi-lang-go=\" participateSlo \" pulumi-lang-python=\" participate_slo \" pulumi-lang-yaml=\" participateSlo \" pulumi-lang-java=\" participateSlo \"\u003e participate_slo \u003c/span\u003eis true.\n"
                     },
                     "grantTypes": {
                         "type": "array",
@@ -8329,7 +8387,7 @@
                     },
                     "participateSlo": {
                         "type": "boolean",
-                        "description": "*Early Access Property*. Allows the app to participate in front-channel Single Logout. Note: You can only enable\u003cspan pulumi-lang-nodejs=\" participateSlo \" pulumi-lang-dotnet=\" ParticipateSlo \" pulumi-lang-go=\" participateSlo \" pulumi-lang-python=\" participate_slo \" pulumi-lang-yaml=\" participateSlo \" pulumi-lang-java=\" participateSlo \"\u003e participate_slo \u003c/span\u003efor web and browser application types. When set to true,\u003cspan pulumi-lang-nodejs=\" frontchannelLogoutUri \" pulumi-lang-dotnet=\" FrontchannelLogoutUri \" pulumi-lang-go=\" frontchannelLogoutUri \" pulumi-lang-python=\" frontchannel_logout_uri \" pulumi-lang-yaml=\" frontchannelLogoutUri \" pulumi-lang-java=\" frontchannelLogoutUri \"\u003e frontchannel_logout_uri \u003c/span\u003emust also be provided."
+                        "description": "*Early Access Property*. Allows the app to participate in front-channel Single Logout. Note: You can only enable participate*slo for web and browser application types. When set to true, frontchannel*logout_uri must also be provided. Enable `SINGLE_LOGOUT_SUPPORT` feature flag in your org to use this property.\n"
                     },
                     "pkceRequired": {
                         "type": "boolean",
@@ -8411,7 +8469,7 @@
                     },
                     "wildcardRedirect": {
                         "type": "string",
-                        "description": "*Early Access Property*. Indicates if the client is allowed to use wildcard matching of redirect_uris\n"
+                        "description": "*Early Access Property*. Indicates if the client is allowed to use wildcard matching of redirect_uris.\n"
                     }
                 },
                 "type": "object"
@@ -20202,6 +20260,10 @@
                     "type": "integer",
                     "description": "The default percentage of a given rate limit threshold that the owning principal can consume."
                 },
+                "idProperty": {
+                    "type": "string",
+                    "description": "The unique identifier of the principle rate limit entity."
+                },
                 "lastUpdate": {
                     "type": "string",
                     "description": "The date and time the principle rate limit entity was last updated."
@@ -20228,6 +20290,7 @@
                 "createdDate",
                 "defaultConcurrencyPercentage",
                 "defaultPercentage",
+                "idProperty",
                 "lastUpdate",
                 "lastUpdatedBy",
                 "orgId",
@@ -20242,6 +20305,10 @@
                 "defaultPercentage": {
                     "type": "integer",
                     "description": "The default percentage of a given rate limit threshold that the owning principal can consume."
+                },
+                "idProperty": {
+                    "type": "string",
+                    "description": "The unique identifier of the principle rate limit entity."
                 },
                 "principalId": {
                     "type": "string",
@@ -20274,6 +20341,10 @@
                     "defaultPercentage": {
                         "type": "integer",
                         "description": "The default percentage of a given rate limit threshold that the owning principal can consume."
+                    },
+                    "idProperty": {
+                        "type": "string",
+                        "description": "The unique identifier of the principle rate limit entity."
                     },
                     "lastUpdate": {
                         "type": "string",
@@ -26616,7 +26687,7 @@
                 },
                 "realmId": {
                     "type": "string",
-                    "description": "The Realm ID to associate the user with"
+                    "description": "The Realm ID to associate the user with\n"
                 },
                 "recoveryAnswer": {
                     "type": "string",
@@ -26805,7 +26876,7 @@
                 },
                 "realmId": {
                     "type": "string",
-                    "description": "The Realm ID to associate the user with"
+                    "description": "The Realm ID to associate the user with\n"
                 },
                 "recoveryAnswer": {
                     "type": "string",
@@ -26997,7 +27068,7 @@
                     },
                     "realmId": {
                         "type": "string",
-                        "description": "The Realm ID to associate the user with"
+                        "description": "The Realm ID to associate the user with\n"
                     },
                     "recoveryAnswer": {
                         "type": "string",
@@ -27327,6 +27398,55 @@
                     "id",
                     "name",
                     "status"
+                ],
+                "type": "object"
+            }
+        },
+        "okta:app/getFederatedClaim:getFederatedClaim": {
+            "description": "Get a federated claim for an Okta application.\n\nUse this data source to retrieve information about a federated claim that has been configured for an application. Federated claims add custom claims to tokens produced for an application using Okta Expression Language.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst example = okta.app.getFederatedClaim({\n    appId: \"0oa1234567890abcdef\",\n    id: \"ofcu234567890abcdef\",\n});\nexport const claimExpression = example.then(example =\u003e example.expression);\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample = okta.app.get_federated_claim(app_id=\"0oa1234567890abcdef\",\n    id=\"ofcu234567890abcdef\")\npulumi.export(\"claimExpression\", example.expression)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = Okta.App.GetFederatedClaim.Invoke(new()\n    {\n        AppId = \"0oa1234567890abcdef\",\n        Id = \"ofcu234567890abcdef\",\n    });\n\n    return new Dictionary\u003cstring, object?\u003e\n    {\n        [\"claimExpression\"] = example.Apply(getFederatedClaimResult =\u003e getFederatedClaimResult.Expression),\n    };\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v6/go/okta/app\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texample, err := app.LookupFederatedClaim(ctx, \u0026app.LookupFederatedClaimArgs{\n\t\t\tAppId: \"0oa1234567890abcdef\",\n\t\t\tId:    \"ofcu234567890abcdef\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tctx.Export(\"claimExpression\", example.Expression)\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.okta.app.AppFunctions;\nimport com.pulumi.okta.app.inputs.GetFederatedClaimArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var example = AppFunctions.getFederatedClaim(GetFederatedClaimArgs.builder()\n            .appId(\"0oa1234567890abcdef\")\n            .id(\"ofcu234567890abcdef\")\n            .build());\n\n        ctx.export(\"claimExpression\", example.expression());\n    }\n}\n```\n```yaml\nvariables:\n  example:\n    fn::invoke:\n      function: okta:app:getFederatedClaim\n      arguments:\n        appId: 0oa1234567890abcdef\n        id: ofcu234567890abcdef\noutputs:\n  claimExpression: ${example.expression}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n### Using with a Resource\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst testApp = new okta.app.Saml(\"test_app\", {\n    label: \"example\",\n    ssoUrl: \"https://example.com\",\n    recipient: \"https://example.com\",\n    destination: \"https://example.com\",\n    audience: \"https://example.com/audience\",\n    subjectNameIdTemplate: \"${user.userName}\",\n    subjectNameIdFormat: \"urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress\",\n    responseSigned: true,\n    signatureAlgorithm: \"RSA_SHA256\",\n    digestAlgorithm: \"SHA256\",\n});\nconst exampleFederatedClaim = new okta.app.FederatedClaim(\"example\", {\n    appId: testApp.id,\n    name: \"role_last_name\",\n    expression: \"user.profile.lastName\",\n});\nconst example = okta.app.getFederatedClaimOutput({\n    appId: testApp.id,\n    id: exampleFederatedClaim.id,\n});\nexport const claimName = example.apply(example =\u003e example.name);\nexport const claimExpression = example.apply(example =\u003e example.expression);\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\ntest_app = okta.app.Saml(\"test_app\",\n    label=\"example\",\n    sso_url=\"https://example.com\",\n    recipient=\"https://example.com\",\n    destination=\"https://example.com\",\n    audience=\"https://example.com/audience\",\n    subject_name_id_template=\"${user.userName}\",\n    subject_name_id_format=\"urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress\",\n    response_signed=True,\n    signature_algorithm=\"RSA_SHA256\",\n    digest_algorithm=\"SHA256\")\nexample_federated_claim = okta.app.FederatedClaim(\"example\",\n    app_id=test_app.id,\n    name=\"role_last_name\",\n    expression=\"user.profile.lastName\")\nexample = okta.app.get_federated_claim_output(app_id=test_app.id,\n    id=example_federated_claim.id)\npulumi.export(\"claimName\", example.name)\npulumi.export(\"claimExpression\", example.expression)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var testApp = new Okta.App.Saml(\"test_app\", new()\n    {\n        Label = \"example\",\n        SsoUrl = \"https://example.com\",\n        Recipient = \"https://example.com\",\n        Destination = \"https://example.com\",\n        Audience = \"https://example.com/audience\",\n        SubjectNameIdTemplate = \"${user.userName}\",\n        SubjectNameIdFormat = \"urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress\",\n        ResponseSigned = true,\n        SignatureAlgorithm = \"RSA_SHA256\",\n        DigestAlgorithm = \"SHA256\",\n    });\n\n    var exampleFederatedClaim = new Okta.App.FederatedClaim(\"example\", new()\n    {\n        AppId = testApp.Id,\n        Name = \"role_last_name\",\n        Expression = \"user.profile.lastName\",\n    });\n\n    var example = Okta.App.GetFederatedClaim.Invoke(new()\n    {\n        AppId = testApp.Id,\n        Id = exampleFederatedClaim.Id,\n    });\n\n    return new Dictionary\u003cstring, object?\u003e\n    {\n        [\"claimName\"] = example.Apply(getFederatedClaimResult =\u003e getFederatedClaimResult.Name),\n        [\"claimExpression\"] = example.Apply(getFederatedClaimResult =\u003e getFederatedClaimResult.Expression),\n    };\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v6/go/okta/app\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\ttestApp, err := app.NewSaml(ctx, \"test_app\", \u0026app.SamlArgs{\n\t\t\tLabel:                 pulumi.String(\"example\"),\n\t\t\tSsoUrl:                pulumi.String(\"https://example.com\"),\n\t\t\tRecipient:             pulumi.String(\"https://example.com\"),\n\t\t\tDestination:           pulumi.String(\"https://example.com\"),\n\t\t\tAudience:              pulumi.String(\"https://example.com/audience\"),\n\t\t\tSubjectNameIdTemplate: pulumi.String(\"${user.userName}\"),\n\t\t\tSubjectNameIdFormat:   pulumi.String(\"urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress\"),\n\t\t\tResponseSigned:        pulumi.Bool(true),\n\t\t\tSignatureAlgorithm:    pulumi.String(\"RSA_SHA256\"),\n\t\t\tDigestAlgorithm:       pulumi.String(\"SHA256\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\texampleFederatedClaim, err := app.NewFederatedClaim(ctx, \"example\", \u0026app.FederatedClaimArgs{\n\t\t\tAppId:      testApp.ID(),\n\t\t\tName:       pulumi.String(\"role_last_name\"),\n\t\t\tExpression: pulumi.String(\"user.profile.lastName\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\texample := app.LookupFederatedClaimOutput(ctx, app.GetFederatedClaimOutputArgs{\n\t\t\tAppId: testApp.ID(),\n\t\t\tId:    exampleFederatedClaim.ID(),\n\t\t}, nil)\n\t\tctx.Export(\"claimName\", example.ApplyT(func(example app.GetFederatedClaimResult) (*string, error) {\n\t\t\treturn \u0026example.Name, nil\n\t\t}).(pulumi.StringPtrOutput))\n\t\tctx.Export(\"claimExpression\", example.ApplyT(func(example app.GetFederatedClaimResult) (*string, error) {\n\t\t\treturn \u0026example.Expression, nil\n\t\t}).(pulumi.StringPtrOutput))\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.okta.app.Saml;\nimport com.pulumi.okta.app.SamlArgs;\nimport com.pulumi.okta.app.FederatedClaim;\nimport com.pulumi.okta.app.FederatedClaimArgs;\nimport com.pulumi.okta.app.AppFunctions;\nimport com.pulumi.okta.app.inputs.GetFederatedClaimArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var testApp = new Saml(\"testApp\", SamlArgs.builder()\n            .label(\"example\")\n            .ssoUrl(\"https://example.com\")\n            .recipient(\"https://example.com\")\n            .destination(\"https://example.com\")\n            .audience(\"https://example.com/audience\")\n            .subjectNameIdTemplate(\"${user.userName}\")\n            .subjectNameIdFormat(\"urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress\")\n            .responseSigned(true)\n            .signatureAlgorithm(\"RSA_SHA256\")\n            .digestAlgorithm(\"SHA256\")\n            .build());\n\n        var exampleFederatedClaim = new FederatedClaim(\"exampleFederatedClaim\", FederatedClaimArgs.builder()\n            .appId(testApp.id())\n            .name(\"role_last_name\")\n            .expression(\"user.profile.lastName\")\n            .build());\n\n        final var example = AppFunctions.getFederatedClaim(GetFederatedClaimArgs.builder()\n            .appId(testApp.id())\n            .id(exampleFederatedClaim.id())\n            .build());\n\n        ctx.export(\"claimName\", example.applyValue(_example -\u003e _example.name()));\n        ctx.export(\"claimExpression\", example.applyValue(_example -\u003e _example.expression()));\n    }\n}\n```\n```yaml\nresources:\n  testApp:\n    type: okta:app:Saml\n    name: test_app\n    properties:\n      label: example\n      ssoUrl: https://example.com\n      recipient: https://example.com\n      destination: https://example.com\n      audience: https://example.com/audience\n      subjectNameIdTemplate: $${user.userName}\n      subjectNameIdFormat: urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress\n      responseSigned: true\n      signatureAlgorithm: RSA_SHA256\n      digestAlgorithm: SHA256\n  exampleFederatedClaim:\n    type: okta:app:FederatedClaim\n    name: example\n    properties:\n      appId: ${testApp.id}\n      name: role_last_name\n      expression: user.profile.lastName\nvariables:\n  example:\n    fn::invoke:\n      function: okta:app:getFederatedClaim\n      arguments:\n        appId: ${testApp.id}\n        id: ${exampleFederatedClaim.id}\noutputs:\n  claimName: ${example.name}\n  claimExpression: ${example.expression}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getFederatedClaim.\n",
+                "properties": {
+                    "appId": {
+                        "type": "string",
+                        "description": "The ID of the application that the federated claim belongs to.\n"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The unique identifier for the federated claim.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "appId",
+                    "id"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getFederatedClaim.\n",
+                "properties": {
+                    "appId": {
+                        "description": "The ID of the application that the federated claim belongs to.\n",
+                        "type": "string"
+                    },
+                    "expression": {
+                        "description": "The Okta Expression Language expression to be evaluated at runtime.\n",
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "The unique identifier for the federated claim.\n",
+                        "type": "string"
+                    },
+                    "name": {
+                        "description": "The name of the claim to be used in the produced token.\n",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "appId",
+                    "expression",
+                    "id",
+                    "name"
                 ],
                 "type": "object"
             }
@@ -32555,6 +32675,7 @@
                         "type": "string"
                     },
                     "realmId": {
+                        "description": "The Realm ID associated with the user.\n",
                         "type": "string"
                     },
                     "roles": {

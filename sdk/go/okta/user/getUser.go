@@ -59,22 +59,23 @@ type LookupUserResult struct {
 	HonorificPrefix  string   `pulumi:"honorificPrefix"`
 	HonorificSuffix  string   `pulumi:"honorificSuffix"`
 	// The provider-assigned unique ID for this managed resource.
-	Id                string   `pulumi:"id"`
-	LastName          string   `pulumi:"lastName"`
-	Locale            string   `pulumi:"locale"`
-	Login             string   `pulumi:"login"`
-	Manager           string   `pulumi:"manager"`
-	ManagerId         string   `pulumi:"managerId"`
-	MiddleName        string   `pulumi:"middleName"`
-	MobilePhone       string   `pulumi:"mobilePhone"`
-	NickName          string   `pulumi:"nickName"`
-	Organization      string   `pulumi:"organization"`
-	PostalAddress     string   `pulumi:"postalAddress"`
-	PreferredLanguage string   `pulumi:"preferredLanguage"`
-	PrimaryPhone      string   `pulumi:"primaryPhone"`
-	ProfileUrl        string   `pulumi:"profileUrl"`
-	RealmId           string   `pulumi:"realmId"`
-	Roles             []string `pulumi:"roles"`
+	Id                string `pulumi:"id"`
+	LastName          string `pulumi:"lastName"`
+	Locale            string `pulumi:"locale"`
+	Login             string `pulumi:"login"`
+	Manager           string `pulumi:"manager"`
+	ManagerId         string `pulumi:"managerId"`
+	MiddleName        string `pulumi:"middleName"`
+	MobilePhone       string `pulumi:"mobilePhone"`
+	NickName          string `pulumi:"nickName"`
+	Organization      string `pulumi:"organization"`
+	PostalAddress     string `pulumi:"postalAddress"`
+	PreferredLanguage string `pulumi:"preferredLanguage"`
+	PrimaryPhone      string `pulumi:"primaryPhone"`
+	ProfileUrl        string `pulumi:"profileUrl"`
+	// The Realm ID associated with the user.
+	RealmId string   `pulumi:"realmId"`
+	Roles   []string `pulumi:"roles"`
 	// Filter to find user/users. Each filter will be concatenated with the compound search operator. Please be aware profile properties must match what is in Okta, which is likely camel case. Expression is a free form expression filter https://developer.okta.com/docs/reference/core-okta-api/#filter . The set name/value/comparison properties will be ignored if expression is present
 	Searches    []GetUserSearch `pulumi:"searches"`
 	SecondEmail string          `pulumi:"secondEmail"`
@@ -260,6 +261,7 @@ func (o LookupUserResultOutput) ProfileUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserResult) string { return v.ProfileUrl }).(pulumi.StringOutput)
 }
 
+// The Realm ID associated with the user.
 func (o LookupUserResultOutput) RealmId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserResult) string { return v.RealmId }).(pulumi.StringOutput)
 }

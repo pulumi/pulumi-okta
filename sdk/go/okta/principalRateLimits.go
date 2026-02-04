@@ -23,6 +23,8 @@ type PrincipalRateLimits struct {
 	DefaultConcurrencyPercentage pulumi.IntOutput `pulumi:"defaultConcurrencyPercentage"`
 	// The default percentage of a given rate limit threshold that the owning principal can consume.
 	DefaultPercentage pulumi.IntOutput `pulumi:"defaultPercentage"`
+	// The unique identifier of the principle rate limit entity.
+	IdProperty pulumi.StringOutput `pulumi:"idProperty"`
 	// The date and time the principle rate limit entity was last updated.
 	LastUpdate pulumi.StringOutput `pulumi:"lastUpdate"`
 	// The Okta user ID of the user who last updated the principle rate limit entity.
@@ -79,6 +81,8 @@ type principalRateLimitsState struct {
 	DefaultConcurrencyPercentage *int `pulumi:"defaultConcurrencyPercentage"`
 	// The default percentage of a given rate limit threshold that the owning principal can consume.
 	DefaultPercentage *int `pulumi:"defaultPercentage"`
+	// The unique identifier of the principle rate limit entity.
+	IdProperty *string `pulumi:"idProperty"`
 	// The date and time the principle rate limit entity was last updated.
 	LastUpdate *string `pulumi:"lastUpdate"`
 	// The Okta user ID of the user who last updated the principle rate limit entity.
@@ -100,6 +104,8 @@ type PrincipalRateLimitsState struct {
 	DefaultConcurrencyPercentage pulumi.IntPtrInput
 	// The default percentage of a given rate limit threshold that the owning principal can consume.
 	DefaultPercentage pulumi.IntPtrInput
+	// The unique identifier of the principle rate limit entity.
+	IdProperty pulumi.StringPtrInput
 	// The date and time the principle rate limit entity was last updated.
 	LastUpdate pulumi.StringPtrInput
 	// The Okta user ID of the user who last updated the principle rate limit entity.
@@ -121,6 +127,8 @@ type principalRateLimitsArgs struct {
 	DefaultConcurrencyPercentage *int `pulumi:"defaultConcurrencyPercentage"`
 	// The default percentage of a given rate limit threshold that the owning principal can consume.
 	DefaultPercentage *int `pulumi:"defaultPercentage"`
+	// The unique identifier of the principle rate limit entity.
+	IdProperty *string `pulumi:"idProperty"`
 	// The unique identifier of the principal. This is the ID of the API token or OAuth 2.0 app.
 	PrincipalId string `pulumi:"principalId"`
 	// The type of principal, either an API token or an OAuth 2.0 app.
@@ -133,6 +141,8 @@ type PrincipalRateLimitsArgs struct {
 	DefaultConcurrencyPercentage pulumi.IntPtrInput
 	// The default percentage of a given rate limit threshold that the owning principal can consume.
 	DefaultPercentage pulumi.IntPtrInput
+	// The unique identifier of the principle rate limit entity.
+	IdProperty pulumi.StringPtrInput
 	// The unique identifier of the principal. This is the ID of the API token or OAuth 2.0 app.
 	PrincipalId pulumi.StringInput
 	// The type of principal, either an API token or an OAuth 2.0 app.
@@ -244,6 +254,11 @@ func (o PrincipalRateLimitsOutput) DefaultConcurrencyPercentage() pulumi.IntOutp
 // The default percentage of a given rate limit threshold that the owning principal can consume.
 func (o PrincipalRateLimitsOutput) DefaultPercentage() pulumi.IntOutput {
 	return o.ApplyT(func(v *PrincipalRateLimits) pulumi.IntOutput { return v.DefaultPercentage }).(pulumi.IntOutput)
+}
+
+// The unique identifier of the principle rate limit entity.
+func (o PrincipalRateLimitsOutput) IdProperty() pulumi.StringOutput {
+	return o.ApplyT(func(v *PrincipalRateLimits) pulumi.StringOutput { return v.IdProperty }).(pulumi.StringOutput)
 }
 
 // The date and time the principle rate limit entity was last updated.
