@@ -22,13 +22,15 @@ class PrincipalRateLimitsArgs:
                  principal_id: pulumi.Input[_builtins.str],
                  principal_type: pulumi.Input[_builtins.str],
                  default_concurrency_percentage: Optional[pulumi.Input[_builtins.int]] = None,
-                 default_percentage: Optional[pulumi.Input[_builtins.int]] = None):
+                 default_percentage: Optional[pulumi.Input[_builtins.int]] = None,
+                 id_property: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a PrincipalRateLimits resource.
         :param pulumi.Input[_builtins.str] principal_id: The unique identifier of the principal. This is the ID of the API token or OAuth 2.0 app.
         :param pulumi.Input[_builtins.str] principal_type: The type of principal, either an API token or an OAuth 2.0 app.
         :param pulumi.Input[_builtins.int] default_concurrency_percentage: The default percentage of a given concurrency limit threshold that the owning principal can consume.
         :param pulumi.Input[_builtins.int] default_percentage: The default percentage of a given rate limit threshold that the owning principal can consume.
+        :param pulumi.Input[_builtins.str] id_property: The unique identifier of the principle rate limit entity.
         """
         pulumi.set(__self__, "principal_id", principal_id)
         pulumi.set(__self__, "principal_type", principal_type)
@@ -36,6 +38,8 @@ class PrincipalRateLimitsArgs:
             pulumi.set(__self__, "default_concurrency_percentage", default_concurrency_percentage)
         if default_percentage is not None:
             pulumi.set(__self__, "default_percentage", default_percentage)
+        if id_property is not None:
+            pulumi.set(__self__, "id_property", id_property)
 
     @_builtins.property
     @pulumi.getter(name="principalId")
@@ -85,6 +89,18 @@ class PrincipalRateLimitsArgs:
     def default_percentage(self, value: Optional[pulumi.Input[_builtins.int]]):
         pulumi.set(self, "default_percentage", value)
 
+    @_builtins.property
+    @pulumi.getter(name="idProperty")
+    def id_property(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The unique identifier of the principle rate limit entity.
+        """
+        return pulumi.get(self, "id_property")
+
+    @id_property.setter
+    def id_property(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "id_property", value)
+
 
 @pulumi.input_type
 class _PrincipalRateLimitsState:
@@ -93,6 +109,7 @@ class _PrincipalRateLimitsState:
                  created_date: Optional[pulumi.Input[_builtins.str]] = None,
                  default_concurrency_percentage: Optional[pulumi.Input[_builtins.int]] = None,
                  default_percentage: Optional[pulumi.Input[_builtins.int]] = None,
+                 id_property: Optional[pulumi.Input[_builtins.str]] = None,
                  last_update: Optional[pulumi.Input[_builtins.str]] = None,
                  last_updated_by: Optional[pulumi.Input[_builtins.str]] = None,
                  org_id: Optional[pulumi.Input[_builtins.str]] = None,
@@ -104,6 +121,7 @@ class _PrincipalRateLimitsState:
         :param pulumi.Input[_builtins.str] created_date: The date and time the principle rate limit entity was created.
         :param pulumi.Input[_builtins.int] default_concurrency_percentage: The default percentage of a given concurrency limit threshold that the owning principal can consume.
         :param pulumi.Input[_builtins.int] default_percentage: The default percentage of a given rate limit threshold that the owning principal can consume.
+        :param pulumi.Input[_builtins.str] id_property: The unique identifier of the principle rate limit entity.
         :param pulumi.Input[_builtins.str] last_update: The date and time the principle rate limit entity was last updated.
         :param pulumi.Input[_builtins.str] last_updated_by: The Okta user ID of the user who last updated the principle rate limit entity.
         :param pulumi.Input[_builtins.str] org_id: The unique identifier of the Okta org.
@@ -118,6 +136,8 @@ class _PrincipalRateLimitsState:
             pulumi.set(__self__, "default_concurrency_percentage", default_concurrency_percentage)
         if default_percentage is not None:
             pulumi.set(__self__, "default_percentage", default_percentage)
+        if id_property is not None:
+            pulumi.set(__self__, "id_property", id_property)
         if last_update is not None:
             pulumi.set(__self__, "last_update", last_update)
         if last_updated_by is not None:
@@ -176,6 +196,18 @@ class _PrincipalRateLimitsState:
     @default_percentage.setter
     def default_percentage(self, value: Optional[pulumi.Input[_builtins.int]]):
         pulumi.set(self, "default_percentage", value)
+
+    @_builtins.property
+    @pulumi.getter(name="idProperty")
+    def id_property(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The unique identifier of the principle rate limit entity.
+        """
+        return pulumi.get(self, "id_property")
+
+    @id_property.setter
+    def id_property(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "id_property", value)
 
     @_builtins.property
     @pulumi.getter(name="lastUpdate")
@@ -246,6 +278,7 @@ class PrincipalRateLimits(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  default_concurrency_percentage: Optional[pulumi.Input[_builtins.int]] = None,
                  default_percentage: Optional[pulumi.Input[_builtins.int]] = None,
+                 id_property: Optional[pulumi.Input[_builtins.str]] = None,
                  principal_id: Optional[pulumi.Input[_builtins.str]] = None,
                  principal_type: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
@@ -255,6 +288,7 @@ class PrincipalRateLimits(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] default_concurrency_percentage: The default percentage of a given concurrency limit threshold that the owning principal can consume.
         :param pulumi.Input[_builtins.int] default_percentage: The default percentage of a given rate limit threshold that the owning principal can consume.
+        :param pulumi.Input[_builtins.str] id_property: The unique identifier of the principle rate limit entity.
         :param pulumi.Input[_builtins.str] principal_id: The unique identifier of the principal. This is the ID of the API token or OAuth 2.0 app.
         :param pulumi.Input[_builtins.str] principal_type: The type of principal, either an API token or an OAuth 2.0 app.
         """
@@ -283,6 +317,7 @@ class PrincipalRateLimits(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  default_concurrency_percentage: Optional[pulumi.Input[_builtins.int]] = None,
                  default_percentage: Optional[pulumi.Input[_builtins.int]] = None,
+                 id_property: Optional[pulumi.Input[_builtins.str]] = None,
                  principal_id: Optional[pulumi.Input[_builtins.str]] = None,
                  principal_type: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
@@ -296,6 +331,7 @@ class PrincipalRateLimits(pulumi.CustomResource):
 
             __props__.__dict__["default_concurrency_percentage"] = default_concurrency_percentage
             __props__.__dict__["default_percentage"] = default_percentage
+            __props__.__dict__["id_property"] = id_property
             if principal_id is None and not opts.urn:
                 raise TypeError("Missing required property 'principal_id'")
             __props__.__dict__["principal_id"] = principal_id
@@ -321,6 +357,7 @@ class PrincipalRateLimits(pulumi.CustomResource):
             created_date: Optional[pulumi.Input[_builtins.str]] = None,
             default_concurrency_percentage: Optional[pulumi.Input[_builtins.int]] = None,
             default_percentage: Optional[pulumi.Input[_builtins.int]] = None,
+            id_property: Optional[pulumi.Input[_builtins.str]] = None,
             last_update: Optional[pulumi.Input[_builtins.str]] = None,
             last_updated_by: Optional[pulumi.Input[_builtins.str]] = None,
             org_id: Optional[pulumi.Input[_builtins.str]] = None,
@@ -337,6 +374,7 @@ class PrincipalRateLimits(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] created_date: The date and time the principle rate limit entity was created.
         :param pulumi.Input[_builtins.int] default_concurrency_percentage: The default percentage of a given concurrency limit threshold that the owning principal can consume.
         :param pulumi.Input[_builtins.int] default_percentage: The default percentage of a given rate limit threshold that the owning principal can consume.
+        :param pulumi.Input[_builtins.str] id_property: The unique identifier of the principle rate limit entity.
         :param pulumi.Input[_builtins.str] last_update: The date and time the principle rate limit entity was last updated.
         :param pulumi.Input[_builtins.str] last_updated_by: The Okta user ID of the user who last updated the principle rate limit entity.
         :param pulumi.Input[_builtins.str] org_id: The unique identifier of the Okta org.
@@ -351,6 +389,7 @@ class PrincipalRateLimits(pulumi.CustomResource):
         __props__.__dict__["created_date"] = created_date
         __props__.__dict__["default_concurrency_percentage"] = default_concurrency_percentage
         __props__.__dict__["default_percentage"] = default_percentage
+        __props__.__dict__["id_property"] = id_property
         __props__.__dict__["last_update"] = last_update
         __props__.__dict__["last_updated_by"] = last_updated_by
         __props__.__dict__["org_id"] = org_id
@@ -389,6 +428,14 @@ class PrincipalRateLimits(pulumi.CustomResource):
         The default percentage of a given rate limit threshold that the owning principal can consume.
         """
         return pulumi.get(self, "default_percentage")
+
+    @_builtins.property
+    @pulumi.getter(name="idProperty")
+    def id_property(self) -> pulumi.Output[_builtins.str]:
+        """
+        The unique identifier of the principle rate limit entity.
+        """
+        return pulumi.get(self, "id_property")
 
     @_builtins.property
     @pulumi.getter(name="lastUpdate")

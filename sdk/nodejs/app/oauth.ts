@@ -174,7 +174,7 @@ export class OAuth extends pulumi.CustomResource {
      */
     declare public readonly clientUri: pulumi.Output<string | undefined>;
     /**
-     * *Early Access Property*. Indicates whether user consent is required or implicit. Valid values: REQUIRED, TRUSTED. Default value is TRUSTED
+     * *Early Access Property*. Indicates whether user consent is required or implicit. Valid values: REQUIRED, TRUSTED. Default value is TRUSTED. Note: Enable `API_ACCESS_MANAGEMENT`, `API_ACCESS_MANAGEMENT_CONSENT` feature flags in your org to use this property.
      */
     declare public readonly consentMethod: pulumi.Output<string | undefined>;
     /**
@@ -260,7 +260,7 @@ export class OAuth extends pulumi.CustomResource {
      */
     declare public readonly omitSecret: pulumi.Output<boolean | undefined>;
     /**
-     * *Early Access Property*. Allows the app to participate in front-channel Single Logout. Note: You can only enable participateSlo for web and browser application types. When set to true, frontchannelLogoutUri must also be provided.
+     * *Early Access Property*. Allows the app to participate in front-channel Single Logout. Note: You can only enable participate*slo for web and browser application types. When set to true, frontchannel*logout_uri must also be provided. Enable `SINGLE_LOGOUT_SUPPORT` feature flag in your org to use this property.
      */
     declare public readonly participateSlo: pulumi.Output<boolean | undefined>;
     /**
@@ -332,7 +332,7 @@ export class OAuth extends pulumi.CustomResource {
      */
     declare public readonly userNameTemplateType: pulumi.Output<string | undefined>;
     /**
-     * *Early Access Property*. Indicates if the client is allowed to use wildcard matching of redirect_uris
+     * *Early Access Property*. Indicates if the client is allowed to use wildcard matching of redirect_uris.
      */
     declare public readonly wildcardRedirect: pulumi.Output<string | undefined>;
 
@@ -532,7 +532,7 @@ export interface OAuthState {
      */
     clientUri?: pulumi.Input<string>;
     /**
-     * *Early Access Property*. Indicates whether user consent is required or implicit. Valid values: REQUIRED, TRUSTED. Default value is TRUSTED
+     * *Early Access Property*. Indicates whether user consent is required or implicit. Valid values: REQUIRED, TRUSTED. Default value is TRUSTED. Note: Enable `API_ACCESS_MANAGEMENT`, `API_ACCESS_MANAGEMENT_CONSENT` feature flags in your org to use this property.
      */
     consentMethod?: pulumi.Input<string>;
     /**
@@ -618,7 +618,7 @@ export interface OAuthState {
      */
     omitSecret?: pulumi.Input<boolean>;
     /**
-     * *Early Access Property*. Allows the app to participate in front-channel Single Logout. Note: You can only enable participateSlo for web and browser application types. When set to true, frontchannelLogoutUri must also be provided.
+     * *Early Access Property*. Allows the app to participate in front-channel Single Logout. Note: You can only enable participate*slo for web and browser application types. When set to true, frontchannel*logout_uri must also be provided. Enable `SINGLE_LOGOUT_SUPPORT` feature flag in your org to use this property.
      */
     participateSlo?: pulumi.Input<boolean>;
     /**
@@ -690,7 +690,7 @@ export interface OAuthState {
      */
     userNameTemplateType?: pulumi.Input<string>;
     /**
-     * *Early Access Property*. Indicates if the client is allowed to use wildcard matching of redirect_uris
+     * *Early Access Property*. Indicates if the client is allowed to use wildcard matching of redirect_uris.
      */
     wildcardRedirect?: pulumi.Input<string>;
 }
@@ -752,7 +752,7 @@ export interface OAuthArgs {
      */
     clientUri?: pulumi.Input<string>;
     /**
-     * *Early Access Property*. Indicates whether user consent is required or implicit. Valid values: REQUIRED, TRUSTED. Default value is TRUSTED
+     * *Early Access Property*. Indicates whether user consent is required or implicit. Valid values: REQUIRED, TRUSTED. Default value is TRUSTED. Note: Enable `API_ACCESS_MANAGEMENT`, `API_ACCESS_MANAGEMENT_CONSENT` feature flags in your org to use this property.
      */
     consentMethod?: pulumi.Input<string>;
     /**
@@ -830,7 +830,7 @@ export interface OAuthArgs {
      */
     omitSecret?: pulumi.Input<boolean>;
     /**
-     * *Early Access Property*. Allows the app to participate in front-channel Single Logout. Note: You can only enable participateSlo for web and browser application types. When set to true, frontchannelLogoutUri must also be provided.
+     * *Early Access Property*. Allows the app to participate in front-channel Single Logout. Note: You can only enable participate*slo for web and browser application types. When set to true, frontchannel*logout_uri must also be provided. Enable `SINGLE_LOGOUT_SUPPORT` feature flag in your org to use this property.
      */
     participateSlo?: pulumi.Input<boolean>;
     /**
@@ -898,7 +898,7 @@ export interface OAuthArgs {
      */
     userNameTemplateType?: pulumi.Input<string>;
     /**
-     * *Early Access Property*. Indicates if the client is allowed to use wildcard matching of redirect_uris
+     * *Early Access Property*. Indicates if the client is allowed to use wildcard matching of redirect_uris.
      */
     wildcardRedirect?: pulumi.Input<string>;
 }

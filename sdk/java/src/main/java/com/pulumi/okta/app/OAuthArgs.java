@@ -210,14 +210,14 @@ public final class OAuthArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * *Early Access Property*. Indicates whether user consent is required or implicit. Valid values: REQUIRED, TRUSTED. Default value is TRUSTED
+     * *Early Access Property*. Indicates whether user consent is required or implicit. Valid values: REQUIRED, TRUSTED. Default value is TRUSTED. Note: Enable `API_ACCESS_MANAGEMENT`, `API_ACCESS_MANAGEMENT_CONSENT` feature flags in your org to use this property.
      * 
      */
     @Import(name="consentMethod")
     private @Nullable Output<String> consentMethod;
 
     /**
-     * @return *Early Access Property*. Indicates whether user consent is required or implicit. Valid values: REQUIRED, TRUSTED. Default value is TRUSTED
+     * @return *Early Access Property*. Indicates whether user consent is required or implicit. Valid values: REQUIRED, TRUSTED. Default value is TRUSTED. Note: Enable `API_ACCESS_MANAGEMENT`, `API_ACCESS_MANAGEMENT_CONSENT` feature flags in your org to use this property.
      * 
      */
     public Optional<Output<String>> consentMethod() {
@@ -503,14 +503,14 @@ public final class OAuthArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * *Early Access Property*. Allows the app to participate in front-channel Single Logout. Note: You can only enable participateSlo for web and browser application types. When set to true, frontchannelLogoutUri must also be provided.
+     * *Early Access Property*. Allows the app to participate in front-channel Single Logout. Note: You can only enable participate*slo for web and browser application types. When set to true, frontchannel*logout_uri must also be provided. Enable `SINGLE_LOGOUT_SUPPORT` feature flag in your org to use this property.
      * 
      */
     @Import(name="participateSlo")
     private @Nullable Output<Boolean> participateSlo;
 
     /**
-     * @return *Early Access Property*. Allows the app to participate in front-channel Single Logout. Note: You can only enable participateSlo for web and browser application types. When set to true, frontchannelLogoutUri must also be provided.
+     * @return *Early Access Property*. Allows the app to participate in front-channel Single Logout. Note: You can only enable participate*slo for web and browser application types. When set to true, frontchannel*logout_uri must also be provided. Enable `SINGLE_LOGOUT_SUPPORT` feature flag in your org to use this property.
      * 
      */
     public Optional<Output<Boolean>> participateSlo() {
@@ -758,14 +758,14 @@ public final class OAuthArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * *Early Access Property*. Indicates if the client is allowed to use wildcard matching of redirect_uris
+     * *Early Access Property*. Indicates if the client is allowed to use wildcard matching of redirect_uris.
      * 
      */
     @Import(name="wildcardRedirect")
     private @Nullable Output<String> wildcardRedirect;
 
     /**
-     * @return *Early Access Property*. Indicates if the client is allowed to use wildcard matching of redirect_uris
+     * @return *Early Access Property*. Indicates if the client is allowed to use wildcard matching of redirect_uris.
      * 
      */
     public Optional<Output<String>> wildcardRedirect() {
@@ -1105,7 +1105,7 @@ public final class OAuthArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param consentMethod *Early Access Property*. Indicates whether user consent is required or implicit. Valid values: REQUIRED, TRUSTED. Default value is TRUSTED
+         * @param consentMethod *Early Access Property*. Indicates whether user consent is required or implicit. Valid values: REQUIRED, TRUSTED. Default value is TRUSTED. Note: Enable `API_ACCESS_MANAGEMENT`, `API_ACCESS_MANAGEMENT_CONSENT` feature flags in your org to use this property.
          * 
          * @return builder
          * 
@@ -1116,7 +1116,7 @@ public final class OAuthArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param consentMethod *Early Access Property*. Indicates whether user consent is required or implicit. Valid values: REQUIRED, TRUSTED. Default value is TRUSTED
+         * @param consentMethod *Early Access Property*. Indicates whether user consent is required or implicit. Valid values: REQUIRED, TRUSTED. Default value is TRUSTED. Note: Enable `API_ACCESS_MANAGEMENT`, `API_ACCESS_MANAGEMENT_CONSENT` feature flags in your org to use this property.
          * 
          * @return builder
          * 
@@ -1542,7 +1542,7 @@ public final class OAuthArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param participateSlo *Early Access Property*. Allows the app to participate in front-channel Single Logout. Note: You can only enable participateSlo for web and browser application types. When set to true, frontchannelLogoutUri must also be provided.
+         * @param participateSlo *Early Access Property*. Allows the app to participate in front-channel Single Logout. Note: You can only enable participate*slo for web and browser application types. When set to true, frontchannel*logout_uri must also be provided. Enable `SINGLE_LOGOUT_SUPPORT` feature flag in your org to use this property.
          * 
          * @return builder
          * 
@@ -1553,7 +1553,7 @@ public final class OAuthArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param participateSlo *Early Access Property*. Allows the app to participate in front-channel Single Logout. Note: You can only enable participateSlo for web and browser application types. When set to true, frontchannelLogoutUri must also be provided.
+         * @param participateSlo *Early Access Property*. Allows the app to participate in front-channel Single Logout. Note: You can only enable participate*slo for web and browser application types. When set to true, frontchannel*logout_uri must also be provided. Enable `SINGLE_LOGOUT_SUPPORT` feature flag in your org to use this property.
          * 
          * @return builder
          * 
@@ -1929,7 +1929,7 @@ public final class OAuthArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param wildcardRedirect *Early Access Property*. Indicates if the client is allowed to use wildcard matching of redirect_uris
+         * @param wildcardRedirect *Early Access Property*. Indicates if the client is allowed to use wildcard matching of redirect_uris.
          * 
          * @return builder
          * 
@@ -1940,7 +1940,7 @@ public final class OAuthArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param wildcardRedirect *Early Access Property*. Indicates if the client is allowed to use wildcard matching of redirect_uris
+         * @param wildcardRedirect *Early Access Property*. Indicates if the client is allowed to use wildcard matching of redirect_uris.
          * 
          * @return builder
          * 

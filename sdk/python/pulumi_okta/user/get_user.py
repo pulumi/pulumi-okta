@@ -324,6 +324,9 @@ class GetUserResult:
     @_builtins.property
     @pulumi.getter(name="realmId")
     def realm_id(self) -> _builtins.str:
+        """
+        The Realm ID associated with the user.
+        """
         return pulumi.get(self, "realm_id")
 
     @_builtins.property

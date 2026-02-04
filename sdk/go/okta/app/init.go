@@ -33,6 +33,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Connection{}
 	case "okta:app/features:Features":
 		r = &Features{}
+	case "okta:app/federatedClaim:FederatedClaim":
+		r = &FederatedClaim{}
 	case "okta:app/groupAssignment:GroupAssignment":
 		r = &GroupAssignment{}
 	case "okta:app/oAuth:OAuth":
@@ -96,6 +98,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"okta",
 		"app/features",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"okta",
+		"app/federatedClaim",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

@@ -77,6 +77,21 @@ public final class PrincipalRateLimitsState extends com.pulumi.resources.Resourc
     }
 
     /**
+     * The unique identifier of the principle rate limit entity.
+     * 
+     */
+    @Import(name="idProperty")
+    private @Nullable Output<String> idProperty;
+
+    /**
+     * @return The unique identifier of the principle rate limit entity.
+     * 
+     */
+    public Optional<Output<String>> idProperty() {
+        return Optional.ofNullable(this.idProperty);
+    }
+
+    /**
      * The date and time the principle rate limit entity was last updated.
      * 
      */
@@ -158,6 +173,7 @@ public final class PrincipalRateLimitsState extends com.pulumi.resources.Resourc
         this.createdDate = $.createdDate;
         this.defaultConcurrencyPercentage = $.defaultConcurrencyPercentage;
         this.defaultPercentage = $.defaultPercentage;
+        this.idProperty = $.idProperty;
         this.lastUpdate = $.lastUpdate;
         this.lastUpdatedBy = $.lastUpdatedBy;
         this.orgId = $.orgId;
@@ -265,6 +281,27 @@ public final class PrincipalRateLimitsState extends com.pulumi.resources.Resourc
          */
         public Builder defaultPercentage(Integer defaultPercentage) {
             return defaultPercentage(Output.of(defaultPercentage));
+        }
+
+        /**
+         * @param idProperty The unique identifier of the principle rate limit entity.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder idProperty(@Nullable Output<String> idProperty) {
+            $.idProperty = idProperty;
+            return this;
+        }
+
+        /**
+         * @param idProperty The unique identifier of the principle rate limit entity.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder idProperty(String idProperty) {
+            return idProperty(Output.of(idProperty));
         }
 
         /**

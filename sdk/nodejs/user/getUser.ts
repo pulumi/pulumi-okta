@@ -95,6 +95,9 @@ export interface GetUserResult {
     readonly preferredLanguage: string;
     readonly primaryPhone: string;
     readonly profileUrl: string;
+    /**
+     * The Realm ID associated with the user.
+     */
     readonly realmId: string;
     readonly roles: string[];
     /**

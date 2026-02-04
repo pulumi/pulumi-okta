@@ -12,9 +12,11 @@ from .basic_auth import *
 from .bookmark import *
 from .connection import *
 from .features import *
+from .federated_claim import *
 from .get_app import *
 from .get_connection import *
 from .get_features import *
+from .get_federated_claim import *
 from .get_metadata_saml import *
 from .get_oauth import *
 from .get_saml import *

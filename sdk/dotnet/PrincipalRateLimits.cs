@@ -37,6 +37,12 @@ namespace Pulumi.Okta
         public Output<int> DefaultPercentage { get; private set; } = null!;
 
         /// <summary>
+        /// The unique identifier of the principle rate limit entity.
+        /// </summary>
+        [Output("idProperty")]
+        public Output<string> IdProperty { get; private set; } = null!;
+
+        /// <summary>
         /// The date and time the principle rate limit entity was last updated.
         /// </summary>
         [Output("lastUpdate")]
@@ -125,6 +131,12 @@ namespace Pulumi.Okta
         public Input<int>? DefaultPercentage { get; set; }
 
         /// <summary>
+        /// The unique identifier of the principle rate limit entity.
+        /// </summary>
+        [Input("idProperty")]
+        public Input<string>? IdProperty { get; set; }
+
+        /// <summary>
         /// The unique identifier of the principal. This is the ID of the API token or OAuth 2.0 app.
         /// </summary>
         [Input("principalId", required: true)]
@@ -167,6 +179,12 @@ namespace Pulumi.Okta
         /// </summary>
         [Input("defaultPercentage")]
         public Input<int>? DefaultPercentage { get; set; }
+
+        /// <summary>
+        /// The unique identifier of the principle rate limit entity.
+        /// </summary>
+        [Input("idProperty")]
+        public Input<string>? IdProperty { get; set; }
 
         /// <summary>
         /// The date and time the principle rate limit entity was last updated.

@@ -90,7 +90,7 @@ class OAuthArgs:
         :param pulumi.Input[_builtins.str] client_basic_secret: The user provided OAuth client secret key value, this can be set when token*endpoint*auth*method is client*secret*basic. This does nothing when `omit*secret is set to true.
         :param pulumi.Input[_builtins.str] client_id: OAuth client ID. If set during creation, app is created with this id.
         :param pulumi.Input[_builtins.str] client_uri: URI to a web page providing information about the client.
-        :param pulumi.Input[_builtins.str] consent_method: *Early Access Property*. Indicates whether user consent is required or implicit. Valid values: REQUIRED, TRUSTED. Default value is TRUSTED
+        :param pulumi.Input[_builtins.str] consent_method: *Early Access Property*. Indicates whether user consent is required or implicit. Valid values: REQUIRED, TRUSTED. Default value is TRUSTED. Note: Enable `API_ACCESS_MANAGEMENT`, `API_ACCESS_MANAGEMENT_CONSENT` feature flags in your org to use this property.
         :param pulumi.Input[_builtins.str] enduser_note: Application notes for end users.
         :param pulumi.Input[_builtins.bool] frontchannel_logout_session_required: *Early Access Property*. Determines whether Okta sends sid and iss in the logout request.
         :param pulumi.Input[_builtins.str] frontchannel_logout_uri: *Early Access Property*. URL where Okta sends the logout request. Required when participate_slo is true.
@@ -108,7 +108,7 @@ class OAuthArgs:
         :param pulumi.Input[_builtins.str] logo: Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
         :param pulumi.Input[_builtins.str] logo_uri: URI that references a logo for the client.
         :param pulumi.Input[_builtins.bool] omit_secret: This tells the provider not manage the client*secret value in state. When this is false (the default), it will cause the auto-generated client*secret to be persisted in the client_secret attribute in state. This also means that every time an update to this app is run, this value is also set on the API. If this changes from false => true, the `client_secret` is dropped from state and the secret at the time of the apply is what remains. If this is ever changes from true => false your app will be recreated, due to the need to regenerate a secret we can store in state.
-        :param pulumi.Input[_builtins.bool] participate_slo: *Early Access Property*. Allows the app to participate in front-channel Single Logout. Note: You can only enable participate_slo for web and browser application types. When set to true, frontchannel_logout_uri must also be provided.
+        :param pulumi.Input[_builtins.bool] participate_slo: *Early Access Property*. Allows the app to participate in front-channel Single Logout. Note: You can only enable participate*slo for web and browser application types. When set to true, frontchannel*logout_uri must also be provided. Enable `SINGLE_LOGOUT_SUPPORT` feature flag in your org to use this property.
         :param pulumi.Input[_builtins.bool] pkce_required: Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
         :param pulumi.Input[_builtins.str] policy_uri: URI to web page providing client policy document.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] post_logout_redirect_uris: List of URIs for redirection after logout. Note: see okta*app*oauth*post*logout*redirect*uri for appending to this list in a decentralized way.
@@ -124,7 +124,7 @@ class OAuthArgs:
         :param pulumi.Input[_builtins.str] user_name_template_push_status: Push username on update. Valid values: `PUSH` and `DONT_PUSH`
         :param pulumi.Input[_builtins.str] user_name_template_suffix: Username template suffix
         :param pulumi.Input[_builtins.str] user_name_template_type: Username template type. Default: `BUILT_IN`
-        :param pulumi.Input[_builtins.str] wildcard_redirect: *Early Access Property*. Indicates if the client is allowed to use wildcard matching of redirect_uris
+        :param pulumi.Input[_builtins.str] wildcard_redirect: *Early Access Property*. Indicates if the client is allowed to use wildcard matching of redirect_uris.
         """
         pulumi.set(__self__, "label", label)
         pulumi.set(__self__, "type", type)
@@ -402,7 +402,7 @@ class OAuthArgs:
     @pulumi.getter(name="consentMethod")
     def consent_method(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        *Early Access Property*. Indicates whether user consent is required or implicit. Valid values: REQUIRED, TRUSTED. Default value is TRUSTED
+        *Early Access Property*. Indicates whether user consent is required or implicit. Valid values: REQUIRED, TRUSTED. Default value is TRUSTED. Note: Enable `API_ACCESS_MANAGEMENT`, `API_ACCESS_MANAGEMENT_CONSENT` feature flags in your org to use this property.
         """
         return pulumi.get(self, "consent_method")
 
@@ -619,7 +619,7 @@ class OAuthArgs:
     @pulumi.getter(name="participateSlo")
     def participate_slo(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        *Early Access Property*. Allows the app to participate in front-channel Single Logout. Note: You can only enable participate_slo for web and browser application types. When set to true, frontchannel_logout_uri must also be provided.
+        *Early Access Property*. Allows the app to participate in front-channel Single Logout. Note: You can only enable participate*slo for web and browser application types. When set to true, frontchannel*logout_uri must also be provided. Enable `SINGLE_LOGOUT_SUPPORT` feature flag in your org to use this property.
         """
         return pulumi.get(self, "participate_slo")
 
@@ -811,7 +811,7 @@ class OAuthArgs:
     @pulumi.getter(name="wildcardRedirect")
     def wildcard_redirect(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        *Early Access Property*. Indicates if the client is allowed to use wildcard matching of redirect_uris
+        *Early Access Property*. Indicates if the client is allowed to use wildcard matching of redirect_uris.
         """
         return pulumi.get(self, "wildcard_redirect")
 
@@ -895,7 +895,7 @@ class _OAuthState:
         :param pulumi.Input[_builtins.str] client_id: OAuth client ID. If set during creation, app is created with this id.
         :param pulumi.Input[_builtins.str] client_secret: OAuth client secret value, this is output only. This will be in plain text in your statefile unless you set omit_secret above.
         :param pulumi.Input[_builtins.str] client_uri: URI to a web page providing information about the client.
-        :param pulumi.Input[_builtins.str] consent_method: *Early Access Property*. Indicates whether user consent is required or implicit. Valid values: REQUIRED, TRUSTED. Default value is TRUSTED
+        :param pulumi.Input[_builtins.str] consent_method: *Early Access Property*. Indicates whether user consent is required or implicit. Valid values: REQUIRED, TRUSTED. Default value is TRUSTED. Note: Enable `API_ACCESS_MANAGEMENT`, `API_ACCESS_MANAGEMENT_CONSENT` feature flags in your org to use this property.
         :param pulumi.Input[_builtins.str] enduser_note: Application notes for end users.
         :param pulumi.Input[_builtins.bool] frontchannel_logout_session_required: *Early Access Property*. Determines whether Okta sends sid and iss in the logout request.
         :param pulumi.Input[_builtins.str] frontchannel_logout_uri: *Early Access Property*. URL where Okta sends the logout request. Required when participate_slo is true.
@@ -916,7 +916,7 @@ class _OAuthState:
         :param pulumi.Input[_builtins.str] logo_url: URL of the application's logo
         :param pulumi.Input[_builtins.str] name: Name of the app.
         :param pulumi.Input[_builtins.bool] omit_secret: This tells the provider not manage the client*secret value in state. When this is false (the default), it will cause the auto-generated client*secret to be persisted in the client_secret attribute in state. This also means that every time an update to this app is run, this value is also set on the API. If this changes from false => true, the `client_secret` is dropped from state and the secret at the time of the apply is what remains. If this is ever changes from true => false your app will be recreated, due to the need to regenerate a secret we can store in state.
-        :param pulumi.Input[_builtins.bool] participate_slo: *Early Access Property*. Allows the app to participate in front-channel Single Logout. Note: You can only enable participate_slo for web and browser application types. When set to true, frontchannel_logout_uri must also be provided.
+        :param pulumi.Input[_builtins.bool] participate_slo: *Early Access Property*. Allows the app to participate in front-channel Single Logout. Note: You can only enable participate*slo for web and browser application types. When set to true, frontchannel*logout_uri must also be provided. Enable `SINGLE_LOGOUT_SUPPORT` feature flag in your org to use this property.
         :param pulumi.Input[_builtins.bool] pkce_required: Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
         :param pulumi.Input[_builtins.str] policy_uri: URI to web page providing client policy document.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] post_logout_redirect_uris: List of URIs for redirection after logout. Note: see okta*app*oauth*post*logout*redirect*uri for appending to this list in a decentralized way.
@@ -934,7 +934,7 @@ class _OAuthState:
         :param pulumi.Input[_builtins.str] user_name_template_push_status: Push username on update. Valid values: `PUSH` and `DONT_PUSH`
         :param pulumi.Input[_builtins.str] user_name_template_suffix: Username template suffix
         :param pulumi.Input[_builtins.str] user_name_template_type: Username template type. Default: `BUILT_IN`
-        :param pulumi.Input[_builtins.str] wildcard_redirect: *Early Access Property*. Indicates if the client is allowed to use wildcard matching of redirect_uris
+        :param pulumi.Input[_builtins.str] wildcard_redirect: *Early Access Property*. Indicates if the client is allowed to use wildcard matching of redirect_uris.
         """
         if accessibility_error_redirect_url is not None:
             pulumi.set(__self__, "accessibility_error_redirect_url", accessibility_error_redirect_url)
@@ -1210,7 +1210,7 @@ class _OAuthState:
     @pulumi.getter(name="consentMethod")
     def consent_method(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        *Early Access Property*. Indicates whether user consent is required or implicit. Valid values: REQUIRED, TRUSTED. Default value is TRUSTED
+        *Early Access Property*. Indicates whether user consent is required or implicit. Valid values: REQUIRED, TRUSTED. Default value is TRUSTED. Note: Enable `API_ACCESS_MANAGEMENT`, `API_ACCESS_MANAGEMENT_CONSENT` feature flags in your org to use this property.
         """
         return pulumi.get(self, "consent_method")
 
@@ -1463,7 +1463,7 @@ class _OAuthState:
     @pulumi.getter(name="participateSlo")
     def participate_slo(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        *Early Access Property*. Allows the app to participate in front-channel Single Logout. Note: You can only enable participate_slo for web and browser application types. When set to true, frontchannel_logout_uri must also be provided.
+        *Early Access Property*. Allows the app to participate in front-channel Single Logout. Note: You can only enable participate*slo for web and browser application types. When set to true, frontchannel*logout_uri must also be provided. Enable `SINGLE_LOGOUT_SUPPORT` feature flag in your org to use this property.
         """
         return pulumi.get(self, "participate_slo")
 
@@ -1679,7 +1679,7 @@ class _OAuthState:
     @pulumi.getter(name="wildcardRedirect")
     def wildcard_redirect(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        *Early Access Property*. Indicates if the client is allowed to use wildcard matching of redirect_uris
+        *Early Access Property*. Indicates if the client is allowed to use wildcard matching of redirect_uris.
         """
         return pulumi.get(self, "wildcard_redirect")
 
@@ -1839,7 +1839,7 @@ class OAuth(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] client_basic_secret: The user provided OAuth client secret key value, this can be set when token*endpoint*auth*method is client*secret*basic. This does nothing when `omit*secret is set to true.
         :param pulumi.Input[_builtins.str] client_id: OAuth client ID. If set during creation, app is created with this id.
         :param pulumi.Input[_builtins.str] client_uri: URI to a web page providing information about the client.
-        :param pulumi.Input[_builtins.str] consent_method: *Early Access Property*. Indicates whether user consent is required or implicit. Valid values: REQUIRED, TRUSTED. Default value is TRUSTED
+        :param pulumi.Input[_builtins.str] consent_method: *Early Access Property*. Indicates whether user consent is required or implicit. Valid values: REQUIRED, TRUSTED. Default value is TRUSTED. Note: Enable `API_ACCESS_MANAGEMENT`, `API_ACCESS_MANAGEMENT_CONSENT` feature flags in your org to use this property.
         :param pulumi.Input[_builtins.str] enduser_note: Application notes for end users.
         :param pulumi.Input[_builtins.bool] frontchannel_logout_session_required: *Early Access Property*. Determines whether Okta sends sid and iss in the logout request.
         :param pulumi.Input[_builtins.str] frontchannel_logout_uri: *Early Access Property*. URL where Okta sends the logout request. Required when participate_slo is true.
@@ -1858,7 +1858,7 @@ class OAuth(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] logo: Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
         :param pulumi.Input[_builtins.str] logo_uri: URI that references a logo for the client.
         :param pulumi.Input[_builtins.bool] omit_secret: This tells the provider not manage the client*secret value in state. When this is false (the default), it will cause the auto-generated client*secret to be persisted in the client_secret attribute in state. This also means that every time an update to this app is run, this value is also set on the API. If this changes from false => true, the `client_secret` is dropped from state and the secret at the time of the apply is what remains. If this is ever changes from true => false your app will be recreated, due to the need to regenerate a secret we can store in state.
-        :param pulumi.Input[_builtins.bool] participate_slo: *Early Access Property*. Allows the app to participate in front-channel Single Logout. Note: You can only enable participate_slo for web and browser application types. When set to true, frontchannel_logout_uri must also be provided.
+        :param pulumi.Input[_builtins.bool] participate_slo: *Early Access Property*. Allows the app to participate in front-channel Single Logout. Note: You can only enable participate*slo for web and browser application types. When set to true, frontchannel*logout_uri must also be provided. Enable `SINGLE_LOGOUT_SUPPORT` feature flag in your org to use this property.
         :param pulumi.Input[_builtins.bool] pkce_required: Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
         :param pulumi.Input[_builtins.str] policy_uri: URI to web page providing client policy document.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] post_logout_redirect_uris: List of URIs for redirection after logout. Note: see okta*app*oauth*post*logout*redirect*uri for appending to this list in a decentralized way.
@@ -1875,7 +1875,7 @@ class OAuth(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] user_name_template_push_status: Push username on update. Valid values: `PUSH` and `DONT_PUSH`
         :param pulumi.Input[_builtins.str] user_name_template_suffix: Username template suffix
         :param pulumi.Input[_builtins.str] user_name_template_type: Username template type. Default: `BUILT_IN`
-        :param pulumi.Input[_builtins.str] wildcard_redirect: *Early Access Property*. Indicates if the client is allowed to use wildcard matching of redirect_uris
+        :param pulumi.Input[_builtins.str] wildcard_redirect: *Early Access Property*. Indicates if the client is allowed to use wildcard matching of redirect_uris.
         """
         ...
     @overload
@@ -2179,7 +2179,7 @@ class OAuth(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] client_id: OAuth client ID. If set during creation, app is created with this id.
         :param pulumi.Input[_builtins.str] client_secret: OAuth client secret value, this is output only. This will be in plain text in your statefile unless you set omit_secret above.
         :param pulumi.Input[_builtins.str] client_uri: URI to a web page providing information about the client.
-        :param pulumi.Input[_builtins.str] consent_method: *Early Access Property*. Indicates whether user consent is required or implicit. Valid values: REQUIRED, TRUSTED. Default value is TRUSTED
+        :param pulumi.Input[_builtins.str] consent_method: *Early Access Property*. Indicates whether user consent is required or implicit. Valid values: REQUIRED, TRUSTED. Default value is TRUSTED. Note: Enable `API_ACCESS_MANAGEMENT`, `API_ACCESS_MANAGEMENT_CONSENT` feature flags in your org to use this property.
         :param pulumi.Input[_builtins.str] enduser_note: Application notes for end users.
         :param pulumi.Input[_builtins.bool] frontchannel_logout_session_required: *Early Access Property*. Determines whether Okta sends sid and iss in the logout request.
         :param pulumi.Input[_builtins.str] frontchannel_logout_uri: *Early Access Property*. URL where Okta sends the logout request. Required when participate_slo is true.
@@ -2200,7 +2200,7 @@ class OAuth(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] logo_url: URL of the application's logo
         :param pulumi.Input[_builtins.str] name: Name of the app.
         :param pulumi.Input[_builtins.bool] omit_secret: This tells the provider not manage the client*secret value in state. When this is false (the default), it will cause the auto-generated client*secret to be persisted in the client_secret attribute in state. This also means that every time an update to this app is run, this value is also set on the API. If this changes from false => true, the `client_secret` is dropped from state and the secret at the time of the apply is what remains. If this is ever changes from true => false your app will be recreated, due to the need to regenerate a secret we can store in state.
-        :param pulumi.Input[_builtins.bool] participate_slo: *Early Access Property*. Allows the app to participate in front-channel Single Logout. Note: You can only enable participate_slo for web and browser application types. When set to true, frontchannel_logout_uri must also be provided.
+        :param pulumi.Input[_builtins.bool] participate_slo: *Early Access Property*. Allows the app to participate in front-channel Single Logout. Note: You can only enable participate*slo for web and browser application types. When set to true, frontchannel*logout_uri must also be provided. Enable `SINGLE_LOGOUT_SUPPORT` feature flag in your org to use this property.
         :param pulumi.Input[_builtins.bool] pkce_required: Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
         :param pulumi.Input[_builtins.str] policy_uri: URI to web page providing client policy document.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] post_logout_redirect_uris: List of URIs for redirection after logout. Note: see okta*app*oauth*post*logout*redirect*uri for appending to this list in a decentralized way.
@@ -2218,7 +2218,7 @@ class OAuth(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] user_name_template_push_status: Push username on update. Valid values: `PUSH` and `DONT_PUSH`
         :param pulumi.Input[_builtins.str] user_name_template_suffix: Username template suffix
         :param pulumi.Input[_builtins.str] user_name_template_type: Username template type. Default: `BUILT_IN`
-        :param pulumi.Input[_builtins.str] wildcard_redirect: *Early Access Property*. Indicates if the client is allowed to use wildcard matching of redirect_uris
+        :param pulumi.Input[_builtins.str] wildcard_redirect: *Early Access Property*. Indicates if the client is allowed to use wildcard matching of redirect_uris.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -2391,7 +2391,7 @@ class OAuth(pulumi.CustomResource):
     @pulumi.getter(name="consentMethod")
     def consent_method(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        *Early Access Property*. Indicates whether user consent is required or implicit. Valid values: REQUIRED, TRUSTED. Default value is TRUSTED
+        *Early Access Property*. Indicates whether user consent is required or implicit. Valid values: REQUIRED, TRUSTED. Default value is TRUSTED. Note: Enable `API_ACCESS_MANAGEMENT`, `API_ACCESS_MANAGEMENT_CONSENT` feature flags in your org to use this property.
         """
         return pulumi.get(self, "consent_method")
 
@@ -2560,7 +2560,7 @@ class OAuth(pulumi.CustomResource):
     @pulumi.getter(name="participateSlo")
     def participate_slo(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
-        *Early Access Property*. Allows the app to participate in front-channel Single Logout. Note: You can only enable participate_slo for web and browser application types. When set to true, frontchannel_logout_uri must also be provided.
+        *Early Access Property*. Allows the app to participate in front-channel Single Logout. Note: You can only enable participate*slo for web and browser application types. When set to true, frontchannel*logout_uri must also be provided. Enable `SINGLE_LOGOUT_SUPPORT` feature flag in your org to use this property.
         """
         return pulumi.get(self, "participate_slo")
 
@@ -2704,7 +2704,7 @@ class OAuth(pulumi.CustomResource):
     @pulumi.getter(name="wildcardRedirect")
     def wildcard_redirect(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        *Early Access Property*. Indicates if the client is allowed to use wildcard matching of redirect_uris
+        *Early Access Property*. Indicates if the client is allowed to use wildcard matching of redirect_uris.
         """
         return pulumi.get(self, "wildcard_redirect")
 
