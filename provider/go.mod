@@ -101,7 +101,7 @@ require (
 	github.com/hashicorp/hil v0.0.0-20190212132231-97b3a9cdfa93 // indirect
 	github.com/hashicorp/logutils v1.0.0 // indirect
 	github.com/hashicorp/terraform-plugin-framework v1.17.0 // indirect
-	github.com/hashicorp/terraform-plugin-framework-validators v0.18.0 // indirect
+	github.com/hashicorp/terraform-plugin-framework-validators v0.19.0 // indirect
 	github.com/hashicorp/terraform-plugin-go v0.29.0 // indirect
 	github.com/hashicorp/terraform-plugin-log v0.10.0 // indirect
 	github.com/hashicorp/terraform-plugin-sdk/v2 v2.38.1 // indirect
@@ -156,7 +156,7 @@ require (
 	github.com/okta/okta-governance-sdk-golang v1.0.1 // indirect
 	github.com/okta/okta-sdk-golang/v4 v4.1.2 // indirect
 	github.com/okta/okta-sdk-golang/v5 v5.0.6 // indirect
-	github.com/okta/okta-sdk-golang/v6 v6.0.2 // indirect
+	github.com/okta/okta-sdk-golang/v6 v6.0.3 // indirect
 	github.com/olekukonko/tablewriter v0.0.5 // indirect
 	github.com/opentofu/registry-address/v2 v2.0.0-20250611143131-d0a99bd8acdd // indirect
 	github.com/opentofu/svchost v0.0.0-20250610175836-86c9e5e3d8c8 // indirect
