@@ -35,15 +35,10 @@ __all__ = [
     'RuleSignonFactorSequenceSecondaryCriteriaArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class RuleIdpDiscoveryAppExcludeArgsDict(TypedDict):
-        type: pulumi.Input[_builtins.str]
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        name: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    RuleIdpDiscoveryAppExcludeArgsDict: TypeAlias = Mapping[str, Any]
+class RuleIdpDiscoveryAppExcludeArgsDict(TypedDict):
+    type: pulumi.Input[_builtins.str]
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class RuleIdpDiscoveryAppExcludeArgs:
@@ -85,13 +80,10 @@ class RuleIdpDiscoveryAppExcludeArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class RuleIdpDiscoveryAppIncludeArgsDict(TypedDict):
-        type: pulumi.Input[_builtins.str]
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        name: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    RuleIdpDiscoveryAppIncludeArgsDict: TypeAlias = Mapping[str, Any]
+class RuleIdpDiscoveryAppIncludeArgsDict(TypedDict):
+    type: pulumi.Input[_builtins.str]
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class RuleIdpDiscoveryAppIncludeArgs:
@@ -133,18 +125,15 @@ class RuleIdpDiscoveryAppIncludeArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class RuleIdpDiscoveryIdpProviderArgsDict(TypedDict):
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The identifier for the Idp the rule should route to if all conditions are met.
-        """
-        type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Type of IdP. One of: `AMAZON`, `APPLE`, `DISCORD`, `FACEBOOK`, `GITHUB`, `GITLAB`, `GOOGLE`, `IDV_CLEAR`, `IDV_INCODE`, `IDV_PERSONA`, `LINKEDIN`, `LOGINGOV`, `LOGINGOV_SANDBOX`, `MICROSOFT`, `OIDC`, `PAYPAL`, `PAYPAL_SANDBOX`, `SALESFORCE`, `SAML2`, `SPOTIFY`, `X509`, `XERO`, `YAHOO`, `YAHOOJP`, Default: `OKTA`
-        """
-elif False:
-    RuleIdpDiscoveryIdpProviderArgsDict: TypeAlias = Mapping[str, Any]
+class RuleIdpDiscoveryIdpProviderArgsDict(TypedDict):
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The identifier for the Idp the rule should route to if all conditions are met.
+    """
+    type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Type of IdP. One of: `AMAZON`, `APPLE`, `DISCORD`, `FACEBOOK`, `GITHUB`, `GITLAB`, `GOOGLE`, `IDV_CLEAR`, `IDV_INCODE`, `IDV_PERSONA`, `LINKEDIN`, `LOGINGOV`, `LOGINGOV_SANDBOX`, `MICROSOFT`, `OIDC`, `PAYPAL`, `PAYPAL_SANDBOX`, `SALESFORCE`, `SAML2`, `SPOTIFY`, `X509`, `XERO`, `YAHOO`, `YAHOOJP`, Default: `OKTA`
+    """
 
 @pulumi.input_type
 class RuleIdpDiscoveryIdpProviderArgs:
@@ -185,16 +174,13 @@ class RuleIdpDiscoveryIdpProviderArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class RuleIdpDiscoveryPlatformIncludeArgsDict(TypedDict):
-        os_expression: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Only available with OTHER OS type
-        """
-        os_type: NotRequired[pulumi.Input[_builtins.str]]
-        type: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    RuleIdpDiscoveryPlatformIncludeArgsDict: TypeAlias = Mapping[str, Any]
+class RuleIdpDiscoveryPlatformIncludeArgsDict(TypedDict):
+    os_expression: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Only available with OTHER OS type
+    """
+    os_type: NotRequired[pulumi.Input[_builtins.str]]
+    type: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class RuleIdpDiscoveryPlatformIncludeArgs:
@@ -243,12 +229,9 @@ class RuleIdpDiscoveryPlatformIncludeArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class RuleIdpDiscoveryUserIdentifierPatternArgsDict(TypedDict):
-        match_type: NotRequired[pulumi.Input[_builtins.str]]
-        value: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    RuleIdpDiscoveryUserIdentifierPatternArgsDict: TypeAlias = Mapping[str, Any]
+class RuleIdpDiscoveryUserIdentifierPatternArgsDict(TypedDict):
+    match_type: NotRequired[pulumi.Input[_builtins.str]]
+    value: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class RuleIdpDiscoveryUserIdentifierPatternArgs:
@@ -279,13 +262,10 @@ class RuleIdpDiscoveryUserIdentifierPatternArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class RuleMfaAppExcludeArgsDict(TypedDict):
-        type: pulumi.Input[_builtins.str]
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        name: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    RuleMfaAppExcludeArgsDict: TypeAlias = Mapping[str, Any]
+class RuleMfaAppExcludeArgsDict(TypedDict):
+    type: pulumi.Input[_builtins.str]
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class RuleMfaAppExcludeArgs:
@@ -327,13 +307,10 @@ class RuleMfaAppExcludeArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class RuleMfaAppIncludeArgsDict(TypedDict):
-        type: pulumi.Input[_builtins.str]
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        name: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    RuleMfaAppIncludeArgsDict: TypeAlias = Mapping[str, Any]
+class RuleMfaAppIncludeArgsDict(TypedDict):
+    type: pulumi.Input[_builtins.str]
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class RuleMfaAppIncludeArgs:
@@ -375,19 +352,16 @@ class RuleMfaAppIncludeArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class RuleSignonFactorSequenceArgsDict(TypedDict):
-        primary_criteria_factor_type: pulumi.Input[_builtins.str]
-        """
-        Type of a Factor
-        """
-        primary_criteria_provider: pulumi.Input[_builtins.str]
-        """
-        Factor provider
-        """
-        secondary_criterias: NotRequired[pulumi.Input[Sequence[pulumi.Input['RuleSignonFactorSequenceSecondaryCriteriaArgsDict']]]]
-elif False:
-    RuleSignonFactorSequenceArgsDict: TypeAlias = Mapping[str, Any]
+class RuleSignonFactorSequenceArgsDict(TypedDict):
+    primary_criteria_factor_type: pulumi.Input[_builtins.str]
+    """
+    Type of a Factor
+    """
+    primary_criteria_provider: pulumi.Input[_builtins.str]
+    """
+    Factor provider
+    """
+    secondary_criterias: NotRequired[pulumi.Input[Sequence[pulumi.Input['RuleSignonFactorSequenceSecondaryCriteriaArgsDict']]]]
 
 @pulumi.input_type
 class RuleSignonFactorSequenceArgs:
@@ -438,18 +412,15 @@ class RuleSignonFactorSequenceArgs:
         pulumi.set(self, "secondary_criterias", value)
 
 
-if not MYPY:
-    class RuleSignonFactorSequenceSecondaryCriteriaArgsDict(TypedDict):
-        factor_type: pulumi.Input[_builtins.str]
-        """
-        Type of a Factor
-        """
-        provider: pulumi.Input[_builtins.str]
-        """
-        Factor provider
-        """
-elif False:
-    RuleSignonFactorSequenceSecondaryCriteriaArgsDict: TypeAlias = Mapping[str, Any]
+class RuleSignonFactorSequenceSecondaryCriteriaArgsDict(TypedDict):
+    factor_type: pulumi.Input[_builtins.str]
+    """
+    Type of a Factor
+    """
+    provider: pulumi.Input[_builtins.str]
+    """
+    Factor provider
+    """
 
 @pulumi.input_type
 class RuleSignonFactorSequenceSecondaryCriteriaArgs:

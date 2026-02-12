@@ -23,32 +23,27 @@ __all__ = [
     'GetUsersSearchArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class UserPasswordHashArgsDict(TypedDict):
-        algorithm: pulumi.Input[_builtins.str]
-        """
-        The algorithm used to generate the hash using the password
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        For SHA-512, SHA-256, SHA-1, MD5, This is the actual base64-encoded hash of the password (and salt, if used). This is the Base64 encoded value of the SHA-512/SHA-256/SHA-1/MD5 digest that was computed by either pre-fixing or post-fixing the salt to the password, depending on the saltOrder. If a salt was not used in the source system, then this should just be the the Base64 encoded value of the password's SHA-512/SHA-256/SHA-1/MD5 digest. For BCRYPT, This is the actual radix64-encoded hashed password.
-        """
-        salt: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Only required for salted hashes
-        """
-        salt_order: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies whether salt was pre- or postfixed to the password before hashing
-        """
-        work_factor: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Governs the strength of the hash and the time required to compute it. Only required for BCRYPT algorithm
-        """
-elif False:
-    UserPasswordHashArgsDict: TypeAlias = Mapping[str, Any]
+class UserPasswordHashArgsDict(TypedDict):
+    algorithm: pulumi.Input[_builtins.str]
+    """
+    The algorithm used to generate the hash using the password
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    For SHA-512, SHA-256, SHA-1, MD5, This is the actual base64-encoded hash of the password (and salt, if used). This is the Base64 encoded value of the SHA-512/SHA-256/SHA-1/MD5 digest that was computed by either pre-fixing or post-fixing the salt to the password, depending on the saltOrder. If a salt was not used in the source system, then this should just be the the Base64 encoded value of the password's SHA-512/SHA-256/SHA-1/MD5 digest. For BCRYPT, This is the actual radix64-encoded hashed password.
+    """
+    salt: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Only required for salted hashes
+    """
+    salt_order: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies whether salt was pre- or postfixed to the password before hashing
+    """
+    work_factor: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Governs the strength of the hash and the time required to compute it. Only required for BCRYPT algorithm
+    """
 
 @pulumi.input_type
 class UserPasswordHashArgs:
@@ -135,20 +130,17 @@ class UserPasswordHashArgs:
         pulumi.set(self, "work_factor", value)
 
 
-if not MYPY:
-    class GetUserSearchArgsDict(TypedDict):
-        comparison: NotRequired[_builtins.str]
-        expression: NotRequired[_builtins.str]
-        """
-        A raw search expression string. This requires the search feature be on. Please see Okta documentation on their filter API for users. https://developer.okta.com/docs/api/resources/users#list-users-with-search
-        """
-        name: NotRequired[_builtins.str]
-        """
-        Property name to search for. This requires the search feature be on. Please see Okta documentation on their filter API for users. https://developer.okta.com/docs/api/resources/users#list-users-with-search
-        """
-        value: NotRequired[_builtins.str]
-elif False:
-    GetUserSearchArgsDict: TypeAlias = Mapping[str, Any]
+class GetUserSearchArgsDict(TypedDict):
+    comparison: NotRequired[_builtins.str]
+    expression: NotRequired[_builtins.str]
+    """
+    A raw search expression string. This requires the search feature be on. Please see Okta documentation on their filter API for users. https://developer.okta.com/docs/api/resources/users#list-users-with-search
+    """
+    name: NotRequired[_builtins.str]
+    """
+    Property name to search for. This requires the search feature be on. Please see Okta documentation on their filter API for users. https://developer.okta.com/docs/api/resources/users#list-users-with-search
+    """
+    value: NotRequired[_builtins.str]
 
 @pulumi.input_type
 class GetUserSearchArgs:
@@ -213,20 +205,17 @@ class GetUserSearchArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class GetUsersSearchArgsDict(TypedDict):
-        comparison: NotRequired[_builtins.str]
-        expression: NotRequired[_builtins.str]
-        """
-        A raw search expression string. This requires the search feature be on. Please see Okta documentation on their filter API for users. https://developer.okta.com/docs/api/resources/users#list-users-with-search
-        """
-        name: NotRequired[_builtins.str]
-        """
-        Property name to search for. This requires the search feature be on. Please see Okta documentation on their filter API for users. https://developer.okta.com/docs/api/resources/users#list-users-with-search
-        """
-        value: NotRequired[_builtins.str]
-elif False:
-    GetUsersSearchArgsDict: TypeAlias = Mapping[str, Any]
+class GetUsersSearchArgsDict(TypedDict):
+    comparison: NotRequired[_builtins.str]
+    expression: NotRequired[_builtins.str]
+    """
+    A raw search expression string. This requires the search feature be on. Please see Okta documentation on their filter API for users. https://developer.okta.com/docs/api/resources/users#list-users-with-search
+    """
+    name: NotRequired[_builtins.str]
+    """
+    Property name to search for. This requires the search feature be on. Please see Okta documentation on their filter API for users. https://developer.okta.com/docs/api/resources/users#list-users-with-search
+    """
+    value: NotRequired[_builtins.str]
 
 @pulumi.input_type
 class GetUsersSearchArgs:

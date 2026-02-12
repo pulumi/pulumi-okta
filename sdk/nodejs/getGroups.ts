@@ -47,6 +47,9 @@ export interface GetGroupsArgs {
      * Searches for groups with a supported filtering expression for all attributes except for '*embedded', '*links', and 'objectClass'
      */
     search?: string;
+    /**
+     * Type of the group. When specified in the terraform resource, will act as a filter when searching for the groups
+     */
     type?: string;
 }
 
@@ -71,6 +74,9 @@ export interface GetGroupsResult {
      * Searches for groups with a supported filtering expression for all attributes except for '*embedded', '*links', and 'objectClass'
      */
     readonly search?: string;
+    /**
+     * Type of the group. When specified in the terraform resource, will act as a filter when searching for the groups
+     */
     readonly type?: string;
 }
 /**
@@ -114,5 +120,8 @@ export interface GetGroupsOutputArgs {
      * Searches for groups with a supported filtering expression for all attributes except for '*embedded', '*links', and 'objectClass'
      */
     search?: pulumi.Input<string>;
+    /**
+     * Type of the group. When specified in the terraform resource, will act as a filter when searching for the groups
+     */
     type?: pulumi.Input<string>;
 }

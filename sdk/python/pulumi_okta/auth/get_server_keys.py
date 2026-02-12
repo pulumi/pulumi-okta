@@ -82,6 +82,9 @@ class GetServerKeysResult:
     @_builtins.property
     @pulumi.getter
     def id(self) -> _builtins.str:
+        """
+        The internal identifier for this data source, required by Terraform to track state. This field does not exist in the Okta API response.
+        """
         return pulumi.get(self, "id")
 
     @_builtins.property

@@ -17,6 +17,145 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * Manages an End User Request in Okta Identity Governance. This resource allows you to create access requests on behalf of end users through the Okta Identity Governance system.
+ * 
+ * This resource creates access requests with the specified requester field values and tracks the status of the request. The resource does not support updates or deletions - requests must be managed through the Okta Dashboard after creation.
+ * 
+ * &gt; **Note:** This resource is part of Okta Identity Governance functionality and requires appropriate licensing and configuration.
+ * 
+ * **Important Limitations:**
+ * - **Update Not Supported**: This resource does not support updates. To modify a request, you must cancel it via the Okta Dashboard and recreate the resource.
+ * - **Delete Not Supported**: This resource does not support deletions. Requests must be cancelled via the Okta Dashboard.
+ * 
+ * ## Example Usage
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.okta.EndUserMyRequests;
+ * import com.pulumi.okta.EndUserMyRequestsArgs;
+ * import com.pulumi.okta.inputs.EndUserMyRequestsRequesterFieldValueArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new EndUserMyRequests("example", EndUserMyRequestsArgs.builder()
+ *             .entryId("cen123456789abcdefgh")
+ *             .requesterFieldValues(            
+ *                 EndUserMyRequestsRequesterFieldValueArgs.builder()
+ *                     .id("abcdefgh-0123-4567-8910-hgfedcba123")
+ *                     .type("TEXT")
+ *                     .value("I need access to complete my certification.")
+ *                     .build(),
+ *                 EndUserMyRequestsRequesterFieldValueArgs.builder()
+ *                     .id("ijklmnop-a12b2-c3d4-e5f6-abcdefghi")
+ *                     .type("DURATION")
+ *                     .value("For 5 days")
+ *                     .build(),
+ *                 EndUserMyRequestsRequesterFieldValueArgs.builder()
+ *                     .id("tuvwxyz-0123-456-8910-zyxwvut0123")
+ *                     .type("SELECT")
+ *                     .value("Yes")
+ *                     .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ### Example with Multi-Select Values
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.okta.EndUserMyRequests;
+ * import com.pulumi.okta.EndUserMyRequestsArgs;
+ * import com.pulumi.okta.inputs.EndUserMyRequestsRequesterFieldValueArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var multiSelectExample = new EndUserMyRequests("multiSelectExample", EndUserMyRequestsArgs.builder()
+ *             .entryId("cen123456789abcdefgh")
+ *             .requesterFieldValues(            
+ *                 EndUserMyRequestsRequesterFieldValueArgs.builder()
+ *                     .id("multi-select-field-id")
+ *                     .type("MULTISELECT")
+ *                     .label("Select multiple options")
+ *                     .values(                    
+ *                         "Option1",
+ *                         "Option2",
+ *                         "Option3")
+ *                     .build(),
+ *                 EndUserMyRequestsRequesterFieldValueArgs.builder()
+ *                     .id("text-field-id")
+ *                     .type("TEXT")
+ *                     .value("Additional justification text")
+ *                     .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ## Field Type Guidelines
+ * 
+ * ### Field Type Usage
+ * 
+ * - **TEXT**: Use `value` for free-form text input
+ * - **SELECT**: Use `value` for single selection from predefined options
+ * - **MULTISELECT**: Use `values` (list) for multiple selections from predefined options
+ * - **DURATION**: Use `value` for time duration specifications (e.g., &#34;5 days&#34;, &#34;2 weeks&#34;)
+ * - **ISO_DATE**: Use `value` for date specifications in ISO format
+ * - **OKTA_USER_ID**: Use `value` for Okta user identifiers
+ * 
+ * ### Important Notes
+ * 
+ * - For `MULTISELECT` type fields, you must use the `values` attribute instead of `value`
+ * - The `id` field is always required and must match the field ID defined in the approval system
+ * - The `label` and `type` fields are optional but recommended for clarity
+ * - Field requirements and validation are determined by the approval system configuration
+ * 
+ * ## Limitations and Considerations
+ * 
+ * 1. **No Updates**: Once created, requests cannot be updated through Terraform. Any changes require cancelling the request via Okta Dashboard and recreating.
+ * 
+ * 2. **No Deletions**: Requests cannot be deleted through Terraform. Use the Okta Dashboard to cancel requests.
+ * 
+ * 3. **Field Dependencies**: The required fields and their types are determined by the approval system configuration in Okta Identity Governance.
+ * 
+ * 4. **Status Tracking**: The `status` field is read-only and reflects the current state of the request in the approval workflow.
+ * 
+ * 5. **Identity Governance Licensing**: This resource requires Okta Identity Governance licensing and proper configuration.
+ * 
  * ## Import
  * 
  * ```sh

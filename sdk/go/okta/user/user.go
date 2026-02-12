@@ -97,7 +97,8 @@ type User struct {
 	// User country code
 	CountryCode pulumi.StringPtrOutput `pulumi:"countryCode"`
 	// JSON formatted custom attributes for a user. It must be JSON due to various types Okta allows. You must first add the custom property to the user profile schema before you reference it. You can use the Profile Editor in the Admin Console or the [Schemas](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UISchema/#tag/UISchema) API to manage schema extensions.
-	CustomProfileAttributes          pulumi.StringOutput      `pulumi:"customProfileAttributes"`
+	CustomProfileAttributes pulumi.StringOutput `pulumi:"customProfileAttributes"`
+	// List of custom*profile*attribute keys that should be excluded from being managed by Terraform. This is useful in situations where specific custom fields may contain sensitive information and should be managed outside of Terraform.
 	CustomProfileAttributesToIgnores pulumi.StringArrayOutput `pulumi:"customProfileAttributesToIgnores"`
 	// User department
 	Department pulumi.StringPtrOutput `pulumi:"department"`
@@ -245,7 +246,8 @@ type userState struct {
 	// User country code
 	CountryCode *string `pulumi:"countryCode"`
 	// JSON formatted custom attributes for a user. It must be JSON due to various types Okta allows. You must first add the custom property to the user profile schema before you reference it. You can use the Profile Editor in the Admin Console or the [Schemas](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UISchema/#tag/UISchema) API to manage schema extensions.
-	CustomProfileAttributes          *string  `pulumi:"customProfileAttributes"`
+	CustomProfileAttributes *string `pulumi:"customProfileAttributes"`
+	// List of custom*profile*attribute keys that should be excluded from being managed by Terraform. This is useful in situations where specific custom fields may contain sensitive information and should be managed outside of Terraform.
 	CustomProfileAttributesToIgnores []string `pulumi:"customProfileAttributesToIgnores"`
 	// User department
 	Department *string `pulumi:"department"`
@@ -337,7 +339,8 @@ type UserState struct {
 	// User country code
 	CountryCode pulumi.StringPtrInput
 	// JSON formatted custom attributes for a user. It must be JSON due to various types Okta allows. You must first add the custom property to the user profile schema before you reference it. You can use the Profile Editor in the Admin Console or the [Schemas](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UISchema/#tag/UISchema) API to manage schema extensions.
-	CustomProfileAttributes          pulumi.StringPtrInput
+	CustomProfileAttributes pulumi.StringPtrInput
+	// List of custom*profile*attribute keys that should be excluded from being managed by Terraform. This is useful in situations where specific custom fields may contain sensitive information and should be managed outside of Terraform.
 	CustomProfileAttributesToIgnores pulumi.StringArrayInput
 	// User department
 	Department pulumi.StringPtrInput
@@ -433,7 +436,8 @@ type userArgs struct {
 	// User country code
 	CountryCode *string `pulumi:"countryCode"`
 	// JSON formatted custom attributes for a user. It must be JSON due to various types Okta allows. You must first add the custom property to the user profile schema before you reference it. You can use the Profile Editor in the Admin Console or the [Schemas](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UISchema/#tag/UISchema) API to manage schema extensions.
-	CustomProfileAttributes          *string  `pulumi:"customProfileAttributes"`
+	CustomProfileAttributes *string `pulumi:"customProfileAttributes"`
+	// List of custom*profile*attribute keys that should be excluded from being managed by Terraform. This is useful in situations where specific custom fields may contain sensitive information and should be managed outside of Terraform.
 	CustomProfileAttributesToIgnores []string `pulumi:"customProfileAttributesToIgnores"`
 	// User department
 	Department *string `pulumi:"department"`
@@ -524,7 +528,8 @@ type UserArgs struct {
 	// User country code
 	CountryCode pulumi.StringPtrInput
 	// JSON formatted custom attributes for a user. It must be JSON due to various types Okta allows. You must first add the custom property to the user profile schema before you reference it. You can use the Profile Editor in the Admin Console or the [Schemas](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UISchema/#tag/UISchema) API to manage schema extensions.
-	CustomProfileAttributes          pulumi.StringPtrInput
+	CustomProfileAttributes pulumi.StringPtrInput
+	// List of custom*profile*attribute keys that should be excluded from being managed by Terraform. This is useful in situations where specific custom fields may contain sensitive information and should be managed outside of Terraform.
 	CustomProfileAttributesToIgnores pulumi.StringArrayInput
 	// User department
 	Department pulumi.StringPtrInput
@@ -713,6 +718,7 @@ func (o UserOutput) CustomProfileAttributes() pulumi.StringOutput {
 	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.CustomProfileAttributes }).(pulumi.StringOutput)
 }
 
+// List of custom*profile*attribute keys that should be excluded from being managed by Terraform. This is useful in situations where specific custom fields may contain sensitive information and should be managed outside of Terraform.
 func (o UserOutput) CustomProfileAttributesToIgnores() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *User) pulumi.StringArrayOutput { return v.CustomProfileAttributesToIgnores }).(pulumi.StringArrayOutput)
 }

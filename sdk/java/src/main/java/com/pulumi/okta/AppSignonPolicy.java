@@ -16,7 +16,25 @@ import java.lang.String;
 import javax.annotation.Nullable;
 
 /**
- * ## Example Usage
+ * Manages a sign-on policy.
+ * 
+ * &gt; **WARNING:** This feature is only available as a part of the Okta Identity
+ * Engine (OIE) and ***is not*** compatible with Classic orgs. Authentication
+ * policies for applications in a Classic org can only be modified in the Admin UI,
+ * there isn&#39;t a public API for this. Therefore the Okta Terraform Provider does
+ * not support this resource for Classic orgs. Contact
+ * support for further information.
+ * This resource allows you to create and configure a sign-on policy for the
+ * application. Inside the product a sign-on policy is referenced as an
+ * _authentication policy_, in the public API the policy is of type
+ * [&#39;ACCESS_POLICY&#39;](https://developer.okta.com/docs/reference/api/policy/#policy-object).
+ * A newly created app&#39;s sign-on policy will always contain the default
+ * authentication policy unless one is assigned via &#39;authentication_policy&#39; in the
+ * app resource. At the API level the default policy has system property value of
+ * true.
+ * **WARNING:** When this policy is destroyed any other applications that
+ * associate the policy as their authentication policy will be reassigned to the
+ * default/system access policy.
  * 
  * ## Import
  * 

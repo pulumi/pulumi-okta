@@ -67,14 +67,14 @@ public final class GetPrincipalEntitlementsDataArgs extends com.pulumi.resources
     }
 
     /**
-     * The id property of an entitlement.
+     * The Okta Principal Entitlement object does not include a native ID field, so this value is generated to uniquely represent the entitlement in Terraform state.
      * 
      */
     @Import(name="id", required=true)
     private Output<String> id;
 
     /**
-     * @return The id property of an entitlement.
+     * @return The Okta Principal Entitlement object does not include a native ID field, so this value is generated to uniquely represent the entitlement in Terraform state.
      * 
      */
     public Output<String> id() {
@@ -300,7 +300,7 @@ public final class GetPrincipalEntitlementsDataArgs extends com.pulumi.resources
         }
 
         /**
-         * @param id The id property of an entitlement.
+         * @param id The Okta Principal Entitlement object does not include a native ID field, so this value is generated to uniquely represent the entitlement in Terraform state.
          * 
          * @return builder
          * 
@@ -311,7 +311,7 @@ public final class GetPrincipalEntitlementsDataArgs extends com.pulumi.resources
         }
 
         /**
-         * @param id The id property of an entitlement.
+         * @param id The Okta Principal Entitlement object does not include a native ID field, so this value is generated to uniquely represent the entitlement in Terraform state.
          * 
          * @return builder
          * 

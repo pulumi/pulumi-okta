@@ -92,6 +92,9 @@ class GetGroupResult:
     @_builtins.property
     @pulumi.getter
     def type(self) -> Optional[_builtins.str]:
+        """
+        Type of the group. When specified in the terraform resource, will act as a filter when searching for the group
+        """
         return pulumi.get(self, "type")
 
     @_builtins.property
@@ -141,6 +144,7 @@ def get_group(delay_read_seconds: Optional[_builtins.str] = None,
     :param _builtins.str id: ID of group.
     :param _builtins.bool include_users: Fetch group users, having default off cuts down on API calls.
     :param _builtins.str name: Name of group.
+    :param _builtins.str type: Type of the group. When specified in the terraform resource, will act as a filter when searching for the group
     """
     __args__ = dict()
     __args__['delayReadSeconds'] = delay_read_seconds
@@ -182,6 +186,7 @@ def get_group_output(delay_read_seconds: Optional[pulumi.Input[Optional[_builtin
     :param _builtins.str id: ID of group.
     :param _builtins.bool include_users: Fetch group users, having default off cuts down on API calls.
     :param _builtins.str name: Name of group.
+    :param _builtins.str type: Type of the group. When specified in the terraform resource, will act as a filter when searching for the group
     """
     __args__ = dict()
     __args__['delayReadSeconds'] = delay_read_seconds

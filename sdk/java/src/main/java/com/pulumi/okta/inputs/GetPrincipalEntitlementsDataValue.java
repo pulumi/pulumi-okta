@@ -44,14 +44,14 @@ public final class GetPrincipalEntitlementsDataValue extends com.pulumi.resource
     }
 
     /**
-     * The id of an entitlement value.
+     * The Okta Principal Entitlement object does not include a native ID field, so this value is generated to uniquely represent the entitlement in Terraform state.
      * 
      */
     @Import(name="id", required=true)
     private String id;
 
     /**
-     * @return The id of an entitlement value.
+     * @return The Okta Principal Entitlement object does not include a native ID field, so this value is generated to uniquely represent the entitlement in Terraform state.
      * 
      */
     public String id() {
@@ -123,7 +123,7 @@ public final class GetPrincipalEntitlementsDataValue extends com.pulumi.resource
         }
 
         /**
-         * @param id The id of an entitlement value.
+         * @param id The Okta Principal Entitlement object does not include a native ID field, so this value is generated to uniquely represent the entitlement in Terraform state.
          * 
          * @return builder
          * 

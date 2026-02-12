@@ -269,6 +269,12 @@ class Rule(pulumi.CustomResource):
                  users_excludeds: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
+        Creates an Okta Group Rule.
+        This resource allows you to create and configure an Okta Group Rule.
+        > If the Okta API marks the 'status' of the rule as 'INVALID' the Okta
+        Terraform Provider will act in a force/replace manner and call the API to delete
+        the underlying rule resource and create a new rule resource.
+
         ## Example Usage
 
         ```python
@@ -306,6 +312,12 @@ class Rule(pulumi.CustomResource):
                  args: RuleArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Creates an Okta Group Rule.
+        This resource allows you to create and configure an Okta Group Rule.
+        > If the Okta API marks the 'status' of the rule as 'INVALID' the Okta
+        Terraform Provider will act in a force/replace manner and call the API to delete
+        the underlying rule resource and create a new rule resource.
+
         ## Example Usage
 
         ```python

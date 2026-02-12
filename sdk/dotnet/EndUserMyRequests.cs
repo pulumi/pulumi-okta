@@ -10,6 +10,124 @@ using Pulumi.Serialization;
 namespace Pulumi.Okta
 {
     /// <summary>
+    /// Manages an End User Request in Okta Identity Governance. This resource allows you to create access requests on behalf of end users through the Okta Identity Governance system.
+    /// 
+    /// This resource creates access requests with the specified requester field values and tracks the status of the request. The resource does not support updates or deletions - requests must be managed through the Okta Dashboard after creation.
+    /// 
+    /// &gt; **Note:** This resource is part of Okta Identity Governance functionality and requires appropriate licensing and configuration.
+    /// 
+    /// **Important Limitations:**
+    /// - **Update Not Supported**: This resource does not support updates. To modify a request, you must cancel it via the Okta Dashboard and recreate the resource.
+    /// - **Delete Not Supported**: This resource does not support deletions. Requests must be cancelled via the Okta Dashboard.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Okta = Pulumi.Okta;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Okta.EndUserMyRequests("example", new()
+    ///     {
+    ///         EntryId = "cen123456789abcdefgh",
+    ///         RequesterFieldValues = new[]
+    ///         {
+    ///             new Okta.Inputs.EndUserMyRequestsRequesterFieldValueArgs
+    ///             {
+    ///                 Id = "abcdefgh-0123-4567-8910-hgfedcba123",
+    ///                 Type = "TEXT",
+    ///                 Value = "I need access to complete my certification.",
+    ///             },
+    ///             new Okta.Inputs.EndUserMyRequestsRequesterFieldValueArgs
+    ///             {
+    ///                 Id = "ijklmnop-a12b2-c3d4-e5f6-abcdefghi",
+    ///                 Type = "DURATION",
+    ///                 Value = "For 5 days",
+    ///             },
+    ///             new Okta.Inputs.EndUserMyRequestsRequesterFieldValueArgs
+    ///             {
+    ///                 Id = "tuvwxyz-0123-456-8910-zyxwvut0123",
+    ///                 Type = "SELECT",
+    ///                 Value = "Yes",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### Example with Multi-Select Values
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Okta = Pulumi.Okta;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var multiSelectExample = new Okta.EndUserMyRequests("multi_select_example", new()
+    ///     {
+    ///         EntryId = "cen123456789abcdefgh",
+    ///         RequesterFieldValues = new[]
+    ///         {
+    ///             new Okta.Inputs.EndUserMyRequestsRequesterFieldValueArgs
+    ///             {
+    ///                 Id = "multi-select-field-id",
+    ///                 Type = "MULTISELECT",
+    ///                 Label = "Select multiple options",
+    ///                 Values = new[]
+    ///                 {
+    ///                     "Option1",
+    ///                     "Option2",
+    ///                     "Option3",
+    ///                 },
+    ///             },
+    ///             new Okta.Inputs.EndUserMyRequestsRequesterFieldValueArgs
+    ///             {
+    ///                 Id = "text-field-id",
+    ///                 Type = "TEXT",
+    ///                 Value = "Additional justification text",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Field Type Guidelines
+    /// 
+    /// ### Field Type Usage
+    /// 
+    /// - **TEXT**: Use `Value` for free-form text input
+    /// - **SELECT**: Use `Value` for single selection from predefined options
+    /// - **MULTISELECT**: Use `Values` (list) for multiple selections from predefined options
+    /// - **DURATION**: Use `Value` for time duration specifications (e.g., "5 days", "2 weeks")
+    /// - **ISO_DATE**: Use `Value` for date specifications in ISO format
+    /// - **OKTA_USER_ID**: Use `Value` for Okta user identifiers
+    /// 
+    /// ### Important Notes
+    /// 
+    /// - For `MULTISELECT` type fields, you must use the `Values` attribute instead of `Value`
+    /// - The `Id` field is always required and must match the field ID defined in the approval system
+    /// - The `Label` and `Type` fields are optional but recommended for clarity
+    /// - Field requirements and validation are determined by the approval system configuration
+    /// 
+    /// ## Limitations and Considerations
+    /// 
+    /// 1. **No Updates**: Once created, requests cannot be updated through Terraform. Any changes require cancelling the request via Okta Dashboard and recreating.
+    /// 
+    /// 2. **No Deletions**: Requests cannot be deleted through Terraform. Use the Okta Dashboard to cancel requests.
+    /// 
+    /// 3. **Field Dependencies**: The required fields and their types are determined by the approval system configuration in Okta Identity Governance.
+    /// 
+    /// 4. **Status Tracking**: The `Status` field is read-only and reflects the current state of the request in the approval workflow.
+    /// 
+    /// 5. **Identity Governance Licensing**: This resource requires Okta Identity Governance licensing and proper configuration.
+    /// 
     /// ## Import
     /// 
     /// ```sh

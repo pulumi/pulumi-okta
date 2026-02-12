@@ -10,6 +10,20 @@ using Pulumi.Serialization;
 namespace Pulumi.Okta.Idp
 {
     /// <summary>
+    /// This resource allows you to create and configure a SAML Identity Provider Signing Key.
+    /// 
+    /// Identity Provider Signing Key can not be updated, it can only be created or removed. Thus, in situation
+    /// where Identity Provider Signing Key should be updated, one can not simply change `X5c` and apply the changes.
+    /// This will cause the error, because the key can not be removed if it's used by the provider. To avoid this situation,
+    /// the behavior of the resource update process is as follows:
+    /// 
+    /// - create a new identity provider key
+    /// - list all identity providers that are using the old key (**even the ones that are managed outside terraform!**)
+    /// - assign a new key to these identity providers
+    /// - remove old identity provider key
+    /// 
+    /// For more details, please refer to the original issue.
+    /// 
     /// ## Example Usage
     /// 
     /// ```csharp

@@ -339,20 +339,15 @@ __all__ = [
     'GetUiSchemaUiSchemaElementOptionsArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class AgentPoolUpdateAgentArgsDict(TypedDict):
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The unique identifier of the agent.
-        """
-        pool_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Pool ID.
-        """
-elif False:
-    AgentPoolUpdateAgentArgsDict: TypeAlias = Mapping[str, Any]
+class AgentPoolUpdateAgentArgsDict(TypedDict):
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The unique identifier of the agent.
+    """
+    pool_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Pool ID.
+    """
 
 @pulumi.input_type
 class AgentPoolUpdateAgentArgs:
@@ -393,30 +388,27 @@ class AgentPoolUpdateAgentArgs:
         pulumi.set(self, "pool_id", value)
 
 
-if not MYPY:
-    class AgentPoolUpdateScheduleArgsDict(TypedDict):
-        cron: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The schedule of the update in cron format.
-        """
-        delay: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Delay in days.
-        """
-        duration: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Duration in minutes.
-        """
-        last_updated: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Timestamp when the update finished (only for a successful or failed update, not for a cancelled update). Null is returned if the job hasn't finished once yet.
-        """
-        timezone: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Timezone of where the scheduled job takes place.
-        """
-elif False:
-    AgentPoolUpdateScheduleArgsDict: TypeAlias = Mapping[str, Any]
+class AgentPoolUpdateScheduleArgsDict(TypedDict):
+    cron: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The schedule of the update in cron format.
+    """
+    delay: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Delay in days.
+    """
+    duration: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Duration in minutes.
+    """
+    last_updated: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Timestamp when the update finished (only for a successful or failed update, not for a cancelled update). Null is returned if the job hasn't finished once yet.
+    """
+    timezone: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Timezone of where the scheduled job takes place.
+    """
 
 @pulumi.input_type
 class AgentPoolUpdateScheduleArgs:
@@ -505,14 +497,11 @@ class AgentPoolUpdateScheduleArgs:
         pulumi.set(self, "timezone", value)
 
 
-if not MYPY:
-    class ApiServiceIntegrationGrantedScopeArgsDict(TypedDict):
-        scope: pulumi.Input[_builtins.str]
-        """
-        The scope of the API service integration
-        """
-elif False:
-    ApiServiceIntegrationGrantedScopeArgsDict: TypeAlias = Mapping[str, Any]
+class ApiServiceIntegrationGrantedScopeArgsDict(TypedDict):
+    scope: pulumi.Input[_builtins.str]
+    """
+    The scope of the API service integration
+    """
 
 @pulumi.input_type
 class ApiServiceIntegrationGrantedScopeArgs:
@@ -536,22 +525,19 @@ class ApiServiceIntegrationGrantedScopeArgs:
         pulumi.set(self, "scope", value)
 
 
-if not MYPY:
-    class ApiTokenNetworkArgsDict(TypedDict):
-        connection: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The connection type of the Network Condition.
-        """
-        excludes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The IP address the excluded zone.
-        """
-        includes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The IP address the included zone.
-        """
-elif False:
-    ApiTokenNetworkArgsDict: TypeAlias = Mapping[str, Any]
+class ApiTokenNetworkArgsDict(TypedDict):
+    connection: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The connection type of the Network Condition.
+    """
+    excludes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The IP address the excluded zone.
+    """
+    includes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The IP address the included zone.
+    """
 
 @pulumi.input_type
 class ApiTokenNetworkArgs:
@@ -608,22 +594,19 @@ class ApiTokenNetworkArgs:
         pulumi.set(self, "includes", value)
 
 
-if not MYPY:
-    class AppGroupAssignmentsGroupArgsDict(TypedDict):
-        id: pulumi.Input[_builtins.str]
-        """
-        A group to associate with the application
-        """
-        profile: pulumi.Input[_builtins.str]
-        """
-        JSON document containing [application profile](https://developer.okta.com/docs/reference/api/apps/#profile-object)
-        """
-        priority: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Priority of group assignment
-        """
-elif False:
-    AppGroupAssignmentsGroupArgsDict: TypeAlias = Mapping[str, Any]
+class AppGroupAssignmentsGroupArgsDict(TypedDict):
+    id: pulumi.Input[_builtins.str]
+    """
+    A group to associate with the application
+    """
+    profile: pulumi.Input[_builtins.str]
+    """
+    JSON document containing [application profile](https://developer.okta.com/docs/reference/api/apps/#profile-object)
+    """
+    priority: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Priority of group assignment
+    """
 
 @pulumi.input_type
 class AppGroupAssignmentsGroupArgs:
@@ -678,16 +661,13 @@ class AppGroupAssignmentsGroupArgs:
         pulumi.set(self, "priority", value)
 
 
-if not MYPY:
-    class AppSignonPolicyRulePlatformIncludeArgsDict(TypedDict):
-        os_expression: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Only available with OTHER OS type
-        """
-        os_type: NotRequired[pulumi.Input[_builtins.str]]
-        type: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    AppSignonPolicyRulePlatformIncludeArgsDict: TypeAlias = Mapping[str, Any]
+class AppSignonPolicyRulePlatformIncludeArgsDict(TypedDict):
+    os_expression: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Only available with OTHER OS type
+    """
+    os_type: NotRequired[pulumi.Input[_builtins.str]]
+    type: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class AppSignonPolicyRulePlatformIncludeArgs:
@@ -736,18 +716,15 @@ class AppSignonPolicyRulePlatformIncludeArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class AppUserSchemaPropertyArrayOneOfArgsDict(TypedDict):
-        const: pulumi.Input[_builtins.str]
-        """
-        Value mapping to member of `array_enum`
-        """
-        title: pulumi.Input[_builtins.str]
-        """
-        Display name for the enum value.
-        """
-elif False:
-    AppUserSchemaPropertyArrayOneOfArgsDict: TypeAlias = Mapping[str, Any]
+class AppUserSchemaPropertyArrayOneOfArgsDict(TypedDict):
+    const: pulumi.Input[_builtins.str]
+    """
+    Value mapping to member of `array_enum`
+    """
+    title: pulumi.Input[_builtins.str]
+    """
+    Display name for the enum value.
+    """
 
 @pulumi.input_type
 class AppUserSchemaPropertyArrayOneOfArgs:
@@ -786,18 +763,15 @@ class AppUserSchemaPropertyArrayOneOfArgs:
         pulumi.set(self, "title", value)
 
 
-if not MYPY:
-    class AppUserSchemaPropertyOneOfArgsDict(TypedDict):
-        const: pulumi.Input[_builtins.str]
-        """
-        Enum value
-        """
-        title: pulumi.Input[_builtins.str]
-        """
-        Enum title
-        """
-elif False:
-    AppUserSchemaPropertyOneOfArgsDict: TypeAlias = Mapping[str, Any]
+class AppUserSchemaPropertyOneOfArgsDict(TypedDict):
+    const: pulumi.Input[_builtins.str]
+    """
+    Enum value
+    """
+    title: pulumi.Input[_builtins.str]
+    """
+    Enum title
+    """
 
 @pulumi.input_type
 class AppUserSchemaPropertyOneOfArgs:
@@ -836,34 +810,31 @@ class AppUserSchemaPropertyOneOfArgs:
         pulumi.set(self, "title", value)
 
 
-if not MYPY:
-    class CampaignNotificationSettingsArgsDict(TypedDict):
-        notify_review_period_end: pulumi.Input[_builtins.bool]
-        """
-        To indicate whether a notification should be sent to the reviewer when a given reviewer level period is about to end.
-        """
-        notify_reviewer_at_campaign_end: pulumi.Input[_builtins.bool]
-        """
-        To indicate whether a notification should be sent to the reviewers when campaign has come to an end.
-        """
-        notify_reviewer_during_midpoint_of_review: pulumi.Input[_builtins.bool]
-        """
-        To indicate whether a notification should be sent to the reviewer during the midpoint of the review process.
-        """
-        notify_reviewer_when_overdue: pulumi.Input[_builtins.bool]
-        """
-        To indicate whether a notification should be sent to the reviewer when the review is overdue.
-        """
-        notify_reviewer_when_review_assigned: pulumi.Input[_builtins.bool]
-        """
-        To indicate whether a notification should be sent to the reviewer when actionable reviews are assigned.
-        """
-        reminders_reviewer_before_campaign_close_in_secs: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]
-        """
-        Specifies times (in seconds) to send reminders to reviewers before the campaign closes. Max 3 values. Example: [86400, 172800, 604800]
-        """
-elif False:
-    CampaignNotificationSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class CampaignNotificationSettingsArgsDict(TypedDict):
+    notify_review_period_end: pulumi.Input[_builtins.bool]
+    """
+    To indicate whether a notification should be sent to the reviewer when a given reviewer level period is about to end.
+    """
+    notify_reviewer_at_campaign_end: pulumi.Input[_builtins.bool]
+    """
+    To indicate whether a notification should be sent to the reviewers when campaign has come to an end.
+    """
+    notify_reviewer_during_midpoint_of_review: pulumi.Input[_builtins.bool]
+    """
+    To indicate whether a notification should be sent to the reviewer during the midpoint of the review process.
+    """
+    notify_reviewer_when_overdue: pulumi.Input[_builtins.bool]
+    """
+    To indicate whether a notification should be sent to the reviewer when the review is overdue.
+    """
+    notify_reviewer_when_review_assigned: pulumi.Input[_builtins.bool]
+    """
+    To indicate whether a notification should be sent to the reviewer when actionable reviews are assigned.
+    """
+    reminders_reviewer_before_campaign_close_in_secs: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]
+    """
+    Specifies times (in seconds) to send reminders to reviewers before the campaign closes. Max 3 values. Example: [86400, 172800, 604800]
+    """
 
 @pulumi.input_type
 class CampaignNotificationSettingsArgs:
@@ -963,39 +934,36 @@ class CampaignNotificationSettingsArgs:
         pulumi.set(self, "reminders_reviewer_before_campaign_close_in_secs", value)
 
 
-if not MYPY:
-    class CampaignPrincipalScopeSettingsArgsDict(TypedDict):
-        type: pulumi.Input[_builtins.str]
-        """
-        Specifies the type for principal_scope_settings.
-        """
-        excluded_user_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        An array of Okta user IDs excluded from access certification or the campaign. This field is optional. A maximum of 50 users can be specified in the array.
-        """
-        group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        An array of Okta group IDs included from access certification or the campaign. userIds, groupIds or userScopeExpression is required if campaign type is USER. A maximum of 5 groups can be specified in the array.
-        """
-        include_only_active_users: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        If set to true, only active Okta users are included in the campaign.
-        """
-        only_include_users_with_sod_conflicts: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        If set to true, only includes users that have at least one SOD conflict that was caused due to entitlement(s) within Campaign scope.
-        """
-        predefined_inactive_users_scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input['CampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeArgsDict']]]]
-        user_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        An array of Okta user IDs included from access certification or the campaign. userIds, groupIds or userScopeExpression is required if campaign type is USER. A maximum of 100 users can be specified in the array.
-        """
-        user_scope_expression: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Okta expression language user expression on the resourceSettings to include users in the campaign.
-        """
-elif False:
-    CampaignPrincipalScopeSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class CampaignPrincipalScopeSettingsArgsDict(TypedDict):
+    type: pulumi.Input[_builtins.str]
+    """
+    Specifies the type for principal_scope_settings.
+    """
+    excluded_user_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    An array of Okta user IDs excluded from access certification or the campaign. This field is optional. A maximum of 50 users can be specified in the array.
+    """
+    group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    An array of Okta group IDs included from access certification or the campaign. userIds, groupIds or userScopeExpression is required if campaign type is USER. A maximum of 5 groups can be specified in the array.
+    """
+    include_only_active_users: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    If set to true, only active Okta users are included in the campaign.
+    """
+    only_include_users_with_sod_conflicts: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    If set to true, only includes users that have at least one SOD conflict that was caused due to entitlement(s) within Campaign scope.
+    """
+    predefined_inactive_users_scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input['CampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeArgsDict']]]]
+    user_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    An array of Okta user IDs included from access certification or the campaign. userIds, groupIds or userScopeExpression is required if campaign type is USER. A maximum of 100 users can be specified in the array.
+    """
+    user_scope_expression: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Okta expression language user expression on the resourceSettings to include users in the campaign.
+    """
 
 @pulumi.input_type
 class CampaignPrincipalScopeSettingsArgs:
@@ -1127,14 +1095,11 @@ class CampaignPrincipalScopeSettingsArgs:
         pulumi.set(self, "user_scope_expression", value)
 
 
-if not MYPY:
-    class CampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeArgsDict(TypedDict):
-        inactive_days: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The duration the users have not used single sign on (SSO) to access their account within the specific time frame. Minimum 30 days and maximum 365 days are supported.
-        """
-elif False:
-    CampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeArgsDict: TypeAlias = Mapping[str, Any]
+class CampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeArgsDict(TypedDict):
+    inactive_days: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The duration the users have not used single sign on (SSO) to access their account within the specific time frame. Minimum 30 days and maximum 365 days are supported.
+    """
 
 @pulumi.input_type
 class CampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeArgs:
@@ -1159,23 +1124,20 @@ class CampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeArgs:
         pulumi.set(self, "inactive_days", value)
 
 
-if not MYPY:
-    class CampaignRemediationSettingsArgsDict(TypedDict):
-        access_approved: pulumi.Input[_builtins.str]
-        """
-        Specifies the action by default if the reviewer approves access. NO_ACTION indicates there is no remediation action and the user retains access.
-        """
-        access_revoked: pulumi.Input[_builtins.str]
-        """
-        Specifies the action if the reviewer revokes access. NO_ACTION indicates the user retains the same access. DENY indicates the user will have their access revoked as long as they are not assigned to a group through Group Rules.
-        """
-        no_response: pulumi.Input[_builtins.str]
-        """
-        Specifies the action if the reviewer doesn't respond to the request or if the campaign is closed before an action is taken.
-        """
-        auto_remediation_settings: NotRequired[pulumi.Input['CampaignRemediationSettingsAutoRemediationSettingsArgsDict']]
-elif False:
-    CampaignRemediationSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class CampaignRemediationSettingsArgsDict(TypedDict):
+    access_approved: pulumi.Input[_builtins.str]
+    """
+    Specifies the action by default if the reviewer approves access. NO_ACTION indicates there is no remediation action and the user retains access.
+    """
+    access_revoked: pulumi.Input[_builtins.str]
+    """
+    Specifies the action if the reviewer revokes access. NO_ACTION indicates the user retains the same access. DENY indicates the user will have their access revoked as long as they are not assigned to a group through Group Rules.
+    """
+    no_response: pulumi.Input[_builtins.str]
+    """
+    Specifies the action if the reviewer doesn't respond to the request or if the campaign is closed before an action is taken.
+    """
+    auto_remediation_settings: NotRequired[pulumi.Input['CampaignRemediationSettingsAutoRemediationSettingsArgsDict']]
 
 @pulumi.input_type
 class CampaignRemediationSettingsArgs:
@@ -1241,15 +1203,12 @@ class CampaignRemediationSettingsArgs:
         pulumi.set(self, "auto_remediation_settings", value)
 
 
-if not MYPY:
-    class CampaignRemediationSettingsAutoRemediationSettingsArgsDict(TypedDict):
-        include_all_indirect_assignments: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        If true, all indirect assignments will be included in the campaign. If false, only direct assignments will be included.
-        """
-        include_onlies: NotRequired[pulumi.Input[Sequence[pulumi.Input['CampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyArgsDict']]]]
-elif False:
-    CampaignRemediationSettingsAutoRemediationSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class CampaignRemediationSettingsAutoRemediationSettingsArgsDict(TypedDict):
+    include_all_indirect_assignments: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    If true, all indirect assignments will be included in the campaign. If false, only direct assignments will be included.
+    """
+    include_onlies: NotRequired[pulumi.Input[Sequence[pulumi.Input['CampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyArgsDict']]]]
 
 @pulumi.input_type
 class CampaignRemediationSettingsAutoRemediationSettingsArgs:
@@ -1286,18 +1245,15 @@ class CampaignRemediationSettingsAutoRemediationSettingsArgs:
         pulumi.set(self, "include_onlies", value)
 
 
-if not MYPY:
-    class CampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyArgsDict(TypedDict):
-        resource_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the resource to include in the campaign.
-        """
-        resource_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The type of the resource to include in the campaign. Valid values are 'APPLICATION', 'GROUP', 'ENTITLEMENT', 'ENTITLEMENT_BUNDLE'.
-        """
-elif False:
-    CampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyArgsDict: TypeAlias = Mapping[str, Any]
+class CampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyArgsDict(TypedDict):
+    resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the resource to include in the campaign.
+    """
+    resource_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The type of the resource to include in the campaign. Valid values are 'APPLICATION', 'GROUP', 'ENTITLEMENT', 'ENTITLEMENT_BUNDLE'.
+    """
 
 @pulumi.input_type
 class CampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyArgs:
@@ -1338,42 +1294,39 @@ class CampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyArgs:
         pulumi.set(self, "resource_type", value)
 
 
-if not MYPY:
-    class CampaignResourceSettingsArgsDict(TypedDict):
-        type: pulumi.Input[_builtins.str]
-        """
-        The type of Okta resource.
-        """
-        excluded_resources: NotRequired[pulumi.Input[Sequence[pulumi.Input['CampaignResourceSettingsExcludedResourceArgsDict']]]]
-        """
-        An array of resources that are excluded from the review.
-        """
-        include_admin_roles: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Include admin roles.
-        """
-        include_entitlements: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Include entitlements for this application. This property is only applicable if resource_type = APPLICATION and Entitlement Management is enabled.
-        """
-        individually_assigned_apps_only: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Only include individually assigned apps. This is only applicable if campaign type is USER.
-        """
-        individually_assigned_groups_only: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Only include individually assigned groups. This is only applicable if campaign type is USER.
-        """
-        only_include_out_of_policy_entitlements: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Only include out-of-policy entitlements. Only applicable if resource_type = APPLICATION and Entitlement Management is enabled.
-        """
-        target_resources: NotRequired[pulumi.Input[Sequence[pulumi.Input['CampaignResourceSettingsTargetResourceArgsDict']]]]
-        """
-        Represents a resource that will be part of Access certifications. If the app is enabled for Access Certifications, it's possible to review entitlements and entitlement bundles.
-        """
-elif False:
-    CampaignResourceSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class CampaignResourceSettingsArgsDict(TypedDict):
+    type: pulumi.Input[_builtins.str]
+    """
+    The type of Okta resource.
+    """
+    excluded_resources: NotRequired[pulumi.Input[Sequence[pulumi.Input['CampaignResourceSettingsExcludedResourceArgsDict']]]]
+    """
+    An array of resources that are excluded from the review.
+    """
+    include_admin_roles: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Include admin roles.
+    """
+    include_entitlements: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Include entitlements for this application. This property is only applicable if resource_type = APPLICATION and Entitlement Management is enabled.
+    """
+    individually_assigned_apps_only: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Only include individually assigned apps. This is only applicable if campaign type is USER.
+    """
+    individually_assigned_groups_only: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Only include individually assigned groups. This is only applicable if campaign type is USER.
+    """
+    only_include_out_of_policy_entitlements: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Only include out-of-policy entitlements. Only applicable if resource_type = APPLICATION and Entitlement Management is enabled.
+    """
+    target_resources: NotRequired[pulumi.Input[Sequence[pulumi.Input['CampaignResourceSettingsTargetResourceArgsDict']]]]
+    """
+    Represents a resource that will be part of Access certifications. If the app is enabled for Access Certifications, it's possible to review entitlements and entitlement bundles.
+    """
 
 @pulumi.input_type
 class CampaignResourceSettingsArgs:
@@ -1509,18 +1462,15 @@ class CampaignResourceSettingsArgs:
         pulumi.set(self, "target_resources", value)
 
 
-if not MYPY:
-    class CampaignResourceSettingsExcludedResourceArgsDict(TypedDict):
-        resource_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the resource to exclude in the campaign.
-        """
-        resource_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The type of resource to exclude in the campaign.
-        """
-elif False:
-    CampaignResourceSettingsExcludedResourceArgsDict: TypeAlias = Mapping[str, Any]
+class CampaignResourceSettingsExcludedResourceArgsDict(TypedDict):
+    resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the resource to exclude in the campaign.
+    """
+    resource_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The type of resource to exclude in the campaign.
+    """
 
 @pulumi.input_type
 class CampaignResourceSettingsExcludedResourceArgs:
@@ -1561,30 +1511,27 @@ class CampaignResourceSettingsExcludedResourceArgs:
         pulumi.set(self, "resource_type", value)
 
 
-if not MYPY:
-    class CampaignResourceSettingsTargetResourceArgsDict(TypedDict):
-        resource_id: pulumi.Input[_builtins.str]
-        """
-        The resource ID that is being reviewed.
-        """
-        resource_type: pulumi.Input[_builtins.str]
-        """
-        The type of Okta resource.
-        """
-        entitlement_bundles: NotRequired[pulumi.Input[Sequence[pulumi.Input['CampaignResourceSettingsTargetResourceEntitlementBundleArgsDict']]]]
-        """
-        An array of entitlement bundles for this application.
-        """
-        entitlements: NotRequired[pulumi.Input[Sequence[pulumi.Input['CampaignResourceSettingsTargetResourceEntitlementArgsDict']]]]
-        """
-        An array of entitlements associated with resourceId that should be chosen as target when creating reviews
-        """
-        include_all_entitlements_and_bundles: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Include all entitlements and entitlement bundles for this application. Only applicable if the resourcetype = APPLICATION and Entitlement Management is enabled.
-        """
-elif False:
-    CampaignResourceSettingsTargetResourceArgsDict: TypeAlias = Mapping[str, Any]
+class CampaignResourceSettingsTargetResourceArgsDict(TypedDict):
+    resource_id: pulumi.Input[_builtins.str]
+    """
+    The resource ID that is being reviewed.
+    """
+    resource_type: pulumi.Input[_builtins.str]
+    """
+    The type of Okta resource.
+    """
+    entitlement_bundles: NotRequired[pulumi.Input[Sequence[pulumi.Input['CampaignResourceSettingsTargetResourceEntitlementBundleArgsDict']]]]
+    """
+    An array of entitlement bundles for this application.
+    """
+    entitlements: NotRequired[pulumi.Input[Sequence[pulumi.Input['CampaignResourceSettingsTargetResourceEntitlementArgsDict']]]]
+    """
+    An array of entitlements associated with resourceId that should be chosen as target when creating reviews
+    """
+    include_all_entitlements_and_bundles: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Include all entitlements and entitlement bundles for this application. Only applicable if the resourcetype = APPLICATION and Entitlement Management is enabled.
+    """
 
 @pulumi.input_type
 class CampaignResourceSettingsTargetResourceArgs:
@@ -1671,19 +1618,16 @@ class CampaignResourceSettingsTargetResourceArgs:
         pulumi.set(self, "include_all_entitlements_and_bundles", value)
 
 
-if not MYPY:
-    class CampaignResourceSettingsTargetResourceEntitlementArgsDict(TypedDict):
-        id: pulumi.Input[_builtins.str]
-        """
-        Campaign id
-        """
-        include_all_values: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether to include all entitlement values. If false we must provide the values property.
-        """
-        values: NotRequired[pulumi.Input[Sequence[pulumi.Input['CampaignResourceSettingsTargetResourceEntitlementValueArgsDict']]]]
-elif False:
-    CampaignResourceSettingsTargetResourceEntitlementArgsDict: TypeAlias = Mapping[str, Any]
+class CampaignResourceSettingsTargetResourceEntitlementArgsDict(TypedDict):
+    id: pulumi.Input[_builtins.str]
+    """
+    Campaign id
+    """
+    include_all_values: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether to include all entitlement values. If false we must provide the values property.
+    """
+    values: NotRequired[pulumi.Input[Sequence[pulumi.Input['CampaignResourceSettingsTargetResourceEntitlementValueArgsDict']]]]
 
 @pulumi.input_type
 class CampaignResourceSettingsTargetResourceEntitlementArgs:
@@ -1735,14 +1679,11 @@ class CampaignResourceSettingsTargetResourceEntitlementArgs:
         pulumi.set(self, "values", value)
 
 
-if not MYPY:
-    class CampaignResourceSettingsTargetResourceEntitlementBundleArgsDict(TypedDict):
-        id: pulumi.Input[_builtins.str]
-        """
-        Campaign id
-        """
-elif False:
-    CampaignResourceSettingsTargetResourceEntitlementBundleArgsDict: TypeAlias = Mapping[str, Any]
+class CampaignResourceSettingsTargetResourceEntitlementBundleArgsDict(TypedDict):
+    id: pulumi.Input[_builtins.str]
+    """
+    Campaign id
+    """
 
 @pulumi.input_type
 class CampaignResourceSettingsTargetResourceEntitlementBundleArgs:
@@ -1766,14 +1707,11 @@ class CampaignResourceSettingsTargetResourceEntitlementBundleArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class CampaignResourceSettingsTargetResourceEntitlementValueArgsDict(TypedDict):
-        id: pulumi.Input[_builtins.str]
-        """
-        Campaign id
-        """
-elif False:
-    CampaignResourceSettingsTargetResourceEntitlementValueArgsDict: TypeAlias = Mapping[str, Any]
+class CampaignResourceSettingsTargetResourceEntitlementValueArgsDict(TypedDict):
+    id: pulumi.Input[_builtins.str]
+    """
+    Campaign id
+    """
 
 @pulumi.input_type
 class CampaignResourceSettingsTargetResourceEntitlementValueArgs:
@@ -1797,47 +1735,44 @@ class CampaignResourceSettingsTargetResourceEntitlementValueArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class CampaignReviewerSettingsArgsDict(TypedDict):
-        type: pulumi.Input[_builtins.str]
-        """
-        Identifies the kind of reviewer for Access Certification.
-        """
-        bulk_decision_disabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        When approving or revoking review items, bulk actions are disabled if true.
-        """
-        fallback_reviewer_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the fallback reviewer. Required when the type=`REVIEWER_EXPRESSION` or type=`RESOURCE_OWNER`
-        """
-        justification_required: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        When approving or revoking review items, a justification is required if true.
-        """
-        reassignment_disabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Reassignment is disabled for reviewers if true.
-        """
-        reviewer_group_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the reviewer group to which the reviewer is assigned.
-        """
-        reviewer_id: NotRequired[pulumi.Input[_builtins.str]]
-        reviewer_levels: NotRequired[pulumi.Input[Sequence[pulumi.Input['CampaignReviewerSettingsReviewerLevelArgsDict']]]]
-        """
-        Definition of reviewer level for a given campaign. Each reviewer level defines the kind of reviewer who is going to review.
-        """
-        reviewer_scope_expression: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        This property is required when type=`USER`
-        """
-        self_review_disabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        This property is required to be true for resource-centric campaigns when the Okta Admin Console is one of the resources.
-        """
-elif False:
-    CampaignReviewerSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class CampaignReviewerSettingsArgsDict(TypedDict):
+    type: pulumi.Input[_builtins.str]
+    """
+    Identifies the kind of reviewer for Access Certification.
+    """
+    bulk_decision_disabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    When approving or revoking review items, bulk actions are disabled if true.
+    """
+    fallback_reviewer_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the fallback reviewer. Required when the type=`REVIEWER_EXPRESSION` or type=`RESOURCE_OWNER`
+    """
+    justification_required: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    When approving or revoking review items, a justification is required if true.
+    """
+    reassignment_disabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Reassignment is disabled for reviewers if true.
+    """
+    reviewer_group_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the reviewer group to which the reviewer is assigned.
+    """
+    reviewer_id: NotRequired[pulumi.Input[_builtins.str]]
+    reviewer_levels: NotRequired[pulumi.Input[Sequence[pulumi.Input['CampaignReviewerSettingsReviewerLevelArgsDict']]]]
+    """
+    Definition of reviewer level for a given campaign. Each reviewer level defines the kind of reviewer who is going to review.
+    """
+    reviewer_scope_expression: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    This property is required when type=`USER`
+    """
+    self_review_disabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    This property is required to be true for resource-centric campaigns when the Okta Admin Console is one of the resources.
+    """
 
 @pulumi.input_type
 class CampaignReviewerSettingsArgs:
@@ -2001,38 +1936,35 @@ class CampaignReviewerSettingsArgs:
         pulumi.set(self, "self_review_disabled", value)
 
 
-if not MYPY:
-    class CampaignReviewerSettingsReviewerLevelArgsDict(TypedDict):
-        type: pulumi.Input[_builtins.str]
-        """
-        Identifies the kind of reviewer.
-        """
-        fallback_reviewer_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Required when the type=`REVIEWER_EXPRESSION` or type=`RESOURCE_OWNER`
-        """
-        reviewer_group_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the reviewer group to which the reviewer is assigned.This property is required when type=`GROUP`
-        """
-        reviewer_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the reviewer to which the reviewer is assigned.This property is required when type=`USER`.
-        """
-        reviewer_scope_expression: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        This property is required when type=`REVIEWER_EXPRESSION`
-        """
-        self_review_disabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        This property is used to prevent self review.
-        """
-        start_reviews: NotRequired[pulumi.Input[Sequence[pulumi.Input['CampaignReviewerSettingsReviewerLevelStartReviewArgsDict']]]]
-        """
-        The rules for which the reviews can move to that level.
-        """
-elif False:
-    CampaignReviewerSettingsReviewerLevelArgsDict: TypeAlias = Mapping[str, Any]
+class CampaignReviewerSettingsReviewerLevelArgsDict(TypedDict):
+    type: pulumi.Input[_builtins.str]
+    """
+    Identifies the kind of reviewer.
+    """
+    fallback_reviewer_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Required when the type=`REVIEWER_EXPRESSION` or type=`RESOURCE_OWNER`
+    """
+    reviewer_group_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the reviewer group to which the reviewer is assigned.This property is required when type=`GROUP`
+    """
+    reviewer_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the reviewer to which the reviewer is assigned.This property is required when type=`USER`.
+    """
+    reviewer_scope_expression: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    This property is required when type=`REVIEWER_EXPRESSION`
+    """
+    self_review_disabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    This property is used to prevent self review.
+    """
+    start_reviews: NotRequired[pulumi.Input[Sequence[pulumi.Input['CampaignReviewerSettingsReviewerLevelStartReviewArgsDict']]]]
+    """
+    The rules for which the reviews can move to that level.
+    """
 
 @pulumi.input_type
 class CampaignReviewerSettingsReviewerLevelArgs:
@@ -2152,18 +2084,15 @@ class CampaignReviewerSettingsReviewerLevelArgs:
         pulumi.set(self, "start_reviews", value)
 
 
-if not MYPY:
-    class CampaignReviewerSettingsReviewerLevelStartReviewArgsDict(TypedDict):
-        on_day: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The day of the campaign when the review starts. 0 means the first day of the campaign.
-        """
-        when: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The condition for which, the lower level reviews will move to that level for further review.
-        """
-elif False:
-    CampaignReviewerSettingsReviewerLevelStartReviewArgsDict: TypeAlias = Mapping[str, Any]
+class CampaignReviewerSettingsReviewerLevelStartReviewArgsDict(TypedDict):
+    on_day: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The day of the campaign when the review starts. 0 means the first day of the campaign.
+    """
+    when: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The condition for which, the lower level reviews will move to that level for further review.
+    """
 
 @pulumi.input_type
 class CampaignReviewerSettingsReviewerLevelStartReviewArgs:
@@ -2204,28 +2133,25 @@ class CampaignReviewerSettingsReviewerLevelStartReviewArgs:
         pulumi.set(self, "when", value)
 
 
-if not MYPY:
-    class CampaignScheduleSettingsArgsDict(TypedDict):
-        duration_in_days: pulumi.Input[_builtins.int]
-        """
-        The duration (in days) that the campaign is active.
-        """
-        start_date: pulumi.Input[_builtins.str]
-        """
-        The date on which the campaign is supposed to start. Accepts date in ISO 8601 format.
-        """
-        time_zone: pulumi.Input[_builtins.str]
-        """
-        The time zone in which the campaign is active.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        The type of campaign being scheduled.
-        """
-        end_date: NotRequired[pulumi.Input[_builtins.str]]
-        recurrences: NotRequired[pulumi.Input[Sequence[pulumi.Input['CampaignScheduleSettingsRecurrenceArgsDict']]]]
-elif False:
-    CampaignScheduleSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class CampaignScheduleSettingsArgsDict(TypedDict):
+    duration_in_days: pulumi.Input[_builtins.int]
+    """
+    The duration (in days) that the campaign is active.
+    """
+    start_date: pulumi.Input[_builtins.str]
+    """
+    The date on which the campaign is supposed to start. Accepts date in ISO 8601 format.
+    """
+    time_zone: pulumi.Input[_builtins.str]
+    """
+    The time zone in which the campaign is active.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    The type of campaign being scheduled.
+    """
+    end_date: NotRequired[pulumi.Input[_builtins.str]]
+    recurrences: NotRequired[pulumi.Input[Sequence[pulumi.Input['CampaignScheduleSettingsRecurrenceArgsDict']]]]
 
 @pulumi.input_type
 class CampaignScheduleSettingsArgs:
@@ -2318,22 +2244,19 @@ class CampaignScheduleSettingsArgs:
         pulumi.set(self, "recurrences", value)
 
 
-if not MYPY:
-    class CampaignScheduleSettingsRecurrenceArgsDict(TypedDict):
-        interval: pulumi.Input[_builtins.str]
-        """
-        Recurrence interval specified according to ISO8061 notation for durations.
-        """
-        ends: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies when the recurring schedule can have an end.
-        """
-        repeat_on_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies when the recurring schedule can have an end.
-        """
-elif False:
-    CampaignScheduleSettingsRecurrenceArgsDict: TypeAlias = Mapping[str, Any]
+class CampaignScheduleSettingsRecurrenceArgsDict(TypedDict):
+    interval: pulumi.Input[_builtins.str]
+    """
+    Recurrence interval specified according to ISO8061 notation for durations.
+    """
+    ends: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies when the recurring schedule can have an end.
+    """
+    repeat_on_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies when the recurring schedule can have an end.
+    """
 
 @pulumi.input_type
 class CampaignScheduleSettingsRecurrenceArgs:
@@ -2389,16 +2312,13 @@ class CampaignScheduleSettingsRecurrenceArgs:
         pulumi.set(self, "repeat_on_type", value)
 
 
-if not MYPY:
-    class CustomizedSigninPageContentSecurityPolicySettingArgsDict(TypedDict):
-        mode: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        enforced or report_only
-        """
-        report_uri: NotRequired[pulumi.Input[_builtins.str]]
-        src_lists: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-elif False:
-    CustomizedSigninPageContentSecurityPolicySettingArgsDict: TypeAlias = Mapping[str, Any]
+class CustomizedSigninPageContentSecurityPolicySettingArgsDict(TypedDict):
+    mode: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    enforced or report_only
+    """
+    report_uri: NotRequired[pulumi.Input[_builtins.str]]
+    src_lists: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
 
 @pulumi.input_type
 class CustomizedSigninPageContentSecurityPolicySettingArgs:
@@ -2447,31 +2367,28 @@ class CustomizedSigninPageContentSecurityPolicySettingArgs:
         pulumi.set(self, "src_lists", value)
 
 
-if not MYPY:
-    class CustomizedSigninPageWidgetCustomizationsArgsDict(TypedDict):
-        widget_generation: pulumi.Input[_builtins.str]
-        authenticator_page_custom_link_label: NotRequired[pulumi.Input[_builtins.str]]
-        authenticator_page_custom_link_url: NotRequired[pulumi.Input[_builtins.str]]
-        classic_recovery_flow_email_or_username_label: NotRequired[pulumi.Input[_builtins.str]]
-        custom_link1_label: NotRequired[pulumi.Input[_builtins.str]]
-        custom_link1_url: NotRequired[pulumi.Input[_builtins.str]]
-        custom_link2_label: NotRequired[pulumi.Input[_builtins.str]]
-        custom_link2_url: NotRequired[pulumi.Input[_builtins.str]]
-        forgot_password_label: NotRequired[pulumi.Input[_builtins.str]]
-        forgot_password_url: NotRequired[pulumi.Input[_builtins.str]]
-        help_label: NotRequired[pulumi.Input[_builtins.str]]
-        help_url: NotRequired[pulumi.Input[_builtins.str]]
-        password_info_tip: NotRequired[pulumi.Input[_builtins.str]]
-        password_label: NotRequired[pulumi.Input[_builtins.str]]
-        show_password_visibility_toggle: NotRequired[pulumi.Input[_builtins.bool]]
-        show_user_identifier: NotRequired[pulumi.Input[_builtins.bool]]
-        sign_in_label: NotRequired[pulumi.Input[_builtins.str]]
-        unlock_account_label: NotRequired[pulumi.Input[_builtins.str]]
-        unlock_account_url: NotRequired[pulumi.Input[_builtins.str]]
-        username_info_tip: NotRequired[pulumi.Input[_builtins.str]]
-        username_label: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    CustomizedSigninPageWidgetCustomizationsArgsDict: TypeAlias = Mapping[str, Any]
+class CustomizedSigninPageWidgetCustomizationsArgsDict(TypedDict):
+    widget_generation: pulumi.Input[_builtins.str]
+    authenticator_page_custom_link_label: NotRequired[pulumi.Input[_builtins.str]]
+    authenticator_page_custom_link_url: NotRequired[pulumi.Input[_builtins.str]]
+    classic_recovery_flow_email_or_username_label: NotRequired[pulumi.Input[_builtins.str]]
+    custom_link1_label: NotRequired[pulumi.Input[_builtins.str]]
+    custom_link1_url: NotRequired[pulumi.Input[_builtins.str]]
+    custom_link2_label: NotRequired[pulumi.Input[_builtins.str]]
+    custom_link2_url: NotRequired[pulumi.Input[_builtins.str]]
+    forgot_password_label: NotRequired[pulumi.Input[_builtins.str]]
+    forgot_password_url: NotRequired[pulumi.Input[_builtins.str]]
+    help_label: NotRequired[pulumi.Input[_builtins.str]]
+    help_url: NotRequired[pulumi.Input[_builtins.str]]
+    password_info_tip: NotRequired[pulumi.Input[_builtins.str]]
+    password_label: NotRequired[pulumi.Input[_builtins.str]]
+    show_password_visibility_toggle: NotRequired[pulumi.Input[_builtins.bool]]
+    show_user_identifier: NotRequired[pulumi.Input[_builtins.bool]]
+    sign_in_label: NotRequired[pulumi.Input[_builtins.str]]
+    unlock_account_label: NotRequired[pulumi.Input[_builtins.str]]
+    unlock_account_url: NotRequired[pulumi.Input[_builtins.str]]
+    username_info_tip: NotRequired[pulumi.Input[_builtins.str]]
+    username_label: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class CustomizedSigninPageWidgetCustomizationsArgs:
@@ -2729,26 +2646,23 @@ class CustomizedSigninPageWidgetCustomizationsArgs:
         pulumi.set(self, "username_label", value)
 
 
-if not MYPY:
-    class DomainDnsRecordArgsDict(TypedDict):
-        expiration: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        TXT record expiration
-        """
-        fqdn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        DNS record name
-        """
-        record_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Record type can be TXT or CNAME
-        """
-        values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        DNS verification value
-        """
-elif False:
-    DomainDnsRecordArgsDict: TypeAlias = Mapping[str, Any]
+class DomainDnsRecordArgsDict(TypedDict):
+    expiration: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    TXT record expiration
+    """
+    fqdn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    DNS record name
+    """
+    record_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Record type can be TXT or CNAME
+    """
+    values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    DNS verification value
+    """
 
 @pulumi.input_type
 class DomainDnsRecordArgs:
@@ -2821,26 +2735,23 @@ class DomainDnsRecordArgs:
         pulumi.set(self, "values", value)
 
 
-if not MYPY:
-    class EmailDomainDnsValidationRecordArgsDict(TypedDict):
-        expiration: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        DNS TXT record expiration
-        """
-        fqdn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        DNS record name
-        """
-        record_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Record type can be TXT or cname
-        """
-        value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        DNS record value
-        """
-elif False:
-    EmailDomainDnsValidationRecordArgsDict: TypeAlias = Mapping[str, Any]
+class EmailDomainDnsValidationRecordArgsDict(TypedDict):
+    expiration: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    DNS TXT record expiration
+    """
+    fqdn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    DNS record name
+    """
+    record_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Record type can be TXT or cname
+    """
+    value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    DNS record value
+    """
 
 @pulumi.input_type
 class EmailDomainDnsValidationRecordArgs:
@@ -2917,22 +2828,19 @@ class EmailDomainDnsValidationRecordArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class EmailSenderDnsRecordArgsDict(TypedDict):
-        fqdn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        DNS record name
-        """
-        record_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Record type can be TXT or CNAME
-        """
-        value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        DNS verification value
-        """
-elif False:
-    EmailSenderDnsRecordArgsDict: TypeAlias = Mapping[str, Any]
+class EmailSenderDnsRecordArgsDict(TypedDict):
+    fqdn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    DNS record name
+    """
+    record_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Record type can be TXT or CNAME
+    """
+    value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    DNS verification value
+    """
 
 @pulumi.input_type
 class EmailSenderDnsRecordArgs:
@@ -2989,30 +2897,27 @@ class EmailSenderDnsRecordArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class EndUserMyRequestsRequesterFieldValueArgsDict(TypedDict):
-        id: pulumi.Input[_builtins.str]
-        """
-        The ID of a requesterField. This identifies the specific field in the approval system.
-        """
-        label: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A human-readable description of requesterField. It's used for display purposes and is optional.
-        """
-        type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Type of value for the requester field. Valid values: `DURATION`, `ISO_DATE`, `MULTISELECT`, `OKTA_USER_ID`, `SELECT`, `TEXT`.
-        """
-        value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The value of requesterField, which depends on the type of the field. Used for single-value fields.
-        """
-        values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The values of requesterField with the type MULTISELECT. If the field type is MULTISELECT, this property is required instead of `value`.
-        """
-elif False:
-    EndUserMyRequestsRequesterFieldValueArgsDict: TypeAlias = Mapping[str, Any]
+class EndUserMyRequestsRequesterFieldValueArgsDict(TypedDict):
+    id: pulumi.Input[_builtins.str]
+    """
+    The ID of a requesterField. This identifies the specific field in the approval system.
+    """
+    label: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A human-readable description of requesterField. It's used for display purposes and is optional.
+    """
+    type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Type of value for the requester field. Valid values: `DURATION`, `ISO_DATE`, `MULTISELECT`, `OKTA_USER_ID`, `SELECT`, `TEXT`.
+    """
+    value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The value of requesterField, which depends on the type of the field. Used for single-value fields.
+    """
+    values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The values of requesterField with the type MULTISELECT. If the field type is MULTISELECT, this property is required instead of `value`.
+    """
 
 @pulumi.input_type
 class EndUserMyRequestsRequesterFieldValueArgs:
@@ -3100,15 +3005,12 @@ class EndUserMyRequestsRequesterFieldValueArgs:
         pulumi.set(self, "values", value)
 
 
-if not MYPY:
-    class EntitlementBundleEntitlementArgsDict(TypedDict):
-        id: pulumi.Input[_builtins.str]
-        """
-        The ID of the entitlement.
-        """
-        values: NotRequired[pulumi.Input[Sequence[pulumi.Input['EntitlementBundleEntitlementValueArgsDict']]]]
-elif False:
-    EntitlementBundleEntitlementArgsDict: TypeAlias = Mapping[str, Any]
+class EntitlementBundleEntitlementArgsDict(TypedDict):
+    id: pulumi.Input[_builtins.str]
+    """
+    The ID of the entitlement.
+    """
+    values: NotRequired[pulumi.Input[Sequence[pulumi.Input['EntitlementBundleEntitlementValueArgsDict']]]]
 
 @pulumi.input_type
 class EntitlementBundleEntitlementArgs:
@@ -3144,14 +3046,11 @@ class EntitlementBundleEntitlementArgs:
         pulumi.set(self, "values", value)
 
 
-if not MYPY:
-    class EntitlementBundleEntitlementValueArgsDict(TypedDict):
-        id: pulumi.Input[_builtins.str]
-        """
-        The ID of the entitlement value.
-        """
-elif False:
-    EntitlementBundleEntitlementValueArgsDict: TypeAlias = Mapping[str, Any]
+class EntitlementBundleEntitlementValueArgsDict(TypedDict):
+    id: pulumi.Input[_builtins.str]
+    """
+    The ID of the entitlement value.
+    """
 
 @pulumi.input_type
 class EntitlementBundleEntitlementValueArgs:
@@ -3175,18 +3074,15 @@ class EntitlementBundleEntitlementValueArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class EntitlementBundleTargetArgsDict(TypedDict):
-        external_id: pulumi.Input[_builtins.str]
-        """
-        The Okta app ID of the resource.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        The type of resource.
-        """
-elif False:
-    EntitlementBundleTargetArgsDict: TypeAlias = Mapping[str, Any]
+class EntitlementBundleTargetArgsDict(TypedDict):
+    external_id: pulumi.Input[_builtins.str]
+    """
+    The Okta app ID of the resource.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    The type of resource.
+    """
 
 @pulumi.input_type
 class EntitlementBundleTargetArgs:
@@ -3225,18 +3121,15 @@ class EntitlementBundleTargetArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class EntitlementParentArgsDict(TypedDict):
-        external_id: pulumi.Input[_builtins.str]
-        """
-        The Okta app ID of the resource.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        The type of resource.
-        """
-elif False:
-    EntitlementParentArgsDict: TypeAlias = Mapping[str, Any]
+class EntitlementParentArgsDict(TypedDict):
+    external_id: pulumi.Input[_builtins.str]
+    """
+    The Okta app ID of the resource.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    The type of resource.
+    """
 
 @pulumi.input_type
 class EntitlementParentArgs:
@@ -3275,26 +3168,23 @@ class EntitlementParentArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class EntitlementValueArgsDict(TypedDict):
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The description of an entitlement value.
-        """
-        external_value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The value of an entitlement property value.
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Collection of entitlement values.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The display name for an entitlement value.
-        """
-elif False:
-    EntitlementValueArgsDict: TypeAlias = Mapping[str, Any]
+class EntitlementValueArgsDict(TypedDict):
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The description of an entitlement value.
+    """
+    external_value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The value of an entitlement property value.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Collection of entitlement values.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The display name for an entitlement value.
+    """
 
 @pulumi.input_type
 class EntitlementValueArgs:
@@ -3367,12 +3257,9 @@ class EntitlementValueArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class EventHookHeaderArgsDict(TypedDict):
-        key: NotRequired[pulumi.Input[_builtins.str]]
-        value: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    EventHookHeaderArgsDict: TypeAlias = Mapping[str, Any]
+class EventHookHeaderArgsDict(TypedDict):
+    key: NotRequired[pulumi.Input[_builtins.str]]
+    value: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class EventHookHeaderArgs:
@@ -3403,12 +3290,9 @@ class EventHookHeaderArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class FeatureStageArgsDict(TypedDict):
-        state: pulumi.Input[_builtins.str]
-        value: pulumi.Input[_builtins.str]
-elif False:
-    FeatureStageArgsDict: TypeAlias = Mapping[str, Any]
+class FeatureStageArgsDict(TypedDict):
+    state: pulumi.Input[_builtins.str]
+    value: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class FeatureStageArgs:
@@ -3437,18 +3321,15 @@ class FeatureStageArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class GroupSchemaPropertyArrayOneOfArgsDict(TypedDict):
-        const: pulumi.Input[_builtins.str]
-        """
-        Value mapping to member of `array_enum`
-        """
-        title: pulumi.Input[_builtins.str]
-        """
-        Display name for the enum value.
-        """
-elif False:
-    GroupSchemaPropertyArrayOneOfArgsDict: TypeAlias = Mapping[str, Any]
+class GroupSchemaPropertyArrayOneOfArgsDict(TypedDict):
+    const: pulumi.Input[_builtins.str]
+    """
+    Value mapping to member of `array_enum`
+    """
+    title: pulumi.Input[_builtins.str]
+    """
+    Display name for the enum value.
+    """
 
 @pulumi.input_type
 class GroupSchemaPropertyArrayOneOfArgs:
@@ -3487,12 +3368,9 @@ class GroupSchemaPropertyArrayOneOfArgs:
         pulumi.set(self, "title", value)
 
 
-if not MYPY:
-    class GroupSchemaPropertyMasterOverridePriorityArgsDict(TypedDict):
-        value: pulumi.Input[_builtins.str]
-        type: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    GroupSchemaPropertyMasterOverridePriorityArgsDict: TypeAlias = Mapping[str, Any]
+class GroupSchemaPropertyMasterOverridePriorityArgsDict(TypedDict):
+    value: pulumi.Input[_builtins.str]
+    type: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class GroupSchemaPropertyMasterOverridePriorityArgs:
@@ -3522,18 +3400,15 @@ class GroupSchemaPropertyMasterOverridePriorityArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class GroupSchemaPropertyOneOfArgsDict(TypedDict):
-        const: pulumi.Input[_builtins.str]
-        """
-        Enum value
-        """
-        title: pulumi.Input[_builtins.str]
-        """
-        Enum title
-        """
-elif False:
-    GroupSchemaPropertyOneOfArgsDict: TypeAlias = Mapping[str, Any]
+class GroupSchemaPropertyOneOfArgsDict(TypedDict):
+    const: pulumi.Input[_builtins.str]
+    """
+    Enum value
+    """
+    title: pulumi.Input[_builtins.str]
+    """
+    Enum title
+    """
 
 @pulumi.input_type
 class GroupSchemaPropertyOneOfArgs:
@@ -3572,34 +3447,31 @@ class GroupSchemaPropertyOneOfArgs:
         pulumi.set(self, "title", value)
 
 
-if not MYPY:
-    class LogStreamSettingsArgsDict(TypedDict):
-        account_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        AWS account ID. Required only for 'aws_eventbridge' type
-        """
-        edition: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Edition of the Splunk Cloud instance. Could be one of: 'aws', 'aws*govcloud', 'gcp'. Required only for 'splunk*cloud_logstreaming' type
-        """
-        event_source_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        An alphanumeric name (no spaces) to identify this event source in AWS EventBridge. Required only for 'aws_eventbridge' type
-        """
-        host: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The domain name for Splunk Cloud instance. Don't include http or https in the string. For example: 'acme.splunkcloud.com'. Required only for 'splunk*cloud*logstreaming' type
-        """
-        region: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The destination AWS region where event source is located. Required only for 'aws_eventbridge' type
-        """
-        token: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The HEC token for your Splunk Cloud HTTP Event Collector. Required only for 'splunk*cloud*logstreaming' type
-        """
-elif False:
-    LogStreamSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class LogStreamSettingsArgsDict(TypedDict):
+    account_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    AWS account ID. Required only for 'aws_eventbridge' type
+    """
+    edition: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Edition of the Splunk Cloud instance. Could be one of: 'aws', 'aws*govcloud', 'gcp'. Required only for 'splunk*cloud_logstreaming' type
+    """
+    event_source_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    An alphanumeric name (no spaces) to identify this event source in AWS EventBridge. Required only for 'aws_eventbridge' type
+    """
+    host: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The domain name for Splunk Cloud instance. Don't include http or https in the string. For example: 'acme.splunkcloud.com'. Required only for 'splunk*cloud*logstreaming' type
+    """
+    region: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The destination AWS region where event source is located. Required only for 'aws_eventbridge' type
+    """
+    token: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The HEC token for your Splunk Cloud HTTP Event Collector. Required only for 'splunk*cloud*logstreaming' type
+    """
 
 @pulumi.input_type
 class LogStreamSettingsArgs:
@@ -3704,22 +3576,19 @@ class LogStreamSettingsArgs:
         pulumi.set(self, "token", value)
 
 
-if not MYPY:
-    class PolicyRuleProfileEnrollmentProfileAttributeArgsDict(TypedDict):
-        label: pulumi.Input[_builtins.str]
-        """
-        A display-friendly label for this property
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of a User Profile property
-        """
-        required: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates if this property is required for enrollment
-        """
-elif False:
-    PolicyRuleProfileEnrollmentProfileAttributeArgsDict: TypeAlias = Mapping[str, Any]
+class PolicyRuleProfileEnrollmentProfileAttributeArgsDict(TypedDict):
+    label: pulumi.Input[_builtins.str]
+    """
+    A display-friendly label for this property
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of a User Profile property
+    """
+    required: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates if this property is required for enrollment
+    """
 
 @pulumi.input_type
 class PolicyRuleProfileEnrollmentProfileAttributeArgs:
@@ -3774,16 +3643,13 @@ class PolicyRuleProfileEnrollmentProfileAttributeArgs:
         pulumi.set(self, "required", value)
 
 
-if not MYPY:
-    class PreviewSigninPageContentSecurityPolicySettingArgsDict(TypedDict):
-        mode: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        enforced or report_only
-        """
-        report_uri: NotRequired[pulumi.Input[_builtins.str]]
-        src_lists: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-elif False:
-    PreviewSigninPageContentSecurityPolicySettingArgsDict: TypeAlias = Mapping[str, Any]
+class PreviewSigninPageContentSecurityPolicySettingArgsDict(TypedDict):
+    mode: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    enforced or report_only
+    """
+    report_uri: NotRequired[pulumi.Input[_builtins.str]]
+    src_lists: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
 
 @pulumi.input_type
 class PreviewSigninPageContentSecurityPolicySettingArgs:
@@ -3832,31 +3698,28 @@ class PreviewSigninPageContentSecurityPolicySettingArgs:
         pulumi.set(self, "src_lists", value)
 
 
-if not MYPY:
-    class PreviewSigninPageWidgetCustomizationsArgsDict(TypedDict):
-        widget_generation: pulumi.Input[_builtins.str]
-        authenticator_page_custom_link_label: NotRequired[pulumi.Input[_builtins.str]]
-        authenticator_page_custom_link_url: NotRequired[pulumi.Input[_builtins.str]]
-        classic_recovery_flow_email_or_username_label: NotRequired[pulumi.Input[_builtins.str]]
-        custom_link1_label: NotRequired[pulumi.Input[_builtins.str]]
-        custom_link1_url: NotRequired[pulumi.Input[_builtins.str]]
-        custom_link2_label: NotRequired[pulumi.Input[_builtins.str]]
-        custom_link2_url: NotRequired[pulumi.Input[_builtins.str]]
-        forgot_password_label: NotRequired[pulumi.Input[_builtins.str]]
-        forgot_password_url: NotRequired[pulumi.Input[_builtins.str]]
-        help_label: NotRequired[pulumi.Input[_builtins.str]]
-        help_url: NotRequired[pulumi.Input[_builtins.str]]
-        password_info_tip: NotRequired[pulumi.Input[_builtins.str]]
-        password_label: NotRequired[pulumi.Input[_builtins.str]]
-        show_password_visibility_toggle: NotRequired[pulumi.Input[_builtins.bool]]
-        show_user_identifier: NotRequired[pulumi.Input[_builtins.bool]]
-        sign_in_label: NotRequired[pulumi.Input[_builtins.str]]
-        unlock_account_label: NotRequired[pulumi.Input[_builtins.str]]
-        unlock_account_url: NotRequired[pulumi.Input[_builtins.str]]
-        username_info_tip: NotRequired[pulumi.Input[_builtins.str]]
-        username_label: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    PreviewSigninPageWidgetCustomizationsArgsDict: TypeAlias = Mapping[str, Any]
+class PreviewSigninPageWidgetCustomizationsArgsDict(TypedDict):
+    widget_generation: pulumi.Input[_builtins.str]
+    authenticator_page_custom_link_label: NotRequired[pulumi.Input[_builtins.str]]
+    authenticator_page_custom_link_url: NotRequired[pulumi.Input[_builtins.str]]
+    classic_recovery_flow_email_or_username_label: NotRequired[pulumi.Input[_builtins.str]]
+    custom_link1_label: NotRequired[pulumi.Input[_builtins.str]]
+    custom_link1_url: NotRequired[pulumi.Input[_builtins.str]]
+    custom_link2_label: NotRequired[pulumi.Input[_builtins.str]]
+    custom_link2_url: NotRequired[pulumi.Input[_builtins.str]]
+    forgot_password_label: NotRequired[pulumi.Input[_builtins.str]]
+    forgot_password_url: NotRequired[pulumi.Input[_builtins.str]]
+    help_label: NotRequired[pulumi.Input[_builtins.str]]
+    help_url: NotRequired[pulumi.Input[_builtins.str]]
+    password_info_tip: NotRequired[pulumi.Input[_builtins.str]]
+    password_label: NotRequired[pulumi.Input[_builtins.str]]
+    show_password_visibility_toggle: NotRequired[pulumi.Input[_builtins.bool]]
+    show_user_identifier: NotRequired[pulumi.Input[_builtins.bool]]
+    sign_in_label: NotRequired[pulumi.Input[_builtins.str]]
+    unlock_account_label: NotRequired[pulumi.Input[_builtins.str]]
+    unlock_account_url: NotRequired[pulumi.Input[_builtins.str]]
+    username_info_tip: NotRequired[pulumi.Input[_builtins.str]]
+    username_label: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class PreviewSigninPageWidgetCustomizationsArgs:
@@ -4114,12 +3977,9 @@ class PreviewSigninPageWidgetCustomizationsArgs:
         pulumi.set(self, "username_label", value)
 
 
-if not MYPY:
-    class PushProviderConfigurationArgsDict(TypedDict):
-        apns_configuration: NotRequired[pulumi.Input['PushProviderConfigurationApnsConfigurationArgsDict']]
-        fcm_configuration: NotRequired[pulumi.Input['PushProviderConfigurationFcmConfigurationArgsDict']]
-elif False:
-    PushProviderConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class PushProviderConfigurationArgsDict(TypedDict):
+    apns_configuration: NotRequired[pulumi.Input['PushProviderConfigurationApnsConfigurationArgsDict']]
+    fcm_configuration: NotRequired[pulumi.Input['PushProviderConfigurationFcmConfigurationArgsDict']]
 
 @pulumi.input_type
 class PushProviderConfigurationArgs:
@@ -4150,26 +4010,23 @@ class PushProviderConfigurationArgs:
         pulumi.set(self, "fcm_configuration", value)
 
 
-if not MYPY:
-    class PushProviderConfigurationApnsConfigurationArgsDict(TypedDict):
-        file_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        File name for Admin Console display.
-        """
-        key_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        10-character Key ID obtained from the Apple developer account. Required for APNS provider type.
-        """
-        team_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        10-character Team ID used to develop the iOS app. Required for APNS provider type.
-        """
-        token_signing_key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        APNs private authentication token signing key. Required for APNS provider type.
-        """
-elif False:
-    PushProviderConfigurationApnsConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class PushProviderConfigurationApnsConfigurationArgsDict(TypedDict):
+    file_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    File name for Admin Console display.
+    """
+    key_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    10-character Key ID obtained from the Apple developer account. Required for APNS provider type.
+    """
+    team_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    10-character Team ID used to develop the iOS app. Required for APNS provider type.
+    """
+    token_signing_key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    APNs private authentication token signing key. Required for APNS provider type.
+    """
 
 @pulumi.input_type
 class PushProviderConfigurationApnsConfigurationArgs:
@@ -4242,14 +4099,11 @@ class PushProviderConfigurationApnsConfigurationArgs:
         pulumi.set(self, "token_signing_key", value)
 
 
-if not MYPY:
-    class PushProviderConfigurationFcmConfigurationArgsDict(TypedDict):
-        service_account_json: NotRequired[pulumi.Input['PushProviderConfigurationFcmConfigurationServiceAccountJsonArgsDict']]
-        """
-        JSON containing the private service account key and service account details. Required for FCM provider type.
-        """
-elif False:
-    PushProviderConfigurationFcmConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class PushProviderConfigurationFcmConfigurationArgsDict(TypedDict):
+    service_account_json: NotRequired[pulumi.Input['PushProviderConfigurationFcmConfigurationServiceAccountJsonArgsDict']]
+    """
+    JSON containing the private service account key and service account details. Required for FCM provider type.
+    """
 
 @pulumi.input_type
 class PushProviderConfigurationFcmConfigurationArgs:
@@ -4274,54 +4128,51 @@ class PushProviderConfigurationFcmConfigurationArgs:
         pulumi.set(self, "service_account_json", value)
 
 
-if not MYPY:
-    class PushProviderConfigurationFcmConfigurationServiceAccountJsonArgsDict(TypedDict):
-        auth_provider_x509_cert_url: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The auth provider x509 cert URL.
-        """
-        auth_uri: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The auth URI.
-        """
-        client_email: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The client email.
-        """
-        client_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The client ID.
-        """
-        client_x509_cert_url: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The client x509 cert URL.
-        """
-        file_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        File name for Admin Console display.
-        """
-        private_key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The private key.
-        """
-        private_key_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The private key ID.
-        """
-        project_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The project ID.
-        """
-        token_uri: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The token URI.
-        """
-        type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The type of the service account.
-        """
-elif False:
-    PushProviderConfigurationFcmConfigurationServiceAccountJsonArgsDict: TypeAlias = Mapping[str, Any]
+class PushProviderConfigurationFcmConfigurationServiceAccountJsonArgsDict(TypedDict):
+    auth_provider_x509_cert_url: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The auth provider x509 cert URL.
+    """
+    auth_uri: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The auth URI.
+    """
+    client_email: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The client email.
+    """
+    client_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The client ID.
+    """
+    client_x509_cert_url: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The client x509 cert URL.
+    """
+    file_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    File name for Admin Console display.
+    """
+    private_key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The private key.
+    """
+    private_key_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The private key ID.
+    """
+    project_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The project ID.
+    """
+    token_uri: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The token URI.
+    """
+    type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The type of the service account.
+    """
 
 @pulumi.input_type
 class PushProviderConfigurationFcmConfigurationServiceAccountJsonArgs:
@@ -4506,13 +4357,10 @@ class PushProviderConfigurationFcmConfigurationServiceAccountJsonArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class RateLimitingUseCaseModeOverridesArgsDict(TypedDict):
-        login_page: NotRequired[pulumi.Input[_builtins.str]]
-        oauth2_authorize: NotRequired[pulumi.Input[_builtins.str]]
-        oie_app_intent: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    RateLimitingUseCaseModeOverridesArgsDict: TypeAlias = Mapping[str, Any]
+class RateLimitingUseCaseModeOverridesArgsDict(TypedDict):
+    login_page: NotRequired[pulumi.Input[_builtins.str]]
+    oauth2_authorize: NotRequired[pulumi.Input[_builtins.str]]
+    oie_app_intent: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class RateLimitingUseCaseModeOverridesArgs:
@@ -4555,15 +4403,12 @@ class RateLimitingUseCaseModeOverridesArgs:
         pulumi.set(self, "oie_app_intent", value)
 
 
-if not MYPY:
-    class RequestConditionAccessDurationSettingsArgsDict(TypedDict):
-        duration: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The duration set by the admin for access durations. Use ISO8061 notation for duration values.
-        """
-        type: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    RequestConditionAccessDurationSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class RequestConditionAccessDurationSettingsArgsDict(TypedDict):
+    duration: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The duration set by the admin for access durations. Use ISO8061 notation for duration values.
+    """
+    type: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class RequestConditionAccessDurationSettingsArgs:
@@ -4600,15 +4445,12 @@ class RequestConditionAccessDurationSettingsArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class RequestConditionAccessScopeSettingsArgsDict(TypedDict):
-        type: pulumi.Input[_builtins.str]
-        ids: NotRequired[pulumi.Input[Sequence[pulumi.Input['RequestConditionAccessScopeSettingsIdArgsDict']]]]
-        """
-        Block list of groups/entitlement bundles ids.
-        """
-elif False:
-    RequestConditionAccessScopeSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class RequestConditionAccessScopeSettingsArgsDict(TypedDict):
+    type: pulumi.Input[_builtins.str]
+    ids: NotRequired[pulumi.Input[Sequence[pulumi.Input['RequestConditionAccessScopeSettingsIdArgsDict']]]]
+    """
+    Block list of groups/entitlement bundles ids.
+    """
 
 @pulumi.input_type
 class RequestConditionAccessScopeSettingsArgs:
@@ -4644,14 +4486,11 @@ class RequestConditionAccessScopeSettingsArgs:
         pulumi.set(self, "ids", value)
 
 
-if not MYPY:
-    class RequestConditionAccessScopeSettingsIdArgsDict(TypedDict):
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Request condition id.
-        """
-elif False:
-    RequestConditionAccessScopeSettingsIdArgsDict: TypeAlias = Mapping[str, Any]
+class RequestConditionAccessScopeSettingsIdArgsDict(TypedDict):
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Request condition id.
+    """
 
 @pulumi.input_type
 class RequestConditionAccessScopeSettingsIdArgs:
@@ -4676,15 +4515,12 @@ class RequestConditionAccessScopeSettingsIdArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class RequestConditionRequesterSettingsArgsDict(TypedDict):
-        type: pulumi.Input[_builtins.str]
-        ids: NotRequired[pulumi.Input[Sequence[pulumi.Input['RequestConditionRequesterSettingsIdArgsDict']]]]
-        """
-        Block list of teams/groups ids.
-        """
-elif False:
-    RequestConditionRequesterSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class RequestConditionRequesterSettingsArgsDict(TypedDict):
+    type: pulumi.Input[_builtins.str]
+    ids: NotRequired[pulumi.Input[Sequence[pulumi.Input['RequestConditionRequesterSettingsIdArgsDict']]]]
+    """
+    Block list of teams/groups ids.
+    """
 
 @pulumi.input_type
 class RequestConditionRequesterSettingsArgs:
@@ -4720,14 +4556,11 @@ class RequestConditionRequesterSettingsArgs:
         pulumi.set(self, "ids", value)
 
 
-if not MYPY:
-    class RequestConditionRequesterSettingsIdArgsDict(TypedDict):
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Request condition id.
-        """
-elif False:
-    RequestConditionRequesterSettingsIdArgsDict: TypeAlias = Mapping[str, Any]
+class RequestConditionRequesterSettingsIdArgsDict(TypedDict):
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Request condition id.
+    """
 
 @pulumi.input_type
 class RequestConditionRequesterSettingsIdArgs:
@@ -4752,18 +4585,15 @@ class RequestConditionRequesterSettingsIdArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class RequestSettingResourceRequestOnBehalfOfSettingsArgsDict(TypedDict):
-        allowed: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates that users who can request this resource could also request for another requester of the same resource. This property can only be true.
-        """
-        only_fors: NotRequired[pulumi.Input[Sequence[pulumi.Input['RequestSettingResourceRequestOnBehalfOfSettingsOnlyForArgsDict']]]]
-        """
-        Which requesters the resource requester can request on behalf of. Enum: `DIRECT_REPORT`.
-        """
-elif False:
-    RequestSettingResourceRequestOnBehalfOfSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class RequestSettingResourceRequestOnBehalfOfSettingsArgsDict(TypedDict):
+    allowed: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates that users who can request this resource could also request for another requester of the same resource. This property can only be true.
+    """
+    only_fors: NotRequired[pulumi.Input[Sequence[pulumi.Input['RequestSettingResourceRequestOnBehalfOfSettingsOnlyForArgsDict']]]]
+    """
+    Which requesters the resource requester can request on behalf of. Enum: `DIRECT_REPORT`.
+    """
 
 @pulumi.input_type
 class RequestSettingResourceRequestOnBehalfOfSettingsArgs:
@@ -4804,14 +4634,11 @@ class RequestSettingResourceRequestOnBehalfOfSettingsArgs:
         pulumi.set(self, "only_fors", value)
 
 
-if not MYPY:
-    class RequestSettingResourceRequestOnBehalfOfSettingsOnlyForArgsDict(TypedDict):
-        type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Which requesters the resource requester can request on behalf of. If onlyFor is not specified then any requester may request a resource on the behalf of any other user
-        """
-elif False:
-    RequestSettingResourceRequestOnBehalfOfSettingsOnlyForArgsDict: TypeAlias = Mapping[str, Any]
+class RequestSettingResourceRequestOnBehalfOfSettingsOnlyForArgsDict(TypedDict):
+    type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Which requesters the resource requester can request on behalf of. If onlyFor is not specified then any requester may request a resource on the behalf of any other user
+    """
 
 @pulumi.input_type
 class RequestSettingResourceRequestOnBehalfOfSettingsOnlyForArgs:
@@ -4836,14 +4663,11 @@ class RequestSettingResourceRequestOnBehalfOfSettingsOnlyForArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class RequestSettingResourceRiskSettingsArgsDict(TypedDict):
-        default_setting: NotRequired[pulumi.Input['RequestSettingResourceRiskSettingsDefaultSettingArgsDict']]
-        """
-        Default risk settings that are valid for an access request when a risk has been detected for the resource and requesting user.
-        """
-elif False:
-    RequestSettingResourceRiskSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class RequestSettingResourceRiskSettingsArgsDict(TypedDict):
+    default_setting: NotRequired[pulumi.Input['RequestSettingResourceRiskSettingsDefaultSettingArgsDict']]
+    """
+    Default risk settings that are valid for an access request when a risk has been detected for the resource and requesting user.
+    """
 
 @pulumi.input_type
 class RequestSettingResourceRiskSettingsArgs:
@@ -4868,20 +4692,17 @@ class RequestSettingResourceRiskSettingsArgs:
         pulumi.set(self, "default_setting", value)
 
 
-if not MYPY:
-    class RequestSettingResourceRiskSettingsDefaultSettingArgsDict(TypedDict):
-        access_duration_settings: NotRequired[pulumi.Input['RequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsArgsDict']]
-        """
-        Settings that control who may specify the access duration allowed by this request condition or risk settings, as well as what duration may be requested.
-        """
-        approval_sequence_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the approval sequence.
-        """
-        errors: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        request_submission_type: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    RequestSettingResourceRiskSettingsDefaultSettingArgsDict: TypeAlias = Mapping[str, Any]
+class RequestSettingResourceRiskSettingsDefaultSettingArgsDict(TypedDict):
+    access_duration_settings: NotRequired[pulumi.Input['RequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsArgsDict']]
+    """
+    Settings that control who may specify the access duration allowed by this request condition or risk settings, as well as what duration may be requested.
+    """
+    approval_sequence_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the approval sequence.
+    """
+    errors: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    request_submission_type: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class RequestSettingResourceRiskSettingsDefaultSettingArgs:
@@ -4946,18 +4767,15 @@ class RequestSettingResourceRiskSettingsDefaultSettingArgs:
         pulumi.set(self, "request_submission_type", value)
 
 
-if not MYPY:
-    class RequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsArgsDict(TypedDict):
-        duration: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The duration set by the admin for access durations. Use ISO8061 notation for duration values.
-        """
-        type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Enum: `ADMIN_FIXED_DURATION`, `REQUESTER_SPECIFIED_DURATION`.
-        """
-elif False:
-    RequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class RequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsArgsDict(TypedDict):
+    duration: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The duration set by the admin for access durations. Use ISO8061 notation for duration values.
+    """
+    type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Enum: `ADMIN_FIXED_DURATION`, `REQUESTER_SPECIFIED_DURATION`.
+    """
 
 @pulumi.input_type
 class RequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsArgs:
@@ -4998,34 +4816,31 @@ class RequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsArgs
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class RequestV2RequestedArgsDict(TypedDict):
-        entry_id: pulumi.Input[_builtins.str]
-        """
-        The ID of the resource catalog entry.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        The type of the resource.
-        """
-        access_scope_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the access scope associated with the resource.
-        """
-        access_scope_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The access scope type.
-        """
-        resource_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the requested resource.
-        """
-        resource_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The requested resource type.
-        """
-elif False:
-    RequestV2RequestedArgsDict: TypeAlias = Mapping[str, Any]
+class RequestV2RequestedArgsDict(TypedDict):
+    entry_id: pulumi.Input[_builtins.str]
+    """
+    The ID of the resource catalog entry.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    The type of the resource.
+    """
+    access_scope_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the access scope associated with the resource.
+    """
+    access_scope_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The access scope type.
+    """
+    resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the requested resource.
+    """
+    resource_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The requested resource type.
+    """
 
 @pulumi.input_type
 class RequestV2RequestedArgs:
@@ -5128,18 +4943,15 @@ class RequestV2RequestedArgs:
         pulumi.set(self, "resource_type", value)
 
 
-if not MYPY:
-    class RequestV2RequestedForArgsDict(TypedDict):
-        external_id: pulumi.Input[_builtins.str]
-        """
-        The ID of the Okta user.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        The type of principal.
-        """
-elif False:
-    RequestV2RequestedForArgsDict: TypeAlias = Mapping[str, Any]
+class RequestV2RequestedForArgsDict(TypedDict):
+    external_id: pulumi.Input[_builtins.str]
+    """
+    The ID of the Okta user.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    The type of principal.
+    """
 
 @pulumi.input_type
 class RequestV2RequestedForArgs:
@@ -5178,30 +4990,27 @@ class RequestV2RequestedForArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class RequestV2RequesterFieldValueArgsDict(TypedDict):
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Request condition id.
-        """
-        label: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A human-readable description of requester field.
-        """
-        type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Type of value for the requester field.
-        """
-        value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The value of requester field, which depends on the type of the field.
-        """
-        values: NotRequired[pulumi.Input[Sequence[pulumi.Input['RequestV2RequesterFieldValueValueArgsDict']]]]
-        """
-        The values of requester field with the type MULTISELECT. If the field type is MULTISELECT, this property is required.
-        """
-elif False:
-    RequestV2RequesterFieldValueArgsDict: TypeAlias = Mapping[str, Any]
+class RequestV2RequesterFieldValueArgsDict(TypedDict):
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Request condition id.
+    """
+    label: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A human-readable description of requester field.
+    """
+    type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Type of value for the requester field.
+    """
+    value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The value of requester field, which depends on the type of the field.
+    """
+    values: NotRequired[pulumi.Input[Sequence[pulumi.Input['RequestV2RequesterFieldValueValueArgsDict']]]]
+    """
+    The values of requester field with the type MULTISELECT. If the field type is MULTISELECT, this property is required.
+    """
 
 @pulumi.input_type
 class RequestV2RequesterFieldValueArgs:
@@ -5290,11 +5099,8 @@ class RequestV2RequesterFieldValueArgs:
         pulumi.set(self, "values", value)
 
 
-if not MYPY:
-    class RequestV2RequesterFieldValueValueArgsDict(TypedDict):
-        value: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    RequestV2RequesterFieldValueValueArgsDict: TypeAlias = Mapping[str, Any]
+class RequestV2RequesterFieldValueValueArgsDict(TypedDict):
+    value: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class RequestV2RequesterFieldValueValueArgs:
@@ -5313,22 +5119,19 @@ class RequestV2RequesterFieldValueValueArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class SecurityEventsProviderSettingsArgsDict(TypedDict):
-        issuer: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Issuer URL. Maximum length: 700 characters. To be used along with `jwks_url`.
-        """
-        jwks_url: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The public URL where the JWKS public key is uploaded. Maximum length: 1000 characters. To be used along with `issuer`.
-        """
-        well_known_url: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The published well-known URL of the Security Events Provider (the SSF transmitter). Maximum length: 1000 characters.
-        """
-elif False:
-    SecurityEventsProviderSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class SecurityEventsProviderSettingsArgsDict(TypedDict):
+    issuer: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Issuer URL. Maximum length: 700 characters. To be used along with `jwks_url`.
+    """
+    jwks_url: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The public URL where the JWKS public key is uploaded. Maximum length: 1000 characters. To be used along with `issuer`.
+    """
+    well_known_url: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The published well-known URL of the Security Events Provider (the SSF transmitter). Maximum length: 1000 characters.
+    """
 
 @pulumi.input_type
 class SecurityEventsProviderSettingsArgs:
@@ -5385,18 +5188,15 @@ class SecurityEventsProviderSettingsArgs:
         pulumi.set(self, "well_known_url", value)
 
 
-if not MYPY:
-    class TemplateSmsTranslationArgsDict(TypedDict):
-        language: pulumi.Input[_builtins.str]
-        """
-        The language to map the template to.
-        """
-        template: pulumi.Input[_builtins.str]
-        """
-        The SMS message.
-        """
-elif False:
-    TemplateSmsTranslationArgsDict: TypeAlias = Mapping[str, Any]
+class TemplateSmsTranslationArgsDict(TypedDict):
+    language: pulumi.Input[_builtins.str]
+    """
+    The language to map the template to.
+    """
+    template: pulumi.Input[_builtins.str]
+    """
+    The SMS message.
+    """
 
 @pulumi.input_type
 class TemplateSmsTranslationArgs:
@@ -5435,23 +5235,20 @@ class TemplateSmsTranslationArgs:
         pulumi.set(self, "template", value)
 
 
-if not MYPY:
-    class UiSchemaUiSchemaArgsDict(TypedDict):
-        button_label: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the button label for the Submit button at the bottom of the enrollment form.
-        """
-        elements: NotRequired[pulumi.Input[Sequence[pulumi.Input['UiSchemaUiSchemaElementArgsDict']]]]
-        label: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the label at the top of the enrollment form under the logo.
-        """
-        type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the type of layout.
-        """
-elif False:
-    UiSchemaUiSchemaArgsDict: TypeAlias = Mapping[str, Any]
+class UiSchemaUiSchemaArgsDict(TypedDict):
+    button_label: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the button label for the Submit button at the bottom of the enrollment form.
+    """
+    elements: NotRequired[pulumi.Input[Sequence[pulumi.Input['UiSchemaUiSchemaElementArgsDict']]]]
+    label: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the label at the top of the enrollment form under the logo.
+    """
+    type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the type of layout.
+    """
 
 @pulumi.input_type
 class UiSchemaUiSchemaArgs:
@@ -5520,26 +5317,23 @@ class UiSchemaUiSchemaArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class UiSchemaUiSchemaElementArgsDict(TypedDict):
-        scope: pulumi.Input[_builtins.str]
-        """
-        Specifies the property bound to the input field. It must follow the format #/properties/PROPERTY_NAME where PROPERTY_NAME is a variable name for an attribute in profile editor.
-        """
-        label: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Label name for the UI element.
-        """
-        options: NotRequired[pulumi.Input['UiSchemaUiSchemaElementOptionsArgsDict']]
-        """
-        UI Schema element options object.
-        """
-        type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the relationship between this input element and scope. The Control value specifies that this input controls the value represented by scope.
-        """
-elif False:
-    UiSchemaUiSchemaElementArgsDict: TypeAlias = Mapping[str, Any]
+class UiSchemaUiSchemaElementArgsDict(TypedDict):
+    scope: pulumi.Input[_builtins.str]
+    """
+    Specifies the property bound to the input field. It must follow the format #/properties/PROPERTY_NAME where PROPERTY_NAME is a variable name for an attribute in profile editor.
+    """
+    label: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Label name for the UI element.
+    """
+    options: NotRequired[pulumi.Input['UiSchemaUiSchemaElementOptionsArgsDict']]
+    """
+    UI Schema element options object.
+    """
+    type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the relationship between this input element and scope. The Control value specifies that this input controls the value represented by scope.
+    """
 
 @pulumi.input_type
 class UiSchemaUiSchemaElementArgs:
@@ -5611,14 +5405,11 @@ class UiSchemaUiSchemaElementArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class UiSchemaUiSchemaElementOptionsArgsDict(TypedDict):
-        format: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies how the input appears.
-        """
-elif False:
-    UiSchemaUiSchemaElementOptionsArgsDict: TypeAlias = Mapping[str, Any]
+class UiSchemaUiSchemaElementOptionsArgsDict(TypedDict):
+    format: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies how the input appears.
+    """
 
 @pulumi.input_type
 class UiSchemaUiSchemaElementOptionsArgs:
@@ -5643,18 +5434,15 @@ class UiSchemaUiSchemaElementOptionsArgs:
         pulumi.set(self, "format", value)
 
 
-if not MYPY:
-    class UserSchemaPropertyArrayOneOfArgsDict(TypedDict):
-        const: pulumi.Input[_builtins.str]
-        """
-        Value mapping to member of `array_enum`
-        """
-        title: pulumi.Input[_builtins.str]
-        """
-        Display name for the enum value.
-        """
-elif False:
-    UserSchemaPropertyArrayOneOfArgsDict: TypeAlias = Mapping[str, Any]
+class UserSchemaPropertyArrayOneOfArgsDict(TypedDict):
+    const: pulumi.Input[_builtins.str]
+    """
+    Value mapping to member of `array_enum`
+    """
+    title: pulumi.Input[_builtins.str]
+    """
+    Display name for the enum value.
+    """
 
 @pulumi.input_type
 class UserSchemaPropertyArrayOneOfArgs:
@@ -5693,12 +5481,9 @@ class UserSchemaPropertyArrayOneOfArgs:
         pulumi.set(self, "title", value)
 
 
-if not MYPY:
-    class UserSchemaPropertyMasterOverridePriorityArgsDict(TypedDict):
-        value: pulumi.Input[_builtins.str]
-        type: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    UserSchemaPropertyMasterOverridePriorityArgsDict: TypeAlias = Mapping[str, Any]
+class UserSchemaPropertyMasterOverridePriorityArgsDict(TypedDict):
+    value: pulumi.Input[_builtins.str]
+    type: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class UserSchemaPropertyMasterOverridePriorityArgs:
@@ -5728,18 +5513,15 @@ class UserSchemaPropertyMasterOverridePriorityArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class UserSchemaPropertyOneOfArgsDict(TypedDict):
-        const: pulumi.Input[_builtins.str]
-        """
-        Enum value
-        """
-        title: pulumi.Input[_builtins.str]
-        """
-        Enum title
-        """
-elif False:
-    UserSchemaPropertyOneOfArgsDict: TypeAlias = Mapping[str, Any]
+class UserSchemaPropertyOneOfArgsDict(TypedDict):
+    const: pulumi.Input[_builtins.str]
+    """
+    Enum value
+    """
+    title: pulumi.Input[_builtins.str]
+    """
+    Enum title
+    """
 
 @pulumi.input_type
 class UserSchemaPropertyOneOfArgs:
@@ -5778,54 +5560,51 @@ class UserSchemaPropertyOneOfArgs:
         pulumi.set(self, "title", value)
 
 
-if not MYPY:
-    class GetAgentPoolUpdateAgentArgsDict(TypedDict):
-        id: _builtins.str
-        """
-        The unique identifier of the agent.
-        """
-        is_hidden: _builtins.bool
-        """
-        Determines if an agent is hidden from the Admin Console.
-        """
-        is_latest_gaed_version: _builtins.bool
-        """
-        Determines if the agent is on the latest generally available version.
-        """
-        last_connection: _builtins.int
-        """
-        Timestamp when the agent last connected to Okta.
-        """
-        name: _builtins.str
-        """
-        The name of the agent.
-        """
-        operational_status: _builtins.str
-        """
-        Operational status of a given agent (e.g., DEGRADED, DISRUPTED, INACTIVE, OPERATIONAL).
-        """
-        pool_id: _builtins.str
-        """
-        Pool ID.
-        """
-        type: _builtins.str
-        """
-        Agent types that are being monitored.
-        """
-        update_message: _builtins.str
-        """
-        Status message of the agent.
-        """
-        update_status: _builtins.str
-        """
-        Status for one agent regarding the status to auto-update that agent.
-        """
-        version: _builtins.str
-        """
-        Agent version number.
-        """
-elif False:
-    GetAgentPoolUpdateAgentArgsDict: TypeAlias = Mapping[str, Any]
+class GetAgentPoolUpdateAgentArgsDict(TypedDict):
+    id: _builtins.str
+    """
+    The unique identifier of the agent.
+    """
+    is_hidden: _builtins.bool
+    """
+    Determines if an agent is hidden from the Admin Console.
+    """
+    is_latest_gaed_version: _builtins.bool
+    """
+    Determines if the agent is on the latest generally available version.
+    """
+    last_connection: _builtins.int
+    """
+    Timestamp when the agent last connected to Okta.
+    """
+    name: _builtins.str
+    """
+    The name of the agent.
+    """
+    operational_status: _builtins.str
+    """
+    Operational status of a given agent (e.g., DEGRADED, DISRUPTED, INACTIVE, OPERATIONAL).
+    """
+    pool_id: _builtins.str
+    """
+    Pool ID.
+    """
+    type: _builtins.str
+    """
+    Agent types that are being monitored.
+    """
+    update_message: _builtins.str
+    """
+    Status message of the agent.
+    """
+    update_status: _builtins.str
+    """
+    Status for one agent regarding the status to auto-update that agent.
+    """
+    version: _builtins.str
+    """
+    Agent version number.
+    """
 
 @pulumi.input_type
 class GetAgentPoolUpdateAgentArgs:
@@ -5999,30 +5778,27 @@ class GetAgentPoolUpdateAgentArgs:
         pulumi.set(self, "version", value)
 
 
-if not MYPY:
-    class GetAgentPoolUpdateScheduleArgsDict(TypedDict):
-        cron: _builtins.str
-        """
-        The schedule of the update in cron format.
-        """
-        delay: _builtins.int
-        """
-        Delay in days.
-        """
-        duration: _builtins.int
-        """
-        Duration in minutes.
-        """
-        last_updated: _builtins.str
-        """
-        Timestamp when the update finished.
-        """
-        timezone: _builtins.str
-        """
-        Timezone of where the scheduled job takes place.
-        """
-elif False:
-    GetAgentPoolUpdateScheduleArgsDict: TypeAlias = Mapping[str, Any]
+class GetAgentPoolUpdateScheduleArgsDict(TypedDict):
+    cron: _builtins.str
+    """
+    The schedule of the update in cron format.
+    """
+    delay: _builtins.int
+    """
+    Delay in days.
+    """
+    duration: _builtins.int
+    """
+    Duration in minutes.
+    """
+    last_updated: _builtins.str
+    """
+    Timestamp when the update finished.
+    """
+    timezone: _builtins.str
+    """
+    Timezone of where the scheduled job takes place.
+    """
 
 @pulumi.input_type
 class GetAgentPoolUpdateScheduleArgs:
@@ -6106,14 +5882,11 @@ class GetAgentPoolUpdateScheduleArgs:
         pulumi.set(self, "timezone", value)
 
 
-if not MYPY:
-    class GetApiServiceIntegrationGrantedScopeArgsDict(TypedDict):
-        scope: _builtins.str
-        """
-        The scope of the API service integration granted.
-        """
-elif False:
-    GetApiServiceIntegrationGrantedScopeArgsDict: TypeAlias = Mapping[str, Any]
+class GetApiServiceIntegrationGrantedScopeArgsDict(TypedDict):
+    scope: _builtins.str
+    """
+    The scope of the API service integration granted.
+    """
 
 @pulumi.input_type
 class GetApiServiceIntegrationGrantedScopeArgs:
@@ -6137,22 +5910,19 @@ class GetApiServiceIntegrationGrantedScopeArgs:
         pulumi.set(self, "scope", value)
 
 
-if not MYPY:
-    class GetApiTokenNetworkArgsDict(TypedDict):
-        connection: _builtins.str
-        """
-        The connection type of the Network Condition.
-        """
-        excludes: Sequence[_builtins.str]
-        """
-        The IP address the excluded zone.
-        """
-        includes: Sequence[_builtins.str]
-        """
-        The IP address the included zone.
-        """
-elif False:
-    GetApiTokenNetworkArgsDict: TypeAlias = Mapping[str, Any]
+class GetApiTokenNetworkArgsDict(TypedDict):
+    connection: _builtins.str
+    """
+    The connection type of the Network Condition.
+    """
+    excludes: Sequence[_builtins.str]
+    """
+    The IP address the excluded zone.
+    """
+    includes: Sequence[_builtins.str]
+    """
+    The IP address the included zone.
+    """
 
 @pulumi.input_type
 class GetApiTokenNetworkArgs:
@@ -6206,16 +5976,13 @@ class GetApiTokenNetworkArgs:
         pulumi.set(self, "includes", value)
 
 
-if not MYPY:
-    class GetCampaignNotificationSettingsArgsDict(TypedDict):
-        notify_review_period_end: _builtins.bool
-        notify_reviewer_at_campaign_end: _builtins.bool
-        notify_reviewer_during_midpoint_of_review: _builtins.bool
-        notify_reviewer_when_overdue: _builtins.bool
-        notify_reviewer_when_review_assigned: _builtins.bool
-        reminders_reviewer_before_campaign_close_in_secs: Sequence[_builtins.int]
-elif False:
-    GetCampaignNotificationSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class GetCampaignNotificationSettingsArgsDict(TypedDict):
+    notify_review_period_end: _builtins.bool
+    notify_reviewer_at_campaign_end: _builtins.bool
+    notify_reviewer_during_midpoint_of_review: _builtins.bool
+    notify_reviewer_when_overdue: _builtins.bool
+    notify_reviewer_when_review_assigned: _builtins.bool
+    reminders_reviewer_before_campaign_close_in_secs: Sequence[_builtins.int]
 
 @pulumi.input_type
 class GetCampaignNotificationSettingsArgs:
@@ -6288,18 +6055,15 @@ class GetCampaignNotificationSettingsArgs:
         pulumi.set(self, "reminders_reviewer_before_campaign_close_in_secs", value)
 
 
-if not MYPY:
-    class GetCampaignPrincipalScopeSettingsArgsDict(TypedDict):
-        excluded_user_ids: Sequence[_builtins.str]
-        group_ids: Sequence[_builtins.str]
-        include_only_active_users: _builtins.bool
-        only_include_users_with_sod_conflicts: _builtins.bool
-        type: _builtins.str
-        user_ids: Sequence[_builtins.str]
-        user_scope_expression: _builtins.str
-        predefined_inactive_users_scopes: NotRequired[Sequence['GetCampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeArgsDict']]
-elif False:
-    GetCampaignPrincipalScopeSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class GetCampaignPrincipalScopeSettingsArgsDict(TypedDict):
+    excluded_user_ids: Sequence[_builtins.str]
+    group_ids: Sequence[_builtins.str]
+    include_only_active_users: _builtins.bool
+    only_include_users_with_sod_conflicts: _builtins.bool
+    type: _builtins.str
+    user_ids: Sequence[_builtins.str]
+    user_scope_expression: _builtins.str
+    predefined_inactive_users_scopes: NotRequired[Sequence['GetCampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeArgsDict']]
 
 @pulumi.input_type
 class GetCampaignPrincipalScopeSettingsArgs:
@@ -6395,11 +6159,8 @@ class GetCampaignPrincipalScopeSettingsArgs:
         pulumi.set(self, "predefined_inactive_users_scopes", value)
 
 
-if not MYPY:
-    class GetCampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeArgsDict(TypedDict):
-        inactive_days: _builtins.int
-elif False:
-    GetCampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeArgsDict: TypeAlias = Mapping[str, Any]
+class GetCampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeArgsDict(TypedDict):
+    inactive_days: _builtins.int
 
 @pulumi.input_type
 class GetCampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeArgs:
@@ -6417,23 +6178,20 @@ class GetCampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeArgs:
         pulumi.set(self, "inactive_days", value)
 
 
-if not MYPY:
-    class GetCampaignRemediationSettingsArgsDict(TypedDict):
-        access_approved: _builtins.str
-        """
-        Specifies the action by default if the reviewer approves access. NO_ACTION indicates there is no remediation action and the user retains access.
-        """
-        access_revoked: _builtins.str
-        """
-        Specifies the action if the reviewer revokes access. NO_ACTION indicates the user retains the same access. DENY indicates the user will have their access revoked as long as they are not assigned to a group through Group Rules.
-        """
-        no_response: _builtins.str
-        """
-        Specifies the action if the reviewer doesn't respond to the request.
-        """
-        auto_remediation_settings: NotRequired['GetCampaignRemediationSettingsAutoRemediationSettingsArgsDict']
-elif False:
-    GetCampaignRemediationSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class GetCampaignRemediationSettingsArgsDict(TypedDict):
+    access_approved: _builtins.str
+    """
+    Specifies the action by default if the reviewer approves access. NO_ACTION indicates there is no remediation action and the user retains access.
+    """
+    access_revoked: _builtins.str
+    """
+    Specifies the action if the reviewer revokes access. NO_ACTION indicates the user retains the same access. DENY indicates the user will have their access revoked as long as they are not assigned to a group through Group Rules.
+    """
+    no_response: _builtins.str
+    """
+    Specifies the action if the reviewer doesn't respond to the request.
+    """
+    auto_remediation_settings: NotRequired['GetCampaignRemediationSettingsAutoRemediationSettingsArgsDict']
 
 @pulumi.input_type
 class GetCampaignRemediationSettingsArgs:
@@ -6499,18 +6257,15 @@ class GetCampaignRemediationSettingsArgs:
         pulumi.set(self, "auto_remediation_settings", value)
 
 
-if not MYPY:
-    class GetCampaignRemediationSettingsAutoRemediationSettingsArgsDict(TypedDict):
-        include_all_indirect_assignments: _builtins.bool
-        """
-        When a group is selected to be automatically remediated.
-        """
-        include_onlies: NotRequired[Sequence['GetCampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyArgsDict']]
-        """
-        An array of resources to be automatically remediated.
-        """
-elif False:
-    GetCampaignRemediationSettingsAutoRemediationSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class GetCampaignRemediationSettingsAutoRemediationSettingsArgsDict(TypedDict):
+    include_all_indirect_assignments: _builtins.bool
+    """
+    When a group is selected to be automatically remediated.
+    """
+    include_onlies: NotRequired[Sequence['GetCampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyArgsDict']]
+    """
+    An array of resources to be automatically remediated.
+    """
 
 @pulumi.input_type
 class GetCampaignRemediationSettingsAutoRemediationSettingsArgs:
@@ -6550,18 +6305,15 @@ class GetCampaignRemediationSettingsAutoRemediationSettingsArgs:
         pulumi.set(self, "include_onlies", value)
 
 
-if not MYPY:
-    class GetCampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyArgsDict(TypedDict):
-        resource_id: _builtins.str
-        """
-        The resource ID of the target resource When type = GROUP, it will point to the group ID.
-        """
-        resource_type: _builtins.str
-        """
-        The type of the resource to be automatically remediated. Only GROUP is supported.
-        """
-elif False:
-    GetCampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyArgsDict: TypeAlias = Mapping[str, Any]
+class GetCampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyArgsDict(TypedDict):
+    resource_id: _builtins.str
+    """
+    The resource ID of the target resource When type = GROUP, it will point to the group ID.
+    """
+    resource_type: _builtins.str
+    """
+    The type of the resource to be automatically remediated. Only GROUP is supported.
+    """
 
 @pulumi.input_type
 class GetCampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyArgs:
@@ -6600,42 +6352,39 @@ class GetCampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyArgs:
         pulumi.set(self, "resource_type", value)
 
 
-if not MYPY:
-    class GetCampaignResourceSettingsArgsDict(TypedDict):
-        include_admin_roles: _builtins.bool
-        """
-        Include admin roles.
-        """
-        include_entitlements: _builtins.bool
-        """
-        Include entitlements for this application.
-        """
-        individually_assigned_apps_only: _builtins.bool
-        """
-        Only include individually assigned groups.
-        """
-        individually_assigned_groups_only: _builtins.bool
-        """
-        Only include individually assigned groups.
-        """
-        only_include_out_of_policy_entitlements: _builtins.bool
-        """
-        Only include out-of-policy entitlements.
-        """
-        type: _builtins.str
-        """
-        The type of Okta resource.
-        """
-        excluded_resources: NotRequired[Sequence['GetCampaignResourceSettingsExcludedResourceArgsDict']]
-        """
-        An array of resources that are excluded from the review.
-        """
-        target_resources: NotRequired[Sequence['GetCampaignResourceSettingsTargetResourceArgsDict']]
-        """
-        Represents a resource that will be part of Access certifications.
-        """
-elif False:
-    GetCampaignResourceSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class GetCampaignResourceSettingsArgsDict(TypedDict):
+    include_admin_roles: _builtins.bool
+    """
+    Include admin roles.
+    """
+    include_entitlements: _builtins.bool
+    """
+    Include entitlements for this application.
+    """
+    individually_assigned_apps_only: _builtins.bool
+    """
+    Only include individually assigned groups.
+    """
+    individually_assigned_groups_only: _builtins.bool
+    """
+    Only include individually assigned groups.
+    """
+    only_include_out_of_policy_entitlements: _builtins.bool
+    """
+    Only include out-of-policy entitlements.
+    """
+    type: _builtins.str
+    """
+    The type of Okta resource.
+    """
+    excluded_resources: NotRequired[Sequence['GetCampaignResourceSettingsExcludedResourceArgsDict']]
+    """
+    An array of resources that are excluded from the review.
+    """
+    target_resources: NotRequired[Sequence['GetCampaignResourceSettingsTargetResourceArgsDict']]
+    """
+    Represents a resource that will be part of Access certifications.
+    """
 
 @pulumi.input_type
 class GetCampaignResourceSettingsArgs:
@@ -6766,18 +6515,15 @@ class GetCampaignResourceSettingsArgs:
         pulumi.set(self, "target_resources", value)
 
 
-if not MYPY:
-    class GetCampaignResourceSettingsExcludedResourceArgsDict(TypedDict):
-        resource_id: _builtins.str
-        """
-        Okta specific resource ID.
-        """
-        resource_type: _builtins.str
-        """
-        The type of Okta resource.
-        """
-elif False:
-    GetCampaignResourceSettingsExcludedResourceArgsDict: TypeAlias = Mapping[str, Any]
+class GetCampaignResourceSettingsExcludedResourceArgsDict(TypedDict):
+    resource_id: _builtins.str
+    """
+    Okta specific resource ID.
+    """
+    resource_type: _builtins.str
+    """
+    The type of Okta resource.
+    """
 
 @pulumi.input_type
 class GetCampaignResourceSettingsExcludedResourceArgs:
@@ -6816,27 +6562,24 @@ class GetCampaignResourceSettingsExcludedResourceArgs:
         pulumi.set(self, "resource_type", value)
 
 
-if not MYPY:
-    class GetCampaignResourceSettingsTargetResourceArgsDict(TypedDict):
-        include_all_entitlements_and_bundles: _builtins.bool
-        """
-        Include all entitlements and entitlement bundles for this application.
-        """
-        resource_id: _builtins.str
-        """
-        The resource ID that is being reviewed.
-        """
-        resource_type: _builtins.str
-        """
-        The type of Okta resource.
-        """
-        entitlement_bundles: NotRequired[Sequence['GetCampaignResourceSettingsTargetResourceEntitlementBundleArgsDict']]
-        """
-        An array of entitlement bundles associated with resourceId that should be chosen as target when creating reviews.
-        """
-        entitlements: NotRequired[Sequence['GetCampaignResourceSettingsTargetResourceEntitlementArgsDict']]
-elif False:
-    GetCampaignResourceSettingsTargetResourceArgsDict: TypeAlias = Mapping[str, Any]
+class GetCampaignResourceSettingsTargetResourceArgsDict(TypedDict):
+    include_all_entitlements_and_bundles: _builtins.bool
+    """
+    Include all entitlements and entitlement bundles for this application.
+    """
+    resource_id: _builtins.str
+    """
+    The resource ID that is being reviewed.
+    """
+    resource_type: _builtins.str
+    """
+    The type of Okta resource.
+    """
+    entitlement_bundles: NotRequired[Sequence['GetCampaignResourceSettingsTargetResourceEntitlementBundleArgsDict']]
+    """
+    An array of entitlement bundles associated with resourceId that should be chosen as target when creating reviews.
+    """
+    entitlements: NotRequired[Sequence['GetCampaignResourceSettingsTargetResourceEntitlementArgsDict']]
 
 @pulumi.input_type
 class GetCampaignResourceSettingsTargetResourceArgs:
@@ -6918,22 +6661,19 @@ class GetCampaignResourceSettingsTargetResourceArgs:
         pulumi.set(self, "entitlements", value)
 
 
-if not MYPY:
-    class GetCampaignResourceSettingsTargetResourceEntitlementArgsDict(TypedDict):
-        id: _builtins.str
-        """
-        The ID of this resource.
-        """
-        include_all_values: _builtins.bool
-        """
-        Whether to include all values for this entitlement.
-        """
-        values: NotRequired[Sequence['GetCampaignResourceSettingsTargetResourceEntitlementValueArgsDict']]
-        """
-        Entitlement value ids
-        """
-elif False:
-    GetCampaignResourceSettingsTargetResourceEntitlementArgsDict: TypeAlias = Mapping[str, Any]
+class GetCampaignResourceSettingsTargetResourceEntitlementArgsDict(TypedDict):
+    id: _builtins.str
+    """
+    The ID of this resource.
+    """
+    include_all_values: _builtins.bool
+    """
+    Whether to include all values for this entitlement.
+    """
+    values: NotRequired[Sequence['GetCampaignResourceSettingsTargetResourceEntitlementValueArgsDict']]
+    """
+    Entitlement value ids
+    """
 
 @pulumi.input_type
 class GetCampaignResourceSettingsTargetResourceEntitlementArgs:
@@ -6988,14 +6728,11 @@ class GetCampaignResourceSettingsTargetResourceEntitlementArgs:
         pulumi.set(self, "values", value)
 
 
-if not MYPY:
-    class GetCampaignResourceSettingsTargetResourceEntitlementBundleArgsDict(TypedDict):
-        id: _builtins.str
-        """
-        The ID of this resource.
-        """
-elif False:
-    GetCampaignResourceSettingsTargetResourceEntitlementBundleArgsDict: TypeAlias = Mapping[str, Any]
+class GetCampaignResourceSettingsTargetResourceEntitlementBundleArgsDict(TypedDict):
+    id: _builtins.str
+    """
+    The ID of this resource.
+    """
 
 @pulumi.input_type
 class GetCampaignResourceSettingsTargetResourceEntitlementBundleArgs:
@@ -7019,14 +6756,11 @@ class GetCampaignResourceSettingsTargetResourceEntitlementBundleArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class GetCampaignResourceSettingsTargetResourceEntitlementValueArgsDict(TypedDict):
-        id: _builtins.str
-        """
-        The ID of this resource.
-        """
-elif False:
-    GetCampaignResourceSettingsTargetResourceEntitlementValueArgsDict: TypeAlias = Mapping[str, Any]
+class GetCampaignResourceSettingsTargetResourceEntitlementValueArgsDict(TypedDict):
+    id: _builtins.str
+    """
+    The ID of this resource.
+    """
 
 @pulumi.input_type
 class GetCampaignResourceSettingsTargetResourceEntitlementValueArgs:
@@ -7050,20 +6784,17 @@ class GetCampaignResourceSettingsTargetResourceEntitlementValueArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class GetCampaignReviewerSettingsArgsDict(TypedDict):
-        bulk_decision_disabled: _builtins.bool
-        fallback_reviewer_id: _builtins.str
-        justification_required: _builtins.bool
-        reassignment_disabled: _builtins.bool
-        reviewer_group_id: _builtins.str
-        reviewer_id: _builtins.str
-        reviewer_scope_expression: _builtins.str
-        self_review_disabled: _builtins.bool
-        type: _builtins.str
-        reviewer_levels: NotRequired[Sequence['GetCampaignReviewerSettingsReviewerLevelArgsDict']]
-elif False:
-    GetCampaignReviewerSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class GetCampaignReviewerSettingsArgsDict(TypedDict):
+    bulk_decision_disabled: _builtins.bool
+    fallback_reviewer_id: _builtins.str
+    justification_required: _builtins.bool
+    reassignment_disabled: _builtins.bool
+    reviewer_group_id: _builtins.str
+    reviewer_id: _builtins.str
+    reviewer_scope_expression: _builtins.str
+    self_review_disabled: _builtins.bool
+    type: _builtins.str
+    reviewer_levels: NotRequired[Sequence['GetCampaignReviewerSettingsReviewerLevelArgsDict']]
 
 @pulumi.input_type
 class GetCampaignReviewerSettingsArgs:
@@ -7181,17 +6912,14 @@ class GetCampaignReviewerSettingsArgs:
         pulumi.set(self, "reviewer_levels", value)
 
 
-if not MYPY:
-    class GetCampaignReviewerSettingsReviewerLevelArgsDict(TypedDict):
-        fallback_reviewer_id: _builtins.str
-        reviewer_group_id: _builtins.str
-        reviewer_id: _builtins.str
-        reviewer_scope_expression: _builtins.str
-        self_review_disabled: _builtins.bool
-        type: _builtins.str
-        start_reviews: NotRequired[Sequence['GetCampaignReviewerSettingsReviewerLevelStartReviewArgsDict']]
-elif False:
-    GetCampaignReviewerSettingsReviewerLevelArgsDict: TypeAlias = Mapping[str, Any]
+class GetCampaignReviewerSettingsReviewerLevelArgsDict(TypedDict):
+    fallback_reviewer_id: _builtins.str
+    reviewer_group_id: _builtins.str
+    reviewer_id: _builtins.str
+    reviewer_scope_expression: _builtins.str
+    self_review_disabled: _builtins.bool
+    type: _builtins.str
+    start_reviews: NotRequired[Sequence['GetCampaignReviewerSettingsReviewerLevelStartReviewArgsDict']]
 
 @pulumi.input_type
 class GetCampaignReviewerSettingsReviewerLevelArgs:
@@ -7276,12 +7004,9 @@ class GetCampaignReviewerSettingsReviewerLevelArgs:
         pulumi.set(self, "start_reviews", value)
 
 
-if not MYPY:
-    class GetCampaignReviewerSettingsReviewerLevelStartReviewArgsDict(TypedDict):
-        on_day: _builtins.int
-        when: _builtins.str
-elif False:
-    GetCampaignReviewerSettingsReviewerLevelStartReviewArgsDict: TypeAlias = Mapping[str, Any]
+class GetCampaignReviewerSettingsReviewerLevelStartReviewArgsDict(TypedDict):
+    on_day: _builtins.int
+    when: _builtins.str
 
 @pulumi.input_type
 class GetCampaignReviewerSettingsReviewerLevelStartReviewArgs:
@@ -7310,16 +7035,13 @@ class GetCampaignReviewerSettingsReviewerLevelStartReviewArgs:
         pulumi.set(self, "when", value)
 
 
-if not MYPY:
-    class GetCampaignScheduleSettingsArgsDict(TypedDict):
-        duration_in_days: _builtins.int
-        end_date: _builtins.str
-        start_date: _builtins.str
-        time_zone: _builtins.str
-        type: _builtins.str
-        recurrences: NotRequired[Sequence['GetCampaignScheduleSettingsRecurrenceArgsDict']]
-elif False:
-    GetCampaignScheduleSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class GetCampaignScheduleSettingsArgsDict(TypedDict):
+    duration_in_days: _builtins.int
+    end_date: _builtins.str
+    start_date: _builtins.str
+    time_zone: _builtins.str
+    type: _builtins.str
+    recurrences: NotRequired[Sequence['GetCampaignScheduleSettingsRecurrenceArgsDict']]
 
 @pulumi.input_type
 class GetCampaignScheduleSettingsArgs:
@@ -7393,13 +7115,10 @@ class GetCampaignScheduleSettingsArgs:
         pulumi.set(self, "recurrences", value)
 
 
-if not MYPY:
-    class GetCampaignScheduleSettingsRecurrenceArgsDict(TypedDict):
-        ends: _builtins.str
-        interval: _builtins.str
-        repeat_on_type: _builtins.str
-elif False:
-    GetCampaignScheduleSettingsRecurrenceArgsDict: TypeAlias = Mapping[str, Any]
+class GetCampaignScheduleSettingsRecurrenceArgsDict(TypedDict):
+    ends: _builtins.str
+    interval: _builtins.str
+    repeat_on_type: _builtins.str
 
 @pulumi.input_type
 class GetCampaignScheduleSettingsRecurrenceArgs:
@@ -7439,14 +7158,11 @@ class GetCampaignScheduleSettingsRecurrenceArgs:
         pulumi.set(self, "repeat_on_type", value)
 
 
-if not MYPY:
-    class GetCatalogEntryDefaultCountsArgsDict(TypedDict):
-        resource_counts: NotRequired['GetCatalogEntryDefaultCountsResourceCountsArgsDict']
-        """
-        Collection resource counts.
-        """
-elif False:
-    GetCatalogEntryDefaultCountsArgsDict: TypeAlias = Mapping[str, Any]
+class GetCatalogEntryDefaultCountsArgsDict(TypedDict):
+    resource_counts: NotRequired['GetCatalogEntryDefaultCountsResourceCountsArgsDict']
+    """
+    Collection resource counts.
+    """
 
 @pulumi.input_type
 class GetCatalogEntryDefaultCountsArgs:
@@ -7471,14 +7187,11 @@ class GetCatalogEntryDefaultCountsArgs:
         pulumi.set(self, "resource_counts", value)
 
 
-if not MYPY:
-    class GetCatalogEntryDefaultCountsResourceCountsArgsDict(TypedDict):
-        applications: _builtins.int
-        """
-        Number of app resources in a collection.
-        """
-elif False:
-    GetCatalogEntryDefaultCountsResourceCountsArgsDict: TypeAlias = Mapping[str, Any]
+class GetCatalogEntryDefaultCountsResourceCountsArgsDict(TypedDict):
+    applications: _builtins.int
+    """
+    Number of app resources in a collection.
+    """
 
 @pulumi.input_type
 class GetCatalogEntryDefaultCountsResourceCountsArgs:
@@ -7502,14 +7215,11 @@ class GetCatalogEntryDefaultCountsResourceCountsArgs:
         pulumi.set(self, "applications", value)
 
 
-if not MYPY:
-    class GetCatalogEntryDefaultLinksArgsDict(TypedDict):
-        self: NotRequired['GetCatalogEntryDefaultLinksSelfArgsDict']
-        """
-        A link to the catalog entry itself.
-        """
-elif False:
-    GetCatalogEntryDefaultLinksArgsDict: TypeAlias = Mapping[str, Any]
+class GetCatalogEntryDefaultLinksArgsDict(TypedDict):
+    self: NotRequired['GetCatalogEntryDefaultLinksSelfArgsDict']
+    """
+    A link to the catalog entry itself.
+    """
 
 @pulumi.input_type
 class GetCatalogEntryDefaultLinksArgs:
@@ -7534,14 +7244,11 @@ class GetCatalogEntryDefaultLinksArgs:
         pulumi.set(self, "self", value)
 
 
-if not MYPY:
-    class GetCatalogEntryDefaultLinksSelfArgsDict(TypedDict):
-        href: _builtins.str
-        """
-        Contains the absolute API URL for retrieving this catalog entry resource.
-        """
-elif False:
-    GetCatalogEntryDefaultLinksSelfArgsDict: TypeAlias = Mapping[str, Any]
+class GetCatalogEntryDefaultLinksSelfArgsDict(TypedDict):
+    href: _builtins.str
+    """
+    Contains the absolute API URL for retrieving this catalog entry resource.
+    """
 
 @pulumi.input_type
 class GetCatalogEntryDefaultLinksSelfArgs:
@@ -7565,39 +7272,36 @@ class GetCatalogEntryDefaultLinksSelfArgs:
         pulumi.set(self, "href", value)
 
 
-if not MYPY:
-    class GetCatalogEntryUserAccessRequestFieldsDataArgsDict(TypedDict):
-        id: _builtins.str
-        label: _builtins.str
-        """
-        Label of the requester field.
-        """
-        maximum_value: _builtins.str
-        """
-        The maximum value allowed for this field. Only applies to DURATION fields.
-        """
-        read_only: _builtins.bool
-        """
-        Indicates this field is immutable.
-        """
-        required: _builtins.bool
-        """
-        Indicates whether a value to this field is required to advance the request.
-        """
-        type: _builtins.str
-        """
-        Type of value for the requester field.
-        """
-        value: _builtins.str
-        """
-        An admin configured value for this field. Only applies to DURATION fields.
-        """
-        choices: NotRequired[Sequence['GetCatalogEntryUserAccessRequestFieldsDataChoiceArgsDict']]
-        """
-        Valid choices when type is SELECT or MULTISELECT.
-        """
-elif False:
-    GetCatalogEntryUserAccessRequestFieldsDataArgsDict: TypeAlias = Mapping[str, Any]
+class GetCatalogEntryUserAccessRequestFieldsDataArgsDict(TypedDict):
+    id: _builtins.str
+    label: _builtins.str
+    """
+    Label of the requester field.
+    """
+    maximum_value: _builtins.str
+    """
+    The maximum value allowed for this field. Only applies to DURATION fields.
+    """
+    read_only: _builtins.bool
+    """
+    Indicates this field is immutable.
+    """
+    required: _builtins.bool
+    """
+    Indicates whether a value to this field is required to advance the request.
+    """
+    type: _builtins.str
+    """
+    Type of value for the requester field.
+    """
+    value: _builtins.str
+    """
+    An admin configured value for this field. Only applies to DURATION fields.
+    """
+    choices: NotRequired[Sequence['GetCatalogEntryUserAccessRequestFieldsDataChoiceArgsDict']]
+    """
+    Valid choices when type is SELECT or MULTISELECT.
+    """
 
 @pulumi.input_type
 class GetCatalogEntryUserAccessRequestFieldsDataArgs:
@@ -7723,14 +7427,11 @@ class GetCatalogEntryUserAccessRequestFieldsDataArgs:
         pulumi.set(self, "choices", value)
 
 
-if not MYPY:
-    class GetCatalogEntryUserAccessRequestFieldsDataChoiceArgsDict(TypedDict):
-        choice: _builtins.str
-        """
-        Valid choice.
-        """
-elif False:
-    GetCatalogEntryUserAccessRequestFieldsDataChoiceArgsDict: TypeAlias = Mapping[str, Any]
+class GetCatalogEntryUserAccessRequestFieldsDataChoiceArgsDict(TypedDict):
+    choice: _builtins.str
+    """
+    Valid choice.
+    """
 
 @pulumi.input_type
 class GetCatalogEntryUserAccessRequestFieldsDataChoiceArgs:
@@ -7754,16 +7455,13 @@ class GetCatalogEntryUserAccessRequestFieldsDataChoiceArgs:
         pulumi.set(self, "choice", value)
 
 
-if not MYPY:
-    class GetDefaultSigninPageContentSecurityPolicySettingArgsDict(TypedDict):
-        mode: _builtins.str
-        """
-        enforced or report_only
-        """
-        report_uri: _builtins.str
-        src_lists: Sequence[_builtins.str]
-elif False:
-    GetDefaultSigninPageContentSecurityPolicySettingArgsDict: TypeAlias = Mapping[str, Any]
+class GetDefaultSigninPageContentSecurityPolicySettingArgsDict(TypedDict):
+    mode: _builtins.str
+    """
+    enforced or report_only
+    """
+    report_uri: _builtins.str
+    src_lists: Sequence[_builtins.str]
 
 @pulumi.input_type
 class GetDefaultSigninPageContentSecurityPolicySettingArgs:
@@ -7809,31 +7507,28 @@ class GetDefaultSigninPageContentSecurityPolicySettingArgs:
         pulumi.set(self, "src_lists", value)
 
 
-if not MYPY:
-    class GetDefaultSigninPageWidgetCustomizationsArgsDict(TypedDict):
-        authenticator_page_custom_link_label: _builtins.str
-        authenticator_page_custom_link_url: _builtins.str
-        classic_recovery_flow_email_or_username_label: _builtins.str
-        custom_link1_label: _builtins.str
-        custom_link1_url: _builtins.str
-        custom_link2_label: _builtins.str
-        custom_link2_url: _builtins.str
-        forgot_password_label: _builtins.str
-        forgot_password_url: _builtins.str
-        help_label: _builtins.str
-        help_url: _builtins.str
-        password_info_tip: _builtins.str
-        password_label: _builtins.str
-        show_password_visibility_toggle: _builtins.bool
-        show_user_identifier: _builtins.bool
-        sign_in_label: _builtins.str
-        unlock_account_label: _builtins.str
-        unlock_account_url: _builtins.str
-        username_info_tip: _builtins.str
-        username_label: _builtins.str
-        widget_generation: _builtins.str
-elif False:
-    GetDefaultSigninPageWidgetCustomizationsArgsDict: TypeAlias = Mapping[str, Any]
+class GetDefaultSigninPageWidgetCustomizationsArgsDict(TypedDict):
+    authenticator_page_custom_link_label: _builtins.str
+    authenticator_page_custom_link_url: _builtins.str
+    classic_recovery_flow_email_or_username_label: _builtins.str
+    custom_link1_label: _builtins.str
+    custom_link1_url: _builtins.str
+    custom_link2_label: _builtins.str
+    custom_link2_url: _builtins.str
+    forgot_password_label: _builtins.str
+    forgot_password_url: _builtins.str
+    help_label: _builtins.str
+    help_url: _builtins.str
+    password_info_tip: _builtins.str
+    password_label: _builtins.str
+    show_password_visibility_toggle: _builtins.bool
+    show_user_identifier: _builtins.bool
+    sign_in_label: _builtins.str
+    unlock_account_label: _builtins.str
+    unlock_account_url: _builtins.str
+    username_info_tip: _builtins.str
+    username_label: _builtins.str
+    widget_generation: _builtins.str
 
 @pulumi.input_type
 class GetDefaultSigninPageWidgetCustomizationsArgs:
@@ -8071,11 +7766,8 @@ class GetDefaultSigninPageWidgetCustomizationsArgs:
         pulumi.set(self, "widget_generation", value)
 
 
-if not MYPY:
-    class GetDeviceAssurancePolicyThirdPartySignalProviderArgsDict(TypedDict):
-        dtc: 'GetDeviceAssurancePolicyThirdPartySignalProviderDtcArgsDict'
-elif False:
-    GetDeviceAssurancePolicyThirdPartySignalProviderArgsDict: TypeAlias = Mapping[str, Any]
+class GetDeviceAssurancePolicyThirdPartySignalProviderArgsDict(TypedDict):
+    dtc: 'GetDeviceAssurancePolicyThirdPartySignalProviderDtcArgsDict'
 
 @pulumi.input_type
 class GetDeviceAssurancePolicyThirdPartySignalProviderArgs:
@@ -8093,30 +7785,27 @@ class GetDeviceAssurancePolicyThirdPartySignalProviderArgs:
         pulumi.set(self, "dtc", value)
 
 
-if not MYPY:
-    class GetDeviceAssurancePolicyThirdPartySignalProviderDtcArgsDict(TypedDict):
-        allow_screen_lock: _builtins.bool
-        browser_version: 'GetDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersionArgsDict'
-        built_in_dns_client_enabled: _builtins.bool
-        chrome_remote_desktop_app_blocked: _builtins.bool
-        crowd_strike_agent_id: _builtins.str
-        crowd_strike_customer_id: _builtins.str
-        device_enrollment_domain: _builtins.str
-        disk_encrypted: _builtins.bool
-        key_trust_level: _builtins.str
-        managed_device: _builtins.bool
-        os_firewall: _builtins.bool
-        os_version: 'GetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersionArgsDict'
-        password_protection_warning_trigger: _builtins.str
-        realtime_url_check_mode: _builtins.bool
-        safe_browsing_protection_level: _builtins.str
-        screen_lock_secured: _builtins.bool
-        site_isolation_enabled: _builtins.bool
-        third_party_blocking_enabled: _builtins.bool
-        windows_machine_domain: _builtins.str
-        windows_user_domain: _builtins.str
-elif False:
-    GetDeviceAssurancePolicyThirdPartySignalProviderDtcArgsDict: TypeAlias = Mapping[str, Any]
+class GetDeviceAssurancePolicyThirdPartySignalProviderDtcArgsDict(TypedDict):
+    allow_screen_lock: _builtins.bool
+    browser_version: 'GetDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersionArgsDict'
+    built_in_dns_client_enabled: _builtins.bool
+    chrome_remote_desktop_app_blocked: _builtins.bool
+    crowd_strike_agent_id: _builtins.str
+    crowd_strike_customer_id: _builtins.str
+    device_enrollment_domain: _builtins.str
+    disk_encrypted: _builtins.bool
+    key_trust_level: _builtins.str
+    managed_device: _builtins.bool
+    os_firewall: _builtins.bool
+    os_version: 'GetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersionArgsDict'
+    password_protection_warning_trigger: _builtins.str
+    realtime_url_check_mode: _builtins.bool
+    safe_browsing_protection_level: _builtins.str
+    screen_lock_secured: _builtins.bool
+    site_isolation_enabled: _builtins.bool
+    third_party_blocking_enabled: _builtins.bool
+    windows_machine_domain: _builtins.str
+    windows_user_domain: _builtins.str
 
 @pulumi.input_type
 class GetDeviceAssurancePolicyThirdPartySignalProviderDtcArgs:
@@ -8343,11 +8032,8 @@ class GetDeviceAssurancePolicyThirdPartySignalProviderDtcArgs:
         pulumi.set(self, "windows_user_domain", value)
 
 
-if not MYPY:
-    class GetDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersionArgsDict(TypedDict):
-        minimum: _builtins.str
-elif False:
-    GetDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersionArgsDict: TypeAlias = Mapping[str, Any]
+class GetDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersionArgsDict(TypedDict):
+    minimum: _builtins.str
 
 @pulumi.input_type
 class GetDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersionArgs:
@@ -8365,11 +8051,8 @@ class GetDeviceAssurancePolicyThirdPartySignalProviderDtcBrowserVersionArgs:
         pulumi.set(self, "minimum", value)
 
 
-if not MYPY:
-    class GetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersionArgsDict(TypedDict):
-        minimum: _builtins.str
-elif False:
-    GetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersionArgsDict: TypeAlias = Mapping[str, Any]
+class GetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersionArgsDict(TypedDict):
+    minimum: _builtins.str
 
 @pulumi.input_type
 class GetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersionArgs:
@@ -8387,70 +8070,67 @@ class GetDeviceAssurancePolicyThirdPartySignalProviderDtcOsVersionArgs:
         pulumi.set(self, "minimum", value)
 
 
-if not MYPY:
-    class GetDeviceProfileArgsDict(TypedDict):
-        disk_encryption_type: _builtins.str
-        """
-        The disk encryption type of the device.
-        """
-        display_name: _builtins.str
-        """
-        The display name of the device.
-        """
-        imei: _builtins.str
-        """
-        The International Mobile Equipment Identity (IMEI) of the device.
-        """
-        integrity_jail_break: _builtins.bool
-        """
-        Indicates if the device is jailbroken or rooted. Only applicable to IOS and ANDROID platforms.
-        """
-        manufacturer: _builtins.str
-        """
-        The manufacturer of the device.
-        """
-        meid: _builtins.str
-        """
-        The Mobile Equipment Identifier (MEID) of the device.
-        """
-        model: _builtins.str
-        """
-        The model of the device.
-        """
-        os_version: _builtins.str
-        """
-        The OS version of the device.
-        """
-        platform: _builtins.str
-        """
-        The platform of the device.
-        """
-        registered: _builtins.bool
-        """
-        Indicates if the device is registered at Okta.
-        """
-        secure_hardware_present: _builtins.bool
-        """
-        Indicates if secure hardware is present on the device.
-        """
-        serial_number: _builtins.str
-        """
-        The serial number of the device.
-        """
-        sid: _builtins.str
-        """
-        The Security Identifier (SID) of the device.
-        """
-        tpm_public_key_hash: _builtins.str
-        """
-        Windows Trusted Platform Module hash value.
-        """
-        udid: _builtins.str
-        """
-        MacOS Unique device identifier of the device.
-        """
-elif False:
-    GetDeviceProfileArgsDict: TypeAlias = Mapping[str, Any]
+class GetDeviceProfileArgsDict(TypedDict):
+    disk_encryption_type: _builtins.str
+    """
+    The disk encryption type of the device.
+    """
+    display_name: _builtins.str
+    """
+    The display name of the device.
+    """
+    imei: _builtins.str
+    """
+    The International Mobile Equipment Identity (IMEI) of the device.
+    """
+    integrity_jail_break: _builtins.bool
+    """
+    Indicates if the device is jailbroken or rooted. Only applicable to IOS and ANDROID platforms.
+    """
+    manufacturer: _builtins.str
+    """
+    The manufacturer of the device.
+    """
+    meid: _builtins.str
+    """
+    The Mobile Equipment Identifier (MEID) of the device.
+    """
+    model: _builtins.str
+    """
+    The model of the device.
+    """
+    os_version: _builtins.str
+    """
+    The OS version of the device.
+    """
+    platform: _builtins.str
+    """
+    The platform of the device.
+    """
+    registered: _builtins.bool
+    """
+    Indicates if the device is registered at Okta.
+    """
+    secure_hardware_present: _builtins.bool
+    """
+    Indicates if secure hardware is present on the device.
+    """
+    serial_number: _builtins.str
+    """
+    The serial number of the device.
+    """
+    sid: _builtins.str
+    """
+    The Security Identifier (SID) of the device.
+    """
+    tpm_public_key_hash: _builtins.str
+    """
+    Windows Trusted Platform Module hash value.
+    """
+    udid: _builtins.str
+    """
+    MacOS Unique device identifier of the device.
+    """
 
 @pulumi.input_type
 class GetDeviceProfileArgs:
@@ -8684,18 +8364,15 @@ class GetDeviceProfileArgs:
         pulumi.set(self, "udid", value)
 
 
-if not MYPY:
-    class GetDeviceResourceDisplayNameArgsDict(TypedDict):
-        sensitive: _builtins.bool
-        """
-        Indicates if the resource display name is sensitive.
-        """
-        value: _builtins.str
-        """
-        The value of the resource display name.
-        """
-elif False:
-    GetDeviceResourceDisplayNameArgsDict: TypeAlias = Mapping[str, Any]
+class GetDeviceResourceDisplayNameArgsDict(TypedDict):
+    sensitive: _builtins.bool
+    """
+    Indicates if the resource display name is sensitive.
+    """
+    value: _builtins.str
+    """
+    The value of the resource display name.
+    """
 
 @pulumi.input_type
 class GetDeviceResourceDisplayNameArgs:
@@ -8734,30 +8411,27 @@ class GetDeviceResourceDisplayNameArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class GetEndUserMyRequestsRequestedArgsDict(TypedDict):
-        access_scope_id: _builtins.str
-        """
-        ID of the access scope
-        """
-        access_scope_type: _builtins.str
-        """
-        The access scope type
-        """
-        entry_id: _builtins.str
-        """
-        The ID of the catalog entry for which the request was made.
-        """
-        resource_id: _builtins.str
-        """
-        The requested resource ID
-        """
-        resource_type: _builtins.str
-        """
-        The requested resource type.
-        """
-elif False:
-    GetEndUserMyRequestsRequestedArgsDict: TypeAlias = Mapping[str, Any]
+class GetEndUserMyRequestsRequestedArgsDict(TypedDict):
+    access_scope_id: _builtins.str
+    """
+    ID of the access scope
+    """
+    access_scope_type: _builtins.str
+    """
+    The access scope type
+    """
+    entry_id: _builtins.str
+    """
+    The ID of the catalog entry for which the request was made.
+    """
+    resource_id: _builtins.str
+    """
+    The requested resource ID
+    """
+    resource_type: _builtins.str
+    """
+    The requested resource type.
+    """
 
 @pulumi.input_type
 class GetEndUserMyRequestsRequestedArgs:
@@ -8841,18 +8515,15 @@ class GetEndUserMyRequestsRequestedArgs:
         pulumi.set(self, "resource_type", value)
 
 
-if not MYPY:
-    class GetEndUserMyRequestsRequestedByArgsDict(TypedDict):
-        external_id: _builtins.str
-        """
-        The Okta user id
-        """
-        type: _builtins.str
-        """
-        The type of principal
-        """
-elif False:
-    GetEndUserMyRequestsRequestedByArgsDict: TypeAlias = Mapping[str, Any]
+class GetEndUserMyRequestsRequestedByArgsDict(TypedDict):
+    external_id: _builtins.str
+    """
+    The Okta user id
+    """
+    type: _builtins.str
+    """
+    The type of principal
+    """
 
 @pulumi.input_type
 class GetEndUserMyRequestsRequestedByArgs:
@@ -8891,18 +8562,15 @@ class GetEndUserMyRequestsRequestedByArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class GetEndUserMyRequestsRequestedForArgsDict(TypedDict):
-        external_id: _builtins.str
-        """
-        The Okta user id
-        """
-        type: _builtins.str
-        """
-        The type of principal
-        """
-elif False:
-    GetEndUserMyRequestsRequestedForArgsDict: TypeAlias = Mapping[str, Any]
+class GetEndUserMyRequestsRequestedForArgsDict(TypedDict):
+    external_id: _builtins.str
+    """
+    The Okta user id
+    """
+    type: _builtins.str
+    """
+    The type of principal
+    """
 
 @pulumi.input_type
 class GetEndUserMyRequestsRequestedForArgs:
@@ -8941,30 +8609,27 @@ class GetEndUserMyRequestsRequestedForArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class GetEndUserMyRequestsRequesterFieldValueArgsDict(TypedDict):
-        id: _builtins.str
-        """
-        The ID of the requester field.
-        """
-        label: NotRequired[_builtins.str]
-        """
-        A human-readable description of the requester field.
-        """
-        type: NotRequired[_builtins.str]
-        """
-        Type of value for the requester field. Valid values: `DURATION`, `ISO_DATE`, `MULTISELECT`, `OKTA_USER_ID`, `SELECT`, `TEXT`.
-        """
-        value: NotRequired[_builtins.str]
-        """
-        The value of the requester field (for single-value fields).
-        """
-        values: NotRequired[Sequence[_builtins.str]]
-        """
-        The values of the requester field (for MULTISELECT type fields).
-        """
-elif False:
-    GetEndUserMyRequestsRequesterFieldValueArgsDict: TypeAlias = Mapping[str, Any]
+class GetEndUserMyRequestsRequesterFieldValueArgsDict(TypedDict):
+    id: _builtins.str
+    """
+    The ID of the requester field.
+    """
+    label: NotRequired[_builtins.str]
+    """
+    A human-readable description of the requester field.
+    """
+    type: NotRequired[_builtins.str]
+    """
+    Type of value for the requester field. Valid values: `DURATION`, `ISO_DATE`, `MULTISELECT`, `OKTA_USER_ID`, `SELECT`, `TEXT`.
+    """
+    value: NotRequired[_builtins.str]
+    """
+    The value of the requester field (for single-value fields).
+    """
+    values: NotRequired[Sequence[_builtins.str]]
+    """
+    The values of the requester field (for MULTISELECT type fields).
+    """
 
 @pulumi.input_type
 class GetEndUserMyRequestsRequesterFieldValueArgs:
@@ -9052,18 +8717,15 @@ class GetEndUserMyRequestsRequesterFieldValueArgs:
         pulumi.set(self, "values", value)
 
 
-if not MYPY:
-    class GetEndUserMyRequestsRiskAssessmentArgsDict(TypedDict):
-        request_submission_type: NotRequired[_builtins.str]
-        """
-        Whether request submission is allowed or restricted in the risk settings.
-        """
-        risk_rules: NotRequired[Sequence['GetEndUserMyRequestsRiskAssessmentRiskRuleArgsDict']]
-        """
-        An array of resources that are excluded from the review.
-        """
-elif False:
-    GetEndUserMyRequestsRiskAssessmentArgsDict: TypeAlias = Mapping[str, Any]
+class GetEndUserMyRequestsRiskAssessmentArgsDict(TypedDict):
+    request_submission_type: NotRequired[_builtins.str]
+    """
+    Whether request submission is allowed or restricted in the risk settings.
+    """
+    risk_rules: NotRequired[Sequence['GetEndUserMyRequestsRiskAssessmentRiskRuleArgsDict']]
+    """
+    An array of resources that are excluded from the review.
+    """
 
 @pulumi.input_type
 class GetEndUserMyRequestsRiskAssessmentArgs:
@@ -9104,22 +8766,19 @@ class GetEndUserMyRequestsRiskAssessmentArgs:
         pulumi.set(self, "risk_rules", value)
 
 
-if not MYPY:
-    class GetEndUserMyRequestsRiskAssessmentRiskRuleArgsDict(TypedDict):
-        description: NotRequired[_builtins.str]
-        """
-        The human readable description.
-        """
-        name: NotRequired[_builtins.str]
-        """
-        The name of a resource rule causing a conflict.
-        """
-        resource_name: NotRequired[_builtins.str]
-        """
-        Human readable name of the resource.
-        """
-elif False:
-    GetEndUserMyRequestsRiskAssessmentRiskRuleArgsDict: TypeAlias = Mapping[str, Any]
+class GetEndUserMyRequestsRiskAssessmentRiskRuleArgsDict(TypedDict):
+    description: NotRequired[_builtins.str]
+    """
+    The human readable description.
+    """
+    name: NotRequired[_builtins.str]
+    """
+    The name of a resource rule causing a conflict.
+    """
+    resource_name: NotRequired[_builtins.str]
+    """
+    Human readable name of the resource.
+    """
 
 @pulumi.input_type
 class GetEndUserMyRequestsRiskAssessmentRiskRuleArgs:
@@ -9176,39 +8835,36 @@ class GetEndUserMyRequestsRiskAssessmentRiskRuleArgs:
         pulumi.set(self, "resource_name", value)
 
 
-if not MYPY:
-    class GetEntitlementBundleEntitlementArgsDict(TypedDict):
-        data_type: _builtins.str
-        """
-        The data type of the entitlement property.
-        """
-        description: _builtins.str
-        """
-        The description of an entitlement property.
-        """
-        external_value: _builtins.str
-        """
-        The value of an entitlement property.
-        """
-        id: _builtins.str
-        """
-        The ID of this resource.
-        """
-        multi_value: _builtins.bool
-        """
-        The property that determines if the entitlement property can hold multiple values.
-        """
-        name: _builtins.str
-        """
-        The display name for an entitlement bundle.
-        """
-        required: _builtins.bool
-        """
-        The property that determines if the entitlement property is a required attribute.
-        """
-        values: NotRequired[Sequence['GetEntitlementBundleEntitlementValueArgsDict']]
-elif False:
-    GetEntitlementBundleEntitlementArgsDict: TypeAlias = Mapping[str, Any]
+class GetEntitlementBundleEntitlementArgsDict(TypedDict):
+    data_type: _builtins.str
+    """
+    The data type of the entitlement property.
+    """
+    description: _builtins.str
+    """
+    The description of an entitlement property.
+    """
+    external_value: _builtins.str
+    """
+    The value of an entitlement property.
+    """
+    id: _builtins.str
+    """
+    The ID of this resource.
+    """
+    multi_value: _builtins.bool
+    """
+    The property that determines if the entitlement property can hold multiple values.
+    """
+    name: _builtins.str
+    """
+    The display name for an entitlement bundle.
+    """
+    required: _builtins.bool
+    """
+    The property that determines if the entitlement property is a required attribute.
+    """
+    values: NotRequired[Sequence['GetEntitlementBundleEntitlementValueArgsDict']]
 
 @pulumi.input_type
 class GetEntitlementBundleEntitlementArgs:
@@ -9334,30 +8990,27 @@ class GetEntitlementBundleEntitlementArgs:
         pulumi.set(self, "values", value)
 
 
-if not MYPY:
-    class GetEntitlementBundleEntitlementValueArgsDict(TypedDict):
-        description: _builtins.str
-        """
-        The description of an entitlement property.
-        """
-        external_id: _builtins.str
-        """
-        The read-only id of an entitlement property value in the downstream application.
-        """
-        external_value: _builtins.str
-        """
-        The value of an entitlement property value.
-        """
-        id: _builtins.str
-        """
-        The ID of this resource.
-        """
-        name: _builtins.str
-        """
-        The display name for an entitlement bundle.
-        """
-elif False:
-    GetEntitlementBundleEntitlementValueArgsDict: TypeAlias = Mapping[str, Any]
+class GetEntitlementBundleEntitlementValueArgsDict(TypedDict):
+    description: _builtins.str
+    """
+    The description of an entitlement property.
+    """
+    external_id: _builtins.str
+    """
+    The read-only id of an entitlement property value in the downstream application.
+    """
+    external_value: _builtins.str
+    """
+    The value of an entitlement property value.
+    """
+    id: _builtins.str
+    """
+    The ID of this resource.
+    """
+    name: _builtins.str
+    """
+    The display name for an entitlement bundle.
+    """
 
 @pulumi.input_type
 class GetEntitlementBundleEntitlementValueArgs:
@@ -9441,18 +9094,15 @@ class GetEntitlementBundleEntitlementValueArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class GetEntitlementBundleTargetArgsDict(TypedDict):
-        external_id: _builtins.str
-        """
-        The Okta app.id of the resource.
-        """
-        type: _builtins.str
-        """
-        The type of the resource.
-        """
-elif False:
-    GetEntitlementBundleTargetArgsDict: TypeAlias = Mapping[str, Any]
+class GetEntitlementBundleTargetArgsDict(TypedDict):
+    external_id: _builtins.str
+    """
+    The Okta app.id of the resource.
+    """
+    type: _builtins.str
+    """
+    The type of the resource.
+    """
 
 @pulumi.input_type
 class GetEntitlementBundleTargetArgs:
@@ -9491,18 +9141,15 @@ class GetEntitlementBundleTargetArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class GetEntitlementParentArgsDict(TypedDict):
-        external_id: _builtins.str
-        """
-        The Okta app.id of the resource.
-        """
-        type: _builtins.str
-        """
-        The type of resource.
-        """
-elif False:
-    GetEntitlementParentArgsDict: TypeAlias = Mapping[str, Any]
+class GetEntitlementParentArgsDict(TypedDict):
+    external_id: _builtins.str
+    """
+    The Okta app.id of the resource.
+    """
+    type: _builtins.str
+    """
+    The type of resource.
+    """
 
 @pulumi.input_type
 class GetEntitlementParentArgs:
@@ -9541,30 +9188,27 @@ class GetEntitlementParentArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class GetEntitlementValueArgsDict(TypedDict):
-        description: _builtins.str
-        """
-        The description of an entitlement value.
-        """
-        external_id: _builtins.str
-        """
-        The id of the entitlement value.
-        """
-        external_value: _builtins.str
-        """
-        The value of an entitlement property value.
-        """
-        id: _builtins.str
-        """
-        The ID of this resource.
-        """
-        name: _builtins.str
-        """
-        The name of the entitlement value.
-        """
-elif False:
-    GetEntitlementValueArgsDict: TypeAlias = Mapping[str, Any]
+class GetEntitlementValueArgsDict(TypedDict):
+    description: _builtins.str
+    """
+    The description of an entitlement value.
+    """
+    external_id: _builtins.str
+    """
+    The id of the entitlement value.
+    """
+    external_value: _builtins.str
+    """
+    The value of an entitlement property value.
+    """
+    id: _builtins.str
+    """
+    The ID of this resource.
+    """
+    name: _builtins.str
+    """
+    The name of the entitlement value.
+    """
 
 @pulumi.input_type
 class GetEntitlementValueArgs:
@@ -9648,34 +9292,31 @@ class GetEntitlementValueArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class GetLogStreamSettingsArgsDict(TypedDict):
-        account_id: _builtins.str
-        """
-        AWS account ID. Required only for 'aws_eventbridge' type
-        """
-        edition: _builtins.str
-        """
-        Edition of the Splunk Cloud instance. Could be one of: 'aws', 'aws*govcloud', 'gcp'. Required only for 'splunk*cloud_logstreaming' type
-        """
-        event_source_name: _builtins.str
-        """
-        An alphanumeric name (no spaces) to identify this event source in AWS EventBridge. Required only for 'aws_eventbridge' type
-        """
-        host: _builtins.str
-        """
-        The domain name for Splunk Cloud instance. Don't include http or https in the string. For example: 'acme.splunkcloud.com'. Required only for 'splunk*cloud*logstreaming' type
-        """
-        region: _builtins.str
-        """
-        The destination AWS region where event source is located. Required only for 'aws_eventbridge' type
-        """
-        token: _builtins.str
-        """
-        The HEC token for your Splunk Cloud HTTP Event Collector. Required only for 'splunk*cloud*logstreaming' type
-        """
-elif False:
-    GetLogStreamSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class GetLogStreamSettingsArgsDict(TypedDict):
+    account_id: _builtins.str
+    """
+    AWS account ID. Required only for 'aws_eventbridge' type
+    """
+    edition: _builtins.str
+    """
+    Edition of the Splunk Cloud instance. Could be one of: 'aws', 'aws*govcloud', 'gcp'. Required only for 'splunk*cloud_logstreaming' type
+    """
+    event_source_name: _builtins.str
+    """
+    An alphanumeric name (no spaces) to identify this event source in AWS EventBridge. Required only for 'aws_eventbridge' type
+    """
+    host: _builtins.str
+    """
+    The domain name for Splunk Cloud instance. Don't include http or https in the string. For example: 'acme.splunkcloud.com'. Required only for 'splunk*cloud*logstreaming' type
+    """
+    region: _builtins.str
+    """
+    The destination AWS region where event source is located. Required only for 'aws_eventbridge' type
+    """
+    token: _builtins.str
+    """
+    The HEC token for your Splunk Cloud HTTP Event Collector. Required only for 'splunk*cloud*logstreaming' type
+    """
 
 @pulumi.input_type
 class GetLogStreamSettingsArgs:
@@ -9774,18 +9415,15 @@ class GetLogStreamSettingsArgs:
         pulumi.set(self, "token", value)
 
 
-if not MYPY:
-    class GetOrgMetadataDomainsArgsDict(TypedDict):
-        alternate: _builtins.str
-        """
-        Custom Domain Org URI
-        """
-        organization: _builtins.str
-        """
-        Standard Org URI
-        """
-elif False:
-    GetOrgMetadataDomainsArgsDict: TypeAlias = Mapping[str, Any]
+class GetOrgMetadataDomainsArgsDict(TypedDict):
+    alternate: _builtins.str
+    """
+    Custom Domain Org URI
+    """
+    organization: _builtins.str
+    """
+    Standard Org URI
+    """
 
 @pulumi.input_type
 class GetOrgMetadataDomainsArgs:
@@ -9824,16 +9462,13 @@ class GetOrgMetadataDomainsArgs:
         pulumi.set(self, "organization", value)
 
 
-if not MYPY:
-    class GetOrgMetadataSettingsArgsDict(TypedDict):
-        analytics_collection_enabled: _builtins.bool
-        bug_reporting_enabled: _builtins.bool
-        om_enabled: _builtins.bool
-        """
-        Whether the legacy Okta Mobile application is enabled for the org
-        """
-elif False:
-    GetOrgMetadataSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class GetOrgMetadataSettingsArgsDict(TypedDict):
+    analytics_collection_enabled: _builtins.bool
+    bug_reporting_enabled: _builtins.bool
+    om_enabled: _builtins.bool
+    """
+    Whether the legacy Okta Mobile application is enabled for the org
+    """
 
 @pulumi.input_type
 class GetOrgMetadataSettingsArgs:
@@ -9879,58 +9514,55 @@ class GetOrgMetadataSettingsArgs:
         pulumi.set(self, "om_enabled", value)
 
 
-if not MYPY:
-    class GetPrincipalEntitlementsDataArgsDict(TypedDict):
-        data_type: _builtins.str
-        """
-        The data type of the entitlement property.
-        """
-        description: _builtins.str
-        """
-        The description of an entitlement property.
-        """
-        external_value: _builtins.str
-        """
-        The value of an entitlement property.
-        """
-        id: _builtins.str
-        """
-        The id property of an entitlement.
-        """
-        multi_value: _builtins.bool
-        """
-        The property that determines if the entitlement property can hold multiple values.
-        """
-        name: _builtins.str
-        """
-        The display name for an entitlement property.
-        """
-        parent_resource_orn: _builtins.str
-        """
-        The Okta app instance, in ORN format.
-        """
-        required: _builtins.bool
-        """
-        The property that determines if the entitlement property is a required attribute
-        """
-        target_principal_orn: _builtins.str
-        """
-        The Okta user id in ORN format.
-        """
-        parent: NotRequired['GetPrincipalEntitlementsDataParentArgsDict']
-        """
-        Representation of a resource.
-        """
-        target_principal: NotRequired['GetPrincipalEntitlementsDataTargetPrincipalArgsDict']
-        """
-        Representation of a principal.
-        """
-        values: NotRequired[Sequence['GetPrincipalEntitlementsDataValueArgsDict']]
-        """
-        Collection of entitlement values.
-        """
-elif False:
-    GetPrincipalEntitlementsDataArgsDict: TypeAlias = Mapping[str, Any]
+class GetPrincipalEntitlementsDataArgsDict(TypedDict):
+    data_type: _builtins.str
+    """
+    The data type of the entitlement property.
+    """
+    description: _builtins.str
+    """
+    The description of an entitlement property.
+    """
+    external_value: _builtins.str
+    """
+    The value of an entitlement property.
+    """
+    id: _builtins.str
+    """
+    The Okta Principal Entitlement object does not include a native ID field, so this value is generated to uniquely represent the entitlement in Terraform state.
+    """
+    multi_value: _builtins.bool
+    """
+    The property that determines if the entitlement property can hold multiple values.
+    """
+    name: _builtins.str
+    """
+    The display name for an entitlement property.
+    """
+    parent_resource_orn: _builtins.str
+    """
+    The Okta app instance, in ORN format.
+    """
+    required: _builtins.bool
+    """
+    The property that determines if the entitlement property is a required attribute
+    """
+    target_principal_orn: _builtins.str
+    """
+    The Okta user id in ORN format.
+    """
+    parent: NotRequired['GetPrincipalEntitlementsDataParentArgsDict']
+    """
+    Representation of a resource.
+    """
+    target_principal: NotRequired['GetPrincipalEntitlementsDataTargetPrincipalArgsDict']
+    """
+    Representation of a principal.
+    """
+    values: NotRequired[Sequence['GetPrincipalEntitlementsDataValueArgsDict']]
+    """
+    Collection of entitlement values.
+    """
 
 @pulumi.input_type
 class GetPrincipalEntitlementsDataArgs:
@@ -9951,7 +9583,7 @@ class GetPrincipalEntitlementsDataArgs:
         :param _builtins.str data_type: The data type of the entitlement property.
         :param _builtins.str description: The description of an entitlement property.
         :param _builtins.str external_value: The value of an entitlement property.
-        :param _builtins.str id: The id property of an entitlement.
+        :param _builtins.str id: The Okta Principal Entitlement object does not include a native ID field, so this value is generated to uniquely represent the entitlement in Terraform state.
         :param _builtins.bool multi_value: The property that determines if the entitlement property can hold multiple values.
         :param _builtins.str name: The display name for an entitlement property.
         :param _builtins.str parent_resource_orn: The Okta app instance, in ORN format.
@@ -10017,7 +9649,7 @@ class GetPrincipalEntitlementsDataArgs:
     @pulumi.getter
     def id(self) -> _builtins.str:
         """
-        The id property of an entitlement.
+        The Okta Principal Entitlement object does not include a native ID field, so this value is generated to uniquely represent the entitlement in Terraform state.
         """
         return pulumi.get(self, "id")
 
@@ -10122,18 +9754,15 @@ class GetPrincipalEntitlementsDataArgs:
         pulumi.set(self, "values", value)
 
 
-if not MYPY:
-    class GetPrincipalEntitlementsDataParentArgsDict(TypedDict):
-        external_id: _builtins.str
-        """
-        The Okta id of the resource.
-        """
-        type: _builtins.str
-        """
-        The type of the resource.
-        """
-elif False:
-    GetPrincipalEntitlementsDataParentArgsDict: TypeAlias = Mapping[str, Any]
+class GetPrincipalEntitlementsDataParentArgsDict(TypedDict):
+    external_id: _builtins.str
+    """
+    The Okta id of the resource.
+    """
+    type: _builtins.str
+    """
+    The type of the resource.
+    """
 
 @pulumi.input_type
 class GetPrincipalEntitlementsDataParentArgs:
@@ -10172,18 +9801,15 @@ class GetPrincipalEntitlementsDataParentArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class GetPrincipalEntitlementsDataTargetPrincipalArgsDict(TypedDict):
-        external_id: _builtins.str
-        """
-        The Okta user id.
-        """
-        type: _builtins.str
-        """
-        The type of principal.
-        """
-elif False:
-    GetPrincipalEntitlementsDataTargetPrincipalArgsDict: TypeAlias = Mapping[str, Any]
+class GetPrincipalEntitlementsDataTargetPrincipalArgsDict(TypedDict):
+    external_id: _builtins.str
+    """
+    The Okta user id.
+    """
+    type: _builtins.str
+    """
+    The type of principal.
+    """
 
 @pulumi.input_type
 class GetPrincipalEntitlementsDataTargetPrincipalArgs:
@@ -10222,26 +9848,23 @@ class GetPrincipalEntitlementsDataTargetPrincipalArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class GetPrincipalEntitlementsDataValueArgsDict(TypedDict):
-        description: _builtins.str
-        """
-        The description of an entitlement property.
-        """
-        external_value: _builtins.str
-        """
-        The value of an entitlement property value.
-        """
-        id: _builtins.str
-        """
-        The id of an entitlement value.
-        """
-        name: _builtins.str
-        """
-        The name of an entitlement value.
-        """
-elif False:
-    GetPrincipalEntitlementsDataValueArgsDict: TypeAlias = Mapping[str, Any]
+class GetPrincipalEntitlementsDataValueArgsDict(TypedDict):
+    description: _builtins.str
+    """
+    The description of an entitlement property.
+    """
+    external_value: _builtins.str
+    """
+    The value of an entitlement property value.
+    """
+    id: _builtins.str
+    """
+    The Okta Principal Entitlement object does not include a native ID field, so this value is generated to uniquely represent the entitlement in Terraform state.
+    """
+    name: _builtins.str
+    """
+    The name of an entitlement value.
+    """
 
 @pulumi.input_type
 class GetPrincipalEntitlementsDataValueArgs:
@@ -10253,7 +9876,7 @@ class GetPrincipalEntitlementsDataValueArgs:
         """
         :param _builtins.str description: The description of an entitlement property.
         :param _builtins.str external_value: The value of an entitlement property value.
-        :param _builtins.str id: The id of an entitlement value.
+        :param _builtins.str id: The Okta Principal Entitlement object does not include a native ID field, so this value is generated to uniquely represent the entitlement in Terraform state.
         :param _builtins.str name: The name of an entitlement value.
         """
         pulumi.set(__self__, "description", description)
@@ -10289,7 +9912,7 @@ class GetPrincipalEntitlementsDataValueArgs:
     @pulumi.getter
     def id(self) -> _builtins.str:
         """
-        The id of an entitlement value.
+        The Okta Principal Entitlement object does not include a native ID field, so this value is generated to uniquely represent the entitlement in Terraform state.
         """
         return pulumi.get(self, "id")
 
@@ -10310,12 +9933,9 @@ class GetPrincipalEntitlementsDataValueArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class GetPrincipalEntitlementsParentArgsDict(TypedDict):
-        external_id: _builtins.str
-        type: _builtins.str
-elif False:
-    GetPrincipalEntitlementsParentArgsDict: TypeAlias = Mapping[str, Any]
+class GetPrincipalEntitlementsParentArgsDict(TypedDict):
+    external_id: _builtins.str
+    type: _builtins.str
 
 @pulumi.input_type
 class GetPrincipalEntitlementsParentArgs:
@@ -10344,12 +9964,9 @@ class GetPrincipalEntitlementsParentArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class GetPrincipalEntitlementsTargetPrincipalArgsDict(TypedDict):
-        external_id: _builtins.str
-        type: _builtins.str
-elif False:
-    GetPrincipalEntitlementsTargetPrincipalArgsDict: TypeAlias = Mapping[str, Any]
+class GetPrincipalEntitlementsTargetPrincipalArgsDict(TypedDict):
+    external_id: _builtins.str
+    type: _builtins.str
 
 @pulumi.input_type
 class GetPrincipalEntitlementsTargetPrincipalArgs:
@@ -10378,12 +9995,9 @@ class GetPrincipalEntitlementsTargetPrincipalArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class GetPushProviderConfigurationArgsDict(TypedDict):
-        apns_configuration: NotRequired['GetPushProviderConfigurationApnsConfigurationArgsDict']
-        fcm_configuration: NotRequired['GetPushProviderConfigurationFcmConfigurationArgsDict']
-elif False:
-    GetPushProviderConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class GetPushProviderConfigurationArgsDict(TypedDict):
+    apns_configuration: NotRequired['GetPushProviderConfigurationApnsConfigurationArgsDict']
+    fcm_configuration: NotRequired['GetPushProviderConfigurationFcmConfigurationArgsDict']
 
 @pulumi.input_type
 class GetPushProviderConfigurationArgs:
@@ -10414,22 +10028,19 @@ class GetPushProviderConfigurationArgs:
         pulumi.set(self, "fcm_configuration", value)
 
 
-if not MYPY:
-    class GetPushProviderConfigurationApnsConfigurationArgsDict(TypedDict):
-        file_name: _builtins.str
-        """
-        File name for Admin Console display.
-        """
-        key_id: _builtins.str
-        """
-        10-character Key ID obtained from the Apple developer account. Required for APNS provider type.
-        """
-        team_id: _builtins.str
-        """
-        10-character Team ID used to develop the iOS app. Required for APNS provider type.
-        """
-elif False:
-    GetPushProviderConfigurationApnsConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class GetPushProviderConfigurationApnsConfigurationArgsDict(TypedDict):
+    file_name: _builtins.str
+    """
+    File name for Admin Console display.
+    """
+    key_id: _builtins.str
+    """
+    10-character Key ID obtained from the Apple developer account. Required for APNS provider type.
+    """
+    team_id: _builtins.str
+    """
+    10-character Team ID used to develop the iOS app. Required for APNS provider type.
+    """
 
 @pulumi.input_type
 class GetPushProviderConfigurationApnsConfigurationArgs:
@@ -10483,14 +10094,11 @@ class GetPushProviderConfigurationApnsConfigurationArgs:
         pulumi.set(self, "team_id", value)
 
 
-if not MYPY:
-    class GetPushProviderConfigurationFcmConfigurationArgsDict(TypedDict):
-        service_account_json: NotRequired['GetPushProviderConfigurationFcmConfigurationServiceAccountJsonArgsDict']
-        """
-        JSON containing the private service account key and service account details. Required for FCM provider type.
-        """
-elif False:
-    GetPushProviderConfigurationFcmConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class GetPushProviderConfigurationFcmConfigurationArgsDict(TypedDict):
+    service_account_json: NotRequired['GetPushProviderConfigurationFcmConfigurationServiceAccountJsonArgsDict']
+    """
+    JSON containing the private service account key and service account details. Required for FCM provider type.
+    """
 
 @pulumi.input_type
 class GetPushProviderConfigurationFcmConfigurationArgs:
@@ -10515,18 +10123,15 @@ class GetPushProviderConfigurationFcmConfigurationArgs:
         pulumi.set(self, "service_account_json", value)
 
 
-if not MYPY:
-    class GetPushProviderConfigurationFcmConfigurationServiceAccountJsonArgsDict(TypedDict):
-        file_name: _builtins.str
-        """
-        File name for Admin Console display.
-        """
-        project_id: _builtins.str
-        """
-        The project ID.
-        """
-elif False:
-    GetPushProviderConfigurationFcmConfigurationServiceAccountJsonArgsDict: TypeAlias = Mapping[str, Any]
+class GetPushProviderConfigurationFcmConfigurationServiceAccountJsonArgsDict(TypedDict):
+    file_name: _builtins.str
+    """
+    File name for Admin Console display.
+    """
+    project_id: _builtins.str
+    """
+    The project ID.
+    """
 
 @pulumi.input_type
 class GetPushProviderConfigurationFcmConfigurationServiceAccountJsonArgs:
@@ -10565,15 +10170,12 @@ class GetPushProviderConfigurationFcmConfigurationServiceAccountJsonArgs:
         pulumi.set(self, "project_id", value)
 
 
-if not MYPY:
-    class GetRequestConditionAccessScopeSettingsArgsDict(TypedDict):
-        type: _builtins.str
-        ids: NotRequired[Sequence['GetRequestConditionAccessScopeSettingsIdArgsDict']]
-        """
-        Block list of groups/entitlement bundles ids.
-        """
-elif False:
-    GetRequestConditionAccessScopeSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class GetRequestConditionAccessScopeSettingsArgsDict(TypedDict):
+    type: _builtins.str
+    ids: NotRequired[Sequence['GetRequestConditionAccessScopeSettingsIdArgsDict']]
+    """
+    Block list of groups/entitlement bundles ids.
+    """
 
 @pulumi.input_type
 class GetRequestConditionAccessScopeSettingsArgs:
@@ -10609,14 +10211,11 @@ class GetRequestConditionAccessScopeSettingsArgs:
         pulumi.set(self, "ids", value)
 
 
-if not MYPY:
-    class GetRequestConditionAccessScopeSettingsIdArgsDict(TypedDict):
-        id: _builtins.str
-        """
-        Request condition id.
-        """
-elif False:
-    GetRequestConditionAccessScopeSettingsIdArgsDict: TypeAlias = Mapping[str, Any]
+class GetRequestConditionAccessScopeSettingsIdArgsDict(TypedDict):
+    id: _builtins.str
+    """
+    Request condition id.
+    """
 
 @pulumi.input_type
 class GetRequestConditionAccessScopeSettingsIdArgs:
@@ -10640,15 +10239,12 @@ class GetRequestConditionAccessScopeSettingsIdArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class GetRequestConditionRequesterSettingsArgsDict(TypedDict):
-        type: _builtins.str
-        ids: NotRequired[Sequence['GetRequestConditionRequesterSettingsIdArgsDict']]
-        """
-        Block list of teams/groups ids.
-        """
-elif False:
-    GetRequestConditionRequesterSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class GetRequestConditionRequesterSettingsArgsDict(TypedDict):
+    type: _builtins.str
+    ids: NotRequired[Sequence['GetRequestConditionRequesterSettingsIdArgsDict']]
+    """
+    Block list of teams/groups ids.
+    """
 
 @pulumi.input_type
 class GetRequestConditionRequesterSettingsArgs:
@@ -10684,14 +10280,11 @@ class GetRequestConditionRequesterSettingsArgs:
         pulumi.set(self, "ids", value)
 
 
-if not MYPY:
-    class GetRequestConditionRequesterSettingsIdArgsDict(TypedDict):
-        id: _builtins.str
-        """
-        Request condition id.
-        """
-elif False:
-    GetRequestConditionRequesterSettingsIdArgsDict: TypeAlias = Mapping[str, Any]
+class GetRequestConditionRequesterSettingsIdArgsDict(TypedDict):
+    id: _builtins.str
+    """
+    Request condition id.
+    """
 
 @pulumi.input_type
 class GetRequestConditionRequesterSettingsIdArgs:
@@ -10715,11 +10308,8 @@ class GetRequestConditionRequesterSettingsIdArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class GetRequestSettingOrganizationRequestExperienceArgsDict(TypedDict):
-        experience_type: _builtins.str
-elif False:
-    GetRequestSettingOrganizationRequestExperienceArgsDict: TypeAlias = Mapping[str, Any]
+class GetRequestSettingOrganizationRequestExperienceArgsDict(TypedDict):
+    experience_type: _builtins.str
 
 @pulumi.input_type
 class GetRequestSettingOrganizationRequestExperienceArgs:
@@ -10737,12 +10327,9 @@ class GetRequestSettingOrganizationRequestExperienceArgs:
         pulumi.set(self, "experience_type", value)
 
 
-if not MYPY:
-    class GetRequestSettingResourceRequestOnBehalfOfSettingsArgsDict(TypedDict):
-        allowed: _builtins.bool
-        only_fors: NotRequired[Sequence['GetRequestSettingResourceRequestOnBehalfOfSettingsOnlyForArgsDict']]
-elif False:
-    GetRequestSettingResourceRequestOnBehalfOfSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class GetRequestSettingResourceRequestOnBehalfOfSettingsArgsDict(TypedDict):
+    allowed: _builtins.bool
+    only_fors: NotRequired[Sequence['GetRequestSettingResourceRequestOnBehalfOfSettingsOnlyForArgsDict']]
 
 @pulumi.input_type
 class GetRequestSettingResourceRequestOnBehalfOfSettingsArgs:
@@ -10772,11 +10359,8 @@ class GetRequestSettingResourceRequestOnBehalfOfSettingsArgs:
         pulumi.set(self, "only_fors", value)
 
 
-if not MYPY:
-    class GetRequestSettingResourceRequestOnBehalfOfSettingsOnlyForArgsDict(TypedDict):
-        type: _builtins.str
-elif False:
-    GetRequestSettingResourceRequestOnBehalfOfSettingsOnlyForArgsDict: TypeAlias = Mapping[str, Any]
+class GetRequestSettingResourceRequestOnBehalfOfSettingsOnlyForArgsDict(TypedDict):
+    type: _builtins.str
 
 @pulumi.input_type
 class GetRequestSettingResourceRequestOnBehalfOfSettingsOnlyForArgs:
@@ -10794,14 +10378,11 @@ class GetRequestSettingResourceRequestOnBehalfOfSettingsOnlyForArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class GetRequestSettingResourceRiskSettingsArgsDict(TypedDict):
-        default_setting: NotRequired['GetRequestSettingResourceRiskSettingsDefaultSettingArgsDict']
-        """
-        Default risk settings that are valid for an access request when a risk has been detected for the resource and requesting user.
-        """
-elif False:
-    GetRequestSettingResourceRiskSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class GetRequestSettingResourceRiskSettingsArgsDict(TypedDict):
+    default_setting: NotRequired['GetRequestSettingResourceRiskSettingsDefaultSettingArgsDict']
+    """
+    Default risk settings that are valid for an access request when a risk has been detected for the resource and requesting user.
+    """
 
 @pulumi.input_type
 class GetRequestSettingResourceRiskSettingsArgs:
@@ -10826,14 +10407,11 @@ class GetRequestSettingResourceRiskSettingsArgs:
         pulumi.set(self, "default_setting", value)
 
 
-if not MYPY:
-    class GetRequestSettingResourceRiskSettingsDefaultSettingArgsDict(TypedDict):
-        approval_sequence_id: _builtins.str
-        errors: Sequence[_builtins.str]
-        request_submission_type: _builtins.str
-        access_duration_settings: NotRequired['GetRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsArgsDict']
-elif False:
-    GetRequestSettingResourceRiskSettingsDefaultSettingArgsDict: TypeAlias = Mapping[str, Any]
+class GetRequestSettingResourceRiskSettingsDefaultSettingArgsDict(TypedDict):
+    approval_sequence_id: _builtins.str
+    errors: Sequence[_builtins.str]
+    request_submission_type: _builtins.str
+    access_duration_settings: NotRequired['GetRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsArgsDict']
 
 @pulumi.input_type
 class GetRequestSettingResourceRiskSettingsDefaultSettingArgs:
@@ -10885,12 +10463,9 @@ class GetRequestSettingResourceRiskSettingsDefaultSettingArgs:
         pulumi.set(self, "access_duration_settings", value)
 
 
-if not MYPY:
-    class GetRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsArgsDict(TypedDict):
-        duration: _builtins.str
-        type: _builtins.str
-elif False:
-    GetRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class GetRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsArgsDict(TypedDict):
+    duration: _builtins.str
+    type: _builtins.str
 
 @pulumi.input_type
 class GetRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsArgs:
@@ -10919,30 +10494,27 @@ class GetRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsA
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class GetRequestSettingResourceValidAccessDurationSettingsArgsDict(TypedDict):
-        maximum_days: _builtins.float
-        """
-        The maximum value allowed for a request condition or risk setting.
-        """
-        maximum_hours: _builtins.float
-        """
-        The maximum value allowed for a request condition or risk setting.
-        """
-        maximum_weeks: _builtins.float
-        """
-        The maximum value allowed for a request condition or risk setting.
-        """
-        required: _builtins.bool
-        """
-        Whether accessDurationSetting must be included in the request conditions or risk settings for the specified resource.
-        """
-        supported_types: NotRequired[Sequence['GetRequestSettingResourceValidAccessDurationSettingsSupportedTypeArgsDict']]
-        """
-        Access duration settings that are eligible to be added to a request condition or risk settings for the specified resource.
-        """
-elif False:
-    GetRequestSettingResourceValidAccessDurationSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class GetRequestSettingResourceValidAccessDurationSettingsArgsDict(TypedDict):
+    maximum_days: _builtins.float
+    """
+    The maximum value allowed for a request condition or risk setting.
+    """
+    maximum_hours: _builtins.float
+    """
+    The maximum value allowed for a request condition or risk setting.
+    """
+    maximum_weeks: _builtins.float
+    """
+    The maximum value allowed for a request condition or risk setting.
+    """
+    required: _builtins.bool
+    """
+    Whether accessDurationSetting must be included in the request conditions or risk settings for the specified resource.
+    """
+    supported_types: NotRequired[Sequence['GetRequestSettingResourceValidAccessDurationSettingsSupportedTypeArgsDict']]
+    """
+    Access duration settings that are eligible to be added to a request condition or risk settings for the specified resource.
+    """
 
 @pulumi.input_type
 class GetRequestSettingResourceValidAccessDurationSettingsArgs:
@@ -11027,11 +10599,8 @@ class GetRequestSettingResourceValidAccessDurationSettingsArgs:
         pulumi.set(self, "supported_types", value)
 
 
-if not MYPY:
-    class GetRequestSettingResourceValidAccessDurationSettingsSupportedTypeArgsDict(TypedDict):
-        type: _builtins.str
-elif False:
-    GetRequestSettingResourceValidAccessDurationSettingsSupportedTypeArgsDict: TypeAlias = Mapping[str, Any]
+class GetRequestSettingResourceValidAccessDurationSettingsSupportedTypeArgsDict(TypedDict):
+    type: _builtins.str
 
 @pulumi.input_type
 class GetRequestSettingResourceValidAccessDurationSettingsSupportedTypeArgs:
@@ -11049,11 +10618,8 @@ class GetRequestSettingResourceValidAccessDurationSettingsSupportedTypeArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class GetRequestSettingResourceValidAccessScopeSettingArgsDict(TypedDict):
-        type: _builtins.str
-elif False:
-    GetRequestSettingResourceValidAccessScopeSettingArgsDict: TypeAlias = Mapping[str, Any]
+class GetRequestSettingResourceValidAccessScopeSettingArgsDict(TypedDict):
+    type: _builtins.str
 
 @pulumi.input_type
 class GetRequestSettingResourceValidAccessScopeSettingArgs:
@@ -11071,11 +10637,8 @@ class GetRequestSettingResourceValidAccessScopeSettingArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class GetRequestSettingResourceValidRequesterSettingArgsDict(TypedDict):
-        type: _builtins.str
-elif False:
-    GetRequestSettingResourceValidRequesterSettingArgsDict: TypeAlias = Mapping[str, Any]
+class GetRequestSettingResourceValidRequesterSettingArgsDict(TypedDict):
+    type: _builtins.str
 
 @pulumi.input_type
 class GetRequestSettingResourceValidRequesterSettingArgs:
@@ -11093,34 +10656,31 @@ class GetRequestSettingResourceValidRequesterSettingArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class GetRequestV2RequestedArgsDict(TypedDict):
-        access_scope_id: _builtins.str
-        """
-        The ID of the access scope associated with the resource.
-        """
-        access_scope_type: _builtins.str
-        """
-        The access scope type.
-        """
-        entry_id: _builtins.str
-        """
-        The ID of the resource catalog entry.
-        """
-        resource_id: _builtins.str
-        """
-        The ID of the requested resource.
-        """
-        resource_type: _builtins.str
-        """
-        The requested resource type.
-        """
-        type: _builtins.str
-        """
-        The type of the resource.
-        """
-elif False:
-    GetRequestV2RequestedArgsDict: TypeAlias = Mapping[str, Any]
+class GetRequestV2RequestedArgsDict(TypedDict):
+    access_scope_id: _builtins.str
+    """
+    The ID of the access scope associated with the resource.
+    """
+    access_scope_type: _builtins.str
+    """
+    The access scope type.
+    """
+    entry_id: _builtins.str
+    """
+    The ID of the resource catalog entry.
+    """
+    resource_id: _builtins.str
+    """
+    The ID of the requested resource.
+    """
+    resource_type: _builtins.str
+    """
+    The requested resource type.
+    """
+    type: _builtins.str
+    """
+    The type of the resource.
+    """
 
 @pulumi.input_type
 class GetRequestV2RequestedArgs:
@@ -11219,18 +10779,15 @@ class GetRequestV2RequestedArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class GetRequestV2RequestedByArgsDict(TypedDict):
-        external_id: _builtins.str
-        """
-        The Okta user id.
-        """
-        type: _builtins.str
-        """
-        The type of principal.
-        """
-elif False:
-    GetRequestV2RequestedByArgsDict: TypeAlias = Mapping[str, Any]
+class GetRequestV2RequestedByArgsDict(TypedDict):
+    external_id: _builtins.str
+    """
+    The Okta user id.
+    """
+    type: _builtins.str
+    """
+    The type of principal.
+    """
 
 @pulumi.input_type
 class GetRequestV2RequestedByArgs:
@@ -11269,18 +10826,15 @@ class GetRequestV2RequestedByArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class GetRequestV2RequestedForArgsDict(TypedDict):
-        external_id: _builtins.str
-        """
-        The ID of the Okta user.
-        """
-        type: _builtins.str
-        """
-        The type of principal.
-        """
-elif False:
-    GetRequestV2RequestedForArgsDict: TypeAlias = Mapping[str, Any]
+class GetRequestV2RequestedForArgsDict(TypedDict):
+    external_id: _builtins.str
+    """
+    The ID of the Okta user.
+    """
+    type: _builtins.str
+    """
+    The type of principal.
+    """
 
 @pulumi.input_type
 class GetRequestV2RequestedForArgs:
@@ -11319,41 +10873,38 @@ class GetRequestV2RequestedForArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class GetReviewAllReviewerLevelArgsDict(TypedDict):
-        created: _builtins.str
-        """
-        The ISO 8601 formatted date and time when the resource was created.
-        """
-        created_by: _builtins.str
-        """
-        The id of user who created the resource.
-        """
-        decision: _builtins.str
-        """
-        The decision taken by the reviewer. Will be `UNASSIGNED` if no decision is made.
-        """
-        id: _builtins.str
-        """
-        The ID of  review.
-        """
-        last_updated: _builtins.str
-        """
-        The ISO 8601 formatted date and time when the object was last updated.
-        """
-        last_updated_by: _builtins.str
-        """
-        The id of user who last updated the object.
-        """
-        reviewer_level: _builtins.str
-        reviewer_type: _builtins.str
-        """
-        The type of reviewer to which the review is assigned.
-        """
-        reviewer_group_profile: NotRequired['GetReviewAllReviewerLevelReviewerGroupProfileArgsDict']
-        reviewer_profile: NotRequired['GetReviewAllReviewerLevelReviewerProfileArgsDict']
-elif False:
-    GetReviewAllReviewerLevelArgsDict: TypeAlias = Mapping[str, Any]
+class GetReviewAllReviewerLevelArgsDict(TypedDict):
+    created: _builtins.str
+    """
+    The ISO 8601 formatted date and time when the resource was created.
+    """
+    created_by: _builtins.str
+    """
+    The id of user who created the resource.
+    """
+    decision: _builtins.str
+    """
+    The decision taken by the reviewer. Will be `UNASSIGNED` if no decision is made.
+    """
+    id: _builtins.str
+    """
+    The ID of  review.
+    """
+    last_updated: _builtins.str
+    """
+    The ISO 8601 formatted date and time when the object was last updated.
+    """
+    last_updated_by: _builtins.str
+    """
+    The id of user who last updated the object.
+    """
+    reviewer_level: _builtins.str
+    reviewer_type: _builtins.str
+    """
+    The type of reviewer to which the review is assigned.
+    """
+    reviewer_group_profile: NotRequired['GetReviewAllReviewerLevelReviewerGroupProfileArgsDict']
+    reviewer_profile: NotRequired['GetReviewAllReviewerLevelReviewerProfileArgsDict']
 
 @pulumi.input_type
 class GetReviewAllReviewerLevelArgs:
@@ -11502,14 +11053,11 @@ class GetReviewAllReviewerLevelArgs:
         pulumi.set(self, "reviewer_profile", value)
 
 
-if not MYPY:
-    class GetReviewAllReviewerLevelReviewerGroupProfileArgsDict(TypedDict):
-        global_name: _builtins.str
-        group_id: _builtins.str
-        group_type: _builtins.str
-        name: _builtins.str
-elif False:
-    GetReviewAllReviewerLevelReviewerGroupProfileArgsDict: TypeAlias = Mapping[str, Any]
+class GetReviewAllReviewerLevelReviewerGroupProfileArgsDict(TypedDict):
+    global_name: _builtins.str
+    group_id: _builtins.str
+    group_type: _builtins.str
+    name: _builtins.str
 
 @pulumi.input_type
 class GetReviewAllReviewerLevelReviewerGroupProfileArgs:
@@ -11560,18 +11108,15 @@ class GetReviewAllReviewerLevelReviewerGroupProfileArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class GetReviewAllReviewerLevelReviewerProfileArgsDict(TypedDict):
-        email: _builtins.str
-        first_name: _builtins.str
-        id: _builtins.str
-        """
-        The ID of  review.
-        """
-        last_name: _builtins.str
-        status: _builtins.str
-elif False:
-    GetReviewAllReviewerLevelReviewerProfileArgsDict: TypeAlias = Mapping[str, Any]
+class GetReviewAllReviewerLevelReviewerProfileArgsDict(TypedDict):
+    email: _builtins.str
+    first_name: _builtins.str
+    id: _builtins.str
+    """
+    The ID of  review.
+    """
+    last_name: _builtins.str
+    status: _builtins.str
 
 @pulumi.input_type
 class GetReviewAllReviewerLevelReviewerProfileArgs:
@@ -11639,15 +11184,12 @@ class GetReviewAllReviewerLevelReviewerProfileArgs:
         pulumi.set(self, "status", value)
 
 
-if not MYPY:
-    class GetReviewEntitlementBundleArgsDict(TypedDict):
-        id: _builtins.str
-        """
-        The ID of  review.
-        """
-        name: _builtins.str
-elif False:
-    GetReviewEntitlementBundleArgsDict: TypeAlias = Mapping[str, Any]
+class GetReviewEntitlementBundleArgsDict(TypedDict):
+    id: _builtins.str
+    """
+    The ID of  review.
+    """
+    name: _builtins.str
 
 @pulumi.input_type
 class GetReviewEntitlementBundleArgs:
@@ -11682,15 +11224,12 @@ class GetReviewEntitlementBundleArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class GetReviewEntitlementValueArgsDict(TypedDict):
-        id: _builtins.str
-        """
-        The ID of  review.
-        """
-        name: _builtins.str
-elif False:
-    GetReviewEntitlementValueArgsDict: TypeAlias = Mapping[str, Any]
+class GetReviewEntitlementValueArgsDict(TypedDict):
+    id: _builtins.str
+    """
+    The ID of  review.
+    """
+    name: _builtins.str
 
 @pulumi.input_type
 class GetReviewEntitlementValueArgs:
@@ -11725,12 +11264,9 @@ class GetReviewEntitlementValueArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class GetReviewLinksArgsDict(TypedDict):
-        reassign_review_href: _builtins.str
-        self_href: _builtins.str
-elif False:
-    GetReviewLinksArgsDict: TypeAlias = Mapping[str, Any]
+class GetReviewLinksArgsDict(TypedDict):
+    reassign_review_href: _builtins.str
+    self_href: _builtins.str
 
 @pulumi.input_type
 class GetReviewLinksArgs:
@@ -11759,15 +11295,12 @@ class GetReviewLinksArgs:
         pulumi.set(self, "self_href", value)
 
 
-if not MYPY:
-    class GetReviewNoteArgsDict(TypedDict):
-        id: _builtins.str
-        """
-        The ID of  review.
-        """
-        note: _builtins.str
-elif False:
-    GetReviewNoteArgsDict: TypeAlias = Mapping[str, Any]
+class GetReviewNoteArgsDict(TypedDict):
+    id: _builtins.str
+    """
+    The ID of  review.
+    """
+    note: _builtins.str
 
 @pulumi.input_type
 class GetReviewNoteArgs:
@@ -11802,19 +11335,16 @@ class GetReviewNoteArgs:
         pulumi.set(self, "note", value)
 
 
-if not MYPY:
-    class GetReviewPrincipalProfileArgsDict(TypedDict):
-        email: _builtins.str
-        first_name: _builtins.str
-        id: _builtins.str
-        """
-        The ID of  review.
-        """
-        last_name: _builtins.str
-        login: _builtins.str
-        status: _builtins.str
-elif False:
-    GetReviewPrincipalProfileArgsDict: TypeAlias = Mapping[str, Any]
+class GetReviewPrincipalProfileArgsDict(TypedDict):
+    email: _builtins.str
+    first_name: _builtins.str
+    id: _builtins.str
+    """
+    The ID of  review.
+    """
+    last_name: _builtins.str
+    login: _builtins.str
+    status: _builtins.str
 
 @pulumi.input_type
 class GetReviewPrincipalProfileArgs:
@@ -11893,19 +11423,16 @@ class GetReviewPrincipalProfileArgs:
         pulumi.set(self, "status", value)
 
 
-if not MYPY:
-    class GetReviewReviewerProfileArgsDict(TypedDict):
-        email: _builtins.str
-        first_name: _builtins.str
-        id: _builtins.str
-        """
-        The ID of  review.
-        """
-        last_name: _builtins.str
-        login: _builtins.str
-        status: _builtins.str
-elif False:
-    GetReviewReviewerProfileArgsDict: TypeAlias = Mapping[str, Any]
+class GetReviewReviewerProfileArgsDict(TypedDict):
+    email: _builtins.str
+    first_name: _builtins.str
+    id: _builtins.str
+    """
+    The ID of  review.
+    """
+    last_name: _builtins.str
+    login: _builtins.str
+    status: _builtins.str
 
 @pulumi.input_type
 class GetReviewReviewerProfileArgs:
@@ -11984,22 +11511,19 @@ class GetReviewReviewerProfileArgs:
         pulumi.set(self, "status", value)
 
 
-if not MYPY:
-    class GetSecurityEventsProviderSettingsArgsDict(TypedDict):
-        issuer: _builtins.str
-        """
-        Issuer URL.
-        """
-        jwks_url: _builtins.str
-        """
-        The public URL where the JWKS public key is uploaded.
-        """
-        well_known_url: _builtins.str
-        """
-        The published well-known URL of the Security Events Provider (the SSF transmitter).
-        """
-elif False:
-    GetSecurityEventsProviderSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class GetSecurityEventsProviderSettingsArgsDict(TypedDict):
+    issuer: _builtins.str
+    """
+    Issuer URL.
+    """
+    jwks_url: _builtins.str
+    """
+    The public URL where the JWKS public key is uploaded.
+    """
+    well_known_url: _builtins.str
+    """
+    The published well-known URL of the Security Events Provider (the SSF transmitter).
+    """
 
 @pulumi.input_type
 class GetSecurityEventsProviderSettingsArgs:
@@ -12053,23 +11577,20 @@ class GetSecurityEventsProviderSettingsArgs:
         pulumi.set(self, "well_known_url", value)
 
 
-if not MYPY:
-    class GetUiSchemaUiSchemaArgsDict(TypedDict):
-        button_label: _builtins.str
-        """
-        Specifies the button label for the Submit button at the bottom of the enrollment form.
-        """
-        label: _builtins.str
-        """
-        Specifies the label at the top of the enrollment form under the logo.
-        """
-        type: _builtins.str
-        """
-        Specifies the type of layout.
-        """
-        elements: NotRequired[Sequence['GetUiSchemaUiSchemaElementArgsDict']]
-elif False:
-    GetUiSchemaUiSchemaArgsDict: TypeAlias = Mapping[str, Any]
+class GetUiSchemaUiSchemaArgsDict(TypedDict):
+    button_label: _builtins.str
+    """
+    Specifies the button label for the Submit button at the bottom of the enrollment form.
+    """
+    label: _builtins.str
+    """
+    Specifies the label at the top of the enrollment form under the logo.
+    """
+    type: _builtins.str
+    """
+    Specifies the type of layout.
+    """
+    elements: NotRequired[Sequence['GetUiSchemaUiSchemaElementArgsDict']]
 
 @pulumi.input_type
 class GetUiSchemaUiSchemaArgs:
@@ -12135,26 +11656,23 @@ class GetUiSchemaUiSchemaArgs:
         pulumi.set(self, "elements", value)
 
 
-if not MYPY:
-    class GetUiSchemaUiSchemaElementArgsDict(TypedDict):
-        label: _builtins.str
-        """
-        Label name for the UI element.
-        """
-        scope: _builtins.str
-        """
-        Specifies the property bound to the input field. It must follow the format #/properties/PROPERTY_NAME where PROPERTY_NAME is a variable name for an attribute in profile editor.
-        """
-        type: _builtins.str
-        """
-        Specifies the relationship between this input element and scope. The Control value specifies that this input controls the value represented by scope.
-        """
-        options: NotRequired['GetUiSchemaUiSchemaElementOptionsArgsDict']
-        """
-        UI Schema element options object.
-        """
-elif False:
-    GetUiSchemaUiSchemaElementArgsDict: TypeAlias = Mapping[str, Any]
+class GetUiSchemaUiSchemaElementArgsDict(TypedDict):
+    label: _builtins.str
+    """
+    Label name for the UI element.
+    """
+    scope: _builtins.str
+    """
+    Specifies the property bound to the input field. It must follow the format #/properties/PROPERTY_NAME where PROPERTY_NAME is a variable name for an attribute in profile editor.
+    """
+    type: _builtins.str
+    """
+    Specifies the relationship between this input element and scope. The Control value specifies that this input controls the value represented by scope.
+    """
+    options: NotRequired['GetUiSchemaUiSchemaElementOptionsArgsDict']
+    """
+    UI Schema element options object.
+    """
 
 @pulumi.input_type
 class GetUiSchemaUiSchemaElementArgs:
@@ -12224,14 +11742,11 @@ class GetUiSchemaUiSchemaElementArgs:
         pulumi.set(self, "options", value)
 
 
-if not MYPY:
-    class GetUiSchemaUiSchemaElementOptionsArgsDict(TypedDict):
-        format: _builtins.str
-        """
-        Specifies how the input appears.
-        """
-elif False:
-    GetUiSchemaUiSchemaElementOptionsArgsDict: TypeAlias = Mapping[str, Any]
+class GetUiSchemaUiSchemaElementOptionsArgsDict(TypedDict):
+    format: _builtins.str
+    """
+    Specifies how the input appears.
+    """
 
 @pulumi.input_type
 class GetUiSchemaUiSchemaElementOptionsArgs:

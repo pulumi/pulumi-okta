@@ -19,14 +19,9 @@ __all__ = [
     'HookHeaderArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class HookHeaderArgsDict(TypedDict):
-        key: NotRequired[pulumi.Input[_builtins.str]]
-        value: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    HookHeaderArgsDict: TypeAlias = Mapping[str, Any]
+class HookHeaderArgsDict(TypedDict):
+    key: NotRequired[pulumi.Input[_builtins.str]]
+    value: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class HookHeaderArgs:

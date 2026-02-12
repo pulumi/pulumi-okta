@@ -45,16 +45,16 @@ namespace Pulumi.Okta
     /// 
     /// ## Import
     /// 
-    /// ### User schema property of default user type can be imported via the property index.
+    /// ## User schema property of default user type can be imported via the property index.
     /// 
     /// ```sh
     /// $ pulumi import okta:index/userBaseSchemaProperty:UserBaseSchemaProperty example &lt;property_name&gt;
     /// ```
     /// 
-    /// ### User schema property of custom user type can be imported via user type id and property index
+    /// ## User schema property of custom user type can be imported via user type id and property index
     /// 
     /// ```sh
-    /// $ pulumi import okta:index/userBaseSchemaProperty:UserBaseSchemaProperty example &lt;user_type_id&gt;.&lt;property name&gt;
+    /// terraform import okta_user_base_schema_property.example &lt;user_type_id&gt;.&lt;property name&gt;
     /// ```
     /// </summary>
     [OktaResourceType("okta:index/userBaseSchemaProperty:UserBaseSchemaProperty")]

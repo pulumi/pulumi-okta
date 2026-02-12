@@ -25,6 +25,10 @@ public final class GetServerKeysResult {
      * 
      */
     private String e;
+    /**
+     * @return The internal identifier for this data source, required by Terraform to track state. This field does not exist in the Okta API response.
+     * 
+     */
     private String id;
     /**
      * @return The ID of the certificate key.
@@ -74,6 +78,10 @@ public final class GetServerKeysResult {
     public String e() {
         return this.e;
     }
+    /**
+     * @return The internal identifier for this data source, required by Terraform to track state. This field does not exist in the Okta API response.
+     * 
+     */
     public String id() {
         return this.id;
     }

@@ -203,6 +203,16 @@ class GroupAssignment(pulumi.CustomResource):
                  retain_assignment: Optional[pulumi.Input[_builtins.bool]] = None,
                  __props__=None):
         """
+        Assigns a group to an application. This resource allows you to create an App Group assignment.
+
+        > **IMPORTANT:** When the `app_group_assignment` is retained, by
+        setting `retain_assignment` to `true`, it is no longer managed by
+        Terraform after it is destroyed. To truly delete the assignment,
+        you will need to remove it either through the Okta Console or API.
+        This argument exists for the use case where the same group is
+        assigned in multiple places in order to prevent a single
+        destruction removing all of them.
+
         ## Example Usage
 
         ```python
@@ -239,6 +249,16 @@ class GroupAssignment(pulumi.CustomResource):
                  args: GroupAssignmentArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Assigns a group to an application. This resource allows you to create an App Group assignment.
+
+        > **IMPORTANT:** When the `app_group_assignment` is retained, by
+        setting `retain_assignment` to `true`, it is no longer managed by
+        Terraform after it is destroyed. To truly delete the assignment,
+        you will need to remove it either through the Okta Console or API.
+        This argument exists for the use case where the same group is
+        assigned in multiple places in order to prevent a single
+        destruction removing all of them.
+
         ## Example Usage
 
         ```python

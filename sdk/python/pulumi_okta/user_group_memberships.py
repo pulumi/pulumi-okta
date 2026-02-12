@@ -104,6 +104,8 @@ class UserGroupMemberships(pulumi.CustomResource):
                  user_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
+        Resource to manage a set of group memberships for a specific user. This resource allows you to bulk manage groups for a single user, independent of the user schema itself. This allows you to manage group membership in terraform without overriding other automatic membership operations performed by group rules and other non-managed actions.
+
         ## Example Usage
 
         ```python
@@ -135,6 +137,8 @@ class UserGroupMemberships(pulumi.CustomResource):
                  args: UserGroupMembershipsArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Resource to manage a set of group memberships for a specific user. This resource allows you to bulk manage groups for a single user, independent of the user schema itself. This allows you to manage group membership in terraform without overriding other automatic membership operations performed by group rules and other non-managed actions.
+
         ## Example Usage
 
         ```python

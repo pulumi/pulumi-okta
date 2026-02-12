@@ -239,6 +239,12 @@ class ApiToken(pulumi.CustomResource):
                  user_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
+        Manages an Okta API token configuration. This resource allows you to import and manage existing API tokens, including their network restrictions. API tokens are used to authenticate API requests to your Okta organization.
+
+        > NOTE: This resource is import-only. API tokens cannot be created through Terraform as they are generated through the Okta Admin Console or API. You can only import existing tokens and manage their configuration.
+
+        > WARNING: When this resource is destroyed, the API token will be revoked and can no longer be used for authentication.
+
         ## Example Usage
 
         ```python
@@ -284,6 +290,12 @@ class ApiToken(pulumi.CustomResource):
                  args: ApiTokenArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Manages an Okta API token configuration. This resource allows you to import and manage existing API tokens, including their network restrictions. API tokens are used to authenticate API requests to your Okta organization.
+
+        > NOTE: This resource is import-only. API tokens cannot be created through Terraform as they are generated through the Okta Admin Console or API. You can only import existing tokens and manage their configuration.
+
+        > WARNING: When this resource is destroyed, the API token will be revoked and can no longer be used for authentication.
+
         ## Example Usage
 
         ```python

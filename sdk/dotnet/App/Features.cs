@@ -10,21 +10,183 @@ using Pulumi.Serialization;
 namespace Pulumi.Okta.App
 {
     /// <summary>
+    /// Manages Okta application features. This resource allows you to configure provisioning capabilities for applications, including user provisioning (outbound) and inbound provisioning settings.
+    /// 
+    /// &gt; **NOTE:** This resource cannot be deleted via Terraform. Application features are managed by Okta and can only be updated or read.
+    /// 
+    /// &gt; **NOTE:** This resource is only supported with a limited subset of OIN applications, see the [api docs](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationFeatures/) for more details.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ### User Provisioning Feature
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Okta = Pulumi.Okta;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var userProvisioning = new Okta.App.Features("user_provisioning", new()
+    ///     {
+    ///         AppId = example.Id,
+    ///         Name = "USER_PROVISIONING",
+    ///         Status = "ENABLED",
+    ///         Capabilities = new Okta.App.Inputs.FeaturesCapabilitiesArgs
+    ///         {
+    ///             Create = new Okta.App.Inputs.FeaturesCapabilitiesCreateArgs
+    ///             {
+    ///                 LifecycleCreate = new Okta.App.Inputs.FeaturesCapabilitiesCreateLifecycleCreateArgs
+    ///                 {
+    ///                     Status = "ENABLED",
+    ///                 },
+    ///             },
+    ///             Update = new Okta.App.Inputs.FeaturesCapabilitiesUpdateArgs
+    ///             {
+    ///                 LifecycleDeactivate = new Okta.App.Inputs.FeaturesCapabilitiesUpdateLifecycleDeactivateArgs
+    ///                 {
+    ///                     Status = "ENABLED",
+    ///                 },
+    ///                 Password = new Okta.App.Inputs.FeaturesCapabilitiesUpdatePasswordArgs
+    ///                 {
+    ///                     Change = "CHANGE",
+    ///                     Seed = "OKTA",
+    ///                     Status = "ENABLED",
+    ///                 },
+    ///                 Profile = new Okta.App.Inputs.FeaturesCapabilitiesUpdateProfileArgs
+    ///                 {
+    ///                     Status = "ENABLED",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### Inbound Provisioning Feature
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Okta = Pulumi.Okta;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var inboundProvisioning = new Okta.App.Features("inbound_provisioning", new()
+    ///     {
+    ///         AppId = example.Id,
+    ///         Name = "INBOUND_PROVISIONING",
+    ///         Status = "ENABLED",
+    ///         Capabilities = new Okta.App.Inputs.FeaturesCapabilitiesArgs
+    ///         {
+    ///             ImportRules = new Okta.App.Inputs.FeaturesCapabilitiesImportRulesArgs
+    ///             {
+    ///                 UserCreateAndMatch = new Okta.App.Inputs.FeaturesCapabilitiesImportRulesUserCreateAndMatchArgs
+    ///                 {
+    ///                     ExactMatchCriteria = "USERNAME",
+    ///                     AllowPartialMatch = true,
+    ///                     AutoActivateNewUsers = false,
+    ///                     AutoconfirmExactMatch = false,
+    ///                     AutoconfirmNewUsers = false,
+    ///                     AutoconfirmPartialMatch = false,
+    ///                 },
+    ///             },
+    ///             ImportSettings = new Okta.App.Inputs.FeaturesCapabilitiesImportSettingsArgs
+    ///             {
+    ///                 Username = new Okta.App.Inputs.FeaturesCapabilitiesImportSettingsUsernameArgs
+    ///                 {
+    ///                     UsernameFormat = "EMAIL",
+    ///                     UsernameExpression = "",
+    ///                 },
+    ///                 Schedule = new Okta.App.Inputs.FeaturesCapabilitiesImportSettingsScheduleArgs
+    ///                 {
+    ///                     Status = "DISABLED",
+    ///                     FullImport = new Okta.App.Inputs.FeaturesCapabilitiesImportSettingsScheduleFullImportArgs
+    ///                     {
+    ///                         Expression = "0 0 * * *",
+    ///                         Timezone = "America/New_York",
+    ///                     },
+    ///                     IncrementalImport = new Okta.App.Inputs.FeaturesCapabilitiesImportSettingsScheduleIncrementalImportArgs
+    ///                     {
+    ///                         Expression = "0 */6 * * *",
+    ///                         Timezone = "America/New_York",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### Complete User Provisioning Configuration
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Okta = Pulumi.Okta;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var completeProvisioning = new Okta.App.Features("complete_provisioning", new()
+    ///     {
+    ///         AppId = example.Id,
+    ///         Name = "USER_PROVISIONING",
+    ///         Status = "ENABLED",
+    ///         Capabilities = new Okta.App.Inputs.FeaturesCapabilitiesArgs
+    ///         {
+    ///             Create = new Okta.App.Inputs.FeaturesCapabilitiesCreateArgs
+    ///             {
+    ///                 LifecycleCreate = new Okta.App.Inputs.FeaturesCapabilitiesCreateLifecycleCreateArgs
+    ///                 {
+    ///                     Status = "ENABLED",
+    ///                 },
+    ///             },
+    ///             Update = new Okta.App.Inputs.FeaturesCapabilitiesUpdateArgs
+    ///             {
+    ///                 LifecycleDeactivate = new Okta.App.Inputs.FeaturesCapabilitiesUpdateLifecycleDeactivateArgs
+    ///                 {
+    ///                     Status = "ENABLED",
+    ///                 },
+    ///                 Password = new Okta.App.Inputs.FeaturesCapabilitiesUpdatePasswordArgs
+    ///                 {
+    ///                     Change = "CHANGE",
+    ///                     Seed = "RANDOM",
+    ///                     Status = "ENABLED",
+    ///                 },
+    ///                 Profile = new Okta.App.Inputs.FeaturesCapabilitiesUpdateProfileArgs
+    ///                 {
+    ///                     Status = "ENABLED",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Behavior Notes
+    /// 
+    /// ### Deletion Behavior
+    /// 
+    /// This resource cannot be deleted via Terraform. Running `terraform destroy` will show a warning but will not actually delete the feature configuration. Application features are managed by Okta and persist with the application.
+    /// 
+    /// ### Cron Expression Examples
+    /// 
+    /// For import schedules, use standard UNIX cron format:
+    /// 
+    /// - `0 0 * * *` - Daily at midnight
+    /// - `0 */6 * * *` - Every 6 hours
+    /// - `0 0 * * 0` - Weekly on Sunday at midnight
+    /// - `0 2 1 * *` - Monthly on the 1st at 2 AM
+    /// 
     /// ## Import
     /// 
     /// App features can be imported using the format `{app_id}/{feature_name}`:
-    /// 
-    /// bash
-    /// 
-    /// ```sh
-    /// $ pulumi import okta:app/features:Features example 0oarblaf7hWdLawNg1d7/USER_PROVISIONING
-    /// ```
-    /// 
-    /// bash
-    /// 
-    /// ```sh
-    /// $ pulumi import okta:app/features:Features inbound 0oarblaf7hWdLawNg1d7/INBOUND_PROVISIONING
-    /// ```
     /// </summary>
     [OktaResourceType("okta:app/features:Features")]
     public partial class Features : global::Pulumi.CustomResource

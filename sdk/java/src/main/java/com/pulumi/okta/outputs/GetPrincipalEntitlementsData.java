@@ -33,7 +33,7 @@ public final class GetPrincipalEntitlementsData {
      */
     private String externalValue;
     /**
-     * @return The id property of an entitlement.
+     * @return The Okta Principal Entitlement object does not include a native ID field, so this value is generated to uniquely represent the entitlement in Terraform state.
      * 
      */
     private String id;
@@ -101,7 +101,7 @@ public final class GetPrincipalEntitlementsData {
         return this.externalValue;
     }
     /**
-     * @return The id property of an entitlement.
+     * @return The Okta Principal Entitlement object does not include a native ID field, so this value is generated to uniquely represent the entitlement in Terraform state.
      * 
      */
     public String id() {

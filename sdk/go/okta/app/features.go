@@ -12,21 +12,185 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Manages Okta application features. This resource allows you to configure provisioning capabilities for applications, including user provisioning (outbound) and inbound provisioning settings.
+//
+// > **NOTE:** This resource cannot be deleted via Terraform. Application features are managed by Okta and can only be updated or read.
+//
+// > **NOTE:** This resource is only supported with a limited subset of OIN applications, see the [api docs](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationFeatures/) for more details.
+//
+// ## Example Usage
+//
+// ### User Provisioning Feature
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v6/go/okta/app"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := app.NewFeatures(ctx, "user_provisioning", &app.FeaturesArgs{
+//				AppId:  pulumi.Any(example.Id),
+//				Name:   pulumi.String("USER_PROVISIONING"),
+//				Status: pulumi.String("ENABLED"),
+//				Capabilities: &app.FeaturesCapabilitiesArgs{
+//					Create: &app.FeaturesCapabilitiesCreateArgs{
+//						LifecycleCreate: &app.FeaturesCapabilitiesCreateLifecycleCreateArgs{
+//							Status: pulumi.String("ENABLED"),
+//						},
+//					},
+//					Update: &app.FeaturesCapabilitiesUpdateArgs{
+//						LifecycleDeactivate: &app.FeaturesCapabilitiesUpdateLifecycleDeactivateArgs{
+//							Status: pulumi.String("ENABLED"),
+//						},
+//						Password: &app.FeaturesCapabilitiesUpdatePasswordArgs{
+//							Change: pulumi.String("CHANGE"),
+//							Seed:   pulumi.String("OKTA"),
+//							Status: pulumi.String("ENABLED"),
+//						},
+//						Profile: &app.FeaturesCapabilitiesUpdateProfileArgs{
+//							Status: pulumi.String("ENABLED"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### Inbound Provisioning Feature
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v6/go/okta/app"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := app.NewFeatures(ctx, "inbound_provisioning", &app.FeaturesArgs{
+//				AppId:  pulumi.Any(example.Id),
+//				Name:   pulumi.String("INBOUND_PROVISIONING"),
+//				Status: pulumi.String("ENABLED"),
+//				Capabilities: &app.FeaturesCapabilitiesArgs{
+//					ImportRules: &app.FeaturesCapabilitiesImportRulesArgs{
+//						UserCreateAndMatch: &app.FeaturesCapabilitiesImportRulesUserCreateAndMatchArgs{
+//							ExactMatchCriteria:      pulumi.String("USERNAME"),
+//							AllowPartialMatch:       pulumi.Bool(true),
+//							AutoActivateNewUsers:    pulumi.Bool(false),
+//							AutoconfirmExactMatch:   pulumi.Bool(false),
+//							AutoconfirmNewUsers:     pulumi.Bool(false),
+//							AutoconfirmPartialMatch: pulumi.Bool(false),
+//						},
+//					},
+//					ImportSettings: &app.FeaturesCapabilitiesImportSettingsArgs{
+//						Username: &app.FeaturesCapabilitiesImportSettingsUsernameArgs{
+//							UsernameFormat:     pulumi.String("EMAIL"),
+//							UsernameExpression: pulumi.String(""),
+//						},
+//						Schedule: &app.FeaturesCapabilitiesImportSettingsScheduleArgs{
+//							Status: pulumi.String("DISABLED"),
+//							FullImport: &app.FeaturesCapabilitiesImportSettingsScheduleFullImportArgs{
+//								Expression: pulumi.String("0 0 * * *"),
+//								Timezone:   pulumi.String("America/New_York"),
+//							},
+//							IncrementalImport: &app.FeaturesCapabilitiesImportSettingsScheduleIncrementalImportArgs{
+//								Expression: pulumi.String("0 */6 * * *"),
+//								Timezone:   pulumi.String("America/New_York"),
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### Complete User Provisioning Configuration
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v6/go/okta/app"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := app.NewFeatures(ctx, "complete_provisioning", &app.FeaturesArgs{
+//				AppId:  pulumi.Any(example.Id),
+//				Name:   pulumi.String("USER_PROVISIONING"),
+//				Status: pulumi.String("ENABLED"),
+//				Capabilities: &app.FeaturesCapabilitiesArgs{
+//					Create: &app.FeaturesCapabilitiesCreateArgs{
+//						LifecycleCreate: &app.FeaturesCapabilitiesCreateLifecycleCreateArgs{
+//							Status: pulumi.String("ENABLED"),
+//						},
+//					},
+//					Update: &app.FeaturesCapabilitiesUpdateArgs{
+//						LifecycleDeactivate: &app.FeaturesCapabilitiesUpdateLifecycleDeactivateArgs{
+//							Status: pulumi.String("ENABLED"),
+//						},
+//						Password: &app.FeaturesCapabilitiesUpdatePasswordArgs{
+//							Change: pulumi.String("CHANGE"),
+//							Seed:   pulumi.String("RANDOM"),
+//							Status: pulumi.String("ENABLED"),
+//						},
+//						Profile: &app.FeaturesCapabilitiesUpdateProfileArgs{
+//							Status: pulumi.String("ENABLED"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Behavior Notes
+//
+// ### Deletion Behavior
+//
+// This resource cannot be deleted via Terraform. Running `terraform destroy` will show a warning but will not actually delete the feature configuration. Application features are managed by Okta and persist with the application.
+//
+// ### Cron Expression Examples
+//
+// For import schedules, use standard UNIX cron format:
+//
+// - `0 0 * * *` - Daily at midnight
+// - `0 */6 * * *` - Every 6 hours
+// - `0 0 * * 0` - Weekly on Sunday at midnight
+// - `0 2 1 * *` - Monthly on the 1st at 2 AM
+//
 // ## Import
 //
 // App features can be imported using the format `{app_id}/{feature_name}`:
-//
-// bash
-//
-// ```sh
-// $ pulumi import okta:app/features:Features example 0oarblaf7hWdLawNg1d7/USER_PROVISIONING
-// ```
-//
-// bash
-//
-// ```sh
-// $ pulumi import okta:app/features:Features inbound 0oarblaf7hWdLawNg1d7/INBOUND_PROVISIONING
-// ```
 type Features struct {
 	pulumi.CustomResourceState
 

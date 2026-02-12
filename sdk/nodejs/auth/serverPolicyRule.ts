@@ -5,6 +5,14 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
+ * Creates an Authorization Server Policy Rule.
+ * This resource allows you to create and configure an Authorization Server Policy Rule.
+ * > This resource is concurrency safe. However, when creating/updating/deleting
+ * multiple rules belonging to a policy, the Terraform meta argument
+ * 'depends_on'
+ * should be added to each rule chaining them all in sequence. Base the sequence on
+ * the 'priority' property in ascending value.
+ *
  * ## Example Usage
  *
  * ```typescript

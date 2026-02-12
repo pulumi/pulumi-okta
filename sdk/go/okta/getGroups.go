@@ -56,7 +56,8 @@ type GetGroupsArgs struct {
 	Q *string `pulumi:"q"`
 	// Searches for groups with a supported filtering expression for all attributes except for '*embedded', '*links', and 'objectClass'
 	Search *string `pulumi:"search"`
-	Type   *string `pulumi:"type"`
+	// Type of the group. When specified in the terraform resource, will act as a filter when searching for the groups
+	Type *string `pulumi:"type"`
 }
 
 // A collection of values returned by getGroups.
@@ -70,7 +71,8 @@ type GetGroupsResult struct {
 	Q *string `pulumi:"q"`
 	// Searches for groups with a supported filtering expression for all attributes except for '*embedded', '*links', and 'objectClass'
 	Search *string `pulumi:"search"`
-	Type   *string `pulumi:"type"`
+	// Type of the group. When specified in the terraform resource, will act as a filter when searching for the groups
+	Type *string `pulumi:"type"`
 }
 
 func GetGroupsOutput(ctx *pulumi.Context, args GetGroupsOutputArgs, opts ...pulumi.InvokeOption) GetGroupsResultOutput {
@@ -90,7 +92,8 @@ type GetGroupsOutputArgs struct {
 	Q pulumi.StringPtrInput `pulumi:"q"`
 	// Searches for groups with a supported filtering expression for all attributes except for '*embedded', '*links', and 'objectClass'
 	Search pulumi.StringPtrInput `pulumi:"search"`
-	Type   pulumi.StringPtrInput `pulumi:"type"`
+	// Type of the group. When specified in the terraform resource, will act as a filter when searching for the groups
+	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (GetGroupsOutputArgs) ElementType() reflect.Type {
@@ -136,6 +139,7 @@ func (o GetGroupsResultOutput) Search() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetGroupsResult) *string { return v.Search }).(pulumi.StringPtrOutput)
 }
 
+// Type of the group. When specified in the terraform resource, will act as a filter when searching for the groups
 func (o GetGroupsResultOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetGroupsResult) *string { return v.Type }).(pulumi.StringPtrOutput)
 }

@@ -21098,7 +21098,7 @@ type GetPrincipalEntitlementsData struct {
 	Description string `pulumi:"description"`
 	// The value of an entitlement property.
 	ExternalValue string `pulumi:"externalValue"`
-	// The id property of an entitlement.
+	// The Okta Principal Entitlement object does not include a native ID field, so this value is generated to uniquely represent the entitlement in Terraform state.
 	Id string `pulumi:"id"`
 	// The property that determines if the entitlement property can hold multiple values.
 	MultiValue bool `pulumi:"multiValue"`
@@ -21136,7 +21136,7 @@ type GetPrincipalEntitlementsDataArgs struct {
 	Description pulumi.StringInput `pulumi:"description"`
 	// The value of an entitlement property.
 	ExternalValue pulumi.StringInput `pulumi:"externalValue"`
-	// The id property of an entitlement.
+	// The Okta Principal Entitlement object does not include a native ID field, so this value is generated to uniquely represent the entitlement in Terraform state.
 	Id pulumi.StringInput `pulumi:"id"`
 	// The property that determines if the entitlement property can hold multiple values.
 	MultiValue pulumi.BoolInput `pulumi:"multiValue"`
@@ -21222,7 +21222,7 @@ func (o GetPrincipalEntitlementsDataOutput) ExternalValue() pulumi.StringOutput 
 	return o.ApplyT(func(v GetPrincipalEntitlementsData) string { return v.ExternalValue }).(pulumi.StringOutput)
 }
 
-// The id property of an entitlement.
+// The Okta Principal Entitlement object does not include a native ID field, so this value is generated to uniquely represent the entitlement in Terraform state.
 func (o GetPrincipalEntitlementsDataOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPrincipalEntitlementsData) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -21606,7 +21606,7 @@ type GetPrincipalEntitlementsDataValue struct {
 	Description string `pulumi:"description"`
 	// The value of an entitlement property value.
 	ExternalValue string `pulumi:"externalValue"`
-	// The id of an entitlement value.
+	// The Okta Principal Entitlement object does not include a native ID field, so this value is generated to uniquely represent the entitlement in Terraform state.
 	Id string `pulumi:"id"`
 	// The name of an entitlement value.
 	Name string `pulumi:"name"`
@@ -21628,7 +21628,7 @@ type GetPrincipalEntitlementsDataValueArgs struct {
 	Description pulumi.StringInput `pulumi:"description"`
 	// The value of an entitlement property value.
 	ExternalValue pulumi.StringInput `pulumi:"externalValue"`
-	// The id of an entitlement value.
+	// The Okta Principal Entitlement object does not include a native ID field, so this value is generated to uniquely represent the entitlement in Terraform state.
 	Id pulumi.StringInput `pulumi:"id"`
 	// The name of an entitlement value.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -21695,7 +21695,7 @@ func (o GetPrincipalEntitlementsDataValueOutput) ExternalValue() pulumi.StringOu
 	return o.ApplyT(func(v GetPrincipalEntitlementsDataValue) string { return v.ExternalValue }).(pulumi.StringOutput)
 }
 
-// The id of an entitlement value.
+// The Okta Principal Entitlement object does not include a native ID field, so this value is generated to uniquely represent the entitlement in Terraform state.
 func (o GetPrincipalEntitlementsDataValueOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPrincipalEntitlementsDataValue) string { return v.Id }).(pulumi.StringOutput)
 }

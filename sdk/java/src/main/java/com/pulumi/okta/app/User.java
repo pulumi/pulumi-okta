@@ -17,6 +17,10 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * Creates an Application User.
+ * 		This resource allows you to create and configure an Application User.
+ * 		&gt; **IMPORTANT:** When the &#39;okta_app_user&#39; is retained, by setting &#39;retain_assignment&#39; to &#39;true&#39;, it is no longer managed by Terraform after it is destroyed. To truly delete the assignment, you will need to remove it either through the Okta Console or API. This argument exists for the use case where the same user is assigned in multiple places in order to prevent a single destruction removing all of them.
+ * 
  * ## Example Usage
  * 
  * <pre>

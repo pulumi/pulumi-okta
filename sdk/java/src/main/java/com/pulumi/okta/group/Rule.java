@@ -17,6 +17,12 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * Creates an Okta Group Rule.
+ * This resource allows you to create and configure an Okta Group Rule.
+ * &gt; If the Okta API marks the &#39;status&#39; of the rule as &#39;INVALID&#39; the Okta
+ * Terraform Provider will act in a force/replace manner and call the API to delete
+ * the underlying rule resource and create a new rule resource.
+ * 
  * ## Example Usage
  * 
  * <pre>
