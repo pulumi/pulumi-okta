@@ -39,6 +39,10 @@ public final class GetGroupResult {
      * 
      */
     private String name;
+    /**
+     * @return Type of the group. When specified in the terraform resource, will act as a filter when searching for the group
+     * 
+     */
     private @Nullable String type;
     /**
      * @return Users associated with the group. This can also be done per user.
@@ -82,6 +86,10 @@ public final class GetGroupResult {
     public String name() {
         return this.name;
     }
+    /**
+     * @return Type of the group. When specified in the terraform resource, will act as a filter when searching for the group
+     * 
+     */
     public Optional<String> type() {
         return Optional.ofNullable(this.type);
     }

@@ -109,7 +109,8 @@ type GetPrincipalEntitlementsArgs struct {
 type GetPrincipalEntitlementsResult struct {
 	// Principal entitlements list.
 	Datas []GetPrincipalEntitlementsData `pulumi:"datas"`
-	Id    string                         `pulumi:"id"`
+	// The Okta Principal Entitlement object does not include a native ID field, so this value is generated to uniquely represent the entitlement in Terraform state.
+	Id string `pulumi:"id"`
 	// Representation of a resource.
 	Parent *GetPrincipalEntitlementsParent `pulumi:"parent"`
 	// Representation of a principal.
@@ -159,6 +160,7 @@ func (o GetPrincipalEntitlementsResultOutput) Datas() GetPrincipalEntitlementsDa
 	return o.ApplyT(func(v GetPrincipalEntitlementsResult) []GetPrincipalEntitlementsData { return v.Datas }).(GetPrincipalEntitlementsDataArrayOutput)
 }
 
+// The Okta Principal Entitlement object does not include a native ID field, so this value is generated to uniquely represent the entitlement in Terraform state.
 func (o GetPrincipalEntitlementsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPrincipalEntitlementsResult) string { return v.Id }).(pulumi.StringOutput)
 }

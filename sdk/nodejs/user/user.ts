@@ -109,6 +109,9 @@ export class User extends pulumi.CustomResource {
      * JSON formatted custom attributes for a user. It must be JSON due to various types Okta allows. You must first add the custom property to the user profile schema before you reference it. You can use the Profile Editor in the Admin Console or the [Schemas](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UISchema/#tag/UISchema) API to manage schema extensions.
      */
     declare public readonly customProfileAttributes: pulumi.Output<string>;
+    /**
+     * List of custom*profile*attribute keys that should be excluded from being managed by Terraform. This is useful in situations where specific custom fields may contain sensitive information and should be managed outside of Terraform.
+     */
     declare public readonly customProfileAttributesToIgnores: pulumi.Output<string[] | undefined>;
     /**
      * User department
@@ -412,6 +415,9 @@ export interface UserState {
      * JSON formatted custom attributes for a user. It must be JSON due to various types Okta allows. You must first add the custom property to the user profile schema before you reference it. You can use the Profile Editor in the Admin Console or the [Schemas](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UISchema/#tag/UISchema) API to manage schema extensions.
      */
     customProfileAttributes?: pulumi.Input<string>;
+    /**
+     * List of custom*profile*attribute keys that should be excluded from being managed by Terraform. This is useful in situations where specific custom fields may contain sensitive information and should be managed outside of Terraform.
+     */
     customProfileAttributesToIgnores?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * User department
@@ -593,6 +599,9 @@ export interface UserArgs {
      * JSON formatted custom attributes for a user. It must be JSON due to various types Okta allows. You must first add the custom property to the user profile schema before you reference it. You can use the Profile Editor in the Admin Console or the [Schemas](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UISchema/#tag/UISchema) API to manage schema extensions.
      */
     customProfileAttributes?: pulumi.Input<string>;
+    /**
+     * List of custom*profile*attribute keys that should be excluded from being managed by Terraform. This is useful in situations where specific custom fields may contain sensitive information and should be managed outside of Terraform.
+     */
     customProfileAttributesToIgnores?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * User department

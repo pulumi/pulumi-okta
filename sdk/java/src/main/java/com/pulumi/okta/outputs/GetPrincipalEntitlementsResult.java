@@ -21,6 +21,10 @@ public final class GetPrincipalEntitlementsResult {
      * 
      */
     private @Nullable List<GetPrincipalEntitlementsData> datas;
+    /**
+     * @return The Okta Principal Entitlement object does not include a native ID field, so this value is generated to uniquely represent the entitlement in Terraform state.
+     * 
+     */
     private String id;
     /**
      * @return Representation of a resource.
@@ -41,6 +45,10 @@ public final class GetPrincipalEntitlementsResult {
     public List<GetPrincipalEntitlementsData> datas() {
         return this.datas == null ? List.of() : this.datas;
     }
+    /**
+     * @return The Okta Principal Entitlement object does not include a native ID field, so this value is generated to uniquely represent the entitlement in Terraform state.
+     * 
+     */
     public String id() {
         return this.id;
     }

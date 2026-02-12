@@ -33,16 +33,16 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
- * ### User schema property of default user type can be imported via the property index.
+ * ## User schema property of default user type can be imported via the property index.
  *
  * ```sh
  * $ pulumi import okta:index/userBaseSchemaProperty:UserBaseSchemaProperty example <property_name>
  * ```
  *
- * ### User schema property of custom user type can be imported via user type id and property index
+ * ## User schema property of custom user type can be imported via user type id and property index
  *
  * ```sh
- * $ pulumi import okta:index/userBaseSchemaProperty:UserBaseSchemaProperty example <user_type_id>.<property name>
+ * terraform import okta_user_base_schema_property.example <user_type_id>.<property name>
  * ```
  */
 export class UserBaseSchemaProperty extends pulumi.CustomResource {

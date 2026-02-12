@@ -36,6 +36,10 @@ public final class GetGroupsResult {
      * 
      */
     private @Nullable String search;
+    /**
+     * @return Type of the group. When specified in the terraform resource, will act as a filter when searching for the groups
+     * 
+     */
     private @Nullable String type;
 
     private GetGroupsResult() {}
@@ -70,6 +74,10 @@ public final class GetGroupsResult {
     public Optional<String> search() {
         return Optional.ofNullable(this.search);
     }
+    /**
+     * @return Type of the group. When specified in the terraform resource, will act as a filter when searching for the groups
+     * 
+     */
     public Optional<String> type() {
         return Optional.ofNullable(this.type);
     }

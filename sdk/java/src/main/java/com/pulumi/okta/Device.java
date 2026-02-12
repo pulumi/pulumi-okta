@@ -15,6 +15,10 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * Manages device resources in Okta. This resource is typically used for importing and managing existing devices rather than creating new ones.
+ * 
+ * **Note:** This resource cannot be created via Terraform. It must be imported from existing devices in your Okta organization or managed through device lifecycle operations.
+ * 
  * ## Example Usage
  * 
  * <pre>

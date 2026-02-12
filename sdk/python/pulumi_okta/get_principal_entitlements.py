@@ -53,6 +53,9 @@ class GetPrincipalEntitlementsResult:
     @_builtins.property
     @pulumi.getter
     def id(self) -> _builtins.str:
+        """
+        The Okta Principal Entitlement object does not include a native ID field, so this value is generated to uniquely represent the entitlement in Terraform state.
+        """
         return pulumi.get(self, "id")
 
     @_builtins.property

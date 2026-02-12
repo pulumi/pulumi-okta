@@ -87,6 +87,9 @@ class GetGroupsResult:
     @_builtins.property
     @pulumi.getter
     def type(self) -> Optional[_builtins.str]:
+        """
+        Type of the group. When specified in the terraform resource, will act as a filter when searching for the groups
+        """
         return pulumi.get(self, "type")
 
 
@@ -125,6 +128,7 @@ def get_groups(limit: Optional[_builtins.int] = None,
     :param _builtins.int limit: The maximum number of groups returned by the Okta API, between 1 and 10000.
     :param _builtins.str q: Searches the name property of groups for matching value
     :param _builtins.str search: Searches for groups with a supported filtering expression for all attributes except for '*embedded', '*links', and 'objectClass'
+    :param _builtins.str type: Type of the group. When specified in the terraform resource, will act as a filter when searching for the groups
     """
     __args__ = dict()
     __args__['limit'] = limit
@@ -162,6 +166,7 @@ def get_groups_output(limit: Optional[pulumi.Input[Optional[_builtins.int]]] = N
     :param _builtins.int limit: The maximum number of groups returned by the Okta API, between 1 and 10000.
     :param _builtins.str q: Searches the name property of groups for matching value
     :param _builtins.str search: Searches for groups with a supported filtering expression for all attributes except for '*embedded', '*links', and 'objectClass'
+    :param _builtins.str type: Type of the group. When specified in the terraform resource, will act as a filter when searching for the groups
     """
     __args__ = dict()
     __args__['limit'] = limit

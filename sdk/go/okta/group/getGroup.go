@@ -58,6 +58,7 @@ type LookupGroupArgs struct {
 	IncludeUsers *bool `pulumi:"includeUsers"`
 	// Name of group.
 	Name *string `pulumi:"name"`
+	// Type of the group. When specified in the terraform resource, will act as a filter when searching for the group
 	Type *string `pulumi:"type"`
 }
 
@@ -72,7 +73,8 @@ type LookupGroupResult struct {
 	// Fetch group users, having default off cuts down on API calls.
 	IncludeUsers *bool `pulumi:"includeUsers"`
 	// Name of group.
-	Name string  `pulumi:"name"`
+	Name string `pulumi:"name"`
+	// Type of the group. When specified in the terraform resource, will act as a filter when searching for the group
 	Type *string `pulumi:"type"`
 	// Users associated with the group. This can also be done per user.
 	Users []string `pulumi:"users"`
@@ -97,6 +99,7 @@ type LookupGroupOutputArgs struct {
 	IncludeUsers pulumi.BoolPtrInput `pulumi:"includeUsers"`
 	// Name of group.
 	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Type of the group. When specified in the terraform resource, will act as a filter when searching for the group
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -144,6 +147,7 @@ func (o LookupGroupResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupGroupResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Type of the group. When specified in the terraform resource, will act as a filter when searching for the group
 func (o LookupGroupResultOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupGroupResult) *string { return v.Type }).(pulumi.StringPtrOutput)
 }

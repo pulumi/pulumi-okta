@@ -91,32 +91,27 @@ __all__ = [
     'GetFeaturesCapabilitiesUpdateProfileArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class ConnectionProfileArgsDict(TypedDict):
-        auth_scheme: pulumi.Input[_builtins.str]
-        """
-        Authentication scheme. Valid values are TOKEN or OAUTH2.
-        """
-        client_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        OAuth2 client ID (required for OAUTH2 auth scheme).
-        """
-        settings: NotRequired[pulumi.Input['ConnectionProfileSettingsArgsDict']]
-        """
-        Additional settings for OAuth2 authentication.
-        """
-        signing: NotRequired[pulumi.Input['ConnectionProfileSigningArgsDict']]
-        """
-        Signing configuration.
-        """
-        token: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Authentication token (required for TOKEN auth scheme).
-        """
-elif False:
-    ConnectionProfileArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectionProfileArgsDict(TypedDict):
+    auth_scheme: pulumi.Input[_builtins.str]
+    """
+    Authentication scheme. Valid values are TOKEN or OAUTH2.
+    """
+    client_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    OAuth2 client ID (required for OAUTH2 auth scheme).
+    """
+    settings: NotRequired[pulumi.Input['ConnectionProfileSettingsArgsDict']]
+    """
+    Additional settings for OAuth2 authentication.
+    """
+    signing: NotRequired[pulumi.Input['ConnectionProfileSigningArgsDict']]
+    """
+    Signing configuration.
+    """
+    token: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Authentication token (required for TOKEN auth scheme).
+    """
 
 @pulumi.input_type
 class ConnectionProfileArgs:
@@ -204,18 +199,15 @@ class ConnectionProfileArgs:
         pulumi.set(self, "token", value)
 
 
-if not MYPY:
-    class ConnectionProfileSettingsArgsDict(TypedDict):
-        admin_password: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Admin password for OAuth2.
-        """
-        admin_username: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Admin username for OAuth2.
-        """
-elif False:
-    ConnectionProfileSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectionProfileSettingsArgsDict(TypedDict):
+    admin_password: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Admin password for OAuth2.
+    """
+    admin_username: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Admin username for OAuth2.
+    """
 
 @pulumi.input_type
 class ConnectionProfileSettingsArgs:
@@ -256,14 +248,11 @@ class ConnectionProfileSettingsArgs:
         pulumi.set(self, "admin_username", value)
 
 
-if not MYPY:
-    class ConnectionProfileSigningArgsDict(TypedDict):
-        rotation_mode: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Token rotation mode.
-        """
-elif False:
-    ConnectionProfileSigningArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectionProfileSigningArgsDict(TypedDict):
+    rotation_mode: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Token rotation mode.
+    """
 
 @pulumi.input_type
 class ConnectionProfileSigningArgs:
@@ -288,26 +277,23 @@ class ConnectionProfileSigningArgs:
         pulumi.set(self, "rotation_mode", value)
 
 
-if not MYPY:
-    class FeaturesCapabilitiesArgsDict(TypedDict):
-        create: NotRequired[pulumi.Input['FeaturesCapabilitiesCreateArgsDict']]
-        """
-        (Optional) Block for create lifecycle settings:
-        """
-        import_rules: NotRequired[pulumi.Input['FeaturesCapabilitiesImportRulesArgsDict']]
-        """
-        (Optional) Block for import rules configuration:
-        """
-        import_settings: NotRequired[pulumi.Input['FeaturesCapabilitiesImportSettingsArgsDict']]
-        """
-        (Optional) Block for import settings configuration:
-        """
-        update: NotRequired[pulumi.Input['FeaturesCapabilitiesUpdateArgsDict']]
-        """
-        (Optional) Block for update settings:
-        """
-elif False:
-    FeaturesCapabilitiesArgsDict: TypeAlias = Mapping[str, Any]
+class FeaturesCapabilitiesArgsDict(TypedDict):
+    create: NotRequired[pulumi.Input['FeaturesCapabilitiesCreateArgsDict']]
+    """
+    (Optional) Block for create lifecycle settings:
+    """
+    import_rules: NotRequired[pulumi.Input['FeaturesCapabilitiesImportRulesArgsDict']]
+    """
+    (Optional) Block for import rules configuration:
+    """
+    import_settings: NotRequired[pulumi.Input['FeaturesCapabilitiesImportSettingsArgsDict']]
+    """
+    (Optional) Block for import settings configuration:
+    """
+    update: NotRequired[pulumi.Input['FeaturesCapabilitiesUpdateArgsDict']]
+    """
+    (Optional) Block for update settings:
+    """
 
 @pulumi.input_type
 class FeaturesCapabilitiesArgs:
@@ -380,14 +366,11 @@ class FeaturesCapabilitiesArgs:
         pulumi.set(self, "update", value)
 
 
-if not MYPY:
-    class FeaturesCapabilitiesCreateArgsDict(TypedDict):
-        lifecycle_create: NotRequired[pulumi.Input['FeaturesCapabilitiesCreateLifecycleCreateArgsDict']]
-        """
-        (Optional) Block for create lifecycle configuration:
-        """
-elif False:
-    FeaturesCapabilitiesCreateArgsDict: TypeAlias = Mapping[str, Any]
+class FeaturesCapabilitiesCreateArgsDict(TypedDict):
+    lifecycle_create: NotRequired[pulumi.Input['FeaturesCapabilitiesCreateLifecycleCreateArgsDict']]
+    """
+    (Optional) Block for create lifecycle configuration:
+    """
 
 @pulumi.input_type
 class FeaturesCapabilitiesCreateArgs:
@@ -412,14 +395,11 @@ class FeaturesCapabilitiesCreateArgs:
         pulumi.set(self, "lifecycle_create", value)
 
 
-if not MYPY:
-    class FeaturesCapabilitiesCreateLifecycleCreateArgsDict(TypedDict):
-        status: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The status of the feature. Valid values are `ENABLED` or `DISABLED`.
-        """
-elif False:
-    FeaturesCapabilitiesCreateLifecycleCreateArgsDict: TypeAlias = Mapping[str, Any]
+class FeaturesCapabilitiesCreateLifecycleCreateArgsDict(TypedDict):
+    status: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The status of the feature. Valid values are `ENABLED` or `DISABLED`.
+    """
 
 @pulumi.input_type
 class FeaturesCapabilitiesCreateLifecycleCreateArgs:
@@ -444,14 +424,11 @@ class FeaturesCapabilitiesCreateLifecycleCreateArgs:
         pulumi.set(self, "status", value)
 
 
-if not MYPY:
-    class FeaturesCapabilitiesImportRulesArgsDict(TypedDict):
-        user_create_and_match: NotRequired[pulumi.Input['FeaturesCapabilitiesImportRulesUserCreateAndMatchArgsDict']]
-        """
-        (Optional) Block for user matching and creation rules:
-        """
-elif False:
-    FeaturesCapabilitiesImportRulesArgsDict: TypeAlias = Mapping[str, Any]
+class FeaturesCapabilitiesImportRulesArgsDict(TypedDict):
+    user_create_and_match: NotRequired[pulumi.Input['FeaturesCapabilitiesImportRulesUserCreateAndMatchArgsDict']]
+    """
+    (Optional) Block for user matching and creation rules:
+    """
 
 @pulumi.input_type
 class FeaturesCapabilitiesImportRulesArgs:
@@ -476,34 +453,31 @@ class FeaturesCapabilitiesImportRulesArgs:
         pulumi.set(self, "user_create_and_match", value)
 
 
-if not MYPY:
-    class FeaturesCapabilitiesImportRulesUserCreateAndMatchArgsDict(TypedDict):
-        allow_partial_match: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        (Optional) Whether to allow partial matching based on first and last names.
-        """
-        auto_activate_new_users: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        (Optional) Whether imported new users are automatically activated.
-        """
-        autoconfirm_exact_match: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        (Optional) Whether exact-matched users are automatically confirmed.
-        """
-        autoconfirm_new_users: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        (Optional) Whether imported new users are automatically confirmed.
-        """
-        autoconfirm_partial_match: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        (Optional) Whether partially matched users are automatically confirmed.
-        """
-        exact_match_criteria: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        (Optional) Attribute used for exact matching (e.g., `USERNAME`, `EMAIL`).
-        """
-elif False:
-    FeaturesCapabilitiesImportRulesUserCreateAndMatchArgsDict: TypeAlias = Mapping[str, Any]
+class FeaturesCapabilitiesImportRulesUserCreateAndMatchArgsDict(TypedDict):
+    allow_partial_match: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    (Optional) Whether to allow partial matching based on first and last names.
+    """
+    auto_activate_new_users: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    (Optional) Whether imported new users are automatically activated.
+    """
+    autoconfirm_exact_match: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    (Optional) Whether exact-matched users are automatically confirmed.
+    """
+    autoconfirm_new_users: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    (Optional) Whether imported new users are automatically confirmed.
+    """
+    autoconfirm_partial_match: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    (Optional) Whether partially matched users are automatically confirmed.
+    """
+    exact_match_criteria: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    (Optional) Attribute used for exact matching (e.g., `USERNAME`, `EMAIL`).
+    """
 
 @pulumi.input_type
 class FeaturesCapabilitiesImportRulesUserCreateAndMatchArgs:
@@ -608,18 +582,15 @@ class FeaturesCapabilitiesImportRulesUserCreateAndMatchArgs:
         pulumi.set(self, "exact_match_criteria", value)
 
 
-if not MYPY:
-    class FeaturesCapabilitiesImportSettingsArgsDict(TypedDict):
-        schedule: NotRequired[pulumi.Input['FeaturesCapabilitiesImportSettingsScheduleArgsDict']]
-        """
-        (Optional) Block for import schedule configuration:
-        """
-        username: NotRequired[pulumi.Input['FeaturesCapabilitiesImportSettingsUsernameArgsDict']]
-        """
-        (Optional) Block for username configuration:
-        """
-elif False:
-    FeaturesCapabilitiesImportSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class FeaturesCapabilitiesImportSettingsArgsDict(TypedDict):
+    schedule: NotRequired[pulumi.Input['FeaturesCapabilitiesImportSettingsScheduleArgsDict']]
+    """
+    (Optional) Block for import schedule configuration:
+    """
+    username: NotRequired[pulumi.Input['FeaturesCapabilitiesImportSettingsUsernameArgsDict']]
+    """
+    (Optional) Block for username configuration:
+    """
 
 @pulumi.input_type
 class FeaturesCapabilitiesImportSettingsArgs:
@@ -660,22 +631,19 @@ class FeaturesCapabilitiesImportSettingsArgs:
         pulumi.set(self, "username", value)
 
 
-if not MYPY:
-    class FeaturesCapabilitiesImportSettingsScheduleArgsDict(TypedDict):
-        full_import: NotRequired[pulumi.Input['FeaturesCapabilitiesImportSettingsScheduleFullImportArgsDict']]
-        """
-        (Optional) Block for full import schedule:
-        """
-        incremental_import: NotRequired[pulumi.Input['FeaturesCapabilitiesImportSettingsScheduleIncrementalImportArgsDict']]
-        """
-        (Optional) Block for incremental import schedule:
-        """
-        status: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The status of the feature. Valid values are `ENABLED` or `DISABLED`.
-        """
-elif False:
-    FeaturesCapabilitiesImportSettingsScheduleArgsDict: TypeAlias = Mapping[str, Any]
+class FeaturesCapabilitiesImportSettingsScheduleArgsDict(TypedDict):
+    full_import: NotRequired[pulumi.Input['FeaturesCapabilitiesImportSettingsScheduleFullImportArgsDict']]
+    """
+    (Optional) Block for full import schedule:
+    """
+    incremental_import: NotRequired[pulumi.Input['FeaturesCapabilitiesImportSettingsScheduleIncrementalImportArgsDict']]
+    """
+    (Optional) Block for incremental import schedule:
+    """
+    status: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The status of the feature. Valid values are `ENABLED` or `DISABLED`.
+    """
 
 @pulumi.input_type
 class FeaturesCapabilitiesImportSettingsScheduleArgs:
@@ -732,18 +700,15 @@ class FeaturesCapabilitiesImportSettingsScheduleArgs:
         pulumi.set(self, "status", value)
 
 
-if not MYPY:
-    class FeaturesCapabilitiesImportSettingsScheduleFullImportArgsDict(TypedDict):
-        expression: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        (Optional) UNIX cron expression for incremental import schedule.
-        """
-        timezone: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        (Optional) IANA timezone name for the schedule.
-        """
-elif False:
-    FeaturesCapabilitiesImportSettingsScheduleFullImportArgsDict: TypeAlias = Mapping[str, Any]
+class FeaturesCapabilitiesImportSettingsScheduleFullImportArgsDict(TypedDict):
+    expression: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    (Optional) UNIX cron expression for incremental import schedule.
+    """
+    timezone: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    (Optional) IANA timezone name for the schedule.
+    """
 
 @pulumi.input_type
 class FeaturesCapabilitiesImportSettingsScheduleFullImportArgs:
@@ -784,18 +749,15 @@ class FeaturesCapabilitiesImportSettingsScheduleFullImportArgs:
         pulumi.set(self, "timezone", value)
 
 
-if not MYPY:
-    class FeaturesCapabilitiesImportSettingsScheduleIncrementalImportArgsDict(TypedDict):
-        expression: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        (Optional) UNIX cron expression for incremental import schedule.
-        """
-        timezone: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        (Optional) IANA timezone name for the schedule.
-        """
-elif False:
-    FeaturesCapabilitiesImportSettingsScheduleIncrementalImportArgsDict: TypeAlias = Mapping[str, Any]
+class FeaturesCapabilitiesImportSettingsScheduleIncrementalImportArgsDict(TypedDict):
+    expression: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    (Optional) UNIX cron expression for incremental import schedule.
+    """
+    timezone: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    (Optional) IANA timezone name for the schedule.
+    """
 
 @pulumi.input_type
 class FeaturesCapabilitiesImportSettingsScheduleIncrementalImportArgs:
@@ -836,18 +798,15 @@ class FeaturesCapabilitiesImportSettingsScheduleIncrementalImportArgs:
         pulumi.set(self, "timezone", value)
 
 
-if not MYPY:
-    class FeaturesCapabilitiesImportSettingsUsernameArgsDict(TypedDict):
-        username_expression: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        (Optional) Okta Expression Language statement for custom username format.
-        """
-        username_format: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        (Optional) Format for usernames (e.g., `EMAIL`, `CUSTOM`).
-        """
-elif False:
-    FeaturesCapabilitiesImportSettingsUsernameArgsDict: TypeAlias = Mapping[str, Any]
+class FeaturesCapabilitiesImportSettingsUsernameArgsDict(TypedDict):
+    username_expression: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    (Optional) Okta Expression Language statement for custom username format.
+    """
+    username_format: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    (Optional) Format for usernames (e.g., `EMAIL`, `CUSTOM`).
+    """
 
 @pulumi.input_type
 class FeaturesCapabilitiesImportSettingsUsernameArgs:
@@ -888,22 +847,19 @@ class FeaturesCapabilitiesImportSettingsUsernameArgs:
         pulumi.set(self, "username_format", value)
 
 
-if not MYPY:
-    class FeaturesCapabilitiesUpdateArgsDict(TypedDict):
-        lifecycle_deactivate: NotRequired[pulumi.Input['FeaturesCapabilitiesUpdateLifecycleDeactivateArgsDict']]
-        """
-        (Optional) Block for deactivation lifecycle configuration:
-        """
-        password: NotRequired[pulumi.Input['FeaturesCapabilitiesUpdatePasswordArgsDict']]
-        """
-        (Optional) Block for password synchronization settings:
-        """
-        profile: NotRequired[pulumi.Input['FeaturesCapabilitiesUpdateProfileArgsDict']]
-        """
-        (Optional) Block for profile update settings:
-        """
-elif False:
-    FeaturesCapabilitiesUpdateArgsDict: TypeAlias = Mapping[str, Any]
+class FeaturesCapabilitiesUpdateArgsDict(TypedDict):
+    lifecycle_deactivate: NotRequired[pulumi.Input['FeaturesCapabilitiesUpdateLifecycleDeactivateArgsDict']]
+    """
+    (Optional) Block for deactivation lifecycle configuration:
+    """
+    password: NotRequired[pulumi.Input['FeaturesCapabilitiesUpdatePasswordArgsDict']]
+    """
+    (Optional) Block for password synchronization settings:
+    """
+    profile: NotRequired[pulumi.Input['FeaturesCapabilitiesUpdateProfileArgsDict']]
+    """
+    (Optional) Block for profile update settings:
+    """
 
 @pulumi.input_type
 class FeaturesCapabilitiesUpdateArgs:
@@ -960,14 +916,11 @@ class FeaturesCapabilitiesUpdateArgs:
         pulumi.set(self, "profile", value)
 
 
-if not MYPY:
-    class FeaturesCapabilitiesUpdateLifecycleDeactivateArgsDict(TypedDict):
-        status: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The status of the feature. Valid values are `ENABLED` or `DISABLED`.
-        """
-elif False:
-    FeaturesCapabilitiesUpdateLifecycleDeactivateArgsDict: TypeAlias = Mapping[str, Any]
+class FeaturesCapabilitiesUpdateLifecycleDeactivateArgsDict(TypedDict):
+    status: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The status of the feature. Valid values are `ENABLED` or `DISABLED`.
+    """
 
 @pulumi.input_type
 class FeaturesCapabilitiesUpdateLifecycleDeactivateArgs:
@@ -992,22 +945,19 @@ class FeaturesCapabilitiesUpdateLifecycleDeactivateArgs:
         pulumi.set(self, "status", value)
 
 
-if not MYPY:
-    class FeaturesCapabilitiesUpdatePasswordArgsDict(TypedDict):
-        change: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        (Optional) Determines password change behavior. Valid values are `CHANGE` or `KEEP_EXISTING`.
-        """
-        seed: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        (Optional) Determines password source. Valid values are `OKTA` or `RANDOM`.
-        """
-        status: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The status of the feature. Valid values are `ENABLED` or `DISABLED`.
-        """
-elif False:
-    FeaturesCapabilitiesUpdatePasswordArgsDict: TypeAlias = Mapping[str, Any]
+class FeaturesCapabilitiesUpdatePasswordArgsDict(TypedDict):
+    change: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    (Optional) Determines password change behavior. Valid values are `CHANGE` or `KEEP_EXISTING`.
+    """
+    seed: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    (Optional) Determines password source. Valid values are `OKTA` or `RANDOM`.
+    """
+    status: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The status of the feature. Valid values are `ENABLED` or `DISABLED`.
+    """
 
 @pulumi.input_type
 class FeaturesCapabilitiesUpdatePasswordArgs:
@@ -1064,14 +1014,11 @@ class FeaturesCapabilitiesUpdatePasswordArgs:
         pulumi.set(self, "status", value)
 
 
-if not MYPY:
-    class FeaturesCapabilitiesUpdateProfileArgsDict(TypedDict):
-        status: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The status of the feature. Valid values are `ENABLED` or `DISABLED`.
-        """
-elif False:
-    FeaturesCapabilitiesUpdateProfileArgsDict: TypeAlias = Mapping[str, Any]
+class FeaturesCapabilitiesUpdateProfileArgsDict(TypedDict):
+    status: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The status of the feature. Valid values are `ENABLED` or `DISABLED`.
+    """
 
 @pulumi.input_type
 class FeaturesCapabilitiesUpdateProfileArgs:
@@ -1096,30 +1043,27 @@ class FeaturesCapabilitiesUpdateProfileArgs:
         pulumi.set(self, "status", value)
 
 
-if not MYPY:
-    class OAuthGroupsClaimArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        Name of the claim that will be used in the token.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        Groups claim type.
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        Value of the claim. Can be an Okta Expression Language statement that evaluates at the time the token is minted.
-        """
-        filter_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Groups claim filter. Can only be set if type is FILTER.
-        """
-        issuer_mode: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Issuer mode inherited from OAuth App
-        """
-elif False:
-    OAuthGroupsClaimArgsDict: TypeAlias = Mapping[str, Any]
+class OAuthGroupsClaimArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    Name of the claim that will be used in the token.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    Groups claim type.
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    Value of the claim. Can be an Okta Expression Language statement that evaluates at the time the token is minted.
+    """
+    filter_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Groups claim filter. Can only be set if type is FILTER.
+    """
+    issuer_mode: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Issuer mode inherited from OAuth App
+    """
 
 @pulumi.input_type
 class OAuthGroupsClaimArgs:
@@ -1205,34 +1149,31 @@ class OAuthGroupsClaimArgs:
         pulumi.set(self, "issuer_mode", value)
 
 
-if not MYPY:
-    class OAuthJwkArgsDict(TypedDict):
-        kid: pulumi.Input[_builtins.str]
-        """
-        Key ID
-        """
-        kty: pulumi.Input[_builtins.str]
-        """
-        Key type
-        """
-        e: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        RSA Exponent
-        """
-        n: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        RSA Modulus
-        """
-        x: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        X coordinate of the elliptic curve point
-        """
-        y: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Y coordinate of the elliptic curve point
-        """
-elif False:
-    OAuthJwkArgsDict: TypeAlias = Mapping[str, Any]
+class OAuthJwkArgsDict(TypedDict):
+    kid: pulumi.Input[_builtins.str]
+    """
+    Key ID
+    """
+    kty: pulumi.Input[_builtins.str]
+    """
+    Key type
+    """
+    e: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    RSA Exponent
+    """
+    n: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    RSA Modulus
+    """
+    x: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    X coordinate of the elliptic curve point
+    """
+    y: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Y coordinate of the elliptic curve point
+    """
 
 @pulumi.input_type
 class OAuthJwkArgs:
@@ -1335,12 +1276,9 @@ class OAuthJwkArgs:
         pulumi.set(self, "y", value)
 
 
-if not MYPY:
-    class SamlAcsEndpointsIndexArgsDict(TypedDict):
-        index: pulumi.Input[_builtins.int]
-        url: pulumi.Input[_builtins.str]
-elif False:
-    SamlAcsEndpointsIndexArgsDict: TypeAlias = Mapping[str, Any]
+class SamlAcsEndpointsIndexArgsDict(TypedDict):
+    index: pulumi.Input[_builtins.int]
+    url: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class SamlAcsEndpointsIndexArgs:
@@ -1369,31 +1307,28 @@ class SamlAcsEndpointsIndexArgs:
         pulumi.set(self, "url", value)
 
 
-if not MYPY:
-    class SamlAttributeStatementArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The reference name of the attribute statement
-        """
-        filter_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Type of group attribute filter. Valid values are: `STARTS_WITH`, `EQUALS`, `CONTAINS`, or `REGEX`
-        """
-        filter_value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Filter value to use
-        """
-        namespace: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The attribute namespace. It can be set to `urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified`, `urn:oasis:names:tc:SAML:2.0:attrname-format:uri`, or `urn:oasis:names:tc:SAML:2.0:attrname-format:basic`
-        """
-        type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The type of attribute statements object
-        """
-        values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-elif False:
-    SamlAttributeStatementArgsDict: TypeAlias = Mapping[str, Any]
+class SamlAttributeStatementArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The reference name of the attribute statement
+    """
+    filter_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Type of group attribute filter. Valid values are: `STARTS_WITH`, `EQUALS`, `CONTAINS`, or `REGEX`
+    """
+    filter_value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Filter value to use
+    """
+    namespace: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The attribute namespace. It can be set to `urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified`, `urn:oasis:names:tc:SAML:2.0:attrname-format:uri`, or `urn:oasis:names:tc:SAML:2.0:attrname-format:basic`
+    """
+    type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The type of attribute statements object
+    """
+    values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
 
 @pulumi.input_type
 class SamlAttributeStatementArgs:
@@ -1493,50 +1428,47 @@ class SamlAttributeStatementArgs:
         pulumi.set(self, "values", value)
 
 
-if not MYPY:
-    class SamlKeyArgsDict(TypedDict):
-        created: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Created date
-        """
-        e: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        RSA exponent
-        """
-        expires_at: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Expiration date
-        """
-        kid: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Key ID
-        """
-        kty: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Key type. Identifies the cryptographic algorithm family used with the key.
-        """
-        last_updated: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Last updated date
-        """
-        n: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        RSA modulus
-        """
-        use: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Intended use of the public key.
-        """
-        x5cs: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        X.509 Certificate Chain
-        """
-        x5t_s256: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        X.509 certificate SHA-256 thumbprint
-        """
-elif False:
-    SamlKeyArgsDict: TypeAlias = Mapping[str, Any]
+class SamlKeyArgsDict(TypedDict):
+    created: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Created date
+    """
+    e: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    RSA exponent
+    """
+    expires_at: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Expiration date
+    """
+    kid: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Key ID
+    """
+    kty: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Key type. Identifies the cryptographic algorithm family used with the key.
+    """
+    last_updated: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Last updated date
+    """
+    n: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    RSA modulus
+    """
+    use: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Intended use of the public key.
+    """
+    x5cs: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    X.509 Certificate Chain
+    """
+    x5t_s256: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    X.509 certificate SHA-256 thumbprint
+    """
 
 @pulumi.input_type
 class SamlKeyArgs:
@@ -1705,14 +1637,11 @@ class SamlKeyArgs:
         pulumi.set(self, "x5t_s256", value)
 
 
-if not MYPY:
-    class GetConnectionProfileArgsDict(TypedDict):
-        auth_scheme: _builtins.str
-        """
-        Defines the method of authentication.
-        """
-elif False:
-    GetConnectionProfileArgsDict: TypeAlias = Mapping[str, Any]
+class GetConnectionProfileArgsDict(TypedDict):
+    auth_scheme: _builtins.str
+    """
+    Defines the method of authentication.
+    """
 
 @pulumi.input_type
 class GetConnectionProfileArgs:
@@ -1736,26 +1665,23 @@ class GetConnectionProfileArgs:
         pulumi.set(self, "auth_scheme", value)
 
 
-if not MYPY:
-    class GetFeaturesCapabilitiesArgsDict(TypedDict):
-        create: NotRequired['GetFeaturesCapabilitiesCreateArgsDict']
-        """
-        Block for create lifecycle settings:
-        """
-        import_rules: NotRequired['GetFeaturesCapabilitiesImportRulesArgsDict']
-        """
-        Block for import rules configuration:
-        """
-        import_settings: NotRequired['GetFeaturesCapabilitiesImportSettingsArgsDict']
-        """
-        Block for import settings configuration:
-        """
-        update: NotRequired['GetFeaturesCapabilitiesUpdateArgsDict']
-        """
-        Block for update settings:
-        """
-elif False:
-    GetFeaturesCapabilitiesArgsDict: TypeAlias = Mapping[str, Any]
+class GetFeaturesCapabilitiesArgsDict(TypedDict):
+    create: NotRequired['GetFeaturesCapabilitiesCreateArgsDict']
+    """
+    Block for create lifecycle settings:
+    """
+    import_rules: NotRequired['GetFeaturesCapabilitiesImportRulesArgsDict']
+    """
+    Block for import rules configuration:
+    """
+    import_settings: NotRequired['GetFeaturesCapabilitiesImportSettingsArgsDict']
+    """
+    Block for import settings configuration:
+    """
+    update: NotRequired['GetFeaturesCapabilitiesUpdateArgsDict']
+    """
+    Block for update settings:
+    """
 
 @pulumi.input_type
 class GetFeaturesCapabilitiesArgs:
@@ -1828,14 +1754,11 @@ class GetFeaturesCapabilitiesArgs:
         pulumi.set(self, "update", value)
 
 
-if not MYPY:
-    class GetFeaturesCapabilitiesCreateArgsDict(TypedDict):
-        lifecycle_create: NotRequired['GetFeaturesCapabilitiesCreateLifecycleCreateArgsDict']
-        """
-        Block for create lifecycle configuration:
-        """
-elif False:
-    GetFeaturesCapabilitiesCreateArgsDict: TypeAlias = Mapping[str, Any]
+class GetFeaturesCapabilitiesCreateArgsDict(TypedDict):
+    lifecycle_create: NotRequired['GetFeaturesCapabilitiesCreateLifecycleCreateArgsDict']
+    """
+    Block for create lifecycle configuration:
+    """
 
 @pulumi.input_type
 class GetFeaturesCapabilitiesCreateArgs:
@@ -1860,14 +1783,11 @@ class GetFeaturesCapabilitiesCreateArgs:
         pulumi.set(self, "lifecycle_create", value)
 
 
-if not MYPY:
-    class GetFeaturesCapabilitiesCreateLifecycleCreateArgsDict(TypedDict):
-        status: _builtins.str
-        """
-        (String) Status of the import schedule. Valid values are `ENABLED` or `DISABLED`.
-        """
-elif False:
-    GetFeaturesCapabilitiesCreateLifecycleCreateArgsDict: TypeAlias = Mapping[str, Any]
+class GetFeaturesCapabilitiesCreateLifecycleCreateArgsDict(TypedDict):
+    status: _builtins.str
+    """
+    (String) Status of the import schedule. Valid values are `ENABLED` or `DISABLED`.
+    """
 
 @pulumi.input_type
 class GetFeaturesCapabilitiesCreateLifecycleCreateArgs:
@@ -1891,14 +1811,11 @@ class GetFeaturesCapabilitiesCreateLifecycleCreateArgs:
         pulumi.set(self, "status", value)
 
 
-if not MYPY:
-    class GetFeaturesCapabilitiesImportRulesArgsDict(TypedDict):
-        user_create_and_match: NotRequired['GetFeaturesCapabilitiesImportRulesUserCreateAndMatchArgsDict']
-        """
-        Block for user matching and creation rules:
-        """
-elif False:
-    GetFeaturesCapabilitiesImportRulesArgsDict: TypeAlias = Mapping[str, Any]
+class GetFeaturesCapabilitiesImportRulesArgsDict(TypedDict):
+    user_create_and_match: NotRequired['GetFeaturesCapabilitiesImportRulesUserCreateAndMatchArgsDict']
+    """
+    Block for user matching and creation rules:
+    """
 
 @pulumi.input_type
 class GetFeaturesCapabilitiesImportRulesArgs:
@@ -1923,34 +1840,31 @@ class GetFeaturesCapabilitiesImportRulesArgs:
         pulumi.set(self, "user_create_and_match", value)
 
 
-if not MYPY:
-    class GetFeaturesCapabilitiesImportRulesUserCreateAndMatchArgsDict(TypedDict):
-        allow_partial_match: _builtins.bool
-        """
-        (Boolean) Whether to allow partial matching based on first and last names.
-        """
-        auto_activate_new_users: _builtins.bool
-        """
-        (Boolean) Whether imported new users are automatically activated.
-        """
-        autoconfirm_exact_match: _builtins.bool
-        """
-        (Boolean) Whether exact-matched users are automatically confirmed.
-        """
-        autoconfirm_new_users: _builtins.bool
-        """
-        (Boolean) Whether imported new users are automatically confirmed.
-        """
-        autoconfirm_partial_match: _builtins.bool
-        """
-        (Boolean) Whether partially matched users are automatically confirmed.
-        """
-        exact_match_criteria: _builtins.str
-        """
-        (String) Attribute used for exact matching (e.g., `USERNAME`, `EMAIL`).
-        """
-elif False:
-    GetFeaturesCapabilitiesImportRulesUserCreateAndMatchArgsDict: TypeAlias = Mapping[str, Any]
+class GetFeaturesCapabilitiesImportRulesUserCreateAndMatchArgsDict(TypedDict):
+    allow_partial_match: _builtins.bool
+    """
+    (Boolean) Whether to allow partial matching based on first and last names.
+    """
+    auto_activate_new_users: _builtins.bool
+    """
+    (Boolean) Whether imported new users are automatically activated.
+    """
+    autoconfirm_exact_match: _builtins.bool
+    """
+    (Boolean) Whether exact-matched users are automatically confirmed.
+    """
+    autoconfirm_new_users: _builtins.bool
+    """
+    (Boolean) Whether imported new users are automatically confirmed.
+    """
+    autoconfirm_partial_match: _builtins.bool
+    """
+    (Boolean) Whether partially matched users are automatically confirmed.
+    """
+    exact_match_criteria: _builtins.str
+    """
+    (String) Attribute used for exact matching (e.g., `USERNAME`, `EMAIL`).
+    """
 
 @pulumi.input_type
 class GetFeaturesCapabilitiesImportRulesUserCreateAndMatchArgs:
@@ -2049,18 +1963,15 @@ class GetFeaturesCapabilitiesImportRulesUserCreateAndMatchArgs:
         pulumi.set(self, "exact_match_criteria", value)
 
 
-if not MYPY:
-    class GetFeaturesCapabilitiesImportSettingsArgsDict(TypedDict):
-        schedule: NotRequired['GetFeaturesCapabilitiesImportSettingsScheduleArgsDict']
-        """
-        Block for import schedule configuration:
-        """
-        username: NotRequired['GetFeaturesCapabilitiesImportSettingsUsernameArgsDict']
-        """
-        Block for username configuration:
-        """
-elif False:
-    GetFeaturesCapabilitiesImportSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class GetFeaturesCapabilitiesImportSettingsArgsDict(TypedDict):
+    schedule: NotRequired['GetFeaturesCapabilitiesImportSettingsScheduleArgsDict']
+    """
+    Block for import schedule configuration:
+    """
+    username: NotRequired['GetFeaturesCapabilitiesImportSettingsUsernameArgsDict']
+    """
+    Block for username configuration:
+    """
 
 @pulumi.input_type
 class GetFeaturesCapabilitiesImportSettingsArgs:
@@ -2101,22 +2012,19 @@ class GetFeaturesCapabilitiesImportSettingsArgs:
         pulumi.set(self, "username", value)
 
 
-if not MYPY:
-    class GetFeaturesCapabilitiesImportSettingsScheduleArgsDict(TypedDict):
-        status: _builtins.str
-        """
-        (String) Status of the import schedule. Valid values are `ENABLED` or `DISABLED`.
-        """
-        full_import: NotRequired['GetFeaturesCapabilitiesImportSettingsScheduleFullImportArgsDict']
-        """
-        Block for full import schedule:
-        """
-        incremental_import: NotRequired['GetFeaturesCapabilitiesImportSettingsScheduleIncrementalImportArgsDict']
-        """
-        Block for incremental import schedule:
-        """
-elif False:
-    GetFeaturesCapabilitiesImportSettingsScheduleArgsDict: TypeAlias = Mapping[str, Any]
+class GetFeaturesCapabilitiesImportSettingsScheduleArgsDict(TypedDict):
+    status: _builtins.str
+    """
+    (String) Status of the import schedule. Valid values are `ENABLED` or `DISABLED`.
+    """
+    full_import: NotRequired['GetFeaturesCapabilitiesImportSettingsScheduleFullImportArgsDict']
+    """
+    Block for full import schedule:
+    """
+    incremental_import: NotRequired['GetFeaturesCapabilitiesImportSettingsScheduleIncrementalImportArgsDict']
+    """
+    Block for incremental import schedule:
+    """
 
 @pulumi.input_type
 class GetFeaturesCapabilitiesImportSettingsScheduleArgs:
@@ -2172,18 +2080,15 @@ class GetFeaturesCapabilitiesImportSettingsScheduleArgs:
         pulumi.set(self, "incremental_import", value)
 
 
-if not MYPY:
-    class GetFeaturesCapabilitiesImportSettingsScheduleFullImportArgsDict(TypedDict):
-        expression: _builtins.str
-        """
-        (String) UNIX cron expression for incremental import schedule.
-        """
-        timezone: _builtins.str
-        """
-        (String) IANA timezone name for the schedule.
-        """
-elif False:
-    GetFeaturesCapabilitiesImportSettingsScheduleFullImportArgsDict: TypeAlias = Mapping[str, Any]
+class GetFeaturesCapabilitiesImportSettingsScheduleFullImportArgsDict(TypedDict):
+    expression: _builtins.str
+    """
+    (String) UNIX cron expression for incremental import schedule.
+    """
+    timezone: _builtins.str
+    """
+    (String) IANA timezone name for the schedule.
+    """
 
 @pulumi.input_type
 class GetFeaturesCapabilitiesImportSettingsScheduleFullImportArgs:
@@ -2222,18 +2127,15 @@ class GetFeaturesCapabilitiesImportSettingsScheduleFullImportArgs:
         pulumi.set(self, "timezone", value)
 
 
-if not MYPY:
-    class GetFeaturesCapabilitiesImportSettingsScheduleIncrementalImportArgsDict(TypedDict):
-        expression: _builtins.str
-        """
-        (String) UNIX cron expression for incremental import schedule.
-        """
-        timezone: _builtins.str
-        """
-        (String) IANA timezone name for the schedule.
-        """
-elif False:
-    GetFeaturesCapabilitiesImportSettingsScheduleIncrementalImportArgsDict: TypeAlias = Mapping[str, Any]
+class GetFeaturesCapabilitiesImportSettingsScheduleIncrementalImportArgsDict(TypedDict):
+    expression: _builtins.str
+    """
+    (String) UNIX cron expression for incremental import schedule.
+    """
+    timezone: _builtins.str
+    """
+    (String) IANA timezone name for the schedule.
+    """
 
 @pulumi.input_type
 class GetFeaturesCapabilitiesImportSettingsScheduleIncrementalImportArgs:
@@ -2272,18 +2174,15 @@ class GetFeaturesCapabilitiesImportSettingsScheduleIncrementalImportArgs:
         pulumi.set(self, "timezone", value)
 
 
-if not MYPY:
-    class GetFeaturesCapabilitiesImportSettingsUsernameArgsDict(TypedDict):
-        username_expression: _builtins.str
-        """
-        (String) Okta Expression Language statement for custom username format.
-        """
-        username_format: _builtins.str
-        """
-        (String) Format for usernames (e.g., `EMAIL`, `CUSTOM`).
-        """
-elif False:
-    GetFeaturesCapabilitiesImportSettingsUsernameArgsDict: TypeAlias = Mapping[str, Any]
+class GetFeaturesCapabilitiesImportSettingsUsernameArgsDict(TypedDict):
+    username_expression: _builtins.str
+    """
+    (String) Okta Expression Language statement for custom username format.
+    """
+    username_format: _builtins.str
+    """
+    (String) Format for usernames (e.g., `EMAIL`, `CUSTOM`).
+    """
 
 @pulumi.input_type
 class GetFeaturesCapabilitiesImportSettingsUsernameArgs:
@@ -2322,22 +2221,19 @@ class GetFeaturesCapabilitiesImportSettingsUsernameArgs:
         pulumi.set(self, "username_format", value)
 
 
-if not MYPY:
-    class GetFeaturesCapabilitiesUpdateArgsDict(TypedDict):
-        lifecycle_deactivate: NotRequired['GetFeaturesCapabilitiesUpdateLifecycleDeactivateArgsDict']
-        """
-        Block for deactivation lifecycle configuration:
-        """
-        password: NotRequired['GetFeaturesCapabilitiesUpdatePasswordArgsDict']
-        """
-        Block for password synchronization settings:
-        """
-        profile: NotRequired['GetFeaturesCapabilitiesUpdateProfileArgsDict']
-        """
-        Block for profile update settings:
-        """
-elif False:
-    GetFeaturesCapabilitiesUpdateArgsDict: TypeAlias = Mapping[str, Any]
+class GetFeaturesCapabilitiesUpdateArgsDict(TypedDict):
+    lifecycle_deactivate: NotRequired['GetFeaturesCapabilitiesUpdateLifecycleDeactivateArgsDict']
+    """
+    Block for deactivation lifecycle configuration:
+    """
+    password: NotRequired['GetFeaturesCapabilitiesUpdatePasswordArgsDict']
+    """
+    Block for password synchronization settings:
+    """
+    profile: NotRequired['GetFeaturesCapabilitiesUpdateProfileArgsDict']
+    """
+    Block for profile update settings:
+    """
 
 @pulumi.input_type
 class GetFeaturesCapabilitiesUpdateArgs:
@@ -2394,14 +2290,11 @@ class GetFeaturesCapabilitiesUpdateArgs:
         pulumi.set(self, "profile", value)
 
 
-if not MYPY:
-    class GetFeaturesCapabilitiesUpdateLifecycleDeactivateArgsDict(TypedDict):
-        status: _builtins.str
-        """
-        (String) Status of the import schedule. Valid values are `ENABLED` or `DISABLED`.
-        """
-elif False:
-    GetFeaturesCapabilitiesUpdateLifecycleDeactivateArgsDict: TypeAlias = Mapping[str, Any]
+class GetFeaturesCapabilitiesUpdateLifecycleDeactivateArgsDict(TypedDict):
+    status: _builtins.str
+    """
+    (String) Status of the import schedule. Valid values are `ENABLED` or `DISABLED`.
+    """
 
 @pulumi.input_type
 class GetFeaturesCapabilitiesUpdateLifecycleDeactivateArgs:
@@ -2425,22 +2318,19 @@ class GetFeaturesCapabilitiesUpdateLifecycleDeactivateArgs:
         pulumi.set(self, "status", value)
 
 
-if not MYPY:
-    class GetFeaturesCapabilitiesUpdatePasswordArgsDict(TypedDict):
-        change: _builtins.str
-        """
-        (String) Determines password change behavior. Valid values are `CHANGE` or `KEEP_EXISTING`.
-        """
-        seed: _builtins.str
-        """
-        (String) Determines password source. Valid values are `OKTA` or `RANDOM`.
-        """
-        status: _builtins.str
-        """
-        (String) Status of the import schedule. Valid values are `ENABLED` or `DISABLED`.
-        """
-elif False:
-    GetFeaturesCapabilitiesUpdatePasswordArgsDict: TypeAlias = Mapping[str, Any]
+class GetFeaturesCapabilitiesUpdatePasswordArgsDict(TypedDict):
+    change: _builtins.str
+    """
+    (String) Determines password change behavior. Valid values are `CHANGE` or `KEEP_EXISTING`.
+    """
+    seed: _builtins.str
+    """
+    (String) Determines password source. Valid values are `OKTA` or `RANDOM`.
+    """
+    status: _builtins.str
+    """
+    (String) Status of the import schedule. Valid values are `ENABLED` or `DISABLED`.
+    """
 
 @pulumi.input_type
 class GetFeaturesCapabilitiesUpdatePasswordArgs:
@@ -2494,14 +2384,11 @@ class GetFeaturesCapabilitiesUpdatePasswordArgs:
         pulumi.set(self, "status", value)
 
 
-if not MYPY:
-    class GetFeaturesCapabilitiesUpdateProfileArgsDict(TypedDict):
-        status: _builtins.str
-        """
-        (String) Status of the import schedule. Valid values are `ENABLED` or `DISABLED`.
-        """
-elif False:
-    GetFeaturesCapabilitiesUpdateProfileArgsDict: TypeAlias = Mapping[str, Any]
+class GetFeaturesCapabilitiesUpdateProfileArgsDict(TypedDict):
+    status: _builtins.str
+    """
+    (String) Status of the import schedule. Valid values are `ENABLED` or `DISABLED`.
+    """
 
 @pulumi.input_type
 class GetFeaturesCapabilitiesUpdateProfileArgs:

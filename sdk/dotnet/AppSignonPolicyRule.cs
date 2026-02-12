@@ -10,7 +10,17 @@ using Pulumi.Serialization;
 namespace Pulumi.Okta
 {
     /// <summary>
-    /// ## Example Usage
+    /// Manages a sign-on policy rules for the application.
+    /// 
+    /// &gt; **WARNING:** This feature is only available as a part of the Identity Engine. Contact support for further information.
+    /// 
+    /// &gt; **WARNING:** When managing multiple `okta.AppSignonPolicyRule` resources with concurrent operations, the Okta API may encounter concurrency issues. While this provider implements internal locking to prevent conflicts within a single Terraform process, you should use explicit `DependsOn` references between rules to ensure proper sequencing, especially when managing rule priorities.
+    /// 
+    /// This resource allows you to create and configure a sign-on policy rule for the application.
+    /// A default or 'Catch-all Rule' sign-on policy rule can be imported and managed as a custom rule.
+    /// The only difference is that these fields are immutable and can not be managed: 'network_connection', 'network_excludes',
+    /// 'network_includes', 'platform_include', 'custom_expression', 'device_is_registered', 'device_is_managed', 'users_excluded',
+    /// 'users_included', 'groups_excluded', 'groups_included', 'user_types_excluded' and 'user_types_included'.
     /// 
     /// ## Import
     /// 

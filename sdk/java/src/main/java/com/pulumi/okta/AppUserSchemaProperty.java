@@ -20,6 +20,15 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * Creates an Application User Schema property.
+ * This resource allows you to create and configure a custom user schema property and associate it with an application.
+ * Make sure that the app instance is &#39;active&#39; before creating the schema property, because in some cases API might return &#39;404&#39; error.
+ * **IMPORTANT:** With &#39;enum&#39;, list its values as strings even though the &#39;type&#39;
+ * may be something other than string. This is a limitation of the schema defintion
+ * in the Terraform Plugin SDK runtime and we juggle the type correctly when making
+ * Okta API calls. Same holds for the &#39;const&#39; value of &#39;one_of&#39; as well as the
+ * &#39;array_*&#39; variation of &#39;enum&#39; and &#39;one_of&#39;
+ * 
  * ## Example Usage
  * 
  * <pre>

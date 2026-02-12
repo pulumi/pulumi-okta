@@ -21,6 +21,34 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * Creates a User Schema property. This resource allows you to create and configure a custom user schema property.
+ * 
+ * **IMPORTANT:** With `enum`, list its values as strings even though the `type`
+ * may be something other than string. This is a limitation of the schema defintion
+ * in the Terraform Plugin SDK runtime and we juggle the type correctly when making
+ * Okta API calls. Same holds for the `const` value of `oneOf` as well as the
+ * `array_*` variation of `enum` and `oneOf`.
+ * 
+ * ⚠️ **IMPORTANT - Terraform Users:** Modifying certain properties of an existing
+ * `okta.UserSchemaProperty` resource through Terraform will cause the resource to be
+ * **deleted and recreated**, which results in **permanent data loss** for any user data stored
+ * in this schema property.
+ * 
+ * **Affected properties:**
+ * - `externalName`
+ * - `externalNamespace`
+ * - `unique`
+ * 
+ * **Note:** The Okta API supports in-place updates for these properties. This delete/recreate
+ * behavior is specific to the Terraform provider implementation.
+ * 
+ * **Workaround to prevent data loss:**
+ * 1. Update the schema property directly via the Okta Admin Console or API (e.g., using `curl`)
+ * 2. Remove the resource from your Terraform state:
+ *    -- Terraform: `pulumi state rm &lt;resource_address&gt;`
+ * 3. Re-import the updated resource:
+ *    -- Terraform: `terraform import &lt;resource_address&gt; &lt;resource_id&gt;`
+ * 
  * ## Example Usage
  * 
  * <pre>
@@ -64,9 +92,7 @@ import javax.annotation.Nullable;
  * 
  * ```sh
  * $ pulumi import okta:index/userSchemaProperty:UserSchemaProperty example &lt;variableName&gt;
- * ```
  * 
- * ```sh
  * $ pulumi import okta:index/userSchemaProperty:UserSchemaProperty example &lt;user_type_id&gt;.&lt;index&gt;
  * ```
  * 

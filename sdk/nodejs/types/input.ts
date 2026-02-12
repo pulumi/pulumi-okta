@@ -2096,7 +2096,7 @@ export interface GetPrincipalEntitlementsData {
      */
     externalValue?: string;
     /**
-     * The id property of an entitlement.
+     * The Okta Principal Entitlement object does not include a native ID field, so this value is generated to uniquely represent the entitlement in Terraform state.
      */
     id?: string;
     /**
@@ -2147,7 +2147,7 @@ export interface GetPrincipalEntitlementsDataArgs {
      */
     externalValue?: pulumi.Input<string>;
     /**
-     * The id property of an entitlement.
+     * The Okta Principal Entitlement object does not include a native ID field, so this value is generated to uniquely represent the entitlement in Terraform state.
      */
     id?: pulumi.Input<string>;
     /**
@@ -2238,7 +2238,7 @@ export interface GetPrincipalEntitlementsDataValue {
      */
     externalValue?: string;
     /**
-     * The id of an entitlement value.
+     * The Okta Principal Entitlement object does not include a native ID field, so this value is generated to uniquely represent the entitlement in Terraform state.
      */
     id?: string;
     /**
@@ -2257,7 +2257,7 @@ export interface GetPrincipalEntitlementsDataValueArgs {
      */
     externalValue?: pulumi.Input<string>;
     /**
-     * The id of an entitlement value.
+     * The Okta Principal Entitlement object does not include a native ID field, so this value is generated to uniquely represent the entitlement in Terraform state.
      */
     id?: pulumi.Input<string>;
     /**

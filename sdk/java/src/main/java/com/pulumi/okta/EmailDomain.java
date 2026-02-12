@@ -16,6 +16,10 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 /**
+ * Creates email domain. This resource allows you to create and configure an email domain.
+ * 
+ * **IMPORTANT:** Due to the way Okta&#39;s API conflict with terraform design principle, updating the relationship between emailDomain and brand is not configurable through terraform and has to be done through clickOps
+ * 
  * ## Example Usage
  * 
  * <pre>

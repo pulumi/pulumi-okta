@@ -16,6 +16,10 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * Manages brand. This resource allows you to create and configure an Okta [Brand](https://developer.okta.com/docs/reference/api/brands/#brand-object).
+ * 
+ * **IMPORTANT:** Due to the way Okta&#39;s API conflict with terraform design principle, updating the relationship between emailDomain and brand is not configurable through terraform and has to be done through clickOps
+ * 
  * ## Example Usage
  * 
  * <pre>

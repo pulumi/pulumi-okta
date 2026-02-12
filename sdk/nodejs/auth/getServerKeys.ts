@@ -65,6 +65,9 @@ export interface GetServerKeysResult {
      * RSA key value (public exponent) for Key binding. Typically "AQAB".
      */
     readonly e: string;
+    /**
+     * The internal identifier for this data source, required by Terraform to track state. This field does not exist in the Okta API response.
+     */
     readonly id: string;
     /**
      * The ID of the certificate key.

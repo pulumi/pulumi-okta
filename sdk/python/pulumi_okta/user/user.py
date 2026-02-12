@@ -74,6 +74,7 @@ class UserArgs:
         :param pulumi.Input[_builtins.str] cost_center: User cost center
         :param pulumi.Input[_builtins.str] country_code: User country code
         :param pulumi.Input[_builtins.str] custom_profile_attributes: JSON formatted custom attributes for a user. It must be JSON due to various types Okta allows. You must first add the custom property to the user profile schema before you reference it. You can use the Profile Editor in the Admin Console or the [Schemas](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UISchema/#tag/UISchema) API to manage schema extensions.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] custom_profile_attributes_to_ignores: List of custom*profile*attribute keys that should be excluded from being managed by Terraform. This is useful in situations where specific custom fields may contain sensitive information and should be managed outside of Terraform.
         :param pulumi.Input[_builtins.str] department: User department
         :param pulumi.Input[_builtins.str] display_name: User display name, suitable to show end users
         :param pulumi.Input[_builtins.str] division: User division
@@ -294,6 +295,9 @@ class UserArgs:
     @_builtins.property
     @pulumi.getter(name="customProfileAttributesToIgnores")
     def custom_profile_attributes_to_ignores(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        List of custom*profile*attribute keys that should be excluded from being managed by Terraform. This is useful in situations where specific custom fields may contain sensitive information and should be managed outside of Terraform.
+        """
         return pulumi.get(self, "custom_profile_attributes_to_ignores")
 
     @custom_profile_attributes_to_ignores.setter
@@ -763,6 +767,7 @@ class _UserState:
         :param pulumi.Input[_builtins.str] cost_center: User cost center
         :param pulumi.Input[_builtins.str] country_code: User country code
         :param pulumi.Input[_builtins.str] custom_profile_attributes: JSON formatted custom attributes for a user. It must be JSON due to various types Okta allows. You must first add the custom property to the user profile schema before you reference it. You can use the Profile Editor in the Admin Console or the [Schemas](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UISchema/#tag/UISchema) API to manage schema extensions.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] custom_profile_attributes_to_ignores: List of custom*profile*attribute keys that should be excluded from being managed by Terraform. This is useful in situations where specific custom fields may contain sensitive information and should be managed outside of Terraform.
         :param pulumi.Input[_builtins.str] department: User department
         :param pulumi.Input[_builtins.str] display_name: User display name, suitable to show end users
         :param pulumi.Input[_builtins.str] division: User division
@@ -946,6 +951,9 @@ class _UserState:
     @_builtins.property
     @pulumi.getter(name="customProfileAttributesToIgnores")
     def custom_profile_attributes_to_ignores(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        List of custom*profile*attribute keys that should be excluded from being managed by Terraform. This is useful in situations where specific custom fields may contain sensitive information and should be managed outside of Terraform.
+        """
         return pulumi.get(self, "custom_profile_attributes_to_ignores")
 
     @custom_profile_attributes_to_ignores.setter
@@ -1535,6 +1543,7 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] cost_center: User cost center
         :param pulumi.Input[_builtins.str] country_code: User country code
         :param pulumi.Input[_builtins.str] custom_profile_attributes: JSON formatted custom attributes for a user. It must be JSON due to various types Okta allows. You must first add the custom property to the user profile schema before you reference it. You can use the Profile Editor in the Admin Console or the [Schemas](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UISchema/#tag/UISchema) API to manage schema extensions.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] custom_profile_attributes_to_ignores: List of custom*profile*attribute keys that should be excluded from being managed by Terraform. This is useful in situations where specific custom fields may contain sensitive information and should be managed outside of Terraform.
         :param pulumi.Input[_builtins.str] department: User department
         :param pulumi.Input[_builtins.str] display_name: User display name, suitable to show end users
         :param pulumi.Input[_builtins.str] division: User division
@@ -1823,6 +1832,7 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] cost_center: User cost center
         :param pulumi.Input[_builtins.str] country_code: User country code
         :param pulumi.Input[_builtins.str] custom_profile_attributes: JSON formatted custom attributes for a user. It must be JSON due to various types Okta allows. You must first add the custom property to the user profile schema before you reference it. You can use the Profile Editor in the Admin Console or the [Schemas](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UISchema/#tag/UISchema) API to manage schema extensions.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] custom_profile_attributes_to_ignores: List of custom*profile*attribute keys that should be excluded from being managed by Terraform. This is useful in situations where specific custom fields may contain sensitive information and should be managed outside of Terraform.
         :param pulumi.Input[_builtins.str] department: User department
         :param pulumi.Input[_builtins.str] display_name: User display name, suitable to show end users
         :param pulumi.Input[_builtins.str] division: User division
@@ -1948,6 +1958,9 @@ class User(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="customProfileAttributesToIgnores")
     def custom_profile_attributes_to_ignores(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        List of custom*profile*attribute keys that should be excluded from being managed by Terraform. This is useful in situations where specific custom fields may contain sensitive information and should be managed outside of Terraform.
+        """
         return pulumi.get(self, "custom_profile_attributes_to_ignores")
 
     @_builtins.property

@@ -158,9 +158,17 @@ public class User extends com.pulumi.resources.CustomResource {
     public Output<String> customProfileAttributes() {
         return this.customProfileAttributes;
     }
+    /**
+     * List of custom*profile*attribute keys that should be excluded from being managed by Terraform. This is useful in situations where specific custom fields may contain sensitive information and should be managed outside of Terraform.
+     * 
+     */
     @Export(name="customProfileAttributesToIgnores", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> customProfileAttributesToIgnores;
 
+    /**
+     * @return List of custom*profile*attribute keys that should be excluded from being managed by Terraform. This is useful in situations where specific custom fields may contain sensitive information and should be managed outside of Terraform.
+     * 
+     */
     public Output<Optional<List<String>>> customProfileAttributesToIgnores() {
         return Codegen.optional(this.customProfileAttributesToIgnores);
     }

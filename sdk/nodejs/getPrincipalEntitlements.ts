@@ -103,6 +103,9 @@ export interface GetPrincipalEntitlementsResult {
      * Principal entitlements list.
      */
     readonly datas?: outputs.GetPrincipalEntitlementsData[];
+    /**
+     * The Okta Principal Entitlement object does not include a native ID field, so this value is generated to uniquely represent the entitlement in Terraform state.
+     */
     readonly id: string;
     /**
      * Representation of a resource.

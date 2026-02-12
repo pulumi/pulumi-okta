@@ -310,6 +310,9 @@ namespace Pulumi.Okta
         /// Principal entitlements list.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetPrincipalEntitlementsDataResult> Datas;
+        /// <summary>
+        /// The Okta Principal Entitlement object does not include a native ID field, so this value is generated to uniquely represent the entitlement in Terraform state.
+        /// </summary>
         public readonly string Id;
         /// <summary>
         /// Representation of a resource.

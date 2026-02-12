@@ -76,9 +76,17 @@ public final class GetGroupArgs extends com.pulumi.resources.InvokeArgs {
         return Optional.ofNullable(this.name);
     }
 
+    /**
+     * Type of the group. When specified in the terraform resource, will act as a filter when searching for the group
+     * 
+     */
     @Import(name="type")
     private @Nullable Output<String> type;
 
+    /**
+     * @return Type of the group. When specified in the terraform resource, will act as a filter when searching for the group
+     * 
+     */
     public Optional<Output<String>> type() {
         return Optional.ofNullable(this.type);
     }
@@ -195,11 +203,23 @@ public final class GetGroupArgs extends com.pulumi.resources.InvokeArgs {
             return name(Output.of(name));
         }
 
+        /**
+         * @param type Type of the group. When specified in the terraform resource, will act as a filter when searching for the group
+         * 
+         * @return builder
+         * 
+         */
         public Builder type(@Nullable Output<String> type) {
             $.type = type;
             return this;
         }
 
+        /**
+         * @param type Type of the group. When specified in the terraform resource, will act as a filter when searching for the group
+         * 
+         * @return builder
+         * 
+         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

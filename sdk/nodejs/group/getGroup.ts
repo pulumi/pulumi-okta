@@ -50,6 +50,9 @@ export interface GetGroupArgs {
      * Name of group.
      */
     name?: string;
+    /**
+     * Type of the group. When specified in the terraform resource, will act as a filter when searching for the group
+     */
     type?: string;
 }
 
@@ -77,6 +80,9 @@ export interface GetGroupResult {
      * Name of group.
      */
     readonly name: string;
+    /**
+     * Type of the group. When specified in the terraform resource, will act as a filter when searching for the group
+     */
     readonly type?: string;
     /**
      * Users associated with the group. This can also be done per user.
@@ -129,5 +135,8 @@ export interface GetGroupOutputArgs {
      * Name of group.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Type of the group. When specified in the terraform resource, will act as a filter when searching for the group
+     */
     type?: pulumi.Input<string>;
 }

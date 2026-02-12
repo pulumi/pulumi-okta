@@ -26,7 +26,7 @@ namespace Pulumi.Okta.Outputs
         /// </summary>
         public readonly string ExternalValue;
         /// <summary>
-        /// The id property of an entitlement.
+        /// The Okta Principal Entitlement object does not include a native ID field, so this value is generated to uniquely represent the entitlement in Terraform state.
         /// </summary>
         public readonly string Id;
         /// <summary>

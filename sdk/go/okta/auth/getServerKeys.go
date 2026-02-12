@@ -72,7 +72,8 @@ type GetServerKeysResult struct {
 	// The ID of the authorization server.
 	AuthServerId string `pulumi:"authServerId"`
 	// RSA key value (public exponent) for Key binding. Typically "AQAB".
-	E  string `pulumi:"e"`
+	E string `pulumi:"e"`
+	// The internal identifier for this data source, required by Terraform to track state. This field does not exist in the Okta API response.
 	Id string `pulumi:"id"`
 	// The ID of the certificate key.
 	KeyId string `pulumi:"keyId"`
@@ -137,6 +138,7 @@ func (o GetServerKeysResultOutput) E() pulumi.StringOutput {
 	return o.ApplyT(func(v GetServerKeysResult) string { return v.E }).(pulumi.StringOutput)
 }
 
+// The internal identifier for this data source, required by Terraform to track state. This field does not exist in the Okta API response.
 func (o GetServerKeysResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetServerKeysResult) string { return v.Id }).(pulumi.StringOutput)
 }

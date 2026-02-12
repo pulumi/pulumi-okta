@@ -12,6 +12,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Creates an Okta Group Rule.
+// This resource allows you to create and configure an Okta Group Rule.
+// > If the Okta API marks the 'status' of the rule as 'INVALID' the Okta
+// Terraform Provider will act in a force/replace manner and call the API to delete
+// the underlying rule resource and create a new rule resource.
+//
 // ## Example Usage
 //
 // ```go

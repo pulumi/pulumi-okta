@@ -34,7 +34,7 @@ namespace Pulumi.Okta
     /// 
     /// ## Import
     /// 
-    /// Hook Keys can be imported using the `id`.
+    /// Hook Keys can be imported using the `Id`.
     /// 
     /// ```sh
     /// $ pulumi import okta:index/hookKey:HookKey example &amp;#60;hook_key_id&amp;#62;

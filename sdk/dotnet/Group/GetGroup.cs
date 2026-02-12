@@ -111,6 +111,9 @@ namespace Pulumi.Okta.Group
         [Input("name")]
         public string? Name { get; set; }
 
+        /// <summary>
+        /// Type of the group. When specified in the terraform resource, will act as a filter when searching for the group
+        /// </summary>
         [Input("type")]
         public string? Type { get; set; }
 
@@ -146,6 +149,9 @@ namespace Pulumi.Okta.Group
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Type of the group. When specified in the terraform resource, will act as a filter when searching for the group
+        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 
@@ -179,6 +185,9 @@ namespace Pulumi.Okta.Group
         /// Name of group.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Type of the group. When specified in the terraform resource, will act as a filter when searching for the group
+        /// </summary>
         public readonly string? Type;
         /// <summary>
         /// Users associated with the group. This can also be done per user.

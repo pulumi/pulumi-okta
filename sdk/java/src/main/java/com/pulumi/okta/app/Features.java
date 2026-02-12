@@ -16,21 +16,228 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * Manages Okta application features. This resource allows you to configure provisioning capabilities for applications, including user provisioning (outbound) and inbound provisioning settings.
+ * 
+ * &gt; **NOTE:** This resource cannot be deleted via Terraform. Application features are managed by Okta and can only be updated or read.
+ * 
+ * &gt; **NOTE:** This resource is only supported with a limited subset of OIN applications, see the [api docs](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationFeatures/) for more details.
+ * 
+ * ## Example Usage
+ * 
+ * ### User Provisioning Feature
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.okta.app.Features;
+ * import com.pulumi.okta.app.FeaturesArgs;
+ * import com.pulumi.okta.app.inputs.FeaturesCapabilitiesArgs;
+ * import com.pulumi.okta.app.inputs.FeaturesCapabilitiesCreateArgs;
+ * import com.pulumi.okta.app.inputs.FeaturesCapabilitiesCreateLifecycleCreateArgs;
+ * import com.pulumi.okta.app.inputs.FeaturesCapabilitiesUpdateArgs;
+ * import com.pulumi.okta.app.inputs.FeaturesCapabilitiesUpdateLifecycleDeactivateArgs;
+ * import com.pulumi.okta.app.inputs.FeaturesCapabilitiesUpdatePasswordArgs;
+ * import com.pulumi.okta.app.inputs.FeaturesCapabilitiesUpdateProfileArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var userProvisioning = new Features("userProvisioning", FeaturesArgs.builder()
+ *             .appId(example.id())
+ *             .name("USER_PROVISIONING")
+ *             .status("ENABLED")
+ *             .capabilities(FeaturesCapabilitiesArgs.builder()
+ *                 .create(FeaturesCapabilitiesCreateArgs.builder()
+ *                     .lifecycleCreate(FeaturesCapabilitiesCreateLifecycleCreateArgs.builder()
+ *                         .status("ENABLED")
+ *                         .build())
+ *                     .build())
+ *                 .update(FeaturesCapabilitiesUpdateArgs.builder()
+ *                     .lifecycleDeactivate(FeaturesCapabilitiesUpdateLifecycleDeactivateArgs.builder()
+ *                         .status("ENABLED")
+ *                         .build())
+ *                     .password(FeaturesCapabilitiesUpdatePasswordArgs.builder()
+ *                         .change("CHANGE")
+ *                         .seed("OKTA")
+ *                         .status("ENABLED")
+ *                         .build())
+ *                     .profile(FeaturesCapabilitiesUpdateProfileArgs.builder()
+ *                         .status("ENABLED")
+ *                         .build())
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ### Inbound Provisioning Feature
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.okta.app.Features;
+ * import com.pulumi.okta.app.FeaturesArgs;
+ * import com.pulumi.okta.app.inputs.FeaturesCapabilitiesArgs;
+ * import com.pulumi.okta.app.inputs.FeaturesCapabilitiesImportRulesArgs;
+ * import com.pulumi.okta.app.inputs.FeaturesCapabilitiesImportRulesUserCreateAndMatchArgs;
+ * import com.pulumi.okta.app.inputs.FeaturesCapabilitiesImportSettingsArgs;
+ * import com.pulumi.okta.app.inputs.FeaturesCapabilitiesImportSettingsUsernameArgs;
+ * import com.pulumi.okta.app.inputs.FeaturesCapabilitiesImportSettingsScheduleArgs;
+ * import com.pulumi.okta.app.inputs.FeaturesCapabilitiesImportSettingsScheduleFullImportArgs;
+ * import com.pulumi.okta.app.inputs.FeaturesCapabilitiesImportSettingsScheduleIncrementalImportArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
+ *         Pulumi.run(App::stack);
+ *     }}{@code
+ * 
+ *     public static void stack(Context ctx) }{{@code
+ *         var inboundProvisioning = new Features("inboundProvisioning", FeaturesArgs.builder()
+ *             .appId(example.id())
+ *             .name("INBOUND_PROVISIONING")
+ *             .status("ENABLED")
+ *             .capabilities(FeaturesCapabilitiesArgs.builder()
+ *                 .importRules(FeaturesCapabilitiesImportRulesArgs.builder()
+ *                     .userCreateAndMatch(FeaturesCapabilitiesImportRulesUserCreateAndMatchArgs.builder()
+ *                         .exactMatchCriteria("USERNAME")
+ *                         .allowPartialMatch(true)
+ *                         .autoActivateNewUsers(false)
+ *                         .autoconfirmExactMatch(false)
+ *                         .autoconfirmNewUsers(false)
+ *                         .autoconfirmPartialMatch(false)
+ *                         .build())
+ *                     .build())
+ *                 .importSettings(FeaturesCapabilitiesImportSettingsArgs.builder()
+ *                     .username(FeaturesCapabilitiesImportSettingsUsernameArgs.builder()
+ *                         .usernameFormat("EMAIL")
+ *                         .usernameExpression("")
+ *                         .build())
+ *                     .schedule(FeaturesCapabilitiesImportSettingsScheduleArgs.builder()
+ *                         .status("DISABLED")
+ *                         .fullImport(FeaturesCapabilitiesImportSettingsScheduleFullImportArgs.builder()
+ *                             .expression("0 0 * * *")
+ *                             .timezone("America/New_York")
+ *                             .build())
+ *                         .incrementalImport(FeaturesCapabilitiesImportSettingsScheduleIncrementalImportArgs.builder()
+ *                             .expression("0 *}&#47;{@code 6 * * *")
+ *                             .timezone("America/New_York")
+ *                             .build())
+ *                         .build())
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }}{@code
+ * }}{@code
+ * }
+ * </pre>
+ * 
+ * ### Complete User Provisioning Configuration
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.okta.app.Features;
+ * import com.pulumi.okta.app.FeaturesArgs;
+ * import com.pulumi.okta.app.inputs.FeaturesCapabilitiesArgs;
+ * import com.pulumi.okta.app.inputs.FeaturesCapabilitiesCreateArgs;
+ * import com.pulumi.okta.app.inputs.FeaturesCapabilitiesCreateLifecycleCreateArgs;
+ * import com.pulumi.okta.app.inputs.FeaturesCapabilitiesUpdateArgs;
+ * import com.pulumi.okta.app.inputs.FeaturesCapabilitiesUpdateLifecycleDeactivateArgs;
+ * import com.pulumi.okta.app.inputs.FeaturesCapabilitiesUpdatePasswordArgs;
+ * import com.pulumi.okta.app.inputs.FeaturesCapabilitiesUpdateProfileArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var completeProvisioning = new Features("completeProvisioning", FeaturesArgs.builder()
+ *             .appId(example.id())
+ *             .name("USER_PROVISIONING")
+ *             .status("ENABLED")
+ *             .capabilities(FeaturesCapabilitiesArgs.builder()
+ *                 .create(FeaturesCapabilitiesCreateArgs.builder()
+ *                     .lifecycleCreate(FeaturesCapabilitiesCreateLifecycleCreateArgs.builder()
+ *                         .status("ENABLED")
+ *                         .build())
+ *                     .build())
+ *                 .update(FeaturesCapabilitiesUpdateArgs.builder()
+ *                     .lifecycleDeactivate(FeaturesCapabilitiesUpdateLifecycleDeactivateArgs.builder()
+ *                         .status("ENABLED")
+ *                         .build())
+ *                     .password(FeaturesCapabilitiesUpdatePasswordArgs.builder()
+ *                         .change("CHANGE")
+ *                         .seed("RANDOM")
+ *                         .status("ENABLED")
+ *                         .build())
+ *                     .profile(FeaturesCapabilitiesUpdateProfileArgs.builder()
+ *                         .status("ENABLED")
+ *                         .build())
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ## Behavior Notes
+ * 
+ * ### Deletion Behavior
+ * 
+ * This resource cannot be deleted via Terraform. Running `terraform destroy` will show a warning but will not actually delete the feature configuration. Application features are managed by Okta and persist with the application.
+ * 
+ * ### Cron Expression Examples
+ * 
+ * For import schedules, use standard UNIX cron format:
+ * 
+ * - `0 0 * * *` - Daily at midnight
+ * - `0 *&#47;6 * * *` - Every 6 hours
+ * - `0 0 * * 0` - Weekly on Sunday at midnight
+ * - `0 2 1 * *` - Monthly on the 1st at 2 AM
+ * 
  * ## Import
  * 
  * App features can be imported using the format `{app_id}/{feature_name}`:
- * 
- * bash
- * 
- * ```sh
- * $ pulumi import okta:app/features:Features example 0oarblaf7hWdLawNg1d7/USER_PROVISIONING
- * ```
- * 
- * bash
- * 
- * ```sh
- * $ pulumi import okta:app/features:Features inbound 0oarblaf7hWdLawNg1d7/INBOUND_PROVISIONING
- * ```
  * 
  */
 @ResourceType(type="okta:app/features:Features")

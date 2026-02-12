@@ -202,6 +202,10 @@ class EmailDomain(pulumi.CustomResource):
                  user_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
+        Creates email domain. This resource allows you to create and configure an email domain.
+
+        **IMPORTANT:** Due to the way Okta's API conflict with terraform design principle, updating the relationship between email_domain and brand is not configurable through terraform and has to be done through clickOps
+
         ## Example Usage
 
         ```python
@@ -235,6 +239,10 @@ class EmailDomain(pulumi.CustomResource):
                  args: EmailDomainArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Creates email domain. This resource allows you to create and configure an email domain.
+
+        **IMPORTANT:** Due to the way Okta's API conflict with terraform design principle, updating the relationship between email_domain and brand is not configurable through terraform and has to be done through clickOps
+
         ## Example Usage
 
         ```python

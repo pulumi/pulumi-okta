@@ -19,18 +19,13 @@ __all__ = [
     'MappingMappingArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class MappingMappingArgsDict(TypedDict):
-        expression: pulumi.Input[_builtins.str]
-        id: pulumi.Input[_builtins.str]
-        """
-        The mapping property key.
-        """
-        push_status: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    MappingMappingArgsDict: TypeAlias = Mapping[str, Any]
+class MappingMappingArgsDict(TypedDict):
+    expression: pulumi.Input[_builtins.str]
+    id: pulumi.Input[_builtins.str]
+    """
+    The mapping property key.
+    """
+    push_status: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class MappingMappingArgs:

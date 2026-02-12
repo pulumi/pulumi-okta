@@ -5,6 +5,16 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
+ * Assigns a group to an application. This resource allows you to create an App Group assignment.
+ *
+ * > **IMPORTANT:** When the `appGroupAssignment` is retained, by
+ * setting `retainAssignment` to `true`, it is no longer managed by
+ * Terraform after it is destroyed. To truly delete the assignment,
+ * you will need to remove it either through the Okta Console or API.
+ * This argument exists for the use case where the same group is
+ * assigned in multiple places in order to prevent a single
+ * destruction removing all of them.
+ *
  * ## Example Usage
  *
  * ```typescript

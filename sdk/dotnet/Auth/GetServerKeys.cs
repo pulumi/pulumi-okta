@@ -168,6 +168,9 @@ namespace Pulumi.Okta.Auth
         /// RSA key value (public exponent) for Key binding. Typically "AQAB".
         /// </summary>
         public readonly string E;
+        /// <summary>
+        /// The internal identifier for this data source, required by Terraform to track state. This field does not exist in the Okta API response.
+        /// </summary>
         public readonly string Id;
         /// <summary>
         /// The ID of the certificate key.

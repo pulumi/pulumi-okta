@@ -214,21 +214,137 @@ class Features(pulumi.CustomResource):
                  status: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
+        Manages Okta application features. This resource allows you to configure provisioning capabilities for applications, including user provisioning (outbound) and inbound provisioning settings.
+
+        > **NOTE:** This resource cannot be deleted via Terraform. Application features are managed by Okta and can only be updated or read.
+
+        > **NOTE:** This resource is only supported with a limited subset of OIN applications, see the [api docs](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationFeatures/) for more details.
+
+        ## Example Usage
+
+        ### User Provisioning Feature
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        user_provisioning = okta.app.Features("user_provisioning",
+            app_id=example["id"],
+            name="USER_PROVISIONING",
+            status="ENABLED",
+            capabilities={
+                "create": {
+                    "lifecycle_create": {
+                        "status": "ENABLED",
+                    },
+                },
+                "update": {
+                    "lifecycle_deactivate": {
+                        "status": "ENABLED",
+                    },
+                    "password": {
+                        "change": "CHANGE",
+                        "seed": "OKTA",
+                        "status": "ENABLED",
+                    },
+                    "profile": {
+                        "status": "ENABLED",
+                    },
+                },
+            })
+        ```
+
+        ### Inbound Provisioning Feature
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        inbound_provisioning = okta.app.Features("inbound_provisioning",
+            app_id=example["id"],
+            name="INBOUND_PROVISIONING",
+            status="ENABLED",
+            capabilities={
+                "import_rules": {
+                    "user_create_and_match": {
+                        "exact_match_criteria": "USERNAME",
+                        "allow_partial_match": True,
+                        "auto_activate_new_users": False,
+                        "autoconfirm_exact_match": False,
+                        "autoconfirm_new_users": False,
+                        "autoconfirm_partial_match": False,
+                    },
+                },
+                "import_settings": {
+                    "username": {
+                        "username_format": "EMAIL",
+                        "username_expression": "",
+                    },
+                    "schedule": {
+                        "status": "DISABLED",
+                        "full_import": {
+                            "expression": "0 0 * * *",
+                            "timezone": "America/New_York",
+                        },
+                        "incremental_import": {
+                            "expression": "0 */6 * * *",
+                            "timezone": "America/New_York",
+                        },
+                    },
+                },
+            })
+        ```
+
+        ### Complete User Provisioning Configuration
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        complete_provisioning = okta.app.Features("complete_provisioning",
+            app_id=example["id"],
+            name="USER_PROVISIONING",
+            status="ENABLED",
+            capabilities={
+                "create": {
+                    "lifecycle_create": {
+                        "status": "ENABLED",
+                    },
+                },
+                "update": {
+                    "lifecycle_deactivate": {
+                        "status": "ENABLED",
+                    },
+                    "password": {
+                        "change": "CHANGE",
+                        "seed": "RANDOM",
+                        "status": "ENABLED",
+                    },
+                    "profile": {
+                        "status": "ENABLED",
+                    },
+                },
+            })
+        ```
+
+        ## Behavior Notes
+
+        ### Deletion Behavior
+
+        This resource cannot be deleted via Terraform. Running `terraform destroy` will show a warning but will not actually delete the feature configuration. Application features are managed by Okta and persist with the application.
+
+        ### Cron Expression Examples
+
+        For import schedules, use standard UNIX cron format:
+
+        - `0 0 * * *` - Daily at midnight
+        - `0 */6 * * *` - Every 6 hours
+        - `0 0 * * 0` - Weekly on Sunday at midnight
+        - `0 2 1 * *` - Monthly on the 1st at 2 AM
+
         ## Import
 
         App features can be imported using the format `{app_id}/{feature_name}`:
-
-        bash
-
-        ```sh
-        $ pulumi import okta:app/features:Features example 0oarblaf7hWdLawNg1d7/USER_PROVISIONING
-        ```
-
-        bash
-
-        ```sh
-        $ pulumi import okta:app/features:Features inbound 0oarblaf7hWdLawNg1d7/INBOUND_PROVISIONING
-        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -247,21 +363,137 @@ class Features(pulumi.CustomResource):
                  args: FeaturesArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Manages Okta application features. This resource allows you to configure provisioning capabilities for applications, including user provisioning (outbound) and inbound provisioning settings.
+
+        > **NOTE:** This resource cannot be deleted via Terraform. Application features are managed by Okta and can only be updated or read.
+
+        > **NOTE:** This resource is only supported with a limited subset of OIN applications, see the [api docs](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationFeatures/) for more details.
+
+        ## Example Usage
+
+        ### User Provisioning Feature
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        user_provisioning = okta.app.Features("user_provisioning",
+            app_id=example["id"],
+            name="USER_PROVISIONING",
+            status="ENABLED",
+            capabilities={
+                "create": {
+                    "lifecycle_create": {
+                        "status": "ENABLED",
+                    },
+                },
+                "update": {
+                    "lifecycle_deactivate": {
+                        "status": "ENABLED",
+                    },
+                    "password": {
+                        "change": "CHANGE",
+                        "seed": "OKTA",
+                        "status": "ENABLED",
+                    },
+                    "profile": {
+                        "status": "ENABLED",
+                    },
+                },
+            })
+        ```
+
+        ### Inbound Provisioning Feature
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        inbound_provisioning = okta.app.Features("inbound_provisioning",
+            app_id=example["id"],
+            name="INBOUND_PROVISIONING",
+            status="ENABLED",
+            capabilities={
+                "import_rules": {
+                    "user_create_and_match": {
+                        "exact_match_criteria": "USERNAME",
+                        "allow_partial_match": True,
+                        "auto_activate_new_users": False,
+                        "autoconfirm_exact_match": False,
+                        "autoconfirm_new_users": False,
+                        "autoconfirm_partial_match": False,
+                    },
+                },
+                "import_settings": {
+                    "username": {
+                        "username_format": "EMAIL",
+                        "username_expression": "",
+                    },
+                    "schedule": {
+                        "status": "DISABLED",
+                        "full_import": {
+                            "expression": "0 0 * * *",
+                            "timezone": "America/New_York",
+                        },
+                        "incremental_import": {
+                            "expression": "0 */6 * * *",
+                            "timezone": "America/New_York",
+                        },
+                    },
+                },
+            })
+        ```
+
+        ### Complete User Provisioning Configuration
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        complete_provisioning = okta.app.Features("complete_provisioning",
+            app_id=example["id"],
+            name="USER_PROVISIONING",
+            status="ENABLED",
+            capabilities={
+                "create": {
+                    "lifecycle_create": {
+                        "status": "ENABLED",
+                    },
+                },
+                "update": {
+                    "lifecycle_deactivate": {
+                        "status": "ENABLED",
+                    },
+                    "password": {
+                        "change": "CHANGE",
+                        "seed": "RANDOM",
+                        "status": "ENABLED",
+                    },
+                    "profile": {
+                        "status": "ENABLED",
+                    },
+                },
+            })
+        ```
+
+        ## Behavior Notes
+
+        ### Deletion Behavior
+
+        This resource cannot be deleted via Terraform. Running `terraform destroy` will show a warning but will not actually delete the feature configuration. Application features are managed by Okta and persist with the application.
+
+        ### Cron Expression Examples
+
+        For import schedules, use standard UNIX cron format:
+
+        - `0 0 * * *` - Daily at midnight
+        - `0 */6 * * *` - Every 6 hours
+        - `0 0 * * 0` - Weekly on Sunday at midnight
+        - `0 2 1 * *` - Monthly on the 1st at 2 AM
+
         ## Import
 
         App features can be imported using the format `{app_id}/{feature_name}`:
-
-        bash
-
-        ```sh
-        $ pulumi import okta:app/features:Features example 0oarblaf7hWdLawNg1d7/USER_PROVISIONING
-        ```
-
-        bash
-
-        ```sh
-        $ pulumi import okta:app/features:Features inbound 0oarblaf7hWdLawNg1d7/INBOUND_PROVISIONING
-        ```
 
         :param str resource_name: The name of the resource.
         :param FeaturesArgs args: The arguments to use to populate this resource's properties.

@@ -7466,7 +7466,7 @@ class GetPrincipalEntitlementsDataResult(dict):
         :param _builtins.str data_type: The data type of the entitlement property.
         :param _builtins.str description: The description of an entitlement property.
         :param _builtins.str external_value: The value of an entitlement property.
-        :param _builtins.str id: The id property of an entitlement.
+        :param _builtins.str id: The Okta Principal Entitlement object does not include a native ID field, so this value is generated to uniquely represent the entitlement in Terraform state.
         :param _builtins.bool multi_value: The property that determines if the entitlement property can hold multiple values.
         :param _builtins.str name: The display name for an entitlement property.
         :param _builtins.str parent_resource_orn: The Okta app instance, in ORN format.
@@ -7520,7 +7520,7 @@ class GetPrincipalEntitlementsDataResult(dict):
     @pulumi.getter
     def id(self) -> _builtins.str:
         """
-        The id property of an entitlement.
+        The Okta Principal Entitlement object does not include a native ID field, so this value is generated to uniquely represent the entitlement in Terraform state.
         """
         return pulumi.get(self, "id")
 
@@ -7657,7 +7657,7 @@ class GetPrincipalEntitlementsDataValueResult(dict):
         """
         :param _builtins.str description: The description of an entitlement property.
         :param _builtins.str external_value: The value of an entitlement property value.
-        :param _builtins.str id: The id of an entitlement value.
+        :param _builtins.str id: The Okta Principal Entitlement object does not include a native ID field, so this value is generated to uniquely represent the entitlement in Terraform state.
         :param _builtins.str name: The name of an entitlement value.
         """
         pulumi.set(__self__, "description", description)
@@ -7685,7 +7685,7 @@ class GetPrincipalEntitlementsDataValueResult(dict):
     @pulumi.getter
     def id(self) -> _builtins.str:
         """
-        The id of an entitlement value.
+        The Okta Principal Entitlement object does not include a native ID field, so this value is generated to uniquely represent the entitlement in Terraform state.
         """
         return pulumi.get(self, "id")
 

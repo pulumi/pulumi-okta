@@ -105,6 +105,9 @@ namespace Pulumi.Okta
         [Input("search")]
         public string? Search { get; set; }
 
+        /// <summary>
+        /// Type of the group. When specified in the terraform resource, will act as a filter when searching for the groups
+        /// </summary>
         [Input("type")]
         public string? Type { get; set; }
 
@@ -134,6 +137,9 @@ namespace Pulumi.Okta
         [Input("search")]
         public Input<string>? Search { get; set; }
 
+        /// <summary>
+        /// Type of the group. When specified in the terraform resource, will act as a filter when searching for the groups
+        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 
@@ -164,6 +170,9 @@ namespace Pulumi.Okta
         /// Searches for groups with a supported filtering expression for all attributes except for '*embedded', '*links', and 'objectClass'
         /// </summary>
         public readonly string? Search;
+        /// <summary>
+        /// Type of the group. When specified in the terraform resource, will act as a filter when searching for the groups
+        /// </summary>
         public readonly string? Type;
 
         [OutputConstructor]

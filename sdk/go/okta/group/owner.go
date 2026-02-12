@@ -60,27 +60,16 @@ import (
 //
 // ## Import
 //
-// An okta_group_owner resource can be imported using the following format:
-//
-// bash
-//
-// ```sh
-// $ pulumi import okta:group/owner:Owner example group_id/group_owner_id
-// ```
+// An group.Owner resource can be imported using the following format:
 //
 // Where:
 //
-// - `group_id` is the ID of the group
-//
-// - `group_owner_id` is the ID of the group owner resource
+// - `groupId` is the ID of the group
+// - `groupOwnerId` is the ID of the group owner resource
 //
 // **Example:**
 //
-// bash
-//
-// ```sh
-// $ pulumi import okta:group/owner:Owner example group_123/group_owner_456
-// ```
+// **Note:** When importing, you must still provide the required `groupId`, `idOfGroupOwner`, and `type` attributes in your Terraform configuration, as these are not stored in the import ID.
 type Owner struct {
 	pulumi.CustomResourceState
 

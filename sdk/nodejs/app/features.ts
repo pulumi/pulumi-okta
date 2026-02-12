@@ -7,21 +7,140 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
+ * Manages Okta application features. This resource allows you to configure provisioning capabilities for applications, including user provisioning (outbound) and inbound provisioning settings.
+ *
+ * > **NOTE:** This resource cannot be deleted via Terraform. Application features are managed by Okta and can only be updated or read.
+ *
+ * > **NOTE:** This resource is only supported with a limited subset of OIN applications, see the [api docs](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationFeatures/) for more details.
+ *
+ * ## Example Usage
+ *
+ * ### User Provisioning Feature
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const userProvisioning = new okta.app.Features("user_provisioning", {
+ *     appId: example.id,
+ *     name: "USER_PROVISIONING",
+ *     status: "ENABLED",
+ *     capabilities: {
+ *         create: {
+ *             lifecycleCreate: {
+ *                 status: "ENABLED",
+ *             },
+ *         },
+ *         update: {
+ *             lifecycleDeactivate: {
+ *                 status: "ENABLED",
+ *             },
+ *             password: {
+ *                 change: "CHANGE",
+ *                 seed: "OKTA",
+ *                 status: "ENABLED",
+ *             },
+ *             profile: {
+ *                 status: "ENABLED",
+ *             },
+ *         },
+ *     },
+ * });
+ * ```
+ *
+ * ### Inbound Provisioning Feature
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const inboundProvisioning = new okta.app.Features("inbound_provisioning", {
+ *     appId: example.id,
+ *     name: "INBOUND_PROVISIONING",
+ *     status: "ENABLED",
+ *     capabilities: {
+ *         importRules: {
+ *             userCreateAndMatch: {
+ *                 exactMatchCriteria: "USERNAME",
+ *                 allowPartialMatch: true,
+ *                 autoActivateNewUsers: false,
+ *                 autoconfirmExactMatch: false,
+ *                 autoconfirmNewUsers: false,
+ *                 autoconfirmPartialMatch: false,
+ *             },
+ *         },
+ *         importSettings: {
+ *             username: {
+ *                 usernameFormat: "EMAIL",
+ *                 usernameExpression: "",
+ *             },
+ *             schedule: {
+ *                 status: "DISABLED",
+ *                 fullImport: {
+ *                     expression: "0 0 * * *",
+ *                     timezone: "America/New_York",
+ *                 },
+ *                 incrementalImport: {
+ *                     expression: "0 *&#47;6 * * *",
+ *                     timezone: "America/New_York",
+ *                 },
+ *             },
+ *         },
+ *     },
+ * });
+ * ```
+ *
+ * ### Complete User Provisioning Configuration
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const completeProvisioning = new okta.app.Features("complete_provisioning", {
+ *     appId: example.id,
+ *     name: "USER_PROVISIONING",
+ *     status: "ENABLED",
+ *     capabilities: {
+ *         create: {
+ *             lifecycleCreate: {
+ *                 status: "ENABLED",
+ *             },
+ *         },
+ *         update: {
+ *             lifecycleDeactivate: {
+ *                 status: "ENABLED",
+ *             },
+ *             password: {
+ *                 change: "CHANGE",
+ *                 seed: "RANDOM",
+ *                 status: "ENABLED",
+ *             },
+ *             profile: {
+ *                 status: "ENABLED",
+ *             },
+ *         },
+ *     },
+ * });
+ * ```
+ *
+ * ## Behavior Notes
+ *
+ * ### Deletion Behavior
+ *
+ * This resource cannot be deleted via Terraform. Running `terraform destroy` will show a warning but will not actually delete the feature configuration. Application features are managed by Okta and persist with the application.
+ *
+ * ### Cron Expression Examples
+ *
+ * For import schedules, use standard UNIX cron format:
+ *
+ * - `0 0 * * *` - Daily at midnight
+ * - `0 *&#47;6 * * *` - Every 6 hours
+ * - `0 0 * * 0` - Weekly on Sunday at midnight
+ * - `0 2 1 * *` - Monthly on the 1st at 2 AM
+ *
  * ## Import
  *
  * App features can be imported using the format `{app_id}/{feature_name}`:
- *
- * bash
- *
- * ```sh
- * $ pulumi import okta:app/features:Features example 0oarblaf7hWdLawNg1d7/USER_PROVISIONING
- * ```
- *
- * bash
- *
- * ```sh
- * $ pulumi import okta:app/features:Features inbound 0oarblaf7hWdLawNg1d7/INBOUND_PROVISIONING
- * ```
  */
 export class Features extends pulumi.CustomResource {
     /**
