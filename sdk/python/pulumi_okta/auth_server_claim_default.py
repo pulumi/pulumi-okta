@@ -25,6 +25,7 @@ class AuthServerClaimDefaultArgs:
                  value: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a AuthServerClaimDefault resource.
+
         :param pulumi.Input[_builtins.str] auth_server_id: ID of the authorization server.
         :param pulumi.Input[_builtins.bool] always_include_in_token: Specifies whether to include claims in token.
         :param pulumi.Input[_builtins.str] name: The name of the claim. Can be set to `sub`, `address`, `birthdate`, `email`,`email_verified`, `family_name`, `gender`, `given_name`, `locale`, `middle_name`, `name`, `nickname`,`phone_number`, `picture`, `preferred_username`, `profile`, `updated_at`, `website`, `zoneinfo`
@@ -100,6 +101,7 @@ class _AuthServerClaimDefaultState:
                  value_type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AuthServerClaimDefault resources.
+
         :param pulumi.Input[_builtins.bool] always_include_in_token: Specifies whether to include claims in token.
         :param pulumi.Input[_builtins.str] auth_server_id: ID of the authorization server.
         :param pulumi.Input[_builtins.str] claim_type: Specifies whether the claim is for an access token `RESOURCE` or ID token `IDENTITY`.
@@ -256,6 +258,7 @@ class AuthServerClaimDefault(pulumi.CustomResource):
         $ pulumi import okta:index/authServerClaimDefault:AuthServerClaimDefault example <auth_server_id>/<claim_name>
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] always_include_in_token: Specifies whether to include claims in token.
@@ -290,6 +293,7 @@ class AuthServerClaimDefault(pulumi.CustomResource):
         ```sh
         $ pulumi import okta:index/authServerClaimDefault:AuthServerClaimDefault example <auth_server_id>/<claim_name>
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AuthServerClaimDefaultArgs args: The arguments to use to populate this resource's properties.

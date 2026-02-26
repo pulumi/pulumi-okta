@@ -47,6 +47,7 @@ class AppSharedCredentialsArgs:
                  username_field: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a AppSharedCredentials resource.
+
         :param pulumi.Input[_builtins.str] label: The Application's display name.
         :param pulumi.Input[_builtins.str] accessibility_error_redirect_url: Custom error page URL
         :param pulumi.Input[_builtins.str] accessibility_login_redirect_url: Custom login page URL
@@ -473,6 +474,7 @@ class _AppSharedCredentialsState:
                  username_field: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AppSharedCredentials resources.
+
         :param pulumi.Input[_builtins.str] accessibility_error_redirect_url: Custom error page URL
         :param pulumi.Input[_builtins.str] accessibility_login_redirect_url: Custom login page URL
         :param pulumi.Input[_builtins.bool] accessibility_self_service: Enable self service. Default is `false`
@@ -984,6 +986,7 @@ class AppSharedCredentials(pulumi.CustomResource):
         $ pulumi import okta:index/appSharedCredentials:AppSharedCredentials example <app_id>
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] accessibility_error_redirect_url: Custom error page URL
@@ -1058,6 +1061,7 @@ class AppSharedCredentials(pulumi.CustomResource):
         ```sh
         $ pulumi import okta:index/appSharedCredentials:AppSharedCredentials example <app_id>
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AppSharedCredentialsArgs args: The arguments to use to populate this resource's properties.

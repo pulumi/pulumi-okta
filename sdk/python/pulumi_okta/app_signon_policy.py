@@ -25,6 +25,7 @@ class AppSignonPolicyArgs:
                  priority: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a AppSignonPolicy resource.
+
         :param pulumi.Input[_builtins.str] description: Description of the policy.
         :param pulumi.Input[_builtins.bool] catch_all: If false, the default rule of the policy is set access to `DENY`. Otherwise default behavior of the default rule is to leave access at `ALLOW`.  **WARNING** setting this attribute to false changes policy rule's default behavior. Use at your own risk. This is only applied during creation and does not affect import or update.
         :param pulumi.Input[_builtins.str] name: Name of the policy.
@@ -97,6 +98,7 @@ class _AppSignonPolicyState:
                  priority: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering AppSignonPolicy resources.
+
         :param pulumi.Input[_builtins.bool] catch_all: If false, the default rule of the policy is set access to `DENY`. Otherwise default behavior of the default rule is to leave access at `ALLOW`.  **WARNING** setting this attribute to false changes policy rule's default behavior. Use at your own risk. This is only applied during creation and does not affect import or update.
         :param pulumi.Input[_builtins.str] default_rule_id: Default rule (system=true) id of the policy
         :param pulumi.Input[_builtins.str] description: Description of the policy.
@@ -213,6 +215,7 @@ class AppSignonPolicy(pulumi.CustomResource):
         $ pulumi import okta:index/appSignonPolicy:AppSignonPolicy example <policy_id>
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] catch_all: If false, the default rule of the policy is set access to `DENY`. Otherwise default behavior of the default rule is to leave access at `ALLOW`.  **WARNING** setting this attribute to false changes policy rule's default behavior. Use at your own risk. This is only applied during creation and does not affect import or update.
@@ -252,6 +255,7 @@ class AppSignonPolicy(pulumi.CustomResource):
         ```sh
         $ pulumi import okta:index/appSignonPolicy:AppSignonPolicy example <policy_id>
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AppSignonPolicyArgs args: The arguments to use to populate this resource's properties.

@@ -25,6 +25,7 @@ class EndUserMyRequestsArgs:
                  requester_field_values: Optional[pulumi.Input[Sequence[pulumi.Input['EndUserMyRequestsRequesterFieldValueArgs']]]] = None):
         """
         The set of arguments for constructing a EndUserMyRequests resource.
+
         :param pulumi.Input[_builtins.str] entry_id: The ID of the catalog entry for which the request is being made.
         :param pulumi.Input[Sequence[pulumi.Input['EndUserMyRequestsRequesterFieldValueArgs']]] requester_field_values: The requester input fields required by the approval system. Note: The fields required are determined by the approval system.
         """
@@ -65,6 +66,7 @@ class _EndUserMyRequestsState:
                  status: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering EndUserMyRequests resources.
+
         :param pulumi.Input[_builtins.str] entry_id: The ID of the catalog entry for which the request is being made.
         :param pulumi.Input[Sequence[pulumi.Input['EndUserMyRequestsRequesterFieldValueArgs']]] requester_field_values: The requester input fields required by the approval system. Note: The fields required are determined by the approval system.
         :param pulumi.Input[_builtins.str] status: The status of the request. Possible values include: `APPROVED`, `CANCELED`, `DENIED`, `EXPIRED`, `PENDING`, `REJECTED`, `SUBMITTED`
@@ -223,6 +225,7 @@ class EndUserMyRequests(pulumi.CustomResource):
         $ pulumi import okta:index/endUserMyRequests:EndUserMyRequests example <request_id/entry_id>
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] entry_id: The ID of the catalog entry for which the request is being made.
@@ -334,6 +337,7 @@ class EndUserMyRequests(pulumi.CustomResource):
         ```sh
         $ pulumi import okta:index/endUserMyRequests:EndUserMyRequests example <request_id/entry_id>
         ```
+
 
         :param str resource_name: The name of the resource.
         :param EndUserMyRequestsArgs args: The arguments to use to populate this resource's properties.

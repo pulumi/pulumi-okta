@@ -32,6 +32,7 @@ class RequestConditionArgs:
                  status: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a RequestCondition resource.
+
         :param pulumi.Input[_builtins.str] approval_sequence_id: The ID of the approval sequence.
         :param pulumi.Input[_builtins.str] resource_id: The id of the resource in Okta ID format.
         :param pulumi.Input['RequestConditionAccessDurationSettingsArgs'] access_duration_settings: The access duration settings for the request condition
@@ -178,6 +179,7 @@ class _RequestConditionState:
                  status: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering RequestCondition resources.
+
         :param pulumi.Input['RequestConditionAccessDurationSettingsArgs'] access_duration_settings: The access duration settings for the request condition
         :param pulumi.Input[_builtins.str] approval_sequence_id: The ID of the approval sequence.
         :param pulumi.Input[_builtins.str] created: The date and time when the request condition was created.
@@ -432,6 +434,7 @@ class RequestCondition(pulumi.CustomResource):
         $ pulumi import okta:index/requestCondition:RequestCondition example <resource_id>/<request_condition_id>
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['RequestConditionAccessDurationSettingsArgs', 'RequestConditionAccessDurationSettingsArgsDict']] access_duration_settings: The access duration settings for the request condition
@@ -495,6 +498,7 @@ class RequestCondition(pulumi.CustomResource):
         ```sh
         $ pulumi import okta:index/requestCondition:RequestCondition example <resource_id>/<request_condition_id>
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RequestConditionArgs args: The arguments to use to populate this resource's properties.

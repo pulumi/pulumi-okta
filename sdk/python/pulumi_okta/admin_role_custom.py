@@ -24,6 +24,7 @@ class AdminRoleCustomArgs:
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a AdminRoleCustom resource.
+
         :param pulumi.Input[_builtins.str] description: A human-readable description of the new Role
         :param pulumi.Input[_builtins.str] label: The name given to the new Role
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] permissions: The permissions that the new Role grants. At least one
@@ -190,6 +191,7 @@ class _AdminRoleCustomState:
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering AdminRoleCustom resources.
+
         :param pulumi.Input[_builtins.str] description: A human-readable description of the new Role
         :param pulumi.Input[_builtins.str] label: The name given to the new Role
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] permissions: The permissions that the new Role grants. At least one
@@ -383,6 +385,7 @@ class AdminRoleCustom(pulumi.CustomResource):
         $ pulumi import okta:index/adminRoleCustom:AdminRoleCustom example <custom_role_id>
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: A human-readable description of the new Role
@@ -473,6 +476,7 @@ class AdminRoleCustom(pulumi.CustomResource):
         ```sh
         $ pulumi import okta:index/adminRoleCustom:AdminRoleCustom example <custom_role_id>
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AdminRoleCustomArgs args: The arguments to use to populate this resource's properties.

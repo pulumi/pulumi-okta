@@ -24,6 +24,7 @@ class OwnerArgs:
                  type: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a Owner resource.
+
         :param pulumi.Input[_builtins.str] group_id: The id of the group
         :param pulumi.Input[_builtins.str] id_of_group_owner: The user id of the group owner
         :param pulumi.Input[_builtins.str] type: The entity type of the owner. Enum: "GROUP" "USER"
@@ -81,6 +82,7 @@ class _OwnerState:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Owner resources.
+
         :param pulumi.Input[_builtins.str] display_name: The display name of the group owner
         :param pulumi.Input[_builtins.str] group_id: The id of the group
         :param pulumi.Input[_builtins.str] id_of_group_owner: The user id of the group owner
@@ -224,6 +226,10 @@ class Owner(pulumi.CustomResource):
 
         An group.Owner resource can be imported using the following format:
 
+        ```sh
+        $ pulumi import okta:group/owner:Owner example group_id/group_owner_id
+        ```
+
         Where:
 
         - `group_id` is the ID of the group
@@ -231,7 +237,12 @@ class Owner(pulumi.CustomResource):
 
         **Example:**
 
+        ```sh
+        $ pulumi import okta:group/owner:Owner example group_123/group_owner_456
+        ```
+
         **Note:** When importing, you must still provide the required `group_id`, `id_of_group_owner`, and `type` attributes in your Terraform configuration, as these are not stored in the import ID.
+
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -270,6 +281,10 @@ class Owner(pulumi.CustomResource):
 
         An group.Owner resource can be imported using the following format:
 
+        ```sh
+        $ pulumi import okta:group/owner:Owner example group_id/group_owner_id
+        ```
+
         Where:
 
         - `group_id` is the ID of the group
@@ -277,7 +292,12 @@ class Owner(pulumi.CustomResource):
 
         **Example:**
 
+        ```sh
+        $ pulumi import okta:group/owner:Owner example group_123/group_owner_456
+        ```
+
         **Note:** When importing, you must still provide the required `group_id`, `id_of_group_owner`, and `type` attributes in your Terraform configuration, as these are not stored in the import ID.
+
 
         :param str resource_name: The name of the resource.
         :param OwnerArgs args: The arguments to use to populate this resource's properties.

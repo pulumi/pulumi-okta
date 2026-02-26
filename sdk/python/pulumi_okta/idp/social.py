@@ -46,6 +46,7 @@ class SocialArgs:
                  username_template: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Social resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] scopes: The scopes of the IdP.
         :param pulumi.Input[_builtins.str] type: Identity Provider Types: https://developer.okta.com/docs/reference/api/idps/#identity-provider-type
         :param pulumi.Input[_builtins.str] account_link_action: Specifies the account linking action for an IdP user. Default: `AUTO`
@@ -461,6 +462,7 @@ class _SocialState:
                  username_template: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Social resources.
+
         :param pulumi.Input[_builtins.str] account_link_action: Specifies the account linking action for an IdP user. Default: `AUTO`
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] account_link_group_includes: Group memberships to determine link candidates.
         :param pulumi.Input[_builtins.str] apple_kid: The Key ID that you obtained from Apple when you created the private key for the client
@@ -1034,6 +1036,7 @@ class Social(pulumi.CustomResource):
         $ pulumi import okta:idp/social:Social example <idp_id>
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_link_action: Specifies the account linking action for an IdP user. Default: `AUTO`
@@ -1095,6 +1098,7 @@ class Social(pulumi.CustomResource):
         ```sh
         $ pulumi import okta:idp/social:Social example <idp_id>
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SocialArgs args: The arguments to use to populate this resource's properties.

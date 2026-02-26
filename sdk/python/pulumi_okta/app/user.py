@@ -27,6 +27,7 @@ class UserArgs:
                  username: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a User resource.
+
         :param pulumi.Input[_builtins.str] app_id: App to associate user with
         :param pulumi.Input[_builtins.str] user_id: User associated with the application
         :param pulumi.Input[_builtins.str] password: The password to use.
@@ -130,6 +131,7 @@ class _UserState:
                  username: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering User resources.
+
         :param pulumi.Input[_builtins.str] app_id: App to associate user with
         :param pulumi.Input[_builtins.str] password: The password to use.
         :param pulumi.Input[_builtins.str] profile: The JSON profile of the App User.
@@ -270,6 +272,7 @@ class User(pulumi.CustomResource):
         $ pulumi import okta:app/user:User example <app_id>/<user_id>
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] app_id: App to associate user with
@@ -307,6 +310,7 @@ class User(pulumi.CustomResource):
         ```sh
         $ pulumi import okta:app/user:User example <app_id>/<user_id>
         ```
+
 
         :param str resource_name: The name of the resource.
         :param UserArgs args: The arguments to use to populate this resource's properties.

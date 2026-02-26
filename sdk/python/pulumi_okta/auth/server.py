@@ -27,6 +27,7 @@ class ServerArgs:
                  status: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Server resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] audiences: The recipients that the tokens are intended for. This becomes the `aud` claim in an access token. Currently Okta only supports a single value here.
         :param pulumi.Input[_builtins.str] credentials_rotation_mode: The key rotation mode for the authorization server. Can be `AUTO` or `MANUAL`. Default: `AUTO`
         :param pulumi.Input[_builtins.str] description: The description of the authorization server.
@@ -134,6 +135,7 @@ class _ServerState:
                  status: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Server resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] audiences: The recipients that the tokens are intended for. This becomes the `aud` claim in an access token. Currently Okta only supports a single value here.
         :param pulumi.Input[_builtins.str] credentials_last_rotated: The timestamp when the authorization server started to use the `kid` for signing tokens.
         :param pulumi.Input[_builtins.str] credentials_next_rotation: The timestamp when the authorization server changes the key for signing tokens. Only returned when `credentials_rotation_mode` is `AUTO`.
@@ -323,6 +325,7 @@ class Server(pulumi.CustomResource):
         $ pulumi import okta:auth/server:Server example <auth_server_id>
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] audiences: The recipients that the tokens are intended for. This becomes the `aud` claim in an access token. Currently Okta only supports a single value here.
@@ -360,6 +363,7 @@ class Server(pulumi.CustomResource):
         ```sh
         $ pulumi import okta:auth/server:Server example <auth_server_id>
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ServerArgs args: The arguments to use to populate this resource's properties.

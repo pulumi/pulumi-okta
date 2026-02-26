@@ -22,6 +22,7 @@ class EventHookVerificationArgs:
                  event_hook_id: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a EventHookVerification resource.
+
         :param pulumi.Input[_builtins.str] event_hook_id: Event hook ID
         """
         pulumi.set(__self__, "event_hook_id", event_hook_id)
@@ -45,6 +46,7 @@ class _EventHookVerificationState:
                  event_hook_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering EventHookVerification resources.
+
         :param pulumi.Input[_builtins.str] event_hook_id: Event hook ID
         """
         if event_hook_id is not None:
@@ -99,6 +101,7 @@ class EventHookVerification(pulumi.CustomResource):
         example_event_hook_verification = okta.EventHookVerification("example", event_hook_id=example.id)
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] event_hook_id: Event hook ID
@@ -136,6 +139,7 @@ class EventHookVerification(pulumi.CustomResource):
             })
         example_event_hook_verification = okta.EventHookVerification("example", event_hook_id=example.id)
         ```
+
 
         :param str resource_name: The name of the resource.
         :param EventHookVerificationArgs args: The arguments to use to populate this resource's properties.

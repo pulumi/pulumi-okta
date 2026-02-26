@@ -28,6 +28,7 @@ class CustomizedSigninPageArgs:
                  widget_version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a CustomizedSigninPage resource.
+
         :param pulumi.Input[_builtins.str] brand_id: brand id of the preview signin page
         :param pulumi.Input[_builtins.str] page_content: page content of the preview signin page
         :param pulumi.Input[_builtins.str] widget_version: widget version specified as a Semver. The following are currently supported
@@ -117,6 +118,7 @@ class _CustomizedSigninPageState:
                  widget_version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering CustomizedSigninPage resources.
+
         :param pulumi.Input[_builtins.str] brand_id: brand id of the preview signin page
         :param pulumi.Input[_builtins.str] page_content: page content of the preview signin page
         :param pulumi.Input[_builtins.str] widget_version: widget version specified as a Semver. The following are currently supported
@@ -284,6 +286,7 @@ class CustomizedSigninPage(pulumi.CustomResource):
         $ pulumi import okta:index/customizedSigninPage:CustomizedSigninPage example <brand_id>
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] brand_id: brand id of the preview signin page
@@ -375,6 +378,7 @@ class CustomizedSigninPage(pulumi.CustomResource):
         ```sh
         $ pulumi import okta:index/customizedSigninPage:CustomizedSigninPage example <brand_id>
         ```
+
 
         :param str resource_name: The name of the resource.
         :param CustomizedSigninPageArgs args: The arguments to use to populate this resource's properties.

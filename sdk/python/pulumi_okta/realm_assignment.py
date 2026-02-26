@@ -27,6 +27,7 @@ class RealmAssignmentArgs:
                  status: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a RealmAssignment resource.
+
         :param pulumi.Input[_builtins.str] profile_source_id: The ID of the Profile Source.
         :param pulumi.Input[_builtins.str] realm_id: The ID of the Realm asscociated with the Realm Assignment.
         :param pulumi.Input[_builtins.str] condition_expression: Condition expression for the Realm Assignment in Okta Expression Language. Example: `user.profile.role =="Manager"` or `user.profile.state.contains("example")`.
@@ -130,6 +131,7 @@ class _RealmAssignmentState:
                  status: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering RealmAssignment resources.
+
         :param pulumi.Input[_builtins.str] condition_expression: Condition expression for the Realm Assignment in Okta Expression Language. Example: `user.profile.role =="Manager"` or `user.profile.state.contains("example")`.
         :param pulumi.Input[_builtins.bool] is_default: Indicates whether the realm assignment is the default.
         :param pulumi.Input[_builtins.str] name: The name of the Okta Realm Assignment.
@@ -278,6 +280,7 @@ class RealmAssignment(pulumi.CustomResource):
         $ pulumi import okta:index/realmAssignment:RealmAssignment example <realm_assignment_id>
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] condition_expression: Condition expression for the Realm Assignment in Okta Expression Language. Example: `user.profile.role =="Manager"` or `user.profile.state.contains("example")`.
@@ -319,6 +322,7 @@ class RealmAssignment(pulumi.CustomResource):
         ```sh
         $ pulumi import okta:index/realmAssignment:RealmAssignment example <realm_assignment_id>
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RealmAssignmentArgs args: The arguments to use to populate this resource's properties.

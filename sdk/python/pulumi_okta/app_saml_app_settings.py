@@ -23,6 +23,7 @@ class AppSamlAppSettingsArgs:
                  settings: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a AppSamlAppSettings resource.
+
         :param pulumi.Input[_builtins.str] app_id: ID of the application.
         :param pulumi.Input[_builtins.str] settings: Application settings in JSON format
         """
@@ -61,6 +62,7 @@ class _AppSamlAppSettingsState:
                  settings: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AppSamlAppSettings resources.
+
         :param pulumi.Input[_builtins.str] app_id: ID of the application.
         :param pulumi.Input[_builtins.str] settings: Application settings in JSON format
         """
@@ -139,6 +141,7 @@ class AppSamlAppSettings(pulumi.CustomResource):
         $ pulumi import okta:index/appSamlAppSettings:AppSamlAppSettings example <app_id>
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] app_id: ID of the application.
@@ -185,6 +188,7 @@ class AppSamlAppSettings(pulumi.CustomResource):
         ```sh
         $ pulumi import okta:index/appSamlAppSettings:AppSamlAppSettings example <app_id>
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AppSamlAppSettingsArgs args: The arguments to use to populate this resource's properties.

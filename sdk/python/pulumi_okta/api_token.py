@@ -29,6 +29,7 @@ class ApiTokenArgs:
                  user_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ApiToken resource.
+
         :param pulumi.Input[_builtins.str] id_property: The ID of the API token.
         :param pulumi.Input[_builtins.str] client_name: The name of the API token client.
         :param pulumi.Input[_builtins.str] created: The date and time the API token was created.
@@ -132,6 +133,7 @@ class _ApiTokenState:
                  user_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ApiToken resources.
+
         :param pulumi.Input[_builtins.str] client_name: The name of the API token client.
         :param pulumi.Input[_builtins.str] created: The date and time the API token was created.
         :param pulumi.Input[_builtins.str] id_property: The ID of the API token.
@@ -274,6 +276,7 @@ class ApiToken(pulumi.CustomResource):
         ### Import
         API tokens can be imported using their ID:
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] client_name: The name of the API token client.
@@ -324,6 +327,7 @@ class ApiToken(pulumi.CustomResource):
 
         ### Import
         API tokens can be imported using their ID:
+
 
         :param str resource_name: The name of the resource.
         :param ApiTokenArgs args: The arguments to use to populate this resource's properties.

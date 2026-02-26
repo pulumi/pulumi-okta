@@ -52,6 +52,7 @@ class SamlArgs:
                  username_template: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Saml resource.
+
         :param pulumi.Input[_builtins.str] issuer: URI that identifies the issuer.
         :param pulumi.Input[_builtins.str] kid: The ID of the signing key.
         :param pulumi.Input[_builtins.str] sso_url: URL of binding-specific endpoint to send an AuthnRequest message to IdP.
@@ -557,6 +558,7 @@ class _SamlState:
                  username_template: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Saml resources.
+
         :param pulumi.Input[_builtins.str] account_link_action: Specifies the account linking action for an IdP user. Default: `AUTO`
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] account_link_group_includes: Group memberships to determine link candidates.
         :param pulumi.Input[_builtins.str] acs_type: The type of ACS. It can be `INSTANCE` or `ORG`. Default: `INSTANCE`
@@ -1135,6 +1137,7 @@ class Saml(pulumi.CustomResource):
         $ pulumi import okta:idp/saml:Saml example <idp_id>
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_link_action: Specifies the account linking action for an IdP user. Default: `AUTO`
@@ -1202,6 +1205,7 @@ class Saml(pulumi.CustomResource):
         ```sh
         $ pulumi import okta:idp/saml:Saml example <idp_id>
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SamlArgs args: The arguments to use to populate this resource's properties.

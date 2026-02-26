@@ -25,6 +25,7 @@ class ResourceSetArgs:
                  resources_orns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ResourceSet resource.
+
         :param pulumi.Input[_builtins.str] description: A description of the Resource Set
         :param pulumi.Input[_builtins.str] label: Unique name given to the Resource Set
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] resources: The endpoints that reference the resources to be included in the new Resource Set. At least one endpoint must be specified when creating resource set.
@@ -95,6 +96,7 @@ class _ResourceSetState:
                  resources_orns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering ResourceSet resources.
+
         :param pulumi.Input[_builtins.str] description: A description of the Resource Set
         :param pulumi.Input[_builtins.str] label: Unique name given to the Resource Set
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] resources: The endpoints that reference the resources to be included in the new Resource Set. At least one endpoint must be specified when creating resource set.
@@ -186,6 +188,7 @@ class ResourceSet(pulumi.CustomResource):
         $ pulumi import okta:index/resourceSet:ResourceSet example <resource_set_id>
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: A description of the Resource Set
@@ -215,6 +218,7 @@ class ResourceSet(pulumi.CustomResource):
         ```sh
         $ pulumi import okta:index/resourceSet:ResourceSet example <resource_set_id>
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ResourceSetArgs args: The arguments to use to populate this resource's properties.

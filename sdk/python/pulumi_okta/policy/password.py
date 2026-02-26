@@ -51,6 +51,7 @@ class PasswordArgs:
                  status: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Password resource.
+
         :param pulumi.Input[_builtins.str] auth_provider: Authentication Provider: `OKTA`, `ACTIVE_DIRECTORY` or `LDAP`. Default: `OKTA`
         :param pulumi.Input[_builtins.str] call_recovery: Enable or disable voice call recovery: `ACTIVE` or `INACTIVE`. Default: `INACTIVE`
         :param pulumi.Input[_builtins.str] description: Policy Description
@@ -539,6 +540,7 @@ class _PasswordState:
                  status: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Password resources.
+
         :param pulumi.Input[_builtins.str] auth_provider: Authentication Provider: `OKTA`, `ACTIVE_DIRECTORY` or `LDAP`. Default: `OKTA`
         :param pulumi.Input[_builtins.str] call_recovery: Enable or disable voice call recovery: `ACTIVE` or `INACTIVE`. Default: `INACTIVE`
         :param pulumi.Input[_builtins.str] description: Policy Description
@@ -1052,6 +1054,7 @@ class Password(pulumi.CustomResource):
         $ pulumi import okta:policy/password:Password example <policy_id>
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] auth_provider: Authentication Provider: `OKTA`, `ACTIVE_DIRECTORY` or `LDAP`. Default: `OKTA`
@@ -1113,6 +1116,7 @@ class Password(pulumi.CustomResource):
         ```sh
         $ pulumi import okta:policy/password:Password example <policy_id>
         ```
+
 
         :param str resource_name: The name of the resource.
         :param PasswordArgs args: The arguments to use to populate this resource's properties.

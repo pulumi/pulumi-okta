@@ -25,6 +25,7 @@ class OauthRoleAssignmentArgs:
                  role: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a OauthRoleAssignment resource.
+
         :param pulumi.Input[_builtins.str] client_id: Client ID for the role to be assigned to
         :param pulumi.Input[_builtins.str] type: Role type to assign. This can be one of the standard Okta roles, such as `HELP_DESK_ADMIN`, or `CUSTOM`. Using custom requires the `resource_set` and `role` attributes to be set.
         :param pulumi.Input[_builtins.str] resource_set: Resource set for the custom role to assign, must be the ID of the created resource set.
@@ -97,6 +98,7 @@ class _OauthRoleAssignmentState:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering OauthRoleAssignment resources.
+
         :param pulumi.Input[_builtins.str] client_id: Client ID for the role to be assigned to
         :param pulumi.Input[_builtins.str] label: Label of the role assignment
         :param pulumi.Input[_builtins.str] resource_set: Resource set for the custom role to assign, must be the ID of the created resource set.
@@ -212,6 +214,7 @@ class OauthRoleAssignment(pulumi.CustomResource):
         $ pulumi import okta:app/oauthRoleAssignment:OauthRoleAssignment test <clientID>/<roleAssignmentID>
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] client_id: Client ID for the role to be assigned to
@@ -235,6 +238,7 @@ class OauthRoleAssignment(pulumi.CustomResource):
         ```sh
         $ pulumi import okta:app/oauthRoleAssignment:OauthRoleAssignment test <clientID>/<roleAssignmentID>
         ```
+
 
         :param str resource_name: The name of the resource.
         :param OauthRoleAssignmentArgs args: The arguments to use to populate this resource's properties.

@@ -28,6 +28,7 @@ class BehaviourArgs:
                  velocity: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a Behaviour resource.
+
         :param pulumi.Input[_builtins.str] type: Type of the behavior. Can be set to `ANOMALOUS_LOCATION`, `ANOMALOUS_DEVICE`, `ANOMALOUS_IP` or `VELOCITY`. Resource will be recreated when the type changes.e
         :param pulumi.Input[_builtins.str] location_granularity_type: Determines the method and level of detail used to evaluate the behavior. Required for `ANOMALOUS_LOCATION` behavior type. Can be set to `LAT_LONG`, `CITY`, `COUNTRY` or `SUBDIVISION`.
         :param pulumi.Input[_builtins.str] name: Name of the behavior
@@ -147,6 +148,7 @@ class _BehaviourState:
                  velocity: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering Behaviour resources.
+
         :param pulumi.Input[_builtins.str] location_granularity_type: Determines the method and level of detail used to evaluate the behavior. Required for `ANOMALOUS_LOCATION` behavior type. Can be set to `LAT_LONG`, `CITY`, `COUNTRY` or `SUBDIVISION`.
         :param pulumi.Input[_builtins.str] name: Name of the behavior
         :param pulumi.Input[_builtins.int] number_of_authentications: The number of recent authentications used to evaluate the behavior. Required for `ANOMALOUS_LOCATION`, `ANOMALOUS_DEVICE` and `ANOMALOUS_IP` behavior types.
@@ -309,6 +311,7 @@ class Behaviour(pulumi.CustomResource):
         $ pulumi import okta:index/behaviour:Behaviour example <behavior_id>
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] location_granularity_type: Determines the method and level of detail used to evaluate the behavior. Required for `ANOMALOUS_LOCATION` behavior type. Can be set to `LAT_LONG`, `CITY`, `COUNTRY` or `SUBDIVISION`.
@@ -364,6 +367,7 @@ class Behaviour(pulumi.CustomResource):
         ```sh
         $ pulumi import okta:index/behaviour:Behaviour example <behavior_id>
         ```
+
 
         :param str resource_name: The name of the resource.
         :param BehaviourArgs args: The arguments to use to populate this resource's properties.

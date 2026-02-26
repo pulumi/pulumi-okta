@@ -24,6 +24,7 @@ class RoleSubscriptionArgs:
                  status: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a RoleSubscription resource.
+
         :param pulumi.Input[_builtins.str] notification_type: Type of the notification. Valid values: 
                	- 'CONNECTOR_AGENT' -  Disconnects and reconnects: On-prem provisioning, on-prem MFA agents, and RADIUS server agent.
                	- 'USER_LOCKED_OUT' - User lockouts.
@@ -126,6 +127,7 @@ class _RoleSubscriptionState:
                  status: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering RoleSubscription resources.
+
         :param pulumi.Input[_builtins.str] notification_type: Type of the notification. Valid values: 
                	- 'CONNECTOR_AGENT' -  Disconnects and reconnects: On-prem provisioning, on-prem MFA agents, and RADIUS server agent.
                	- 'USER_LOCKED_OUT' - User lockouts.
@@ -257,6 +259,7 @@ class RoleSubscription(pulumi.CustomResource):
         $ pulumi import okta:index/roleSubscription:RoleSubscription example <role_type>/<notification_type>
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] notification_type: Type of the notification. Valid values: 
@@ -317,6 +320,7 @@ class RoleSubscription(pulumi.CustomResource):
         ```sh
         $ pulumi import okta:index/roleSubscription:RoleSubscription example <role_type>/<notification_type>
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RoleSubscriptionArgs args: The arguments to use to populate this resource's properties.

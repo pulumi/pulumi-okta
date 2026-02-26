@@ -48,6 +48,7 @@ class ThreeFieldArgs:
                  user_name_template_type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ThreeField resource.
+
         :param pulumi.Input[_builtins.str] button_selector: Login button field CSS selector
         :param pulumi.Input[_builtins.str] extra_field_selector: Extra field CSS selector
         :param pulumi.Input[_builtins.str] extra_field_value: Value for extra form field
@@ -484,6 +485,7 @@ class _ThreeFieldState:
                  username_selector: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ThreeField resources.
+
         :param pulumi.Input[_builtins.str] accessibility_error_redirect_url: Custom error page URL
         :param pulumi.Input[_builtins.str] accessibility_login_redirect_url: Custom login page URL
         :param pulumi.Input[_builtins.bool] accessibility_self_service: Enable self service. Default is `false`
@@ -998,6 +1000,7 @@ class ThreeField(pulumi.CustomResource):
         $ pulumi import okta:app/threeField:ThreeField example <app_id>
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] accessibility_error_redirect_url: Custom error page URL
@@ -1060,6 +1063,7 @@ class ThreeField(pulumi.CustomResource):
         ```sh
         $ pulumi import okta:app/threeField:ThreeField example <app_id>
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ThreeFieldArgs args: The arguments to use to populate this resource's properties.

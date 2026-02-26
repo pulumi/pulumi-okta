@@ -24,6 +24,7 @@ class UiSchemaArgs:
                  ui_schema: Optional[pulumi.Input['UiSchemaUiSchemaArgs']] = None):
         """
         The set of arguments for constructing a UiSchema resource.
+
         :param pulumi.Input['UiSchemaUiSchemaArgs'] ui_schema: Properties of the UI schema.
         """
         if ui_schema is not None:
@@ -48,6 +49,7 @@ class _UiSchemaState:
                  ui_schema: Optional[pulumi.Input['UiSchemaUiSchemaArgs']] = None):
         """
         Input properties used for looking up and filtering UiSchema resources.
+
         :param pulumi.Input['UiSchemaUiSchemaArgs'] ui_schema: Properties of the UI schema.
         """
         if ui_schema is not None:
@@ -98,6 +100,7 @@ class UiSchema(pulumi.CustomResource):
         $ pulumi import okta:index/uiSchema:UiSchema example <ui_schema_id>
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['UiSchemaUiSchemaArgs', 'UiSchemaUiSchemaArgsDict']] ui_schema: Properties of the UI schema.
@@ -131,6 +134,7 @@ class UiSchema(pulumi.CustomResource):
         ```sh
         $ pulumi import okta:index/uiSchema:UiSchema example <ui_schema_id>
         ```
+
 
         :param str resource_name: The name of the resource.
         :param UiSchemaArgs args: The arguments to use to populate this resource's properties.

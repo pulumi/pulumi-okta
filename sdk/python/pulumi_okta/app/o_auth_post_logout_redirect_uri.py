@@ -23,6 +23,7 @@ class OAuthPostLogoutRedirectUriArgs:
                  uri: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a OAuthPostLogoutRedirectUri resource.
+
         :param pulumi.Input[_builtins.str] app_id: OAuth application ID.
         :param pulumi.Input[_builtins.str] uri: Post Logout Redirect URI to append to Okta OIDC application.
         """
@@ -61,6 +62,7 @@ class _OAuthPostLogoutRedirectUriState:
                  uri: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering OAuthPostLogoutRedirectUri resources.
+
         :param pulumi.Input[_builtins.str] app_id: OAuth application ID.
         :param pulumi.Input[_builtins.str] uri: Post Logout Redirect URI to append to Okta OIDC application.
         """
@@ -134,6 +136,7 @@ class OAuthPostLogoutRedirectUri(pulumi.CustomResource):
         $ pulumi import okta:app/oAuthPostLogoutRedirectUri:OAuthPostLogoutRedirectUri example <app_id>/<uri>
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] app_id: OAuth application ID.
@@ -175,6 +178,7 @@ class OAuthPostLogoutRedirectUri(pulumi.CustomResource):
         ```sh
         $ pulumi import okta:app/oAuthPostLogoutRedirectUri:OAuthPostLogoutRedirectUri example <app_id>/<uri>
         ```
+
 
         :param str resource_name: The name of the resource.
         :param OAuthPostLogoutRedirectUriArgs args: The arguments to use to populate this resource's properties.

@@ -26,6 +26,7 @@ class DomainCertificateArgs:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a DomainCertificate resource.
+
         :param pulumi.Input[_builtins.str] certificate: Certificate content
         :param pulumi.Input[_builtins.str] certificate_chain: Certificate chain
         :param pulumi.Input[_builtins.str] domain_id: Domain's ID
@@ -110,6 +111,7 @@ class _DomainCertificateState:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering DomainCertificate resources.
+
         :param pulumi.Input[_builtins.str] certificate: Certificate content
         :param pulumi.Input[_builtins.str] certificate_chain: Certificate chain
         :param pulumi.Input[_builtins.str] domain_id: Domain's ID
@@ -255,6 +257,7 @@ class DomainCertificate(pulumi.CustomResource):
         `certificate_chain` | `chain.pem`
         `private_key`       | `privkey.pem`
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] certificate: Certificate content
@@ -323,6 +326,7 @@ class DomainCertificate(pulumi.CustomResource):
         `certificate`       | `cert.pem`
         `certificate_chain` | `chain.pem`
         `private_key`       | `privkey.pem`
+
 
         :param str resource_name: The name of the resource.
         :param DomainCertificateArgs args: The arguments to use to populate this resource's properties.

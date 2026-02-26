@@ -23,6 +23,7 @@ class CaptchaOrgWideSettingsArgs:
                  enabled_fors: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a CaptchaOrgWideSettings resource.
+
         :param pulumi.Input[_builtins.str] captcha_id: Array of pages that have CAPTCHA enabled. Valid values: `SSR`, `SSPR` and `SIGN_IN`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] enabled_fors: Set of pages that have CAPTCHA enabled
         """
@@ -63,6 +64,7 @@ class _CaptchaOrgWideSettingsState:
                  enabled_fors: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering CaptchaOrgWideSettings resources.
+
         :param pulumi.Input[_builtins.str] captcha_id: Array of pages that have CAPTCHA enabled. Valid values: `SSR`, `SSPR` and `SIGN_IN`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] enabled_fors: Set of pages that have CAPTCHA enabled
         """
@@ -117,6 +119,7 @@ class CaptchaOrgWideSettings(pulumi.CustomResource):
         $ pulumi import okta:index/captchaOrgWideSettings:CaptchaOrgWideSettings example _
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] captcha_id: Array of pages that have CAPTCHA enabled. Valid values: `SSR`, `SSPR` and `SIGN_IN`.
@@ -139,6 +142,7 @@ class CaptchaOrgWideSettings(pulumi.CustomResource):
         ```sh
         $ pulumi import okta:index/captchaOrgWideSettings:CaptchaOrgWideSettings example _
         ```
+
 
         :param str resource_name: The name of the resource.
         :param CaptchaOrgWideSettingsArgs args: The arguments to use to populate this resource's properties.

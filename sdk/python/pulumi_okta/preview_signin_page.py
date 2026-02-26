@@ -28,6 +28,7 @@ class PreviewSigninPageArgs:
                  widget_version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a PreviewSigninPage resource.
+
         :param pulumi.Input[_builtins.str] brand_id: brand id of the preview signin page
         :param pulumi.Input[_builtins.str] page_content: page content of the preview signin page
         :param pulumi.Input[_builtins.str] widget_version: widget version specified as a Semver. The following are currently supported
@@ -117,6 +118,7 @@ class _PreviewSigninPageState:
                  widget_version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering PreviewSigninPage resources.
+
         :param pulumi.Input[_builtins.str] brand_id: brand id of the preview signin page
         :param pulumi.Input[_builtins.str] page_content: page content of the preview signin page
         :param pulumi.Input[_builtins.str] widget_version: widget version specified as a Semver. The following are currently supported
@@ -278,6 +280,7 @@ class PreviewSigninPage(pulumi.CustomResource):
             })
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] brand_id: brand id of the preview signin page
@@ -363,6 +366,7 @@ class PreviewSigninPage(pulumi.CustomResource):
                 "widget_generation": "G3",
             })
         ```
+
 
         :param str resource_name: The name of the resource.
         :param PreviewSigninPageArgs args: The arguments to use to populate this resource's properties.

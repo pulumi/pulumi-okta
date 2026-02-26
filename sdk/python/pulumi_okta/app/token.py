@@ -23,6 +23,7 @@ class TokenArgs:
                  id_property: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a Token resource.
+
         :param pulumi.Input[_builtins.str] client_id: The unique Okta ID of the application associated with this token. This is typically the `client_id` of an refresh application.
         :param pulumi.Input[_builtins.str] id_property: The unique Okta ID of the refresh token.
         """
@@ -63,6 +64,7 @@ class _TokenState:
                  user_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Token resources.
+
         :param pulumi.Input[_builtins.str] client_id: The unique Okta ID of the application associated with this token. This is typically the `client_id` of an refresh application.
         :param pulumi.Input[_builtins.str] id_property: The unique Okta ID of the refresh token.
         :param pulumi.Input[_builtins.str] status: The current status of the token (e.g., `ACTIVE`, `REVOKED`).
@@ -160,9 +162,14 @@ class Token(pulumi.CustomResource):
 
         Refresh tokens can be imported using the format `{client_id}/{token_id}`:
 
+        ```sh
+        $ pulumi import okta:app/token:Token example 0oardd5r32PWsF4421d7/oar1godmqw4QUiX4C1d7
+        ```
+
         Where:
         - `0oardd5r32PWsF4421d7` is the application's client_id
         - `oar1godmqw4QUiX4C1d7` is the Refresh token ID
+
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -200,9 +207,14 @@ class Token(pulumi.CustomResource):
 
         Refresh tokens can be imported using the format `{client_id}/{token_id}`:
 
+        ```sh
+        $ pulumi import okta:app/token:Token example 0oardd5r32PWsF4421d7/oar1godmqw4QUiX4C1d7
+        ```
+
         Where:
         - `0oardd5r32PWsF4421d7` is the application's client_id
         - `oar1godmqw4QUiX4C1d7` is the Refresh token ID
+
 
         :param str resource_name: The name of the resource.
         :param TokenArgs args: The arguments to use to populate this resource's properties.

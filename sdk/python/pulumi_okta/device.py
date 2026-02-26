@@ -22,6 +22,7 @@ class DeviceArgs:
                  action: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Device resource.
+
         :param pulumi.Input[_builtins.str] action: The action of the device.
         """
         if action is not None:
@@ -48,6 +49,7 @@ class _DeviceState:
                  status: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Device resources.
+
         :param pulumi.Input[_builtins.str] action: The action of the device.
         :param pulumi.Input[_builtins.str] resource_type: The resource type of the device.
         :param pulumi.Input[_builtins.str] status: The status of the device.
@@ -124,6 +126,7 @@ class Device(pulumi.CustomResource):
         $ pulumi import okta:index/device:Device example <device_id>
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] action: The action of the device.
@@ -153,6 +156,7 @@ class Device(pulumi.CustomResource):
         ```sh
         $ pulumi import okta:index/device:Device example <device_id>
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DeviceArgs args: The arguments to use to populate this resource's properties.

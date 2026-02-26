@@ -44,6 +44,7 @@ class AppUserSchemaPropertyArgs:
                  user_type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a AppUserSchemaProperty resource.
+
         :param pulumi.Input[_builtins.str] app_id: The Application's ID the user custom schema property should be assigned to.
         :param pulumi.Input[_builtins.str] index: Subschema unique string identifier
         :param pulumi.Input[_builtins.str] title: Subschema title (display name)
@@ -392,6 +393,7 @@ class _AppUserSchemaPropertyState:
                  user_type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AppUserSchemaProperty resources.
+
         :param pulumi.Input[_builtins.str] app_id: The Application's ID the user custom schema property should be assigned to.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] array_enums: Array of values that an array property's items can be set to.
         :param pulumi.Input[Sequence[pulumi.Input['AppUserSchemaPropertyArrayOneOfArgs']]] array_one_ofs: Display name and value an enum array can be set to.
@@ -792,6 +794,7 @@ class AppUserSchemaProperty(pulumi.CustomResource):
         $ pulumi import okta:index/appUserSchemaProperty:AppUserSchemaProperty example <app_id>/<property_name>
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] app_id: The Application's ID the user custom schema property should be assigned to.
@@ -871,6 +874,7 @@ class AppUserSchemaProperty(pulumi.CustomResource):
         ```sh
         $ pulumi import okta:index/appUserSchemaProperty:AppUserSchemaProperty example <app_id>/<property_name>
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AppUserSchemaPropertyArgs args: The arguments to use to populate this resource's properties.

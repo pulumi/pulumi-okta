@@ -23,6 +23,7 @@ class RequestSequenceArgs:
                  resource_id: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a RequestSequence resource.
+
         :param pulumi.Input[_builtins.str] id_property: The id of the sequence.Must be of 24 characters length.
         :param pulumi.Input[_builtins.str] resource_id: The id of the resource in Okta ID format.
         """
@@ -65,6 +66,7 @@ class _RequestSequenceState:
                  resource_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering RequestSequence resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] compatible_resource_types: Enum: `APP`, `GROUP`.
         :param pulumi.Input[_builtins.str] description: The description of the request condition.
         :param pulumi.Input[_builtins.str] id_property: The id of the sequence.Must be of 24 characters length.
@@ -187,6 +189,7 @@ class RequestSequence(pulumi.CustomResource):
         $ pulumi import okta:index/requestSequence:RequestSequence example <resource_id>/<id>
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] id_property: The id of the sequence.Must be of 24 characters length.
@@ -217,6 +220,7 @@ class RequestSequence(pulumi.CustomResource):
         ```sh
         $ pulumi import okta:index/requestSequence:RequestSequence example <resource_id>/<id>
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RequestSequenceArgs args: The arguments to use to populate this resource's properties.

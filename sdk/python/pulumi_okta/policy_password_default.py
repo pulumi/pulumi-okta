@@ -45,6 +45,7 @@ class PolicyPasswordDefaultArgs:
                  sms_recovery: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a PolicyPasswordDefault resource.
+
         :param pulumi.Input[_builtins.str] call_recovery: Enable or disable voice call recovery: ACTIVE or INACTIVE. Default: `INACTIVE`
         :param pulumi.Input[_builtins.str] email_recovery: Enable or disable email password recovery: ACTIVE or INACTIVE. Default: `ACTIVE`
         :param pulumi.Input[_builtins.int] password_auto_unlock_minutes: Number of minutes before a locked account is unlocked: 0 = no limit. Default: `0`
@@ -443,6 +444,7 @@ class _PolicyPasswordDefaultState:
                  status: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering PolicyPasswordDefault resources.
+
         :param pulumi.Input[_builtins.str] call_recovery: Enable or disable voice call recovery: ACTIVE or INACTIVE. Default: `INACTIVE`
         :param pulumi.Input[_builtins.str] default_auth_provider: Default Authentication Provider
         :param pulumi.Input[_builtins.str] default_included_group_id: Default group ID (always included)
@@ -945,6 +947,7 @@ class PolicyPasswordDefault(pulumi.CustomResource):
         $ pulumi import okta:index/policyPasswordDefault:PolicyPasswordDefault example .
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] call_recovery: Enable or disable voice call recovery: ACTIVE or INACTIVE. Default: `INACTIVE`
@@ -995,6 +998,7 @@ class PolicyPasswordDefault(pulumi.CustomResource):
         ```sh
         $ pulumi import okta:index/policyPasswordDefault:PolicyPasswordDefault example .
         ```
+
 
         :param str resource_name: The name of the resource.
         :param PolicyPasswordDefaultArgs args: The arguments to use to populate this resource's properties.

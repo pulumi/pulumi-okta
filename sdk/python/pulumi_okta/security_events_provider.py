@@ -27,6 +27,7 @@ class SecurityEventsProviderArgs:
                  settings: Optional[pulumi.Input['SecurityEventsProviderSettingsArgs']] = None):
         """
         The set of arguments for constructing a SecurityEventsProvider resource.
+
         :param pulumi.Input[_builtins.str] is_enabled: Whether or not the Security Events Provider is enabled. Valid values: `ACTIVE`, `INACTIVE`.
         :param pulumi.Input[_builtins.str] type: The application type of the Security Events Provider.
         :param pulumi.Input[_builtins.str] name: The name of the Security Events Provider instance.
@@ -98,6 +99,7 @@ class _SecurityEventsProviderState:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SecurityEventsProvider resources.
+
         :param pulumi.Input[_builtins.str] is_enabled: Whether or not the Security Events Provider is enabled. Valid values: `ACTIVE`, `INACTIVE`.
         :param pulumi.Input[_builtins.str] name: The name of the Security Events Provider instance.
         :param pulumi.Input['SecurityEventsProviderSettingsArgs'] settings: Information about the Security Events Provider for signal ingestion.
@@ -229,6 +231,7 @@ class SecurityEventsProvider(pulumi.CustomResource):
         $ pulumi import okta:index/securityEventsProvider:SecurityEventsProvider example <security_events_provider_id>
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] is_enabled: Whether or not the Security Events Provider is enabled. Valid values: `ACTIVE`, `INACTIVE`.
@@ -283,6 +286,7 @@ class SecurityEventsProvider(pulumi.CustomResource):
         ```sh
         $ pulumi import okta:index/securityEventsProvider:SecurityEventsProvider example <security_events_provider_id>
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SecurityEventsProviderArgs args: The arguments to use to populate this resource's properties.

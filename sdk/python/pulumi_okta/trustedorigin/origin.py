@@ -25,6 +25,7 @@ class OriginArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Origin resource.
+
         :param pulumi.Input[_builtins.str] origin: Unique origin URL for this trusted origin
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] scopes: Scopes of the Trusted Origin - can either be `CORS` and/or `REDIRECT`
         :param pulumi.Input[_builtins.bool] active: Whether the Trusted Origin is active or not - can only be issued post-creation. By default, it is `true`.
@@ -95,6 +96,7 @@ class _OriginState:
                  scopes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Origin resources.
+
         :param pulumi.Input[_builtins.bool] active: Whether the Trusted Origin is active or not - can only be issued post-creation. By default, it is `true`.
         :param pulumi.Input[_builtins.str] name: Unique name for this trusted origin
         :param pulumi.Input[_builtins.str] origin: Unique origin URL for this trusted origin
@@ -190,6 +192,7 @@ class Origin(pulumi.CustomResource):
         $ pulumi import okta:trustedorigin/origin:Origin example <trusted_origin_id>
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] active: Whether the Trusted Origin is active or not - can only be issued post-creation. By default, it is `true`.
@@ -223,6 +226,7 @@ class Origin(pulumi.CustomResource):
         ```sh
         $ pulumi import okta:trustedorigin/origin:Origin example <trusted_origin_id>
         ```
+
 
         :param str resource_name: The name of the resource.
         :param OriginArgs args: The arguments to use to populate this resource's properties.

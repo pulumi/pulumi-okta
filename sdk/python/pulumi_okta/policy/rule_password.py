@@ -32,6 +32,7 @@ class RulePasswordArgs:
                  users_excludeds: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a RulePassword resource.
+
         :param pulumi.Input[_builtins.str] name: Policy Rule Name
         :param pulumi.Input[_builtins.str] network_connection: Network selection mode: `ANYWHERE`, `ZONE`, `ON_NETWORK`, or `OFF_NETWORK`. Default: `ANYWHERE`
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] network_excludes: Required if `network_connection` = `ZONE`. Indicates the network zones to exclude.
@@ -216,6 +217,7 @@ class _RulePasswordState:
                  users_excludeds: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering RulePassword resources.
+
         :param pulumi.Input[_builtins.str] name: Policy Rule Name
         :param pulumi.Input[_builtins.str] network_connection: Network selection mode: `ANYWHERE`, `ZONE`, `ON_NETWORK`, or `OFF_NETWORK`. Default: `ANYWHERE`
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] network_excludes: Required if `network_connection` = `ZONE`. Indicates the network zones to exclude.
@@ -411,6 +413,7 @@ class RulePassword(pulumi.CustomResource):
         $ pulumi import okta:policy/rulePassword:RulePassword example <policy_id>/<rule_id>
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: Policy Rule Name
@@ -439,6 +442,7 @@ class RulePassword(pulumi.CustomResource):
         ```sh
         $ pulumi import okta:policy/rulePassword:RulePassword example <policy_id>/<rule_id>
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RulePasswordArgs args: The arguments to use to populate this resource's properties.

@@ -26,6 +26,7 @@ class RequestV2Args:
                  requester_field_values: Optional[pulumi.Input[Sequence[pulumi.Input['RequestV2RequesterFieldValueArgs']]]] = None):
         """
         The set of arguments for constructing a RequestV2 resource.
+
         :param pulumi.Input['RequestV2RequestedArgs'] requested: A representation of a resource that can be requested for access.
         :param pulumi.Input['RequestV2RequestedForArgs'] requested_for: A representation of a principal.
         :param pulumi.Input[Sequence[pulumi.Input['RequestV2RequesterFieldValueArgs']]] requester_field_values: The requester input fields required by the approval system.
@@ -94,6 +95,7 @@ class _RequestV2State:
                  status: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering RequestV2 resources.
+
         :param pulumi.Input[_builtins.str] access_duration: How long the requester retains access after their request is approved and fulfilled.
         :param pulumi.Input[_builtins.str] created: The date and time when the request condition was created.
         :param pulumi.Input[_builtins.str] created_by: The id of the user who created the request condition.
@@ -358,6 +360,7 @@ class RequestV2(pulumi.CustomResource):
         $ pulumi import okta:index/requestV2:RequestV2 example <request_id>
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['RequestV2RequestedArgs', 'RequestV2RequestedArgsDict']] requested: A representation of a resource that can be requested for access.
@@ -395,6 +398,7 @@ class RequestV2(pulumi.CustomResource):
         ```sh
         $ pulumi import okta:index/requestV2:RequestV2 example <request_id>
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RequestV2Args args: The arguments to use to populate this resource's properties.

@@ -30,6 +30,7 @@ class ServerClaimArgs:
                  value_type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ServerClaim resource.
+
         :param pulumi.Input[_builtins.str] auth_server_id: ID of the authorization server.
         :param pulumi.Input[_builtins.str] claim_type: Specifies whether the claim is for an access token `RESOURCE` or ID token `IDENTITY`.
         :param pulumi.Input[_builtins.str] value: The value of the claim.
@@ -179,6 +180,7 @@ class _ServerClaimState:
                  value_type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ServerClaim resources.
+
         :param pulumi.Input[_builtins.bool] always_include_in_token: Specifies whether to include claims in token, by default it is set to `true`.
         :param pulumi.Input[_builtins.str] auth_server_id: ID of the authorization server.
         :param pulumi.Input[_builtins.str] claim_type: Specifies whether the claim is for an access token `RESOURCE` or ID token `IDENTITY`.
@@ -356,6 +358,7 @@ class ServerClaim(pulumi.CustomResource):
         $ pulumi import okta:auth/serverClaim:ServerClaim example <auth_server_id>/<claim_id>
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] always_include_in_token: Specifies whether to include claims in token, by default it is set to `true`.
@@ -396,6 +399,7 @@ class ServerClaim(pulumi.CustomResource):
         ```sh
         $ pulumi import okta:auth/serverClaim:ServerClaim example <auth_server_id>/<claim_id>
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ServerClaimArgs args: The arguments to use to populate this resource's properties.

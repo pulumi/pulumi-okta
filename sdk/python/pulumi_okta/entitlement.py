@@ -32,6 +32,7 @@ class EntitlementArgs:
                  values: Optional[pulumi.Input[Sequence[pulumi.Input['EntitlementValueArgs']]]] = None):
         """
         The set of arguments for constructing a Entitlement resource.
+
         :param pulumi.Input[_builtins.str] data_type: The data type of the entitlement property. If the entitlement property is multivalued, the data type is replaced with an array. Enum: "array", "string".
         :param pulumi.Input[_builtins.str] external_value: The value of an entitlement property.
         :param pulumi.Input[_builtins.bool] multi_value: The property that determines if the entitlement property can hold multiple values.
@@ -177,6 +178,7 @@ class _EntitlementState:
                  values: Optional[pulumi.Input[Sequence[pulumi.Input['EntitlementValueArgs']]]] = None):
         """
         Input properties used for looking up and filtering Entitlement resources.
+
         :param pulumi.Input[_builtins.str] data_type: The data type of the entitlement property. If the entitlement property is multivalued, the data type is replaced with an array. Enum: "array", "string".
         :param pulumi.Input[_builtins.str] description: The description of an entitlement property.
         :param pulumi.Input[_builtins.str] external_value: The value of an entitlement property.
@@ -345,6 +347,7 @@ class Entitlement(pulumi.CustomResource):
         $ pulumi import okta:index/entitlement:Entitlement example <entitlement_id>
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] data_type: The data type of the entitlement property. If the entitlement property is multivalued, the data type is replaced with an array. Enum: "array", "string".
@@ -379,6 +382,7 @@ class Entitlement(pulumi.CustomResource):
         ```sh
         $ pulumi import okta:index/entitlement:Entitlement example <entitlement_id>
         ```
+
 
         :param str resource_name: The name of the resource.
         :param EntitlementArgs args: The arguments to use to populate this resource's properties.

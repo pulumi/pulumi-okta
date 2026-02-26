@@ -25,6 +25,7 @@ class GroupArgs:
                  skip_users: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a Group resource.
+
         :param pulumi.Input[_builtins.str] custom_profile_attributes: JSON formatted custom attributes for a group. It must be JSON due to various types Okta allows.
         :param pulumi.Input[_builtins.str] description: The description of the Okta Group.
         :param pulumi.Input[_builtins.str] name: The name of the Okta Group.
@@ -101,6 +102,7 @@ class _GroupState:
                  skip_users: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering Group resources.
+
         :param pulumi.Input[_builtins.str] custom_profile_attributes: JSON formatted custom attributes for a group. It must be JSON due to various types Okta allows.
         :param pulumi.Input[_builtins.str] description: The description of the Okta Group.
         :param pulumi.Input[_builtins.str] name: The name of the Okta Group.
@@ -188,6 +190,7 @@ class Group(pulumi.CustomResource):
         $ pulumi import okta:group/group:Group example <group_id>
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] custom_profile_attributes: JSON formatted custom attributes for a group. It must be JSON due to various types Okta allows.
@@ -209,6 +212,7 @@ class Group(pulumi.CustomResource):
         ```sh
         $ pulumi import okta:group/group:Group example <group_id>
         ```
+
 
         :param str resource_name: The name of the resource.
         :param GroupArgs args: The arguments to use to populate this resource's properties.

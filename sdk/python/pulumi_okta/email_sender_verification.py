@@ -22,6 +22,7 @@ class EmailSenderVerificationArgs:
                  sender_id: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a EmailSenderVerification resource.
+
         :param pulumi.Input[_builtins.str] sender_id: Email sender ID
         """
         pulumi.set(__self__, "sender_id", sender_id)
@@ -45,6 +46,7 @@ class _EmailSenderVerificationState:
                  sender_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering EmailSenderVerification resources.
+
         :param pulumi.Input[_builtins.str] sender_id: Email sender ID
         """
         if sender_id is not None:
@@ -89,6 +91,7 @@ class EmailSenderVerification(pulumi.CustomResource):
         example_email_sender_verification = okta.EmailSenderVerification("example", sender_id=valid["id"])
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] sender_id: Email sender ID
@@ -116,6 +119,7 @@ class EmailSenderVerification(pulumi.CustomResource):
             subdomain="mail")
         example_email_sender_verification = okta.EmailSenderVerification("example", sender_id=valid["id"])
         ```
+
 
         :param str resource_name: The name of the resource.
         :param EmailSenderVerificationArgs args: The arguments to use to populate this resource's properties.

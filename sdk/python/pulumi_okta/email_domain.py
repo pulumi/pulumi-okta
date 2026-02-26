@@ -27,6 +27,7 @@ class EmailDomainArgs:
                  user_name: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a EmailDomain resource.
+
         :param pulumi.Input[_builtins.str] brand_id: Brand id of the email domain.
         :param pulumi.Input[_builtins.str] display_name: Display name of the email domain.
         :param pulumi.Input[_builtins.str] domain: Mail domain to send from.
@@ -97,6 +98,7 @@ class _EmailDomainState:
                  validation_status: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering EmailDomain resources.
+
         :param pulumi.Input[_builtins.str] brand_id: Brand id of the email domain.
         :param pulumi.Input[_builtins.str] display_name: Display name of the email domain.
         :param pulumi.Input[Sequence[pulumi.Input['EmailDomainDnsValidationRecordArgs']]] dns_validation_records: TXT and cname records to be registered for the email Domain
@@ -225,6 +227,7 @@ class EmailDomain(pulumi.CustomResource):
         $ pulumi import okta:index/emailDomain:EmailDomain example <domain_id>
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] brand_id: Brand id of the email domain.
@@ -261,6 +264,7 @@ class EmailDomain(pulumi.CustomResource):
         ```sh
         $ pulumi import okta:index/emailDomain:EmailDomain example <domain_id>
         ```
+
 
         :param str resource_name: The name of the resource.
         :param EmailDomainArgs args: The arguments to use to populate this resource's properties.

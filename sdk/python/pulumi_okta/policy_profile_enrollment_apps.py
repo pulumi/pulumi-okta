@@ -23,6 +23,7 @@ class PolicyProfileEnrollmentAppsArgs:
                  apps: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a PolicyProfileEnrollmentApps resource.
+
         :param pulumi.Input[_builtins.str] policy_id: ID of the enrollment policy.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] apps: List of app IDs to be added to this policy
         """
@@ -63,6 +64,7 @@ class _PolicyProfileEnrollmentAppsState:
                  policy_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering PolicyProfileEnrollmentApps resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] apps: List of app IDs to be added to this policy
         :param pulumi.Input[_builtins.str] default_policy_id: ID of the Default Enrollment Policy. This policy is used as a policy to re-assign apps to when they are unassigned from this one
         :param pulumi.Input[_builtins.str] policy_id: ID of the enrollment policy.
@@ -149,6 +151,7 @@ class PolicyProfileEnrollmentApps(pulumi.CustomResource):
         $ pulumi import okta:index/policyProfileEnrollmentApps:PolicyProfileEnrollmentApps example <policy_id>
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] apps: List of app IDs to be added to this policy
@@ -188,6 +191,7 @@ class PolicyProfileEnrollmentApps(pulumi.CustomResource):
         ```sh
         $ pulumi import okta:index/policyProfileEnrollmentApps:PolicyProfileEnrollmentApps example <policy_id>
         ```
+
 
         :param str resource_name: The name of the resource.
         :param PolicyProfileEnrollmentAppsArgs args: The arguments to use to populate this resource's properties.

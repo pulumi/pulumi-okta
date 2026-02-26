@@ -28,6 +28,7 @@ class EmailCustomizationArgs:
                  subject: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a EmailCustomization resource.
+
         :param pulumi.Input[_builtins.str] brand_id: Brand ID
         :param pulumi.Input[_builtins.str] template_name: Template Name - Example values: `AccountLockout`,`ADForgotPassword`,`ADForgotPasswordDenied`,`ADSelfServiceUnlock`,`ADUserActivation`,`AuthenticatorEnrolled`,`AuthenticatorReset`,`ChangeEmailConfirmation`,`EmailChallenge`,`EmailChangeConfirmation`,`EmailFactorVerification`,`ForgotPassword`,`ForgotPasswordDenied`,`IGAReviewerEndNotification`,`IGAReviewerNotification`,`IGAReviewerPendingNotification`,`IGAReviewerReassigned`,`LDAPForgotPassword`,`LDAPForgotPasswordDenied`,`LDAPSelfServiceUnlock`,`LDAPUserActivation`,`MyAccountChangeConfirmation`,`NewSignOnNotification`,`OktaVerifyActivation`,`PasswordChanged`,`PasswordResetByAdmin`,`PendingEmailChange`,`RegistrationActivation`,`RegistrationEmailVerification`,`SelfServiceUnlock`,`SelfServiceUnlockOnUnlockedAccount`,`UserActivation`
         :param pulumi.Input[_builtins.str] body: The body of the customization
@@ -151,6 +152,7 @@ class _EmailCustomizationState:
                  template_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering EmailCustomization resources.
+
         :param pulumi.Input[_builtins.str] body: The body of the customization
         :param pulumi.Input[_builtins.str] brand_id: Brand ID
         :param pulumi.Input[_builtins.str] force_is_default: Force is_default on the create and delete by deleting all email customizations. Comma separated string with values of 'create' or 'destroy' or both `create,destroy'.
@@ -354,6 +356,7 @@ class EmailCustomization(pulumi.CustomResource):
         $ pulumi import okta:index/emailCustomization:EmailCustomization example <customization_id>/<brand_id>/<template_name>
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] body: The body of the customization
@@ -431,6 +434,7 @@ class EmailCustomization(pulumi.CustomResource):
         ```sh
         $ pulumi import okta:index/emailCustomization:EmailCustomization example <customization_id>/<brand_id>/<template_name>
         ```
+
 
         :param str resource_name: The name of the resource.
         :param EmailCustomizationArgs args: The arguments to use to populate this resource's properties.

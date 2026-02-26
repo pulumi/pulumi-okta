@@ -24,6 +24,7 @@ class FederatedClaimArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a FederatedClaim resource.
+
         :param pulumi.Input[_builtins.str] app_id: The ID of the application to add the federated claim to.
         :param pulumi.Input[_builtins.str] expression: The Okta Expression Language expression to be evaluated at runtime. See [Okta Expression Language](https://developer.okta.com/docs/reference/okta-expression-language/) for more information.
         :param pulumi.Input[_builtins.str] name: The name of the claim to be used in the produced token.
@@ -78,6 +79,7 @@ class _FederatedClaimState:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering FederatedClaim resources.
+
         :param pulumi.Input[_builtins.str] app_id: The ID of the application to add the federated claim to.
         :param pulumi.Input[_builtins.str] expression: The Okta Expression Language expression to be evaluated at runtime. See [Okta Expression Language](https://developer.okta.com/docs/reference/okta-expression-language/) for more information.
         :param pulumi.Input[_builtins.str] name: The name of the claim to be used in the produced token.
@@ -209,6 +211,7 @@ class FederatedClaim(pulumi.CustomResource):
         $ pulumi import okta:app/federatedClaim:FederatedClaim example 0oa1234567890abcdef/clm1234567890abcdef
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] app_id: The ID of the application to add the federated claim to.
@@ -293,6 +296,7 @@ class FederatedClaim(pulumi.CustomResource):
         ```sh
         $ pulumi import okta:app/federatedClaim:FederatedClaim example 0oa1234567890abcdef/clm1234567890abcdef
         ```
+
 
         :param str resource_name: The name of the resource.
         :param FederatedClaimArgs args: The arguments to use to populate this resource's properties.

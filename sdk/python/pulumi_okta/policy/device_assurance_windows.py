@@ -46,6 +46,7 @@ class DeviceAssuranceWindowsArgs:
                  tpsp_windows_user_domain: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a DeviceAssuranceWindows resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] disk_encryption_types: List of disk encryption type, can be `ALL_INTERNAL_VOLUMES`
         :param pulumi.Input[_builtins.str] name: Name of the device assurance policy.
         :param pulumi.Input[_builtins.str] os_version: Minimum os version of the device in the device assurance policy.
@@ -459,6 +460,7 @@ class _DeviceAssuranceWindowsState:
                  tpsp_windows_user_domain: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering DeviceAssuranceWindows resources.
+
         :param pulumi.Input[_builtins.str] created_by: Created by
         :param pulumi.Input[_builtins.str] created_date: Created date
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] disk_encryption_types: List of disk encryption type, can be `ALL_INTERNAL_VOLUMES`
@@ -991,6 +993,7 @@ class DeviceAssuranceWindows(pulumi.CustomResource):
         $ pulumi import okta:policy/deviceAssuranceWindows:DeviceAssuranceWindows example <device_assurance_id>
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] disk_encryption_types: List of disk encryption type, can be `ALL_INTERNAL_VOLUMES`
@@ -1071,6 +1074,7 @@ class DeviceAssuranceWindows(pulumi.CustomResource):
         ```sh
         $ pulumi import okta:policy/deviceAssuranceWindows:DeviceAssuranceWindows example <device_assurance_id>
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DeviceAssuranceWindowsArgs args: The arguments to use to populate this resource's properties.

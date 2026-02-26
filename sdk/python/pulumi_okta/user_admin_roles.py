@@ -24,6 +24,7 @@ class UserAdminRolesArgs:
                  disable_notifications: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a UserAdminRoles resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] admin_roles: The list of Okta user admin roles, e.g. `['APP_ADMIN', 'USER_ADMIN']` See [API Docs](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#standard-roles).
         :param pulumi.Input[_builtins.str] user_id: ID of a Okta User
         :param pulumi.Input[_builtins.bool] disable_notifications: When this setting is enabled, the admins won't receive any of the default Okta administrator emails. These admins also won't have access to contact Okta Support and open support cases on behalf of your org.
@@ -78,6 +79,7 @@ class _UserAdminRolesState:
                  user_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering UserAdminRoles resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] admin_roles: The list of Okta user admin roles, e.g. `['APP_ADMIN', 'USER_ADMIN']` See [API Docs](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#standard-roles).
         :param pulumi.Input[_builtins.bool] disable_notifications: When this setting is enabled, the admins won't receive any of the default Okta administrator emails. These admins also won't have access to contact Okta Support and open support cases on behalf of your org.
         :param pulumi.Input[_builtins.str] user_id: ID of a Okta User
@@ -161,6 +163,7 @@ class UserAdminRoles(pulumi.CustomResource):
         $ pulumi import okta:index/userAdminRoles:UserAdminRoles example <user_id>
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] admin_roles: The list of Okta user admin roles, e.g. `['APP_ADMIN', 'USER_ADMIN']` See [API Docs](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#standard-roles).
@@ -197,6 +200,7 @@ class UserAdminRoles(pulumi.CustomResource):
         ```sh
         $ pulumi import okta:index/userAdminRoles:UserAdminRoles example <user_id>
         ```
+
 
         :param str resource_name: The name of the resource.
         :param UserAdminRolesArgs args: The arguments to use to populate this resource's properties.

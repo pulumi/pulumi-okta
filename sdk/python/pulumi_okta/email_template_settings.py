@@ -24,6 +24,7 @@ class EmailTemplateSettingsArgs:
                  template_name: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a EmailTemplateSettings resource.
+
         :param pulumi.Input[_builtins.str] brand_id: The ID of the brand.
         :param pulumi.Input[_builtins.str] recipients: The recipients the emails of this template will be sent to - Valid values: `ALL_USERS`, `ADMINS_ONLY`, `NO_USERS`
         :param pulumi.Input[_builtins.str] template_name: Email template name - Example values: `AccountLockout`,`ADForgotPassword`,`ADForgotPasswordDenied`,`ADSelfServiceUnlock`,`ADUserActivation`,`AuthenticatorEnrolled`,`AuthenticatorReset`,`ChangeEmailConfirmation`,`EmailChallenge`,`EmailChangeConfirmation`,`EmailFactorVerification`,`ForgotPassword`,`ForgotPasswordDenied`,`IGAReviewerEndNotification`,`IGAReviewerNotification`,`IGAReviewerPendingNotification`,`IGAReviewerReassigned`,`LDAPForgotPassword`,`LDAPForgotPasswordDenied`,`LDAPSelfServiceUnlock`,`LDAPUserActivation`,`MyAccountChangeConfirmation`,`NewSignOnNotification`,`OktaVerifyActivation`,`PasswordChanged`,`PasswordResetByAdmin`,`PendingEmailChange`,`RegistrationActivation`,`RegistrationEmailVerification`,`SelfServiceUnlock`,`SelfServiceUnlockOnUnlockedAccount`,`UserActivation`
@@ -77,6 +78,7 @@ class _EmailTemplateSettingsState:
                  template_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering EmailTemplateSettings resources.
+
         :param pulumi.Input[_builtins.str] brand_id: The ID of the brand.
         :param pulumi.Input[_builtins.str] recipients: The recipients the emails of this template will be sent to - Valid values: `ALL_USERS`, `ADMINS_ONLY`, `NO_USERS`
         :param pulumi.Input[_builtins.str] template_name: Email template name - Example values: `AccountLockout`,`ADForgotPassword`,`ADForgotPasswordDenied`,`ADSelfServiceUnlock`,`ADUserActivation`,`AuthenticatorEnrolled`,`AuthenticatorReset`,`ChangeEmailConfirmation`,`EmailChallenge`,`EmailChangeConfirmation`,`EmailFactorVerification`,`ForgotPassword`,`ForgotPasswordDenied`,`IGAReviewerEndNotification`,`IGAReviewerNotification`,`IGAReviewerPendingNotification`,`IGAReviewerReassigned`,`LDAPForgotPassword`,`LDAPForgotPasswordDenied`,`LDAPSelfServiceUnlock`,`LDAPUserActivation`,`MyAccountChangeConfirmation`,`NewSignOnNotification`,`OktaVerifyActivation`,`PasswordChanged`,`PasswordResetByAdmin`,`PendingEmailChange`,`RegistrationActivation`,`RegistrationEmailVerification`,`SelfServiceUnlock`,`SelfServiceUnlockOnUnlockedAccount`,`UserActivation`
@@ -156,6 +158,7 @@ class EmailTemplateSettings(pulumi.CustomResource):
         $ pulumi import okta:index/emailTemplateSettings:EmailTemplateSettings example <brand_id>/<template_name>
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] brand_id: The ID of the brand.
@@ -188,6 +191,7 @@ class EmailTemplateSettings(pulumi.CustomResource):
         ```sh
         $ pulumi import okta:index/emailTemplateSettings:EmailTemplateSettings example <brand_id>/<template_name>
         ```
+
 
         :param str resource_name: The name of the resource.
         :param EmailTemplateSettingsArgs args: The arguments to use to populate this resource's properties.

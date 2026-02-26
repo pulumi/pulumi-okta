@@ -24,6 +24,7 @@ class GroupMembershipsArgs:
                  track_all_users: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a GroupMemberships resource.
+
         :param pulumi.Input[_builtins.str] group_id: ID of a Okta group.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] users: The list of Okta user IDs which the group should have membership managed for.
         :param pulumi.Input[_builtins.bool] track_all_users: The resource concerns itself with all users added/deleted to the group; even those managed outside of the resource.
@@ -78,6 +79,7 @@ class _GroupMembershipsState:
                  users: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering GroupMemberships resources.
+
         :param pulumi.Input[_builtins.str] group_id: ID of a Okta group.
         :param pulumi.Input[_builtins.bool] track_all_users: The resource concerns itself with all users added/deleted to the group; even those managed outside of the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] users: The list of Okta user IDs which the group should have membership managed for.
@@ -179,6 +181,7 @@ class GroupMemberships(pulumi.CustomResource):
         $ pulumi import okta:index/groupMemberships:GroupMemberships test <group_id>/<true>
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] group_id: ID of a Okta group.
@@ -233,6 +236,7 @@ class GroupMemberships(pulumi.CustomResource):
         ```sh
         $ pulumi import okta:index/groupMemberships:GroupMemberships test <group_id>/<true>
         ```
+
 
         :param str resource_name: The name of the resource.
         :param GroupMembershipsArgs args: The arguments to use to populate this resource's properties.

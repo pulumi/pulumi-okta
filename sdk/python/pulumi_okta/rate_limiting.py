@@ -25,6 +25,7 @@ class RateLimitingArgs:
                  use_case_mode_overrides: Optional[pulumi.Input['RateLimitingUseCaseModeOverridesArgs']] = None):
         """
         The set of arguments for constructing a RateLimiting resource.
+
         :param pulumi.Input['RateLimitingUseCaseModeOverridesArgs'] use_case_mode_overrides: A map of Per-Client Rate Limit Use Case to the applicable PerClientRateLimitMode.Overrides the defaultMode property for the specified use cases.
         """
         pulumi.set(__self__, "default_mode", default_mode)
@@ -60,6 +61,7 @@ class _RateLimitingState:
                  use_case_mode_overrides: Optional[pulumi.Input['RateLimitingUseCaseModeOverridesArgs']] = None):
         """
         Input properties used for looking up and filtering RateLimiting resources.
+
         :param pulumi.Input['RateLimitingUseCaseModeOverridesArgs'] use_case_mode_overrides: A map of Per-Client Rate Limit Use Case to the applicable PerClientRateLimitMode.Overrides the defaultMode property for the specified use cases.
         """
         if default_mode is not None:
@@ -121,6 +123,7 @@ class RateLimiting(pulumi.CustomResource):
         $ pulumi import okta:index/rateLimiting:RateLimiting example .
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['RateLimitingUseCaseModeOverridesArgs', 'RateLimitingUseCaseModeOverridesArgsDict']] use_case_mode_overrides: A map of Per-Client Rate Limit Use Case to the applicable PerClientRateLimitMode.Overrides the defaultMode property for the specified use cases.
@@ -153,6 +156,7 @@ class RateLimiting(pulumi.CustomResource):
         ```sh
         $ pulumi import okta:index/rateLimiting:RateLimiting example .
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RateLimitingArgs args: The arguments to use to populate this resource's properties.

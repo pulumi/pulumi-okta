@@ -37,6 +37,7 @@ class RuleIdpDiscoveryArgs:
                  user_identifier_type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a RuleIdpDiscovery resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['RuleIdpDiscoveryAppExcludeArgs']]] app_excludes: Applications to exclude in discovery. See `app_include` for details.
         :param pulumi.Input[Sequence[pulumi.Input['RuleIdpDiscoveryAppIncludeArgs']]] app_includes: Applications to include in discovery rule.
                - 'id' - (Optional) Use if 'type' is 'APP' to indicate the application id to include.
@@ -281,6 +282,7 @@ class _RuleIdpDiscoveryState:
                  user_identifier_type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering RuleIdpDiscovery resources.
+
         :param pulumi.Input[Sequence[pulumi.Input['RuleIdpDiscoveryAppExcludeArgs']]] app_excludes: Applications to exclude in discovery. See `app_include` for details.
         :param pulumi.Input[Sequence[pulumi.Input['RuleIdpDiscoveryAppIncludeArgs']]] app_includes: Applications to include in discovery rule.
                - 'id' - (Optional) Use if 'type' is 'APP' to indicate the application id to include.
@@ -541,6 +543,7 @@ class RuleIdpDiscovery(pulumi.CustomResource):
         $ pulumi import okta:policy/ruleIdpDiscovery:RuleIdpDiscovery example <policy_id>/<rule_id>
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['RuleIdpDiscoveryAppExcludeArgs', 'RuleIdpDiscoveryAppExcludeArgsDict']]]] app_excludes: Applications to exclude in discovery. See `app_include` for details.
@@ -584,6 +587,7 @@ class RuleIdpDiscovery(pulumi.CustomResource):
         ```sh
         $ pulumi import okta:policy/ruleIdpDiscovery:RuleIdpDiscovery example <policy_id>/<rule_id>
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RuleIdpDiscoveryArgs args: The arguments to use to populate this resource's properties.

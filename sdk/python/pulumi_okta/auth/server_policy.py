@@ -27,6 +27,7 @@ class ServerPolicyArgs:
                  status: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ServerPolicy resource.
+
         :param pulumi.Input[_builtins.str] auth_server_id: The ID of the Auth Server.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] client_whitelists: The clients to whitelist the policy for. `[ALL_CLIENTS]` is a special value that can be used to whitelist all clients, otherwise it is a list of client ids.
         :param pulumi.Input[_builtins.str] description: The description of the Auth Server Policy.
@@ -127,6 +128,7 @@ class _ServerPolicyState:
                  status: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ServerPolicy resources.
+
         :param pulumi.Input[_builtins.str] auth_server_id: The ID of the Auth Server.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] client_whitelists: The clients to whitelist the policy for. `[ALL_CLIENTS]` is a special value that can be used to whitelist all clients, otherwise it is a list of client ids.
         :param pulumi.Input[_builtins.str] description: The description of the Auth Server Policy.
@@ -257,6 +259,7 @@ class ServerPolicy(pulumi.CustomResource):
         $ pulumi import okta:auth/serverPolicy:ServerPolicy example <auth_server_id>/<policy_id>
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] auth_server_id: The ID of the Auth Server.
@@ -295,6 +298,7 @@ class ServerPolicy(pulumi.CustomResource):
         ```sh
         $ pulumi import okta:auth/serverPolicy:ServerPolicy example <auth_server_id>/<policy_id>
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ServerPolicyArgs args: The arguments to use to populate this resource's properties.

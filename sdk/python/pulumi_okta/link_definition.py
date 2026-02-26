@@ -27,6 +27,7 @@ class LinkDefinitionArgs:
                  primary_title: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a LinkDefinition resource.
+
         :param pulumi.Input[_builtins.str] associated_description: Description of the associated relationship.
         :param pulumi.Input[_builtins.str] associated_name: API name of the associated link.
         :param pulumi.Input[_builtins.str] associated_title: Display name of the associated link.
@@ -125,6 +126,7 @@ class _LinkDefinitionState:
                  primary_title: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering LinkDefinition resources.
+
         :param pulumi.Input[_builtins.str] associated_description: Description of the associated relationship.
         :param pulumi.Input[_builtins.str] associated_name: API name of the associated link.
         :param pulumi.Input[_builtins.str] associated_title: Display name of the associated link.
@@ -259,6 +261,7 @@ class LinkDefinition(pulumi.CustomResource):
         $ pulumi import okta:index/linkDefinition:LinkDefinition example <primary_name>
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] associated_description: Description of the associated relationship.
@@ -301,6 +304,7 @@ class LinkDefinition(pulumi.CustomResource):
         ```sh
         $ pulumi import okta:index/linkDefinition:LinkDefinition example <primary_name>
         ```
+
 
         :param str resource_name: The name of the resource.
         :param LinkDefinitionArgs args: The arguments to use to populate this resource's properties.

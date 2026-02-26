@@ -66,6 +66,7 @@ class UserArgs:
                  zip_code: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a User resource.
+
         :param pulumi.Input[_builtins.str] email: User primary email address
         :param pulumi.Input[_builtins.str] first_name: User first name
         :param pulumi.Input[_builtins.str] last_name: User last name
@@ -763,6 +764,7 @@ class _UserState:
                  zip_code: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering User resources.
+
         :param pulumi.Input[_builtins.str] city: User city
         :param pulumi.Input[_builtins.str] cost_center: User cost center
         :param pulumi.Input[_builtins.str] country_code: User country code
@@ -1537,6 +1539,7 @@ class User(pulumi.CustomResource):
         $ pulumi import okta:user/user:User example <user_id>
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] city: User city
@@ -1645,6 +1648,7 @@ class User(pulumi.CustomResource):
         ```sh
         $ pulumi import okta:user/user:User example <user_id>
         ```
+
 
         :param str resource_name: The name of the resource.
         :param UserArgs args: The arguments to use to populate this resource's properties.

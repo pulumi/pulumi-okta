@@ -30,6 +30,7 @@ class AppUserBaseSchemaPropertyArgs:
                  user_type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a AppUserBaseSchemaProperty resource.
+
         :param pulumi.Input[_builtins.str] app_id: The Application's ID the user schema property should be assigned to.
         :param pulumi.Input[_builtins.str] index: Subschema unique string identifier
         :param pulumi.Input[_builtins.str] title: Subschema title (display name)
@@ -178,6 +179,7 @@ class _AppUserBaseSchemaPropertyState:
                  user_type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AppUserBaseSchemaProperty resources.
+
         :param pulumi.Input[_builtins.str] app_id: The Application's ID the user schema property should be assigned to.
         :param pulumi.Input[_builtins.str] index: Subschema unique string identifier
         :param pulumi.Input[_builtins.str] master: Master priority for the user schema property. It can be set to `PROFILE_MASTER` or `OKTA`. Default: `PROFILE_MASTER`
@@ -355,6 +357,7 @@ class AppUserBaseSchemaProperty(pulumi.CustomResource):
         $ pulumi import okta:index/appUserBaseSchemaProperty:AppUserBaseSchemaProperty example <app_id>/<property_name>
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] app_id: The Application's ID the user schema property should be assigned to.
@@ -395,6 +398,7 @@ class AppUserBaseSchemaProperty(pulumi.CustomResource):
         ```sh
         $ pulumi import okta:index/appUserBaseSchemaProperty:AppUserBaseSchemaProperty example <app_id>/<property_name>
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AppUserBaseSchemaPropertyArgs args: The arguments to use to populate this resource's properties.

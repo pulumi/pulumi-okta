@@ -24,6 +24,7 @@ class LinkValueArgs:
                  associated_user_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a LinkValue resource.
+
         :param pulumi.Input[_builtins.str] primary_name: Name of the `primary` relationship being assigned.
         :param pulumi.Input[_builtins.str] primary_user_id: User ID to be assigned to `primary` for the 'associated' user in the specified relationship.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] associated_user_ids: Set of User IDs or login values of the users to be assigned the `associated` relationship.
@@ -78,6 +79,7 @@ class _LinkValueState:
                  primary_user_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering LinkValue resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] associated_user_ids: Set of User IDs or login values of the users to be assigned the `associated` relationship.
         :param pulumi.Input[_builtins.str] primary_name: Name of the `primary` relationship being assigned.
         :param pulumi.Input[_builtins.str] primary_user_id: User ID to be assigned to `primary` for the 'associated' user in the specified relationship.
@@ -182,6 +184,7 @@ class LinkValue(pulumi.CustomResource):
         $ pulumi import okta:index/linkValue:LinkValue example <primary_name>/<primary_user_id>
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] associated_user_ids: Set of User IDs or login values of the users to be assigned the `associated` relationship.
@@ -239,6 +242,7 @@ class LinkValue(pulumi.CustomResource):
         ```sh
         $ pulumi import okta:index/linkValue:LinkValue example <primary_name>/<primary_user_id>
         ```
+
 
         :param str resource_name: The name of the resource.
         :param LinkValueArgs args: The arguments to use to populate this resource's properties.

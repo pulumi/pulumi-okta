@@ -34,6 +34,7 @@ class ThemeArgs:
                  theme_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Theme resource.
+
         :param pulumi.Input[_builtins.str] brand_id: Brand ID
         :param pulumi.Input[_builtins.str] background_image: Path to local file
         :param pulumi.Input[_builtins.str] email_template_touch_point_variant: Variant for email templates (`OKTA_DEFAULT`, `FULL_THEME`)
@@ -253,6 +254,7 @@ class _ThemeState:
                  theme_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Theme resources.
+
         :param pulumi.Input[_builtins.str] background_image: Path to local file
         :param pulumi.Input[_builtins.str] background_image_url: Background image URL
         :param pulumi.Input[_builtins.str] brand_id: Brand ID
@@ -568,6 +570,7 @@ class Theme(pulumi.CustomResource):
         $ pulumi import okta:index/theme:Theme example <brand_id>/<theme_id>
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] background_image: Path to local file
@@ -626,6 +629,7 @@ class Theme(pulumi.CustomResource):
         ```sh
         $ pulumi import okta:index/theme:Theme example <brand_id>/<theme_id>
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ThemeArgs args: The arguments to use to populate this resource's properties.

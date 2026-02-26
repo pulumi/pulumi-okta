@@ -24,6 +24,7 @@ class AdminRoleCustomAssignmentsArgs:
                  members: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a AdminRoleCustomAssignments resource.
+
         :param pulumi.Input[_builtins.str] custom_role_id: ID of the Custom Role
         :param pulumi.Input[_builtins.str] resource_set_id: ID of the target Resource Set
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] members: The hrefs that point to User(s) and/or Group(s) that receive the Role
@@ -78,6 +79,7 @@ class _AdminRoleCustomAssignmentsState:
                  resource_set_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AdminRoleCustomAssignments resources.
+
         :param pulumi.Input[_builtins.str] custom_role_id: ID of the Custom Role
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] members: The hrefs that point to User(s) and/or Group(s) that receive the Role
         :param pulumi.Input[_builtins.str] resource_set_id: ID of the target Resource Set
@@ -210,6 +212,7 @@ class AdminRoleCustomAssignments(pulumi.CustomResource):
         $ pulumi import okta:index/adminRoleCustomAssignments:AdminRoleCustomAssignments example <resource_set_id>/<custom_role_id>
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] custom_role_id: ID of the Custom Role
@@ -295,6 +298,7 @@ class AdminRoleCustomAssignments(pulumi.CustomResource):
         ```sh
         $ pulumi import okta:index/adminRoleCustomAssignments:AdminRoleCustomAssignments example <resource_set_id>/<custom_role_id>
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AdminRoleCustomAssignmentsArgs args: The arguments to use to populate this resource's properties.

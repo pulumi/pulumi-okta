@@ -23,6 +23,7 @@ class OAuthRedirectUriArgs:
                  uri: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a OAuthRedirectUri resource.
+
         :param pulumi.Input[_builtins.str] app_id: OAuth application ID.
         :param pulumi.Input[_builtins.str] uri: Redirect URI to append to Okta OIDC application.
         """
@@ -61,6 +62,7 @@ class _OAuthRedirectUriState:
                  uri: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering OAuthRedirectUri resources.
+
         :param pulumi.Input[_builtins.str] app_id: OAuth application ID.
         :param pulumi.Input[_builtins.str] uri: Redirect URI to append to Okta OIDC application.
         """
@@ -133,6 +135,7 @@ class OAuthRedirectUri(pulumi.CustomResource):
         $ pulumi import okta:app/oAuthRedirectUri:OAuthRedirectUri example <app_id>/<uri>
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] app_id: OAuth application ID.
@@ -173,6 +176,7 @@ class OAuthRedirectUri(pulumi.CustomResource):
         ```sh
         $ pulumi import okta:app/oAuthRedirectUri:OAuthRedirectUri example <app_id>/<uri>
         ```
+
 
         :param str resource_name: The name of the resource.
         :param OAuthRedirectUriArgs args: The arguments to use to populate this resource's properties.

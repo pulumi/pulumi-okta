@@ -31,6 +31,7 @@ class HookArgs:
                  status: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Hook resource.
+
         :param pulumi.Input[_builtins.str] type: The type of hook to create. [See here for supported types](https://developer.okta.com/docs/reference/api/inline-hooks/#supported-inline-hook-types).
         :param pulumi.Input[_builtins.str] version: The version of the hook. The currently-supported version is `1.0.0`.
         :param pulumi.Input[_builtins.str] channel_json: true channel object for the inline hook API contract
@@ -157,6 +158,7 @@ class _HookState:
                  version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Hook resources.
+
         :param pulumi.Input[_builtins.str] channel_json: true channel object for the inline hook API contract
         :param pulumi.Input[Sequence[pulumi.Input['HookHeaderArgs']]] headers: Map of headers to send along in inline hook request.
         :param pulumi.Input[_builtins.str] name: The inline hook display name.
@@ -355,6 +357,7 @@ class Hook(pulumi.CustomResource):
         $ pulumi import okta:inline/hook:Hook example <hook_id>
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] channel_json: true channel object for the inline hook API contract
@@ -437,6 +440,7 @@ class Hook(pulumi.CustomResource):
         ```sh
         $ pulumi import okta:inline/hook:Hook example <hook_id>
         ```
+
 
         :param str resource_name: The name of the resource.
         :param HookArgs args: The arguments to use to populate this resource's properties.

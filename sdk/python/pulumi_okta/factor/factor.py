@@ -23,6 +23,7 @@ class FactorArgs:
                  active: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a Factor resource.
+
         :param pulumi.Input[_builtins.str] provider_id: The MFA provider name. Allowed values are `duo`, `fido_u2f`, `fido_webauthn`, `google_otp`, `okta_call`, `okta_otp`, `okta_password`, `okta_push`, `okta_question`, `okta_sms`, `okta_email`, `rsa_token`, `symantec_vip`, `yubikey_token`, or `hotp`.
         :param pulumi.Input[_builtins.bool] active: Whether to activate the provider, by default, it is set to `true`.
         """
@@ -62,6 +63,7 @@ class _FactorState:
                  provider_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Factor resources.
+
         :param pulumi.Input[_builtins.bool] active: Whether to activate the provider, by default, it is set to `true`.
         :param pulumi.Input[_builtins.str] provider_id: The MFA provider name. Allowed values are `duo`, `fido_u2f`, `fido_webauthn`, `google_otp`, `okta_call`, `okta_otp`, `okta_password`, `okta_push`, `okta_question`, `okta_sms`, `okta_email`, `rsa_token`, `symantec_vip`, `yubikey_token`, or `hotp`.
         """
@@ -116,6 +118,7 @@ class Factor(pulumi.CustomResource):
         example = okta.factor.Factor("example", provider_id="google_otp")
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] active: Whether to activate the provider, by default, it is set to `true`.
@@ -138,6 +141,7 @@ class Factor(pulumi.CustomResource):
 
         example = okta.factor.Factor("example", provider_id="google_otp")
         ```
+
 
         :param str resource_name: The name of the resource.
         :param FactorArgs args: The arguments to use to populate this resource's properties.

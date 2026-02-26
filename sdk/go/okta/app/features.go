@@ -191,6 +191,14 @@ import (
 // ## Import
 //
 // App features can be imported using the format `{app_id}/{feature_name}`:
+//
+// ```sh
+// $ pulumi import okta:app/features:Features example 0oarblaf7hWdLawNg1d7/USER_PROVISIONING
+// ```
+//
+// ```sh
+// $ pulumi import okta:app/features:Features inbound 0oarblaf7hWdLawNg1d7/INBOUND_PROVISIONING
+// ```
 type Features struct {
 	pulumi.CustomResourceState
 

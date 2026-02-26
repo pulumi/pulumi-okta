@@ -34,6 +34,7 @@ class CampaignArgs:
                  skip_remediation: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a Campaign resource.
+
         :param pulumi.Input[_builtins.str] campaign_tier: Indicates the minimum required SKU to manage the campaign. Enum: "BASIC", "PREMIUM".
         :param pulumi.Input[_builtins.str] campaign_type: Identifies if it is a resource campaign or a user campaign. By default, it is "RESOURCE". Enum: "RESOURCE", "USER".
         :param pulumi.Input[_builtins.str] description: Human readable description.
@@ -214,6 +215,7 @@ class _CampaignState:
                  skip_remediation: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering Campaign resources.
+
         :param pulumi.Input[_builtins.str] campaign_tier: Indicates the minimum required SKU to manage the campaign. Enum: "BASIC", "PREMIUM".
         :param pulumi.Input[_builtins.str] campaign_type: Identifies if it is a resource campaign or a user campaign. By default, it is "RESOURCE". Enum: "RESOURCE", "USER".
         :param pulumi.Input[_builtins.str] description: Human readable description.
@@ -414,6 +416,7 @@ class Campaign(pulumi.CustomResource):
         $ pulumi import okta:index/campaign:Campaign example <campaign_id>
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] campaign_tier: Indicates the minimum required SKU to manage the campaign. Enum: "BASIC", "PREMIUM".
@@ -450,6 +453,7 @@ class Campaign(pulumi.CustomResource):
         ```sh
         $ pulumi import okta:index/campaign:Campaign example <campaign_id>
         ```
+
 
         :param str resource_name: The name of the resource.
         :param CampaignArgs args: The arguments to use to populate this resource's properties.

@@ -23,6 +23,7 @@ class TrustedServerArgs:
                  trusteds: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
         """
         The set of arguments for constructing a TrustedServer resource.
+
         :param pulumi.Input[_builtins.str] auth_server_id: Authorization server ID
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] trusteds: A list of the authorization server IDs user want to trust
         """
@@ -61,6 +62,7 @@ class _TrustedServerState:
                  trusteds: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering TrustedServer resources.
+
         :param pulumi.Input[_builtins.str] auth_server_id: Authorization server ID
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] trusteds: A list of the authorization server IDs user want to trust
         """
@@ -135,6 +137,7 @@ class TrustedServer(pulumi.CustomResource):
             ])
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] auth_server_id: Authorization server ID
@@ -177,6 +180,7 @@ class TrustedServer(pulumi.CustomResource):
                 okta_auth_server["test3"]["id"],
             ])
         ```
+
 
         :param str resource_name: The name of the resource.
         :param TrustedServerArgs args: The arguments to use to populate this resource's properties.

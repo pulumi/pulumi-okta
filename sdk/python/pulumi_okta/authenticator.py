@@ -35,6 +35,7 @@ class AuthenticatorArgs:
                  status: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Authenticator resource.
+
         :param pulumi.Input[_builtins.str] key: A human-readable string that identifies the authenticator. Some authenticators are available by feature flag on the organization. Possible values inclue: `custom_app`, `custom_otp`, `duo`, `external_idp`, `google_otp`, `okta_email`, `okta_password`, `okta_verify`, `onprem_mfa`, `phone_number`, `rsa_token`, `security_question`, `webauthn`
         :param pulumi.Input[_builtins.bool] agree_to_terms: A value of true indicates that the administrator accepts the terms for creating a new authenticator. Okta requires that you accept the terms when creating a new custom_app authenticator. Other authenticators don't require this field.
         :param pulumi.Input[_builtins.bool] legacy_ignore_name: Name does not trigger change detection (legacy behavior). Must be set to false for custom_app authenticators.
@@ -269,6 +270,7 @@ class _AuthenticatorState:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Authenticator resources.
+
         :param pulumi.Input[_builtins.bool] agree_to_terms: A value of true indicates that the administrator accepts the terms for creating a new authenticator. Okta requires that you accept the terms when creating a new custom_app authenticator. Other authenticators don't require this field.
         :param pulumi.Input[_builtins.str] key: A human-readable string that identifies the authenticator. Some authenticators are available by feature flag on the organization. Possible values inclue: `custom_app`, `custom_otp`, `duo`, `external_idp`, `google_otp`, `okta_email`, `okta_password`, `okta_verify`, `onprem_mfa`, `phone_number`, `rsa_token`, `security_question`, `webauthn`
         :param pulumi.Input[_builtins.bool] legacy_ignore_name: Name does not trigger change detection (legacy behavior). Must be set to false for custom_app authenticators.
@@ -622,6 +624,7 @@ class Authenticator(pulumi.CustomResource):
         $ pulumi import okta:index/authenticator:Authenticator example <authenticator_id>
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] agree_to_terms: A value of true indicates that the administrator accepts the terms for creating a new authenticator. Okta requires that you accept the terms when creating a new custom_app authenticator. Other authenticators don't require this field.
@@ -718,6 +721,7 @@ class Authenticator(pulumi.CustomResource):
         ```sh
         $ pulumi import okta:index/authenticator:Authenticator example <authenticator_id>
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AuthenticatorArgs args: The arguments to use to populate this resource's properties.

@@ -72,6 +72,7 @@ class OAuthArgs:
                  wildcard_redirect: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a OAuth resource.
+
         :param pulumi.Input[_builtins.str] label: The Application's display name.
         :param pulumi.Input[_builtins.str] type: The type of client application.
         :param pulumi.Input[_builtins.str] accessibility_error_redirect_url: Custom error page URL
@@ -878,6 +879,7 @@ class _OAuthState:
                  wildcard_redirect: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering OAuth resources.
+
         :param pulumi.Input[_builtins.str] accessibility_error_redirect_url: Custom error page URL
         :param pulumi.Input[_builtins.str] accessibility_login_redirect_url: Custom login page URL
         :param pulumi.Input[_builtins.bool] accessibility_self_service: Enable self service. Default is `false`
@@ -1821,6 +1823,7 @@ class OAuth(pulumi.CustomResource):
         $ pulumi import okta:app/oAuth:OAuth example <app_id>
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] accessibility_error_redirect_url: Custom error page URL
@@ -1959,6 +1962,7 @@ class OAuth(pulumi.CustomResource):
         ```sh
         $ pulumi import okta:app/oAuth:OAuth example <app_id>
         ```
+
 
         :param str resource_name: The name of the resource.
         :param OAuthArgs args: The arguments to use to populate this resource's properties.

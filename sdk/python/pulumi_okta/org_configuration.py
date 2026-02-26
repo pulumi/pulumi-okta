@@ -36,6 +36,7 @@ class OrgConfigurationArgs:
                  website: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a OrgConfiguration resource.
+
         :param pulumi.Input[_builtins.str] company_name: Name of org
         :param pulumi.Input[_builtins.str] address1: Primary address of org
         :param pulumi.Input[_builtins.str] address2: Secondary address of org
@@ -285,6 +286,7 @@ class _OrgConfigurationState:
                  website: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering OrgConfiguration resources.
+
         :param pulumi.Input[_builtins.str] address1: Primary address of org
         :param pulumi.Input[_builtins.str] address2: Secondary address of org
         :param pulumi.Input[_builtins.str] billing_contact_user: User ID representing the billing contact
@@ -587,6 +589,7 @@ class OrgConfiguration(pulumi.CustomResource):
         $ pulumi import okta:index/orgConfiguration:OrgConfiguration example _
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] address1: Primary address of org
@@ -632,6 +635,7 @@ class OrgConfiguration(pulumi.CustomResource):
         ```sh
         $ pulumi import okta:index/orgConfiguration:OrgConfiguration example _
         ```
+
 
         :param str resource_name: The name of the resource.
         :param OrgConfigurationArgs args: The arguments to use to populate this resource's properties.
