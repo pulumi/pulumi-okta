@@ -27,6 +27,7 @@ class EmailSmtpServerArgs:
                  enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a EmailSmtpServer resource.
+
         :param pulumi.Input[_builtins.str] alias: Human-readable name for your SMTP server
         :param pulumi.Input[_builtins.str] host: Hostname or IP address of your SMTP server
         :param pulumi.Input[_builtins.str] password: Password used to access your SMTP server
@@ -126,6 +127,7 @@ class _EmailSmtpServerState:
                  username: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering EmailSmtpServer resources.
+
         :param pulumi.Input[_builtins.str] alias: Human-readable name for your SMTP server
         :param pulumi.Input[_builtins.bool] enabled: If true, routes all email traffic through your SMTP server.Default: `false`
         :param pulumi.Input[_builtins.str] host: Hostname or IP address of your SMTP server
@@ -250,6 +252,7 @@ class EmailSmtpServer(pulumi.CustomResource):
             password="pwd")
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] alias: Human-readable name for your SMTP server
@@ -282,6 +285,7 @@ class EmailSmtpServer(pulumi.CustomResource):
             enabled=False,
             password="pwd")
         ```
+
 
         :param str resource_name: The name of the resource.
         :param EmailSmtpServerArgs args: The arguments to use to populate this resource's properties.

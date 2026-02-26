@@ -28,6 +28,7 @@ class MappingArgs:
                  mappings: Optional[pulumi.Input[Sequence[pulumi.Input['MappingMappingArgs']]]] = None):
         """
         The set of arguments for constructing a Mapping resource.
+
         :param pulumi.Input[_builtins.str] source_id: The source id of the mapping to manage.
         :param pulumi.Input[_builtins.str] target_id: The target id of the mapping to manage.
         :param pulumi.Input[_builtins.bool] always_apply: Whether apply the changes to all users with this profile after updating or creating the these mappings.
@@ -118,6 +119,7 @@ class _MappingState:
                  target_type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Mapping resources.
+
         :param pulumi.Input[_builtins.bool] always_apply: Whether apply the changes to all users with this profile after updating or creating the these mappings.
                > **WARNING:**: 'always*apply' is incompatible with OAuth 2.0 authentication and will be ignored when using that type of authentication.
                > **WARNING:** 'always*apply' makes use of an internal/private Okta API endpoint that could change without notice rendering this resource inoperable.
@@ -302,6 +304,7 @@ class Mapping(pulumi.CustomResource):
             ])
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] always_apply: Whether apply the changes to all users with this profile after updating or creating the these mappings.
@@ -350,6 +353,7 @@ class Mapping(pulumi.CustomResource):
                 },
             ])
         ```
+
 
         :param str resource_name: The name of the resource.
         :param MappingArgs args: The arguments to use to populate this resource's properties.

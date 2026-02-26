@@ -22,6 +22,7 @@ class OrgSupportArgs:
                  extend_by: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a OrgSupport resource.
+
         :param pulumi.Input[_builtins.int] extend_by: Number of days the support should be extended by
         """
         if extend_by is not None:
@@ -48,6 +49,7 @@ class _OrgSupportState:
                  status: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering OrgSupport resources.
+
         :param pulumi.Input[_builtins.str] expiration: Expiration of Okta Support
         :param pulumi.Input[_builtins.int] extend_by: Number of days the support should be extended by
         :param pulumi.Input[_builtins.str] status: Status of Okta Support
@@ -118,6 +120,7 @@ class OrgSupport(pulumi.CustomResource):
         example = okta.OrgSupport("example", extend_by=1)
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] extend_by: Number of days the support should be extended by
@@ -141,6 +144,7 @@ class OrgSupport(pulumi.CustomResource):
 
         example = okta.OrgSupport("example", extend_by=1)
         ```
+
 
         :param str resource_name: The name of the resource.
         :param OrgSupportArgs args: The arguments to use to populate this resource's properties.

@@ -24,6 +24,7 @@ class UserFactorQuestionArgs:
                  user_id: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a UserFactorQuestion resource.
+
         :param pulumi.Input[_builtins.str] answer: Security question answer. Note here that answer won't be set during the resource import.
         :param pulumi.Input[_builtins.str] key: Security question unique key.
         :param pulumi.Input[_builtins.str] user_id: ID of the user. Resource will be recreated when `user_id` changes.
@@ -79,6 +80,7 @@ class _UserFactorQuestionState:
                  user_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering UserFactorQuestion resources.
+
         :param pulumi.Input[_builtins.str] answer: Security question answer. Note here that answer won't be set during the resource import.
         :param pulumi.Input[_builtins.str] key: Security question unique key.
         :param pulumi.Input[_builtins.str] status: The status of the security question factor.
@@ -198,6 +200,7 @@ class UserFactorQuestion(pulumi.CustomResource):
         $ pulumi import okta:index/userFactorQuestion:UserFactorQuestion example <user_id>/<question_factor_id>
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] answer: Security question answer. Note here that answer won't be set during the resource import.
@@ -240,6 +243,7 @@ class UserFactorQuestion(pulumi.CustomResource):
         ```sh
         $ pulumi import okta:index/userFactorQuestion:UserFactorQuestion example <user_id>/<question_factor_id>
         ```
+
 
         :param str resource_name: The name of the resource.
         :param UserFactorQuestionArgs args: The arguments to use to populate this resource's properties.

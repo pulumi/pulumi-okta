@@ -27,6 +27,7 @@ class AuthServerDefaultArgs:
                  status: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a AuthServerDefault resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] audiences: The recipients that the tokens are intended for. This becomes the `aud` claim in an access token. Currently Okta only supports a single value here.
         :param pulumi.Input[_builtins.str] credentials_rotation_mode: The key rotation mode for the authorization server. Can be `AUTO` or `MANUAL`. Default: `MANUAL`.Credential rotation mode, in many cases you cannot set this to MANUAL, the API will ignore the value and you will get a perpetual diff. This should rarely be used.
         :param pulumi.Input[_builtins.str] description: The description of the authorization server.
@@ -135,6 +136,7 @@ class _AuthServerDefaultState:
                  status: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AuthServerDefault resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] audiences: The recipients that the tokens are intended for. This becomes the `aud` claim in an access token. Currently Okta only supports a single value here.
         :param pulumi.Input[_builtins.str] credentials_last_rotated: The timestamp when the authorization server started to use the `kid` for signing tokens.
         :param pulumi.Input[_builtins.str] credentials_next_rotation: The timestamp when the authorization server changes the key for signing tokens. Only returned when `credentials_rotation_mode` is `AUTO`.
@@ -321,6 +323,7 @@ class AuthServerDefault(pulumi.CustomResource):
         $ pulumi import okta:index/authServerDefault:AuthServerDefault example <default>
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] audiences: The recipients that the tokens are intended for. This becomes the `aud` claim in an access token. Currently Okta only supports a single value here.
@@ -355,6 +358,7 @@ class AuthServerDefault(pulumi.CustomResource):
         ```sh
         $ pulumi import okta:index/authServerDefault:AuthServerDefault example <default>
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AuthServerDefaultArgs args: The arguments to use to populate this resource's properties.

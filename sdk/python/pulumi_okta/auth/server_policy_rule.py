@@ -37,6 +37,7 @@ class ServerPolicyRuleArgs:
                  user_whitelists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ServerPolicyRule resource.
+
         :param pulumi.Input[_builtins.str] auth_server_id: Auth server ID
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] grant_type_whitelists: Accepted grant type values, `authorization_code`, `implicit`, `password`, `client_credentials`, `urn:ietf:params:oauth:grant-type:saml2-bearer` (*Early Access Property*), `urn:ietf:params:oauth:grant-type:token-exchange` (*Early Access Property*),`urn:ietf:params:oauth:grant-type:device_code` (*Early Access Property*), `interaction_code` (*OIE only*). For `implicit` value either `user_whitelist` or `group_whitelist` should be set.
         :param pulumi.Input[_builtins.str] policy_id: Auth server policy ID
@@ -298,6 +299,7 @@ class _ServerPolicyRuleState:
                  user_whitelists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering ServerPolicyRule resources.
+
         :param pulumi.Input[_builtins.int] access_token_lifetime_minutes: Lifetime of access token. Can be set to a value between 5 and 1440 minutes. Default is `60`.
         :param pulumi.Input[_builtins.str] auth_server_id: Auth server ID
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] grant_type_whitelists: Accepted grant type values, `authorization_code`, `implicit`, `password`, `client_credentials`, `urn:ietf:params:oauth:grant-type:saml2-bearer` (*Early Access Property*), `urn:ietf:params:oauth:grant-type:token-exchange` (*Early Access Property*),`urn:ietf:params:oauth:grant-type:device_code` (*Early Access Property*), `interaction_code` (*OIE only*). For `implicit` value either `user_whitelist` or `group_whitelist` should be set.
@@ -610,6 +612,7 @@ class ServerPolicyRule(pulumi.CustomResource):
         $ pulumi import okta:auth/serverPolicyRule:ServerPolicyRule example <auth_server_id>/<policy_id>/<policy_rule_id>
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] access_token_lifetime_minutes: Lifetime of access token. Can be set to a value between 5 and 1440 minutes. Default is `60`.
@@ -665,6 +668,7 @@ class ServerPolicyRule(pulumi.CustomResource):
         ```sh
         $ pulumi import okta:auth/serverPolicyRule:ServerPolicyRule example <auth_server_id>/<policy_id>/<policy_rule_id>
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ServerPolicyRuleArgs args: The arguments to use to populate this resource's properties.

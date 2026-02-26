@@ -23,6 +23,7 @@ class UserGroupMembershipsArgs:
                  user_id: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a UserGroupMemberships resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] groups: The list of Okta group IDs which the user should have membership managed for.
         :param pulumi.Input[_builtins.str] user_id: ID of a Okta User
         """
@@ -61,6 +62,7 @@ class _UserGroupMembershipsState:
                  user_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering UserGroupMemberships resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] groups: The list of Okta group IDs which the user should have membership managed for.
         :param pulumi.Input[_builtins.str] user_id: ID of a Okta User
         """
@@ -125,6 +127,7 @@ class UserGroupMemberships(pulumi.CustomResource):
             ])
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] groups: The list of Okta group IDs which the user should have membership managed for.
@@ -157,6 +160,7 @@ class UserGroupMemberships(pulumi.CustomResource):
                 test2["id"],
             ])
         ```
+
 
         :param str resource_name: The name of the resource.
         :param UserGroupMembershipsArgs args: The arguments to use to populate this resource's properties.

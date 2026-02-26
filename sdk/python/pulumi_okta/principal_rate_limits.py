@@ -26,6 +26,7 @@ class PrincipalRateLimitsArgs:
                  id_property: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a PrincipalRateLimits resource.
+
         :param pulumi.Input[_builtins.str] principal_id: The unique identifier of the principal. This is the ID of the API token or OAuth 2.0 app.
         :param pulumi.Input[_builtins.str] principal_type: The type of principal, either an API token or an OAuth 2.0 app.
         :param pulumi.Input[_builtins.int] default_concurrency_percentage: The default percentage of a given concurrency limit threshold that the owning principal can consume.
@@ -117,6 +118,7 @@ class _PrincipalRateLimitsState:
                  principal_type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering PrincipalRateLimits resources.
+
         :param pulumi.Input[_builtins.str] created_by: The Okta user ID of the user who created the principle rate limit entity.
         :param pulumi.Input[_builtins.str] created_date: The date and time the principle rate limit entity was created.
         :param pulumi.Input[_builtins.int] default_concurrency_percentage: The default percentage of a given concurrency limit threshold that the owning principal can consume.
@@ -284,6 +286,7 @@ class PrincipalRateLimits(pulumi.CustomResource):
                  __props__=None):
         """
         Create a PrincipalRateLimits resource with the given unique name, props, and options.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] default_concurrency_percentage: The default percentage of a given concurrency limit threshold that the owning principal can consume.
@@ -300,6 +303,7 @@ class PrincipalRateLimits(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Create a PrincipalRateLimits resource with the given unique name, props, and options.
+
         :param str resource_name: The name of the resource.
         :param PrincipalRateLimitsArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.

@@ -26,6 +26,7 @@ class SignonArgs:
                  status: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Signon resource.
+
         :param pulumi.Input[_builtins.str] description: Policy Description
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] groups_includeds: List of Group IDs to Include
         :param pulumi.Input[_builtins.str] name: Policy Name
@@ -114,6 +115,7 @@ class _SignonState:
                  status: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Signon resources.
+
         :param pulumi.Input[_builtins.str] description: Policy Description
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] groups_includeds: List of Group IDs to Include
         :param pulumi.Input[_builtins.str] name: Policy Name
@@ -226,6 +228,7 @@ class Signon(pulumi.CustomResource):
         $ pulumi import okta:policy/signon:Signon example <policy_id>
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Policy Description
@@ -261,6 +264,7 @@ class Signon(pulumi.CustomResource):
         ```sh
         $ pulumi import okta:policy/signon:Signon example <policy_id>
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SignonArgs args: The arguments to use to populate this resource's properties.

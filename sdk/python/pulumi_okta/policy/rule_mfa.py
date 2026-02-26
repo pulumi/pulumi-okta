@@ -34,6 +34,7 @@ class RuleMfaArgs:
                  users_excludeds: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a RuleMfa resource.
+
         :param pulumi.Input[Sequence[pulumi.Input['RuleMfaAppExcludeArgs']]] app_excludes: Applications to exclude in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations.
                	- 'id' - (Optional) Use if 'type' is 'APP' to indicate the application id to include.
                	- 'name' - (Optional) Use if the 'type' is 'APP_TYPE' to indicate the type of application(s) to include in instances where an entire group (i.e. 'yahoo_mail') of applications should be included.
@@ -230,6 +231,7 @@ class _RuleMfaState:
                  users_excludeds: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering RuleMfa resources.
+
         :param pulumi.Input[Sequence[pulumi.Input['RuleMfaAppExcludeArgs']]] app_excludes: Applications to exclude in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations.
                	- 'id' - (Optional) Use if 'type' is 'APP' to indicate the application id to include.
                	- 'name' - (Optional) Use if the 'type' is 'APP_TYPE' to indicate the type of application(s) to include in instances where an entire group (i.e. 'yahoo_mail') of applications should be included.
@@ -437,6 +439,7 @@ class RuleMfa(pulumi.CustomResource):
         $ pulumi import okta:policy/ruleMfa:RuleMfa example <policy_id>/<rule_id>
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['RuleMfaAppExcludeArgs', 'RuleMfaAppExcludeArgsDict']]]] app_excludes: Applications to exclude in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations.
@@ -471,6 +474,7 @@ class RuleMfa(pulumi.CustomResource):
         ```sh
         $ pulumi import okta:policy/ruleMfa:RuleMfa example <policy_id>/<rule_id>
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RuleMfaArgs args: The arguments to use to populate this resource's properties.

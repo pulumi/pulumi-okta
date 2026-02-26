@@ -23,6 +23,7 @@ class RealmArgs:
                  realm_type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Realm resource.
+
         :param pulumi.Input[_builtins.str] name: The name of the Okta Realm.
         :param pulumi.Input[_builtins.str] realm_type: The realm type. Valid values: `PARTNER` and `DEFAULT`
         """
@@ -64,6 +65,7 @@ class _RealmState:
                  realm_type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Realm resources.
+
         :param pulumi.Input[_builtins.bool] is_default: Indicates whether the realm is the default realm.
         :param pulumi.Input[_builtins.str] name: The name of the Okta Realm.
         :param pulumi.Input[_builtins.str] realm_type: The realm type. Valid values: `PARTNER` and `DEFAULT`
@@ -141,6 +143,7 @@ class Realm(pulumi.CustomResource):
         $ pulumi import okta:index/realm:Realm example <realm_id>
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: The name of the Okta Realm.
@@ -171,6 +174,7 @@ class Realm(pulumi.CustomResource):
         ```sh
         $ pulumi import okta:index/realm:Realm example <realm_id>
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RealmArgs args: The arguments to use to populate this resource's properties.

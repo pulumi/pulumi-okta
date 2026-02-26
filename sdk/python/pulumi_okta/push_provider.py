@@ -26,6 +26,7 @@ class PushProviderArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a PushProvider resource.
+
         :param pulumi.Input[_builtins.str] provider_type: The type of push provider. Valid values are `APNS` (Apple Push Notification Service) or `FCM` (Firebase Cloud Messaging).
         :param pulumi.Input['PushProviderConfigurationArgs'] configuration: Configuration block for the push provider. The configuration structure depends on the provider type.
         :param pulumi.Input[_builtins.str] name: The display name of the push provider.
@@ -82,6 +83,7 @@ class _PushProviderState:
                  provider_type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering PushProvider resources.
+
         :param pulumi.Input['PushProviderConfigurationArgs'] configuration: Configuration block for the push provider. The configuration structure depends on the provider type.
         :param pulumi.Input[_builtins.str] last_updated_date: Timestamp when the push provider was last modified. (Computed)
         :param pulumi.Input[_builtins.str] name: The display name of the push provider.
@@ -221,6 +223,7 @@ class PushProvider(pulumi.CustomResource):
         $ pulumi import okta:index/pushProvider:PushProvider example <push_provider_id>
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['PushProviderConfigurationArgs', 'PushProviderConfigurationArgsDict']] configuration: Configuration block for the push provider. The configuration structure depends on the provider type.
@@ -298,6 +301,7 @@ class PushProvider(pulumi.CustomResource):
         ```sh
         $ pulumi import okta:index/pushProvider:PushProvider example <push_provider_id>
         ```
+
 
         :param str resource_name: The name of the resource.
         :param PushProviderArgs args: The arguments to use to populate this resource's properties.

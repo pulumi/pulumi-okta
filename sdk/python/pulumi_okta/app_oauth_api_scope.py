@@ -24,6 +24,7 @@ class AppOauthApiScopeArgs:
                  scopes: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
         """
         The set of arguments for constructing a AppOauthApiScope resource.
+
         :param pulumi.Input[_builtins.str] app_id: ID of the application.
         :param pulumi.Input[_builtins.str] issuer: The issuer of your Org Authorization Server, your Org URL.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] scopes: Scopes of the application for which consent is granted.
@@ -77,6 +78,7 @@ class _AppOauthApiScopeState:
                  scopes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering AppOauthApiScope resources.
+
         :param pulumi.Input[_builtins.str] app_id: ID of the application.
         :param pulumi.Input[_builtins.str] issuer: The issuer of your Org Authorization Server, your Org URL.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] scopes: Scopes of the application for which consent is granted.
@@ -161,6 +163,7 @@ class AppOauthApiScope(pulumi.CustomResource):
         $ pulumi import okta:index/appOauthApiScope:AppOauthApiScope example <app_id>
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] app_id: ID of the application.
@@ -198,6 +201,7 @@ class AppOauthApiScope(pulumi.CustomResource):
         ```sh
         $ pulumi import okta:index/appOauthApiScope:AppOauthApiScope example <app_id>
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AppOauthApiScopeArgs args: The arguments to use to populate this resource's properties.

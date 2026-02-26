@@ -26,6 +26,7 @@ class DomainArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Domain resource.
+
         :param pulumi.Input[_builtins.str] brand_id: Brand id of the domain
         :param pulumi.Input[_builtins.str] certificate_source_type: Certificate source type that indicates whether the certificate is provided by the user or Okta. Accepted values: `MANUAL`, `OKTA_MANAGED`. Warning: Use of OKTA_MANAGED requires a feature flag to be enabled. Default value = MANUAL
         :param pulumi.Input[_builtins.str] name: Custom Domain name
@@ -84,6 +85,7 @@ class _DomainState:
                  validation_status: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Domain resources.
+
         :param pulumi.Input[_builtins.str] brand_id: Brand id of the domain
         :param pulumi.Input[_builtins.str] certificate_source_type: Certificate source type that indicates whether the certificate is provided by the user or Okta. Accepted values: `MANUAL`, `OKTA_MANAGED`. Warning: Use of OKTA_MANAGED requires a feature flag to be enabled. Default value = MANUAL
         :param pulumi.Input[Sequence[pulumi.Input['DomainDnsRecordArgs']]] dns_records: TXT and CNAME records to be registered for the Domain
@@ -190,6 +192,7 @@ class Domain(pulumi.CustomResource):
         $ pulumi import okta:index/domain:Domain example <domain_id>
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] brand_id: Brand id of the domain
@@ -219,6 +222,7 @@ class Domain(pulumi.CustomResource):
         ```sh
         $ pulumi import okta:index/domain:Domain example <domain_id>
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DomainArgs args: The arguments to use to populate this resource's properties.

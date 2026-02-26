@@ -29,6 +29,7 @@ class EntitlementBundleArgs:
                  target_resource_orn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a EntitlementBundle resource.
+
         :param pulumi.Input[_builtins.str] description: The description of an entitlement property.
         :param pulumi.Input[Sequence[pulumi.Input['EntitlementBundleEntitlementArgs']]] entitlements: List of entitlements in the bundle
         :param pulumi.Input[_builtins.str] name: The display name for an entitlement bundle.
@@ -133,6 +134,7 @@ class _EntitlementBundleState:
                  target_resource_orn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering EntitlementBundle resources.
+
         :param pulumi.Input[_builtins.str] description: The description of an entitlement property.
         :param pulumi.Input[Sequence[pulumi.Input['EntitlementBundleEntitlementArgs']]] entitlements: List of entitlements in the bundle
         :param pulumi.Input[_builtins.str] name: The display name for an entitlement bundle.
@@ -257,6 +259,7 @@ class EntitlementBundle(pulumi.CustomResource):
         $ pulumi import okta:index/entitlementBundle:EntitlementBundle example <entitlement_bundle_id>
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of an entitlement property.
@@ -289,6 +292,7 @@ class EntitlementBundle(pulumi.CustomResource):
         ```sh
         $ pulumi import okta:index/entitlementBundle:EntitlementBundle example <entitlement_bundle_id>
         ```
+
 
         :param str resource_name: The name of the resource.
         :param EntitlementBundleArgs args: The arguments to use to populate this resource's properties.

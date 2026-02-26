@@ -26,6 +26,7 @@ class GroupAssignmentArgs:
                  retain_assignment: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a GroupAssignment resource.
+
         :param pulumi.Input[_builtins.str] app_id: App to associate group with
         :param pulumi.Input[_builtins.str] group_id: Group associated with the application
         :param pulumi.Input[_builtins.int] priority: Priority of group assignment.
@@ -112,6 +113,7 @@ class _GroupAssignmentState:
                  retain_assignment: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering GroupAssignment resources.
+
         :param pulumi.Input[_builtins.str] app_id: App to associate group with
         :param pulumi.Input[_builtins.str] group_id: Group associated with the application
         :param pulumi.Input[_builtins.int] priority: Priority of group assignment.
@@ -234,6 +236,7 @@ class GroupAssignment(pulumi.CustomResource):
         $ pulumi import okta:app/groupAssignment:GroupAssignment example <app_id>/<group_id>
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] app_id: App to associate group with
@@ -279,6 +282,7 @@ class GroupAssignment(pulumi.CustomResource):
         ```sh
         $ pulumi import okta:app/groupAssignment:GroupAssignment example <app_id>/<group_id>
         ```
+
 
         :param str resource_name: The name of the resource.
         :param GroupAssignmentArgs args: The arguments to use to populate this resource's properties.

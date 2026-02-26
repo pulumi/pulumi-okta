@@ -33,6 +33,7 @@ class PolicyRuleProfileEnrollmentArgs:
                  ui_schema_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a PolicyRuleProfileEnrollment resource.
+
         :param pulumi.Input[_builtins.str] policy_id: ID of the policy
         :param pulumi.Input[_builtins.str] unknown_user_action: Which action should be taken if this User is new. Valid values are: `DENY`, `REGISTER`
         :param pulumi.Input[_builtins.str] access: Allow or deny access based on the rule conditions. Valid values are: `ALLOW`, `DENY`. Default: `ALLOW`.
@@ -207,6 +208,7 @@ class _PolicyRuleProfileEnrollmentState:
                  unknown_user_action: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering PolicyRuleProfileEnrollment resources.
+
         :param pulumi.Input[_builtins.str] access: Allow or deny access based on the rule conditions. Valid values are: `ALLOW`, `DENY`. Default: `ALLOW`.
         :param pulumi.Input[_builtins.bool] email_verification: Indicates whether email verification should occur before access is granted. Default: `true`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] enroll_authenticator_types: Enrolls authenticator types
@@ -475,6 +477,7 @@ class PolicyRuleProfileEnrollment(pulumi.CustomResource):
         $ pulumi import okta:index/policyRuleProfileEnrollment:PolicyRuleProfileEnrollment example <policy_id>/<rule_id>
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] access: Allow or deny access based on the rule conditions. Valid values are: `ALLOW`, `DENY`. Default: `ALLOW`.
@@ -558,6 +561,7 @@ class PolicyRuleProfileEnrollment(pulumi.CustomResource):
         ```sh
         $ pulumi import okta:index/policyRuleProfileEnrollment:PolicyRuleProfileEnrollment example <policy_id>/<rule_id>
         ```
+
 
         :param str resource_name: The name of the resource.
         :param PolicyRuleProfileEnrollmentArgs args: The arguments to use to populate this resource's properties.

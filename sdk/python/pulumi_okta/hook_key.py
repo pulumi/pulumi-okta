@@ -22,6 +22,7 @@ class HookKeyArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a HookKey resource.
+
         :param pulumi.Input[_builtins.str] name: Display name for the key. Must be between 1 and 255 characters.
         """
         if name is not None:
@@ -50,6 +51,7 @@ class _HookKeyState:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering HookKey resources.
+
         :param pulumi.Input[_builtins.str] created: Timestamp when the key was created.
         :param pulumi.Input[_builtins.bool] is_used: Whether this key is currently in use by other applications.
         :param pulumi.Input[_builtins.str] key_id: The alias of the public key.
@@ -158,6 +160,7 @@ class HookKey(pulumi.CustomResource):
         $ pulumi import okta:index/hookKey:HookKey example &#60;hook_key_id&#62;
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: Display name for the key. Must be between 1 and 255 characters.
@@ -189,6 +192,7 @@ class HookKey(pulumi.CustomResource):
         ```sh
         $ pulumi import okta:index/hookKey:HookKey example &#60;hook_key_id&#62;
         ```
+
 
         :param str resource_name: The name of the resource.
         :param HookKeyArgs args: The arguments to use to populate this resource's properties.

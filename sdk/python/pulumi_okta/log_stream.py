@@ -27,6 +27,7 @@ class LogStreamArgs:
                  status: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a LogStream resource.
+
         :param pulumi.Input[_builtins.str] type: Streaming provider used - 'aws*eventbridge' or 'splunk*cloud_logstreaming'
         :param pulumi.Input[_builtins.str] name: Unique name for the Log Stream object
         :param pulumi.Input[_builtins.str] status: Stream status
@@ -94,6 +95,7 @@ class _LogStreamState:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering LogStream resources.
+
         :param pulumi.Input[_builtins.str] name: Unique name for the Log Stream object
         :param pulumi.Input[_builtins.str] status: Stream status
         :param pulumi.Input[_builtins.str] type: Streaming provider used - 'aws*eventbridge' or 'splunk*cloud_logstreaming'
@@ -173,6 +175,7 @@ class LogStream(pulumi.CustomResource):
         $ pulumi import okta:index/logStream:LogStream example <stream_id>
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: Unique name for the Log Stream object
@@ -193,6 +196,7 @@ class LogStream(pulumi.CustomResource):
         ```sh
         $ pulumi import okta:index/logStream:LogStream example <stream_id>
         ```
+
 
         :param str resource_name: The name of the resource.
         :param LogStreamArgs args: The arguments to use to populate this resource's properties.

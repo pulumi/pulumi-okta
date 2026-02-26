@@ -30,6 +30,10 @@ import * as utilities from "../utilities";
  *
  * Refresh tokens can be imported using the format `{client_id}/{token_id}`:
  *
+ * ```sh
+ * $ pulumi import okta:app/token:Token example 0oardd5r32PWsF4421d7/oar1godmqw4QUiX4C1d7
+ * ```
+ *
  * Where:
  * - `0oardd5r32PWsF4421d7` is the application's clientId
  * - `oar1godmqw4QUiX4C1d7` is the Refresh token ID

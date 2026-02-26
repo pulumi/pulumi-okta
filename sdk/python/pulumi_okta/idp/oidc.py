@@ -55,6 +55,7 @@ class OidcArgs:
                  username_template: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Oidc resource.
+
         :param pulumi.Input[_builtins.str] authorization_binding: The method of making an authorization request. It can be set to `HTTP-POST` or `HTTP-REDIRECT`.
         :param pulumi.Input[_builtins.str] authorization_url: IdP Authorization Server (AS) endpoint to request consent from the user and obtain an authorization code grant.
         :param pulumi.Input[_builtins.str] client_id: Unique identifier issued by AS for the Okta IdP instance.
@@ -595,6 +596,7 @@ class _OidcState:
                  username_template: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Oidc resources.
+
         :param pulumi.Input[_builtins.str] account_link_action: Specifies the account linking action for an IdP user. Default: `AUTO`
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] account_link_group_includes: Group memberships to determine link candidates.
         :param pulumi.Input[_builtins.str] authorization_binding: The method of making an authorization request. It can be set to `HTTP-POST` or `HTTP-REDIRECT`.
@@ -1207,6 +1209,7 @@ class Oidc(pulumi.CustomResource):
         $ pulumi import okta:idp/oidc:Oidc example <idp_id>
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_link_action: Specifies the account linking action for an IdP user. Default: `AUTO`
@@ -1280,6 +1283,7 @@ class Oidc(pulumi.CustomResource):
         ```sh
         $ pulumi import okta:idp/oidc:Oidc example <idp_id>
         ```
+
 
         :param str resource_name: The name of the resource.
         :param OidcArgs args: The arguments to use to populate this resource's properties.

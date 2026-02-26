@@ -26,6 +26,7 @@ class RequestSettingResourceArgs:
                  risk_settings: Optional[pulumi.Input['RequestSettingResourceRiskSettingsArgs']] = None):
         """
         The set of arguments for constructing a RequestSettingResource resource.
+
         :param pulumi.Input[_builtins.str] id_property: The id of the resource in Okta ID format.
         :param pulumi.Input['RequestSettingResourceRequestOnBehalfOfSettingsArgs'] request_on_behalf_of_settings: Specifies if and for whom a requester may request the resource for.
         :param pulumi.Input['RequestSettingResourceRiskSettingsArgs'] risk_settings: Risk settings for the resource.
@@ -81,6 +82,7 @@ class _RequestSettingResourceState:
                  risk_settings: Optional[pulumi.Input['RequestSettingResourceRiskSettingsArgs']] = None):
         """
         Input properties used for looking up and filtering RequestSettingResource resources.
+
         :param pulumi.Input[_builtins.str] id_property: The id of the resource in Okta ID format.
         :param pulumi.Input['RequestSettingResourceRequestOnBehalfOfSettingsArgs'] request_on_behalf_of_settings: Specifies if and for whom a requester may request the resource for.
         :param pulumi.Input['RequestSettingResourceRiskSettingsArgs'] risk_settings: Risk settings for the resource.
@@ -167,6 +169,7 @@ class RequestSettingResource(pulumi.CustomResource):
         $ pulumi import okta:index/requestSettingResource:RequestSettingResource example "<resource_id>"
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] id_property: The id of the resource in Okta ID format.
@@ -206,6 +209,7 @@ class RequestSettingResource(pulumi.CustomResource):
         ```sh
         $ pulumi import okta:index/requestSettingResource:RequestSettingResource example "<resource_id>"
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RequestSettingResourceArgs args: The arguments to use to populate this resource's properties.

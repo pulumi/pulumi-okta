@@ -25,6 +25,7 @@ class ApiServiceIntegrationArgs:
                  granted_scopes: Optional[pulumi.Input[Sequence[pulumi.Input['ApiServiceIntegrationGrantedScopeArgs']]]] = None):
         """
         The set of arguments for constructing a ApiServiceIntegration resource.
+
         :param pulumi.Input[_builtins.str] type: The type of the API service integration. This string is an underscore-concatenated, lowercased API service integration name.
         :param pulumi.Input[Sequence[pulumi.Input['ApiServiceIntegrationGrantedScopeArgs']]] granted_scopes: The list of Okta management scopes granted to the API Service Integration instance.
         """
@@ -65,6 +66,7 @@ class _ApiServiceIntegrationState:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ApiServiceIntegration resources.
+
         :param pulumi.Input[Sequence[pulumi.Input['ApiServiceIntegrationGrantedScopeArgs']]] granted_scopes: The list of Okta management scopes granted to the API Service Integration instance.
         :param pulumi.Input[_builtins.str] name: The name of the API service integration that corresponds with the type property.
         :param pulumi.Input[_builtins.str] type: The type of the API service integration. This string is an underscore-concatenated, lowercased API service integration name.
@@ -161,6 +163,7 @@ class ApiServiceIntegration(pulumi.CustomResource):
         $ pulumi import okta:index/apiServiceIntegration:ApiServiceIntegration example <api_service_integration_id>
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ApiServiceIntegrationGrantedScopeArgs', 'ApiServiceIntegrationGrantedScopeArgsDict']]]] granted_scopes: The list of Okta management scopes granted to the API Service Integration instance.
@@ -210,6 +213,7 @@ class ApiServiceIntegration(pulumi.CustomResource):
         ```sh
         $ pulumi import okta:index/apiServiceIntegration:ApiServiceIntegration example <api_service_integration_id>
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ApiServiceIntegrationArgs args: The arguments to use to populate this resource's properties.

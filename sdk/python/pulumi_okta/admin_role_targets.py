@@ -25,6 +25,7 @@ class AdminRoleTargetsArgs:
                  groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a AdminRoleTargets resource.
+
         :param pulumi.Input[_builtins.str] role_type: Type of the role that is assigned to the user and supports optional targets. See [API Docs](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#standard-roles)
         :param pulumi.Input[_builtins.str] user_id: User associated with the role
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] apps: List of app names (name represents set of app instances) or a combination of app name and app instance ID (like 'salesforce' or 'facebook.0oapsqQ6dv19pqyEo0g3')
@@ -96,6 +97,7 @@ class _AdminRoleTargetsState:
                  user_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AdminRoleTargets resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] apps: List of app names (name represents set of app instances) or a combination of app name and app instance ID (like 'salesforce' or 'facebook.0oapsqQ6dv19pqyEo0g3')
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] groups: List of group IDs. Conflicts with apps
         :param pulumi.Input[_builtins.str] role_id: ID of a role
@@ -212,6 +214,7 @@ class AdminRoleTargets(pulumi.CustomResource):
         $ pulumi import okta:index/adminRoleTargets:AdminRoleTargets example <user_id>/<role_type>
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] apps: List of app names (name represents set of app instances) or a combination of app name and app instance ID (like 'salesforce' or 'facebook.0oapsqQ6dv19pqyEo0g3')
@@ -251,6 +254,7 @@ class AdminRoleTargets(pulumi.CustomResource):
         ```sh
         $ pulumi import okta:index/adminRoleTargets:AdminRoleTargets example <user_id>/<role_type>
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AdminRoleTargetsArgs args: The arguments to use to populate this resource's properties.

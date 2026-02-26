@@ -22,6 +22,7 @@ class DomainVerificationArgs:
                  domain_id: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a DomainVerification resource.
+
         :param pulumi.Input[_builtins.str] domain_id: Domain's ID
         """
         pulumi.set(__self__, "domain_id", domain_id)
@@ -45,6 +46,7 @@ class _DomainVerificationState:
                  domain_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering DomainVerification resources.
+
         :param pulumi.Input[_builtins.str] domain_id: Domain's ID
         """
         if domain_id is not None:
@@ -84,6 +86,7 @@ class DomainVerification(pulumi.CustomResource):
         example_domain_verification = okta.DomainVerification("example", domain_id=test["id"])
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] domain_id: Domain's ID
@@ -106,6 +109,7 @@ class DomainVerification(pulumi.CustomResource):
         example = okta.Domain("example", name="www.example.com")
         example_domain_verification = okta.DomainVerification("example", domain_id=test["id"])
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DomainVerificationArgs args: The arguments to use to populate this resource's properties.

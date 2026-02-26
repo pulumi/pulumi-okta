@@ -25,6 +25,7 @@ class AppGroupAssignmentsArgs:
                  groups: Optional[pulumi.Input[Sequence[pulumi.Input['AppGroupAssignmentsGroupArgs']]]] = None):
         """
         The set of arguments for constructing a AppGroupAssignments resource.
+
         :param pulumi.Input[_builtins.str] app_id: The ID of the application to assign a group to.
         :param pulumi.Input[Sequence[pulumi.Input['AppGroupAssignmentsGroupArgs']]] groups: A group to assign to this application
         """
@@ -64,6 +65,7 @@ class _AppGroupAssignmentsState:
                  groups: Optional[pulumi.Input[Sequence[pulumi.Input['AppGroupAssignmentsGroupArgs']]]] = None):
         """
         Input properties used for looking up and filtering AppGroupAssignments resources.
+
         :param pulumi.Input[_builtins.str] app_id: The ID of the application to assign a group to.
         :param pulumi.Input[Sequence[pulumi.Input['AppGroupAssignmentsGroupArgs']]] groups: A group to assign to this application
         """
@@ -141,6 +143,7 @@ class AppGroupAssignments(pulumi.CustomResource):
         $ pulumi import okta:index/appGroupAssignments:AppGroupAssignments example <app_id>
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] app_id: The ID of the application to assign a group to.
@@ -186,6 +189,7 @@ class AppGroupAssignments(pulumi.CustomResource):
         ```sh
         $ pulumi import okta:index/appGroupAssignments:AppGroupAssignments example <app_id>
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AppGroupAssignmentsArgs args: The arguments to use to populate this resource's properties.

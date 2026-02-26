@@ -35,6 +35,7 @@ class AgentPoolUpdateArgs:
                  target_version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a AgentPoolUpdate resource.
+
         :param pulumi.Input[_builtins.str] pool_id: The unique identifier of the agent pool to update.
         :param pulumi.Input[_builtins.str] agent_type: Agent types that are being monitored (e.g., AD, IWA, LDAP, MFA, OPP, RUM, Radius).
         :param pulumi.Input[Sequence[pulumi.Input['AgentPoolUpdateAgentArgs']]] agents: The agents associated with the agent pool update.
@@ -235,6 +236,7 @@ class _AgentPoolUpdateState:
                  target_version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AgentPoolUpdate resources.
+
         :param pulumi.Input[_builtins.str] agent_type: Agent types that are being monitored (e.g., AD, IWA, LDAP, MFA, OPP, RUM, Radius).
         :param pulumi.Input[Sequence[pulumi.Input['AgentPoolUpdateAgentArgs']]] agents: The agents associated with the agent pool update.
         :param pulumi.Input[_builtins.str] description: The description of the agent pool update.
@@ -484,6 +486,7 @@ class AgentPoolUpdate(pulumi.CustomResource):
         $ pulumi import okta:index/agentPoolUpdate:AgentPoolUpdate example <pool_id>/<update_id>
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] agent_type: Agent types that are being monitored (e.g., AD, IWA, LDAP, MFA, OPP, RUM, Radius).
@@ -536,6 +539,7 @@ class AgentPoolUpdate(pulumi.CustomResource):
         ```sh
         $ pulumi import okta:index/agentPoolUpdate:AgentPoolUpdate example <pool_id>/<update_id>
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AgentPoolUpdateArgs args: The arguments to use to populate this resource's properties.

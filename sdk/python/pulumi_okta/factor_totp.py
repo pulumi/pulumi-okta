@@ -27,6 +27,7 @@ class FactorTotpArgs:
                  time_step: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a FactorTotp resource.
+
         :param pulumi.Input[_builtins.int] clock_drift_interval: Clock drift interval. This setting allows you to build in tolerance for any drift between the token's current time and the server's current time. Valid values: `3`, `5`, `10`. Default is `3`.
         :param pulumi.Input[_builtins.str] hmac_algorithm: HMAC Algorithm. Valid values: `HMacSHA1`, `HMacSHA256`, `HMacSHA512`. Default is `HMacSHA512`.
         :param pulumi.Input[_builtins.str] name: The TOTP name.
@@ -131,6 +132,7 @@ class _FactorTotpState:
                  time_step: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering FactorTotp resources.
+
         :param pulumi.Input[_builtins.int] clock_drift_interval: Clock drift interval. This setting allows you to build in tolerance for any drift between the token's current time and the server's current time. Valid values: `3`, `5`, `10`. Default is `3`.
         :param pulumi.Input[_builtins.str] hmac_algorithm: HMAC Algorithm. Valid values: `HMacSHA1`, `HMacSHA256`, `HMacSHA512`. Default is `HMacSHA512`.
         :param pulumi.Input[_builtins.str] name: The TOTP name.
@@ -264,6 +266,7 @@ class FactorTotp(pulumi.CustomResource):
             shared_secret_encoding="hexadecimal")
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] clock_drift_interval: Clock drift interval. This setting allows you to build in tolerance for any drift between the token's current time and the server's current time. Valid values: `3`, `5`, `10`. Default is `3`.
@@ -305,6 +308,7 @@ class FactorTotp(pulumi.CustomResource):
             clock_drift_interval=10,
             shared_secret_encoding="hexadecimal")
         ```
+
 
         :param str resource_name: The name of the resource.
         :param FactorTotpArgs args: The arguments to use to populate this resource's properties.

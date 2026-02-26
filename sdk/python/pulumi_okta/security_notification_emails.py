@@ -26,6 +26,7 @@ class SecurityNotificationEmailsArgs:
                  send_email_for_password_changed_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a SecurityNotificationEmails resource.
+
         :param pulumi.Input[_builtins.bool] report_suspicious_activity_enabled: Notifies end users about suspicious or unrecognized activity from their account. Default is `true`.
         :param pulumi.Input[_builtins.bool] send_email_for_factor_enrollment_enabled: Notifies end users of any activity on their account related to MFA factor enrollment. Default is `true`.
         :param pulumi.Input[_builtins.bool] send_email_for_factor_reset_enabled: Notifies end users that one or more factors have been reset for their account. Default is `true`.
@@ -114,6 +115,7 @@ class _SecurityNotificationEmailsState:
                  send_email_for_password_changed_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering SecurityNotificationEmails resources.
+
         :param pulumi.Input[_builtins.bool] report_suspicious_activity_enabled: Notifies end users about suspicious or unrecognized activity from their account. Default is `true`.
         :param pulumi.Input[_builtins.bool] send_email_for_factor_enrollment_enabled: Notifies end users of any activity on their account related to MFA factor enrollment. Default is `true`.
         :param pulumi.Input[_builtins.bool] send_email_for_factor_reset_enabled: Notifies end users that one or more factors have been reset for their account. Default is `true`.
@@ -230,6 +232,7 @@ class SecurityNotificationEmails(pulumi.CustomResource):
         $ pulumi import okta:index/securityNotificationEmails:SecurityNotificationEmails example _
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] report_suspicious_activity_enabled: Notifies end users about suspicious or unrecognized activity from their account. Default is `true`.
@@ -269,6 +272,7 @@ class SecurityNotificationEmails(pulumi.CustomResource):
         ```sh
         $ pulumi import okta:index/securityNotificationEmails:SecurityNotificationEmails example _
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SecurityNotificationEmailsArgs args: The arguments to use to populate this resource's properties.

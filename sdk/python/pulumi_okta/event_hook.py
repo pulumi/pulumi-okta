@@ -29,6 +29,7 @@ class EventHookArgs:
                  status: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a EventHook resource.
+
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] channel: Details of the endpoint the event hook will hit.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] events: The events that will be delivered to this hook. [See here for a list of supported events](https://developer.okta.com/docs/reference/api/event-types/?q=event-hook-eligible).
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] auth: Details of the endpoint the event hook will hit.   
@@ -137,6 +138,7 @@ class _EventHookState:
                  status: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering EventHook resources.
+
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] auth: Details of the endpoint the event hook will hit.   
                	- 'version' - (Required) The version of the channel. The currently-supported version is '1.0.0'.
                	- 'uri' - (Required) The URI the hook will hit.
@@ -282,6 +284,7 @@ class EventHook(pulumi.CustomResource):
         $ pulumi import okta:index/eventHook:EventHook example <hook_id>
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] auth: Details of the endpoint the event hook will hit.   
@@ -332,6 +335,7 @@ class EventHook(pulumi.CustomResource):
         ```sh
         $ pulumi import okta:index/eventHook:EventHook example <hook_id>
         ```
+
 
         :param str resource_name: The name of the resource.
         :param EventHookArgs args: The arguments to use to populate this resource's properties.

@@ -51,6 +51,7 @@ class MfaArgs:
                  yubikey_token: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Mfa resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]] custom_apps: List of custom authenticators, specify entry like {"enroll": "OPTIONAL", "id": "<id_of_custom_app>"} to mark specific custom app optional, list must contain at least 1 entry.
         :param pulumi.Input[_builtins.str] description: Policy Description
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] groups_includeds: List of Group IDs to Include
@@ -451,6 +452,7 @@ class _MfaState:
                  yubikey_token: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Mfa resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]] custom_apps: List of custom authenticators, specify entry like {"enroll": "OPTIONAL", "id": "<id_of_custom_app>"} to mark specific custom app optional, list must contain at least 1 entry.
         :param pulumi.Input[_builtins.str] description: Policy Description
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] groups_includeds: List of Group IDs to Include
@@ -862,6 +864,7 @@ class Mfa(pulumi.CustomResource):
         $ pulumi import okta:policy/mfa:Mfa example <policy_id>
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]] custom_apps: List of custom authenticators, specify entry like {"enroll": "OPTIONAL", "id": "<id_of_custom_app>"} to mark specific custom app optional, list must contain at least 1 entry.
@@ -886,6 +889,7 @@ class Mfa(pulumi.CustomResource):
         ```sh
         $ pulumi import okta:policy/mfa:Mfa example <policy_id>
         ```
+
 
         :param str resource_name: The name of the resource.
         :param MfaArgs args: The arguments to use to populate this resource's properties.

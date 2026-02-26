@@ -23,6 +23,7 @@ class RequestSettingOrganizationArgs:
                  subprocessors_acknowledged: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a RequestSettingOrganization resource.
+
         :param pulumi.Input[_builtins.str] id_property: Request condition id.
         :param pulumi.Input[_builtins.bool] subprocessors_acknowledged: Whether a customer has acknowledged Access Requests subprocessors.
         """
@@ -62,6 +63,7 @@ class _RequestSettingOrganizationState:
                  subprocessors_acknowledged: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering RequestSettingOrganization resources.
+
         :param pulumi.Input[_builtins.str] id_property: Request condition id.
         :param pulumi.Input[_builtins.bool] subprocessors_acknowledged: Whether a customer has acknowledged Access Requests subprocessors.
         """
@@ -131,6 +133,7 @@ class RequestSettingOrganization(pulumi.CustomResource):
         $ pulumi import okta:index/requestSettingOrganization:RequestSettingOrganization example "default"
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] id_property: Request condition id.
@@ -168,6 +171,7 @@ class RequestSettingOrganization(pulumi.CustomResource):
         ```sh
         $ pulumi import okta:index/requestSettingOrganization:RequestSettingOrganization example "default"
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RequestSettingOrganizationArgs args: The arguments to use to populate this resource's properties.

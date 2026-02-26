@@ -30,6 +30,7 @@ class BrandArgs:
                  remove_powered_by_okta: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a Brand resource.
+
         :param pulumi.Input[_builtins.bool] agree_to_custom_privacy_policy: Is a required input flag with when changing custom*privacy*url, shouldn't be considered as a readable property
         :param pulumi.Input[_builtins.str] brand_id: Brand ID - Note: Okta API for brands only reads and updates therefore the okta*brand resource needs to act as a quasi data source. Do this by setting brand*id. `DEPRECATED`: Okta has fully support brand creation, this attribute is a no op and will be removed
         :param pulumi.Input[_builtins.str] custom_privacy_policy_url: Custom privacy policy URL
@@ -189,6 +190,7 @@ class _BrandState:
                  remove_powered_by_okta: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering Brand resources.
+
         :param pulumi.Input[_builtins.bool] agree_to_custom_privacy_policy: Is a required input flag with when changing custom*privacy*url, shouldn't be considered as a readable property
         :param pulumi.Input[_builtins.str] brand_id: Brand ID - Note: Okta API for brands only reads and updates therefore the okta*brand resource needs to act as a quasi data source. Do this by setting brand*id. `DEPRECATED`: Okta has fully support brand creation, this attribute is a no op and will be removed
         :param pulumi.Input[_builtins.str] custom_privacy_policy_url: Custom privacy policy URL
@@ -412,6 +414,7 @@ class Brand(pulumi.CustomResource):
         $ pulumi import okta:index/brand:Brand example <brand_id>
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] agree_to_custom_privacy_policy: Is a required input flag with when changing custom*privacy*url, shouldn't be considered as a readable property
@@ -449,6 +452,7 @@ class Brand(pulumi.CustomResource):
         ```sh
         $ pulumi import okta:index/brand:Brand example <brand_id>
         ```
+
 
         :param str resource_name: The name of the resource.
         :param BrandArgs args: The arguments to use to populate this resource's properties.

@@ -42,6 +42,7 @@ class GroupSchemaPropertyArgs:
                  unique: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a GroupSchemaProperty resource.
+
         :param pulumi.Input[_builtins.str] index: Subschema unique string identifier
         :param pulumi.Input[_builtins.str] title: Subschema title (display name)
         :param pulumi.Input[_builtins.str] type: The type of the schema property. It can be `string`, `boolean`, `number`, `integer`, `array`, or `object`
@@ -355,6 +356,7 @@ class _GroupSchemaPropertyState:
                  unique: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering GroupSchemaProperty resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] array_enums: Array of values that an array property's items can be set to.
         :param pulumi.Input[Sequence[pulumi.Input['GroupSchemaPropertyArrayOneOfArgs']]] array_one_ofs: Display name and value an enum array can be set to.
                	- 'const' - (Required) value mapping to member of 'enum'.
@@ -703,6 +705,7 @@ class GroupSchemaProperty(pulumi.CustomResource):
         $ pulumi import okta:index/groupSchemaProperty:GroupSchemaProperty example <index>
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] array_enums: Array of values that an array property's items can be set to.
@@ -763,6 +766,7 @@ class GroupSchemaProperty(pulumi.CustomResource):
         ```sh
         $ pulumi import okta:index/groupSchemaProperty:GroupSchemaProperty example <index>
         ```
+
 
         :param str resource_name: The name of the resource.
         :param GroupSchemaPropertyArgs args: The arguments to use to populate this resource's properties.

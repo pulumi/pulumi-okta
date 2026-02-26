@@ -50,6 +50,7 @@ class SecurePasswordStoreArgs:
                  user_name_template_type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SecurePasswordStore resource.
+
         :param pulumi.Input[_builtins.str] label: The Application's display name.
         :param pulumi.Input[_builtins.str] password_field: Login password field
         :param pulumi.Input[_builtins.str] url: Login URL
@@ -521,6 +522,7 @@ class _SecurePasswordStoreState:
                  username_field: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SecurePasswordStore resources.
+
         :param pulumi.Input[_builtins.str] accessibility_error_redirect_url: Custom error page URL
         :param pulumi.Input[_builtins.str] accessibility_login_redirect_url: Custom login page URL
         :param pulumi.Input[_builtins.bool] accessibility_self_service: Enable self service. Default is `false`
@@ -1068,6 +1070,7 @@ class SecurePasswordStore(pulumi.CustomResource):
         $ pulumi import okta:app/securePasswordStore:SecurePasswordStore example <app_id>
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] accessibility_error_redirect_url: Custom error page URL
@@ -1133,6 +1136,7 @@ class SecurePasswordStore(pulumi.CustomResource):
         ```sh
         $ pulumi import okta:app/securePasswordStore:SecurePasswordStore example <app_id>
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SecurePasswordStoreArgs args: The arguments to use to populate this resource's properties.

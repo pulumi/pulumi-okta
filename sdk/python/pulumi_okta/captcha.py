@@ -25,6 +25,7 @@ class CaptchaArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Captcha resource.
+
         :param pulumi.Input[_builtins.str] secret_key: Secret key issued from the CAPTCHA vendor to perform server-side validation for a CAPTCHA token
         :param pulumi.Input[_builtins.str] site_key: Site key issued from the CAPTCHA vendor to render a CAPTCHA on a page
         :param pulumi.Input[_builtins.str] type: Type of the captcha. Valid values: `HCAPTCHA`, `RECAPTCHA_V2`
@@ -94,6 +95,7 @@ class _CaptchaState:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Captcha resources.
+
         :param pulumi.Input[_builtins.str] name: Name of the CAPTCHA
         :param pulumi.Input[_builtins.str] secret_key: Secret key issued from the CAPTCHA vendor to perform server-side validation for a CAPTCHA token
         :param pulumi.Input[_builtins.str] site_key: Site key issued from the CAPTCHA vendor to render a CAPTCHA on a page
@@ -192,6 +194,7 @@ class Captcha(pulumi.CustomResource):
         $ pulumi import okta:index/captcha:Captcha example <captcha_id>
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: Name of the CAPTCHA
@@ -228,6 +231,7 @@ class Captcha(pulumi.CustomResource):
         ```sh
         $ pulumi import okta:index/captcha:Captcha example <captcha_id>
         ```
+
 
         :param str resource_name: The name of the resource.
         :param CaptchaArgs args: The arguments to use to populate this resource's properties.

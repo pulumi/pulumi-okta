@@ -29,6 +29,7 @@ class UserBaseSchemaPropertyArgs:
                  user_type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a UserBaseSchemaProperty resource.
+
         :param pulumi.Input[_builtins.str] index: Subschema unique string identifier
         :param pulumi.Input[_builtins.str] title: Subschema title (display name)
         :param pulumi.Input[_builtins.str] type: The type of the schema property. It can be `string`, `boolean`, `number`, `integer`, `array`, or `object`
@@ -162,6 +163,7 @@ class _UserBaseSchemaPropertyState:
                  user_type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering UserBaseSchemaProperty resources.
+
         :param pulumi.Input[_builtins.str] index: Subschema unique string identifier
         :param pulumi.Input[_builtins.str] master: Master priority for the user schema property. It can be set to `PROFILE_MASTER` or `OKTA`. Default: `PROFILE_MASTER`
         :param pulumi.Input[_builtins.str] pattern: The validation pattern to use for the subschema. Must be in form of '.+', or '[\\n\\n]+' if present.'
@@ -340,6 +342,7 @@ class UserBaseSchemaProperty(pulumi.CustomResource):
         terraform import okta_user_base_schema_property.example <user_type_id>.<property name>
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] index: Subschema unique string identifier
@@ -396,6 +399,7 @@ class UserBaseSchemaProperty(pulumi.CustomResource):
         ```sh
         terraform import okta_user_base_schema_property.example <user_type_id>.<property name>
         ```
+
 
         :param str resource_name: The name of the resource.
         :param UserBaseSchemaPropertyArgs args: The arguments to use to populate this resource's properties.

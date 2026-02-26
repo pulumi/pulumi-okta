@@ -28,6 +28,7 @@ class RoleArgs:
                  target_group_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Role resource.
+
         :param pulumi.Input[_builtins.str] group_id: ID of group to attach admin roles to
         :param pulumi.Input[_builtins.str] role_type: Admin role assigned to the group. It can be any one of the following values:
                	"API_ADMIN",
@@ -172,6 +173,7 @@ class _RoleState:
                  target_group_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Role resources.
+
         :param pulumi.Input[_builtins.bool] disable_notifications: When this setting is enabled, the admins won't receive any of the default Okta administrator emails. These admins also won't have access to contact Okta Support and open support cases on behalf of your org.
         :param pulumi.Input[_builtins.str] group_id: ID of group to attach admin roles to
         :param pulumi.Input[_builtins.str] resource_set_id: Resource Set ID. Required for role_type = `CUSTOM`
@@ -363,6 +365,7 @@ class Role(pulumi.CustomResource):
         $ pulumi import okta:group/role:Role example <group_id>/<role_id>
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] disable_notifications: When this setting is enabled, the admins won't receive any of the default Okta administrator emails. These admins also won't have access to contact Okta Support and open support cases on behalf of your org.
@@ -434,6 +437,7 @@ class Role(pulumi.CustomResource):
         ```sh
         $ pulumi import okta:group/role:Role example <group_id>/<role_id>
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RoleArgs args: The arguments to use to populate this resource's properties.

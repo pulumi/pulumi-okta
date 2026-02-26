@@ -49,6 +49,7 @@ class AppSignonPolicyRuleArgs:
                  users_includeds: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a AppSignonPolicyRule resource.
+
         :param pulumi.Input[_builtins.str] policy_id: ID of the policy
         :param pulumi.Input[_builtins.str] access: Allow or deny access based on the rule conditions: ALLOW or DENY
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] chains: Authentication method chains. Only supports 5 items in the array. Each chain can support maximum 3 steps. To be used only with verification method type `AUTH_METHOD_CHAIN`.
@@ -469,6 +470,7 @@ class _AppSignonPolicyRuleState:
                  users_includeds: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering AppSignonPolicyRule resources.
+
         :param pulumi.Input[_builtins.str] access: Allow or deny access based on the rule conditions: ALLOW or DENY
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] chains: Authentication method chains. Only supports 5 items in the array. Each chain can support maximum 3 steps. To be used only with verification method type `AUTH_METHOD_CHAIN`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] constraints: An array that contains nested Authenticator Constraint objects that are organized by the Authenticator class
@@ -925,6 +927,7 @@ class AppSignonPolicyRule(pulumi.CustomResource):
         $ pulumi import okta:index/appSignonPolicyRule:AppSignonPolicyRule example <policy_id>/<rule_id>
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] access: Allow or deny access based on the rule conditions: ALLOW or DENY
@@ -977,6 +980,7 @@ class AppSignonPolicyRule(pulumi.CustomResource):
         ```sh
         $ pulumi import okta:index/appSignonPolicyRule:AppSignonPolicyRule example <policy_id>/<rule_id>
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AppSignonPolicyRuleArgs args: The arguments to use to populate this resource's properties.

@@ -22,6 +22,7 @@ class RateLimitWarningThresholdPercentageArgs:
                  warning_threshold: pulumi.Input[_builtins.int]):
         """
         The set of arguments for constructing a RateLimitWarningThresholdPercentage resource.
+
         :param pulumi.Input[_builtins.int] warning_threshold: The threshold value (percentage) of a rate limit that, when exceeded, triggers a warning notification. By default, this value is 90 for Workforce orgs and 60 for CIAM orgs.
         """
         pulumi.set(__self__, "warning_threshold", warning_threshold)
@@ -45,6 +46,7 @@ class _RateLimitWarningThresholdPercentageState:
                  warning_threshold: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering RateLimitWarningThresholdPercentage resources.
+
         :param pulumi.Input[_builtins.int] warning_threshold: The threshold value (percentage) of a rate limit that, when exceeded, triggers a warning notification. By default, this value is 90 for Workforce orgs and 60 for CIAM orgs.
         """
         if warning_threshold is not None:
@@ -88,6 +90,7 @@ class RateLimitWarningThresholdPercentage(pulumi.CustomResource):
         $ pulumi import okta:index/rateLimitWarningThresholdPercentage:RateLimitWarningThresholdPercentage example .
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] warning_threshold: The threshold value (percentage) of a rate limit that, when exceeded, triggers a warning notification. By default, this value is 90 for Workforce orgs and 60 for CIAM orgs.
@@ -114,6 +117,7 @@ class RateLimitWarningThresholdPercentage(pulumi.CustomResource):
         ```sh
         $ pulumi import okta:index/rateLimitWarningThresholdPercentage:RateLimitWarningThresholdPercentage example .
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RateLimitWarningThresholdPercentageArgs args: The arguments to use to populate this resource's properties.

@@ -27,6 +27,7 @@ class DeviceAssuranceAndroidArgs:
                  secure_hardware_present: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a DeviceAssuranceAndroid resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] disk_encryption_types: List of disk encryption type, can be `FULL`, `USER`
         :param pulumi.Input[_builtins.bool] jailbreak: Is the device jailbroken in the device assurance policy.
         :param pulumi.Input[_builtins.str] name: Policy device assurance name
@@ -136,6 +137,7 @@ class _DeviceAssuranceAndroidState:
                  secure_hardware_present: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering DeviceAssuranceAndroid resources.
+
         :param pulumi.Input[_builtins.str] created_by: Created by
         :param pulumi.Input[_builtins.str] created_date: Created date
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] disk_encryption_types: List of disk encryption type, can be `FULL`, `USER`
@@ -345,6 +347,7 @@ class DeviceAssuranceAndroid(pulumi.CustomResource):
         $ pulumi import okta:policy/deviceAssuranceAndroid:DeviceAssuranceAndroid example <device_assurance_id>
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] disk_encryption_types: List of disk encryption type, can be `FULL`, `USER`
@@ -387,6 +390,7 @@ class DeviceAssuranceAndroid(pulumi.CustomResource):
         ```sh
         $ pulumi import okta:policy/deviceAssuranceAndroid:DeviceAssuranceAndroid example <device_assurance_id>
         ```
+
 
         :param str resource_name: The name of the resource.
         :param DeviceAssuranceAndroidArgs args: The arguments to use to populate this resource's properties.

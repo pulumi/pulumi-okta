@@ -28,6 +28,7 @@ class RuleArgs:
                  users_excludeds: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Rule resource.
+
         :param pulumi.Input[_builtins.str] expression_value: The expression value.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] group_assignments: The list of group ids to assign the users to.
         :param pulumi.Input[_builtins.str] expression_type: The expression type to use to invoke the rule. The default is `urn:okta:expression:1.0`.
@@ -146,6 +147,7 @@ class _RuleState:
                  users_excludeds: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Rule resources.
+
         :param pulumi.Input[_builtins.str] expression_type: The expression type to use to invoke the rule. The default is `urn:okta:expression:1.0`.
         :param pulumi.Input[_builtins.str] expression_value: The expression value.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] group_assignments: The list of group ids to assign the users to.
@@ -295,6 +297,7 @@ class Rule(pulumi.CustomResource):
         $ pulumi import okta:group/rule:Rule example <group_rule_id>
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] expression_type: The expression type to use to invoke the rule. The default is `urn:okta:expression:1.0`.
@@ -337,6 +340,7 @@ class Rule(pulumi.CustomResource):
         ```sh
         $ pulumi import okta:group/rule:Rule example <group_rule_id>
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RuleArgs args: The arguments to use to populate this resource's properties.

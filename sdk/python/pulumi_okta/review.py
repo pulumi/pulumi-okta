@@ -26,6 +26,7 @@ class ReviewArgs:
                  reviewer_level: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Review resource.
+
         :param pulumi.Input[_builtins.str] campaign_id: The id of the campaign.
         :param pulumi.Input[_builtins.str] note: A note to justify the reassignment decision for the specified review.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] review_ids: A list of reviews (review id values) that are reassigned to the new reviewer.
@@ -117,6 +118,7 @@ class _ReviewState:
                  reviewer_type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Review resources.
+
         :param pulumi.Input[_builtins.str] campaign_id: The id of the campaign.
         :param pulumi.Input[_builtins.str] created: The ISO 8601 formatted date and time when the resource was created
         :param pulumi.Input[_builtins.str] created_by: The id of user who created the resource.
@@ -333,6 +335,7 @@ class Review(pulumi.CustomResource):
         $ pulumi import okta:index/review:Review example <review_id?
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] campaign_id: The id of the campaign.
@@ -371,6 +374,7 @@ class Review(pulumi.CustomResource):
         ```sh
         $ pulumi import okta:index/review:Review example <review_id?
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ReviewArgs args: The arguments to use to populate this resource's properties.

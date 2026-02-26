@@ -23,6 +23,7 @@ class AccessPolicyAssignmentArgs:
                  policy_id: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a AccessPolicyAssignment resource.
+
         :param pulumi.Input[_builtins.str] app_id: The application ID; this value is immutable and can not be updated.
         :param pulumi.Input[_builtins.str] policy_id: The access policy ID.
         """
@@ -61,6 +62,7 @@ class _AccessPolicyAssignmentState:
                  policy_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AccessPolicyAssignment resources.
+
         :param pulumi.Input[_builtins.str] app_id: The application ID; this value is immutable and can not be updated.
         :param pulumi.Input[_builtins.str] policy_id: The access policy ID.
         """
@@ -141,6 +143,7 @@ class AccessPolicyAssignment(pulumi.CustomResource):
         $ pulumi import okta:app/accessPolicyAssignment:AccessPolicyAssignment example <app_id>
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] app_id: The application ID; this value is immutable and can not be updated.
@@ -189,6 +192,7 @@ class AccessPolicyAssignment(pulumi.CustomResource):
         ```sh
         $ pulumi import okta:app/accessPolicyAssignment:AccessPolicyAssignment example <app_id>
         ```
+
 
         :param str resource_name: The name of the resource.
         :param AccessPolicyAssignmentArgs args: The arguments to use to populate this resource's properties.

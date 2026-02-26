@@ -22,6 +22,7 @@ class RateLimitAdminNotificationSettingsArgs:
                  notifications_enabled: pulumi.Input[_builtins.bool]):
         """
         The set of arguments for constructing a RateLimitAdminNotificationSettings resource.
+
         :param pulumi.Input[_builtins.bool] notifications_enabled: Enables or disables admin notifications for rate limiting events.
         """
         pulumi.set(__self__, "notifications_enabled", notifications_enabled)
@@ -45,6 +46,7 @@ class _RateLimitAdminNotificationSettingsState:
                  notifications_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering RateLimitAdminNotificationSettings resources.
+
         :param pulumi.Input[_builtins.bool] notifications_enabled: Enables or disables admin notifications for rate limiting events.
         """
         if notifications_enabled is not None:
@@ -89,6 +91,7 @@ class RateLimitAdminNotificationSettings(pulumi.CustomResource):
         $ pulumi import okta:index/rateLimitAdminNotificationSettings:RateLimitAdminNotificationSettings example .
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] notifications_enabled: Enables or disables admin notifications for rate limiting events.
@@ -116,6 +119,7 @@ class RateLimitAdminNotificationSettings(pulumi.CustomResource):
         ```sh
         $ pulumi import okta:index/rateLimitAdminNotificationSettings:RateLimitAdminNotificationSettings example .
         ```
+
 
         :param str resource_name: The name of the resource.
         :param RateLimitAdminNotificationSettingsArgs args: The arguments to use to populate this resource's properties.

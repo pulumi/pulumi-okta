@@ -22,6 +22,7 @@ class SamlKeyArgs:
                  x5cs: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
         """
         The set of arguments for constructing a SamlKey resource.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] x5cs: base64-encoded X.509 certificate chain with DER encoding
         """
         pulumi.set(__self__, "x5cs", x5cs)
@@ -51,6 +52,7 @@ class _SamlKeyState:
                  x5t_s256: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SamlKey resources.
+
         :param pulumi.Input[_builtins.str] created: Date created.
         :param pulumi.Input[_builtins.str] expires_at: Date the cert expires.
         :param pulumi.Input[_builtins.str] kid: Key ID.
@@ -210,6 +212,7 @@ class SamlKey(pulumi.CustomResource):
         $ pulumi import okta:idp/samlKey:SamlKey example <key_id>
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] x5cs: base64-encoded X.509 certificate chain with DER encoding
@@ -262,6 +265,7 @@ class SamlKey(pulumi.CustomResource):
         ```sh
         $ pulumi import okta:idp/samlKey:SamlKey example <key_id>
         ```
+
 
         :param str resource_name: The name of the resource.
         :param SamlKeyArgs args: The arguments to use to populate this resource's properties.

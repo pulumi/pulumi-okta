@@ -26,6 +26,7 @@ class FeatureArgs:
                  mode: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a Feature resource.
+
         :param pulumi.Input[_builtins.str] feature_id: Okta API for feature only reads and updates therefore the okta*feature resource needs to act as a quasi data source. Do this by setting feature*id
         :param pulumi.Input[_builtins.str] life_cycle: Whether to `ENABLE` or `DISABLE` the feature
         :param pulumi.Input[_builtins.bool] mode: Indicates if you want to force enable or disable a feature. Value is `true` meaning force
@@ -86,6 +87,7 @@ class _FeatureState:
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Feature resources.
+
         :param pulumi.Input[_builtins.str] description: Name of the feature.
         :param pulumi.Input[_builtins.str] feature_id: Okta API for feature only reads and updates therefore the okta*feature resource needs to act as a quasi data source. Do this by setting feature*id
         :param pulumi.Input[_builtins.str] life_cycle: Whether to `ENABLE` or `DISABLE` the feature
@@ -238,6 +240,7 @@ class Feature(pulumi.CustomResource):
         $ pulumi import okta:index/feature:Feature example <id>
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] feature_id: Okta API for feature only reads and updates therefore the okta*feature resource needs to act as a quasi data source. Do this by setting feature*id
@@ -268,6 +271,7 @@ class Feature(pulumi.CustomResource):
         ```sh
         $ pulumi import okta:index/feature:Feature example <id>
         ```
+
 
         :param str resource_name: The name of the resource.
         :param FeatureArgs args: The arguments to use to populate this resource's properties.

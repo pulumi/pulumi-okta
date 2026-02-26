@@ -33,6 +33,7 @@ class ZoneArgs:
                  usage: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Zone resource.
+
         :param pulumi.Input[_builtins.str] type: Type of the Network Zone - can be `IP`, `DYNAMIC` or `DYNAMIC_V2` only
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] asns: List of asns included. Format of each array value: a string representation of an ASN numeric value. Use with type `DYNAMIC` or `DYNAMIC_V2`
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dynamic_locations: Array of locations ISO-3166-1(2) included. Format code: countryCode OR countryCode-regionCode. Use with type `DYNAMIC` or `DYNAMIC_V2`
@@ -232,6 +233,7 @@ class _ZoneState:
                  usage: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Zone resources.
+
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] asns: List of asns included. Format of each array value: a string representation of an ASN numeric value. Use with type `DYNAMIC` or `DYNAMIC_V2`
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dynamic_locations: Array of locations ISO-3166-1(2) included. Format code: countryCode OR countryCode-regionCode. Use with type `DYNAMIC` or `DYNAMIC_V2`
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dynamic_locations_excludes: Array of locations ISO-3166-1(2) excluded. Format code: countryCode OR countryCode-regionCode. Use with type `DYNAMIC_V2`
@@ -443,6 +445,7 @@ class Zone(pulumi.CustomResource):
         $ pulumi import okta:network/zone:Zone example <zone_id>
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] asns: List of asns included. Format of each array value: a string representation of an ASN numeric value. Use with type `DYNAMIC` or `DYNAMIC_V2`
@@ -472,6 +475,7 @@ class Zone(pulumi.CustomResource):
         ```sh
         $ pulumi import okta:network/zone:Zone example <zone_id>
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ZoneArgs args: The arguments to use to populate this resource's properties.

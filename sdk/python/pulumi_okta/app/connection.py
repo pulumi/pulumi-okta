@@ -27,6 +27,7 @@ class ConnectionArgs:
                  profile: Optional[pulumi.Input['ConnectionProfileArgs']] = None):
         """
         The set of arguments for constructing a Connection resource.
+
         :param pulumi.Input[_builtins.str] action: The action to perform on the connection. Valid values are `activate` or `deactivate`.
         :param pulumi.Input[_builtins.str] base_url: The base URL for the provisioning connection.
         :param pulumi.Input[_builtins.str] id_property: The application ID.
@@ -97,6 +98,7 @@ class _ConnectionState:
                  status: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Connection resources.
+
         :param pulumi.Input[_builtins.str] action: The action to perform on the connection. Valid values are `activate` or `deactivate`.
         :param pulumi.Input[_builtins.str] base_url: The base URL for the provisioning connection.
         :param pulumi.Input[_builtins.str] id_property: The application ID.
@@ -253,6 +255,7 @@ class Connection(pulumi.CustomResource):
         $ pulumi import okta:app/connection:Connection example <application_id>
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] action: The action to perform on the connection. Valid values are `activate` or `deactivate`.
@@ -332,6 +335,7 @@ class Connection(pulumi.CustomResource):
         ```sh
         $ pulumi import okta:app/connection:Connection example <application_id>
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ConnectionArgs args: The arguments to use to populate this resource's properties.

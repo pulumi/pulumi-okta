@@ -28,6 +28,7 @@ class FeaturesArgs:
                  status: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Features resource.
+
         :param pulumi.Input[_builtins.str] app_id: The ID of the application to configure features for.
         :param pulumi.Input['FeaturesCapabilitiesArgs'] capabilities: Configuration block for feature capabilities. See Capabilities below.
         :param pulumi.Input[_builtins.str] description: Description of the feature.
@@ -119,6 +120,7 @@ class _FeaturesState:
                  status: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Features resources.
+
         :param pulumi.Input[_builtins.str] app_id: The ID of the application to configure features for.
         :param pulumi.Input['FeaturesCapabilitiesArgs'] capabilities: Configuration block for feature capabilities. See Capabilities below.
         :param pulumi.Input[_builtins.str] description: Description of the feature.
@@ -346,6 +348,15 @@ class Features(pulumi.CustomResource):
 
         App features can be imported using the format `{app_id}/{feature_name}`:
 
+        ```sh
+        $ pulumi import okta:app/features:Features example 0oarblaf7hWdLawNg1d7/USER_PROVISIONING
+        ```
+
+        ```sh
+        $ pulumi import okta:app/features:Features inbound 0oarblaf7hWdLawNg1d7/INBOUND_PROVISIONING
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] app_id: The ID of the application to configure features for.
@@ -494,6 +505,15 @@ class Features(pulumi.CustomResource):
         ## Import
 
         App features can be imported using the format `{app_id}/{feature_name}`:
+
+        ```sh
+        $ pulumi import okta:app/features:Features example 0oarblaf7hWdLawNg1d7/USER_PROVISIONING
+        ```
+
+        ```sh
+        $ pulumi import okta:app/features:Features inbound 0oarblaf7hWdLawNg1d7/INBOUND_PROVISIONING
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param FeaturesArgs args: The arguments to use to populate this resource's properties.

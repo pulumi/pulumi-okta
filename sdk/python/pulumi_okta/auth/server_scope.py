@@ -29,6 +29,7 @@ class ServerScopeArgs:
                  optional: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a ServerScope resource.
+
         :param pulumi.Input[_builtins.str] auth_server_id: Auth server ID
         :param pulumi.Input[_builtins.str] consent: Indicates whether a consent dialog is needed for the scope. It can be set to `REQUIRED` or `IMPLICIT`. Default: `IMPLICIT`
         :param pulumi.Input[_builtins.bool] default: A default scope will be returned in an access token when the client omits the scope parameter in a token request, provided this scope is allowed as part of the access policy rule.
@@ -165,6 +166,7 @@ class _ServerScopeState:
                  system: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering ServerScope resources.
+
         :param pulumi.Input[_builtins.str] auth_server_id: Auth server ID
         :param pulumi.Input[_builtins.str] consent: Indicates whether a consent dialog is needed for the scope. It can be set to `REQUIRED` or `IMPLICIT`. Default: `IMPLICIT`
         :param pulumi.Input[_builtins.bool] default: A default scope will be returned in an access token when the client omits the scope parameter in a token request, provided this scope is allowed as part of the access policy rule.
@@ -340,6 +342,7 @@ class ServerScope(pulumi.CustomResource):
         $ pulumi import okta:auth/serverScope:ServerScope example <auth_server_id>/<scope_id>
         ```
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] auth_server_id: Auth server ID
@@ -378,6 +381,7 @@ class ServerScope(pulumi.CustomResource):
         ```sh
         $ pulumi import okta:auth/serverScope:ServerScope example <auth_server_id>/<scope_id>
         ```
+
 
         :param str resource_name: The name of the resource.
         :param ServerScopeArgs args: The arguments to use to populate this resource's properties.
