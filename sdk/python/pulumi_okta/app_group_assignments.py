@@ -149,7 +149,7 @@ class AppGroupAssignments(pulumi.CustomResource):
             } for entry in [{"key": k, "value": v} for k, v in std.index.toset(input=[
                 "group-a",
                 "group-b",
-            ])["result"]]],
+            ])["result"].items()]],
             app_id=this_okta_app_bookmark["id"])
         ```
 
@@ -238,7 +238,7 @@ class AppGroupAssignments(pulumi.CustomResource):
             } for entry in [{"key": k, "value": v} for k, v in std.index.toset(input=[
                 "group-a",
                 "group-b",
-            ])["result"]]],
+            ])["result"].items()]],
             app_id=this_okta_app_bookmark["id"])
         ```
 
