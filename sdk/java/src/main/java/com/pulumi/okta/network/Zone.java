@@ -10,6 +10,7 @@ import com.pulumi.core.internal.Codegen;
 import com.pulumi.okta.Utilities;
 import com.pulumi.okta.network.ZoneArgs;
 import com.pulumi.okta.network.inputs.ZoneState;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Optional;
@@ -152,6 +153,20 @@ public class Zone extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<List<String>>> proxies() {
         return Codegen.optional(this.proxies);
+    }
+    /**
+     * Set this parameter to true in your request when you update the `DefaultExemptIpZone` to allow IPs through the blocklist.
+     * 
+     */
+    @Export(name="setUsageAsExemptList", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> setUsageAsExemptList;
+
+    /**
+     * @return Set this parameter to true in your request when you update the `DefaultExemptIpZone` to allow IPs through the blocklist.
+     * 
+     */
+    public Output<Optional<Boolean>> setUsageAsExemptList() {
+        return Codegen.optional(this.setUsageAsExemptList);
     }
     /**
      * Network Status - can either be `ACTIVE` or `INACTIVE` only

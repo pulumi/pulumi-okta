@@ -482,6 +482,21 @@ public final class SamlState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.suspendedAction);
     }
 
+    /**
+     * Indicates whether to trust authentication claims from the IdP.
+     * 
+     */
+    @Import(name="trustClaims")
+    private @Nullable Output<Boolean> trustClaims;
+
+    /**
+     * @return Indicates whether to trust authentication claims from the IdP.
+     * 
+     */
+    public Optional<Output<Boolean>> trustClaims() {
+        return Optional.ofNullable(this.trustClaims);
+    }
+
     @Import(name="type")
     private @Nullable Output<String> type;
 
@@ -546,6 +561,7 @@ public final class SamlState extends com.pulumi.resources.ResourceArgs {
         this.subjectMatchAttribute = $.subjectMatchAttribute;
         this.subjectMatchType = $.subjectMatchType;
         this.suspendedAction = $.suspendedAction;
+        this.trustClaims = $.trustClaims;
         this.type = $.type;
         this.userTypeId = $.userTypeId;
         this.usernameTemplate = $.usernameTemplate;
@@ -1255,6 +1271,27 @@ public final class SamlState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder suspendedAction(String suspendedAction) {
             return suspendedAction(Output.of(suspendedAction));
+        }
+
+        /**
+         * @param trustClaims Indicates whether to trust authentication claims from the IdP.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder trustClaims(@Nullable Output<Boolean> trustClaims) {
+            $.trustClaims = trustClaims;
+            return this;
+        }
+
+        /**
+         * @param trustClaims Indicates whether to trust authentication claims from the IdP.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder trustClaims(Boolean trustClaims) {
+            return trustClaims(Output.of(trustClaims));
         }
 
         public Builder type(@Nullable Output<String> type) {

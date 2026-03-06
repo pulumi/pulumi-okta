@@ -82,12 +82,13 @@ type LookupUserResult struct {
 	// Do not populate user groups information (prevents additional API call)
 	SkipGroups *bool `pulumi:"skipGroups"`
 	// Do not populate user roles information (prevents additional API call)
-	SkipRoles     *bool  `pulumi:"skipRoles"`
-	State         string `pulumi:"state"`
-	Status        string `pulumi:"status"`
-	StreetAddress string `pulumi:"streetAddress"`
-	Timezone      string `pulumi:"timezone"`
-	Title         string `pulumi:"title"`
+	SkipRoles     *bool             `pulumi:"skipRoles"`
+	State         string            `pulumi:"state"`
+	Status        string            `pulumi:"status"`
+	StreetAddress string            `pulumi:"streetAddress"`
+	Timezone      string            `pulumi:"timezone"`
+	Title         string            `pulumi:"title"`
+	Types         []GetUserTypeType `pulumi:"types"`
 	// Retrieve a single user based on their id
 	UserId   *string `pulumi:"userId"`
 	UserType string  `pulumi:"userType"`
@@ -307,6 +308,10 @@ func (o LookupUserResultOutput) Timezone() pulumi.StringOutput {
 
 func (o LookupUserResultOutput) Title() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserResult) string { return v.Title }).(pulumi.StringOutput)
+}
+
+func (o LookupUserResultOutput) Types() GetUserTypeTypeArrayOutput {
+	return o.ApplyT(func(v LookupUserResult) []GetUserTypeType { return v.Types }).(GetUserTypeTypeArrayOutput)
 }
 
 // Retrieve a single user based on their id

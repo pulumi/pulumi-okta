@@ -226,6 +226,143 @@ func (o UserPasswordHashPtrOutput) WorkFactor() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+type UserTypeType struct {
+	// ID of the user_type
+	Id string `pulumi:"id"`
+}
+
+// UserTypeTypeInput is an input type that accepts UserTypeTypeArgs and UserTypeTypeOutput values.
+// You can construct a concrete instance of `UserTypeTypeInput` via:
+//
+//	UserTypeTypeArgs{...}
+type UserTypeTypeInput interface {
+	pulumi.Input
+
+	ToUserTypeTypeOutput() UserTypeTypeOutput
+	ToUserTypeTypeOutputWithContext(context.Context) UserTypeTypeOutput
+}
+
+type UserTypeTypeArgs struct {
+	// ID of the user_type
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (UserTypeTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserTypeType)(nil)).Elem()
+}
+
+func (i UserTypeTypeArgs) ToUserTypeTypeOutput() UserTypeTypeOutput {
+	return i.ToUserTypeTypeOutputWithContext(context.Background())
+}
+
+func (i UserTypeTypeArgs) ToUserTypeTypeOutputWithContext(ctx context.Context) UserTypeTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserTypeTypeOutput)
+}
+
+func (i UserTypeTypeArgs) ToUserTypeTypePtrOutput() UserTypeTypePtrOutput {
+	return i.ToUserTypeTypePtrOutputWithContext(context.Background())
+}
+
+func (i UserTypeTypeArgs) ToUserTypeTypePtrOutputWithContext(ctx context.Context) UserTypeTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserTypeTypeOutput).ToUserTypeTypePtrOutputWithContext(ctx)
+}
+
+// UserTypeTypePtrInput is an input type that accepts UserTypeTypeArgs, UserTypeTypePtr and UserTypeTypePtrOutput values.
+// You can construct a concrete instance of `UserTypeTypePtrInput` via:
+//
+//	        UserTypeTypeArgs{...}
+//
+//	or:
+//
+//	        nil
+type UserTypeTypePtrInput interface {
+	pulumi.Input
+
+	ToUserTypeTypePtrOutput() UserTypeTypePtrOutput
+	ToUserTypeTypePtrOutputWithContext(context.Context) UserTypeTypePtrOutput
+}
+
+type userTypeTypePtrType UserTypeTypeArgs
+
+func UserTypeTypePtr(v *UserTypeTypeArgs) UserTypeTypePtrInput {
+	return (*userTypeTypePtrType)(v)
+}
+
+func (*userTypeTypePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserTypeType)(nil)).Elem()
+}
+
+func (i *userTypeTypePtrType) ToUserTypeTypePtrOutput() UserTypeTypePtrOutput {
+	return i.ToUserTypeTypePtrOutputWithContext(context.Background())
+}
+
+func (i *userTypeTypePtrType) ToUserTypeTypePtrOutputWithContext(ctx context.Context) UserTypeTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserTypeTypePtrOutput)
+}
+
+type UserTypeTypeOutput struct{ *pulumi.OutputState }
+
+func (UserTypeTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserTypeType)(nil)).Elem()
+}
+
+func (o UserTypeTypeOutput) ToUserTypeTypeOutput() UserTypeTypeOutput {
+	return o
+}
+
+func (o UserTypeTypeOutput) ToUserTypeTypeOutputWithContext(ctx context.Context) UserTypeTypeOutput {
+	return o
+}
+
+func (o UserTypeTypeOutput) ToUserTypeTypePtrOutput() UserTypeTypePtrOutput {
+	return o.ToUserTypeTypePtrOutputWithContext(context.Background())
+}
+
+func (o UserTypeTypeOutput) ToUserTypeTypePtrOutputWithContext(ctx context.Context) UserTypeTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserTypeType) *UserTypeType {
+		return &v
+	}).(UserTypeTypePtrOutput)
+}
+
+// ID of the user_type
+func (o UserTypeTypeOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v UserTypeType) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type UserTypeTypePtrOutput struct{ *pulumi.OutputState }
+
+func (UserTypeTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserTypeType)(nil)).Elem()
+}
+
+func (o UserTypeTypePtrOutput) ToUserTypeTypePtrOutput() UserTypeTypePtrOutput {
+	return o
+}
+
+func (o UserTypeTypePtrOutput) ToUserTypeTypePtrOutputWithContext(ctx context.Context) UserTypeTypePtrOutput {
+	return o
+}
+
+func (o UserTypeTypePtrOutput) Elem() UserTypeTypeOutput {
+	return o.ApplyT(func(v *UserTypeType) UserTypeType {
+		if v != nil {
+			return *v
+		}
+		var ret UserTypeType
+		return ret
+	}).(UserTypeTypeOutput)
+}
+
+// ID of the user_type
+func (o UserTypeTypePtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserTypeType) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
 type GetUserSearch struct {
 	Comparison *string `pulumi:"comparison"`
 	// A raw search expression string. This requires the search feature be on. Please see Okta documentation on their filter API for users. https://developer.okta.com/docs/api/resources/users#list-users-with-search
@@ -342,6 +479,103 @@ func (o GetUserSearchArrayOutput) Index(i pulumi.IntInput) GetUserSearchOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetUserSearch {
 		return vs[0].([]GetUserSearch)[vs[1].(int)]
 	}).(GetUserSearchOutput)
+}
+
+type GetUserTypeType struct {
+	// The ID of this resource.
+	Id string `pulumi:"id"`
+}
+
+// GetUserTypeTypeInput is an input type that accepts GetUserTypeTypeArgs and GetUserTypeTypeOutput values.
+// You can construct a concrete instance of `GetUserTypeTypeInput` via:
+//
+//	GetUserTypeTypeArgs{...}
+type GetUserTypeTypeInput interface {
+	pulumi.Input
+
+	ToGetUserTypeTypeOutput() GetUserTypeTypeOutput
+	ToGetUserTypeTypeOutputWithContext(context.Context) GetUserTypeTypeOutput
+}
+
+type GetUserTypeTypeArgs struct {
+	// The ID of this resource.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (GetUserTypeTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUserTypeType)(nil)).Elem()
+}
+
+func (i GetUserTypeTypeArgs) ToGetUserTypeTypeOutput() GetUserTypeTypeOutput {
+	return i.ToGetUserTypeTypeOutputWithContext(context.Background())
+}
+
+func (i GetUserTypeTypeArgs) ToGetUserTypeTypeOutputWithContext(ctx context.Context) GetUserTypeTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetUserTypeTypeOutput)
+}
+
+// GetUserTypeTypeArrayInput is an input type that accepts GetUserTypeTypeArray and GetUserTypeTypeArrayOutput values.
+// You can construct a concrete instance of `GetUserTypeTypeArrayInput` via:
+//
+//	GetUserTypeTypeArray{ GetUserTypeTypeArgs{...} }
+type GetUserTypeTypeArrayInput interface {
+	pulumi.Input
+
+	ToGetUserTypeTypeArrayOutput() GetUserTypeTypeArrayOutput
+	ToGetUserTypeTypeArrayOutputWithContext(context.Context) GetUserTypeTypeArrayOutput
+}
+
+type GetUserTypeTypeArray []GetUserTypeTypeInput
+
+func (GetUserTypeTypeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetUserTypeType)(nil)).Elem()
+}
+
+func (i GetUserTypeTypeArray) ToGetUserTypeTypeArrayOutput() GetUserTypeTypeArrayOutput {
+	return i.ToGetUserTypeTypeArrayOutputWithContext(context.Background())
+}
+
+func (i GetUserTypeTypeArray) ToGetUserTypeTypeArrayOutputWithContext(ctx context.Context) GetUserTypeTypeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetUserTypeTypeArrayOutput)
+}
+
+type GetUserTypeTypeOutput struct{ *pulumi.OutputState }
+
+func (GetUserTypeTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUserTypeType)(nil)).Elem()
+}
+
+func (o GetUserTypeTypeOutput) ToGetUserTypeTypeOutput() GetUserTypeTypeOutput {
+	return o
+}
+
+func (o GetUserTypeTypeOutput) ToGetUserTypeTypeOutputWithContext(ctx context.Context) GetUserTypeTypeOutput {
+	return o
+}
+
+// The ID of this resource.
+func (o GetUserTypeTypeOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUserTypeType) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type GetUserTypeTypeArrayOutput struct{ *pulumi.OutputState }
+
+func (GetUserTypeTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetUserTypeType)(nil)).Elem()
+}
+
+func (o GetUserTypeTypeArrayOutput) ToGetUserTypeTypeArrayOutput() GetUserTypeTypeArrayOutput {
+	return o
+}
+
+func (o GetUserTypeTypeArrayOutput) ToGetUserTypeTypeArrayOutputWithContext(ctx context.Context) GetUserTypeTypeArrayOutput {
+	return o
+}
+
+func (o GetUserTypeTypeArrayOutput) Index(i pulumi.IntInput) GetUserTypeTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetUserTypeType {
+		return vs[0].([]GetUserTypeType)[vs[1].(int)]
+	}).(GetUserTypeTypeOutput)
 }
 
 type GetUsersSearch struct {
@@ -500,8 +734,10 @@ type GetUsersUser struct {
 	StreetAddress string   `pulumi:"streetAddress"`
 	Timezone      string   `pulumi:"timezone"`
 	Title         string   `pulumi:"title"`
-	UserType      string   `pulumi:"userType"`
-	ZipCode       string   `pulumi:"zipCode"`
+	// User type
+	Types    []GetUsersUserType `pulumi:"types"`
+	UserType string             `pulumi:"userType"`
+	ZipCode  string             `pulumi:"zipCode"`
 }
 
 // GetUsersUserInput is an input type that accepts GetUsersUserArgs and GetUsersUserOutput values.
@@ -553,8 +789,10 @@ type GetUsersUserArgs struct {
 	StreetAddress pulumi.StringInput      `pulumi:"streetAddress"`
 	Timezone      pulumi.StringInput      `pulumi:"timezone"`
 	Title         pulumi.StringInput      `pulumi:"title"`
-	UserType      pulumi.StringInput      `pulumi:"userType"`
-	ZipCode       pulumi.StringInput      `pulumi:"zipCode"`
+	// User type
+	Types    GetUsersUserTypeArrayInput `pulumi:"types"`
+	UserType pulumi.StringInput         `pulumi:"userType"`
+	ZipCode  pulumi.StringInput         `pulumi:"zipCode"`
 }
 
 func (GetUsersUserArgs) ElementType() reflect.Type {
@@ -753,6 +991,11 @@ func (o GetUsersUserOutput) Title() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUsersUser) string { return v.Title }).(pulumi.StringOutput)
 }
 
+// User type
+func (o GetUsersUserOutput) Types() GetUsersUserTypeArrayOutput {
+	return o.ApplyT(func(v GetUsersUser) []GetUsersUserType { return v.Types }).(GetUsersUserTypeArrayOutput)
+}
+
 func (o GetUsersUserOutput) UserType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUsersUser) string { return v.UserType }).(pulumi.StringOutput)
 }
@@ -781,21 +1024,130 @@ func (o GetUsersUserArrayOutput) Index(i pulumi.IntInput) GetUsersUserOutput {
 	}).(GetUsersUserOutput)
 }
 
+type GetUsersUserType struct {
+	// The ID of this resource.
+	Id string `pulumi:"id"`
+}
+
+// GetUsersUserTypeInput is an input type that accepts GetUsersUserTypeArgs and GetUsersUserTypeOutput values.
+// You can construct a concrete instance of `GetUsersUserTypeInput` via:
+//
+//	GetUsersUserTypeArgs{...}
+type GetUsersUserTypeInput interface {
+	pulumi.Input
+
+	ToGetUsersUserTypeOutput() GetUsersUserTypeOutput
+	ToGetUsersUserTypeOutputWithContext(context.Context) GetUsersUserTypeOutput
+}
+
+type GetUsersUserTypeArgs struct {
+	// The ID of this resource.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (GetUsersUserTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUsersUserType)(nil)).Elem()
+}
+
+func (i GetUsersUserTypeArgs) ToGetUsersUserTypeOutput() GetUsersUserTypeOutput {
+	return i.ToGetUsersUserTypeOutputWithContext(context.Background())
+}
+
+func (i GetUsersUserTypeArgs) ToGetUsersUserTypeOutputWithContext(ctx context.Context) GetUsersUserTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetUsersUserTypeOutput)
+}
+
+// GetUsersUserTypeArrayInput is an input type that accepts GetUsersUserTypeArray and GetUsersUserTypeArrayOutput values.
+// You can construct a concrete instance of `GetUsersUserTypeArrayInput` via:
+//
+//	GetUsersUserTypeArray{ GetUsersUserTypeArgs{...} }
+type GetUsersUserTypeArrayInput interface {
+	pulumi.Input
+
+	ToGetUsersUserTypeArrayOutput() GetUsersUserTypeArrayOutput
+	ToGetUsersUserTypeArrayOutputWithContext(context.Context) GetUsersUserTypeArrayOutput
+}
+
+type GetUsersUserTypeArray []GetUsersUserTypeInput
+
+func (GetUsersUserTypeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetUsersUserType)(nil)).Elem()
+}
+
+func (i GetUsersUserTypeArray) ToGetUsersUserTypeArrayOutput() GetUsersUserTypeArrayOutput {
+	return i.ToGetUsersUserTypeArrayOutputWithContext(context.Background())
+}
+
+func (i GetUsersUserTypeArray) ToGetUsersUserTypeArrayOutputWithContext(ctx context.Context) GetUsersUserTypeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetUsersUserTypeArrayOutput)
+}
+
+type GetUsersUserTypeOutput struct{ *pulumi.OutputState }
+
+func (GetUsersUserTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUsersUserType)(nil)).Elem()
+}
+
+func (o GetUsersUserTypeOutput) ToGetUsersUserTypeOutput() GetUsersUserTypeOutput {
+	return o
+}
+
+func (o GetUsersUserTypeOutput) ToGetUsersUserTypeOutputWithContext(ctx context.Context) GetUsersUserTypeOutput {
+	return o
+}
+
+// The ID of this resource.
+func (o GetUsersUserTypeOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUsersUserType) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type GetUsersUserTypeArrayOutput struct{ *pulumi.OutputState }
+
+func (GetUsersUserTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetUsersUserType)(nil)).Elem()
+}
+
+func (o GetUsersUserTypeArrayOutput) ToGetUsersUserTypeArrayOutput() GetUsersUserTypeArrayOutput {
+	return o
+}
+
+func (o GetUsersUserTypeArrayOutput) ToGetUsersUserTypeArrayOutputWithContext(ctx context.Context) GetUsersUserTypeArrayOutput {
+	return o
+}
+
+func (o GetUsersUserTypeArrayOutput) Index(i pulumi.IntInput) GetUsersUserTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetUsersUserType {
+		return vs[0].([]GetUsersUserType)[vs[1].(int)]
+	}).(GetUsersUserTypeOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPasswordHashInput)(nil)).Elem(), UserPasswordHashArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPasswordHashPtrInput)(nil)).Elem(), UserPasswordHashArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserTypeTypeInput)(nil)).Elem(), UserTypeTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserTypeTypePtrInput)(nil)).Elem(), UserTypeTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUserSearchInput)(nil)).Elem(), GetUserSearchArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUserSearchArrayInput)(nil)).Elem(), GetUserSearchArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetUserTypeTypeInput)(nil)).Elem(), GetUserTypeTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetUserTypeTypeArrayInput)(nil)).Elem(), GetUserTypeTypeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUsersSearchInput)(nil)).Elem(), GetUsersSearchArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUsersSearchArrayInput)(nil)).Elem(), GetUsersSearchArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUsersUserInput)(nil)).Elem(), GetUsersUserArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUsersUserArrayInput)(nil)).Elem(), GetUsersUserArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetUsersUserTypeInput)(nil)).Elem(), GetUsersUserTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetUsersUserTypeArrayInput)(nil)).Elem(), GetUsersUserTypeArray{})
 	pulumi.RegisterOutputType(UserPasswordHashOutput{})
 	pulumi.RegisterOutputType(UserPasswordHashPtrOutput{})
+	pulumi.RegisterOutputType(UserTypeTypeOutput{})
+	pulumi.RegisterOutputType(UserTypeTypePtrOutput{})
 	pulumi.RegisterOutputType(GetUserSearchOutput{})
 	pulumi.RegisterOutputType(GetUserSearchArrayOutput{})
+	pulumi.RegisterOutputType(GetUserTypeTypeOutput{})
+	pulumi.RegisterOutputType(GetUserTypeTypeArrayOutput{})
 	pulumi.RegisterOutputType(GetUsersSearchOutput{})
 	pulumi.RegisterOutputType(GetUsersSearchArrayOutput{})
 	pulumi.RegisterOutputType(GetUsersUserOutput{})
 	pulumi.RegisterOutputType(GetUsersUserArrayOutput{})
+	pulumi.RegisterOutputType(GetUsersUserTypeOutput{})
+	pulumi.RegisterOutputType(GetUsersUserTypeArrayOutput{})
 }

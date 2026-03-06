@@ -234,6 +234,12 @@ namespace Pulumi.Okta.Idp
         [Output("suspendedAction")]
         public Output<string?> SuspendedAction { get; private set; } = null!;
 
+        /// <summary>
+        /// Indicates whether to trust authentication claims from the IdP.
+        /// </summary>
+        [Output("trustClaims")]
+        public Output<bool?> TrustClaims { get; private set; } = null!;
+
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
 
@@ -497,6 +503,12 @@ namespace Pulumi.Okta.Idp
         public Input<string>? SuspendedAction { get; set; }
 
         /// <summary>
+        /// Indicates whether to trust authentication claims from the IdP.
+        /// </summary>
+        [Input("trustClaims")]
+        public Input<bool>? TrustClaims { get; set; }
+
+        /// <summary>
         /// Okta EL Expression to generate or transform a unique username for the IdP user. Default: `idpuser.email`
         /// </summary>
         [Input("usernameTemplate")]
@@ -719,6 +731,12 @@ namespace Pulumi.Okta.Idp
         /// </summary>
         [Input("suspendedAction")]
         public Input<string>? SuspendedAction { get; set; }
+
+        /// <summary>
+        /// Indicates whether to trust authentication claims from the IdP.
+        /// </summary>
+        [Input("trustClaims")]
+        public Input<bool>? TrustClaims { get; set; }
 
         [Input("type")]
         public Input<string>? Type { get; set; }

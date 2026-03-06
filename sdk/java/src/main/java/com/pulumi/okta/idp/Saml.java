@@ -503,6 +503,20 @@ public class Saml extends com.pulumi.resources.CustomResource {
     public Output<Optional<String>> suspendedAction() {
         return Codegen.optional(this.suspendedAction);
     }
+    /**
+     * Indicates whether to trust authentication claims from the IdP.
+     * 
+     */
+    @Export(name="trustClaims", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> trustClaims;
+
+    /**
+     * @return Indicates whether to trust authentication claims from the IdP.
+     * 
+     */
+    public Output<Optional<Boolean>> trustClaims() {
+        return Codegen.optional(this.trustClaims);
+    }
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 

@@ -181,6 +181,7 @@ namespace Pulumi.Okta.Idp
         /// Expression to generate or transform a unique username for the IdP user.
         /// </summary>
         public readonly ImmutableArray<string> SubjectFormats;
+        public readonly bool TrustClaims;
         /// <summary>
         /// Type of idp.
         /// </summary>
@@ -214,6 +215,8 @@ namespace Pulumi.Okta.Idp
 
             ImmutableArray<string> subjectFormats,
 
+            bool trustClaims,
+
             string type)
         {
             AcsBinding = acsBinding;
@@ -229,6 +232,7 @@ namespace Pulumi.Okta.Idp
             SsoUrl = ssoUrl;
             SubjectFilter = subjectFilter;
             SubjectFormats = subjectFormats;
+            TrustClaims = trustClaims;
             Type = type;
         }
     }

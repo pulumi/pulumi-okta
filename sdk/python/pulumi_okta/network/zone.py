@@ -29,6 +29,7 @@ class ZoneArgs:
                  ip_service_categories_includes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  proxies: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 set_usage_as_exempt_list: Optional[pulumi.Input[_builtins.bool]] = None,
                  status: Optional[pulumi.Input[_builtins.str]] = None,
                  usage: Optional[pulumi.Input[_builtins.str]] = None):
         """
@@ -44,6 +45,7 @@ class ZoneArgs:
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ip_service_categories_includes: List of ip service included. Use with type `DYNAMIC_V2`
         :param pulumi.Input[_builtins.str] name: Name of the Network Zone Resource
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] proxies: Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples. Can not be set if `usage` is set to `BLOCKLIST`. Use with type `IP`
+        :param pulumi.Input[_builtins.bool] set_usage_as_exempt_list: Set this parameter to true in your request when you update the `DefaultExemptIpZone` to allow IPs through the blocklist.
         :param pulumi.Input[_builtins.str] status: Network Status - can either be `ACTIVE` or `INACTIVE` only
         :param pulumi.Input[_builtins.str] usage: Usage of the Network Zone - can be either `POLICY` or `BLOCKLIST`. By default, it is `POLICY`
         """
@@ -66,6 +68,8 @@ class ZoneArgs:
             pulumi.set(__self__, "name", name)
         if proxies is not None:
             pulumi.set(__self__, "proxies", proxies)
+        if set_usage_as_exempt_list is not None:
+            pulumi.set(__self__, "set_usage_as_exempt_list", set_usage_as_exempt_list)
         if status is not None:
             pulumi.set(__self__, "status", status)
         if usage is not None:
@@ -192,6 +196,18 @@ class ZoneArgs:
         pulumi.set(self, "proxies", value)
 
     @_builtins.property
+    @pulumi.getter(name="setUsageAsExemptList")
+    def set_usage_as_exempt_list(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Set this parameter to true in your request when you update the `DefaultExemptIpZone` to allow IPs through the blocklist.
+        """
+        return pulumi.get(self, "set_usage_as_exempt_list")
+
+    @set_usage_as_exempt_list.setter
+    def set_usage_as_exempt_list(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "set_usage_as_exempt_list", value)
+
+    @_builtins.property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -228,6 +244,7 @@ class _ZoneState:
                  ip_service_categories_includes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  proxies: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 set_usage_as_exempt_list: Optional[pulumi.Input[_builtins.bool]] = None,
                  status: Optional[pulumi.Input[_builtins.str]] = None,
                  type: Optional[pulumi.Input[_builtins.str]] = None,
                  usage: Optional[pulumi.Input[_builtins.str]] = None):
@@ -243,6 +260,7 @@ class _ZoneState:
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ip_service_categories_includes: List of ip service included. Use with type `DYNAMIC_V2`
         :param pulumi.Input[_builtins.str] name: Name of the Network Zone Resource
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] proxies: Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples. Can not be set if `usage` is set to `BLOCKLIST`. Use with type `IP`
+        :param pulumi.Input[_builtins.bool] set_usage_as_exempt_list: Set this parameter to true in your request when you update the `DefaultExemptIpZone` to allow IPs through the blocklist.
         :param pulumi.Input[_builtins.str] status: Network Status - can either be `ACTIVE` or `INACTIVE` only
         :param pulumi.Input[_builtins.str] type: Type of the Network Zone - can be `IP`, `DYNAMIC` or `DYNAMIC_V2` only
         :param pulumi.Input[_builtins.str] usage: Usage of the Network Zone - can be either `POLICY` or `BLOCKLIST`. By default, it is `POLICY`
@@ -265,6 +283,8 @@ class _ZoneState:
             pulumi.set(__self__, "name", name)
         if proxies is not None:
             pulumi.set(__self__, "proxies", proxies)
+        if set_usage_as_exempt_list is not None:
+            pulumi.set(__self__, "set_usage_as_exempt_list", set_usage_as_exempt_list)
         if status is not None:
             pulumi.set(__self__, "status", status)
         if type is not None:
@@ -381,6 +401,18 @@ class _ZoneState:
         pulumi.set(self, "proxies", value)
 
     @_builtins.property
+    @pulumi.getter(name="setUsageAsExemptList")
+    def set_usage_as_exempt_list(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Set this parameter to true in your request when you update the `DefaultExemptIpZone` to allow IPs through the blocklist.
+        """
+        return pulumi.get(self, "set_usage_as_exempt_list")
+
+    @set_usage_as_exempt_list.setter
+    def set_usage_as_exempt_list(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "set_usage_as_exempt_list", value)
+
+    @_builtins.property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -432,6 +464,7 @@ class Zone(pulumi.CustomResource):
                  ip_service_categories_includes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  proxies: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 set_usage_as_exempt_list: Optional[pulumi.Input[_builtins.bool]] = None,
                  status: Optional[pulumi.Input[_builtins.str]] = None,
                  type: Optional[pulumi.Input[_builtins.str]] = None,
                  usage: Optional[pulumi.Input[_builtins.str]] = None,
@@ -457,6 +490,7 @@ class Zone(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ip_service_categories_includes: List of ip service included. Use with type `DYNAMIC_V2`
         :param pulumi.Input[_builtins.str] name: Name of the Network Zone Resource
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] proxies: Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples. Can not be set if `usage` is set to `BLOCKLIST`. Use with type `IP`
+        :param pulumi.Input[_builtins.bool] set_usage_as_exempt_list: Set this parameter to true in your request when you update the `DefaultExemptIpZone` to allow IPs through the blocklist.
         :param pulumi.Input[_builtins.str] status: Network Status - can either be `ACTIVE` or `INACTIVE` only
         :param pulumi.Input[_builtins.str] type: Type of the Network Zone - can be `IP`, `DYNAMIC` or `DYNAMIC_V2` only
         :param pulumi.Input[_builtins.str] usage: Usage of the Network Zone - can be either `POLICY` or `BLOCKLIST`. By default, it is `POLICY`
@@ -501,6 +535,7 @@ class Zone(pulumi.CustomResource):
                  ip_service_categories_includes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  proxies: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 set_usage_as_exempt_list: Optional[pulumi.Input[_builtins.bool]] = None,
                  status: Optional[pulumi.Input[_builtins.str]] = None,
                  type: Optional[pulumi.Input[_builtins.str]] = None,
                  usage: Optional[pulumi.Input[_builtins.str]] = None,
@@ -522,6 +557,7 @@ class Zone(pulumi.CustomResource):
             __props__.__dict__["ip_service_categories_includes"] = ip_service_categories_includes
             __props__.__dict__["name"] = name
             __props__.__dict__["proxies"] = proxies
+            __props__.__dict__["set_usage_as_exempt_list"] = set_usage_as_exempt_list
             __props__.__dict__["status"] = status
             if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
@@ -546,6 +582,7 @@ class Zone(pulumi.CustomResource):
             ip_service_categories_includes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
             name: Optional[pulumi.Input[_builtins.str]] = None,
             proxies: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            set_usage_as_exempt_list: Optional[pulumi.Input[_builtins.bool]] = None,
             status: Optional[pulumi.Input[_builtins.str]] = None,
             type: Optional[pulumi.Input[_builtins.str]] = None,
             usage: Optional[pulumi.Input[_builtins.str]] = None) -> 'Zone':
@@ -565,6 +602,7 @@ class Zone(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ip_service_categories_includes: List of ip service included. Use with type `DYNAMIC_V2`
         :param pulumi.Input[_builtins.str] name: Name of the Network Zone Resource
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] proxies: Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples. Can not be set if `usage` is set to `BLOCKLIST`. Use with type `IP`
+        :param pulumi.Input[_builtins.bool] set_usage_as_exempt_list: Set this parameter to true in your request when you update the `DefaultExemptIpZone` to allow IPs through the blocklist.
         :param pulumi.Input[_builtins.str] status: Network Status - can either be `ACTIVE` or `INACTIVE` only
         :param pulumi.Input[_builtins.str] type: Type of the Network Zone - can be `IP`, `DYNAMIC` or `DYNAMIC_V2` only
         :param pulumi.Input[_builtins.str] usage: Usage of the Network Zone - can be either `POLICY` or `BLOCKLIST`. By default, it is `POLICY`
@@ -582,6 +620,7 @@ class Zone(pulumi.CustomResource):
         __props__.__dict__["ip_service_categories_includes"] = ip_service_categories_includes
         __props__.__dict__["name"] = name
         __props__.__dict__["proxies"] = proxies
+        __props__.__dict__["set_usage_as_exempt_list"] = set_usage_as_exempt_list
         __props__.__dict__["status"] = status
         __props__.__dict__["type"] = type
         __props__.__dict__["usage"] = usage
@@ -658,6 +697,14 @@ class Zone(pulumi.CustomResource):
         Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples. Can not be set if `usage` is set to `BLOCKLIST`. Use with type `IP`
         """
         return pulumi.get(self, "proxies")
+
+    @_builtins.property
+    @pulumi.getter(name="setUsageAsExemptList")
+    def set_usage_as_exempt_list(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Set this parameter to true in your request when you update the `DefaultExemptIpZone` to allow IPs through the blocklist.
+        """
+        return pulumi.get(self, "set_usage_as_exempt_list")
 
     @_builtins.property
     @pulumi.getter

@@ -385,6 +385,16 @@ export const getPrincipalRateLimits: typeof import("./getPrincipalRateLimits").g
 export const getPrincipalRateLimitsOutput: typeof import("./getPrincipalRateLimits").getPrincipalRateLimitsOutput = null as any;
 utilities.lazyLoad(exports, ["getPrincipalRateLimits","getPrincipalRateLimitsOutput"], () => require("./getPrincipalRateLimits"));
 
+export { GetPushGroupArgs, GetPushGroupResult, GetPushGroupOutputArgs } from "./getPushGroup";
+export const getPushGroup: typeof import("./getPushGroup").getPushGroup = null as any;
+export const getPushGroupOutput: typeof import("./getPushGroup").getPushGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getPushGroup","getPushGroupOutput"], () => require("./getPushGroup"));
+
+export { GetPushGroupsArgs, GetPushGroupsResult, GetPushGroupsOutputArgs } from "./getPushGroups";
+export const getPushGroups: typeof import("./getPushGroups").getPushGroups = null as any;
+export const getPushGroupsOutput: typeof import("./getPushGroups").getPushGroupsOutput = null as any;
+utilities.lazyLoad(exports, ["getPushGroups","getPushGroupsOutput"], () => require("./getPushGroups"));
+
 export { GetPushProviderArgs, GetPushProviderResult, GetPushProviderOutputArgs } from "./getPushProvider";
 export const getPushProvider: typeof import("./getPushProvider").getPushProvider = null as any;
 export const getPushProviderOutput: typeof import("./getPushProvider").getPushProviderOutput = null as any;
@@ -562,6 +572,11 @@ utilities.lazyLoad(exports, ["PrincipalRateLimits"], () => require("./principalR
 
 export * from "./provider";
 import { Provider } from "./provider";
+
+export { PushGroupArgs, PushGroupState } from "./pushGroup";
+export type PushGroup = import("./pushGroup").PushGroup;
+export const PushGroup: typeof import("./pushGroup").PushGroup = null as any;
+utilities.lazyLoad(exports, ["PushGroup"], () => require("./pushGroup"));
 
 export { PushProviderArgs, PushProviderState } from "./pushProvider";
 export type PushProvider = import("./pushProvider").PushProvider;
@@ -841,6 +856,8 @@ const _module = {
                 return new PreviewSigninPage(name, <any>undefined, { urn })
             case "okta:index/principalRateLimits:PrincipalRateLimits":
                 return new PrincipalRateLimits(name, <any>undefined, { urn })
+            case "okta:index/pushGroup:PushGroup":
+                return new PushGroup(name, <any>undefined, { urn })
             case "okta:index/pushProvider:PushProvider":
                 return new PushProvider(name, <any>undefined, { urn })
             case "okta:index/rateLimitAdminNotificationSettings:RateLimitAdminNotificationSettings":
@@ -954,6 +971,7 @@ pulumi.runtime.registerResourceModule("okta", "index/policyProfileEnrollmentApps
 pulumi.runtime.registerResourceModule("okta", "index/policyRuleProfileEnrollment", _module)
 pulumi.runtime.registerResourceModule("okta", "index/previewSigninPage", _module)
 pulumi.runtime.registerResourceModule("okta", "index/principalRateLimits", _module)
+pulumi.runtime.registerResourceModule("okta", "index/pushGroup", _module)
 pulumi.runtime.registerResourceModule("okta", "index/pushProvider", _module)
 pulumi.runtime.registerResourceModule("okta", "index/rateLimitAdminNotificationSettings", _module)
 pulumi.runtime.registerResourceModule("okta", "index/rateLimitWarningThresholdPercentage", _module)

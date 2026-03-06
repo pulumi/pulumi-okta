@@ -11,6 +11,7 @@ import com.pulumi.okta.Utilities;
 import com.pulumi.okta.user.UserArgs;
 import com.pulumi.okta.user.inputs.UserState;
 import com.pulumi.okta.user.outputs.UserPasswordHash;
+import com.pulumi.okta.user.outputs.UserType;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -693,6 +694,20 @@ public class User extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> title() {
         return Codegen.optional(this.title);
+    }
+    /**
+     * Specifies a user type other than the default user type
+     * 
+     */
+    @Export(name="type", refs={UserType.class}, tree="[0]")
+    private Output<UserType> type;
+
+    /**
+     * @return Specifies a user type other than the default user type
+     * 
+     */
+    public Output<UserType> type() {
+        return this.type;
     }
     /**
      * User employee type

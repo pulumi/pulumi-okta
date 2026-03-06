@@ -52,6 +52,10 @@ namespace Pulumi.Okta.User.Outputs
         public readonly string StreetAddress;
         public readonly string Timezone;
         public readonly string Title;
+        /// <summary>
+        /// User type
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetUsersUserTypeResult> Types;
         public readonly string UserType;
         public readonly string ZipCode;
 
@@ -129,6 +133,8 @@ namespace Pulumi.Okta.User.Outputs
 
             string title,
 
+            ImmutableArray<Outputs.GetUsersUserTypeResult> types,
+
             string userType,
 
             string zipCode)
@@ -169,6 +175,7 @@ namespace Pulumi.Okta.User.Outputs
             StreetAddress = streetAddress;
             Timezone = timezone;
             Title = title;
+            Types = types;
             UserType = userType;
             ZipCode = zipCode;
         }

@@ -1665,6 +1665,13 @@ export interface GetPrincipalEntitlementsTargetPrincipal {
     type: string;
 }
 
+export interface GetPushGroupsMapping {
+    appId: string;
+    id: string;
+    sourceGroupId: string;
+    status: string;
+}
+
 export interface GetPushProviderConfiguration {
     apnsConfiguration?: outputs.GetPushProviderConfigurationApnsConfiguration;
     fcmConfiguration?: outputs.GetPushProviderConfigurationFcmConfiguration;
@@ -2205,6 +2212,13 @@ export interface PreviewSigninPageWidgetCustomizations {
     usernameInfoTip?: string;
     usernameLabel?: string;
     widgetGeneration: string;
+}
+
+export interface PushGroupAppConfig {
+    distinguishedName: string;
+    groupScope: string;
+    groupType: string;
+    samAccountName: string;
 }
 
 export interface PushProviderConfiguration {
@@ -3073,6 +3087,128 @@ export namespace app {
         x5tS256: string;
     }
 
+    export interface SignonPolicyRulesRule {
+        /**
+         * Access decision: ALLOW or DENY.
+         */
+        access: string;
+        /**
+         * List of authenticator constraints as JSON-encoded strings.
+         */
+        constraints?: string[];
+        /**
+         * Custom Okta Expression Language condition for advanced matching.
+         */
+        customExpression?: string;
+        /**
+         * Set of device assurance policy IDs to include.
+         */
+        deviceAssurancesIncludeds?: string[];
+        /**
+         * Require device to be managed by a device management system.
+         */
+        deviceIsManaged?: boolean;
+        /**
+         * Require device to be registered with Okta Verify.
+         */
+        deviceIsRegistered?: boolean;
+        /**
+         * Number of factors required: 1FA or 2FA.
+         */
+        factorMode: string;
+        /**
+         * Set of group IDs to exclude from this rule.
+         */
+        groupsExcludeds?: string[];
+        /**
+         * Set of group IDs to include in this rule.
+         */
+        groupsIncludeds?: string[];
+        /**
+         * (String) - The ID of this resource (same as `policyId`).
+         */
+        id: string;
+        /**
+         * Inactivity period before re-authentication in ISO 8601 duration format.
+         */
+        inactivityPeriod?: string;
+        /**
+         * Policy Rule Name. Must be unique within the policy.
+         */
+        name: string;
+        /**
+         * Network selection mode: ANYWHERE, ZONE, ON_NETWORK, or OFF_NETWORK.
+         */
+        networkConnection: string;
+        /**
+         * List of network zone IDs to exclude.
+         */
+        networkExcludes?: string[];
+        /**
+         * List of network zone IDs to include.
+         */
+        networkIncludes?: string[];
+        /**
+         * Platform conditions to include.
+         */
+        platformIncludes?: outputs.app.SignonPolicyRulesRulePlatformInclude[];
+        /**
+         * Priority of the rule. Lower numbers are evaluated first.
+         */
+        priority?: number;
+        /**
+         * Re-authentication frequency in ISO 8601 duration format (e.g., PT2H for 2 hours).
+         */
+        reAuthenticationFrequency: string;
+        /**
+         * Risk score level to match: ANY, LOW, MEDIUM, or HIGH.
+         */
+        riskScore: string;
+        /**
+         * Status of the rule: ACTIVE or INACTIVE.
+         */
+        status: string;
+        /**
+         * Whether this is a system rule (e.g., Catch-all Rule). System rules cannot be modified.
+         */
+        system: boolean;
+        /**
+         * Verification method type.
+         */
+        type: string;
+        /**
+         * Set of user type IDs to exclude.
+         */
+        userTypesExcludeds?: string[];
+        /**
+         * Set of user type IDs to include.
+         */
+        userTypesIncludeds?: string[];
+        /**
+         * Set of user IDs to exclude from this rule.
+         */
+        usersExcludeds?: string[];
+        /**
+         * Set of user IDs to include in this rule.
+         */
+        usersIncludeds?: string[];
+    }
+
+    export interface SignonPolicyRulesRulePlatformInclude {
+        /**
+         * Custom OS expression for advanced matching.
+         */
+        osExpression?: string;
+        /**
+         * OS type: ANY, IOS, ANDROID, WINDOWS, OSX, MACOS, CHROMEOS, or OTHER.
+         */
+        osType?: string;
+        /**
+         * Platform type: ANY, MOBILE, or DESKTOP.
+         */
+        type?: string;
+    }
+
 }
 
 export namespace auth {
@@ -3226,6 +3362,13 @@ export namespace user {
         value?: string;
     }
 
+    export interface GetUserType {
+        /**
+         * The ID of this resource.
+         */
+        id: string;
+    }
+
     export interface GetUsersSearch {
         comparison?: string;
         /**
@@ -3279,8 +3422,19 @@ export namespace user {
         streetAddress: string;
         timezone: string;
         title: string;
+        /**
+         * User type
+         */
+        types: outputs.user.GetUsersUserType[];
         userType: string;
         zipCode: string;
+    }
+
+    export interface GetUsersUserType {
+        /**
+         * The ID of this resource.
+         */
+        id: string;
     }
 
     export interface UserPasswordHash {
@@ -3304,6 +3458,13 @@ export namespace user {
          * Governs the strength of the hash and the time required to compute it. Only required for BCRYPT algorithm
          */
         workFactor?: number;
+    }
+
+    export interface UserType {
+        /**
+         * ID of the user_type
+         */
+        id: string;
     }
 
 }

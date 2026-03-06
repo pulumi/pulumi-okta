@@ -78,6 +78,10 @@ export class Zone extends pulumi.CustomResource {
      */
     declare public readonly proxies: pulumi.Output<string[] | undefined>;
     /**
+     * Set this parameter to true in your request when you update the `DefaultExemptIpZone` to allow IPs through the blocklist.
+     */
+    declare public readonly setUsageAsExemptList: pulumi.Output<boolean | undefined>;
+    /**
      * Network Status - can either be `ACTIVE` or `INACTIVE` only
      */
     declare public readonly status: pulumi.Output<string | undefined>;
@@ -112,6 +116,7 @@ export class Zone extends pulumi.CustomResource {
             resourceInputs["ipServiceCategoriesIncludes"] = state?.ipServiceCategoriesIncludes;
             resourceInputs["name"] = state?.name;
             resourceInputs["proxies"] = state?.proxies;
+            resourceInputs["setUsageAsExemptList"] = state?.setUsageAsExemptList;
             resourceInputs["status"] = state?.status;
             resourceInputs["type"] = state?.type;
             resourceInputs["usage"] = state?.usage;
@@ -129,6 +134,7 @@ export class Zone extends pulumi.CustomResource {
             resourceInputs["ipServiceCategoriesIncludes"] = args?.ipServiceCategoriesIncludes;
             resourceInputs["name"] = args?.name;
             resourceInputs["proxies"] = args?.proxies;
+            resourceInputs["setUsageAsExemptList"] = args?.setUsageAsExemptList;
             resourceInputs["status"] = args?.status;
             resourceInputs["type"] = args?.type;
             resourceInputs["usage"] = args?.usage;
@@ -178,6 +184,10 @@ export interface ZoneState {
      * Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples. Can not be set if `usage` is set to `BLOCKLIST`. Use with type `IP`
      */
     proxies?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Set this parameter to true in your request when you update the `DefaultExemptIpZone` to allow IPs through the blocklist.
+     */
+    setUsageAsExemptList?: pulumi.Input<boolean>;
     /**
      * Network Status - can either be `ACTIVE` or `INACTIVE` only
      */
@@ -232,6 +242,10 @@ export interface ZoneArgs {
      * Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples. Can not be set if `usage` is set to `BLOCKLIST`. Use with type `IP`
      */
     proxies?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Set this parameter to true in your request when you update the `DefaultExemptIpZone` to allow IPs through the blocklist.
+     */
+    setUsageAsExemptList?: pulumi.Input<boolean>;
     /**
      * Network Status - can either be `ACTIVE` or `INACTIVE` only
      */

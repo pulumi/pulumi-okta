@@ -7065,6 +7065,184 @@ func (o PreviewSigninPageWidgetCustomizationsPtrOutput) WidgetGeneration() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
+type PushGroupAppConfig struct {
+	DistinguishedName string `pulumi:"distinguishedName"`
+	GroupScope        string `pulumi:"groupScope"`
+	GroupType         string `pulumi:"groupType"`
+	SamAccountName    string `pulumi:"samAccountName"`
+}
+
+// PushGroupAppConfigInput is an input type that accepts PushGroupAppConfigArgs and PushGroupAppConfigOutput values.
+// You can construct a concrete instance of `PushGroupAppConfigInput` via:
+//
+//	PushGroupAppConfigArgs{...}
+type PushGroupAppConfigInput interface {
+	pulumi.Input
+
+	ToPushGroupAppConfigOutput() PushGroupAppConfigOutput
+	ToPushGroupAppConfigOutputWithContext(context.Context) PushGroupAppConfigOutput
+}
+
+type PushGroupAppConfigArgs struct {
+	DistinguishedName pulumi.StringInput `pulumi:"distinguishedName"`
+	GroupScope        pulumi.StringInput `pulumi:"groupScope"`
+	GroupType         pulumi.StringInput `pulumi:"groupType"`
+	SamAccountName    pulumi.StringInput `pulumi:"samAccountName"`
+}
+
+func (PushGroupAppConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PushGroupAppConfig)(nil)).Elem()
+}
+
+func (i PushGroupAppConfigArgs) ToPushGroupAppConfigOutput() PushGroupAppConfigOutput {
+	return i.ToPushGroupAppConfigOutputWithContext(context.Background())
+}
+
+func (i PushGroupAppConfigArgs) ToPushGroupAppConfigOutputWithContext(ctx context.Context) PushGroupAppConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PushGroupAppConfigOutput)
+}
+
+func (i PushGroupAppConfigArgs) ToPushGroupAppConfigPtrOutput() PushGroupAppConfigPtrOutput {
+	return i.ToPushGroupAppConfigPtrOutputWithContext(context.Background())
+}
+
+func (i PushGroupAppConfigArgs) ToPushGroupAppConfigPtrOutputWithContext(ctx context.Context) PushGroupAppConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PushGroupAppConfigOutput).ToPushGroupAppConfigPtrOutputWithContext(ctx)
+}
+
+// PushGroupAppConfigPtrInput is an input type that accepts PushGroupAppConfigArgs, PushGroupAppConfigPtr and PushGroupAppConfigPtrOutput values.
+// You can construct a concrete instance of `PushGroupAppConfigPtrInput` via:
+//
+//	        PushGroupAppConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type PushGroupAppConfigPtrInput interface {
+	pulumi.Input
+
+	ToPushGroupAppConfigPtrOutput() PushGroupAppConfigPtrOutput
+	ToPushGroupAppConfigPtrOutputWithContext(context.Context) PushGroupAppConfigPtrOutput
+}
+
+type pushGroupAppConfigPtrType PushGroupAppConfigArgs
+
+func PushGroupAppConfigPtr(v *PushGroupAppConfigArgs) PushGroupAppConfigPtrInput {
+	return (*pushGroupAppConfigPtrType)(v)
+}
+
+func (*pushGroupAppConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PushGroupAppConfig)(nil)).Elem()
+}
+
+func (i *pushGroupAppConfigPtrType) ToPushGroupAppConfigPtrOutput() PushGroupAppConfigPtrOutput {
+	return i.ToPushGroupAppConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *pushGroupAppConfigPtrType) ToPushGroupAppConfigPtrOutputWithContext(ctx context.Context) PushGroupAppConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PushGroupAppConfigPtrOutput)
+}
+
+type PushGroupAppConfigOutput struct{ *pulumi.OutputState }
+
+func (PushGroupAppConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PushGroupAppConfig)(nil)).Elem()
+}
+
+func (o PushGroupAppConfigOutput) ToPushGroupAppConfigOutput() PushGroupAppConfigOutput {
+	return o
+}
+
+func (o PushGroupAppConfigOutput) ToPushGroupAppConfigOutputWithContext(ctx context.Context) PushGroupAppConfigOutput {
+	return o
+}
+
+func (o PushGroupAppConfigOutput) ToPushGroupAppConfigPtrOutput() PushGroupAppConfigPtrOutput {
+	return o.ToPushGroupAppConfigPtrOutputWithContext(context.Background())
+}
+
+func (o PushGroupAppConfigOutput) ToPushGroupAppConfigPtrOutputWithContext(ctx context.Context) PushGroupAppConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PushGroupAppConfig) *PushGroupAppConfig {
+		return &v
+	}).(PushGroupAppConfigPtrOutput)
+}
+
+func (o PushGroupAppConfigOutput) DistinguishedName() pulumi.StringOutput {
+	return o.ApplyT(func(v PushGroupAppConfig) string { return v.DistinguishedName }).(pulumi.StringOutput)
+}
+
+func (o PushGroupAppConfigOutput) GroupScope() pulumi.StringOutput {
+	return o.ApplyT(func(v PushGroupAppConfig) string { return v.GroupScope }).(pulumi.StringOutput)
+}
+
+func (o PushGroupAppConfigOutput) GroupType() pulumi.StringOutput {
+	return o.ApplyT(func(v PushGroupAppConfig) string { return v.GroupType }).(pulumi.StringOutput)
+}
+
+func (o PushGroupAppConfigOutput) SamAccountName() pulumi.StringOutput {
+	return o.ApplyT(func(v PushGroupAppConfig) string { return v.SamAccountName }).(pulumi.StringOutput)
+}
+
+type PushGroupAppConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (PushGroupAppConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PushGroupAppConfig)(nil)).Elem()
+}
+
+func (o PushGroupAppConfigPtrOutput) ToPushGroupAppConfigPtrOutput() PushGroupAppConfigPtrOutput {
+	return o
+}
+
+func (o PushGroupAppConfigPtrOutput) ToPushGroupAppConfigPtrOutputWithContext(ctx context.Context) PushGroupAppConfigPtrOutput {
+	return o
+}
+
+func (o PushGroupAppConfigPtrOutput) Elem() PushGroupAppConfigOutput {
+	return o.ApplyT(func(v *PushGroupAppConfig) PushGroupAppConfig {
+		if v != nil {
+			return *v
+		}
+		var ret PushGroupAppConfig
+		return ret
+	}).(PushGroupAppConfigOutput)
+}
+
+func (o PushGroupAppConfigPtrOutput) DistinguishedName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PushGroupAppConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DistinguishedName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o PushGroupAppConfigPtrOutput) GroupScope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PushGroupAppConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.GroupScope
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o PushGroupAppConfigPtrOutput) GroupType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PushGroupAppConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.GroupType
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o PushGroupAppConfigPtrOutput) SamAccountName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PushGroupAppConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SamAccountName
+	}).(pulumi.StringPtrOutput)
+}
+
 type PushProviderConfiguration struct {
 	ApnsConfiguration *PushProviderConfigurationApnsConfiguration `pulumi:"apnsConfiguration"`
 	FcmConfiguration  *PushProviderConfigurationFcmConfiguration  `pulumi:"fcmConfiguration"`
@@ -22021,6 +22199,118 @@ func (o GetPrincipalEntitlementsTargetPrincipalPtrOutput) Type() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
+type GetPushGroupsMapping struct {
+	AppId         string `pulumi:"appId"`
+	Id            string `pulumi:"id"`
+	SourceGroupId string `pulumi:"sourceGroupId"`
+	Status        string `pulumi:"status"`
+}
+
+// GetPushGroupsMappingInput is an input type that accepts GetPushGroupsMappingArgs and GetPushGroupsMappingOutput values.
+// You can construct a concrete instance of `GetPushGroupsMappingInput` via:
+//
+//	GetPushGroupsMappingArgs{...}
+type GetPushGroupsMappingInput interface {
+	pulumi.Input
+
+	ToGetPushGroupsMappingOutput() GetPushGroupsMappingOutput
+	ToGetPushGroupsMappingOutputWithContext(context.Context) GetPushGroupsMappingOutput
+}
+
+type GetPushGroupsMappingArgs struct {
+	AppId         pulumi.StringInput `pulumi:"appId"`
+	Id            pulumi.StringInput `pulumi:"id"`
+	SourceGroupId pulumi.StringInput `pulumi:"sourceGroupId"`
+	Status        pulumi.StringInput `pulumi:"status"`
+}
+
+func (GetPushGroupsMappingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPushGroupsMapping)(nil)).Elem()
+}
+
+func (i GetPushGroupsMappingArgs) ToGetPushGroupsMappingOutput() GetPushGroupsMappingOutput {
+	return i.ToGetPushGroupsMappingOutputWithContext(context.Background())
+}
+
+func (i GetPushGroupsMappingArgs) ToGetPushGroupsMappingOutputWithContext(ctx context.Context) GetPushGroupsMappingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPushGroupsMappingOutput)
+}
+
+// GetPushGroupsMappingArrayInput is an input type that accepts GetPushGroupsMappingArray and GetPushGroupsMappingArrayOutput values.
+// You can construct a concrete instance of `GetPushGroupsMappingArrayInput` via:
+//
+//	GetPushGroupsMappingArray{ GetPushGroupsMappingArgs{...} }
+type GetPushGroupsMappingArrayInput interface {
+	pulumi.Input
+
+	ToGetPushGroupsMappingArrayOutput() GetPushGroupsMappingArrayOutput
+	ToGetPushGroupsMappingArrayOutputWithContext(context.Context) GetPushGroupsMappingArrayOutput
+}
+
+type GetPushGroupsMappingArray []GetPushGroupsMappingInput
+
+func (GetPushGroupsMappingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPushGroupsMapping)(nil)).Elem()
+}
+
+func (i GetPushGroupsMappingArray) ToGetPushGroupsMappingArrayOutput() GetPushGroupsMappingArrayOutput {
+	return i.ToGetPushGroupsMappingArrayOutputWithContext(context.Background())
+}
+
+func (i GetPushGroupsMappingArray) ToGetPushGroupsMappingArrayOutputWithContext(ctx context.Context) GetPushGroupsMappingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPushGroupsMappingArrayOutput)
+}
+
+type GetPushGroupsMappingOutput struct{ *pulumi.OutputState }
+
+func (GetPushGroupsMappingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPushGroupsMapping)(nil)).Elem()
+}
+
+func (o GetPushGroupsMappingOutput) ToGetPushGroupsMappingOutput() GetPushGroupsMappingOutput {
+	return o
+}
+
+func (o GetPushGroupsMappingOutput) ToGetPushGroupsMappingOutputWithContext(ctx context.Context) GetPushGroupsMappingOutput {
+	return o
+}
+
+func (o GetPushGroupsMappingOutput) AppId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPushGroupsMapping) string { return v.AppId }).(pulumi.StringOutput)
+}
+
+func (o GetPushGroupsMappingOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPushGroupsMapping) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetPushGroupsMappingOutput) SourceGroupId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPushGroupsMapping) string { return v.SourceGroupId }).(pulumi.StringOutput)
+}
+
+func (o GetPushGroupsMappingOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPushGroupsMapping) string { return v.Status }).(pulumi.StringOutput)
+}
+
+type GetPushGroupsMappingArrayOutput struct{ *pulumi.OutputState }
+
+func (GetPushGroupsMappingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPushGroupsMapping)(nil)).Elem()
+}
+
+func (o GetPushGroupsMappingArrayOutput) ToGetPushGroupsMappingArrayOutput() GetPushGroupsMappingArrayOutput {
+	return o
+}
+
+func (o GetPushGroupsMappingArrayOutput) ToGetPushGroupsMappingArrayOutputWithContext(ctx context.Context) GetPushGroupsMappingArrayOutput {
+	return o
+}
+
+func (o GetPushGroupsMappingArrayOutput) Index(i pulumi.IntInput) GetPushGroupsMappingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetPushGroupsMapping {
+		return vs[0].([]GetPushGroupsMapping)[vs[1].(int)]
+	}).(GetPushGroupsMappingOutput)
+}
+
 type GetPushProviderConfiguration struct {
 	ApnsConfiguration *GetPushProviderConfigurationApnsConfiguration `pulumi:"apnsConfiguration"`
 	FcmConfiguration  *GetPushProviderConfigurationFcmConfiguration  `pulumi:"fcmConfiguration"`
@@ -27828,6 +28118,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PreviewSigninPageContentSecurityPolicySettingPtrInput)(nil)).Elem(), PreviewSigninPageContentSecurityPolicySettingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PreviewSigninPageWidgetCustomizationsInput)(nil)).Elem(), PreviewSigninPageWidgetCustomizationsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PreviewSigninPageWidgetCustomizationsPtrInput)(nil)).Elem(), PreviewSigninPageWidgetCustomizationsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PushGroupAppConfigInput)(nil)).Elem(), PushGroupAppConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PushGroupAppConfigPtrInput)(nil)).Elem(), PushGroupAppConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PushProviderConfigurationInput)(nil)).Elem(), PushProviderConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PushProviderConfigurationPtrInput)(nil)).Elem(), PushProviderConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PushProviderConfigurationApnsConfigurationInput)(nil)).Elem(), PushProviderConfigurationApnsConfigurationArgs{})
@@ -28018,6 +28310,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPrincipalEntitlementsParentPtrInput)(nil)).Elem(), GetPrincipalEntitlementsParentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPrincipalEntitlementsTargetPrincipalInput)(nil)).Elem(), GetPrincipalEntitlementsTargetPrincipalArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPrincipalEntitlementsTargetPrincipalPtrInput)(nil)).Elem(), GetPrincipalEntitlementsTargetPrincipalArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPushGroupsMappingInput)(nil)).Elem(), GetPushGroupsMappingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPushGroupsMappingArrayInput)(nil)).Elem(), GetPushGroupsMappingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPushProviderConfigurationInput)(nil)).Elem(), GetPushProviderConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPushProviderConfigurationPtrInput)(nil)).Elem(), GetPushProviderConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPushProviderConfigurationApnsConfigurationInput)(nil)).Elem(), GetPushProviderConfigurationApnsConfigurationArgs{})
@@ -28184,6 +28478,8 @@ func init() {
 	pulumi.RegisterOutputType(PreviewSigninPageContentSecurityPolicySettingPtrOutput{})
 	pulumi.RegisterOutputType(PreviewSigninPageWidgetCustomizationsOutput{})
 	pulumi.RegisterOutputType(PreviewSigninPageWidgetCustomizationsPtrOutput{})
+	pulumi.RegisterOutputType(PushGroupAppConfigOutput{})
+	pulumi.RegisterOutputType(PushGroupAppConfigPtrOutput{})
 	pulumi.RegisterOutputType(PushProviderConfigurationOutput{})
 	pulumi.RegisterOutputType(PushProviderConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(PushProviderConfigurationApnsConfigurationOutput{})
@@ -28374,6 +28670,8 @@ func init() {
 	pulumi.RegisterOutputType(GetPrincipalEntitlementsParentPtrOutput{})
 	pulumi.RegisterOutputType(GetPrincipalEntitlementsTargetPrincipalOutput{})
 	pulumi.RegisterOutputType(GetPrincipalEntitlementsTargetPrincipalPtrOutput{})
+	pulumi.RegisterOutputType(GetPushGroupsMappingOutput{})
+	pulumi.RegisterOutputType(GetPushGroupsMappingArrayOutput{})
 	pulumi.RegisterOutputType(GetPushProviderConfigurationOutput{})
 	pulumi.RegisterOutputType(GetPushProviderConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(GetPushProviderConfigurationApnsConfigurationOutput{})

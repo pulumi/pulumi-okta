@@ -5,6 +5,7 @@ package com.pulumi.okta.user.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import com.pulumi.okta.user.outputs.GetUsersUserType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -51,6 +52,11 @@ public final class GetUsersUser {
     private String streetAddress;
     private String timezone;
     private String title;
+    /**
+     * @return User type
+     * 
+     */
+    private List<GetUsersUserType> types;
     private String userType;
     private String zipCode;
 
@@ -167,6 +173,13 @@ public final class GetUsersUser {
     public String title() {
         return this.title;
     }
+    /**
+     * @return User type
+     * 
+     */
+    public List<GetUsersUserType> types() {
+        return this.types;
+    }
     public String userType() {
         return this.userType;
     }
@@ -219,6 +232,7 @@ public final class GetUsersUser {
         private String streetAddress;
         private String timezone;
         private String title;
+        private List<GetUsersUserType> types;
         private String userType;
         private String zipCode;
         public Builder() {}
@@ -260,6 +274,7 @@ public final class GetUsersUser {
     	      this.streetAddress = defaults.streetAddress;
     	      this.timezone = defaults.timezone;
     	      this.title = defaults.title;
+    	      this.types = defaults.types;
     	      this.userType = defaults.userType;
     	      this.zipCode = defaults.zipCode;
         }
@@ -562,6 +577,17 @@ public final class GetUsersUser {
             return this;
         }
         @CustomType.Setter
+        public Builder types(List<GetUsersUserType> types) {
+            if (types == null) {
+              throw new MissingRequiredPropertyException("GetUsersUser", "types");
+            }
+            this.types = types;
+            return this;
+        }
+        public Builder types(GetUsersUserType... types) {
+            return types(List.of(types));
+        }
+        @CustomType.Setter
         public Builder userType(String userType) {
             if (userType == null) {
               throw new MissingRequiredPropertyException("GetUsersUser", "userType");
@@ -615,6 +641,7 @@ public final class GetUsersUser {
             _resultValue.streetAddress = streetAddress;
             _resultValue.timezone = timezone;
             _resultValue.title = title;
+            _resultValue.types = types;
             _resultValue.userType = userType;
             _resultValue.zipCode = zipCode;
             return _resultValue;

@@ -115,6 +115,11 @@ export type SecurePasswordStore = import("./securePasswordStore").SecurePassword
 export const SecurePasswordStore: typeof import("./securePasswordStore").SecurePasswordStore = null as any;
 utilities.lazyLoad(exports, ["SecurePasswordStore"], () => require("./securePasswordStore"));
 
+export { SignonPolicyRulesArgs, SignonPolicyRulesState } from "./signonPolicyRules";
+export type SignonPolicyRules = import("./signonPolicyRules").SignonPolicyRules;
+export const SignonPolicyRules: typeof import("./signonPolicyRules").SignonPolicyRules = null as any;
+utilities.lazyLoad(exports, ["SignonPolicyRules"], () => require("./signonPolicyRules"));
+
 export { SwaArgs, SwaState } from "./swa";
 export type Swa = import("./swa").Swa;
 export const Swa: typeof import("./swa").Swa = null as any;
@@ -168,6 +173,8 @@ const _module = {
                 return new Saml(name, <any>undefined, { urn })
             case "okta:app/securePasswordStore:SecurePasswordStore":
                 return new SecurePasswordStore(name, <any>undefined, { urn })
+            case "okta:app/signonPolicyRules:SignonPolicyRules":
+                return new SignonPolicyRules(name, <any>undefined, { urn })
             case "okta:app/swa:Swa":
                 return new Swa(name, <any>undefined, { urn })
             case "okta:app/threeField:ThreeField":
@@ -195,6 +202,7 @@ pulumi.runtime.registerResourceModule("okta", "app/oAuthRedirectUri", _module)
 pulumi.runtime.registerResourceModule("okta", "app/oauthRoleAssignment", _module)
 pulumi.runtime.registerResourceModule("okta", "app/saml", _module)
 pulumi.runtime.registerResourceModule("okta", "app/securePasswordStore", _module)
+pulumi.runtime.registerResourceModule("okta", "app/signonPolicyRules", _module)
 pulumi.runtime.registerResourceModule("okta", "app/swa", _module)
 pulumi.runtime.registerResourceModule("okta", "app/threeField", _module)
 pulumi.runtime.registerResourceModule("okta", "app/token", _module)

@@ -42,7 +42,7 @@
             "respectSchemaVersion": true
         },
         "nodejs": {
-            "packageDescription": "A Pulumi package for creating and managing okta resources.. Based on terraform-provider-okta: version v6.5.5",
+            "packageDescription": "A Pulumi package for creating and managing okta resources.. Based on terraform-provider-okta: version v6.6.0",
             "readme": "\u003e This provider is a derived work of the [Terraform Provider](https://github.com/okta/terraform-provider-okta)\n\u003e distributed under [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/). If you encounter a bug or missing feature,\n\u003e first check the [`pulumi-okta` repo](https://github.com/pulumi/pulumi-okta/issues); however, if that doesn't turn up anything,\n\u003e please consult the source [`terraform-provider-okta` repo](https://github.com/okta/terraform-provider-okta/issues).",
             "devDependencies": {
                 "@types/mime": "^2.0.0",
@@ -575,6 +575,184 @@
                     ]
                 }
             }
+        },
+        "okta:app/SignonPolicyRulesRule:SignonPolicyRulesRule": {
+            "properties": {
+                "access": {
+                    "type": "string",
+                    "description": "Access decision: ALLOW or DENY.\n"
+                },
+                "constraints": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of authenticator constraints as JSON-encoded strings.\n"
+                },
+                "customExpression": {
+                    "type": "string",
+                    "description": "Custom Okta Expression Language condition for advanced matching.\n"
+                },
+                "deviceAssurancesIncludeds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Set of device assurance policy IDs to include.\n"
+                },
+                "deviceIsManaged": {
+                    "type": "boolean",
+                    "description": "Require device to be managed by a device management system.\n"
+                },
+                "deviceIsRegistered": {
+                    "type": "boolean",
+                    "description": "Require device to be registered with Okta Verify.\n"
+                },
+                "factorMode": {
+                    "type": "string",
+                    "description": "Number of factors required: 1FA or 2FA.\n"
+                },
+                "groupsExcludeds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Set of group IDs to exclude from this rule.\n"
+                },
+                "groupsIncludeds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Set of group IDs to include in this rule.\n"
+                },
+                "id": {
+                    "type": "string",
+                    "description": "(String) - The ID of this resource (same as \u003cspan pulumi-lang-nodejs=\"`policyId`\" pulumi-lang-dotnet=\"`PolicyId`\" pulumi-lang-go=\"`policyId`\" pulumi-lang-python=\"`policy_id`\" pulumi-lang-yaml=\"`policyId`\" pulumi-lang-java=\"`policyId`\"\u003e`policy_id`\u003c/span\u003e).\n"
+                },
+                "inactivityPeriod": {
+                    "type": "string",
+                    "description": "Inactivity period before re-authentication in ISO 8601 duration format.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Policy Rule Name. Must be unique within the policy.\n"
+                },
+                "networkConnection": {
+                    "type": "string",
+                    "description": "Network selection mode: ANYWHERE, ZONE, ON_NETWORK, or OFF_NETWORK.\n"
+                },
+                "networkExcludes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of network zone IDs to exclude.\n"
+                },
+                "networkIncludes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of network zone IDs to include.\n"
+                },
+                "platformIncludes": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/okta:app/SignonPolicyRulesRulePlatformInclude:SignonPolicyRulesRulePlatformInclude"
+                    },
+                    "description": "Platform conditions to include.\n"
+                },
+                "priority": {
+                    "type": "integer",
+                    "description": "Priority of the rule. Lower numbers are evaluated first.\n"
+                },
+                "reAuthenticationFrequency": {
+                    "type": "string",
+                    "description": "Re-authentication frequency in ISO 8601 duration format (e.g., PT2H for 2 hours).\n"
+                },
+                "riskScore": {
+                    "type": "string",
+                    "description": "Risk score level to match: ANY, LOW, MEDIUM, or HIGH.\n"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "Status of the rule: ACTIVE or INACTIVE.\n"
+                },
+                "system": {
+                    "type": "boolean",
+                    "description": "Whether this is a system rule (e.g., Catch-all Rule). System rules cannot be modified.\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "Verification method type.\n"
+                },
+                "userTypesExcludeds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Set of user type IDs to exclude.\n"
+                },
+                "userTypesIncludeds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Set of user type IDs to include.\n"
+                },
+                "usersExcludeds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Set of user IDs to exclude from this rule.\n"
+                },
+                "usersIncludeds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Set of user IDs to include in this rule.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "name"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "access",
+                        "factorMode",
+                        "id",
+                        "name",
+                        "networkConnection",
+                        "reAuthenticationFrequency",
+                        "riskScore",
+                        "status",
+                        "system",
+                        "type"
+                    ]
+                }
+            }
+        },
+        "okta:app/SignonPolicyRulesRulePlatformInclude:SignonPolicyRulesRulePlatformInclude": {
+            "properties": {
+                "osExpression": {
+                    "type": "string",
+                    "description": "Custom OS expression for advanced matching.\n"
+                },
+                "osType": {
+                    "type": "string",
+                    "description": "OS type: ANY, IOS, ANDROID, WINDOWS, OSX, MACOS, CHROMEOS, or OTHER.\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "Platform type: ANY, MOBILE, or DESKTOP.\n"
+                }
+            },
+            "type": "object"
         },
         "okta:app/getConnectionProfile:getConnectionProfile": {
             "properties": {
@@ -2197,6 +2375,29 @@
                     ]
                 }
             }
+        },
+        "okta:index/PushGroupAppConfig:PushGroupAppConfig": {
+            "properties": {
+                "distinguishedName": {
+                    "type": "string"
+                },
+                "groupScope": {
+                    "type": "string"
+                },
+                "groupType": {
+                    "type": "string"
+                },
+                "samAccountName": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "distinguishedName",
+                "groupScope",
+                "groupType",
+                "samAccountName"
+            ]
         },
         "okta:index/PushProviderConfiguration:PushProviderConfiguration": {
             "properties": {
@@ -4979,6 +5180,34 @@
                 "type"
             ]
         },
+        "okta:index/getPushGroupsMapping:getPushGroupsMapping": {
+            "properties": {
+                "appId": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "sourceGroupId": {
+                    "type": "string"
+                },
+                "status": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "appId",
+                "id",
+                "sourceGroupId",
+                "status"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
         "okta:index/getPushProviderConfiguration:getPushProviderConfiguration": {
             "properties": {
                 "apnsConfiguration": {
@@ -6162,6 +6391,18 @@
                 "value"
             ]
         },
+        "okta:user/UserType:UserType": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "ID of the user_type\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "id"
+            ]
+        },
         "okta:user/getUserSearch:getUserSearch": {
             "properties": {
                 "comparison": {
@@ -6180,6 +6421,23 @@
                 }
             },
             "type": "object"
+        },
+        "okta:user/getUserType:getUserType": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The ID of this resource.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "id"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
         },
         "okta:user/getUsersSearch:getUsersSearch": {
             "properties": {
@@ -6320,6 +6578,13 @@
                 "title": {
                     "type": "string"
                 },
+                "types": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/okta:user/getUsersUserType:getUsersUserType"
+                    },
+                    "description": "User type\n"
+                },
                 "userType": {
                     "type": "string"
                 },
@@ -6365,8 +6630,26 @@
                 "streetAddress",
                 "timezone",
                 "title",
+                "types",
                 "userType",
                 "zipCode"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "okta:user/getUsersUserType:getUsersUserType": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The ID of this resource.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "id"
             ],
             "language": {
                 "nodejs": {
@@ -9804,6 +10087,58 @@
                 "type": "object"
             }
         },
+        "okta:app/signonPolicyRules:SignonPolicyRules": {
+            "description": "## #\u003cspan pulumi-lang-nodejs=\" okta.app.SignonPolicyRules\n\" pulumi-lang-dotnet=\" okta.app.SignonPolicyRules\n\" pulumi-lang-go=\" app.SignonPolicyRules\n\" pulumi-lang-python=\" app.SignonPolicyRules\n\" pulumi-lang-yaml=\" okta.app.SignonPolicyRules\n\" pulumi-lang-java=\" okta.app.SignonPolicyRules\n\"\u003e okta.app.SignonPolicyRules\n\u003c/span\u003e\nManages multiple app sign-on policy rules for a single policy. This resource allows you to define all rules for a policy in a single configuration block, ensuring consistent priority ordering and avoiding drift issues.\n\n\u003e **IMPORTANT:** This resource uses name-first matching to identify and update rules. When migrating from individual \u003cspan pulumi-lang-nodejs=\"`okta.AppSignonPolicyRule`\" pulumi-lang-dotnet=\"`okta.AppSignonPolicyRule`\" pulumi-lang-go=\"`AppSignonPolicyRule`\" pulumi-lang-python=\"`AppSignonPolicyRule`\" pulumi-lang-yaml=\"`okta.AppSignonPolicyRule`\" pulumi-lang-java=\"`okta.AppSignonPolicyRule`\"\u003e`okta.AppSignonPolicyRule`\u003c/span\u003e resources, ensure rule names remain consistent to enable safe adoption without data loss.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst example = new okta.app.SignonPolicyRules(\"example\", {\n    policyId: exampleOktaAppSignonPolicy.id,\n    rules: [\n        {\n            name: \"High Priority Rule\",\n            priority: 1,\n            factorMode: \"2FA\",\n            reAuthenticationFrequency: \"PT2H\",\n            status: \"ACTIVE\",\n        },\n        {\n            name: \"Low Priority Rule\",\n            priority: 2,\n            factorMode: \"1FA\",\n            access: \"ALLOW\",\n            status: \"ACTIVE\",\n        },\n        {\n            name: \"Deny Rule\",\n            priority: 3,\n            access: \"DENY\",\n            status: \"ACTIVE\",\n        },\n    ],\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample = okta.app.SignonPolicyRules(\"example\",\n    policy_id=example_okta_app_signon_policy[\"id\"],\n    rules=[\n        {\n            \"name\": \"High Priority Rule\",\n            \"priority\": 1,\n            \"factor_mode\": \"2FA\",\n            \"re_authentication_frequency\": \"PT2H\",\n            \"status\": \"ACTIVE\",\n        },\n        {\n            \"name\": \"Low Priority Rule\",\n            \"priority\": 2,\n            \"factor_mode\": \"1FA\",\n            \"access\": \"ALLOW\",\n            \"status\": \"ACTIVE\",\n        },\n        {\n            \"name\": \"Deny Rule\",\n            \"priority\": 3,\n            \"access\": \"DENY\",\n            \"status\": \"ACTIVE\",\n        },\n    ])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new Okta.App.SignonPolicyRules(\"example\", new()\n    {\n        PolicyId = exampleOktaAppSignonPolicy.Id,\n        Rules = new[]\n        {\n            new Okta.App.Inputs.SignonPolicyRulesRuleArgs\n            {\n                Name = \"High Priority Rule\",\n                Priority = 1,\n                FactorMode = \"2FA\",\n                ReAuthenticationFrequency = \"PT2H\",\n                Status = \"ACTIVE\",\n            },\n            new Okta.App.Inputs.SignonPolicyRulesRuleArgs\n            {\n                Name = \"Low Priority Rule\",\n                Priority = 2,\n                FactorMode = \"1FA\",\n                Access = \"ALLOW\",\n                Status = \"ACTIVE\",\n            },\n            new Okta.App.Inputs.SignonPolicyRulesRuleArgs\n            {\n                Name = \"Deny Rule\",\n                Priority = 3,\n                Access = \"DENY\",\n                Status = \"ACTIVE\",\n            },\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v6/go/okta/app\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := app.NewSignonPolicyRules(ctx, \"example\", \u0026app.SignonPolicyRulesArgs{\n\t\t\tPolicyId: pulumi.Any(exampleOktaAppSignonPolicy.Id),\n\t\t\tRules: app.SignonPolicyRulesRuleArray{\n\t\t\t\t\u0026app.SignonPolicyRulesRuleArgs{\n\t\t\t\t\tName:                      pulumi.String(\"High Priority Rule\"),\n\t\t\t\t\tPriority:                  pulumi.Int(1),\n\t\t\t\t\tFactorMode:                pulumi.String(\"2FA\"),\n\t\t\t\t\tReAuthenticationFrequency: pulumi.String(\"PT2H\"),\n\t\t\t\t\tStatus:                    pulumi.String(\"ACTIVE\"),\n\t\t\t\t},\n\t\t\t\t\u0026app.SignonPolicyRulesRuleArgs{\n\t\t\t\t\tName:       pulumi.String(\"Low Priority Rule\"),\n\t\t\t\t\tPriority:   pulumi.Int(2),\n\t\t\t\t\tFactorMode: pulumi.String(\"1FA\"),\n\t\t\t\t\tAccess:     pulumi.String(\"ALLOW\"),\n\t\t\t\t\tStatus:     pulumi.String(\"ACTIVE\"),\n\t\t\t\t},\n\t\t\t\t\u0026app.SignonPolicyRulesRuleArgs{\n\t\t\t\t\tName:     pulumi.String(\"Deny Rule\"),\n\t\t\t\t\tPriority: pulumi.Int(3),\n\t\t\t\t\tAccess:   pulumi.String(\"DENY\"),\n\t\t\t\t\tStatus:   pulumi.String(\"ACTIVE\"),\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.okta.app.SignonPolicyRules;\nimport com.pulumi.okta.app.SignonPolicyRulesArgs;\nimport com.pulumi.okta.app.inputs.SignonPolicyRulesRuleArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new SignonPolicyRules(\"example\", SignonPolicyRulesArgs.builder()\n            .policyId(exampleOktaAppSignonPolicy.id())\n            .rules(            \n                SignonPolicyRulesRuleArgs.builder()\n                    .name(\"High Priority Rule\")\n                    .priority(1)\n                    .factorMode(\"2FA\")\n                    .reAuthenticationFrequency(\"PT2H\")\n                    .status(\"ACTIVE\")\n                    .build(),\n                SignonPolicyRulesRuleArgs.builder()\n                    .name(\"Low Priority Rule\")\n                    .priority(2)\n                    .factorMode(\"1FA\")\n                    .access(\"ALLOW\")\n                    .status(\"ACTIVE\")\n                    .build(),\n                SignonPolicyRulesRuleArgs.builder()\n                    .name(\"Deny Rule\")\n                    .priority(3)\n                    .access(\"DENY\")\n                    .status(\"ACTIVE\")\n                    .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: okta:app:SignonPolicyRules\n    properties:\n      policyId: ${exampleOktaAppSignonPolicy.id}\n      rules:\n        - name: High Priority Rule\n          priority: 1\n          factorMode: 2FA\n          reAuthenticationFrequency: PT2H\n          status: ACTIVE\n        - name: Low Priority Rule\n          priority: 2\n          factorMode: 1FA\n          access: ALLOW\n          status: ACTIVE\n        - name: Deny Rule\n          priority: 3\n          access: DENY\n          status: ACTIVE\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Priority Management\n\n\u003e **IMPORTANT:** When managing priorities, follow Okta's top-down synchronization strategy to avoid automatic priority shifting. Always update rules in priority order (P1 → PN) to prevent cascading shifts.\n\n### Priority Behavior\n\n- Priorities are **0-indexed** but can be any positive integer.\n- When you omit \u003cspan pulumi-lang-nodejs=\"`priority`\" pulumi-lang-dotnet=\"`Priority`\" pulumi-lang-go=\"`priority`\" pulumi-lang-python=\"`priority`\" pulumi-lang-yaml=\"`priority`\" pulumi-lang-java=\"`priority`\"\u003e`priority`\u003c/span\u003e in config, Terraform will display the actual priority assigned by Okta in the state.\n- Okta allows gaps in priorities (e.g., priorities 1, 2, 5, 99 are valid).\n- **Maximum of 99 rules per policy:** You can define up to 99 custom rules. Priority 99 is reserved for the system Catch-all Rule.\n- If you update multiple rules simultaneously and priorities conflict, Okta may automatically shift priorities to resolve conflicts. To prevent this:\n  1. Use explicit, sequential priority values (1, 2, 3, 4, 5).\n  2. Avoid updating rules with the same priority.\n  3. Consider using temporary high priorities (100+) if reordering is needed.\n\n### System Rules and Catch-all Rule\n\n- **Catch-all Rule:** Every policy includes a system-level Catch-all Rule with priority 99. This is the default rule that applies if no other rules match.\n- **Immutable:** System rules (like \"Catch-all Rule\") cannot be modified, deleted, or have their conditions/priorities changed.\n- **Import behavior:** If you import a policy with a Catch-all Rule, it will appear in your state but cannot be managed by Terraform. Omit it from your configuration.\n\n## Migration from\u003cspan pulumi-lang-nodejs=\" okta.AppSignonPolicyRule\n\" pulumi-lang-dotnet=\" okta.AppSignonPolicyRule\n\" pulumi-lang-go=\" AppSignonPolicyRule\n\" pulumi-lang-python=\" AppSignonPolicyRule\n\" pulumi-lang-yaml=\" okta.AppSignonPolicyRule\n\" pulumi-lang-java=\" okta.AppSignonPolicyRule\n\"\u003e okta.AppSignonPolicyRule\n\u003c/span\u003e\nIf you currently use multiple individual \u003cspan pulumi-lang-nodejs=\"`okta.AppSignonPolicyRule`\" pulumi-lang-dotnet=\"`okta.AppSignonPolicyRule`\" pulumi-lang-go=\"`AppSignonPolicyRule`\" pulumi-lang-python=\"`AppSignonPolicyRule`\" pulumi-lang-yaml=\"`okta.AppSignonPolicyRule`\" pulumi-lang-java=\"`okta.AppSignonPolicyRule`\"\u003e`okta.AppSignonPolicyRule`\u003c/span\u003e resources, follow these steps to safely migrate to the grouped resource:\n\n### Step 1: Backup Your State\n\n```bash\npulumi state pull \u003e terraform-state-backup.json\n```\n\n### Step 2: Identify Rule IDs and Names\n\nList all rules in your policy to identify their IDs and names:\n\n```bash\n# Using Terraform state\npulumi state show 'okta_app_signon_policy_rule.rule1'\n```\n\n\n### Step 4: Create the Grouped Resource Configuration\n\nCreate a new \u003cspan pulumi-lang-nodejs=\"`okta.app.SignonPolicyRules`\" pulumi-lang-dotnet=\"`okta.app.SignonPolicyRules`\" pulumi-lang-go=\"`app.SignonPolicyRules`\" pulumi-lang-python=\"`app.SignonPolicyRules`\" pulumi-lang-yaml=\"`okta.app.SignonPolicyRules`\" pulumi-lang-java=\"`okta.app.SignonPolicyRules`\"\u003e`okta.app.SignonPolicyRules`\u003c/span\u003e resource with the same rules. Use **rule names as the matching key** (do NOT include \u003cspan pulumi-lang-nodejs=\"`id`\" pulumi-lang-dotnet=\"`Id`\" pulumi-lang-go=\"`id`\" pulumi-lang-python=\"`id`\" pulumi-lang-yaml=\"`id`\" pulumi-lang-java=\"`id`\"\u003e`id`\u003c/span\u003e unless adopting an existing rule):\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst migrated = new okta.app.SignonPolicyRules(\"migrated\", {\n    policyId: myPolicy.id,\n    rules: [\n        {\n            name: \"High Priority Rule\",\n            priority: 1,\n            factorMode: \"2FA\",\n            reAuthenticationFrequency: \"PT2H\",\n            status: \"ACTIVE\",\n        },\n        {\n            name: \"Second Rule\",\n            priority: 2,\n            factorMode: \"1FA\",\n            status: \"ACTIVE\",\n        },\n        {\n            name: \"Deny Rule\",\n            priority: 3,\n            access: \"DENY\",\n            status: \"ACTIVE\",\n        },\n    ],\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nmigrated = okta.app.SignonPolicyRules(\"migrated\",\n    policy_id=my_policy[\"id\"],\n    rules=[\n        {\n            \"name\": \"High Priority Rule\",\n            \"priority\": 1,\n            \"factor_mode\": \"2FA\",\n            \"re_authentication_frequency\": \"PT2H\",\n            \"status\": \"ACTIVE\",\n        },\n        {\n            \"name\": \"Second Rule\",\n            \"priority\": 2,\n            \"factor_mode\": \"1FA\",\n            \"status\": \"ACTIVE\",\n        },\n        {\n            \"name\": \"Deny Rule\",\n            \"priority\": 3,\n            \"access\": \"DENY\",\n            \"status\": \"ACTIVE\",\n        },\n    ])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var migrated = new Okta.App.SignonPolicyRules(\"migrated\", new()\n    {\n        PolicyId = myPolicy.Id,\n        Rules = new[]\n        {\n            new Okta.App.Inputs.SignonPolicyRulesRuleArgs\n            {\n                Name = \"High Priority Rule\",\n                Priority = 1,\n                FactorMode = \"2FA\",\n                ReAuthenticationFrequency = \"PT2H\",\n                Status = \"ACTIVE\",\n            },\n            new Okta.App.Inputs.SignonPolicyRulesRuleArgs\n            {\n                Name = \"Second Rule\",\n                Priority = 2,\n                FactorMode = \"1FA\",\n                Status = \"ACTIVE\",\n            },\n            new Okta.App.Inputs.SignonPolicyRulesRuleArgs\n            {\n                Name = \"Deny Rule\",\n                Priority = 3,\n                Access = \"DENY\",\n                Status = \"ACTIVE\",\n            },\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v6/go/okta/app\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := app.NewSignonPolicyRules(ctx, \"migrated\", \u0026app.SignonPolicyRulesArgs{\n\t\t\tPolicyId: pulumi.Any(myPolicy.Id),\n\t\t\tRules: app.SignonPolicyRulesRuleArray{\n\t\t\t\t\u0026app.SignonPolicyRulesRuleArgs{\n\t\t\t\t\tName:                      pulumi.String(\"High Priority Rule\"),\n\t\t\t\t\tPriority:                  pulumi.Int(1),\n\t\t\t\t\tFactorMode:                pulumi.String(\"2FA\"),\n\t\t\t\t\tReAuthenticationFrequency: pulumi.String(\"PT2H\"),\n\t\t\t\t\tStatus:                    pulumi.String(\"ACTIVE\"),\n\t\t\t\t},\n\t\t\t\t\u0026app.SignonPolicyRulesRuleArgs{\n\t\t\t\t\tName:       pulumi.String(\"Second Rule\"),\n\t\t\t\t\tPriority:   pulumi.Int(2),\n\t\t\t\t\tFactorMode: pulumi.String(\"1FA\"),\n\t\t\t\t\tStatus:     pulumi.String(\"ACTIVE\"),\n\t\t\t\t},\n\t\t\t\t\u0026app.SignonPolicyRulesRuleArgs{\n\t\t\t\t\tName:     pulumi.String(\"Deny Rule\"),\n\t\t\t\t\tPriority: pulumi.Int(3),\n\t\t\t\t\tAccess:   pulumi.String(\"DENY\"),\n\t\t\t\t\tStatus:   pulumi.String(\"ACTIVE\"),\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.okta.app.SignonPolicyRules;\nimport com.pulumi.okta.app.SignonPolicyRulesArgs;\nimport com.pulumi.okta.app.inputs.SignonPolicyRulesRuleArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var migrated = new SignonPolicyRules(\"migrated\", SignonPolicyRulesArgs.builder()\n            .policyId(myPolicy.id())\n            .rules(            \n                SignonPolicyRulesRuleArgs.builder()\n                    .name(\"High Priority Rule\")\n                    .priority(1)\n                    .factorMode(\"2FA\")\n                    .reAuthenticationFrequency(\"PT2H\")\n                    .status(\"ACTIVE\")\n                    .build(),\n                SignonPolicyRulesRuleArgs.builder()\n                    .name(\"Second Rule\")\n                    .priority(2)\n                    .factorMode(\"1FA\")\n                    .status(\"ACTIVE\")\n                    .build(),\n                SignonPolicyRulesRuleArgs.builder()\n                    .name(\"Deny Rule\")\n                    .priority(3)\n                    .access(\"DENY\")\n                    .status(\"ACTIVE\")\n                    .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  migrated:\n    type: okta:app:SignonPolicyRules\n    properties:\n      policyId: ${myPolicy.id}\n      rules:\n        - name: High Priority Rule\n          priority: 1\n          factorMode: 2FA\n          reAuthenticationFrequency: PT2H\n          status: ACTIVE\n        - name: Second Rule\n          priority: 2\n          factorMode: 1FA\n          status: ACTIVE\n        - name: Deny Rule\n          priority: 3\n          access: DENY\n          status: ACTIVE\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n### Step 5: Plan and Verify\n\nRun `pulumi preview` to see if any changes will be made:\n\n```bash\npulumi preview -out migration.tfplan\n```\n\n**Expected outcome:** Either \"No changes\" or only legitimate config updates. If the plan shows unexpected deletes or recreates:\n- Verify rule names match exactly (case-sensitive).\n- Check that attributes (access, factor_mode, etc.) match Okta's current state.\n- Ensure you're not declaring system rules (e.g., Catch-all Rule).\n\n### Step 6: Apply the Migration\n\n```bash\npulumi up migration.tfplan\n```\n\n### Step 6: Verify Final State\n\n```bash\npulumi preview\n# Output should show: No changes. Your infrastructure matches the configuration.\n```\n\n## Important Migration Notes\n\n### Priority Differences\n\nWhen migrating from \u003cspan pulumi-lang-nodejs=\"`okta.AppSignonPolicyRule`\" pulumi-lang-dotnet=\"`okta.AppSignonPolicyRule`\" pulumi-lang-go=\"`AppSignonPolicyRule`\" pulumi-lang-python=\"`AppSignonPolicyRule`\" pulumi-lang-yaml=\"`okta.AppSignonPolicyRule`\" pulumi-lang-java=\"`okta.AppSignonPolicyRule`\"\u003e`okta.AppSignonPolicyRule`\u003c/span\u003e (single-rule resource) to \u003cspan pulumi-lang-nodejs=\"`okta.app.SignonPolicyRules`\" pulumi-lang-dotnet=\"`okta.app.SignonPolicyRules`\" pulumi-lang-go=\"`app.SignonPolicyRules`\" pulumi-lang-python=\"`app.SignonPolicyRules`\" pulumi-lang-yaml=\"`okta.app.SignonPolicyRules`\" pulumi-lang-java=\"`okta.app.SignonPolicyRules`\"\u003e`okta.app.SignonPolicyRules`\u003c/span\u003e (grouped resource):\n\n- **Old behavior:** Single-rule resource defaults to `priority = 0` in Terraform state, even if Okta assigned a different priority.\n- **New behavior:** Grouped resource reflects the actual priority assigned by Okta. When you omit \u003cspan pulumi-lang-nodejs=\"`priority`\" pulumi-lang-dotnet=\"`Priority`\" pulumi-lang-go=\"`priority`\" pulumi-lang-python=\"`priority`\" pulumi-lang-yaml=\"`priority`\" pulumi-lang-java=\"`priority`\"\u003e`priority`\u003c/span\u003e, the state will show the real Okta-assigned priority.\n\n**Action:** Explicitly set \u003cspan pulumi-lang-nodejs=\"`priority`\" pulumi-lang-dotnet=\"`Priority`\" pulumi-lang-go=\"`priority`\" pulumi-lang-python=\"`priority`\" pulumi-lang-yaml=\"`priority`\" pulumi-lang-java=\"`priority`\"\u003e`priority`\u003c/span\u003e values in your configuration to avoid unexpected changes during migration.\n\n### Name-First Matching\n\nThe grouped resource matches rules by **name first**, not by ID:\n\n- If you rename a rule in config, the provider will match it to the existing rule by the new name.\n- If a name doesn't exist in Okta, a new rule is created.\n- This design prevents accidental re-matching when state order differs from config order.\n\n### System Rules\n\nSystem rules (e.g., \"Catch-all Rule\") cannot be managed:\n\n- If your policy has a system rule, do NOT declare it in your configuration.\n- The provider will detect it during import/read but will not attempt to modify or delete it.\n- System rules are read-only from Terraform's perspective.\n\n## Troubleshooting\n\n### Plan shows \"1 to change\" but config matches Okta\n\n**Cause:** State and config rule order differ, triggering re-matching.\n\n**Solution:** Verify rule names match exactly (case-sensitive) and attributes are correct. Run `pulumi preview -refresh=true` to refresh state from Okta.\n\n### Priorities shift unexpectedly after apply\n\n**Cause:** Okta automatically shifts priorities when updates conflict. This is expected behavior per Okta's prioritization rules.\n\n**Solution:** Use explicit, sequential priorities (1, 2, 3, ...) instead of 0-indexed or sparse values. Avoid updating multiple rules simultaneously with overlapping priorities.\n\n### Error: \"System rule cannot be modified\"\n\n**Cause:** You attempted to set conditions on a system rule (Catch-all Rule).\n\n**Solution:** Remove the system rule from your configuration. System rules are immutable.\n\n## See Also\n\n-\u003cspan pulumi-lang-nodejs=\" okta.AppSignonPolicy \" pulumi-lang-dotnet=\" okta.AppSignonPolicy \" pulumi-lang-go=\" AppSignonPolicy \" pulumi-lang-python=\" AppSignonPolicy \" pulumi-lang-yaml=\" okta.AppSignonPolicy \" pulumi-lang-java=\" okta.AppSignonPolicy \"\u003e okta.AppSignonPolicy \u003c/span\u003e- Create and manage app sign-on policies.\n- [Okta Policy Rule Prioritization Guide](https://developer.okta.com/docs/guides/policy-rule-prioritization/main/) - Learn about priority management and top-down synchronization.\n\n## Import\n\nImport an existing policy's rules:\n\n```sh\n$ pulumi import okta:app/signonPolicyRules:SignonPolicyRules example \u003cpolicy_id\u003e\n```\n\nThis will populate your state with all rules for the policy (including system rules). Update your configuration to match.\n\n",
+            "properties": {
+                "policyId": {
+                    "type": "string",
+                    "description": "ID of the policy to manage rules for."
+                },
+                "rules": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/okta:app/SignonPolicyRulesRule:SignonPolicyRulesRule"
+                    },
+                    "description": "List of policy rules. Rules are processed in priority order (lowest number = highest priority)."
+                }
+            },
+            "required": [
+                "policyId"
+            ],
+            "inputProperties": {
+                "policyId": {
+                    "type": "string",
+                    "description": "ID of the policy to manage rules for."
+                },
+                "rules": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/okta:app/SignonPolicyRulesRule:SignonPolicyRulesRule"
+                    },
+                    "description": "List of policy rules. Rules are processed in priority order (lowest number = highest priority)."
+                }
+            },
+            "requiredInputs": [
+                "policyId"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering SignonPolicyRules resources.\n",
+                "properties": {
+                    "policyId": {
+                        "type": "string",
+                        "description": "ID of the policy to manage rules for."
+                    },
+                    "rules": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/okta:app/SignonPolicyRulesRule:SignonPolicyRulesRule"
+                        },
+                        "description": "List of policy rules. Rules are processed in priority order (lowest number = highest priority)."
+                    }
+                },
+                "type": "object"
+            }
+        },
         "okta:app/swa:Swa": {
             "description": "Creates a SWA Application.\n\t\t\nThis resource allows you to create and configure a SWA Application.\n\u003e During an apply if there is change in 'status' the app will first be\nactivated or deactivated in accordance with the 'status' change. Then, all\nother arguments that changed will be applied.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst example = new okta.app.Swa(\"example\", {\n    label: \"example\",\n    buttonField: \"btn-login\",\n    passwordField: \"txtbox-password\",\n    usernameField: \"txtbox-username\",\n    url: \"https://example.com/login.html\",\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample = okta.app.Swa(\"example\",\n    label=\"example\",\n    button_field=\"btn-login\",\n    password_field=\"txtbox-password\",\n    username_field=\"txtbox-username\",\n    url=\"https://example.com/login.html\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new Okta.App.Swa(\"example\", new()\n    {\n        Label = \"example\",\n        ButtonField = \"btn-login\",\n        PasswordField = \"txtbox-password\",\n        UsernameField = \"txtbox-username\",\n        Url = \"https://example.com/login.html\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v6/go/okta/app\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := app.NewSwa(ctx, \"example\", \u0026app.SwaArgs{\n\t\t\tLabel:         pulumi.String(\"example\"),\n\t\t\tButtonField:   pulumi.String(\"btn-login\"),\n\t\t\tPasswordField: pulumi.String(\"txtbox-password\"),\n\t\t\tUsernameField: pulumi.String(\"txtbox-username\"),\n\t\t\tUrl:           pulumi.String(\"https://example.com/login.html\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.okta.app.Swa;\nimport com.pulumi.okta.app.SwaArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new Swa(\"example\", SwaArgs.builder()\n            .label(\"example\")\n            .buttonField(\"btn-login\")\n            .passwordField(\"txtbox-password\")\n            .usernameField(\"txtbox-username\")\n            .url(\"https://example.com/login.html\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: okta:app:Swa\n    properties:\n      label: example\n      buttonField: btn-login\n      passwordField: txtbox-password\n      usernameField: txtbox-username\n      url: https://example.com/login.html\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n```sh\n$ pulumi import okta:app/swa:Swa example \u003capp_id\u003e\n```\n\n",
             "properties": {
@@ -12082,6 +12417,10 @@
                     "type": "string",
                     "description": "IdP Authorization Server (AS) endpoint to exchange the authorization code grant for an access token.\n"
                 },
+                "trustClaims": {
+                    "type": "boolean",
+                    "description": "Indicates whether to trust authentication claims from the IdP."
+                },
                 "type": {
                     "type": "string",
                     "description": "Type of OIDC IdP.\n"
@@ -12255,6 +12594,10 @@
                     "type": "string",
                     "description": "IdP Authorization Server (AS) endpoint to exchange the authorization code grant for an access token.\n"
                 },
+                "trustClaims": {
+                    "type": "boolean",
+                    "description": "Indicates whether to trust authentication claims from the IdP."
+                },
                 "userInfoBinding": {
                     "type": "string"
                 },
@@ -12418,6 +12761,10 @@
                     "tokenUrl": {
                         "type": "string",
                         "description": "IdP Authorization Server (AS) endpoint to exchange the authorization code grant for an access token.\n"
+                    },
+                    "trustClaims": {
+                        "type": "boolean",
+                        "description": "Indicates whether to trust authentication claims from the IdP."
                     },
                     "type": {
                         "type": "string",
@@ -12583,6 +12930,10 @@
                     "type": "string",
                     "description": "Action for a previously suspended IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`\n"
                 },
+                "trustClaims": {
+                    "type": "boolean",
+                    "description": "Indicates whether to trust authentication claims from the IdP."
+                },
                 "type": {
                     "type": "string"
                 },
@@ -12737,6 +13088,10 @@
                     "type": "string",
                     "description": "Action for a previously suspended IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`\n"
                 },
+                "trustClaims": {
+                    "type": "boolean",
+                    "description": "Indicates whether to trust authentication claims from the IdP."
+                },
                 "usernameTemplate": {
                     "type": "string",
                     "description": "Okta EL Expression to generate or transform a unique username for the IdP user. Default: `idpuser.email`\n"
@@ -12887,6 +13242,10 @@
                     "suspendedAction": {
                         "type": "string",
                         "description": "Action for a previously suspended IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`\n"
+                    },
+                    "trustClaims": {
+                        "type": "boolean",
+                        "description": "Indicates whether to trust authentication claims from the IdP."
                     },
                     "type": {
                         "type": "string"
@@ -14022,7 +14381,7 @@
             }
         },
         "okta:index/appGroupAssignments:AppGroupAssignments": {
-            "description": "Assigns groups to an application. This resource allows you to create multiple App Group assignments.\n\n**Important**: Do not use in conjunction with\u003cspan pulumi-lang-nodejs=\" forEach\n\" pulumi-lang-dotnet=\" ForEach\n\" pulumi-lang-go=\" forEach\n\" pulumi-lang-python=\" for_each\n\" pulumi-lang-yaml=\" forEach\n\" pulumi-lang-java=\" forEach\n\"\u003e for_each\n\u003c/span\u003e\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst example = new okta.AppGroupAssignments(\"example\", {\n    appId: \"\u003capp id\u003e\",\n    groups: [\n        {\n            id: \"\u003cgroup id\u003e\",\n            priority: 1,\n        },\n        {\n            id: \"\u003canother group id\u003e\",\n            priority: 2,\n            profile: JSON.stringify({\n                \"application profile field\": \"application profile value\",\n            }),\n        },\n    ],\n});\n```\n```python\nimport pulumi\nimport json\nimport pulumi_okta as okta\n\nexample = okta.AppGroupAssignments(\"example\",\n    app_id=\"\u003capp id\u003e\",\n    groups=[\n        {\n            \"id\": \"\u003cgroup id\u003e\",\n            \"priority\": 1,\n        },\n        {\n            \"id\": \"\u003canother group id\u003e\",\n            \"priority\": 2,\n            \"profile\": json.dumps({\n                \"application profile field\": \"application profile value\",\n            }),\n        },\n    ])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing System.Text.Json;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new Okta.AppGroupAssignments(\"example\", new()\n    {\n        AppId = \"\u003capp id\u003e\",\n        Groups = new[]\n        {\n            new Okta.Inputs.AppGroupAssignmentsGroupArgs\n            {\n                Id = \"\u003cgroup id\u003e\",\n                Priority = 1,\n            },\n            new Okta.Inputs.AppGroupAssignmentsGroupArgs\n            {\n                Id = \"\u003canother group id\u003e\",\n                Priority = 2,\n                Profile = JsonSerializer.Serialize(new Dictionary\u003cstring, object?\u003e\n                {\n                    [\"application profile field\"] = \"application profile value\",\n                }),\n            },\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"encoding/json\"\n\n\t\"github.com/pulumi/pulumi-okta/sdk/v6/go/okta\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\ttmpJSON0, err := json.Marshal(map[string]interface{}{\n\t\t\t\"application profile field\": \"application profile value\",\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tjson0 := string(tmpJSON0)\n\t\t_, err = okta.NewAppGroupAssignments(ctx, \"example\", \u0026okta.AppGroupAssignmentsArgs{\n\t\t\tAppId: pulumi.String(\"\u003capp id\u003e\"),\n\t\t\tGroups: okta.AppGroupAssignmentsGroupArray{\n\t\t\t\t\u0026okta.AppGroupAssignmentsGroupArgs{\n\t\t\t\t\tId:       pulumi.String(\"\u003cgroup id\u003e\"),\n\t\t\t\t\tPriority: pulumi.Int(1),\n\t\t\t\t},\n\t\t\t\t\u0026okta.AppGroupAssignmentsGroupArgs{\n\t\t\t\t\tId:       pulumi.String(\"\u003canother group id\u003e\"),\n\t\t\t\t\tPriority: pulumi.Int(2),\n\t\t\t\t\tProfile:  pulumi.String(json0),\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.okta.AppGroupAssignments;\nimport com.pulumi.okta.AppGroupAssignmentsArgs;\nimport com.pulumi.okta.inputs.AppGroupAssignmentsGroupArgs;\nimport static com.pulumi.codegen.internal.Serialization.*;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new AppGroupAssignments(\"example\", AppGroupAssignmentsArgs.builder()\n            .appId(\"\u003capp id\u003e\")\n            .groups(            \n                AppGroupAssignmentsGroupArgs.builder()\n                    .id(\"\u003cgroup id\u003e\")\n                    .priority(1)\n                    .build(),\n                AppGroupAssignmentsGroupArgs.builder()\n                    .id(\"\u003canother group id\u003e\")\n                    .priority(2)\n                    .profile(serializeJson(\n                        jsonObject(\n                            jsonProperty(\"application profile field\", \"application profile value\")\n                        )))\n                    .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: okta:AppGroupAssignments\n    properties:\n      appId: \u003capp id\u003e\n      groups:\n        - id: \u003cgroup id\u003e\n          priority: 1\n        - id: \u003canother group id\u003e\n          priority: 2\n          profile:\n            fn::toJSON:\n              application profile field: application profile value\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n```sh\n$ pulumi import okta:index/appGroupAssignments:AppGroupAssignments example \u003capp_id\u003e\n```\n\n",
+            "description": "Assigns groups to an application. This resource allows you to create multiple App Group assignments.\n\n**Important**: Do not use \u003cspan pulumi-lang-nodejs=\"`forEach`\" pulumi-lang-dotnet=\"`ForEach`\" pulumi-lang-go=\"`forEach`\" pulumi-lang-python=\"`for_each`\" pulumi-lang-yaml=\"`forEach`\" pulumi-lang-java=\"`forEach`\"\u003e`for_each`\u003c/span\u003e on this resource to iterate over groups for the same \u003cspan pulumi-lang-nodejs=\"`appId`\" pulumi-lang-dotnet=\"`AppId`\" pulumi-lang-go=\"`appId`\" pulumi-lang-python=\"`app_id`\" pulumi-lang-yaml=\"`appId`\" pulumi-lang-java=\"`appId`\"\u003e`app_id`\u003c/span\u003e. This resource's Read implementation fetches **all** groups currently assigned to the app from the Okta API — not just the ones declared in config. When multiple instances share the same \u003cspan pulumi-lang-nodejs=\"`appId`\" pulumi-lang-dotnet=\"`AppId`\" pulumi-lang-go=\"`appId`\" pulumi-lang-python=\"`app_id`\" pulumi-lang-yaml=\"`appId`\" pulumi-lang-java=\"`appId`\"\u003e`app_id`\u003c/span\u003e, the following infinite loop occurs on every apply:\n\n1. Each instance's update deletes the groups it does not own from Okta.\n2. Each instance's Read (called at the end of update) re-fetches all groups from the API and absorbs the other instance's groups back into state as drift.\n3. State after apply is identical to state before apply — the plan never converges and the same diff reappears on every `pulumi preview`.\n\nSince this resource natively supports multiple \u003cspan pulumi-lang-nodejs=\"`group`\" pulumi-lang-dotnet=\"`Group`\" pulumi-lang-go=\"`group`\" pulumi-lang-python=\"`group`\" pulumi-lang-yaml=\"`group`\" pulumi-lang-java=\"`group`\"\u003e`group`\u003c/span\u003e blocks, use a \u003cspan pulumi-lang-nodejs=\"`dynamic`\" pulumi-lang-dotnet=\"`Dynamic`\" pulumi-lang-go=\"`dynamic`\" pulumi-lang-python=\"`dynamic`\" pulumi-lang-yaml=\"`dynamic`\" pulumi-lang-java=\"`dynamic`\"\u003e`dynamic`\u003c/span\u003e block instead:\n\n**Bad** — creates two conflicting resource instances for the same app:\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\nimport * as std from \"@pulumi/std\";\n\nconst _this: okta.AppGroupAssignments[] = [];\nfor (const range = {value: 0}; range.value \u003c std.index.toset({\n    input: [\n        \"group-a\",\n        \"group-b\",\n    ],\n}).result; range.value++) {\n    _this.push(new okta.AppGroupAssignments(`this-${range.value}`, {\n        appId: thisOktaAppBookmark.id,\n        groups: [{\n            id: range.value,\n        }],\n    }));\n}\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\nimport pulumi_std as std\n\nthis = []\nfor range in [{\"value\": i} for i in range(0, std.index.toset(input=[\n    group-a,\n    group-b,\n]).result)]:\n    this.append(okta.AppGroupAssignments(f\"this-{range['value']}\",\n        app_id=this_okta_app_bookmark[\"id\"],\n        groups=[{\n            \"id\": range[\"value\"],\n        }]))\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\nusing Std = Pulumi.Std;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var @this = new List\u003cOkta.AppGroupAssignments\u003e();\n    for (var rangeIndex = 0; rangeIndex \u003c Std.Index.Toset.Invoke(new()\n    {\n        Input = new[]\n        {\n            \"group-a\",\n            \"group-b\",\n        },\n    }).Result; rangeIndex++)\n    {\n        var range = new { Value = rangeIndex };\n        @this.Add(new Okta.AppGroupAssignments($\"this-{range.Value}\", new()\n        {\n            AppId = thisOktaAppBookmark.Id,\n            Groups = new[]\n            {\n                new Okta.Inputs.AppGroupAssignmentsGroupArgs\n                {\n                    Id = range.Value,\n                },\n            },\n        }));\n    }\n});\n```\n```go\npackage main\n\nimport (\n\t\"fmt\"\n\n\t\"github.com/pulumi/pulumi-okta/sdk/v6/go/okta\"\n\t\"github.com/pulumi/pulumi-std/sdk/go/std\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tvar this []*okta.AppGroupAssignments\n\t\tfor index := 0; index \u003c std.Toset(ctx, map[string]interface{}{\n\t\t\t\"input\": []string{\n\t\t\t\t\"group-a\",\n\t\t\t\t\"group-b\",\n\t\t\t},\n\t\t}, nil).Result; index++ {\n\t\t\tkey0 := index\n\t\t\tval0 := index\n\t\t\t__res, err := okta.NewAppGroupAssignments(ctx, fmt.Sprintf(\"this-%v\", key0), \u0026okta.AppGroupAssignmentsArgs{\n\t\t\t\tAppId: pulumi.Any(thisOktaAppBookmark.Id),\n\t\t\t\tGroups: okta.AppGroupAssignmentsGroupArray{\n\t\t\t\t\t\u0026okta.AppGroupAssignmentsGroupArgs{\n\t\t\t\t\t\tId: pulumi.Any(val0),\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t})\n\t\t\tif err != nil {\n\t\t\t\treturn err\n\t\t\t}\n\t\t\tthis = append(this, __res)\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.okta.AppGroupAssignments;\nimport com.pulumi.okta.AppGroupAssignmentsArgs;\nimport com.pulumi.okta.inputs.AppGroupAssignmentsGroupArgs;\nimport com.pulumi.codegen.internal.KeyedValue;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        for (var i = 0; i \u003c com.pulumi.std.StdFunctions(Map.of(\"input\", List.of(        \n            \"group-a\",\n            \"group-b\"))).result(); i++) {\n            new AppGroupAssignments(\"this-\" + i, AppGroupAssignmentsArgs.builder()\n                .appId(thisOktaAppBookmark.id())\n                .groups(AppGroupAssignmentsGroupArgs.builder()\n                    .id(range.value())\n                    .build())\n                .build());\n\n        \n}\n    }\n}\n```\n```yaml\nresources:\n  this:\n    type: okta:AppGroupAssignments\n    properties:\n      appId: ${thisOktaAppBookmark.id}\n      groups:\n        - id: ${range.value}\n    options: {}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n**Good** — a single resource instance manages all groups for the app:\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\nimport * as std from \"@pulumi/std\";\n\nconst _this = new okta.AppGroupAssignments(\"this\", {\n    groups: Object.entries(std.index.toset({\n        input: [\n            \"group-a\",\n            \"group-b\",\n        ],\n    }).result).map(([k, v]) =\u003e ({key: k, value: v})).map(entry =\u003e ({\n        id: entry.value,\n    })),\n    appId: thisOktaAppBookmark.id,\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\nimport pulumi_std as std\n\nthis = okta.AppGroupAssignments(\"this\",\n    groups=[{\n        \"id\": entry[\"value\"],\n    } for entry in [{\"key\": k, \"value\": v} for k, v in std.index.toset(input=[\n        \"group-a\",\n        \"group-b\",\n    ])[\"result\"]]],\n    app_id=this_okta_app_bookmark[\"id\"])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\nusing Std = Pulumi.Std;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var @this = new Okta.AppGroupAssignments(\"this\", new()\n    {\n        Groups = .Select(entry =\u003e \n        {\n            return new Okta.Inputs.AppGroupAssignmentsGroupArgs\n            {\n                Id = entry.Value,\n            };\n        }).ToList(),\n        AppId = thisOktaAppBookmark.Id,\n    });\n\n});\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n\u003e **Note:** Using \u003cspan pulumi-lang-nodejs=\"`forEach`\" pulumi-lang-dotnet=\"`ForEach`\" pulumi-lang-go=\"`forEach`\" pulumi-lang-python=\"`for_each`\" pulumi-lang-yaml=\"`forEach`\" pulumi-lang-java=\"`forEach`\"\u003e`for_each`\u003c/span\u003e on this resource is safe when each instance targets a **different** \u003cspan pulumi-lang-nodejs=\"`appId`\" pulumi-lang-dotnet=\"`AppId`\" pulumi-lang-go=\"`appId`\" pulumi-lang-python=\"`app_id`\" pulumi-lang-yaml=\"`appId`\" pulumi-lang-java=\"`appId`\"\u003e`app_id`\u003c/span\u003e, for example when assigning the same group to multiple applications.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst example = new okta.AppGroupAssignments(\"example\", {\n    appId: \"\u003capp id\u003e\",\n    groups: [\n        {\n            id: \"\u003cgroup id\u003e\",\n            priority: 1,\n        },\n        {\n            id: \"\u003canother group id\u003e\",\n            priority: 2,\n            profile: JSON.stringify({\n                \"application profile field\": \"application profile value\",\n            }),\n        },\n    ],\n});\n```\n```python\nimport pulumi\nimport json\nimport pulumi_okta as okta\n\nexample = okta.AppGroupAssignments(\"example\",\n    app_id=\"\u003capp id\u003e\",\n    groups=[\n        {\n            \"id\": \"\u003cgroup id\u003e\",\n            \"priority\": 1,\n        },\n        {\n            \"id\": \"\u003canother group id\u003e\",\n            \"priority\": 2,\n            \"profile\": json.dumps({\n                \"application profile field\": \"application profile value\",\n            }),\n        },\n    ])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing System.Text.Json;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new Okta.AppGroupAssignments(\"example\", new()\n    {\n        AppId = \"\u003capp id\u003e\",\n        Groups = new[]\n        {\n            new Okta.Inputs.AppGroupAssignmentsGroupArgs\n            {\n                Id = \"\u003cgroup id\u003e\",\n                Priority = 1,\n            },\n            new Okta.Inputs.AppGroupAssignmentsGroupArgs\n            {\n                Id = \"\u003canother group id\u003e\",\n                Priority = 2,\n                Profile = JsonSerializer.Serialize(new Dictionary\u003cstring, object?\u003e\n                {\n                    [\"application profile field\"] = \"application profile value\",\n                }),\n            },\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"encoding/json\"\n\n\t\"github.com/pulumi/pulumi-okta/sdk/v6/go/okta\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\ttmpJSON0, err := json.Marshal(map[string]interface{}{\n\t\t\t\"application profile field\": \"application profile value\",\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tjson0 := string(tmpJSON0)\n\t\t_, err = okta.NewAppGroupAssignments(ctx, \"example\", \u0026okta.AppGroupAssignmentsArgs{\n\t\t\tAppId: pulumi.String(\"\u003capp id\u003e\"),\n\t\t\tGroups: okta.AppGroupAssignmentsGroupArray{\n\t\t\t\t\u0026okta.AppGroupAssignmentsGroupArgs{\n\t\t\t\t\tId:       pulumi.String(\"\u003cgroup id\u003e\"),\n\t\t\t\t\tPriority: pulumi.Int(1),\n\t\t\t\t},\n\t\t\t\t\u0026okta.AppGroupAssignmentsGroupArgs{\n\t\t\t\t\tId:       pulumi.String(\"\u003canother group id\u003e\"),\n\t\t\t\t\tPriority: pulumi.Int(2),\n\t\t\t\t\tProfile:  pulumi.String(json0),\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.okta.AppGroupAssignments;\nimport com.pulumi.okta.AppGroupAssignmentsArgs;\nimport com.pulumi.okta.inputs.AppGroupAssignmentsGroupArgs;\nimport static com.pulumi.codegen.internal.Serialization.*;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new AppGroupAssignments(\"example\", AppGroupAssignmentsArgs.builder()\n            .appId(\"\u003capp id\u003e\")\n            .groups(            \n                AppGroupAssignmentsGroupArgs.builder()\n                    .id(\"\u003cgroup id\u003e\")\n                    .priority(1)\n                    .build(),\n                AppGroupAssignmentsGroupArgs.builder()\n                    .id(\"\u003canother group id\u003e\")\n                    .priority(2)\n                    .profile(serializeJson(\n                        jsonObject(\n                            jsonProperty(\"application profile field\", \"application profile value\")\n                        )))\n                    .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: okta:AppGroupAssignments\n    properties:\n      appId: \u003capp id\u003e\n      groups:\n        - id: \u003cgroup id\u003e\n          priority: 1\n        - id: \u003canother group id\u003e\n          priority: 2\n          profile:\n            fn::toJSON:\n              application profile field: application profile value\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n```sh\n$ pulumi import okta:index/appGroupAssignments:AppGroupAssignments example \u003capp_id\u003e\n```\n\n",
             "properties": {
                 "appId": {
                     "type": "string",
@@ -20192,7 +20551,9 @@
                 }
             },
             "required": [
-                "brandId"
+                "brandId",
+                "pageContent",
+                "widgetVersion"
             ],
             "inputProperties": {
                 "brandId": {
@@ -20215,7 +20576,9 @@
                 }
             },
             "requiredInputs": [
-                "brandId"
+                "brandId",
+                "pageContent",
+                "widgetVersion"
             ],
             "stateInputs": {
                 "description": "Input properties used for looking up and filtering PreviewSigninPage resources.\n",
@@ -20365,6 +20728,114 @@
                     "principalType": {
                         "type": "string",
                         "description": "The type of principal, either an API token or an OAuth 2.0 app."
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "okta:index/pushGroup:PushGroup": {
+            "description": "Creates a Push Group assignment for an Application in Okta.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst test = new okta.app.Swa(\"test\", {\n    appLinksJson: JSON.stringify({\n        deelhr_link: true,\n    }),\n    label: \"Deel HR\",\n    preconfiguredApp: \"deelhr\",\n    status: \"ACTIVE\",\n    userNameTemplateType: \"BUILT_IN\",\n});\nconst testGroup = new okta.group.Group(\"test\", {name: \"Some Test Push Group\"});\nconst sample = new okta.PushGroup(\"sample\", {\n    appId: test.id,\n    sourceGroupId: testGroup.id,\n    status: \"ACTIVE\",\n    deleteTargetGroupOnDestroy: true,\n});\nconst adSample = new okta.PushGroup(\"ad_sample\", {\n    appId: test.id,\n    sourceGroupId: testGroup.id,\n    status: \"ACTIVE\",\n    appConfig: {\n        distinguishedName: \"CN=Test,OU=Groups,DC=example,DC=com\",\n        groupScope: \"DOMAIN_LOCAL\",\n        groupType: \"SECURITY\",\n        samAccountName: \"something\",\n    },\n});\n```\n```python\nimport pulumi\nimport json\nimport pulumi_okta as okta\n\ntest = okta.app.Swa(\"test\",\n    app_links_json=json.dumps({\n        \"deelhr_link\": True,\n    }),\n    label=\"Deel HR\",\n    preconfigured_app=\"deelhr\",\n    status=\"ACTIVE\",\n    user_name_template_type=\"BUILT_IN\")\ntest_group = okta.group.Group(\"test\", name=\"Some Test Push Group\")\nsample = okta.PushGroup(\"sample\",\n    app_id=test.id,\n    source_group_id=test_group.id,\n    status=\"ACTIVE\",\n    delete_target_group_on_destroy=True)\nad_sample = okta.PushGroup(\"ad_sample\",\n    app_id=test.id,\n    source_group_id=test_group.id,\n    status=\"ACTIVE\",\n    app_config={\n        \"distinguished_name\": \"CN=Test,OU=Groups,DC=example,DC=com\",\n        \"group_scope\": \"DOMAIN_LOCAL\",\n        \"group_type\": \"SECURITY\",\n        \"sam_account_name\": \"something\",\n    })\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing System.Text.Json;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var test = new Okta.App.Swa(\"test\", new()\n    {\n        AppLinksJson = JsonSerializer.Serialize(new Dictionary\u003cstring, object?\u003e\n        {\n            [\"deelhr_link\"] = true,\n        }),\n        Label = \"Deel HR\",\n        PreconfiguredApp = \"deelhr\",\n        Status = \"ACTIVE\",\n        UserNameTemplateType = \"BUILT_IN\",\n    });\n\n    var testGroup = new Okta.Group.Group(\"test\", new()\n    {\n        Name = \"Some Test Push Group\",\n    });\n\n    var sample = new Okta.PushGroup(\"sample\", new()\n    {\n        AppId = test.Id,\n        SourceGroupId = testGroup.Id,\n        Status = \"ACTIVE\",\n        DeleteTargetGroupOnDestroy = true,\n    });\n\n    var adSample = new Okta.PushGroup(\"ad_sample\", new()\n    {\n        AppId = test.Id,\n        SourceGroupId = testGroup.Id,\n        Status = \"ACTIVE\",\n        AppConfig = new Okta.Inputs.PushGroupAppConfigArgs\n        {\n            DistinguishedName = \"CN=Test,OU=Groups,DC=example,DC=com\",\n            GroupScope = \"DOMAIN_LOCAL\",\n            GroupType = \"SECURITY\",\n            SamAccountName = \"something\",\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"encoding/json\"\n\n\t\"github.com/pulumi/pulumi-okta/sdk/v6/go/okta\"\n\t\"github.com/pulumi/pulumi-okta/sdk/v6/go/okta/app\"\n\t\"github.com/pulumi/pulumi-okta/sdk/v6/go/okta/group\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\ttmpJSON0, err := json.Marshal(map[string]interface{}{\n\t\t\t\"deelhr_link\": true,\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tjson0 := string(tmpJSON0)\n\t\ttest, err := app.NewSwa(ctx, \"test\", \u0026app.SwaArgs{\n\t\t\tAppLinksJson:         pulumi.String(json0),\n\t\t\tLabel:                pulumi.String(\"Deel HR\"),\n\t\t\tPreconfiguredApp:     pulumi.String(\"deelhr\"),\n\t\t\tStatus:               pulumi.String(\"ACTIVE\"),\n\t\t\tUserNameTemplateType: pulumi.String(\"BUILT_IN\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\ttestGroup, err := group.NewGroup(ctx, \"test\", \u0026group.GroupArgs{\n\t\t\tName: pulumi.String(\"Some Test Push Group\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = okta.NewPushGroup(ctx, \"sample\", \u0026okta.PushGroupArgs{\n\t\t\tAppId:                      test.ID(),\n\t\t\tSourceGroupId:              testGroup.ID(),\n\t\t\tStatus:                     pulumi.String(\"ACTIVE\"),\n\t\t\tDeleteTargetGroupOnDestroy: pulumi.Bool(true),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = okta.NewPushGroup(ctx, \"ad_sample\", \u0026okta.PushGroupArgs{\n\t\t\tAppId:         test.ID(),\n\t\t\tSourceGroupId: testGroup.ID(),\n\t\t\tStatus:        pulumi.String(\"ACTIVE\"),\n\t\t\tAppConfig: \u0026okta.PushGroupAppConfigArgs{\n\t\t\t\tDistinguishedName: pulumi.String(\"CN=Test,OU=Groups,DC=example,DC=com\"),\n\t\t\t\tGroupScope:        pulumi.String(\"DOMAIN_LOCAL\"),\n\t\t\t\tGroupType:         pulumi.String(\"SECURITY\"),\n\t\t\t\tSamAccountName:    pulumi.String(\"something\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.okta.app.Swa;\nimport com.pulumi.okta.app.SwaArgs;\nimport com.pulumi.okta.group.Group;\nimport com.pulumi.okta.group.GroupArgs;\nimport com.pulumi.okta.PushGroup;\nimport com.pulumi.okta.PushGroupArgs;\nimport com.pulumi.okta.inputs.PushGroupAppConfigArgs;\nimport static com.pulumi.codegen.internal.Serialization.*;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var test = new Swa(\"test\", SwaArgs.builder()\n            .appLinksJson(serializeJson(\n                jsonObject(\n                    jsonProperty(\"deelhr_link\", true)\n                )))\n            .label(\"Deel HR\")\n            .preconfiguredApp(\"deelhr\")\n            .status(\"ACTIVE\")\n            .userNameTemplateType(\"BUILT_IN\")\n            .build());\n\n        var testGroup = new Group(\"testGroup\", GroupArgs.builder()\n            .name(\"Some Test Push Group\")\n            .build());\n\n        var sample = new PushGroup(\"sample\", PushGroupArgs.builder()\n            .appId(test.id())\n            .sourceGroupId(testGroup.id())\n            .status(\"ACTIVE\")\n            .deleteTargetGroupOnDestroy(true)\n            .build());\n\n        var adSample = new PushGroup(\"adSample\", PushGroupArgs.builder()\n            .appId(test.id())\n            .sourceGroupId(testGroup.id())\n            .status(\"ACTIVE\")\n            .appConfig(PushGroupAppConfigArgs.builder()\n                .distinguishedName(\"CN=Test,OU=Groups,DC=example,DC=com\")\n                .groupScope(\"DOMAIN_LOCAL\")\n                .groupType(\"SECURITY\")\n                .samAccountName(\"something\")\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  test:\n    type: okta:app:Swa\n    properties:\n      appLinksJson:\n        fn::toJSON:\n          deelhr_link: true\n      label: Deel HR\n      preconfiguredApp: deelhr\n      status: ACTIVE\n      userNameTemplateType: BUILT_IN\n  testGroup:\n    type: okta:group:Group\n    name: test\n    properties:\n      name: Some Test Push Group\n  sample:\n    type: okta:PushGroup\n    properties:\n      appId: ${test.id}\n      sourceGroupId: ${testGroup.id}\n      status: ACTIVE\n      deleteTargetGroupOnDestroy: true\n  adSample:\n    type: okta:PushGroup\n    name: ad_sample\n    properties:\n      appId: ${test.id}\n      sourceGroupId: ${testGroup.id}\n      status: ACTIVE\n      appConfig:\n        distinguishedName: CN=Test,OU=Groups,DC=example,DC=com\n        groupScope: DOMAIN_LOCAL\n        groupType: SECURITY\n        samAccountName: something\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n```sh\n$ pulumi import okta:index/pushGroup:PushGroup example \u003capp_id\u003e/\u003cpush_group_mapping_id\u003e\n```\n\n",
+            "properties": {
+                "appConfig": {
+                    "$ref": "#/types/okta:index/PushGroupAppConfig:PushGroupAppConfig",
+                    "description": "Additional app configuration for group push mappings. Currently only required for Active Directory.\n"
+                },
+                "appId": {
+                    "type": "string",
+                    "description": "The ID of the Okta Application.\n"
+                },
+                "deleteTargetGroupOnDestroy": {
+                    "type": "boolean",
+                    "description": "Whether to delete the target group when the push group mapping is destroyed. Default is true.\n"
+                },
+                "sourceGroupId": {
+                    "type": "string",
+                    "description": "The ID of the source group in Okta.\n"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "The status of the push group mapping. Valid values: `ACTIVE` and `INACTIVE`\n"
+                },
+                "targetGroupId": {
+                    "type": "string",
+                    "description": "The ID of the target group.\n"
+                },
+                "targetGroupName": {
+                    "type": "string",
+                    "description": "The name of the target group for the group push mapping. This is used when creating a new downstream group. If the group already exists, it links to the existing group. If not specified, the name of the source group will be used as the name of the target group. Setting a target group name only works if you have unchecked 'Rename app groups to match group name in Okta' in the push groups settings UI.\n"
+                }
+            },
+            "required": [
+                "appId",
+                "deleteTargetGroupOnDestroy",
+                "sourceGroupId",
+                "status",
+                "targetGroupId"
+            ],
+            "inputProperties": {
+                "appConfig": {
+                    "$ref": "#/types/okta:index/PushGroupAppConfig:PushGroupAppConfig",
+                    "description": "Additional app configuration for group push mappings. Currently only required for Active Directory.\n"
+                },
+                "appId": {
+                    "type": "string",
+                    "description": "The ID of the Okta Application.\n"
+                },
+                "deleteTargetGroupOnDestroy": {
+                    "type": "boolean",
+                    "description": "Whether to delete the target group when the push group mapping is destroyed. Default is true.\n"
+                },
+                "sourceGroupId": {
+                    "type": "string",
+                    "description": "The ID of the source group in Okta.\n"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "The status of the push group mapping. Valid values: `ACTIVE` and `INACTIVE`\n"
+                },
+                "targetGroupId": {
+                    "type": "string",
+                    "description": "The ID of the target group.\n"
+                },
+                "targetGroupName": {
+                    "type": "string",
+                    "description": "The name of the target group for the group push mapping. This is used when creating a new downstream group. If the group already exists, it links to the existing group. If not specified, the name of the source group will be used as the name of the target group. Setting a target group name only works if you have unchecked 'Rename app groups to match group name in Okta' in the push groups settings UI.\n"
+                }
+            },
+            "requiredInputs": [
+                "appId",
+                "sourceGroupId"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering PushGroup resources.\n",
+                "properties": {
+                    "appConfig": {
+                        "$ref": "#/types/okta:index/PushGroupAppConfig:PushGroupAppConfig",
+                        "description": "Additional app configuration for group push mappings. Currently only required for Active Directory.\n"
+                    },
+                    "appId": {
+                        "type": "string",
+                        "description": "The ID of the Okta Application.\n"
+                    },
+                    "deleteTargetGroupOnDestroy": {
+                        "type": "boolean",
+                        "description": "Whether to delete the target group when the push group mapping is destroyed. Default is true.\n"
+                    },
+                    "sourceGroupId": {
+                        "type": "string",
+                        "description": "The ID of the source group in Okta.\n"
+                    },
+                    "status": {
+                        "type": "string",
+                        "description": "The status of the push group mapping. Valid values: `ACTIVE` and `INACTIVE`\n"
+                    },
+                    "targetGroupId": {
+                        "type": "string",
+                        "description": "The ID of the target group.\n"
+                    },
+                    "targetGroupName": {
+                        "type": "string",
+                        "description": "The name of the target group for the group push mapping. This is used when creating a new downstream group. If the group already exists, it links to the existing group. If not specified, the name of the source group will be used as the name of the target group. Setting a target group name only works if you have unchecked 'Rename app groups to match group name in Okta' in the push groups settings UI.\n"
                     }
                 },
                 "type": "object"
@@ -22947,6 +23418,10 @@
                     },
                     "description": "Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples. Can not be set if \u003cspan pulumi-lang-nodejs=\"`usage`\" pulumi-lang-dotnet=\"`Usage`\" pulumi-lang-go=\"`usage`\" pulumi-lang-python=\"`usage`\" pulumi-lang-yaml=\"`usage`\" pulumi-lang-java=\"`usage`\"\u003e`usage`\u003c/span\u003e is set to `BLOCKLIST`. Use with type `IP`\n"
                 },
+                "setUsageAsExemptList": {
+                    "type": "boolean",
+                    "description": "Set this parameter to true in your request when you update the `DefaultExemptIpZone` to allow IPs through the blocklist.\n"
+                },
                 "status": {
                     "type": "string",
                     "description": "Network Status - can either be `ACTIVE` or `INACTIVE` only\n"
@@ -23021,6 +23496,10 @@
                         "type": "string"
                     },
                     "description": "Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples. Can not be set if \u003cspan pulumi-lang-nodejs=\"`usage`\" pulumi-lang-dotnet=\"`Usage`\" pulumi-lang-go=\"`usage`\" pulumi-lang-python=\"`usage`\" pulumi-lang-yaml=\"`usage`\" pulumi-lang-java=\"`usage`\"\u003e`usage`\u003c/span\u003e is set to `BLOCKLIST`. Use with type `IP`\n"
+                },
+                "setUsageAsExemptList": {
+                    "type": "boolean",
+                    "description": "Set this parameter to true in your request when you update the `DefaultExemptIpZone` to allow IPs through the blocklist.\n"
                 },
                 "status": {
                     "type": "string",
@@ -23097,6 +23576,10 @@
                             "type": "string"
                         },
                         "description": "Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples. Can not be set if \u003cspan pulumi-lang-nodejs=\"`usage`\" pulumi-lang-dotnet=\"`Usage`\" pulumi-lang-go=\"`usage`\" pulumi-lang-python=\"`usage`\" pulumi-lang-yaml=\"`usage`\" pulumi-lang-java=\"`usage`\"\u003e`usage`\u003c/span\u003e is set to `BLOCKLIST`. Use with type `IP`\n"
+                    },
+                    "setUsageAsExemptList": {
+                        "type": "boolean",
+                        "description": "Set this parameter to true in your request when you update the `DefaultExemptIpZone` to allow IPs through the blocklist.\n"
                     },
                     "status": {
                         "type": "string",
@@ -26728,6 +27211,10 @@
                     "type": "string",
                     "description": "User title\n"
                 },
+                "type": {
+                    "$ref": "#/types/okta:user/UserType:UserType",
+                    "description": "Specifies a user type other than the default user type\n"
+                },
                 "userType": {
                     "type": "string",
                     "description": "User employee type\n"
@@ -26744,7 +27231,8 @@
                 "lastName",
                 "login",
                 "rawStatus",
-                "realmId"
+                "realmId",
+                "type"
             ],
             "inputProperties": {
                 "city": {
@@ -26917,6 +27405,10 @@
                 "title": {
                     "type": "string",
                     "description": "User title\n"
+                },
+                "type": {
+                    "$ref": "#/types/okta:user/UserType:UserType",
+                    "description": "Specifies a user type other than the default user type\n"
                 },
                 "userType": {
                     "type": "string",
@@ -27110,6 +27602,10 @@
                     "title": {
                         "type": "string",
                         "description": "User title\n"
+                    },
+                    "type": {
+                        "$ref": "#/types/okta:user/UserType:UserType",
+                        "description": "Specifies a user type other than the default user type\n"
                     },
                     "userType": {
                         "type": "string",
@@ -28748,6 +29244,9 @@
                         "description": "IdP Authorization Server (AS) endpoint to exchange the authorization code grant for an access token.\n",
                         "type": "string"
                     },
+                    "trustClaims": {
+                        "type": "boolean"
+                    },
                     "type": {
                         "description": "Type of idp.\n",
                         "type": "string"
@@ -28775,6 +29274,7 @@
                     "scopes",
                     "tokenBinding",
                     "tokenUrl",
+                    "trustClaims",
                     "type",
                     "userInfoBinding",
                     "userInfoUrl"
@@ -28856,6 +29356,9 @@
                         },
                         "type": "array"
                     },
+                    "trustClaims": {
+                        "type": "boolean"
+                    },
                     "type": {
                         "description": "Type of idp.\n",
                         "type": "string"
@@ -28873,6 +29376,7 @@
                     "ssoUrl",
                     "subjectFilter",
                     "subjectFormats",
+                    "trustClaims",
                     "type"
                 ],
                 "type": "object"
@@ -31309,6 +31813,104 @@
                 "type": "object"
             }
         },
+        "okta:index/getPushGroup:getPushGroup": {
+            "description": "Get a Push Group assignment for an Application in Okta.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst sample = okta.getPushGroup({\n    appId: \"\u003cokta_app_id\u003e\",\n    id: \"\u003cpush_group_mapping_id\u003e\",\n});\nconst anotherSample = okta.getPushGroup({\n    appId: \"\u003cokta_app_id\u003e\",\n    sourceGroupId: \"\u003cokta_source_group_id\u003e\",\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nsample = okta.get_push_group(app_id=\"\u003cokta_app_id\u003e\",\n    id=\"\u003cpush_group_mapping_id\u003e\")\nanother_sample = okta.get_push_group(app_id=\"\u003cokta_app_id\u003e\",\n    source_group_id=\"\u003cokta_source_group_id\u003e\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var sample = Okta.GetPushGroup.Invoke(new()\n    {\n        AppId = \"\u003cokta_app_id\u003e\",\n        Id = \"\u003cpush_group_mapping_id\u003e\",\n    });\n\n    var anotherSample = Okta.GetPushGroup.Invoke(new()\n    {\n        AppId = \"\u003cokta_app_id\u003e\",\n        SourceGroupId = \"\u003cokta_source_group_id\u003e\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v6/go/okta\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := okta.LookupPushGroup(ctx, \u0026okta.LookupPushGroupArgs{\n\t\t\tAppId: \"\u003cokta_app_id\u003e\",\n\t\t\tId:    pulumi.StringRef(\"\u003cpush_group_mapping_id\u003e\"),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = okta.LookupPushGroup(ctx, \u0026okta.LookupPushGroupArgs{\n\t\t\tAppId:         \"\u003cokta_app_id\u003e\",\n\t\t\tSourceGroupId: pulumi.StringRef(\"\u003cokta_source_group_id\u003e\"),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.okta.OktaFunctions;\nimport com.pulumi.okta.inputs.GetPushGroupArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var sample = OktaFunctions.getPushGroup(GetPushGroupArgs.builder()\n            .appId(\"\u003cokta_app_id\u003e\")\n            .id(\"\u003cpush_group_mapping_id\u003e\")\n            .build());\n\n        final var anotherSample = OktaFunctions.getPushGroup(GetPushGroupArgs.builder()\n            .appId(\"\u003cokta_app_id\u003e\")\n            .sourceGroupId(\"\u003cokta_source_group_id\u003e\")\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  sample:\n    fn::invoke:\n      function: okta:getPushGroup\n      arguments:\n        appId: \u003cokta_app_id\u003e\n        id: \u003cpush_group_mapping_id\u003e\n  anotherSample:\n    fn::invoke:\n      function: okta:getPushGroup\n      arguments:\n        appId: \u003cokta_app_id\u003e\n        sourceGroupId: \u003cokta_source_group_id\u003e\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getPushGroup.\n",
+                "properties": {
+                    "appId": {
+                        "type": "string",
+                        "description": "The ID of the Okta Application.\n"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "Push Group ID\n"
+                    },
+                    "sourceGroupId": {
+                        "type": "string",
+                        "description": "The ID of the source group in Okta.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "appId"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getPushGroup.\n",
+                "properties": {
+                    "appId": {
+                        "description": "The ID of the Okta Application.\n",
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "Push Group ID\n",
+                        "type": "string"
+                    },
+                    "sourceGroupId": {
+                        "description": "The ID of the source group in Okta.\n",
+                        "type": "string"
+                    },
+                    "status": {
+                        "description": "The status of the push group mapping. Valid values: `ACTIVE` and `INACTIVE`\n",
+                        "type": "string"
+                    },
+                    "targetGroupId": {
+                        "description": "The ID of the existing target group for the push group mapping. This is used to link to an existing group\n",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "appId",
+                    "id",
+                    "sourceGroupId",
+                    "status",
+                    "targetGroupId"
+                ],
+                "type": "object"
+            }
+        },
+        "okta:index/getPushGroups:getPushGroups": {
+            "description": "Gets a list of Push Group mappings for an Application in Okta.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nexport = async () =\u003e {\n    const sample = await okta.getPushGroups({\n        appId: \"\u003cokta_app_id\u003e\",\n    });\n    return {\n        sample: sample.mappings,\n    };\n}\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nsample = okta.get_push_groups(app_id=\"\u003cokta_app_id\u003e\")\npulumi.export(\"sample\", sample.mappings)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var sample = Okta.GetPushGroups.Invoke(new()\n    {\n        AppId = \"\u003cokta_app_id\u003e\",\n    });\n\n    return new Dictionary\u003cstring, object?\u003e\n    {\n        [\"sample\"] = sample.Apply(getPushGroupsResult =\u003e getPushGroupsResult.Mappings),\n    };\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v6/go/okta\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tsample, err := okta.GetPushGroups(ctx, \u0026okta.GetPushGroupsArgs{\n\t\t\tAppId: \"\u003cokta_app_id\u003e\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tctx.Export(\"sample\", sample.Mappings)\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.okta.OktaFunctions;\nimport com.pulumi.okta.inputs.GetPushGroupsArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var sample = OktaFunctions.getPushGroups(GetPushGroupsArgs.builder()\n            .appId(\"\u003cokta_app_id\u003e\")\n            .build());\n\n        ctx.export(\"sample\", sample.mappings());\n    }\n}\n```\n```yaml\nvariables:\n  sample:\n    fn::invoke:\n      function: okta:getPushGroups\n      arguments:\n        appId: \u003cokta_app_id\u003e\noutputs:\n  sample: ${sample.mappings}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getPushGroups.\n",
+                "properties": {
+                    "appId": {
+                        "type": "string",
+                        "description": "The ID of the Okta Application.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "appId"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getPushGroups.\n",
+                "properties": {
+                    "appId": {
+                        "description": "The ID of the Okta Application.\n",
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "string"
+                    },
+                    "mappings": {
+                        "description": "List of Push Group mappings for the Application.\n",
+                        "items": {
+                            "$ref": "#/types/okta:index/getPushGroupsMapping:getPushGroupsMapping"
+                        },
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "appId",
+                    "id",
+                    "mappings"
+                ],
+                "type": "object"
+            }
+        },
         "okta:index/getPushProvider:getPushProvider": {
             "description": "Retrieves information about an Okta Push Provider configuration. This data source allows you to fetch details about existing push providers for Apple Push Notification Service (APNS) and Firebase Cloud Messaging (FCM).\n\n## Example Usage\n\n### Retrieve an APNS Push Provider\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst apnsExample = okta.getPushProvider({\n    id: \"ppc1234567890abcdef\",\n});\nexport const apnsProviderName = apnsExample.then(apnsExample =\u003e apnsExample.name);\nexport const apnsKeyId = apnsExample.then(apnsExample =\u003e apnsExample.configuration?.apnsConfiguration?.keyId);\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\napns_example = okta.get_push_provider(id=\"ppc1234567890abcdef\")\npulumi.export(\"apnsProviderName\", apns_example.name)\npulumi.export(\"apnsKeyId\", apns_example.configuration.apns_configuration.key_id)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var apnsExample = Okta.GetPushProvider.Invoke(new()\n    {\n        Id = \"ppc1234567890abcdef\",\n    });\n\n    return new Dictionary\u003cstring, object?\u003e\n    {\n        [\"apnsProviderName\"] = apnsExample.Apply(getPushProviderResult =\u003e getPushProviderResult.Name),\n        [\"apnsKeyId\"] = apnsExample.Apply(getPushProviderResult =\u003e getPushProviderResult.Configuration?.ApnsConfiguration?.KeyId),\n    };\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v6/go/okta\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tapnsExample, err := okta.LookupPushProvider(ctx, \u0026okta.LookupPushProviderArgs{\n\t\t\tId: \"ppc1234567890abcdef\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tctx.Export(\"apnsProviderName\", apnsExample.Name)\n\t\tctx.Export(\"apnsKeyId\", apnsExample.Configuration.ApnsConfiguration.KeyId)\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.okta.OktaFunctions;\nimport com.pulumi.okta.inputs.GetPushProviderArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var apnsExample = OktaFunctions.getPushProvider(GetPushProviderArgs.builder()\n            .id(\"ppc1234567890abcdef\")\n            .build());\n\n        ctx.export(\"apnsProviderName\", apnsExample.name());\n        ctx.export(\"apnsKeyId\", apnsExample.configuration().apnsConfiguration().keyId());\n    }\n}\n```\n```yaml\nvariables:\n  apnsExample:\n    fn::invoke:\n      function: okta:getPushProvider\n      arguments:\n        id: ppc1234567890abcdef\noutputs:\n  # Use the retrieved data\n  apnsProviderName: ${apnsExample.name}\n  apnsKeyId: ${apnsExample.configuration.apnsConfiguration.keyId}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n### Retrieve an FCM Push Provider\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst fcmExample = okta.getPushProvider({\n    id: \"ppc0987654321fedcba\",\n});\nexport const fcmProviderName = fcmExample.then(fcmExample =\u003e fcmExample.name);\nexport const fcmProjectId = fcmExample.then(fcmExample =\u003e fcmExample.configuration?.fcmConfiguration?.serviceAccountJson?.projectId);\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nfcm_example = okta.get_push_provider(id=\"ppc0987654321fedcba\")\npulumi.export(\"fcmProviderName\", fcm_example.name)\npulumi.export(\"fcmProjectId\", fcm_example.configuration.fcm_configuration.service_account_json.project_id)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var fcmExample = Okta.GetPushProvider.Invoke(new()\n    {\n        Id = \"ppc0987654321fedcba\",\n    });\n\n    return new Dictionary\u003cstring, object?\u003e\n    {\n        [\"fcmProviderName\"] = fcmExample.Apply(getPushProviderResult =\u003e getPushProviderResult.Name),\n        [\"fcmProjectId\"] = fcmExample.Apply(getPushProviderResult =\u003e getPushProviderResult.Configuration?.FcmConfiguration?.ServiceAccountJson?.ProjectId),\n    };\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v6/go/okta\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tfcmExample, err := okta.LookupPushProvider(ctx, \u0026okta.LookupPushProviderArgs{\n\t\t\tId: \"ppc0987654321fedcba\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tctx.Export(\"fcmProviderName\", fcmExample.Name)\n\t\tctx.Export(\"fcmProjectId\", fcmExample.Configuration.FcmConfiguration.ServiceAccountJson.ProjectId)\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.okta.OktaFunctions;\nimport com.pulumi.okta.inputs.GetPushProviderArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var fcmExample = OktaFunctions.getPushProvider(GetPushProviderArgs.builder()\n            .id(\"ppc0987654321fedcba\")\n            .build());\n\n        ctx.export(\"fcmProviderName\", fcmExample.name());\n        ctx.export(\"fcmProjectId\", fcmExample.configuration().fcmConfiguration().serviceAccountJson().projectId());\n    }\n}\n```\n```yaml\nvariables:\n  fcmExample:\n    fn::invoke:\n      function: okta:getPushProvider\n      arguments:\n        id: ppc0987654321fedcba\noutputs:\n  # Use the retrieved data\n  fcmProviderName: ${fcmExample.name}\n  fcmProjectId: ${fcmExample.configuration.fcmConfiguration.serviceAccountJson.projectId}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
             "inputs": {
@@ -32726,6 +33328,12 @@
                     "title": {
                         "type": "string"
                     },
+                    "types": {
+                        "items": {
+                            "$ref": "#/types/okta:user/getUserType:getUserType"
+                        },
+                        "type": "array"
+                    },
                     "userId": {
                         "description": "Retrieve a single user based on their id\n",
                         "type": "string"
@@ -32773,6 +33381,7 @@
                     "streetAddress",
                     "timezone",
                     "title",
+                    "types",
                     "userType",
                     "zipCode",
                     "id"

@@ -484,6 +484,21 @@ public final class OidcState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Indicates whether to trust authentication claims from the IdP.
+     * 
+     */
+    @Import(name="trustClaims")
+    private @Nullable Output<Boolean> trustClaims;
+
+    /**
+     * @return Indicates whether to trust authentication claims from the IdP.
+     * 
+     */
+    public Optional<Output<Boolean>> trustClaims() {
+        return Optional.ofNullable(this.trustClaims);
+    }
+
+    /**
      * Type of OIDC IdP.
      * 
      */
@@ -584,6 +599,7 @@ public final class OidcState extends com.pulumi.resources.ResourceArgs {
         this.suspendedAction = $.suspendedAction;
         this.tokenBinding = $.tokenBinding;
         this.tokenUrl = $.tokenUrl;
+        this.trustClaims = $.trustClaims;
         this.type = $.type;
         this.userInfoBinding = $.userInfoBinding;
         this.userInfoUrl = $.userInfoUrl;
@@ -1298,6 +1314,27 @@ public final class OidcState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder tokenUrl(String tokenUrl) {
             return tokenUrl(Output.of(tokenUrl));
+        }
+
+        /**
+         * @param trustClaims Indicates whether to trust authentication claims from the IdP.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder trustClaims(@Nullable Output<Boolean> trustClaims) {
+            $.trustClaims = trustClaims;
+            return this;
+        }
+
+        /**
+         * @param trustClaims Indicates whether to trust authentication claims from the IdP.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder trustClaims(Boolean trustClaims) {
+            return trustClaims(Output.of(trustClaims));
         }
 
         /**

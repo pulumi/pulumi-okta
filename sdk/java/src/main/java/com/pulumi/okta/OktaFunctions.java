@@ -77,6 +77,10 @@ import com.pulumi.okta.inputs.GetPrincipalEntitlementsArgs;
 import com.pulumi.okta.inputs.GetPrincipalEntitlementsPlainArgs;
 import com.pulumi.okta.inputs.GetPrincipalRateLimitsArgs;
 import com.pulumi.okta.inputs.GetPrincipalRateLimitsPlainArgs;
+import com.pulumi.okta.inputs.GetPushGroupArgs;
+import com.pulumi.okta.inputs.GetPushGroupPlainArgs;
+import com.pulumi.okta.inputs.GetPushGroupsArgs;
+import com.pulumi.okta.inputs.GetPushGroupsPlainArgs;
 import com.pulumi.okta.inputs.GetPushProviderArgs;
 import com.pulumi.okta.inputs.GetPushProviderPlainArgs;
 import com.pulumi.okta.inputs.GetRealmArgs;
@@ -148,6 +152,8 @@ import com.pulumi.okta.outputs.GetNetworkZoneResult;
 import com.pulumi.okta.outputs.GetOrgMetadataResult;
 import com.pulumi.okta.outputs.GetPrincipalEntitlementsResult;
 import com.pulumi.okta.outputs.GetPrincipalRateLimitsResult;
+import com.pulumi.okta.outputs.GetPushGroupResult;
+import com.pulumi.okta.outputs.GetPushGroupsResult;
 import com.pulumi.okta.outputs.GetPushProviderResult;
 import com.pulumi.okta.outputs.GetRateLimitAdminNotificationSettingsResult;
 import com.pulumi.okta.outputs.GetRateLimitWarningThresholdPercentageResult;
@@ -7740,6 +7746,441 @@ public final class OktaFunctions {
      */
     public static CompletableFuture<GetPrincipalRateLimitsResult> getPrincipalRateLimitsPlain(GetPrincipalRateLimitsPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("okta:index/getPrincipalRateLimits:getPrincipalRateLimits", TypeShape.of(GetPrincipalRateLimitsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Get a Push Group assignment for an Application in Okta.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetPushGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var sample = OktaFunctions.getPushGroup(GetPushGroupArgs.builder()
+     *             .appId("<okta_app_id>")
+     *             .id("<push_group_mapping_id>")
+     *             .build());
+     * 
+     *         final var anotherSample = OktaFunctions.getPushGroup(GetPushGroupArgs.builder()
+     *             .appId("<okta_app_id>")
+     *             .sourceGroupId("<okta_source_group_id>")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetPushGroupResult> getPushGroup(GetPushGroupArgs args) {
+        return getPushGroup(args, InvokeOptions.Empty);
+    }
+    /**
+     * Get a Push Group assignment for an Application in Okta.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetPushGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var sample = OktaFunctions.getPushGroup(GetPushGroupArgs.builder()
+     *             .appId("<okta_app_id>")
+     *             .id("<push_group_mapping_id>")
+     *             .build());
+     * 
+     *         final var anotherSample = OktaFunctions.getPushGroup(GetPushGroupArgs.builder()
+     *             .appId("<okta_app_id>")
+     *             .sourceGroupId("<okta_source_group_id>")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetPushGroupResult> getPushGroupPlain(GetPushGroupPlainArgs args) {
+        return getPushGroupPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Get a Push Group assignment for an Application in Okta.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetPushGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var sample = OktaFunctions.getPushGroup(GetPushGroupArgs.builder()
+     *             .appId("<okta_app_id>")
+     *             .id("<push_group_mapping_id>")
+     *             .build());
+     * 
+     *         final var anotherSample = OktaFunctions.getPushGroup(GetPushGroupArgs.builder()
+     *             .appId("<okta_app_id>")
+     *             .sourceGroupId("<okta_source_group_id>")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetPushGroupResult> getPushGroup(GetPushGroupArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("okta:index/getPushGroup:getPushGroup", TypeShape.of(GetPushGroupResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Get a Push Group assignment for an Application in Okta.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetPushGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var sample = OktaFunctions.getPushGroup(GetPushGroupArgs.builder()
+     *             .appId("<okta_app_id>")
+     *             .id("<push_group_mapping_id>")
+     *             .build());
+     * 
+     *         final var anotherSample = OktaFunctions.getPushGroup(GetPushGroupArgs.builder()
+     *             .appId("<okta_app_id>")
+     *             .sourceGroupId("<okta_source_group_id>")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetPushGroupResult> getPushGroup(GetPushGroupArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("okta:index/getPushGroup:getPushGroup", TypeShape.of(GetPushGroupResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Get a Push Group assignment for an Application in Okta.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetPushGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var sample = OktaFunctions.getPushGroup(GetPushGroupArgs.builder()
+     *             .appId("<okta_app_id>")
+     *             .id("<push_group_mapping_id>")
+     *             .build());
+     * 
+     *         final var anotherSample = OktaFunctions.getPushGroup(GetPushGroupArgs.builder()
+     *             .appId("<okta_app_id>")
+     *             .sourceGroupId("<okta_source_group_id>")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetPushGroupResult> getPushGroupPlain(GetPushGroupPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("okta:index/getPushGroup:getPushGroup", TypeShape.of(GetPushGroupResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Gets a list of Push Group mappings for an Application in Okta.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetPushGroupsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var sample = OktaFunctions.getPushGroups(GetPushGroupsArgs.builder()
+     *             .appId("<okta_app_id>")
+     *             .build());
+     * 
+     *         ctx.export("sample", sample.mappings());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetPushGroupsResult> getPushGroups(GetPushGroupsArgs args) {
+        return getPushGroups(args, InvokeOptions.Empty);
+    }
+    /**
+     * Gets a list of Push Group mappings for an Application in Okta.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetPushGroupsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var sample = OktaFunctions.getPushGroups(GetPushGroupsArgs.builder()
+     *             .appId("<okta_app_id>")
+     *             .build());
+     * 
+     *         ctx.export("sample", sample.mappings());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetPushGroupsResult> getPushGroupsPlain(GetPushGroupsPlainArgs args) {
+        return getPushGroupsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Gets a list of Push Group mappings for an Application in Okta.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetPushGroupsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var sample = OktaFunctions.getPushGroups(GetPushGroupsArgs.builder()
+     *             .appId("<okta_app_id>")
+     *             .build());
+     * 
+     *         ctx.export("sample", sample.mappings());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetPushGroupsResult> getPushGroups(GetPushGroupsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("okta:index/getPushGroups:getPushGroups", TypeShape.of(GetPushGroupsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Gets a list of Push Group mappings for an Application in Okta.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetPushGroupsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var sample = OktaFunctions.getPushGroups(GetPushGroupsArgs.builder()
+     *             .appId("<okta_app_id>")
+     *             .build());
+     * 
+     *         ctx.export("sample", sample.mappings());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetPushGroupsResult> getPushGroups(GetPushGroupsArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("okta:index/getPushGroups:getPushGroups", TypeShape.of(GetPushGroupsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Gets a list of Push Group mappings for an Application in Okta.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetPushGroupsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var sample = OktaFunctions.getPushGroups(GetPushGroupsArgs.builder()
+     *             .appId("<okta_app_id>")
+     *             .build());
+     * 
+     *         ctx.export("sample", sample.mappings());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetPushGroupsResult> getPushGroupsPlain(GetPushGroupsPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("okta:index/getPushGroups:getPushGroups", TypeShape.of(GetPushGroupsResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Retrieves information about an Okta Push Provider configuration. This data source allows you to fetch details about existing push providers for Apple Push Notification Service (APNS) and Firebase Cloud Messaging (FCM).

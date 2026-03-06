@@ -12,7 +12,76 @@ namespace Pulumi.Okta
     /// <summary>
     /// Assigns groups to an application. This resource allows you to create multiple App Group assignments.
     /// 
-    /// **Important**: Do not use in conjunction with ForEach
+    /// **Important**: Do not use `ForEach` on this resource to iterate over groups for the same `AppId`. This resource's Read implementation fetches **all** groups currently assigned to the app from the Okta API — not just the ones declared in config. When multiple instances share the same `AppId`, the following infinite loop occurs on every apply:
+    /// 
+    /// 1. Each instance's update deletes the groups it does not own from Okta.
+    /// 2. Each instance's Read (called at the end of update) re-fetches all groups from the API and absorbs the other instance's groups back into state as drift.
+    /// 3. State after apply is identical to state before apply — the plan never converges and the same diff reappears on every `pulumi preview`.
+    /// 
+    /// Since this resource natively supports multiple `Group` blocks, use a `Dynamic` block instead:
+    /// 
+    /// **Bad** — creates two conflicting resource instances for the same app:
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Okta = Pulumi.Okta;
+    /// using Std = Pulumi.Std;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var @this = new List&lt;Okta.AppGroupAssignments&gt;();
+    ///     for (var rangeIndex = 0; rangeIndex &lt; Std.Index.Toset.Invoke(new()
+    ///     {
+    ///         Input = new[]
+    ///         {
+    ///             "group-a",
+    ///             "group-b",
+    ///         },
+    ///     }).Result; rangeIndex++)
+    ///     {
+    ///         var range = new { Value = rangeIndex };
+    ///         @this.Add(new Okta.AppGroupAssignments($"this-{range.Value}", new()
+    ///         {
+    ///             AppId = thisOktaAppBookmark.Id,
+    ///             Groups = new[]
+    ///             {
+    ///                 new Okta.Inputs.AppGroupAssignmentsGroupArgs
+    ///                 {
+    ///                     Id = range.Value,
+    ///                 },
+    ///             },
+    ///         }));
+    ///     }
+    /// });
+    /// ```
+    /// 
+    /// **Good** — a single resource instance manages all groups for the app:
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Okta = Pulumi.Okta;
+    /// using Std = Pulumi.Std;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var @this = new Okta.AppGroupAssignments("this", new()
+    ///     {
+    ///         Groups = .Select(entry =&gt; 
+    ///         {
+    ///             return new Okta.Inputs.AppGroupAssignmentsGroupArgs
+    ///             {
+    ///                 Id = entry.Value,
+    ///             };
+    ///         }).ToList(),
+    ///         AppId = thisOktaAppBookmark.Id,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// &gt; **Note:** Using `ForEach` on this resource is safe when each instance targets a **different** `AppId`, for example when assigning the same group to multiple applications.
     /// 
     /// ## Example Usage
     /// 

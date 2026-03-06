@@ -19,7 +19,59 @@ import javax.annotation.Nullable;
 /**
  * Assigns groups to an application. This resource allows you to create multiple App Group assignments.
  * 
- * **Important**: Do not use in conjunction with forEach
+ * **Important**: Do not use `forEach` on this resource to iterate over groups for the same `appId`. This resource&#39;s Read implementation fetches **all** groups currently assigned to the app from the Okta API — not just the ones declared in config. When multiple instances share the same `appId`, the following infinite loop occurs on every apply:
+ * 
+ * 1. Each instance&#39;s update deletes the groups it does not own from Okta.
+ * 2. Each instance&#39;s Read (called at the end of update) re-fetches all groups from the API and absorbs the other instance&#39;s groups back into state as drift.
+ * 3. State after apply is identical to state before apply — the plan never converges and the same diff reappears on every `pulumi preview`.
+ * 
+ * Since this resource natively supports multiple `group` blocks, use a `dynamic` block instead:
+ * 
+ * **Bad** — creates two conflicting resource instances for the same app:
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.okta.AppGroupAssignments;
+ * import com.pulumi.okta.AppGroupAssignmentsArgs;
+ * import com.pulumi.okta.inputs.AppGroupAssignmentsGroupArgs;
+ * import com.pulumi.codegen.internal.KeyedValue;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         for (var i = 0; i < com.pulumi.std.StdFunctions(Map.of("input", List.of(        
+ *             "group-a",
+ *             "group-b"))).result(); i++) {
+ *             new AppGroupAssignments("this-" + i, AppGroupAssignmentsArgs.builder()
+ *                 .appId(thisOktaAppBookmark.id())
+ *                 .groups(AppGroupAssignmentsGroupArgs.builder()
+ *                     .id(range.value())
+ *                     .build())
+ *                 .build());
+ * 
+ *         
+ * }
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * **Good** — a single resource instance manages all groups for the app:
+ * 
+ * &gt; **Note:** Using `forEach` on this resource is safe when each instance targets a **different** `appId`, for example when assigning the same group to multiple applications.
  * 
  * ## Example Usage
  * 

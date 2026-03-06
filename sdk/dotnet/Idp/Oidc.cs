@@ -242,6 +242,12 @@ namespace Pulumi.Okta.Idp
         public Output<string> TokenUrl { get; private set; } = null!;
 
         /// <summary>
+        /// Indicates whether to trust authentication claims from the IdP.
+        /// </summary>
+        [Output("trustClaims")]
+        public Output<bool?> TrustClaims { get; private set; } = null!;
+
+        /// <summary>
         /// Type of OIDC IdP.
         /// </summary>
         [Output("type")]
@@ -538,6 +544,12 @@ namespace Pulumi.Okta.Idp
         [Input("tokenUrl", required: true)]
         public Input<string> TokenUrl { get; set; } = null!;
 
+        /// <summary>
+        /// Indicates whether to trust authentication claims from the IdP.
+        /// </summary>
+        [Input("trustClaims")]
+        public Input<bool>? TrustClaims { get; set; }
+
         [Input("userInfoBinding")]
         public Input<string>? UserInfoBinding { get; set; }
 
@@ -780,6 +792,12 @@ namespace Pulumi.Okta.Idp
         /// </summary>
         [Input("tokenUrl")]
         public Input<string>? TokenUrl { get; set; }
+
+        /// <summary>
+        /// Indicates whether to trust authentication claims from the IdP.
+        /// </summary>
+        [Input("trustClaims")]
+        public Input<bool>? TrustClaims { get; set; }
 
         /// <summary>
         /// Type of OIDC IdP.

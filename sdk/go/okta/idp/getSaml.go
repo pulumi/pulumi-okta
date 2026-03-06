@@ -84,6 +84,7 @@ type LookupSamlResult struct {
 	SubjectFilter string `pulumi:"subjectFilter"`
 	// Expression to generate or transform a unique username for the IdP user.
 	SubjectFormats []string `pulumi:"subjectFormats"`
+	TrustClaims    bool     `pulumi:"trustClaims"`
 	// Type of idp.
 	Type string `pulumi:"type"`
 }
@@ -187,6 +188,10 @@ func (o LookupSamlResultOutput) SubjectFilter() pulumi.StringOutput {
 // Expression to generate or transform a unique username for the IdP user.
 func (o LookupSamlResultOutput) SubjectFormats() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupSamlResult) []string { return v.SubjectFormats }).(pulumi.StringArrayOutput)
+}
+
+func (o LookupSamlResultOutput) TrustClaims() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupSamlResult) bool { return v.TrustClaims }).(pulumi.BoolOutput)
 }
 
 // Type of idp.

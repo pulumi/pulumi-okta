@@ -189,6 +189,7 @@ namespace Pulumi.Okta.Idp
         /// IdP Authorization Server (AS) endpoint to exchange the authorization code grant for an access token.
         /// </summary>
         public readonly string TokenUrl;
+        public readonly bool TrustClaims;
         /// <summary>
         /// Type of idp.
         /// </summary>
@@ -234,6 +235,8 @@ namespace Pulumi.Okta.Idp
 
             string tokenUrl,
 
+            bool trustClaims,
+
             string type,
 
             string userInfoBinding,
@@ -255,6 +258,7 @@ namespace Pulumi.Okta.Idp
             Scopes = scopes;
             TokenBinding = tokenBinding;
             TokenUrl = tokenUrl;
+            TrustClaims = trustClaims;
             Type = type;
             UserInfoBinding = userInfoBinding;
             UserInfoUrl = userInfoUrl;

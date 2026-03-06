@@ -9,7 +9,56 @@ import * as utilities from "./utilities";
 /**
  * Assigns groups to an application. This resource allows you to create multiple App Group assignments.
  *
- * **Important**: Do not use in conjunction with forEach
+ * **Important**: Do not use `forEach` on this resource to iterate over groups for the same `appId`. This resource's Read implementation fetches **all** groups currently assigned to the app from the Okta API — not just the ones declared in config. When multiple instances share the same `appId`, the following infinite loop occurs on every apply:
+ *
+ * 1. Each instance's update deletes the groups it does not own from Okta.
+ * 2. Each instance's Read (called at the end of update) re-fetches all groups from the API and absorbs the other instance's groups back into state as drift.
+ * 3. State after apply is identical to state before apply — the plan never converges and the same diff reappears on every `pulumi preview`.
+ *
+ * Since this resource natively supports multiple `group` blocks, use a `dynamic` block instead:
+ *
+ * **Bad** — creates two conflicting resource instances for the same app:
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ * import * as std from "@pulumi/std";
+ *
+ * const _this: okta.AppGroupAssignments[] = [];
+ * for (const range = {value: 0}; range.value < std.index.toset({
+ *     input: [
+ *         "group-a",
+ *         "group-b",
+ *     ],
+ * }).result; range.value++) {
+ *     _this.push(new okta.AppGroupAssignments(`this-${range.value}`, {
+ *         appId: thisOktaAppBookmark.id,
+ *         groups: [{
+ *             id: range.value,
+ *         }],
+ *     }));
+ * }
+ * ```
+ *
+ * **Good** — a single resource instance manages all groups for the app:
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ * import * as std from "@pulumi/std";
+ *
+ * const _this = new okta.AppGroupAssignments("this", {
+ *     groups: Object.entries(std.index.toset({
+ *         input: [
+ *             "group-a",
+ *             "group-b",
+ *         ],
+ *     }).result).map(([k, v]) => ({key: k, value: v})).map(entry => ({
+ *         id: entry.value,
+ *     })),
+ *     appId: thisOktaAppBookmark.id,
+ * });
+ * ```
+ *
+ * > **Note:** Using `forEach` on this resource is safe when each instance targets a **different** `appId`, for example when assigning the same group to multiple applications.
  *
  * ## Example Usage
  *

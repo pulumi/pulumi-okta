@@ -38,6 +38,8 @@ __all__ = [
     'SamlAcsEndpointsIndex',
     'SamlAttributeStatement',
     'SamlKey',
+    'SignonPolicyRulesRule',
+    'SignonPolicyRulesRulePlatformInclude',
     'GetConnectionProfileResult',
     'GetFeaturesCapabilitiesResult',
     'GetFeaturesCapabilitiesCreateResult',
@@ -1262,6 +1264,437 @@ class SamlKey(dict):
         X.509 certificate SHA-256 thumbprint
         """
         return pulumi.get(self, "x5t_s256")
+
+
+@pulumi.output_type
+class SignonPolicyRulesRule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customExpression":
+            suggest = "custom_expression"
+        elif key == "deviceAssurancesIncludeds":
+            suggest = "device_assurances_includeds"
+        elif key == "deviceIsManaged":
+            suggest = "device_is_managed"
+        elif key == "deviceIsRegistered":
+            suggest = "device_is_registered"
+        elif key == "factorMode":
+            suggest = "factor_mode"
+        elif key == "groupsExcludeds":
+            suggest = "groups_excludeds"
+        elif key == "groupsIncludeds":
+            suggest = "groups_includeds"
+        elif key == "inactivityPeriod":
+            suggest = "inactivity_period"
+        elif key == "networkConnection":
+            suggest = "network_connection"
+        elif key == "networkExcludes":
+            suggest = "network_excludes"
+        elif key == "networkIncludes":
+            suggest = "network_includes"
+        elif key == "platformIncludes":
+            suggest = "platform_includes"
+        elif key == "reAuthenticationFrequency":
+            suggest = "re_authentication_frequency"
+        elif key == "riskScore":
+            suggest = "risk_score"
+        elif key == "userTypesExcludeds":
+            suggest = "user_types_excludeds"
+        elif key == "userTypesIncludeds":
+            suggest = "user_types_includeds"
+        elif key == "usersExcludeds":
+            suggest = "users_excludeds"
+        elif key == "usersIncludeds":
+            suggest = "users_includeds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SignonPolicyRulesRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SignonPolicyRulesRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SignonPolicyRulesRule.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: _builtins.str,
+                 access: Optional[_builtins.str] = None,
+                 constraints: Optional[Sequence[_builtins.str]] = None,
+                 custom_expression: Optional[_builtins.str] = None,
+                 device_assurances_includeds: Optional[Sequence[_builtins.str]] = None,
+                 device_is_managed: Optional[_builtins.bool] = None,
+                 device_is_registered: Optional[_builtins.bool] = None,
+                 factor_mode: Optional[_builtins.str] = None,
+                 groups_excludeds: Optional[Sequence[_builtins.str]] = None,
+                 groups_includeds: Optional[Sequence[_builtins.str]] = None,
+                 id: Optional[_builtins.str] = None,
+                 inactivity_period: Optional[_builtins.str] = None,
+                 network_connection: Optional[_builtins.str] = None,
+                 network_excludes: Optional[Sequence[_builtins.str]] = None,
+                 network_includes: Optional[Sequence[_builtins.str]] = None,
+                 platform_includes: Optional[Sequence['outputs.SignonPolicyRulesRulePlatformInclude']] = None,
+                 priority: Optional[_builtins.int] = None,
+                 re_authentication_frequency: Optional[_builtins.str] = None,
+                 risk_score: Optional[_builtins.str] = None,
+                 status: Optional[_builtins.str] = None,
+                 system: Optional[_builtins.bool] = None,
+                 type: Optional[_builtins.str] = None,
+                 user_types_excludeds: Optional[Sequence[_builtins.str]] = None,
+                 user_types_includeds: Optional[Sequence[_builtins.str]] = None,
+                 users_excludeds: Optional[Sequence[_builtins.str]] = None,
+                 users_includeds: Optional[Sequence[_builtins.str]] = None):
+        """
+        :param _builtins.str name: Policy Rule Name. Must be unique within the policy.
+        :param _builtins.str access: Access decision: ALLOW or DENY.
+        :param Sequence[_builtins.str] constraints: List of authenticator constraints as JSON-encoded strings.
+        :param _builtins.str custom_expression: Custom Okta Expression Language condition for advanced matching.
+        :param Sequence[_builtins.str] device_assurances_includeds: Set of device assurance policy IDs to include.
+        :param _builtins.bool device_is_managed: Require device to be managed by a device management system.
+        :param _builtins.bool device_is_registered: Require device to be registered with Okta Verify.
+        :param _builtins.str factor_mode: Number of factors required: 1FA or 2FA.
+        :param Sequence[_builtins.str] groups_excludeds: Set of group IDs to exclude from this rule.
+        :param Sequence[_builtins.str] groups_includeds: Set of group IDs to include in this rule.
+        :param _builtins.str id: (String) - The ID of this resource (same as `policy_id`).
+        :param _builtins.str inactivity_period: Inactivity period before re-authentication in ISO 8601 duration format.
+        :param _builtins.str network_connection: Network selection mode: ANYWHERE, ZONE, ON_NETWORK, or OFF_NETWORK.
+        :param Sequence[_builtins.str] network_excludes: List of network zone IDs to exclude.
+        :param Sequence[_builtins.str] network_includes: List of network zone IDs to include.
+        :param Sequence['SignonPolicyRulesRulePlatformIncludeArgs'] platform_includes: Platform conditions to include.
+        :param _builtins.int priority: Priority of the rule. Lower numbers are evaluated first.
+        :param _builtins.str re_authentication_frequency: Re-authentication frequency in ISO 8601 duration format (e.g., PT2H for 2 hours).
+        :param _builtins.str risk_score: Risk score level to match: ANY, LOW, MEDIUM, or HIGH.
+        :param _builtins.str status: Status of the rule: ACTIVE or INACTIVE.
+        :param _builtins.bool system: Whether this is a system rule (e.g., Catch-all Rule). System rules cannot be modified.
+        :param _builtins.str type: Verification method type.
+        :param Sequence[_builtins.str] user_types_excludeds: Set of user type IDs to exclude.
+        :param Sequence[_builtins.str] user_types_includeds: Set of user type IDs to include.
+        :param Sequence[_builtins.str] users_excludeds: Set of user IDs to exclude from this rule.
+        :param Sequence[_builtins.str] users_includeds: Set of user IDs to include in this rule.
+        """
+        pulumi.set(__self__, "name", name)
+        if access is not None:
+            pulumi.set(__self__, "access", access)
+        if constraints is not None:
+            pulumi.set(__self__, "constraints", constraints)
+        if custom_expression is not None:
+            pulumi.set(__self__, "custom_expression", custom_expression)
+        if device_assurances_includeds is not None:
+            pulumi.set(__self__, "device_assurances_includeds", device_assurances_includeds)
+        if device_is_managed is not None:
+            pulumi.set(__self__, "device_is_managed", device_is_managed)
+        if device_is_registered is not None:
+            pulumi.set(__self__, "device_is_registered", device_is_registered)
+        if factor_mode is not None:
+            pulumi.set(__self__, "factor_mode", factor_mode)
+        if groups_excludeds is not None:
+            pulumi.set(__self__, "groups_excludeds", groups_excludeds)
+        if groups_includeds is not None:
+            pulumi.set(__self__, "groups_includeds", groups_includeds)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if inactivity_period is not None:
+            pulumi.set(__self__, "inactivity_period", inactivity_period)
+        if network_connection is not None:
+            pulumi.set(__self__, "network_connection", network_connection)
+        if network_excludes is not None:
+            pulumi.set(__self__, "network_excludes", network_excludes)
+        if network_includes is not None:
+            pulumi.set(__self__, "network_includes", network_includes)
+        if platform_includes is not None:
+            pulumi.set(__self__, "platform_includes", platform_includes)
+        if priority is not None:
+            pulumi.set(__self__, "priority", priority)
+        if re_authentication_frequency is not None:
+            pulumi.set(__self__, "re_authentication_frequency", re_authentication_frequency)
+        if risk_score is not None:
+            pulumi.set(__self__, "risk_score", risk_score)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+        if system is not None:
+            pulumi.set(__self__, "system", system)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if user_types_excludeds is not None:
+            pulumi.set(__self__, "user_types_excludeds", user_types_excludeds)
+        if user_types_includeds is not None:
+            pulumi.set(__self__, "user_types_includeds", user_types_includeds)
+        if users_excludeds is not None:
+            pulumi.set(__self__, "users_excludeds", users_excludeds)
+        if users_includeds is not None:
+            pulumi.set(__self__, "users_includeds", users_includeds)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        Policy Rule Name. Must be unique within the policy.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def access(self) -> Optional[_builtins.str]:
+        """
+        Access decision: ALLOW or DENY.
+        """
+        return pulumi.get(self, "access")
+
+    @_builtins.property
+    @pulumi.getter
+    def constraints(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        List of authenticator constraints as JSON-encoded strings.
+        """
+        return pulumi.get(self, "constraints")
+
+    @_builtins.property
+    @pulumi.getter(name="customExpression")
+    def custom_expression(self) -> Optional[_builtins.str]:
+        """
+        Custom Okta Expression Language condition for advanced matching.
+        """
+        return pulumi.get(self, "custom_expression")
+
+    @_builtins.property
+    @pulumi.getter(name="deviceAssurancesIncludeds")
+    def device_assurances_includeds(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Set of device assurance policy IDs to include.
+        """
+        return pulumi.get(self, "device_assurances_includeds")
+
+    @_builtins.property
+    @pulumi.getter(name="deviceIsManaged")
+    def device_is_managed(self) -> Optional[_builtins.bool]:
+        """
+        Require device to be managed by a device management system.
+        """
+        return pulumi.get(self, "device_is_managed")
+
+    @_builtins.property
+    @pulumi.getter(name="deviceIsRegistered")
+    def device_is_registered(self) -> Optional[_builtins.bool]:
+        """
+        Require device to be registered with Okta Verify.
+        """
+        return pulumi.get(self, "device_is_registered")
+
+    @_builtins.property
+    @pulumi.getter(name="factorMode")
+    def factor_mode(self) -> Optional[_builtins.str]:
+        """
+        Number of factors required: 1FA or 2FA.
+        """
+        return pulumi.get(self, "factor_mode")
+
+    @_builtins.property
+    @pulumi.getter(name="groupsExcludeds")
+    def groups_excludeds(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Set of group IDs to exclude from this rule.
+        """
+        return pulumi.get(self, "groups_excludeds")
+
+    @_builtins.property
+    @pulumi.getter(name="groupsIncludeds")
+    def groups_includeds(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Set of group IDs to include in this rule.
+        """
+        return pulumi.get(self, "groups_includeds")
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> Optional[_builtins.str]:
+        """
+        (String) - The ID of this resource (same as `policy_id`).
+        """
+        return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter(name="inactivityPeriod")
+    def inactivity_period(self) -> Optional[_builtins.str]:
+        """
+        Inactivity period before re-authentication in ISO 8601 duration format.
+        """
+        return pulumi.get(self, "inactivity_period")
+
+    @_builtins.property
+    @pulumi.getter(name="networkConnection")
+    def network_connection(self) -> Optional[_builtins.str]:
+        """
+        Network selection mode: ANYWHERE, ZONE, ON_NETWORK, or OFF_NETWORK.
+        """
+        return pulumi.get(self, "network_connection")
+
+    @_builtins.property
+    @pulumi.getter(name="networkExcludes")
+    def network_excludes(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        List of network zone IDs to exclude.
+        """
+        return pulumi.get(self, "network_excludes")
+
+    @_builtins.property
+    @pulumi.getter(name="networkIncludes")
+    def network_includes(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        List of network zone IDs to include.
+        """
+        return pulumi.get(self, "network_includes")
+
+    @_builtins.property
+    @pulumi.getter(name="platformIncludes")
+    def platform_includes(self) -> Optional[Sequence['outputs.SignonPolicyRulesRulePlatformInclude']]:
+        """
+        Platform conditions to include.
+        """
+        return pulumi.get(self, "platform_includes")
+
+    @_builtins.property
+    @pulumi.getter
+    def priority(self) -> Optional[_builtins.int]:
+        """
+        Priority of the rule. Lower numbers are evaluated first.
+        """
+        return pulumi.get(self, "priority")
+
+    @_builtins.property
+    @pulumi.getter(name="reAuthenticationFrequency")
+    def re_authentication_frequency(self) -> Optional[_builtins.str]:
+        """
+        Re-authentication frequency in ISO 8601 duration format (e.g., PT2H for 2 hours).
+        """
+        return pulumi.get(self, "re_authentication_frequency")
+
+    @_builtins.property
+    @pulumi.getter(name="riskScore")
+    def risk_score(self) -> Optional[_builtins.str]:
+        """
+        Risk score level to match: ANY, LOW, MEDIUM, or HIGH.
+        """
+        return pulumi.get(self, "risk_score")
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> Optional[_builtins.str]:
+        """
+        Status of the rule: ACTIVE or INACTIVE.
+        """
+        return pulumi.get(self, "status")
+
+    @_builtins.property
+    @pulumi.getter
+    def system(self) -> Optional[_builtins.bool]:
+        """
+        Whether this is a system rule (e.g., Catch-all Rule). System rules cannot be modified.
+        """
+        return pulumi.get(self, "system")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[_builtins.str]:
+        """
+        Verification method type.
+        """
+        return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter(name="userTypesExcludeds")
+    def user_types_excludeds(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Set of user type IDs to exclude.
+        """
+        return pulumi.get(self, "user_types_excludeds")
+
+    @_builtins.property
+    @pulumi.getter(name="userTypesIncludeds")
+    def user_types_includeds(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Set of user type IDs to include.
+        """
+        return pulumi.get(self, "user_types_includeds")
+
+    @_builtins.property
+    @pulumi.getter(name="usersExcludeds")
+    def users_excludeds(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Set of user IDs to exclude from this rule.
+        """
+        return pulumi.get(self, "users_excludeds")
+
+    @_builtins.property
+    @pulumi.getter(name="usersIncludeds")
+    def users_includeds(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Set of user IDs to include in this rule.
+        """
+        return pulumi.get(self, "users_includeds")
+
+
+@pulumi.output_type
+class SignonPolicyRulesRulePlatformInclude(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "osExpression":
+            suggest = "os_expression"
+        elif key == "osType":
+            suggest = "os_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SignonPolicyRulesRulePlatformInclude. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SignonPolicyRulesRulePlatformInclude.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SignonPolicyRulesRulePlatformInclude.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 os_expression: Optional[_builtins.str] = None,
+                 os_type: Optional[_builtins.str] = None,
+                 type: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str os_expression: Custom OS expression for advanced matching.
+        :param _builtins.str os_type: OS type: ANY, IOS, ANDROID, WINDOWS, OSX, MACOS, CHROMEOS, or OTHER.
+        :param _builtins.str type: Platform type: ANY, MOBILE, or DESKTOP.
+        """
+        if os_expression is not None:
+            pulumi.set(__self__, "os_expression", os_expression)
+        if os_type is not None:
+            pulumi.set(__self__, "os_type", os_type)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter(name="osExpression")
+    def os_expression(self) -> Optional[_builtins.str]:
+        """
+        Custom OS expression for advanced matching.
+        """
+        return pulumi.get(self, "os_expression")
+
+    @_builtins.property
+    @pulumi.getter(name="osType")
+    def os_type(self) -> Optional[_builtins.str]:
+        """
+        OS type: ANY, IOS, ANDROID, WINDOWS, OSX, MACOS, CHROMEOS, or OTHER.
+        """
+        return pulumi.get(self, "os_type")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[_builtins.str]:
+        """
+        Platform type: ANY, MOBILE, or DESKTOP.
+        """
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type

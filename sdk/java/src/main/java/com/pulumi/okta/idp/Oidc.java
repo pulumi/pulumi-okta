@@ -510,6 +510,20 @@ public class Oidc extends com.pulumi.resources.CustomResource {
         return this.tokenUrl;
     }
     /**
+     * Indicates whether to trust authentication claims from the IdP.
+     * 
+     */
+    @Export(name="trustClaims", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> trustClaims;
+
+    /**
+     * @return Indicates whether to trust authentication claims from the IdP.
+     * 
+     */
+    public Output<Optional<Boolean>> trustClaims() {
+        return Codegen.optional(this.trustClaims);
+    }
+    /**
      * Type of OIDC IdP.
      * 
      */

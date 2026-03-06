@@ -183,6 +183,10 @@ export class Saml extends pulumi.CustomResource {
      * Action for a previously suspended IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`
      */
     declare public readonly suspendedAction: pulumi.Output<string | undefined>;
+    /**
+     * Indicates whether to trust authentication claims from the IdP.
+     */
+    declare public readonly trustClaims: pulumi.Output<boolean | undefined>;
     declare public /*out*/ readonly type: pulumi.Output<string>;
     declare public /*out*/ readonly userTypeId: pulumi.Output<string>;
     /**
@@ -235,6 +239,7 @@ export class Saml extends pulumi.CustomResource {
             resourceInputs["subjectMatchAttribute"] = state?.subjectMatchAttribute;
             resourceInputs["subjectMatchType"] = state?.subjectMatchType;
             resourceInputs["suspendedAction"] = state?.suspendedAction;
+            resourceInputs["trustClaims"] = state?.trustClaims;
             resourceInputs["type"] = state?.type;
             resourceInputs["userTypeId"] = state?.userTypeId;
             resourceInputs["usernameTemplate"] = state?.usernameTemplate;
@@ -279,6 +284,7 @@ export class Saml extends pulumi.CustomResource {
             resourceInputs["subjectMatchAttribute"] = args?.subjectMatchAttribute;
             resourceInputs["subjectMatchType"] = args?.subjectMatchType;
             resourceInputs["suspendedAction"] = args?.suspendedAction;
+            resourceInputs["trustClaims"] = args?.trustClaims;
             resourceInputs["usernameTemplate"] = args?.usernameTemplate;
             resourceInputs["acsBinding"] = undefined /*out*/;
             resourceInputs["audience"] = undefined /*out*/;
@@ -416,6 +422,10 @@ export interface SamlState {
      * Action for a previously suspended IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`
      */
     suspendedAction?: pulumi.Input<string>;
+    /**
+     * Indicates whether to trust authentication claims from the IdP.
+     */
+    trustClaims?: pulumi.Input<boolean>;
     type?: pulumi.Input<string>;
     userTypeId?: pulumi.Input<string>;
     /**
@@ -548,6 +558,10 @@ export interface SamlArgs {
      * Action for a previously suspended IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`
      */
     suspendedAction?: pulumi.Input<string>;
+    /**
+     * Indicates whether to trust authentication claims from the IdP.
+     */
+    trustClaims?: pulumi.Input<boolean>;
     /**
      * Okta EL Expression to generate or transform a unique username for the IdP user. Default: `idpuser.email`
      */

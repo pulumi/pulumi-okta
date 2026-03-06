@@ -119,8 +119,10 @@ type Saml struct {
 	SubjectMatchType pulumi.StringPtrOutput `pulumi:"subjectMatchType"`
 	// Action for a previously suspended IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`
 	SuspendedAction pulumi.StringPtrOutput `pulumi:"suspendedAction"`
-	Type            pulumi.StringOutput    `pulumi:"type"`
-	UserTypeId      pulumi.StringOutput    `pulumi:"userTypeId"`
+	// Indicates whether to trust authentication claims from the IdP.
+	TrustClaims pulumi.BoolPtrOutput `pulumi:"trustClaims"`
+	Type        pulumi.StringOutput  `pulumi:"type"`
+	UserTypeId  pulumi.StringOutput  `pulumi:"userTypeId"`
 	// Okta EL Expression to generate or transform a unique username for the IdP user. Default: `idpuser.email`
 	UsernameTemplate pulumi.StringPtrOutput `pulumi:"usernameTemplate"`
 }
@@ -226,8 +228,10 @@ type samlState struct {
 	SubjectMatchType *string `pulumi:"subjectMatchType"`
 	// Action for a previously suspended IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`
 	SuspendedAction *string `pulumi:"suspendedAction"`
-	Type            *string `pulumi:"type"`
-	UserTypeId      *string `pulumi:"userTypeId"`
+	// Indicates whether to trust authentication claims from the IdP.
+	TrustClaims *bool   `pulumi:"trustClaims"`
+	Type        *string `pulumi:"type"`
+	UserTypeId  *string `pulumi:"userTypeId"`
 	// Okta EL Expression to generate or transform a unique username for the IdP user. Default: `idpuser.email`
 	UsernameTemplate *string `pulumi:"usernameTemplate"`
 }
@@ -295,8 +299,10 @@ type SamlState struct {
 	SubjectMatchType pulumi.StringPtrInput
 	// Action for a previously suspended IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`
 	SuspendedAction pulumi.StringPtrInput
-	Type            pulumi.StringPtrInput
-	UserTypeId      pulumi.StringPtrInput
+	// Indicates whether to trust authentication claims from the IdP.
+	TrustClaims pulumi.BoolPtrInput
+	Type        pulumi.StringPtrInput
+	UserTypeId  pulumi.StringPtrInput
 	// Okta EL Expression to generate or transform a unique username for the IdP user. Default: `idpuser.email`
 	UsernameTemplate pulumi.StringPtrInput
 }
@@ -366,6 +372,8 @@ type samlArgs struct {
 	SubjectMatchType *string `pulumi:"subjectMatchType"`
 	// Action for a previously suspended IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`
 	SuspendedAction *string `pulumi:"suspendedAction"`
+	// Indicates whether to trust authentication claims from the IdP.
+	TrustClaims *bool `pulumi:"trustClaims"`
 	// Okta EL Expression to generate or transform a unique username for the IdP user. Default: `idpuser.email`
 	UsernameTemplate *string `pulumi:"usernameTemplate"`
 }
@@ -432,6 +440,8 @@ type SamlArgs struct {
 	SubjectMatchType pulumi.StringPtrInput
 	// Action for a previously suspended IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`
 	SuspendedAction pulumi.StringPtrInput
+	// Indicates whether to trust authentication claims from the IdP.
+	TrustClaims pulumi.BoolPtrInput
 	// Okta EL Expression to generate or transform a unique username for the IdP user. Default: `idpuser.email`
 	UsernameTemplate pulumi.StringPtrInput
 }
@@ -679,6 +689,11 @@ func (o SamlOutput) SubjectMatchType() pulumi.StringPtrOutput {
 // Action for a previously suspended IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`
 func (o SamlOutput) SuspendedAction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Saml) pulumi.StringPtrOutput { return v.SuspendedAction }).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether to trust authentication claims from the IdP.
+func (o SamlOutput) TrustClaims() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Saml) pulumi.BoolPtrOutput { return v.TrustClaims }).(pulumi.BoolPtrOutput)
 }
 
 func (o SamlOutput) Type() pulumi.StringOutput {

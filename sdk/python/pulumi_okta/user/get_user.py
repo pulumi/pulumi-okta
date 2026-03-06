@@ -28,7 +28,7 @@ class GetUserResult:
     """
     A collection of values returned by getUser.
     """
-    def __init__(__self__, admin_roles=None, city=None, compound_search_operator=None, cost_center=None, country_code=None, custom_profile_attributes=None, delay_read_seconds=None, department=None, display_name=None, division=None, email=None, employee_number=None, first_name=None, group_memberships=None, honorific_prefix=None, honorific_suffix=None, id=None, last_name=None, locale=None, login=None, manager=None, manager_id=None, middle_name=None, mobile_phone=None, nick_name=None, organization=None, postal_address=None, preferred_language=None, primary_phone=None, profile_url=None, realm_id=None, roles=None, searches=None, second_email=None, skip_groups=None, skip_roles=None, state=None, status=None, street_address=None, timezone=None, title=None, user_id=None, user_type=None, zip_code=None):
+    def __init__(__self__, admin_roles=None, city=None, compound_search_operator=None, cost_center=None, country_code=None, custom_profile_attributes=None, delay_read_seconds=None, department=None, display_name=None, division=None, email=None, employee_number=None, first_name=None, group_memberships=None, honorific_prefix=None, honorific_suffix=None, id=None, last_name=None, locale=None, login=None, manager=None, manager_id=None, middle_name=None, mobile_phone=None, nick_name=None, organization=None, postal_address=None, preferred_language=None, primary_phone=None, profile_url=None, realm_id=None, roles=None, searches=None, second_email=None, skip_groups=None, skip_roles=None, state=None, status=None, street_address=None, timezone=None, title=None, types=None, user_id=None, user_type=None, zip_code=None):
         if admin_roles and not isinstance(admin_roles, list):
             raise TypeError("Expected argument 'admin_roles' to be a list")
         pulumi.set(__self__, "admin_roles", admin_roles)
@@ -152,6 +152,9 @@ class GetUserResult:
         if title and not isinstance(title, str):
             raise TypeError("Expected argument 'title' to be a str")
         pulumi.set(__self__, "title", title)
+        if types and not isinstance(types, list):
+            raise TypeError("Expected argument 'types' to be a list")
+        pulumi.set(__self__, "types", types)
         if user_id and not isinstance(user_id, str):
             raise TypeError("Expected argument 'user_id' to be a str")
         pulumi.set(__self__, "user_id", user_id)
@@ -389,6 +392,11 @@ class GetUserResult:
         return pulumi.get(self, "title")
 
     @_builtins.property
+    @pulumi.getter
+    def types(self) -> Sequence['outputs.GetUserTypeResult']:
+        return pulumi.get(self, "types")
+
+    @_builtins.property
     @pulumi.getter(name="userId")
     def user_id(self) -> Optional[_builtins.str]:
         """
@@ -454,6 +462,7 @@ class AwaitableGetUserResult(GetUserResult):
             street_address=self.street_address,
             timezone=self.timezone,
             title=self.title,
+            types=self.types,
             user_id=self.user_id,
             user_type=self.user_type,
             zip_code=self.zip_code)
@@ -529,6 +538,7 @@ def get_user(compound_search_operator: Optional[_builtins.str] = None,
         street_address=pulumi.get(__ret__, 'street_address'),
         timezone=pulumi.get(__ret__, 'timezone'),
         title=pulumi.get(__ret__, 'title'),
+        types=pulumi.get(__ret__, 'types'),
         user_id=pulumi.get(__ret__, 'user_id'),
         user_type=pulumi.get(__ret__, 'user_type'),
         zip_code=pulumi.get(__ret__, 'zip_code'))
@@ -601,6 +611,7 @@ def get_user_output(compound_search_operator: Optional[pulumi.Input[Optional[_bu
         street_address=pulumi.get(__response__, 'street_address'),
         timezone=pulumi.get(__response__, 'timezone'),
         title=pulumi.get(__response__, 'title'),
+        types=pulumi.get(__response__, 'types'),
         user_id=pulumi.get(__response__, 'user_id'),
         user_type=pulumi.get(__response__, 'user_type'),
         zip_code=pulumi.get(__response__, 'zip_code')))

@@ -40,6 +40,8 @@ type Zone struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples. Can not be set if `usage` is set to `BLOCKLIST`. Use with type `IP`
 	Proxies pulumi.StringArrayOutput `pulumi:"proxies"`
+	// Set this parameter to true in your request when you update the `DefaultExemptIpZone` to allow IPs through the blocklist.
+	SetUsageAsExemptList pulumi.BoolPtrOutput `pulumi:"setUsageAsExemptList"`
 	// Network Status - can either be `ACTIVE` or `INACTIVE` only
 	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// Type of the Network Zone - can be `IP`, `DYNAMIC` or `DYNAMIC_V2` only
@@ -99,6 +101,8 @@ type zoneState struct {
 	Name *string `pulumi:"name"`
 	// Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples. Can not be set if `usage` is set to `BLOCKLIST`. Use with type `IP`
 	Proxies []string `pulumi:"proxies"`
+	// Set this parameter to true in your request when you update the `DefaultExemptIpZone` to allow IPs through the blocklist.
+	SetUsageAsExemptList *bool `pulumi:"setUsageAsExemptList"`
 	// Network Status - can either be `ACTIVE` or `INACTIVE` only
 	Status *string `pulumi:"status"`
 	// Type of the Network Zone - can be `IP`, `DYNAMIC` or `DYNAMIC_V2` only
@@ -126,6 +130,8 @@ type ZoneState struct {
 	Name pulumi.StringPtrInput
 	// Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples. Can not be set if `usage` is set to `BLOCKLIST`. Use with type `IP`
 	Proxies pulumi.StringArrayInput
+	// Set this parameter to true in your request when you update the `DefaultExemptIpZone` to allow IPs through the blocklist.
+	SetUsageAsExemptList pulumi.BoolPtrInput
 	// Network Status - can either be `ACTIVE` or `INACTIVE` only
 	Status pulumi.StringPtrInput
 	// Type of the Network Zone - can be `IP`, `DYNAMIC` or `DYNAMIC_V2` only
@@ -157,6 +163,8 @@ type zoneArgs struct {
 	Name *string `pulumi:"name"`
 	// Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples. Can not be set if `usage` is set to `BLOCKLIST`. Use with type `IP`
 	Proxies []string `pulumi:"proxies"`
+	// Set this parameter to true in your request when you update the `DefaultExemptIpZone` to allow IPs through the blocklist.
+	SetUsageAsExemptList *bool `pulumi:"setUsageAsExemptList"`
 	// Network Status - can either be `ACTIVE` or `INACTIVE` only
 	Status *string `pulumi:"status"`
 	// Type of the Network Zone - can be `IP`, `DYNAMIC` or `DYNAMIC_V2` only
@@ -185,6 +193,8 @@ type ZoneArgs struct {
 	Name pulumi.StringPtrInput
 	// Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples. Can not be set if `usage` is set to `BLOCKLIST`. Use with type `IP`
 	Proxies pulumi.StringArrayInput
+	// Set this parameter to true in your request when you update the `DefaultExemptIpZone` to allow IPs through the blocklist.
+	SetUsageAsExemptList pulumi.BoolPtrInput
 	// Network Status - can either be `ACTIVE` or `INACTIVE` only
 	Status pulumi.StringPtrInput
 	// Type of the Network Zone - can be `IP`, `DYNAMIC` or `DYNAMIC_V2` only
@@ -323,6 +333,11 @@ func (o ZoneOutput) Name() pulumi.StringOutput {
 // Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples. Can not be set if `usage` is set to `BLOCKLIST`. Use with type `IP`
 func (o ZoneOutput) Proxies() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Zone) pulumi.StringArrayOutput { return v.Proxies }).(pulumi.StringArrayOutput)
+}
+
+// Set this parameter to true in your request when you update the `DefaultExemptIpZone` to allow IPs through the blocklist.
+func (o ZoneOutput) SetUsageAsExemptList() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Zone) pulumi.BoolPtrOutput { return v.SetUsageAsExemptList }).(pulumi.BoolPtrOutput)
 }
 
 // Network Status - can either be `ACTIVE` or `INACTIVE` only

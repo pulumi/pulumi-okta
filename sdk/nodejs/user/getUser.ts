@@ -118,6 +118,7 @@ export interface GetUserResult {
     readonly streetAddress: string;
     readonly timezone: string;
     readonly title: string;
+    readonly types: outputs.user.GetUserType[];
     /**
      * Retrieve a single user based on their id
      */

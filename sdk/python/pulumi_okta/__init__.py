@@ -82,6 +82,8 @@ from .get_network_zone import *
 from .get_org_metadata import *
 from .get_principal_entitlements import *
 from .get_principal_rate_limits import *
+from .get_push_group import *
+from .get_push_groups import *
 from .get_push_provider import *
 from .get_rate_limit_admin_notification_settings import *
 from .get_rate_limit_warning_threshold_percentage import *
@@ -118,6 +120,7 @@ from .policy_rule_profile_enrollment import *
 from .preview_signin_page import *
 from .principal_rate_limits import *
 from .provider import *
+from .push_group import *
 from .push_provider import *
 from .rate_limit_admin_notification_settings import *
 from .rate_limit_warning_threshold_percentage import *
@@ -300,6 +303,14 @@ _utilities.register(
   "fqn": "pulumi_okta.app",
   "classes": {
    "okta:app/securePasswordStore:SecurePasswordStore": "SecurePasswordStore"
+  }
+ },
+ {
+  "pkg": "okta",
+  "mod": "app/signonPolicyRules",
+  "fqn": "pulumi_okta.app",
+  "classes": {
+   "okta:app/signonPolicyRules:SignonPolicyRules": "SignonPolicyRules"
   }
  },
  {
@@ -892,6 +903,14 @@ _utilities.register(
   "fqn": "pulumi_okta",
   "classes": {
    "okta:index/principalRateLimits:PrincipalRateLimits": "PrincipalRateLimits"
+  }
+ },
+ {
+  "pkg": "okta",
+  "mod": "index/pushGroup",
+  "fqn": "pulumi_okta",
+  "classes": {
+   "okta:index/pushGroup:PushGroup": "PushGroup"
   }
  },
  {

@@ -333,6 +333,12 @@ namespace Pulumi.Okta.User
         public Output<string?> Title { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies a user type other than the default user type
+        /// </summary>
+        [Output("type")]
+        public Output<Outputs.UserType> Type { get; private set; } = null!;
+
+        /// <summary>
         /// User employee type
         /// </summary>
         [Output("userType")]
@@ -679,6 +685,12 @@ namespace Pulumi.Okta.User
         public Input<string>? Title { get; set; }
 
         /// <summary>
+        /// Specifies a user type other than the default user type
+        /// </summary>
+        [Input("type")]
+        public Input<Inputs.UserTypeArgs>? Type { get; set; }
+
+        /// <summary>
         /// User employee type
         /// </summary>
         [Input("userType")]
@@ -985,6 +997,12 @@ namespace Pulumi.Okta.User
         /// </summary>
         [Input("title")]
         public Input<string>? Title { get; set; }
+
+        /// <summary>
+        /// Specifies a user type other than the default user type
+        /// </summary>
+        [Input("type")]
+        public Input<Inputs.UserTypeGetArgs>? Type { get; set; }
 
         /// <summary>
         /// User employee type

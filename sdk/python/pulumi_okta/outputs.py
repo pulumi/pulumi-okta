@@ -61,6 +61,7 @@ __all__ = [
     'PolicyRuleProfileEnrollmentProfileAttribute',
     'PreviewSigninPageContentSecurityPolicySetting',
     'PreviewSigninPageWidgetCustomizations',
+    'PushGroupAppConfig',
     'PushProviderConfiguration',
     'PushProviderConfigurationApnsConfiguration',
     'PushProviderConfigurationFcmConfiguration',
@@ -160,6 +161,7 @@ __all__ = [
     'GetPrincipalEntitlementsDataValueResult',
     'GetPrincipalEntitlementsParentResult',
     'GetPrincipalEntitlementsTargetPrincipalResult',
+    'GetPushGroupsMappingResult',
     'GetPushProviderConfigurationResult',
     'GetPushProviderConfigurationApnsConfigurationResult',
     'GetPushProviderConfigurationFcmConfigurationResult',
@@ -3106,6 +3108,62 @@ class PreviewSigninPageWidgetCustomizations(dict):
     @pulumi.getter(name="usernameLabel")
     def username_label(self) -> Optional[_builtins.str]:
         return pulumi.get(self, "username_label")
+
+
+@pulumi.output_type
+class PushGroupAppConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "distinguishedName":
+            suggest = "distinguished_name"
+        elif key == "groupScope":
+            suggest = "group_scope"
+        elif key == "groupType":
+            suggest = "group_type"
+        elif key == "samAccountName":
+            suggest = "sam_account_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PushGroupAppConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PushGroupAppConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PushGroupAppConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 distinguished_name: _builtins.str,
+                 group_scope: _builtins.str,
+                 group_type: _builtins.str,
+                 sam_account_name: _builtins.str):
+        pulumi.set(__self__, "distinguished_name", distinguished_name)
+        pulumi.set(__self__, "group_scope", group_scope)
+        pulumi.set(__self__, "group_type", group_type)
+        pulumi.set(__self__, "sam_account_name", sam_account_name)
+
+    @_builtins.property
+    @pulumi.getter(name="distinguishedName")
+    def distinguished_name(self) -> _builtins.str:
+        return pulumi.get(self, "distinguished_name")
+
+    @_builtins.property
+    @pulumi.getter(name="groupScope")
+    def group_scope(self) -> _builtins.str:
+        return pulumi.get(self, "group_scope")
+
+    @_builtins.property
+    @pulumi.getter(name="groupType")
+    def group_type(self) -> _builtins.str:
+        return pulumi.get(self, "group_type")
+
+    @_builtins.property
+    @pulumi.getter(name="samAccountName")
+    def sam_account_name(self) -> _builtins.str:
+        return pulumi.get(self, "sam_account_name")
 
 
 @pulumi.output_type
@@ -7734,6 +7792,39 @@ class GetPrincipalEntitlementsTargetPrincipalResult(dict):
     @pulumi.getter
     def type(self) -> _builtins.str:
         return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class GetPushGroupsMappingResult(dict):
+    def __init__(__self__, *,
+                 app_id: _builtins.str,
+                 id: _builtins.str,
+                 source_group_id: _builtins.str,
+                 status: _builtins.str):
+        pulumi.set(__self__, "app_id", app_id)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "source_group_id", source_group_id)
+        pulumi.set(__self__, "status", status)
+
+    @_builtins.property
+    @pulumi.getter(name="appId")
+    def app_id(self) -> _builtins.str:
+        return pulumi.get(self, "app_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.str:
+        return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter(name="sourceGroupId")
+    def source_group_id(self) -> _builtins.str:
+        return pulumi.get(self, "source_group_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> _builtins.str:
+        return pulumi.get(self, "status")
 
 
 @pulumi.output_type
