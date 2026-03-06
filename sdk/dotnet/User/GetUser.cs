@@ -197,6 +197,7 @@ namespace Pulumi.Okta.User
         public readonly string StreetAddress;
         public readonly string Timezone;
         public readonly string Title;
+        public readonly ImmutableArray<Outputs.GetUserTypeResult> Types;
         /// <summary>
         /// Retrieve a single user based on their id
         /// </summary>
@@ -288,6 +289,8 @@ namespace Pulumi.Okta.User
 
             string title,
 
+            ImmutableArray<Outputs.GetUserTypeResult> types,
+
             string? userId,
 
             string userType,
@@ -335,6 +338,7 @@ namespace Pulumi.Okta.User
             StreetAddress = streetAddress;
             Timezone = timezone;
             Title = title;
+            Types = types;
             UserId = userId;
             UserType = userType;
             ZipCode = zipCode;

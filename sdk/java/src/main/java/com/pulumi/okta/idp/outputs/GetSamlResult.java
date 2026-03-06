@@ -5,6 +5,7 @@ package com.pulumi.okta.idp.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -78,6 +79,7 @@ public final class GetSamlResult {
      * 
      */
     private List<String> subjectFormats;
+    private Boolean trustClaims;
     /**
      * @return Type of idp.
      * 
@@ -176,6 +178,9 @@ public final class GetSamlResult {
     public List<String> subjectFormats() {
         return this.subjectFormats;
     }
+    public Boolean trustClaims() {
+        return this.trustClaims;
+    }
     /**
      * @return Type of idp.
      * 
@@ -206,6 +211,7 @@ public final class GetSamlResult {
         private String ssoUrl;
         private String subjectFilter;
         private List<String> subjectFormats;
+        private Boolean trustClaims;
         private String type;
         public Builder() {}
         public Builder(GetSamlResult defaults) {
@@ -223,6 +229,7 @@ public final class GetSamlResult {
     	      this.ssoUrl = defaults.ssoUrl;
     	      this.subjectFilter = defaults.subjectFilter;
     	      this.subjectFormats = defaults.subjectFormats;
+    	      this.trustClaims = defaults.trustClaims;
     	      this.type = defaults.type;
         }
 
@@ -330,6 +337,14 @@ public final class GetSamlResult {
             return subjectFormats(List.of(subjectFormats));
         }
         @CustomType.Setter
+        public Builder trustClaims(Boolean trustClaims) {
+            if (trustClaims == null) {
+              throw new MissingRequiredPropertyException("GetSamlResult", "trustClaims");
+            }
+            this.trustClaims = trustClaims;
+            return this;
+        }
+        @CustomType.Setter
         public Builder type(String type) {
             if (type == null) {
               throw new MissingRequiredPropertyException("GetSamlResult", "type");
@@ -352,6 +367,7 @@ public final class GetSamlResult {
             _resultValue.ssoUrl = ssoUrl;
             _resultValue.subjectFilter = subjectFilter;
             _resultValue.subjectFormats = subjectFormats;
+            _resultValue.trustClaims = trustClaims;
             _resultValue.type = type;
             return _resultValue;
         }

@@ -5,6 +5,7 @@ package com.pulumi.okta.idp.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -89,6 +90,7 @@ public final class GetOidcResult {
      * 
      */
     private String tokenUrl;
+    private Boolean trustClaims;
     /**
      * @return Type of idp.
      * 
@@ -211,6 +213,9 @@ public final class GetOidcResult {
     public String tokenUrl() {
         return this.tokenUrl;
     }
+    public Boolean trustClaims() {
+        return this.trustClaims;
+    }
     /**
      * @return Type of idp.
      * 
@@ -257,6 +262,7 @@ public final class GetOidcResult {
         private List<String> scopes;
         private String tokenBinding;
         private String tokenUrl;
+        private Boolean trustClaims;
         private String type;
         private String userInfoBinding;
         private String userInfoUrl;
@@ -278,6 +284,7 @@ public final class GetOidcResult {
     	      this.scopes = defaults.scopes;
     	      this.tokenBinding = defaults.tokenBinding;
     	      this.tokenUrl = defaults.tokenUrl;
+    	      this.trustClaims = defaults.trustClaims;
     	      this.type = defaults.type;
     	      this.userInfoBinding = defaults.userInfoBinding;
     	      this.userInfoUrl = defaults.userInfoUrl;
@@ -403,6 +410,14 @@ public final class GetOidcResult {
             return this;
         }
         @CustomType.Setter
+        public Builder trustClaims(Boolean trustClaims) {
+            if (trustClaims == null) {
+              throw new MissingRequiredPropertyException("GetOidcResult", "trustClaims");
+            }
+            this.trustClaims = trustClaims;
+            return this;
+        }
+        @CustomType.Setter
         public Builder type(String type) {
             if (type == null) {
               throw new MissingRequiredPropertyException("GetOidcResult", "type");
@@ -443,6 +458,7 @@ public final class GetOidcResult {
             _resultValue.scopes = scopes;
             _resultValue.tokenBinding = tokenBinding;
             _resultValue.tokenUrl = tokenUrl;
+            _resultValue.trustClaims = trustClaims;
             _resultValue.type = type;
             _resultValue.userInfoBinding = userInfoBinding;
             _resultValue.userInfoUrl = userInfoUrl;

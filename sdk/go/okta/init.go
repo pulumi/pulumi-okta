@@ -133,6 +133,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &PreviewSigninPage{}
 	case "okta:index/principalRateLimits:PrincipalRateLimits":
 		r = &PrincipalRateLimits{}
+	case "okta:index/pushGroup:PushGroup":
+		r = &PushGroup{}
 	case "okta:index/pushProvider:PushProvider":
 		r = &PushProvider{}
 	case "okta:index/rateLimitAdminNotificationSettings:RateLimitAdminNotificationSettings":
@@ -494,6 +496,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"okta",
 		"index/principalRateLimits",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"okta",
+		"index/pushGroup",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

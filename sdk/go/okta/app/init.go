@@ -49,6 +49,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Saml{}
 	case "okta:app/securePasswordStore:SecurePasswordStore":
 		r = &SecurePasswordStore{}
+	case "okta:app/signonPolicyRules:SignonPolicyRules":
+		r = &SignonPolicyRules{}
 	case "okta:app/swa:Swa":
 		r = &Swa{}
 	case "okta:app/threeField:ThreeField":
@@ -138,6 +140,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"okta",
 		"app/securePasswordStore",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"okta",
+		"app/signonPolicyRules",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

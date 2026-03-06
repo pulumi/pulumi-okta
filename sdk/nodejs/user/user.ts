@@ -264,6 +264,10 @@ export class User extends pulumi.CustomResource {
      */
     declare public readonly title: pulumi.Output<string | undefined>;
     /**
+     * Specifies a user type other than the default user type
+     */
+    declare public readonly type: pulumi.Output<outputs.user.UserType>;
+    /**
      * User employee type
      */
     declare public readonly userType: pulumi.Output<string | undefined>;
@@ -327,6 +331,7 @@ export class User extends pulumi.CustomResource {
             resourceInputs["streetAddress"] = state?.streetAddress;
             resourceInputs["timezone"] = state?.timezone;
             resourceInputs["title"] = state?.title;
+            resourceInputs["type"] = state?.type;
             resourceInputs["userType"] = state?.userType;
             resourceInputs["zipCode"] = state?.zipCode;
         } else {
@@ -384,6 +389,7 @@ export class User extends pulumi.CustomResource {
             resourceInputs["streetAddress"] = args?.streetAddress;
             resourceInputs["timezone"] = args?.timezone;
             resourceInputs["title"] = args?.title;
+            resourceInputs["type"] = args?.type;
             resourceInputs["userType"] = args?.userType;
             resourceInputs["zipCode"] = args?.zipCode;
             resourceInputs["rawStatus"] = undefined /*out*/;
@@ -570,6 +576,10 @@ export interface UserState {
      */
     title?: pulumi.Input<string>;
     /**
+     * Specifies a user type other than the default user type
+     */
+    type?: pulumi.Input<inputs.user.UserType>;
+    /**
      * User employee type
      */
     userType?: pulumi.Input<string>;
@@ -749,6 +759,10 @@ export interface UserArgs {
      * User title
      */
     title?: pulumi.Input<string>;
+    /**
+     * Specifies a user type other than the default user type
+     */
+    type?: pulumi.Input<inputs.user.UserType>;
     /**
      * User employee type
      */

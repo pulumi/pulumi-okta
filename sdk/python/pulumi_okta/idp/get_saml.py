@@ -26,7 +26,7 @@ class GetSamlResult:
     """
     A collection of values returned by getSaml.
     """
-    def __init__(__self__, acs_binding=None, acs_type=None, audience=None, id=None, issuer=None, issuer_mode=None, kid=None, name=None, sso_binding=None, sso_destination=None, sso_url=None, subject_filter=None, subject_formats=None, type=None):
+    def __init__(__self__, acs_binding=None, acs_type=None, audience=None, id=None, issuer=None, issuer_mode=None, kid=None, name=None, sso_binding=None, sso_destination=None, sso_url=None, subject_filter=None, subject_formats=None, trust_claims=None, type=None):
         if acs_binding and not isinstance(acs_binding, str):
             raise TypeError("Expected argument 'acs_binding' to be a str")
         pulumi.set(__self__, "acs_binding", acs_binding)
@@ -66,6 +66,9 @@ class GetSamlResult:
         if subject_formats and not isinstance(subject_formats, list):
             raise TypeError("Expected argument 'subject_formats' to be a list")
         pulumi.set(__self__, "subject_formats", subject_formats)
+        if trust_claims and not isinstance(trust_claims, bool):
+            raise TypeError("Expected argument 'trust_claims' to be a bool")
+        pulumi.set(__self__, "trust_claims", trust_claims)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -175,6 +178,11 @@ class GetSamlResult:
         return pulumi.get(self, "subject_formats")
 
     @_builtins.property
+    @pulumi.getter(name="trustClaims")
+    def trust_claims(self) -> _builtins.bool:
+        return pulumi.get(self, "trust_claims")
+
+    @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
@@ -202,6 +210,7 @@ class AwaitableGetSamlResult(GetSamlResult):
             sso_url=self.sso_url,
             subject_filter=self.subject_filter,
             subject_formats=self.subject_formats,
+            trust_claims=self.trust_claims,
             type=self.type)
 
 
@@ -244,6 +253,7 @@ def get_saml(id: Optional[_builtins.str] = None,
         sso_url=pulumi.get(__ret__, 'sso_url'),
         subject_filter=pulumi.get(__ret__, 'subject_filter'),
         subject_formats=pulumi.get(__ret__, 'subject_formats'),
+        trust_claims=pulumi.get(__ret__, 'trust_claims'),
         type=pulumi.get(__ret__, 'type'))
 def get_saml_output(id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                     name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
@@ -283,4 +293,5 @@ def get_saml_output(id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
         sso_url=pulumi.get(__response__, 'sso_url'),
         subject_filter=pulumi.get(__response__, 'subject_filter'),
         subject_formats=pulumi.get(__response__, 'subject_formats'),
+        trust_claims=pulumi.get(__response__, 'trust_claims'),
         type=pulumi.get(__response__, 'type')))

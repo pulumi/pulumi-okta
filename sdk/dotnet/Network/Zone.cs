@@ -76,6 +76,12 @@ namespace Pulumi.Okta.Network
         public Output<ImmutableArray<string>> Proxies { get; private set; } = null!;
 
         /// <summary>
+        /// Set this parameter to true in your request when you update the `DefaultExemptIpZone` to allow IPs through the blocklist.
+        /// </summary>
+        [Output("setUsageAsExemptList")]
+        public Output<bool?> SetUsageAsExemptList { get; private set; } = null!;
+
+        /// <summary>
         /// Network Status - can either be `ACTIVE` or `INACTIVE` only
         /// </summary>
         [Output("status")]
@@ -236,6 +242,12 @@ namespace Pulumi.Okta.Network
         }
 
         /// <summary>
+        /// Set this parameter to true in your request when you update the `DefaultExemptIpZone` to allow IPs through the blocklist.
+        /// </summary>
+        [Input("setUsageAsExemptList")]
+        public Input<bool>? SetUsageAsExemptList { get; set; }
+
+        /// <summary>
         /// Network Status - can either be `ACTIVE` or `INACTIVE` only
         /// </summary>
         [Input("status")]
@@ -356,6 +368,12 @@ namespace Pulumi.Okta.Network
             get => _proxies ?? (_proxies = new InputList<string>());
             set => _proxies = value;
         }
+
+        /// <summary>
+        /// Set this parameter to true in your request when you update the `DefaultExemptIpZone` to allow IPs through the blocklist.
+        /// </summary>
+        [Input("setUsageAsExemptList")]
+        public Input<bool>? SetUsageAsExemptList { get; set; }
 
         /// <summary>
         /// Network Status - can either be `ACTIVE` or `INACTIVE` only

@@ -105,6 +105,8 @@ __all__ = [
     'PreviewSigninPageContentSecurityPolicySettingArgsDict',
     'PreviewSigninPageWidgetCustomizationsArgs',
     'PreviewSigninPageWidgetCustomizationsArgsDict',
+    'PushGroupAppConfigArgs',
+    'PushGroupAppConfigArgsDict',
     'PushProviderConfigurationArgs',
     'PushProviderConfigurationArgsDict',
     'PushProviderConfigurationApnsConfigurationArgs',
@@ -3975,6 +3977,61 @@ class PreviewSigninPageWidgetCustomizationsArgs:
     @username_label.setter
     def username_label(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "username_label", value)
+
+
+class PushGroupAppConfigArgsDict(TypedDict):
+    distinguished_name: pulumi.Input[_builtins.str]
+    group_scope: pulumi.Input[_builtins.str]
+    group_type: pulumi.Input[_builtins.str]
+    sam_account_name: pulumi.Input[_builtins.str]
+
+@pulumi.input_type
+class PushGroupAppConfigArgs:
+    def __init__(__self__, *,
+                 distinguished_name: pulumi.Input[_builtins.str],
+                 group_scope: pulumi.Input[_builtins.str],
+                 group_type: pulumi.Input[_builtins.str],
+                 sam_account_name: pulumi.Input[_builtins.str]):
+        pulumi.set(__self__, "distinguished_name", distinguished_name)
+        pulumi.set(__self__, "group_scope", group_scope)
+        pulumi.set(__self__, "group_type", group_type)
+        pulumi.set(__self__, "sam_account_name", sam_account_name)
+
+    @_builtins.property
+    @pulumi.getter(name="distinguishedName")
+    def distinguished_name(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "distinguished_name")
+
+    @distinguished_name.setter
+    def distinguished_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "distinguished_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="groupScope")
+    def group_scope(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "group_scope")
+
+    @group_scope.setter
+    def group_scope(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "group_scope", value)
+
+    @_builtins.property
+    @pulumi.getter(name="groupType")
+    def group_type(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "group_type")
+
+    @group_type.setter
+    def group_type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "group_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="samAccountName")
+    def sam_account_name(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "sam_account_name")
+
+    @sam_account_name.setter
+    def sam_account_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "sam_account_name", value)
 
 
 class PushProviderConfigurationArgsDict(TypedDict):

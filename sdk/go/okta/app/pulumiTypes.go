@@ -3565,6 +3565,443 @@ func (o SamlKeyArrayOutput) Index(i pulumi.IntInput) SamlKeyOutput {
 	}).(SamlKeyOutput)
 }
 
+type SignonPolicyRulesRule struct {
+	// Access decision: ALLOW or DENY.
+	Access *string `pulumi:"access"`
+	// List of authenticator constraints as JSON-encoded strings.
+	Constraints []string `pulumi:"constraints"`
+	// Custom Okta Expression Language condition for advanced matching.
+	CustomExpression *string `pulumi:"customExpression"`
+	// Set of device assurance policy IDs to include.
+	DeviceAssurancesIncludeds []string `pulumi:"deviceAssurancesIncludeds"`
+	// Require device to be managed by a device management system.
+	DeviceIsManaged *bool `pulumi:"deviceIsManaged"`
+	// Require device to be registered with Okta Verify.
+	DeviceIsRegistered *bool `pulumi:"deviceIsRegistered"`
+	// Number of factors required: 1FA or 2FA.
+	FactorMode *string `pulumi:"factorMode"`
+	// Set of group IDs to exclude from this rule.
+	GroupsExcludeds []string `pulumi:"groupsExcludeds"`
+	// Set of group IDs to include in this rule.
+	GroupsIncludeds []string `pulumi:"groupsIncludeds"`
+	// (String) - The ID of this resource (same as `policyId`).
+	Id *string `pulumi:"id"`
+	// Inactivity period before re-authentication in ISO 8601 duration format.
+	InactivityPeriod *string `pulumi:"inactivityPeriod"`
+	// Policy Rule Name. Must be unique within the policy.
+	Name string `pulumi:"name"`
+	// Network selection mode: ANYWHERE, ZONE, ON_NETWORK, or OFF_NETWORK.
+	NetworkConnection *string `pulumi:"networkConnection"`
+	// List of network zone IDs to exclude.
+	NetworkExcludes []string `pulumi:"networkExcludes"`
+	// List of network zone IDs to include.
+	NetworkIncludes []string `pulumi:"networkIncludes"`
+	// Platform conditions to include.
+	PlatformIncludes []SignonPolicyRulesRulePlatformInclude `pulumi:"platformIncludes"`
+	// Priority of the rule. Lower numbers are evaluated first.
+	Priority *int `pulumi:"priority"`
+	// Re-authentication frequency in ISO 8601 duration format (e.g., PT2H for 2 hours).
+	ReAuthenticationFrequency *string `pulumi:"reAuthenticationFrequency"`
+	// Risk score level to match: ANY, LOW, MEDIUM, or HIGH.
+	RiskScore *string `pulumi:"riskScore"`
+	// Status of the rule: ACTIVE or INACTIVE.
+	Status *string `pulumi:"status"`
+	// Whether this is a system rule (e.g., Catch-all Rule). System rules cannot be modified.
+	System *bool `pulumi:"system"`
+	// Verification method type.
+	Type *string `pulumi:"type"`
+	// Set of user type IDs to exclude.
+	UserTypesExcludeds []string `pulumi:"userTypesExcludeds"`
+	// Set of user type IDs to include.
+	UserTypesIncludeds []string `pulumi:"userTypesIncludeds"`
+	// Set of user IDs to exclude from this rule.
+	UsersExcludeds []string `pulumi:"usersExcludeds"`
+	// Set of user IDs to include in this rule.
+	UsersIncludeds []string `pulumi:"usersIncludeds"`
+}
+
+// SignonPolicyRulesRuleInput is an input type that accepts SignonPolicyRulesRuleArgs and SignonPolicyRulesRuleOutput values.
+// You can construct a concrete instance of `SignonPolicyRulesRuleInput` via:
+//
+//	SignonPolicyRulesRuleArgs{...}
+type SignonPolicyRulesRuleInput interface {
+	pulumi.Input
+
+	ToSignonPolicyRulesRuleOutput() SignonPolicyRulesRuleOutput
+	ToSignonPolicyRulesRuleOutputWithContext(context.Context) SignonPolicyRulesRuleOutput
+}
+
+type SignonPolicyRulesRuleArgs struct {
+	// Access decision: ALLOW or DENY.
+	Access pulumi.StringPtrInput `pulumi:"access"`
+	// List of authenticator constraints as JSON-encoded strings.
+	Constraints pulumi.StringArrayInput `pulumi:"constraints"`
+	// Custom Okta Expression Language condition for advanced matching.
+	CustomExpression pulumi.StringPtrInput `pulumi:"customExpression"`
+	// Set of device assurance policy IDs to include.
+	DeviceAssurancesIncludeds pulumi.StringArrayInput `pulumi:"deviceAssurancesIncludeds"`
+	// Require device to be managed by a device management system.
+	DeviceIsManaged pulumi.BoolPtrInput `pulumi:"deviceIsManaged"`
+	// Require device to be registered with Okta Verify.
+	DeviceIsRegistered pulumi.BoolPtrInput `pulumi:"deviceIsRegistered"`
+	// Number of factors required: 1FA or 2FA.
+	FactorMode pulumi.StringPtrInput `pulumi:"factorMode"`
+	// Set of group IDs to exclude from this rule.
+	GroupsExcludeds pulumi.StringArrayInput `pulumi:"groupsExcludeds"`
+	// Set of group IDs to include in this rule.
+	GroupsIncludeds pulumi.StringArrayInput `pulumi:"groupsIncludeds"`
+	// (String) - The ID of this resource (same as `policyId`).
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Inactivity period before re-authentication in ISO 8601 duration format.
+	InactivityPeriod pulumi.StringPtrInput `pulumi:"inactivityPeriod"`
+	// Policy Rule Name. Must be unique within the policy.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Network selection mode: ANYWHERE, ZONE, ON_NETWORK, or OFF_NETWORK.
+	NetworkConnection pulumi.StringPtrInput `pulumi:"networkConnection"`
+	// List of network zone IDs to exclude.
+	NetworkExcludes pulumi.StringArrayInput `pulumi:"networkExcludes"`
+	// List of network zone IDs to include.
+	NetworkIncludes pulumi.StringArrayInput `pulumi:"networkIncludes"`
+	// Platform conditions to include.
+	PlatformIncludes SignonPolicyRulesRulePlatformIncludeArrayInput `pulumi:"platformIncludes"`
+	// Priority of the rule. Lower numbers are evaluated first.
+	Priority pulumi.IntPtrInput `pulumi:"priority"`
+	// Re-authentication frequency in ISO 8601 duration format (e.g., PT2H for 2 hours).
+	ReAuthenticationFrequency pulumi.StringPtrInput `pulumi:"reAuthenticationFrequency"`
+	// Risk score level to match: ANY, LOW, MEDIUM, or HIGH.
+	RiskScore pulumi.StringPtrInput `pulumi:"riskScore"`
+	// Status of the rule: ACTIVE or INACTIVE.
+	Status pulumi.StringPtrInput `pulumi:"status"`
+	// Whether this is a system rule (e.g., Catch-all Rule). System rules cannot be modified.
+	System pulumi.BoolPtrInput `pulumi:"system"`
+	// Verification method type.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+	// Set of user type IDs to exclude.
+	UserTypesExcludeds pulumi.StringArrayInput `pulumi:"userTypesExcludeds"`
+	// Set of user type IDs to include.
+	UserTypesIncludeds pulumi.StringArrayInput `pulumi:"userTypesIncludeds"`
+	// Set of user IDs to exclude from this rule.
+	UsersExcludeds pulumi.StringArrayInput `pulumi:"usersExcludeds"`
+	// Set of user IDs to include in this rule.
+	UsersIncludeds pulumi.StringArrayInput `pulumi:"usersIncludeds"`
+}
+
+func (SignonPolicyRulesRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SignonPolicyRulesRule)(nil)).Elem()
+}
+
+func (i SignonPolicyRulesRuleArgs) ToSignonPolicyRulesRuleOutput() SignonPolicyRulesRuleOutput {
+	return i.ToSignonPolicyRulesRuleOutputWithContext(context.Background())
+}
+
+func (i SignonPolicyRulesRuleArgs) ToSignonPolicyRulesRuleOutputWithContext(ctx context.Context) SignonPolicyRulesRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SignonPolicyRulesRuleOutput)
+}
+
+// SignonPolicyRulesRuleArrayInput is an input type that accepts SignonPolicyRulesRuleArray and SignonPolicyRulesRuleArrayOutput values.
+// You can construct a concrete instance of `SignonPolicyRulesRuleArrayInput` via:
+//
+//	SignonPolicyRulesRuleArray{ SignonPolicyRulesRuleArgs{...} }
+type SignonPolicyRulesRuleArrayInput interface {
+	pulumi.Input
+
+	ToSignonPolicyRulesRuleArrayOutput() SignonPolicyRulesRuleArrayOutput
+	ToSignonPolicyRulesRuleArrayOutputWithContext(context.Context) SignonPolicyRulesRuleArrayOutput
+}
+
+type SignonPolicyRulesRuleArray []SignonPolicyRulesRuleInput
+
+func (SignonPolicyRulesRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SignonPolicyRulesRule)(nil)).Elem()
+}
+
+func (i SignonPolicyRulesRuleArray) ToSignonPolicyRulesRuleArrayOutput() SignonPolicyRulesRuleArrayOutput {
+	return i.ToSignonPolicyRulesRuleArrayOutputWithContext(context.Background())
+}
+
+func (i SignonPolicyRulesRuleArray) ToSignonPolicyRulesRuleArrayOutputWithContext(ctx context.Context) SignonPolicyRulesRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SignonPolicyRulesRuleArrayOutput)
+}
+
+type SignonPolicyRulesRuleOutput struct{ *pulumi.OutputState }
+
+func (SignonPolicyRulesRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SignonPolicyRulesRule)(nil)).Elem()
+}
+
+func (o SignonPolicyRulesRuleOutput) ToSignonPolicyRulesRuleOutput() SignonPolicyRulesRuleOutput {
+	return o
+}
+
+func (o SignonPolicyRulesRuleOutput) ToSignonPolicyRulesRuleOutputWithContext(ctx context.Context) SignonPolicyRulesRuleOutput {
+	return o
+}
+
+// Access decision: ALLOW or DENY.
+func (o SignonPolicyRulesRuleOutput) Access() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SignonPolicyRulesRule) *string { return v.Access }).(pulumi.StringPtrOutput)
+}
+
+// List of authenticator constraints as JSON-encoded strings.
+func (o SignonPolicyRulesRuleOutput) Constraints() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SignonPolicyRulesRule) []string { return v.Constraints }).(pulumi.StringArrayOutput)
+}
+
+// Custom Okta Expression Language condition for advanced matching.
+func (o SignonPolicyRulesRuleOutput) CustomExpression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SignonPolicyRulesRule) *string { return v.CustomExpression }).(pulumi.StringPtrOutput)
+}
+
+// Set of device assurance policy IDs to include.
+func (o SignonPolicyRulesRuleOutput) DeviceAssurancesIncludeds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SignonPolicyRulesRule) []string { return v.DeviceAssurancesIncludeds }).(pulumi.StringArrayOutput)
+}
+
+// Require device to be managed by a device management system.
+func (o SignonPolicyRulesRuleOutput) DeviceIsManaged() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SignonPolicyRulesRule) *bool { return v.DeviceIsManaged }).(pulumi.BoolPtrOutput)
+}
+
+// Require device to be registered with Okta Verify.
+func (o SignonPolicyRulesRuleOutput) DeviceIsRegistered() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SignonPolicyRulesRule) *bool { return v.DeviceIsRegistered }).(pulumi.BoolPtrOutput)
+}
+
+// Number of factors required: 1FA or 2FA.
+func (o SignonPolicyRulesRuleOutput) FactorMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SignonPolicyRulesRule) *string { return v.FactorMode }).(pulumi.StringPtrOutput)
+}
+
+// Set of group IDs to exclude from this rule.
+func (o SignonPolicyRulesRuleOutput) GroupsExcludeds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SignonPolicyRulesRule) []string { return v.GroupsExcludeds }).(pulumi.StringArrayOutput)
+}
+
+// Set of group IDs to include in this rule.
+func (o SignonPolicyRulesRuleOutput) GroupsIncludeds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SignonPolicyRulesRule) []string { return v.GroupsIncludeds }).(pulumi.StringArrayOutput)
+}
+
+// (String) - The ID of this resource (same as `policyId`).
+func (o SignonPolicyRulesRuleOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SignonPolicyRulesRule) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// Inactivity period before re-authentication in ISO 8601 duration format.
+func (o SignonPolicyRulesRuleOutput) InactivityPeriod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SignonPolicyRulesRule) *string { return v.InactivityPeriod }).(pulumi.StringPtrOutput)
+}
+
+// Policy Rule Name. Must be unique within the policy.
+func (o SignonPolicyRulesRuleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v SignonPolicyRulesRule) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Network selection mode: ANYWHERE, ZONE, ON_NETWORK, or OFF_NETWORK.
+func (o SignonPolicyRulesRuleOutput) NetworkConnection() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SignonPolicyRulesRule) *string { return v.NetworkConnection }).(pulumi.StringPtrOutput)
+}
+
+// List of network zone IDs to exclude.
+func (o SignonPolicyRulesRuleOutput) NetworkExcludes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SignonPolicyRulesRule) []string { return v.NetworkExcludes }).(pulumi.StringArrayOutput)
+}
+
+// List of network zone IDs to include.
+func (o SignonPolicyRulesRuleOutput) NetworkIncludes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SignonPolicyRulesRule) []string { return v.NetworkIncludes }).(pulumi.StringArrayOutput)
+}
+
+// Platform conditions to include.
+func (o SignonPolicyRulesRuleOutput) PlatformIncludes() SignonPolicyRulesRulePlatformIncludeArrayOutput {
+	return o.ApplyT(func(v SignonPolicyRulesRule) []SignonPolicyRulesRulePlatformInclude { return v.PlatformIncludes }).(SignonPolicyRulesRulePlatformIncludeArrayOutput)
+}
+
+// Priority of the rule. Lower numbers are evaluated first.
+func (o SignonPolicyRulesRuleOutput) Priority() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SignonPolicyRulesRule) *int { return v.Priority }).(pulumi.IntPtrOutput)
+}
+
+// Re-authentication frequency in ISO 8601 duration format (e.g., PT2H for 2 hours).
+func (o SignonPolicyRulesRuleOutput) ReAuthenticationFrequency() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SignonPolicyRulesRule) *string { return v.ReAuthenticationFrequency }).(pulumi.StringPtrOutput)
+}
+
+// Risk score level to match: ANY, LOW, MEDIUM, or HIGH.
+func (o SignonPolicyRulesRuleOutput) RiskScore() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SignonPolicyRulesRule) *string { return v.RiskScore }).(pulumi.StringPtrOutput)
+}
+
+// Status of the rule: ACTIVE or INACTIVE.
+func (o SignonPolicyRulesRuleOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SignonPolicyRulesRule) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+// Whether this is a system rule (e.g., Catch-all Rule). System rules cannot be modified.
+func (o SignonPolicyRulesRuleOutput) System() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SignonPolicyRulesRule) *bool { return v.System }).(pulumi.BoolPtrOutput)
+}
+
+// Verification method type.
+func (o SignonPolicyRulesRuleOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SignonPolicyRulesRule) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// Set of user type IDs to exclude.
+func (o SignonPolicyRulesRuleOutput) UserTypesExcludeds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SignonPolicyRulesRule) []string { return v.UserTypesExcludeds }).(pulumi.StringArrayOutput)
+}
+
+// Set of user type IDs to include.
+func (o SignonPolicyRulesRuleOutput) UserTypesIncludeds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SignonPolicyRulesRule) []string { return v.UserTypesIncludeds }).(pulumi.StringArrayOutput)
+}
+
+// Set of user IDs to exclude from this rule.
+func (o SignonPolicyRulesRuleOutput) UsersExcludeds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SignonPolicyRulesRule) []string { return v.UsersExcludeds }).(pulumi.StringArrayOutput)
+}
+
+// Set of user IDs to include in this rule.
+func (o SignonPolicyRulesRuleOutput) UsersIncludeds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SignonPolicyRulesRule) []string { return v.UsersIncludeds }).(pulumi.StringArrayOutput)
+}
+
+type SignonPolicyRulesRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (SignonPolicyRulesRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SignonPolicyRulesRule)(nil)).Elem()
+}
+
+func (o SignonPolicyRulesRuleArrayOutput) ToSignonPolicyRulesRuleArrayOutput() SignonPolicyRulesRuleArrayOutput {
+	return o
+}
+
+func (o SignonPolicyRulesRuleArrayOutput) ToSignonPolicyRulesRuleArrayOutputWithContext(ctx context.Context) SignonPolicyRulesRuleArrayOutput {
+	return o
+}
+
+func (o SignonPolicyRulesRuleArrayOutput) Index(i pulumi.IntInput) SignonPolicyRulesRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SignonPolicyRulesRule {
+		return vs[0].([]SignonPolicyRulesRule)[vs[1].(int)]
+	}).(SignonPolicyRulesRuleOutput)
+}
+
+type SignonPolicyRulesRulePlatformInclude struct {
+	// Custom OS expression for advanced matching.
+	OsExpression *string `pulumi:"osExpression"`
+	// OS type: ANY, IOS, ANDROID, WINDOWS, OSX, MACOS, CHROMEOS, or OTHER.
+	OsType *string `pulumi:"osType"`
+	// Platform type: ANY, MOBILE, or DESKTOP.
+	Type *string `pulumi:"type"`
+}
+
+// SignonPolicyRulesRulePlatformIncludeInput is an input type that accepts SignonPolicyRulesRulePlatformIncludeArgs and SignonPolicyRulesRulePlatformIncludeOutput values.
+// You can construct a concrete instance of `SignonPolicyRulesRulePlatformIncludeInput` via:
+//
+//	SignonPolicyRulesRulePlatformIncludeArgs{...}
+type SignonPolicyRulesRulePlatformIncludeInput interface {
+	pulumi.Input
+
+	ToSignonPolicyRulesRulePlatformIncludeOutput() SignonPolicyRulesRulePlatformIncludeOutput
+	ToSignonPolicyRulesRulePlatformIncludeOutputWithContext(context.Context) SignonPolicyRulesRulePlatformIncludeOutput
+}
+
+type SignonPolicyRulesRulePlatformIncludeArgs struct {
+	// Custom OS expression for advanced matching.
+	OsExpression pulumi.StringPtrInput `pulumi:"osExpression"`
+	// OS type: ANY, IOS, ANDROID, WINDOWS, OSX, MACOS, CHROMEOS, or OTHER.
+	OsType pulumi.StringPtrInput `pulumi:"osType"`
+	// Platform type: ANY, MOBILE, or DESKTOP.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (SignonPolicyRulesRulePlatformIncludeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SignonPolicyRulesRulePlatformInclude)(nil)).Elem()
+}
+
+func (i SignonPolicyRulesRulePlatformIncludeArgs) ToSignonPolicyRulesRulePlatformIncludeOutput() SignonPolicyRulesRulePlatformIncludeOutput {
+	return i.ToSignonPolicyRulesRulePlatformIncludeOutputWithContext(context.Background())
+}
+
+func (i SignonPolicyRulesRulePlatformIncludeArgs) ToSignonPolicyRulesRulePlatformIncludeOutputWithContext(ctx context.Context) SignonPolicyRulesRulePlatformIncludeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SignonPolicyRulesRulePlatformIncludeOutput)
+}
+
+// SignonPolicyRulesRulePlatformIncludeArrayInput is an input type that accepts SignonPolicyRulesRulePlatformIncludeArray and SignonPolicyRulesRulePlatformIncludeArrayOutput values.
+// You can construct a concrete instance of `SignonPolicyRulesRulePlatformIncludeArrayInput` via:
+//
+//	SignonPolicyRulesRulePlatformIncludeArray{ SignonPolicyRulesRulePlatformIncludeArgs{...} }
+type SignonPolicyRulesRulePlatformIncludeArrayInput interface {
+	pulumi.Input
+
+	ToSignonPolicyRulesRulePlatformIncludeArrayOutput() SignonPolicyRulesRulePlatformIncludeArrayOutput
+	ToSignonPolicyRulesRulePlatformIncludeArrayOutputWithContext(context.Context) SignonPolicyRulesRulePlatformIncludeArrayOutput
+}
+
+type SignonPolicyRulesRulePlatformIncludeArray []SignonPolicyRulesRulePlatformIncludeInput
+
+func (SignonPolicyRulesRulePlatformIncludeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SignonPolicyRulesRulePlatformInclude)(nil)).Elem()
+}
+
+func (i SignonPolicyRulesRulePlatformIncludeArray) ToSignonPolicyRulesRulePlatformIncludeArrayOutput() SignonPolicyRulesRulePlatformIncludeArrayOutput {
+	return i.ToSignonPolicyRulesRulePlatformIncludeArrayOutputWithContext(context.Background())
+}
+
+func (i SignonPolicyRulesRulePlatformIncludeArray) ToSignonPolicyRulesRulePlatformIncludeArrayOutputWithContext(ctx context.Context) SignonPolicyRulesRulePlatformIncludeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SignonPolicyRulesRulePlatformIncludeArrayOutput)
+}
+
+type SignonPolicyRulesRulePlatformIncludeOutput struct{ *pulumi.OutputState }
+
+func (SignonPolicyRulesRulePlatformIncludeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SignonPolicyRulesRulePlatformInclude)(nil)).Elem()
+}
+
+func (o SignonPolicyRulesRulePlatformIncludeOutput) ToSignonPolicyRulesRulePlatformIncludeOutput() SignonPolicyRulesRulePlatformIncludeOutput {
+	return o
+}
+
+func (o SignonPolicyRulesRulePlatformIncludeOutput) ToSignonPolicyRulesRulePlatformIncludeOutputWithContext(ctx context.Context) SignonPolicyRulesRulePlatformIncludeOutput {
+	return o
+}
+
+// Custom OS expression for advanced matching.
+func (o SignonPolicyRulesRulePlatformIncludeOutput) OsExpression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SignonPolicyRulesRulePlatformInclude) *string { return v.OsExpression }).(pulumi.StringPtrOutput)
+}
+
+// OS type: ANY, IOS, ANDROID, WINDOWS, OSX, MACOS, CHROMEOS, or OTHER.
+func (o SignonPolicyRulesRulePlatformIncludeOutput) OsType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SignonPolicyRulesRulePlatformInclude) *string { return v.OsType }).(pulumi.StringPtrOutput)
+}
+
+// Platform type: ANY, MOBILE, or DESKTOP.
+func (o SignonPolicyRulesRulePlatformIncludeOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SignonPolicyRulesRulePlatformInclude) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type SignonPolicyRulesRulePlatformIncludeArrayOutput struct{ *pulumi.OutputState }
+
+func (SignonPolicyRulesRulePlatformIncludeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SignonPolicyRulesRulePlatformInclude)(nil)).Elem()
+}
+
+func (o SignonPolicyRulesRulePlatformIncludeArrayOutput) ToSignonPolicyRulesRulePlatformIncludeArrayOutput() SignonPolicyRulesRulePlatformIncludeArrayOutput {
+	return o
+}
+
+func (o SignonPolicyRulesRulePlatformIncludeArrayOutput) ToSignonPolicyRulesRulePlatformIncludeArrayOutputWithContext(ctx context.Context) SignonPolicyRulesRulePlatformIncludeArrayOutput {
+	return o
+}
+
+func (o SignonPolicyRulesRulePlatformIncludeArrayOutput) Index(i pulumi.IntInput) SignonPolicyRulesRulePlatformIncludeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SignonPolicyRulesRulePlatformInclude {
+		return vs[0].([]SignonPolicyRulesRulePlatformInclude)[vs[1].(int)]
+	}).(SignonPolicyRulesRulePlatformIncludeOutput)
+}
+
 type GetConnectionProfile struct {
 	// Defines the method of authentication.
 	AuthScheme string `pulumi:"authScheme"`
@@ -6160,6 +6597,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SamlAttributeStatementArrayInput)(nil)).Elem(), SamlAttributeStatementArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SamlKeyInput)(nil)).Elem(), SamlKeyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SamlKeyArrayInput)(nil)).Elem(), SamlKeyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SignonPolicyRulesRuleInput)(nil)).Elem(), SignonPolicyRulesRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SignonPolicyRulesRuleArrayInput)(nil)).Elem(), SignonPolicyRulesRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SignonPolicyRulesRulePlatformIncludeInput)(nil)).Elem(), SignonPolicyRulesRulePlatformIncludeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SignonPolicyRulesRulePlatformIncludeArrayInput)(nil)).Elem(), SignonPolicyRulesRulePlatformIncludeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetConnectionProfileInput)(nil)).Elem(), GetConnectionProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetConnectionProfilePtrInput)(nil)).Elem(), GetConnectionProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFeaturesCapabilitiesInput)(nil)).Elem(), GetFeaturesCapabilitiesArgs{})
@@ -6236,6 +6677,10 @@ func init() {
 	pulumi.RegisterOutputType(SamlAttributeStatementArrayOutput{})
 	pulumi.RegisterOutputType(SamlKeyOutput{})
 	pulumi.RegisterOutputType(SamlKeyArrayOutput{})
+	pulumi.RegisterOutputType(SignonPolicyRulesRuleOutput{})
+	pulumi.RegisterOutputType(SignonPolicyRulesRuleArrayOutput{})
+	pulumi.RegisterOutputType(SignonPolicyRulesRulePlatformIncludeOutput{})
+	pulumi.RegisterOutputType(SignonPolicyRulesRulePlatformIncludeArrayOutput{})
 	pulumi.RegisterOutputType(GetConnectionProfileOutput{})
 	pulumi.RegisterOutputType(GetConnectionProfilePtrOutput{})
 	pulumi.RegisterOutputType(GetFeaturesCapabilitiesOutput{})

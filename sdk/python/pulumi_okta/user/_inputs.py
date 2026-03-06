@@ -17,6 +17,8 @@ from .. import _utilities
 __all__ = [
     'UserPasswordHashArgs',
     'UserPasswordHashArgsDict',
+    'UserTypeArgs',
+    'UserTypeArgsDict',
     'GetUserSearchArgs',
     'GetUserSearchArgsDict',
     'GetUsersSearchArgs',
@@ -128,6 +130,34 @@ class UserPasswordHashArgs:
     @work_factor.setter
     def work_factor(self, value: Optional[pulumi.Input[_builtins.int]]):
         pulumi.set(self, "work_factor", value)
+
+
+class UserTypeArgsDict(TypedDict):
+    id: pulumi.Input[_builtins.str]
+    """
+    ID of the user_type
+    """
+
+@pulumi.input_type
+class UserTypeArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] id: ID of the user_type
+        """
+        pulumi.set(__self__, "id", id)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[_builtins.str]:
+        """
+        ID of the user_type
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "id", value)
 
 
 class GetUserSearchArgsDict(TypedDict):

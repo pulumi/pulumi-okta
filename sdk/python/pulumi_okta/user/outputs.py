@@ -13,12 +13,16 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'UserPasswordHash',
+    'UserType',
     'GetUserSearchResult',
+    'GetUserTypeResult',
     'GetUsersSearchResult',
     'GetUsersUserResult',
+    'GetUsersUserTypeResult',
 ]
 
 @pulumi.output_type
@@ -106,6 +110,24 @@ class UserPasswordHash(dict):
 
 
 @pulumi.output_type
+class UserType(dict):
+    def __init__(__self__, *,
+                 id: _builtins.str):
+        """
+        :param _builtins.str id: ID of the user_type
+        """
+        pulumi.set(__self__, "id", id)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.str:
+        """
+        ID of the user_type
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
 class GetUserSearchResult(dict):
     def __init__(__self__, *,
                  comparison: Optional[_builtins.str] = None,
@@ -150,6 +172,24 @@ class GetUserSearchResult(dict):
     @pulumi.getter
     def value(self) -> Optional[_builtins.str]:
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetUserTypeResult(dict):
+    def __init__(__self__, *,
+                 id: _builtins.str):
+        """
+        :param _builtins.str id: The ID of this resource.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.str:
+        """
+        The ID of this resource.
+        """
+        return pulumi.get(self, "id")
 
 
 @pulumi.output_type
@@ -238,10 +278,12 @@ class GetUsersUserResult(dict):
                  street_address: _builtins.str,
                  timezone: _builtins.str,
                  title: _builtins.str,
+                 types: Sequence['outputs.GetUsersUserTypeResult'],
                  user_type: _builtins.str,
                  zip_code: _builtins.str):
         """
         :param _builtins.str realm_id: The Realm ID associated with the user.
+        :param Sequence['GetUsersUserTypeArgs'] types: User type
         """
         pulumi.set(__self__, "admin_roles", admin_roles)
         pulumi.set(__self__, "city", city)
@@ -279,6 +321,7 @@ class GetUsersUserResult(dict):
         pulumi.set(__self__, "street_address", street_address)
         pulumi.set(__self__, "timezone", timezone)
         pulumi.set(__self__, "title", title)
+        pulumi.set(__self__, "types", types)
         pulumi.set(__self__, "user_type", user_type)
         pulumi.set(__self__, "zip_code", zip_code)
 
@@ -466,6 +509,14 @@ class GetUsersUserResult(dict):
         return pulumi.get(self, "title")
 
     @_builtins.property
+    @pulumi.getter
+    def types(self) -> Sequence['outputs.GetUsersUserTypeResult']:
+        """
+        User type
+        """
+        return pulumi.get(self, "types")
+
+    @_builtins.property
     @pulumi.getter(name="userType")
     def user_type(self) -> _builtins.str:
         return pulumi.get(self, "user_type")
@@ -474,5 +525,23 @@ class GetUsersUserResult(dict):
     @pulumi.getter(name="zipCode")
     def zip_code(self) -> _builtins.str:
         return pulumi.get(self, "zip_code")
+
+
+@pulumi.output_type
+class GetUsersUserTypeResult(dict):
+    def __init__(__self__, *,
+                 id: _builtins.str):
+        """
+        :param _builtins.str id: The ID of this resource.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.str:
+        """
+        The ID of this resource.
+        """
+        return pulumi.get(self, "id")
 
 

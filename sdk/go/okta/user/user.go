@@ -176,6 +176,8 @@ type User struct {
 	Timezone pulumi.StringPtrOutput `pulumi:"timezone"`
 	// User title
 	Title pulumi.StringPtrOutput `pulumi:"title"`
+	// Specifies a user type other than the default user type
+	Type UserTypeTypeOutput `pulumi:"type"`
 	// User employee type
 	UserType pulumi.StringPtrOutput `pulumi:"userType"`
 	// User zipcode or postal code
@@ -325,6 +327,8 @@ type userState struct {
 	Timezone *string `pulumi:"timezone"`
 	// User title
 	Title *string `pulumi:"title"`
+	// Specifies a user type other than the default user type
+	Type *UserTypeType `pulumi:"type"`
 	// User employee type
 	UserType *string `pulumi:"userType"`
 	// User zipcode or postal code
@@ -418,6 +422,8 @@ type UserState struct {
 	Timezone pulumi.StringPtrInput
 	// User title
 	Title pulumi.StringPtrInput
+	// Specifies a user type other than the default user type
+	Type UserTypeTypePtrInput
 	// User employee type
 	UserType pulumi.StringPtrInput
 	// User zipcode or postal code
@@ -513,6 +519,8 @@ type userArgs struct {
 	Timezone *string `pulumi:"timezone"`
 	// User title
 	Title *string `pulumi:"title"`
+	// Specifies a user type other than the default user type
+	Type *UserTypeType `pulumi:"type"`
 	// User employee type
 	UserType *string `pulumi:"userType"`
 	// User zipcode or postal code
@@ -605,6 +613,8 @@ type UserArgs struct {
 	Timezone pulumi.StringPtrInput
 	// User title
 	Title pulumi.StringPtrInput
+	// Specifies a user type other than the default user type
+	Type UserTypeTypePtrInput
 	// User employee type
 	UserType pulumi.StringPtrInput
 	// User zipcode or postal code
@@ -908,6 +918,11 @@ func (o UserOutput) Timezone() pulumi.StringPtrOutput {
 // User title
 func (o UserOutput) Title() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.Title }).(pulumi.StringPtrOutput)
+}
+
+// Specifies a user type other than the default user type
+func (o UserOutput) Type() UserTypeTypeOutput {
+	return o.ApplyT(func(v *User) UserTypeTypeOutput { return v.Type }).(UserTypeTypeOutput)
 }
 
 // User employee type

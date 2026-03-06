@@ -87,7 +87,8 @@ type LookupOidcResult struct {
 	// The method of making a token request.
 	TokenBinding string `pulumi:"tokenBinding"`
 	// IdP Authorization Server (AS) endpoint to exchange the authorization code grant for an access token.
-	TokenUrl string `pulumi:"tokenUrl"`
+	TokenUrl    string `pulumi:"tokenUrl"`
+	TrustClaims bool   `pulumi:"trustClaims"`
 	// Type of idp.
 	Type string `pulumi:"type"`
 	// The method of making a user info request.
@@ -205,6 +206,10 @@ func (o LookupOidcResultOutput) TokenBinding() pulumi.StringOutput {
 // IdP Authorization Server (AS) endpoint to exchange the authorization code grant for an access token.
 func (o LookupOidcResultOutput) TokenUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupOidcResult) string { return v.TokenUrl }).(pulumi.StringOutput)
+}
+
+func (o LookupOidcResultOutput) TrustClaims() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupOidcResult) bool { return v.TrustClaims }).(pulumi.BoolOutput)
 }
 
 // Type of idp.

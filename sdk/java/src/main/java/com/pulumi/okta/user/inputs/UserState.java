@@ -6,6 +6,7 @@ package com.pulumi.okta.user.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.okta.user.inputs.UserPasswordHashArgs;
+import com.pulumi.okta.user.inputs.UserTypeArgs;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -657,6 +658,21 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Specifies a user type other than the default user type
+     * 
+     */
+    @Import(name="type")
+    private @Nullable Output<UserTypeArgs> type;
+
+    /**
+     * @return Specifies a user type other than the default user type
+     * 
+     */
+    public Optional<Output<UserTypeArgs>> type() {
+        return Optional.ofNullable(this.type);
+    }
+
+    /**
      * User employee type
      * 
      */
@@ -731,6 +747,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         this.streetAddress = $.streetAddress;
         this.timezone = $.timezone;
         this.title = $.title;
+        this.type = $.type;
         this.userType = $.userType;
         this.zipCode = $.zipCode;
     }
@@ -1651,6 +1668,27 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder title(String title) {
             return title(Output.of(title));
+        }
+
+        /**
+         * @param type Specifies a user type other than the default user type
+         * 
+         * @return builder
+         * 
+         */
+        public Builder type(@Nullable Output<UserTypeArgs> type) {
+            $.type = type;
+            return this;
+        }
+
+        /**
+         * @param type Specifies a user type other than the default user type
+         * 
+         * @return builder
+         * 
+         */
+        public Builder type(UserTypeArgs type) {
+            return type(Output.of(type));
         }
 
         /**

@@ -97,6 +97,7 @@ export interface GetSamlResult {
      * Expression to generate or transform a unique username for the IdP user.
      */
     readonly subjectFormats: string[];
+    readonly trustClaims: boolean;
     /**
      * Type of idp.
      */

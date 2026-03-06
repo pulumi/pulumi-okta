@@ -44,15 +44,15 @@ public final class PreviewSigninPageArgs extends com.pulumi.resources.ResourceAr
      * page content of the preview signin page
      * 
      */
-    @Import(name="pageContent")
-    private @Nullable Output<String> pageContent;
+    @Import(name="pageContent", required=true)
+    private Output<String> pageContent;
 
     /**
      * @return page content of the preview signin page
      * 
      */
-    public Optional<Output<String>> pageContent() {
-        return Optional.ofNullable(this.pageContent);
+    public Output<String> pageContent() {
+        return this.pageContent;
     }
 
     @Import(name="widgetCustomizations")
@@ -71,8 +71,8 @@ public final class PreviewSigninPageArgs extends com.pulumi.resources.ResourceAr
      * 		6.6, 6.7, 6.8, 6.9, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, 7.7, 7.8, 7.9, 7.10, 7.11, 7.12, 7.13.
      * 
      */
-    @Import(name="widgetVersion")
-    private @Nullable Output<String> widgetVersion;
+    @Import(name="widgetVersion", required=true)
+    private Output<String> widgetVersion;
 
     /**
      * @return widget version specified as a Semver. The following are currently supported
@@ -83,8 +83,8 @@ public final class PreviewSigninPageArgs extends com.pulumi.resources.ResourceAr
      * 		6.6, 6.7, 6.8, 6.9, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, 7.7, 7.8, 7.9, 7.10, 7.11, 7.12, 7.13.
      * 
      */
-    public Optional<Output<String>> widgetVersion() {
-        return Optional.ofNullable(this.widgetVersion);
+    public Output<String> widgetVersion() {
+        return this.widgetVersion;
     }
 
     private PreviewSigninPageArgs() {}
@@ -151,7 +151,7 @@ public final class PreviewSigninPageArgs extends com.pulumi.resources.ResourceAr
          * @return builder
          * 
          */
-        public Builder pageContent(@Nullable Output<String> pageContent) {
+        public Builder pageContent(Output<String> pageContent) {
             $.pageContent = pageContent;
             return this;
         }
@@ -186,7 +186,7 @@ public final class PreviewSigninPageArgs extends com.pulumi.resources.ResourceAr
          * @return builder
          * 
          */
-        public Builder widgetVersion(@Nullable Output<String> widgetVersion) {
+        public Builder widgetVersion(Output<String> widgetVersion) {
             $.widgetVersion = widgetVersion;
             return this;
         }
@@ -209,6 +209,12 @@ public final class PreviewSigninPageArgs extends com.pulumi.resources.ResourceAr
         public PreviewSigninPageArgs build() {
             if ($.brandId == null) {
                 throw new MissingRequiredPropertyException("PreviewSigninPageArgs", "brandId");
+            }
+            if ($.pageContent == null) {
+                throw new MissingRequiredPropertyException("PreviewSigninPageArgs", "pageContent");
+            }
+            if ($.widgetVersion == null) {
+                throw new MissingRequiredPropertyException("PreviewSigninPageArgs", "widgetVersion");
             }
             return $;
         }

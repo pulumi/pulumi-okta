@@ -111,7 +111,49 @@ class AppGroupAssignments(pulumi.CustomResource):
         """
         Assigns groups to an application. This resource allows you to create multiple App Group assignments.
 
-        **Important**: Do not use in conjunction with for_each
+        **Important**: Do not use `for_each` on this resource to iterate over groups for the same `app_id`. This resource's Read implementation fetches **all** groups currently assigned to the app from the Okta API — not just the ones declared in config. When multiple instances share the same `app_id`, the following infinite loop occurs on every apply:
+
+        1. Each instance's update deletes the groups it does not own from Okta.
+        2. Each instance's Read (called at the end of update) re-fetches all groups from the API and absorbs the other instance's groups back into state as drift.
+        3. State after apply is identical to state before apply — the plan never converges and the same diff reappears on every `pulumi preview`.
+
+        Since this resource natively supports multiple `group` blocks, use a `dynamic` block instead:
+
+        **Bad** — creates two conflicting resource instances for the same app:
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+        import pulumi_std as std
+
+        this = []
+        for range in [{"value": i} for i in range(0, std.index.toset(input=[
+            group-a,
+            group-b,
+        ]).result)]:
+            this.append(okta.AppGroupAssignments(f"this-{range['value']}",
+                app_id=this_okta_app_bookmark["id"],
+                groups=[{
+                    "id": range["value"],
+                }]))
+        ```
+
+        **Good** — a single resource instance manages all groups for the app:
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+        import pulumi_std as std
+
+        this = okta.AppGroupAssignments("this",
+            groups=[{
+                "id": entry["value"],
+            } for entry in [{"key": k, "value": v} for k, v in std.index.toset(input=[
+                "group-a",
+                "group-b",
+            ])["result"]]],
+            app_id=this_okta_app_bookmark["id"])
+        ```
+
+        > **Note:** Using `for_each` on this resource is safe when each instance targets a **different** `app_id`, for example when assigning the same group to multiple applications.
 
         ## Example Usage
 
@@ -158,7 +200,49 @@ class AppGroupAssignments(pulumi.CustomResource):
         """
         Assigns groups to an application. This resource allows you to create multiple App Group assignments.
 
-        **Important**: Do not use in conjunction with for_each
+        **Important**: Do not use `for_each` on this resource to iterate over groups for the same `app_id`. This resource's Read implementation fetches **all** groups currently assigned to the app from the Okta API — not just the ones declared in config. When multiple instances share the same `app_id`, the following infinite loop occurs on every apply:
+
+        1. Each instance's update deletes the groups it does not own from Okta.
+        2. Each instance's Read (called at the end of update) re-fetches all groups from the API and absorbs the other instance's groups back into state as drift.
+        3. State after apply is identical to state before apply — the plan never converges and the same diff reappears on every `pulumi preview`.
+
+        Since this resource natively supports multiple `group` blocks, use a `dynamic` block instead:
+
+        **Bad** — creates two conflicting resource instances for the same app:
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+        import pulumi_std as std
+
+        this = []
+        for range in [{"value": i} for i in range(0, std.index.toset(input=[
+            group-a,
+            group-b,
+        ]).result)]:
+            this.append(okta.AppGroupAssignments(f"this-{range['value']}",
+                app_id=this_okta_app_bookmark["id"],
+                groups=[{
+                    "id": range["value"],
+                }]))
+        ```
+
+        **Good** — a single resource instance manages all groups for the app:
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+        import pulumi_std as std
+
+        this = okta.AppGroupAssignments("this",
+            groups=[{
+                "id": entry["value"],
+            } for entry in [{"key": k, "value": v} for k, v in std.index.toset(input=[
+                "group-a",
+                "group-b",
+            ])["result"]]],
+            app_id=this_okta_app_bookmark["id"])
+        ```
+
+        > **Note:** Using `for_each` on this resource is safe when each instance targets a **different** `app_id`, for example when assigning the same group to multiple applications.
 
         ## Example Usage
 

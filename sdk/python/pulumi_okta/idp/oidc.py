@@ -50,6 +50,7 @@ class OidcArgs:
                  subject_match_attribute: Optional[pulumi.Input[_builtins.str]] = None,
                  subject_match_type: Optional[pulumi.Input[_builtins.str]] = None,
                  suspended_action: Optional[pulumi.Input[_builtins.str]] = None,
+                 trust_claims: Optional[pulumi.Input[_builtins.bool]] = None,
                  user_info_binding: Optional[pulumi.Input[_builtins.str]] = None,
                  user_info_url: Optional[pulumi.Input[_builtins.str]] = None,
                  username_template: Optional[pulumi.Input[_builtins.str]] = None):
@@ -87,6 +88,7 @@ class OidcArgs:
         :param pulumi.Input[_builtins.str] subject_match_attribute: Okta user profile attribute for matching transformed IdP username. Only for matchType `CUSTOM_ATTRIBUTE`.
         :param pulumi.Input[_builtins.str] subject_match_type: Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `USERNAME`. It can be set to `USERNAME`, `EMAIL`, `USERNAME_OR_EMAIL` or `CUSTOM_ATTRIBUTE`.
         :param pulumi.Input[_builtins.str] suspended_action: Action for a previously suspended IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`
+        :param pulumi.Input[_builtins.bool] trust_claims: Indicates whether to trust authentication claims from the IdP.
         :param pulumi.Input[_builtins.str] user_info_url: Protected resource endpoint that returns claims about the authenticated user.
         :param pulumi.Input[_builtins.str] username_template: Okta EL Expression to generate or transform a unique username for the IdP user. Default: `idpuser.email`
         """
@@ -142,6 +144,8 @@ class OidcArgs:
             pulumi.set(__self__, "subject_match_type", subject_match_type)
         if suspended_action is not None:
             pulumi.set(__self__, "suspended_action", suspended_action)
+        if trust_claims is not None:
+            pulumi.set(__self__, "trust_claims", trust_claims)
         if user_info_binding is not None:
             pulumi.set(__self__, "user_info_binding", user_info_binding)
         if user_info_url is not None:
@@ -522,6 +526,18 @@ class OidcArgs:
         pulumi.set(self, "suspended_action", value)
 
     @_builtins.property
+    @pulumi.getter(name="trustClaims")
+    def trust_claims(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Indicates whether to trust authentication claims from the IdP.
+        """
+        return pulumi.get(self, "trust_claims")
+
+    @trust_claims.setter
+    def trust_claims(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "trust_claims", value)
+
+    @_builtins.property
     @pulumi.getter(name="userInfoBinding")
     def user_info_binding(self) -> Optional[pulumi.Input[_builtins.str]]:
         return pulumi.get(self, "user_info_binding")
@@ -589,6 +605,7 @@ class _OidcState:
                  suspended_action: Optional[pulumi.Input[_builtins.str]] = None,
                  token_binding: Optional[pulumi.Input[_builtins.str]] = None,
                  token_url: Optional[pulumi.Input[_builtins.str]] = None,
+                 trust_claims: Optional[pulumi.Input[_builtins.bool]] = None,
                  type: Optional[pulumi.Input[_builtins.str]] = None,
                  user_info_binding: Optional[pulumi.Input[_builtins.str]] = None,
                  user_info_url: Optional[pulumi.Input[_builtins.str]] = None,
@@ -628,6 +645,7 @@ class _OidcState:
         :param pulumi.Input[_builtins.str] suspended_action: Action for a previously suspended IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`
         :param pulumi.Input[_builtins.str] token_binding: The method of making a token request. It can be set to `HTTP-POST` or `HTTP-REDIRECT`.
         :param pulumi.Input[_builtins.str] token_url: IdP Authorization Server (AS) endpoint to exchange the authorization code grant for an access token.
+        :param pulumi.Input[_builtins.bool] trust_claims: Indicates whether to trust authentication claims from the IdP.
         :param pulumi.Input[_builtins.str] type: Type of OIDC IdP.
         :param pulumi.Input[_builtins.str] user_info_url: Protected resource endpoint that returns claims about the authenticated user.
         :param pulumi.Input[_builtins.str] user_type_id: User type ID. Can be used as `target_id` in the `profile.Mapping` resource.
@@ -695,6 +713,8 @@ class _OidcState:
             pulumi.set(__self__, "token_binding", token_binding)
         if token_url is not None:
             pulumi.set(__self__, "token_url", token_url)
+        if trust_claims is not None:
+            pulumi.set(__self__, "trust_claims", trust_claims)
         if type is not None:
             pulumi.set(__self__, "type", type)
         if user_info_binding is not None:
@@ -1079,6 +1099,18 @@ class _OidcState:
         pulumi.set(self, "token_url", value)
 
     @_builtins.property
+    @pulumi.getter(name="trustClaims")
+    def trust_claims(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Indicates whether to trust authentication claims from the IdP.
+        """
+        return pulumi.get(self, "trust_claims")
+
+    @trust_claims.setter
+    def trust_claims(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "trust_claims", value)
+
+    @_builtins.property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -1173,6 +1205,7 @@ class Oidc(pulumi.CustomResource):
                  suspended_action: Optional[pulumi.Input[_builtins.str]] = None,
                  token_binding: Optional[pulumi.Input[_builtins.str]] = None,
                  token_url: Optional[pulumi.Input[_builtins.str]] = None,
+                 trust_claims: Optional[pulumi.Input[_builtins.bool]] = None,
                  user_info_binding: Optional[pulumi.Input[_builtins.str]] = None,
                  user_info_url: Optional[pulumi.Input[_builtins.str]] = None,
                  username_template: Optional[pulumi.Input[_builtins.str]] = None,
@@ -1243,6 +1276,7 @@ class Oidc(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] suspended_action: Action for a previously suspended IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`
         :param pulumi.Input[_builtins.str] token_binding: The method of making a token request. It can be set to `HTTP-POST` or `HTTP-REDIRECT`.
         :param pulumi.Input[_builtins.str] token_url: IdP Authorization Server (AS) endpoint to exchange the authorization code grant for an access token.
+        :param pulumi.Input[_builtins.bool] trust_claims: Indicates whether to trust authentication claims from the IdP.
         :param pulumi.Input[_builtins.str] user_info_url: Protected resource endpoint that returns claims about the authenticated user.
         :param pulumi.Input[_builtins.str] username_template: Okta EL Expression to generate or transform a unique username for the IdP user. Default: `idpuser.email`
         """
@@ -1331,6 +1365,7 @@ class Oidc(pulumi.CustomResource):
                  suspended_action: Optional[pulumi.Input[_builtins.str]] = None,
                  token_binding: Optional[pulumi.Input[_builtins.str]] = None,
                  token_url: Optional[pulumi.Input[_builtins.str]] = None,
+                 trust_claims: Optional[pulumi.Input[_builtins.bool]] = None,
                  user_info_binding: Optional[pulumi.Input[_builtins.str]] = None,
                  user_info_url: Optional[pulumi.Input[_builtins.str]] = None,
                  username_template: Optional[pulumi.Input[_builtins.str]] = None,
@@ -1394,6 +1429,7 @@ class Oidc(pulumi.CustomResource):
             if token_url is None and not opts.urn:
                 raise TypeError("Missing required property 'token_url'")
             __props__.__dict__["token_url"] = token_url
+            __props__.__dict__["trust_claims"] = trust_claims
             __props__.__dict__["user_info_binding"] = user_info_binding
             __props__.__dict__["user_info_url"] = user_info_url
             __props__.__dict__["username_template"] = username_template
@@ -1442,6 +1478,7 @@ class Oidc(pulumi.CustomResource):
             suspended_action: Optional[pulumi.Input[_builtins.str]] = None,
             token_binding: Optional[pulumi.Input[_builtins.str]] = None,
             token_url: Optional[pulumi.Input[_builtins.str]] = None,
+            trust_claims: Optional[pulumi.Input[_builtins.bool]] = None,
             type: Optional[pulumi.Input[_builtins.str]] = None,
             user_info_binding: Optional[pulumi.Input[_builtins.str]] = None,
             user_info_url: Optional[pulumi.Input[_builtins.str]] = None,
@@ -1485,6 +1522,7 @@ class Oidc(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] suspended_action: Action for a previously suspended IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`
         :param pulumi.Input[_builtins.str] token_binding: The method of making a token request. It can be set to `HTTP-POST` or `HTTP-REDIRECT`.
         :param pulumi.Input[_builtins.str] token_url: IdP Authorization Server (AS) endpoint to exchange the authorization code grant for an access token.
+        :param pulumi.Input[_builtins.bool] trust_claims: Indicates whether to trust authentication claims from the IdP.
         :param pulumi.Input[_builtins.str] type: Type of OIDC IdP.
         :param pulumi.Input[_builtins.str] user_info_url: Protected resource endpoint that returns claims about the authenticated user.
         :param pulumi.Input[_builtins.str] user_type_id: User type ID. Can be used as `target_id` in the `profile.Mapping` resource.
@@ -1525,6 +1563,7 @@ class Oidc(pulumi.CustomResource):
         __props__.__dict__["suspended_action"] = suspended_action
         __props__.__dict__["token_binding"] = token_binding
         __props__.__dict__["token_url"] = token_url
+        __props__.__dict__["trust_claims"] = trust_claims
         __props__.__dict__["type"] = type
         __props__.__dict__["user_info_binding"] = user_info_binding
         __props__.__dict__["user_info_url"] = user_info_url
@@ -1779,6 +1818,14 @@ class Oidc(pulumi.CustomResource):
         IdP Authorization Server (AS) endpoint to exchange the authorization code grant for an access token.
         """
         return pulumi.get(self, "token_url")
+
+    @_builtins.property
+    @pulumi.getter(name="trustClaims")
+    def trust_claims(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Indicates whether to trust authentication claims from the IdP.
+        """
+        return pulumi.get(self, "trust_claims")
 
     @_builtins.property
     @pulumi.getter

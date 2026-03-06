@@ -5,6 +5,7 @@ package com.pulumi.okta.network.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -152,6 +153,21 @@ public final class ZoneState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Set this parameter to true in your request when you update the `DefaultExemptIpZone` to allow IPs through the blocklist.
+     * 
+     */
+    @Import(name="setUsageAsExemptList")
+    private @Nullable Output<Boolean> setUsageAsExemptList;
+
+    /**
+     * @return Set this parameter to true in your request when you update the `DefaultExemptIpZone` to allow IPs through the blocklist.
+     * 
+     */
+    public Optional<Output<Boolean>> setUsageAsExemptList() {
+        return Optional.ofNullable(this.setUsageAsExemptList);
+    }
+
+    /**
      * Network Status - can either be `ACTIVE` or `INACTIVE` only
      * 
      */
@@ -208,6 +224,7 @@ public final class ZoneState extends com.pulumi.resources.ResourceArgs {
         this.ipServiceCategoriesIncludes = $.ipServiceCategoriesIncludes;
         this.name = $.name;
         this.proxies = $.proxies;
+        this.setUsageAsExemptList = $.setUsageAsExemptList;
         this.status = $.status;
         this.type = $.type;
         this.usage = $.usage;
@@ -488,6 +505,27 @@ public final class ZoneState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder proxies(String... proxies) {
             return proxies(List.of(proxies));
+        }
+
+        /**
+         * @param setUsageAsExemptList Set this parameter to true in your request when you update the `DefaultExemptIpZone` to allow IPs through the blocklist.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder setUsageAsExemptList(@Nullable Output<Boolean> setUsageAsExemptList) {
+            $.setUsageAsExemptList = setUsageAsExemptList;
+            return this;
+        }
+
+        /**
+         * @param setUsageAsExemptList Set this parameter to true in your request when you update the `DefaultExemptIpZone` to allow IPs through the blocklist.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder setUsageAsExemptList(Boolean setUsageAsExemptList) {
+            return setUsageAsExemptList(Output.of(setUsageAsExemptList));
         }
 
         /**

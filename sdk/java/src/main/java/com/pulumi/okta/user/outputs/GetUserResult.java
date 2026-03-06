@@ -6,6 +6,7 @@ package com.pulumi.okta.user.outputs;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.okta.user.outputs.GetUserSearch;
+import com.pulumi.okta.user.outputs.GetUserType;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -84,6 +85,7 @@ public final class GetUserResult {
     private String streetAddress;
     private String timezone;
     private String title;
+    private List<GetUserType> types;
     /**
      * @return Retrieve a single user based on their id
      * 
@@ -244,6 +246,9 @@ public final class GetUserResult {
     public String title() {
         return this.title;
     }
+    public List<GetUserType> types() {
+        return this.types;
+    }
     /**
      * @return Retrieve a single user based on their id
      * 
@@ -308,6 +313,7 @@ public final class GetUserResult {
         private String streetAddress;
         private String timezone;
         private String title;
+        private List<GetUserType> types;
         private @Nullable String userId;
         private String userType;
         private String zipCode;
@@ -355,6 +361,7 @@ public final class GetUserResult {
     	      this.streetAddress = defaults.streetAddress;
     	      this.timezone = defaults.timezone;
     	      this.title = defaults.title;
+    	      this.types = defaults.types;
     	      this.userId = defaults.userId;
     	      this.userType = defaults.userType;
     	      this.zipCode = defaults.zipCode;
@@ -691,6 +698,17 @@ public final class GetUserResult {
             return this;
         }
         @CustomType.Setter
+        public Builder types(List<GetUserType> types) {
+            if (types == null) {
+              throw new MissingRequiredPropertyException("GetUserResult", "types");
+            }
+            this.types = types;
+            return this;
+        }
+        public Builder types(GetUserType... types) {
+            return types(List.of(types));
+        }
+        @CustomType.Setter
         public Builder userId(@Nullable String userId) {
 
             this.userId = userId;
@@ -755,6 +773,7 @@ public final class GetUserResult {
             _resultValue.streetAddress = streetAddress;
             _resultValue.timezone = timezone;
             _resultValue.title = title;
+            _resultValue.types = types;
             _resultValue.userId = userId;
             _resultValue.userType = userType;
             _resultValue.zipCode = zipCode;

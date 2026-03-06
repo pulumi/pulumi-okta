@@ -190,6 +190,10 @@ export class Oidc extends pulumi.CustomResource {
      */
     declare public readonly tokenUrl: pulumi.Output<string>;
     /**
+     * Indicates whether to trust authentication claims from the IdP.
+     */
+    declare public readonly trustClaims: pulumi.Output<boolean | undefined>;
+    /**
      * Type of OIDC IdP.
      */
     declare public /*out*/ readonly type: pulumi.Output<string>;
@@ -251,6 +255,7 @@ export class Oidc extends pulumi.CustomResource {
             resourceInputs["suspendedAction"] = state?.suspendedAction;
             resourceInputs["tokenBinding"] = state?.tokenBinding;
             resourceInputs["tokenUrl"] = state?.tokenUrl;
+            resourceInputs["trustClaims"] = state?.trustClaims;
             resourceInputs["type"] = state?.type;
             resourceInputs["userInfoBinding"] = state?.userInfoBinding;
             resourceInputs["userInfoUrl"] = state?.userInfoUrl;
@@ -319,6 +324,7 @@ export class Oidc extends pulumi.CustomResource {
             resourceInputs["suspendedAction"] = args?.suspendedAction;
             resourceInputs["tokenBinding"] = args?.tokenBinding;
             resourceInputs["tokenUrl"] = args?.tokenUrl;
+            resourceInputs["trustClaims"] = args?.trustClaims;
             resourceInputs["userInfoBinding"] = args?.userInfoBinding;
             resourceInputs["userInfoUrl"] = args?.userInfoUrl;
             resourceInputs["usernameTemplate"] = args?.usernameTemplate;
@@ -460,6 +466,10 @@ export interface OidcState {
      * IdP Authorization Server (AS) endpoint to exchange the authorization code grant for an access token.
      */
     tokenUrl?: pulumi.Input<string>;
+    /**
+     * Indicates whether to trust authentication claims from the IdP.
+     */
+    trustClaims?: pulumi.Input<boolean>;
     /**
      * Type of OIDC IdP.
      */
@@ -607,6 +617,10 @@ export interface OidcArgs {
      * IdP Authorization Server (AS) endpoint to exchange the authorization code grant for an access token.
      */
     tokenUrl: pulumi.Input<string>;
+    /**
+     * Indicates whether to trust authentication claims from the IdP.
+     */
+    trustClaims?: pulumi.Input<boolean>;
     userInfoBinding?: pulumi.Input<string>;
     /**
      * Protected resource endpoint that returns claims about the authenticated user.

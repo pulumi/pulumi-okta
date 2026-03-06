@@ -62,6 +62,7 @@ class UserArgs:
                  street_address: Optional[pulumi.Input[_builtins.str]] = None,
                  timezone: Optional[pulumi.Input[_builtins.str]] = None,
                  title: Optional[pulumi.Input[_builtins.str]] = None,
+                 type: Optional[pulumi.Input['UserTypeArgs']] = None,
                  user_type: Optional[pulumi.Input[_builtins.str]] = None,
                  zip_code: Optional[pulumi.Input[_builtins.str]] = None):
         """
@@ -108,6 +109,7 @@ class UserArgs:
         :param pulumi.Input[_builtins.str] street_address: User street address
         :param pulumi.Input[_builtins.str] timezone: User default timezone
         :param pulumi.Input[_builtins.str] title: User title
+        :param pulumi.Input['UserTypeArgs'] type: Specifies a user type other than the default user type
         :param pulumi.Input[_builtins.str] user_type: User employee type
         :param pulumi.Input[_builtins.str] zip_code: User zipcode or postal code
         """
@@ -192,6 +194,8 @@ class UserArgs:
             pulumi.set(__self__, "timezone", timezone)
         if title is not None:
             pulumi.set(__self__, "title", title)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
         if user_type is not None:
             pulumi.set(__self__, "user_type", user_type)
         if zip_code is not None:
@@ -691,6 +695,18 @@ class UserArgs:
         pulumi.set(self, "title", value)
 
     @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input['UserTypeArgs']]:
+        """
+        Specifies a user type other than the default user type
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input['UserTypeArgs']]):
+        pulumi.set(self, "type", value)
+
+    @_builtins.property
     @pulumi.getter(name="userType")
     def user_type(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -760,6 +776,7 @@ class _UserState:
                  street_address: Optional[pulumi.Input[_builtins.str]] = None,
                  timezone: Optional[pulumi.Input[_builtins.str]] = None,
                  title: Optional[pulumi.Input[_builtins.str]] = None,
+                 type: Optional[pulumi.Input['UserTypeArgs']] = None,
                  user_type: Optional[pulumi.Input[_builtins.str]] = None,
                  zip_code: Optional[pulumi.Input[_builtins.str]] = None):
         """
@@ -807,6 +824,7 @@ class _UserState:
         :param pulumi.Input[_builtins.str] street_address: User street address
         :param pulumi.Input[_builtins.str] timezone: User default timezone
         :param pulumi.Input[_builtins.str] title: User title
+        :param pulumi.Input['UserTypeArgs'] type: Specifies a user type other than the default user type
         :param pulumi.Input[_builtins.str] user_type: User employee type
         :param pulumi.Input[_builtins.str] zip_code: User zipcode or postal code
         """
@@ -897,6 +915,8 @@ class _UserState:
             pulumi.set(__self__, "timezone", timezone)
         if title is not None:
             pulumi.set(__self__, "title", title)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
         if user_type is not None:
             pulumi.set(__self__, "user_type", user_type)
         if zip_code is not None:
@@ -1408,6 +1428,18 @@ class _UserState:
         pulumi.set(self, "title", value)
 
     @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input['UserTypeArgs']]:
+        """
+        Specifies a user type other than the default user type
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input['UserTypeArgs']]):
+        pulumi.set(self, "type", value)
+
+    @_builtins.property
     @pulumi.getter(name="userType")
     def user_type(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -1479,6 +1511,7 @@ class User(pulumi.CustomResource):
                  street_address: Optional[pulumi.Input[_builtins.str]] = None,
                  timezone: Optional[pulumi.Input[_builtins.str]] = None,
                  title: Optional[pulumi.Input[_builtins.str]] = None,
+                 type: Optional[pulumi.Input[Union['UserTypeArgs', 'UserTypeArgsDict']]] = None,
                  user_type: Optional[pulumi.Input[_builtins.str]] = None,
                  zip_code: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
@@ -1583,6 +1616,7 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] street_address: User street address
         :param pulumi.Input[_builtins.str] timezone: User default timezone
         :param pulumi.Input[_builtins.str] title: User title
+        :param pulumi.Input[Union['UserTypeArgs', 'UserTypeArgsDict']] type: Specifies a user type other than the default user type
         :param pulumi.Input[_builtins.str] user_type: User employee type
         :param pulumi.Input[_builtins.str] zip_code: User zipcode or postal code
         """
@@ -1706,6 +1740,7 @@ class User(pulumi.CustomResource):
                  street_address: Optional[pulumi.Input[_builtins.str]] = None,
                  timezone: Optional[pulumi.Input[_builtins.str]] = None,
                  title: Optional[pulumi.Input[_builtins.str]] = None,
+                 type: Optional[pulumi.Input[Union['UserTypeArgs', 'UserTypeArgsDict']]] = None,
                  user_type: Optional[pulumi.Input[_builtins.str]] = None,
                  zip_code: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
@@ -1766,6 +1801,7 @@ class User(pulumi.CustomResource):
             __props__.__dict__["street_address"] = street_address
             __props__.__dict__["timezone"] = timezone
             __props__.__dict__["title"] = title
+            __props__.__dict__["type"] = type
             __props__.__dict__["user_type"] = user_type
             __props__.__dict__["zip_code"] = zip_code
             __props__.__dict__["raw_status"] = None
@@ -1823,6 +1859,7 @@ class User(pulumi.CustomResource):
             street_address: Optional[pulumi.Input[_builtins.str]] = None,
             timezone: Optional[pulumi.Input[_builtins.str]] = None,
             title: Optional[pulumi.Input[_builtins.str]] = None,
+            type: Optional[pulumi.Input[Union['UserTypeArgs', 'UserTypeArgsDict']]] = None,
             user_type: Optional[pulumi.Input[_builtins.str]] = None,
             zip_code: Optional[pulumi.Input[_builtins.str]] = None) -> 'User':
         """
@@ -1874,6 +1911,7 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] street_address: User street address
         :param pulumi.Input[_builtins.str] timezone: User default timezone
         :param pulumi.Input[_builtins.str] title: User title
+        :param pulumi.Input[Union['UserTypeArgs', 'UserTypeArgsDict']] type: Specifies a user type other than the default user type
         :param pulumi.Input[_builtins.str] user_type: User employee type
         :param pulumi.Input[_builtins.str] zip_code: User zipcode or postal code
         """
@@ -1923,6 +1961,7 @@ class User(pulumi.CustomResource):
         __props__.__dict__["street_address"] = street_address
         __props__.__dict__["timezone"] = timezone
         __props__.__dict__["title"] = title
+        __props__.__dict__["type"] = type
         __props__.__dict__["user_type"] = user_type
         __props__.__dict__["zip_code"] = zip_code
         return User(resource_name, opts=opts, __props__=__props__)
@@ -2263,6 +2302,14 @@ class User(pulumi.CustomResource):
         User title
         """
         return pulumi.get(self, "title")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Output['outputs.UserType']:
+        """
+        Specifies a user type other than the default user type
+        """
+        return pulumi.get(self, "type")
 
     @_builtins.property
     @pulumi.getter(name="userType")

@@ -105,6 +105,7 @@ export interface GetOidcResult {
      * IdP Authorization Server (AS) endpoint to exchange the authorization code grant for an access token.
      */
     readonly tokenUrl: string;
+    readonly trustClaims: boolean;
     /**
      * Type of idp.
      */

@@ -26,7 +26,7 @@ class GetOidcResult:
     """
     A collection of values returned by getOidc.
     """
-    def __init__(__self__, authorization_binding=None, authorization_url=None, client_id=None, client_secret=None, id=None, issuer_mode=None, issuer_url=None, jwks_binding=None, jwks_url=None, max_clock_skew=None, name=None, protocol_type=None, scopes=None, token_binding=None, token_url=None, type=None, user_info_binding=None, user_info_url=None):
+    def __init__(__self__, authorization_binding=None, authorization_url=None, client_id=None, client_secret=None, id=None, issuer_mode=None, issuer_url=None, jwks_binding=None, jwks_url=None, max_clock_skew=None, name=None, protocol_type=None, scopes=None, token_binding=None, token_url=None, trust_claims=None, type=None, user_info_binding=None, user_info_url=None):
         if authorization_binding and not isinstance(authorization_binding, str):
             raise TypeError("Expected argument 'authorization_binding' to be a str")
         pulumi.set(__self__, "authorization_binding", authorization_binding)
@@ -72,6 +72,9 @@ class GetOidcResult:
         if token_url and not isinstance(token_url, str):
             raise TypeError("Expected argument 'token_url' to be a str")
         pulumi.set(__self__, "token_url", token_url)
+        if trust_claims and not isinstance(trust_claims, bool):
+            raise TypeError("Expected argument 'trust_claims' to be a bool")
+        pulumi.set(__self__, "trust_claims", trust_claims)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -203,6 +206,11 @@ class GetOidcResult:
         return pulumi.get(self, "token_url")
 
     @_builtins.property
+    @pulumi.getter(name="trustClaims")
+    def trust_claims(self) -> _builtins.bool:
+        return pulumi.get(self, "trust_claims")
+
+    @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
@@ -248,6 +256,7 @@ class AwaitableGetOidcResult(GetOidcResult):
             scopes=self.scopes,
             token_binding=self.token_binding,
             token_url=self.token_url,
+            trust_claims=self.trust_claims,
             type=self.type,
             user_info_binding=self.user_info_binding,
             user_info_url=self.user_info_url)
@@ -294,6 +303,7 @@ def get_oidc(id: Optional[_builtins.str] = None,
         scopes=pulumi.get(__ret__, 'scopes'),
         token_binding=pulumi.get(__ret__, 'token_binding'),
         token_url=pulumi.get(__ret__, 'token_url'),
+        trust_claims=pulumi.get(__ret__, 'trust_claims'),
         type=pulumi.get(__ret__, 'type'),
         user_info_binding=pulumi.get(__ret__, 'user_info_binding'),
         user_info_url=pulumi.get(__ret__, 'user_info_url'))
@@ -337,6 +347,7 @@ def get_oidc_output(id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
         scopes=pulumi.get(__response__, 'scopes'),
         token_binding=pulumi.get(__response__, 'token_binding'),
         token_url=pulumi.get(__response__, 'token_url'),
+        trust_claims=pulumi.get(__response__, 'trust_claims'),
         type=pulumi.get(__response__, 'type'),
         user_info_binding=pulumi.get(__response__, 'user_info_binding'),
         user_info_url=pulumi.get(__response__, 'user_info_url')))

@@ -3080,6 +3080,13 @@ export interface PreviewSigninPageWidgetCustomizations {
     widgetGeneration: pulumi.Input<string>;
 }
 
+export interface PushGroupAppConfig {
+    distinguishedName: pulumi.Input<string>;
+    groupScope: pulumi.Input<string>;
+    groupType: pulumi.Input<string>;
+    samAccountName: pulumi.Input<string>;
+}
+
 export interface PushProviderConfiguration {
     apnsConfiguration?: pulumi.Input<inputs.PushProviderConfigurationApnsConfiguration>;
     fcmConfiguration?: pulumi.Input<inputs.PushProviderConfigurationFcmConfiguration>;
@@ -4097,6 +4104,128 @@ export namespace app {
          */
         x5tS256?: pulumi.Input<string>;
     }
+
+    export interface SignonPolicyRulesRule {
+        /**
+         * Access decision: ALLOW or DENY.
+         */
+        access?: pulumi.Input<string>;
+        /**
+         * List of authenticator constraints as JSON-encoded strings.
+         */
+        constraints?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Custom Okta Expression Language condition for advanced matching.
+         */
+        customExpression?: pulumi.Input<string>;
+        /**
+         * Set of device assurance policy IDs to include.
+         */
+        deviceAssurancesIncludeds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Require device to be managed by a device management system.
+         */
+        deviceIsManaged?: pulumi.Input<boolean>;
+        /**
+         * Require device to be registered with Okta Verify.
+         */
+        deviceIsRegistered?: pulumi.Input<boolean>;
+        /**
+         * Number of factors required: 1FA or 2FA.
+         */
+        factorMode?: pulumi.Input<string>;
+        /**
+         * Set of group IDs to exclude from this rule.
+         */
+        groupsExcludeds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Set of group IDs to include in this rule.
+         */
+        groupsIncludeds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * (String) - The ID of this resource (same as `policyId`).
+         */
+        id?: pulumi.Input<string>;
+        /**
+         * Inactivity period before re-authentication in ISO 8601 duration format.
+         */
+        inactivityPeriod?: pulumi.Input<string>;
+        /**
+         * Policy Rule Name. Must be unique within the policy.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Network selection mode: ANYWHERE, ZONE, ON_NETWORK, or OFF_NETWORK.
+         */
+        networkConnection?: pulumi.Input<string>;
+        /**
+         * List of network zone IDs to exclude.
+         */
+        networkExcludes?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * List of network zone IDs to include.
+         */
+        networkIncludes?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Platform conditions to include.
+         */
+        platformIncludes?: pulumi.Input<pulumi.Input<inputs.app.SignonPolicyRulesRulePlatformInclude>[]>;
+        /**
+         * Priority of the rule. Lower numbers are evaluated first.
+         */
+        priority?: pulumi.Input<number>;
+        /**
+         * Re-authentication frequency in ISO 8601 duration format (e.g., PT2H for 2 hours).
+         */
+        reAuthenticationFrequency?: pulumi.Input<string>;
+        /**
+         * Risk score level to match: ANY, LOW, MEDIUM, or HIGH.
+         */
+        riskScore?: pulumi.Input<string>;
+        /**
+         * Status of the rule: ACTIVE or INACTIVE.
+         */
+        status?: pulumi.Input<string>;
+        /**
+         * Whether this is a system rule (e.g., Catch-all Rule). System rules cannot be modified.
+         */
+        system?: pulumi.Input<boolean>;
+        /**
+         * Verification method type.
+         */
+        type?: pulumi.Input<string>;
+        /**
+         * Set of user type IDs to exclude.
+         */
+        userTypesExcludeds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Set of user type IDs to include.
+         */
+        userTypesIncludeds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Set of user IDs to exclude from this rule.
+         */
+        usersExcludeds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Set of user IDs to include in this rule.
+         */
+        usersIncludeds?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface SignonPolicyRulesRulePlatformInclude {
+        /**
+         * Custom OS expression for advanced matching.
+         */
+        osExpression?: pulumi.Input<string>;
+        /**
+         * OS type: ANY, IOS, ANDROID, WINDOWS, OSX, MACOS, CHROMEOS, or OTHER.
+         */
+        osType?: pulumi.Input<string>;
+        /**
+         * Platform type: ANY, MOBILE, or DESKTOP.
+         */
+        type?: pulumi.Input<string>;
+    }
 }
 
 export namespace auth {
@@ -4268,5 +4397,12 @@ export namespace user {
          * Governs the strength of the hash and the time required to compute it. Only required for BCRYPT algorithm
          */
         workFactor?: pulumi.Input<number>;
+    }
+
+    export interface UserType {
+        /**
+         * ID of the user_type
+         */
+        id: pulumi.Input<string>;
     }
 }
