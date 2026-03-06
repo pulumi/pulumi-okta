@@ -247,6 +247,52 @@
                     }
                 }
             },
+            "okta_app_signon_policy_rules": {
+                "current": "okta:app/signonPolicyRules:SignonPolicyRules",
+                "majorVersion": 6,
+                "fields": {
+                    "rule": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "constraints": {
+                                    "maxItemsOne": false
+                                },
+                                "device_assurances_included": {
+                                    "maxItemsOne": false
+                                },
+                                "groups_excluded": {
+                                    "maxItemsOne": false
+                                },
+                                "groups_included": {
+                                    "maxItemsOne": false
+                                },
+                                "network_excludes": {
+                                    "maxItemsOne": false
+                                },
+                                "network_includes": {
+                                    "maxItemsOne": false
+                                },
+                                "platform_include": {
+                                    "maxItemsOne": false
+                                },
+                                "user_types_excluded": {
+                                    "maxItemsOne": false
+                                },
+                                "user_types_included": {
+                                    "maxItemsOne": false
+                                },
+                                "users_excluded": {
+                                    "maxItemsOne": false
+                                },
+                                "users_included": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
+            },
             "okta_app_swa": {
                 "current": "okta:app/swa:Swa",
                 "majorVersion": 6
@@ -1067,6 +1113,10 @@
                     }
                 }
             },
+            "okta_push_group": {
+                "current": "okta:index/pushGroup:PushGroup",
+                "majorVersion": 6
+            },
             "okta_push_provider": {
                 "current": "okta:index/pushProvider:PushProvider",
                 "majorVersion": 6
@@ -1258,6 +1308,9 @@
                         "maxItemsOne": false
                     },
                     "password_hash": {
+                        "maxItemsOne": true
+                    },
+                    "type": {
                         "maxItemsOne": true
                     }
                 }
@@ -1960,6 +2013,19 @@
                 "current": "okta:index/getPrincipalRateLimits:getPrincipalRateLimits",
                 "majorVersion": 6
             },
+            "okta_push_group": {
+                "current": "okta:index/getPushGroup:getPushGroup",
+                "majorVersion": 6
+            },
+            "okta_push_groups": {
+                "current": "okta:index/getPushGroups:getPushGroups",
+                "majorVersion": 6,
+                "fields": {
+                    "mappings": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "okta_push_provider": {
                 "current": "okta:index/getPushProvider:getPushProvider",
                 "majorVersion": 6
@@ -2133,6 +2199,9 @@
                     },
                     "search": {
                         "maxItemsOne": false
+                    },
+                    "type": {
+                        "maxItemsOne": false
                     }
                 }
             },
@@ -2172,6 +2241,9 @@
                                 },
                                 "roles": {
                                     "maxItemsOne": false
+                                },
+                                "type": {
+                                    "maxItemsOne": false
                                 }
                             }
                         }
@@ -2205,6 +2277,7 @@
             "okta:app/oauthRoleAssignment:OauthRoleAssignment": 1,
             "okta:app/saml:Saml": 0,
             "okta:app/securePasswordStore:SecurePasswordStore": 0,
+            "okta:app/signonPolicyRules:SignonPolicyRules": 1,
             "okta:app/swa:Swa": 0,
             "okta:app/threeField:ThreeField": 0,
             "okta:app/token:Token": 1,
@@ -2279,6 +2352,7 @@
             "okta:index/policyRuleProfileEnrollment:PolicyRuleProfileEnrollment": 0,
             "okta:index/previewSigninPage:PreviewSigninPage": 1,
             "okta:index/principalRateLimits:PrincipalRateLimits": 1,
+            "okta:index/pushGroup:PushGroup": 1,
             "okta:index/pushProvider:PushProvider": 1,
             "okta:index/rateLimitAdminNotificationSettings:RateLimitAdminNotificationSettings": 1,
             "okta:index/rateLimitWarningThresholdPercentage:RateLimitWarningThresholdPercentage": 1,
@@ -2380,6 +2454,8 @@
             "okta:index/getOrgMetadata:getOrgMetadata": 1,
             "okta:index/getPrincipalEntitlements:getPrincipalEntitlements": 1,
             "okta:index/getPrincipalRateLimits:getPrincipalRateLimits": 1,
+            "okta:index/getPushGroup:getPushGroup": 1,
+            "okta:index/getPushGroups:getPushGroups": 1,
             "okta:index/getPushProvider:getPushProvider": 1,
             "okta:index/getRateLimitAdminNotificationSettings:getRateLimitAdminNotificationSettings": 1,
             "okta:index/getRateLimitWarningThresholdPercentage:getRateLimitWarningThresholdPercentage": 1,

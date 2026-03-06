@@ -28,7 +28,7 @@ require (
 	github.com/Masterminds/semver/v3 v3.2.0 // indirect
 	github.com/Masterminds/sprig/v3 v3.2.3 // indirect
 	github.com/Microsoft/go-winio v0.6.2 // indirect
-	github.com/ProtonMail/go-crypto v1.1.6 // indirect
+	github.com/ProtonMail/go-crypto v1.3.0 // indirect
 	github.com/agext/levenshtein v1.2.3 // indirect
 	github.com/apparentlymart/go-cidr v1.1.0 // indirect
 	github.com/apparentlymart/go-textseg/v15 v15.0.0 // indirect
@@ -98,16 +98,16 @@ require (
 	github.com/hashicorp/go-retryablehttp v0.7.8 // indirect
 	github.com/hashicorp/go-safetemp v1.0.0 // indirect
 	github.com/hashicorp/go-uuid v1.0.3 // indirect
-	github.com/hashicorp/go-version v1.7.0 // indirect
+	github.com/hashicorp/go-version v1.8.0 // indirect
 	github.com/hashicorp/hcl v1.0.0 // indirect
 	github.com/hashicorp/hcl/v2 v2.24.0 // indirect
 	github.com/hashicorp/hil v0.0.0-20190212132231-97b3a9cdfa93 // indirect
 	github.com/hashicorp/logutils v1.0.0 // indirect
-	github.com/hashicorp/terraform-plugin-framework v1.17.0 // indirect
+	github.com/hashicorp/terraform-plugin-framework v1.18.0 // indirect
 	github.com/hashicorp/terraform-plugin-framework-validators v0.19.0 // indirect
-	github.com/hashicorp/terraform-plugin-go v0.29.0 // indirect
+	github.com/hashicorp/terraform-plugin-go v0.30.0 // indirect
 	github.com/hashicorp/terraform-plugin-log v0.10.0 // indirect
-	github.com/hashicorp/terraform-plugin-sdk/v2 v2.38.1 // indirect
+	github.com/hashicorp/terraform-plugin-sdk/v2 v2.39.0 // indirect
 	github.com/hashicorp/terraform-registry-address v0.4.0 // indirect
 	github.com/hashicorp/terraform-svchost v0.1.1 // indirect
 	github.com/hashicorp/yamux v0.1.2 // indirect
@@ -126,10 +126,10 @@ require (
 	github.com/lestrrat-go/backoff/v2 v2.0.8 // indirect
 	github.com/lestrrat-go/blackmagic v1.0.4 // indirect
 	github.com/lestrrat-go/httpcc v1.0.1 // indirect
-	github.com/lestrrat-go/httprc/v3 v3.0.1 // indirect
+	github.com/lestrrat-go/httprc/v3 v3.0.3 // indirect
 	github.com/lestrrat-go/iter v1.0.2 // indirect
 	github.com/lestrrat-go/jwx v1.2.31 // indirect
-	github.com/lestrrat-go/jwx/v3 v3.0.12 // indirect
+	github.com/lestrrat-go/jwx/v3 v3.0.13 // indirect
 	github.com/lestrrat-go/option v1.0.1 // indirect
 	github.com/lestrrat-go/option/v2 v2.0.0 // indirect
 	github.com/lucasb-eyer/go-colorful v1.3.0 // indirect
@@ -218,7 +218,7 @@ require (
 	go.uber.org/atomic v1.11.0 // indirect
 	golang.org/x/crypto v0.48.0 // indirect
 	golang.org/x/exp v0.0.0-20250718183923-645b1fa84792 // indirect
-	golang.org/x/mod v0.32.0 // indirect
+	golang.org/x/mod v0.33.0 // indirect
 	golang.org/x/net v0.50.0 // indirect
 	golang.org/x/oauth2 v0.34.0 // indirect
 	golang.org/x/sync v0.19.0 // indirect
