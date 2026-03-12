@@ -210,6 +210,11 @@ export type Feature = import("./feature").Feature;
 export const Feature: typeof import("./feature").Feature = null as any;
 utilities.lazyLoad(exports, ["Feature"], () => require("./feature"));
 
+export { GetAdminRoleCustomArgs, GetAdminRoleCustomResult, GetAdminRoleCustomOutputArgs } from "./getAdminRoleCustom";
+export const getAdminRoleCustom: typeof import("./getAdminRoleCustom").getAdminRoleCustom = null as any;
+export const getAdminRoleCustomOutput: typeof import("./getAdminRoleCustom").getAdminRoleCustomOutput = null as any;
+utilities.lazyLoad(exports, ["getAdminRoleCustom","getAdminRoleCustomOutput"], () => require("./getAdminRoleCustom"));
+
 export { GetAgentPoolUpdateArgs, GetAgentPoolUpdateResult, GetAgentPoolUpdateOutputArgs } from "./getAgentPoolUpdate";
 export const getAgentPoolUpdate: typeof import("./getAgentPoolUpdate").getAgentPoolUpdate = null as any;
 export const getAgentPoolUpdateOutput: typeof import("./getAgentPoolUpdate").getAgentPoolUpdateOutput = null as any;

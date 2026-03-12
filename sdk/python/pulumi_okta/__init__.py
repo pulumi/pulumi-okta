@@ -47,6 +47,7 @@ from .event_hook import *
 from .event_hook_verification import *
 from .factor_totp import *
 from .feature import *
+from .get_admin_role_custom import *
 from .get_agent_pool_update import *
 from .get_api_service_integration import *
 from .get_api_token import *

@@ -97,6 +97,7 @@
         "factor/index.ts",
         "factorTotp.ts",
         "feature.ts",
+        "getAdminRoleCustom.ts",
         "getAgentPoolUpdate.ts",
         "getApiServiceIntegration.ts",
         "getApiToken.ts",

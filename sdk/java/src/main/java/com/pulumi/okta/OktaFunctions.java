@@ -9,6 +9,8 @@ import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
 import com.pulumi.deployment.InvokeOutputOptions;
 import com.pulumi.okta.Utilities;
+import com.pulumi.okta.inputs.GetAdminRoleCustomArgs;
+import com.pulumi.okta.inputs.GetAdminRoleCustomPlainArgs;
 import com.pulumi.okta.inputs.GetAgentPoolUpdateArgs;
 import com.pulumi.okta.inputs.GetAgentPoolUpdatePlainArgs;
 import com.pulumi.okta.inputs.GetApiServiceIntegrationArgs;
@@ -117,6 +119,7 @@ import com.pulumi.okta.inputs.GetUiSchemaArgs;
 import com.pulumi.okta.inputs.GetUiSchemaPlainArgs;
 import com.pulumi.okta.inputs.GetUserSecurityQuestionsArgs;
 import com.pulumi.okta.inputs.GetUserSecurityQuestionsPlainArgs;
+import com.pulumi.okta.outputs.GetAdminRoleCustomResult;
 import com.pulumi.okta.outputs.GetAgentPoolUpdateResult;
 import com.pulumi.okta.outputs.GetApiServiceIntegrationResult;
 import com.pulumi.okta.outputs.GetApiTokenResult;
@@ -178,6 +181,206 @@ import com.pulumi.resources.InvokeArgs;
 import java.util.concurrent.CompletableFuture;
 
 public final class OktaFunctions {
+    /**
+     * Use this data source to retrieve a custom admin role from Okta.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetAdminRoleCustomArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OktaFunctions.getAdminRoleCustom(GetAdminRoleCustomArgs.builder()
+     *             .id("<role_id>")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetAdminRoleCustomResult> getAdminRoleCustom(GetAdminRoleCustomArgs args) {
+        return getAdminRoleCustom(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve a custom admin role from Okta.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetAdminRoleCustomArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OktaFunctions.getAdminRoleCustom(GetAdminRoleCustomArgs.builder()
+     *             .id("<role_id>")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetAdminRoleCustomResult> getAdminRoleCustomPlain(GetAdminRoleCustomPlainArgs args) {
+        return getAdminRoleCustomPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve a custom admin role from Okta.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetAdminRoleCustomArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OktaFunctions.getAdminRoleCustom(GetAdminRoleCustomArgs.builder()
+     *             .id("<role_id>")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetAdminRoleCustomResult> getAdminRoleCustom(GetAdminRoleCustomArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("okta:index/getAdminRoleCustom:getAdminRoleCustom", TypeShape.of(GetAdminRoleCustomResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve a custom admin role from Okta.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetAdminRoleCustomArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OktaFunctions.getAdminRoleCustom(GetAdminRoleCustomArgs.builder()
+     *             .id("<role_id>")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetAdminRoleCustomResult> getAdminRoleCustom(GetAdminRoleCustomArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("okta:index/getAdminRoleCustom:getAdminRoleCustom", TypeShape.of(GetAdminRoleCustomResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve a custom admin role from Okta.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetAdminRoleCustomArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OktaFunctions.getAdminRoleCustom(GetAdminRoleCustomArgs.builder()
+     *             .id("<role_id>")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetAdminRoleCustomResult> getAdminRoleCustomPlain(GetAdminRoleCustomPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("okta:index/getAdminRoleCustom:getAdminRoleCustom", TypeShape.of(GetAdminRoleCustomResult.class), args, Utilities.withVersion(options));
+    }
     /**
      * Retrieves an Okta Agent Pool Update. Agent pool updates allow you to schedule and manage updates for agent pools.
      * 
