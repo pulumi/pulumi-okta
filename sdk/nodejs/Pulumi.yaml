@@ -1,3 +1,0 @@
-name: okta
-description: A Pulumi resource provider for okta.
-language: nodejs
