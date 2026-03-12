@@ -1368,6 +1368,15 @@
             }
         },
         "datasources": {
+            "okta_admin_role_custom": {
+                "current": "okta:index/getAdminRoleCustom:getAdminRoleCustom",
+                "majorVersion": 6,
+                "fields": {
+                    "permissions": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "okta_agent_pool_update": {
                 "current": "okta:index/getAgentPoolUpdate:getAgentPoolUpdate",
                 "majorVersion": 6,
@@ -2419,6 +2428,7 @@
             "okta:idp/getOidc:getOidc": 0,
             "okta:idp/getSaml:getSaml": 0,
             "okta:idp/getSocial:getSocial": 0,
+            "okta:index/getAdminRoleCustom:getAdminRoleCustom": 1,
             "okta:index/getAgentPoolUpdate:getAgentPoolUpdate": 1,
             "okta:index/getApiServiceIntegration:getApiServiceIntegration": 1,
             "okta:index/getApiToken:getApiToken": 1,
