@@ -42,7 +42,7 @@
             "respectSchemaVersion": true
         },
         "nodejs": {
-            "packageDescription": "A Pulumi package for creating and managing okta resources.. Based on terraform-provider-okta: version v6.6.0",
+            "packageDescription": "A Pulumi package for creating and managing okta resources.. Based on terraform-provider-okta: version v6.6.1",
             "readme": "\u003e This provider is a derived work of the [Terraform Provider](https://github.com/okta/terraform-provider-okta)\n\u003e distributed under [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/). If you encounter a bug or missing feature,\n\u003e first check the [`pulumi-okta` repo](https://github.com/pulumi/pulumi-okta/issues); however, if that doesn't turn up anything,\n\u003e please consult the source [`terraform-provider-okta` repo](https://github.com/okta/terraform-provider-okta/issues).",
             "devDependencies": {
                 "@types/mime": "^2.0.0",
@@ -29549,6 +29549,53 @@
                     "tokenUrl",
                     "type",
                     "usernameTemplate"
+                ],
+                "type": "object"
+            }
+        },
+        "okta:index/getAdminRoleCustom:getAdminRoleCustom": {
+            "description": "Use this data source to retrieve a custom admin role from Okta.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst example = okta.getAdminRoleCustom({\n    id: \"\u003crole_id\u003e\",\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample = okta.get_admin_role_custom(id=\"\u003crole_id\u003e\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = Okta.GetAdminRoleCustom.Invoke(new()\n    {\n        Id = \"\u003crole_id\u003e\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v6/go/okta\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := okta.LookupAdminRoleCustom(ctx, \u0026okta.LookupAdminRoleCustomArgs{\n\t\t\tId: \"\u003crole_id\u003e\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.okta.OktaFunctions;\nimport com.pulumi.okta.inputs.GetAdminRoleCustomArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var example = OktaFunctions.getAdminRoleCustom(GetAdminRoleCustomArgs.builder()\n            .id(\"\u003crole_id\u003e\")\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  example:\n    fn::invoke:\n      function: okta:getAdminRoleCustom\n      arguments:\n        id: \u003crole_id\u003e\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getAdminRoleCustom.\n",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "The unique identifier for the custom role. Accepts the role ID or label.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "id"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getAdminRoleCustom.\n",
+                "properties": {
+                    "description": {
+                        "description": "A human-readable description of the custom role.\n",
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "The unique identifier for the custom role. Accepts the role ID or label.\n",
+                        "type": "string"
+                    },
+                    "label": {
+                        "description": "The name given to the custom role.\n",
+                        "type": "string"
+                    },
+                    "permissions": {
+                        "description": "The permissions that the custom role grants.\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "description",
+                    "id",
+                    "label",
+                    "permissions"
                 ],
                 "type": "object"
             }
