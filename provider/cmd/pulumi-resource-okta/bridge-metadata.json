@@ -1087,6 +1087,21 @@
                     }
                 }
             },
+            "okta_post_auth_session_policy_rule": {
+                "current": "okta:index/postAuthSessionPolicyRule:PostAuthSessionPolicyRule",
+                "majorVersion": 6,
+                "fields": {
+                    "groups_excluded": {
+                        "maxItemsOne": false
+                    },
+                    "groups_included": {
+                        "maxItemsOne": false
+                    },
+                    "users_excluded": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "okta_preview_signin_page": {
                 "current": "okta:index/previewSigninPage:PreviewSigninPage",
                 "majorVersion": 6,
@@ -1340,6 +1355,10 @@
                         "maxItemsOne": false
                     }
                 }
+            },
+            "okta_user_risk": {
+                "current": "okta:user/risk:Risk",
+                "majorVersion": 6
             },
             "okta_user_schema_property": {
                 "current": "okta:index/userSchemaProperty:UserSchemaProperty",
@@ -2002,6 +2021,10 @@
                 "current": "okta:policy/getPolicy:getPolicy",
                 "majorVersion": 6
             },
+            "okta_post_auth_session_policy": {
+                "current": "okta:index/getPostAuthSessionPolicy:getPostAuthSessionPolicy",
+                "majorVersion": 6
+            },
             "okta_principal_entitlements": {
                 "current": "okta:index/getPrincipalEntitlements:getPrincipalEntitlements",
                 "majorVersion": 6,
@@ -2218,6 +2241,10 @@
                 "current": "okta:user/getUserProfileMappingSource:getUserProfileMappingSource",
                 "majorVersion": 6
             },
+            "okta_user_risk": {
+                "current": "okta:user/getRisk:getRisk",
+                "majorVersion": 6
+            },
             "okta_user_security_questions": {
                 "current": "okta:index/getUserSecurityQuestions:getUserSecurityQuestions",
                 "majorVersion": 6,
@@ -2359,6 +2386,7 @@
             "okta:index/policyProfileEnrollment:PolicyProfileEnrollment": 0,
             "okta:index/policyProfileEnrollmentApps:PolicyProfileEnrollmentApps": 0,
             "okta:index/policyRuleProfileEnrollment:PolicyRuleProfileEnrollment": 0,
+            "okta:index/postAuthSessionPolicyRule:PostAuthSessionPolicyRule": 1,
             "okta:index/previewSigninPage:PreviewSigninPage": 1,
             "okta:index/principalRateLimits:PrincipalRateLimits": 1,
             "okta:index/pushGroup:PushGroup": 1,
@@ -2404,6 +2432,7 @@
             "okta:policy/signon:Signon": 0,
             "okta:profile/mapping:Mapping": 0,
             "okta:trustedorigin/origin:Origin": 0,
+            "okta:user/risk:Risk": 1,
             "okta:user/user:User": 0,
             "okta:user/userType:UserType": 0
         },
@@ -2462,6 +2491,7 @@
             "okta:index/getLogStream:getLogStream": 1,
             "okta:index/getNetworkZone:getNetworkZone": 0,
             "okta:index/getOrgMetadata:getOrgMetadata": 1,
+            "okta:index/getPostAuthSessionPolicy:getPostAuthSessionPolicy": 1,
             "okta:index/getPrincipalEntitlements:getPrincipalEntitlements": 1,
             "okta:index/getPrincipalRateLimits:getPrincipalRateLimits": 1,
             "okta:index/getPushGroup:getPushGroup": 1,
@@ -2488,6 +2518,7 @@
             "okta:index/getUserSecurityQuestions:getUserSecurityQuestions": 0,
             "okta:policy/getDefaultPolicy:getDefaultPolicy": 0,
             "okta:policy/getPolicy:getPolicy": 0,
+            "okta:user/getRisk:getRisk": 1,
             "okta:user/getUser:getUser": 0,
             "okta:user/getUserProfileMappingSource:getUserProfileMappingSource": 0,
             "okta:user/getUserType:getUserType": 1,

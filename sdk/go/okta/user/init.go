@@ -21,6 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "okta:user/risk:Risk":
+		r = &Risk{}
 	case "okta:user/user:User":
 		r = &User{}
 	case "okta:user/userType:UserType":
@@ -38,6 +40,11 @@ func init() {
 	if err != nil {
 		version = semver.Version{Major: 1}
 	}
+	pulumi.RegisterResourceModule(
+		"okta",
+		"user/risk",
+		&module{version},
+	)
 	pulumi.RegisterResourceModule(
 		"okta",
 		"user/user",

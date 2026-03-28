@@ -16,11 +16,13 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Manages rate limiting.
- * This resource allows you to configure the client-based rate limit and rate limiting communications settings.
- * &gt; **WARNING:** This resource is deprecated and will be removed in a future release. A new resource to manage rate limiting settings will be implemented in the future.
+ * Manages per-client rate limiting settings for your Okta organization.
+ * 
+ * This resource configures how Okta handles rate limiting on a per-client basis, allowing you to set a default mode and override settings for specific use cases.
  * 
  * ## Example Usage
+ * 
+ * ### Basic Usage
  * 
  * <pre>
  * {@code
@@ -45,9 +47,46 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new RateLimiting("example", RateLimitingArgs.builder()
- *             .login("ENFORCE")
- *             .authorize("ENFORCE")
- *             .communicationsEnabled(true)
+ *             .defaultMode("ENFORCE")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ### With Use Case Overrides
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.okta.RateLimiting;
+ * import com.pulumi.okta.RateLimitingArgs;
+ * import com.pulumi.okta.inputs.RateLimitingUseCaseModeOverridesArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new RateLimiting("example", RateLimitingArgs.builder()
+ *             .defaultMode("ENFORCE")
+ *             .useCaseModeOverrides(RateLimitingUseCaseModeOverridesArgs.builder()
+ *                 .loginPage("PREVIEW")
+ *                 .oauth2Authorize("ENFORCE")
+ *                 .oieAppIntent("DISABLE")
+ *                 .build())
  *             .build());
  * 
  *     }
@@ -60,6 +99,8 @@ import javax.annotation.Nullable;
  * ```sh
  * $ pulumi import okta:index/rateLimiting:RateLimiting example .
  * ```
+ * 
+ * &gt; **Note:** The import ID is a literal dot (`.`) since there is only one rate limiting configuration per Okta organization.
  * 
  */
 @ResourceType(type="okta:index/rateLimiting:RateLimiting")

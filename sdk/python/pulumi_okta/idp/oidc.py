@@ -40,12 +40,14 @@ class OidcArgs:
                  issuer_mode: Optional[pulumi.Input[_builtins.str]] = None,
                  max_clock_skew: Optional[pulumi.Input[_builtins.int]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
+                 participate_slo: Optional[pulumi.Input[_builtins.bool]] = None,
                  pkce_required: Optional[pulumi.Input[_builtins.bool]] = None,
                  profile_master: Optional[pulumi.Input[_builtins.bool]] = None,
                  protocol_type: Optional[pulumi.Input[_builtins.str]] = None,
                  provisioning_action: Optional[pulumi.Input[_builtins.str]] = None,
                  request_signature_algorithm: Optional[pulumi.Input[_builtins.str]] = None,
                  request_signature_scope: Optional[pulumi.Input[_builtins.str]] = None,
+                 slo_url: Optional[pulumi.Input[_builtins.str]] = None,
                  status: Optional[pulumi.Input[_builtins.str]] = None,
                  subject_match_attribute: Optional[pulumi.Input[_builtins.str]] = None,
                  subject_match_type: Optional[pulumi.Input[_builtins.str]] = None,
@@ -78,12 +80,14 @@ class OidcArgs:
         :param pulumi.Input[_builtins.str] issuer_mode: Indicates whether Okta uses the original Okta org domain URL, a custom domain URL, or dynamic. It can be `ORG_URL`, `CUSTOM_URL`, or `DYNAMIC`. Default: `ORG_URL`
         :param pulumi.Input[_builtins.int] max_clock_skew: Maximum allowable clock-skew when processing messages from the IdP.
         :param pulumi.Input[_builtins.str] name: Name of the IdP
+        :param pulumi.Input[_builtins.bool] participate_slo: Set to true to have Okta send a logout request to the upstream IdP when a user signs out of Okta or a downstream app.
         :param pulumi.Input[_builtins.bool] pkce_required: Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: https://developer.okta.com/docs/reference/api/idps/#oauth-2-0-and-openid-connect-client-object
         :param pulumi.Input[_builtins.bool] profile_master: Determines if the IdP should act as a source of truth for user profile attributes.
         :param pulumi.Input[_builtins.str] protocol_type: The type of protocol to use. It can be `OIDC` or `OAUTH2`. Default: `OIDC`
         :param pulumi.Input[_builtins.str] provisioning_action: Provisioning action for an IdP user during authentication. Default: `AUTO`
         :param pulumi.Input[_builtins.str] request_signature_algorithm: The HMAC Signature Algorithm used when signing an authorization request. Defaults to `HS256`. It can be `HS256`, `HS384`, `HS512`, `SHA-256`. `RS256`, `RS384`, or `RS512`. NOTE: `SHA-256` an undocumented legacy value and not continue to be valid. See API docs https://developer.okta.com/docs/reference/api/idps/#oidc-request-signature-algorithm-object
         :param pulumi.Input[_builtins.str] request_signature_scope: Specifies whether to digitally sign an AuthnRequest messages to the IdP. Defaults to `REQUEST`. It can be `REQUEST` or `NONE`.
+        :param pulumi.Input[_builtins.str] slo_url: OIDC IdP logout endpoint. Must be specified when `participate_slo` is set to true.
         :param pulumi.Input[_builtins.str] status: Default to `ACTIVE`
         :param pulumi.Input[_builtins.str] subject_match_attribute: Okta user profile attribute for matching transformed IdP username. Only for matchType `CUSTOM_ATTRIBUTE`.
         :param pulumi.Input[_builtins.str] subject_match_type: Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `USERNAME`. It can be set to `USERNAME`, `EMAIL`, `USERNAME_OR_EMAIL` or `CUSTOM_ATTRIBUTE`.
@@ -124,6 +128,8 @@ class OidcArgs:
             pulumi.set(__self__, "max_clock_skew", max_clock_skew)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if participate_slo is not None:
+            pulumi.set(__self__, "participate_slo", participate_slo)
         if pkce_required is not None:
             pulumi.set(__self__, "pkce_required", pkce_required)
         if profile_master is not None:
@@ -136,6 +142,8 @@ class OidcArgs:
             pulumi.set(__self__, "request_signature_algorithm", request_signature_algorithm)
         if request_signature_scope is not None:
             pulumi.set(__self__, "request_signature_scope", request_signature_scope)
+        if slo_url is not None:
+            pulumi.set(__self__, "slo_url", slo_url)
         if status is not None:
             pulumi.set(__self__, "status", status)
         if subject_match_attribute is not None:
@@ -406,6 +414,18 @@ class OidcArgs:
         pulumi.set(self, "name", value)
 
     @_builtins.property
+    @pulumi.getter(name="participateSlo")
+    def participate_slo(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Set to true to have Okta send a logout request to the upstream IdP when a user signs out of Okta or a downstream app.
+        """
+        return pulumi.get(self, "participate_slo")
+
+    @participate_slo.setter
+    def participate_slo(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "participate_slo", value)
+
+    @_builtins.property
     @pulumi.getter(name="pkceRequired")
     def pkce_required(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
@@ -476,6 +496,18 @@ class OidcArgs:
     @request_signature_scope.setter
     def request_signature_scope(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "request_signature_scope", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sloUrl")
+    def slo_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        OIDC IdP logout endpoint. Must be specified when `participate_slo` is set to true.
+        """
+        return pulumi.get(self, "slo_url")
+
+    @slo_url.setter
+    def slo_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "slo_url", value)
 
     @_builtins.property
     @pulumi.getter
@@ -592,6 +624,7 @@ class _OidcState:
                  jwks_url: Optional[pulumi.Input[_builtins.str]] = None,
                  max_clock_skew: Optional[pulumi.Input[_builtins.int]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
+                 participate_slo: Optional[pulumi.Input[_builtins.bool]] = None,
                  pkce_required: Optional[pulumi.Input[_builtins.bool]] = None,
                  profile_master: Optional[pulumi.Input[_builtins.bool]] = None,
                  protocol_type: Optional[pulumi.Input[_builtins.str]] = None,
@@ -599,6 +632,7 @@ class _OidcState:
                  request_signature_algorithm: Optional[pulumi.Input[_builtins.str]] = None,
                  request_signature_scope: Optional[pulumi.Input[_builtins.str]] = None,
                  scopes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 slo_url: Optional[pulumi.Input[_builtins.str]] = None,
                  status: Optional[pulumi.Input[_builtins.str]] = None,
                  subject_match_attribute: Optional[pulumi.Input[_builtins.str]] = None,
                  subject_match_type: Optional[pulumi.Input[_builtins.str]] = None,
@@ -632,6 +666,7 @@ class _OidcState:
         :param pulumi.Input[_builtins.str] jwks_url: Endpoint where the keys signer publishes its keys in a JWK Set.
         :param pulumi.Input[_builtins.int] max_clock_skew: Maximum allowable clock-skew when processing messages from the IdP.
         :param pulumi.Input[_builtins.str] name: Name of the IdP
+        :param pulumi.Input[_builtins.bool] participate_slo: Set to true to have Okta send a logout request to the upstream IdP when a user signs out of Okta or a downstream app.
         :param pulumi.Input[_builtins.bool] pkce_required: Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: https://developer.okta.com/docs/reference/api/idps/#oauth-2-0-and-openid-connect-client-object
         :param pulumi.Input[_builtins.bool] profile_master: Determines if the IdP should act as a source of truth for user profile attributes.
         :param pulumi.Input[_builtins.str] protocol_type: The type of protocol to use. It can be `OIDC` or `OAUTH2`. Default: `OIDC`
@@ -639,6 +674,7 @@ class _OidcState:
         :param pulumi.Input[_builtins.str] request_signature_algorithm: The HMAC Signature Algorithm used when signing an authorization request. Defaults to `HS256`. It can be `HS256`, `HS384`, `HS512`, `SHA-256`. `RS256`, `RS384`, or `RS512`. NOTE: `SHA-256` an undocumented legacy value and not continue to be valid. See API docs https://developer.okta.com/docs/reference/api/idps/#oidc-request-signature-algorithm-object
         :param pulumi.Input[_builtins.str] request_signature_scope: Specifies whether to digitally sign an AuthnRequest messages to the IdP. Defaults to `REQUEST`. It can be `REQUEST` or `NONE`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] scopes: The scopes of the IdP.
+        :param pulumi.Input[_builtins.str] slo_url: OIDC IdP logout endpoint. Must be specified when `participate_slo` is set to true.
         :param pulumi.Input[_builtins.str] status: Default to `ACTIVE`
         :param pulumi.Input[_builtins.str] subject_match_attribute: Okta user profile attribute for matching transformed IdP username. Only for matchType `CUSTOM_ATTRIBUTE`.
         :param pulumi.Input[_builtins.str] subject_match_type: Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `USERNAME`. It can be set to `USERNAME`, `EMAIL`, `USERNAME_OR_EMAIL` or `CUSTOM_ATTRIBUTE`.
@@ -687,6 +723,8 @@ class _OidcState:
             pulumi.set(__self__, "max_clock_skew", max_clock_skew)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if participate_slo is not None:
+            pulumi.set(__self__, "participate_slo", participate_slo)
         if pkce_required is not None:
             pulumi.set(__self__, "pkce_required", pkce_required)
         if profile_master is not None:
@@ -701,6 +739,8 @@ class _OidcState:
             pulumi.set(__self__, "request_signature_scope", request_signature_scope)
         if scopes is not None:
             pulumi.set(__self__, "scopes", scopes)
+        if slo_url is not None:
+            pulumi.set(__self__, "slo_url", slo_url)
         if status is not None:
             pulumi.set(__self__, "status", status)
         if subject_match_attribute is not None:
@@ -943,6 +983,18 @@ class _OidcState:
         pulumi.set(self, "name", value)
 
     @_builtins.property
+    @pulumi.getter(name="participateSlo")
+    def participate_slo(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Set to true to have Okta send a logout request to the upstream IdP when a user signs out of Okta or a downstream app.
+        """
+        return pulumi.get(self, "participate_slo")
+
+    @participate_slo.setter
+    def participate_slo(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "participate_slo", value)
+
+    @_builtins.property
     @pulumi.getter(name="pkceRequired")
     def pkce_required(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
@@ -1025,6 +1077,18 @@ class _OidcState:
     @scopes.setter
     def scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "scopes", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sloUrl")
+    def slo_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        OIDC IdP logout endpoint. Must be specified when `participate_slo` is set to true.
+        """
+        return pulumi.get(self, "slo_url")
+
+    @slo_url.setter
+    def slo_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "slo_url", value)
 
     @_builtins.property
     @pulumi.getter
@@ -1192,6 +1256,7 @@ class Oidc(pulumi.CustomResource):
                  jwks_url: Optional[pulumi.Input[_builtins.str]] = None,
                  max_clock_skew: Optional[pulumi.Input[_builtins.int]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
+                 participate_slo: Optional[pulumi.Input[_builtins.bool]] = None,
                  pkce_required: Optional[pulumi.Input[_builtins.bool]] = None,
                  profile_master: Optional[pulumi.Input[_builtins.bool]] = None,
                  protocol_type: Optional[pulumi.Input[_builtins.str]] = None,
@@ -1199,6 +1264,7 @@ class Oidc(pulumi.CustomResource):
                  request_signature_algorithm: Optional[pulumi.Input[_builtins.str]] = None,
                  request_signature_scope: Optional[pulumi.Input[_builtins.str]] = None,
                  scopes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 slo_url: Optional[pulumi.Input[_builtins.str]] = None,
                  status: Optional[pulumi.Input[_builtins.str]] = None,
                  subject_match_attribute: Optional[pulumi.Input[_builtins.str]] = None,
                  subject_match_type: Optional[pulumi.Input[_builtins.str]] = None,
@@ -1263,6 +1329,7 @@ class Oidc(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] jwks_url: Endpoint where the keys signer publishes its keys in a JWK Set.
         :param pulumi.Input[_builtins.int] max_clock_skew: Maximum allowable clock-skew when processing messages from the IdP.
         :param pulumi.Input[_builtins.str] name: Name of the IdP
+        :param pulumi.Input[_builtins.bool] participate_slo: Set to true to have Okta send a logout request to the upstream IdP when a user signs out of Okta or a downstream app.
         :param pulumi.Input[_builtins.bool] pkce_required: Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: https://developer.okta.com/docs/reference/api/idps/#oauth-2-0-and-openid-connect-client-object
         :param pulumi.Input[_builtins.bool] profile_master: Determines if the IdP should act as a source of truth for user profile attributes.
         :param pulumi.Input[_builtins.str] protocol_type: The type of protocol to use. It can be `OIDC` or `OAUTH2`. Default: `OIDC`
@@ -1270,6 +1337,7 @@ class Oidc(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] request_signature_algorithm: The HMAC Signature Algorithm used when signing an authorization request. Defaults to `HS256`. It can be `HS256`, `HS384`, `HS512`, `SHA-256`. `RS256`, `RS384`, or `RS512`. NOTE: `SHA-256` an undocumented legacy value and not continue to be valid. See API docs https://developer.okta.com/docs/reference/api/idps/#oidc-request-signature-algorithm-object
         :param pulumi.Input[_builtins.str] request_signature_scope: Specifies whether to digitally sign an AuthnRequest messages to the IdP. Defaults to `REQUEST`. It can be `REQUEST` or `NONE`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] scopes: The scopes of the IdP.
+        :param pulumi.Input[_builtins.str] slo_url: OIDC IdP logout endpoint. Must be specified when `participate_slo` is set to true.
         :param pulumi.Input[_builtins.str] status: Default to `ACTIVE`
         :param pulumi.Input[_builtins.str] subject_match_attribute: Okta user profile attribute for matching transformed IdP username. Only for matchType `CUSTOM_ATTRIBUTE`.
         :param pulumi.Input[_builtins.str] subject_match_type: Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `USERNAME`. It can be set to `USERNAME`, `EMAIL`, `USERNAME_OR_EMAIL` or `CUSTOM_ATTRIBUTE`.
@@ -1352,6 +1420,7 @@ class Oidc(pulumi.CustomResource):
                  jwks_url: Optional[pulumi.Input[_builtins.str]] = None,
                  max_clock_skew: Optional[pulumi.Input[_builtins.int]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
+                 participate_slo: Optional[pulumi.Input[_builtins.bool]] = None,
                  pkce_required: Optional[pulumi.Input[_builtins.bool]] = None,
                  profile_master: Optional[pulumi.Input[_builtins.bool]] = None,
                  protocol_type: Optional[pulumi.Input[_builtins.str]] = None,
@@ -1359,6 +1428,7 @@ class Oidc(pulumi.CustomResource):
                  request_signature_algorithm: Optional[pulumi.Input[_builtins.str]] = None,
                  request_signature_scope: Optional[pulumi.Input[_builtins.str]] = None,
                  scopes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 slo_url: Optional[pulumi.Input[_builtins.str]] = None,
                  status: Optional[pulumi.Input[_builtins.str]] = None,
                  subject_match_attribute: Optional[pulumi.Input[_builtins.str]] = None,
                  subject_match_type: Optional[pulumi.Input[_builtins.str]] = None,
@@ -1410,6 +1480,7 @@ class Oidc(pulumi.CustomResource):
             __props__.__dict__["jwks_url"] = jwks_url
             __props__.__dict__["max_clock_skew"] = max_clock_skew
             __props__.__dict__["name"] = name
+            __props__.__dict__["participate_slo"] = participate_slo
             __props__.__dict__["pkce_required"] = pkce_required
             __props__.__dict__["profile_master"] = profile_master
             __props__.__dict__["protocol_type"] = protocol_type
@@ -1419,6 +1490,7 @@ class Oidc(pulumi.CustomResource):
             if scopes is None and not opts.urn:
                 raise TypeError("Missing required property 'scopes'")
             __props__.__dict__["scopes"] = scopes
+            __props__.__dict__["slo_url"] = slo_url
             __props__.__dict__["status"] = status
             __props__.__dict__["subject_match_attribute"] = subject_match_attribute
             __props__.__dict__["subject_match_type"] = subject_match_type
@@ -1465,6 +1537,7 @@ class Oidc(pulumi.CustomResource):
             jwks_url: Optional[pulumi.Input[_builtins.str]] = None,
             max_clock_skew: Optional[pulumi.Input[_builtins.int]] = None,
             name: Optional[pulumi.Input[_builtins.str]] = None,
+            participate_slo: Optional[pulumi.Input[_builtins.bool]] = None,
             pkce_required: Optional[pulumi.Input[_builtins.bool]] = None,
             profile_master: Optional[pulumi.Input[_builtins.bool]] = None,
             protocol_type: Optional[pulumi.Input[_builtins.str]] = None,
@@ -1472,6 +1545,7 @@ class Oidc(pulumi.CustomResource):
             request_signature_algorithm: Optional[pulumi.Input[_builtins.str]] = None,
             request_signature_scope: Optional[pulumi.Input[_builtins.str]] = None,
             scopes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            slo_url: Optional[pulumi.Input[_builtins.str]] = None,
             status: Optional[pulumi.Input[_builtins.str]] = None,
             subject_match_attribute: Optional[pulumi.Input[_builtins.str]] = None,
             subject_match_type: Optional[pulumi.Input[_builtins.str]] = None,
@@ -1509,6 +1583,7 @@ class Oidc(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] jwks_url: Endpoint where the keys signer publishes its keys in a JWK Set.
         :param pulumi.Input[_builtins.int] max_clock_skew: Maximum allowable clock-skew when processing messages from the IdP.
         :param pulumi.Input[_builtins.str] name: Name of the IdP
+        :param pulumi.Input[_builtins.bool] participate_slo: Set to true to have Okta send a logout request to the upstream IdP when a user signs out of Okta or a downstream app.
         :param pulumi.Input[_builtins.bool] pkce_required: Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: https://developer.okta.com/docs/reference/api/idps/#oauth-2-0-and-openid-connect-client-object
         :param pulumi.Input[_builtins.bool] profile_master: Determines if the IdP should act as a source of truth for user profile attributes.
         :param pulumi.Input[_builtins.str] protocol_type: The type of protocol to use. It can be `OIDC` or `OAUTH2`. Default: `OIDC`
@@ -1516,6 +1591,7 @@ class Oidc(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] request_signature_algorithm: The HMAC Signature Algorithm used when signing an authorization request. Defaults to `HS256`. It can be `HS256`, `HS384`, `HS512`, `SHA-256`. `RS256`, `RS384`, or `RS512`. NOTE: `SHA-256` an undocumented legacy value and not continue to be valid. See API docs https://developer.okta.com/docs/reference/api/idps/#oidc-request-signature-algorithm-object
         :param pulumi.Input[_builtins.str] request_signature_scope: Specifies whether to digitally sign an AuthnRequest messages to the IdP. Defaults to `REQUEST`. It can be `REQUEST` or `NONE`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] scopes: The scopes of the IdP.
+        :param pulumi.Input[_builtins.str] slo_url: OIDC IdP logout endpoint. Must be specified when `participate_slo` is set to true.
         :param pulumi.Input[_builtins.str] status: Default to `ACTIVE`
         :param pulumi.Input[_builtins.str] subject_match_attribute: Okta user profile attribute for matching transformed IdP username. Only for matchType `CUSTOM_ATTRIBUTE`.
         :param pulumi.Input[_builtins.str] subject_match_type: Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `USERNAME`. It can be set to `USERNAME`, `EMAIL`, `USERNAME_OR_EMAIL` or `CUSTOM_ATTRIBUTE`.
@@ -1550,6 +1626,7 @@ class Oidc(pulumi.CustomResource):
         __props__.__dict__["jwks_url"] = jwks_url
         __props__.__dict__["max_clock_skew"] = max_clock_skew
         __props__.__dict__["name"] = name
+        __props__.__dict__["participate_slo"] = participate_slo
         __props__.__dict__["pkce_required"] = pkce_required
         __props__.__dict__["profile_master"] = profile_master
         __props__.__dict__["protocol_type"] = protocol_type
@@ -1557,6 +1634,7 @@ class Oidc(pulumi.CustomResource):
         __props__.__dict__["request_signature_algorithm"] = request_signature_algorithm
         __props__.__dict__["request_signature_scope"] = request_signature_scope
         __props__.__dict__["scopes"] = scopes
+        __props__.__dict__["slo_url"] = slo_url
         __props__.__dict__["status"] = status
         __props__.__dict__["subject_match_attribute"] = subject_match_attribute
         __props__.__dict__["subject_match_type"] = subject_match_type
@@ -1716,6 +1794,14 @@ class Oidc(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @_builtins.property
+    @pulumi.getter(name="participateSlo")
+    def participate_slo(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Set to true to have Okta send a logout request to the upstream IdP when a user signs out of Okta or a downstream app.
+        """
+        return pulumi.get(self, "participate_slo")
+
+    @_builtins.property
     @pulumi.getter(name="pkceRequired")
     def pkce_required(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
@@ -1770,6 +1856,14 @@ class Oidc(pulumi.CustomResource):
         The scopes of the IdP.
         """
         return pulumi.get(self, "scopes")
+
+    @_builtins.property
+    @pulumi.getter(name="sloUrl")
+    def slo_url(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        OIDC IdP logout endpoint. Must be specified when `participate_slo` is set to true.
+        """
+        return pulumi.get(self, "slo_url")
 
     @_builtins.property
     @pulumi.getter

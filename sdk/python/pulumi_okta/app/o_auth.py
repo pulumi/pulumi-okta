@@ -57,6 +57,7 @@ class OAuthArgs:
                  pkce_required: Optional[pulumi.Input[_builtins.bool]] = None,
                  policy_uri: Optional[pulumi.Input[_builtins.str]] = None,
                  post_logout_redirect_uris: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 preconfigured_app: Optional[pulumi.Input[_builtins.str]] = None,
                  profile: Optional[pulumi.Input[_builtins.str]] = None,
                  redirect_uris: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  refresh_token_leeway: Optional[pulumi.Input[_builtins.int]] = None,
@@ -96,7 +97,7 @@ class OAuthArgs:
         :param pulumi.Input[_builtins.bool] frontchannel_logout_session_required: *Early Access Property*. Determines whether Okta sends sid and iss in the logout request.
         :param pulumi.Input[_builtins.str] frontchannel_logout_uri: *Early Access Property*. URL where Okta sends the logout request. Required when participate_slo is true.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] grant_types: List of OAuth 2.0 grant types. Conditional validation params found here https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum requirements per app type.
-        :param pulumi.Input['OAuthGroupsClaimArgs'] groups_claim: Groups claim for an OpenID Connect client application (argument is ignored when API auth is done with OAuth 2.0 credentials)
+        :param pulumi.Input['OAuthGroupsClaimArgs'] groups_claim: Groups claim for an OpenID Connect client application (argument is ignored when API auth is done with OAuth 2.0 credentials, and is not supported when `preconfigured_app` is set)
         :param pulumi.Input[_builtins.bool] hide_ios: Do not display application icon on mobile app
         :param pulumi.Input[_builtins.bool] hide_web: Do not display application icon to users
         :param pulumi.Input[_builtins.bool] implicit_assignment: *Early Access Property*. Enable Federation Broker Mode.
@@ -113,6 +114,7 @@ class OAuthArgs:
         :param pulumi.Input[_builtins.bool] pkce_required: Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
         :param pulumi.Input[_builtins.str] policy_uri: URI to web page providing client policy document.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] post_logout_redirect_uris: List of URIs for redirection after logout. Note: see okta*app*oauth*post*logout*redirect*uri for appending to this list in a decentralized way.
+        :param pulumi.Input[_builtins.str] preconfigured_app: Tells Okta to use an existing application in their application catalog, as opposed to a custom application. Note: `groups_claim` is not supported when using `preconfigured_app`.
         :param pulumi.Input[_builtins.str] profile: Custom JSON that represents an OAuth application's profile
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] redirect_uris: List of URIs for use in the redirect-based flow. This is required for all application types except service. Note: see okta*app*oauth*redirect*uri for appending to this list in a decentralized way.
         :param pulumi.Input[_builtins.int] refresh_token_leeway: *Early Access Property* Grace period for token rotation, required with grant types refresh_token
@@ -200,6 +202,8 @@ class OAuthArgs:
             pulumi.set(__self__, "policy_uri", policy_uri)
         if post_logout_redirect_uris is not None:
             pulumi.set(__self__, "post_logout_redirect_uris", post_logout_redirect_uris)
+        if preconfigured_app is not None:
+            pulumi.set(__self__, "preconfigured_app", preconfigured_app)
         if profile is not None:
             pulumi.set(__self__, "profile", profile)
         if redirect_uris is not None:
@@ -464,7 +468,7 @@ class OAuthArgs:
     @_utilities.deprecated("""The groups_claim field is deprecated and will be removed in a future version. Use Authorization Server Claims (okta_auth_server_claim) or app profile configuration instead.""")
     def groups_claim(self) -> Optional[pulumi.Input['OAuthGroupsClaimArgs']]:
         """
-        Groups claim for an OpenID Connect client application (argument is ignored when API auth is done with OAuth 2.0 credentials)
+        Groups claim for an OpenID Connect client application (argument is ignored when API auth is done with OAuth 2.0 credentials, and is not supported when `preconfigured_app` is set)
         """
         return pulumi.get(self, "groups_claim")
 
@@ -665,6 +669,18 @@ class OAuthArgs:
         pulumi.set(self, "post_logout_redirect_uris", value)
 
     @_builtins.property
+    @pulumi.getter(name="preconfiguredApp")
+    def preconfigured_app(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Tells Okta to use an existing application in their application catalog, as opposed to a custom application. Note: `groups_claim` is not supported when using `preconfigured_app`.
+        """
+        return pulumi.get(self, "preconfigured_app")
+
+    @preconfigured_app.setter
+    def preconfigured_app(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "preconfigured_app", value)
+
+    @_builtins.property
     @pulumi.getter
     def profile(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -862,6 +878,7 @@ class _OAuthState:
                  pkce_required: Optional[pulumi.Input[_builtins.bool]] = None,
                  policy_uri: Optional[pulumi.Input[_builtins.str]] = None,
                  post_logout_redirect_uris: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 preconfigured_app: Optional[pulumi.Input[_builtins.str]] = None,
                  profile: Optional[pulumi.Input[_builtins.str]] = None,
                  redirect_uris: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  refresh_token_leeway: Optional[pulumi.Input[_builtins.int]] = None,
@@ -902,7 +919,7 @@ class _OAuthState:
         :param pulumi.Input[_builtins.bool] frontchannel_logout_session_required: *Early Access Property*. Determines whether Okta sends sid and iss in the logout request.
         :param pulumi.Input[_builtins.str] frontchannel_logout_uri: *Early Access Property*. URL where Okta sends the logout request. Required when participate_slo is true.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] grant_types: List of OAuth 2.0 grant types. Conditional validation params found here https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum requirements per app type.
-        :param pulumi.Input['OAuthGroupsClaimArgs'] groups_claim: Groups claim for an OpenID Connect client application (argument is ignored when API auth is done with OAuth 2.0 credentials)
+        :param pulumi.Input['OAuthGroupsClaimArgs'] groups_claim: Groups claim for an OpenID Connect client application (argument is ignored when API auth is done with OAuth 2.0 credentials, and is not supported when `preconfigured_app` is set)
         :param pulumi.Input[_builtins.bool] hide_ios: Do not display application icon on mobile app
         :param pulumi.Input[_builtins.bool] hide_web: Do not display application icon to users
         :param pulumi.Input[_builtins.bool] implicit_assignment: *Early Access Property*. Enable Federation Broker Mode.
@@ -922,6 +939,7 @@ class _OAuthState:
         :param pulumi.Input[_builtins.bool] pkce_required: Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
         :param pulumi.Input[_builtins.str] policy_uri: URI to web page providing client policy document.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] post_logout_redirect_uris: List of URIs for redirection after logout. Note: see okta*app*oauth*post*logout*redirect*uri for appending to this list in a decentralized way.
+        :param pulumi.Input[_builtins.str] preconfigured_app: Tells Okta to use an existing application in their application catalog, as opposed to a custom application. Note: `groups_claim` is not supported when using `preconfigured_app`.
         :param pulumi.Input[_builtins.str] profile: Custom JSON that represents an OAuth application's profile
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] redirect_uris: List of URIs for use in the redirect-based flow. This is required for all application types except service. Note: see okta*app*oauth*redirect*uri for appending to this list in a decentralized way.
         :param pulumi.Input[_builtins.int] refresh_token_leeway: *Early Access Property* Grace period for token rotation, required with grant types refresh_token
@@ -1017,6 +1035,8 @@ class _OAuthState:
             pulumi.set(__self__, "policy_uri", policy_uri)
         if post_logout_redirect_uris is not None:
             pulumi.set(__self__, "post_logout_redirect_uris", post_logout_redirect_uris)
+        if preconfigured_app is not None:
+            pulumi.set(__self__, "preconfigured_app", preconfigured_app)
         if profile is not None:
             pulumi.set(__self__, "profile", profile)
         if redirect_uris is not None:
@@ -1273,7 +1293,7 @@ class _OAuthState:
     @_utilities.deprecated("""The groups_claim field is deprecated and will be removed in a future version. Use Authorization Server Claims (okta_auth_server_claim) or app profile configuration instead.""")
     def groups_claim(self) -> Optional[pulumi.Input['OAuthGroupsClaimArgs']]:
         """
-        Groups claim for an OpenID Connect client application (argument is ignored when API auth is done with OAuth 2.0 credentials)
+        Groups claim for an OpenID Connect client application (argument is ignored when API auth is done with OAuth 2.0 credentials, and is not supported when `preconfigured_app` is set)
         """
         return pulumi.get(self, "groups_claim")
 
@@ -1510,6 +1530,18 @@ class _OAuthState:
         pulumi.set(self, "post_logout_redirect_uris", value)
 
     @_builtins.property
+    @pulumi.getter(name="preconfiguredApp")
+    def preconfigured_app(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Tells Okta to use an existing application in their application catalog, as opposed to a custom application. Note: `groups_claim` is not supported when using `preconfigured_app`.
+        """
+        return pulumi.get(self, "preconfigured_app")
+
+    @preconfigured_app.setter
+    def preconfigured_app(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "preconfigured_app", value)
+
+    @_builtins.property
     @pulumi.getter
     def profile(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -1731,6 +1763,7 @@ class OAuth(pulumi.CustomResource):
                  pkce_required: Optional[pulumi.Input[_builtins.bool]] = None,
                  policy_uri: Optional[pulumi.Input[_builtins.str]] = None,
                  post_logout_redirect_uris: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 preconfigured_app: Optional[pulumi.Input[_builtins.str]] = None,
                  profile: Optional[pulumi.Input[_builtins.str]] = None,
                  redirect_uris: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  refresh_token_leeway: Optional[pulumi.Input[_builtins.int]] = None,
@@ -1847,7 +1880,7 @@ class OAuth(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] frontchannel_logout_session_required: *Early Access Property*. Determines whether Okta sends sid and iss in the logout request.
         :param pulumi.Input[_builtins.str] frontchannel_logout_uri: *Early Access Property*. URL where Okta sends the logout request. Required when participate_slo is true.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] grant_types: List of OAuth 2.0 grant types. Conditional validation params found here https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum requirements per app type.
-        :param pulumi.Input[Union['OAuthGroupsClaimArgs', 'OAuthGroupsClaimArgsDict']] groups_claim: Groups claim for an OpenID Connect client application (argument is ignored when API auth is done with OAuth 2.0 credentials)
+        :param pulumi.Input[Union['OAuthGroupsClaimArgs', 'OAuthGroupsClaimArgsDict']] groups_claim: Groups claim for an OpenID Connect client application (argument is ignored when API auth is done with OAuth 2.0 credentials, and is not supported when `preconfigured_app` is set)
         :param pulumi.Input[_builtins.bool] hide_ios: Do not display application icon on mobile app
         :param pulumi.Input[_builtins.bool] hide_web: Do not display application icon to users
         :param pulumi.Input[_builtins.bool] implicit_assignment: *Early Access Property*. Enable Federation Broker Mode.
@@ -1865,6 +1898,7 @@ class OAuth(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] pkce_required: Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
         :param pulumi.Input[_builtins.str] policy_uri: URI to web page providing client policy document.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] post_logout_redirect_uris: List of URIs for redirection after logout. Note: see okta*app*oauth*post*logout*redirect*uri for appending to this list in a decentralized way.
+        :param pulumi.Input[_builtins.str] preconfigured_app: Tells Okta to use an existing application in their application catalog, as opposed to a custom application. Note: `groups_claim` is not supported when using `preconfigured_app`.
         :param pulumi.Input[_builtins.str] profile: Custom JSON that represents an OAuth application's profile
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] redirect_uris: List of URIs for use in the redirect-based flow. This is required for all application types except service. Note: see okta*app*oauth*redirect*uri for appending to this list in a decentralized way.
         :param pulumi.Input[_builtins.int] refresh_token_leeway: *Early Access Property* Grace period for token rotation, required with grant types refresh_token
@@ -2014,6 +2048,7 @@ class OAuth(pulumi.CustomResource):
                  pkce_required: Optional[pulumi.Input[_builtins.bool]] = None,
                  policy_uri: Optional[pulumi.Input[_builtins.str]] = None,
                  post_logout_redirect_uris: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 preconfigured_app: Optional[pulumi.Input[_builtins.str]] = None,
                  profile: Optional[pulumi.Input[_builtins.str]] = None,
                  redirect_uris: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  refresh_token_leeway: Optional[pulumi.Input[_builtins.int]] = None,
@@ -2074,6 +2109,7 @@ class OAuth(pulumi.CustomResource):
             __props__.__dict__["pkce_required"] = pkce_required
             __props__.__dict__["policy_uri"] = policy_uri
             __props__.__dict__["post_logout_redirect_uris"] = post_logout_redirect_uris
+            __props__.__dict__["preconfigured_app"] = preconfigured_app
             __props__.__dict__["profile"] = profile
             __props__.__dict__["redirect_uris"] = redirect_uris
             __props__.__dict__["refresh_token_leeway"] = refresh_token_leeway
@@ -2144,6 +2180,7 @@ class OAuth(pulumi.CustomResource):
             pkce_required: Optional[pulumi.Input[_builtins.bool]] = None,
             policy_uri: Optional[pulumi.Input[_builtins.str]] = None,
             post_logout_redirect_uris: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            preconfigured_app: Optional[pulumi.Input[_builtins.str]] = None,
             profile: Optional[pulumi.Input[_builtins.str]] = None,
             redirect_uris: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
             refresh_token_leeway: Optional[pulumi.Input[_builtins.int]] = None,
@@ -2188,7 +2225,7 @@ class OAuth(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] frontchannel_logout_session_required: *Early Access Property*. Determines whether Okta sends sid and iss in the logout request.
         :param pulumi.Input[_builtins.str] frontchannel_logout_uri: *Early Access Property*. URL where Okta sends the logout request. Required when participate_slo is true.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] grant_types: List of OAuth 2.0 grant types. Conditional validation params found here https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum requirements per app type.
-        :param pulumi.Input[Union['OAuthGroupsClaimArgs', 'OAuthGroupsClaimArgsDict']] groups_claim: Groups claim for an OpenID Connect client application (argument is ignored when API auth is done with OAuth 2.0 credentials)
+        :param pulumi.Input[Union['OAuthGroupsClaimArgs', 'OAuthGroupsClaimArgsDict']] groups_claim: Groups claim for an OpenID Connect client application (argument is ignored when API auth is done with OAuth 2.0 credentials, and is not supported when `preconfigured_app` is set)
         :param pulumi.Input[_builtins.bool] hide_ios: Do not display application icon on mobile app
         :param pulumi.Input[_builtins.bool] hide_web: Do not display application icon to users
         :param pulumi.Input[_builtins.bool] implicit_assignment: *Early Access Property*. Enable Federation Broker Mode.
@@ -2208,6 +2245,7 @@ class OAuth(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] pkce_required: Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
         :param pulumi.Input[_builtins.str] policy_uri: URI to web page providing client policy document.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] post_logout_redirect_uris: List of URIs for redirection after logout. Note: see okta*app*oauth*post*logout*redirect*uri for appending to this list in a decentralized way.
+        :param pulumi.Input[_builtins.str] preconfigured_app: Tells Okta to use an existing application in their application catalog, as opposed to a custom application. Note: `groups_claim` is not supported when using `preconfigured_app`.
         :param pulumi.Input[_builtins.str] profile: Custom JSON that represents an OAuth application's profile
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] redirect_uris: List of URIs for use in the redirect-based flow. This is required for all application types except service. Note: see okta*app*oauth*redirect*uri for appending to this list in a decentralized way.
         :param pulumi.Input[_builtins.int] refresh_token_leeway: *Early Access Property* Grace period for token rotation, required with grant types refresh_token
@@ -2266,6 +2304,7 @@ class OAuth(pulumi.CustomResource):
         __props__.__dict__["pkce_required"] = pkce_required
         __props__.__dict__["policy_uri"] = policy_uri
         __props__.__dict__["post_logout_redirect_uris"] = post_logout_redirect_uris
+        __props__.__dict__["preconfigured_app"] = preconfigured_app
         __props__.__dict__["profile"] = profile
         __props__.__dict__["redirect_uris"] = redirect_uris
         __props__.__dict__["refresh_token_leeway"] = refresh_token_leeway
@@ -2436,7 +2475,7 @@ class OAuth(pulumi.CustomResource):
     @_utilities.deprecated("""The groups_claim field is deprecated and will be removed in a future version. Use Authorization Server Claims (okta_auth_server_claim) or app profile configuration instead.""")
     def groups_claim(self) -> pulumi.Output[Optional['outputs.OAuthGroupsClaim']]:
         """
-        Groups claim for an OpenID Connect client application (argument is ignored when API auth is done with OAuth 2.0 credentials)
+        Groups claim for an OpenID Connect client application (argument is ignored when API auth is done with OAuth 2.0 credentials, and is not supported when `preconfigured_app` is set)
         """
         return pulumi.get(self, "groups_claim")
 
@@ -2591,6 +2630,14 @@ class OAuth(pulumi.CustomResource):
         List of URIs for redirection after logout. Note: see okta*app*oauth*post*logout*redirect*uri for appending to this list in a decentralized way.
         """
         return pulumi.get(self, "post_logout_redirect_uris")
+
+    @_builtins.property
+    @pulumi.getter(name="preconfiguredApp")
+    def preconfigured_app(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Tells Okta to use an existing application in their application catalog, as opposed to a custom application. Note: `groups_claim` is not supported when using `preconfigured_app`.
+        """
+        return pulumi.get(self, "preconfigured_app")
 
     @_builtins.property
     @pulumi.getter

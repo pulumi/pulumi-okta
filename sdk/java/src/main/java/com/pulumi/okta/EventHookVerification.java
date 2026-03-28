@@ -85,6 +85,20 @@ public class EventHookVerification extends com.pulumi.resources.CustomResource {
     public Output<String> eventHookId() {
         return this.eventHookId;
     }
+    /**
+     * The verification status of the event hook.
+     * 
+     */
+    @Export(name="verificationStatus", refs={String.class}, tree="[0]")
+    private Output<String> verificationStatus;
+
+    /**
+     * @return The verification status of the event hook.
+     * 
+     */
+    public Output<String> verificationStatus() {
+        return this.verificationStatus;
+    }
 
     /**
      *

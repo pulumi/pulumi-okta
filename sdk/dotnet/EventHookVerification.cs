@@ -61,6 +61,12 @@ namespace Pulumi.Okta
         [Output("eventHookId")]
         public Output<string> EventHookId { get; private set; } = null!;
 
+        /// <summary>
+        /// The verification status of the event hook.
+        /// </summary>
+        [Output("verificationStatus")]
+        public Output<string> VerificationStatus { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a EventHookVerification resource with the given unique name, arguments, and options.
@@ -126,6 +132,12 @@ namespace Pulumi.Okta
         /// </summary>
         [Input("eventHookId")]
         public Input<string>? EventHookId { get; set; }
+
+        /// <summary>
+        /// The verification status of the event hook.
+        /// </summary>
+        [Input("verificationStatus")]
+        public Input<string>? VerificationStatus { get; set; }
 
         public EventHookVerificationState()
         {

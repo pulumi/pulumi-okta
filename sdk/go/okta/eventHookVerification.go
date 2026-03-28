@@ -64,6 +64,8 @@ type EventHookVerification struct {
 
 	// Event hook ID
 	EventHookId pulumi.StringOutput `pulumi:"eventHookId"`
+	// The verification status of the event hook.
+	VerificationStatus pulumi.StringOutput `pulumi:"verificationStatus"`
 }
 
 // NewEventHookVerification registers a new resource with the given unique name, arguments, and options.
@@ -101,11 +103,15 @@ func GetEventHookVerification(ctx *pulumi.Context,
 type eventHookVerificationState struct {
 	// Event hook ID
 	EventHookId *string `pulumi:"eventHookId"`
+	// The verification status of the event hook.
+	VerificationStatus *string `pulumi:"verificationStatus"`
 }
 
 type EventHookVerificationState struct {
 	// Event hook ID
 	EventHookId pulumi.StringPtrInput
+	// The verification status of the event hook.
+	VerificationStatus pulumi.StringPtrInput
 }
 
 func (EventHookVerificationState) ElementType() reflect.Type {
@@ -213,6 +219,11 @@ func (o EventHookVerificationOutput) ToEventHookVerificationOutputWithContext(ct
 // Event hook ID
 func (o EventHookVerificationOutput) EventHookId() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventHookVerification) pulumi.StringOutput { return v.EventHookId }).(pulumi.StringOutput)
+}
+
+// The verification status of the event hook.
+func (o EventHookVerificationOutput) VerificationStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v *EventHookVerification) pulumi.StringOutput { return v.VerificationStatus }).(pulumi.StringOutput)
 }
 
 type EventHookVerificationArrayOutput struct{ *pulumi.OutputState }

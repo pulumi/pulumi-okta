@@ -71,6 +71,11 @@ public final class GetOidcResult {
      */
     private @Nullable String name;
     /**
+     * @return Set to true to have Okta send a logout request to the upstream IdP when a user signs out of Okta or a downstream app.
+     * 
+     */
+    private Boolean participateSlo;
+    /**
      * @return The type of protocol to use.
      * 
      */
@@ -80,6 +85,11 @@ public final class GetOidcResult {
      * 
      */
     private List<String> scopes;
+    /**
+     * @return OIDC IdP logout endpoint.
+     * 
+     */
+    private @Nullable String sloUrl;
     /**
      * @return The method of making a token request.
      * 
@@ -186,6 +196,13 @@ public final class GetOidcResult {
         return Optional.ofNullable(this.name);
     }
     /**
+     * @return Set to true to have Okta send a logout request to the upstream IdP when a user signs out of Okta or a downstream app.
+     * 
+     */
+    public Boolean participateSlo() {
+        return this.participateSlo;
+    }
+    /**
      * @return The type of protocol to use.
      * 
      */
@@ -198,6 +215,13 @@ public final class GetOidcResult {
      */
     public List<String> scopes() {
         return this.scopes;
+    }
+    /**
+     * @return OIDC IdP logout endpoint.
+     * 
+     */
+    public Optional<String> sloUrl() {
+        return Optional.ofNullable(this.sloUrl);
     }
     /**
      * @return The method of making a token request.
@@ -258,8 +282,10 @@ public final class GetOidcResult {
         private String jwksUrl;
         private Integer maxClockSkew;
         private @Nullable String name;
+        private Boolean participateSlo;
         private String protocolType;
         private List<String> scopes;
+        private @Nullable String sloUrl;
         private String tokenBinding;
         private String tokenUrl;
         private Boolean trustClaims;
@@ -280,8 +306,10 @@ public final class GetOidcResult {
     	      this.jwksUrl = defaults.jwksUrl;
     	      this.maxClockSkew = defaults.maxClockSkew;
     	      this.name = defaults.name;
+    	      this.participateSlo = defaults.participateSlo;
     	      this.protocolType = defaults.protocolType;
     	      this.scopes = defaults.scopes;
+    	      this.sloUrl = defaults.sloUrl;
     	      this.tokenBinding = defaults.tokenBinding;
     	      this.tokenUrl = defaults.tokenUrl;
     	      this.trustClaims = defaults.trustClaims;
@@ -375,6 +403,14 @@ public final class GetOidcResult {
             return this;
         }
         @CustomType.Setter
+        public Builder participateSlo(Boolean participateSlo) {
+            if (participateSlo == null) {
+              throw new MissingRequiredPropertyException("GetOidcResult", "participateSlo");
+            }
+            this.participateSlo = participateSlo;
+            return this;
+        }
+        @CustomType.Setter
         public Builder protocolType(String protocolType) {
             if (protocolType == null) {
               throw new MissingRequiredPropertyException("GetOidcResult", "protocolType");
@@ -392,6 +428,12 @@ public final class GetOidcResult {
         }
         public Builder scopes(String... scopes) {
             return scopes(List.of(scopes));
+        }
+        @CustomType.Setter
+        public Builder sloUrl(@Nullable String sloUrl) {
+
+            this.sloUrl = sloUrl;
+            return this;
         }
         @CustomType.Setter
         public Builder tokenBinding(String tokenBinding) {
@@ -454,8 +496,10 @@ public final class GetOidcResult {
             _resultValue.jwksUrl = jwksUrl;
             _resultValue.maxClockSkew = maxClockSkew;
             _resultValue.name = name;
+            _resultValue.participateSlo = participateSlo;
             _resultValue.protocolType = protocolType;
             _resultValue.scopes = scopes;
+            _resultValue.sloUrl = sloUrl;
             _resultValue.tokenBinding = tokenBinding;
             _resultValue.tokenUrl = tokenUrl;
             _resultValue.trustClaims = trustClaims;

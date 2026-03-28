@@ -44,6 +44,8 @@ type Zone struct {
 	SetUsageAsExemptList pulumi.BoolPtrOutput `pulumi:"setUsageAsExemptList"`
 	// Network Status - can either be `ACTIVE` or `INACTIVE` only
 	Status pulumi.StringPtrOutput `pulumi:"status"`
+	// Indicates a system Network Zone
+	System pulumi.BoolOutput `pulumi:"system"`
 	// Type of the Network Zone - can be `IP`, `DYNAMIC` or `DYNAMIC_V2` only
 	Type pulumi.StringOutput `pulumi:"type"`
 	// Usage of the Network Zone - can be either `POLICY` or `BLOCKLIST`. By default, it is `POLICY`
@@ -105,6 +107,8 @@ type zoneState struct {
 	SetUsageAsExemptList *bool `pulumi:"setUsageAsExemptList"`
 	// Network Status - can either be `ACTIVE` or `INACTIVE` only
 	Status *string `pulumi:"status"`
+	// Indicates a system Network Zone
+	System *bool `pulumi:"system"`
 	// Type of the Network Zone - can be `IP`, `DYNAMIC` or `DYNAMIC_V2` only
 	Type *string `pulumi:"type"`
 	// Usage of the Network Zone - can be either `POLICY` or `BLOCKLIST`. By default, it is `POLICY`
@@ -134,6 +138,8 @@ type ZoneState struct {
 	SetUsageAsExemptList pulumi.BoolPtrInput
 	// Network Status - can either be `ACTIVE` or `INACTIVE` only
 	Status pulumi.StringPtrInput
+	// Indicates a system Network Zone
+	System pulumi.BoolPtrInput
 	// Type of the Network Zone - can be `IP`, `DYNAMIC` or `DYNAMIC_V2` only
 	Type pulumi.StringPtrInput
 	// Usage of the Network Zone - can be either `POLICY` or `BLOCKLIST`. By default, it is `POLICY`
@@ -343,6 +349,11 @@ func (o ZoneOutput) SetUsageAsExemptList() pulumi.BoolPtrOutput {
 // Network Status - can either be `ACTIVE` or `INACTIVE` only
 func (o ZoneOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Zone) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+// Indicates a system Network Zone
+func (o ZoneOutput) System() pulumi.BoolOutput {
+	return o.ApplyT(func(v *Zone) pulumi.BoolOutput { return v.System }).(pulumi.BoolOutput)
 }
 
 // Type of the Network Zone - can be `IP`, `DYNAMIC` or `DYNAMIC_V2` only

@@ -3166,8 +3166,17 @@ export interface PushProviderConfigurationFcmConfigurationServiceAccountJson {
 }
 
 export interface RateLimitingUseCaseModeOverrides {
+    /**
+     * Rate limit mode for the Okta hosted login page. Valid values: `ENFORCE`, `DISABLE`, `PREVIEW`.
+     */
     loginPage?: pulumi.Input<string>;
+    /**
+     * Rate limit mode for OAuth2 authorization requests. Valid values: `ENFORCE`, `DISABLE`, `PREVIEW`.
+     */
     oauth2Authorize?: pulumi.Input<string>;
+    /**
+     * Rate limit mode for OIE app intent. Valid values: `ENFORCE`, `DISABLE`, `PREVIEW`.
+     */
     oieAppIntent?: pulumi.Input<string>;
 }
 

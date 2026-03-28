@@ -101,20 +101,34 @@ class RateLimiting(pulumi.CustomResource):
                  use_case_mode_overrides: Optional[pulumi.Input[Union['RateLimitingUseCaseModeOverridesArgs', 'RateLimitingUseCaseModeOverridesArgsDict']]] = None,
                  __props__=None):
         """
-        Manages rate limiting.
-        This resource allows you to configure the client-based rate limit and rate limiting communications settings.
-        > **WARNING:** This resource is deprecated and will be removed in a future release. A new resource to manage rate limiting settings will be implemented in the future.
+        Manages per-client rate limiting settings for your Okta organization.
+
+        This resource configures how Okta handles rate limiting on a per-client basis, allowing you to set a default mode and override settings for specific use cases.
 
         ## Example Usage
+
+        ### Basic Usage
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        example = okta.RateLimiting("example", default_mode="ENFORCE")
+        ```
+
+        ### With Use Case Overrides
 
         ```python
         import pulumi
         import pulumi_okta as okta
 
         example = okta.RateLimiting("example",
-            login="ENFORCE",
-            authorize="ENFORCE",
-            communications_enabled=True)
+            default_mode="ENFORCE",
+            use_case_mode_overrides={
+                "login_page": "PREVIEW",
+                "oauth2_authorize": "ENFORCE",
+                "oie_app_intent": "DISABLE",
+            })
         ```
 
         ## Import
@@ -122,6 +136,8 @@ class RateLimiting(pulumi.CustomResource):
         ```sh
         $ pulumi import okta:index/rateLimiting:RateLimiting example .
         ```
+
+        > **Note:** The import ID is a literal dot (`.`) since there is only one rate limiting configuration per Okta organization.
 
 
         :param str resource_name: The name of the resource.
@@ -135,20 +151,34 @@ class RateLimiting(pulumi.CustomResource):
                  args: RateLimitingArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages rate limiting.
-        This resource allows you to configure the client-based rate limit and rate limiting communications settings.
-        > **WARNING:** This resource is deprecated and will be removed in a future release. A new resource to manage rate limiting settings will be implemented in the future.
+        Manages per-client rate limiting settings for your Okta organization.
+
+        This resource configures how Okta handles rate limiting on a per-client basis, allowing you to set a default mode and override settings for specific use cases.
 
         ## Example Usage
+
+        ### Basic Usage
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        example = okta.RateLimiting("example", default_mode="ENFORCE")
+        ```
+
+        ### With Use Case Overrides
 
         ```python
         import pulumi
         import pulumi_okta as okta
 
         example = okta.RateLimiting("example",
-            login="ENFORCE",
-            authorize="ENFORCE",
-            communications_enabled=True)
+            default_mode="ENFORCE",
+            use_case_mode_overrides={
+                "login_page": "PREVIEW",
+                "oauth2_authorize": "ENFORCE",
+                "oie_app_intent": "DISABLE",
+            })
         ```
 
         ## Import
@@ -156,6 +186,8 @@ class RateLimiting(pulumi.CustomResource):
         ```sh
         $ pulumi import okta:index/rateLimiting:RateLimiting example .
         ```
+
+        > **Note:** The import ID is a literal dot (`.`) since there is only one rate limiting configuration per Okta organization.
 
 
         :param str resource_name: The name of the resource.

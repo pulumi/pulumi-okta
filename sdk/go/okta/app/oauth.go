@@ -154,7 +154,7 @@ type OAuth struct {
 	FrontchannelLogoutUri pulumi.StringPtrOutput `pulumi:"frontchannelLogoutUri"`
 	// List of OAuth 2.0 grant types. Conditional validation params found here https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum requirements per app type.
 	GrantTypes pulumi.StringArrayOutput `pulumi:"grantTypes"`
-	// Groups claim for an OpenID Connect client application (argument is ignored when API auth is done with OAuth 2.0 credentials)
+	// Groups claim for an OpenID Connect client application (argument is ignored when API auth is done with OAuth 2.0 credentials, and is not supported when `preconfiguredApp` is set)
 	//
 	// Deprecated: The groupsClaim field is deprecated and will be removed in a future version. Use Authorization Server Claims (okta_auth_server_claim) or app profile configuration instead.
 	GroupsClaim OAuthGroupsClaimPtrOutput `pulumi:"groupsClaim"`
@@ -196,6 +196,8 @@ type OAuth struct {
 	PolicyUri pulumi.StringPtrOutput `pulumi:"policyUri"`
 	// List of URIs for redirection after logout. Note: see okta*app*oauth*post*logout*redirect*uri for appending to this list in a decentralized way.
 	PostLogoutRedirectUris pulumi.StringArrayOutput `pulumi:"postLogoutRedirectUris"`
+	// Tells Okta to use an existing application in their application catalog, as opposed to a custom application. Note: `groupsClaim` is not supported when using `preconfiguredApp`.
+	PreconfiguredApp pulumi.StringPtrOutput `pulumi:"preconfiguredApp"`
 	// Custom JSON that represents an OAuth application's profile
 	Profile pulumi.StringPtrOutput `pulumi:"profile"`
 	// List of URIs for use in the redirect-based flow. This is required for all application types except service. Note: see okta*app*oauth*redirect*uri for appending to this list in a decentralized way.
@@ -312,7 +314,7 @@ type oauthState struct {
 	FrontchannelLogoutUri *string `pulumi:"frontchannelLogoutUri"`
 	// List of OAuth 2.0 grant types. Conditional validation params found here https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum requirements per app type.
 	GrantTypes []string `pulumi:"grantTypes"`
-	// Groups claim for an OpenID Connect client application (argument is ignored when API auth is done with OAuth 2.0 credentials)
+	// Groups claim for an OpenID Connect client application (argument is ignored when API auth is done with OAuth 2.0 credentials, and is not supported when `preconfiguredApp` is set)
 	//
 	// Deprecated: The groupsClaim field is deprecated and will be removed in a future version. Use Authorization Server Claims (okta_auth_server_claim) or app profile configuration instead.
 	GroupsClaim *OAuthGroupsClaim `pulumi:"groupsClaim"`
@@ -354,6 +356,8 @@ type oauthState struct {
 	PolicyUri *string `pulumi:"policyUri"`
 	// List of URIs for redirection after logout. Note: see okta*app*oauth*post*logout*redirect*uri for appending to this list in a decentralized way.
 	PostLogoutRedirectUris []string `pulumi:"postLogoutRedirectUris"`
+	// Tells Okta to use an existing application in their application catalog, as opposed to a custom application. Note: `groupsClaim` is not supported when using `preconfiguredApp`.
+	PreconfiguredApp *string `pulumi:"preconfiguredApp"`
 	// Custom JSON that represents an OAuth application's profile
 	Profile *string `pulumi:"profile"`
 	// List of URIs for use in the redirect-based flow. This is required for all application types except service. Note: see okta*app*oauth*redirect*uri for appending to this list in a decentralized way.
@@ -427,7 +431,7 @@ type OAuthState struct {
 	FrontchannelLogoutUri pulumi.StringPtrInput
 	// List of OAuth 2.0 grant types. Conditional validation params found here https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum requirements per app type.
 	GrantTypes pulumi.StringArrayInput
-	// Groups claim for an OpenID Connect client application (argument is ignored when API auth is done with OAuth 2.0 credentials)
+	// Groups claim for an OpenID Connect client application (argument is ignored when API auth is done with OAuth 2.0 credentials, and is not supported when `preconfiguredApp` is set)
 	//
 	// Deprecated: The groupsClaim field is deprecated and will be removed in a future version. Use Authorization Server Claims (okta_auth_server_claim) or app profile configuration instead.
 	GroupsClaim OAuthGroupsClaimPtrInput
@@ -469,6 +473,8 @@ type OAuthState struct {
 	PolicyUri pulumi.StringPtrInput
 	// List of URIs for redirection after logout. Note: see okta*app*oauth*post*logout*redirect*uri for appending to this list in a decentralized way.
 	PostLogoutRedirectUris pulumi.StringArrayInput
+	// Tells Okta to use an existing application in their application catalog, as opposed to a custom application. Note: `groupsClaim` is not supported when using `preconfiguredApp`.
+	PreconfiguredApp pulumi.StringPtrInput
 	// Custom JSON that represents an OAuth application's profile
 	Profile pulumi.StringPtrInput
 	// List of URIs for use in the redirect-based flow. This is required for all application types except service. Note: see okta*app*oauth*redirect*uri for appending to this list in a decentralized way.
@@ -544,7 +550,7 @@ type oauthArgs struct {
 	FrontchannelLogoutUri *string `pulumi:"frontchannelLogoutUri"`
 	// List of OAuth 2.0 grant types. Conditional validation params found here https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum requirements per app type.
 	GrantTypes []string `pulumi:"grantTypes"`
-	// Groups claim for an OpenID Connect client application (argument is ignored when API auth is done with OAuth 2.0 credentials)
+	// Groups claim for an OpenID Connect client application (argument is ignored when API auth is done with OAuth 2.0 credentials, and is not supported when `preconfiguredApp` is set)
 	//
 	// Deprecated: The groupsClaim field is deprecated and will be removed in a future version. Use Authorization Server Claims (okta_auth_server_claim) or app profile configuration instead.
 	GroupsClaim *OAuthGroupsClaim `pulumi:"groupsClaim"`
@@ -582,6 +588,8 @@ type oauthArgs struct {
 	PolicyUri *string `pulumi:"policyUri"`
 	// List of URIs for redirection after logout. Note: see okta*app*oauth*post*logout*redirect*uri for appending to this list in a decentralized way.
 	PostLogoutRedirectUris []string `pulumi:"postLogoutRedirectUris"`
+	// Tells Okta to use an existing application in their application catalog, as opposed to a custom application. Note: `groupsClaim` is not supported when using `preconfiguredApp`.
+	PreconfiguredApp *string `pulumi:"preconfiguredApp"`
 	// Custom JSON that represents an OAuth application's profile
 	Profile *string `pulumi:"profile"`
 	// List of URIs for use in the redirect-based flow. This is required for all application types except service. Note: see okta*app*oauth*redirect*uri for appending to this list in a decentralized way.
@@ -652,7 +660,7 @@ type OAuthArgs struct {
 	FrontchannelLogoutUri pulumi.StringPtrInput
 	// List of OAuth 2.0 grant types. Conditional validation params found here https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum requirements per app type.
 	GrantTypes pulumi.StringArrayInput
-	// Groups claim for an OpenID Connect client application (argument is ignored when API auth is done with OAuth 2.0 credentials)
+	// Groups claim for an OpenID Connect client application (argument is ignored when API auth is done with OAuth 2.0 credentials, and is not supported when `preconfiguredApp` is set)
 	//
 	// Deprecated: The groupsClaim field is deprecated and will be removed in a future version. Use Authorization Server Claims (okta_auth_server_claim) or app profile configuration instead.
 	GroupsClaim OAuthGroupsClaimPtrInput
@@ -690,6 +698,8 @@ type OAuthArgs struct {
 	PolicyUri pulumi.StringPtrInput
 	// List of URIs for redirection after logout. Note: see okta*app*oauth*post*logout*redirect*uri for appending to this list in a decentralized way.
 	PostLogoutRedirectUris pulumi.StringArrayInput
+	// Tells Okta to use an existing application in their application catalog, as opposed to a custom application. Note: `groupsClaim` is not supported when using `preconfiguredApp`.
+	PreconfiguredApp pulumi.StringPtrInput
 	// Custom JSON that represents an OAuth application's profile
 	Profile pulumi.StringPtrInput
 	// List of URIs for use in the redirect-based flow. This is required for all application types except service. Note: see okta*app*oauth*redirect*uri for appending to this list in a decentralized way.
@@ -902,7 +912,7 @@ func (o OAuthOutput) GrantTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *OAuth) pulumi.StringArrayOutput { return v.GrantTypes }).(pulumi.StringArrayOutput)
 }
 
-// Groups claim for an OpenID Connect client application (argument is ignored when API auth is done with OAuth 2.0 credentials)
+// Groups claim for an OpenID Connect client application (argument is ignored when API auth is done with OAuth 2.0 credentials, and is not supported when `preconfiguredApp` is set)
 //
 // Deprecated: The groupsClaim field is deprecated and will be removed in a future version. Use Authorization Server Claims (okta_auth_server_claim) or app profile configuration instead.
 func (o OAuthOutput) GroupsClaim() OAuthGroupsClaimPtrOutput {
@@ -1002,6 +1012,11 @@ func (o OAuthOutput) PolicyUri() pulumi.StringPtrOutput {
 // List of URIs for redirection after logout. Note: see okta*app*oauth*post*logout*redirect*uri for appending to this list in a decentralized way.
 func (o OAuthOutput) PostLogoutRedirectUris() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *OAuth) pulumi.StringArrayOutput { return v.PostLogoutRedirectUris }).(pulumi.StringArrayOutput)
+}
+
+// Tells Okta to use an existing application in their application catalog, as opposed to a custom application. Note: `groupsClaim` is not supported when using `preconfiguredApp`.
+func (o OAuthOutput) PreconfiguredApp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OAuth) pulumi.StringPtrOutput { return v.PreconfiguredApp }).(pulumi.StringPtrOutput)
 }
 
 // Custom JSON that represents an OAuth application's profile

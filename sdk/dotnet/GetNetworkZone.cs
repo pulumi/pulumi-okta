@@ -245,6 +245,7 @@ namespace Pulumi.Okta
         /// Network Status - can either be ACTIVE or INACTIVE only
         /// </summary>
         public readonly string Status;
+        public readonly bool System;
         /// <summary>
         /// Type of the Network Zone - can be `IP`, `DYNAMIC` or `DYNAMIC_V2` only
         /// </summary>
@@ -278,6 +279,8 @@ namespace Pulumi.Okta
 
             string status,
 
+            bool system,
+
             string type,
 
             string usage)
@@ -293,6 +296,7 @@ namespace Pulumi.Okta
             Name = name;
             Proxies = proxies;
             Status = status;
+            System = system;
             Type = type;
             Usage = usage;
         }

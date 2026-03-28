@@ -30,10 +30,26 @@ public final class EventHookVerificationState extends com.pulumi.resources.Resou
         return Optional.ofNullable(this.eventHookId);
     }
 
+    /**
+     * The verification status of the event hook.
+     * 
+     */
+    @Import(name="verificationStatus")
+    private @Nullable Output<String> verificationStatus;
+
+    /**
+     * @return The verification status of the event hook.
+     * 
+     */
+    public Optional<Output<String>> verificationStatus() {
+        return Optional.ofNullable(this.verificationStatus);
+    }
+
     private EventHookVerificationState() {}
 
     private EventHookVerificationState(EventHookVerificationState $) {
         this.eventHookId = $.eventHookId;
+        this.verificationStatus = $.verificationStatus;
     }
 
     public static Builder builder() {
@@ -73,6 +89,27 @@ public final class EventHookVerificationState extends com.pulumi.resources.Resou
          */
         public Builder eventHookId(String eventHookId) {
             return eventHookId(Output.of(eventHookId));
+        }
+
+        /**
+         * @param verificationStatus The verification status of the event hook.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder verificationStatus(@Nullable Output<String> verificationStatus) {
+            $.verificationStatus = verificationStatus;
+            return this;
+        }
+
+        /**
+         * @param verificationStatus The verification status of the event hook.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder verificationStatus(String verificationStatus) {
+            return verificationStatus(Output.of(verificationStatus));
         }
 
         public EventHookVerificationState build() {

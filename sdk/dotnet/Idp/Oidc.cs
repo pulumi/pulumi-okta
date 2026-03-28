@@ -164,6 +164,12 @@ namespace Pulumi.Okta.Idp
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// Set to true to have Okta send a logout request to the upstream IdP when a user signs out of Okta or a downstream app.
+        /// </summary>
+        [Output("participateSlo")]
+        public Output<bool?> ParticipateSlo { get; private set; } = null!;
+
+        /// <summary>
         /// Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: https://developer.okta.com/docs/reference/api/idps/#oauth-2-0-and-openid-connect-client-object
         /// </summary>
         [Output("pkceRequired")]
@@ -204,6 +210,12 @@ namespace Pulumi.Okta.Idp
         /// </summary>
         [Output("scopes")]
         public Output<ImmutableArray<string>> Scopes { get; private set; } = null!;
+
+        /// <summary>
+        /// OIDC IdP logout endpoint. Must be specified when `ParticipateSlo` is set to true.
+        /// </summary>
+        [Output("sloUrl")]
+        public Output<string?> SloUrl { get; private set; } = null!;
 
         /// <summary>
         /// Default to `ACTIVE`
@@ -461,6 +473,12 @@ namespace Pulumi.Okta.Idp
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// Set to true to have Okta send a logout request to the upstream IdP when a user signs out of Okta or a downstream app.
+        /// </summary>
+        [Input("participateSlo")]
+        public Input<bool>? ParticipateSlo { get; set; }
+
+        /// <summary>
         /// Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: https://developer.okta.com/docs/reference/api/idps/#oauth-2-0-and-openid-connect-client-object
         /// </summary>
         [Input("pkceRequired")]
@@ -507,6 +525,12 @@ namespace Pulumi.Okta.Idp
             get => _scopes ?? (_scopes = new InputList<string>());
             set => _scopes = value;
         }
+
+        /// <summary>
+        /// OIDC IdP logout endpoint. Must be specified when `ParticipateSlo` is set to true.
+        /// </summary>
+        [Input("sloUrl")]
+        public Input<string>? SloUrl { get; set; }
 
         /// <summary>
         /// Default to `ACTIVE`
@@ -710,6 +734,12 @@ namespace Pulumi.Okta.Idp
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// Set to true to have Okta send a logout request to the upstream IdP when a user signs out of Okta or a downstream app.
+        /// </summary>
+        [Input("participateSlo")]
+        public Input<bool>? ParticipateSlo { get; set; }
+
+        /// <summary>
         /// Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: https://developer.okta.com/docs/reference/api/idps/#oauth-2-0-and-openid-connect-client-object
         /// </summary>
         [Input("pkceRequired")]
@@ -756,6 +786,12 @@ namespace Pulumi.Okta.Idp
             get => _scopes ?? (_scopes = new InputList<string>());
             set => _scopes = value;
         }
+
+        /// <summary>
+        /// OIDC IdP logout endpoint. Must be specified when `ParticipateSlo` is set to true.
+        /// </summary>
+        [Input("sloUrl")]
+        public Input<string>? SloUrl { get; set; }
 
         /// <summary>
         /// Default to `ACTIVE`

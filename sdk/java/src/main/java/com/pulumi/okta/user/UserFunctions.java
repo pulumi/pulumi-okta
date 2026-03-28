@@ -9,12 +9,15 @@ import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
 import com.pulumi.deployment.InvokeOutputOptions;
 import com.pulumi.okta.Utilities;
+import com.pulumi.okta.user.inputs.GetRiskArgs;
+import com.pulumi.okta.user.inputs.GetRiskPlainArgs;
 import com.pulumi.okta.user.inputs.GetUserArgs;
 import com.pulumi.okta.user.inputs.GetUserPlainArgs;
 import com.pulumi.okta.user.inputs.GetUserTypeArgs;
 import com.pulumi.okta.user.inputs.GetUserTypePlainArgs;
 import com.pulumi.okta.user.inputs.GetUsersArgs;
 import com.pulumi.okta.user.inputs.GetUsersPlainArgs;
+import com.pulumi.okta.user.outputs.GetRiskResult;
 import com.pulumi.okta.user.outputs.GetUserProfileMappingSourceResult;
 import com.pulumi.okta.user.outputs.GetUserResult;
 import com.pulumi.okta.user.outputs.GetUserTypeResult;
@@ -23,6 +26,206 @@ import com.pulumi.resources.InvokeArgs;
 import java.util.concurrent.CompletableFuture;
 
 public final class UserFunctions {
+    /**
+     * Gets a user&#39;s risk level in Okta.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.user.UserFunctions;
+     * import com.pulumi.okta.user.inputs.GetRiskArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = UserFunctions.getRisk(GetRiskArgs.builder()
+     *             .userId(exampleOktaUser.id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetRiskResult> getRisk(GetRiskArgs args) {
+        return getRisk(args, InvokeOptions.Empty);
+    }
+    /**
+     * Gets a user&#39;s risk level in Okta.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.user.UserFunctions;
+     * import com.pulumi.okta.user.inputs.GetRiskArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = UserFunctions.getRisk(GetRiskArgs.builder()
+     *             .userId(exampleOktaUser.id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetRiskResult> getRiskPlain(GetRiskPlainArgs args) {
+        return getRiskPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Gets a user&#39;s risk level in Okta.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.user.UserFunctions;
+     * import com.pulumi.okta.user.inputs.GetRiskArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = UserFunctions.getRisk(GetRiskArgs.builder()
+     *             .userId(exampleOktaUser.id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetRiskResult> getRisk(GetRiskArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("okta:user/getRisk:getRisk", TypeShape.of(GetRiskResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Gets a user&#39;s risk level in Okta.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.user.UserFunctions;
+     * import com.pulumi.okta.user.inputs.GetRiskArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = UserFunctions.getRisk(GetRiskArgs.builder()
+     *             .userId(exampleOktaUser.id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetRiskResult> getRisk(GetRiskArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("okta:user/getRisk:getRisk", TypeShape.of(GetRiskResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Gets a user&#39;s risk level in Okta.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.user.UserFunctions;
+     * import com.pulumi.okta.user.inputs.GetRiskArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = UserFunctions.getRisk(GetRiskArgs.builder()
+     *             .userId(exampleOktaUser.id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetRiskResult> getRiskPlain(GetRiskPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("okta:user/getRisk:getRisk", TypeShape.of(GetRiskResult.class), args, Utilities.withVersion(options));
+    }
     /**
      * Get a single users from Okta.
      * 

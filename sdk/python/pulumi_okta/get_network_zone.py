@@ -26,7 +26,7 @@ class GetNetworkZoneResult:
     """
     A collection of values returned by getNetworkZone.
     """
-    def __init__(__self__, asns=None, dynamic_locations=None, dynamic_locations_excludes=None, dynamic_proxy_type=None, gateways=None, id=None, ip_service_categories_excludes=None, ip_service_categories_includes=None, name=None, proxies=None, status=None, type=None, usage=None):
+    def __init__(__self__, asns=None, dynamic_locations=None, dynamic_locations_excludes=None, dynamic_proxy_type=None, gateways=None, id=None, ip_service_categories_excludes=None, ip_service_categories_includes=None, name=None, proxies=None, status=None, system=None, type=None, usage=None):
         if asns and not isinstance(asns, list):
             raise TypeError("Expected argument 'asns' to be a list")
         pulumi.set(__self__, "asns", asns)
@@ -60,6 +60,9 @@ class GetNetworkZoneResult:
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
         pulumi.set(__self__, "status", status)
+        if system and not isinstance(system, bool):
+            raise TypeError("Expected argument 'system' to be a bool")
+        pulumi.set(__self__, "system", system)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -157,6 +160,11 @@ class GetNetworkZoneResult:
 
     @_builtins.property
     @pulumi.getter
+    def system(self) -> _builtins.bool:
+        return pulumi.get(self, "system")
+
+    @_builtins.property
+    @pulumi.getter
     def type(self) -> _builtins.str:
         """
         Type of the Network Zone - can be `IP`, `DYNAMIC` or `DYNAMIC_V2` only
@@ -189,6 +197,7 @@ class AwaitableGetNetworkZoneResult(GetNetworkZoneResult):
             name=self.name,
             proxies=self.proxies,
             status=self.status,
+            system=self.system,
             type=self.type,
             usage=self.usage)
 
@@ -239,6 +248,7 @@ def get_network_zone(dynamic_locations_excludes: Optional[Sequence[_builtins.str
         name=pulumi.get(__ret__, 'name'),
         proxies=pulumi.get(__ret__, 'proxies'),
         status=pulumi.get(__ret__, 'status'),
+        system=pulumi.get(__ret__, 'system'),
         type=pulumi.get(__ret__, 'type'),
         usage=pulumi.get(__ret__, 'usage'))
 def get_network_zone_output(dynamic_locations_excludes: Optional[pulumi.Input[Optional[Sequence[_builtins.str]]]] = None,
@@ -286,5 +296,6 @@ def get_network_zone_output(dynamic_locations_excludes: Optional[pulumi.Input[Op
         name=pulumi.get(__response__, 'name'),
         proxies=pulumi.get(__response__, 'proxies'),
         status=pulumi.get(__response__, 'status'),
+        system=pulumi.get(__response__, 'system'),
         type=pulumi.get(__response__, 'type'),
         usage=pulumi.get(__response__, 'usage')))

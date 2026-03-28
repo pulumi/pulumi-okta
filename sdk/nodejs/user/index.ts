@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { GetRiskArgs, GetRiskResult, GetRiskOutputArgs } from "./getRisk";
+export const getRisk: typeof import("./getRisk").getRisk = null as any;
+export const getRiskOutput: typeof import("./getRisk").getRiskOutput = null as any;
+utilities.lazyLoad(exports, ["getRisk","getRiskOutput"], () => require("./getRisk"));
+
 export { GetUserArgs, GetUserResult, GetUserOutputArgs } from "./getUser";
 export const getUser: typeof import("./getUser").getUser = null as any;
 export const getUserOutput: typeof import("./getUser").getUserOutput = null as any;
@@ -25,6 +30,11 @@ export const getUsers: typeof import("./getUsers").getUsers = null as any;
 export const getUsersOutput: typeof import("./getUsers").getUsersOutput = null as any;
 utilities.lazyLoad(exports, ["getUsers","getUsersOutput"], () => require("./getUsers"));
 
+export { RiskArgs, RiskState } from "./risk";
+export type Risk = import("./risk").Risk;
+export const Risk: typeof import("./risk").Risk = null as any;
+utilities.lazyLoad(exports, ["Risk"], () => require("./risk"));
+
 export { UserArgs, UserState } from "./user";
 export type User = import("./user").User;
 export const User: typeof import("./user").User = null as any;
@@ -40,6 +50,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "okta:user/risk:Risk":
+                return new Risk(name, <any>undefined, { urn })
             case "okta:user/user:User":
                 return new User(name, <any>undefined, { urn })
             case "okta:user/userType:UserType":
@@ -49,5 +61,6 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("okta", "user/risk", _module)
 pulumi.runtime.registerResourceModule("okta", "user/user", _module)
 pulumi.runtime.registerResourceModule("okta", "user/userType", _module)

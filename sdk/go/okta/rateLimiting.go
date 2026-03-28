@@ -12,11 +12,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages rate limiting.
-// This resource allows you to configure the client-based rate limit and rate limiting communications settings.
-// > **WARNING:** This resource is deprecated and will be removed in a future release. A new resource to manage rate limiting settings will be implemented in the future.
+// Manages per-client rate limiting settings for your Okta organization.
+//
+// This resource configures how Okta handles rate limiting on a per-client basis, allowing you to set a default mode and override settings for specific use cases.
 //
 // ## Example Usage
+//
+// ### Basic Usage
 //
 // ```go
 // package main
@@ -31,9 +33,38 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := okta.NewRateLimiting(ctx, "example", &okta.RateLimitingArgs{
-//				Login:                 "ENFORCE",
-//				Authorize:             "ENFORCE",
-//				CommunicationsEnabled: true,
+//				DefaultMode: pulumi.String("ENFORCE"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### With Use Case Overrides
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v6/go/okta"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := okta.NewRateLimiting(ctx, "example", &okta.RateLimitingArgs{
+//				DefaultMode: pulumi.String("ENFORCE"),
+//				UseCaseModeOverrides: &okta.RateLimitingUseCaseModeOverridesArgs{
+//					LoginPage:       pulumi.String("PREVIEW"),
+//					Oauth2Authorize: pulumi.String("ENFORCE"),
+//					OieAppIntent:    pulumi.String("DISABLE"),
+//				},
 //			})
 //			if err != nil {
 //				return err
@@ -49,6 +80,8 @@ import (
 // ```sh
 // $ pulumi import okta:index/rateLimiting:RateLimiting example .
 // ```
+//
+// > **Note:** The import ID is a literal dot (`.`) since there is only one rate limiting configuration per Okta organization.
 type RateLimiting struct {
 	pulumi.CustomResourceState
 

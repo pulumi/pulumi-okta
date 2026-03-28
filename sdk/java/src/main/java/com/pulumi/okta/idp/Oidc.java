@@ -328,6 +328,20 @@ public class Oidc extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
+     * Set to true to have Okta send a logout request to the upstream IdP when a user signs out of Okta or a downstream app.
+     * 
+     */
+    @Export(name="participateSlo", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> participateSlo;
+
+    /**
+     * @return Set to true to have Okta send a logout request to the upstream IdP when a user signs out of Okta or a downstream app.
+     * 
+     */
+    public Output<Optional<Boolean>> participateSlo() {
+        return Codegen.optional(this.participateSlo);
+    }
+    /**
      * Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: https://developer.okta.com/docs/reference/api/idps/#oauth-2-0-and-openid-connect-client-object
      * 
      */
@@ -424,6 +438,20 @@ public class Oidc extends com.pulumi.resources.CustomResource {
      */
     public Output<List<String>> scopes() {
         return this.scopes;
+    }
+    /**
+     * OIDC IdP logout endpoint. Must be specified when `participateSlo` is set to true.
+     * 
+     */
+    @Export(name="sloUrl", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> sloUrl;
+
+    /**
+     * @return OIDC IdP logout endpoint. Must be specified when `participateSlo` is set to true.
+     * 
+     */
+    public Output<Optional<String>> sloUrl() {
+        return Codegen.optional(this.sloUrl);
     }
     /**
      * Default to `ACTIVE`

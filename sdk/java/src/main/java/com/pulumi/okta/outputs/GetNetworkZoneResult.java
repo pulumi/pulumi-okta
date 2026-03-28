@@ -5,6 +5,7 @@ package com.pulumi.okta.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -68,6 +69,7 @@ public final class GetNetworkZoneResult {
      * 
      */
     private String status;
+    private Boolean system;
     /**
      * @return Type of the Network Zone - can be `IP`, `DYNAMIC` or `DYNAMIC_V2` only
      * 
@@ -157,6 +159,9 @@ public final class GetNetworkZoneResult {
     public String status() {
         return this.status;
     }
+    public Boolean system() {
+        return this.system;
+    }
     /**
      * @return Type of the Network Zone - can be `IP`, `DYNAMIC` or `DYNAMIC_V2` only
      * 
@@ -192,6 +197,7 @@ public final class GetNetworkZoneResult {
         private @Nullable String name;
         private List<String> proxies;
         private String status;
+        private Boolean system;
         private String type;
         private String usage;
         public Builder() {}
@@ -208,6 +214,7 @@ public final class GetNetworkZoneResult {
     	      this.name = defaults.name;
     	      this.proxies = defaults.proxies;
     	      this.status = defaults.status;
+    	      this.system = defaults.system;
     	      this.type = defaults.type;
     	      this.usage = defaults.usage;
         }
@@ -312,6 +319,14 @@ public final class GetNetworkZoneResult {
             return this;
         }
         @CustomType.Setter
+        public Builder system(Boolean system) {
+            if (system == null) {
+              throw new MissingRequiredPropertyException("GetNetworkZoneResult", "system");
+            }
+            this.system = system;
+            return this;
+        }
+        @CustomType.Setter
         public Builder type(String type) {
             if (type == null) {
               throw new MissingRequiredPropertyException("GetNetworkZoneResult", "type");
@@ -340,6 +355,7 @@ public final class GetNetworkZoneResult {
             _resultValue.name = name;
             _resultValue.proxies = proxies;
             _resultValue.status = status;
+            _resultValue.system = system;
             _resultValue.type = type;
             _resultValue.usage = usage;
             return _resultValue;

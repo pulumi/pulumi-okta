@@ -24,6 +24,7 @@ export function getOidc(args?: GetOidcArgs, opts?: pulumi.InvokeOptions): Promis
     return pulumi.runtime.invoke("okta:idp/getOidc:getOidc", {
         "id": args.id,
         "name": args.name,
+        "sloUrl": args.sloUrl,
     }, opts);
 }
 
@@ -39,6 +40,10 @@ export interface GetOidcArgs {
      * Name of the idp.
      */
     name?: string;
+    /**
+     * OIDC IdP logout endpoint.
+     */
+    sloUrl?: string;
 }
 
 /**
@@ -90,6 +95,10 @@ export interface GetOidcResult {
      */
     readonly name?: string;
     /**
+     * Set to true to have Okta send a logout request to the upstream IdP when a user signs out of Okta or a downstream app.
+     */
+    readonly participateSlo: boolean;
+    /**
      * The type of protocol to use.
      */
     readonly protocolType: string;
@@ -97,6 +106,10 @@ export interface GetOidcResult {
      * The scopes of the IdP.
      */
     readonly scopes: string[];
+    /**
+     * OIDC IdP logout endpoint.
+     */
+    readonly sloUrl?: string;
     /**
      * The method of making a token request.
      */
@@ -139,6 +152,7 @@ export function getOidcOutput(args?: GetOidcOutputArgs, opts?: pulumi.InvokeOutp
     return pulumi.runtime.invokeOutput("okta:idp/getOidc:getOidc", {
         "id": args.id,
         "name": args.name,
+        "sloUrl": args.sloUrl,
     }, opts);
 }
 
@@ -154,4 +168,8 @@ export interface GetOidcOutputArgs {
      * Name of the idp.
      */
     name?: pulumi.Input<string>;
+    /**
+     * OIDC IdP logout endpoint.
+     */
+    sloUrl?: pulumi.Input<string>;
 }

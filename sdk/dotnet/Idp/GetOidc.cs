@@ -99,6 +99,12 @@ namespace Pulumi.Okta.Idp
         [Input("name")]
         public string? Name { get; set; }
 
+        /// <summary>
+        /// OIDC IdP logout endpoint.
+        /// </summary>
+        [Input("sloUrl")]
+        public string? SloUrl { get; set; }
+
         public GetOidcArgs()
         {
         }
@@ -118,6 +124,12 @@ namespace Pulumi.Okta.Idp
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// OIDC IdP logout endpoint.
+        /// </summary>
+        [Input("sloUrl")]
+        public Input<string>? SloUrl { get; set; }
 
         public GetOidcInvokeArgs()
         {
@@ -174,6 +186,10 @@ namespace Pulumi.Okta.Idp
         /// </summary>
         public readonly string? Name;
         /// <summary>
+        /// Set to true to have Okta send a logout request to the upstream IdP when a user signs out of Okta or a downstream app.
+        /// </summary>
+        public readonly bool ParticipateSlo;
+        /// <summary>
         /// The type of protocol to use.
         /// </summary>
         public readonly string ProtocolType;
@@ -181,6 +197,10 @@ namespace Pulumi.Okta.Idp
         /// The scopes of the IdP.
         /// </summary>
         public readonly ImmutableArray<string> Scopes;
+        /// <summary>
+        /// OIDC IdP logout endpoint.
+        /// </summary>
+        public readonly string? SloUrl;
         /// <summary>
         /// The method of making a token request.
         /// </summary>
@@ -227,9 +247,13 @@ namespace Pulumi.Okta.Idp
 
             string? name,
 
+            bool participateSlo,
+
             string protocolType,
 
             ImmutableArray<string> scopes,
+
+            string? sloUrl,
 
             string tokenBinding,
 
@@ -254,8 +278,10 @@ namespace Pulumi.Okta.Idp
             JwksUrl = jwksUrl;
             MaxClockSkew = maxClockSkew;
             Name = name;
+            ParticipateSlo = participateSlo;
             ProtocolType = protocolType;
             Scopes = scopes;
+            SloUrl = sloUrl;
             TokenBinding = tokenBinding;
             TokenUrl = tokenUrl;
             TrustClaims = trustClaims;

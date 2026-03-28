@@ -12,12 +12,21 @@ namespace Pulumi.Okta.Inputs
 
     public sealed class RateLimitingUseCaseModeOverridesArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Rate limit mode for the Okta hosted login page. Valid values: `ENFORCE`, `DISABLE`, `PREVIEW`.
+        /// </summary>
         [Input("loginPage")]
         public Input<string>? LoginPage { get; set; }
 
+        /// <summary>
+        /// Rate limit mode for OAuth2 authorization requests. Valid values: `ENFORCE`, `DISABLE`, `PREVIEW`.
+        /// </summary>
         [Input("oauth2Authorize")]
         public Input<string>? Oauth2Authorize { get; set; }
 
+        /// <summary>
+        /// Rate limit mode for OIE app intent. Valid values: `ENFORCE`, `DISABLE`, `PREVIEW`.
+        /// </summary>
         [Input("oieAppIntent")]
         public Input<string>? OieAppIntent { get; set; }
 

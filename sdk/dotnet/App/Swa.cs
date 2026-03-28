@@ -36,6 +36,47 @@ namespace Pulumi.Okta.App
     ///         Url = "https://example.com/login.html",
     ///     });
     /// 
+    ///     var exampleWithAppSettingsJson = new Okta.App.Swa("example_with_app_settings_json", new()
+    ///     {
+    ///         PreconfiguredApp = "office365",
+    ///         Label = "Microsoft Office 365 SWA",
+    ///         Status = "ACTIVE",
+    ///         AppSettingsJson = @"    {
+    ///       \""wsFedConfigureType\"": \""AUTO\"",
+    ///       \""windowsTransportEnabled\"": false,
+    ///       \""domain\"": \""example.com\"",
+    ///       \""msftTenant\"": \""exampletenant\"",
+    ///       \""domains\"": [],
+    ///       \""requireAdminConsent\"": false
+    ///     }
+    /// ",
+    ///         AppLinksJson = @"    {
+    ///       \""calendar\"": false,
+    ///       \""crm\"": false,
+    ///       \""delve\"": false,
+    ///       \""excel\"": false,
+    ///       \""forms\"": false,
+    ///       \""mail\"": false,
+    ///       \""newsfeed\"": false,
+    ///       \""onedrive\"": false,
+    ///       \""people\"": false,
+    ///       \""planner\"": false,
+    ///       \""powerbi\"": false,
+    ///       \""powerpoint\"": false,
+    ///       \""sites\"": false,
+    ///       \""sway\"": false,
+    ///       \""tasks\"": false,
+    ///       \""teams\"": false,
+    ///       \""video\"": false,
+    ///       \""word\"": false,
+    ///       \""yammer\"": false,
+    ///       \""login\"": true
+    ///     }
+    /// ",
+    ///         UserNameTemplate = "user.login",
+    ///         UserNameTemplateType = "CUSTOM",
+    ///     });
+    /// 
     /// });
     /// ```
     /// 
@@ -77,6 +118,12 @@ namespace Pulumi.Okta.App
         /// </summary>
         [Output("appLinksJson")]
         public Output<string?> AppLinksJson { get; private set; } = null!;
+
+        /// <summary>
+        /// Application settings in JSON format. If `AppSettingsJson` is defined, the individual fields `ButtonField`, `PasswordField`, `UsernameField`, `Url`, `UrlRegex`, `Checkbox`, `RedirectUrl` will be ignored
+        /// </summary>
+        [Output("appSettingsJson")]
+        public Output<string?> AppSettingsJson { get; private set; } = null!;
 
         /// <summary>
         /// Display auto submit toolbar
@@ -287,6 +334,12 @@ namespace Pulumi.Okta.App
         public Input<string>? AppLinksJson { get; set; }
 
         /// <summary>
+        /// Application settings in JSON format. If `AppSettingsJson` is defined, the individual fields `ButtonField`, `PasswordField`, `UsernameField`, `Url`, `UrlRegex`, `Checkbox`, `RedirectUrl` will be ignored
+        /// </summary>
+        [Input("appSettingsJson")]
+        public Input<string>? AppSettingsJson { get; set; }
+
+        /// <summary>
         /// Display auto submit toolbar
         /// </summary>
         [Input("autoSubmitToolbar")]
@@ -437,6 +490,12 @@ namespace Pulumi.Okta.App
         /// </summary>
         [Input("appLinksJson")]
         public Input<string>? AppLinksJson { get; set; }
+
+        /// <summary>
+        /// Application settings in JSON format. If `AppSettingsJson` is defined, the individual fields `ButtonField`, `PasswordField`, `UsernameField`, `Url`, `UrlRegex`, `Checkbox`, `RedirectUrl` will be ignored
+        /// </summary>
+        [Input("appSettingsJson")]
+        public Input<string>? AppSettingsJson { get; set; }
 
         /// <summary>
         /// Display auto submit toolbar

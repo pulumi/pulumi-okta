@@ -7,20 +7,34 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
- * Manages rate limiting.
- * This resource allows you to configure the client-based rate limit and rate limiting communications settings.
- * > **WARNING:** This resource is deprecated and will be removed in a future release. A new resource to manage rate limiting settings will be implemented in the future.
+ * Manages per-client rate limiting settings for your Okta organization.
+ *
+ * This resource configures how Okta handles rate limiting on a per-client basis, allowing you to set a default mode and override settings for specific use cases.
  *
  * ## Example Usage
+ *
+ * ### Basic Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const example = new okta.RateLimiting("example", {defaultMode: "ENFORCE"});
+ * ```
+ *
+ * ### With Use Case Overrides
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
  *
  * const example = new okta.RateLimiting("example", {
- *     login: "ENFORCE",
- *     authorize: "ENFORCE",
- *     communicationsEnabled: true,
+ *     defaultMode: "ENFORCE",
+ *     useCaseModeOverrides: {
+ *         loginPage: "PREVIEW",
+ *         oauth2Authorize: "ENFORCE",
+ *         oieAppIntent: "DISABLE",
+ *     },
  * });
  * ```
  *
@@ -29,6 +43,8 @@ import * as utilities from "./utilities";
  * ```sh
  * $ pulumi import okta:index/rateLimiting:RateLimiting example .
  * ```
+ *
+ * > **Note:** The import ID is a literal dot (`.`) since there is only one rate limiting configuration per Okta organization.
  */
 export class RateLimiting extends pulumi.CustomResource {
     /**

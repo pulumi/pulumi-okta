@@ -391,7 +391,7 @@ public class OAuth extends com.pulumi.resources.CustomResource {
         return this.grantTypes;
     }
     /**
-     * Groups claim for an OpenID Connect client application (argument is ignored when API auth is done with OAuth 2.0 credentials)
+     * Groups claim for an OpenID Connect client application (argument is ignored when API auth is done with OAuth 2.0 credentials, and is not supported when `preconfiguredApp` is set)
      * 
      * @deprecated
      * The groupsClaim field is deprecated and will be removed in a future version. Use Authorization Server Claims (okta_auth_server_claim) or app profile configuration instead.
@@ -402,7 +402,7 @@ public class OAuth extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ OAuthGroupsClaim> groupsClaim;
 
     /**
-     * @return Groups claim for an OpenID Connect client application (argument is ignored when API auth is done with OAuth 2.0 credentials)
+     * @return Groups claim for an OpenID Connect client application (argument is ignored when API auth is done with OAuth 2.0 credentials, and is not supported when `preconfiguredApp` is set)
      * 
      */
     public Output<Optional<OAuthGroupsClaim>> groupsClaim() {
@@ -673,6 +673,20 @@ public class OAuth extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<List<String>>> postLogoutRedirectUris() {
         return Codegen.optional(this.postLogoutRedirectUris);
+    }
+    /**
+     * Tells Okta to use an existing application in their application catalog, as opposed to a custom application. Note: `groupsClaim` is not supported when using `preconfiguredApp`.
+     * 
+     */
+    @Export(name="preconfiguredApp", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> preconfiguredApp;
+
+    /**
+     * @return Tells Okta to use an existing application in their application catalog, as opposed to a custom application. Note: `groupsClaim` is not supported when using `preconfiguredApp`.
+     * 
+     */
+    public Output<Optional<String>> preconfiguredApp() {
+        return Codegen.optional(this.preconfiguredApp);
     }
     /**
      * Custom JSON that represents an OAuth application&#39;s profile
