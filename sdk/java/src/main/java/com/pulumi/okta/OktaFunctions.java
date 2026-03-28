@@ -153,6 +153,7 @@ import com.pulumi.okta.outputs.GetHookKeyResult;
 import com.pulumi.okta.outputs.GetLogStreamResult;
 import com.pulumi.okta.outputs.GetNetworkZoneResult;
 import com.pulumi.okta.outputs.GetOrgMetadataResult;
+import com.pulumi.okta.outputs.GetPostAuthSessionPolicyResult;
 import com.pulumi.okta.outputs.GetPrincipalEntitlementsResult;
 import com.pulumi.okta.outputs.GetPrincipalRateLimitsResult;
 import com.pulumi.okta.outputs.GetPushGroupResult;
@@ -7126,6 +7127,83 @@ public final class OktaFunctions {
      */
     public static CompletableFuture<GetOrgMetadataResult> getOrgMetadataPlain(GetOrgMetadataPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("okta:index/getOrgMetadata:getOrgMetadata", TypeShape.of(GetOrgMetadataResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieves the Post Auth Session Policy. This is a system policy that is automatically created when Identity Threat Protection (ITP) with Okta AI is enabled. There is exactly one Post Auth Session Policy per organization.
+     * 
+     * ## Example Usage
+     * 
+     * {{tffile &#34;examples/data-sources/okta_post_auth_session_policy/data-source.tf&#34;}}
+     * 
+     */
+    public static Output<GetPostAuthSessionPolicyResult> getPostAuthSessionPolicy() {
+        return getPostAuthSessionPolicy(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieves the Post Auth Session Policy. This is a system policy that is automatically created when Identity Threat Protection (ITP) with Okta AI is enabled. There is exactly one Post Auth Session Policy per organization.
+     * 
+     * ## Example Usage
+     * 
+     * {{tffile &#34;examples/data-sources/okta_post_auth_session_policy/data-source.tf&#34;}}
+     * 
+     */
+    public static CompletableFuture<GetPostAuthSessionPolicyResult> getPostAuthSessionPolicyPlain() {
+        return getPostAuthSessionPolicyPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieves the Post Auth Session Policy. This is a system policy that is automatically created when Identity Threat Protection (ITP) with Okta AI is enabled. There is exactly one Post Auth Session Policy per organization.
+     * 
+     * ## Example Usage
+     * 
+     * {{tffile &#34;examples/data-sources/okta_post_auth_session_policy/data-source.tf&#34;}}
+     * 
+     */
+    public static Output<GetPostAuthSessionPolicyResult> getPostAuthSessionPolicy(InvokeArgs args) {
+        return getPostAuthSessionPolicy(args, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieves the Post Auth Session Policy. This is a system policy that is automatically created when Identity Threat Protection (ITP) with Okta AI is enabled. There is exactly one Post Auth Session Policy per organization.
+     * 
+     * ## Example Usage
+     * 
+     * {{tffile &#34;examples/data-sources/okta_post_auth_session_policy/data-source.tf&#34;}}
+     * 
+     */
+    public static CompletableFuture<GetPostAuthSessionPolicyResult> getPostAuthSessionPolicyPlain(InvokeArgs args) {
+        return getPostAuthSessionPolicyPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieves the Post Auth Session Policy. This is a system policy that is automatically created when Identity Threat Protection (ITP) with Okta AI is enabled. There is exactly one Post Auth Session Policy per organization.
+     * 
+     * ## Example Usage
+     * 
+     * {{tffile &#34;examples/data-sources/okta_post_auth_session_policy/data-source.tf&#34;}}
+     * 
+     */
+    public static Output<GetPostAuthSessionPolicyResult> getPostAuthSessionPolicy(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("okta:index/getPostAuthSessionPolicy:getPostAuthSessionPolicy", TypeShape.of(GetPostAuthSessionPolicyResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieves the Post Auth Session Policy. This is a system policy that is automatically created when Identity Threat Protection (ITP) with Okta AI is enabled. There is exactly one Post Auth Session Policy per organization.
+     * 
+     * ## Example Usage
+     * 
+     * {{tffile &#34;examples/data-sources/okta_post_auth_session_policy/data-source.tf&#34;}}
+     * 
+     */
+    public static Output<GetPostAuthSessionPolicyResult> getPostAuthSessionPolicy(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("okta:index/getPostAuthSessionPolicy:getPostAuthSessionPolicy", TypeShape.of(GetPostAuthSessionPolicyResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieves the Post Auth Session Policy. This is a system policy that is automatically created when Identity Threat Protection (ITP) with Okta AI is enabled. There is exactly one Post Auth Session Policy per organization.
+     * 
+     * ## Example Usage
+     * 
+     * {{tffile &#34;examples/data-sources/okta_post_auth_session_policy/data-source.tf&#34;}}
+     * 
+     */
+    public static CompletableFuture<GetPostAuthSessionPolicyResult> getPostAuthSessionPolicyPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("okta:index/getPostAuthSessionPolicy:getPostAuthSessionPolicy", TypeShape.of(GetPostAuthSessionPolicyResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Get the entitlements for a user and resource after evaluating all grants.

@@ -104,6 +104,7 @@ export interface GetNetworkZoneResult {
      * Network Status - can either be ACTIVE or INACTIVE only
      */
     readonly status: string;
+    readonly system: boolean;
     /**
      * Type of the Network Zone - can be `IP`, `DYNAMIC` or `DYNAMIC_V2` only
      */

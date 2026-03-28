@@ -99,6 +99,8 @@ type Oidc struct {
 	MaxClockSkew pulumi.IntPtrOutput `pulumi:"maxClockSkew"`
 	// Name of the IdP
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Set to true to have Okta send a logout request to the upstream IdP when a user signs out of Okta or a downstream app.
+	ParticipateSlo pulumi.BoolPtrOutput `pulumi:"participateSlo"`
 	// Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: https://developer.okta.com/docs/reference/api/idps/#oauth-2-0-and-openid-connect-client-object
 	PkceRequired pulumi.BoolPtrOutput `pulumi:"pkceRequired"`
 	// Determines if the IdP should act as a source of truth for user profile attributes.
@@ -113,6 +115,8 @@ type Oidc struct {
 	RequestSignatureScope pulumi.StringPtrOutput `pulumi:"requestSignatureScope"`
 	// The scopes of the IdP.
 	Scopes pulumi.StringArrayOutput `pulumi:"scopes"`
+	// OIDC IdP logout endpoint. Must be specified when `participateSlo` is set to true.
+	SloUrl pulumi.StringPtrOutput `pulumi:"sloUrl"`
 	// Default to `ACTIVE`
 	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// Okta user profile attribute for matching transformed IdP username. Only for matchType `CUSTOM_ATTRIBUTE`.
@@ -241,6 +245,8 @@ type oidcState struct {
 	MaxClockSkew *int `pulumi:"maxClockSkew"`
 	// Name of the IdP
 	Name *string `pulumi:"name"`
+	// Set to true to have Okta send a logout request to the upstream IdP when a user signs out of Okta or a downstream app.
+	ParticipateSlo *bool `pulumi:"participateSlo"`
 	// Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: https://developer.okta.com/docs/reference/api/idps/#oauth-2-0-and-openid-connect-client-object
 	PkceRequired *bool `pulumi:"pkceRequired"`
 	// Determines if the IdP should act as a source of truth for user profile attributes.
@@ -255,6 +261,8 @@ type oidcState struct {
 	RequestSignatureScope *string `pulumi:"requestSignatureScope"`
 	// The scopes of the IdP.
 	Scopes []string `pulumi:"scopes"`
+	// OIDC IdP logout endpoint. Must be specified when `participateSlo` is set to true.
+	SloUrl *string `pulumi:"sloUrl"`
 	// Default to `ACTIVE`
 	Status *string `pulumi:"status"`
 	// Okta user profile attribute for matching transformed IdP username. Only for matchType `CUSTOM_ATTRIBUTE`.
@@ -317,6 +325,8 @@ type OidcState struct {
 	MaxClockSkew pulumi.IntPtrInput
 	// Name of the IdP
 	Name pulumi.StringPtrInput
+	// Set to true to have Okta send a logout request to the upstream IdP when a user signs out of Okta or a downstream app.
+	ParticipateSlo pulumi.BoolPtrInput
 	// Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: https://developer.okta.com/docs/reference/api/idps/#oauth-2-0-and-openid-connect-client-object
 	PkceRequired pulumi.BoolPtrInput
 	// Determines if the IdP should act as a source of truth for user profile attributes.
@@ -331,6 +341,8 @@ type OidcState struct {
 	RequestSignatureScope pulumi.StringPtrInput
 	// The scopes of the IdP.
 	Scopes pulumi.StringArrayInput
+	// OIDC IdP logout endpoint. Must be specified when `participateSlo` is set to true.
+	SloUrl pulumi.StringPtrInput
 	// Default to `ACTIVE`
 	Status pulumi.StringPtrInput
 	// Okta user profile attribute for matching transformed IdP username. Only for matchType `CUSTOM_ATTRIBUTE`.
@@ -397,6 +409,8 @@ type oidcArgs struct {
 	MaxClockSkew *int `pulumi:"maxClockSkew"`
 	// Name of the IdP
 	Name *string `pulumi:"name"`
+	// Set to true to have Okta send a logout request to the upstream IdP when a user signs out of Okta or a downstream app.
+	ParticipateSlo *bool `pulumi:"participateSlo"`
 	// Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: https://developer.okta.com/docs/reference/api/idps/#oauth-2-0-and-openid-connect-client-object
 	PkceRequired *bool `pulumi:"pkceRequired"`
 	// Determines if the IdP should act as a source of truth for user profile attributes.
@@ -411,6 +425,8 @@ type oidcArgs struct {
 	RequestSignatureScope *string `pulumi:"requestSignatureScope"`
 	// The scopes of the IdP.
 	Scopes []string `pulumi:"scopes"`
+	// OIDC IdP logout endpoint. Must be specified when `participateSlo` is set to true.
+	SloUrl *string `pulumi:"sloUrl"`
 	// Default to `ACTIVE`
 	Status *string `pulumi:"status"`
 	// Okta user profile attribute for matching transformed IdP username. Only for matchType `CUSTOM_ATTRIBUTE`.
@@ -470,6 +486,8 @@ type OidcArgs struct {
 	MaxClockSkew pulumi.IntPtrInput
 	// Name of the IdP
 	Name pulumi.StringPtrInput
+	// Set to true to have Okta send a logout request to the upstream IdP when a user signs out of Okta or a downstream app.
+	ParticipateSlo pulumi.BoolPtrInput
 	// Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: https://developer.okta.com/docs/reference/api/idps/#oauth-2-0-and-openid-connect-client-object
 	PkceRequired pulumi.BoolPtrInput
 	// Determines if the IdP should act as a source of truth for user profile attributes.
@@ -484,6 +502,8 @@ type OidcArgs struct {
 	RequestSignatureScope pulumi.StringPtrInput
 	// The scopes of the IdP.
 	Scopes pulumi.StringArrayInput
+	// OIDC IdP logout endpoint. Must be specified when `participateSlo` is set to true.
+	SloUrl pulumi.StringPtrInput
 	// Default to `ACTIVE`
 	Status pulumi.StringPtrInput
 	// Okta user profile attribute for matching transformed IdP username. Only for matchType `CUSTOM_ATTRIBUTE`.
@@ -682,6 +702,11 @@ func (o OidcOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Oidc) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// Set to true to have Okta send a logout request to the upstream IdP when a user signs out of Okta or a downstream app.
+func (o OidcOutput) ParticipateSlo() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Oidc) pulumi.BoolPtrOutput { return v.ParticipateSlo }).(pulumi.BoolPtrOutput)
+}
+
 // Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: https://developer.okta.com/docs/reference/api/idps/#oauth-2-0-and-openid-connect-client-object
 func (o OidcOutput) PkceRequired() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Oidc) pulumi.BoolPtrOutput { return v.PkceRequired }).(pulumi.BoolPtrOutput)
@@ -715,6 +740,11 @@ func (o OidcOutput) RequestSignatureScope() pulumi.StringPtrOutput {
 // The scopes of the IdP.
 func (o OidcOutput) Scopes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Oidc) pulumi.StringArrayOutput { return v.Scopes }).(pulumi.StringArrayOutput)
+}
+
+// OIDC IdP logout endpoint. Must be specified when `participateSlo` is set to true.
+func (o OidcOutput) SloUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Oidc) pulumi.StringPtrOutput { return v.SloUrl }).(pulumi.StringPtrOutput)
 }
 
 // Default to `ACTIVE`

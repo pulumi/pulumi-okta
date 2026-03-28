@@ -8060,9 +8060,12 @@ func (o PushProviderConfigurationFcmConfigurationServiceAccountJsonPtrOutput) Ty
 }
 
 type RateLimitingUseCaseModeOverrides struct {
-	LoginPage       *string `pulumi:"loginPage"`
+	// Rate limit mode for the Okta hosted login page. Valid values: `ENFORCE`, `DISABLE`, `PREVIEW`.
+	LoginPage *string `pulumi:"loginPage"`
+	// Rate limit mode for OAuth2 authorization requests. Valid values: `ENFORCE`, `DISABLE`, `PREVIEW`.
 	Oauth2Authorize *string `pulumi:"oauth2Authorize"`
-	OieAppIntent    *string `pulumi:"oieAppIntent"`
+	// Rate limit mode for OIE app intent. Valid values: `ENFORCE`, `DISABLE`, `PREVIEW`.
+	OieAppIntent *string `pulumi:"oieAppIntent"`
 }
 
 // RateLimitingUseCaseModeOverridesInput is an input type that accepts RateLimitingUseCaseModeOverridesArgs and RateLimitingUseCaseModeOverridesOutput values.
@@ -8077,9 +8080,12 @@ type RateLimitingUseCaseModeOverridesInput interface {
 }
 
 type RateLimitingUseCaseModeOverridesArgs struct {
-	LoginPage       pulumi.StringPtrInput `pulumi:"loginPage"`
+	// Rate limit mode for the Okta hosted login page. Valid values: `ENFORCE`, `DISABLE`, `PREVIEW`.
+	LoginPage pulumi.StringPtrInput `pulumi:"loginPage"`
+	// Rate limit mode for OAuth2 authorization requests. Valid values: `ENFORCE`, `DISABLE`, `PREVIEW`.
 	Oauth2Authorize pulumi.StringPtrInput `pulumi:"oauth2Authorize"`
-	OieAppIntent    pulumi.StringPtrInput `pulumi:"oieAppIntent"`
+	// Rate limit mode for OIE app intent. Valid values: `ENFORCE`, `DISABLE`, `PREVIEW`.
+	OieAppIntent pulumi.StringPtrInput `pulumi:"oieAppIntent"`
 }
 
 func (RateLimitingUseCaseModeOverridesArgs) ElementType() reflect.Type {
@@ -8159,14 +8165,17 @@ func (o RateLimitingUseCaseModeOverridesOutput) ToRateLimitingUseCaseModeOverrid
 	}).(RateLimitingUseCaseModeOverridesPtrOutput)
 }
 
+// Rate limit mode for the Okta hosted login page. Valid values: `ENFORCE`, `DISABLE`, `PREVIEW`.
 func (o RateLimitingUseCaseModeOverridesOutput) LoginPage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RateLimitingUseCaseModeOverrides) *string { return v.LoginPage }).(pulumi.StringPtrOutput)
 }
 
+// Rate limit mode for OAuth2 authorization requests. Valid values: `ENFORCE`, `DISABLE`, `PREVIEW`.
 func (o RateLimitingUseCaseModeOverridesOutput) Oauth2Authorize() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RateLimitingUseCaseModeOverrides) *string { return v.Oauth2Authorize }).(pulumi.StringPtrOutput)
 }
 
+// Rate limit mode for OIE app intent. Valid values: `ENFORCE`, `DISABLE`, `PREVIEW`.
 func (o RateLimitingUseCaseModeOverridesOutput) OieAppIntent() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RateLimitingUseCaseModeOverrides) *string { return v.OieAppIntent }).(pulumi.StringPtrOutput)
 }
@@ -8195,6 +8204,7 @@ func (o RateLimitingUseCaseModeOverridesPtrOutput) Elem() RateLimitingUseCaseMod
 	}).(RateLimitingUseCaseModeOverridesOutput)
 }
 
+// Rate limit mode for the Okta hosted login page. Valid values: `ENFORCE`, `DISABLE`, `PREVIEW`.
 func (o RateLimitingUseCaseModeOverridesPtrOutput) LoginPage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RateLimitingUseCaseModeOverrides) *string {
 		if v == nil {
@@ -8204,6 +8214,7 @@ func (o RateLimitingUseCaseModeOverridesPtrOutput) LoginPage() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
+// Rate limit mode for OAuth2 authorization requests. Valid values: `ENFORCE`, `DISABLE`, `PREVIEW`.
 func (o RateLimitingUseCaseModeOverridesPtrOutput) Oauth2Authorize() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RateLimitingUseCaseModeOverrides) *string {
 		if v == nil {
@@ -8213,6 +8224,7 @@ func (o RateLimitingUseCaseModeOverridesPtrOutput) Oauth2Authorize() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
+// Rate limit mode for OIE app intent. Valid values: `ENFORCE`, `DISABLE`, `PREVIEW`.
 func (o RateLimitingUseCaseModeOverridesPtrOutput) OieAppIntent() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RateLimitingUseCaseModeOverrides) *string {
 		if v == nil {

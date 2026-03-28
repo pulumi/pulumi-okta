@@ -183,6 +183,20 @@ public class Zone extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.status);
     }
     /**
+     * Indicates a system Network Zone
+     * 
+     */
+    @Export(name="system", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> system;
+
+    /**
+     * @return Indicates a system Network Zone
+     * 
+     */
+    public Output<Boolean> system() {
+        return this.system;
+    }
+    /**
      * Type of the Network Zone - can be `IP`, `DYNAMIC` or `DYNAMIC_V2` only
      * 
      */

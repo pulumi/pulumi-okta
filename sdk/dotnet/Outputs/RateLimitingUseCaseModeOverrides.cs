@@ -13,8 +13,17 @@ namespace Pulumi.Okta.Outputs
     [OutputType]
     public sealed class RateLimitingUseCaseModeOverrides
     {
+        /// <summary>
+        /// Rate limit mode for the Okta hosted login page. Valid values: `ENFORCE`, `DISABLE`, `PREVIEW`.
+        /// </summary>
         public readonly string? LoginPage;
+        /// <summary>
+        /// Rate limit mode for OAuth2 authorization requests. Valid values: `ENFORCE`, `DISABLE`, `PREVIEW`.
+        /// </summary>
         public readonly string? Oauth2Authorize;
+        /// <summary>
+        /// Rate limit mode for OIE app intent. Valid values: `ENFORCE`, `DISABLE`, `PREVIEW`.
+        /// </summary>
         public readonly string? OieAppIntent;
 
         [OutputConstructor]

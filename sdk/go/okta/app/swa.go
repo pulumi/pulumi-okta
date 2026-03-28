@@ -43,6 +43,52 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			_, err = app.NewSwa(ctx, "example_with_app_settings_json", &app.SwaArgs{
+//				PreconfiguredApp: pulumi.String("office365"),
+//				Label:            pulumi.String("Microsoft Office 365 SWA"),
+//				Status:           pulumi.String("ACTIVE"),
+//				AppSettingsJson: pulumi.String(`    {
+//	      \"wsFedConfigureType\": \"AUTO\",
+//	      \"windowsTransportEnabled\": false,
+//	      \"domain\": \"example.com\",
+//	      \"msftTenant\": \"exampletenant\",
+//	      \"domains\": [],
+//	      \"requireAdminConsent\": false
+//	    }
+//
+// `),
+//
+//				AppLinksJson: pulumi.String(`    {
+//	      \"calendar\": false,
+//	      \"crm\": false,
+//	      \"delve\": false,
+//	      \"excel\": false,
+//	      \"forms\": false,
+//	      \"mail\": false,
+//	      \"newsfeed\": false,
+//	      \"onedrive\": false,
+//	      \"people\": false,
+//	      \"planner\": false,
+//	      \"powerbi\": false,
+//	      \"powerpoint\": false,
+//	      \"sites\": false,
+//	      \"sway\": false,
+//	      \"tasks\": false,
+//	      \"teams\": false,
+//	      \"video\": false,
+//	      \"word\": false,
+//	      \"yammer\": false,
+//	      \"login\": true
+//	    }
+//
+// `),
+//
+//				UserNameTemplate:     pulumi.String("user.login"),
+//				UserNameTemplateType: pulumi.String("CUSTOM"),
+//			})
+//			if err != nil {
+//				return err
+//			}
 //			return nil
 //		})
 //	}
@@ -67,6 +113,8 @@ type Swa struct {
 	AdminNote pulumi.StringPtrOutput `pulumi:"adminNote"`
 	// Displays specific appLinks for the app. The value for each application link should be boolean.
 	AppLinksJson pulumi.StringPtrOutput `pulumi:"appLinksJson"`
+	// Application settings in JSON format. If `appSettingsJson` is defined, the individual fields `buttonField`, `passwordField`, `usernameField`, `url`, `urlRegex`, `checkbox`, `redirectUrl` will be ignored
+	AppSettingsJson pulumi.StringPtrOutput `pulumi:"appSettingsJson"`
 	// Display auto submit toolbar
 	AutoSubmitToolbar pulumi.BoolPtrOutput `pulumi:"autoSubmitToolbar"`
 	// Login button field
@@ -156,6 +204,8 @@ type swaState struct {
 	AdminNote *string `pulumi:"adminNote"`
 	// Displays specific appLinks for the app. The value for each application link should be boolean.
 	AppLinksJson *string `pulumi:"appLinksJson"`
+	// Application settings in JSON format. If `appSettingsJson` is defined, the individual fields `buttonField`, `passwordField`, `usernameField`, `url`, `urlRegex`, `checkbox`, `redirectUrl` will be ignored
+	AppSettingsJson *string `pulumi:"appSettingsJson"`
 	// Display auto submit toolbar
 	AutoSubmitToolbar *bool `pulumi:"autoSubmitToolbar"`
 	// Login button field
@@ -213,6 +263,8 @@ type SwaState struct {
 	AdminNote pulumi.StringPtrInput
 	// Displays specific appLinks for the app. The value for each application link should be boolean.
 	AppLinksJson pulumi.StringPtrInput
+	// Application settings in JSON format. If `appSettingsJson` is defined, the individual fields `buttonField`, `passwordField`, `usernameField`, `url`, `urlRegex`, `checkbox`, `redirectUrl` will be ignored
+	AppSettingsJson pulumi.StringPtrInput
 	// Display auto submit toolbar
 	AutoSubmitToolbar pulumi.BoolPtrInput
 	// Login button field
@@ -274,6 +326,8 @@ type swaArgs struct {
 	AdminNote *string `pulumi:"adminNote"`
 	// Displays specific appLinks for the app. The value for each application link should be boolean.
 	AppLinksJson *string `pulumi:"appLinksJson"`
+	// Application settings in JSON format. If `appSettingsJson` is defined, the individual fields `buttonField`, `passwordField`, `usernameField`, `url`, `urlRegex`, `checkbox`, `redirectUrl` will be ignored
+	AppSettingsJson *string `pulumi:"appSettingsJson"`
 	// Display auto submit toolbar
 	AutoSubmitToolbar *bool `pulumi:"autoSubmitToolbar"`
 	// Login button field
@@ -326,6 +380,8 @@ type SwaArgs struct {
 	AdminNote pulumi.StringPtrInput
 	// Displays specific appLinks for the app. The value for each application link should be boolean.
 	AppLinksJson pulumi.StringPtrInput
+	// Application settings in JSON format. If `appSettingsJson` is defined, the individual fields `buttonField`, `passwordField`, `usernameField`, `url`, `urlRegex`, `checkbox`, `redirectUrl` will be ignored
+	AppSettingsJson pulumi.StringPtrInput
 	// Display auto submit toolbar
 	AutoSubmitToolbar pulumi.BoolPtrInput
 	// Login button field
@@ -476,6 +532,11 @@ func (o SwaOutput) AdminNote() pulumi.StringPtrOutput {
 // Displays specific appLinks for the app. The value for each application link should be boolean.
 func (o SwaOutput) AppLinksJson() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Swa) pulumi.StringPtrOutput { return v.AppLinksJson }).(pulumi.StringPtrOutput)
+}
+
+// Application settings in JSON format. If `appSettingsJson` is defined, the individual fields `buttonField`, `passwordField`, `usernameField`, `url`, `urlRegex`, `checkbox`, `redirectUrl` will be ignored
+func (o SwaOutput) AppSettingsJson() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Swa) pulumi.StringPtrOutput { return v.AppSettingsJson }).(pulumi.StringPtrOutput)
 }
 
 // Display auto submit toolbar

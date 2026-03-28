@@ -86,6 +86,7 @@ type GetNetworkZoneResult struct {
 	Proxies []string `pulumi:"proxies"`
 	// Network Status - can either be ACTIVE or INACTIVE only
 	Status string `pulumi:"status"`
+	System bool   `pulumi:"system"`
 	// Type of the Network Zone - can be `IP`, `DYNAMIC` or `DYNAMIC_V2` only
 	Type string `pulumi:"type"`
 	// Zone's purpose: POLICY or BLOCKLIST
@@ -187,6 +188,10 @@ func (o GetNetworkZoneResultOutput) Proxies() pulumi.StringArrayOutput {
 // Network Status - can either be ACTIVE or INACTIVE only
 func (o GetNetworkZoneResultOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkZoneResult) string { return v.Status }).(pulumi.StringOutput)
+}
+
+func (o GetNetworkZoneResultOutput) System() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetNetworkZoneResult) bool { return v.System }).(pulumi.BoolOutput)
 }
 
 // Type of the Network Zone - can be `IP`, `DYNAMIC` or `DYNAMIC_V2` only

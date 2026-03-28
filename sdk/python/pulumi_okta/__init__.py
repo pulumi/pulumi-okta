@@ -81,6 +81,7 @@ from .get_hook_key import *
 from .get_log_stream import *
 from .get_network_zone import *
 from .get_org_metadata import *
+from .get_post_auth_session_policy import *
 from .get_principal_entitlements import *
 from .get_principal_rate_limits import *
 from .get_push_group import *
@@ -118,6 +119,7 @@ from .policy_password_default import *
 from .policy_profile_enrollment import *
 from .policy_profile_enrollment_apps import *
 from .policy_rule_profile_enrollment import *
+from .post_auth_session_policy_rule import *
 from .preview_signin_page import *
 from .principal_rate_limits import *
 from .provider import *
@@ -892,6 +894,14 @@ _utilities.register(
  },
  {
   "pkg": "okta",
+  "mod": "index/postAuthSessionPolicyRule",
+  "fqn": "pulumi_okta",
+  "classes": {
+   "okta:index/postAuthSessionPolicyRule:PostAuthSessionPolicyRule": "PostAuthSessionPolicyRule"
+  }
+ },
+ {
+  "pkg": "okta",
   "mod": "index/previewSigninPage",
   "fqn": "pulumi_okta",
   "classes": {
@@ -1248,6 +1258,14 @@ _utilities.register(
   "fqn": "pulumi_okta.trustedorigin",
   "classes": {
    "okta:trustedorigin/origin:Origin": "Origin"
+  }
+ },
+ {
+  "pkg": "okta",
+  "mod": "user/risk",
+  "fqn": "pulumi_okta.user",
+  "classes": {
+   "okta:user/risk:Risk": "Risk"
   }
  },
  {

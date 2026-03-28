@@ -93,6 +93,21 @@ public final class SwaArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Application settings in JSON format. If `appSettingsJson` is defined, the individual fields `buttonField`, `passwordField`, `usernameField`, `url`, `urlRegex`, `checkbox`, `redirectUrl` will be ignored
+     * 
+     */
+    @Import(name="appSettingsJson")
+    private @Nullable Output<String> appSettingsJson;
+
+    /**
+     * @return Application settings in JSON format. If `appSettingsJson` is defined, the individual fields `buttonField`, `passwordField`, `usernameField`, `url`, `urlRegex`, `checkbox`, `redirectUrl` will be ignored
+     * 
+     */
+    public Optional<Output<String>> appSettingsJson() {
+        return Optional.ofNullable(this.appSettingsJson);
+    }
+
+    /**
      * Display auto submit toolbar
      * 
      */
@@ -385,6 +400,7 @@ public final class SwaArgs extends com.pulumi.resources.ResourceArgs {
         this.accessibilitySelfService = $.accessibilitySelfService;
         this.adminNote = $.adminNote;
         this.appLinksJson = $.appLinksJson;
+        this.appSettingsJson = $.appSettingsJson;
         this.autoSubmitToolbar = $.autoSubmitToolbar;
         this.buttonField = $.buttonField;
         this.checkbox = $.checkbox;
@@ -527,6 +543,27 @@ public final class SwaArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder appLinksJson(String appLinksJson) {
             return appLinksJson(Output.of(appLinksJson));
+        }
+
+        /**
+         * @param appSettingsJson Application settings in JSON format. If `appSettingsJson` is defined, the individual fields `buttonField`, `passwordField`, `usernameField`, `url`, `urlRegex`, `checkbox`, `redirectUrl` will be ignored
+         * 
+         * @return builder
+         * 
+         */
+        public Builder appSettingsJson(@Nullable Output<String> appSettingsJson) {
+            $.appSettingsJson = appSettingsJson;
+            return this;
+        }
+
+        /**
+         * @param appSettingsJson Application settings in JSON format. If `appSettingsJson` is defined, the individual fields `buttonField`, `passwordField`, `usernameField`, `url`, `urlRegex`, `checkbox`, `redirectUrl` will be ignored
+         * 
+         * @return builder
+         * 
+         */
+        public Builder appSettingsJson(String appSettingsJson) {
+            return appSettingsJson(Output.of(appSettingsJson));
         }
 
         /**

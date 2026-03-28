@@ -138,6 +138,10 @@ export class Oidc extends pulumi.CustomResource {
      */
     declare public readonly name: pulumi.Output<string>;
     /**
+     * Set to true to have Okta send a logout request to the upstream IdP when a user signs out of Okta or a downstream app.
+     */
+    declare public readonly participateSlo: pulumi.Output<boolean | undefined>;
+    /**
      * Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: https://developer.okta.com/docs/reference/api/idps/#oauth-2-0-and-openid-connect-client-object
      */
     declare public readonly pkceRequired: pulumi.Output<boolean | undefined>;
@@ -165,6 +169,10 @@ export class Oidc extends pulumi.CustomResource {
      * The scopes of the IdP.
      */
     declare public readonly scopes: pulumi.Output<string[]>;
+    /**
+     * OIDC IdP logout endpoint. Must be specified when `participateSlo` is set to true.
+     */
+    declare public readonly sloUrl: pulumi.Output<string | undefined>;
     /**
      * Default to `ACTIVE`
      */
@@ -242,6 +250,7 @@ export class Oidc extends pulumi.CustomResource {
             resourceInputs["jwksUrl"] = state?.jwksUrl;
             resourceInputs["maxClockSkew"] = state?.maxClockSkew;
             resourceInputs["name"] = state?.name;
+            resourceInputs["participateSlo"] = state?.participateSlo;
             resourceInputs["pkceRequired"] = state?.pkceRequired;
             resourceInputs["profileMaster"] = state?.profileMaster;
             resourceInputs["protocolType"] = state?.protocolType;
@@ -249,6 +258,7 @@ export class Oidc extends pulumi.CustomResource {
             resourceInputs["requestSignatureAlgorithm"] = state?.requestSignatureAlgorithm;
             resourceInputs["requestSignatureScope"] = state?.requestSignatureScope;
             resourceInputs["scopes"] = state?.scopes;
+            resourceInputs["sloUrl"] = state?.sloUrl;
             resourceInputs["status"] = state?.status;
             resourceInputs["subjectMatchAttribute"] = state?.subjectMatchAttribute;
             resourceInputs["subjectMatchType"] = state?.subjectMatchType;
@@ -311,6 +321,7 @@ export class Oidc extends pulumi.CustomResource {
             resourceInputs["jwksUrl"] = args?.jwksUrl;
             resourceInputs["maxClockSkew"] = args?.maxClockSkew;
             resourceInputs["name"] = args?.name;
+            resourceInputs["participateSlo"] = args?.participateSlo;
             resourceInputs["pkceRequired"] = args?.pkceRequired;
             resourceInputs["profileMaster"] = args?.profileMaster;
             resourceInputs["protocolType"] = args?.protocolType;
@@ -318,6 +329,7 @@ export class Oidc extends pulumi.CustomResource {
             resourceInputs["requestSignatureAlgorithm"] = args?.requestSignatureAlgorithm;
             resourceInputs["requestSignatureScope"] = args?.requestSignatureScope;
             resourceInputs["scopes"] = args?.scopes;
+            resourceInputs["sloUrl"] = args?.sloUrl;
             resourceInputs["status"] = args?.status;
             resourceInputs["subjectMatchAttribute"] = args?.subjectMatchAttribute;
             resourceInputs["subjectMatchType"] = args?.subjectMatchType;
@@ -415,6 +427,10 @@ export interface OidcState {
      */
     name?: pulumi.Input<string>;
     /**
+     * Set to true to have Okta send a logout request to the upstream IdP when a user signs out of Okta or a downstream app.
+     */
+    participateSlo?: pulumi.Input<boolean>;
+    /**
      * Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: https://developer.okta.com/docs/reference/api/idps/#oauth-2-0-and-openid-connect-client-object
      */
     pkceRequired?: pulumi.Input<boolean>;
@@ -442,6 +458,10 @@ export interface OidcState {
      * The scopes of the IdP.
      */
     scopes?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * OIDC IdP logout endpoint. Must be specified when `participateSlo` is set to true.
+     */
+    sloUrl?: pulumi.Input<string>;
     /**
      * Default to `ACTIVE`
      */
@@ -566,6 +586,10 @@ export interface OidcArgs {
      */
     name?: pulumi.Input<string>;
     /**
+     * Set to true to have Okta send a logout request to the upstream IdP when a user signs out of Okta or a downstream app.
+     */
+    participateSlo?: pulumi.Input<boolean>;
+    /**
      * Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: https://developer.okta.com/docs/reference/api/idps/#oauth-2-0-and-openid-connect-client-object
      */
     pkceRequired?: pulumi.Input<boolean>;
@@ -593,6 +617,10 @@ export interface OidcArgs {
      * The scopes of the IdP.
      */
     scopes: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * OIDC IdP logout endpoint. Must be specified when `participateSlo` is set to true.
+     */
+    sloUrl?: pulumi.Input<string>;
     /**
      * Default to `ACTIVE`
      */

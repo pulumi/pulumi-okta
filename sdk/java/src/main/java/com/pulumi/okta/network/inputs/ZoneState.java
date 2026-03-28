@@ -183,6 +183,21 @@ public final class ZoneState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Indicates a system Network Zone
+     * 
+     */
+    @Import(name="system")
+    private @Nullable Output<Boolean> system;
+
+    /**
+     * @return Indicates a system Network Zone
+     * 
+     */
+    public Optional<Output<Boolean>> system() {
+        return Optional.ofNullable(this.system);
+    }
+
+    /**
      * Type of the Network Zone - can be `IP`, `DYNAMIC` or `DYNAMIC_V2` only
      * 
      */
@@ -226,6 +241,7 @@ public final class ZoneState extends com.pulumi.resources.ResourceArgs {
         this.proxies = $.proxies;
         this.setUsageAsExemptList = $.setUsageAsExemptList;
         this.status = $.status;
+        this.system = $.system;
         this.type = $.type;
         this.usage = $.usage;
     }
@@ -547,6 +563,27 @@ public final class ZoneState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder status(String status) {
             return status(Output.of(status));
+        }
+
+        /**
+         * @param system Indicates a system Network Zone
+         * 
+         * @return builder
+         * 
+         */
+        public Builder system(@Nullable Output<Boolean> system) {
+            $.system = system;
+            return this;
+        }
+
+        /**
+         * @param system Indicates a system Network Zone
+         * 
+         * @return builder
+         * 
+         */
+        public Builder system(Boolean system) {
+            return system(Output.of(system));
         }
 
         /**

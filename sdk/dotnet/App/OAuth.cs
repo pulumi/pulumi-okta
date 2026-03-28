@@ -231,7 +231,7 @@ namespace Pulumi.Okta.App
         public Output<ImmutableArray<string>> GrantTypes { get; private set; } = null!;
 
         /// <summary>
-        /// Groups claim for an OpenID Connect client application (argument is ignored when API auth is done with OAuth 2.0 credentials)
+        /// Groups claim for an OpenID Connect client application (argument is ignored when API auth is done with OAuth 2.0 credentials, and is not supported when `PreconfiguredApp` is set)
         /// </summary>
         [Output("groupsClaim")]
         public Output<Outputs.OAuthGroupsClaim?> GroupsClaim { get; private set; } = null!;
@@ -349,6 +349,12 @@ namespace Pulumi.Okta.App
         /// </summary>
         [Output("postLogoutRedirectUris")]
         public Output<ImmutableArray<string>> PostLogoutRedirectUris { get; private set; } = null!;
+
+        /// <summary>
+        /// Tells Okta to use an existing application in their application catalog, as opposed to a custom application. Note: `GroupsClaim` is not supported when using `PreconfiguredApp`.
+        /// </summary>
+        [Output("preconfiguredApp")]
+        public Output<string?> PreconfiguredApp { get; private set; } = null!;
 
         /// <summary>
         /// Custom JSON that represents an OAuth application's profile
@@ -614,7 +620,7 @@ namespace Pulumi.Okta.App
         }
 
         /// <summary>
-        /// Groups claim for an OpenID Connect client application (argument is ignored when API auth is done with OAuth 2.0 credentials)
+        /// Groups claim for an OpenID Connect client application (argument is ignored when API auth is done with OAuth 2.0 credentials, and is not supported when `PreconfiguredApp` is set)
         /// </summary>
         [Input("groupsClaim")]
         public Input<Inputs.OAuthGroupsClaimArgs>? GroupsClaim { get; set; }
@@ -738,6 +744,12 @@ namespace Pulumi.Okta.App
             get => _postLogoutRedirectUris ?? (_postLogoutRedirectUris = new InputList<string>());
             set => _postLogoutRedirectUris = value;
         }
+
+        /// <summary>
+        /// Tells Okta to use an existing application in their application catalog, as opposed to a custom application. Note: `GroupsClaim` is not supported when using `PreconfiguredApp`.
+        /// </summary>
+        [Input("preconfiguredApp")]
+        public Input<string>? PreconfiguredApp { get; set; }
 
         /// <summary>
         /// Custom JSON that represents an OAuth application's profile
@@ -982,7 +994,7 @@ namespace Pulumi.Okta.App
         }
 
         /// <summary>
-        /// Groups claim for an OpenID Connect client application (argument is ignored when API auth is done with OAuth 2.0 credentials)
+        /// Groups claim for an OpenID Connect client application (argument is ignored when API auth is done with OAuth 2.0 credentials, and is not supported when `PreconfiguredApp` is set)
         /// </summary>
         [Input("groupsClaim")]
         public Input<Inputs.OAuthGroupsClaimGetArgs>? GroupsClaim { get; set; }
@@ -1118,6 +1130,12 @@ namespace Pulumi.Okta.App
             get => _postLogoutRedirectUris ?? (_postLogoutRedirectUris = new InputList<string>());
             set => _postLogoutRedirectUris = value;
         }
+
+        /// <summary>
+        /// Tells Okta to use an existing application in their application catalog, as opposed to a custom application. Note: `GroupsClaim` is not supported when using `PreconfiguredApp`.
+        /// </summary>
+        [Input("preconfiguredApp")]
+        public Input<string>? PreconfiguredApp { get; set; }
 
         /// <summary>
         /// Custom JSON that represents an OAuth application's profile

@@ -26,7 +26,7 @@ class GetOidcResult:
     """
     A collection of values returned by getOidc.
     """
-    def __init__(__self__, authorization_binding=None, authorization_url=None, client_id=None, client_secret=None, id=None, issuer_mode=None, issuer_url=None, jwks_binding=None, jwks_url=None, max_clock_skew=None, name=None, protocol_type=None, scopes=None, token_binding=None, token_url=None, trust_claims=None, type=None, user_info_binding=None, user_info_url=None):
+    def __init__(__self__, authorization_binding=None, authorization_url=None, client_id=None, client_secret=None, id=None, issuer_mode=None, issuer_url=None, jwks_binding=None, jwks_url=None, max_clock_skew=None, name=None, participate_slo=None, protocol_type=None, scopes=None, slo_url=None, token_binding=None, token_url=None, trust_claims=None, type=None, user_info_binding=None, user_info_url=None):
         if authorization_binding and not isinstance(authorization_binding, str):
             raise TypeError("Expected argument 'authorization_binding' to be a str")
         pulumi.set(__self__, "authorization_binding", authorization_binding)
@@ -60,12 +60,18 @@ class GetOidcResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if participate_slo and not isinstance(participate_slo, bool):
+            raise TypeError("Expected argument 'participate_slo' to be a bool")
+        pulumi.set(__self__, "participate_slo", participate_slo)
         if protocol_type and not isinstance(protocol_type, str):
             raise TypeError("Expected argument 'protocol_type' to be a str")
         pulumi.set(__self__, "protocol_type", protocol_type)
         if scopes and not isinstance(scopes, list):
             raise TypeError("Expected argument 'scopes' to be a list")
         pulumi.set(__self__, "scopes", scopes)
+        if slo_url and not isinstance(slo_url, str):
+            raise TypeError("Expected argument 'slo_url' to be a str")
+        pulumi.set(__self__, "slo_url", slo_url)
         if token_binding and not isinstance(token_binding, str):
             raise TypeError("Expected argument 'token_binding' to be a str")
         pulumi.set(__self__, "token_binding", token_binding)
@@ -174,6 +180,14 @@ class GetOidcResult:
         return pulumi.get(self, "name")
 
     @_builtins.property
+    @pulumi.getter(name="participateSlo")
+    def participate_slo(self) -> _builtins.bool:
+        """
+        Set to true to have Okta send a logout request to the upstream IdP when a user signs out of Okta or a downstream app.
+        """
+        return pulumi.get(self, "participate_slo")
+
+    @_builtins.property
     @pulumi.getter(name="protocolType")
     def protocol_type(self) -> _builtins.str:
         """
@@ -188,6 +202,14 @@ class GetOidcResult:
         The scopes of the IdP.
         """
         return pulumi.get(self, "scopes")
+
+    @_builtins.property
+    @pulumi.getter(name="sloUrl")
+    def slo_url(self) -> Optional[_builtins.str]:
+        """
+        OIDC IdP logout endpoint.
+        """
+        return pulumi.get(self, "slo_url")
 
     @_builtins.property
     @pulumi.getter(name="tokenBinding")
@@ -252,8 +274,10 @@ class AwaitableGetOidcResult(GetOidcResult):
             jwks_url=self.jwks_url,
             max_clock_skew=self.max_clock_skew,
             name=self.name,
+            participate_slo=self.participate_slo,
             protocol_type=self.protocol_type,
             scopes=self.scopes,
+            slo_url=self.slo_url,
             token_binding=self.token_binding,
             token_url=self.token_url,
             trust_claims=self.trust_claims,
@@ -264,6 +288,7 @@ class AwaitableGetOidcResult(GetOidcResult):
 
 def get_oidc(id: Optional[_builtins.str] = None,
              name: Optional[_builtins.str] = None,
+             slo_url: Optional[_builtins.str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOidcResult:
     """
     Get a OIDC IdP from Okta.
@@ -280,10 +305,12 @@ def get_oidc(id: Optional[_builtins.str] = None,
 
     :param _builtins.str id: Id of idp.
     :param _builtins.str name: Name of the idp.
+    :param _builtins.str slo_url: OIDC IdP logout endpoint.
     """
     __args__ = dict()
     __args__['id'] = id
     __args__['name'] = name
+    __args__['sloUrl'] = slo_url
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('okta:idp/getOidc:getOidc', __args__, opts=opts, typ=GetOidcResult).value
 
@@ -299,8 +326,10 @@ def get_oidc(id: Optional[_builtins.str] = None,
         jwks_url=pulumi.get(__ret__, 'jwks_url'),
         max_clock_skew=pulumi.get(__ret__, 'max_clock_skew'),
         name=pulumi.get(__ret__, 'name'),
+        participate_slo=pulumi.get(__ret__, 'participate_slo'),
         protocol_type=pulumi.get(__ret__, 'protocol_type'),
         scopes=pulumi.get(__ret__, 'scopes'),
+        slo_url=pulumi.get(__ret__, 'slo_url'),
         token_binding=pulumi.get(__ret__, 'token_binding'),
         token_url=pulumi.get(__ret__, 'token_url'),
         trust_claims=pulumi.get(__ret__, 'trust_claims'),
@@ -309,6 +338,7 @@ def get_oidc(id: Optional[_builtins.str] = None,
         user_info_url=pulumi.get(__ret__, 'user_info_url'))
 def get_oidc_output(id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                     name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+                    slo_url: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOidcResult]:
     """
     Get a OIDC IdP from Okta.
@@ -325,10 +355,12 @@ def get_oidc_output(id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
 
     :param _builtins.str id: Id of idp.
     :param _builtins.str name: Name of the idp.
+    :param _builtins.str slo_url: OIDC IdP logout endpoint.
     """
     __args__ = dict()
     __args__['id'] = id
     __args__['name'] = name
+    __args__['sloUrl'] = slo_url
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('okta:idp/getOidc:getOidc', __args__, opts=opts, typ=GetOidcResult)
     return __ret__.apply(lambda __response__: GetOidcResult(
@@ -343,8 +375,10 @@ def get_oidc_output(id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
         jwks_url=pulumi.get(__response__, 'jwks_url'),
         max_clock_skew=pulumi.get(__response__, 'max_clock_skew'),
         name=pulumi.get(__response__, 'name'),
+        participate_slo=pulumi.get(__response__, 'participate_slo'),
         protocol_type=pulumi.get(__response__, 'protocol_type'),
         scopes=pulumi.get(__response__, 'scopes'),
+        slo_url=pulumi.get(__response__, 'slo_url'),
         token_binding=pulumi.get(__response__, 'token_binding'),
         token_url=pulumi.get(__response__, 'token_url'),
         trust_claims=pulumi.get(__response__, 'trust_claims'),

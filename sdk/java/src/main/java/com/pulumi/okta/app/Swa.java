@@ -55,6 +55,48 @@ import javax.annotation.Nullable;
  *             .url("https://example.com/login.html")
  *             .build());
  * 
+ *         var exampleWithAppSettingsJson = new Swa("exampleWithAppSettingsJson", SwaArgs.builder()
+ *             .preconfiguredApp("office365")
+ *             .label("Microsoft Office 365 SWA")
+ *             .status("ACTIVE")
+ *             .appSettingsJson("""
+ *     {
+ *       \"wsFedConfigureType\": \"AUTO\",
+ *       \"windowsTransportEnabled\": false,
+ *       \"domain\": \"example.com\",
+ *       \"msftTenant\": \"exampletenant\",
+ *       \"domains\": [],
+ *       \"requireAdminConsent\": false
+ *     }
+ *             """)
+ *             .appLinksJson("""
+ *     {
+ *       \"calendar\": false,
+ *       \"crm\": false,
+ *       \"delve\": false,
+ *       \"excel\": false,
+ *       \"forms\": false,
+ *       \"mail\": false,
+ *       \"newsfeed\": false,
+ *       \"onedrive\": false,
+ *       \"people\": false,
+ *       \"planner\": false,
+ *       \"powerbi\": false,
+ *       \"powerpoint\": false,
+ *       \"sites\": false,
+ *       \"sway\": false,
+ *       \"tasks\": false,
+ *       \"teams\": false,
+ *       \"video\": false,
+ *       \"word\": false,
+ *       \"yammer\": false,
+ *       \"login\": true
+ *     }
+ *             """)
+ *             .userNameTemplate("user.login")
+ *             .userNameTemplateType("CUSTOM")
+ *             .build());
+ * 
  *     }
  * }
  * }
@@ -138,6 +180,20 @@ public class Swa extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> appLinksJson() {
         return Codegen.optional(this.appLinksJson);
+    }
+    /**
+     * Application settings in JSON format. If `appSettingsJson` is defined, the individual fields `buttonField`, `passwordField`, `usernameField`, `url`, `urlRegex`, `checkbox`, `redirectUrl` will be ignored
+     * 
+     */
+    @Export(name="appSettingsJson", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> appSettingsJson;
+
+    /**
+     * @return Application settings in JSON format. If `appSettingsJson` is defined, the individual fields `buttonField`, `passwordField`, `usernameField`, `url`, `urlRegex`, `checkbox`, `redirectUrl` will be ignored
+     * 
+     */
+    public Output<Optional<String>> appSettingsJson() {
+        return Codegen.optional(this.appSettingsJson);
     }
     /**
      * Display auto submit toolbar

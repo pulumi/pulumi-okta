@@ -65,6 +65,10 @@ export class EventHookVerification extends pulumi.CustomResource {
      * Event hook ID
      */
     declare public readonly eventHookId: pulumi.Output<string>;
+    /**
+     * The verification status of the event hook.
+     */
+    declare public /*out*/ readonly verificationStatus: pulumi.Output<string>;
 
     /**
      * Create a EventHookVerification resource with the given unique name, arguments, and options.
@@ -80,12 +84,14 @@ export class EventHookVerification extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as EventHookVerificationState | undefined;
             resourceInputs["eventHookId"] = state?.eventHookId;
+            resourceInputs["verificationStatus"] = state?.verificationStatus;
         } else {
             const args = argsOrState as EventHookVerificationArgs | undefined;
             if (args?.eventHookId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'eventHookId'");
             }
             resourceInputs["eventHookId"] = args?.eventHookId;
+            resourceInputs["verificationStatus"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(EventHookVerification.__pulumiType, name, resourceInputs, opts);
@@ -100,6 +106,10 @@ export interface EventHookVerificationState {
      * Event hook ID
      */
     eventHookId?: pulumi.Input<string>;
+    /**
+     * The verification status of the event hook.
+     */
+    verificationStatus?: pulumi.Input<string>;
 }
 
 /**

@@ -15,23 +15,47 @@ public final class RateLimitingUseCaseModeOverridesArgs extends com.pulumi.resou
 
     public static final RateLimitingUseCaseModeOverridesArgs Empty = new RateLimitingUseCaseModeOverridesArgs();
 
+    /**
+     * Rate limit mode for the Okta hosted login page. Valid values: `ENFORCE`, `DISABLE`, `PREVIEW`.
+     * 
+     */
     @Import(name="loginPage")
     private @Nullable Output<String> loginPage;
 
+    /**
+     * @return Rate limit mode for the Okta hosted login page. Valid values: `ENFORCE`, `DISABLE`, `PREVIEW`.
+     * 
+     */
     public Optional<Output<String>> loginPage() {
         return Optional.ofNullable(this.loginPage);
     }
 
+    /**
+     * Rate limit mode for OAuth2 authorization requests. Valid values: `ENFORCE`, `DISABLE`, `PREVIEW`.
+     * 
+     */
     @Import(name="oauth2Authorize")
     private @Nullable Output<String> oauth2Authorize;
 
+    /**
+     * @return Rate limit mode for OAuth2 authorization requests. Valid values: `ENFORCE`, `DISABLE`, `PREVIEW`.
+     * 
+     */
     public Optional<Output<String>> oauth2Authorize() {
         return Optional.ofNullable(this.oauth2Authorize);
     }
 
+    /**
+     * Rate limit mode for OIE app intent. Valid values: `ENFORCE`, `DISABLE`, `PREVIEW`.
+     * 
+     */
     @Import(name="oieAppIntent")
     private @Nullable Output<String> oieAppIntent;
 
+    /**
+     * @return Rate limit mode for OIE app intent. Valid values: `ENFORCE`, `DISABLE`, `PREVIEW`.
+     * 
+     */
     public Optional<Output<String>> oieAppIntent() {
         return Optional.ofNullable(this.oieAppIntent);
     }
@@ -62,29 +86,65 @@ public final class RateLimitingUseCaseModeOverridesArgs extends com.pulumi.resou
             $ = new RateLimitingUseCaseModeOverridesArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param loginPage Rate limit mode for the Okta hosted login page. Valid values: `ENFORCE`, `DISABLE`, `PREVIEW`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder loginPage(@Nullable Output<String> loginPage) {
             $.loginPage = loginPage;
             return this;
         }
 
+        /**
+         * @param loginPage Rate limit mode for the Okta hosted login page. Valid values: `ENFORCE`, `DISABLE`, `PREVIEW`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder loginPage(String loginPage) {
             return loginPage(Output.of(loginPage));
         }
 
+        /**
+         * @param oauth2Authorize Rate limit mode for OAuth2 authorization requests. Valid values: `ENFORCE`, `DISABLE`, `PREVIEW`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder oauth2Authorize(@Nullable Output<String> oauth2Authorize) {
             $.oauth2Authorize = oauth2Authorize;
             return this;
         }
 
+        /**
+         * @param oauth2Authorize Rate limit mode for OAuth2 authorization requests. Valid values: `ENFORCE`, `DISABLE`, `PREVIEW`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder oauth2Authorize(String oauth2Authorize) {
             return oauth2Authorize(Output.of(oauth2Authorize));
         }
 
+        /**
+         * @param oieAppIntent Rate limit mode for OIE app intent. Valid values: `ENFORCE`, `DISABLE`, `PREVIEW`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder oieAppIntent(@Nullable Output<String> oieAppIntent) {
             $.oieAppIntent = oieAppIntent;
             return this;
         }
 
+        /**
+         * @param oieAppIntent Rate limit mode for OIE app intent. Valid values: `ENFORCE`, `DISABLE`, `PREVIEW`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder oieAppIntent(String oieAppIntent) {
             return oieAppIntent(Output.of(oieAppIntent));
         }

@@ -290,6 +290,21 @@ public final class OidcArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Set to true to have Okta send a logout request to the upstream IdP when a user signs out of Okta or a downstream app.
+     * 
+     */
+    @Import(name="participateSlo")
+    private @Nullable Output<Boolean> participateSlo;
+
+    /**
+     * @return Set to true to have Okta send a logout request to the upstream IdP when a user signs out of Okta or a downstream app.
+     * 
+     */
+    public Optional<Output<Boolean>> participateSlo() {
+        return Optional.ofNullable(this.participateSlo);
+    }
+
+    /**
      * Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: https://developer.okta.com/docs/reference/api/idps/#oauth-2-0-and-openid-connect-client-object
      * 
      */
@@ -392,6 +407,21 @@ public final class OidcArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Output<List<String>> scopes() {
         return this.scopes;
+    }
+
+    /**
+     * OIDC IdP logout endpoint. Must be specified when `participateSlo` is set to true.
+     * 
+     */
+    @Import(name="sloUrl")
+    private @Nullable Output<String> sloUrl;
+
+    /**
+     * @return OIDC IdP logout endpoint. Must be specified when `participateSlo` is set to true.
+     * 
+     */
+    public Optional<Output<String>> sloUrl() {
+        return Optional.ofNullable(this.sloUrl);
     }
 
     /**
@@ -557,6 +587,7 @@ public final class OidcArgs extends com.pulumi.resources.ResourceArgs {
         this.jwksUrl = $.jwksUrl;
         this.maxClockSkew = $.maxClockSkew;
         this.name = $.name;
+        this.participateSlo = $.participateSlo;
         this.pkceRequired = $.pkceRequired;
         this.profileMaster = $.profileMaster;
         this.protocolType = $.protocolType;
@@ -564,6 +595,7 @@ public final class OidcArgs extends com.pulumi.resources.ResourceArgs {
         this.requestSignatureAlgorithm = $.requestSignatureAlgorithm;
         this.requestSignatureScope = $.requestSignatureScope;
         this.scopes = $.scopes;
+        this.sloUrl = $.sloUrl;
         this.status = $.status;
         this.subjectMatchAttribute = $.subjectMatchAttribute;
         this.subjectMatchType = $.subjectMatchType;
@@ -1003,6 +1035,27 @@ public final class OidcArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param participateSlo Set to true to have Okta send a logout request to the upstream IdP when a user signs out of Okta or a downstream app.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder participateSlo(@Nullable Output<Boolean> participateSlo) {
+            $.participateSlo = participateSlo;
+            return this;
+        }
+
+        /**
+         * @param participateSlo Set to true to have Okta send a logout request to the upstream IdP when a user signs out of Okta or a downstream app.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder participateSlo(Boolean participateSlo) {
+            return participateSlo(Output.of(participateSlo));
+        }
+
+        /**
          * @param pkceRequired Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: https://developer.okta.com/docs/reference/api/idps/#oauth-2-0-and-openid-connect-client-object
          * 
          * @return builder
@@ -1157,6 +1210,27 @@ public final class OidcArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder scopes(String... scopes) {
             return scopes(List.of(scopes));
+        }
+
+        /**
+         * @param sloUrl OIDC IdP logout endpoint. Must be specified when `participateSlo` is set to true.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sloUrl(@Nullable Output<String> sloUrl) {
+            $.sloUrl = sloUrl;
+            return this;
+        }
+
+        /**
+         * @param sloUrl OIDC IdP logout endpoint. Must be specified when `participateSlo` is set to true.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sloUrl(String sloUrl) {
+            return sloUrl(Output.of(sloUrl));
         }
 
         /**

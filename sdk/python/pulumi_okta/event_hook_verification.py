@@ -43,14 +43,18 @@ class EventHookVerificationArgs:
 @pulumi.input_type
 class _EventHookVerificationState:
     def __init__(__self__, *,
-                 event_hook_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 event_hook_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 verification_status: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering EventHookVerification resources.
 
         :param pulumi.Input[_builtins.str] event_hook_id: Event hook ID
+        :param pulumi.Input[_builtins.str] verification_status: The verification status of the event hook.
         """
         if event_hook_id is not None:
             pulumi.set(__self__, "event_hook_id", event_hook_id)
+        if verification_status is not None:
+            pulumi.set(__self__, "verification_status", verification_status)
 
     @_builtins.property
     @pulumi.getter(name="eventHookId")
@@ -63,6 +67,18 @@ class _EventHookVerificationState:
     @event_hook_id.setter
     def event_hook_id(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "event_hook_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="verificationStatus")
+    def verification_status(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The verification status of the event hook.
+        """
+        return pulumi.get(self, "verification_status")
+
+    @verification_status.setter
+    def verification_status(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "verification_status", value)
 
 
 @pulumi.type_token("okta:index/eventHookVerification:EventHookVerification")
@@ -169,6 +185,7 @@ class EventHookVerification(pulumi.CustomResource):
             if event_hook_id is None and not opts.urn:
                 raise TypeError("Missing required property 'event_hook_id'")
             __props__.__dict__["event_hook_id"] = event_hook_id
+            __props__.__dict__["verification_status"] = None
         super(EventHookVerification, __self__).__init__(
             'okta:index/eventHookVerification:EventHookVerification',
             resource_name,
@@ -179,7 +196,8 @@ class EventHookVerification(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            event_hook_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'EventHookVerification':
+            event_hook_id: Optional[pulumi.Input[_builtins.str]] = None,
+            verification_status: Optional[pulumi.Input[_builtins.str]] = None) -> 'EventHookVerification':
         """
         Get an existing EventHookVerification resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -188,12 +206,14 @@ class EventHookVerification(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] event_hook_id: Event hook ID
+        :param pulumi.Input[_builtins.str] verification_status: The verification status of the event hook.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = _EventHookVerificationState.__new__(_EventHookVerificationState)
 
         __props__.__dict__["event_hook_id"] = event_hook_id
+        __props__.__dict__["verification_status"] = verification_status
         return EventHookVerification(resource_name, opts=opts, __props__=__props__)
 
     @_builtins.property
@@ -203,4 +223,12 @@ class EventHookVerification(pulumi.CustomResource):
         Event hook ID
         """
         return pulumi.get(self, "event_hook_id")
+
+    @_builtins.property
+    @pulumi.getter(name="verificationStatus")
+    def verification_status(self) -> pulumi.Output[_builtins.str]:
+        """
+        The verification status of the event hook.
+        """
+        return pulumi.get(self, "verification_status")
 

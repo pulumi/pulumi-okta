@@ -380,6 +380,11 @@ export const getOrgMetadata: typeof import("./getOrgMetadata").getOrgMetadata = 
 export const getOrgMetadataOutput: typeof import("./getOrgMetadata").getOrgMetadataOutput = null as any;
 utilities.lazyLoad(exports, ["getOrgMetadata","getOrgMetadataOutput"], () => require("./getOrgMetadata"));
 
+export { GetPostAuthSessionPolicyResult } from "./getPostAuthSessionPolicy";
+export const getPostAuthSessionPolicy: typeof import("./getPostAuthSessionPolicy").getPostAuthSessionPolicy = null as any;
+export const getPostAuthSessionPolicyOutput: typeof import("./getPostAuthSessionPolicy").getPostAuthSessionPolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getPostAuthSessionPolicy","getPostAuthSessionPolicyOutput"], () => require("./getPostAuthSessionPolicy"));
+
 export { GetPrincipalEntitlementsArgs, GetPrincipalEntitlementsResult, GetPrincipalEntitlementsOutputArgs } from "./getPrincipalEntitlements";
 export const getPrincipalEntitlements: typeof import("./getPrincipalEntitlements").getPrincipalEntitlements = null as any;
 export const getPrincipalEntitlementsOutput: typeof import("./getPrincipalEntitlements").getPrincipalEntitlementsOutput = null as any;
@@ -564,6 +569,11 @@ export { PolicyRuleProfileEnrollmentArgs, PolicyRuleProfileEnrollmentState } fro
 export type PolicyRuleProfileEnrollment = import("./policyRuleProfileEnrollment").PolicyRuleProfileEnrollment;
 export const PolicyRuleProfileEnrollment: typeof import("./policyRuleProfileEnrollment").PolicyRuleProfileEnrollment = null as any;
 utilities.lazyLoad(exports, ["PolicyRuleProfileEnrollment"], () => require("./policyRuleProfileEnrollment"));
+
+export { PostAuthSessionPolicyRuleArgs, PostAuthSessionPolicyRuleState } from "./postAuthSessionPolicyRule";
+export type PostAuthSessionPolicyRule = import("./postAuthSessionPolicyRule").PostAuthSessionPolicyRule;
+export const PostAuthSessionPolicyRule: typeof import("./postAuthSessionPolicyRule").PostAuthSessionPolicyRule = null as any;
+utilities.lazyLoad(exports, ["PostAuthSessionPolicyRule"], () => require("./postAuthSessionPolicyRule"));
 
 export { PreviewSigninPageArgs, PreviewSigninPageState } from "./previewSigninPage";
 export type PreviewSigninPage = import("./previewSigninPage").PreviewSigninPage;
@@ -857,6 +867,8 @@ const _module = {
                 return new PolicyProfileEnrollmentApps(name, <any>undefined, { urn })
             case "okta:index/policyRuleProfileEnrollment:PolicyRuleProfileEnrollment":
                 return new PolicyRuleProfileEnrollment(name, <any>undefined, { urn })
+            case "okta:index/postAuthSessionPolicyRule:PostAuthSessionPolicyRule":
+                return new PostAuthSessionPolicyRule(name, <any>undefined, { urn })
             case "okta:index/previewSigninPage:PreviewSigninPage":
                 return new PreviewSigninPage(name, <any>undefined, { urn })
             case "okta:index/principalRateLimits:PrincipalRateLimits":
@@ -974,6 +986,7 @@ pulumi.runtime.registerResourceModule("okta", "index/policyPasswordDefault", _mo
 pulumi.runtime.registerResourceModule("okta", "index/policyProfileEnrollment", _module)
 pulumi.runtime.registerResourceModule("okta", "index/policyProfileEnrollmentApps", _module)
 pulumi.runtime.registerResourceModule("okta", "index/policyRuleProfileEnrollment", _module)
+pulumi.runtime.registerResourceModule("okta", "index/postAuthSessionPolicyRule", _module)
 pulumi.runtime.registerResourceModule("okta", "index/previewSigninPage", _module)
 pulumi.runtime.registerResourceModule("okta", "index/principalRateLimits", _module)
 pulumi.runtime.registerResourceModule("okta", "index/pushGroup", _module)

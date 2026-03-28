@@ -285,7 +285,7 @@ public final class OAuthArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Groups claim for an OpenID Connect client application (argument is ignored when API auth is done with OAuth 2.0 credentials)
+     * Groups claim for an OpenID Connect client application (argument is ignored when API auth is done with OAuth 2.0 credentials, and is not supported when `preconfiguredApp` is set)
      * 
      * @deprecated
      * The groupsClaim field is deprecated and will be removed in a future version. Use Authorization Server Claims (okta_auth_server_claim) or app profile configuration instead.
@@ -296,7 +296,7 @@ public final class OAuthArgs extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<OAuthGroupsClaimArgs> groupsClaim;
 
     /**
-     * @return Groups claim for an OpenID Connect client application (argument is ignored when API auth is done with OAuth 2.0 credentials)
+     * @return Groups claim for an OpenID Connect client application (argument is ignored when API auth is done with OAuth 2.0 credentials, and is not supported when `preconfiguredApp` is set)
      * 
      * @deprecated
      * The groupsClaim field is deprecated and will be removed in a future version. Use Authorization Server Claims (okta_auth_server_claim) or app profile configuration instead.
@@ -563,6 +563,21 @@ public final class OAuthArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Tells Okta to use an existing application in their application catalog, as opposed to a custom application. Note: `groupsClaim` is not supported when using `preconfiguredApp`.
+     * 
+     */
+    @Import(name="preconfiguredApp")
+    private @Nullable Output<String> preconfiguredApp;
+
+    /**
+     * @return Tells Okta to use an existing application in their application catalog, as opposed to a custom application. Note: `groupsClaim` is not supported when using `preconfiguredApp`.
+     * 
+     */
+    public Optional<Output<String>> preconfiguredApp() {
+        return Optional.ofNullable(this.preconfiguredApp);
+    }
+
+    /**
      * Custom JSON that represents an OAuth application&#39;s profile
      * 
      */
@@ -810,6 +825,7 @@ public final class OAuthArgs extends com.pulumi.resources.ResourceArgs {
         this.pkceRequired = $.pkceRequired;
         this.policyUri = $.policyUri;
         this.postLogoutRedirectUris = $.postLogoutRedirectUris;
+        this.preconfiguredApp = $.preconfiguredApp;
         this.profile = $.profile;
         this.redirectUris = $.redirectUris;
         this.refreshTokenLeeway = $.refreshTokenLeeway;
@@ -1220,7 +1236,7 @@ public final class OAuthArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param groupsClaim Groups claim for an OpenID Connect client application (argument is ignored when API auth is done with OAuth 2.0 credentials)
+         * @param groupsClaim Groups claim for an OpenID Connect client application (argument is ignored when API auth is done with OAuth 2.0 credentials, and is not supported when `preconfiguredApp` is set)
          * 
          * @return builder
          * 
@@ -1235,7 +1251,7 @@ public final class OAuthArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param groupsClaim Groups claim for an OpenID Connect client application (argument is ignored when API auth is done with OAuth 2.0 credentials)
+         * @param groupsClaim Groups claim for an OpenID Connect client application (argument is ignored when API auth is done with OAuth 2.0 credentials, and is not supported when `preconfiguredApp` is set)
          * 
          * @return builder
          * 
@@ -1633,6 +1649,27 @@ public final class OAuthArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder postLogoutRedirectUris(String... postLogoutRedirectUris) {
             return postLogoutRedirectUris(List.of(postLogoutRedirectUris));
+        }
+
+        /**
+         * @param preconfiguredApp Tells Okta to use an existing application in their application catalog, as opposed to a custom application. Note: `groupsClaim` is not supported when using `preconfiguredApp`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder preconfiguredApp(@Nullable Output<String> preconfiguredApp) {
+            $.preconfiguredApp = preconfiguredApp;
+            return this;
+        }
+
+        /**
+         * @param preconfiguredApp Tells Okta to use an existing application in their application catalog, as opposed to a custom application. Note: `groupsClaim` is not supported when using `preconfiguredApp`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder preconfiguredApp(String preconfiguredApp) {
+            return preconfiguredApp(Output.of(preconfiguredApp));
         }
 
         /**

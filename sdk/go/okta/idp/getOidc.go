@@ -54,6 +54,8 @@ type LookupOidcArgs struct {
 	Id *string `pulumi:"id"`
 	// Name of the idp.
 	Name *string `pulumi:"name"`
+	// OIDC IdP logout endpoint.
+	SloUrl *string `pulumi:"sloUrl"`
 }
 
 // A collection of values returned by getOidc.
@@ -80,10 +82,14 @@ type LookupOidcResult struct {
 	MaxClockSkew int `pulumi:"maxClockSkew"`
 	// Name of the idp.
 	Name *string `pulumi:"name"`
+	// Set to true to have Okta send a logout request to the upstream IdP when a user signs out of Okta or a downstream app.
+	ParticipateSlo bool `pulumi:"participateSlo"`
 	// The type of protocol to use.
 	ProtocolType string `pulumi:"protocolType"`
 	// The scopes of the IdP.
 	Scopes []string `pulumi:"scopes"`
+	// OIDC IdP logout endpoint.
+	SloUrl *string `pulumi:"sloUrl"`
 	// The method of making a token request.
 	TokenBinding string `pulumi:"tokenBinding"`
 	// IdP Authorization Server (AS) endpoint to exchange the authorization code grant for an access token.
@@ -112,6 +118,8 @@ type LookupOidcOutputArgs struct {
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Name of the idp.
 	Name pulumi.StringPtrInput `pulumi:"name"`
+	// OIDC IdP logout endpoint.
+	SloUrl pulumi.StringPtrInput `pulumi:"sloUrl"`
 }
 
 func (LookupOidcOutputArgs) ElementType() reflect.Type {
@@ -188,6 +196,11 @@ func (o LookupOidcResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupOidcResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// Set to true to have Okta send a logout request to the upstream IdP when a user signs out of Okta or a downstream app.
+func (o LookupOidcResultOutput) ParticipateSlo() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupOidcResult) bool { return v.ParticipateSlo }).(pulumi.BoolOutput)
+}
+
 // The type of protocol to use.
 func (o LookupOidcResultOutput) ProtocolType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupOidcResult) string { return v.ProtocolType }).(pulumi.StringOutput)
@@ -196,6 +209,11 @@ func (o LookupOidcResultOutput) ProtocolType() pulumi.StringOutput {
 // The scopes of the IdP.
 func (o LookupOidcResultOutput) Scopes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupOidcResult) []string { return v.Scopes }).(pulumi.StringArrayOutput)
+}
+
+// OIDC IdP logout endpoint.
+func (o LookupOidcResultOutput) SloUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupOidcResult) *string { return v.SloUrl }).(pulumi.StringPtrOutput)
 }
 
 // The method of making a token request.

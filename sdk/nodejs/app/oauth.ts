@@ -194,7 +194,7 @@ export class OAuth extends pulumi.CustomResource {
      */
     declare public readonly grantTypes: pulumi.Output<string[]>;
     /**
-     * Groups claim for an OpenID Connect client application (argument is ignored when API auth is done with OAuth 2.0 credentials)
+     * Groups claim for an OpenID Connect client application (argument is ignored when API auth is done with OAuth 2.0 credentials, and is not supported when `preconfiguredApp` is set)
      *
      * @deprecated The groupsClaim field is deprecated and will be removed in a future version. Use Authorization Server Claims (okta_auth_server_claim) or app profile configuration instead.
      */
@@ -275,6 +275,10 @@ export class OAuth extends pulumi.CustomResource {
      * List of URIs for redirection after logout. Note: see okta*app*oauth*post*logout*redirect*uri for appending to this list in a decentralized way.
      */
     declare public readonly postLogoutRedirectUris: pulumi.Output<string[] | undefined>;
+    /**
+     * Tells Okta to use an existing application in their application catalog, as opposed to a custom application. Note: `groupsClaim` is not supported when using `preconfiguredApp`.
+     */
+    declare public readonly preconfiguredApp: pulumi.Output<string | undefined>;
     /**
      * Custom JSON that represents an OAuth application's profile
      */
@@ -387,6 +391,7 @@ export class OAuth extends pulumi.CustomResource {
             resourceInputs["pkceRequired"] = state?.pkceRequired;
             resourceInputs["policyUri"] = state?.policyUri;
             resourceInputs["postLogoutRedirectUris"] = state?.postLogoutRedirectUris;
+            resourceInputs["preconfiguredApp"] = state?.preconfiguredApp;
             resourceInputs["profile"] = state?.profile;
             resourceInputs["redirectUris"] = state?.redirectUris;
             resourceInputs["refreshTokenLeeway"] = state?.refreshTokenLeeway;
@@ -445,6 +450,7 @@ export class OAuth extends pulumi.CustomResource {
             resourceInputs["pkceRequired"] = args?.pkceRequired;
             resourceInputs["policyUri"] = args?.policyUri;
             resourceInputs["postLogoutRedirectUris"] = args?.postLogoutRedirectUris;
+            resourceInputs["preconfiguredApp"] = args?.preconfiguredApp;
             resourceInputs["profile"] = args?.profile;
             resourceInputs["redirectUris"] = args?.redirectUris;
             resourceInputs["refreshTokenLeeway"] = args?.refreshTokenLeeway;
@@ -552,7 +558,7 @@ export interface OAuthState {
      */
     grantTypes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Groups claim for an OpenID Connect client application (argument is ignored when API auth is done with OAuth 2.0 credentials)
+     * Groups claim for an OpenID Connect client application (argument is ignored when API auth is done with OAuth 2.0 credentials, and is not supported when `preconfiguredApp` is set)
      *
      * @deprecated The groupsClaim field is deprecated and will be removed in a future version. Use Authorization Server Claims (okta_auth_server_claim) or app profile configuration instead.
      */
@@ -633,6 +639,10 @@ export interface OAuthState {
      * List of URIs for redirection after logout. Note: see okta*app*oauth*post*logout*redirect*uri for appending to this list in a decentralized way.
      */
     postLogoutRedirectUris?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Tells Okta to use an existing application in their application catalog, as opposed to a custom application. Note: `groupsClaim` is not supported when using `preconfiguredApp`.
+     */
+    preconfiguredApp?: pulumi.Input<string>;
     /**
      * Custom JSON that represents an OAuth application's profile
      */
@@ -772,7 +782,7 @@ export interface OAuthArgs {
      */
     grantTypes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Groups claim for an OpenID Connect client application (argument is ignored when API auth is done with OAuth 2.0 credentials)
+     * Groups claim for an OpenID Connect client application (argument is ignored when API auth is done with OAuth 2.0 credentials, and is not supported when `preconfiguredApp` is set)
      *
      * @deprecated The groupsClaim field is deprecated and will be removed in a future version. Use Authorization Server Claims (okta_auth_server_claim) or app profile configuration instead.
      */
@@ -845,6 +855,10 @@ export interface OAuthArgs {
      * List of URIs for redirection after logout. Note: see okta*app*oauth*post*logout*redirect*uri for appending to this list in a decentralized way.
      */
     postLogoutRedirectUris?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Tells Okta to use an existing application in their application catalog, as opposed to a custom application. Note: `groupsClaim` is not supported when using `preconfiguredApp`.
+     */
+    preconfiguredApp?: pulumi.Input<string>;
     /**
      * Custom JSON that represents an OAuth application's profile
      */

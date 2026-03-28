@@ -86,6 +86,10 @@ export class Zone extends pulumi.CustomResource {
      */
     declare public readonly status: pulumi.Output<string | undefined>;
     /**
+     * Indicates a system Network Zone
+     */
+    declare public /*out*/ readonly system: pulumi.Output<boolean>;
+    /**
      * Type of the Network Zone - can be `IP`, `DYNAMIC` or `DYNAMIC_V2` only
      */
     declare public readonly type: pulumi.Output<string>;
@@ -118,6 +122,7 @@ export class Zone extends pulumi.CustomResource {
             resourceInputs["proxies"] = state?.proxies;
             resourceInputs["setUsageAsExemptList"] = state?.setUsageAsExemptList;
             resourceInputs["status"] = state?.status;
+            resourceInputs["system"] = state?.system;
             resourceInputs["type"] = state?.type;
             resourceInputs["usage"] = state?.usage;
         } else {
@@ -138,6 +143,7 @@ export class Zone extends pulumi.CustomResource {
             resourceInputs["status"] = args?.status;
             resourceInputs["type"] = args?.type;
             resourceInputs["usage"] = args?.usage;
+            resourceInputs["system"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Zone.__pulumiType, name, resourceInputs, opts);
@@ -192,6 +198,10 @@ export interface ZoneState {
      * Network Status - can either be `ACTIVE` or `INACTIVE` only
      */
     status?: pulumi.Input<string>;
+    /**
+     * Indicates a system Network Zone
+     */
+    system?: pulumi.Input<boolean>;
     /**
      * Type of the Network Zone - can be `IP`, `DYNAMIC` or `DYNAMIC_V2` only
      */

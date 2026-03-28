@@ -44,11 +44,27 @@ public final class GetOidcPlainArgs extends com.pulumi.resources.InvokeArgs {
         return Optional.ofNullable(this.name);
     }
 
+    /**
+     * OIDC IdP logout endpoint.
+     * 
+     */
+    @Import(name="sloUrl")
+    private @Nullable String sloUrl;
+
+    /**
+     * @return OIDC IdP logout endpoint.
+     * 
+     */
+    public Optional<String> sloUrl() {
+        return Optional.ofNullable(this.sloUrl);
+    }
+
     private GetOidcPlainArgs() {}
 
     private GetOidcPlainArgs(GetOidcPlainArgs $) {
         this.id = $.id;
         this.name = $.name;
+        this.sloUrl = $.sloUrl;
     }
 
     public static Builder builder() {
@@ -88,6 +104,17 @@ public final class GetOidcPlainArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder name(@Nullable String name) {
             $.name = name;
+            return this;
+        }
+
+        /**
+         * @param sloUrl OIDC IdP logout endpoint.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sloUrl(@Nullable String sloUrl) {
+            $.sloUrl = sloUrl;
             return this;
         }
 

@@ -4416,8 +4416,17 @@ class PushProviderConfigurationFcmConfigurationServiceAccountJsonArgs:
 
 class RateLimitingUseCaseModeOverridesArgsDict(TypedDict):
     login_page: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Rate limit mode for the Okta hosted login page. Valid values: `ENFORCE`, `DISABLE`, `PREVIEW`.
+    """
     oauth2_authorize: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Rate limit mode for OAuth2 authorization requests. Valid values: `ENFORCE`, `DISABLE`, `PREVIEW`.
+    """
     oie_app_intent: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Rate limit mode for OIE app intent. Valid values: `ENFORCE`, `DISABLE`, `PREVIEW`.
+    """
 
 @pulumi.input_type
 class RateLimitingUseCaseModeOverridesArgs:
@@ -4425,6 +4434,11 @@ class RateLimitingUseCaseModeOverridesArgs:
                  login_page: Optional[pulumi.Input[_builtins.str]] = None,
                  oauth2_authorize: Optional[pulumi.Input[_builtins.str]] = None,
                  oie_app_intent: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] login_page: Rate limit mode for the Okta hosted login page. Valid values: `ENFORCE`, `DISABLE`, `PREVIEW`.
+        :param pulumi.Input[_builtins.str] oauth2_authorize: Rate limit mode for OAuth2 authorization requests. Valid values: `ENFORCE`, `DISABLE`, `PREVIEW`.
+        :param pulumi.Input[_builtins.str] oie_app_intent: Rate limit mode for OIE app intent. Valid values: `ENFORCE`, `DISABLE`, `PREVIEW`.
+        """
         if login_page is not None:
             pulumi.set(__self__, "login_page", login_page)
         if oauth2_authorize is not None:
@@ -4435,6 +4449,9 @@ class RateLimitingUseCaseModeOverridesArgs:
     @_builtins.property
     @pulumi.getter(name="loginPage")
     def login_page(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Rate limit mode for the Okta hosted login page. Valid values: `ENFORCE`, `DISABLE`, `PREVIEW`.
+        """
         return pulumi.get(self, "login_page")
 
     @login_page.setter
@@ -4444,6 +4461,9 @@ class RateLimitingUseCaseModeOverridesArgs:
     @_builtins.property
     @pulumi.getter(name="oauth2Authorize")
     def oauth2_authorize(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Rate limit mode for OAuth2 authorization requests. Valid values: `ENFORCE`, `DISABLE`, `PREVIEW`.
+        """
         return pulumi.get(self, "oauth2_authorize")
 
     @oauth2_authorize.setter
@@ -4453,6 +4473,9 @@ class RateLimitingUseCaseModeOverridesArgs:
     @_builtins.property
     @pulumi.getter(name="oieAppIntent")
     def oie_app_intent(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Rate limit mode for OIE app intent. Valid values: `ENFORCE`, `DISABLE`, `PREVIEW`.
+        """
         return pulumi.get(self, "oie_app_intent")
 
     @oie_app_intent.setter

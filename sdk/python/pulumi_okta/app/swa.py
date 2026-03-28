@@ -25,6 +25,7 @@ class SwaArgs:
                  accessibility_self_service: Optional[pulumi.Input[_builtins.bool]] = None,
                  admin_note: Optional[pulumi.Input[_builtins.str]] = None,
                  app_links_json: Optional[pulumi.Input[_builtins.str]] = None,
+                 app_settings_json: Optional[pulumi.Input[_builtins.str]] = None,
                  auto_submit_toolbar: Optional[pulumi.Input[_builtins.bool]] = None,
                  button_field: Optional[pulumi.Input[_builtins.str]] = None,
                  checkbox: Optional[pulumi.Input[_builtins.str]] = None,
@@ -52,6 +53,7 @@ class SwaArgs:
         :param pulumi.Input[_builtins.bool] accessibility_self_service: Enable self service. Default is `false`
         :param pulumi.Input[_builtins.str] admin_note: Application notes for admins.
         :param pulumi.Input[_builtins.str] app_links_json: Displays specific appLinks for the app. The value for each application link should be boolean.
+        :param pulumi.Input[_builtins.str] app_settings_json: Application settings in JSON format. If `app_settings_json` is defined, the individual fields `button_field`, `password_field`, `username_field`, `url`, `url_regex`, `checkbox`, `redirect_url` will be ignored
         :param pulumi.Input[_builtins.bool] auto_submit_toolbar: Display auto submit toolbar
         :param pulumi.Input[_builtins.str] button_field: Login button field
         :param pulumi.Input[_builtins.str] checkbox: CSS selector for the checkbox
@@ -82,6 +84,8 @@ class SwaArgs:
             pulumi.set(__self__, "admin_note", admin_note)
         if app_links_json is not None:
             pulumi.set(__self__, "app_links_json", app_links_json)
+        if app_settings_json is not None:
+            pulumi.set(__self__, "app_settings_json", app_settings_json)
         if auto_submit_toolbar is not None:
             pulumi.set(__self__, "auto_submit_toolbar", auto_submit_toolbar)
         if button_field is not None:
@@ -190,6 +194,18 @@ class SwaArgs:
     @app_links_json.setter
     def app_links_json(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "app_links_json", value)
+
+    @_builtins.property
+    @pulumi.getter(name="appSettingsJson")
+    def app_settings_json(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Application settings in JSON format. If `app_settings_json` is defined, the individual fields `button_field`, `password_field`, `username_field`, `url`, `url_regex`, `checkbox`, `redirect_url` will be ignored
+        """
+        return pulumi.get(self, "app_settings_json")
+
+    @app_settings_json.setter
+    def app_settings_json(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "app_settings_json", value)
 
     @_builtins.property
     @pulumi.getter(name="autoSubmitToolbar")
@@ -416,6 +432,7 @@ class _SwaState:
                  accessibility_self_service: Optional[pulumi.Input[_builtins.bool]] = None,
                  admin_note: Optional[pulumi.Input[_builtins.str]] = None,
                  app_links_json: Optional[pulumi.Input[_builtins.str]] = None,
+                 app_settings_json: Optional[pulumi.Input[_builtins.str]] = None,
                  auto_submit_toolbar: Optional[pulumi.Input[_builtins.bool]] = None,
                  button_field: Optional[pulumi.Input[_builtins.str]] = None,
                  checkbox: Optional[pulumi.Input[_builtins.str]] = None,
@@ -446,6 +463,7 @@ class _SwaState:
         :param pulumi.Input[_builtins.bool] accessibility_self_service: Enable self service. Default is `false`
         :param pulumi.Input[_builtins.str] admin_note: Application notes for admins.
         :param pulumi.Input[_builtins.str] app_links_json: Displays specific appLinks for the app. The value for each application link should be boolean.
+        :param pulumi.Input[_builtins.str] app_settings_json: Application settings in JSON format. If `app_settings_json` is defined, the individual fields `button_field`, `password_field`, `username_field`, `url`, `url_regex`, `checkbox`, `redirect_url` will be ignored
         :param pulumi.Input[_builtins.bool] auto_submit_toolbar: Display auto submit toolbar
         :param pulumi.Input[_builtins.str] button_field: Login button field
         :param pulumi.Input[_builtins.str] checkbox: CSS selector for the checkbox
@@ -479,6 +497,8 @@ class _SwaState:
             pulumi.set(__self__, "admin_note", admin_note)
         if app_links_json is not None:
             pulumi.set(__self__, "app_links_json", app_links_json)
+        if app_settings_json is not None:
+            pulumi.set(__self__, "app_settings_json", app_settings_json)
         if auto_submit_toolbar is not None:
             pulumi.set(__self__, "auto_submit_toolbar", auto_submit_toolbar)
         if button_field is not None:
@@ -583,6 +603,18 @@ class _SwaState:
     @app_links_json.setter
     def app_links_json(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "app_links_json", value)
+
+    @_builtins.property
+    @pulumi.getter(name="appSettingsJson")
+    def app_settings_json(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Application settings in JSON format. If `app_settings_json` is defined, the individual fields `button_field`, `password_field`, `username_field`, `url`, `url_regex`, `checkbox`, `redirect_url` will be ignored
+        """
+        return pulumi.get(self, "app_settings_json")
+
+    @app_settings_json.setter
+    def app_settings_json(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "app_settings_json", value)
 
     @_builtins.property
     @pulumi.getter(name="autoSubmitToolbar")
@@ -860,6 +892,7 @@ class Swa(pulumi.CustomResource):
                  accessibility_self_service: Optional[pulumi.Input[_builtins.bool]] = None,
                  admin_note: Optional[pulumi.Input[_builtins.str]] = None,
                  app_links_json: Optional[pulumi.Input[_builtins.str]] = None,
+                 app_settings_json: Optional[pulumi.Input[_builtins.str]] = None,
                  auto_submit_toolbar: Optional[pulumi.Input[_builtins.bool]] = None,
                  button_field: Optional[pulumi.Input[_builtins.str]] = None,
                  checkbox: Optional[pulumi.Input[_builtins.str]] = None,
@@ -900,6 +933,44 @@ class Swa(pulumi.CustomResource):
             password_field="txtbox-password",
             username_field="txtbox-username",
             url="https://example.com/login.html")
+        example_with_app_settings_json = okta.app.Swa("example_with_app_settings_json",
+            preconfigured_app="office365",
+            label="Microsoft Office 365 SWA",
+            status="ACTIVE",
+            app_settings_json=\"\"\"    {
+              \\"wsFedConfigureType\\": \\"AUTO\\",
+              \\"windowsTransportEnabled\\": false,
+              \\"domain\\": \\"example.com\\",
+              \\"msftTenant\\": \\"exampletenant\\",
+              \\"domains\\": [],
+              \\"requireAdminConsent\\": false
+            }
+        \"\"\",
+            app_links_json=\"\"\"    {
+              \\"calendar\\": false,
+              \\"crm\\": false,
+              \\"delve\\": false,
+              \\"excel\\": false,
+              \\"forms\\": false,
+              \\"mail\\": false,
+              \\"newsfeed\\": false,
+              \\"onedrive\\": false,
+              \\"people\\": false,
+              \\"planner\\": false,
+              \\"powerbi\\": false,
+              \\"powerpoint\\": false,
+              \\"sites\\": false,
+              \\"sway\\": false,
+              \\"tasks\\": false,
+              \\"teams\\": false,
+              \\"video\\": false,
+              \\"word\\": false,
+              \\"yammer\\": false,
+              \\"login\\": true
+            }
+        \"\"\",
+            user_name_template="user.login",
+            user_name_template_type="CUSTOM")
         ```
 
         ## Import
@@ -916,6 +987,7 @@ class Swa(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] accessibility_self_service: Enable self service. Default is `false`
         :param pulumi.Input[_builtins.str] admin_note: Application notes for admins.
         :param pulumi.Input[_builtins.str] app_links_json: Displays specific appLinks for the app. The value for each application link should be boolean.
+        :param pulumi.Input[_builtins.str] app_settings_json: Application settings in JSON format. If `app_settings_json` is defined, the individual fields `button_field`, `password_field`, `username_field`, `url`, `url_regex`, `checkbox`, `redirect_url` will be ignored
         :param pulumi.Input[_builtins.bool] auto_submit_toolbar: Display auto submit toolbar
         :param pulumi.Input[_builtins.str] button_field: Login button field
         :param pulumi.Input[_builtins.str] checkbox: CSS selector for the checkbox
@@ -962,6 +1034,44 @@ class Swa(pulumi.CustomResource):
             password_field="txtbox-password",
             username_field="txtbox-username",
             url="https://example.com/login.html")
+        example_with_app_settings_json = okta.app.Swa("example_with_app_settings_json",
+            preconfigured_app="office365",
+            label="Microsoft Office 365 SWA",
+            status="ACTIVE",
+            app_settings_json=\"\"\"    {
+              \\"wsFedConfigureType\\": \\"AUTO\\",
+              \\"windowsTransportEnabled\\": false,
+              \\"domain\\": \\"example.com\\",
+              \\"msftTenant\\": \\"exampletenant\\",
+              \\"domains\\": [],
+              \\"requireAdminConsent\\": false
+            }
+        \"\"\",
+            app_links_json=\"\"\"    {
+              \\"calendar\\": false,
+              \\"crm\\": false,
+              \\"delve\\": false,
+              \\"excel\\": false,
+              \\"forms\\": false,
+              \\"mail\\": false,
+              \\"newsfeed\\": false,
+              \\"onedrive\\": false,
+              \\"people\\": false,
+              \\"planner\\": false,
+              \\"powerbi\\": false,
+              \\"powerpoint\\": false,
+              \\"sites\\": false,
+              \\"sway\\": false,
+              \\"tasks\\": false,
+              \\"teams\\": false,
+              \\"video\\": false,
+              \\"word\\": false,
+              \\"yammer\\": false,
+              \\"login\\": true
+            }
+        \"\"\",
+            user_name_template="user.login",
+            user_name_template_type="CUSTOM")
         ```
 
         ## Import
@@ -991,6 +1101,7 @@ class Swa(pulumi.CustomResource):
                  accessibility_self_service: Optional[pulumi.Input[_builtins.bool]] = None,
                  admin_note: Optional[pulumi.Input[_builtins.str]] = None,
                  app_links_json: Optional[pulumi.Input[_builtins.str]] = None,
+                 app_settings_json: Optional[pulumi.Input[_builtins.str]] = None,
                  auto_submit_toolbar: Optional[pulumi.Input[_builtins.bool]] = None,
                  button_field: Optional[pulumi.Input[_builtins.str]] = None,
                  checkbox: Optional[pulumi.Input[_builtins.str]] = None,
@@ -1024,6 +1135,7 @@ class Swa(pulumi.CustomResource):
             __props__.__dict__["accessibility_self_service"] = accessibility_self_service
             __props__.__dict__["admin_note"] = admin_note
             __props__.__dict__["app_links_json"] = app_links_json
+            __props__.__dict__["app_settings_json"] = app_settings_json
             __props__.__dict__["auto_submit_toolbar"] = auto_submit_toolbar
             __props__.__dict__["button_field"] = button_field
             __props__.__dict__["checkbox"] = checkbox
@@ -1063,6 +1175,7 @@ class Swa(pulumi.CustomResource):
             accessibility_self_service: Optional[pulumi.Input[_builtins.bool]] = None,
             admin_note: Optional[pulumi.Input[_builtins.str]] = None,
             app_links_json: Optional[pulumi.Input[_builtins.str]] = None,
+            app_settings_json: Optional[pulumi.Input[_builtins.str]] = None,
             auto_submit_toolbar: Optional[pulumi.Input[_builtins.bool]] = None,
             button_field: Optional[pulumi.Input[_builtins.str]] = None,
             checkbox: Optional[pulumi.Input[_builtins.str]] = None,
@@ -1097,6 +1210,7 @@ class Swa(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] accessibility_self_service: Enable self service. Default is `false`
         :param pulumi.Input[_builtins.str] admin_note: Application notes for admins.
         :param pulumi.Input[_builtins.str] app_links_json: Displays specific appLinks for the app. The value for each application link should be boolean.
+        :param pulumi.Input[_builtins.str] app_settings_json: Application settings in JSON format. If `app_settings_json` is defined, the individual fields `button_field`, `password_field`, `username_field`, `url`, `url_regex`, `checkbox`, `redirect_url` will be ignored
         :param pulumi.Input[_builtins.bool] auto_submit_toolbar: Display auto submit toolbar
         :param pulumi.Input[_builtins.str] button_field: Login button field
         :param pulumi.Input[_builtins.str] checkbox: CSS selector for the checkbox
@@ -1129,6 +1243,7 @@ class Swa(pulumi.CustomResource):
         __props__.__dict__["accessibility_self_service"] = accessibility_self_service
         __props__.__dict__["admin_note"] = admin_note
         __props__.__dict__["app_links_json"] = app_links_json
+        __props__.__dict__["app_settings_json"] = app_settings_json
         __props__.__dict__["auto_submit_toolbar"] = auto_submit_toolbar
         __props__.__dict__["button_field"] = button_field
         __props__.__dict__["checkbox"] = checkbox
@@ -1192,6 +1307,14 @@ class Swa(pulumi.CustomResource):
         Displays specific appLinks for the app. The value for each application link should be boolean.
         """
         return pulumi.get(self, "app_links_json")
+
+    @_builtins.property
+    @pulumi.getter(name="appSettingsJson")
+    def app_settings_json(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Application settings in JSON format. If `app_settings_json` is defined, the individual fields `button_field`, `password_field`, `username_field`, `url`, `url_regex`, `checkbox`, `redirect_url` will be ignored
+        """
+        return pulumi.get(self, "app_settings_json")
 
     @_builtins.property
     @pulumi.getter(name="autoSubmitToolbar")

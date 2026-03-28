@@ -25,6 +25,45 @@ import * as utilities from "../utilities";
  *     usernameField: "txtbox-username",
  *     url: "https://example.com/login.html",
  * });
+ * const exampleWithAppSettingsJson = new okta.app.Swa("example_with_app_settings_json", {
+ *     preconfiguredApp: "office365",
+ *     label: "Microsoft Office 365 SWA",
+ *     status: "ACTIVE",
+ *     appSettingsJson: `    {
+ *       \\"wsFedConfigureType\\": \\"AUTO\\",
+ *       \\"windowsTransportEnabled\\": false,
+ *       \\"domain\\": \\"example.com\\",
+ *       \\"msftTenant\\": \\"exampletenant\\",
+ *       \\"domains\\": [],
+ *       \\"requireAdminConsent\\": false
+ *     }
+ * `,
+ *     appLinksJson: `    {
+ *       \\"calendar\\": false,
+ *       \\"crm\\": false,
+ *       \\"delve\\": false,
+ *       \\"excel\\": false,
+ *       \\"forms\\": false,
+ *       \\"mail\\": false,
+ *       \\"newsfeed\\": false,
+ *       \\"onedrive\\": false,
+ *       \\"people\\": false,
+ *       \\"planner\\": false,
+ *       \\"powerbi\\": false,
+ *       \\"powerpoint\\": false,
+ *       \\"sites\\": false,
+ *       \\"sway\\": false,
+ *       \\"tasks\\": false,
+ *       \\"teams\\": false,
+ *       \\"video\\": false,
+ *       \\"word\\": false,
+ *       \\"yammer\\": false,
+ *       \\"login\\": true
+ *     }
+ * `,
+ *     userNameTemplate: "user.login",
+ *     userNameTemplateType: "CUSTOM",
+ * });
  * ```
  *
  * ## Import
@@ -81,6 +120,10 @@ export class Swa extends pulumi.CustomResource {
      * Displays specific appLinks for the app. The value for each application link should be boolean.
      */
     declare public readonly appLinksJson: pulumi.Output<string | undefined>;
+    /**
+     * Application settings in JSON format. If `appSettingsJson` is defined, the individual fields `buttonField`, `passwordField`, `usernameField`, `url`, `urlRegex`, `checkbox`, `redirectUrl` will be ignored
+     */
+    declare public readonly appSettingsJson: pulumi.Output<string | undefined>;
     /**
      * Display auto submit toolbar
      */
@@ -188,6 +231,7 @@ export class Swa extends pulumi.CustomResource {
             resourceInputs["accessibilitySelfService"] = state?.accessibilitySelfService;
             resourceInputs["adminNote"] = state?.adminNote;
             resourceInputs["appLinksJson"] = state?.appLinksJson;
+            resourceInputs["appSettingsJson"] = state?.appSettingsJson;
             resourceInputs["autoSubmitToolbar"] = state?.autoSubmitToolbar;
             resourceInputs["buttonField"] = state?.buttonField;
             resourceInputs["checkbox"] = state?.checkbox;
@@ -220,6 +264,7 @@ export class Swa extends pulumi.CustomResource {
             resourceInputs["accessibilitySelfService"] = args?.accessibilitySelfService;
             resourceInputs["adminNote"] = args?.adminNote;
             resourceInputs["appLinksJson"] = args?.appLinksJson;
+            resourceInputs["appSettingsJson"] = args?.appSettingsJson;
             resourceInputs["autoSubmitToolbar"] = args?.autoSubmitToolbar;
             resourceInputs["buttonField"] = args?.buttonField;
             resourceInputs["checkbox"] = args?.checkbox;
@@ -272,6 +317,10 @@ export interface SwaState {
      * Displays specific appLinks for the app. The value for each application link should be boolean.
      */
     appLinksJson?: pulumi.Input<string>;
+    /**
+     * Application settings in JSON format. If `appSettingsJson` is defined, the individual fields `buttonField`, `passwordField`, `usernameField`, `url`, `urlRegex`, `checkbox`, `redirectUrl` will be ignored
+     */
+    appSettingsJson?: pulumi.Input<string>;
     /**
      * Display auto submit toolbar
      */
@@ -386,6 +435,10 @@ export interface SwaArgs {
      * Displays specific appLinks for the app. The value for each application link should be boolean.
      */
     appLinksJson?: pulumi.Input<string>;
+    /**
+     * Application settings in JSON format. If `appSettingsJson` is defined, the individual fields `buttonField`, `passwordField`, `usernameField`, `url`, `urlRegex`, `checkbox`, `redirectUrl` will be ignored
+     */
+    appSettingsJson?: pulumi.Input<string>;
     /**
      * Display auto submit toolbar
      */

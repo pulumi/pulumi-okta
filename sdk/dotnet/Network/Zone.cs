@@ -88,6 +88,12 @@ namespace Pulumi.Okta.Network
         public Output<string?> Status { get; private set; } = null!;
 
         /// <summary>
+        /// Indicates a system Network Zone
+        /// </summary>
+        [Output("system")]
+        public Output<bool> System { get; private set; } = null!;
+
+        /// <summary>
         /// Type of the Network Zone - can be `IP`, `DYNAMIC` or `DYNAMIC_V2` only
         /// </summary>
         [Output("type")]
@@ -380,6 +386,12 @@ namespace Pulumi.Okta.Network
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
+
+        /// <summary>
+        /// Indicates a system Network Zone
+        /// </summary>
+        [Input("system")]
+        public Input<bool>? System { get; set; }
 
         /// <summary>
         /// Type of the Network Zone - can be `IP`, `DYNAMIC` or `DYNAMIC_V2` only

@@ -11,17 +11,41 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class RateLimitingUseCaseModeOverrides {
+    /**
+     * @return Rate limit mode for the Okta hosted login page. Valid values: `ENFORCE`, `DISABLE`, `PREVIEW`.
+     * 
+     */
     private @Nullable String loginPage;
+    /**
+     * @return Rate limit mode for OAuth2 authorization requests. Valid values: `ENFORCE`, `DISABLE`, `PREVIEW`.
+     * 
+     */
     private @Nullable String oauth2Authorize;
+    /**
+     * @return Rate limit mode for OIE app intent. Valid values: `ENFORCE`, `DISABLE`, `PREVIEW`.
+     * 
+     */
     private @Nullable String oieAppIntent;
 
     private RateLimitingUseCaseModeOverrides() {}
+    /**
+     * @return Rate limit mode for the Okta hosted login page. Valid values: `ENFORCE`, `DISABLE`, `PREVIEW`.
+     * 
+     */
     public Optional<String> loginPage() {
         return Optional.ofNullable(this.loginPage);
     }
+    /**
+     * @return Rate limit mode for OAuth2 authorization requests. Valid values: `ENFORCE`, `DISABLE`, `PREVIEW`.
+     * 
+     */
     public Optional<String> oauth2Authorize() {
         return Optional.ofNullable(this.oauth2Authorize);
     }
+    /**
+     * @return Rate limit mode for OIE app intent. Valid values: `ENFORCE`, `DISABLE`, `PREVIEW`.
+     * 
+     */
     public Optional<String> oieAppIntent() {
         return Optional.ofNullable(this.oieAppIntent);
     }
