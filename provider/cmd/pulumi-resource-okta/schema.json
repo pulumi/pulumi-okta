@@ -42,7 +42,7 @@
             "respectSchemaVersion": true
         },
         "nodejs": {
-            "packageDescription": "A Pulumi package for creating and managing okta resources.. Based on terraform-provider-okta: version v6.6.1",
+            "packageDescription": "A Pulumi package for creating and managing okta resources.. Based on terraform-provider-okta: version v6.7.0",
             "readme": "\u003e This provider is a derived work of the [Terraform Provider](https://github.com/okta/terraform-provider-okta)\n\u003e distributed under [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/). If you encounter a bug or missing feature,\n\u003e first check the [`pulumi-okta` repo](https://github.com/pulumi/pulumi-okta/issues); however, if that doesn't turn up anything,\n\u003e please consult the source [`terraform-provider-okta` repo](https://github.com/okta/terraform-provider-okta/issues).",
             "devDependencies": {
                 "@types/mime": "^2.0.0",
@@ -2494,13 +2494,16 @@
         "okta:index/RateLimitingUseCaseModeOverrides:RateLimitingUseCaseModeOverrides": {
             "properties": {
                 "loginPage": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Rate limit mode for the Okta hosted login page. Valid values: `ENFORCE`, `DISABLE`, `PREVIEW`.\n"
                 },
                 "oauth2Authorize": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Rate limit mode for OAuth2 authorization requests. Valid values: `ENFORCE`, `DISABLE`, `PREVIEW`.\n"
                 },
                 "oieAppIntent": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Rate limit mode for OIE app intent. Valid values: `ENFORCE`, `DISABLE`, `PREVIEW`.\n"
                 }
             },
             "type": "object"
@@ -8124,7 +8127,7 @@
                 },
                 "groupsClaim": {
                     "$ref": "#/types/okta:app/OAuthGroupsClaim:OAuthGroupsClaim",
-                    "description": "Groups claim for an OpenID Connect client application (argument is ignored when API auth is done with OAuth 2.0 credentials)\n",
+                    "description": "Groups claim for an OpenID Connect client application (argument is ignored when API auth is done with OAuth 2.0 credentials, and is not supported when \u003cspan pulumi-lang-nodejs=\"`preconfiguredApp`\" pulumi-lang-dotnet=\"`PreconfiguredApp`\" pulumi-lang-go=\"`preconfiguredApp`\" pulumi-lang-python=\"`preconfigured_app`\" pulumi-lang-yaml=\"`preconfiguredApp`\" pulumi-lang-java=\"`preconfiguredApp`\"\u003e`preconfigured_app`\u003c/span\u003e is set)\n",
                     "deprecationMessage": "The\u003cspan pulumi-lang-nodejs=\" groupsClaim \" pulumi-lang-dotnet=\" GroupsClaim \" pulumi-lang-go=\" groupsClaim \" pulumi-lang-python=\" groups_claim \" pulumi-lang-yaml=\" groupsClaim \" pulumi-lang-java=\" groupsClaim \"\u003e groups_claim \u003c/span\u003efield is deprecated and will be removed in a future version. Use Authorization Server Claims (okta_auth_server_claim) or app profile configuration instead."
                 },
                 "hideIos": {
@@ -8211,6 +8214,10 @@
                         "type": "string"
                     },
                     "description": "List of URIs for redirection after logout. Note: see okta*app*oauth*post*logout*redirect*uri for appending to this list in a decentralized way.\n"
+                },
+                "preconfiguredApp": {
+                    "type": "string",
+                    "description": "Tells Okta to use an existing application in their application catalog, as opposed to a custom application. Note: \u003cspan pulumi-lang-nodejs=\"`groupsClaim`\" pulumi-lang-dotnet=\"`GroupsClaim`\" pulumi-lang-go=\"`groupsClaim`\" pulumi-lang-python=\"`groups_claim`\" pulumi-lang-yaml=\"`groupsClaim`\" pulumi-lang-java=\"`groupsClaim`\"\u003e`groups_claim`\u003c/span\u003e is not supported when using \u003cspan pulumi-lang-nodejs=\"`preconfiguredApp`\" pulumi-lang-dotnet=\"`PreconfiguredApp`\" pulumi-lang-go=\"`preconfiguredApp`\" pulumi-lang-python=\"`preconfigured_app`\" pulumi-lang-yaml=\"`preconfiguredApp`\" pulumi-lang-java=\"`preconfiguredApp`\"\u003e`preconfigured_app`\u003c/span\u003e.\n"
                 },
                 "profile": {
                     "type": "string",
@@ -8368,7 +8375,7 @@
                 },
                 "groupsClaim": {
                     "$ref": "#/types/okta:app/OAuthGroupsClaim:OAuthGroupsClaim",
-                    "description": "Groups claim for an OpenID Connect client application (argument is ignored when API auth is done with OAuth 2.0 credentials)\n",
+                    "description": "Groups claim for an OpenID Connect client application (argument is ignored when API auth is done with OAuth 2.0 credentials, and is not supported when \u003cspan pulumi-lang-nodejs=\"`preconfiguredApp`\" pulumi-lang-dotnet=\"`PreconfiguredApp`\" pulumi-lang-go=\"`preconfiguredApp`\" pulumi-lang-python=\"`preconfigured_app`\" pulumi-lang-yaml=\"`preconfiguredApp`\" pulumi-lang-java=\"`preconfiguredApp`\"\u003e`preconfigured_app`\u003c/span\u003e is set)\n",
                     "deprecationMessage": "The\u003cspan pulumi-lang-nodejs=\" groupsClaim \" pulumi-lang-dotnet=\" GroupsClaim \" pulumi-lang-go=\" groupsClaim \" pulumi-lang-python=\" groups_claim \" pulumi-lang-yaml=\" groupsClaim \" pulumi-lang-java=\" groupsClaim \"\u003e groups_claim \u003c/span\u003efield is deprecated and will be removed in a future version. Use Authorization Server Claims (okta_auth_server_claim) or app profile configuration instead."
                 },
                 "hideIos": {
@@ -8447,6 +8454,10 @@
                         "type": "string"
                     },
                     "description": "List of URIs for redirection after logout. Note: see okta*app*oauth*post*logout*redirect*uri for appending to this list in a decentralized way.\n"
+                },
+                "preconfiguredApp": {
+                    "type": "string",
+                    "description": "Tells Okta to use an existing application in their application catalog, as opposed to a custom application. Note: \u003cspan pulumi-lang-nodejs=\"`groupsClaim`\" pulumi-lang-dotnet=\"`GroupsClaim`\" pulumi-lang-go=\"`groupsClaim`\" pulumi-lang-python=\"`groups_claim`\" pulumi-lang-yaml=\"`groupsClaim`\" pulumi-lang-java=\"`groupsClaim`\"\u003e`groups_claim`\u003c/span\u003e is not supported when using \u003cspan pulumi-lang-nodejs=\"`preconfiguredApp`\" pulumi-lang-dotnet=\"`PreconfiguredApp`\" pulumi-lang-go=\"`preconfiguredApp`\" pulumi-lang-python=\"`preconfigured_app`\" pulumi-lang-yaml=\"`preconfiguredApp`\" pulumi-lang-java=\"`preconfiguredApp`\"\u003e`preconfigured_app`\u003c/span\u003e.\n"
                 },
                 "profile": {
                     "type": "string",
@@ -8599,7 +8610,7 @@
                     },
                     "groupsClaim": {
                         "$ref": "#/types/okta:app/OAuthGroupsClaim:OAuthGroupsClaim",
-                        "description": "Groups claim for an OpenID Connect client application (argument is ignored when API auth is done with OAuth 2.0 credentials)\n",
+                        "description": "Groups claim for an OpenID Connect client application (argument is ignored when API auth is done with OAuth 2.0 credentials, and is not supported when \u003cspan pulumi-lang-nodejs=\"`preconfiguredApp`\" pulumi-lang-dotnet=\"`PreconfiguredApp`\" pulumi-lang-go=\"`preconfiguredApp`\" pulumi-lang-python=\"`preconfigured_app`\" pulumi-lang-yaml=\"`preconfiguredApp`\" pulumi-lang-java=\"`preconfiguredApp`\"\u003e`preconfigured_app`\u003c/span\u003e is set)\n",
                         "deprecationMessage": "The\u003cspan pulumi-lang-nodejs=\" groupsClaim \" pulumi-lang-dotnet=\" GroupsClaim \" pulumi-lang-go=\" groupsClaim \" pulumi-lang-python=\" groups_claim \" pulumi-lang-yaml=\" groupsClaim \" pulumi-lang-java=\" groupsClaim \"\u003e groups_claim \u003c/span\u003efield is deprecated and will be removed in a future version. Use Authorization Server Claims (okta_auth_server_claim) or app profile configuration instead."
                     },
                     "hideIos": {
@@ -8686,6 +8697,10 @@
                             "type": "string"
                         },
                         "description": "List of URIs for redirection after logout. Note: see okta*app*oauth*post*logout*redirect*uri for appending to this list in a decentralized way.\n"
+                    },
+                    "preconfiguredApp": {
+                        "type": "string",
+                        "description": "Tells Okta to use an existing application in their application catalog, as opposed to a custom application. Note: \u003cspan pulumi-lang-nodejs=\"`groupsClaim`\" pulumi-lang-dotnet=\"`GroupsClaim`\" pulumi-lang-go=\"`groupsClaim`\" pulumi-lang-python=\"`groups_claim`\" pulumi-lang-yaml=\"`groupsClaim`\" pulumi-lang-java=\"`groupsClaim`\"\u003e`groups_claim`\u003c/span\u003e is not supported when using \u003cspan pulumi-lang-nodejs=\"`preconfiguredApp`\" pulumi-lang-dotnet=\"`PreconfiguredApp`\" pulumi-lang-go=\"`preconfiguredApp`\" pulumi-lang-python=\"`preconfigured_app`\" pulumi-lang-yaml=\"`preconfiguredApp`\" pulumi-lang-java=\"`preconfiguredApp`\"\u003e`preconfigured_app`\u003c/span\u003e.\n"
                     },
                     "profile": {
                         "type": "string",
@@ -10140,7 +10155,7 @@
             }
         },
         "okta:app/swa:Swa": {
-            "description": "Creates a SWA Application.\n\t\t\nThis resource allows you to create and configure a SWA Application.\n\u003e During an apply if there is change in 'status' the app will first be\nactivated or deactivated in accordance with the 'status' change. Then, all\nother arguments that changed will be applied.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst example = new okta.app.Swa(\"example\", {\n    label: \"example\",\n    buttonField: \"btn-login\",\n    passwordField: \"txtbox-password\",\n    usernameField: \"txtbox-username\",\n    url: \"https://example.com/login.html\",\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample = okta.app.Swa(\"example\",\n    label=\"example\",\n    button_field=\"btn-login\",\n    password_field=\"txtbox-password\",\n    username_field=\"txtbox-username\",\n    url=\"https://example.com/login.html\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new Okta.App.Swa(\"example\", new()\n    {\n        Label = \"example\",\n        ButtonField = \"btn-login\",\n        PasswordField = \"txtbox-password\",\n        UsernameField = \"txtbox-username\",\n        Url = \"https://example.com/login.html\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v6/go/okta/app\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := app.NewSwa(ctx, \"example\", \u0026app.SwaArgs{\n\t\t\tLabel:         pulumi.String(\"example\"),\n\t\t\tButtonField:   pulumi.String(\"btn-login\"),\n\t\t\tPasswordField: pulumi.String(\"txtbox-password\"),\n\t\t\tUsernameField: pulumi.String(\"txtbox-username\"),\n\t\t\tUrl:           pulumi.String(\"https://example.com/login.html\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.okta.app.Swa;\nimport com.pulumi.okta.app.SwaArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new Swa(\"example\", SwaArgs.builder()\n            .label(\"example\")\n            .buttonField(\"btn-login\")\n            .passwordField(\"txtbox-password\")\n            .usernameField(\"txtbox-username\")\n            .url(\"https://example.com/login.html\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: okta:app:Swa\n    properties:\n      label: example\n      buttonField: btn-login\n      passwordField: txtbox-password\n      usernameField: txtbox-username\n      url: https://example.com/login.html\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n```sh\n$ pulumi import okta:app/swa:Swa example \u003capp_id\u003e\n```\n\n",
+            "description": "Creates a SWA Application.\n\t\t\nThis resource allows you to create and configure a SWA Application.\n\u003e During an apply if there is change in 'status' the app will first be\nactivated or deactivated in accordance with the 'status' change. Then, all\nother arguments that changed will be applied.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst example = new okta.app.Swa(\"example\", {\n    label: \"example\",\n    buttonField: \"btn-login\",\n    passwordField: \"txtbox-password\",\n    usernameField: \"txtbox-username\",\n    url: \"https://example.com/login.html\",\n});\nconst exampleWithAppSettingsJson = new okta.app.Swa(\"example_with_app_settings_json\", {\n    preconfiguredApp: \"office365\",\n    label: \"Microsoft Office 365 SWA\",\n    status: \"ACTIVE\",\n    appSettingsJson: `    {\n      \\\\\"wsFedConfigureType\\\\\": \\\\\"AUTO\\\\\",\n      \\\\\"windowsTransportEnabled\\\\\": false,\n      \\\\\"domain\\\\\": \\\\\"example.com\\\\\",\n      \\\\\"msftTenant\\\\\": \\\\\"exampletenant\\\\\",\n      \\\\\"domains\\\\\": [],\n      \\\\\"requireAdminConsent\\\\\": false\n    }\n`,\n    appLinksJson: `    {\n      \\\\\"calendar\\\\\": false,\n      \\\\\"crm\\\\\": false,\n      \\\\\"delve\\\\\": false,\n      \\\\\"excel\\\\\": false,\n      \\\\\"forms\\\\\": false,\n      \\\\\"mail\\\\\": false,\n      \\\\\"newsfeed\\\\\": false,\n      \\\\\"onedrive\\\\\": false,\n      \\\\\"people\\\\\": false,\n      \\\\\"planner\\\\\": false,\n      \\\\\"powerbi\\\\\": false,\n      \\\\\"powerpoint\\\\\": false,\n      \\\\\"sites\\\\\": false,\n      \\\\\"sway\\\\\": false,\n      \\\\\"tasks\\\\\": false,\n      \\\\\"teams\\\\\": false,\n      \\\\\"video\\\\\": false,\n      \\\\\"word\\\\\": false,\n      \\\\\"yammer\\\\\": false,\n      \\\\\"login\\\\\": true\n    }\n`,\n    userNameTemplate: \"user.login\",\n    userNameTemplateType: \"CUSTOM\",\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample = okta.app.Swa(\"example\",\n    label=\"example\",\n    button_field=\"btn-login\",\n    password_field=\"txtbox-password\",\n    username_field=\"txtbox-username\",\n    url=\"https://example.com/login.html\")\nexample_with_app_settings_json = okta.app.Swa(\"example_with_app_settings_json\",\n    preconfigured_app=\"office365\",\n    label=\"Microsoft Office 365 SWA\",\n    status=\"ACTIVE\",\n    app_settings_json=\"\"\"    {\n      \\\"wsFedConfigureType\\\": \\\"AUTO\\\",\n      \\\"windowsTransportEnabled\\\": false,\n      \\\"domain\\\": \\\"example.com\\\",\n      \\\"msftTenant\\\": \\\"exampletenant\\\",\n      \\\"domains\\\": [],\n      \\\"requireAdminConsent\\\": false\n    }\n\"\"\",\n    app_links_json=\"\"\"    {\n      \\\"calendar\\\": false,\n      \\\"crm\\\": false,\n      \\\"delve\\\": false,\n      \\\"excel\\\": false,\n      \\\"forms\\\": false,\n      \\\"mail\\\": false,\n      \\\"newsfeed\\\": false,\n      \\\"onedrive\\\": false,\n      \\\"people\\\": false,\n      \\\"planner\\\": false,\n      \\\"powerbi\\\": false,\n      \\\"powerpoint\\\": false,\n      \\\"sites\\\": false,\n      \\\"sway\\\": false,\n      \\\"tasks\\\": false,\n      \\\"teams\\\": false,\n      \\\"video\\\": false,\n      \\\"word\\\": false,\n      \\\"yammer\\\": false,\n      \\\"login\\\": true\n    }\n\"\"\",\n    user_name_template=\"user.login\",\n    user_name_template_type=\"CUSTOM\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new Okta.App.Swa(\"example\", new()\n    {\n        Label = \"example\",\n        ButtonField = \"btn-login\",\n        PasswordField = \"txtbox-password\",\n        UsernameField = \"txtbox-username\",\n        Url = \"https://example.com/login.html\",\n    });\n\n    var exampleWithAppSettingsJson = new Okta.App.Swa(\"example_with_app_settings_json\", new()\n    {\n        PreconfiguredApp = \"office365\",\n        Label = \"Microsoft Office 365 SWA\",\n        Status = \"ACTIVE\",\n        AppSettingsJson = @\"    {\n      \\\"\"wsFedConfigureType\\\"\": \\\"\"AUTO\\\"\",\n      \\\"\"windowsTransportEnabled\\\"\": false,\n      \\\"\"domain\\\"\": \\\"\"example.com\\\"\",\n      \\\"\"msftTenant\\\"\": \\\"\"exampletenant\\\"\",\n      \\\"\"domains\\\"\": [],\n      \\\"\"requireAdminConsent\\\"\": false\n    }\n\",\n        AppLinksJson = @\"    {\n      \\\"\"calendar\\\"\": false,\n      \\\"\"crm\\\"\": false,\n      \\\"\"delve\\\"\": false,\n      \\\"\"excel\\\"\": false,\n      \\\"\"forms\\\"\": false,\n      \\\"\"mail\\\"\": false,\n      \\\"\"newsfeed\\\"\": false,\n      \\\"\"onedrive\\\"\": false,\n      \\\"\"people\\\"\": false,\n      \\\"\"planner\\\"\": false,\n      \\\"\"powerbi\\\"\": false,\n      \\\"\"powerpoint\\\"\": false,\n      \\\"\"sites\\\"\": false,\n      \\\"\"sway\\\"\": false,\n      \\\"\"tasks\\\"\": false,\n      \\\"\"teams\\\"\": false,\n      \\\"\"video\\\"\": false,\n      \\\"\"word\\\"\": false,\n      \\\"\"yammer\\\"\": false,\n      \\\"\"login\\\"\": true\n    }\n\",\n        UserNameTemplate = \"user.login\",\n        UserNameTemplateType = \"CUSTOM\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v6/go/okta/app\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := app.NewSwa(ctx, \"example\", \u0026app.SwaArgs{\n\t\t\tLabel:         pulumi.String(\"example\"),\n\t\t\tButtonField:   pulumi.String(\"btn-login\"),\n\t\t\tPasswordField: pulumi.String(\"txtbox-password\"),\n\t\t\tUsernameField: pulumi.String(\"txtbox-username\"),\n\t\t\tUrl:           pulumi.String(\"https://example.com/login.html\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = app.NewSwa(ctx, \"example_with_app_settings_json\", \u0026app.SwaArgs{\n\t\t\tPreconfiguredApp: pulumi.String(\"office365\"),\n\t\t\tLabel:            pulumi.String(\"Microsoft Office 365 SWA\"),\n\t\t\tStatus:           pulumi.String(\"ACTIVE\"),\n\t\t\tAppSettingsJson: pulumi.String(`    {\n      \\\"wsFedConfigureType\\\": \\\"AUTO\\\",\n      \\\"windowsTransportEnabled\\\": false,\n      \\\"domain\\\": \\\"example.com\\\",\n      \\\"msftTenant\\\": \\\"exampletenant\\\",\n      \\\"domains\\\": [],\n      \\\"requireAdminConsent\\\": false\n    }\n`),\n\t\t\tAppLinksJson: pulumi.String(`    {\n      \\\"calendar\\\": false,\n      \\\"crm\\\": false,\n      \\\"delve\\\": false,\n      \\\"excel\\\": false,\n      \\\"forms\\\": false,\n      \\\"mail\\\": false,\n      \\\"newsfeed\\\": false,\n      \\\"onedrive\\\": false,\n      \\\"people\\\": false,\n      \\\"planner\\\": false,\n      \\\"powerbi\\\": false,\n      \\\"powerpoint\\\": false,\n      \\\"sites\\\": false,\n      \\\"sway\\\": false,\n      \\\"tasks\\\": false,\n      \\\"teams\\\": false,\n      \\\"video\\\": false,\n      \\\"word\\\": false,\n      \\\"yammer\\\": false,\n      \\\"login\\\": true\n    }\n`),\n\t\t\tUserNameTemplate:     pulumi.String(\"user.login\"),\n\t\t\tUserNameTemplateType: pulumi.String(\"CUSTOM\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.okta.app.Swa;\nimport com.pulumi.okta.app.SwaArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new Swa(\"example\", SwaArgs.builder()\n            .label(\"example\")\n            .buttonField(\"btn-login\")\n            .passwordField(\"txtbox-password\")\n            .usernameField(\"txtbox-username\")\n            .url(\"https://example.com/login.html\")\n            .build());\n\n        var exampleWithAppSettingsJson = new Swa(\"exampleWithAppSettingsJson\", SwaArgs.builder()\n            .preconfiguredApp(\"office365\")\n            .label(\"Microsoft Office 365 SWA\")\n            .status(\"ACTIVE\")\n            .appSettingsJson(\"\"\"\n    {\n      \\\"wsFedConfigureType\\\": \\\"AUTO\\\",\n      \\\"windowsTransportEnabled\\\": false,\n      \\\"domain\\\": \\\"example.com\\\",\n      \\\"msftTenant\\\": \\\"exampletenant\\\",\n      \\\"domains\\\": [],\n      \\\"requireAdminConsent\\\": false\n    }\n            \"\"\")\n            .appLinksJson(\"\"\"\n    {\n      \\\"calendar\\\": false,\n      \\\"crm\\\": false,\n      \\\"delve\\\": false,\n      \\\"excel\\\": false,\n      \\\"forms\\\": false,\n      \\\"mail\\\": false,\n      \\\"newsfeed\\\": false,\n      \\\"onedrive\\\": false,\n      \\\"people\\\": false,\n      \\\"planner\\\": false,\n      \\\"powerbi\\\": false,\n      \\\"powerpoint\\\": false,\n      \\\"sites\\\": false,\n      \\\"sway\\\": false,\n      \\\"tasks\\\": false,\n      \\\"teams\\\": false,\n      \\\"video\\\": false,\n      \\\"word\\\": false,\n      \\\"yammer\\\": false,\n      \\\"login\\\": true\n    }\n            \"\"\")\n            .userNameTemplate(\"user.login\")\n            .userNameTemplateType(\"CUSTOM\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: okta:app:Swa\n    properties:\n      label: example\n      buttonField: btn-login\n      passwordField: txtbox-password\n      usernameField: txtbox-username\n      url: https://example.com/login.html\n  exampleWithAppSettingsJson:\n    type: okta:app:Swa\n    name: example_with_app_settings_json\n    properties:\n      preconfiguredApp: office365\n      label: Microsoft Office 365 SWA\n      status: ACTIVE\n      appSettingsJson: |2\n            {\n              \\\"wsFedConfigureType\\\": \\\"AUTO\\\",\n              \\\"windowsTransportEnabled\\\": false,\n              \\\"domain\\\": \\\"example.com\\\",\n              \\\"msftTenant\\\": \\\"exampletenant\\\",\n              \\\"domains\\\": [],\n              \\\"requireAdminConsent\\\": false\n            }\n      appLinksJson: |2\n            {\n              \\\"calendar\\\": false,\n              \\\"crm\\\": false,\n              \\\"delve\\\": false,\n              \\\"excel\\\": false,\n              \\\"forms\\\": false,\n              \\\"mail\\\": false,\n              \\\"newsfeed\\\": false,\n              \\\"onedrive\\\": false,\n              \\\"people\\\": false,\n              \\\"planner\\\": false,\n              \\\"powerbi\\\": false,\n              \\\"powerpoint\\\": false,\n              \\\"sites\\\": false,\n              \\\"sway\\\": false,\n              \\\"tasks\\\": false,\n              \\\"teams\\\": false,\n              \\\"video\\\": false,\n              \\\"word\\\": false,\n              \\\"yammer\\\": false,\n              \\\"login\\\": true\n            }\n      userNameTemplate: user.login\n      userNameTemplateType: CUSTOM\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n```sh\n$ pulumi import okta:app/swa:Swa example \u003capp_id\u003e\n```\n\n",
             "properties": {
                 "accessibilityErrorRedirectUrl": {
                     "type": "string",
@@ -10161,6 +10176,10 @@
                 "appLinksJson": {
                     "type": "string",
                     "description": "Displays specific appLinks for the app. The value for each application link should be boolean.\n"
+                },
+                "appSettingsJson": {
+                    "type": "string",
+                    "description": "Application settings in JSON format. If \u003cspan pulumi-lang-nodejs=\"`appSettingsJson`\" pulumi-lang-dotnet=\"`AppSettingsJson`\" pulumi-lang-go=\"`appSettingsJson`\" pulumi-lang-python=\"`app_settings_json`\" pulumi-lang-yaml=\"`appSettingsJson`\" pulumi-lang-java=\"`appSettingsJson`\"\u003e`app_settings_json`\u003c/span\u003e is defined, the individual fields \u003cspan pulumi-lang-nodejs=\"`buttonField`\" pulumi-lang-dotnet=\"`ButtonField`\" pulumi-lang-go=\"`buttonField`\" pulumi-lang-python=\"`button_field`\" pulumi-lang-yaml=\"`buttonField`\" pulumi-lang-java=\"`buttonField`\"\u003e`button_field`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`passwordField`\" pulumi-lang-dotnet=\"`PasswordField`\" pulumi-lang-go=\"`passwordField`\" pulumi-lang-python=\"`password_field`\" pulumi-lang-yaml=\"`passwordField`\" pulumi-lang-java=\"`passwordField`\"\u003e`password_field`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`usernameField`\" pulumi-lang-dotnet=\"`UsernameField`\" pulumi-lang-go=\"`usernameField`\" pulumi-lang-python=\"`username_field`\" pulumi-lang-yaml=\"`usernameField`\" pulumi-lang-java=\"`usernameField`\"\u003e`username_field`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`url`\" pulumi-lang-dotnet=\"`Url`\" pulumi-lang-go=\"`url`\" pulumi-lang-python=\"`url`\" pulumi-lang-yaml=\"`url`\" pulumi-lang-java=\"`url`\"\u003e`url`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`urlRegex`\" pulumi-lang-dotnet=\"`UrlRegex`\" pulumi-lang-go=\"`urlRegex`\" pulumi-lang-python=\"`url_regex`\" pulumi-lang-yaml=\"`urlRegex`\" pulumi-lang-java=\"`urlRegex`\"\u003e`url_regex`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`checkbox`\" pulumi-lang-dotnet=\"`Checkbox`\" pulumi-lang-go=\"`checkbox`\" pulumi-lang-python=\"`checkbox`\" pulumi-lang-yaml=\"`checkbox`\" pulumi-lang-java=\"`checkbox`\"\u003e`checkbox`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`redirectUrl`\" pulumi-lang-dotnet=\"`RedirectUrl`\" pulumi-lang-go=\"`redirectUrl`\" pulumi-lang-python=\"`redirect_url`\" pulumi-lang-yaml=\"`redirectUrl`\" pulumi-lang-java=\"`redirectUrl`\"\u003e`redirect_url`\u003c/span\u003e will be ignored\n"
                 },
                 "autoSubmitToolbar": {
                     "type": "boolean",
@@ -10278,6 +10297,10 @@
                     "type": "string",
                     "description": "Displays specific appLinks for the app. The value for each application link should be boolean.\n"
                 },
+                "appSettingsJson": {
+                    "type": "string",
+                    "description": "Application settings in JSON format. If \u003cspan pulumi-lang-nodejs=\"`appSettingsJson`\" pulumi-lang-dotnet=\"`AppSettingsJson`\" pulumi-lang-go=\"`appSettingsJson`\" pulumi-lang-python=\"`app_settings_json`\" pulumi-lang-yaml=\"`appSettingsJson`\" pulumi-lang-java=\"`appSettingsJson`\"\u003e`app_settings_json`\u003c/span\u003e is defined, the individual fields \u003cspan pulumi-lang-nodejs=\"`buttonField`\" pulumi-lang-dotnet=\"`ButtonField`\" pulumi-lang-go=\"`buttonField`\" pulumi-lang-python=\"`button_field`\" pulumi-lang-yaml=\"`buttonField`\" pulumi-lang-java=\"`buttonField`\"\u003e`button_field`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`passwordField`\" pulumi-lang-dotnet=\"`PasswordField`\" pulumi-lang-go=\"`passwordField`\" pulumi-lang-python=\"`password_field`\" pulumi-lang-yaml=\"`passwordField`\" pulumi-lang-java=\"`passwordField`\"\u003e`password_field`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`usernameField`\" pulumi-lang-dotnet=\"`UsernameField`\" pulumi-lang-go=\"`usernameField`\" pulumi-lang-python=\"`username_field`\" pulumi-lang-yaml=\"`usernameField`\" pulumi-lang-java=\"`usernameField`\"\u003e`username_field`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`url`\" pulumi-lang-dotnet=\"`Url`\" pulumi-lang-go=\"`url`\" pulumi-lang-python=\"`url`\" pulumi-lang-yaml=\"`url`\" pulumi-lang-java=\"`url`\"\u003e`url`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`urlRegex`\" pulumi-lang-dotnet=\"`UrlRegex`\" pulumi-lang-go=\"`urlRegex`\" pulumi-lang-python=\"`url_regex`\" pulumi-lang-yaml=\"`urlRegex`\" pulumi-lang-java=\"`urlRegex`\"\u003e`url_regex`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`checkbox`\" pulumi-lang-dotnet=\"`Checkbox`\" pulumi-lang-go=\"`checkbox`\" pulumi-lang-python=\"`checkbox`\" pulumi-lang-yaml=\"`checkbox`\" pulumi-lang-java=\"`checkbox`\"\u003e`checkbox`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`redirectUrl`\" pulumi-lang-dotnet=\"`RedirectUrl`\" pulumi-lang-go=\"`redirectUrl`\" pulumi-lang-python=\"`redirect_url`\" pulumi-lang-yaml=\"`redirectUrl`\" pulumi-lang-java=\"`redirectUrl`\"\u003e`redirect_url`\u003c/span\u003e will be ignored\n"
+                },
                 "autoSubmitToolbar": {
                     "type": "boolean",
                     "description": "Display auto submit toolbar\n"
@@ -10380,6 +10403,10 @@
                     "appLinksJson": {
                         "type": "string",
                         "description": "Displays specific appLinks for the app. The value for each application link should be boolean.\n"
+                    },
+                    "appSettingsJson": {
+                        "type": "string",
+                        "description": "Application settings in JSON format. If \u003cspan pulumi-lang-nodejs=\"`appSettingsJson`\" pulumi-lang-dotnet=\"`AppSettingsJson`\" pulumi-lang-go=\"`appSettingsJson`\" pulumi-lang-python=\"`app_settings_json`\" pulumi-lang-yaml=\"`appSettingsJson`\" pulumi-lang-java=\"`appSettingsJson`\"\u003e`app_settings_json`\u003c/span\u003e is defined, the individual fields \u003cspan pulumi-lang-nodejs=\"`buttonField`\" pulumi-lang-dotnet=\"`ButtonField`\" pulumi-lang-go=\"`buttonField`\" pulumi-lang-python=\"`button_field`\" pulumi-lang-yaml=\"`buttonField`\" pulumi-lang-java=\"`buttonField`\"\u003e`button_field`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`passwordField`\" pulumi-lang-dotnet=\"`PasswordField`\" pulumi-lang-go=\"`passwordField`\" pulumi-lang-python=\"`password_field`\" pulumi-lang-yaml=\"`passwordField`\" pulumi-lang-java=\"`passwordField`\"\u003e`password_field`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`usernameField`\" pulumi-lang-dotnet=\"`UsernameField`\" pulumi-lang-go=\"`usernameField`\" pulumi-lang-python=\"`username_field`\" pulumi-lang-yaml=\"`usernameField`\" pulumi-lang-java=\"`usernameField`\"\u003e`username_field`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`url`\" pulumi-lang-dotnet=\"`Url`\" pulumi-lang-go=\"`url`\" pulumi-lang-python=\"`url`\" pulumi-lang-yaml=\"`url`\" pulumi-lang-java=\"`url`\"\u003e`url`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`urlRegex`\" pulumi-lang-dotnet=\"`UrlRegex`\" pulumi-lang-go=\"`urlRegex`\" pulumi-lang-python=\"`url_regex`\" pulumi-lang-yaml=\"`urlRegex`\" pulumi-lang-java=\"`urlRegex`\"\u003e`url_regex`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`checkbox`\" pulumi-lang-dotnet=\"`Checkbox`\" pulumi-lang-go=\"`checkbox`\" pulumi-lang-python=\"`checkbox`\" pulumi-lang-yaml=\"`checkbox`\" pulumi-lang-java=\"`checkbox`\"\u003e`checkbox`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`redirectUrl`\" pulumi-lang-dotnet=\"`RedirectUrl`\" pulumi-lang-go=\"`redirectUrl`\" pulumi-lang-python=\"`redirect_url`\" pulumi-lang-yaml=\"`redirectUrl`\" pulumi-lang-java=\"`redirectUrl`\"\u003e`redirect_url`\u003c/span\u003e will be ignored\n"
                     },
                     "autoSubmitToolbar": {
                         "type": "boolean",
@@ -12362,6 +12389,10 @@
                     "type": "string",
                     "description": "Name of the IdP\n"
                 },
+                "participateSlo": {
+                    "type": "boolean",
+                    "description": "Set to true to have Okta send a logout request to the upstream IdP when a user signs out of Okta or a downstream app.\n"
+                },
                 "pkceRequired": {
                     "type": "boolean",
                     "description": "Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: https://developer.okta.com/docs/reference/api/idps/#oauth-2-0-and-openid-connect-client-object\n"
@@ -12392,6 +12423,10 @@
                         "type": "string"
                     },
                     "description": "The scopes of the IdP.\n"
+                },
+                "sloUrl": {
+                    "type": "string",
+                    "description": "OIDC IdP logout endpoint. Must be specified when \u003cspan pulumi-lang-nodejs=\"`participateSlo`\" pulumi-lang-dotnet=\"`ParticipateSlo`\" pulumi-lang-go=\"`participateSlo`\" pulumi-lang-python=\"`participate_slo`\" pulumi-lang-yaml=\"`participateSlo`\" pulumi-lang-java=\"`participateSlo`\"\u003e`participate_slo`\u003c/span\u003e is set to true.\n"
                 },
                 "status": {
                     "type": "string",
@@ -12539,6 +12574,10 @@
                     "type": "string",
                     "description": "Name of the IdP\n"
                 },
+                "participateSlo": {
+                    "type": "boolean",
+                    "description": "Set to true to have Okta send a logout request to the upstream IdP when a user signs out of Okta or a downstream app.\n"
+                },
                 "pkceRequired": {
                     "type": "boolean",
                     "description": "Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: https://developer.okta.com/docs/reference/api/idps/#oauth-2-0-and-openid-connect-client-object\n"
@@ -12569,6 +12608,10 @@
                         "type": "string"
                     },
                     "description": "The scopes of the IdP.\n"
+                },
+                "sloUrl": {
+                    "type": "string",
+                    "description": "OIDC IdP logout endpoint. Must be specified when \u003cspan pulumi-lang-nodejs=\"`participateSlo`\" pulumi-lang-dotnet=\"`ParticipateSlo`\" pulumi-lang-go=\"`participateSlo`\" pulumi-lang-python=\"`participate_slo`\" pulumi-lang-yaml=\"`participateSlo`\" pulumi-lang-java=\"`participateSlo`\"\u003e`participate_slo`\u003c/span\u003e is set to true.\n"
                 },
                 "status": {
                     "type": "string",
@@ -12707,6 +12750,10 @@
                         "type": "string",
                         "description": "Name of the IdP\n"
                     },
+                    "participateSlo": {
+                        "type": "boolean",
+                        "description": "Set to true to have Okta send a logout request to the upstream IdP when a user signs out of Okta or a downstream app.\n"
+                    },
                     "pkceRequired": {
                         "type": "boolean",
                         "description": "Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: https://developer.okta.com/docs/reference/api/idps/#oauth-2-0-and-openid-connect-client-object\n"
@@ -12737,6 +12784,10 @@
                             "type": "string"
                         },
                         "description": "The scopes of the IdP.\n"
+                    },
+                    "sloUrl": {
+                        "type": "string",
+                        "description": "OIDC IdP logout endpoint. Must be specified when \u003cspan pulumi-lang-nodejs=\"`participateSlo`\" pulumi-lang-dotnet=\"`ParticipateSlo`\" pulumi-lang-go=\"`participateSlo`\" pulumi-lang-python=\"`participate_slo`\" pulumi-lang-yaml=\"`participateSlo`\" pulumi-lang-java=\"`participateSlo`\"\u003e`participate_slo`\u003c/span\u003e is set to true.\n"
                     },
                     "status": {
                         "type": "string",
@@ -18178,16 +18229,20 @@
                 "eventHookId": {
                     "type": "string",
                     "description": "Event hook ID\n"
+                },
+                "verificationStatus": {
+                    "type": "string",
+                    "description": "The verification status of the event hook.\n"
                 }
             },
             "required": [
-                "eventHookId"
+                "eventHookId",
+                "verificationStatus"
             ],
             "inputProperties": {
                 "eventHookId": {
                     "type": "string",
-                    "description": "Event hook ID\n",
-                    "willReplaceOnChanges": true
+                    "description": "Event hook ID\n"
                 }
             },
             "requiredInputs": [
@@ -18198,8 +18253,11 @@
                 "properties": {
                     "eventHookId": {
                         "type": "string",
-                        "description": "Event hook ID\n",
-                        "willReplaceOnChanges": true
+                        "description": "Event hook ID\n"
+                    },
+                    "verificationStatus": {
+                        "type": "string",
+                        "description": "The verification status of the event hook.\n"
                     }
                 },
                 "type": "object"
@@ -20528,6 +20586,151 @@
                 "type": "object"
             }
         },
+        "okta:index/postAuthSessionPolicyRule:PostAuthSessionPolicyRule": {
+            "description": "Manages the Post Auth Session Policy Rule. The Post Auth Session Policy has exactly one modifiable rule (non-default). This resource allows you to configure that rule.\n\n\u003e **IMPORTANT:** This resource cannot be created or deleted, only **imported** and updated. The Post Auth Session Policy rule is pre-provisioned by Okta. You must import the existing rule before managing it with Terraform.\n\n## Example Usage\n\n{{tffile \"examples/resources/okta_post_auth_session_policy_rule/resource.tf\"}}\n\n## Lifecycle\n\n- **Create**: Returns an error with the import command to use\n- **Update**: Updates the rule configuration in Okta\n- **Delete**: Removes the rule from Terraform state only (the rule remains in Okta)\n\n## Import\n\nBefore using this resource, you must import the existing rule:\n\n{{codefile \"shell\" \"examples/resources/okta_post_auth_session_policy_rule/import.sh\"}}\n\nWhen you run `pulumi up` without importing first, the error message will include the exact import command with the correct policy and rule IDs.\n\n",
+            "properties": {
+                "groupsExcludeds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of group IDs to exclude from this rule.\n"
+                },
+                "groupsIncludeds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of group IDs to include in this rule.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the policy rule.\n"
+                },
+                "policyId": {
+                    "type": "string",
+                    "description": "ID of the Post Auth Session Policy. Use the \u003cspan pulumi-lang-nodejs=\"`okta.getPostAuthSessionPolicy`\" pulumi-lang-dotnet=\"`okta.getPostAuthSessionPolicy`\" pulumi-lang-go=\"`getPostAuthSessionPolicy`\" pulumi-lang-python=\"`get_post_auth_session_policy`\" pulumi-lang-yaml=\"`okta.getPostAuthSessionPolicy`\" pulumi-lang-java=\"`okta.getPostAuthSessionPolicy`\"\u003e`okta.getPostAuthSessionPolicy`\u003c/span\u003e data source to get this ID.\n"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "Status of the rule: `ACTIVE` or `INACTIVE`. Default is `ACTIVE`.\n"
+                },
+                "terminateSession": {
+                    "type": "boolean",
+                    "description": "When true, terminates the user's session when a policy failure is detected. Default is \u003cspan pulumi-lang-nodejs=\"`false`\" pulumi-lang-dotnet=\"`False`\" pulumi-lang-go=\"`false`\" pulumi-lang-python=\"`false`\" pulumi-lang-yaml=\"`false`\" pulumi-lang-java=\"`false`\"\u003e`false`\u003c/span\u003e.\n"
+                },
+                "usersExcludeds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of user IDs to exclude from this rule.\n"
+                },
+                "workflowId": {
+                    "type": "string",
+                    "description": "ID of the Okta Workflow to run when a policy failure is detected.\n"
+                }
+            },
+            "required": [
+                "name",
+                "policyId",
+                "status",
+                "terminateSession"
+            ],
+            "inputProperties": {
+                "groupsExcludeds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of group IDs to exclude from this rule.\n"
+                },
+                "groupsIncludeds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of group IDs to include in this rule.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the policy rule.\n"
+                },
+                "policyId": {
+                    "type": "string",
+                    "description": "ID of the Post Auth Session Policy. Use the \u003cspan pulumi-lang-nodejs=\"`okta.getPostAuthSessionPolicy`\" pulumi-lang-dotnet=\"`okta.getPostAuthSessionPolicy`\" pulumi-lang-go=\"`getPostAuthSessionPolicy`\" pulumi-lang-python=\"`get_post_auth_session_policy`\" pulumi-lang-yaml=\"`okta.getPostAuthSessionPolicy`\" pulumi-lang-java=\"`okta.getPostAuthSessionPolicy`\"\u003e`okta.getPostAuthSessionPolicy`\u003c/span\u003e data source to get this ID.\n"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "Status of the rule: `ACTIVE` or `INACTIVE`. Default is `ACTIVE`.\n"
+                },
+                "terminateSession": {
+                    "type": "boolean",
+                    "description": "When true, terminates the user's session when a policy failure is detected. Default is \u003cspan pulumi-lang-nodejs=\"`false`\" pulumi-lang-dotnet=\"`False`\" pulumi-lang-go=\"`false`\" pulumi-lang-python=\"`false`\" pulumi-lang-yaml=\"`false`\" pulumi-lang-java=\"`false`\"\u003e`false`\u003c/span\u003e.\n"
+                },
+                "usersExcludeds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of user IDs to exclude from this rule.\n"
+                },
+                "workflowId": {
+                    "type": "string",
+                    "description": "ID of the Okta Workflow to run when a policy failure is detected.\n"
+                }
+            },
+            "requiredInputs": [
+                "policyId"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering PostAuthSessionPolicyRule resources.\n",
+                "properties": {
+                    "groupsExcludeds": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "List of group IDs to exclude from this rule.\n"
+                    },
+                    "groupsIncludeds": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "List of group IDs to include in this rule.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Name of the policy rule.\n"
+                    },
+                    "policyId": {
+                        "type": "string",
+                        "description": "ID of the Post Auth Session Policy. Use the \u003cspan pulumi-lang-nodejs=\"`okta.getPostAuthSessionPolicy`\" pulumi-lang-dotnet=\"`okta.getPostAuthSessionPolicy`\" pulumi-lang-go=\"`getPostAuthSessionPolicy`\" pulumi-lang-python=\"`get_post_auth_session_policy`\" pulumi-lang-yaml=\"`okta.getPostAuthSessionPolicy`\" pulumi-lang-java=\"`okta.getPostAuthSessionPolicy`\"\u003e`okta.getPostAuthSessionPolicy`\u003c/span\u003e data source to get this ID.\n"
+                    },
+                    "status": {
+                        "type": "string",
+                        "description": "Status of the rule: `ACTIVE` or `INACTIVE`. Default is `ACTIVE`.\n"
+                    },
+                    "terminateSession": {
+                        "type": "boolean",
+                        "description": "When true, terminates the user's session when a policy failure is detected. Default is \u003cspan pulumi-lang-nodejs=\"`false`\" pulumi-lang-dotnet=\"`False`\" pulumi-lang-go=\"`false`\" pulumi-lang-python=\"`false`\" pulumi-lang-yaml=\"`false`\" pulumi-lang-java=\"`false`\"\u003e`false`\u003c/span\u003e.\n"
+                    },
+                    "usersExcludeds": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "List of user IDs to exclude from this rule.\n"
+                    },
+                    "workflowId": {
+                        "type": "string",
+                        "description": "ID of the Okta Workflow to run when a policy failure is detected.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
         "okta:index/previewSigninPage:PreviewSigninPage": {
             "description": "Manage the preview signin page of a brand\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst test = new okta.Brand(\"test\", {\n    name: \"testBrand\",\n    locale: \"en\",\n});\nconst testPreviewSigninPage = new okta.PreviewSigninPage(\"test\", {\n    brandId: oktaBrand.test.id,\n    pageContent: `\u003c!DOCTYPE html PUBLIC \"-//W3C//DTD HTML 4.01//EN\" \"http://www.w3.org/TR/html4/strict.dtd\"\u003e\n\u003chtml\u003e\n\u003chead\u003e\n    \u003cmeta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"\u003e\n    \u003cmeta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" /\u003e\n    \u003cmeta name=\"robots\" content=\"noindex,nofollow\" /\u003e\n    \u003c!-- Styles generated from theme --\u003e\n    \u003clink href=\"{{themedStylesUrl}}\" rel=\"stylesheet\" type=\"text/css\"\u003e\n    \u003c!-- Favicon from theme --\u003e\n    \u003clink rel=\"shortcut icon\" href=\"{{faviconUrl}}\" type=\"image/x-icon\"/\u003e\n\n    \u003ctitle\u003e{{pageTitle}}\u003c/title\u003e\n    {{{SignInWidgetResources}}}\n\n    \u003cstyle nonce=\"{{nonceValue}}\"\u003e\n        #login-bg-image-id {\n            background-image: {{bgImageUrl}}\n        }\n    \u003c/style\u003e\n\u003c/head\u003e\n\u003cbody\u003e\n    \u003cdiv id=\"login-bg-image-id\" class=\"login-bg-image tb--background\"\u003e\u003c/div\u003e\n    \u003cdiv id=\"okta-login-container\"\u003e\u003c/div\u003e\n\n    \u003c!--\n        \"OktaUtil\" defines a global OktaUtil object\n        that contains methods used to complete the Okta login flow.\n     --\u003e\n    {{{OktaUtil}}}\n\n    \u003cscript type=\"text/javascript\" nonce=\"{{nonceValue}}\"\u003e\n        // \"config\" object contains default widget configuration\n        // with any custom overrides defined in your admin settings.\n        var config = OktaUtil.getSignInWidgetConfig();\n\n        // Render the Okta Sign-In Widget\n        var oktaSignIn = new OktaSignIn(config);\n        oktaSignIn.renderEl({ el: '#okta-login-container' },\n            OktaUtil.completeLogin,\n            function(error) {\n                // Logs errors that occur when configuring the widget.\n                // Remove or replace this with your own custom error handler.\n                console.log(error.message, error);\n            }\n        );\n    \u003c/script\u003e\n\u003c/body\u003e\n\u003c/html\u003e\n`,\n    widgetVersion: \"^6\",\n    widgetCustomizations: {\n        widgetGeneration: \"G3\",\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\ntest = okta.Brand(\"test\",\n    name=\"testBrand\",\n    locale=\"en\")\ntest_preview_signin_page = okta.PreviewSigninPage(\"test\",\n    brand_id=okta_brand[\"test\"][\"id\"],\n    page_content=\"\"\"\u003c!DOCTYPE html PUBLIC \"-//W3C//DTD HTML 4.01//EN\" \"http://www.w3.org/TR/html4/strict.dtd\"\u003e\n\u003chtml\u003e\n\u003chead\u003e\n    \u003cmeta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"\u003e\n    \u003cmeta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" /\u003e\n    \u003cmeta name=\"robots\" content=\"noindex,nofollow\" /\u003e\n    \u003c!-- Styles generated from theme --\u003e\n    \u003clink href=\"{{themedStylesUrl}}\" rel=\"stylesheet\" type=\"text/css\"\u003e\n    \u003c!-- Favicon from theme --\u003e\n    \u003clink rel=\"shortcut icon\" href=\"{{faviconUrl}}\" type=\"image/x-icon\"/\u003e\n\n    \u003ctitle\u003e{{pageTitle}}\u003c/title\u003e\n    {{{SignInWidgetResources}}}\n\n    \u003cstyle nonce=\"{{nonceValue}}\"\u003e\n        #login-bg-image-id {\n            background-image: {{bgImageUrl}}\n        }\n    \u003c/style\u003e\n\u003c/head\u003e\n\u003cbody\u003e\n    \u003cdiv id=\"login-bg-image-id\" class=\"login-bg-image tb--background\"\u003e\u003c/div\u003e\n    \u003cdiv id=\"okta-login-container\"\u003e\u003c/div\u003e\n\n    \u003c!--\n        \"OktaUtil\" defines a global OktaUtil object\n        that contains methods used to complete the Okta login flow.\n     --\u003e\n    {{{OktaUtil}}}\n\n    \u003cscript type=\"text/javascript\" nonce=\"{{nonceValue}}\"\u003e\n        // \"config\" object contains default widget configuration\n        // with any custom overrides defined in your admin settings.\n        var config = OktaUtil.getSignInWidgetConfig();\n\n        // Render the Okta Sign-In Widget\n        var oktaSignIn = new OktaSignIn(config);\n        oktaSignIn.renderEl({ el: '#okta-login-container' },\n            OktaUtil.completeLogin,\n            function(error) {\n                // Logs errors that occur when configuring the widget.\n                // Remove or replace this with your own custom error handler.\n                console.log(error.message, error);\n            }\n        );\n    \u003c/script\u003e\n\u003c/body\u003e\n\u003c/html\u003e\n\"\"\",\n    widget_version=\"^6\",\n    widget_customizations={\n        \"widget_generation\": \"G3\",\n    })\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var test = new Okta.Brand(\"test\", new()\n    {\n        Name = \"testBrand\",\n        Locale = \"en\",\n    });\n\n    var testPreviewSigninPage = new Okta.PreviewSigninPage(\"test\", new()\n    {\n        BrandId = oktaBrand.Test.Id,\n        PageContent = @\"\u003c!DOCTYPE html PUBLIC \"\"-//W3C//DTD HTML 4.01//EN\"\" \"\"http://www.w3.org/TR/html4/strict.dtd\"\"\u003e\n\u003chtml\u003e\n\u003chead\u003e\n    \u003cmeta http-equiv=\"\"Content-Type\"\" content=\"\"text/html; charset=UTF-8\"\"\u003e\n    \u003cmeta name=\"\"viewport\"\" content=\"\"width=device-width, initial-scale=1.0\"\" /\u003e\n    \u003cmeta name=\"\"robots\"\" content=\"\"noindex,nofollow\"\" /\u003e\n    \u003c!-- Styles generated from theme --\u003e\n    \u003clink href=\"\"{{themedStylesUrl}}\"\" rel=\"\"stylesheet\"\" type=\"\"text/css\"\"\u003e\n    \u003c!-- Favicon from theme --\u003e\n    \u003clink rel=\"\"shortcut icon\"\" href=\"\"{{faviconUrl}}\"\" type=\"\"image/x-icon\"\"/\u003e\n\n    \u003ctitle\u003e{{pageTitle}}\u003c/title\u003e\n    {{{SignInWidgetResources}}}\n\n    \u003cstyle nonce=\"\"{{nonceValue}}\"\"\u003e\n        #login-bg-image-id {\n            background-image: {{bgImageUrl}}\n        }\n    \u003c/style\u003e\n\u003c/head\u003e\n\u003cbody\u003e\n    \u003cdiv id=\"\"login-bg-image-id\"\" class=\"\"login-bg-image tb--background\"\"\u003e\u003c/div\u003e\n    \u003cdiv id=\"\"okta-login-container\"\"\u003e\u003c/div\u003e\n\n    \u003c!--\n        \"\"OktaUtil\"\" defines a global OktaUtil object\n        that contains methods used to complete the Okta login flow.\n     --\u003e\n    {{{OktaUtil}}}\n\n    \u003cscript type=\"\"text/javascript\"\" nonce=\"\"{{nonceValue}}\"\"\u003e\n        // \"\"config\"\" object contains default widget configuration\n        // with any custom overrides defined in your admin settings.\n        var config = OktaUtil.getSignInWidgetConfig();\n\n        // Render the Okta Sign-In Widget\n        var oktaSignIn = new OktaSignIn(config);\n        oktaSignIn.renderEl({ el: '#okta-login-container' },\n            OktaUtil.completeLogin,\n            function(error) {\n                // Logs errors that occur when configuring the widget.\n                // Remove or replace this with your own custom error handler.\n                console.log(error.message, error);\n            }\n        );\n    \u003c/script\u003e\n\u003c/body\u003e\n\u003c/html\u003e\n\",\n        WidgetVersion = \"^6\",\n        WidgetCustomizations = new Okta.Inputs.PreviewSigninPageWidgetCustomizationsArgs\n        {\n            WidgetGeneration = \"G3\",\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v6/go/okta\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := okta.NewBrand(ctx, \"test\", \u0026okta.BrandArgs{\n\t\t\tName:   pulumi.String(\"testBrand\"),\n\t\t\tLocale: pulumi.String(\"en\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = okta.NewPreviewSigninPage(ctx, \"test\", \u0026okta.PreviewSigninPageArgs{\n\t\t\tBrandId: pulumi.Any(oktaBrand.Test.Id),\n\t\t\tPageContent: pulumi.String(`\u003c!DOCTYPE html PUBLIC \"-//W3C//DTD HTML 4.01//EN\" \"http://www.w3.org/TR/html4/strict.dtd\"\u003e\n\u003chtml\u003e\n\u003chead\u003e\n    \u003cmeta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"\u003e\n    \u003cmeta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" /\u003e\n    \u003cmeta name=\"robots\" content=\"noindex,nofollow\" /\u003e\n    \u003c!-- Styles generated from theme --\u003e\n    \u003clink href=\"{{themedStylesUrl}}\" rel=\"stylesheet\" type=\"text/css\"\u003e\n    \u003c!-- Favicon from theme --\u003e\n    \u003clink rel=\"shortcut icon\" href=\"{{faviconUrl}}\" type=\"image/x-icon\"/\u003e\n\n    \u003ctitle\u003e{{pageTitle}}\u003c/title\u003e\n    {{{SignInWidgetResources}}}\n\n    \u003cstyle nonce=\"{{nonceValue}}\"\u003e\n        #login-bg-image-id {\n            background-image: {{bgImageUrl}}\n        }\n    \u003c/style\u003e\n\u003c/head\u003e\n\u003cbody\u003e\n    \u003cdiv id=\"login-bg-image-id\" class=\"login-bg-image tb--background\"\u003e\u003c/div\u003e\n    \u003cdiv id=\"okta-login-container\"\u003e\u003c/div\u003e\n\n    \u003c!--\n        \"OktaUtil\" defines a global OktaUtil object\n        that contains methods used to complete the Okta login flow.\n     --\u003e\n    {{{OktaUtil}}}\n\n    \u003cscript type=\"text/javascript\" nonce=\"{{nonceValue}}\"\u003e\n        // \"config\" object contains default widget configuration\n        // with any custom overrides defined in your admin settings.\n        var config = OktaUtil.getSignInWidgetConfig();\n\n        // Render the Okta Sign-In Widget\n        var oktaSignIn = new OktaSignIn(config);\n        oktaSignIn.renderEl({ el: '#okta-login-container' },\n            OktaUtil.completeLogin,\n            function(error) {\n                // Logs errors that occur when configuring the widget.\n                // Remove or replace this with your own custom error handler.\n                console.log(error.message, error);\n            }\n        );\n    \u003c/script\u003e\n\u003c/body\u003e\n\u003c/html\u003e\n`),\n\t\t\tWidgetVersion: pulumi.String(\"^6\"),\n\t\t\tWidgetCustomizations: \u0026okta.PreviewSigninPageWidgetCustomizationsArgs{\n\t\t\t\tWidgetGeneration: pulumi.String(\"G3\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.okta.Brand;\nimport com.pulumi.okta.BrandArgs;\nimport com.pulumi.okta.PreviewSigninPage;\nimport com.pulumi.okta.PreviewSigninPageArgs;\nimport com.pulumi.okta.inputs.PreviewSigninPageWidgetCustomizationsArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var test = new Brand(\"test\", BrandArgs.builder()\n            .name(\"testBrand\")\n            .locale(\"en\")\n            .build());\n\n        var testPreviewSigninPage = new PreviewSigninPage(\"testPreviewSigninPage\", PreviewSigninPageArgs.builder()\n            .brandId(oktaBrand.test().id())\n            .pageContent(\"\"\"\n\u003c!DOCTYPE html PUBLIC \"-//W3C//DTD HTML 4.01//EN\" \"http://www.w3.org/TR/html4/strict.dtd\"\u003e\n\u003chtml\u003e\n\u003chead\u003e\n    \u003cmeta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"\u003e\n    \u003cmeta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" /\u003e\n    \u003cmeta name=\"robots\" content=\"noindex,nofollow\" /\u003e\n    \u003c!-- Styles generated from theme --\u003e\n    \u003clink href=\"{{themedStylesUrl}}\" rel=\"stylesheet\" type=\"text/css\"\u003e\n    \u003c!-- Favicon from theme --\u003e\n    \u003clink rel=\"shortcut icon\" href=\"{{faviconUrl}}\" type=\"image/x-icon\"/\u003e\n\n    \u003ctitle\u003e{{pageTitle}}\u003c/title\u003e\n    {{{SignInWidgetResources}}}\n\n    \u003cstyle nonce=\"{{nonceValue}}\"\u003e\n        #login-bg-image-id {\n            background-image: {{bgImageUrl}}\n        }\n    \u003c/style\u003e\n\u003c/head\u003e\n\u003cbody\u003e\n    \u003cdiv id=\"login-bg-image-id\" class=\"login-bg-image tb--background\"\u003e\u003c/div\u003e\n    \u003cdiv id=\"okta-login-container\"\u003e\u003c/div\u003e\n\n    \u003c!--\n        \"OktaUtil\" defines a global OktaUtil object\n        that contains methods used to complete the Okta login flow.\n     --\u003e\n    {{{OktaUtil}}}\n\n    \u003cscript type=\"text/javascript\" nonce=\"{{nonceValue}}\"\u003e\n        // \"config\" object contains default widget configuration\n        // with any custom overrides defined in your admin settings.\n        var config = OktaUtil.getSignInWidgetConfig();\n\n        // Render the Okta Sign-In Widget\n        var oktaSignIn = new OktaSignIn(config);\n        oktaSignIn.renderEl({ el: '#okta-login-container' },\n            OktaUtil.completeLogin,\n            function(error) {\n                // Logs errors that occur when configuring the widget.\n                // Remove or replace this with your own custom error handler.\n                console.log(error.message, error);\n            }\n        );\n    \u003c/script\u003e\n\u003c/body\u003e\n\u003c/html\u003e\n            \"\"\")\n            .widgetVersion(\"^6\")\n            .widgetCustomizations(PreviewSigninPageWidgetCustomizationsArgs.builder()\n                .widgetGeneration(\"G3\")\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  test:\n    type: okta:Brand\n    properties:\n      name: testBrand\n      locale: en\n  testPreviewSigninPage:\n    type: okta:PreviewSigninPage\n    name: test\n    properties:\n      brandId: ${oktaBrand.test.id}\n      pageContent: |\n        \u003c!DOCTYPE html PUBLIC \"-//W3C//DTD HTML 4.01//EN\" \"http://www.w3.org/TR/html4/strict.dtd\"\u003e\n        \u003chtml\u003e\n        \u003chead\u003e\n            \u003cmeta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"\u003e\n            \u003cmeta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" /\u003e\n            \u003cmeta name=\"robots\" content=\"noindex,nofollow\" /\u003e\n            \u003c!-- Styles generated from theme --\u003e\n            \u003clink href=\"{{themedStylesUrl}}\" rel=\"stylesheet\" type=\"text/css\"\u003e\n            \u003c!-- Favicon from theme --\u003e\n            \u003clink rel=\"shortcut icon\" href=\"{{faviconUrl}}\" type=\"image/x-icon\"/\u003e\n\n            \u003ctitle\u003e{{pageTitle}}\u003c/title\u003e\n            {{{SignInWidgetResources}}}\n\n            \u003cstyle nonce=\"{{nonceValue}}\"\u003e\n                #login-bg-image-id {\n                    background-image: {{bgImageUrl}}\n                }\n            \u003c/style\u003e\n        \u003c/head\u003e\n        \u003cbody\u003e\n            \u003cdiv id=\"login-bg-image-id\" class=\"login-bg-image tb--background\"\u003e\u003c/div\u003e\n            \u003cdiv id=\"okta-login-container\"\u003e\u003c/div\u003e\n\n            \u003c!--\n                \"OktaUtil\" defines a global OktaUtil object\n                that contains methods used to complete the Okta login flow.\n             --\u003e\n            {{{OktaUtil}}}\n\n            \u003cscript type=\"text/javascript\" nonce=\"{{nonceValue}}\"\u003e\n                // \"config\" object contains default widget configuration\n                // with any custom overrides defined in your admin settings.\n                var config = OktaUtil.getSignInWidgetConfig();\n\n                // Render the Okta Sign-In Widget\n                var oktaSignIn = new OktaSignIn(config);\n                oktaSignIn.renderEl({ el: '#okta-login-container' },\n                    OktaUtil.completeLogin,\n                    function(error) {\n                        // Logs errors that occur when configuring the widget.\n                        // Remove or replace this with your own custom error handler.\n                        console.log(error.message, error);\n                    }\n                );\n            \u003c/script\u003e\n        \u003c/body\u003e\n        \u003c/html\u003e\n      widgetVersion: ^6\n      widgetCustomizations:\n        widgetGeneration: G3\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
             "properties": {
@@ -20969,7 +21172,7 @@
             }
         },
         "okta:index/rateLimiting:RateLimiting": {
-            "description": "Manages rate limiting.\nThis resource allows you to configure the client-based rate limit and rate limiting communications settings.\n\u003e **WARNING:** This resource is deprecated and will be removed in a future release. A new resource to manage rate limiting settings will be implemented in the future.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst example = new okta.RateLimiting(\"example\", {\n    login: \"ENFORCE\",\n    authorize: \"ENFORCE\",\n    communicationsEnabled: true,\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample = okta.RateLimiting(\"example\",\n    login=\"ENFORCE\",\n    authorize=\"ENFORCE\",\n    communications_enabled=True)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new Okta.RateLimiting(\"example\", new()\n    {\n        Login = \"ENFORCE\",\n        Authorize = \"ENFORCE\",\n        CommunicationsEnabled = true,\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v6/go/okta\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := okta.NewRateLimiting(ctx, \"example\", \u0026okta.RateLimitingArgs{\n\t\t\tLogin:                 \"ENFORCE\",\n\t\t\tAuthorize:             \"ENFORCE\",\n\t\t\tCommunicationsEnabled: true,\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.okta.RateLimiting;\nimport com.pulumi.okta.RateLimitingArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new RateLimiting(\"example\", RateLimitingArgs.builder()\n            .login(\"ENFORCE\")\n            .authorize(\"ENFORCE\")\n            .communicationsEnabled(true)\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: okta:RateLimiting\n    properties:\n      login: ENFORCE\n      authorize: ENFORCE\n      communicationsEnabled: true\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n```sh\n$ pulumi import okta:index/rateLimiting:RateLimiting example .\n```\n\n",
+            "description": "Manages per-client rate limiting settings for your Okta organization.\n\nThis resource configures how Okta handles rate limiting on a per-client basis, allowing you to set a default mode and override settings for specific use cases.\n\n## Example Usage\n\n### Basic Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst example = new okta.RateLimiting(\"example\", {defaultMode: \"ENFORCE\"});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample = okta.RateLimiting(\"example\", default_mode=\"ENFORCE\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new Okta.RateLimiting(\"example\", new()\n    {\n        DefaultMode = \"ENFORCE\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v6/go/okta\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := okta.NewRateLimiting(ctx, \"example\", \u0026okta.RateLimitingArgs{\n\t\t\tDefaultMode: pulumi.String(\"ENFORCE\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.okta.RateLimiting;\nimport com.pulumi.okta.RateLimitingArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new RateLimiting(\"example\", RateLimitingArgs.builder()\n            .defaultMode(\"ENFORCE\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: okta:RateLimiting\n    properties:\n      defaultMode: ENFORCE\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n### With Use Case Overrides\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst example = new okta.RateLimiting(\"example\", {\n    defaultMode: \"ENFORCE\",\n    useCaseModeOverrides: {\n        loginPage: \"PREVIEW\",\n        oauth2Authorize: \"ENFORCE\",\n        oieAppIntent: \"DISABLE\",\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample = okta.RateLimiting(\"example\",\n    default_mode=\"ENFORCE\",\n    use_case_mode_overrides={\n        \"login_page\": \"PREVIEW\",\n        \"oauth2_authorize\": \"ENFORCE\",\n        \"oie_app_intent\": \"DISABLE\",\n    })\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new Okta.RateLimiting(\"example\", new()\n    {\n        DefaultMode = \"ENFORCE\",\n        UseCaseModeOverrides = new Okta.Inputs.RateLimitingUseCaseModeOverridesArgs\n        {\n            LoginPage = \"PREVIEW\",\n            Oauth2Authorize = \"ENFORCE\",\n            OieAppIntent = \"DISABLE\",\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v6/go/okta\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := okta.NewRateLimiting(ctx, \"example\", \u0026okta.RateLimitingArgs{\n\t\t\tDefaultMode: pulumi.String(\"ENFORCE\"),\n\t\t\tUseCaseModeOverrides: \u0026okta.RateLimitingUseCaseModeOverridesArgs{\n\t\t\t\tLoginPage:       pulumi.String(\"PREVIEW\"),\n\t\t\t\tOauth2Authorize: pulumi.String(\"ENFORCE\"),\n\t\t\t\tOieAppIntent:    pulumi.String(\"DISABLE\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.okta.RateLimiting;\nimport com.pulumi.okta.RateLimitingArgs;\nimport com.pulumi.okta.inputs.RateLimitingUseCaseModeOverridesArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new RateLimiting(\"example\", RateLimitingArgs.builder()\n            .defaultMode(\"ENFORCE\")\n            .useCaseModeOverrides(RateLimitingUseCaseModeOverridesArgs.builder()\n                .loginPage(\"PREVIEW\")\n                .oauth2Authorize(\"ENFORCE\")\n                .oieAppIntent(\"DISABLE\")\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: okta:RateLimiting\n    properties:\n      defaultMode: ENFORCE\n      useCaseModeOverrides:\n        loginPage: PREVIEW\n        oauth2Authorize: ENFORCE\n        oieAppIntent: DISABLE\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n```sh\n$ pulumi import okta:index/rateLimiting:RateLimiting example .\n```\n\n\u003e **Note:** The import ID is a literal dot (`.`) since there is only one rate limiting configuration per Okta organization.\n\n",
             "properties": {
                 "defaultMode": {
                     "type": "string"
@@ -23426,6 +23629,10 @@
                     "type": "string",
                     "description": "Network Status - can either be `ACTIVE` or `INACTIVE` only\n"
                 },
+                "system": {
+                    "type": "boolean",
+                    "description": "Indicates a system Network Zone"
+                },
                 "type": {
                     "type": "string",
                     "description": "Type of the Network Zone - can be `IP`, `DYNAMIC` or `DYNAMIC_V2` only\n"
@@ -23437,6 +23644,7 @@
             },
             "required": [
                 "name",
+                "system",
                 "type"
             ],
             "inputProperties": {
@@ -23584,6 +23792,10 @@
                     "status": {
                         "type": "string",
                         "description": "Network Status - can either be `ACTIVE` or `INACTIVE` only\n"
+                    },
+                    "system": {
+                        "type": "boolean",
+                        "description": "Indicates a system Network Zone"
                     },
                     "type": {
                         "type": "string",
@@ -27033,6 +27245,51 @@
                 "type": "object"
             }
         },
+        "okta:user/risk:Risk": {
+            "description": "Manages a user's risk level in Okta. This resource allows you to set and manage the risk level for a specific user.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst example = new okta.user.Risk(\"example\", {\n    userId: exampleOktaUser.id,\n    riskLevel: \"HIGH\",\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample = okta.user.Risk(\"example\",\n    user_id=example_okta_user[\"id\"],\n    risk_level=\"HIGH\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new Okta.User.Risk(\"example\", new()\n    {\n        UserId = exampleOktaUser.Id,\n        RiskLevel = \"HIGH\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v6/go/okta/user\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := user.NewRisk(ctx, \"example\", \u0026user.RiskArgs{\n\t\t\tUserId:    pulumi.Any(exampleOktaUser.Id),\n\t\t\tRiskLevel: pulumi.String(\"HIGH\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.okta.user.Risk;\nimport com.pulumi.okta.user.RiskArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new Risk(\"example\", RiskArgs.builder()\n            .userId(exampleOktaUser.id())\n            .riskLevel(\"HIGH\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: okta:user:Risk\n    properties:\n      userId: ${exampleOktaUser.id}\n      riskLevel: HIGH\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n```sh\n$ pulumi import okta:user/risk:Risk example \u003cuser_id\u003e\n```\n\n",
+            "properties": {
+                "riskLevel": {
+                    "type": "string",
+                    "description": "Risk level of the user. Valid values: `HIGH`, `LOW`.\n"
+                },
+                "userId": {
+                    "type": "string",
+                    "description": "ID of the user.\n"
+                }
+            },
+            "required": [
+                "riskLevel",
+                "userId"
+            ],
+            "inputProperties": {
+                "riskLevel": {
+                    "type": "string",
+                    "description": "Risk level of the user. Valid values: `HIGH`, `LOW`.\n"
+                },
+                "userId": {
+                    "type": "string",
+                    "description": "ID of the user.\n"
+                }
+            },
+            "requiredInputs": [
+                "riskLevel",
+                "userId"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Risk resources.\n",
+                "properties": {
+                    "riskLevel": {
+                        "type": "string",
+                        "description": "Risk level of the user. Valid values: `HIGH`, `LOW`.\n"
+                    },
+                    "userId": {
+                        "type": "string",
+                        "description": "ID of the user.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
         "okta:user/user:User": {
             "description": "Creates an Okta User. This resource allows you to create and configure an Okta User.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\n//## Full profile:\nconst example = new okta.user.User(\"example\", {\n    firstName: \"John\",\n    lastName: \"Smith\",\n    login: \"john.smith@example.com\",\n    email: \"john.smith@example.com\",\n    city: \"New York\",\n    costCenter: \"10\",\n    countryCode: \"US\",\n    department: \"IT\",\n    displayName: \"Dr. John Smith\",\n    division: \"Acquisitions\",\n    employeeNumber: \"111111\",\n    honorificPrefix: \"Dr.\",\n    honorificSuffix: \"Jr.\",\n    locale: \"en_US\",\n    manager: \"Jimbo\",\n    managerId: \"222222\",\n    middleName: \"John\",\n    mobilePhone: \"1112223333\",\n    nickName: \"Johnny\",\n    organization: \"Testing Inc.\",\n    postalAddress: \"1234 Testing St.\",\n    preferredLanguage: \"en-us\",\n    primaryPhone: \"4445556666\",\n    profileUrl: \"https://www.example.com/profile\",\n    secondEmail: \"john.smith.fun@example.com\",\n    state: \"NY\",\n    streetAddress: \"5678 Testing Ave.\",\n    timezone: \"America/New_York\",\n    title: \"Director\",\n    userType: \"Employee\",\n    zipCode: \"11111\",\n});\n//## With Password Inline Hook:\nconst test2 = new okta.user.User(\"test2\", {\n    firstName: \"John\",\n    lastName: \"Smith\",\n    login: \"example@example.com\",\n    email: \"example@example.com\",\n    passwordInlineHook: \"default\",\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\n### Full profile:\nexample = okta.user.User(\"example\",\n    first_name=\"John\",\n    last_name=\"Smith\",\n    login=\"john.smith@example.com\",\n    email=\"john.smith@example.com\",\n    city=\"New York\",\n    cost_center=\"10\",\n    country_code=\"US\",\n    department=\"IT\",\n    display_name=\"Dr. John Smith\",\n    division=\"Acquisitions\",\n    employee_number=\"111111\",\n    honorific_prefix=\"Dr.\",\n    honorific_suffix=\"Jr.\",\n    locale=\"en_US\",\n    manager=\"Jimbo\",\n    manager_id=\"222222\",\n    middle_name=\"John\",\n    mobile_phone=\"1112223333\",\n    nick_name=\"Johnny\",\n    organization=\"Testing Inc.\",\n    postal_address=\"1234 Testing St.\",\n    preferred_language=\"en-us\",\n    primary_phone=\"4445556666\",\n    profile_url=\"https://www.example.com/profile\",\n    second_email=\"john.smith.fun@example.com\",\n    state=\"NY\",\n    street_address=\"5678 Testing Ave.\",\n    timezone=\"America/New_York\",\n    title=\"Director\",\n    user_type=\"Employee\",\n    zip_code=\"11111\")\n### With Password Inline Hook:\ntest2 = okta.user.User(\"test2\",\n    first_name=\"John\",\n    last_name=\"Smith\",\n    login=\"example@example.com\",\n    email=\"example@example.com\",\n    password_inline_hook=\"default\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    //## Full profile:\n    var example = new Okta.User.User(\"example\", new()\n    {\n        FirstName = \"John\",\n        LastName = \"Smith\",\n        Login = \"john.smith@example.com\",\n        Email = \"john.smith@example.com\",\n        City = \"New York\",\n        CostCenter = \"10\",\n        CountryCode = \"US\",\n        Department = \"IT\",\n        DisplayName = \"Dr. John Smith\",\n        Division = \"Acquisitions\",\n        EmployeeNumber = \"111111\",\n        HonorificPrefix = \"Dr.\",\n        HonorificSuffix = \"Jr.\",\n        Locale = \"en_US\",\n        Manager = \"Jimbo\",\n        ManagerId = \"222222\",\n        MiddleName = \"John\",\n        MobilePhone = \"1112223333\",\n        NickName = \"Johnny\",\n        Organization = \"Testing Inc.\",\n        PostalAddress = \"1234 Testing St.\",\n        PreferredLanguage = \"en-us\",\n        PrimaryPhone = \"4445556666\",\n        ProfileUrl = \"https://www.example.com/profile\",\n        SecondEmail = \"john.smith.fun@example.com\",\n        State = \"NY\",\n        StreetAddress = \"5678 Testing Ave.\",\n        Timezone = \"America/New_York\",\n        Title = \"Director\",\n        UserType = \"Employee\",\n        ZipCode = \"11111\",\n    });\n\n    //## With Password Inline Hook:\n    var test2 = new Okta.User.User(\"test2\", new()\n    {\n        FirstName = \"John\",\n        LastName = \"Smith\",\n        Login = \"example@example.com\",\n        Email = \"example@example.com\",\n        PasswordInlineHook = \"default\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v6/go/okta/user\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t// ## Full profile:\n\t\t_, err := user.NewUser(ctx, \"example\", \u0026user.UserArgs{\n\t\t\tFirstName:         pulumi.String(\"John\"),\n\t\t\tLastName:          pulumi.String(\"Smith\"),\n\t\t\tLogin:             pulumi.String(\"john.smith@example.com\"),\n\t\t\tEmail:             pulumi.String(\"john.smith@example.com\"),\n\t\t\tCity:              pulumi.String(\"New York\"),\n\t\t\tCostCenter:        pulumi.String(\"10\"),\n\t\t\tCountryCode:       pulumi.String(\"US\"),\n\t\t\tDepartment:        pulumi.String(\"IT\"),\n\t\t\tDisplayName:       pulumi.String(\"Dr. John Smith\"),\n\t\t\tDivision:          pulumi.String(\"Acquisitions\"),\n\t\t\tEmployeeNumber:    pulumi.String(\"111111\"),\n\t\t\tHonorificPrefix:   pulumi.String(\"Dr.\"),\n\t\t\tHonorificSuffix:   pulumi.String(\"Jr.\"),\n\t\t\tLocale:            pulumi.String(\"en_US\"),\n\t\t\tManager:           pulumi.String(\"Jimbo\"),\n\t\t\tManagerId:         pulumi.String(\"222222\"),\n\t\t\tMiddleName:        pulumi.String(\"John\"),\n\t\t\tMobilePhone:       pulumi.String(\"1112223333\"),\n\t\t\tNickName:          pulumi.String(\"Johnny\"),\n\t\t\tOrganization:      pulumi.String(\"Testing Inc.\"),\n\t\t\tPostalAddress:     pulumi.String(\"1234 Testing St.\"),\n\t\t\tPreferredLanguage: pulumi.String(\"en-us\"),\n\t\t\tPrimaryPhone:      pulumi.String(\"4445556666\"),\n\t\t\tProfileUrl:        pulumi.String(\"https://www.example.com/profile\"),\n\t\t\tSecondEmail:       pulumi.String(\"john.smith.fun@example.com\"),\n\t\t\tState:             pulumi.String(\"NY\"),\n\t\t\tStreetAddress:     pulumi.String(\"5678 Testing Ave.\"),\n\t\t\tTimezone:          pulumi.String(\"America/New_York\"),\n\t\t\tTitle:             pulumi.String(\"Director\"),\n\t\t\tUserType:          pulumi.String(\"Employee\"),\n\t\t\tZipCode:           pulumi.String(\"11111\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t// ## With Password Inline Hook:\n\t\t_, err = user.NewUser(ctx, \"test2\", \u0026user.UserArgs{\n\t\t\tFirstName:          pulumi.String(\"John\"),\n\t\t\tLastName:           pulumi.String(\"Smith\"),\n\t\t\tLogin:              pulumi.String(\"example@example.com\"),\n\t\t\tEmail:              pulumi.String(\"example@example.com\"),\n\t\t\tPasswordInlineHook: pulumi.String(\"default\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.okta.user.User;\nimport com.pulumi.okta.user.UserArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        //## Full profile:\n        var example = new User(\"example\", UserArgs.builder()\n            .firstName(\"John\")\n            .lastName(\"Smith\")\n            .login(\"john.smith@example.com\")\n            .email(\"john.smith@example.com\")\n            .city(\"New York\")\n            .costCenter(\"10\")\n            .countryCode(\"US\")\n            .department(\"IT\")\n            .displayName(\"Dr. John Smith\")\n            .division(\"Acquisitions\")\n            .employeeNumber(\"111111\")\n            .honorificPrefix(\"Dr.\")\n            .honorificSuffix(\"Jr.\")\n            .locale(\"en_US\")\n            .manager(\"Jimbo\")\n            .managerId(\"222222\")\n            .middleName(\"John\")\n            .mobilePhone(\"1112223333\")\n            .nickName(\"Johnny\")\n            .organization(\"Testing Inc.\")\n            .postalAddress(\"1234 Testing St.\")\n            .preferredLanguage(\"en-us\")\n            .primaryPhone(\"4445556666\")\n            .profileUrl(\"https://www.example.com/profile\")\n            .secondEmail(\"john.smith.fun@example.com\")\n            .state(\"NY\")\n            .streetAddress(\"5678 Testing Ave.\")\n            .timezone(\"America/New_York\")\n            .title(\"Director\")\n            .userType(\"Employee\")\n            .zipCode(\"11111\")\n            .build());\n\n        //## With Password Inline Hook:\n        var test2 = new User(\"test2\", UserArgs.builder()\n            .firstName(\"John\")\n            .lastName(\"Smith\")\n            .login(\"example@example.com\")\n            .email(\"example@example.com\")\n            .passwordInlineHook(\"default\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  ### Full profile:\n  example:\n    type: okta:user:User\n    properties:\n      firstName: John\n      lastName: Smith\n      login: john.smith@example.com\n      email: john.smith@example.com\n      city: New York\n      costCenter: '10'\n      countryCode: US\n      department: IT\n      displayName: Dr. John Smith\n      division: Acquisitions\n      employeeNumber: '111111'\n      honorificPrefix: Dr.\n      honorificSuffix: Jr.\n      locale: en_US\n      manager: Jimbo\n      managerId: '222222'\n      middleName: John\n      mobilePhone: '1112223333'\n      nickName: Johnny\n      organization: Testing Inc.\n      postalAddress: 1234 Testing St.\n      preferredLanguage: en-us\n      primaryPhone: '4445556666'\n      profileUrl: https://www.example.com/profile\n      secondEmail: john.smith.fun@example.com\n      state: NY\n      streetAddress: 5678 Testing Ave.\n      timezone: America/New_York\n      title: Director\n      userType: Employee\n      zipCode: '11111'\n  ### With Password Inline Hook:\n  test2:\n    type: okta:user:User\n    properties:\n      firstName: John\n      lastName: Smith\n      login: example@example.com\n      email: example@example.com\n      passwordInlineHook: default\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n```sh\n$ pulumi import okta:user/user:User example \u003cuser_id\u003e\n```\n\n",
             "properties": {
@@ -29173,6 +29430,10 @@
                     "name": {
                         "type": "string",
                         "description": "Name of the idp.\n"
+                    },
+                    "sloUrl": {
+                        "type": "string",
+                        "description": "OIDC IdP logout endpoint.\n"
                     }
                 },
                 "type": "object"
@@ -29225,6 +29486,10 @@
                         "description": "Name of the idp.\n",
                         "type": "string"
                     },
+                    "participateSlo": {
+                        "description": "Set to true to have Okta send a logout request to the upstream IdP when a user signs out of Okta or a downstream app.\n",
+                        "type": "boolean"
+                    },
                     "protocolType": {
                         "description": "The type of protocol to use.\n",
                         "type": "string"
@@ -29235,6 +29500,10 @@
                             "type": "string"
                         },
                         "type": "array"
+                    },
+                    "sloUrl": {
+                        "description": "OIDC IdP logout endpoint.\n",
+                        "type": "string"
                     },
                     "tokenBinding": {
                         "description": "The method of making a token request.\n",
@@ -29270,6 +29539,7 @@
                     "jwksBinding",
                     "jwksUrl",
                     "maxClockSkew",
+                    "participateSlo",
                     "protocolType",
                     "scopes",
                     "tokenBinding",
@@ -31670,6 +31940,9 @@
                         "description": "Network Status - can either be ACTIVE or INACTIVE only\n",
                         "type": "string"
                     },
+                    "system": {
+                        "type": "boolean"
+                    },
                     "type": {
                         "description": "Type of the Network Zone - can be `IP`, `DYNAMIC` or `DYNAMIC_V2` only\n",
                         "type": "string"
@@ -31686,6 +31959,7 @@
                     "gateways",
                     "proxies",
                     "status",
+                    "system",
                     "type",
                     "usage"
                 ],
@@ -31731,6 +32005,37 @@
                 "required": [
                     "id",
                     "pipeline"
+                ],
+                "type": "object"
+            }
+        },
+        "okta:index/getPostAuthSessionPolicy:getPostAuthSessionPolicy": {
+            "description": "Retrieves the Post Auth Session Policy. This is a system policy that is automatically created when Identity Threat Protection (ITP) with Okta AI is enabled. There is exactly one Post Auth Session Policy per organization.\n\n## Example Usage\n\n{{tffile \"examples/data-sources/okta_post_auth_session_policy/data-source.tf\"}}\n",
+            "outputs": {
+                "description": "A collection of values returned by getPostAuthSessionPolicy.\n",
+                "properties": {
+                    "id": {
+                        "description": "ID of the Post Auth Session Policy.\n",
+                        "type": "string"
+                    },
+                    "name": {
+                        "description": "Name of the Post Auth Session Policy.\n",
+                        "type": "string"
+                    },
+                    "ruleId": {
+                        "description": "ID of the modifiable policy rule (non-default). Use this for importing the policy rule resource.\n",
+                        "type": "string"
+                    },
+                    "status": {
+                        "description": "Status of the policy: `ACTIVE` or `INACTIVE`.\n",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "id",
+                    "name",
+                    "ruleId",
+                    "status"
                 ],
                 "type": "object"
             }
@@ -33191,6 +33496,50 @@
                     "status",
                     "type",
                     "id"
+                ],
+                "type": "object"
+            }
+        },
+        "okta:user/getRisk:getRisk": {
+            "description": "Gets a user's risk level in Okta.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst example = okta.user.getRisk({\n    userId: exampleOktaUser.id,\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample = okta.user.get_risk(user_id=example_okta_user[\"id\"])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = Okta.User.GetRisk.Invoke(new()\n    {\n        UserId = exampleOktaUser.Id,\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v6/go/okta/user\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := user.LookupRisk(ctx, \u0026user.LookupRiskArgs{\n\t\t\tUserId: exampleOktaUser.Id,\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.okta.user.UserFunctions;\nimport com.pulumi.okta.user.inputs.GetRiskArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var example = UserFunctions.getRisk(GetRiskArgs.builder()\n            .userId(exampleOktaUser.id())\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  example:\n    fn::invoke:\n      function: okta:user:getRisk\n      arguments:\n        userId: ${exampleOktaUser.id}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getRisk.\n",
+                "properties": {
+                    "userId": {
+                        "type": "string",
+                        "description": "ID of the user.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "userId"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getRisk.\n",
+                "properties": {
+                    "id": {
+                        "description": "The ID of this resource.\n",
+                        "type": "string"
+                    },
+                    "reason": {
+                        "description": "Reason for the risk level, if available.\n",
+                        "type": "string"
+                    },
+                    "riskLevel": {
+                        "description": "Risk level of the user. Possible values: `HIGH`, `LOW`, `NONE`. `NONE` indicates no risk level has been set.\n",
+                        "type": "string"
+                    },
+                    "userId": {
+                        "description": "ID of the user.\n",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "id",
+                    "reason",
+                    "riskLevel",
+                    "userId"
                 ],
                 "type": "object"
             }
