@@ -40,7 +40,7 @@ import (
 //			}
 //			json0 := string(tmpJSON0)
 //			test, err := app.NewSwa(ctx, "test", &app.SwaArgs{
-//				AppLinksJson:         pulumi.String(json0),
+//				AppLinksJson:         pulumi.String(pulumi.String(json0)),
 //				Label:                pulumi.String("Deel HR"),
 //				PreconfiguredApp:     pulumi.String("deelhr"),
 //				Status:               pulumi.String("ACTIVE"),

@@ -57,7 +57,7 @@ import (
 //			json0 := string(tmpJSON0)
 //			_, err = okta.NewAppSamlAppSettings(ctx, "test", &okta.AppSamlAppSettingsArgs{
 //				AppId:    test.ID(),
-//				Settings: pulumi.String(json0),
+//				Settings: pulumi.String(pulumi.String(json0)),
 //			})
 //			if err != nil {
 //				return err

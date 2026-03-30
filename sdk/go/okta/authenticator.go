@@ -59,7 +59,7 @@ import (
 //			_, err = okta.NewAuthenticator(ctx, "test", &okta.AuthenticatorArgs{
 //				Name:     pulumi.String("Security Question"),
 //				Key:      pulumi.String("security_question"),
-//				Settings: pulumi.String(json0),
+//				Settings: pulumi.String(pulumi.String(json0)),
 //			})
 //			if err != nil {
 //				return err
@@ -80,7 +80,7 @@ import (
 //				Name:             pulumi.String("Custom OTP"),
 //				Key:              pulumi.String("custom_otp"),
 //				Status:           pulumi.String("ACTIVE"),
-//				Settings:         pulumi.String(json1),
+//				Settings:         pulumi.String(pulumi.String(json1)),
 //				LegacyIgnoreName: pulumi.Bool(false),
 //			})
 //			if err != nil {
@@ -112,8 +112,8 @@ import (
 //				Status:           pulumi.String("ACTIVE"),
 //				AgreeToTerms:     pulumi.Bool(true),
 //				LegacyIgnoreName: pulumi.Bool(false),
-//				Settings:         pulumi.String(json2),
-//				ProviderJson:     pulumi.String(json3),
+//				Settings:         pulumi.String(pulumi.String(json2)),
+//				ProviderJson:     pulumi.String(pulumi.String(json3)),
 //			})
 //			if err != nil {
 //				return err
