@@ -35,7 +35,7 @@ import (
 //			}
 //			_, err = profile.NewMapping(ctx, "example", &profile.MappingArgs{
 //				SourceId:         pulumi.String("<source id>"),
-//				TargetId:         pulumi.String(user.Id),
+//				TargetId:         pulumi.String(pulumi.String(user.Id)),
 //				DeleteWhenAbsent: pulumi.Bool(true),
 //				Mappings: profile.MappingMappingArray{
 //					&profile.MappingMappingArgs{

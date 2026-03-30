@@ -103,7 +103,7 @@ import (
 //					&okta.AppGroupAssignmentsGroupArgs{
 //						Id:       pulumi.String("<another group id>"),
 //						Priority: pulumi.Int(2),
-//						Profile:  pulumi.String(json0),
+//						Profile:  pulumi.String(pulumi.String(json0)),
 //					},
 //				},
 //			})

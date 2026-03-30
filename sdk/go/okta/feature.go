@@ -35,7 +35,7 @@ import (
 //				return err
 //			}
 //			_, err = okta.NewFeature(ctx, "test", &okta.FeatureArgs{
-//				FeatureId: pulumi.String(example.Features[0].Id),
+//				FeatureId: pulumi.String(pulumi.String(example.Features[0].Id)),
 //			})
 //			if err != nil {
 //				return err

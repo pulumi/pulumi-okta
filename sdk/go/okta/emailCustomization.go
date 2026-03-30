@@ -69,7 +69,7 @@ import (
 //				return err
 //			}
 //			forgotPasswordEn, err := okta.NewEmailCustomization(ctx, "forgot_password_en", &okta.EmailCustomizationArgs{
-//				BrandId:      pulumi.String(test.Brands[0].Id),
+//				BrandId:      pulumi.String(pulumi.String(test.Brands[0].Id)),
 //				TemplateName: pulumi.String("ForgotPassword"),
 //				Language:     pulumi.String("en"),
 //				IsDefault:    pulumi.Bool(true),
@@ -80,7 +80,7 @@ import (
 //				return err
 //			}
 //			_, err = okta.NewEmailCustomization(ctx, "forgot_password_es", &okta.EmailCustomizationArgs{
-//				BrandId:      pulumi.String(test.Brands[0].Id),
+//				BrandId:      pulumi.String(pulumi.String(test.Brands[0].Id)),
 //				TemplateName: pulumi.String("ForgotPassword"),
 //				Language:     pulumi.String("es"),
 //				Subject:      pulumi.String("Restablecimiento de contraseña de cuenta"),

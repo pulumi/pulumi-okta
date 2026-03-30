@@ -58,8 +58,8 @@ import (
 //				return err
 //			}
 //			_, err = app.NewAccessPolicyAssignment(ctx, "assignment", &app.AccessPolicyAssignmentArgs{
-//				AppId:    pulumi.String(example.Id),
-//				PolicyId: pulumi.String(access.Id),
+//				AppId:    pulumi.String(pulumi.String(example.Id)),
+//				PolicyId: pulumi.String(pulumi.String(access.Id)),
 //			})
 //			if err != nil {
 //				return err
