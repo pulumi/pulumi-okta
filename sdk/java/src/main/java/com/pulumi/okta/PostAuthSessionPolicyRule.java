@@ -23,21 +23,47 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
- * {{tffile &#34;examples/resources/okta_post_auth_session_policy_rule/resource.tf&#34;}}
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.okta.OktaFunctions;
+ * import com.pulumi.okta.PostAuthSessionPolicyRule;
+ * import com.pulumi.okta.PostAuthSessionPolicyRuleArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var example = OktaFunctions.getPostAuthSessionPolicy(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+ * 
+ *         var examplePostAuthSessionPolicyRule = new PostAuthSessionPolicyRule("examplePostAuthSessionPolicyRule", PostAuthSessionPolicyRuleArgs.builder()
+ *             .policyId(example.id())
+ *             .name("Session Protection Rule")
+ *             .terminateSession(true)
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
  * 
  * ## Lifecycle
  * 
  * - **Create**: Returns an error with the import command to use
  * - **Update**: Updates the rule configuration in Okta
  * - **Delete**: Removes the rule from Terraform state only (the rule remains in Okta)
- * 
- * ## Import
- * 
- * Before using this resource, you must import the existing rule:
- * 
- * {{codefile &#34;shell&#34; &#34;examples/resources/okta_post_auth_session_policy_rule/import.sh&#34;}}
- * 
- * When you run `pulumi up` without importing first, the error message will include the exact import command with the correct policy and rule IDs.
  * 
  */
 @ResourceType(type="okta:index/postAuthSessionPolicyRule:PostAuthSessionPolicyRule")

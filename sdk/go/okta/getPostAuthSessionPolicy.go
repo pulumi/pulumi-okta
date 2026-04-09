@@ -15,7 +15,27 @@ import (
 //
 // ## Example Usage
 //
-// {{tffile "examples/data-sources/okta_post_auth_session_policy/data-source.tf"}}
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v6/go/okta"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := okta.GetPostAuthSessionPolicy(ctx, map[string]interface{}{}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func GetPostAuthSessionPolicy(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetPostAuthSessionPolicyResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetPostAuthSessionPolicyResult

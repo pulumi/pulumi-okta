@@ -3148,6 +3148,181 @@ func (o OAuthJwkArrayOutput) Index(i pulumi.IntInput) OAuthJwkOutput {
 	}).(OAuthJwkOutput)
 }
 
+type OAuthNetwork struct {
+	// The network connection type. Can be `ANYWHERE` or `ZONE`.
+	Connection string `pulumi:"connection"`
+	// The network zones to exclude. Only applicable when `connection` is `ZONE`. Accepts `ALL_IP_ZONES` or specific zone IDs. Defaults to no zones excluded if not specified.
+	Excludes []string `pulumi:"excludes"`
+	// The network zones to include. Only applicable when `connection` is `ZONE`. Accepts `ALL_IP_ZONES` or specific zone IDs. Defaults to no zones included if not specified.
+	Includes []string `pulumi:"includes"`
+}
+
+// OAuthNetworkInput is an input type that accepts OAuthNetworkArgs and OAuthNetworkOutput values.
+// You can construct a concrete instance of `OAuthNetworkInput` via:
+//
+//	OAuthNetworkArgs{...}
+type OAuthNetworkInput interface {
+	pulumi.Input
+
+	ToOAuthNetworkOutput() OAuthNetworkOutput
+	ToOAuthNetworkOutputWithContext(context.Context) OAuthNetworkOutput
+}
+
+type OAuthNetworkArgs struct {
+	// The network connection type. Can be `ANYWHERE` or `ZONE`.
+	Connection pulumi.StringInput `pulumi:"connection"`
+	// The network zones to exclude. Only applicable when `connection` is `ZONE`. Accepts `ALL_IP_ZONES` or specific zone IDs. Defaults to no zones excluded if not specified.
+	Excludes pulumi.StringArrayInput `pulumi:"excludes"`
+	// The network zones to include. Only applicable when `connection` is `ZONE`. Accepts `ALL_IP_ZONES` or specific zone IDs. Defaults to no zones included if not specified.
+	Includes pulumi.StringArrayInput `pulumi:"includes"`
+}
+
+func (OAuthNetworkArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OAuthNetwork)(nil)).Elem()
+}
+
+func (i OAuthNetworkArgs) ToOAuthNetworkOutput() OAuthNetworkOutput {
+	return i.ToOAuthNetworkOutputWithContext(context.Background())
+}
+
+func (i OAuthNetworkArgs) ToOAuthNetworkOutputWithContext(ctx context.Context) OAuthNetworkOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OAuthNetworkOutput)
+}
+
+func (i OAuthNetworkArgs) ToOAuthNetworkPtrOutput() OAuthNetworkPtrOutput {
+	return i.ToOAuthNetworkPtrOutputWithContext(context.Background())
+}
+
+func (i OAuthNetworkArgs) ToOAuthNetworkPtrOutputWithContext(ctx context.Context) OAuthNetworkPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OAuthNetworkOutput).ToOAuthNetworkPtrOutputWithContext(ctx)
+}
+
+// OAuthNetworkPtrInput is an input type that accepts OAuthNetworkArgs, OAuthNetworkPtr and OAuthNetworkPtrOutput values.
+// You can construct a concrete instance of `OAuthNetworkPtrInput` via:
+//
+//	        OAuthNetworkArgs{...}
+//
+//	or:
+//
+//	        nil
+type OAuthNetworkPtrInput interface {
+	pulumi.Input
+
+	ToOAuthNetworkPtrOutput() OAuthNetworkPtrOutput
+	ToOAuthNetworkPtrOutputWithContext(context.Context) OAuthNetworkPtrOutput
+}
+
+type oauthNetworkPtrType OAuthNetworkArgs
+
+func OAuthNetworkPtr(v *OAuthNetworkArgs) OAuthNetworkPtrInput {
+	return (*oauthNetworkPtrType)(v)
+}
+
+func (*oauthNetworkPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OAuthNetwork)(nil)).Elem()
+}
+
+func (i *oauthNetworkPtrType) ToOAuthNetworkPtrOutput() OAuthNetworkPtrOutput {
+	return i.ToOAuthNetworkPtrOutputWithContext(context.Background())
+}
+
+func (i *oauthNetworkPtrType) ToOAuthNetworkPtrOutputWithContext(ctx context.Context) OAuthNetworkPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OAuthNetworkPtrOutput)
+}
+
+type OAuthNetworkOutput struct{ *pulumi.OutputState }
+
+func (OAuthNetworkOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OAuthNetwork)(nil)).Elem()
+}
+
+func (o OAuthNetworkOutput) ToOAuthNetworkOutput() OAuthNetworkOutput {
+	return o
+}
+
+func (o OAuthNetworkOutput) ToOAuthNetworkOutputWithContext(ctx context.Context) OAuthNetworkOutput {
+	return o
+}
+
+func (o OAuthNetworkOutput) ToOAuthNetworkPtrOutput() OAuthNetworkPtrOutput {
+	return o.ToOAuthNetworkPtrOutputWithContext(context.Background())
+}
+
+func (o OAuthNetworkOutput) ToOAuthNetworkPtrOutputWithContext(ctx context.Context) OAuthNetworkPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OAuthNetwork) *OAuthNetwork {
+		return &v
+	}).(OAuthNetworkPtrOutput)
+}
+
+// The network connection type. Can be `ANYWHERE` or `ZONE`.
+func (o OAuthNetworkOutput) Connection() pulumi.StringOutput {
+	return o.ApplyT(func(v OAuthNetwork) string { return v.Connection }).(pulumi.StringOutput)
+}
+
+// The network zones to exclude. Only applicable when `connection` is `ZONE`. Accepts `ALL_IP_ZONES` or specific zone IDs. Defaults to no zones excluded if not specified.
+func (o OAuthNetworkOutput) Excludes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v OAuthNetwork) []string { return v.Excludes }).(pulumi.StringArrayOutput)
+}
+
+// The network zones to include. Only applicable when `connection` is `ZONE`. Accepts `ALL_IP_ZONES` or specific zone IDs. Defaults to no zones included if not specified.
+func (o OAuthNetworkOutput) Includes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v OAuthNetwork) []string { return v.Includes }).(pulumi.StringArrayOutput)
+}
+
+type OAuthNetworkPtrOutput struct{ *pulumi.OutputState }
+
+func (OAuthNetworkPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OAuthNetwork)(nil)).Elem()
+}
+
+func (o OAuthNetworkPtrOutput) ToOAuthNetworkPtrOutput() OAuthNetworkPtrOutput {
+	return o
+}
+
+func (o OAuthNetworkPtrOutput) ToOAuthNetworkPtrOutputWithContext(ctx context.Context) OAuthNetworkPtrOutput {
+	return o
+}
+
+func (o OAuthNetworkPtrOutput) Elem() OAuthNetworkOutput {
+	return o.ApplyT(func(v *OAuthNetwork) OAuthNetwork {
+		if v != nil {
+			return *v
+		}
+		var ret OAuthNetwork
+		return ret
+	}).(OAuthNetworkOutput)
+}
+
+// The network connection type. Can be `ANYWHERE` or `ZONE`.
+func (o OAuthNetworkPtrOutput) Connection() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OAuthNetwork) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Connection
+	}).(pulumi.StringPtrOutput)
+}
+
+// The network zones to exclude. Only applicable when `connection` is `ZONE`. Accepts `ALL_IP_ZONES` or specific zone IDs. Defaults to no zones excluded if not specified.
+func (o OAuthNetworkPtrOutput) Excludes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *OAuthNetwork) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Excludes
+	}).(pulumi.StringArrayOutput)
+}
+
+// The network zones to include. Only applicable when `connection` is `ZONE`. Accepts `ALL_IP_ZONES` or specific zone IDs. Defaults to no zones included if not specified.
+func (o OAuthNetworkPtrOutput) Includes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *OAuthNetwork) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Includes
+	}).(pulumi.StringArrayOutput)
+}
+
 type SamlAcsEndpointsIndex struct {
 	Index int    `pulumi:"index"`
 	Url   string `pulumi:"url"`
@@ -3568,6 +3743,8 @@ func (o SamlKeyArrayOutput) Index(i pulumi.IntInput) SamlKeyOutput {
 type SignonPolicyRulesRule struct {
 	// Access decision: ALLOW or DENY.
 	Access *string `pulumi:"access"`
+	// List of authentication method chain objects as JSON-encoded strings. Use with `type = "AUTH_METHOD_CHAIN"` only.
+	Chains []string `pulumi:"chains"`
 	// List of authenticator constraints as JSON-encoded strings.
 	Constraints []string `pulumi:"constraints"`
 	// Custom Okta Expression Language condition for advanced matching.
@@ -3600,7 +3777,7 @@ type SignonPolicyRulesRule struct {
 	PlatformIncludes []SignonPolicyRulesRulePlatformInclude `pulumi:"platformIncludes"`
 	// Priority of the rule. Lower numbers are evaluated first.
 	Priority *int `pulumi:"priority"`
-	// Re-authentication frequency in ISO 8601 duration format (e.g., PT2H for 2 hours).
+	// Re-authentication frequency in ISO 8601 duration format (e.g., PT2H for 2 hours). When using authentication chains with reauthenticateIn, this value is computed by the API based on the chain configuration.
 	ReAuthenticationFrequency *string `pulumi:"reAuthenticationFrequency"`
 	// Risk score level to match: ANY, LOW, MEDIUM, or HIGH.
 	RiskScore *string `pulumi:"riskScore"`
@@ -3634,6 +3811,8 @@ type SignonPolicyRulesRuleInput interface {
 type SignonPolicyRulesRuleArgs struct {
 	// Access decision: ALLOW or DENY.
 	Access pulumi.StringPtrInput `pulumi:"access"`
+	// List of authentication method chain objects as JSON-encoded strings. Use with `type = "AUTH_METHOD_CHAIN"` only.
+	Chains pulumi.StringArrayInput `pulumi:"chains"`
 	// List of authenticator constraints as JSON-encoded strings.
 	Constraints pulumi.StringArrayInput `pulumi:"constraints"`
 	// Custom Okta Expression Language condition for advanced matching.
@@ -3666,7 +3845,7 @@ type SignonPolicyRulesRuleArgs struct {
 	PlatformIncludes SignonPolicyRulesRulePlatformIncludeArrayInput `pulumi:"platformIncludes"`
 	// Priority of the rule. Lower numbers are evaluated first.
 	Priority pulumi.IntPtrInput `pulumi:"priority"`
-	// Re-authentication frequency in ISO 8601 duration format (e.g., PT2H for 2 hours).
+	// Re-authentication frequency in ISO 8601 duration format (e.g., PT2H for 2 hours). When using authentication chains with reauthenticateIn, this value is computed by the API based on the chain configuration.
 	ReAuthenticationFrequency pulumi.StringPtrInput `pulumi:"reAuthenticationFrequency"`
 	// Risk score level to match: ANY, LOW, MEDIUM, or HIGH.
 	RiskScore pulumi.StringPtrInput `pulumi:"riskScore"`
@@ -3740,6 +3919,11 @@ func (o SignonPolicyRulesRuleOutput) ToSignonPolicyRulesRuleOutputWithContext(ct
 // Access decision: ALLOW or DENY.
 func (o SignonPolicyRulesRuleOutput) Access() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SignonPolicyRulesRule) *string { return v.Access }).(pulumi.StringPtrOutput)
+}
+
+// List of authentication method chain objects as JSON-encoded strings. Use with `type = "AUTH_METHOD_CHAIN"` only.
+func (o SignonPolicyRulesRuleOutput) Chains() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SignonPolicyRulesRule) []string { return v.Chains }).(pulumi.StringArrayOutput)
 }
 
 // List of authenticator constraints as JSON-encoded strings.
@@ -3822,7 +4006,7 @@ func (o SignonPolicyRulesRuleOutput) Priority() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SignonPolicyRulesRule) *int { return v.Priority }).(pulumi.IntPtrOutput)
 }
 
-// Re-authentication frequency in ISO 8601 duration format (e.g., PT2H for 2 hours).
+// Re-authentication frequency in ISO 8601 duration format (e.g., PT2H for 2 hours). When using authentication chains with reauthenticateIn, this value is computed by the API based on the chain configuration.
 func (o SignonPolicyRulesRuleOutput) ReAuthenticationFrequency() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SignonPolicyRulesRule) *string { return v.ReAuthenticationFrequency }).(pulumi.StringPtrOutput)
 }
@@ -6413,6 +6597,121 @@ func (o GetFeaturesCapabilitiesUpdateProfilePtrOutput) Status() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+type GetOauthNetwork struct {
+	// The network connection type. Can be `ANYWHERE` or `ZONE`.
+	Connection string `pulumi:"connection"`
+	// IP zones to exclude when `connection` is `ZONE`. Can be `ALL_IP_ZONES` or specific zone IDs.
+	Excludes []string `pulumi:"excludes"`
+	// IP zones to include when `connection` is `ZONE`. Can be `ALL_IP_ZONES` or specific zone IDs.
+	Includes []string `pulumi:"includes"`
+}
+
+// GetOauthNetworkInput is an input type that accepts GetOauthNetworkArgs and GetOauthNetworkOutput values.
+// You can construct a concrete instance of `GetOauthNetworkInput` via:
+//
+//	GetOauthNetworkArgs{...}
+type GetOauthNetworkInput interface {
+	pulumi.Input
+
+	ToGetOauthNetworkOutput() GetOauthNetworkOutput
+	ToGetOauthNetworkOutputWithContext(context.Context) GetOauthNetworkOutput
+}
+
+type GetOauthNetworkArgs struct {
+	// The network connection type. Can be `ANYWHERE` or `ZONE`.
+	Connection pulumi.StringInput `pulumi:"connection"`
+	// IP zones to exclude when `connection` is `ZONE`. Can be `ALL_IP_ZONES` or specific zone IDs.
+	Excludes pulumi.StringArrayInput `pulumi:"excludes"`
+	// IP zones to include when `connection` is `ZONE`. Can be `ALL_IP_ZONES` or specific zone IDs.
+	Includes pulumi.StringArrayInput `pulumi:"includes"`
+}
+
+func (GetOauthNetworkArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetOauthNetwork)(nil)).Elem()
+}
+
+func (i GetOauthNetworkArgs) ToGetOauthNetworkOutput() GetOauthNetworkOutput {
+	return i.ToGetOauthNetworkOutputWithContext(context.Background())
+}
+
+func (i GetOauthNetworkArgs) ToGetOauthNetworkOutputWithContext(ctx context.Context) GetOauthNetworkOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetOauthNetworkOutput)
+}
+
+// GetOauthNetworkArrayInput is an input type that accepts GetOauthNetworkArray and GetOauthNetworkArrayOutput values.
+// You can construct a concrete instance of `GetOauthNetworkArrayInput` via:
+//
+//	GetOauthNetworkArray{ GetOauthNetworkArgs{...} }
+type GetOauthNetworkArrayInput interface {
+	pulumi.Input
+
+	ToGetOauthNetworkArrayOutput() GetOauthNetworkArrayOutput
+	ToGetOauthNetworkArrayOutputWithContext(context.Context) GetOauthNetworkArrayOutput
+}
+
+type GetOauthNetworkArray []GetOauthNetworkInput
+
+func (GetOauthNetworkArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetOauthNetwork)(nil)).Elem()
+}
+
+func (i GetOauthNetworkArray) ToGetOauthNetworkArrayOutput() GetOauthNetworkArrayOutput {
+	return i.ToGetOauthNetworkArrayOutputWithContext(context.Background())
+}
+
+func (i GetOauthNetworkArray) ToGetOauthNetworkArrayOutputWithContext(ctx context.Context) GetOauthNetworkArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetOauthNetworkArrayOutput)
+}
+
+type GetOauthNetworkOutput struct{ *pulumi.OutputState }
+
+func (GetOauthNetworkOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetOauthNetwork)(nil)).Elem()
+}
+
+func (o GetOauthNetworkOutput) ToGetOauthNetworkOutput() GetOauthNetworkOutput {
+	return o
+}
+
+func (o GetOauthNetworkOutput) ToGetOauthNetworkOutputWithContext(ctx context.Context) GetOauthNetworkOutput {
+	return o
+}
+
+// The network connection type. Can be `ANYWHERE` or `ZONE`.
+func (o GetOauthNetworkOutput) Connection() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOauthNetwork) string { return v.Connection }).(pulumi.StringOutput)
+}
+
+// IP zones to exclude when `connection` is `ZONE`. Can be `ALL_IP_ZONES` or specific zone IDs.
+func (o GetOauthNetworkOutput) Excludes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetOauthNetwork) []string { return v.Excludes }).(pulumi.StringArrayOutput)
+}
+
+// IP zones to include when `connection` is `ZONE`. Can be `ALL_IP_ZONES` or specific zone IDs.
+func (o GetOauthNetworkOutput) Includes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetOauthNetwork) []string { return v.Includes }).(pulumi.StringArrayOutput)
+}
+
+type GetOauthNetworkArrayOutput struct{ *pulumi.OutputState }
+
+func (GetOauthNetworkArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetOauthNetwork)(nil)).Elem()
+}
+
+func (o GetOauthNetworkArrayOutput) ToGetOauthNetworkArrayOutput() GetOauthNetworkArrayOutput {
+	return o
+}
+
+func (o GetOauthNetworkArrayOutput) ToGetOauthNetworkArrayOutputWithContext(ctx context.Context) GetOauthNetworkArrayOutput {
+	return o
+}
+
+func (o GetOauthNetworkArrayOutput) Index(i pulumi.IntInput) GetOauthNetworkOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetOauthNetwork {
+		return vs[0].([]GetOauthNetwork)[vs[1].(int)]
+	}).(GetOauthNetworkOutput)
+}
+
 type GetSamlAttributeStatement struct {
 	// Type of group attribute filter
 	FilterType string `pulumi:"filterType"`
@@ -6591,6 +6890,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OAuthGroupsClaimPtrInput)(nil)).Elem(), OAuthGroupsClaimArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OAuthJwkInput)(nil)).Elem(), OAuthJwkArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OAuthJwkArrayInput)(nil)).Elem(), OAuthJwkArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OAuthNetworkInput)(nil)).Elem(), OAuthNetworkArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OAuthNetworkPtrInput)(nil)).Elem(), OAuthNetworkArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SamlAcsEndpointsIndexInput)(nil)).Elem(), SamlAcsEndpointsIndexArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SamlAcsEndpointsIndexArrayInput)(nil)).Elem(), SamlAcsEndpointsIndexArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SamlAttributeStatementInput)(nil)).Elem(), SamlAttributeStatementArgs{})
@@ -6631,6 +6932,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFeaturesCapabilitiesUpdatePasswordPtrInput)(nil)).Elem(), GetFeaturesCapabilitiesUpdatePasswordArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFeaturesCapabilitiesUpdateProfileInput)(nil)).Elem(), GetFeaturesCapabilitiesUpdateProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFeaturesCapabilitiesUpdateProfilePtrInput)(nil)).Elem(), GetFeaturesCapabilitiesUpdateProfileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetOauthNetworkInput)(nil)).Elem(), GetOauthNetworkArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetOauthNetworkArrayInput)(nil)).Elem(), GetOauthNetworkArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSamlAttributeStatementInput)(nil)).Elem(), GetSamlAttributeStatementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSamlAttributeStatementArrayInput)(nil)).Elem(), GetSamlAttributeStatementArray{})
 	pulumi.RegisterOutputType(ConnectionProfileOutput{})
@@ -6671,6 +6974,8 @@ func init() {
 	pulumi.RegisterOutputType(OAuthGroupsClaimPtrOutput{})
 	pulumi.RegisterOutputType(OAuthJwkOutput{})
 	pulumi.RegisterOutputType(OAuthJwkArrayOutput{})
+	pulumi.RegisterOutputType(OAuthNetworkOutput{})
+	pulumi.RegisterOutputType(OAuthNetworkPtrOutput{})
 	pulumi.RegisterOutputType(SamlAcsEndpointsIndexOutput{})
 	pulumi.RegisterOutputType(SamlAcsEndpointsIndexArrayOutput{})
 	pulumi.RegisterOutputType(SamlAttributeStatementOutput{})
@@ -6711,6 +7016,8 @@ func init() {
 	pulumi.RegisterOutputType(GetFeaturesCapabilitiesUpdatePasswordPtrOutput{})
 	pulumi.RegisterOutputType(GetFeaturesCapabilitiesUpdateProfileOutput{})
 	pulumi.RegisterOutputType(GetFeaturesCapabilitiesUpdateProfilePtrOutput{})
+	pulumi.RegisterOutputType(GetOauthNetworkOutput{})
+	pulumi.RegisterOutputType(GetOauthNetworkArrayOutput{})
 	pulumi.RegisterOutputType(GetSamlAttributeStatementOutput{})
 	pulumi.RegisterOutputType(GetSamlAttributeStatementArrayOutput{})
 }

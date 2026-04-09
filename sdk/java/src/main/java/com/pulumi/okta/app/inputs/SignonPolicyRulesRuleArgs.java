@@ -36,6 +36,21 @@ public final class SignonPolicyRulesRuleArgs extends com.pulumi.resources.Resour
     }
 
     /**
+     * List of authentication method chain objects as JSON-encoded strings. Use with `type = &#34;AUTH_METHOD_CHAIN&#34;` only.
+     * 
+     */
+    @Import(name="chains")
+    private @Nullable Output<List<String>> chains;
+
+    /**
+     * @return List of authentication method chain objects as JSON-encoded strings. Use with `type = &#34;AUTH_METHOD_CHAIN&#34;` only.
+     * 
+     */
+    public Optional<Output<List<String>>> chains() {
+        return Optional.ofNullable(this.chains);
+    }
+
+    /**
      * List of authenticator constraints as JSON-encoded strings.
      * 
      */
@@ -276,14 +291,14 @@ public final class SignonPolicyRulesRuleArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * Re-authentication frequency in ISO 8601 duration format (e.g., PT2H for 2 hours).
+     * Re-authentication frequency in ISO 8601 duration format (e.g., PT2H for 2 hours). When using authentication chains with reauthenticateIn, this value is computed by the API based on the chain configuration.
      * 
      */
     @Import(name="reAuthenticationFrequency")
     private @Nullable Output<String> reAuthenticationFrequency;
 
     /**
-     * @return Re-authentication frequency in ISO 8601 duration format (e.g., PT2H for 2 hours).
+     * @return Re-authentication frequency in ISO 8601 duration format (e.g., PT2H for 2 hours). When using authentication chains with reauthenticateIn, this value is computed by the API based on the chain configuration.
      * 
      */
     public Optional<Output<String>> reAuthenticationFrequency() {
@@ -414,6 +429,7 @@ public final class SignonPolicyRulesRuleArgs extends com.pulumi.resources.Resour
 
     private SignonPolicyRulesRuleArgs(SignonPolicyRulesRuleArgs $) {
         this.access = $.access;
+        this.chains = $.chains;
         this.constraints = $.constraints;
         this.customExpression = $.customExpression;
         this.deviceAssurancesIncludeds = $.deviceAssurancesIncludeds;
@@ -478,6 +494,37 @@ public final class SignonPolicyRulesRuleArgs extends com.pulumi.resources.Resour
          */
         public Builder access(String access) {
             return access(Output.of(access));
+        }
+
+        /**
+         * @param chains List of authentication method chain objects as JSON-encoded strings. Use with `type = &#34;AUTH_METHOD_CHAIN&#34;` only.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder chains(@Nullable Output<List<String>> chains) {
+            $.chains = chains;
+            return this;
+        }
+
+        /**
+         * @param chains List of authentication method chain objects as JSON-encoded strings. Use with `type = &#34;AUTH_METHOD_CHAIN&#34;` only.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder chains(List<String> chains) {
+            return chains(Output.of(chains));
+        }
+
+        /**
+         * @param chains List of authentication method chain objects as JSON-encoded strings. Use with `type = &#34;AUTH_METHOD_CHAIN&#34;` only.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder chains(String... chains) {
+            return chains(List.of(chains));
         }
 
         /**
@@ -887,7 +934,7 @@ public final class SignonPolicyRulesRuleArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param reAuthenticationFrequency Re-authentication frequency in ISO 8601 duration format (e.g., PT2H for 2 hours).
+         * @param reAuthenticationFrequency Re-authentication frequency in ISO 8601 duration format (e.g., PT2H for 2 hours). When using authentication chains with reauthenticateIn, this value is computed by the API based on the chain configuration.
          * 
          * @return builder
          * 
@@ -898,7 +945,7 @@ public final class SignonPolicyRulesRuleArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param reAuthenticationFrequency Re-authentication frequency in ISO 8601 duration format (e.g., PT2H for 2 hours).
+         * @param reAuthenticationFrequency Re-authentication frequency in ISO 8601 duration format (e.g., PT2H for 2 hours). When using authentication chains with reauthenticateIn, this value is computed by the API based on the chain configuration.
          * 
          * @return builder
          * 

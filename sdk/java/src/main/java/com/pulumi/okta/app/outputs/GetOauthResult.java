@@ -5,6 +5,7 @@ package com.pulumi.okta.app.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import com.pulumi.okta.app.outputs.GetOauthNetwork;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -106,6 +107,11 @@ public final class GetOauthResult {
      * 
      */
     private String name;
+    /**
+     * @return Network restrictions for the application client.
+     * 
+     */
+    private List<GetOauthNetwork> networks;
     /**
      * @return URI to web page providing client policy document.
      * 
@@ -288,6 +294,13 @@ public final class GetOauthResult {
         return this.name;
     }
     /**
+     * @return Network restrictions for the application client.
+     * 
+     */
+    public List<GetOauthNetwork> networks() {
+        return this.networks;
+    }
+    /**
      * @return URI to web page providing client policy document.
      * 
      */
@@ -385,6 +398,7 @@ public final class GetOauthResult {
         private String loginUri;
         private String logoUri;
         private String name;
+        private List<GetOauthNetwork> networks;
         private String policyUri;
         private List<String> postLogoutRedirectUris;
         private List<String> redirectUris;
@@ -414,6 +428,7 @@ public final class GetOauthResult {
     	      this.loginUri = defaults.loginUri;
     	      this.logoUri = defaults.logoUri;
     	      this.name = defaults.name;
+    	      this.networks = defaults.networks;
     	      this.policyUri = defaults.policyUri;
     	      this.postLogoutRedirectUris = defaults.postLogoutRedirectUris;
     	      this.redirectUris = defaults.redirectUris;
@@ -560,6 +575,17 @@ public final class GetOauthResult {
             return this;
         }
         @CustomType.Setter
+        public Builder networks(List<GetOauthNetwork> networks) {
+            if (networks == null) {
+              throw new MissingRequiredPropertyException("GetOauthResult", "networks");
+            }
+            this.networks = networks;
+            return this;
+        }
+        public Builder networks(GetOauthNetwork... networks) {
+            return networks(List.of(networks));
+        }
+        @CustomType.Setter
         public Builder policyUri(String policyUri) {
             if (policyUri == null) {
               throw new MissingRequiredPropertyException("GetOauthResult", "policyUri");
@@ -655,6 +681,7 @@ public final class GetOauthResult {
             _resultValue.loginUri = loginUri;
             _resultValue.logoUri = logoUri;
             _resultValue.name = name;
+            _resultValue.networks = networks;
             _resultValue.policyUri = policyUri;
             _resultValue.postLogoutRedirectUris = postLogoutRedirectUris;
             _resultValue.redirectUris = redirectUris;

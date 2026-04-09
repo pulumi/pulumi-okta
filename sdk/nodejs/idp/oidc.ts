@@ -86,9 +86,18 @@ export class Oidc extends pulumi.CustomResource {
      */
     declare public readonly clientId: pulumi.Output<string>;
     /**
-     * Client secret issued by AS for the Okta IdP instance.
+     * Client secret issued by AS for the Okta IdP instance. When set, this secret will be stored in the Terraform state file. For Terraform 1.11+, consider using `clientSecretWo` instead to avoid persisting secrets in state. Either `clientSecret` or `clientSecretWo` must be specified, but not both.
      */
-    declare public readonly clientSecret: pulumi.Output<string>;
+    declare public readonly clientSecret: pulumi.Output<string | undefined>;
+    /**
+     * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * Write-only client secret issued by AS for the Okta IdP instance for Terraform 1.11+. Unlike `clientSecret`, this secret will not be persisted in the Terraform state file, providing improved security. Only use this attribute with Terraform 1.11 or higher. Either `clientSecret` or `clientSecretWo` must be specified, but not both.
+     */
+    declare public readonly clientSecretWo: pulumi.Output<string | undefined>;
+    /**
+     * Version number for the write-only client secret. Increment this value to trigger an update when changing `clientSecretWo`.
+     */
+    declare public readonly clientSecretWoVersion: pulumi.Output<number | undefined>;
     /**
      * Action for a previously deprovisioned IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`
      */
@@ -238,6 +247,8 @@ export class Oidc extends pulumi.CustomResource {
             resourceInputs["authorizationUrl"] = state?.authorizationUrl;
             resourceInputs["clientId"] = state?.clientId;
             resourceInputs["clientSecret"] = state?.clientSecret;
+            resourceInputs["clientSecretWo"] = state?.clientSecretWo;
+            resourceInputs["clientSecretWoVersion"] = state?.clientSecretWoVersion;
             resourceInputs["deprovisionedAction"] = state?.deprovisionedAction;
             resourceInputs["filter"] = state?.filter;
             resourceInputs["groupsAction"] = state?.groupsAction;
@@ -282,9 +293,6 @@ export class Oidc extends pulumi.CustomResource {
             if (args?.clientId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clientId'");
             }
-            if (args?.clientSecret === undefined && !opts.urn) {
-                throw new Error("Missing required property 'clientSecret'");
-            }
             if (args?.issuerUrl === undefined && !opts.urn) {
                 throw new Error("Missing required property 'issuerUrl'");
             }
@@ -309,6 +317,8 @@ export class Oidc extends pulumi.CustomResource {
             resourceInputs["authorizationUrl"] = args?.authorizationUrl;
             resourceInputs["clientId"] = args?.clientId;
             resourceInputs["clientSecret"] = args?.clientSecret ? pulumi.secret(args.clientSecret) : undefined;
+            resourceInputs["clientSecretWo"] = args?.clientSecretWo ? pulumi.secret(args.clientSecretWo) : undefined;
+            resourceInputs["clientSecretWoVersion"] = args?.clientSecretWoVersion;
             resourceInputs["deprovisionedAction"] = args?.deprovisionedAction;
             resourceInputs["filter"] = args?.filter;
             resourceInputs["groupsAction"] = args?.groupsAction;
@@ -344,7 +354,7 @@ export class Oidc extends pulumi.CustomResource {
             resourceInputs["userTypeId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["clientSecret"] };
+        const secretOpts = { additionalSecretOutputs: ["clientSecret", "clientSecretWo"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
         super(Oidc.__pulumiType, name, resourceInputs, opts);
     }
@@ -375,9 +385,18 @@ export interface OidcState {
      */
     clientId?: pulumi.Input<string>;
     /**
-     * Client secret issued by AS for the Okta IdP instance.
+     * Client secret issued by AS for the Okta IdP instance. When set, this secret will be stored in the Terraform state file. For Terraform 1.11+, consider using `clientSecretWo` instead to avoid persisting secrets in state. Either `clientSecret` or `clientSecretWo` must be specified, but not both.
      */
     clientSecret?: pulumi.Input<string>;
+    /**
+     * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * Write-only client secret issued by AS for the Okta IdP instance for Terraform 1.11+. Unlike `clientSecret`, this secret will not be persisted in the Terraform state file, providing improved security. Only use this attribute with Terraform 1.11 or higher. Either `clientSecret` or `clientSecretWo` must be specified, but not both.
+     */
+    clientSecretWo?: pulumi.Input<string>;
+    /**
+     * Version number for the write-only client secret. Increment this value to trigger an update when changing `clientSecretWo`.
+     */
+    clientSecretWoVersion?: pulumi.Input<number>;
     /**
      * Action for a previously deprovisioned IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`
      */
@@ -534,9 +553,18 @@ export interface OidcArgs {
      */
     clientId: pulumi.Input<string>;
     /**
-     * Client secret issued by AS for the Okta IdP instance.
+     * Client secret issued by AS for the Okta IdP instance. When set, this secret will be stored in the Terraform state file. For Terraform 1.11+, consider using `clientSecretWo` instead to avoid persisting secrets in state. Either `clientSecret` or `clientSecretWo` must be specified, but not both.
      */
-    clientSecret: pulumi.Input<string>;
+    clientSecret?: pulumi.Input<string>;
+    /**
+     * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * Write-only client secret issued by AS for the Okta IdP instance for Terraform 1.11+. Unlike `clientSecret`, this secret will not be persisted in the Terraform state file, providing improved security. Only use this attribute with Terraform 1.11 or higher. Either `clientSecret` or `clientSecretWo` must be specified, but not both.
+     */
+    clientSecretWo?: pulumi.Input<string>;
+    /**
+     * Version number for the write-only client secret. Increment this value to trigger an update when changing `clientSecretWo`.
+     */
+    clientSecretWoVersion?: pulumi.Input<number>;
     /**
      * Action for a previously deprovisioned IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`
      */

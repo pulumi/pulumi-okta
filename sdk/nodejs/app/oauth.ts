@@ -158,9 +158,18 @@ export class OAuth extends pulumi.CustomResource {
      */
     declare public readonly autoSubmitToolbar: pulumi.Output<boolean | undefined>;
     /**
-     * The user provided OAuth client secret key value, this can be set when token*endpoint*auth*method is client*secret*basic. This does nothing when `omit*secret is set to true.
+     * The user provided OAuth client secret key value. When set, this secret will be stored in the Terraform state file. For Terraform 1.11+, consider using `clientBasicSecretWo` instead to avoid persisting secrets in state. Either `clientBasicSecret` or `clientBasicSecretWo` can be specified, but not both.
      */
     declare public readonly clientBasicSecret: pulumi.Output<string | undefined>;
+    /**
+     * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * The user provided write-only OAuth client secret key value for Terraform 1.11+. Unlike `clientBasicSecret`, this secret will not be persisted in the Terraform state file, providing improved security. Only use this attribute with Terraform 1.11 or higher. Either `clientBasicSecret` or `clientBasicSecretWo` can be specified, but not both.
+     */
+    declare public readonly clientBasicSecretWo: pulumi.Output<string | undefined>;
+    /**
+     * Version number for the write-only client secret. Increment this value to trigger an update when changing `clientBasicSecretWo`.
+     */
+    declare public readonly clientBasicSecretWoVersion: pulumi.Output<number | undefined>;
     /**
      * OAuth client ID. If set during creation, app is created with this id.
      */
@@ -255,6 +264,10 @@ export class OAuth extends pulumi.CustomResource {
      * Name of the app.
      */
     declare public /*out*/ readonly name: pulumi.Output<string>;
+    /**
+     * Network restrictions for the application client. Only one `network` block may be defined.
+     */
+    declare public readonly network: pulumi.Output<outputs.app.OAuthNetwork | undefined>;
     /**
      * This tells the provider not manage the client*secret value in state. When this is false (the default), it will cause the auto-generated client*secret to be persisted in the clientSecret attribute in state. This also means that every time an update to this app is run, this value is also set on the API. If this changes from false => true, the `clientSecret` is dropped from state and the secret at the time of the apply is what remains. If this is ever changes from true => false your app will be recreated, due to the need to regenerate a secret we can store in state.
      */
@@ -363,6 +376,8 @@ export class OAuth extends pulumi.CustomResource {
             resourceInputs["autoKeyRotation"] = state?.autoKeyRotation;
             resourceInputs["autoSubmitToolbar"] = state?.autoSubmitToolbar;
             resourceInputs["clientBasicSecret"] = state?.clientBasicSecret;
+            resourceInputs["clientBasicSecretWo"] = state?.clientBasicSecretWo;
+            resourceInputs["clientBasicSecretWoVersion"] = state?.clientBasicSecretWoVersion;
             resourceInputs["clientId"] = state?.clientId;
             resourceInputs["clientSecret"] = state?.clientSecret;
             resourceInputs["clientUri"] = state?.clientUri;
@@ -386,6 +401,7 @@ export class OAuth extends pulumi.CustomResource {
             resourceInputs["logoUri"] = state?.logoUri;
             resourceInputs["logoUrl"] = state?.logoUrl;
             resourceInputs["name"] = state?.name;
+            resourceInputs["network"] = state?.network;
             resourceInputs["omitSecret"] = state?.omitSecret;
             resourceInputs["participateSlo"] = state?.participateSlo;
             resourceInputs["pkceRequired"] = state?.pkceRequired;
@@ -425,6 +441,8 @@ export class OAuth extends pulumi.CustomResource {
             resourceInputs["autoKeyRotation"] = args?.autoKeyRotation;
             resourceInputs["autoSubmitToolbar"] = args?.autoSubmitToolbar;
             resourceInputs["clientBasicSecret"] = args?.clientBasicSecret ? pulumi.secret(args.clientBasicSecret) : undefined;
+            resourceInputs["clientBasicSecretWo"] = args?.clientBasicSecretWo ? pulumi.secret(args.clientBasicSecretWo) : undefined;
+            resourceInputs["clientBasicSecretWoVersion"] = args?.clientBasicSecretWoVersion;
             resourceInputs["clientId"] = args?.clientId;
             resourceInputs["clientUri"] = args?.clientUri;
             resourceInputs["consentMethod"] = args?.consentMethod;
@@ -445,6 +463,7 @@ export class OAuth extends pulumi.CustomResource {
             resourceInputs["loginUri"] = args?.loginUri;
             resourceInputs["logo"] = args?.logo;
             resourceInputs["logoUri"] = args?.logoUri;
+            resourceInputs["network"] = args?.network;
             resourceInputs["omitSecret"] = args?.omitSecret;
             resourceInputs["participateSlo"] = args?.participateSlo;
             resourceInputs["pkceRequired"] = args?.pkceRequired;
@@ -471,7 +490,7 @@ export class OAuth extends pulumi.CustomResource {
             resourceInputs["signOnMode"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["clientBasicSecret", "clientSecret"] };
+        const secretOpts = { additionalSecretOutputs: ["clientBasicSecret", "clientBasicSecretWo", "clientSecret"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
         super(OAuth.__pulumiType, name, resourceInputs, opts);
     }
@@ -522,9 +541,18 @@ export interface OAuthState {
      */
     autoSubmitToolbar?: pulumi.Input<boolean>;
     /**
-     * The user provided OAuth client secret key value, this can be set when token*endpoint*auth*method is client*secret*basic. This does nothing when `omit*secret is set to true.
+     * The user provided OAuth client secret key value. When set, this secret will be stored in the Terraform state file. For Terraform 1.11+, consider using `clientBasicSecretWo` instead to avoid persisting secrets in state. Either `clientBasicSecret` or `clientBasicSecretWo` can be specified, but not both.
      */
     clientBasicSecret?: pulumi.Input<string>;
+    /**
+     * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * The user provided write-only OAuth client secret key value for Terraform 1.11+. Unlike `clientBasicSecret`, this secret will not be persisted in the Terraform state file, providing improved security. Only use this attribute with Terraform 1.11 or higher. Either `clientBasicSecret` or `clientBasicSecretWo` can be specified, but not both.
+     */
+    clientBasicSecretWo?: pulumi.Input<string>;
+    /**
+     * Version number for the write-only client secret. Increment this value to trigger an update when changing `clientBasicSecretWo`.
+     */
+    clientBasicSecretWoVersion?: pulumi.Input<number>;
     /**
      * OAuth client ID. If set during creation, app is created with this id.
      */
@@ -619,6 +647,10 @@ export interface OAuthState {
      * Name of the app.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Network restrictions for the application client. Only one `network` block may be defined.
+     */
+    network?: pulumi.Input<inputs.app.OAuthNetwork>;
     /**
      * This tells the provider not manage the client*secret value in state. When this is false (the default), it will cause the auto-generated client*secret to be persisted in the clientSecret attribute in state. This also means that every time an update to this app is run, this value is also set on the API. If this changes from false => true, the `clientSecret` is dropped from state and the secret at the time of the apply is what remains. If this is ever changes from true => false your app will be recreated, due to the need to regenerate a secret we can store in state.
      */
@@ -750,9 +782,18 @@ export interface OAuthArgs {
      */
     autoSubmitToolbar?: pulumi.Input<boolean>;
     /**
-     * The user provided OAuth client secret key value, this can be set when token*endpoint*auth*method is client*secret*basic. This does nothing when `omit*secret is set to true.
+     * The user provided OAuth client secret key value. When set, this secret will be stored in the Terraform state file. For Terraform 1.11+, consider using `clientBasicSecretWo` instead to avoid persisting secrets in state. Either `clientBasicSecret` or `clientBasicSecretWo` can be specified, but not both.
      */
     clientBasicSecret?: pulumi.Input<string>;
+    /**
+     * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * The user provided write-only OAuth client secret key value for Terraform 1.11+. Unlike `clientBasicSecret`, this secret will not be persisted in the Terraform state file, providing improved security. Only use this attribute with Terraform 1.11 or higher. Either `clientBasicSecret` or `clientBasicSecretWo` can be specified, but not both.
+     */
+    clientBasicSecretWo?: pulumi.Input<string>;
+    /**
+     * Version number for the write-only client secret. Increment this value to trigger an update when changing `clientBasicSecretWo`.
+     */
+    clientBasicSecretWoVersion?: pulumi.Input<number>;
     /**
      * OAuth client ID. If set during creation, app is created with this id.
      */
@@ -835,6 +876,10 @@ export interface OAuthArgs {
      * URI that references a logo for the client.
      */
     logoUri?: pulumi.Input<string>;
+    /**
+     * Network restrictions for the application client. Only one `network` block may be defined.
+     */
+    network?: pulumi.Input<inputs.app.OAuthNetwork>;
     /**
      * This tells the provider not manage the client*secret value in state. When this is false (the default), it will cause the auto-generated client*secret to be persisted in the clientSecret attribute in state. This also means that every time an update to this app is run, this value is also set on the API. If this changes from false => true, the `clientSecret` is dropped from state and the secret at the time of the apply is what remains. If this is ever changes from true => false your app will be recreated, due to the need to regenerate a secret we can store in state.
      */

@@ -9,7 +9,12 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
- * {{tffile "examples/data-sources/okta_post_auth_session_policy/data-source.tf"}}
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const example = okta.getPostAuthSessionPolicy({});
+ * ```
  */
 export function getPostAuthSessionPolicy(opts?: pulumi.InvokeOptions): Promise<GetPostAuthSessionPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -43,7 +48,12 @@ export interface GetPostAuthSessionPolicyResult {
  *
  * ## Example Usage
  *
- * {{tffile "examples/data-sources/okta_post_auth_session_policy/data-source.tf"}}
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const example = okta.getPostAuthSessionPolicy({});
+ * ```
  */
 export function getPostAuthSessionPolicyOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPostAuthSessionPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

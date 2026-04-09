@@ -12,6 +12,7 @@ import com.pulumi.okta.app.OAuthArgs;
 import com.pulumi.okta.app.inputs.OAuthState;
 import com.pulumi.okta.app.outputs.OAuthGroupsClaim;
 import com.pulumi.okta.app.outputs.OAuthJwk;
+import com.pulumi.okta.app.outputs.OAuthNetwork;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -265,18 +266,48 @@ public class OAuth extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.autoSubmitToolbar);
     }
     /**
-     * The user provided OAuth client secret key value, this can be set when token*endpoint*auth*method is client*secret*basic. This does nothing when `omit*secret is set to true.
+     * The user provided OAuth client secret key value. When set, this secret will be stored in the Terraform state file. For Terraform 1.11+, consider using `clientBasicSecretWo` instead to avoid persisting secrets in state. Either `clientBasicSecret` or `clientBasicSecretWo` can be specified, but not both.
      * 
      */
     @Export(name="clientBasicSecret", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> clientBasicSecret;
 
     /**
-     * @return The user provided OAuth client secret key value, this can be set when token*endpoint*auth*method is client*secret*basic. This does nothing when `omit*secret is set to true.
+     * @return The user provided OAuth client secret key value. When set, this secret will be stored in the Terraform state file. For Terraform 1.11+, consider using `clientBasicSecretWo` instead to avoid persisting secrets in state. Either `clientBasicSecret` or `clientBasicSecretWo` can be specified, but not both.
      * 
      */
     public Output<Optional<String>> clientBasicSecret() {
         return Codegen.optional(this.clientBasicSecret);
+    }
+    /**
+     * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * The user provided write-only OAuth client secret key value for Terraform 1.11+. Unlike `clientBasicSecret`, this secret will not be persisted in the Terraform state file, providing improved security. Only use this attribute with Terraform 1.11 or higher. Either `clientBasicSecret` or `clientBasicSecretWo` can be specified, but not both.
+     * 
+     */
+    @Export(name="clientBasicSecretWo", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> clientBasicSecretWo;
+
+    /**
+     * @return **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * The user provided write-only OAuth client secret key value for Terraform 1.11+. Unlike `clientBasicSecret`, this secret will not be persisted in the Terraform state file, providing improved security. Only use this attribute with Terraform 1.11 or higher. Either `clientBasicSecret` or `clientBasicSecretWo` can be specified, but not both.
+     * 
+     */
+    public Output<Optional<String>> clientBasicSecretWo() {
+        return Codegen.optional(this.clientBasicSecretWo);
+    }
+    /**
+     * Version number for the write-only client secret. Increment this value to trigger an update when changing `clientBasicSecretWo`.
+     * 
+     */
+    @Export(name="clientBasicSecretWoVersion", refs={Integer.class}, tree="[0]")
+    private Output</* @Nullable */ Integer> clientBasicSecretWoVersion;
+
+    /**
+     * @return Version number for the write-only client secret. Increment this value to trigger an update when changing `clientBasicSecretWo`.
+     * 
+     */
+    public Output<Optional<Integer>> clientBasicSecretWoVersion() {
+        return Codegen.optional(this.clientBasicSecretWoVersion);
     }
     /**
      * OAuth client ID. If set during creation, app is created with this id.
@@ -603,6 +634,20 @@ public class OAuth extends com.pulumi.resources.CustomResource {
      */
     public Output<String> name() {
         return this.name;
+    }
+    /**
+     * Network restrictions for the application client. Only one `network` block may be defined.
+     * 
+     */
+    @Export(name="network", refs={OAuthNetwork.class}, tree="[0]")
+    private Output</* @Nullable */ OAuthNetwork> network;
+
+    /**
+     * @return Network restrictions for the application client. Only one `network` block may be defined.
+     * 
+     */
+    public Output<Optional<OAuthNetwork>> network() {
+        return Codegen.optional(this.network);
     }
     /**
      * This tells the provider not manage the client*secret value in state. When this is false (the default), it will cause the auto-generated client*secret to be persisted in the clientSecret attribute in state. This also means that every time an update to this app is run, this value is also set on the API. If this changes from false =&gt; true, the `clientSecret` is dropped from state and the secret at the time of the apply is what remains. If this is ever changes from true =&gt; false your app will be recreated, due to the need to regenerate a secret we can store in state.
@@ -940,6 +985,7 @@ public class OAuth extends com.pulumi.resources.CustomResource {
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
                 "clientBasicSecret",
+                "clientBasicSecretWo",
                 "clientSecret"
             ))
             .build();

@@ -43,6 +43,7 @@ from .email_template_settings import *
 from .end_user_my_requests import *
 from .entitlement import *
 from .entitlement_bundle import *
+from .entity_risk_policy_rule import *
 from .event_hook import *
 from .event_hook_verification import *
 from .factor_totp import *
@@ -75,11 +76,13 @@ from .get_email_smtp_server import *
 from .get_end_user_my_requests import *
 from .get_entitlement import *
 from .get_entitlement_bundle import *
+from .get_entity_risk_policy import *
 from .get_features import *
 from .get_groups import *
 from .get_hook_key import *
 from .get_log_stream import *
 from .get_network_zone import *
+from .get_oauth_authorization_server import *
 from .get_org_metadata import *
 from .get_post_auth_session_policy import *
 from .get_principal_entitlements import *
@@ -99,6 +102,7 @@ from .get_request_v2 import *
 from .get_review import *
 from .get_role_subscription import *
 from .get_security_events_provider import *
+from .get_session_violation_policy import *
 from .get_template import *
 from .get_templates import *
 from .get_theme import *
@@ -140,6 +144,7 @@ from .review import *
 from .role_subscription import *
 from .security_events_provider import *
 from .security_notification_emails import *
+from .session_violation_policy_rule import *
 from .template_sms import *
 from .theme import *
 from .threat_insight_settings import *
@@ -410,6 +415,14 @@ _utilities.register(
   "fqn": "pulumi_okta.group",
   "classes": {
    "okta:group/owner:Owner": "Owner"
+  }
+ },
+ {
+  "pkg": "okta",
+  "mod": "group/owners",
+  "fqn": "pulumi_okta.group",
+  "classes": {
+   "okta:group/owners:Owners": "Owners"
   }
  },
  {
@@ -758,6 +771,14 @@ _utilities.register(
  },
  {
   "pkg": "okta",
+  "mod": "index/entityRiskPolicyRule",
+  "fqn": "pulumi_okta",
+  "classes": {
+   "okta:index/entityRiskPolicyRule:EntityRiskPolicyRule": "EntityRiskPolicyRule"
+  }
+ },
+ {
+  "pkg": "okta",
   "mod": "index/eventHook",
   "fqn": "pulumi_okta",
   "classes": {
@@ -1050,6 +1071,14 @@ _utilities.register(
   "fqn": "pulumi_okta",
   "classes": {
    "okta:index/securityNotificationEmails:SecurityNotificationEmails": "SecurityNotificationEmails"
+  }
+ },
+ {
+  "pkg": "okta",
+  "mod": "index/sessionViolationPolicyRule",
+  "fqn": "pulumi_okta",
+  "classes": {
+   "okta:index/sessionViolationPolicyRule:SessionViolationPolicyRule": "SessionViolationPolicyRule"
   }
  },
  {

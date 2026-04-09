@@ -115,6 +115,7 @@ class SignonPolicyRules(pulumi.CustomResource):
 
         > **IMPORTANT:** This resource uses name-first matching to identify and update rules. When migrating from individual `AppSignonPolicyRule` resources, ensure rule names remain consistent to enable safe adoption without data loss.
 
+        > **NOTE ON RENAMING RULES:** If you rename a rule without explicitly preserving its `id`, the provider will treat it as a deletion of the old rule and creation of a new rule. To rename a rule while preserving its configuration and ID, you must explicitly set the `id` attribute in your configuration before changing the `name`. For example:
         ## Example Usage
 
         ```python
@@ -305,6 +306,7 @@ class SignonPolicyRules(pulumi.CustomResource):
 
         > **IMPORTANT:** This resource uses name-first matching to identify and update rules. When migrating from individual `AppSignonPolicyRule` resources, ensure rule names remain consistent to enable safe adoption without data loss.
 
+        > **NOTE ON RENAMING RULES:** If you rename a rule without explicitly preserving its `id`, the provider will treat it as a deletion of the old rule and creation of a new rule. To rename a rule while preserving its configuration and ID, you must explicitly set the `id` attribute in your configuration before changing the `name`. For example:
         ## Example Usage
 
         ```python

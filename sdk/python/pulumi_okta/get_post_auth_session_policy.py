@@ -91,7 +91,12 @@ def get_post_auth_session_policy(opts: Optional[pulumi.InvokeOptions] = None) ->
 
     ## Example Usage
 
-    {{tffile "examples/data-sources/okta_post_auth_session_policy/data-source.tf"}}
+    ```python
+    import pulumi
+    import pulumi_okta as okta
+
+    example = okta.get_post_auth_session_policy()
+    ```
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -108,7 +113,12 @@ def get_post_auth_session_policy_output(opts: Optional[Union[pulumi.InvokeOption
 
     ## Example Usage
 
-    {{tffile "examples/data-sources/okta_post_auth_session_policy/data-source.tf"}}
+    ```python
+    import pulumi
+    import pulumi_okta as okta
+
+    example = okta.get_post_auth_session_policy()
+    ```
     """
     __args__ = dict()
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)

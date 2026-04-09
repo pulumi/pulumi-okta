@@ -267,6 +267,10 @@ namespace Pulumi.Okta.App
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// Network restrictions for the application client.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetOauthNetworkResult> Networks;
+        /// <summary>
         /// URI to web page providing client policy document.
         /// </summary>
         public readonly string PolicyUri;
@@ -339,6 +343,8 @@ namespace Pulumi.Okta.App
 
             string name,
 
+            ImmutableArray<Outputs.GetOauthNetworkResult> networks,
+
             string policyUri,
 
             ImmutableArray<string> postLogoutRedirectUris,
@@ -374,6 +380,7 @@ namespace Pulumi.Okta.App
             LoginUri = loginUri;
             LogoUri = logoUri;
             Name = name;
+            Networks = networks;
             PolicyUri = policyUri;
             PostLogoutRedirectUris = postLogoutRedirectUris;
             RedirectUris = redirectUris;

@@ -53,6 +53,8 @@ __all__ = [
     'OAuthGroupsClaimArgsDict',
     'OAuthJwkArgs',
     'OAuthJwkArgsDict',
+    'OAuthNetworkArgs',
+    'OAuthNetworkArgsDict',
     'SamlAcsEndpointsIndexArgs',
     'SamlAcsEndpointsIndexArgsDict',
     'SamlAttributeStatementArgs',
@@ -1280,6 +1282,74 @@ class OAuthJwkArgs:
         pulumi.set(self, "y", value)
 
 
+class OAuthNetworkArgsDict(TypedDict):
+    connection: pulumi.Input[_builtins.str]
+    """
+    The network connection type. Can be `ANYWHERE` or `ZONE`.
+    """
+    excludes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The network zones to exclude. Only applicable when `connection` is `ZONE`. Accepts `ALL_IP_ZONES` or specific zone IDs. Defaults to no zones excluded if not specified.
+    """
+    includes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The network zones to include. Only applicable when `connection` is `ZONE`. Accepts `ALL_IP_ZONES` or specific zone IDs. Defaults to no zones included if not specified.
+    """
+
+@pulumi.input_type
+class OAuthNetworkArgs:
+    def __init__(__self__, *,
+                 connection: pulumi.Input[_builtins.str],
+                 excludes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 includes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[_builtins.str] connection: The network connection type. Can be `ANYWHERE` or `ZONE`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] excludes: The network zones to exclude. Only applicable when `connection` is `ZONE`. Accepts `ALL_IP_ZONES` or specific zone IDs. Defaults to no zones excluded if not specified.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] includes: The network zones to include. Only applicable when `connection` is `ZONE`. Accepts `ALL_IP_ZONES` or specific zone IDs. Defaults to no zones included if not specified.
+        """
+        pulumi.set(__self__, "connection", connection)
+        if excludes is not None:
+            pulumi.set(__self__, "excludes", excludes)
+        if includes is not None:
+            pulumi.set(__self__, "includes", includes)
+
+    @_builtins.property
+    @pulumi.getter
+    def connection(self) -> pulumi.Input[_builtins.str]:
+        """
+        The network connection type. Can be `ANYWHERE` or `ZONE`.
+        """
+        return pulumi.get(self, "connection")
+
+    @connection.setter
+    def connection(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "connection", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def excludes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        The network zones to exclude. Only applicable when `connection` is `ZONE`. Accepts `ALL_IP_ZONES` or specific zone IDs. Defaults to no zones excluded if not specified.
+        """
+        return pulumi.get(self, "excludes")
+
+    @excludes.setter
+    def excludes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "excludes", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def includes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        The network zones to include. Only applicable when `connection` is `ZONE`. Accepts `ALL_IP_ZONES` or specific zone IDs. Defaults to no zones included if not specified.
+        """
+        return pulumi.get(self, "includes")
+
+    @includes.setter
+    def includes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "includes", value)
+
+
 class SamlAcsEndpointsIndexArgsDict(TypedDict):
     index: pulumi.Input[_builtins.int]
     url: pulumi.Input[_builtins.str]
@@ -1650,6 +1720,10 @@ class SignonPolicyRulesRuleArgsDict(TypedDict):
     """
     Access decision: ALLOW or DENY.
     """
+    chains: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of authentication method chain objects as JSON-encoded strings. Use with `type = "AUTH_METHOD_CHAIN"` only.
+    """
     constraints: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
     """
     List of authenticator constraints as JSON-encoded strings.
@@ -1712,7 +1786,7 @@ class SignonPolicyRulesRuleArgsDict(TypedDict):
     """
     re_authentication_frequency: NotRequired[pulumi.Input[_builtins.str]]
     """
-    Re-authentication frequency in ISO 8601 duration format (e.g., PT2H for 2 hours).
+    Re-authentication frequency in ISO 8601 duration format (e.g., PT2H for 2 hours). When using authentication chains with reauthenticateIn, this value is computed by the API based on the chain configuration.
     """
     risk_score: NotRequired[pulumi.Input[_builtins.str]]
     """
@@ -1752,6 +1826,7 @@ class SignonPolicyRulesRuleArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
                  access: Optional[pulumi.Input[_builtins.str]] = None,
+                 chains: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  constraints: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  custom_expression: Optional[pulumi.Input[_builtins.str]] = None,
                  device_assurances_includeds: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -1779,6 +1854,7 @@ class SignonPolicyRulesRuleArgs:
         """
         :param pulumi.Input[_builtins.str] name: Policy Rule Name. Must be unique within the policy.
         :param pulumi.Input[_builtins.str] access: Access decision: ALLOW or DENY.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] chains: List of authentication method chain objects as JSON-encoded strings. Use with `type = "AUTH_METHOD_CHAIN"` only.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] constraints: List of authenticator constraints as JSON-encoded strings.
         :param pulumi.Input[_builtins.str] custom_expression: Custom Okta Expression Language condition for advanced matching.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] device_assurances_includeds: Set of device assurance policy IDs to include.
@@ -1794,7 +1870,7 @@ class SignonPolicyRulesRuleArgs:
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] network_includes: List of network zone IDs to include.
         :param pulumi.Input[Sequence[pulumi.Input['SignonPolicyRulesRulePlatformIncludeArgs']]] platform_includes: Platform conditions to include.
         :param pulumi.Input[_builtins.int] priority: Priority of the rule. Lower numbers are evaluated first.
-        :param pulumi.Input[_builtins.str] re_authentication_frequency: Re-authentication frequency in ISO 8601 duration format (e.g., PT2H for 2 hours).
+        :param pulumi.Input[_builtins.str] re_authentication_frequency: Re-authentication frequency in ISO 8601 duration format (e.g., PT2H for 2 hours). When using authentication chains with reauthenticateIn, this value is computed by the API based on the chain configuration.
         :param pulumi.Input[_builtins.str] risk_score: Risk score level to match: ANY, LOW, MEDIUM, or HIGH.
         :param pulumi.Input[_builtins.str] status: Status of the rule: ACTIVE or INACTIVE.
         :param pulumi.Input[_builtins.bool] system: Whether this is a system rule (e.g., Catch-all Rule). System rules cannot be modified.
@@ -1807,6 +1883,8 @@ class SignonPolicyRulesRuleArgs:
         pulumi.set(__self__, "name", name)
         if access is not None:
             pulumi.set(__self__, "access", access)
+        if chains is not None:
+            pulumi.set(__self__, "chains", chains)
         if constraints is not None:
             pulumi.set(__self__, "constraints", constraints)
         if custom_expression is not None:
@@ -1879,6 +1957,18 @@ class SignonPolicyRulesRuleArgs:
     @access.setter
     def access(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "access", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def chains(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        List of authentication method chain objects as JSON-encoded strings. Use with `type = "AUTH_METHOD_CHAIN"` only.
+        """
+        return pulumi.get(self, "chains")
+
+    @chains.setter
+    def chains(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "chains", value)
 
     @_builtins.property
     @pulumi.getter
@@ -2064,7 +2154,7 @@ class SignonPolicyRulesRuleArgs:
     @pulumi.getter(name="reAuthenticationFrequency")
     def re_authentication_frequency(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Re-authentication frequency in ISO 8601 duration format (e.g., PT2H for 2 hours).
+        Re-authentication frequency in ISO 8601 duration format (e.g., PT2H for 2 hours). When using authentication chains with reauthenticateIn, this value is computed by the API based on the chain configuration.
         """
         return pulumi.get(self, "re_authentication_frequency")
 
