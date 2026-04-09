@@ -82,8 +82,8 @@ require (
 	github.com/go-git/gcfg v1.5.1-0.20230307220236-3a3c6141e376 // indirect
 	github.com/go-git/go-billy/v5 v5.6.2 // indirect
 	github.com/go-git/go-git/v5 v5.16.5 // indirect
-	github.com/go-jose/go-jose/v3 v3.0.4 // indirect
-	github.com/go-jose/go-jose/v4 v4.1.3 // indirect
+	github.com/go-jose/go-jose/v3 v3.0.5 // indirect
+	github.com/go-jose/go-jose/v4 v4.1.4 // indirect
 	github.com/go-logr/logr v1.4.3 // indirect
 	github.com/go-logr/stdr v1.2.2 // indirect
 	github.com/goccy/go-json v0.10.5 // indirect
@@ -169,7 +169,7 @@ require (
 	github.com/okta/okta-governance-sdk-golang v1.0.1 // indirect
 	github.com/okta/okta-sdk-golang/v4 v4.1.2 // indirect
 	github.com/okta/okta-sdk-golang/v5 v5.0.6 // indirect
-	github.com/okta/okta-sdk-golang/v6 v6.0.4 // indirect
+	github.com/okta/okta-sdk-golang/v6 v6.1.5 // indirect
 	github.com/olekukonko/cat v0.0.0-20250911104152-50322a0618f6 // indirect
 	github.com/olekukonko/errors v1.1.0 // indirect
 	github.com/olekukonko/ll v0.1.4-0.20260115111900-9e59c2286df0 // indirect

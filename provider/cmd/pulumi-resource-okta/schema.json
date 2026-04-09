@@ -42,7 +42,7 @@
             "respectSchemaVersion": true
         },
         "nodejs": {
-            "packageDescription": "A Pulumi package for creating and managing okta resources.. Based on terraform-provider-okta: version v6.7.0",
+            "packageDescription": "A Pulumi package for creating and managing okta resources.. Based on terraform-provider-okta: version v6.8.0",
             "readme": "\u003e This provider is a derived work of the [Terraform Provider](https://github.com/okta/terraform-provider-okta)\n\u003e distributed under [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/). If you encounter a bug or missing feature,\n\u003e first check the [`pulumi-okta` repo](https://github.com/pulumi/pulumi-okta/issues); however, if that doesn't turn up anything,\n\u003e please consult the source [`terraform-provider-okta` repo](https://github.com/okta/terraform-provider-okta/issues).",
             "devDependencies": {
                 "@types/mime": "^2.0.0",
@@ -463,6 +463,32 @@
                 "kty"
             ]
         },
+        "okta:app/OAuthNetwork:OAuthNetwork": {
+            "properties": {
+                "connection": {
+                    "type": "string",
+                    "description": "The network connection type. Can be `ANYWHERE` or `ZONE`.\n"
+                },
+                "excludes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The network zones to exclude. Only applicable when \u003cspan pulumi-lang-nodejs=\"`connection`\" pulumi-lang-dotnet=\"`Connection`\" pulumi-lang-go=\"`connection`\" pulumi-lang-python=\"`connection`\" pulumi-lang-yaml=\"`connection`\" pulumi-lang-java=\"`connection`\"\u003e`connection`\u003c/span\u003e is `ZONE`. Accepts `ALL_IP_ZONES` or specific zone IDs. Defaults to no zones excluded if not specified.\n"
+                },
+                "includes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The network zones to include. Only applicable when \u003cspan pulumi-lang-nodejs=\"`connection`\" pulumi-lang-dotnet=\"`Connection`\" pulumi-lang-go=\"`connection`\" pulumi-lang-python=\"`connection`\" pulumi-lang-yaml=\"`connection`\" pulumi-lang-java=\"`connection`\"\u003e`connection`\u003c/span\u003e is `ZONE`. Accepts `ALL_IP_ZONES` or specific zone IDs. Defaults to no zones included if not specified.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "connection"
+            ]
+        },
         "okta:app/SamlAcsEndpointsIndex:SamlAcsEndpointsIndex": {
             "properties": {
                 "index": {
@@ -582,6 +608,13 @@
                     "type": "string",
                     "description": "Access decision: ALLOW or DENY.\n"
                 },
+                "chains": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of authentication method chain objects as JSON-encoded strings. Use with `type = \"AUTH_METHOD_CHAIN\"` only.\n"
+                },
                 "constraints": {
                     "type": "array",
                     "items": {
@@ -669,7 +702,7 @@
                 },
                 "reAuthenticationFrequency": {
                     "type": "string",
-                    "description": "Re-authentication frequency in ISO 8601 duration format (e.g., PT2H for 2 hours).\n"
+                    "description": "Re-authentication frequency in ISO 8601 duration format (e.g., PT2H for 2 hours). When using authentication chains with reauthenticateIn, this value is computed by the API based on the chain configuration.\n"
                 },
                 "riskScore": {
                     "type": "string",
@@ -1051,6 +1084,39 @@
                 }
             }
         },
+        "okta:app/getOauthNetwork:getOauthNetwork": {
+            "properties": {
+                "connection": {
+                    "type": "string",
+                    "description": "The network connection type. Can be `ANYWHERE` or `ZONE`.\n"
+                },
+                "excludes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "IP zones to exclude when \u003cspan pulumi-lang-nodejs=\"`connection`\" pulumi-lang-dotnet=\"`Connection`\" pulumi-lang-go=\"`connection`\" pulumi-lang-python=\"`connection`\" pulumi-lang-yaml=\"`connection`\" pulumi-lang-java=\"`connection`\"\u003e`connection`\u003c/span\u003e is `ZONE`. Can be `ALL_IP_ZONES` or specific zone IDs.\n"
+                },
+                "includes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "IP zones to include when \u003cspan pulumi-lang-nodejs=\"`connection`\" pulumi-lang-dotnet=\"`Connection`\" pulumi-lang-go=\"`connection`\" pulumi-lang-python=\"`connection`\" pulumi-lang-yaml=\"`connection`\" pulumi-lang-java=\"`connection`\"\u003e`connection`\u003c/span\u003e is `ZONE`. Can be `ALL_IP_ZONES` or specific zone IDs.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "connection",
+                "excludes",
+                "includes"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
         "okta:app/getSamlAttributeStatement:getSamlAttributeStatement": {
             "properties": {
                 "filterType": {
@@ -1151,6 +1217,23 @@
                     "requiredInputs": []
                 }
             }
+        },
+        "okta:group/OwnersOwner:OwnersOwner": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The ID of the owner entity.\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "The entity type of the owner. Enum: \"GROUP\" \"USER\"\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "id",
+                "type"
+            ]
         },
         "okta:index/AgentPoolUpdateAgent:AgentPoolUpdateAgent": {
             "properties": {
@@ -8086,8 +8169,17 @@
                 },
                 "clientBasicSecret": {
                     "type": "string",
-                    "description": "The user provided OAuth client secret key value, this can be set when token*endpoint*auth*method is client*secret*basic. This does nothing when `omit*secret is set to true.\n",
+                    "description": "The user provided OAuth client secret key value. When set, this secret will be stored in the Terraform state file. For Terraform 1.11+, consider using \u003cspan pulumi-lang-nodejs=\"`clientBasicSecretWo`\" pulumi-lang-dotnet=\"`ClientBasicSecretWo`\" pulumi-lang-go=\"`clientBasicSecretWo`\" pulumi-lang-python=\"`client_basic_secret_wo`\" pulumi-lang-yaml=\"`clientBasicSecretWo`\" pulumi-lang-java=\"`clientBasicSecretWo`\"\u003e`clientBasicSecretWo`\u003c/span\u003e instead to avoid persisting secrets in state. Either \u003cspan pulumi-lang-nodejs=\"`clientBasicSecret`\" pulumi-lang-dotnet=\"`ClientBasicSecret`\" pulumi-lang-go=\"`clientBasicSecret`\" pulumi-lang-python=\"`client_basic_secret`\" pulumi-lang-yaml=\"`clientBasicSecret`\" pulumi-lang-java=\"`clientBasicSecret`\"\u003e`clientBasicSecret`\u003c/span\u003e or \u003cspan pulumi-lang-nodejs=\"`clientBasicSecretWo`\" pulumi-lang-dotnet=\"`ClientBasicSecretWo`\" pulumi-lang-go=\"`clientBasicSecretWo`\" pulumi-lang-python=\"`client_basic_secret_wo`\" pulumi-lang-yaml=\"`clientBasicSecretWo`\" pulumi-lang-java=\"`clientBasicSecretWo`\"\u003e`clientBasicSecretWo`\u003c/span\u003e can be specified, but not both.\n",
                     "secret": true
+                },
+                "clientBasicSecretWo": {
+                    "type": "string",
+                    "description": "**NOTE:** This field is write-only and its value will not be updated in state as part of read operations.\nThe user provided write-only OAuth client secret key value for Terraform 1.11+. Unlike \u003cspan pulumi-lang-nodejs=\"`clientBasicSecret`\" pulumi-lang-dotnet=\"`ClientBasicSecret`\" pulumi-lang-go=\"`clientBasicSecret`\" pulumi-lang-python=\"`client_basic_secret`\" pulumi-lang-yaml=\"`clientBasicSecret`\" pulumi-lang-java=\"`clientBasicSecret`\"\u003e`clientBasicSecret`\u003c/span\u003e, this secret will not be persisted in the Terraform state file, providing improved security. Only use this attribute with Terraform 1.11 or higher. Either \u003cspan pulumi-lang-nodejs=\"`clientBasicSecret`\" pulumi-lang-dotnet=\"`ClientBasicSecret`\" pulumi-lang-go=\"`clientBasicSecret`\" pulumi-lang-python=\"`client_basic_secret`\" pulumi-lang-yaml=\"`clientBasicSecret`\" pulumi-lang-java=\"`clientBasicSecret`\"\u003e`clientBasicSecret`\u003c/span\u003e or \u003cspan pulumi-lang-nodejs=\"`clientBasicSecretWo`\" pulumi-lang-dotnet=\"`ClientBasicSecretWo`\" pulumi-lang-go=\"`clientBasicSecretWo`\" pulumi-lang-python=\"`client_basic_secret_wo`\" pulumi-lang-yaml=\"`clientBasicSecretWo`\" pulumi-lang-java=\"`clientBasicSecretWo`\"\u003e`clientBasicSecretWo`\u003c/span\u003e can be specified, but not both.\n",
+                    "secret": true
+                },
+                "clientBasicSecretWoVersion": {
+                    "type": "integer",
+                    "description": "Version number for the write-only client secret. Increment this value to trigger an update when changing \u003cspan pulumi-lang-nodejs=\"`clientBasicSecretWo`\" pulumi-lang-dotnet=\"`ClientBasicSecretWo`\" pulumi-lang-go=\"`clientBasicSecretWo`\" pulumi-lang-python=\"`client_basic_secret_wo`\" pulumi-lang-yaml=\"`clientBasicSecretWo`\" pulumi-lang-java=\"`clientBasicSecretWo`\"\u003e`clientBasicSecretWo`\u003c/span\u003e.\n"
                 },
                 "clientId": {
                     "type": "string",
@@ -8191,6 +8283,10 @@
                 "name": {
                     "type": "string",
                     "description": "Name of the app.\n"
+                },
+                "network": {
+                    "$ref": "#/types/okta:app/OAuthNetwork:OAuthNetwork",
+                    "description": "Network restrictions for the application client. Only one \u003cspan pulumi-lang-nodejs=\"`network`\" pulumi-lang-dotnet=\"`Network`\" pulumi-lang-go=\"`network`\" pulumi-lang-python=\"`network`\" pulumi-lang-yaml=\"`network`\" pulumi-lang-java=\"`network`\"\u003e`network`\u003c/span\u003e block may be defined.\n"
                 },
                 "omitSecret": {
                     "type": "boolean",
@@ -8338,8 +8434,17 @@
                 },
                 "clientBasicSecret": {
                     "type": "string",
-                    "description": "The user provided OAuth client secret key value, this can be set when token*endpoint*auth*method is client*secret*basic. This does nothing when `omit*secret is set to true.\n",
+                    "description": "The user provided OAuth client secret key value. When set, this secret will be stored in the Terraform state file. For Terraform 1.11+, consider using \u003cspan pulumi-lang-nodejs=\"`clientBasicSecretWo`\" pulumi-lang-dotnet=\"`ClientBasicSecretWo`\" pulumi-lang-go=\"`clientBasicSecretWo`\" pulumi-lang-python=\"`client_basic_secret_wo`\" pulumi-lang-yaml=\"`clientBasicSecretWo`\" pulumi-lang-java=\"`clientBasicSecretWo`\"\u003e`clientBasicSecretWo`\u003c/span\u003e instead to avoid persisting secrets in state. Either \u003cspan pulumi-lang-nodejs=\"`clientBasicSecret`\" pulumi-lang-dotnet=\"`ClientBasicSecret`\" pulumi-lang-go=\"`clientBasicSecret`\" pulumi-lang-python=\"`client_basic_secret`\" pulumi-lang-yaml=\"`clientBasicSecret`\" pulumi-lang-java=\"`clientBasicSecret`\"\u003e`clientBasicSecret`\u003c/span\u003e or \u003cspan pulumi-lang-nodejs=\"`clientBasicSecretWo`\" pulumi-lang-dotnet=\"`ClientBasicSecretWo`\" pulumi-lang-go=\"`clientBasicSecretWo`\" pulumi-lang-python=\"`client_basic_secret_wo`\" pulumi-lang-yaml=\"`clientBasicSecretWo`\" pulumi-lang-java=\"`clientBasicSecretWo`\"\u003e`clientBasicSecretWo`\u003c/span\u003e can be specified, but not both.\n",
                     "secret": true
+                },
+                "clientBasicSecretWo": {
+                    "type": "string",
+                    "description": "**NOTE:** This field is write-only and its value will not be updated in state as part of read operations.\nThe user provided write-only OAuth client secret key value for Terraform 1.11+. Unlike \u003cspan pulumi-lang-nodejs=\"`clientBasicSecret`\" pulumi-lang-dotnet=\"`ClientBasicSecret`\" pulumi-lang-go=\"`clientBasicSecret`\" pulumi-lang-python=\"`client_basic_secret`\" pulumi-lang-yaml=\"`clientBasicSecret`\" pulumi-lang-java=\"`clientBasicSecret`\"\u003e`clientBasicSecret`\u003c/span\u003e, this secret will not be persisted in the Terraform state file, providing improved security. Only use this attribute with Terraform 1.11 or higher. Either \u003cspan pulumi-lang-nodejs=\"`clientBasicSecret`\" pulumi-lang-dotnet=\"`ClientBasicSecret`\" pulumi-lang-go=\"`clientBasicSecret`\" pulumi-lang-python=\"`client_basic_secret`\" pulumi-lang-yaml=\"`clientBasicSecret`\" pulumi-lang-java=\"`clientBasicSecret`\"\u003e`clientBasicSecret`\u003c/span\u003e or \u003cspan pulumi-lang-nodejs=\"`clientBasicSecretWo`\" pulumi-lang-dotnet=\"`ClientBasicSecretWo`\" pulumi-lang-go=\"`clientBasicSecretWo`\" pulumi-lang-python=\"`client_basic_secret_wo`\" pulumi-lang-yaml=\"`clientBasicSecretWo`\" pulumi-lang-java=\"`clientBasicSecretWo`\"\u003e`clientBasicSecretWo`\u003c/span\u003e can be specified, but not both.\n",
+                    "secret": true
+                },
+                "clientBasicSecretWoVersion": {
+                    "type": "integer",
+                    "description": "Version number for the write-only client secret. Increment this value to trigger an update when changing \u003cspan pulumi-lang-nodejs=\"`clientBasicSecretWo`\" pulumi-lang-dotnet=\"`ClientBasicSecretWo`\" pulumi-lang-go=\"`clientBasicSecretWo`\" pulumi-lang-python=\"`client_basic_secret_wo`\" pulumi-lang-yaml=\"`clientBasicSecretWo`\" pulumi-lang-java=\"`clientBasicSecretWo`\"\u003e`clientBasicSecretWo`\u003c/span\u003e.\n"
                 },
                 "clientId": {
                     "type": "string",
@@ -8431,6 +8536,10 @@
                 "logoUri": {
                     "type": "string",
                     "description": "URI that references a logo for the client.\n"
+                },
+                "network": {
+                    "$ref": "#/types/okta:app/OAuthNetwork:OAuthNetwork",
+                    "description": "Network restrictions for the application client. Only one \u003cspan pulumi-lang-nodejs=\"`network`\" pulumi-lang-dotnet=\"`Network`\" pulumi-lang-go=\"`network`\" pulumi-lang-python=\"`network`\" pulumi-lang-yaml=\"`network`\" pulumi-lang-java=\"`network`\"\u003e`network`\u003c/span\u003e block may be defined.\n"
                 },
                 "omitSecret": {
                     "type": "boolean",
@@ -8568,8 +8677,17 @@
                     },
                     "clientBasicSecret": {
                         "type": "string",
-                        "description": "The user provided OAuth client secret key value, this can be set when token*endpoint*auth*method is client*secret*basic. This does nothing when `omit*secret is set to true.\n",
+                        "description": "The user provided OAuth client secret key value. When set, this secret will be stored in the Terraform state file. For Terraform 1.11+, consider using \u003cspan pulumi-lang-nodejs=\"`clientBasicSecretWo`\" pulumi-lang-dotnet=\"`ClientBasicSecretWo`\" pulumi-lang-go=\"`clientBasicSecretWo`\" pulumi-lang-python=\"`client_basic_secret_wo`\" pulumi-lang-yaml=\"`clientBasicSecretWo`\" pulumi-lang-java=\"`clientBasicSecretWo`\"\u003e`clientBasicSecretWo`\u003c/span\u003e instead to avoid persisting secrets in state. Either \u003cspan pulumi-lang-nodejs=\"`clientBasicSecret`\" pulumi-lang-dotnet=\"`ClientBasicSecret`\" pulumi-lang-go=\"`clientBasicSecret`\" pulumi-lang-python=\"`client_basic_secret`\" pulumi-lang-yaml=\"`clientBasicSecret`\" pulumi-lang-java=\"`clientBasicSecret`\"\u003e`clientBasicSecret`\u003c/span\u003e or \u003cspan pulumi-lang-nodejs=\"`clientBasicSecretWo`\" pulumi-lang-dotnet=\"`ClientBasicSecretWo`\" pulumi-lang-go=\"`clientBasicSecretWo`\" pulumi-lang-python=\"`client_basic_secret_wo`\" pulumi-lang-yaml=\"`clientBasicSecretWo`\" pulumi-lang-java=\"`clientBasicSecretWo`\"\u003e`clientBasicSecretWo`\u003c/span\u003e can be specified, but not both.\n",
                         "secret": true
+                    },
+                    "clientBasicSecretWo": {
+                        "type": "string",
+                        "description": "**NOTE:** This field is write-only and its value will not be updated in state as part of read operations.\nThe user provided write-only OAuth client secret key value for Terraform 1.11+. Unlike \u003cspan pulumi-lang-nodejs=\"`clientBasicSecret`\" pulumi-lang-dotnet=\"`ClientBasicSecret`\" pulumi-lang-go=\"`clientBasicSecret`\" pulumi-lang-python=\"`client_basic_secret`\" pulumi-lang-yaml=\"`clientBasicSecret`\" pulumi-lang-java=\"`clientBasicSecret`\"\u003e`clientBasicSecret`\u003c/span\u003e, this secret will not be persisted in the Terraform state file, providing improved security. Only use this attribute with Terraform 1.11 or higher. Either \u003cspan pulumi-lang-nodejs=\"`clientBasicSecret`\" pulumi-lang-dotnet=\"`ClientBasicSecret`\" pulumi-lang-go=\"`clientBasicSecret`\" pulumi-lang-python=\"`client_basic_secret`\" pulumi-lang-yaml=\"`clientBasicSecret`\" pulumi-lang-java=\"`clientBasicSecret`\"\u003e`clientBasicSecret`\u003c/span\u003e or \u003cspan pulumi-lang-nodejs=\"`clientBasicSecretWo`\" pulumi-lang-dotnet=\"`ClientBasicSecretWo`\" pulumi-lang-go=\"`clientBasicSecretWo`\" pulumi-lang-python=\"`client_basic_secret_wo`\" pulumi-lang-yaml=\"`clientBasicSecretWo`\" pulumi-lang-java=\"`clientBasicSecretWo`\"\u003e`clientBasicSecretWo`\u003c/span\u003e can be specified, but not both.\n",
+                        "secret": true
+                    },
+                    "clientBasicSecretWoVersion": {
+                        "type": "integer",
+                        "description": "Version number for the write-only client secret. Increment this value to trigger an update when changing \u003cspan pulumi-lang-nodejs=\"`clientBasicSecretWo`\" pulumi-lang-dotnet=\"`ClientBasicSecretWo`\" pulumi-lang-go=\"`clientBasicSecretWo`\" pulumi-lang-python=\"`client_basic_secret_wo`\" pulumi-lang-yaml=\"`clientBasicSecretWo`\" pulumi-lang-java=\"`clientBasicSecretWo`\"\u003e`clientBasicSecretWo`\u003c/span\u003e.\n"
                     },
                     "clientId": {
                         "type": "string",
@@ -8674,6 +8792,10 @@
                     "name": {
                         "type": "string",
                         "description": "Name of the app.\n"
+                    },
+                    "network": {
+                        "$ref": "#/types/okta:app/OAuthNetwork:OAuthNetwork",
+                        "description": "Network restrictions for the application client. Only one \u003cspan pulumi-lang-nodejs=\"`network`\" pulumi-lang-dotnet=\"`Network`\" pulumi-lang-go=\"`network`\" pulumi-lang-python=\"`network`\" pulumi-lang-yaml=\"`network`\" pulumi-lang-java=\"`network`\"\u003e`network`\u003c/span\u003e block may be defined.\n"
                     },
                     "omitSecret": {
                         "type": "boolean",
@@ -10103,7 +10225,7 @@
             }
         },
         "okta:app/signonPolicyRules:SignonPolicyRules": {
-            "description": "## #\u003cspan pulumi-lang-nodejs=\" okta.app.SignonPolicyRules\n\" pulumi-lang-dotnet=\" okta.app.SignonPolicyRules\n\" pulumi-lang-go=\" app.SignonPolicyRules\n\" pulumi-lang-python=\" app.SignonPolicyRules\n\" pulumi-lang-yaml=\" okta.app.SignonPolicyRules\n\" pulumi-lang-java=\" okta.app.SignonPolicyRules\n\"\u003e okta.app.SignonPolicyRules\n\u003c/span\u003e\nManages multiple app sign-on policy rules for a single policy. This resource allows you to define all rules for a policy in a single configuration block, ensuring consistent priority ordering and avoiding drift issues.\n\n\u003e **IMPORTANT:** This resource uses name-first matching to identify and update rules. When migrating from individual \u003cspan pulumi-lang-nodejs=\"`okta.AppSignonPolicyRule`\" pulumi-lang-dotnet=\"`okta.AppSignonPolicyRule`\" pulumi-lang-go=\"`AppSignonPolicyRule`\" pulumi-lang-python=\"`AppSignonPolicyRule`\" pulumi-lang-yaml=\"`okta.AppSignonPolicyRule`\" pulumi-lang-java=\"`okta.AppSignonPolicyRule`\"\u003e`okta.AppSignonPolicyRule`\u003c/span\u003e resources, ensure rule names remain consistent to enable safe adoption without data loss.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst example = new okta.app.SignonPolicyRules(\"example\", {\n    policyId: exampleOktaAppSignonPolicy.id,\n    rules: [\n        {\n            name: \"High Priority Rule\",\n            priority: 1,\n            factorMode: \"2FA\",\n            reAuthenticationFrequency: \"PT2H\",\n            status: \"ACTIVE\",\n        },\n        {\n            name: \"Low Priority Rule\",\n            priority: 2,\n            factorMode: \"1FA\",\n            access: \"ALLOW\",\n            status: \"ACTIVE\",\n        },\n        {\n            name: \"Deny Rule\",\n            priority: 3,\n            access: \"DENY\",\n            status: \"ACTIVE\",\n        },\n    ],\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample = okta.app.SignonPolicyRules(\"example\",\n    policy_id=example_okta_app_signon_policy[\"id\"],\n    rules=[\n        {\n            \"name\": \"High Priority Rule\",\n            \"priority\": 1,\n            \"factor_mode\": \"2FA\",\n            \"re_authentication_frequency\": \"PT2H\",\n            \"status\": \"ACTIVE\",\n        },\n        {\n            \"name\": \"Low Priority Rule\",\n            \"priority\": 2,\n            \"factor_mode\": \"1FA\",\n            \"access\": \"ALLOW\",\n            \"status\": \"ACTIVE\",\n        },\n        {\n            \"name\": \"Deny Rule\",\n            \"priority\": 3,\n            \"access\": \"DENY\",\n            \"status\": \"ACTIVE\",\n        },\n    ])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new Okta.App.SignonPolicyRules(\"example\", new()\n    {\n        PolicyId = exampleOktaAppSignonPolicy.Id,\n        Rules = new[]\n        {\n            new Okta.App.Inputs.SignonPolicyRulesRuleArgs\n            {\n                Name = \"High Priority Rule\",\n                Priority = 1,\n                FactorMode = \"2FA\",\n                ReAuthenticationFrequency = \"PT2H\",\n                Status = \"ACTIVE\",\n            },\n            new Okta.App.Inputs.SignonPolicyRulesRuleArgs\n            {\n                Name = \"Low Priority Rule\",\n                Priority = 2,\n                FactorMode = \"1FA\",\n                Access = \"ALLOW\",\n                Status = \"ACTIVE\",\n            },\n            new Okta.App.Inputs.SignonPolicyRulesRuleArgs\n            {\n                Name = \"Deny Rule\",\n                Priority = 3,\n                Access = \"DENY\",\n                Status = \"ACTIVE\",\n            },\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v6/go/okta/app\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := app.NewSignonPolicyRules(ctx, \"example\", \u0026app.SignonPolicyRulesArgs{\n\t\t\tPolicyId: pulumi.Any(exampleOktaAppSignonPolicy.Id),\n\t\t\tRules: app.SignonPolicyRulesRuleArray{\n\t\t\t\t\u0026app.SignonPolicyRulesRuleArgs{\n\t\t\t\t\tName:                      pulumi.String(\"High Priority Rule\"),\n\t\t\t\t\tPriority:                  pulumi.Int(1),\n\t\t\t\t\tFactorMode:                pulumi.String(\"2FA\"),\n\t\t\t\t\tReAuthenticationFrequency: pulumi.String(\"PT2H\"),\n\t\t\t\t\tStatus:                    pulumi.String(\"ACTIVE\"),\n\t\t\t\t},\n\t\t\t\t\u0026app.SignonPolicyRulesRuleArgs{\n\t\t\t\t\tName:       pulumi.String(\"Low Priority Rule\"),\n\t\t\t\t\tPriority:   pulumi.Int(2),\n\t\t\t\t\tFactorMode: pulumi.String(\"1FA\"),\n\t\t\t\t\tAccess:     pulumi.String(\"ALLOW\"),\n\t\t\t\t\tStatus:     pulumi.String(\"ACTIVE\"),\n\t\t\t\t},\n\t\t\t\t\u0026app.SignonPolicyRulesRuleArgs{\n\t\t\t\t\tName:     pulumi.String(\"Deny Rule\"),\n\t\t\t\t\tPriority: pulumi.Int(3),\n\t\t\t\t\tAccess:   pulumi.String(\"DENY\"),\n\t\t\t\t\tStatus:   pulumi.String(\"ACTIVE\"),\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.okta.app.SignonPolicyRules;\nimport com.pulumi.okta.app.SignonPolicyRulesArgs;\nimport com.pulumi.okta.app.inputs.SignonPolicyRulesRuleArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new SignonPolicyRules(\"example\", SignonPolicyRulesArgs.builder()\n            .policyId(exampleOktaAppSignonPolicy.id())\n            .rules(            \n                SignonPolicyRulesRuleArgs.builder()\n                    .name(\"High Priority Rule\")\n                    .priority(1)\n                    .factorMode(\"2FA\")\n                    .reAuthenticationFrequency(\"PT2H\")\n                    .status(\"ACTIVE\")\n                    .build(),\n                SignonPolicyRulesRuleArgs.builder()\n                    .name(\"Low Priority Rule\")\n                    .priority(2)\n                    .factorMode(\"1FA\")\n                    .access(\"ALLOW\")\n                    .status(\"ACTIVE\")\n                    .build(),\n                SignonPolicyRulesRuleArgs.builder()\n                    .name(\"Deny Rule\")\n                    .priority(3)\n                    .access(\"DENY\")\n                    .status(\"ACTIVE\")\n                    .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: okta:app:SignonPolicyRules\n    properties:\n      policyId: ${exampleOktaAppSignonPolicy.id}\n      rules:\n        - name: High Priority Rule\n          priority: 1\n          factorMode: 2FA\n          reAuthenticationFrequency: PT2H\n          status: ACTIVE\n        - name: Low Priority Rule\n          priority: 2\n          factorMode: 1FA\n          access: ALLOW\n          status: ACTIVE\n        - name: Deny Rule\n          priority: 3\n          access: DENY\n          status: ACTIVE\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Priority Management\n\n\u003e **IMPORTANT:** When managing priorities, follow Okta's top-down synchronization strategy to avoid automatic priority shifting. Always update rules in priority order (P1 → PN) to prevent cascading shifts.\n\n### Priority Behavior\n\n- Priorities are **0-indexed** but can be any positive integer.\n- When you omit \u003cspan pulumi-lang-nodejs=\"`priority`\" pulumi-lang-dotnet=\"`Priority`\" pulumi-lang-go=\"`priority`\" pulumi-lang-python=\"`priority`\" pulumi-lang-yaml=\"`priority`\" pulumi-lang-java=\"`priority`\"\u003e`priority`\u003c/span\u003e in config, Terraform will display the actual priority assigned by Okta in the state.\n- Okta allows gaps in priorities (e.g., priorities 1, 2, 5, 99 are valid).\n- **Maximum of 99 rules per policy:** You can define up to 99 custom rules. Priority 99 is reserved for the system Catch-all Rule.\n- If you update multiple rules simultaneously and priorities conflict, Okta may automatically shift priorities to resolve conflicts. To prevent this:\n  1. Use explicit, sequential priority values (1, 2, 3, 4, 5).\n  2. Avoid updating rules with the same priority.\n  3. Consider using temporary high priorities (100+) if reordering is needed.\n\n### System Rules and Catch-all Rule\n\n- **Catch-all Rule:** Every policy includes a system-level Catch-all Rule with priority 99. This is the default rule that applies if no other rules match.\n- **Immutable:** System rules (like \"Catch-all Rule\") cannot be modified, deleted, or have their conditions/priorities changed.\n- **Import behavior:** If you import a policy with a Catch-all Rule, it will appear in your state but cannot be managed by Terraform. Omit it from your configuration.\n\n## Migration from\u003cspan pulumi-lang-nodejs=\" okta.AppSignonPolicyRule\n\" pulumi-lang-dotnet=\" okta.AppSignonPolicyRule\n\" pulumi-lang-go=\" AppSignonPolicyRule\n\" pulumi-lang-python=\" AppSignonPolicyRule\n\" pulumi-lang-yaml=\" okta.AppSignonPolicyRule\n\" pulumi-lang-java=\" okta.AppSignonPolicyRule\n\"\u003e okta.AppSignonPolicyRule\n\u003c/span\u003e\nIf you currently use multiple individual \u003cspan pulumi-lang-nodejs=\"`okta.AppSignonPolicyRule`\" pulumi-lang-dotnet=\"`okta.AppSignonPolicyRule`\" pulumi-lang-go=\"`AppSignonPolicyRule`\" pulumi-lang-python=\"`AppSignonPolicyRule`\" pulumi-lang-yaml=\"`okta.AppSignonPolicyRule`\" pulumi-lang-java=\"`okta.AppSignonPolicyRule`\"\u003e`okta.AppSignonPolicyRule`\u003c/span\u003e resources, follow these steps to safely migrate to the grouped resource:\n\n### Step 1: Backup Your State\n\n```bash\npulumi state pull \u003e terraform-state-backup.json\n```\n\n### Step 2: Identify Rule IDs and Names\n\nList all rules in your policy to identify their IDs and names:\n\n```bash\n# Using Terraform state\npulumi state show 'okta_app_signon_policy_rule.rule1'\n```\n\n\n### Step 4: Create the Grouped Resource Configuration\n\nCreate a new \u003cspan pulumi-lang-nodejs=\"`okta.app.SignonPolicyRules`\" pulumi-lang-dotnet=\"`okta.app.SignonPolicyRules`\" pulumi-lang-go=\"`app.SignonPolicyRules`\" pulumi-lang-python=\"`app.SignonPolicyRules`\" pulumi-lang-yaml=\"`okta.app.SignonPolicyRules`\" pulumi-lang-java=\"`okta.app.SignonPolicyRules`\"\u003e`okta.app.SignonPolicyRules`\u003c/span\u003e resource with the same rules. Use **rule names as the matching key** (do NOT include \u003cspan pulumi-lang-nodejs=\"`id`\" pulumi-lang-dotnet=\"`Id`\" pulumi-lang-go=\"`id`\" pulumi-lang-python=\"`id`\" pulumi-lang-yaml=\"`id`\" pulumi-lang-java=\"`id`\"\u003e`id`\u003c/span\u003e unless adopting an existing rule):\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst migrated = new okta.app.SignonPolicyRules(\"migrated\", {\n    policyId: myPolicy.id,\n    rules: [\n        {\n            name: \"High Priority Rule\",\n            priority: 1,\n            factorMode: \"2FA\",\n            reAuthenticationFrequency: \"PT2H\",\n            status: \"ACTIVE\",\n        },\n        {\n            name: \"Second Rule\",\n            priority: 2,\n            factorMode: \"1FA\",\n            status: \"ACTIVE\",\n        },\n        {\n            name: \"Deny Rule\",\n            priority: 3,\n            access: \"DENY\",\n            status: \"ACTIVE\",\n        },\n    ],\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nmigrated = okta.app.SignonPolicyRules(\"migrated\",\n    policy_id=my_policy[\"id\"],\n    rules=[\n        {\n            \"name\": \"High Priority Rule\",\n            \"priority\": 1,\n            \"factor_mode\": \"2FA\",\n            \"re_authentication_frequency\": \"PT2H\",\n            \"status\": \"ACTIVE\",\n        },\n        {\n            \"name\": \"Second Rule\",\n            \"priority\": 2,\n            \"factor_mode\": \"1FA\",\n            \"status\": \"ACTIVE\",\n        },\n        {\n            \"name\": \"Deny Rule\",\n            \"priority\": 3,\n            \"access\": \"DENY\",\n            \"status\": \"ACTIVE\",\n        },\n    ])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var migrated = new Okta.App.SignonPolicyRules(\"migrated\", new()\n    {\n        PolicyId = myPolicy.Id,\n        Rules = new[]\n        {\n            new Okta.App.Inputs.SignonPolicyRulesRuleArgs\n            {\n                Name = \"High Priority Rule\",\n                Priority = 1,\n                FactorMode = \"2FA\",\n                ReAuthenticationFrequency = \"PT2H\",\n                Status = \"ACTIVE\",\n            },\n            new Okta.App.Inputs.SignonPolicyRulesRuleArgs\n            {\n                Name = \"Second Rule\",\n                Priority = 2,\n                FactorMode = \"1FA\",\n                Status = \"ACTIVE\",\n            },\n            new Okta.App.Inputs.SignonPolicyRulesRuleArgs\n            {\n                Name = \"Deny Rule\",\n                Priority = 3,\n                Access = \"DENY\",\n                Status = \"ACTIVE\",\n            },\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v6/go/okta/app\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := app.NewSignonPolicyRules(ctx, \"migrated\", \u0026app.SignonPolicyRulesArgs{\n\t\t\tPolicyId: pulumi.Any(myPolicy.Id),\n\t\t\tRules: app.SignonPolicyRulesRuleArray{\n\t\t\t\t\u0026app.SignonPolicyRulesRuleArgs{\n\t\t\t\t\tName:                      pulumi.String(\"High Priority Rule\"),\n\t\t\t\t\tPriority:                  pulumi.Int(1),\n\t\t\t\t\tFactorMode:                pulumi.String(\"2FA\"),\n\t\t\t\t\tReAuthenticationFrequency: pulumi.String(\"PT2H\"),\n\t\t\t\t\tStatus:                    pulumi.String(\"ACTIVE\"),\n\t\t\t\t},\n\t\t\t\t\u0026app.SignonPolicyRulesRuleArgs{\n\t\t\t\t\tName:       pulumi.String(\"Second Rule\"),\n\t\t\t\t\tPriority:   pulumi.Int(2),\n\t\t\t\t\tFactorMode: pulumi.String(\"1FA\"),\n\t\t\t\t\tStatus:     pulumi.String(\"ACTIVE\"),\n\t\t\t\t},\n\t\t\t\t\u0026app.SignonPolicyRulesRuleArgs{\n\t\t\t\t\tName:     pulumi.String(\"Deny Rule\"),\n\t\t\t\t\tPriority: pulumi.Int(3),\n\t\t\t\t\tAccess:   pulumi.String(\"DENY\"),\n\t\t\t\t\tStatus:   pulumi.String(\"ACTIVE\"),\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.okta.app.SignonPolicyRules;\nimport com.pulumi.okta.app.SignonPolicyRulesArgs;\nimport com.pulumi.okta.app.inputs.SignonPolicyRulesRuleArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var migrated = new SignonPolicyRules(\"migrated\", SignonPolicyRulesArgs.builder()\n            .policyId(myPolicy.id())\n            .rules(            \n                SignonPolicyRulesRuleArgs.builder()\n                    .name(\"High Priority Rule\")\n                    .priority(1)\n                    .factorMode(\"2FA\")\n                    .reAuthenticationFrequency(\"PT2H\")\n                    .status(\"ACTIVE\")\n                    .build(),\n                SignonPolicyRulesRuleArgs.builder()\n                    .name(\"Second Rule\")\n                    .priority(2)\n                    .factorMode(\"1FA\")\n                    .status(\"ACTIVE\")\n                    .build(),\n                SignonPolicyRulesRuleArgs.builder()\n                    .name(\"Deny Rule\")\n                    .priority(3)\n                    .access(\"DENY\")\n                    .status(\"ACTIVE\")\n                    .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  migrated:\n    type: okta:app:SignonPolicyRules\n    properties:\n      policyId: ${myPolicy.id}\n      rules:\n        - name: High Priority Rule\n          priority: 1\n          factorMode: 2FA\n          reAuthenticationFrequency: PT2H\n          status: ACTIVE\n        - name: Second Rule\n          priority: 2\n          factorMode: 1FA\n          status: ACTIVE\n        - name: Deny Rule\n          priority: 3\n          access: DENY\n          status: ACTIVE\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n### Step 5: Plan and Verify\n\nRun `pulumi preview` to see if any changes will be made:\n\n```bash\npulumi preview -out migration.tfplan\n```\n\n**Expected outcome:** Either \"No changes\" or only legitimate config updates. If the plan shows unexpected deletes or recreates:\n- Verify rule names match exactly (case-sensitive).\n- Check that attributes (access, factor_mode, etc.) match Okta's current state.\n- Ensure you're not declaring system rules (e.g., Catch-all Rule).\n\n### Step 6: Apply the Migration\n\n```bash\npulumi up migration.tfplan\n```\n\n### Step 6: Verify Final State\n\n```bash\npulumi preview\n# Output should show: No changes. Your infrastructure matches the configuration.\n```\n\n## Important Migration Notes\n\n### Priority Differences\n\nWhen migrating from \u003cspan pulumi-lang-nodejs=\"`okta.AppSignonPolicyRule`\" pulumi-lang-dotnet=\"`okta.AppSignonPolicyRule`\" pulumi-lang-go=\"`AppSignonPolicyRule`\" pulumi-lang-python=\"`AppSignonPolicyRule`\" pulumi-lang-yaml=\"`okta.AppSignonPolicyRule`\" pulumi-lang-java=\"`okta.AppSignonPolicyRule`\"\u003e`okta.AppSignonPolicyRule`\u003c/span\u003e (single-rule resource) to \u003cspan pulumi-lang-nodejs=\"`okta.app.SignonPolicyRules`\" pulumi-lang-dotnet=\"`okta.app.SignonPolicyRules`\" pulumi-lang-go=\"`app.SignonPolicyRules`\" pulumi-lang-python=\"`app.SignonPolicyRules`\" pulumi-lang-yaml=\"`okta.app.SignonPolicyRules`\" pulumi-lang-java=\"`okta.app.SignonPolicyRules`\"\u003e`okta.app.SignonPolicyRules`\u003c/span\u003e (grouped resource):\n\n- **Old behavior:** Single-rule resource defaults to `priority = 0` in Terraform state, even if Okta assigned a different priority.\n- **New behavior:** Grouped resource reflects the actual priority assigned by Okta. When you omit \u003cspan pulumi-lang-nodejs=\"`priority`\" pulumi-lang-dotnet=\"`Priority`\" pulumi-lang-go=\"`priority`\" pulumi-lang-python=\"`priority`\" pulumi-lang-yaml=\"`priority`\" pulumi-lang-java=\"`priority`\"\u003e`priority`\u003c/span\u003e, the state will show the real Okta-assigned priority.\n\n**Action:** Explicitly set \u003cspan pulumi-lang-nodejs=\"`priority`\" pulumi-lang-dotnet=\"`Priority`\" pulumi-lang-go=\"`priority`\" pulumi-lang-python=\"`priority`\" pulumi-lang-yaml=\"`priority`\" pulumi-lang-java=\"`priority`\"\u003e`priority`\u003c/span\u003e values in your configuration to avoid unexpected changes during migration.\n\n### Name-First Matching\n\nThe grouped resource matches rules by **name first**, not by ID:\n\n- If you rename a rule in config, the provider will match it to the existing rule by the new name.\n- If a name doesn't exist in Okta, a new rule is created.\n- This design prevents accidental re-matching when state order differs from config order.\n\n### System Rules\n\nSystem rules (e.g., \"Catch-all Rule\") cannot be managed:\n\n- If your policy has a system rule, do NOT declare it in your configuration.\n- The provider will detect it during import/read but will not attempt to modify or delete it.\n- System rules are read-only from Terraform's perspective.\n\n## Troubleshooting\n\n### Plan shows \"1 to change\" but config matches Okta\n\n**Cause:** State and config rule order differ, triggering re-matching.\n\n**Solution:** Verify rule names match exactly (case-sensitive) and attributes are correct. Run `pulumi preview -refresh=true` to refresh state from Okta.\n\n### Priorities shift unexpectedly after apply\n\n**Cause:** Okta automatically shifts priorities when updates conflict. This is expected behavior per Okta's prioritization rules.\n\n**Solution:** Use explicit, sequential priorities (1, 2, 3, ...) instead of 0-indexed or sparse values. Avoid updating multiple rules simultaneously with overlapping priorities.\n\n### Error: \"System rule cannot be modified\"\n\n**Cause:** You attempted to set conditions on a system rule (Catch-all Rule).\n\n**Solution:** Remove the system rule from your configuration. System rules are immutable.\n\n## See Also\n\n-\u003cspan pulumi-lang-nodejs=\" okta.AppSignonPolicy \" pulumi-lang-dotnet=\" okta.AppSignonPolicy \" pulumi-lang-go=\" AppSignonPolicy \" pulumi-lang-python=\" AppSignonPolicy \" pulumi-lang-yaml=\" okta.AppSignonPolicy \" pulumi-lang-java=\" okta.AppSignonPolicy \"\u003e okta.AppSignonPolicy \u003c/span\u003e- Create and manage app sign-on policies.\n- [Okta Policy Rule Prioritization Guide](https://developer.okta.com/docs/guides/policy-rule-prioritization/main/) - Learn about priority management and top-down synchronization.\n\n## Import\n\nImport an existing policy's rules:\n\n```sh\n$ pulumi import okta:app/signonPolicyRules:SignonPolicyRules example \u003cpolicy_id\u003e\n```\n\nThis will populate your state with all rules for the policy (including system rules). Update your configuration to match.\n\n",
+            "description": "## #\u003cspan pulumi-lang-nodejs=\" okta.app.SignonPolicyRules\n\" pulumi-lang-dotnet=\" okta.app.SignonPolicyRules\n\" pulumi-lang-go=\" app.SignonPolicyRules\n\" pulumi-lang-python=\" app.SignonPolicyRules\n\" pulumi-lang-yaml=\" okta.app.SignonPolicyRules\n\" pulumi-lang-java=\" okta.app.SignonPolicyRules\n\"\u003e okta.app.SignonPolicyRules\n\u003c/span\u003e\nManages multiple app sign-on policy rules for a single policy. This resource allows you to define all rules for a policy in a single configuration block, ensuring consistent priority ordering and avoiding drift issues.\n\n\u003e **IMPORTANT:** This resource uses name-first matching to identify and update rules. When migrating from individual \u003cspan pulumi-lang-nodejs=\"`okta.AppSignonPolicyRule`\" pulumi-lang-dotnet=\"`okta.AppSignonPolicyRule`\" pulumi-lang-go=\"`AppSignonPolicyRule`\" pulumi-lang-python=\"`AppSignonPolicyRule`\" pulumi-lang-yaml=\"`okta.AppSignonPolicyRule`\" pulumi-lang-java=\"`okta.AppSignonPolicyRule`\"\u003e`okta.AppSignonPolicyRule`\u003c/span\u003e resources, ensure rule names remain consistent to enable safe adoption without data loss.\n\n\u003e **NOTE ON RENAMING RULES:** If you rename a rule without explicitly preserving its \u003cspan pulumi-lang-nodejs=\"`id`\" pulumi-lang-dotnet=\"`Id`\" pulumi-lang-go=\"`id`\" pulumi-lang-python=\"`id`\" pulumi-lang-yaml=\"`id`\" pulumi-lang-java=\"`id`\"\u003e`id`\u003c/span\u003e, the provider will treat it as a deletion of the old rule and creation of a new rule. To rename a rule while preserving its configuration and ID, you must explicitly set the \u003cspan pulumi-lang-nodejs=\"`id`\" pulumi-lang-dotnet=\"`Id`\" pulumi-lang-go=\"`id`\" pulumi-lang-python=\"`id`\" pulumi-lang-yaml=\"`id`\" pulumi-lang-java=\"`id`\"\u003e`id`\u003c/span\u003e attribute in your configuration before changing the \u003cspan pulumi-lang-nodejs=\"`name`\" pulumi-lang-dotnet=\"`Name`\" pulumi-lang-go=\"`name`\" pulumi-lang-python=\"`name`\" pulumi-lang-yaml=\"`name`\" pulumi-lang-java=\"`name`\"\u003e`name`\u003c/span\u003e. For example:\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst example = new okta.app.SignonPolicyRules(\"example\", {\n    policyId: exampleOktaAppSignonPolicy.id,\n    rules: [\n        {\n            name: \"High Priority Rule\",\n            priority: 1,\n            factorMode: \"2FA\",\n            reAuthenticationFrequency: \"PT2H\",\n            status: \"ACTIVE\",\n        },\n        {\n            name: \"Low Priority Rule\",\n            priority: 2,\n            factorMode: \"1FA\",\n            access: \"ALLOW\",\n            status: \"ACTIVE\",\n        },\n        {\n            name: \"Deny Rule\",\n            priority: 3,\n            access: \"DENY\",\n            status: \"ACTIVE\",\n        },\n    ],\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample = okta.app.SignonPolicyRules(\"example\",\n    policy_id=example_okta_app_signon_policy[\"id\"],\n    rules=[\n        {\n            \"name\": \"High Priority Rule\",\n            \"priority\": 1,\n            \"factor_mode\": \"2FA\",\n            \"re_authentication_frequency\": \"PT2H\",\n            \"status\": \"ACTIVE\",\n        },\n        {\n            \"name\": \"Low Priority Rule\",\n            \"priority\": 2,\n            \"factor_mode\": \"1FA\",\n            \"access\": \"ALLOW\",\n            \"status\": \"ACTIVE\",\n        },\n        {\n            \"name\": \"Deny Rule\",\n            \"priority\": 3,\n            \"access\": \"DENY\",\n            \"status\": \"ACTIVE\",\n        },\n    ])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new Okta.App.SignonPolicyRules(\"example\", new()\n    {\n        PolicyId = exampleOktaAppSignonPolicy.Id,\n        Rules = new[]\n        {\n            new Okta.App.Inputs.SignonPolicyRulesRuleArgs\n            {\n                Name = \"High Priority Rule\",\n                Priority = 1,\n                FactorMode = \"2FA\",\n                ReAuthenticationFrequency = \"PT2H\",\n                Status = \"ACTIVE\",\n            },\n            new Okta.App.Inputs.SignonPolicyRulesRuleArgs\n            {\n                Name = \"Low Priority Rule\",\n                Priority = 2,\n                FactorMode = \"1FA\",\n                Access = \"ALLOW\",\n                Status = \"ACTIVE\",\n            },\n            new Okta.App.Inputs.SignonPolicyRulesRuleArgs\n            {\n                Name = \"Deny Rule\",\n                Priority = 3,\n                Access = \"DENY\",\n                Status = \"ACTIVE\",\n            },\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v6/go/okta/app\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := app.NewSignonPolicyRules(ctx, \"example\", \u0026app.SignonPolicyRulesArgs{\n\t\t\tPolicyId: pulumi.Any(exampleOktaAppSignonPolicy.Id),\n\t\t\tRules: app.SignonPolicyRulesRuleArray{\n\t\t\t\t\u0026app.SignonPolicyRulesRuleArgs{\n\t\t\t\t\tName:                      pulumi.String(\"High Priority Rule\"),\n\t\t\t\t\tPriority:                  pulumi.Int(1),\n\t\t\t\t\tFactorMode:                pulumi.String(\"2FA\"),\n\t\t\t\t\tReAuthenticationFrequency: pulumi.String(\"PT2H\"),\n\t\t\t\t\tStatus:                    pulumi.String(\"ACTIVE\"),\n\t\t\t\t},\n\t\t\t\t\u0026app.SignonPolicyRulesRuleArgs{\n\t\t\t\t\tName:       pulumi.String(\"Low Priority Rule\"),\n\t\t\t\t\tPriority:   pulumi.Int(2),\n\t\t\t\t\tFactorMode: pulumi.String(\"1FA\"),\n\t\t\t\t\tAccess:     pulumi.String(\"ALLOW\"),\n\t\t\t\t\tStatus:     pulumi.String(\"ACTIVE\"),\n\t\t\t\t},\n\t\t\t\t\u0026app.SignonPolicyRulesRuleArgs{\n\t\t\t\t\tName:     pulumi.String(\"Deny Rule\"),\n\t\t\t\t\tPriority: pulumi.Int(3),\n\t\t\t\t\tAccess:   pulumi.String(\"DENY\"),\n\t\t\t\t\tStatus:   pulumi.String(\"ACTIVE\"),\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.okta.app.SignonPolicyRules;\nimport com.pulumi.okta.app.SignonPolicyRulesArgs;\nimport com.pulumi.okta.app.inputs.SignonPolicyRulesRuleArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new SignonPolicyRules(\"example\", SignonPolicyRulesArgs.builder()\n            .policyId(exampleOktaAppSignonPolicy.id())\n            .rules(            \n                SignonPolicyRulesRuleArgs.builder()\n                    .name(\"High Priority Rule\")\n                    .priority(1)\n                    .factorMode(\"2FA\")\n                    .reAuthenticationFrequency(\"PT2H\")\n                    .status(\"ACTIVE\")\n                    .build(),\n                SignonPolicyRulesRuleArgs.builder()\n                    .name(\"Low Priority Rule\")\n                    .priority(2)\n                    .factorMode(\"1FA\")\n                    .access(\"ALLOW\")\n                    .status(\"ACTIVE\")\n                    .build(),\n                SignonPolicyRulesRuleArgs.builder()\n                    .name(\"Deny Rule\")\n                    .priority(3)\n                    .access(\"DENY\")\n                    .status(\"ACTIVE\")\n                    .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: okta:app:SignonPolicyRules\n    properties:\n      policyId: ${exampleOktaAppSignonPolicy.id}\n      rules:\n        - name: High Priority Rule\n          priority: 1\n          factorMode: 2FA\n          reAuthenticationFrequency: PT2H\n          status: ACTIVE\n        - name: Low Priority Rule\n          priority: 2\n          factorMode: 1FA\n          access: ALLOW\n          status: ACTIVE\n        - name: Deny Rule\n          priority: 3\n          access: DENY\n          status: ACTIVE\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Priority Management\n\n\u003e **IMPORTANT:** When managing priorities, follow Okta's top-down synchronization strategy to avoid automatic priority shifting. Always update rules in priority order (P1 → PN) to prevent cascading shifts.\n\n### Priority Behavior\n\n- Priorities are **0-indexed** but can be any positive integer.\n- When you omit \u003cspan pulumi-lang-nodejs=\"`priority`\" pulumi-lang-dotnet=\"`Priority`\" pulumi-lang-go=\"`priority`\" pulumi-lang-python=\"`priority`\" pulumi-lang-yaml=\"`priority`\" pulumi-lang-java=\"`priority`\"\u003e`priority`\u003c/span\u003e in config, Terraform will display the actual priority assigned by Okta in the state.\n- Okta allows gaps in priorities (e.g., priorities 1, 2, 5, 99 are valid).\n- **Maximum of 99 rules per policy:** You can define up to 99 custom rules. Priority 99 is reserved for the system Catch-all Rule.\n- If you update multiple rules simultaneously and priorities conflict, Okta may automatically shift priorities to resolve conflicts. To prevent this:\n  1. Use explicit, sequential priority values (1, 2, 3, 4, 5).\n  2. Avoid updating rules with the same priority.\n  3. Consider using temporary high priorities (100+) if reordering is needed.\n\n### System Rules and Catch-all Rule\n\n- **Catch-all Rule:** Every policy includes a system-level Catch-all Rule with priority 99. This is the default rule that applies if no other rules match.\n- **Immutable:** System rules (like \"Catch-all Rule\") cannot be modified, deleted, or have their conditions/priorities changed.\n- **Import behavior:** If you import a policy with a Catch-all Rule, it will appear in your state but cannot be managed by Terraform. Omit it from your configuration.\n\n## Migration from\u003cspan pulumi-lang-nodejs=\" okta.AppSignonPolicyRule\n\" pulumi-lang-dotnet=\" okta.AppSignonPolicyRule\n\" pulumi-lang-go=\" AppSignonPolicyRule\n\" pulumi-lang-python=\" AppSignonPolicyRule\n\" pulumi-lang-yaml=\" okta.AppSignonPolicyRule\n\" pulumi-lang-java=\" okta.AppSignonPolicyRule\n\"\u003e okta.AppSignonPolicyRule\n\u003c/span\u003e\nIf you currently use multiple individual \u003cspan pulumi-lang-nodejs=\"`okta.AppSignonPolicyRule`\" pulumi-lang-dotnet=\"`okta.AppSignonPolicyRule`\" pulumi-lang-go=\"`AppSignonPolicyRule`\" pulumi-lang-python=\"`AppSignonPolicyRule`\" pulumi-lang-yaml=\"`okta.AppSignonPolicyRule`\" pulumi-lang-java=\"`okta.AppSignonPolicyRule`\"\u003e`okta.AppSignonPolicyRule`\u003c/span\u003e resources, follow these steps to safely migrate to the grouped resource:\n\n### Step 1: Backup Your State\n\n```bash\npulumi state pull \u003e terraform-state-backup.json\n```\n\n### Step 2: Identify Rule IDs and Names\n\nList all rules in your policy to identify their IDs and names:\n\n```bash\n# Using Terraform state\npulumi state show 'okta_app_signon_policy_rule.rule1'\n```\n\n\n### Step 4: Create the Grouped Resource Configuration\n\nCreate a new \u003cspan pulumi-lang-nodejs=\"`okta.app.SignonPolicyRules`\" pulumi-lang-dotnet=\"`okta.app.SignonPolicyRules`\" pulumi-lang-go=\"`app.SignonPolicyRules`\" pulumi-lang-python=\"`app.SignonPolicyRules`\" pulumi-lang-yaml=\"`okta.app.SignonPolicyRules`\" pulumi-lang-java=\"`okta.app.SignonPolicyRules`\"\u003e`okta.app.SignonPolicyRules`\u003c/span\u003e resource with the same rules. Use **rule names as the matching key** (do NOT include \u003cspan pulumi-lang-nodejs=\"`id`\" pulumi-lang-dotnet=\"`Id`\" pulumi-lang-go=\"`id`\" pulumi-lang-python=\"`id`\" pulumi-lang-yaml=\"`id`\" pulumi-lang-java=\"`id`\"\u003e`id`\u003c/span\u003e unless adopting an existing rule):\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst migrated = new okta.app.SignonPolicyRules(\"migrated\", {\n    policyId: myPolicy.id,\n    rules: [\n        {\n            name: \"High Priority Rule\",\n            priority: 1,\n            factorMode: \"2FA\",\n            reAuthenticationFrequency: \"PT2H\",\n            status: \"ACTIVE\",\n        },\n        {\n            name: \"Second Rule\",\n            priority: 2,\n            factorMode: \"1FA\",\n            status: \"ACTIVE\",\n        },\n        {\n            name: \"Deny Rule\",\n            priority: 3,\n            access: \"DENY\",\n            status: \"ACTIVE\",\n        },\n    ],\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nmigrated = okta.app.SignonPolicyRules(\"migrated\",\n    policy_id=my_policy[\"id\"],\n    rules=[\n        {\n            \"name\": \"High Priority Rule\",\n            \"priority\": 1,\n            \"factor_mode\": \"2FA\",\n            \"re_authentication_frequency\": \"PT2H\",\n            \"status\": \"ACTIVE\",\n        },\n        {\n            \"name\": \"Second Rule\",\n            \"priority\": 2,\n            \"factor_mode\": \"1FA\",\n            \"status\": \"ACTIVE\",\n        },\n        {\n            \"name\": \"Deny Rule\",\n            \"priority\": 3,\n            \"access\": \"DENY\",\n            \"status\": \"ACTIVE\",\n        },\n    ])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var migrated = new Okta.App.SignonPolicyRules(\"migrated\", new()\n    {\n        PolicyId = myPolicy.Id,\n        Rules = new[]\n        {\n            new Okta.App.Inputs.SignonPolicyRulesRuleArgs\n            {\n                Name = \"High Priority Rule\",\n                Priority = 1,\n                FactorMode = \"2FA\",\n                ReAuthenticationFrequency = \"PT2H\",\n                Status = \"ACTIVE\",\n            },\n            new Okta.App.Inputs.SignonPolicyRulesRuleArgs\n            {\n                Name = \"Second Rule\",\n                Priority = 2,\n                FactorMode = \"1FA\",\n                Status = \"ACTIVE\",\n            },\n            new Okta.App.Inputs.SignonPolicyRulesRuleArgs\n            {\n                Name = \"Deny Rule\",\n                Priority = 3,\n                Access = \"DENY\",\n                Status = \"ACTIVE\",\n            },\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v6/go/okta/app\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := app.NewSignonPolicyRules(ctx, \"migrated\", \u0026app.SignonPolicyRulesArgs{\n\t\t\tPolicyId: pulumi.Any(myPolicy.Id),\n\t\t\tRules: app.SignonPolicyRulesRuleArray{\n\t\t\t\t\u0026app.SignonPolicyRulesRuleArgs{\n\t\t\t\t\tName:                      pulumi.String(\"High Priority Rule\"),\n\t\t\t\t\tPriority:                  pulumi.Int(1),\n\t\t\t\t\tFactorMode:                pulumi.String(\"2FA\"),\n\t\t\t\t\tReAuthenticationFrequency: pulumi.String(\"PT2H\"),\n\t\t\t\t\tStatus:                    pulumi.String(\"ACTIVE\"),\n\t\t\t\t},\n\t\t\t\t\u0026app.SignonPolicyRulesRuleArgs{\n\t\t\t\t\tName:       pulumi.String(\"Second Rule\"),\n\t\t\t\t\tPriority:   pulumi.Int(2),\n\t\t\t\t\tFactorMode: pulumi.String(\"1FA\"),\n\t\t\t\t\tStatus:     pulumi.String(\"ACTIVE\"),\n\t\t\t\t},\n\t\t\t\t\u0026app.SignonPolicyRulesRuleArgs{\n\t\t\t\t\tName:     pulumi.String(\"Deny Rule\"),\n\t\t\t\t\tPriority: pulumi.Int(3),\n\t\t\t\t\tAccess:   pulumi.String(\"DENY\"),\n\t\t\t\t\tStatus:   pulumi.String(\"ACTIVE\"),\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.okta.app.SignonPolicyRules;\nimport com.pulumi.okta.app.SignonPolicyRulesArgs;\nimport com.pulumi.okta.app.inputs.SignonPolicyRulesRuleArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var migrated = new SignonPolicyRules(\"migrated\", SignonPolicyRulesArgs.builder()\n            .policyId(myPolicy.id())\n            .rules(            \n                SignonPolicyRulesRuleArgs.builder()\n                    .name(\"High Priority Rule\")\n                    .priority(1)\n                    .factorMode(\"2FA\")\n                    .reAuthenticationFrequency(\"PT2H\")\n                    .status(\"ACTIVE\")\n                    .build(),\n                SignonPolicyRulesRuleArgs.builder()\n                    .name(\"Second Rule\")\n                    .priority(2)\n                    .factorMode(\"1FA\")\n                    .status(\"ACTIVE\")\n                    .build(),\n                SignonPolicyRulesRuleArgs.builder()\n                    .name(\"Deny Rule\")\n                    .priority(3)\n                    .access(\"DENY\")\n                    .status(\"ACTIVE\")\n                    .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  migrated:\n    type: okta:app:SignonPolicyRules\n    properties:\n      policyId: ${myPolicy.id}\n      rules:\n        - name: High Priority Rule\n          priority: 1\n          factorMode: 2FA\n          reAuthenticationFrequency: PT2H\n          status: ACTIVE\n        - name: Second Rule\n          priority: 2\n          factorMode: 1FA\n          status: ACTIVE\n        - name: Deny Rule\n          priority: 3\n          access: DENY\n          status: ACTIVE\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n### Step 5: Plan and Verify\n\nRun `pulumi preview` to see if any changes will be made:\n\n```bash\npulumi preview -out migration.tfplan\n```\n\n**Expected outcome:** Either \"No changes\" or only legitimate config updates. If the plan shows unexpected deletes or recreates:\n- Verify rule names match exactly (case-sensitive).\n- Check that attributes (access, factor_mode, etc.) match Okta's current state.\n- Ensure you're not declaring system rules (e.g., Catch-all Rule).\n\n### Step 6: Apply the Migration\n\n```bash\npulumi up migration.tfplan\n```\n\n### Step 6: Verify Final State\n\n```bash\npulumi preview\n# Output should show: No changes. Your infrastructure matches the configuration.\n```\n\n## Important Migration Notes\n\n### Priority Differences\n\nWhen migrating from \u003cspan pulumi-lang-nodejs=\"`okta.AppSignonPolicyRule`\" pulumi-lang-dotnet=\"`okta.AppSignonPolicyRule`\" pulumi-lang-go=\"`AppSignonPolicyRule`\" pulumi-lang-python=\"`AppSignonPolicyRule`\" pulumi-lang-yaml=\"`okta.AppSignonPolicyRule`\" pulumi-lang-java=\"`okta.AppSignonPolicyRule`\"\u003e`okta.AppSignonPolicyRule`\u003c/span\u003e (single-rule resource) to \u003cspan pulumi-lang-nodejs=\"`okta.app.SignonPolicyRules`\" pulumi-lang-dotnet=\"`okta.app.SignonPolicyRules`\" pulumi-lang-go=\"`app.SignonPolicyRules`\" pulumi-lang-python=\"`app.SignonPolicyRules`\" pulumi-lang-yaml=\"`okta.app.SignonPolicyRules`\" pulumi-lang-java=\"`okta.app.SignonPolicyRules`\"\u003e`okta.app.SignonPolicyRules`\u003c/span\u003e (grouped resource):\n\n- **Old behavior:** Single-rule resource defaults to `priority = 0` in Terraform state, even if Okta assigned a different priority.\n- **New behavior:** Grouped resource reflects the actual priority assigned by Okta. When you omit \u003cspan pulumi-lang-nodejs=\"`priority`\" pulumi-lang-dotnet=\"`Priority`\" pulumi-lang-go=\"`priority`\" pulumi-lang-python=\"`priority`\" pulumi-lang-yaml=\"`priority`\" pulumi-lang-java=\"`priority`\"\u003e`priority`\u003c/span\u003e, the state will show the real Okta-assigned priority.\n\n**Action:** Explicitly set \u003cspan pulumi-lang-nodejs=\"`priority`\" pulumi-lang-dotnet=\"`Priority`\" pulumi-lang-go=\"`priority`\" pulumi-lang-python=\"`priority`\" pulumi-lang-yaml=\"`priority`\" pulumi-lang-java=\"`priority`\"\u003e`priority`\u003c/span\u003e values in your configuration to avoid unexpected changes during migration.\n\n### Name-First Matching\n\nThe grouped resource matches rules by **name first**, not by ID:\n\n- If you rename a rule in config, the provider will match it to the existing rule by the new name.\n- If a name doesn't exist in Okta, a new rule is created.\n- This design prevents accidental re-matching when state order differs from config order.\n\n### System Rules\n\nSystem rules (e.g., \"Catch-all Rule\") cannot be managed:\n\n- If your policy has a system rule, do NOT declare it in your configuration.\n- The provider will detect it during import/read but will not attempt to modify or delete it.\n- System rules are read-only from Terraform's perspective.\n\n## Troubleshooting\n\n### Plan shows \"1 to change\" but config matches Okta\n\n**Cause:** State and config rule order differ, triggering re-matching.\n\n**Solution:** Verify rule names match exactly (case-sensitive) and attributes are correct. Run `pulumi preview -refresh=true` to refresh state from Okta.\n\n### Priorities shift unexpectedly after apply\n\n**Cause:** Okta automatically shifts priorities when updates conflict. This is expected behavior per Okta's prioritization rules.\n\n**Solution:** Use explicit, sequential priorities (1, 2, 3, ...) instead of 0-indexed or sparse values. Avoid updating multiple rules simultaneously with overlapping priorities.\n\n### Error: \"System rule cannot be modified\"\n\n**Cause:** You attempted to set conditions on a system rule (Catch-all Rule).\n\n**Solution:** Remove the system rule from your configuration. System rules are immutable.\n\n## See Also\n\n-\u003cspan pulumi-lang-nodejs=\" okta.AppSignonPolicy \" pulumi-lang-dotnet=\" okta.AppSignonPolicy \" pulumi-lang-go=\" AppSignonPolicy \" pulumi-lang-python=\" AppSignonPolicy \" pulumi-lang-yaml=\" okta.AppSignonPolicy \" pulumi-lang-java=\" okta.AppSignonPolicy \"\u003e okta.AppSignonPolicy \u003c/span\u003e- Create and manage app sign-on policies.\n- [Okta Policy Rule Prioritization Guide](https://developer.okta.com/docs/guides/policy-rule-prioritization/main/) - Learn about priority management and top-down synchronization.\n\n## Import\n\nImport an existing policy's rules:\n\n```sh\n$ pulumi import okta:app/signonPolicyRules:SignonPolicyRules example \u003cpolicy_id\u003e\n```\n\nThis will populate your state with all rules for the policy (including system rules). Update your configuration to match.\n\n",
             "properties": {
                 "policyId": {
                     "type": "string",
@@ -12051,6 +12173,58 @@
                 "type": "object"
             }
         },
+        "okta:group/owners:Owners": {
+            "description": "Manage owners for a group in bulk. Uses the\u003cspan pulumi-lang-nodejs=\" groupId \" pulumi-lang-dotnet=\" GroupId \" pulumi-lang-go=\" groupId \" pulumi-lang-python=\" group_id \" pulumi-lang-yaml=\" groupId \" pulumi-lang-java=\" groupId \"\u003e groupId \u003c/span\u003eas the resource ID. The resource is authoritative: any owners on the group not declared in configuration will be removed.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst owner1 = new okta.user.User(\"owner1\", {\n    firstName: \"Alice\",\n    lastName: \"Owner\",\n    login: \"alice-owner@example.com\",\n    email: \"alice-owner@example.com\",\n});\nconst owner2 = new okta.user.User(\"owner2\", {\n    firstName: \"Bob\",\n    lastName: \"Owner\",\n    login: \"bob-owner@example.com\",\n    email: \"bob-owner@example.com\",\n});\nconst grp = new okta.group.Group(\"grp\", {name: \"demo-group\"});\nconst owners = new okta.group.Owners(\"owners\", {\n    groupId: grp.id,\n    owners: [\n        {\n            type: \"USER\",\n            id: owner1.id,\n        },\n        {\n            type: \"USER\",\n            id: owner2.id,\n        },\n    ],\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nowner1 = okta.user.User(\"owner1\",\n    first_name=\"Alice\",\n    last_name=\"Owner\",\n    login=\"alice-owner@example.com\",\n    email=\"alice-owner@example.com\")\nowner2 = okta.user.User(\"owner2\",\n    first_name=\"Bob\",\n    last_name=\"Owner\",\n    login=\"bob-owner@example.com\",\n    email=\"bob-owner@example.com\")\ngrp = okta.group.Group(\"grp\", name=\"demo-group\")\nowners = okta.group.Owners(\"owners\",\n    group_id=grp.id,\n    owners=[\n        {\n            \"type\": \"USER\",\n            \"id\": owner1.id,\n        },\n        {\n            \"type\": \"USER\",\n            \"id\": owner2.id,\n        },\n    ])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var owner1 = new Okta.User.User(\"owner1\", new()\n    {\n        FirstName = \"Alice\",\n        LastName = \"Owner\",\n        Login = \"alice-owner@example.com\",\n        Email = \"alice-owner@example.com\",\n    });\n\n    var owner2 = new Okta.User.User(\"owner2\", new()\n    {\n        FirstName = \"Bob\",\n        LastName = \"Owner\",\n        Login = \"bob-owner@example.com\",\n        Email = \"bob-owner@example.com\",\n    });\n\n    var grp = new Okta.Group.Group(\"grp\", new()\n    {\n        Name = \"demo-group\",\n    });\n\n    var owners = new Okta.Group.Owners(\"owners\", new()\n    {\n        GroupId = grp.Id,\n        Owners = new[]\n        {\n            new Okta.Group.Inputs.OwnersOwnerArgs\n            {\n                Type = \"USER\",\n                Id = owner1.Id,\n            },\n            new Okta.Group.Inputs.OwnersOwnerArgs\n            {\n                Type = \"USER\",\n                Id = owner2.Id,\n            },\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v6/go/okta/group\"\n\t\"github.com/pulumi/pulumi-okta/sdk/v6/go/okta/user\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\towner1, err := user.NewUser(ctx, \"owner1\", \u0026user.UserArgs{\n\t\t\tFirstName: pulumi.String(\"Alice\"),\n\t\t\tLastName:  pulumi.String(\"Owner\"),\n\t\t\tLogin:     pulumi.String(\"alice-owner@example.com\"),\n\t\t\tEmail:     pulumi.String(\"alice-owner@example.com\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\towner2, err := user.NewUser(ctx, \"owner2\", \u0026user.UserArgs{\n\t\t\tFirstName: pulumi.String(\"Bob\"),\n\t\t\tLastName:  pulumi.String(\"Owner\"),\n\t\t\tLogin:     pulumi.String(\"bob-owner@example.com\"),\n\t\t\tEmail:     pulumi.String(\"bob-owner@example.com\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tgrp, err := group.NewGroup(ctx, \"grp\", \u0026group.GroupArgs{\n\t\t\tName: pulumi.String(\"demo-group\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = group.NewOwners(ctx, \"owners\", \u0026group.OwnersArgs{\n\t\t\tGroupId: grp.ID(),\n\t\t\tOwners: group.OwnersOwnerArray{\n\t\t\t\t\u0026group.OwnersOwnerArgs{\n\t\t\t\t\tType: pulumi.String(\"USER\"),\n\t\t\t\t\tId:   owner1.ID(),\n\t\t\t\t},\n\t\t\t\t\u0026group.OwnersOwnerArgs{\n\t\t\t\t\tType: pulumi.String(\"USER\"),\n\t\t\t\t\tId:   owner2.ID(),\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.okta.user.User;\nimport com.pulumi.okta.user.UserArgs;\nimport com.pulumi.okta.group.Group;\nimport com.pulumi.okta.group.GroupArgs;\nimport com.pulumi.okta.group.Owners;\nimport com.pulumi.okta.group.OwnersArgs;\nimport com.pulumi.okta.group.inputs.OwnersOwnerArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var owner1 = new User(\"owner1\", UserArgs.builder()\n            .firstName(\"Alice\")\n            .lastName(\"Owner\")\n            .login(\"alice-owner@example.com\")\n            .email(\"alice-owner@example.com\")\n            .build());\n\n        var owner2 = new User(\"owner2\", UserArgs.builder()\n            .firstName(\"Bob\")\n            .lastName(\"Owner\")\n            .login(\"bob-owner@example.com\")\n            .email(\"bob-owner@example.com\")\n            .build());\n\n        var grp = new Group(\"grp\", GroupArgs.builder()\n            .name(\"demo-group\")\n            .build());\n\n        var owners = new Owners(\"owners\", OwnersArgs.builder()\n            .groupId(grp.id())\n            .owners(            \n                OwnersOwnerArgs.builder()\n                    .type(\"USER\")\n                    .id(owner1.id())\n                    .build(),\n                OwnersOwnerArgs.builder()\n                    .type(\"USER\")\n                    .id(owner2.id())\n                    .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  owner1:\n    type: okta:user:User\n    properties:\n      firstName: Alice\n      lastName: Owner\n      login: alice-owner@example.com\n      email: alice-owner@example.com\n  owner2:\n    type: okta:user:User\n    properties:\n      firstName: Bob\n      lastName: Owner\n      login: bob-owner@example.com\n      email: bob-owner@example.com\n  grp:\n    type: okta:group:Group\n    properties:\n      name: demo-group\n  owners:\n    type: okta:group:Owners\n    properties:\n      groupId: ${grp.id}\n      owners:\n        - type: USER\n          id: ${owner1.id}\n        - type: USER\n          id: ${owner2.id}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n```sh\n$ pulumi import okta:group/owners:Owners example \u003cgroup_id\u003e\n```\n\n",
+            "properties": {
+                "groupId": {
+                    "type": "string",
+                    "description": "The ID of the Okta group.\n"
+                },
+                "owners": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/okta:group/OwnersOwner:OwnersOwner"
+                    },
+                    "description": "Desired owners for the group.\n"
+                }
+            },
+            "required": [
+                "groupId"
+            ],
+            "inputProperties": {
+                "groupId": {
+                    "type": "string",
+                    "description": "The ID of the Okta group.\n"
+                },
+                "owners": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/okta:group/OwnersOwner:OwnersOwner"
+                    },
+                    "description": "Desired owners for the group.\n"
+                }
+            },
+            "requiredInputs": [
+                "groupId"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Owners resources.\n",
+                "properties": {
+                    "groupId": {
+                        "type": "string",
+                        "description": "The ID of the Okta group.\n"
+                    },
+                    "owners": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/okta:group/OwnersOwner:OwnersOwner"
+                        },
+                        "description": "Desired owners for the group.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
         "okta:group/role:Role": {
             "description": "Assigns Admin roles to Okta Groups. This resource allows you to assign Okta administrator roles to Okta Groups. This resource provides a one-to-one interface between the Okta group and the admin role.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\nimport * as std from \"@pulumi/std\";\n\nconst example = new okta.group.Role(\"example\", {\n    groupId: \"\u003cgroup id\u003e\",\n    roleType: \"READ_ONLY_ADMIN\",\n});\n// Example for CUSTOM role\nconst test = new okta.group.Group(\"test\", {\n    name: \"testAcc_replace_with_uuid\",\n    description: \"testing\",\n});\nconst testResourceSet = new okta.ResourceSet(\"test\", {\n    label: \"test\",\n    description: \"testing, testing\",\n    resources: [std.index.format({\n        input: \"%s/api/v1/users\",\n        args: [\"https://tien-oie-2023-26-26.oktapreview.com\"],\n    }).result],\n});\nconst testAdminRoleCustom = new okta.AdminRoleCustom(\"test\", {\n    label: \"testt\",\n    description: \"testing, testing\",\n    permissions: [\n        \"okta.apps.assignment.manage\",\n        \"okta.users.manage\",\n        \"okta.apps.manage\",\n    ],\n});\nconst testRole = new okta.group.Role(\"test\", {\n    groupId: test.id,\n    roleId: testAdminRoleCustom.id,\n    resourceSetId: testResourceSet.id,\n    roleType: \"CUSTOM\",\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\nimport pulumi_std as std\n\nexample = okta.group.Role(\"example\",\n    group_id=\"\u003cgroup id\u003e\",\n    role_type=\"READ_ONLY_ADMIN\")\n# Example for CUSTOM role\ntest = okta.group.Group(\"test\",\n    name=\"testAcc_replace_with_uuid\",\n    description=\"testing\")\ntest_resource_set = okta.ResourceSet(\"test\",\n    label=\"test\",\n    description=\"testing, testing\",\n    resources=[std.index.format(input=\"%s/api/v1/users\",\n        args=[\"https://tien-oie-2023-26-26.oktapreview.com\"])[\"result\"]])\ntest_admin_role_custom = okta.AdminRoleCustom(\"test\",\n    label=\"testt\",\n    description=\"testing, testing\",\n    permissions=[\n        \"okta.apps.assignment.manage\",\n        \"okta.users.manage\",\n        \"okta.apps.manage\",\n    ])\ntest_role = okta.group.Role(\"test\",\n    group_id=test.id,\n    role_id=test_admin_role_custom.id,\n    resource_set_id=test_resource_set.id,\n    role_type=\"CUSTOM\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\nusing Std = Pulumi.Std;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new Okta.Group.Role(\"example\", new()\n    {\n        GroupId = \"\u003cgroup id\u003e\",\n        RoleType = \"READ_ONLY_ADMIN\",\n    });\n\n    // Example for CUSTOM role\n    var test = new Okta.Group.Group(\"test\", new()\n    {\n        Name = \"testAcc_replace_with_uuid\",\n        Description = \"testing\",\n    });\n\n    var testResourceSet = new Okta.ResourceSet(\"test\", new()\n    {\n        Label = \"test\",\n        Description = \"testing, testing\",\n        Resources = new[]\n        {\n            Std.Index.Format.Invoke(new()\n            {\n                Input = \"%s/api/v1/users\",\n                Args = new[]\n                {\n                    \"https://tien-oie-2023-26-26.oktapreview.com\",\n                },\n            }).Result,\n        },\n    });\n\n    var testAdminRoleCustom = new Okta.AdminRoleCustom(\"test\", new()\n    {\n        Label = \"testt\",\n        Description = \"testing, testing\",\n        Permissions = new[]\n        {\n            \"okta.apps.assignment.manage\",\n            \"okta.users.manage\",\n            \"okta.apps.manage\",\n        },\n    });\n\n    var testRole = new Okta.Group.Role(\"test\", new()\n    {\n        GroupId = test.Id,\n        RoleId = testAdminRoleCustom.Id,\n        ResourceSetId = testResourceSet.Id,\n        RoleType = \"CUSTOM\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v6/go/okta\"\n\t\"github.com/pulumi/pulumi-okta/sdk/v6/go/okta/group\"\n\t\"github.com/pulumi/pulumi-std/sdk/go/std\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := group.NewRole(ctx, \"example\", \u0026group.RoleArgs{\n\t\t\tGroupId:  pulumi.String(\"\u003cgroup id\u003e\"),\n\t\t\tRoleType: pulumi.String(\"READ_ONLY_ADMIN\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t// Example for CUSTOM role\n\t\ttest, err := group.NewGroup(ctx, \"test\", \u0026group.GroupArgs{\n\t\t\tName:        pulumi.String(\"testAcc_replace_with_uuid\"),\n\t\t\tDescription: pulumi.String(\"testing\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tinvokeFormat, err := std.Format(ctx, map[string]interface{}{\n\t\t\t\"input\": \"%s/api/v1/users\",\n\t\t\t\"args\": []string{\n\t\t\t\t\"https://tien-oie-2023-26-26.oktapreview.com\",\n\t\t\t},\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\ttestResourceSet, err := okta.NewResourceSet(ctx, \"test\", \u0026okta.ResourceSetArgs{\n\t\t\tLabel:       pulumi.String(\"test\"),\n\t\t\tDescription: pulumi.String(\"testing, testing\"),\n\t\t\tResources: pulumi.StringArray{\n\t\t\t\tinvokeFormat.Result,\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\ttestAdminRoleCustom, err := okta.NewAdminRoleCustom(ctx, \"test\", \u0026okta.AdminRoleCustomArgs{\n\t\t\tLabel:       pulumi.String(\"testt\"),\n\t\t\tDescription: pulumi.String(\"testing, testing\"),\n\t\t\tPermissions: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"okta.apps.assignment.manage\"),\n\t\t\t\tpulumi.String(\"okta.users.manage\"),\n\t\t\t\tpulumi.String(\"okta.apps.manage\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = group.NewRole(ctx, \"test\", \u0026group.RoleArgs{\n\t\t\tGroupId:       test.ID(),\n\t\t\tRoleId:        testAdminRoleCustom.ID(),\n\t\t\tResourceSetId: testResourceSet.ID(),\n\t\t\tRoleType:      pulumi.String(\"CUSTOM\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.okta.group.Role;\nimport com.pulumi.okta.group.RoleArgs;\nimport com.pulumi.okta.group.Group;\nimport com.pulumi.okta.group.GroupArgs;\nimport com.pulumi.okta.ResourceSet;\nimport com.pulumi.okta.ResourceSetArgs;\nimport com.pulumi.std.StdFunctions;\nimport com.pulumi.okta.AdminRoleCustom;\nimport com.pulumi.okta.AdminRoleCustomArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new Role(\"example\", RoleArgs.builder()\n            .groupId(\"\u003cgroup id\u003e\")\n            .roleType(\"READ_ONLY_ADMIN\")\n            .build());\n\n        // Example for CUSTOM role\n        var test = new Group(\"test\", GroupArgs.builder()\n            .name(\"testAcc_replace_with_uuid\")\n            .description(\"testing\")\n            .build());\n\n        var testResourceSet = new ResourceSet(\"testResourceSet\", ResourceSetArgs.builder()\n            .label(\"test\")\n            .description(\"testing, testing\")\n            .resources(StdFunctions.format(Map.ofEntries(\n                Map.entry(\"input\", \"%s/api/v1/users\"),\n                Map.entry(\"args\", \"https://tien-oie-2023-26-26.oktapreview.com\")\n            )).result())\n            .build());\n\n        var testAdminRoleCustom = new AdminRoleCustom(\"testAdminRoleCustom\", AdminRoleCustomArgs.builder()\n            .label(\"testt\")\n            .description(\"testing, testing\")\n            .permissions(            \n                \"okta.apps.assignment.manage\",\n                \"okta.users.manage\",\n                \"okta.apps.manage\")\n            .build());\n\n        var testRole = new Role(\"testRole\", RoleArgs.builder()\n            .groupId(test.id())\n            .roleId(testAdminRoleCustom.id())\n            .resourceSetId(testResourceSet.id())\n            .roleType(\"CUSTOM\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: okta:group:Role\n    properties:\n      groupId: \u003cgroup id\u003e\n      roleType: READ_ONLY_ADMIN\n  # Example for CUSTOM role\n  test:\n    type: okta:group:Group\n    properties:\n      name: testAcc_replace_with_uuid\n      description: testing\n  testResourceSet:\n    type: okta:ResourceSet\n    name: test\n    properties:\n      label: test\n      description: testing, testing\n      resources:\n        - fn::invoke:\n            function: std:format\n            arguments:\n              input: '%s/api/v1/users'\n              args:\n                - https://tien-oie-2023-26-26.oktapreview.com\n            return: result\n  testAdminRoleCustom:\n    type: okta:AdminRoleCustom\n    name: test\n    properties:\n      label: testt\n      description: testing, testing\n      permissions:\n        - okta.apps.assignment.manage\n        - okta.users.manage\n        - okta.apps.manage\n  testRole:\n    type: okta:group:Role\n    name: test\n    properties:\n      groupId: ${test.id}\n      roleId: ${testAdminRoleCustom.id}\n      resourceSetId: ${testResourceSet.id}\n      roleType: CUSTOM\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n```sh\n$ pulumi import okta:group/role:Role example \u003cgroup_id\u003e/\u003crole_id\u003e\n```\n\n",
             "properties": {
@@ -12332,8 +12506,17 @@
                 },
                 "clientSecret": {
                     "type": "string",
-                    "description": "Client secret issued by AS for the Okta IdP instance.\n",
+                    "description": "Client secret issued by AS for the Okta IdP instance. When set, this secret will be stored in the Terraform state file. For Terraform 1.11+, consider using \u003cspan pulumi-lang-nodejs=\"`clientSecretWo`\" pulumi-lang-dotnet=\"`ClientSecretWo`\" pulumi-lang-go=\"`clientSecretWo`\" pulumi-lang-python=\"`client_secret_wo`\" pulumi-lang-yaml=\"`clientSecretWo`\" pulumi-lang-java=\"`clientSecretWo`\"\u003e`clientSecretWo`\u003c/span\u003e instead to avoid persisting secrets in state. Either \u003cspan pulumi-lang-nodejs=\"`clientSecret`\" pulumi-lang-dotnet=\"`ClientSecret`\" pulumi-lang-go=\"`clientSecret`\" pulumi-lang-python=\"`client_secret`\" pulumi-lang-yaml=\"`clientSecret`\" pulumi-lang-java=\"`clientSecret`\"\u003e`clientSecret`\u003c/span\u003e or \u003cspan pulumi-lang-nodejs=\"`clientSecretWo`\" pulumi-lang-dotnet=\"`ClientSecretWo`\" pulumi-lang-go=\"`clientSecretWo`\" pulumi-lang-python=\"`client_secret_wo`\" pulumi-lang-yaml=\"`clientSecretWo`\" pulumi-lang-java=\"`clientSecretWo`\"\u003e`clientSecretWo`\u003c/span\u003e must be specified, but not both.\n",
                     "secret": true
+                },
+                "clientSecretWo": {
+                    "type": "string",
+                    "description": "**NOTE:** This field is write-only and its value will not be updated in state as part of read operations.\nWrite-only client secret issued by AS for the Okta IdP instance for Terraform 1.11+. Unlike \u003cspan pulumi-lang-nodejs=\"`clientSecret`\" pulumi-lang-dotnet=\"`ClientSecret`\" pulumi-lang-go=\"`clientSecret`\" pulumi-lang-python=\"`client_secret`\" pulumi-lang-yaml=\"`clientSecret`\" pulumi-lang-java=\"`clientSecret`\"\u003e`clientSecret`\u003c/span\u003e, this secret will not be persisted in the Terraform state file, providing improved security. Only use this attribute with Terraform 1.11 or higher. Either \u003cspan pulumi-lang-nodejs=\"`clientSecret`\" pulumi-lang-dotnet=\"`ClientSecret`\" pulumi-lang-go=\"`clientSecret`\" pulumi-lang-python=\"`client_secret`\" pulumi-lang-yaml=\"`clientSecret`\" pulumi-lang-java=\"`clientSecret`\"\u003e`clientSecret`\u003c/span\u003e or \u003cspan pulumi-lang-nodejs=\"`clientSecretWo`\" pulumi-lang-dotnet=\"`ClientSecretWo`\" pulumi-lang-go=\"`clientSecretWo`\" pulumi-lang-python=\"`client_secret_wo`\" pulumi-lang-yaml=\"`clientSecretWo`\" pulumi-lang-java=\"`clientSecretWo`\"\u003e`clientSecretWo`\u003c/span\u003e must be specified, but not both.\n",
+                    "secret": true
+                },
+                "clientSecretWoVersion": {
+                    "type": "integer",
+                    "description": "Version number for the write-only client secret. Increment this value to trigger an update when changing \u003cspan pulumi-lang-nodejs=\"`clientSecretWo`\" pulumi-lang-dotnet=\"`ClientSecretWo`\" pulumi-lang-go=\"`clientSecretWo`\" pulumi-lang-python=\"`client_secret_wo`\" pulumi-lang-yaml=\"`clientSecretWo`\" pulumi-lang-java=\"`clientSecretWo`\"\u003e`clientSecretWo`\u003c/span\u003e.\n"
                 },
                 "deprovisionedAction": {
                     "type": "string",
@@ -12480,7 +12663,6 @@
                 "authorizationBinding",
                 "authorizationUrl",
                 "clientId",
-                "clientSecret",
                 "issuerUrl",
                 "jwksBinding",
                 "jwksUrl",
@@ -12517,8 +12699,17 @@
                 },
                 "clientSecret": {
                     "type": "string",
-                    "description": "Client secret issued by AS for the Okta IdP instance.\n",
+                    "description": "Client secret issued by AS for the Okta IdP instance. When set, this secret will be stored in the Terraform state file. For Terraform 1.11+, consider using \u003cspan pulumi-lang-nodejs=\"`clientSecretWo`\" pulumi-lang-dotnet=\"`ClientSecretWo`\" pulumi-lang-go=\"`clientSecretWo`\" pulumi-lang-python=\"`client_secret_wo`\" pulumi-lang-yaml=\"`clientSecretWo`\" pulumi-lang-java=\"`clientSecretWo`\"\u003e`clientSecretWo`\u003c/span\u003e instead to avoid persisting secrets in state. Either \u003cspan pulumi-lang-nodejs=\"`clientSecret`\" pulumi-lang-dotnet=\"`ClientSecret`\" pulumi-lang-go=\"`clientSecret`\" pulumi-lang-python=\"`client_secret`\" pulumi-lang-yaml=\"`clientSecret`\" pulumi-lang-java=\"`clientSecret`\"\u003e`clientSecret`\u003c/span\u003e or \u003cspan pulumi-lang-nodejs=\"`clientSecretWo`\" pulumi-lang-dotnet=\"`ClientSecretWo`\" pulumi-lang-go=\"`clientSecretWo`\" pulumi-lang-python=\"`client_secret_wo`\" pulumi-lang-yaml=\"`clientSecretWo`\" pulumi-lang-java=\"`clientSecretWo`\"\u003e`clientSecretWo`\u003c/span\u003e must be specified, but not both.\n",
                     "secret": true
+                },
+                "clientSecretWo": {
+                    "type": "string",
+                    "description": "**NOTE:** This field is write-only and its value will not be updated in state as part of read operations.\nWrite-only client secret issued by AS for the Okta IdP instance for Terraform 1.11+. Unlike \u003cspan pulumi-lang-nodejs=\"`clientSecret`\" pulumi-lang-dotnet=\"`ClientSecret`\" pulumi-lang-go=\"`clientSecret`\" pulumi-lang-python=\"`client_secret`\" pulumi-lang-yaml=\"`clientSecret`\" pulumi-lang-java=\"`clientSecret`\"\u003e`clientSecret`\u003c/span\u003e, this secret will not be persisted in the Terraform state file, providing improved security. Only use this attribute with Terraform 1.11 or higher. Either \u003cspan pulumi-lang-nodejs=\"`clientSecret`\" pulumi-lang-dotnet=\"`ClientSecret`\" pulumi-lang-go=\"`clientSecret`\" pulumi-lang-python=\"`client_secret`\" pulumi-lang-yaml=\"`clientSecret`\" pulumi-lang-java=\"`clientSecret`\"\u003e`clientSecret`\u003c/span\u003e or \u003cspan pulumi-lang-nodejs=\"`clientSecretWo`\" pulumi-lang-dotnet=\"`ClientSecretWo`\" pulumi-lang-go=\"`clientSecretWo`\" pulumi-lang-python=\"`client_secret_wo`\" pulumi-lang-yaml=\"`clientSecretWo`\" pulumi-lang-java=\"`clientSecretWo`\"\u003e`clientSecretWo`\u003c/span\u003e must be specified, but not both.\n",
+                    "secret": true
+                },
+                "clientSecretWoVersion": {
+                    "type": "integer",
+                    "description": "Version number for the write-only client secret. Increment this value to trigger an update when changing \u003cspan pulumi-lang-nodejs=\"`clientSecretWo`\" pulumi-lang-dotnet=\"`ClientSecretWo`\" pulumi-lang-go=\"`clientSecretWo`\" pulumi-lang-python=\"`client_secret_wo`\" pulumi-lang-yaml=\"`clientSecretWo`\" pulumi-lang-java=\"`clientSecretWo`\"\u003e`clientSecretWo`\u003c/span\u003e.\n"
                 },
                 "deprovisionedAction": {
                     "type": "string",
@@ -12657,7 +12848,6 @@
                 "authorizationBinding",
                 "authorizationUrl",
                 "clientId",
-                "clientSecret",
                 "issuerUrl",
                 "jwksBinding",
                 "jwksUrl",
@@ -12693,8 +12883,17 @@
                     },
                     "clientSecret": {
                         "type": "string",
-                        "description": "Client secret issued by AS for the Okta IdP instance.\n",
+                        "description": "Client secret issued by AS for the Okta IdP instance. When set, this secret will be stored in the Terraform state file. For Terraform 1.11+, consider using \u003cspan pulumi-lang-nodejs=\"`clientSecretWo`\" pulumi-lang-dotnet=\"`ClientSecretWo`\" pulumi-lang-go=\"`clientSecretWo`\" pulumi-lang-python=\"`client_secret_wo`\" pulumi-lang-yaml=\"`clientSecretWo`\" pulumi-lang-java=\"`clientSecretWo`\"\u003e`clientSecretWo`\u003c/span\u003e instead to avoid persisting secrets in state. Either \u003cspan pulumi-lang-nodejs=\"`clientSecret`\" pulumi-lang-dotnet=\"`ClientSecret`\" pulumi-lang-go=\"`clientSecret`\" pulumi-lang-python=\"`client_secret`\" pulumi-lang-yaml=\"`clientSecret`\" pulumi-lang-java=\"`clientSecret`\"\u003e`clientSecret`\u003c/span\u003e or \u003cspan pulumi-lang-nodejs=\"`clientSecretWo`\" pulumi-lang-dotnet=\"`ClientSecretWo`\" pulumi-lang-go=\"`clientSecretWo`\" pulumi-lang-python=\"`client_secret_wo`\" pulumi-lang-yaml=\"`clientSecretWo`\" pulumi-lang-java=\"`clientSecretWo`\"\u003e`clientSecretWo`\u003c/span\u003e must be specified, but not both.\n",
                         "secret": true
+                    },
+                    "clientSecretWo": {
+                        "type": "string",
+                        "description": "**NOTE:** This field is write-only and its value will not be updated in state as part of read operations.\nWrite-only client secret issued by AS for the Okta IdP instance for Terraform 1.11+. Unlike \u003cspan pulumi-lang-nodejs=\"`clientSecret`\" pulumi-lang-dotnet=\"`ClientSecret`\" pulumi-lang-go=\"`clientSecret`\" pulumi-lang-python=\"`client_secret`\" pulumi-lang-yaml=\"`clientSecret`\" pulumi-lang-java=\"`clientSecret`\"\u003e`clientSecret`\u003c/span\u003e, this secret will not be persisted in the Terraform state file, providing improved security. Only use this attribute with Terraform 1.11 or higher. Either \u003cspan pulumi-lang-nodejs=\"`clientSecret`\" pulumi-lang-dotnet=\"`ClientSecret`\" pulumi-lang-go=\"`clientSecret`\" pulumi-lang-python=\"`client_secret`\" pulumi-lang-yaml=\"`clientSecret`\" pulumi-lang-java=\"`clientSecret`\"\u003e`clientSecret`\u003c/span\u003e or \u003cspan pulumi-lang-nodejs=\"`clientSecretWo`\" pulumi-lang-dotnet=\"`ClientSecretWo`\" pulumi-lang-go=\"`clientSecretWo`\" pulumi-lang-python=\"`client_secret_wo`\" pulumi-lang-yaml=\"`clientSecretWo`\" pulumi-lang-java=\"`clientSecretWo`\"\u003e`clientSecretWo`\u003c/span\u003e must be specified, but not both.\n",
+                        "secret": true
+                    },
+                    "clientSecretWoVersion": {
+                        "type": "integer",
+                        "description": "Version number for the write-only client secret. Increment this value to trigger an update when changing \u003cspan pulumi-lang-nodejs=\"`clientSecretWo`\" pulumi-lang-dotnet=\"`ClientSecretWo`\" pulumi-lang-go=\"`clientSecretWo`\" pulumi-lang-python=\"`client_secret_wo`\" pulumi-lang-yaml=\"`clientSecretWo`\" pulumi-lang-java=\"`clientSecretWo`\"\u003e`clientSecretWo`\u003c/span\u003e.\n"
                     },
                     "deprovisionedAction": {
                         "type": "string",
@@ -13447,8 +13646,17 @@
                 },
                 "clientSecret": {
                     "type": "string",
-                    "description": "Client secret issued by AS for the Okta IdP instance.\n",
+                    "description": "Client secret issued by AS for the Okta IdP instance. When set, this secret will be stored in the Terraform state file. For Terraform 1.11+, consider using \u003cspan pulumi-lang-nodejs=\"`clientSecretWo`\" pulumi-lang-dotnet=\"`ClientSecretWo`\" pulumi-lang-go=\"`clientSecretWo`\" pulumi-lang-python=\"`client_secret_wo`\" pulumi-lang-yaml=\"`clientSecretWo`\" pulumi-lang-java=\"`clientSecretWo`\"\u003e`clientSecretWo`\u003c/span\u003e instead to avoid persisting secrets in state. Either \u003cspan pulumi-lang-nodejs=\"`clientSecret`\" pulumi-lang-dotnet=\"`ClientSecret`\" pulumi-lang-go=\"`clientSecret`\" pulumi-lang-python=\"`client_secret`\" pulumi-lang-yaml=\"`clientSecret`\" pulumi-lang-java=\"`clientSecret`\"\u003e`clientSecret`\u003c/span\u003e or \u003cspan pulumi-lang-nodejs=\"`clientSecretWo`\" pulumi-lang-dotnet=\"`ClientSecretWo`\" pulumi-lang-go=\"`clientSecretWo`\" pulumi-lang-python=\"`client_secret_wo`\" pulumi-lang-yaml=\"`clientSecretWo`\" pulumi-lang-java=\"`clientSecretWo`\"\u003e`clientSecretWo`\u003c/span\u003e can be specified, but not both.\n",
                     "secret": true
+                },
+                "clientSecretWo": {
+                    "type": "string",
+                    "description": "**NOTE:** This field is write-only and its value will not be updated in state as part of read operations.\nWrite-only client secret issued by AS for the Okta IdP instance for Terraform 1.11+. Unlike \u003cspan pulumi-lang-nodejs=\"`clientSecret`\" pulumi-lang-dotnet=\"`ClientSecret`\" pulumi-lang-go=\"`clientSecret`\" pulumi-lang-python=\"`client_secret`\" pulumi-lang-yaml=\"`clientSecret`\" pulumi-lang-java=\"`clientSecret`\"\u003e`clientSecret`\u003c/span\u003e, this secret will not be persisted in the Terraform state file, providing improved security. Only use this attribute with Terraform 1.11 or higher. Either \u003cspan pulumi-lang-nodejs=\"`clientSecret`\" pulumi-lang-dotnet=\"`ClientSecret`\" pulumi-lang-go=\"`clientSecret`\" pulumi-lang-python=\"`client_secret`\" pulumi-lang-yaml=\"`clientSecret`\" pulumi-lang-java=\"`clientSecret`\"\u003e`clientSecret`\u003c/span\u003e or \u003cspan pulumi-lang-nodejs=\"`clientSecretWo`\" pulumi-lang-dotnet=\"`ClientSecretWo`\" pulumi-lang-go=\"`clientSecretWo`\" pulumi-lang-python=\"`client_secret_wo`\" pulumi-lang-yaml=\"`clientSecretWo`\" pulumi-lang-java=\"`clientSecretWo`\"\u003e`clientSecretWo`\u003c/span\u003e can be specified, but not both.\n",
+                    "secret": true
+                },
+                "clientSecretWoVersion": {
+                    "type": "integer",
+                    "description": "Version number for the write-only client secret. Increment this value to trigger an update when changing \u003cspan pulumi-lang-nodejs=\"`clientSecretWo`\" pulumi-lang-dotnet=\"`ClientSecretWo`\" pulumi-lang-go=\"`clientSecretWo`\" pulumi-lang-python=\"`client_secret_wo`\" pulumi-lang-yaml=\"`clientSecretWo`\" pulumi-lang-java=\"`clientSecretWo`\"\u003e`clientSecretWo`\u003c/span\u003e.\n"
                 },
                 "deprovisionedAction": {
                     "type": "string",
@@ -13605,8 +13813,17 @@
                 },
                 "clientSecret": {
                     "type": "string",
-                    "description": "Client secret issued by AS for the Okta IdP instance.\n",
+                    "description": "Client secret issued by AS for the Okta IdP instance. When set, this secret will be stored in the Terraform state file. For Terraform 1.11+, consider using \u003cspan pulumi-lang-nodejs=\"`clientSecretWo`\" pulumi-lang-dotnet=\"`ClientSecretWo`\" pulumi-lang-go=\"`clientSecretWo`\" pulumi-lang-python=\"`client_secret_wo`\" pulumi-lang-yaml=\"`clientSecretWo`\" pulumi-lang-java=\"`clientSecretWo`\"\u003e`clientSecretWo`\u003c/span\u003e instead to avoid persisting secrets in state. Either \u003cspan pulumi-lang-nodejs=\"`clientSecret`\" pulumi-lang-dotnet=\"`ClientSecret`\" pulumi-lang-go=\"`clientSecret`\" pulumi-lang-python=\"`client_secret`\" pulumi-lang-yaml=\"`clientSecret`\" pulumi-lang-java=\"`clientSecret`\"\u003e`clientSecret`\u003c/span\u003e or \u003cspan pulumi-lang-nodejs=\"`clientSecretWo`\" pulumi-lang-dotnet=\"`ClientSecretWo`\" pulumi-lang-go=\"`clientSecretWo`\" pulumi-lang-python=\"`client_secret_wo`\" pulumi-lang-yaml=\"`clientSecretWo`\" pulumi-lang-java=\"`clientSecretWo`\"\u003e`clientSecretWo`\u003c/span\u003e can be specified, but not both.\n",
                     "secret": true
+                },
+                "clientSecretWo": {
+                    "type": "string",
+                    "description": "**NOTE:** This field is write-only and its value will not be updated in state as part of read operations.\nWrite-only client secret issued by AS for the Okta IdP instance for Terraform 1.11+. Unlike \u003cspan pulumi-lang-nodejs=\"`clientSecret`\" pulumi-lang-dotnet=\"`ClientSecret`\" pulumi-lang-go=\"`clientSecret`\" pulumi-lang-python=\"`client_secret`\" pulumi-lang-yaml=\"`clientSecret`\" pulumi-lang-java=\"`clientSecret`\"\u003e`clientSecret`\u003c/span\u003e, this secret will not be persisted in the Terraform state file, providing improved security. Only use this attribute with Terraform 1.11 or higher. Either \u003cspan pulumi-lang-nodejs=\"`clientSecret`\" pulumi-lang-dotnet=\"`ClientSecret`\" pulumi-lang-go=\"`clientSecret`\" pulumi-lang-python=\"`client_secret`\" pulumi-lang-yaml=\"`clientSecret`\" pulumi-lang-java=\"`clientSecret`\"\u003e`clientSecret`\u003c/span\u003e or \u003cspan pulumi-lang-nodejs=\"`clientSecretWo`\" pulumi-lang-dotnet=\"`ClientSecretWo`\" pulumi-lang-go=\"`clientSecretWo`\" pulumi-lang-python=\"`client_secret_wo`\" pulumi-lang-yaml=\"`clientSecretWo`\" pulumi-lang-java=\"`clientSecretWo`\"\u003e`clientSecretWo`\u003c/span\u003e can be specified, but not both.\n",
+                    "secret": true
+                },
+                "clientSecretWoVersion": {
+                    "type": "integer",
+                    "description": "Version number for the write-only client secret. Increment this value to trigger an update when changing \u003cspan pulumi-lang-nodejs=\"`clientSecretWo`\" pulumi-lang-dotnet=\"`ClientSecretWo`\" pulumi-lang-go=\"`clientSecretWo`\" pulumi-lang-python=\"`client_secret_wo`\" pulumi-lang-yaml=\"`clientSecretWo`\" pulumi-lang-java=\"`clientSecretWo`\"\u003e`clientSecretWo`\u003c/span\u003e.\n"
                 },
                 "deprovisionedAction": {
                     "type": "string",
@@ -13735,8 +13952,17 @@
                     },
                     "clientSecret": {
                         "type": "string",
-                        "description": "Client secret issued by AS for the Okta IdP instance.\n",
+                        "description": "Client secret issued by AS for the Okta IdP instance. When set, this secret will be stored in the Terraform state file. For Terraform 1.11+, consider using \u003cspan pulumi-lang-nodejs=\"`clientSecretWo`\" pulumi-lang-dotnet=\"`ClientSecretWo`\" pulumi-lang-go=\"`clientSecretWo`\" pulumi-lang-python=\"`client_secret_wo`\" pulumi-lang-yaml=\"`clientSecretWo`\" pulumi-lang-java=\"`clientSecretWo`\"\u003e`clientSecretWo`\u003c/span\u003e instead to avoid persisting secrets in state. Either \u003cspan pulumi-lang-nodejs=\"`clientSecret`\" pulumi-lang-dotnet=\"`ClientSecret`\" pulumi-lang-go=\"`clientSecret`\" pulumi-lang-python=\"`client_secret`\" pulumi-lang-yaml=\"`clientSecret`\" pulumi-lang-java=\"`clientSecret`\"\u003e`clientSecret`\u003c/span\u003e or \u003cspan pulumi-lang-nodejs=\"`clientSecretWo`\" pulumi-lang-dotnet=\"`ClientSecretWo`\" pulumi-lang-go=\"`clientSecretWo`\" pulumi-lang-python=\"`client_secret_wo`\" pulumi-lang-yaml=\"`clientSecretWo`\" pulumi-lang-java=\"`clientSecretWo`\"\u003e`clientSecretWo`\u003c/span\u003e can be specified, but not both.\n",
                         "secret": true
+                    },
+                    "clientSecretWo": {
+                        "type": "string",
+                        "description": "**NOTE:** This field is write-only and its value will not be updated in state as part of read operations.\nWrite-only client secret issued by AS for the Okta IdP instance for Terraform 1.11+. Unlike \u003cspan pulumi-lang-nodejs=\"`clientSecret`\" pulumi-lang-dotnet=\"`ClientSecret`\" pulumi-lang-go=\"`clientSecret`\" pulumi-lang-python=\"`client_secret`\" pulumi-lang-yaml=\"`clientSecret`\" pulumi-lang-java=\"`clientSecret`\"\u003e`clientSecret`\u003c/span\u003e, this secret will not be persisted in the Terraform state file, providing improved security. Only use this attribute with Terraform 1.11 or higher. Either \u003cspan pulumi-lang-nodejs=\"`clientSecret`\" pulumi-lang-dotnet=\"`ClientSecret`\" pulumi-lang-go=\"`clientSecret`\" pulumi-lang-python=\"`client_secret`\" pulumi-lang-yaml=\"`clientSecret`\" pulumi-lang-java=\"`clientSecret`\"\u003e`clientSecret`\u003c/span\u003e or \u003cspan pulumi-lang-nodejs=\"`clientSecretWo`\" pulumi-lang-dotnet=\"`ClientSecretWo`\" pulumi-lang-go=\"`clientSecretWo`\" pulumi-lang-python=\"`client_secret_wo`\" pulumi-lang-yaml=\"`clientSecretWo`\" pulumi-lang-java=\"`clientSecretWo`\"\u003e`clientSecretWo`\u003c/span\u003e can be specified, but not both.\n",
+                        "secret": true
+                    },
+                    "clientSecretWoVersion": {
+                        "type": "integer",
+                        "description": "Version number for the write-only client secret. Increment this value to trigger an update when changing \u003cspan pulumi-lang-nodejs=\"`clientSecretWo`\" pulumi-lang-dotnet=\"`ClientSecretWo`\" pulumi-lang-go=\"`clientSecretWo`\" pulumi-lang-python=\"`client_secret_wo`\" pulumi-lang-yaml=\"`clientSecretWo`\" pulumi-lang-java=\"`clientSecretWo`\"\u003e`clientSecretWo`\u003c/span\u003e.\n"
                     },
                     "deprovisionedAction": {
                         "type": "string",
@@ -18093,6 +18319,199 @@
                 "type": "object"
             }
         },
+        "okta:index/entityRiskPolicyRule:EntityRiskPolicyRule": {
+            "description": "Manages an Entity Risk Policy Rule. Entity Risk Policy rules define automated responses to identity threats detected by Okta's Identity Threat Protection (ITP).\n\n\u003e **NOTE:** Entity Risk Policy is automatically created when Identity Threat Protection (ITP) is enabled. Use the \u003cspan pulumi-lang-nodejs=\"`okta.getEntityRiskPolicy`\" pulumi-lang-dotnet=\"`okta.getEntityRiskPolicy`\" pulumi-lang-go=\"`getEntityRiskPolicy`\" pulumi-lang-python=\"`get_entity_risk_policy`\" pulumi-lang-yaml=\"`okta.getEntityRiskPolicy`\" pulumi-lang-java=\"`okta.getEntityRiskPolicy`\"\u003e`okta.getEntityRiskPolicy`\u003c/span\u003e data source to get the policy ID. The default policy rule (priority 99) cannot be imported or modified.\n\n## Example Usage\n\n### Basic Rule - Terminate Sessions on High Risk\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst example = okta.getEntityRiskPolicy({});\nconst highRisk = new okta.EntityRiskPolicyRule(\"high_risk\", {\n    policyId: example.then(example =\u003e example.id),\n    name: \"High Risk - Terminate Sessions\",\n    riskLevel: \"HIGH\",\n    terminateAllSessions: true,\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample = okta.get_entity_risk_policy()\nhigh_risk = okta.EntityRiskPolicyRule(\"high_risk\",\n    policy_id=example.id,\n    name=\"High Risk - Terminate Sessions\",\n    risk_level=\"HIGH\",\n    terminate_all_sessions=True)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = Okta.GetEntityRiskPolicy.Invoke();\n\n    var highRisk = new Okta.EntityRiskPolicyRule(\"high_risk\", new()\n    {\n        PolicyId = example.Apply(getEntityRiskPolicyResult =\u003e getEntityRiskPolicyResult.Id),\n        Name = \"High Risk - Terminate Sessions\",\n        RiskLevel = \"HIGH\",\n        TerminateAllSessions = true,\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v6/go/okta\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texample, err := okta.GetEntityRiskPolicy(ctx, map[string]interface{}{}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = okta.NewEntityRiskPolicyRule(ctx, \"high_risk\", \u0026okta.EntityRiskPolicyRuleArgs{\n\t\t\tPolicyId:             pulumi.String(pulumi.String(example.Id)),\n\t\t\tName:                 pulumi.String(\"High Risk - Terminate Sessions\"),\n\t\t\tRiskLevel:            pulumi.String(\"HIGH\"),\n\t\t\tTerminateAllSessions: pulumi.Bool(true),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.okta.OktaFunctions;\nimport com.pulumi.okta.EntityRiskPolicyRule;\nimport com.pulumi.okta.EntityRiskPolicyRuleArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var example = OktaFunctions.getEntityRiskPolicy(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);\n\n        var highRisk = new EntityRiskPolicyRule(\"highRisk\", EntityRiskPolicyRuleArgs.builder()\n            .policyId(example.id())\n            .name(\"High Risk - Terminate Sessions\")\n            .riskLevel(\"HIGH\")\n            .terminateAllSessions(true)\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  highRisk:\n    type: okta:EntityRiskPolicyRule\n    name: high_risk\n    properties:\n      policyId: ${example.id}\n      name: High Risk - Terminate Sessions\n      riskLevel: HIGH\n      terminateAllSessions: true\nvariables:\n  example:\n    fn::invoke:\n      function: okta:getEntityRiskPolicy\n      arguments: {}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n### Rule with Group Targeting\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst example = okta.getEntityRiskPolicy({});\nconst privilegedUsers = okta.group.getGroup({\n    name: \"Privileged Users\",\n});\nconst privilegedHighRisk = new okta.EntityRiskPolicyRule(\"privileged_high_risk\", {\n    policyId: example.then(example =\u003e example.id),\n    name: \"Privileged Users - High Risk\",\n    riskLevel: \"HIGH\",\n    terminateAllSessions: true,\n    groupsIncludeds: [privilegedUsers.then(privilegedUsers =\u003e privilegedUsers.id)],\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample = okta.get_entity_risk_policy()\nprivileged_users = okta.group.get_group(name=\"Privileged Users\")\nprivileged_high_risk = okta.EntityRiskPolicyRule(\"privileged_high_risk\",\n    policy_id=example.id,\n    name=\"Privileged Users - High Risk\",\n    risk_level=\"HIGH\",\n    terminate_all_sessions=True,\n    groups_includeds=[privileged_users.id])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = Okta.GetEntityRiskPolicy.Invoke();\n\n    var privilegedUsers = Okta.Group.GetGroup.Invoke(new()\n    {\n        Name = \"Privileged Users\",\n    });\n\n    var privilegedHighRisk = new Okta.EntityRiskPolicyRule(\"privileged_high_risk\", new()\n    {\n        PolicyId = example.Apply(getEntityRiskPolicyResult =\u003e getEntityRiskPolicyResult.Id),\n        Name = \"Privileged Users - High Risk\",\n        RiskLevel = \"HIGH\",\n        TerminateAllSessions = true,\n        GroupsIncludeds = new[]\n        {\n            privilegedUsers.Apply(getGroupResult =\u003e getGroupResult.Id),\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v6/go/okta\"\n\t\"github.com/pulumi/pulumi-okta/sdk/v6/go/okta/group\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texample, err := okta.GetEntityRiskPolicy(ctx, map[string]interface{}{}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tprivilegedUsers, err := group.LookupGroup(ctx, \u0026group.LookupGroupArgs{\n\t\t\tName: pulumi.StringRef(\"Privileged Users\"),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = okta.NewEntityRiskPolicyRule(ctx, \"privileged_high_risk\", \u0026okta.EntityRiskPolicyRuleArgs{\n\t\t\tPolicyId:             pulumi.String(pulumi.String(example.Id)),\n\t\t\tName:                 pulumi.String(\"Privileged Users - High Risk\"),\n\t\t\tRiskLevel:            pulumi.String(\"HIGH\"),\n\t\t\tTerminateAllSessions: pulumi.Bool(true),\n\t\t\tGroupsIncludeds: pulumi.StringArray{\n\t\t\t\tpulumi.String(pulumi.String(privilegedUsers.Id)),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.okta.OktaFunctions;\nimport com.pulumi.okta.group.GroupFunctions;\nimport com.pulumi.okta.group.inputs.GetGroupArgs;\nimport com.pulumi.okta.EntityRiskPolicyRule;\nimport com.pulumi.okta.EntityRiskPolicyRuleArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var example = OktaFunctions.getEntityRiskPolicy(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);\n\n        final var privilegedUsers = GroupFunctions.getGroup(GetGroupArgs.builder()\n            .name(\"Privileged Users\")\n            .build());\n\n        var privilegedHighRisk = new EntityRiskPolicyRule(\"privilegedHighRisk\", EntityRiskPolicyRuleArgs.builder()\n            .policyId(example.id())\n            .name(\"Privileged Users - High Risk\")\n            .riskLevel(\"HIGH\")\n            .terminateAllSessions(true)\n            .groupsIncludeds(privilegedUsers.id())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  privilegedHighRisk:\n    type: okta:EntityRiskPolicyRule\n    name: privileged_high_risk\n    properties:\n      policyId: ${example.id}\n      name: Privileged Users - High Risk\n      riskLevel: HIGH\n      terminateAllSessions: true\n      groupsIncludeds:\n        - ${privilegedUsers.id}\nvariables:\n  example:\n    fn::invoke:\n      function: okta:getEntityRiskPolicy\n      arguments: {}\n  privilegedUsers:\n    fn::invoke:\n      function: okta:group:getGroup\n      arguments:\n        name: Privileged Users\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n### Rule with Workflow Integration\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst example = okta.getEntityRiskPolicy({});\nconst workflowRule = new okta.EntityRiskPolicyRule(\"workflow_rule\", {\n    policyId: example.then(example =\u003e example.id),\n    name: \"Low Risk - Run Workflow\",\n    riskLevel: \"LOW\",\n    workflowId: \"your-workflow-id\",\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample = okta.get_entity_risk_policy()\nworkflow_rule = okta.EntityRiskPolicyRule(\"workflow_rule\",\n    policy_id=example.id,\n    name=\"Low Risk - Run Workflow\",\n    risk_level=\"LOW\",\n    workflow_id=\"your-workflow-id\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = Okta.GetEntityRiskPolicy.Invoke();\n\n    var workflowRule = new Okta.EntityRiskPolicyRule(\"workflow_rule\", new()\n    {\n        PolicyId = example.Apply(getEntityRiskPolicyResult =\u003e getEntityRiskPolicyResult.Id),\n        Name = \"Low Risk - Run Workflow\",\n        RiskLevel = \"LOW\",\n        WorkflowId = \"your-workflow-id\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v6/go/okta\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texample, err := okta.GetEntityRiskPolicy(ctx, map[string]interface{}{}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = okta.NewEntityRiskPolicyRule(ctx, \"workflow_rule\", \u0026okta.EntityRiskPolicyRuleArgs{\n\t\t\tPolicyId:   pulumi.String(pulumi.String(example.Id)),\n\t\t\tName:       pulumi.String(\"Low Risk - Run Workflow\"),\n\t\t\tRiskLevel:  pulumi.String(\"LOW\"),\n\t\t\tWorkflowId: pulumi.String(\"your-workflow-id\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.okta.OktaFunctions;\nimport com.pulumi.okta.EntityRiskPolicyRule;\nimport com.pulumi.okta.EntityRiskPolicyRuleArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var example = OktaFunctions.getEntityRiskPolicy(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);\n\n        var workflowRule = new EntityRiskPolicyRule(\"workflowRule\", EntityRiskPolicyRuleArgs.builder()\n            .policyId(example.id())\n            .name(\"Low Risk - Run Workflow\")\n            .riskLevel(\"LOW\")\n            .workflowId(\"your-workflow-id\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  workflowRule:\n    type: okta:EntityRiskPolicyRule\n    name: workflow_rule\n    properties:\n      policyId: ${example.id}\n      name: Low Risk - Run Workflow\n      riskLevel: LOW\n      workflowId: your-workflow-id\nvariables:\n  example:\n    fn::invoke:\n      function: okta:getEntityRiskPolicy\n      arguments: {}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nEntity Risk Policy Rules can be imported using the format `\u003cpolicy_id\u003e/\u003crule_id\u003e`:\n\n```sh\n$ pulumi import okta:index/entityRiskPolicyRule:EntityRiskPolicyRule example 00p1234567890/0pr1234567890\n```\n\n",
+            "properties": {
+                "groupsExcludeds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of group IDs to exclude from this rule.\n"
+                },
+                "groupsIncludeds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of group IDs to include in this rule.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the policy rule.\n"
+                },
+                "policyId": {
+                    "type": "string",
+                    "description": "ID of the Entity Risk Policy. Use the \u003cspan pulumi-lang-nodejs=\"`okta.getEntityRiskPolicy`\" pulumi-lang-dotnet=\"`okta.getEntityRiskPolicy`\" pulumi-lang-go=\"`getEntityRiskPolicy`\" pulumi-lang-python=\"`get_entity_risk_policy`\" pulumi-lang-yaml=\"`okta.getEntityRiskPolicy`\" pulumi-lang-java=\"`okta.getEntityRiskPolicy`\"\u003e`okta.getEntityRiskPolicy`\u003c/span\u003e data source to get this ID.\n"
+                },
+                "priority": {
+                    "type": "integer",
+                    "description": "Priority of the rule. Rules are evaluated in priority order.\n"
+                },
+                "riskLevel": {
+                    "type": "string",
+                    "description": "Risk level to match. Valid values: `HIGH`, `MEDIUM`, `LOW`, `ANY`.\n"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "Status of the rule. Valid values: `ACTIVE`, `INACTIVE`. Default: `ACTIVE`.\n"
+                },
+                "terminateAllSessions": {
+                    "type": "boolean",
+                    "description": "When true, terminates all active sessions for the user when a risk event is detected. Default: \u003cspan pulumi-lang-nodejs=\"`false`\" pulumi-lang-dotnet=\"`False`\" pulumi-lang-go=\"`false`\" pulumi-lang-python=\"`false`\" pulumi-lang-yaml=\"`false`\" pulumi-lang-java=\"`false`\"\u003e`false`\u003c/span\u003e.\n"
+                },
+                "usersExcludeds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of user IDs to exclude from this rule.\n"
+                },
+                "usersIncludeds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of user IDs to include from this rule.\n"
+                },
+                "workflowId": {
+                    "type": "string",
+                    "description": "ID of the Okta Workflow to run when a risk event is detected.\n"
+                }
+            },
+            "required": [
+                "name",
+                "policyId",
+                "priority",
+                "riskLevel",
+                "status",
+                "terminateAllSessions"
+            ],
+            "inputProperties": {
+                "groupsExcludeds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of group IDs to exclude from this rule.\n"
+                },
+                "groupsIncludeds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of group IDs to include in this rule.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the policy rule.\n"
+                },
+                "policyId": {
+                    "type": "string",
+                    "description": "ID of the Entity Risk Policy. Use the \u003cspan pulumi-lang-nodejs=\"`okta.getEntityRiskPolicy`\" pulumi-lang-dotnet=\"`okta.getEntityRiskPolicy`\" pulumi-lang-go=\"`getEntityRiskPolicy`\" pulumi-lang-python=\"`get_entity_risk_policy`\" pulumi-lang-yaml=\"`okta.getEntityRiskPolicy`\" pulumi-lang-java=\"`okta.getEntityRiskPolicy`\"\u003e`okta.getEntityRiskPolicy`\u003c/span\u003e data source to get this ID.\n"
+                },
+                "priority": {
+                    "type": "integer",
+                    "description": "Priority of the rule. Rules are evaluated in priority order.\n"
+                },
+                "riskLevel": {
+                    "type": "string",
+                    "description": "Risk level to match. Valid values: `HIGH`, `MEDIUM`, `LOW`, `ANY`.\n"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "Status of the rule. Valid values: `ACTIVE`, `INACTIVE`. Default: `ACTIVE`.\n"
+                },
+                "terminateAllSessions": {
+                    "type": "boolean",
+                    "description": "When true, terminates all active sessions for the user when a risk event is detected. Default: \u003cspan pulumi-lang-nodejs=\"`false`\" pulumi-lang-dotnet=\"`False`\" pulumi-lang-go=\"`false`\" pulumi-lang-python=\"`false`\" pulumi-lang-yaml=\"`false`\" pulumi-lang-java=\"`false`\"\u003e`false`\u003c/span\u003e.\n"
+                },
+                "usersExcludeds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of user IDs to exclude from this rule.\n"
+                },
+                "usersIncludeds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of user IDs to include from this rule.\n"
+                },
+                "workflowId": {
+                    "type": "string",
+                    "description": "ID of the Okta Workflow to run when a risk event is detected.\n"
+                }
+            },
+            "requiredInputs": [
+                "policyId",
+                "riskLevel"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering EntityRiskPolicyRule resources.\n",
+                "properties": {
+                    "groupsExcludeds": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "List of group IDs to exclude from this rule.\n"
+                    },
+                    "groupsIncludeds": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "List of group IDs to include in this rule.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Name of the policy rule.\n"
+                    },
+                    "policyId": {
+                        "type": "string",
+                        "description": "ID of the Entity Risk Policy. Use the \u003cspan pulumi-lang-nodejs=\"`okta.getEntityRiskPolicy`\" pulumi-lang-dotnet=\"`okta.getEntityRiskPolicy`\" pulumi-lang-go=\"`getEntityRiskPolicy`\" pulumi-lang-python=\"`get_entity_risk_policy`\" pulumi-lang-yaml=\"`okta.getEntityRiskPolicy`\" pulumi-lang-java=\"`okta.getEntityRiskPolicy`\"\u003e`okta.getEntityRiskPolicy`\u003c/span\u003e data source to get this ID.\n"
+                    },
+                    "priority": {
+                        "type": "integer",
+                        "description": "Priority of the rule. Rules are evaluated in priority order.\n"
+                    },
+                    "riskLevel": {
+                        "type": "string",
+                        "description": "Risk level to match. Valid values: `HIGH`, `MEDIUM`, `LOW`, `ANY`.\n"
+                    },
+                    "status": {
+                        "type": "string",
+                        "description": "Status of the rule. Valid values: `ACTIVE`, `INACTIVE`. Default: `ACTIVE`.\n"
+                    },
+                    "terminateAllSessions": {
+                        "type": "boolean",
+                        "description": "When true, terminates all active sessions for the user when a risk event is detected. Default: \u003cspan pulumi-lang-nodejs=\"`false`\" pulumi-lang-dotnet=\"`False`\" pulumi-lang-go=\"`false`\" pulumi-lang-python=\"`false`\" pulumi-lang-yaml=\"`false`\" pulumi-lang-java=\"`false`\"\u003e`false`\u003c/span\u003e.\n"
+                    },
+                    "usersExcludeds": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "List of user IDs to exclude from this rule.\n"
+                    },
+                    "usersIncludeds": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "List of user IDs to include from this rule.\n"
+                    },
+                    "workflowId": {
+                        "type": "string",
+                        "description": "ID of the Okta Workflow to run when a risk event is detected.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
         "okta:index/eventHook:EventHook": {
             "description": "Creates an event hook. This resource allows you to create and configure an event hook.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst example = new okta.EventHook(\"example\", {\n    name: \"example\",\n    events: [\n        \"user.lifecycle.create\",\n        \"user.lifecycle.delete.initiated\",\n    ],\n    channel: {\n        type: \"HTTP\",\n        version: \"1.0.0\",\n        uri: \"https://example.com/test\",\n    },\n    auth: {\n        type: \"HEADER\",\n        key: \"Authorization\",\n        value: \"123\",\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample = okta.EventHook(\"example\",\n    name=\"example\",\n    events=[\n        \"user.lifecycle.create\",\n        \"user.lifecycle.delete.initiated\",\n    ],\n    channel={\n        \"type\": \"HTTP\",\n        \"version\": \"1.0.0\",\n        \"uri\": \"https://example.com/test\",\n    },\n    auth={\n        \"type\": \"HEADER\",\n        \"key\": \"Authorization\",\n        \"value\": \"123\",\n    })\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new Okta.EventHook(\"example\", new()\n    {\n        Name = \"example\",\n        Events = new[]\n        {\n            \"user.lifecycle.create\",\n            \"user.lifecycle.delete.initiated\",\n        },\n        Channel = \n        {\n            { \"type\", \"HTTP\" },\n            { \"version\", \"1.0.0\" },\n            { \"uri\", \"https://example.com/test\" },\n        },\n        Auth = \n        {\n            { \"type\", \"HEADER\" },\n            { \"key\", \"Authorization\" },\n            { \"value\", \"123\" },\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v6/go/okta\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := okta.NewEventHook(ctx, \"example\", \u0026okta.EventHookArgs{\n\t\t\tName: pulumi.String(\"example\"),\n\t\t\tEvents: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"user.lifecycle.create\"),\n\t\t\t\tpulumi.String(\"user.lifecycle.delete.initiated\"),\n\t\t\t},\n\t\t\tChannel: pulumi.StringMap{\n\t\t\t\t\"type\":    pulumi.String(\"HTTP\"),\n\t\t\t\t\"version\": pulumi.String(\"1.0.0\"),\n\t\t\t\t\"uri\":     pulumi.String(\"https://example.com/test\"),\n\t\t\t},\n\t\t\tAuth: pulumi.StringMap{\n\t\t\t\t\"type\":  pulumi.String(\"HEADER\"),\n\t\t\t\t\"key\":   pulumi.String(\"Authorization\"),\n\t\t\t\t\"value\": pulumi.String(\"123\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.okta.EventHook;\nimport com.pulumi.okta.EventHookArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new EventHook(\"example\", EventHookArgs.builder()\n            .name(\"example\")\n            .events(            \n                \"user.lifecycle.create\",\n                \"user.lifecycle.delete.initiated\")\n            .channel(Map.ofEntries(\n                Map.entry(\"type\", \"HTTP\"),\n                Map.entry(\"version\", \"1.0.0\"),\n                Map.entry(\"uri\", \"https://example.com/test\")\n            ))\n            .auth(Map.ofEntries(\n                Map.entry(\"type\", \"HEADER\"),\n                Map.entry(\"key\", \"Authorization\"),\n                Map.entry(\"value\", \"123\")\n            ))\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: okta:EventHook\n    properties:\n      name: example\n      events:\n        - user.lifecycle.create\n        - user.lifecycle.delete.initiated\n      channel:\n        type: HTTP\n        version: 1.0.0\n        uri: https://example.com/test\n      auth:\n        type: HEADER\n        key: Authorization\n        value: '123'\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n```sh\n$ pulumi import okta:index/eventHook:EventHook example \u003chook_id\u003e\n```\n\n",
             "properties": {
@@ -20587,7 +21006,7 @@
             }
         },
         "okta:index/postAuthSessionPolicyRule:PostAuthSessionPolicyRule": {
-            "description": "Manages the Post Auth Session Policy Rule. The Post Auth Session Policy has exactly one modifiable rule (non-default). This resource allows you to configure that rule.\n\n\u003e **IMPORTANT:** This resource cannot be created or deleted, only **imported** and updated. The Post Auth Session Policy rule is pre-provisioned by Okta. You must import the existing rule before managing it with Terraform.\n\n## Example Usage\n\n{{tffile \"examples/resources/okta_post_auth_session_policy_rule/resource.tf\"}}\n\n## Lifecycle\n\n- **Create**: Returns an error with the import command to use\n- **Update**: Updates the rule configuration in Okta\n- **Delete**: Removes the rule from Terraform state only (the rule remains in Okta)\n\n## Import\n\nBefore using this resource, you must import the existing rule:\n\n{{codefile \"shell\" \"examples/resources/okta_post_auth_session_policy_rule/import.sh\"}}\n\nWhen you run `pulumi up` without importing first, the error message will include the exact import command with the correct policy and rule IDs.\n\n",
+            "description": "Manages the Post Auth Session Policy Rule. The Post Auth Session Policy has exactly one modifiable rule (non-default). This resource allows you to configure that rule.\n\n\u003e **IMPORTANT:** This resource cannot be created or deleted, only **imported** and updated. The Post Auth Session Policy rule is pre-provisioned by Okta. You must import the existing rule before managing it with Terraform.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst example = okta.getPostAuthSessionPolicy({});\nconst examplePostAuthSessionPolicyRule = new okta.PostAuthSessionPolicyRule(\"example\", {\n    policyId: example.then(example =\u003e example.id),\n    name: \"Session Protection Rule\",\n    terminateSession: true,\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample = okta.get_post_auth_session_policy()\nexample_post_auth_session_policy_rule = okta.PostAuthSessionPolicyRule(\"example\",\n    policy_id=example.id,\n    name=\"Session Protection Rule\",\n    terminate_session=True)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = Okta.GetPostAuthSessionPolicy.Invoke();\n\n    var examplePostAuthSessionPolicyRule = new Okta.PostAuthSessionPolicyRule(\"example\", new()\n    {\n        PolicyId = example.Apply(getPostAuthSessionPolicyResult =\u003e getPostAuthSessionPolicyResult.Id),\n        Name = \"Session Protection Rule\",\n        TerminateSession = true,\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v6/go/okta\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texample, err := okta.GetPostAuthSessionPolicy(ctx, map[string]interface{}{}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = okta.NewPostAuthSessionPolicyRule(ctx, \"example\", \u0026okta.PostAuthSessionPolicyRuleArgs{\n\t\t\tPolicyId:         pulumi.String(pulumi.String(example.Id)),\n\t\t\tName:             pulumi.String(\"Session Protection Rule\"),\n\t\t\tTerminateSession: pulumi.Bool(true),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.okta.OktaFunctions;\nimport com.pulumi.okta.PostAuthSessionPolicyRule;\nimport com.pulumi.okta.PostAuthSessionPolicyRuleArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var example = OktaFunctions.getPostAuthSessionPolicy(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);\n\n        var examplePostAuthSessionPolicyRule = new PostAuthSessionPolicyRule(\"examplePostAuthSessionPolicyRule\", PostAuthSessionPolicyRuleArgs.builder()\n            .policyId(example.id())\n            .name(\"Session Protection Rule\")\n            .terminateSession(true)\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  examplePostAuthSessionPolicyRule:\n    type: okta:PostAuthSessionPolicyRule\n    name: example\n    properties:\n      policyId: ${example.id}\n      name: Session Protection Rule\n      terminateSession: true\nvariables:\n  example:\n    fn::invoke:\n      function: okta:getPostAuthSessionPolicy\n      arguments: {}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Lifecycle\n\n- **Create**: Returns an error with the import command to use\n- **Update**: Updates the rule configuration in Okta\n- **Delete**: Removes the rule from Terraform state only (the rule remains in Okta)\n\n",
             "properties": {
                 "groupsExcludeds": {
                     "type": "array",
@@ -22331,6 +22750,158 @@
                     "sendEmailForPasswordChangedEnabled": {
                         "type": "boolean",
                         "description": "Notifies end users that the password for their account has changed. Default is \u003cspan pulumi-lang-nodejs=\"`true`\" pulumi-lang-dotnet=\"`True`\" pulumi-lang-go=\"`true`\" pulumi-lang-python=\"`true`\" pulumi-lang-yaml=\"`true`\" pulumi-lang-java=\"`true`\"\u003e`true`\u003c/span\u003e.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "okta:index/sessionViolationPolicyRule:SessionViolationPolicyRule": {
+            "description": "Manages the Session Violation Detection Policy Rule. The Session Violation Detection Policy has exactly one modifiable rule (non-default). This resource allows you to configure that rule.\n\n\u003e **IMPORTANT:** This resource cannot be created or deleted, only **imported** and updated. The Session Violation Detection Policy rule is pre-provisioned by Okta. You must import the existing rule before managing it with Terraform.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst example = okta.getSessionViolationPolicy({});\nconst exampleSessionViolationPolicyRule = new okta.SessionViolationPolicyRule(\"example\", {\n    policyId: example.then(example =\u003e example.id),\n    name: \"Session Violation Rule\",\n    minRiskLevel: \"HIGH\",\n    policyEvaluationEnabled: true,\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample = okta.get_session_violation_policy()\nexample_session_violation_policy_rule = okta.SessionViolationPolicyRule(\"example\",\n    policy_id=example.id,\n    name=\"Session Violation Rule\",\n    min_risk_level=\"HIGH\",\n    policy_evaluation_enabled=True)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = Okta.GetSessionViolationPolicy.Invoke();\n\n    var exampleSessionViolationPolicyRule = new Okta.SessionViolationPolicyRule(\"example\", new()\n    {\n        PolicyId = example.Apply(getSessionViolationPolicyResult =\u003e getSessionViolationPolicyResult.Id),\n        Name = \"Session Violation Rule\",\n        MinRiskLevel = \"HIGH\",\n        PolicyEvaluationEnabled = true,\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v6/go/okta\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texample, err := okta.GetSessionViolationPolicy(ctx, map[string]interface{}{}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = okta.NewSessionViolationPolicyRule(ctx, \"example\", \u0026okta.SessionViolationPolicyRuleArgs{\n\t\t\tPolicyId:                pulumi.String(pulumi.String(example.Id)),\n\t\t\tName:                    pulumi.String(\"Session Violation Rule\"),\n\t\t\tMinRiskLevel:            pulumi.String(\"HIGH\"),\n\t\t\tPolicyEvaluationEnabled: pulumi.Bool(true),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.okta.OktaFunctions;\nimport com.pulumi.okta.SessionViolationPolicyRule;\nimport com.pulumi.okta.SessionViolationPolicyRuleArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var example = OktaFunctions.getSessionViolationPolicy(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);\n\n        var exampleSessionViolationPolicyRule = new SessionViolationPolicyRule(\"exampleSessionViolationPolicyRule\", SessionViolationPolicyRuleArgs.builder()\n            .policyId(example.id())\n            .name(\"Session Violation Rule\")\n            .minRiskLevel(\"HIGH\")\n            .policyEvaluationEnabled(true)\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  exampleSessionViolationPolicyRule:\n    type: okta:SessionViolationPolicyRule\n    name: example\n    properties:\n      policyId: ${example.id}\n      name: Session Violation Rule\n      minRiskLevel: HIGH\n      policyEvaluationEnabled: true\nvariables:\n  example:\n    fn::invoke:\n      function: okta:getSessionViolationPolicy\n      arguments: {}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Lifecycle\n\n- **Create**: Returns an error with the import command to use\n- **Update**: Updates the rule configuration in Okta\n- **Delete**: Removes the rule from Terraform state only (the rule remains in Okta)\n\n## Import\n\nBefore using this resource, you must import the existing rule:\n\n{{codefile \"shell\" \"examples/resources/okta_session_violation_policy_rule/import.sh\"}}\n\nUse the \u003cspan pulumi-lang-nodejs=\"`okta.getSessionViolationPolicy`\" pulumi-lang-dotnet=\"`okta.getSessionViolationPolicy`\" pulumi-lang-go=\"`getSessionViolationPolicy`\" pulumi-lang-python=\"`get_session_violation_policy`\" pulumi-lang-yaml=\"`okta.getSessionViolationPolicy`\" pulumi-lang-java=\"`okta.getSessionViolationPolicy`\"\u003e`okta.getSessionViolationPolicy`\u003c/span\u003e data source to retrieve the \u003cspan pulumi-lang-nodejs=\"`policyId`\" pulumi-lang-dotnet=\"`PolicyId`\" pulumi-lang-go=\"`policyId`\" pulumi-lang-python=\"`policy_id`\" pulumi-lang-yaml=\"`policyId`\" pulumi-lang-java=\"`policyId`\"\u003e`policyId`\u003c/span\u003e and \u003cspan pulumi-lang-nodejs=\"`ruleId`\" pulumi-lang-dotnet=\"`RuleId`\" pulumi-lang-go=\"`ruleId`\" pulumi-lang-python=\"`rule_id`\" pulumi-lang-yaml=\"`ruleId`\" pulumi-lang-java=\"`ruleId`\"\u003e`ruleId`\u003c/span\u003e needed for the import command.\n\n",
+            "properties": {
+                "minRiskLevel": {
+                    "type": "string",
+                    "description": "The minimum risk level that triggers the rule. Valid values: `LOW`, `MEDIUM`, `HIGH`.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the policy rule.\n"
+                },
+                "networkConnection": {
+                    "type": "string",
+                    "description": "Network selection mode. Valid values: `ANYWHERE`, `ZONE`, `ON_NETWORK`, `OFF_NETWORK`.\n"
+                },
+                "networkExcludes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of network zone IDs to exclude. Required when \u003cspan pulumi-lang-nodejs=\"`networkConnection`\" pulumi-lang-dotnet=\"`NetworkConnection`\" pulumi-lang-go=\"`networkConnection`\" pulumi-lang-python=\"`network_connection`\" pulumi-lang-yaml=\"`networkConnection`\" pulumi-lang-java=\"`networkConnection`\"\u003e`networkConnection`\u003c/span\u003e is set to `ZONE`.\n"
+                },
+                "networkIncludes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of network zone IDs to include. Required when \u003cspan pulumi-lang-nodejs=\"`networkConnection`\" pulumi-lang-dotnet=\"`NetworkConnection`\" pulumi-lang-go=\"`networkConnection`\" pulumi-lang-python=\"`network_connection`\" pulumi-lang-yaml=\"`networkConnection`\" pulumi-lang-java=\"`networkConnection`\"\u003e`networkConnection`\u003c/span\u003e is set to `ZONE`.\n"
+                },
+                "policyEvaluationEnabled": {
+                    "type": "boolean",
+                    "description": "When \u003cspan pulumi-lang-nodejs=\"`true`\" pulumi-lang-dotnet=\"`True`\" pulumi-lang-go=\"`true`\" pulumi-lang-python=\"`true`\" pulumi-lang-yaml=\"`true`\" pulumi-lang-java=\"`true`\"\u003e`true`\u003c/span\u003e, the sign-on policies of the session are evaluated when a session violation is detected. Default is \u003cspan pulumi-lang-nodejs=\"`true`\" pulumi-lang-dotnet=\"`True`\" pulumi-lang-go=\"`true`\" pulumi-lang-python=\"`true`\" pulumi-lang-yaml=\"`true`\" pulumi-lang-java=\"`true`\"\u003e`true`\u003c/span\u003e.\n"
+                },
+                "policyId": {
+                    "type": "string",
+                    "description": "ID of the Session Violation Detection Policy. Use the \u003cspan pulumi-lang-nodejs=\"`okta.getSessionViolationPolicy`\" pulumi-lang-dotnet=\"`okta.getSessionViolationPolicy`\" pulumi-lang-go=\"`getSessionViolationPolicy`\" pulumi-lang-python=\"`get_session_violation_policy`\" pulumi-lang-yaml=\"`okta.getSessionViolationPolicy`\" pulumi-lang-java=\"`okta.getSessionViolationPolicy`\"\u003e`okta.getSessionViolationPolicy`\u003c/span\u003e data source to get this ID.\n"
+                },
+                "priority": {
+                    "type": "integer",
+                    "description": "Priority of the rule. Rules are evaluated in priority order.\n"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "Status of the rule: `ACTIVE` or `INACTIVE`. Default is `ACTIVE`.\n"
+                }
+            },
+            "required": [
+                "minRiskLevel",
+                "name",
+                "networkConnection",
+                "policyEvaluationEnabled",
+                "policyId",
+                "priority",
+                "status"
+            ],
+            "inputProperties": {
+                "minRiskLevel": {
+                    "type": "string",
+                    "description": "The minimum risk level that triggers the rule. Valid values: `LOW`, `MEDIUM`, `HIGH`.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the policy rule.\n"
+                },
+                "networkConnection": {
+                    "type": "string",
+                    "description": "Network selection mode. Valid values: `ANYWHERE`, `ZONE`, `ON_NETWORK`, `OFF_NETWORK`.\n"
+                },
+                "networkExcludes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of network zone IDs to exclude. Required when \u003cspan pulumi-lang-nodejs=\"`networkConnection`\" pulumi-lang-dotnet=\"`NetworkConnection`\" pulumi-lang-go=\"`networkConnection`\" pulumi-lang-python=\"`network_connection`\" pulumi-lang-yaml=\"`networkConnection`\" pulumi-lang-java=\"`networkConnection`\"\u003e`networkConnection`\u003c/span\u003e is set to `ZONE`.\n"
+                },
+                "networkIncludes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of network zone IDs to include. Required when \u003cspan pulumi-lang-nodejs=\"`networkConnection`\" pulumi-lang-dotnet=\"`NetworkConnection`\" pulumi-lang-go=\"`networkConnection`\" pulumi-lang-python=\"`network_connection`\" pulumi-lang-yaml=\"`networkConnection`\" pulumi-lang-java=\"`networkConnection`\"\u003e`networkConnection`\u003c/span\u003e is set to `ZONE`.\n"
+                },
+                "policyEvaluationEnabled": {
+                    "type": "boolean",
+                    "description": "When \u003cspan pulumi-lang-nodejs=\"`true`\" pulumi-lang-dotnet=\"`True`\" pulumi-lang-go=\"`true`\" pulumi-lang-python=\"`true`\" pulumi-lang-yaml=\"`true`\" pulumi-lang-java=\"`true`\"\u003e`true`\u003c/span\u003e, the sign-on policies of the session are evaluated when a session violation is detected. Default is \u003cspan pulumi-lang-nodejs=\"`true`\" pulumi-lang-dotnet=\"`True`\" pulumi-lang-go=\"`true`\" pulumi-lang-python=\"`true`\" pulumi-lang-yaml=\"`true`\" pulumi-lang-java=\"`true`\"\u003e`true`\u003c/span\u003e.\n"
+                },
+                "policyId": {
+                    "type": "string",
+                    "description": "ID of the Session Violation Detection Policy. Use the \u003cspan pulumi-lang-nodejs=\"`okta.getSessionViolationPolicy`\" pulumi-lang-dotnet=\"`okta.getSessionViolationPolicy`\" pulumi-lang-go=\"`getSessionViolationPolicy`\" pulumi-lang-python=\"`get_session_violation_policy`\" pulumi-lang-yaml=\"`okta.getSessionViolationPolicy`\" pulumi-lang-java=\"`okta.getSessionViolationPolicy`\"\u003e`okta.getSessionViolationPolicy`\u003c/span\u003e data source to get this ID.\n"
+                },
+                "priority": {
+                    "type": "integer",
+                    "description": "Priority of the rule. Rules are evaluated in priority order.\n"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "Status of the rule: `ACTIVE` or `INACTIVE`. Default is `ACTIVE`.\n"
+                }
+            },
+            "requiredInputs": [
+                "minRiskLevel",
+                "policyId"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering SessionViolationPolicyRule resources.\n",
+                "properties": {
+                    "minRiskLevel": {
+                        "type": "string",
+                        "description": "The minimum risk level that triggers the rule. Valid values: `LOW`, `MEDIUM`, `HIGH`.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Name of the policy rule.\n"
+                    },
+                    "networkConnection": {
+                        "type": "string",
+                        "description": "Network selection mode. Valid values: `ANYWHERE`, `ZONE`, `ON_NETWORK`, `OFF_NETWORK`.\n"
+                    },
+                    "networkExcludes": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "List of network zone IDs to exclude. Required when \u003cspan pulumi-lang-nodejs=\"`networkConnection`\" pulumi-lang-dotnet=\"`NetworkConnection`\" pulumi-lang-go=\"`networkConnection`\" pulumi-lang-python=\"`network_connection`\" pulumi-lang-yaml=\"`networkConnection`\" pulumi-lang-java=\"`networkConnection`\"\u003e`networkConnection`\u003c/span\u003e is set to `ZONE`.\n"
+                    },
+                    "networkIncludes": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "List of network zone IDs to include. Required when \u003cspan pulumi-lang-nodejs=\"`networkConnection`\" pulumi-lang-dotnet=\"`NetworkConnection`\" pulumi-lang-go=\"`networkConnection`\" pulumi-lang-python=\"`network_connection`\" pulumi-lang-yaml=\"`networkConnection`\" pulumi-lang-java=\"`networkConnection`\"\u003e`networkConnection`\u003c/span\u003e is set to `ZONE`.\n"
+                    },
+                    "policyEvaluationEnabled": {
+                        "type": "boolean",
+                        "description": "When \u003cspan pulumi-lang-nodejs=\"`true`\" pulumi-lang-dotnet=\"`True`\" pulumi-lang-go=\"`true`\" pulumi-lang-python=\"`true`\" pulumi-lang-yaml=\"`true`\" pulumi-lang-java=\"`true`\"\u003e`true`\u003c/span\u003e, the sign-on policies of the session are evaluated when a session violation is detected. Default is \u003cspan pulumi-lang-nodejs=\"`true`\" pulumi-lang-dotnet=\"`True`\" pulumi-lang-go=\"`true`\" pulumi-lang-python=\"`true`\" pulumi-lang-yaml=\"`true`\" pulumi-lang-java=\"`true`\"\u003e`true`\u003c/span\u003e.\n"
+                    },
+                    "policyId": {
+                        "type": "string",
+                        "description": "ID of the Session Violation Detection Policy. Use the \u003cspan pulumi-lang-nodejs=\"`okta.getSessionViolationPolicy`\" pulumi-lang-dotnet=\"`okta.getSessionViolationPolicy`\" pulumi-lang-go=\"`getSessionViolationPolicy`\" pulumi-lang-python=\"`get_session_violation_policy`\" pulumi-lang-yaml=\"`okta.getSessionViolationPolicy`\" pulumi-lang-java=\"`okta.getSessionViolationPolicy`\"\u003e`okta.getSessionViolationPolicy`\u003c/span\u003e data source to get this ID.\n"
+                    },
+                    "priority": {
+                        "type": "integer",
+                        "description": "Priority of the rule. Rules are evaluated in priority order.\n"
+                    },
+                    "status": {
+                        "type": "string",
+                        "description": "Status of the rule: `ACTIVE` or `INACTIVE`. Default is `ACTIVE`.\n"
                     }
                 },
                 "type": "object"
@@ -28391,6 +28962,13 @@
                         "description": "Name of application.\n",
                         "type": "string"
                     },
+                    "networks": {
+                        "description": "Network restrictions for the application client.\n",
+                        "items": {
+                            "$ref": "#/types/okta:app/getOauthNetwork:getOauthNetwork"
+                        },
+                        "type": "array"
+                    },
                     "policyUri": {
                         "description": "URI to web page providing client policy document.\n",
                         "type": "string"
@@ -28453,6 +29031,7 @@
                     "loginUri",
                     "logoUri",
                     "name",
+                    "networks",
                     "policyUri",
                     "postLogoutRedirectUris",
                     "redirectUris",
@@ -31626,6 +32205,32 @@
                 "type": "object"
             }
         },
+        "okta:index/getEntityRiskPolicy:getEntityRiskPolicy": {
+            "description": "Retrieves the Entity Risk Policy. This is a system policy that is automatically created when Identity Threat Protection (ITP) is enabled. There is exactly one Entity Risk Policy per organization.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst example = okta.getEntityRiskPolicy({});\n// Use the policy ID to create rules\nconst exampleEntityRiskPolicyRule = new okta.EntityRiskPolicyRule(\"example\", {\n    policyId: example.then(example =\u003e example.id),\n    name: \"High Risk Response\",\n    riskLevel: \"HIGH\",\n    terminateAllSessions: true,\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample = okta.get_entity_risk_policy()\n# Use the policy ID to create rules\nexample_entity_risk_policy_rule = okta.EntityRiskPolicyRule(\"example\",\n    policy_id=example.id,\n    name=\"High Risk Response\",\n    risk_level=\"HIGH\",\n    terminate_all_sessions=True)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = Okta.GetEntityRiskPolicy.Invoke();\n\n    // Use the policy ID to create rules\n    var exampleEntityRiskPolicyRule = new Okta.EntityRiskPolicyRule(\"example\", new()\n    {\n        PolicyId = example.Apply(getEntityRiskPolicyResult =\u003e getEntityRiskPolicyResult.Id),\n        Name = \"High Risk Response\",\n        RiskLevel = \"HIGH\",\n        TerminateAllSessions = true,\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v6/go/okta\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texample, err := okta.GetEntityRiskPolicy(ctx, map[string]interface{}{}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t// Use the policy ID to create rules\n\t\t_, err = okta.NewEntityRiskPolicyRule(ctx, \"example\", \u0026okta.EntityRiskPolicyRuleArgs{\n\t\t\tPolicyId:             pulumi.String(pulumi.String(example.Id)),\n\t\t\tName:                 pulumi.String(\"High Risk Response\"),\n\t\t\tRiskLevel:            pulumi.String(\"HIGH\"),\n\t\t\tTerminateAllSessions: pulumi.Bool(true),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.okta.OktaFunctions;\nimport com.pulumi.okta.EntityRiskPolicyRule;\nimport com.pulumi.okta.EntityRiskPolicyRuleArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var example = OktaFunctions.getEntityRiskPolicy(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);\n\n        // Use the policy ID to create rules\n        var exampleEntityRiskPolicyRule = new EntityRiskPolicyRule(\"exampleEntityRiskPolicyRule\", EntityRiskPolicyRuleArgs.builder()\n            .policyId(example.id())\n            .name(\"High Risk Response\")\n            .riskLevel(\"HIGH\")\n            .terminateAllSessions(true)\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  # Use the policy ID to create rules\n  exampleEntityRiskPolicyRule:\n    type: okta:EntityRiskPolicyRule\n    name: example\n    properties:\n      policyId: ${example.id}\n      name: High Risk Response\n      riskLevel: HIGH\n      terminateAllSessions: true\nvariables:\n  example:\n    fn::invoke:\n      function: okta:getEntityRiskPolicy\n      arguments: {}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
+            "outputs": {
+                "description": "A collection of values returned by getEntityRiskPolicy.\n",
+                "properties": {
+                    "id": {
+                        "description": "The ID of the Entity Risk Policy.\n",
+                        "type": "string"
+                    },
+                    "name": {
+                        "description": "Name of the Entity Risk Policy.\n",
+                        "type": "string"
+                    },
+                    "status": {
+                        "description": "Status of the policy: `ACTIVE` or `INACTIVE`.\n",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "id",
+                    "name",
+                    "status"
+                ],
+                "type": "object"
+            }
+        },
         "okta:index/getFeatures:getFeatures": {
             "description": "Get a list of features from Okta.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst example = okta.getFeatures({\n    label: \"Android Device Trust\",\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample = okta.get_features(label=\"Android Device Trust\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = Okta.GetFeatures.Invoke(new()\n    {\n        Label = \"Android Device Trust\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v6/go/okta\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := okta.GetFeatures(ctx, \u0026okta.GetFeaturesArgs{\n\t\t\tLabel: pulumi.StringRef(\"Android Device Trust\"),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.okta.OktaFunctions;\nimport com.pulumi.okta.inputs.GetFeaturesArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var example = OktaFunctions.getFeatures(GetFeaturesArgs.builder()\n            .label(\"Android Device Trust\")\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  example:\n    fn::invoke:\n      function: okta:getFeatures\n      arguments:\n        label: Android Device Trust\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
             "inputs": {
@@ -31966,6 +32571,170 @@
                 "type": "object"
             }
         },
+        "okta:index/getOauthAuthorizationServer:getOauthAuthorizationServer": {
+            "inputs": {
+                "description": "A collection of arguments for invoking getOauthAuthorizationServer.\n",
+                "properties": {
+                    "baseUrl": {
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "outputs": {
+                "description": "A collection of values returned by getOauthAuthorizationServer.\n",
+                "properties": {
+                    "authorizationEndpoint": {
+                        "type": "string"
+                    },
+                    "backchannelAuthenticationRequestSigningAlgValuesSupporteds": {
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "backchannelTokenDeliveryModesSupporteds": {
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "baseUrl": {
+                        "type": "string"
+                    },
+                    "claimsSupporteds": {
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "codeChallengeMethodsSupporteds": {
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "deviceAuthorizationEndpoint": {
+                        "type": "string"
+                    },
+                    "dpopSigningAlgValuesSupporteds": {
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "endSessionEndpoint": {
+                        "type": "string"
+                    },
+                    "grantTypesSupporteds": {
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "id": {
+                        "type": "string"
+                    },
+                    "introspectionEndpoint": {
+                        "type": "string"
+                    },
+                    "introspectionEndpointAuthMethodsSupporteds": {
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "issuer": {
+                        "type": "string"
+                    },
+                    "pushedAuthorizationRequestEndpoint": {
+                        "type": "string"
+                    },
+                    "registrationEndpoint": {
+                        "type": "string"
+                    },
+                    "requestObjectSigningAlgValuesSupporteds": {
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "requestParameterSupported": {
+                        "type": "boolean"
+                    },
+                    "responseModesSupporteds": {
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "responseTypesSupporteds": {
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "revocationEndpoint": {
+                        "type": "string"
+                    },
+                    "revocationEndpointAuthMethodsSupporteds": {
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "scopesSupporteds": {
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "subjectTypesSupporteds": {
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "tokenEndpoint": {
+                        "type": "string"
+                    },
+                    "tokenEndpointAuthMethodsSupporteds": {
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "authorizationEndpoint",
+                    "backchannelAuthenticationRequestSigningAlgValuesSupporteds",
+                    "backchannelTokenDeliveryModesSupporteds",
+                    "claimsSupporteds",
+                    "codeChallengeMethodsSupporteds",
+                    "deviceAuthorizationEndpoint",
+                    "dpopSigningAlgValuesSupporteds",
+                    "endSessionEndpoint",
+                    "grantTypesSupporteds",
+                    "id",
+                    "introspectionEndpoint",
+                    "introspectionEndpointAuthMethodsSupporteds",
+                    "issuer",
+                    "pushedAuthorizationRequestEndpoint",
+                    "registrationEndpoint",
+                    "requestObjectSigningAlgValuesSupporteds",
+                    "requestParameterSupported",
+                    "responseModesSupporteds",
+                    "responseTypesSupporteds",
+                    "revocationEndpoint",
+                    "revocationEndpointAuthMethodsSupporteds",
+                    "scopesSupporteds",
+                    "subjectTypesSupporteds",
+                    "tokenEndpoint",
+                    "tokenEndpointAuthMethodsSupporteds"
+                ],
+                "type": "object"
+            }
+        },
         "okta:index/getOrgMetadata:getOrgMetadata": {
             "description": "Retrieves the well-known org metadata, which includes the id, configured custom domains, authentication pipeline, and various other org settings.\n",
             "inputs": {
@@ -32010,7 +32779,7 @@
             }
         },
         "okta:index/getPostAuthSessionPolicy:getPostAuthSessionPolicy": {
-            "description": "Retrieves the Post Auth Session Policy. This is a system policy that is automatically created when Identity Threat Protection (ITP) with Okta AI is enabled. There is exactly one Post Auth Session Policy per organization.\n\n## Example Usage\n\n{{tffile \"examples/data-sources/okta_post_auth_session_policy/data-source.tf\"}}\n",
+            "description": "Retrieves the Post Auth Session Policy. This is a system policy that is automatically created when Identity Threat Protection (ITP) with Okta AI is enabled. There is exactly one Post Auth Session Policy per organization.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst example = okta.getPostAuthSessionPolicy({});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample = okta.get_post_auth_session_policy()\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = Okta.GetPostAuthSessionPolicy.Invoke();\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v6/go/okta\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := okta.GetPostAuthSessionPolicy(ctx, map[string]interface{}{}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.okta.OktaFunctions;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var example = OktaFunctions.getPostAuthSessionPolicy(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);\n\n    }\n}\n```\n```yaml\nvariables:\n  example:\n    fn::invoke:\n      function: okta:getPostAuthSessionPolicy\n      arguments: {}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
             "outputs": {
                 "description": "A collection of values returned by getPostAuthSessionPolicy.\n",
                 "properties": {
@@ -33051,6 +33820,52 @@
                     "name",
                     "status",
                     "type"
+                ],
+                "type": "object"
+            }
+        },
+        "okta:index/getSessionViolationPolicy:getSessionViolationPolicy": {
+            "description": "Retrieves the Session Violation Detection Policy. This is a system policy that is automatically created when the Session Violation Detection feature is enabled. There is exactly one Session Violation Detection Policy per organization.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst example = okta.getSessionViolationPolicy({});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample = okta.get_session_violation_policy()\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = Okta.GetSessionViolationPolicy.Invoke();\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v6/go/okta\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := okta.GetSessionViolationPolicy(ctx, map[string]interface{}{}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.okta.OktaFunctions;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var example = OktaFunctions.getSessionViolationPolicy(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);\n\n    }\n}\n```\n```yaml\nvariables:\n  example:\n    fn::invoke:\n      function: okta:getSessionViolationPolicy\n      arguments: {}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
+            "outputs": {
+                "description": "A collection of values returned by getSessionViolationPolicy.\n",
+                "properties": {
+                    "created": {
+                        "description": "Timestamp when the policy was created.\n",
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "ID of the Session Violation Detection Policy.\n",
+                        "type": "string"
+                    },
+                    "name": {
+                        "description": "Name of the Session Violation Detection Policy.\n",
+                        "type": "string"
+                    },
+                    "priority": {
+                        "description": "Priority of the policy.\n",
+                        "type": "integer"
+                    },
+                    "ruleId": {
+                        "description": "ID of the modifiable policy rule (non-default). Use this for importing the policy rule resource.\n",
+                        "type": "string"
+                    },
+                    "status": {
+                        "description": "Status of the policy: `ACTIVE` or `INACTIVE`.\n",
+                        "type": "string"
+                    },
+                    "system": {
+                        "description": "Whether this is a system-managed policy created by Okta.\n",
+                        "type": "boolean"
+                    }
+                },
+                "required": [
+                    "created",
+                    "id",
+                    "name",
+                    "priority",
+                    "ruleId",
+                    "status",
+                    "system"
                 ],
                 "type": "object"
             }
