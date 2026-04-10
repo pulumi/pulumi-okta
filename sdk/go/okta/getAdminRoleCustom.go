@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := okta.LookupAdminRoleCustom(ctx, &okta.LookupAdminRoleCustomArgs{
+//			_, err := okta.GetAdminRoleCustom(ctx, &okta.LookupAdminRoleCustomArgs{
 //				Id: "<role_id>",
 //			}, nil)
 //			if err != nil {

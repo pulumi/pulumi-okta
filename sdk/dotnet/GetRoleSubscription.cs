@@ -24,7 +24,7 @@ namespace Pulumi.Okta
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Okta.GetRoleSubscription.Invoke(new()
+        ///     var example = Okta.Index.GetRoleSubscription.Invoke(new()
         ///     {
         ///         NotificationType = "APP_IMPORT",
         ///         RoleType = "SUPER_ADMIN",
@@ -49,7 +49,7 @@ namespace Pulumi.Okta
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Okta.GetRoleSubscription.Invoke(new()
+        ///     var example = Okta.Index.GetRoleSubscription.Invoke(new()
         ///     {
         ///         NotificationType = "APP_IMPORT",
         ///         RoleType = "SUPER_ADMIN",
@@ -74,7 +74,7 @@ namespace Pulumi.Okta
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Okta.GetRoleSubscription.Invoke(new()
+        ///     var example = Okta.Index.GetRoleSubscription.Invoke(new()
         ///     {
         ///         NotificationType = "APP_IMPORT",
         ///         RoleType = "SUPER_ADMIN",

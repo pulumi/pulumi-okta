@@ -37,7 +37,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = okta.LookupEmailSmtpServer(ctx, &okta.LookupEmailSmtpServerArgs{
+//			_, err = okta.GetEmailSmtpServer(ctx, &okta.LookupEmailSmtpServerArgs{
 //				Id: "id-of-your-smtp-server",
 //			}, nil)
 //			if err != nil {

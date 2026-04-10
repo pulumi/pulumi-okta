@@ -24,7 +24,7 @@ namespace Pulumi.Okta
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var test = Okta.GetAuthServerClaims.Invoke(new()
+        ///     var test = Okta.Index.GetAuthServerClaims.Invoke(new()
         ///     {
         ///         AuthServerId = "default",
         ///     });
@@ -48,7 +48,7 @@ namespace Pulumi.Okta
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var test = Okta.GetAuthServerClaims.Invoke(new()
+        ///     var test = Okta.Index.GetAuthServerClaims.Invoke(new()
         ///     {
         ///         AuthServerId = "default",
         ///     });
@@ -72,7 +72,7 @@ namespace Pulumi.Okta
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var test = Okta.GetAuthServerClaims.Invoke(new()
+        ///     var test = Okta.Index.GetAuthServerClaims.Invoke(new()
         ///     {
         ///         AuthServerId = "default",
         ///     });

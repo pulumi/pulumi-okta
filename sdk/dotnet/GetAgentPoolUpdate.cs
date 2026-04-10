@@ -24,7 +24,7 @@ namespace Pulumi.Okta
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Okta.GetAgentPoolUpdate.Invoke(new()
+        ///     var example = Okta.Index.GetAgentPoolUpdate.Invoke(new()
         ///     {
         ///         Id = "&lt;update_id&gt;",
         ///         PoolId = "&lt;pool_id&gt;",
@@ -49,7 +49,7 @@ namespace Pulumi.Okta
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Okta.GetAgentPoolUpdate.Invoke(new()
+        ///     var example = Okta.Index.GetAgentPoolUpdate.Invoke(new()
         ///     {
         ///         Id = "&lt;update_id&gt;",
         ///         PoolId = "&lt;pool_id&gt;",
@@ -74,7 +74,7 @@ namespace Pulumi.Okta
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Okta.GetAgentPoolUpdate.Invoke(new()
+        ///     var example = Okta.Index.GetAgentPoolUpdate.Invoke(new()
         ///     {
         ///         Id = "&lt;update_id&gt;",
         ///         PoolId = "&lt;pool_id&gt;",

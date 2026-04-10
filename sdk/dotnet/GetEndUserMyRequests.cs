@@ -29,7 +29,7 @@ namespace Pulumi.Okta
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
         ///     // Get a request by its catalog entry ID and request ID
-        ///     var example = Okta.GetEndUserMyRequests.Invoke(new()
+        ///     var example = Okta.Index.GetEndUserMyRequests.Invoke(new()
         ///     {
         ///         EntryId = "cen123456789abcdefgh",
         ///         Id = "reqABCDEFG0123456789",
@@ -93,7 +93,7 @@ namespace Pulumi.Okta
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
         ///     // Get a request by its catalog entry ID and request ID
-        ///     var example = Okta.GetEndUserMyRequests.Invoke(new()
+        ///     var example = Okta.Index.GetEndUserMyRequests.Invoke(new()
         ///     {
         ///         EntryId = "cen123456789abcdefgh",
         ///         Id = "reqABCDEFG0123456789",
@@ -157,7 +157,7 @@ namespace Pulumi.Okta
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
         ///     // Get a request by its catalog entry ID and request ID
-        ///     var example = Okta.GetEndUserMyRequests.Invoke(new()
+        ///     var example = Okta.Index.GetEndUserMyRequests.Invoke(new()
         ///     {
         ///         EntryId = "cen123456789abcdefgh",
         ///         Id = "reqABCDEFG0123456789",

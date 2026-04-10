@@ -38,7 +38,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = okta.LookupEmailCustomization(ctx, &okta.LookupEmailCustomizationArgs{
+//			_, err = okta.GetEmailCustomization(ctx, &okta.LookupEmailCustomizationArgs{
 //				BrandId:         test.Brands[0].Id,
 //				TemplateName:    "ForgotPassword",
 //				CustomizationId: forgotPassword.EmailCustomizations[0].Id,

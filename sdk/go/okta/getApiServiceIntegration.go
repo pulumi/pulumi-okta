@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := okta.LookupApiServiceIntegration(ctx, &okta.LookupApiServiceIntegrationArgs{
+//			_, err := okta.GetApiServiceIntegration(ctx, &okta.LookupApiServiceIntegrationArgs{
 //				Id: "<api_service_integration_id>",
 //			}, nil)
 //			if err != nil {

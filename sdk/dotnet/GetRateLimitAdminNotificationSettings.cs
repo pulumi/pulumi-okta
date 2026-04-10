@@ -24,7 +24,7 @@ namespace Pulumi.Okta
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Okta.GetRateLimitAdminNotificationSettings.Invoke();
+        ///     var example = Okta.Index.GetRateLimitAdminNotificationSettings.Invoke();
         /// 
         /// });
         /// ```
@@ -45,7 +45,7 @@ namespace Pulumi.Okta
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Okta.GetRateLimitAdminNotificationSettings.Invoke();
+        ///     var example = Okta.Index.GetRateLimitAdminNotificationSettings.Invoke();
         /// 
         /// });
         /// ```
@@ -66,7 +66,7 @@ namespace Pulumi.Okta
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Okta.GetRateLimitAdminNotificationSettings.Invoke();
+        ///     var example = Okta.Index.GetRateLimitAdminNotificationSettings.Invoke();
         /// 
         /// });
         /// ```

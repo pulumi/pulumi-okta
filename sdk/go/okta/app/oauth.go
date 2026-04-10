@@ -90,10 +90,10 @@ import (
 //				TokenEndpointAuthMethod: pulumi.String("private_key_jwt"),
 //				Jwks: app.OAuthJwkArray{
 //					&app.OAuthJwkArgs{
-//						Kty: pulumi.Any(jwks.Kty),
-//						Kid: pulumi.Any(jwks.Kid),
-//						E:   pulumi.Any(jwks.E),
-//						N:   pulumi.Any(jwks.N),
+//						Kty: pulumi.Any(jwks.(map[string]interface{})["kty"]),
+//						Kid: pulumi.Any(jwks.(map[string]interface{})["kid"]),
+//						E:   pulumi.Any(jwks.(map[string]interface{})["e"]),
+//						N:   pulumi.Any(jwks.(map[string]interface{})["n"]),
 //					},
 //				},
 //			})

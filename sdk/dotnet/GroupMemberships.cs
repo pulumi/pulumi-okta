@@ -37,7 +37,7 @@ namespace Pulumi.Okta
     ///         Description = "testing, testing",
     ///     });
     /// 
-    ///     var testGroupMemberships = new Okta.GroupMemberships("test", new()
+    ///     var testGroupMemberships = new Okta.Index.GroupMemberships("test", new()
     ///     {
     ///         GroupId = test.Id,
     ///         Users = new[]

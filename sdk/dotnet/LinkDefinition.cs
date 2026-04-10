@@ -26,7 +26,7 @@ namespace Pulumi.Okta
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Okta.LinkDefinition("example", new()
+    ///     var example = new Okta.Index.LinkDefinition("example", new()
     ///     {
     ///         PrimaryName = "emperor",
     ///         PrimaryTitle = "Emperor",

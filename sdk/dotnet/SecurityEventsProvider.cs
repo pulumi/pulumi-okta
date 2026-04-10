@@ -24,7 +24,7 @@ namespace Pulumi.Okta
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleWellknown = new Okta.SecurityEventsProvider("example_wellknown", new()
+    ///     var exampleWellknown = new Okta.Index.SecurityEventsProvider("example_wellknown", new()
     ///     {
     ///         Name = "Security Events Provider with well-known URL",
     ///         Type = "okta",
@@ -48,7 +48,7 @@ namespace Pulumi.Okta
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleIssuer = new Okta.SecurityEventsProvider("example_issuer", new()
+    ///     var exampleIssuer = new Okta.Index.SecurityEventsProvider("example_issuer", new()
     ///     {
     ///         Name = "Security Events Provider with an issuer and a JWKS URL",
     ///         Type = "okta",

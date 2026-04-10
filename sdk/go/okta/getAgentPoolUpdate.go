@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := okta.LookupAgentPoolUpdate(ctx, &okta.LookupAgentPoolUpdateArgs{
+//			_, err := okta.GetAgentPoolUpdate(ctx, &okta.LookupAgentPoolUpdateArgs{
 //				Id:     "<update_id>",
 //				PoolId: "<pool_id>",
 //			}, nil)

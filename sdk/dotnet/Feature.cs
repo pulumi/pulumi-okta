@@ -22,12 +22,12 @@ namespace Pulumi.Okta
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = Okta.GetFeatures.Invoke(new()
+    ///     var example = Okta.Index.GetFeatures.Invoke(new()
     ///     {
     ///         Label = "Android Device Trust",
     ///     });
     /// 
-    ///     var test = new Okta.Feature("test", new()
+    ///     var test = new Okta.Index.Feature("test", new()
     ///     {
     ///         FeatureId = example.Apply(getFeaturesResult =&gt; getFeaturesResult.Features[0]?.Id),
     ///     });

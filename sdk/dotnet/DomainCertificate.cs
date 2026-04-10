@@ -29,12 +29,12 @@ namespace Pulumi.Okta
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Okta.Domain("example", new()
+    ///     var example = new Okta.Index.Domain("example", new()
     ///     {
     ///         Name = "www.example.com",
     ///     });
     /// 
-    ///     var test = new Okta.DomainCertificate("test", new()
+    ///     var test = new Okta.Index.DomainCertificate("test", new()
     ///     {
     ///         DomainId = testOktaDomain.Id,
     ///         Type = "PEM",

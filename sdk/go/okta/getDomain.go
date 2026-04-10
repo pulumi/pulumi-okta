@@ -33,13 +33,13 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = okta.LookupDomain(ctx, &okta.LookupDomainArgs{
+//			_, err = okta.GetDomain(ctx, &okta.LookupDomainArgs{
 //				DomainIdOrName: "www.example.com",
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			_ = okta.LookupDomainOutput(ctx, okta.GetDomainOutputArgs{
+//			_ = okta.GetDomainOutput(ctx, okta.GetDomainOutputArgs{
 //				DomainIdOrName: example.ID(),
 //			}, nil)
 //			return nil

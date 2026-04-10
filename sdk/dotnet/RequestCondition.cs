@@ -24,7 +24,7 @@ namespace Pulumi.Okta
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Okta.RequestCondition("example", new()
+    ///     var example = new Okta.Index.RequestCondition("example", new()
     ///     {
     ///         ResourceId = "&lt;resource_id&gt;",
     ///         ApprovalSequenceId = "&lt;approval_sequence_id&gt;",
@@ -52,7 +52,7 @@ namespace Pulumi.Okta
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleActive = new Okta.RequestCondition("example_active", new()
+    ///     var exampleActive = new Okta.Index.RequestCondition("example_active", new()
     ///     {
     ///         Status = "ACTIVE",
     ///         ResourceId = "&lt;resource_id&gt;",

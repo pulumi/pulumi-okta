@@ -22,7 +22,7 @@ namespace Pulumi.Okta
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Okta.Domain("example", new()
+    ///     var example = new Okta.Index.Domain("example", new()
     ///     {
     ///         Name = "www.example.com",
     ///     });

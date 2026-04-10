@@ -32,7 +32,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			// Get a request by its catalog entry ID and request ID
-//			example, err := okta.LookupEndUserMyRequests(ctx, &okta.LookupEndUserMyRequestsArgs{
+//			example, err := okta.GetEndUserMyRequests(ctx, &okta.LookupEndUserMyRequestsArgs{
 //				EntryId: "cen123456789abcdefgh",
 //				Id:      "reqABCDEFG0123456789",
 //			}, nil)

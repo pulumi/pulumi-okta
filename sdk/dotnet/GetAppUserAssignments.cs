@@ -24,7 +24,7 @@ namespace Pulumi.Okta
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var test = Okta.GetAppUserAssignments.Invoke(new()
+        ///     var test = Okta.Index.GetAppUserAssignments.Invoke(new()
         ///     {
         ///         Id = testOktaAppOauth.Id,
         ///     });
@@ -48,7 +48,7 @@ namespace Pulumi.Okta
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var test = Okta.GetAppUserAssignments.Invoke(new()
+        ///     var test = Okta.Index.GetAppUserAssignments.Invoke(new()
         ///     {
         ///         Id = testOktaAppOauth.Id,
         ///     });
@@ -72,7 +72,7 @@ namespace Pulumi.Okta
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var test = Okta.GetAppUserAssignments.Invoke(new()
+        ///     var test = Okta.Index.GetAppUserAssignments.Invoke(new()
         ///     {
         ///         Id = testOktaAppOauth.Id,
         ///     });

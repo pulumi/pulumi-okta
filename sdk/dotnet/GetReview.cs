@@ -24,7 +24,7 @@ namespace Pulumi.Okta
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var test = Okta.GetReview.Invoke();
+        ///     var test = Okta.Index.GetReview.Invoke();
         /// 
         /// });
         /// ```
@@ -58,7 +58,7 @@ namespace Pulumi.Okta
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var test = Okta.GetReview.Invoke();
+        ///     var test = Okta.Index.GetReview.Invoke();
         /// 
         /// });
         /// ```
@@ -92,7 +92,7 @@ namespace Pulumi.Okta
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var test = Okta.GetReview.Invoke();
+        ///     var test = Okta.Index.GetReview.Invoke();
         /// 
         /// });
         /// ```

@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := okta.LookupRequestCondition(ctx, &okta.LookupRequestConditionArgs{
+//			_, err := okta.GetRequestCondition(ctx, &okta.LookupRequestConditionArgs{
 //				Id:         "<request_condition_id>",
 //				ResourceId: "<resource_id>",
 //			}, nil)

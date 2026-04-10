@@ -30,7 +30,7 @@ namespace Pulumi.Okta
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var @this = new List&lt;Okta.AppGroupAssignments&gt;();
+    ///     var @this = new List&lt;Okta.Index.AppGroupAssignments&gt;();
     ///     for (var rangeIndex = 0; rangeIndex &lt; Std.Index.Toset.Invoke(new()
     ///     {
     ///         Input = new[]
@@ -41,7 +41,7 @@ namespace Pulumi.Okta
     ///     }).Result; rangeIndex++)
     ///     {
     ///         var range = new { Value = rangeIndex };
-    ///         @this.Add(new Okta.AppGroupAssignments($"this-{range.Value}", new()
+    ///         @this.Add(new Okta.Index.AppGroupAssignments($"this-{range.Value}", new()
     ///         {
     ///             AppId = thisOktaAppBookmark.Id,
     ///             Groups = new[]
@@ -66,7 +66,7 @@ namespace Pulumi.Okta
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var @this = new Okta.AppGroupAssignments("this", new()
+    ///     var @this = new Okta.Index.AppGroupAssignments("this", new()
     ///     {
     ///         Groups = .Select(entry =&gt; 
     ///         {
@@ -94,7 +94,7 @@ namespace Pulumi.Okta
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Okta.AppGroupAssignments("example", new()
+    ///     var example = new Okta.Index.AppGroupAssignments("example", new()
     ///     {
     ///         AppId = "&lt;app id&gt;",
     ///         Groups = new[]

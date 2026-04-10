@@ -22,7 +22,7 @@ namespace Pulumi.Okta
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Okta.RateLimitAdminNotificationSettings("example", new()
+    ///     var example = new Okta.Index.RateLimitAdminNotificationSettings("example", new()
     ///     {
     ///         NotificationsEnabled = true,
     ///     });

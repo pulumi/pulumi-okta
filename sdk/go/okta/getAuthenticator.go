@@ -31,13 +31,13 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := okta.LookupAuthenticator(ctx, &okta.LookupAuthenticatorArgs{
+//			_, err := okta.GetAuthenticator(ctx, &okta.LookupAuthenticatorArgs{
 //				Key: pulumi.StringRef("security_question"),
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = okta.LookupAuthenticator(ctx, &okta.LookupAuthenticatorArgs{
+//			_, err = okta.GetAuthenticator(ctx, &okta.LookupAuthenticatorArgs{
 //				Name: pulumi.StringRef("Okta Verify"),
 //			}, nil)
 //			if err != nil {

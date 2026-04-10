@@ -22,13 +22,13 @@ namespace Pulumi.Okta
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Okta.Realm("example", new()
+    ///     var example = new Okta.Index.Realm("example", new()
     ///     {
     ///         Name = "Example Realm",
     ///         RealmType = "DEFAULT",
     ///     });
     /// 
-    ///     var test = new Okta.RealmAssignment("test", new()
+    ///     var test = new Okta.Index.RealmAssignment("test", new()
     ///     {
     ///         Name = "Example Realm Assignment",
     ///         Priority = 55,

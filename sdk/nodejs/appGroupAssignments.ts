@@ -24,7 +24,7 @@ import * as utilities from "./utilities";
  * import * as std from "@pulumi/std";
  *
  * const _this: okta.AppGroupAssignments[] = [];
- * for (const range = {value: 0}; range.value < std.index.toset({
+ * for (const range = {value: 0}; range.value < std.toset({
  *     input: [
  *         "group-a",
  *         "group-b",
@@ -46,7 +46,7 @@ import * as utilities from "./utilities";
  * import * as std from "@pulumi/std";
  *
  * const _this = new okta.AppGroupAssignments("this", {
- *     groups: Object.entries(std.index.toset({
+ *     groups: Object.entries(std.toset({
  *         input: [
  *             "group-a",
  *             "group-b",

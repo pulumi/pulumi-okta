@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * const example = new okta.policy.DeviceAssuranceAndroid("example", {
  *     name: "example",
  *     osVersion: "12",
- *     diskEncryptionTypes: std.index.toset({
+ *     diskEncryptionTypes: std.toset({
  *         input: [
  *             "FULL",
  *             "USER",
@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  *     }).result,
  *     jailbreak: false,
  *     secureHardwarePresent: true,
- *     screenlockTypes: std.index.toset({
+ *     screenlockTypes: std.toset({
  *         input: ["BIOMETRIC"],
  *     }).result,
  * });

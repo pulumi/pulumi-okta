@@ -24,7 +24,7 @@ namespace Pulumi.Okta
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var smtpServer = new Okta.EmailSmtpServer("smtp_server", new()
+        ///     var smtpServer = new Okta.Index.EmailSmtpServer("smtp_server", new()
         ///     {
         ///         Alias = "CustomServer",
         ///         Host = "192.168.160.1",
@@ -33,7 +33,7 @@ namespace Pulumi.Okta
         ///         Password = "abcd",
         ///     });
         /// 
-        ///     var serverConfig = Okta.GetEmailSmtpServer.Invoke(new()
+        ///     var serverConfig = Okta.Index.GetEmailSmtpServer.Invoke(new()
         ///     {
         ///         Id = "id-of-your-smtp-server",
         ///     });
@@ -57,7 +57,7 @@ namespace Pulumi.Okta
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var smtpServer = new Okta.EmailSmtpServer("smtp_server", new()
+        ///     var smtpServer = new Okta.Index.EmailSmtpServer("smtp_server", new()
         ///     {
         ///         Alias = "CustomServer",
         ///         Host = "192.168.160.1",
@@ -66,7 +66,7 @@ namespace Pulumi.Okta
         ///         Password = "abcd",
         ///     });
         /// 
-        ///     var serverConfig = Okta.GetEmailSmtpServer.Invoke(new()
+        ///     var serverConfig = Okta.Index.GetEmailSmtpServer.Invoke(new()
         ///     {
         ///         Id = "id-of-your-smtp-server",
         ///     });
@@ -90,7 +90,7 @@ namespace Pulumi.Okta
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var smtpServer = new Okta.EmailSmtpServer("smtp_server", new()
+        ///     var smtpServer = new Okta.Index.EmailSmtpServer("smtp_server", new()
         ///     {
         ///         Alias = "CustomServer",
         ///         Host = "192.168.160.1",
@@ -99,7 +99,7 @@ namespace Pulumi.Okta
         ///         Password = "abcd",
         ///     });
         /// 
-        ///     var serverConfig = Okta.GetEmailSmtpServer.Invoke(new()
+        ///     var serverConfig = Okta.Index.GetEmailSmtpServer.Invoke(new()
         ///     {
         ///         Id = "id-of-your-smtp-server",
         ///     });

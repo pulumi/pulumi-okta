@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := okta.LookupDevice(ctx, &okta.LookupDeviceArgs{
+//			_, err := okta.GetDevice(ctx, &okta.LookupDeviceArgs{
 //				Id: "<device_id>",
 //			}, nil)
 //			if err != nil {

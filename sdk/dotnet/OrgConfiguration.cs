@@ -24,7 +24,7 @@ namespace Pulumi.Okta
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Okta.OrgConfiguration("example", new()
+    ///     var example = new Okta.Index.OrgConfiguration("example", new()
     ///     {
     ///         CompanyName = "Umbrella Corporation",
     ///         Website = "https://terraform.io",

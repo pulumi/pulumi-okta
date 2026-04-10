@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  *     name: "example",
  *     osVersion: "12.4.5",
  *     jailbreak: false,
- *     screenlockTypes: std.index.toset({
+ *     screenlockTypes: std.toset({
  *         input: ["BIOMETRIC"],
  *     }).result,
  * });

@@ -25,7 +25,7 @@ namespace Pulumi.Okta
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Okta.SecurityNotificationEmails("example", new()
+    ///     var example = new Okta.Index.SecurityNotificationEmails("example", new()
     ///     {
     ///         ReportSuspiciousActivityEnabled = true,
     ///         SendEmailForFactorEnrollmentEnabled = true,

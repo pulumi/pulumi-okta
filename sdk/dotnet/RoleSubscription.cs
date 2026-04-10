@@ -26,7 +26,7 @@ namespace Pulumi.Okta
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Okta.RoleSubscription("test", new()
+    ///     var test = new Okta.Index.RoleSubscription("test", new()
     ///     {
     ///         RoleType = "SUPER_ADMIN",
     ///         NotificationType = "APP_IMPORT",

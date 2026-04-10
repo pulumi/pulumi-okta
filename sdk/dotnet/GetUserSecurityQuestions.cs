@@ -30,7 +30,7 @@ namespace Pulumi.Okta
         ///         Email = "john.smith@example.com",
         ///     });
         /// 
-        ///     var example = Okta.GetUserSecurityQuestions.Invoke(new()
+        ///     var example = Okta.Index.GetUserSecurityQuestions.Invoke(new()
         ///     {
         ///         UserId = exampleUser.Id,
         ///     });
@@ -60,7 +60,7 @@ namespace Pulumi.Okta
         ///         Email = "john.smith@example.com",
         ///     });
         /// 
-        ///     var example = Okta.GetUserSecurityQuestions.Invoke(new()
+        ///     var example = Okta.Index.GetUserSecurityQuestions.Invoke(new()
         ///     {
         ///         UserId = exampleUser.Id,
         ///     });
@@ -90,7 +90,7 @@ namespace Pulumi.Okta
         ///         Email = "john.smith@example.com",
         ///     });
         /// 
-        ///     var example = Okta.GetUserSecurityQuestions.Invoke(new()
+        ///     var example = Okta.Index.GetUserSecurityQuestions.Invoke(new()
         ///     {
         ///         UserId = exampleUser.Id,
         ///     });

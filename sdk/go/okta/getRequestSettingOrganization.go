@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := okta.LookupRequestSettingOrganization(ctx, &okta.LookupRequestSettingOrganizationArgs{}, nil)
+//			_, err := okta.GetRequestSettingOrganization(ctx, &okta.LookupRequestSettingOrganizationArgs{}, nil)
 //			if err != nil {
 //				return err
 //			}

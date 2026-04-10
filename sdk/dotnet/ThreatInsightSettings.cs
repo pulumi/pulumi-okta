@@ -38,7 +38,7 @@ namespace Pulumi.Okta
     ///         },
     ///     });
     /// 
-    ///     var example = new Okta.ThreatInsightSettings("example", new()
+    ///     var example = new Okta.Index.ThreatInsightSettings("example", new()
     ///     {
     ///         Action = "block",
     ///         NetworkExcludes = new[]

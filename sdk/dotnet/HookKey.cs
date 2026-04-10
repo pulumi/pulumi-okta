@@ -24,7 +24,7 @@ namespace Pulumi.Okta
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Okta.HookKey("example", new()
+    ///     var example = new Okta.Index.HookKey("example", new()
     ///     {
     ///         Name = "My Hook Key",
     ///     });

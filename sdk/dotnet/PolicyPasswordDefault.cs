@@ -22,7 +22,7 @@ namespace Pulumi.Okta
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var @default = new Okta.PolicyPasswordDefault("default");
+    ///     var @default = new Okta.Index.PolicyPasswordDefault("default");
     /// 
     /// });
     /// ```

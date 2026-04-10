@@ -30,7 +30,7 @@ namespace Pulumi.Okta
     ///         Email = "testAcc-replace_with_uuid@example.com",
     ///     });
     /// 
-    ///     var testUserGroupMemberships = new Okta.UserGroupMemberships("test", new()
+    ///     var testUserGroupMemberships = new Okta.Index.UserGroupMemberships("test", new()
     ///     {
     ///         UserId = test.Id,
     ///         Groups = new[]

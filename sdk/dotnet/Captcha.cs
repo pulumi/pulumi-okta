@@ -24,7 +24,7 @@ namespace Pulumi.Okta
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Okta.Captcha("example", new()
+    ///     var example = new Okta.Index.Captcha("example", new()
     ///     {
     ///         Name = "My CAPTCHA",
     ///         Type = "HCAPTCHA",

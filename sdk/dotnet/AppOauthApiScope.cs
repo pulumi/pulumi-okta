@@ -24,7 +24,7 @@ namespace Pulumi.Okta
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Okta.AppOauthApiScope("example", new()
+    ///     var example = new Okta.Index.AppOauthApiScope("example", new()
     ///     {
     ///         AppId = "&lt;application_id&gt;",
     ///         Issuer = "&lt;your org domain&gt;",

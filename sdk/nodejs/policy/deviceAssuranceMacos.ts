@@ -17,11 +17,11 @@ import * as utilities from "../utilities";
  * const example = new okta.policy.DeviceAssuranceMacos("example", {
  *     name: "example",
  *     osVersion: "12.4.6",
- *     diskEncryptionTypes: std.index.toset({
+ *     diskEncryptionTypes: std.toset({
  *         input: ["ALL_INTERNAL_VOLUMES"],
  *     }).result,
  *     secureHardwarePresent: true,
- *     screenlockTypes: std.index.toset({
+ *     screenlockTypes: std.toset({
  *         input: [
  *             "BIOMETRIC",
  *             "PASSCODE",

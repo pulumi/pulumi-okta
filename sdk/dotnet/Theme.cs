@@ -28,11 +28,11 @@ namespace Pulumi.Okta
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = Okta.GetBrands.Invoke();
+    ///     var test = Okta.Index.GetBrands.Invoke();
     /// 
     ///     // resource has been imported into current state:
     ///     // $ terraform import okta_theme.example &lt;theme id&gt;
-    ///     var example = new Okta.Theme("example", new()
+    ///     var example = new Okta.Index.Theme("example", new()
     ///     {
     ///         BrandId = test.Apply(getBrandsResult =&gt; getBrandsResult.Brands[0]?.Id),
     ///         Logo = "path/to/logo.png",

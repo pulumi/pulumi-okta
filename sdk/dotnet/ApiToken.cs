@@ -26,7 +26,7 @@ namespace Pulumi.Okta
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Okta.ApiToken("example", new()
+    ///     var example = new Okta.Index.ApiToken("example", new()
     ///     {
     ///         IdProperty = "00T1fxzubpqiepH11d38",
     ///         Name = "token-api-token-test",

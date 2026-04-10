@@ -22,13 +22,13 @@ namespace Pulumi.Okta
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Okta.Brand("test", new()
+    ///     var test = new Okta.Index.Brand("test", new()
     ///     {
     ///         Name = "testBrand",
     ///         Locale = "en",
     ///     });
     /// 
-    ///     var testPreviewSigninPage = new Okta.PreviewSigninPage("test", new()
+    ///     var testPreviewSigninPage = new Okta.Index.PreviewSigninPage("test", new()
     ///     {
     ///         BrandId = oktaBrand.Test.Id,
     ///         PageContent = @"&lt;!DOCTYPE html PUBLIC ""-//W3C//DTD HTML 4.01//EN"" ""http://www.w3.org/TR/html4/strict.dtd""&gt;

@@ -24,9 +24,9 @@ namespace Pulumi.Okta
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var test = Okta.GetBrands.Invoke();
+        ///     var test = Okta.Index.GetBrands.Invoke();
         /// 
-        ///     var forgotPassword = Okta.GetTemplate.Invoke(new()
+        ///     var forgotPassword = Okta.Index.GetTemplate.Invoke(new()
         ///     {
         ///         BrandId = test.Apply(getBrandsResult =&gt; getBrandsResult.Brands[0]?.Id),
         ///         Name = "ForgotPassword",
@@ -51,9 +51,9 @@ namespace Pulumi.Okta
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var test = Okta.GetBrands.Invoke();
+        ///     var test = Okta.Index.GetBrands.Invoke();
         /// 
-        ///     var forgotPassword = Okta.GetTemplate.Invoke(new()
+        ///     var forgotPassword = Okta.Index.GetTemplate.Invoke(new()
         ///     {
         ///         BrandId = test.Apply(getBrandsResult =&gt; getBrandsResult.Brands[0]?.Id),
         ///         Name = "ForgotPassword",
@@ -78,9 +78,9 @@ namespace Pulumi.Okta
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var test = Okta.GetBrands.Invoke();
+        ///     var test = Okta.Index.GetBrands.Invoke();
         /// 
-        ///     var forgotPassword = Okta.GetTemplate.Invoke(new()
+        ///     var forgotPassword = Okta.Index.GetTemplate.Invoke(new()
         ///     {
         ///         BrandId = test.Apply(getBrandsResult =&gt; getBrandsResult.Brands[0]?.Id),
         ///         Name = "ForgotPassword",

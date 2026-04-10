@@ -22,7 +22,7 @@ namespace Pulumi.Okta
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Okta.RequestV2("test", new()
+    ///     var test = new Okta.Index.RequestV2("test", new()
     ///     {
     ///         Requested = new Okta.Inputs.RequestV2RequestedArgs
     ///         {

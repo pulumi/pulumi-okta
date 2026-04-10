@@ -25,7 +25,7 @@ namespace Pulumi.Okta
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
         ///     // Get hook key by ID
-        ///     var example = Okta.GetHookKey.Invoke(new()
+        ///     var example = Okta.Index.GetHookKey.Invoke(new()
         ///     {
         ///         Id = "abcdefghij0123456789",
         ///     });
@@ -50,7 +50,7 @@ namespace Pulumi.Okta
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
         ///     // Get hook key by ID
-        ///     var example = Okta.GetHookKey.Invoke(new()
+        ///     var example = Okta.Index.GetHookKey.Invoke(new()
         ///     {
         ///         Id = "abcdefghij0123456789",
         ///     });
@@ -75,7 +75,7 @@ namespace Pulumi.Okta
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
         ///     // Get hook key by ID
-        ///     var example = Okta.GetHookKey.Invoke(new()
+        ///     var example = Okta.Index.GetHookKey.Invoke(new()
         ///     {
         ///         Id = "abcdefghij0123456789",
         ///     });

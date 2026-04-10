@@ -22,7 +22,7 @@ namespace Pulumi.Okta
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Okta.UiSchema("example", new()
+    ///     var example = new Okta.Index.UiSchema("example", new()
     ///     {
     ///         UiSchemaName = new Okta.Inputs.UiSchemaUiSchemaArgs
     ///         {

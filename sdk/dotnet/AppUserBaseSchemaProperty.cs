@@ -22,7 +22,7 @@ namespace Pulumi.Okta
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Okta.AppUserBaseSchemaProperty("example", new()
+    ///     var example = new Okta.Index.AppUserBaseSchemaProperty("example", new()
     ///     {
     ///         AppId = "&lt;app id&gt;",
     ///         Index = "customPropertyName",

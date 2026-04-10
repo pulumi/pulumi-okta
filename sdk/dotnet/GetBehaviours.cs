@@ -24,7 +24,7 @@ namespace Pulumi.Okta
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Okta.GetBehaviours.Invoke(new()
+        ///     var example = Okta.Index.GetBehaviours.Invoke(new()
         ///     {
         ///         Q = "New",
         ///     });
@@ -48,7 +48,7 @@ namespace Pulumi.Okta
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Okta.GetBehaviours.Invoke(new()
+        ///     var example = Okta.Index.GetBehaviours.Invoke(new()
         ///     {
         ///         Q = "New",
         ///     });
@@ -72,7 +72,7 @@ namespace Pulumi.Okta
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Okta.GetBehaviours.Invoke(new()
+        ///     var example = Okta.Index.GetBehaviours.Invoke(new()
         ///     {
         ///         Q = "New",
         ///     });

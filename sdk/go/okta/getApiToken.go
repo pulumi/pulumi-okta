@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := okta.LookupApiToken(ctx, &okta.LookupApiTokenArgs{
+//			_, err := okta.GetApiToken(ctx, &okta.LookupApiTokenArgs{
 //				Id: "00T1fxzubpq2epw11d38",
 //			}, nil)
 //			if err != nil {

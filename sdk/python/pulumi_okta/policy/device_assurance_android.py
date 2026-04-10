@@ -332,13 +332,13 @@ class DeviceAssuranceAndroid(pulumi.CustomResource):
         example = okta.policy.DeviceAssuranceAndroid("example",
             name="example",
             os_version="12",
-            disk_encryption_types=std.index.toset(input=[
+            disk_encryption_types=std.toset(input=[
                 "FULL",
                 "USER",
             ])["result"],
             jailbreak=False,
             secure_hardware_present=True,
-            screenlock_types=std.index.toset(input=["BIOMETRIC"])["result"])
+            screenlock_types=std.toset(input=["BIOMETRIC"])["result"])
         ```
 
         ## Import
@@ -376,13 +376,13 @@ class DeviceAssuranceAndroid(pulumi.CustomResource):
         example = okta.policy.DeviceAssuranceAndroid("example",
             name="example",
             os_version="12",
-            disk_encryption_types=std.index.toset(input=[
+            disk_encryption_types=std.toset(input=[
                 "FULL",
                 "USER",
             ])["result"],
             jailbreak=False,
             secure_hardware_present=True,
-            screenlock_types=std.index.toset(input=["BIOMETRIC"])["result"])
+            screenlock_types=std.toset(input=["BIOMETRIC"])["result"])
         ```
 
         ## Import

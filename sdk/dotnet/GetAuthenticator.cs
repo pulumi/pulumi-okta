@@ -28,12 +28,12 @@ namespace Pulumi.Okta
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var test = Okta.GetAuthenticator.Invoke(new()
+        ///     var test = Okta.Index.GetAuthenticator.Invoke(new()
         ///     {
         ///         Key = "security_question",
         ///     });
         /// 
-        ///     var test1 = Okta.GetAuthenticator.Invoke(new()
+        ///     var test1 = Okta.Index.GetAuthenticator.Invoke(new()
         ///     {
         ///         Name = "Okta Verify",
         ///     });
@@ -61,12 +61,12 @@ namespace Pulumi.Okta
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var test = Okta.GetAuthenticator.Invoke(new()
+        ///     var test = Okta.Index.GetAuthenticator.Invoke(new()
         ///     {
         ///         Key = "security_question",
         ///     });
         /// 
-        ///     var test1 = Okta.GetAuthenticator.Invoke(new()
+        ///     var test1 = Okta.Index.GetAuthenticator.Invoke(new()
         ///     {
         ///         Name = "Okta Verify",
         ///     });
@@ -94,12 +94,12 @@ namespace Pulumi.Okta
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var test = Okta.GetAuthenticator.Invoke(new()
+        ///     var test = Okta.Index.GetAuthenticator.Invoke(new()
         ///     {
         ///         Key = "security_question",
         ///     });
         /// 
-        ///     var test1 = Okta.GetAuthenticator.Invoke(new()
+        ///     var test1 = Okta.Index.GetAuthenticator.Invoke(new()
         ///     {
         ///         Name = "Okta Verify",
         ///     });

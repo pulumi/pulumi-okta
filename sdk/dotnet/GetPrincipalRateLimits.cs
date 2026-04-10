@@ -24,7 +24,7 @@ namespace Pulumi.Okta
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Okta.GetPrincipalRateLimits.Invoke(new()
+        ///     var example = Okta.Index.GetPrincipalRateLimits.Invoke(new()
         ///     {
         ///         Id = "&lt;principal_rate_limit_id&gt;",
         ///     });
@@ -48,7 +48,7 @@ namespace Pulumi.Okta
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Okta.GetPrincipalRateLimits.Invoke(new()
+        ///     var example = Okta.Index.GetPrincipalRateLimits.Invoke(new()
         ///     {
         ///         Id = "&lt;principal_rate_limit_id&gt;",
         ///     });
@@ -72,7 +72,7 @@ namespace Pulumi.Okta
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Okta.GetPrincipalRateLimits.Invoke(new()
+        ///     var example = Okta.Index.GetPrincipalRateLimits.Invoke(new()
         ///     {
         ///         Id = "&lt;principal_rate_limit_id&gt;",
         ///     });

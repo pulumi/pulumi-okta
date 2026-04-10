@@ -32,7 +32,7 @@ namespace Pulumi.Okta
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Okta.GetAppSignonPolicy.Invoke(new()
+        ///     var example = Okta.Index.GetAppSignonPolicy.Invoke(new()
         ///     {
         ///         AppId = "app_id",
         ///     });
@@ -64,7 +64,7 @@ namespace Pulumi.Okta
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Okta.GetAppSignonPolicy.Invoke(new()
+        ///     var example = Okta.Index.GetAppSignonPolicy.Invoke(new()
         ///     {
         ///         AppId = "app_id",
         ///     });
@@ -96,7 +96,7 @@ namespace Pulumi.Okta
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Okta.GetAppSignonPolicy.Invoke(new()
+        ///     var example = Okta.Index.GetAppSignonPolicy.Invoke(new()
         ///     {
         ///         AppId = "app_id",
         ///     });

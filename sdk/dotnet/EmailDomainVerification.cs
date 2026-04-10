@@ -22,7 +22,7 @@ namespace Pulumi.Okta
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Okta.EmailDomain("example", new()
+    ///     var example = new Okta.Index.EmailDomain("example", new()
     ///     {
     ///         BrandId = "abc123",
     ///         Domain = "example.com",
@@ -30,7 +30,7 @@ namespace Pulumi.Okta
     ///         UserName = "paul_atreides",
     ///     });
     /// 
-    ///     var exampleEmailDomainVerification = new Okta.EmailDomainVerification("example", new()
+    ///     var exampleEmailDomainVerification = new Okta.Index.EmailDomainVerification("example", new()
     ///     {
     ///         EmailDomainId = valid.Id,
     ///     });

@@ -24,17 +24,17 @@ namespace Pulumi.Okta
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = new Okta.Domain("example", new()
+        ///     var example = new Okta.Index.Domain("example", new()
         ///     {
         ///         Name = "www.example.com",
         ///     });
         /// 
-        ///     var by_name = Okta.GetDomain.Invoke(new()
+        ///     var by_name = Okta.Index.GetDomain.Invoke(new()
         ///     {
         ///         DomainIdOrName = "www.example.com",
         ///     });
         /// 
-        ///     var by_id = Okta.GetDomain.Invoke(new()
+        ///     var by_id = Okta.Index.GetDomain.Invoke(new()
         ///     {
         ///         DomainIdOrName = example.Id,
         ///     });
@@ -58,17 +58,17 @@ namespace Pulumi.Okta
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = new Okta.Domain("example", new()
+        ///     var example = new Okta.Index.Domain("example", new()
         ///     {
         ///         Name = "www.example.com",
         ///     });
         /// 
-        ///     var by_name = Okta.GetDomain.Invoke(new()
+        ///     var by_name = Okta.Index.GetDomain.Invoke(new()
         ///     {
         ///         DomainIdOrName = "www.example.com",
         ///     });
         /// 
-        ///     var by_id = Okta.GetDomain.Invoke(new()
+        ///     var by_id = Okta.Index.GetDomain.Invoke(new()
         ///     {
         ///         DomainIdOrName = example.Id,
         ///     });
@@ -92,17 +92,17 @@ namespace Pulumi.Okta
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = new Okta.Domain("example", new()
+        ///     var example = new Okta.Index.Domain("example", new()
         ///     {
         ///         Name = "www.example.com",
         ///     });
         /// 
-        ///     var by_name = Okta.GetDomain.Invoke(new()
+        ///     var by_name = Okta.Index.GetDomain.Invoke(new()
         ///     {
         ///         DomainIdOrName = "www.example.com",
         ///     });
         /// 
-        ///     var by_id = Okta.GetDomain.Invoke(new()
+        ///     var by_id = Okta.Index.GetDomain.Invoke(new()
         ///     {
         ///         DomainIdOrName = example.Id,
         ///     });

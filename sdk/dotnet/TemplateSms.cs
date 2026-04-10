@@ -22,7 +22,7 @@ namespace Pulumi.Okta
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Okta.TemplateSms("example", new()
+    ///     var example = new Okta.Index.TemplateSms("example", new()
     ///     {
     ///         Type = "SMS_VERIFY_CODE",
     ///         Template = "Your ${org.name} code is: ${code}",

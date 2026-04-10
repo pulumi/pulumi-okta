@@ -48,7 +48,7 @@ namespace Pulumi.Okta
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Okta.UserSchemaProperty("example", new()
+    ///     var example = new Okta.Index.UserSchemaProperty("example", new()
     ///     {
     ///         Index = "customPropertyName",
     ///         Title = "customPropertyName",

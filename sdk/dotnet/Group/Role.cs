@@ -36,7 +36,7 @@ namespace Pulumi.Okta.Group
     ///         Description = "testing",
     ///     });
     /// 
-    ///     var testResourceSet = new Okta.ResourceSet("test", new()
+    ///     var testResourceSet = new Okta.Index.ResourceSet("test", new()
     ///     {
     ///         Label = "test",
     ///         Description = "testing, testing",
@@ -53,7 +53,7 @@ namespace Pulumi.Okta.Group
     ///         },
     ///     });
     /// 
-    ///     var testAdminRoleCustom = new Okta.AdminRoleCustom("test", new()
+    ///     var testAdminRoleCustom = new Okta.Index.AdminRoleCustom("test", new()
     ///     {
     ///         Label = "testt",
     ///         Description = "testing, testing",

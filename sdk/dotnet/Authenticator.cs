@@ -42,7 +42,7 @@ namespace Pulumi.Okta
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Okta.Authenticator("test", new()
+    ///     var test = new Okta.Index.Authenticator("test", new()
     ///     {
     ///         Name = "Security Question",
     ///         Key = "security_question",
@@ -52,7 +52,7 @@ namespace Pulumi.Okta
     ///         }),
     ///     });
     /// 
-    ///     var otp = new Okta.Authenticator("otp", new()
+    ///     var otp = new Okta.Index.Authenticator("otp", new()
     ///     {
     ///         Name = "Custom OTP",
     ///         Key = "custom_otp",
@@ -69,7 +69,7 @@ namespace Pulumi.Okta
     ///         LegacyIgnoreName = false,
     ///     });
     /// 
-    ///     var customApp = new Okta.Authenticator("custom_app", new()
+    ///     var customApp = new Okta.Index.Authenticator("custom_app", new()
     ///     {
     ///         Key = "custom_app",
     ///         Name = "Custom Push Auth",

@@ -28,7 +28,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			// Get hook key by ID
-//			_, err := okta.LookupHookKey(ctx, &okta.LookupHookKeyArgs{
+//			_, err := okta.GetHookKey(ctx, &okta.LookupHookKeyArgs{
 //				Id: "abcdefghij0123456789",
 //			}, nil)
 //			if err != nil {

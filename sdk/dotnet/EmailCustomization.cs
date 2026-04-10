@@ -50,15 +50,15 @@ namespace Pulumi.Okta
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = Okta.GetBrands.Invoke();
+    ///     var test = Okta.Index.GetBrands.Invoke();
     /// 
-    ///     var forgotPassword = Okta.GetEmailCustomizations.Invoke(new()
+    ///     var forgotPassword = Okta.Index.GetEmailCustomizations.Invoke(new()
     ///     {
     ///         BrandId = test.Apply(getBrandsResult =&gt; getBrandsResult.Brands[0]?.Id),
     ///         TemplateName = "ForgotPassword",
     ///     });
     /// 
-    ///     var forgotPasswordEn = new Okta.EmailCustomization("forgot_password_en", new()
+    ///     var forgotPasswordEn = new Okta.Index.EmailCustomization("forgot_password_en", new()
     ///     {
     ///         BrandId = test.Apply(getBrandsResult =&gt; getBrandsResult.Brands[0]?.Id),
     ///         TemplateName = "ForgotPassword",
@@ -68,7 +68,7 @@ namespace Pulumi.Okta
     ///         Body = "Hi $$user.firstName,&lt;br/&gt;&lt;br/&gt;Click this link to reset your password: $$resetPasswordLink",
     ///     });
     /// 
-    ///     var forgotPasswordEs = new Okta.EmailCustomization("forgot_password_es", new()
+    ///     var forgotPasswordEs = new Okta.Index.EmailCustomization("forgot_password_es", new()
     ///     {
     ///         BrandId = test.Apply(getBrandsResult =&gt; getBrandsResult.Brands[0]?.Id),
     ///         TemplateName = "ForgotPassword",

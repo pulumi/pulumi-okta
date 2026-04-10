@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  * const testResourceSet = new okta.ResourceSet("test", {
  *     label: "test",
  *     description: "testing, testing",
- *     resources: [std.index.format({
+ *     resources: [std.format({
  *         input: "%s/api/v1/users",
  *         args: ["https://tien-oie-2023-26-26.oktapreview.com"],
  *     }).result],

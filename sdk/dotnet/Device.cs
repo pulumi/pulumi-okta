@@ -24,7 +24,7 @@ namespace Pulumi.Okta
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Okta.Device("example", new()
+    ///     var example = new Okta.Index.Device("example", new()
     ///     {
     ///         Action = "SUSPEND",
     ///     });

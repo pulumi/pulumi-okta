@@ -38,11 +38,11 @@ import * as utilities from "./utilities";
  *     label: "UsersWithApp",
  *     description: "All the users and SWA app",
  *     resources: [
- *         std.index.format({
+ *         std.format({
  *             input: "%s/api/v1/users",
  *             args: [orgUrl],
  *         }).result,
- *         std.index.format({
+ *         std.format({
  *             input: "%s/api/v1/apps/%s",
  *             args: [
  *                 orgUrl,
@@ -68,14 +68,14 @@ import * as utilities from "./utilities";
  *     resourceSetId: testResourceSet.id,
  *     customRoleId: test.id,
  *     members: [
- *         std.index.format({
+ *         std.format({
  *             input: "%s/api/v1/users/%s",
  *             args: [
  *                 orgUrl,
  *                 testUser.id,
  *             ],
  *         }).result,
- *         std.index.format({
+ *         std.format({
  *             input: "%s/api/v1/groups/%s",
  *             args: [
  *                 orgUrl,

@@ -24,7 +24,7 @@ namespace Pulumi.Okta
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Okta.GetNetworkZone.Invoke(new()
+        ///     var example = Okta.Index.GetNetworkZone.Invoke(new()
         ///     {
         ///         Name = "Block Antarctica",
         ///     });
@@ -48,7 +48,7 @@ namespace Pulumi.Okta
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Okta.GetNetworkZone.Invoke(new()
+        ///     var example = Okta.Index.GetNetworkZone.Invoke(new()
         ///     {
         ///         Name = "Block Antarctica",
         ///     });
@@ -72,7 +72,7 @@ namespace Pulumi.Okta
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Okta.GetNetworkZone.Invoke(new()
+        ///     var example = Okta.Index.GetNetworkZone.Invoke(new()
         ///     {
         ///         Name = "Block Antarctica",
         ///     });
