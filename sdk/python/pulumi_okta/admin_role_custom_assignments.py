@@ -170,9 +170,9 @@ class AdminRoleCustomAssignments(pulumi.CustomResource):
             label="UsersWithApp",
             description="All the users and SWA app",
             resources=[
-                std.index.format(input="%s/api/v1/users",
+                std.format(input="%s/api/v1/users",
                     args=[org_url])["result"],
-                std.index.format(input="%s/api/v1/apps/%s",
+                std.format(input="%s/api/v1/apps/%s",
                     args=[
                         org_url,
                         test_swa.id,
@@ -193,12 +193,12 @@ class AdminRoleCustomAssignments(pulumi.CustomResource):
             resource_set_id=test_resource_set.id,
             custom_role_id=test.id,
             members=[
-                std.index.format(input="%s/api/v1/users/%s",
+                std.format(input="%s/api/v1/users/%s",
                     args=[
                         org_url,
                         test_user.id,
                     ])["result"],
-                std.index.format(input="%s/api/v1/groups/%s",
+                std.format(input="%s/api/v1/groups/%s",
                     args=[
                         org_url,
                         test_group.id,
@@ -257,9 +257,9 @@ class AdminRoleCustomAssignments(pulumi.CustomResource):
             label="UsersWithApp",
             description="All the users and SWA app",
             resources=[
-                std.index.format(input="%s/api/v1/users",
+                std.format(input="%s/api/v1/users",
                     args=[org_url])["result"],
-                std.index.format(input="%s/api/v1/apps/%s",
+                std.format(input="%s/api/v1/apps/%s",
                     args=[
                         org_url,
                         test_swa.id,
@@ -280,12 +280,12 @@ class AdminRoleCustomAssignments(pulumi.CustomResource):
             resource_set_id=test_resource_set.id,
             custom_role_id=test.id,
             members=[
-                std.index.format(input="%s/api/v1/users/%s",
+                std.format(input="%s/api/v1/users/%s",
                     args=[
                         org_url,
                         test_user.id,
                     ])["result"],
-                std.index.format(input="%s/api/v1/groups/%s",
+                std.format(input="%s/api/v1/groups/%s",
                     args=[
                         org_url,
                         test_group.id,

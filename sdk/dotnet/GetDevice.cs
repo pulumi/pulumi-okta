@@ -24,7 +24,7 @@ namespace Pulumi.Okta
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Okta.GetDevice.Invoke(new()
+        ///     var example = Okta.Index.GetDevice.Invoke(new()
         ///     {
         ///         Id = "&lt;device_id&gt;",
         ///     });
@@ -48,7 +48,7 @@ namespace Pulumi.Okta
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Okta.GetDevice.Invoke(new()
+        ///     var example = Okta.Index.GetDevice.Invoke(new()
         ///     {
         ///         Id = "&lt;device_id&gt;",
         ///     });
@@ -72,7 +72,7 @@ namespace Pulumi.Okta
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Okta.GetDevice.Invoke(new()
+        ///     var example = Okta.Index.GetDevice.Invoke(new()
         ///     {
         ///         Id = "&lt;device_id&gt;",
         ///     });

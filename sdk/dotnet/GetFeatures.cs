@@ -24,7 +24,7 @@ namespace Pulumi.Okta
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Okta.GetFeatures.Invoke(new()
+        ///     var example = Okta.Index.GetFeatures.Invoke(new()
         ///     {
         ///         Label = "Android Device Trust",
         ///     });
@@ -48,7 +48,7 @@ namespace Pulumi.Okta
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Okta.GetFeatures.Invoke(new()
+        ///     var example = Okta.Index.GetFeatures.Invoke(new()
         ///     {
         ///         Label = "Android Device Trust",
         ///     });
@@ -72,7 +72,7 @@ namespace Pulumi.Okta
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Okta.GetFeatures.Invoke(new()
+        ///     var example = Okta.Index.GetFeatures.Invoke(new()
         ///     {
         ///         Label = "Android Device Trust",
         ///     });

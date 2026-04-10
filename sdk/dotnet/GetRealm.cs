@@ -24,12 +24,12 @@ namespace Pulumi.Okta
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleName = Okta.GetRealm.Invoke(new()
+        ///     var exampleName = Okta.Index.GetRealm.Invoke(new()
         ///     {
         ///         Name = "Example Realm",
         ///     });
         /// 
-        ///     var exampleId = Okta.GetRealm.Invoke(new()
+        ///     var exampleId = Okta.Index.GetRealm.Invoke(new()
         ///     {
         ///         Id = "&lt;realm_id&gt;",
         ///     });
@@ -53,12 +53,12 @@ namespace Pulumi.Okta
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleName = Okta.GetRealm.Invoke(new()
+        ///     var exampleName = Okta.Index.GetRealm.Invoke(new()
         ///     {
         ///         Name = "Example Realm",
         ///     });
         /// 
-        ///     var exampleId = Okta.GetRealm.Invoke(new()
+        ///     var exampleId = Okta.Index.GetRealm.Invoke(new()
         ///     {
         ///         Id = "&lt;realm_id&gt;",
         ///     });
@@ -82,12 +82,12 @@ namespace Pulumi.Okta
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleName = Okta.GetRealm.Invoke(new()
+        ///     var exampleName = Okta.Index.GetRealm.Invoke(new()
         ///     {
         ///         Name = "Example Realm",
         ///     });
         /// 
-        ///     var exampleId = Okta.GetRealm.Invoke(new()
+        ///     var exampleId = Okta.Index.GetRealm.Invoke(new()
         ///     {
         ///         Id = "&lt;realm_id&gt;",
         ///     });

@@ -27,14 +27,14 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := okta.LookupPushGroup(ctx, &okta.LookupPushGroupArgs{
+//			_, err := okta.GetPushGroup(ctx, &okta.LookupPushGroupArgs{
 //				AppId: "<okta_app_id>",
 //				Id:    pulumi.StringRef("<push_group_mapping_id>"),
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = okta.LookupPushGroup(ctx, &okta.LookupPushGroupArgs{
+//			_, err = okta.GetPushGroup(ctx, &okta.LookupPushGroupArgs{
 //				AppId:         "<okta_app_id>",
 //				SourceGroupId: pulumi.StringRef("<okta_source_group_id>"),
 //			}, nil)

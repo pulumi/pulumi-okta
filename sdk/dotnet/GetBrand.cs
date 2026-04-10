@@ -24,14 +24,14 @@ namespace Pulumi.Okta
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var test = Okta.GetBrands.Invoke();
+        ///     var test = Okta.Index.GetBrands.Invoke();
         /// 
-        ///     var testGetBrand = Okta.GetBrand.Invoke(new()
+        ///     var testGetBrand = Okta.Index.GetBrand.Invoke(new()
         ///     {
         ///         BrandId = test.Apply(getBrandsResult =&gt; getBrandsResult.Brands[0]?.Id),
         ///     });
         /// 
-        ///     var @default = Okta.GetBrand.Invoke(new()
+        ///     var @default = Okta.Index.GetBrand.Invoke(new()
         ///     {
         ///         BrandId = "default",
         ///     });
@@ -55,14 +55,14 @@ namespace Pulumi.Okta
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var test = Okta.GetBrands.Invoke();
+        ///     var test = Okta.Index.GetBrands.Invoke();
         /// 
-        ///     var testGetBrand = Okta.GetBrand.Invoke(new()
+        ///     var testGetBrand = Okta.Index.GetBrand.Invoke(new()
         ///     {
         ///         BrandId = test.Apply(getBrandsResult =&gt; getBrandsResult.Brands[0]?.Id),
         ///     });
         /// 
-        ///     var @default = Okta.GetBrand.Invoke(new()
+        ///     var @default = Okta.Index.GetBrand.Invoke(new()
         ///     {
         ///         BrandId = "default",
         ///     });
@@ -86,14 +86,14 @@ namespace Pulumi.Okta
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var test = Okta.GetBrands.Invoke();
+        ///     var test = Okta.Index.GetBrands.Invoke();
         /// 
-        ///     var testGetBrand = Okta.GetBrand.Invoke(new()
+        ///     var testGetBrand = Okta.Index.GetBrand.Invoke(new()
         ///     {
         ///         BrandId = test.Apply(getBrandsResult =&gt; getBrandsResult.Brands[0]?.Id),
         ///     });
         /// 
-        ///     var @default = Okta.GetBrand.Invoke(new()
+        ///     var @default = Okta.Index.GetBrand.Invoke(new()
         ///     {
         ///         BrandId = "default",
         ///     });

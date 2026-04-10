@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := okta.LookupUiSchema(ctx, &okta.LookupUiSchemaArgs{
+//			_, err := okta.GetUiSchema(ctx, &okta.LookupUiSchemaArgs{
 //				Id: "ui_schema_id",
 //			}, nil)
 //			if err != nil {

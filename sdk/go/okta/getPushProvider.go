@@ -29,7 +29,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			apnsExample, err := okta.LookupPushProvider(ctx, &okta.LookupPushProviderArgs{
+//			apnsExample, err := okta.GetPushProvider(ctx, &okta.LookupPushProviderArgs{
 //				Id: "ppc1234567890abcdef",
 //			}, nil)
 //			if err != nil {
@@ -57,7 +57,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			fcmExample, err := okta.LookupPushProvider(ctx, &okta.LookupPushProviderArgs{
+//			fcmExample, err := okta.GetPushProvider(ctx, &okta.LookupPushProviderArgs{
 //				Id: "ppc0987654321fedcba",
 //			}, nil)
 //			if err != nil {

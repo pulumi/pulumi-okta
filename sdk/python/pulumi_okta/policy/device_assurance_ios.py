@@ -267,7 +267,7 @@ class DeviceAssuranceIos(pulumi.CustomResource):
             name="example",
             os_version="12.4.5",
             jailbreak=False,
-            screenlock_types=std.index.toset(input=["BIOMETRIC"])["result"])
+            screenlock_types=std.toset(input=["BIOMETRIC"])["result"])
         ```
 
         ## Import
@@ -304,7 +304,7 @@ class DeviceAssuranceIos(pulumi.CustomResource):
             name="example",
             os_version="12.4.5",
             jailbreak=False,
-            screenlock_types=std.index.toset(input=["BIOMETRIC"])["result"])
+            screenlock_types=std.toset(input=["BIOMETRIC"])["result"])
         ```
 
         ## Import

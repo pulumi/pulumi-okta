@@ -30,7 +30,7 @@ namespace Pulumi.Okta
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Okta.EndUserMyRequests("example", new()
+    ///     var example = new Okta.Index.EndUserMyRequests("example", new()
     ///     {
     ///         EntryId = "cen123456789abcdefgh",
     ///         RequesterFieldValues = new[]
@@ -69,7 +69,7 @@ namespace Pulumi.Okta
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var multiSelectExample = new Okta.EndUserMyRequests("multi_select_example", new()
+    ///     var multiSelectExample = new Okta.Index.EndUserMyRequests("multi_select_example", new()
     ///     {
     ///         EntryId = "cen123456789abcdefgh",
     ///         RequesterFieldValues = new[]

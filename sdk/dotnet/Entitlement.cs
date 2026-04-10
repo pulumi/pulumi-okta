@@ -22,7 +22,7 @@ namespace Pulumi.Okta
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Okta.Entitlement("example", new()
+    ///     var example = new Okta.Index.Entitlement("example", new()
     ///     {
     ///         Name = "example",
     ///     });

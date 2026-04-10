@@ -30,7 +30,7 @@ namespace Pulumi.Okta
     ///         Email = "john.smith@example.com",
     ///     });
     /// 
-    ///     var example = Okta.GetUserSecurityQuestions.Invoke(new()
+    ///     var example = Okta.Index.GetUserSecurityQuestions.Invoke(new()
     ///     {
     ///         UserId = exampleUser.Id,
     ///     });
@@ -41,7 +41,7 @@ namespace Pulumi.Okta
     ///         Active = true,
     ///     });
     /// 
-    ///     var exampleUserFactorQuestion = new Okta.UserFactorQuestion("example", new()
+    ///     var exampleUserFactorQuestion = new Okta.Index.UserFactorQuestion("example", new()
     ///     {
     ///         UserId = exampleUser.Id,
     ///         Key = example.Apply(getUserSecurityQuestionsResult =&gt; getUserSecurityQuestionsResult.Questions[0]?.Key),

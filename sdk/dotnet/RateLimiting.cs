@@ -26,7 +26,7 @@ namespace Pulumi.Okta
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Okta.RateLimiting("example", new()
+    ///     var example = new Okta.Index.RateLimiting("example", new()
     ///     {
     ///         DefaultMode = "ENFORCE",
     ///     });
@@ -44,7 +44,7 @@ namespace Pulumi.Okta
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Okta.RateLimiting("example", new()
+    ///     var example = new Okta.Index.RateLimiting("example", new()
     ///     {
     ///         DefaultMode = "ENFORCE",
     ///         UseCaseModeOverrides = new Okta.Inputs.RateLimitingUseCaseModeOverridesArgs

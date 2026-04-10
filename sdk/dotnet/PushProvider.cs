@@ -24,7 +24,7 @@ namespace Pulumi.Okta
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var fcmExample = new Okta.PushProvider("fcm_example", new()
+    ///     var fcmExample = new Okta.Index.PushProvider("fcm_example", new()
     ///     {
     ///         Name = "FCM Push Provider",
     ///         ProviderType = "FCM",
@@ -66,7 +66,7 @@ namespace Pulumi.Okta
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var apnsExample = new Okta.PushProvider("apns_example", new()
+    ///     var apnsExample = new Okta.Index.PushProvider("apns_example", new()
     ///     {
     ///         Name = "APNS Push Provider",
     ///         ProviderType = "APNS",

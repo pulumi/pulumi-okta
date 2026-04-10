@@ -24,7 +24,7 @@ namespace Pulumi.Okta
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var sample = Okta.GetPushGroups.Invoke(new()
+        ///     var sample = Okta.Index.GetPushGroups.Invoke(new()
         ///     {
         ///         AppId = "&lt;okta_app_id&gt;",
         ///     });
@@ -52,7 +52,7 @@ namespace Pulumi.Okta
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var sample = Okta.GetPushGroups.Invoke(new()
+        ///     var sample = Okta.Index.GetPushGroups.Invoke(new()
         ///     {
         ///         AppId = "&lt;okta_app_id&gt;",
         ///     });
@@ -80,7 +80,7 @@ namespace Pulumi.Okta
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var sample = Okta.GetPushGroups.Invoke(new()
+        ///     var sample = Okta.Index.GetPushGroups.Invoke(new()
         ///     {
         ///         AppId = "&lt;okta_app_id&gt;",
         ///     });

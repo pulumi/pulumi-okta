@@ -29,7 +29,7 @@ namespace Pulumi.Okta.Policy
     ///         Description = "Example Policy",
     ///     });
     /// 
-    ///     var newCity = Okta.GetBehaviour.Invoke(new()
+    ///     var newCity = Okta.Index.GetBehaviour.Invoke(new()
     ///     {
     ///         Name = "New City",
     ///     });

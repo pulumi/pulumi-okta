@@ -22,7 +22,7 @@ namespace Pulumi.Okta
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Okta.AgentPoolUpdate("example", new()
+    ///     var example = new Okta.Index.AgentPoolUpdate("example", new()
     ///     {
     ///         Name = "scheduled_update",
     ///         AgentType = "AD",

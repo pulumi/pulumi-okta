@@ -60,11 +60,11 @@ import * as utilities from "../utilities";
  * // https://registry.terraform.io/providers/iwarapter/jwks/latest/docs/data-sources/from_key
  * // https://github.com/iwarapter/terraform-provider-jwks
  * //
- * const jwksFromKey = jwks.index.FromKey({
+ * const jwksFromKey = jwks.FromKey({
  *     key: rsa.privateKeyPem,
  *     kid: "my-kid",
  * });
- * const jwks = std.index.jsondecode({
+ * const jwks = std.jsondecode({
  *     input: jwksFromKey.jwks,
  * }).result;
  * // https://registry.terraform.io/providers/okta/okta/latest/docs/resources/app_oauth

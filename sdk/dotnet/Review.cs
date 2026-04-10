@@ -24,7 +24,7 @@ namespace Pulumi.Okta
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Okta.Review("test", new()
+    ///     var test = new Okta.Index.Review("test", new()
     ///     {
     ///         CampaignId = "icizigd86iM9sOcbN1d6",
     ///         ReviewerId = "00unli90kor62oF5Z1d7",

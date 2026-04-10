@@ -22,7 +22,7 @@ namespace Pulumi.Okta
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Okta.AuthServerDefault("example", new()
+    ///     var example = new Okta.Index.AuthServerDefault("example", new()
     ///     {
     ///         Audiences = new[]
     ///         {

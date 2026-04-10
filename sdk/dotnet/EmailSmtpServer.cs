@@ -22,7 +22,7 @@ namespace Pulumi.Okta
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Okta.EmailSmtpServer("example", new()
+    ///     var example = new Okta.Index.EmailSmtpServer("example", new()
     ///     {
     ///         Alias = "CustomServer",
     ///         Host = "192.168.160.1",

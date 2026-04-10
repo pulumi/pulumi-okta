@@ -24,7 +24,7 @@ namespace Pulumi.Okta
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var test = Okta.GetCampaign.Invoke(new()
+        ///     var test = Okta.Index.GetCampaign.Invoke(new()
         ///     {
         ///         Id = "&lt;campaign id&gt;",
         ///     });
@@ -48,7 +48,7 @@ namespace Pulumi.Okta
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var test = Okta.GetCampaign.Invoke(new()
+        ///     var test = Okta.Index.GetCampaign.Invoke(new()
         ///     {
         ///         Id = "&lt;campaign id&gt;",
         ///     });
@@ -72,7 +72,7 @@ namespace Pulumi.Okta
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var test = Okta.GetCampaign.Invoke(new()
+        ///     var test = Okta.Index.GetCampaign.Invoke(new()
         ///     {
         ///         Id = "&lt;campaign id&gt;",
         ///     });

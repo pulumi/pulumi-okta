@@ -31,7 +31,7 @@ namespace Pulumi.Okta
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Okta.ApiServiceIntegration("example", new()
+    ///     var example = new Okta.Index.ApiServiceIntegration("example", new()
     ///     {
     ///         Type = "anzennaapiservice",
     ///         GrantedScopes = new[]

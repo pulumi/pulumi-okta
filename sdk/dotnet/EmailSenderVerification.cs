@@ -24,14 +24,14 @@ namespace Pulumi.Okta
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Okta.EmailSender("example", new()
+    ///     var example = new Okta.Index.EmailSender("example", new()
     ///     {
     ///         FromName = "Paul Atreides",
     ///         FromAddress = "no-reply@caladan.planet",
     ///         Subdomain = "mail",
     ///     });
     /// 
-    ///     var exampleEmailSenderVerification = new Okta.EmailSenderVerification("example", new()
+    ///     var exampleEmailSenderVerification = new Okta.Index.EmailSenderVerification("example", new()
     ///     {
     ///         SenderId = valid.Id,
     ///     });

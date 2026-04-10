@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := okta.LookupRequestV2(ctx, &okta.LookupRequestV2Args{
+//			_, err := okta.GetRequestV2(ctx, &okta.LookupRequestV2Args{
 //				Id: "<request_id>",
 //			}, nil)
 //			if err != nil {

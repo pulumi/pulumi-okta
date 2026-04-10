@@ -26,7 +26,7 @@ namespace Pulumi.Okta
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Okta.AppSharedCredentials("example", new()
+    ///     var example = new Okta.Index.AppSharedCredentials("example", new()
     ///     {
     ///         Label = "Example App",
     ///         Status = "ACTIVE",

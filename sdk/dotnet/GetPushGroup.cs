@@ -24,13 +24,13 @@ namespace Pulumi.Okta
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var sample = Okta.GetPushGroup.Invoke(new()
+        ///     var sample = Okta.Index.GetPushGroup.Invoke(new()
         ///     {
         ///         AppId = "&lt;okta_app_id&gt;",
         ///         Id = "&lt;push_group_mapping_id&gt;",
         ///     });
         /// 
-        ///     var anotherSample = Okta.GetPushGroup.Invoke(new()
+        ///     var anotherSample = Okta.Index.GetPushGroup.Invoke(new()
         ///     {
         ///         AppId = "&lt;okta_app_id&gt;",
         ///         SourceGroupId = "&lt;okta_source_group_id&gt;",
@@ -55,13 +55,13 @@ namespace Pulumi.Okta
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var sample = Okta.GetPushGroup.Invoke(new()
+        ///     var sample = Okta.Index.GetPushGroup.Invoke(new()
         ///     {
         ///         AppId = "&lt;okta_app_id&gt;",
         ///         Id = "&lt;push_group_mapping_id&gt;",
         ///     });
         /// 
-        ///     var anotherSample = Okta.GetPushGroup.Invoke(new()
+        ///     var anotherSample = Okta.Index.GetPushGroup.Invoke(new()
         ///     {
         ///         AppId = "&lt;okta_app_id&gt;",
         ///         SourceGroupId = "&lt;okta_source_group_id&gt;",
@@ -86,13 +86,13 @@ namespace Pulumi.Okta
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var sample = Okta.GetPushGroup.Invoke(new()
+        ///     var sample = Okta.Index.GetPushGroup.Invoke(new()
         ///     {
         ///         AppId = "&lt;okta_app_id&gt;",
         ///         Id = "&lt;push_group_mapping_id&gt;",
         ///     });
         /// 
-        ///     var anotherSample = Okta.GetPushGroup.Invoke(new()
+        ///     var anotherSample = Okta.Index.GetPushGroup.Invoke(new()
         ///     {
         ///         AppId = "&lt;okta_app_id&gt;",
         ///         SourceGroupId = "&lt;okta_source_group_id&gt;",

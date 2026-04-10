@@ -28,7 +28,7 @@ namespace Pulumi.Okta
     /// {
     ///     var orgUrl = "https://mycompany.okta.com";
     /// 
-    ///     var test = new Okta.AdminRoleCustom("test", new()
+    ///     var test = new Okta.Index.AdminRoleCustom("test", new()
     ///     {
     ///         Label = "SomeUsersAndApps",
     ///         Description = "Manage apps assignments and users",
@@ -49,7 +49,7 @@ namespace Pulumi.Okta
     ///         Url = "https://example.com/login.html",
     ///     });
     /// 
-    ///     var testResourceSet = new Okta.ResourceSet("test", new()
+    ///     var testResourceSet = new Okta.Index.ResourceSet("test", new()
     ///     {
     ///         Label = "UsersWithApp",
     ///         Description = "All the users and SWA app",
@@ -92,7 +92,7 @@ namespace Pulumi.Okta
     ///     });
     /// 
     ///     // this user and group will manage the set of resources based on the permissions specified in the custom role
-    ///     var testAdminRoleCustomAssignments = new Okta.AdminRoleCustomAssignments("test", new()
+    ///     var testAdminRoleCustomAssignments = new Okta.Index.AdminRoleCustomAssignments("test", new()
     ///     {
     ///         ResourceSetId = testResourceSet.Id,
     ///         CustomRoleId = test.Id,

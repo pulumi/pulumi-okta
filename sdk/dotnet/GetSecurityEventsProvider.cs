@@ -24,7 +24,7 @@ namespace Pulumi.Okta
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Okta.GetSecurityEventsProvider.Invoke(new()
+        ///     var example = Okta.Index.GetSecurityEventsProvider.Invoke(new()
         ///     {
         ///         Id = "&lt;security_events_provider_id&gt;",
         ///     });
@@ -48,7 +48,7 @@ namespace Pulumi.Okta
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Okta.GetSecurityEventsProvider.Invoke(new()
+        ///     var example = Okta.Index.GetSecurityEventsProvider.Invoke(new()
         ///     {
         ///         Id = "&lt;security_events_provider_id&gt;",
         ///     });
@@ -72,7 +72,7 @@ namespace Pulumi.Okta
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Okta.GetSecurityEventsProvider.Invoke(new()
+        ///     var example = Okta.Index.GetSecurityEventsProvider.Invoke(new()
         ///     {
         ///         Id = "&lt;security_events_provider_id&gt;",
         ///     });

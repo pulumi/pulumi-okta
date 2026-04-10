@@ -32,7 +32,7 @@ namespace Pulumi.Okta
     ///         Status = "ACTIVE",
     ///     });
     /// 
-    ///     var testAppSamlAppSettings = new Okta.AppSamlAppSettings("test", new()
+    ///     var testAppSamlAppSettings = new Okta.Index.AppSamlAppSettings("test", new()
     ///     {
     ///         AppId = test.Id,
     ///         Settings = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;

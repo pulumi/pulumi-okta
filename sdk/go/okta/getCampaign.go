@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := okta.LookupCampaign(ctx, &okta.LookupCampaignArgs{
+//			_, err := okta.GetCampaign(ctx, &okta.LookupCampaignArgs{
 //				Id: pulumi.StringRef("<campaign id>"),
 //			}, nil)
 //			if err != nil {

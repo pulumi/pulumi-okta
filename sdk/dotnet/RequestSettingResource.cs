@@ -22,7 +22,7 @@ namespace Pulumi.Okta
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Okta.RequestSettingResource("test", new()
+    ///     var test = new Okta.Index.RequestSettingResource("test", new()
     ///     {
     ///         ResourceId = "&lt;resource_id&gt;",
     ///         RiskSettings = new Okta.Inputs.RequestSettingResourceRiskSettingsArgs

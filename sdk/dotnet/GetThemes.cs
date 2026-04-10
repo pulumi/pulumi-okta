@@ -24,9 +24,9 @@ namespace Pulumi.Okta
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var test = Okta.GetBrands.Invoke();
+        ///     var test = Okta.Index.GetBrands.Invoke();
         /// 
-        ///     var example = Okta.GetThemes.Invoke(new()
+        ///     var example = Okta.Index.GetThemes.Invoke(new()
         ///     {
         ///         BrandId = test.Apply(getBrandsResult =&gt; getBrandsResult.Brands[0]?.Id),
         ///     });
@@ -50,9 +50,9 @@ namespace Pulumi.Okta
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var test = Okta.GetBrands.Invoke();
+        ///     var test = Okta.Index.GetBrands.Invoke();
         /// 
-        ///     var example = Okta.GetThemes.Invoke(new()
+        ///     var example = Okta.Index.GetThemes.Invoke(new()
         ///     {
         ///         BrandId = test.Apply(getBrandsResult =&gt; getBrandsResult.Brands[0]?.Id),
         ///     });
@@ -76,9 +76,9 @@ namespace Pulumi.Okta
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var test = Okta.GetBrands.Invoke();
+        ///     var test = Okta.Index.GetBrands.Invoke();
         /// 
-        ///     var example = Okta.GetThemes.Invoke(new()
+        ///     var example = Okta.Index.GetThemes.Invoke(new()
         ///     {
         ///         BrandId = test.Apply(getBrandsResult =&gt; getBrandsResult.Brands[0]?.Id),
         ///     });

@@ -1817,7 +1817,7 @@ class OAuth(pulumi.CustomResource):
         # to be satisfied with its security.
         # https://github.com/hashicorp/terraform-provider-tls
         #
-        rsa = tls.index.PrivateKey("rsa",
+        rsa = tls.PrivateKey("rsa",
             algorithm=RSA,
             rsa_bits=4096)
         #
@@ -1832,9 +1832,9 @@ class OAuth(pulumi.CustomResource):
         # https://registry.terraform.io/providers/iwarapter/jwks/latest/docs/data-sources/from_key
         # https://github.com/iwarapter/terraform-provider-jwks
         #
-        jwks_from_key = jwks.index.from_key(key=rsa["privateKeyPem"],
+        jwks_from_key = jwks.from_key(key=rsa["privateKeyPem"],
             kid="my-kid")
-        jwks = std.index.jsondecode(input=jwks_from_key["jwks"])["result"]
+        jwks = std.jsondecode(input=jwks_from_key["jwks"])["result"]
         # https://registry.terraform.io/providers/okta/okta/latest/docs/resources/app_oauth
         app = okta.app.OAuth("app",
             label="My OAuth App",
@@ -1958,7 +1958,7 @@ class OAuth(pulumi.CustomResource):
         # to be satisfied with its security.
         # https://github.com/hashicorp/terraform-provider-tls
         #
-        rsa = tls.index.PrivateKey("rsa",
+        rsa = tls.PrivateKey("rsa",
             algorithm=RSA,
             rsa_bits=4096)
         #
@@ -1973,9 +1973,9 @@ class OAuth(pulumi.CustomResource):
         # https://registry.terraform.io/providers/iwarapter/jwks/latest/docs/data-sources/from_key
         # https://github.com/iwarapter/terraform-provider-jwks
         #
-        jwks_from_key = jwks.index.from_key(key=rsa["privateKeyPem"],
+        jwks_from_key = jwks.from_key(key=rsa["privateKeyPem"],
             kid="my-kid")
-        jwks = std.index.jsondecode(input=jwks_from_key["jwks"])["result"]
+        jwks = std.jsondecode(input=jwks_from_key["jwks"])["result"]
         # https://registry.terraform.io/providers/okta/okta/latest/docs/resources/app_oauth
         app = okta.app.OAuth("app",
             label="My OAuth App",

@@ -26,7 +26,7 @@ namespace Pulumi.Okta
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var apnsExample = Okta.GetPushProvider.Invoke(new()
+        ///     var apnsExample = Okta.Index.GetPushProvider.Invoke(new()
         ///     {
         ///         Id = "ppc1234567890abcdef",
         ///     });
@@ -49,7 +49,7 @@ namespace Pulumi.Okta
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var fcmExample = Okta.GetPushProvider.Invoke(new()
+        ///     var fcmExample = Okta.Index.GetPushProvider.Invoke(new()
         ///     {
         ///         Id = "ppc0987654321fedcba",
         ///     });
@@ -80,7 +80,7 @@ namespace Pulumi.Okta
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var apnsExample = Okta.GetPushProvider.Invoke(new()
+        ///     var apnsExample = Okta.Index.GetPushProvider.Invoke(new()
         ///     {
         ///         Id = "ppc1234567890abcdef",
         ///     });
@@ -103,7 +103,7 @@ namespace Pulumi.Okta
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var fcmExample = Okta.GetPushProvider.Invoke(new()
+        ///     var fcmExample = Okta.Index.GetPushProvider.Invoke(new()
         ///     {
         ///         Id = "ppc0987654321fedcba",
         ///     });
@@ -134,7 +134,7 @@ namespace Pulumi.Okta
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var apnsExample = Okta.GetPushProvider.Invoke(new()
+        ///     var apnsExample = Okta.Index.GetPushProvider.Invoke(new()
         ///     {
         ///         Id = "ppc1234567890abcdef",
         ///     });
@@ -157,7 +157,7 @@ namespace Pulumi.Okta
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var fcmExample = Okta.GetPushProvider.Invoke(new()
+        ///     var fcmExample = Okta.Index.GetPushProvider.Invoke(new()
         ///     {
         ///         Id = "ppc0987654321fedcba",
         ///     });

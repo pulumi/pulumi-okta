@@ -22,7 +22,7 @@ namespace Pulumi.Okta
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Okta.RequestCondition("example", new()
+    ///     var example = new Okta.Index.RequestCondition("example", new()
     ///     {
     ///         ResourceId = "&lt;resource_id&gt;",
     ///         ApprovalSequenceId = "&lt;approval_sequence_id&gt;",

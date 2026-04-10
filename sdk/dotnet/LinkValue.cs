@@ -22,7 +22,7 @@ namespace Pulumi.Okta
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var padishah = new Okta.LinkDefinition("padishah", new()
+    ///     var padishah = new Okta.Index.LinkDefinition("padishah", new()
     ///     {
     ///         PrimaryName = "emperor",
     ///         PrimaryTitle = "Emperor",
@@ -52,7 +52,7 @@ namespace Pulumi.Okta
     ///             Email = $"amritsardaukar_{range.Value}@salusa-secundus.planet",
     ///         }));
     ///     }
-    ///     var example = new Okta.LinkValue("example", new()
+    ///     var example = new Okta.Index.LinkValue("example", new()
     ///     {
     ///         PrimaryName = padishah.PrimaryName,
     ///         PrimaryUserId = emperor.Id,

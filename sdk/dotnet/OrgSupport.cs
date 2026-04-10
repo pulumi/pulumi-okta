@@ -24,7 +24,7 @@ namespace Pulumi.Okta
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Okta.OrgSupport("example", new()
+    ///     var example = new Okta.Index.OrgSupport("example", new()
     ///     {
     ///         ExtendBy = 1,
     ///     });

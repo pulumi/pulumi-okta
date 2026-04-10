@@ -40,7 +40,7 @@ namespace Pulumi.Okta
     ///         Name = "Some Test Push Group",
     ///     });
     /// 
-    ///     var sample = new Okta.PushGroup("sample", new()
+    ///     var sample = new Okta.Index.PushGroup("sample", new()
     ///     {
     ///         AppId = test.Id,
     ///         SourceGroupId = testGroup.Id,
@@ -48,7 +48,7 @@ namespace Pulumi.Okta
     ///         DeleteTargetGroupOnDestroy = true,
     ///     });
     /// 
-    ///     var adSample = new Okta.PushGroup("ad_sample", new()
+    ///     var adSample = new Okta.Index.PushGroup("ad_sample", new()
     ///     {
     ///         AppId = test.Id,
     ///         SourceGroupId = testGroup.Id,

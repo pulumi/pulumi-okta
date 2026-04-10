@@ -25,7 +25,7 @@ namespace Pulumi.Okta
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Okta.AdminRoleTargets("example", new()
+    ///     var example = new Okta.Index.AdminRoleTargets("example", new()
     ///     {
     ///         UserId = "&lt;user_id&gt;",
     ///         RoleType = "APP_ADMIN",

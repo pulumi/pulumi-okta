@@ -27,13 +27,13 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := okta.LookupRealm(ctx, &okta.LookupRealmArgs{
+//			_, err := okta.GetRealm(ctx, &okta.LookupRealmArgs{
 //				Name: pulumi.StringRef("Example Realm"),
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = okta.LookupRealm(ctx, &okta.LookupRealmArgs{
+//			_, err = okta.GetRealm(ctx, &okta.LookupRealmArgs{
 //				Id: pulumi.StringRef("<realm_id>"),
 //			}, nil)
 //			if err != nil {

@@ -55,7 +55,7 @@ namespace Pulumi.Okta
     ///         Name = "testAcc-replace_with_uuid",
     ///     });
     /// 
-    ///     var example = new Okta.TrustedServer("example", new()
+    ///     var example = new Okta.Index.TrustedServer("example", new()
     ///     {
     ///         AuthServerId = oktaAuthServer.Test1.Id,
     ///         Trusteds = new[]

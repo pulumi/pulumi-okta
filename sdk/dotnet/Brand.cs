@@ -24,7 +24,7 @@ namespace Pulumi.Okta
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Okta.Brand("example", new()
+    ///     var example = new Okta.Index.Brand("example", new()
     ///     {
     ///         Name = "example",
     ///     });

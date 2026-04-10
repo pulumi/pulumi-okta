@@ -31,7 +31,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = okta.LookupTheme(ctx, &okta.LookupThemeArgs{
+//			_, err = okta.GetTheme(ctx, &okta.LookupThemeArgs{
 //				BrandId: test.Brands[0].Id,
 //				ThemeId: testOktaThemes.Themes[0].Id,
 //			}, nil)

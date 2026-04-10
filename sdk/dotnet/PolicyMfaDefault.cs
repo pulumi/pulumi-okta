@@ -25,7 +25,7 @@ namespace Pulumi.Okta
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var classicExample = new Okta.PolicyMfaDefault("classic_example", new()
+    ///     var classicExample = new Okta.Index.PolicyMfaDefault("classic_example", new()
     ///     {
     ///         IsOie = false,
     ///         OktaPassword = 
@@ -38,7 +38,7 @@ namespace Pulumi.Okta
     ///         },
     ///     });
     /// 
-    ///     var oieExample = new Okta.PolicyMfaDefault("oie_example", new()
+    ///     var oieExample = new Okta.Index.PolicyMfaDefault("oie_example", new()
     ///     {
     ///         IsOie = true,
     ///         OktaPassword = 

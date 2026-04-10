@@ -24,7 +24,7 @@ namespace Pulumi.Okta
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var test = Okta.GetCatalogEntryUserAccessRequestFields.Invoke();
+        ///     var test = Okta.Index.GetCatalogEntryUserAccessRequestFields.Invoke();
         /// 
         /// });
         /// ```
@@ -45,7 +45,7 @@ namespace Pulumi.Okta
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var test = Okta.GetCatalogEntryUserAccessRequestFields.Invoke();
+        ///     var test = Okta.Index.GetCatalogEntryUserAccessRequestFields.Invoke();
         /// 
         /// });
         /// ```
@@ -66,7 +66,7 @@ namespace Pulumi.Okta
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var test = Okta.GetCatalogEntryUserAccessRequestFields.Invoke();
+        ///     var test = Okta.Index.GetCatalogEntryUserAccessRequestFields.Invoke();
         /// 
         /// });
         /// ```

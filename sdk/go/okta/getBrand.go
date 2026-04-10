@@ -31,13 +31,13 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = okta.LookupBrand(ctx, &okta.LookupBrandArgs{
+//			_, err = okta.GetBrand(ctx, &okta.LookupBrandArgs{
 //				BrandId: test.Brands[0].Id,
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = okta.LookupBrand(ctx, &okta.LookupBrandArgs{
+//			_, err = okta.GetBrand(ctx, &okta.LookupBrandArgs{
 //				BrandId: "default",
 //			}, nil)
 //			if err != nil {

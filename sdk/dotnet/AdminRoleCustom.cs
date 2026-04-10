@@ -24,7 +24,7 @@ namespace Pulumi.Okta
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Okta.AdminRoleCustom("example", new()
+    ///     var example = new Okta.Index.AdminRoleCustom("example", new()
     ///     {
     ///         Label = "AppAssignmentManager",
     ///         Description = "This role allows app assignment management",

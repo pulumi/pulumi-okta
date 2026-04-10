@@ -31,7 +31,7 @@ namespace Pulumi.Okta
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Okta.FactorTotp("example", new()
+    ///     var example = new Okta.Index.FactorTotp("example", new()
     ///     {
     ///         Name = "example",
     ///         OtpLength = 10,

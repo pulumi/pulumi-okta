@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := okta.LookupSecurityEventsProvider(ctx, &okta.LookupSecurityEventsProviderArgs{
+//			_, err := okta.GetSecurityEventsProvider(ctx, &okta.LookupSecurityEventsProviderArgs{
 //				Id: "<security_events_provider_id>",
 //			}, nil)
 //			if err != nil {

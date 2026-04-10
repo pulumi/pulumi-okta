@@ -22,7 +22,7 @@ namespace Pulumi.Okta
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Okta.Realm("example", new()
+    ///     var example = new Okta.Index.Realm("example", new()
     ///     {
     ///         Name = "Example Realm",
     ///         RealmType = "DEFAULT",

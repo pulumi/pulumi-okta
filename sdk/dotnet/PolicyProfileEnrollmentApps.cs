@@ -39,7 +39,7 @@ namespace Pulumi.Okta
     ///         Label = "My App",
     ///     });
     /// 
-    ///     var examplePolicyProfileEnrollmentApps = new Okta.PolicyProfileEnrollmentApps("example", new()
+    ///     var examplePolicyProfileEnrollmentApps = new Okta.Index.PolicyProfileEnrollmentApps("example", new()
     ///     {
     ///         PolicyId = exampleOktaPolicy.Id,
     ///         Apps = new[]

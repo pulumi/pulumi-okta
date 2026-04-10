@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := okta.LookupEntitlementBundle(ctx, &okta.LookupEntitlementBundleArgs{
+//			_, err := okta.GetEntitlementBundle(ctx, &okta.LookupEntitlementBundleArgs{
 //				Id: "<entitlement_bundle id>",
 //			}, nil)
 //			if err != nil {

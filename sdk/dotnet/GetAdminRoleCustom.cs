@@ -24,7 +24,7 @@ namespace Pulumi.Okta
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Okta.GetAdminRoleCustom.Invoke(new()
+        ///     var example = Okta.Index.GetAdminRoleCustom.Invoke(new()
         ///     {
         ///         Id = "&lt;role_id&gt;",
         ///     });
@@ -48,7 +48,7 @@ namespace Pulumi.Okta
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Okta.GetAdminRoleCustom.Invoke(new()
+        ///     var example = Okta.Index.GetAdminRoleCustom.Invoke(new()
         ///     {
         ///         Id = "&lt;role_id&gt;",
         ///     });
@@ -72,7 +72,7 @@ namespace Pulumi.Okta
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Okta.GetAdminRoleCustom.Invoke(new()
+        ///     var example = Okta.Index.GetAdminRoleCustom.Invoke(new()
         ///     {
         ///         Id = "&lt;role_id&gt;",
         ///     });

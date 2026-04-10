@@ -30,7 +30,7 @@ namespace Pulumi.Okta
     ///         Email = "testAcc-replace_with_uuid@example.com",
     ///     });
     /// 
-    ///     var testUserAdminRoles = new Okta.UserAdminRoles("test", new()
+    ///     var testUserAdminRoles = new Okta.Index.UserAdminRoles("test", new()
     ///     {
     ///         UserId = test.Id,
     ///         AdminRoles = new[]

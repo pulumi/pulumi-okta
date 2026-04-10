@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := okta.LookupReview(ctx, &okta.LookupReviewArgs{}, nil)
+//			_, err := okta.GetReview(ctx, &okta.LookupReviewArgs{}, nil)
 //			if err != nil {
 //				return err
 //			}

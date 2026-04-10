@@ -28,7 +28,7 @@ namespace Pulumi.Okta
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Okta.PolicyProfileEnrollment("example", new()
+    ///     var example = new Okta.Index.PolicyProfileEnrollment("example", new()
     ///     {
     ///         Name = "My Enrollment Policy",
     ///     });
@@ -54,7 +54,7 @@ namespace Pulumi.Okta
     ///         Description = "Group of some users",
     ///     });
     /// 
-    ///     var examplePolicyRuleProfileEnrollment = new Okta.PolicyRuleProfileEnrollment("example", new()
+    ///     var examplePolicyRuleProfileEnrollment = new Okta.Index.PolicyRuleProfileEnrollment("example", new()
     ///     {
     ///         PolicyId = example.Id,
     ///         InlineHookId = exampleHook.Id,

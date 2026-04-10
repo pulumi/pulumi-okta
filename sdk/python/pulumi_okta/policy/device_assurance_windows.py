@@ -959,9 +959,9 @@ class DeviceAssuranceWindows(pulumi.CustomResource):
         example = okta.policy.DeviceAssuranceWindows("example",
             name="example",
             os_version="12.4.6",
-            disk_encryption_types=std.index.toset(input=["ALL_INTERNAL_VOLUMES"])["result"],
+            disk_encryption_types=std.toset(input=["ALL_INTERNAL_VOLUMES"])["result"],
             secure_hardware_present=True,
-            screenlock_types=std.index.toset(input=[
+            screenlock_types=std.toset(input=[
                 "BIOMETRIC",
                 "PASSCODE",
             ])["result"],
@@ -1041,9 +1041,9 @@ class DeviceAssuranceWindows(pulumi.CustomResource):
         example = okta.policy.DeviceAssuranceWindows("example",
             name="example",
             os_version="12.4.6",
-            disk_encryption_types=std.index.toset(input=["ALL_INTERNAL_VOLUMES"])["result"],
+            disk_encryption_types=std.toset(input=["ALL_INTERNAL_VOLUMES"])["result"],
             secure_hardware_present=True,
-            screenlock_types=std.index.toset(input=[
+            screenlock_types=std.toset(input=[
                 "BIOMETRIC",
                 "PASSCODE",
             ])["result"],

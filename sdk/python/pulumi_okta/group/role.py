@@ -342,7 +342,7 @@ class Role(pulumi.CustomResource):
         test_resource_set = okta.ResourceSet("test",
             label="test",
             description="testing, testing",
-            resources=[std.index.format(input="%s/api/v1/users",
+            resources=[std.format(input="%s/api/v1/users",
                 args=["https://tien-oie-2023-26-26.oktapreview.com"])["result"]])
         test_admin_role_custom = okta.AdminRoleCustom("test",
             label="testt",
@@ -415,7 +415,7 @@ class Role(pulumi.CustomResource):
         test_resource_set = okta.ResourceSet("test",
             label="test",
             description="testing, testing",
-            resources=[std.index.format(input="%s/api/v1/users",
+            resources=[std.format(input="%s/api/v1/users",
                 args=["https://tien-oie-2023-26-26.oktapreview.com"])["result"]])
         test_admin_role_custom = okta.AdminRoleCustom("test",
             label="testt",

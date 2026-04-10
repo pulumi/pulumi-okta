@@ -126,7 +126,7 @@ class AppGroupAssignments(pulumi.CustomResource):
         import pulumi_std as std
 
         this = []
-        for range in [{"value": i} for i in range(0, std.index.toset(input=[
+        for range in [{"value": i} for i in range(0, std.toset(input=[
             group-a,
             group-b,
         ]).result)]:
@@ -146,7 +146,7 @@ class AppGroupAssignments(pulumi.CustomResource):
         this = okta.AppGroupAssignments("this",
             groups=[{
                 "id": entry["value"],
-            } for entry in [{"key": k, "value": v} for k, v in std.index.toset(input=[
+            } for entry in [{"key": k, "value": v} for k, v in std.toset(input=[
                 "group-a",
                 "group-b",
             ])["result"].items()]],
@@ -215,7 +215,7 @@ class AppGroupAssignments(pulumi.CustomResource):
         import pulumi_std as std
 
         this = []
-        for range in [{"value": i} for i in range(0, std.index.toset(input=[
+        for range in [{"value": i} for i in range(0, std.toset(input=[
             group-a,
             group-b,
         ]).result)]:
@@ -235,7 +235,7 @@ class AppGroupAssignments(pulumi.CustomResource):
         this = okta.AppGroupAssignments("this",
             groups=[{
                 "id": entry["value"],
-            } for entry in [{"key": k, "value": v} for k, v in std.index.toset(input=[
+            } for entry in [{"key": k, "value": v} for k, v in std.toset(input=[
                 "group-a",
                 "group-b",
             ])["result"].items()]],

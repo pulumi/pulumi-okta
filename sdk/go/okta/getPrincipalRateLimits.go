@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := okta.LookupPrincipalRateLimits(ctx, &okta.LookupPrincipalRateLimitsArgs{
+//			_, err := okta.GetPrincipalRateLimits(ctx, &okta.LookupPrincipalRateLimitsArgs{
 //				Id: "<principal_rate_limit_id>",
 //			}, nil)
 //			if err != nil {

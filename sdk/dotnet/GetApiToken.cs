@@ -24,7 +24,7 @@ namespace Pulumi.Okta
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Okta.GetApiToken.Invoke(new()
+        ///     var example = Okta.Index.GetApiToken.Invoke(new()
         ///     {
         ///         Id = "00T1fxzubpq2epw11d38",
         ///     });
@@ -48,7 +48,7 @@ namespace Pulumi.Okta
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Okta.GetApiToken.Invoke(new()
+        ///     var example = Okta.Index.GetApiToken.Invoke(new()
         ///     {
         ///         Id = "00T1fxzubpq2epw11d38",
         ///     });
@@ -72,7 +72,7 @@ namespace Pulumi.Okta
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Okta.GetApiToken.Invoke(new()
+        ///     var example = Okta.Index.GetApiToken.Invoke(new()
         ///     {
         ///         Id = "00T1fxzubpq2epw11d38",
         ///     });

@@ -24,7 +24,7 @@ namespace Pulumi.Okta
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var test = Okta.GetRequestSequence.Invoke(new()
+        ///     var test = Okta.Index.GetRequestSequence.Invoke(new()
         ///     {
         ///         Id = "&lt;sequence_id&gt;",
         ///         ResourceId = "&lt;resource_id&gt;",
@@ -49,7 +49,7 @@ namespace Pulumi.Okta
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var test = Okta.GetRequestSequence.Invoke(new()
+        ///     var test = Okta.Index.GetRequestSequence.Invoke(new()
         ///     {
         ///         Id = "&lt;sequence_id&gt;",
         ///         ResourceId = "&lt;resource_id&gt;",
@@ -74,7 +74,7 @@ namespace Pulumi.Okta
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var test = Okta.GetRequestSequence.Invoke(new()
+        ///     var test = Okta.Index.GetRequestSequence.Invoke(new()
         ///     {
         ///         Id = "&lt;sequence_id&gt;",
         ///         ResourceId = "&lt;resource_id&gt;",
