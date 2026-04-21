@@ -18,6 +18,18 @@ namespace Pulumi.Okta.App.Inputs
         [Input("access")]
         public Input<string>? Access { get; set; }
 
+        [Input("chains")]
+        private InputList<string>? _chains;
+
+        /// <summary>
+        /// List of authentication method chain objects as JSON-encoded strings. Use with `type = "AUTH_METHOD_CHAIN"` only.
+        /// </summary>
+        public InputList<string> Chains
+        {
+            get => _chains ?? (_chains = new InputList<string>());
+            set => _chains = value;
+        }
+
         [Input("constraints")]
         private InputList<string>? _constraints;
 
@@ -157,7 +169,7 @@ namespace Pulumi.Okta.App.Inputs
         public Input<int>? Priority { get; set; }
 
         /// <summary>
-        /// Re-authentication frequency in ISO 8601 duration format (e.g., PT2H for 2 hours).
+        /// Re-authentication frequency in ISO 8601 duration format (e.g., PT2H for 2 hours). When using authentication chains with reauthenticateIn, this value is computed by the API based on the chain configuration.
         /// </summary>
         [Input("reAuthenticationFrequency")]
         public Input<string>? ReAuthenticationFrequency { get; set; }

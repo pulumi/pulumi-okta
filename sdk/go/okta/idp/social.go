@@ -73,8 +73,13 @@ type Social struct {
 	AuthorizationUrl pulumi.StringOutput `pulumi:"authorizationUrl"`
 	// Unique identifier issued by AS for the Okta IdP instance.
 	ClientId pulumi.StringPtrOutput `pulumi:"clientId"`
-	// Client secret issued by AS for the Okta IdP instance.
+	// Client secret issued by AS for the Okta IdP instance. When set, this secret will be stored in the Terraform state file. For Terraform 1.11+, consider using `clientSecretWo` instead to avoid persisting secrets in state. Either `clientSecret` or `clientSecretWo` can be specified, but not both.
 	ClientSecret pulumi.StringPtrOutput `pulumi:"clientSecret"`
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	// Write-only client secret issued by AS for the Okta IdP instance for Terraform 1.11+. Unlike `clientSecret`, this secret will not be persisted in the Terraform state file, providing improved security. Only use this attribute with Terraform 1.11 or higher. Either `clientSecret` or `clientSecretWo` can be specified, but not both.
+	ClientSecretWo pulumi.StringPtrOutput `pulumi:"clientSecretWo"`
+	// Version number for the write-only client secret. Increment this value to trigger an update when changing `clientSecretWo`.
+	ClientSecretWoVersion pulumi.IntPtrOutput `pulumi:"clientSecretWoVersion"`
 	// Action for a previously deprovisioned IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`
 	DeprovisionedAction pulumi.StringPtrOutput `pulumi:"deprovisionedAction"`
 	// Provisioning action for IdP user's group memberships. It can be `NONE`, `SYNC`, `APPEND`, or `ASSIGN`. Default: `NONE`
@@ -146,9 +151,13 @@ func NewSocial(ctx *pulumi.Context,
 	if args.ClientSecret != nil {
 		args.ClientSecret = pulumi.ToSecret(args.ClientSecret).(pulumi.StringPtrInput)
 	}
+	if args.ClientSecretWo != nil {
+		args.ClientSecretWo = pulumi.ToSecret(args.ClientSecretWo).(pulumi.StringPtrInput)
+	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"applePrivateKey",
 		"clientSecret",
+		"clientSecretWo",
 	})
 	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -190,8 +199,13 @@ type socialState struct {
 	AuthorizationUrl *string `pulumi:"authorizationUrl"`
 	// Unique identifier issued by AS for the Okta IdP instance.
 	ClientId *string `pulumi:"clientId"`
-	// Client secret issued by AS for the Okta IdP instance.
+	// Client secret issued by AS for the Okta IdP instance. When set, this secret will be stored in the Terraform state file. For Terraform 1.11+, consider using `clientSecretWo` instead to avoid persisting secrets in state. Either `clientSecret` or `clientSecretWo` can be specified, but not both.
 	ClientSecret *string `pulumi:"clientSecret"`
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	// Write-only client secret issued by AS for the Okta IdP instance for Terraform 1.11+. Unlike `clientSecret`, this secret will not be persisted in the Terraform state file, providing improved security. Only use this attribute with Terraform 1.11 or higher. Either `clientSecret` or `clientSecretWo` can be specified, but not both.
+	ClientSecretWo *string `pulumi:"clientSecretWo"`
+	// Version number for the write-only client secret. Increment this value to trigger an update when changing `clientSecretWo`.
+	ClientSecretWoVersion *int `pulumi:"clientSecretWoVersion"`
 	// Action for a previously deprovisioned IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`
 	DeprovisionedAction *string `pulumi:"deprovisionedAction"`
 	// Provisioning action for IdP user's group memberships. It can be `NONE`, `SYNC`, `APPEND`, or `ASSIGN`. Default: `NONE`
@@ -261,8 +275,13 @@ type SocialState struct {
 	AuthorizationUrl pulumi.StringPtrInput
 	// Unique identifier issued by AS for the Okta IdP instance.
 	ClientId pulumi.StringPtrInput
-	// Client secret issued by AS for the Okta IdP instance.
+	// Client secret issued by AS for the Okta IdP instance. When set, this secret will be stored in the Terraform state file. For Terraform 1.11+, consider using `clientSecretWo` instead to avoid persisting secrets in state. Either `clientSecret` or `clientSecretWo` can be specified, but not both.
 	ClientSecret pulumi.StringPtrInput
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	// Write-only client secret issued by AS for the Okta IdP instance for Terraform 1.11+. Unlike `clientSecret`, this secret will not be persisted in the Terraform state file, providing improved security. Only use this attribute with Terraform 1.11 or higher. Either `clientSecret` or `clientSecretWo` can be specified, but not both.
+	ClientSecretWo pulumi.StringPtrInput
+	// Version number for the write-only client secret. Increment this value to trigger an update when changing `clientSecretWo`.
+	ClientSecretWoVersion pulumi.IntPtrInput
 	// Action for a previously deprovisioned IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`
 	DeprovisionedAction pulumi.StringPtrInput
 	// Provisioning action for IdP user's group memberships. It can be `NONE`, `SYNC`, `APPEND`, or `ASSIGN`. Default: `NONE`
@@ -332,8 +351,13 @@ type socialArgs struct {
 	AppleTeamId *string `pulumi:"appleTeamId"`
 	// Unique identifier issued by AS for the Okta IdP instance.
 	ClientId *string `pulumi:"clientId"`
-	// Client secret issued by AS for the Okta IdP instance.
+	// Client secret issued by AS for the Okta IdP instance. When set, this secret will be stored in the Terraform state file. For Terraform 1.11+, consider using `clientSecretWo` instead to avoid persisting secrets in state. Either `clientSecret` or `clientSecretWo` can be specified, but not both.
 	ClientSecret *string `pulumi:"clientSecret"`
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	// Write-only client secret issued by AS for the Okta IdP instance for Terraform 1.11+. Unlike `clientSecret`, this secret will not be persisted in the Terraform state file, providing improved security. Only use this attribute with Terraform 1.11 or higher. Either `clientSecret` or `clientSecretWo` can be specified, but not both.
+	ClientSecretWo *string `pulumi:"clientSecretWo"`
+	// Version number for the write-only client secret. Increment this value to trigger an update when changing `clientSecretWo`.
+	ClientSecretWoVersion *int `pulumi:"clientSecretWoVersion"`
 	// Action for a previously deprovisioned IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`
 	DeprovisionedAction *string `pulumi:"deprovisionedAction"`
 	// Provisioning action for IdP user's group memberships. It can be `NONE`, `SYNC`, `APPEND`, or `ASSIGN`. Default: `NONE`
@@ -386,8 +410,13 @@ type SocialArgs struct {
 	AppleTeamId pulumi.StringPtrInput
 	// Unique identifier issued by AS for the Okta IdP instance.
 	ClientId pulumi.StringPtrInput
-	// Client secret issued by AS for the Okta IdP instance.
+	// Client secret issued by AS for the Okta IdP instance. When set, this secret will be stored in the Terraform state file. For Terraform 1.11+, consider using `clientSecretWo` instead to avoid persisting secrets in state. Either `clientSecret` or `clientSecretWo` can be specified, but not both.
 	ClientSecret pulumi.StringPtrInput
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	// Write-only client secret issued by AS for the Okta IdP instance for Terraform 1.11+. Unlike `clientSecret`, this secret will not be persisted in the Terraform state file, providing improved security. Only use this attribute with Terraform 1.11 or higher. Either `clientSecret` or `clientSecretWo` can be specified, but not both.
+	ClientSecretWo pulumi.StringPtrInput
+	// Version number for the write-only client secret. Increment this value to trigger an update when changing `clientSecretWo`.
+	ClientSecretWoVersion pulumi.IntPtrInput
 	// Action for a previously deprovisioned IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`
 	DeprovisionedAction pulumi.StringPtrInput
 	// Provisioning action for IdP user's group memberships. It can be `NONE`, `SYNC`, `APPEND`, or `ASSIGN`. Default: `NONE`
@@ -553,9 +582,20 @@ func (o SocialOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Social) pulumi.StringPtrOutput { return v.ClientId }).(pulumi.StringPtrOutput)
 }
 
-// Client secret issued by AS for the Okta IdP instance.
+// Client secret issued by AS for the Okta IdP instance. When set, this secret will be stored in the Terraform state file. For Terraform 1.11+, consider using `clientSecretWo` instead to avoid persisting secrets in state. Either `clientSecret` or `clientSecretWo` can be specified, but not both.
 func (o SocialOutput) ClientSecret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Social) pulumi.StringPtrOutput { return v.ClientSecret }).(pulumi.StringPtrOutput)
+}
+
+// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+// Write-only client secret issued by AS for the Okta IdP instance for Terraform 1.11+. Unlike `clientSecret`, this secret will not be persisted in the Terraform state file, providing improved security. Only use this attribute with Terraform 1.11 or higher. Either `clientSecret` or `clientSecretWo` can be specified, but not both.
+func (o SocialOutput) ClientSecretWo() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Social) pulumi.StringPtrOutput { return v.ClientSecretWo }).(pulumi.StringPtrOutput)
+}
+
+// Version number for the write-only client secret. Increment this value to trigger an update when changing `clientSecretWo`.
+func (o SocialOutput) ClientSecretWoVersion() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Social) pulumi.IntPtrOutput { return v.ClientSecretWoVersion }).(pulumi.IntPtrOutput)
 }
 
 // Action for a previously deprovisioned IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`

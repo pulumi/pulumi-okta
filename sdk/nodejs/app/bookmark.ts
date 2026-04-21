@@ -121,6 +121,10 @@ export class Bookmark extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly signOnMode: pulumi.Output<string>;
     /**
+     * When set to true, the provider will not assign or read the authentication policy for this application. This can be useful when the caller lacks the permissions to read or manage policies, or to reduce API calls against the `/api/v1/apps` rate limit.
+     */
+    declare public readonly skipAuthenticationPolicy: pulumi.Output<boolean | undefined>;
+    /**
      * Status of application. By default, it is `ACTIVE`
      */
     declare public readonly status: pulumi.Output<string | undefined>;
@@ -158,6 +162,7 @@ export class Bookmark extends pulumi.CustomResource {
             resourceInputs["name"] = state?.name;
             resourceInputs["requestIntegration"] = state?.requestIntegration;
             resourceInputs["signOnMode"] = state?.signOnMode;
+            resourceInputs["skipAuthenticationPolicy"] = state?.skipAuthenticationPolicy;
             resourceInputs["status"] = state?.status;
             resourceInputs["url"] = state?.url;
         } else {
@@ -181,6 +186,7 @@ export class Bookmark extends pulumi.CustomResource {
             resourceInputs["label"] = args?.label;
             resourceInputs["logo"] = args?.logo;
             resourceInputs["requestIntegration"] = args?.requestIntegration;
+            resourceInputs["skipAuthenticationPolicy"] = args?.skipAuthenticationPolicy;
             resourceInputs["status"] = args?.status;
             resourceInputs["url"] = args?.url;
             resourceInputs["logoUrl"] = undefined /*out*/;
@@ -261,6 +267,10 @@ export interface BookmarkState {
      */
     signOnMode?: pulumi.Input<string>;
     /**
+     * When set to true, the provider will not assign or read the authentication policy for this application. This can be useful when the caller lacks the permissions to read or manage policies, or to reduce API calls against the `/api/v1/apps` rate limit.
+     */
+    skipAuthenticationPolicy?: pulumi.Input<boolean>;
+    /**
      * Status of application. By default, it is `ACTIVE`
      */
     status?: pulumi.Input<string>;
@@ -326,6 +336,10 @@ export interface BookmarkArgs {
      * Would you like Okta to add an integration for this app?
      */
     requestIntegration?: pulumi.Input<boolean>;
+    /**
+     * When set to true, the provider will not assign or read the authentication policy for this application. This can be useful when the caller lacks the permissions to read or manage policies, or to reduce API calls against the `/api/v1/apps` rate limit.
+     */
+    skipAuthenticationPolicy?: pulumi.Input<boolean>;
     /**
      * Status of application. By default, it is `ACTIVE`
      */

@@ -118,6 +118,8 @@ type GetOauthResult struct {
 	LogoUri string `pulumi:"logoUri"`
 	// Name of application.
 	Name string `pulumi:"name"`
+	// Network restrictions for the application client.
+	Networks []GetOauthNetwork `pulumi:"networks"`
 	// URI to web page providing client policy document.
 	PolicyUri string `pulumi:"policyUri"`
 	// List of URIs for redirection after logout
@@ -289,6 +291,11 @@ func (o GetOauthResultOutput) LogoUri() pulumi.StringOutput {
 // Name of application.
 func (o GetOauthResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetOauthResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Network restrictions for the application client.
+func (o GetOauthResultOutput) Networks() GetOauthNetworkArrayOutput {
+	return o.ApplyT(func(v GetOauthResult) []GetOauthNetwork { return v.Networks }).(GetOauthNetworkArrayOutput)
 }
 
 // URI to web page providing client policy document.

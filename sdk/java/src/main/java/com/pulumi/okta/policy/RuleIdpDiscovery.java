@@ -15,6 +15,7 @@ import com.pulumi.okta.policy.outputs.RuleIdpDiscoveryAppInclude;
 import com.pulumi.okta.policy.outputs.RuleIdpDiscoveryIdpProvider;
 import com.pulumi.okta.policy.outputs.RuleIdpDiscoveryPlatformInclude;
 import com.pulumi.okta.policy.outputs.RuleIdpDiscoveryUserIdentifierPattern;
+import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -28,6 +29,100 @@ import javax.annotation.Nullable;
  * &gt; If you receive the error &#39;You do not have permission to access the feature
  * you are requesting&#39; contact support and
  * request feature flag &#39;ADVANCED_SSO&#39; be applied to your org.
+ * 
+ * ## Example Usage
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.okta.policy.PolicyFunctions;
+ * import com.pulumi.okta.policy.inputs.GetPolicyArgs;
+ * import com.pulumi.okta.policy.RuleIdpDiscovery;
+ * import com.pulumi.okta.policy.RuleIdpDiscoveryArgs;
+ * import com.pulumi.okta.policy.inputs.RuleIdpDiscoveryIdpProviderArgs;
+ * import com.pulumi.okta.policy.inputs.RuleIdpDiscoveryAppExcludeArgs;
+ * import com.pulumi.okta.policy.inputs.RuleIdpDiscoveryAppIncludeArgs;
+ * import com.pulumi.okta.policy.inputs.RuleIdpDiscoveryPlatformIncludeArgs;
+ * import com.pulumi.okta.policy.inputs.RuleIdpDiscoveryUserIdentifierPatternArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
+ *         Pulumi.run(App::stack);
+ *     }}{@code
+ * 
+ *     public static void stack(Context ctx) }{{@code
+ *         //## All Okta orgs contain only one IdP Discovery Policy
+ *         final var idpDiscoveryPolicy = PolicyFunctions.getPolicy(GetPolicyArgs.builder()
+ *             .name("Idp Discovery Policy")
+ *             .type("IDP_DISCOVERY")
+ *             .build());
+ * 
+ *         // Example 1: Specific IdP routing - route to a named OIDC IdP
+ *         var example = new RuleIdpDiscovery("example", RuleIdpDiscoveryArgs.builder()
+ *             .policyId(idpDiscoveryPolicy.id())
+ *             .name("example")
+ *             .idpProviders(RuleIdpDiscoveryIdpProviderArgs.builder()
+ *                 .id("<idp id>")
+ *                 .type("OIDC")
+ *                 .build())
+ *             .networkConnection("ANYWHERE")
+ *             .priority(1)
+ *             .status("ACTIVE")
+ *             .userIdentifierType("ATTRIBUTE")
+ *             .userIdentifierAttribute("company")
+ *             .appExcludes(            
+ *                 RuleIdpDiscoveryAppExcludeArgs.builder()
+ *                     .id("<app id>")
+ *                     .type("APP")
+ *                     .build(),
+ *                 RuleIdpDiscoveryAppExcludeArgs.builder()
+ *                     .name("yahoo_mail")
+ *                     .type("APP_TYPE")
+ *                     .build())
+ *             .appIncludes(            
+ *                 RuleIdpDiscoveryAppIncludeArgs.builder()
+ *                     .id("<app id>")
+ *                     .type("APP")
+ *                     .build(),
+ *                 RuleIdpDiscoveryAppIncludeArgs.builder()
+ *                     .name("<app type name>")
+ *                     .type("APP_TYPE")
+ *                     .build())
+ *             .platformIncludes(RuleIdpDiscoveryPlatformIncludeArgs.builder()
+ *                 .type("MOBILE")
+ *                 .osType("OSX")
+ *                 .build())
+ *             .userIdentifierPatterns(RuleIdpDiscoveryUserIdentifierPatternArgs.builder()
+ *                 .matchType("EQUALS")
+ *                 .value("Articulate")
+ *                 .build())
+ *             .build());
+ * 
+ *         // Example 2: Dynamic IdP routing - select IdP based on an expression
+ *         var dynamicExample = new RuleIdpDiscovery("dynamicExample", RuleIdpDiscoveryArgs.builder()
+ *             .policyId(idpDiscoveryPolicy.id())
+ *             .name("dynamic-idp-routing")
+ *             .networkConnection("ANYWHERE")
+ *             .priority(2)
+ *             .status("ACTIVE")
+ *             .selectionType("DYNAMIC")
+ *             .providerExpression("login.identifier.substringAfter('}{@literal @}{@code ')")
+ *             .build());
+ * 
+ *     }}{@code
+ * }}{@code
+ * }
+ * </pre>
  * 
  * ## Import
  * 
@@ -181,6 +276,62 @@ public class RuleIdpDiscovery extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<Integer>> priority() {
         return Codegen.optional(this.priority);
+    }
+    /**
+     * The IdP property that the evaluated expression should match against when `selectionType` is `DYNAMIC`. Maps to `actions.idp.matchCriteria[0].propertyName` in the API. If not set, the API default is used and the value is stored in state.
+     * 
+     */
+    @Export(name="propertyName", refs={String.class}, tree="[0]")
+    private Output<String> propertyName;
+
+    /**
+     * @return The IdP property that the evaluated expression should match against when `selectionType` is `DYNAMIC`. Maps to `actions.idp.matchCriteria[0].propertyName` in the API. If not set, the API default is used and the value is stored in state.
+     * 
+     */
+    public Output<String> propertyName() {
+        return this.propertyName;
+    }
+    /**
+     * An Okta Expression Language expression that is evaluated against the Login Context and used to dynamically select an IdP. Only applicable when `selectionType` is `DYNAMIC`. Maps to `actions.idp.matchCriteria[0].providerExpression` in the API. Example: `login.identifier.substringAfter(&#39;{@literal @}&#39;)`
+     * 
+     */
+    @Export(name="providerExpression", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> providerExpression;
+
+    /**
+     * @return An Okta Expression Language expression that is evaluated against the Login Context and used to dynamically select an IdP. Only applicable when `selectionType` is `DYNAMIC`. Maps to `actions.idp.matchCriteria[0].providerExpression` in the API. Example: `login.identifier.substringAfter(&#39;{@literal @}&#39;)`
+     * 
+     */
+    public Output<Optional<String>> providerExpression() {
+        return Codegen.optional(this.providerExpression);
+    }
+    /**
+     * Determines how the IdP is selected. One of: `SPECIFIC`, `DYNAMIC`. Default: `SPECIFIC`. When `DYNAMIC`, the IdP is selected based on the evaluated `providerExpression`.
+     * 
+     */
+    @Export(name="selectionType", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> selectionType;
+
+    /**
+     * @return Determines how the IdP is selected. One of: `SPECIFIC`, `DYNAMIC`. Default: `SPECIFIC`. When `DYNAMIC`, the IdP is selected based on the evaluated `providerExpression`.
+     * 
+     */
+    public Output<Optional<String>> selectionType() {
+        return Codegen.optional(this.selectionType);
+    }
+    /**
+     * Specifies whether to fall back to Okta if authentication with the matched IdP fails. Only applicable when `selectionType` is `DYNAMIC`. Default: `false`.
+     * 
+     */
+    @Export(name="shouldFallBackToOkta", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> shouldFallBackToOkta;
+
+    /**
+     * @return Specifies whether to fall back to Okta if authentication with the matched IdP fails. Only applicable when `selectionType` is `DYNAMIC`. Default: `false`.
+     * 
+     */
+    public Output<Optional<Boolean>> shouldFallBackToOkta() {
+        return Codegen.optional(this.shouldFallBackToOkta);
     }
     /**
      * Policy Rule Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`

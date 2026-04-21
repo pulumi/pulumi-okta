@@ -94,18 +94,50 @@ public final class OidcState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Client secret issued by AS for the Okta IdP instance.
+     * Client secret issued by AS for the Okta IdP instance. When set, this secret will be stored in the Terraform state file. For Terraform 1.11+, consider using `clientSecretWo` instead to avoid persisting secrets in state. Either `clientSecret` or `clientSecretWo` must be specified, but not both.
      * 
      */
     @Import(name="clientSecret")
     private @Nullable Output<String> clientSecret;
 
     /**
-     * @return Client secret issued by AS for the Okta IdP instance.
+     * @return Client secret issued by AS for the Okta IdP instance. When set, this secret will be stored in the Terraform state file. For Terraform 1.11+, consider using `clientSecretWo` instead to avoid persisting secrets in state. Either `clientSecret` or `clientSecretWo` must be specified, but not both.
      * 
      */
     public Optional<Output<String>> clientSecret() {
         return Optional.ofNullable(this.clientSecret);
+    }
+
+    /**
+     * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * Write-only client secret issued by AS for the Okta IdP instance for Terraform 1.11+. Unlike `clientSecret`, this secret will not be persisted in the Terraform state file, providing improved security. Only use this attribute with Terraform 1.11 or higher. Either `clientSecret` or `clientSecretWo` must be specified, but not both.
+     * 
+     */
+    @Import(name="clientSecretWo")
+    private @Nullable Output<String> clientSecretWo;
+
+    /**
+     * @return **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * Write-only client secret issued by AS for the Okta IdP instance for Terraform 1.11+. Unlike `clientSecret`, this secret will not be persisted in the Terraform state file, providing improved security. Only use this attribute with Terraform 1.11 or higher. Either `clientSecret` or `clientSecretWo` must be specified, but not both.
+     * 
+     */
+    public Optional<Output<String>> clientSecretWo() {
+        return Optional.ofNullable(this.clientSecretWo);
+    }
+
+    /**
+     * Version number for the write-only client secret. Increment this value to trigger an update when changing `clientSecretWo`.
+     * 
+     */
+    @Import(name="clientSecretWoVersion")
+    private @Nullable Output<Integer> clientSecretWoVersion;
+
+    /**
+     * @return Version number for the write-only client secret. Increment this value to trigger an update when changing `clientSecretWo`.
+     * 
+     */
+    public Optional<Output<Integer>> clientSecretWoVersion() {
+        return Optional.ofNullable(this.clientSecretWoVersion);
     }
 
     /**
@@ -604,6 +636,8 @@ public final class OidcState extends com.pulumi.resources.ResourceArgs {
         this.authorizationUrl = $.authorizationUrl;
         this.clientId = $.clientId;
         this.clientSecret = $.clientSecret;
+        this.clientSecretWo = $.clientSecretWo;
+        this.clientSecretWoVersion = $.clientSecretWoVersion;
         this.deprovisionedAction = $.deprovisionedAction;
         this.filter = $.filter;
         this.groupsAction = $.groupsAction;
@@ -773,7 +807,7 @@ public final class OidcState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clientSecret Client secret issued by AS for the Okta IdP instance.
+         * @param clientSecret Client secret issued by AS for the Okta IdP instance. When set, this secret will be stored in the Terraform state file. For Terraform 1.11+, consider using `clientSecretWo` instead to avoid persisting secrets in state. Either `clientSecret` or `clientSecretWo` must be specified, but not both.
          * 
          * @return builder
          * 
@@ -784,13 +818,57 @@ public final class OidcState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clientSecret Client secret issued by AS for the Okta IdP instance.
+         * @param clientSecret Client secret issued by AS for the Okta IdP instance. When set, this secret will be stored in the Terraform state file. For Terraform 1.11+, consider using `clientSecretWo` instead to avoid persisting secrets in state. Either `clientSecret` or `clientSecretWo` must be specified, but not both.
          * 
          * @return builder
          * 
          */
         public Builder clientSecret(String clientSecret) {
             return clientSecret(Output.of(clientSecret));
+        }
+
+        /**
+         * @param clientSecretWo **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+         * Write-only client secret issued by AS for the Okta IdP instance for Terraform 1.11+. Unlike `clientSecret`, this secret will not be persisted in the Terraform state file, providing improved security. Only use this attribute with Terraform 1.11 or higher. Either `clientSecret` or `clientSecretWo` must be specified, but not both.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder clientSecretWo(@Nullable Output<String> clientSecretWo) {
+            $.clientSecretWo = clientSecretWo;
+            return this;
+        }
+
+        /**
+         * @param clientSecretWo **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+         * Write-only client secret issued by AS for the Okta IdP instance for Terraform 1.11+. Unlike `clientSecret`, this secret will not be persisted in the Terraform state file, providing improved security. Only use this attribute with Terraform 1.11 or higher. Either `clientSecret` or `clientSecretWo` must be specified, but not both.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder clientSecretWo(String clientSecretWo) {
+            return clientSecretWo(Output.of(clientSecretWo));
+        }
+
+        /**
+         * @param clientSecretWoVersion Version number for the write-only client secret. Increment this value to trigger an update when changing `clientSecretWo`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder clientSecretWoVersion(@Nullable Output<Integer> clientSecretWoVersion) {
+            $.clientSecretWoVersion = clientSecretWoVersion;
+            return this;
+        }
+
+        /**
+         * @param clientSecretWoVersion Version number for the write-only client secret. Increment this value to trigger an update when changing `clientSecretWo`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder clientSecretWoVersion(Integer clientSecretWoVersion) {
+            return clientSecretWoVersion(Output.of(clientSecretWoVersion));
         }
 
         /**

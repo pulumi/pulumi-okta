@@ -16,7 +16,18 @@ namespace Pulumi.Okta
         /// 
         /// ## Example Usage
         /// 
-        /// {{tffile "examples/data-sources/okta_post_auth_session_policy/data-source.tf"}}
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Okta = Pulumi.Okta;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Okta.Index.GetPostAuthSessionPolicy.Invoke();
+        /// 
+        /// });
+        /// ```
         /// </summary>
         public static Task<GetPostAuthSessionPolicyResult> InvokeAsync(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPostAuthSessionPolicyResult>("okta:index/getPostAuthSessionPolicy:getPostAuthSessionPolicy", InvokeArgs.Empty, options.WithDefaults());
@@ -26,7 +37,18 @@ namespace Pulumi.Okta
         /// 
         /// ## Example Usage
         /// 
-        /// {{tffile "examples/data-sources/okta_post_auth_session_policy/data-source.tf"}}
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Okta = Pulumi.Okta;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Okta.Index.GetPostAuthSessionPolicy.Invoke();
+        /// 
+        /// });
+        /// ```
         /// </summary>
         public static Output<GetPostAuthSessionPolicyResult> Invoke(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPostAuthSessionPolicyResult>("okta:index/getPostAuthSessionPolicy:getPostAuthSessionPolicy", InvokeArgs.Empty, options.WithDefaults());
@@ -36,7 +58,18 @@ namespace Pulumi.Okta
         /// 
         /// ## Example Usage
         /// 
-        /// {{tffile "examples/data-sources/okta_post_auth_session_policy/data-source.tf"}}
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Okta = Pulumi.Okta;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Okta.Index.GetPostAuthSessionPolicy.Invoke();
+        /// 
+        /// });
+        /// ```
         /// </summary>
         public static Output<GetPostAuthSessionPolicyResult> Invoke(InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetPostAuthSessionPolicyResult>("okta:index/getPostAuthSessionPolicy:getPostAuthSessionPolicy", InvokeArgs.Empty, options.WithDefaults());

@@ -17,6 +17,100 @@ namespace Pulumi.Okta.Policy
     /// you are requesting' contact support and
     /// request feature flag 'ADVANCED_SSO' be applied to your org.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Okta = Pulumi.Okta;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     //## All Okta orgs contain only one IdP Discovery Policy
+    ///     var idpDiscoveryPolicy = Okta.Policy.GetPolicy.Invoke(new()
+    ///     {
+    ///         Name = "Idp Discovery Policy",
+    ///         Type = "IDP_DISCOVERY",
+    ///     });
+    /// 
+    ///     // Example 1: Specific IdP routing - route to a named OIDC IdP
+    ///     var example = new Okta.Policy.RuleIdpDiscovery("example", new()
+    ///     {
+    ///         PolicyId = idpDiscoveryPolicy.Apply(getPolicyResult =&gt; getPolicyResult.Id),
+    ///         Name = "example",
+    ///         IdpProviders = new[]
+    ///         {
+    ///             new Okta.Policy.Inputs.RuleIdpDiscoveryIdpProviderArgs
+    ///             {
+    ///                 Id = "&lt;idp id&gt;",
+    ///                 Type = "OIDC",
+    ///             },
+    ///         },
+    ///         NetworkConnection = "ANYWHERE",
+    ///         Priority = 1,
+    ///         Status = "ACTIVE",
+    ///         UserIdentifierType = "ATTRIBUTE",
+    ///         UserIdentifierAttribute = "company",
+    ///         AppExcludes = new[]
+    ///         {
+    ///             new Okta.Policy.Inputs.RuleIdpDiscoveryAppExcludeArgs
+    ///             {
+    ///                 Id = "&lt;app id&gt;",
+    ///                 Type = "APP",
+    ///             },
+    ///             new Okta.Policy.Inputs.RuleIdpDiscoveryAppExcludeArgs
+    ///             {
+    ///                 Name = "yahoo_mail",
+    ///                 Type = "APP_TYPE",
+    ///             },
+    ///         },
+    ///         AppIncludes = new[]
+    ///         {
+    ///             new Okta.Policy.Inputs.RuleIdpDiscoveryAppIncludeArgs
+    ///             {
+    ///                 Id = "&lt;app id&gt;",
+    ///                 Type = "APP",
+    ///             },
+    ///             new Okta.Policy.Inputs.RuleIdpDiscoveryAppIncludeArgs
+    ///             {
+    ///                 Name = "&lt;app type name&gt;",
+    ///                 Type = "APP_TYPE",
+    ///             },
+    ///         },
+    ///         PlatformIncludes = new[]
+    ///         {
+    ///             new Okta.Policy.Inputs.RuleIdpDiscoveryPlatformIncludeArgs
+    ///             {
+    ///                 Type = "MOBILE",
+    ///                 OsType = "OSX",
+    ///             },
+    ///         },
+    ///         UserIdentifierPatterns = new[]
+    ///         {
+    ///             new Okta.Policy.Inputs.RuleIdpDiscoveryUserIdentifierPatternArgs
+    ///             {
+    ///                 MatchType = "EQUALS",
+    ///                 Value = "Articulate",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     // Example 2: Dynamic IdP routing - select IdP based on an expression
+    ///     var dynamicExample = new Okta.Policy.RuleIdpDiscovery("dynamic_example", new()
+    ///     {
+    ///         PolicyId = idpDiscoveryPolicy.Apply(getPolicyResult =&gt; getPolicyResult.Id),
+    ///         Name = "dynamic-idp-routing",
+    ///         NetworkConnection = "ANYWHERE",
+    ///         Priority = 2,
+    ///         Status = "ACTIVE",
+    ///         SelectionType = "DYNAMIC",
+    ///         ProviderExpression = "login.identifier.substringAfter('@')",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// ```sh
@@ -88,6 +182,30 @@ namespace Pulumi.Okta.Policy
         /// </summary>
         [Output("priority")]
         public Output<int?> Priority { get; private set; } = null!;
+
+        /// <summary>
+        /// The IdP property that the evaluated expression should match against when `SelectionType` is `DYNAMIC`. Maps to `actions.idp.matchCriteria[0].propertyName` in the API. If not set, the API default is used and the value is stored in state.
+        /// </summary>
+        [Output("propertyName")]
+        public Output<string> PropertyName { get; private set; } = null!;
+
+        /// <summary>
+        /// An Okta Expression Language expression that is evaluated against the Login Context and used to dynamically select an IdP. Only applicable when `SelectionType` is `DYNAMIC`. Maps to `actions.idp.matchCriteria[0].providerExpression` in the API. Example: `login.identifier.substringAfter('@')`
+        /// </summary>
+        [Output("providerExpression")]
+        public Output<string?> ProviderExpression { get; private set; } = null!;
+
+        /// <summary>
+        /// Determines how the IdP is selected. One of: `SPECIFIC`, `DYNAMIC`. Default: `SPECIFIC`. When `DYNAMIC`, the IdP is selected based on the evaluated `ProviderExpression`.
+        /// </summary>
+        [Output("selectionType")]
+        public Output<string?> SelectionType { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies whether to fall back to Okta if authentication with the matched IdP fails. Only applicable when `SelectionType` is `DYNAMIC`. Default: `False`.
+        /// </summary>
+        [Output("shouldFallBackToOkta")]
+        public Output<bool?> ShouldFallBackToOkta { get; private set; } = null!;
 
         /// <summary>
         /// Policy Rule Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
@@ -260,6 +378,30 @@ namespace Pulumi.Okta.Policy
         public Input<int>? Priority { get; set; }
 
         /// <summary>
+        /// The IdP property that the evaluated expression should match against when `SelectionType` is `DYNAMIC`. Maps to `actions.idp.matchCriteria[0].propertyName` in the API. If not set, the API default is used and the value is stored in state.
+        /// </summary>
+        [Input("propertyName")]
+        public Input<string>? PropertyName { get; set; }
+
+        /// <summary>
+        /// An Okta Expression Language expression that is evaluated against the Login Context and used to dynamically select an IdP. Only applicable when `SelectionType` is `DYNAMIC`. Maps to `actions.idp.matchCriteria[0].providerExpression` in the API. Example: `login.identifier.substringAfter('@')`
+        /// </summary>
+        [Input("providerExpression")]
+        public Input<string>? ProviderExpression { get; set; }
+
+        /// <summary>
+        /// Determines how the IdP is selected. One of: `SPECIFIC`, `DYNAMIC`. Default: `SPECIFIC`. When `DYNAMIC`, the IdP is selected based on the evaluated `ProviderExpression`.
+        /// </summary>
+        [Input("selectionType")]
+        public Input<string>? SelectionType { get; set; }
+
+        /// <summary>
+        /// Specifies whether to fall back to Okta if authentication with the matched IdP fails. Only applicable when `SelectionType` is `DYNAMIC`. Default: `False`.
+        /// </summary>
+        [Input("shouldFallBackToOkta")]
+        public Input<bool>? ShouldFallBackToOkta { get; set; }
+
+        /// <summary>
         /// Policy Rule Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
         /// </summary>
         [Input("status")]
@@ -396,6 +538,30 @@ namespace Pulumi.Okta.Policy
         /// </summary>
         [Input("priority")]
         public Input<int>? Priority { get; set; }
+
+        /// <summary>
+        /// The IdP property that the evaluated expression should match against when `SelectionType` is `DYNAMIC`. Maps to `actions.idp.matchCriteria[0].propertyName` in the API. If not set, the API default is used and the value is stored in state.
+        /// </summary>
+        [Input("propertyName")]
+        public Input<string>? PropertyName { get; set; }
+
+        /// <summary>
+        /// An Okta Expression Language expression that is evaluated against the Login Context and used to dynamically select an IdP. Only applicable when `SelectionType` is `DYNAMIC`. Maps to `actions.idp.matchCriteria[0].providerExpression` in the API. Example: `login.identifier.substringAfter('@')`
+        /// </summary>
+        [Input("providerExpression")]
+        public Input<string>? ProviderExpression { get; set; }
+
+        /// <summary>
+        /// Determines how the IdP is selected. One of: `SPECIFIC`, `DYNAMIC`. Default: `SPECIFIC`. When `DYNAMIC`, the IdP is selected based on the evaluated `ProviderExpression`.
+        /// </summary>
+        [Input("selectionType")]
+        public Input<string>? SelectionType { get; set; }
+
+        /// <summary>
+        /// Specifies whether to fall back to Okta if authentication with the matched IdP fails. Only applicable when `SelectionType` is `DYNAMIC`. Default: `False`.
+        /// </summary>
+        [Input("shouldFallBackToOkta")]
+        public Input<bool>? ShouldFallBackToOkta { get; set; }
 
         /// <summary>
         /// Policy Rule Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`

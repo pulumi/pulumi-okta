@@ -16,21 +16,31 @@ namespace Pulumi.Okta
     /// 
     /// ## Example Usage
     /// 
-    /// {{tffile "examples/resources/okta_post_auth_session_policy_rule/resource.tf"}}
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Okta = Pulumi.Okta;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = Okta.Index.GetPostAuthSessionPolicy.Invoke();
+    /// 
+    ///     var examplePostAuthSessionPolicyRule = new Okta.Index.PostAuthSessionPolicyRule("example", new()
+    ///     {
+    ///         PolicyId = example.Apply(getPostAuthSessionPolicyResult =&gt; getPostAuthSessionPolicyResult.Id),
+    ///         Name = "Session Protection Rule",
+    ///         TerminateSession = true,
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// 
     /// ## Lifecycle
     /// 
     /// - **Create**: Returns an error with the import command to use
     /// - **Update**: Updates the rule configuration in Okta
     /// - **Delete**: Removes the rule from Terraform state only (the rule remains in Okta)
-    /// 
-    /// ## Import
-    /// 
-    /// Before using this resource, you must import the existing rule:
-    /// 
-    /// {{codefile "shell" "examples/resources/okta_post_auth_session_policy_rule/import.sh"}}
-    /// 
-    /// When you run `pulumi up` without importing first, the error message will include the exact import command with the correct policy and rule IDs.
     /// </summary>
     [OktaResourceType("okta:index/postAuthSessionPolicyRule:PostAuthSessionPolicyRule")]
     public partial class PostAuthSessionPolicyRule : global::Pulumi.CustomResource

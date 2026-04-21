@@ -4042,6 +4042,21 @@ export namespace app {
         y?: pulumi.Input<string>;
     }
 
+    export interface OAuthNetwork {
+        /**
+         * The network connection type. Can be `ANYWHERE` or `ZONE`.
+         */
+        connection: pulumi.Input<string>;
+        /**
+         * The network zones to exclude. Only applicable when `connection` is `ZONE`. Accepts `ALL_IP_ZONES` or specific zone IDs. Defaults to no zones excluded if not specified.
+         */
+        excludes?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The network zones to include. Only applicable when `connection` is `ZONE`. Accepts `ALL_IP_ZONES` or specific zone IDs. Defaults to no zones included if not specified.
+         */
+        includes?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
     export interface SamlAcsEndpointsIndex {
         index: pulumi.Input<number>;
         url: pulumi.Input<string>;
@@ -4120,6 +4135,10 @@ export namespace app {
          */
         access?: pulumi.Input<string>;
         /**
+         * List of authentication method chain objects as JSON-encoded strings. Use with `type = "AUTH_METHOD_CHAIN"` only.
+         */
+        chains?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
          * List of authenticator constraints as JSON-encoded strings.
          */
         constraints?: pulumi.Input<pulumi.Input<string>[]>;
@@ -4184,7 +4203,7 @@ export namespace app {
          */
         priority?: pulumi.Input<number>;
         /**
-         * Re-authentication frequency in ISO 8601 duration format (e.g., PT2H for 2 hours).
+         * Re-authentication frequency in ISO 8601 duration format (e.g., PT2H for 2 hours). When using authentication chains with reauthenticateIn, this value is computed by the API based on the chain configuration.
          */
         reAuthenticationFrequency?: pulumi.Input<string>;
         /**
@@ -4238,6 +4257,19 @@ export namespace app {
 }
 
 export namespace auth {
+}
+
+export namespace group {
+    export interface OwnersOwner {
+        /**
+         * The ID of the owner entity.
+         */
+        id: pulumi.Input<string>;
+        /**
+         * The entity type of the owner. Enum: "GROUP" "USER"
+         */
+        type: pulumi.Input<string>;
+    }
 }
 
 export namespace inline {

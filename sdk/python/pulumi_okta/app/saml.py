@@ -59,6 +59,7 @@ class SamlArgs:
                  single_logout_certificate: Optional[pulumi.Input[_builtins.str]] = None,
                  single_logout_issuer: Optional[pulumi.Input[_builtins.str]] = None,
                  single_logout_url: Optional[pulumi.Input[_builtins.str]] = None,
+                 skip_authentication_policy: Optional[pulumi.Input[_builtins.bool]] = None,
                  sp_issuer: Optional[pulumi.Input[_builtins.str]] = None,
                  sso_url: Optional[pulumi.Input[_builtins.str]] = None,
                  status: Optional[pulumi.Input[_builtins.str]] = None,
@@ -117,6 +118,7 @@ class SamlArgs:
         :param pulumi.Input[_builtins.str] single_logout_certificate: x509 encoded certificate that the Service Provider uses to sign Single Logout requests. Note: should be provided without `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`, see [official documentation](https://developer.okta.com/docs/reference/api/apps/#service-provider-certificate).
         :param pulumi.Input[_builtins.str] single_logout_issuer: The issuer of the Service Provider that generates the Single Logout request
         :param pulumi.Input[_builtins.str] single_logout_url: The location where the logout response is sent
+        :param pulumi.Input[_builtins.bool] skip_authentication_policy: When set to true, the provider will not assign or read the authentication policy for this application. This can be useful when the caller lacks the permissions to read or manage policies, or to reduce API calls against the `/api/v1/apps` rate limit.
         :param pulumi.Input[_builtins.str] sp_issuer: SAML SP issuer ID
         :param pulumi.Input[_builtins.str] sso_url: Single Sign On URL
         :param pulumi.Input[_builtins.str] status: Status of application. By default, it is `ACTIVE`
@@ -202,6 +204,8 @@ class SamlArgs:
             pulumi.set(__self__, "single_logout_issuer", single_logout_issuer)
         if single_logout_url is not None:
             pulumi.set(__self__, "single_logout_url", single_logout_url)
+        if skip_authentication_policy is not None:
+            pulumi.set(__self__, "skip_authentication_policy", skip_authentication_policy)
         if sp_issuer is not None:
             pulumi.set(__self__, "sp_issuer", sp_issuer)
         if sso_url is not None:
@@ -684,6 +688,18 @@ class SamlArgs:
         pulumi.set(self, "single_logout_url", value)
 
     @_builtins.property
+    @pulumi.getter(name="skipAuthenticationPolicy")
+    def skip_authentication_policy(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        When set to true, the provider will not assign or read the authentication policy for this application. This can be useful when the caller lacks the permissions to read or manage policies, or to reduce API calls against the `/api/v1/apps` rate limit.
+        """
+        return pulumi.get(self, "skip_authentication_policy")
+
+    @skip_authentication_policy.setter
+    def skip_authentication_policy(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "skip_authentication_policy", value)
+
+    @_builtins.property
     @pulumi.getter(name="spIssuer")
     def sp_issuer(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -847,6 +863,7 @@ class _SamlState:
                  single_logout_certificate: Optional[pulumi.Input[_builtins.str]] = None,
                  single_logout_issuer: Optional[pulumi.Input[_builtins.str]] = None,
                  single_logout_url: Optional[pulumi.Input[_builtins.str]] = None,
+                 skip_authentication_policy: Optional[pulumi.Input[_builtins.bool]] = None,
                  sp_issuer: Optional[pulumi.Input[_builtins.str]] = None,
                  sso_url: Optional[pulumi.Input[_builtins.str]] = None,
                  status: Optional[pulumi.Input[_builtins.str]] = None,
@@ -919,6 +936,7 @@ class _SamlState:
         :param pulumi.Input[_builtins.str] single_logout_certificate: x509 encoded certificate that the Service Provider uses to sign Single Logout requests. Note: should be provided without `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`, see [official documentation](https://developer.okta.com/docs/reference/api/apps/#service-provider-certificate).
         :param pulumi.Input[_builtins.str] single_logout_issuer: The issuer of the Service Provider that generates the Single Logout request
         :param pulumi.Input[_builtins.str] single_logout_url: The location where the logout response is sent
+        :param pulumi.Input[_builtins.bool] skip_authentication_policy: When set to true, the provider will not assign or read the authentication policy for this application. This can be useful when the caller lacks the permissions to read or manage policies, or to reduce API calls against the `/api/v1/apps` rate limit.
         :param pulumi.Input[_builtins.str] sp_issuer: SAML SP issuer ID
         :param pulumi.Input[_builtins.str] sso_url: Single Sign On URL
         :param pulumi.Input[_builtins.str] status: Status of application. By default, it is `ACTIVE`
@@ -1033,6 +1051,8 @@ class _SamlState:
             pulumi.set(__self__, "single_logout_issuer", single_logout_issuer)
         if single_logout_url is not None:
             pulumi.set(__self__, "single_logout_url", single_logout_url)
+        if skip_authentication_policy is not None:
+            pulumi.set(__self__, "skip_authentication_policy", skip_authentication_policy)
         if sp_issuer is not None:
             pulumi.set(__self__, "sp_issuer", sp_issuer)
         if sso_url is not None:
@@ -1683,6 +1703,18 @@ class _SamlState:
         pulumi.set(self, "single_logout_url", value)
 
     @_builtins.property
+    @pulumi.getter(name="skipAuthenticationPolicy")
+    def skip_authentication_policy(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        When set to true, the provider will not assign or read the authentication policy for this application. This can be useful when the caller lacks the permissions to read or manage policies, or to reduce API calls against the `/api/v1/apps` rate limit.
+        """
+        return pulumi.get(self, "skip_authentication_policy")
+
+    @skip_authentication_policy.setter
+    def skip_authentication_policy(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "skip_authentication_policy", value)
+
+    @_builtins.property
     @pulumi.getter(name="spIssuer")
     def sp_issuer(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -1835,6 +1867,7 @@ class Saml(pulumi.CustomResource):
                  single_logout_certificate: Optional[pulumi.Input[_builtins.str]] = None,
                  single_logout_issuer: Optional[pulumi.Input[_builtins.str]] = None,
                  single_logout_url: Optional[pulumi.Input[_builtins.str]] = None,
+                 skip_authentication_policy: Optional[pulumi.Input[_builtins.bool]] = None,
                  sp_issuer: Optional[pulumi.Input[_builtins.str]] = None,
                  sso_url: Optional[pulumi.Input[_builtins.str]] = None,
                  status: Optional[pulumi.Input[_builtins.str]] = None,
@@ -1910,6 +1943,7 @@ class Saml(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] single_logout_certificate: x509 encoded certificate that the Service Provider uses to sign Single Logout requests. Note: should be provided without `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`, see [official documentation](https://developer.okta.com/docs/reference/api/apps/#service-provider-certificate).
         :param pulumi.Input[_builtins.str] single_logout_issuer: The issuer of the Service Provider that generates the Single Logout request
         :param pulumi.Input[_builtins.str] single_logout_url: The location where the logout response is sent
+        :param pulumi.Input[_builtins.bool] skip_authentication_policy: When set to true, the provider will not assign or read the authentication policy for this application. This can be useful when the caller lacks the permissions to read or manage policies, or to reduce API calls against the `/api/v1/apps` rate limit.
         :param pulumi.Input[_builtins.str] sp_issuer: SAML SP issuer ID
         :param pulumi.Input[_builtins.str] sso_url: Single Sign On URL
         :param pulumi.Input[_builtins.str] status: Status of application. By default, it is `ACTIVE`
@@ -1996,6 +2030,7 @@ class Saml(pulumi.CustomResource):
                  single_logout_certificate: Optional[pulumi.Input[_builtins.str]] = None,
                  single_logout_issuer: Optional[pulumi.Input[_builtins.str]] = None,
                  single_logout_url: Optional[pulumi.Input[_builtins.str]] = None,
+                 skip_authentication_policy: Optional[pulumi.Input[_builtins.bool]] = None,
                  sp_issuer: Optional[pulumi.Input[_builtins.str]] = None,
                  sso_url: Optional[pulumi.Input[_builtins.str]] = None,
                  status: Optional[pulumi.Input[_builtins.str]] = None,
@@ -2054,6 +2089,7 @@ class Saml(pulumi.CustomResource):
             __props__.__dict__["single_logout_certificate"] = single_logout_certificate
             __props__.__dict__["single_logout_issuer"] = single_logout_issuer
             __props__.__dict__["single_logout_url"] = single_logout_url
+            __props__.__dict__["skip_authentication_policy"] = skip_authentication_policy
             __props__.__dict__["sp_issuer"] = sp_issuer
             __props__.__dict__["sso_url"] = sso_url
             __props__.__dict__["status"] = status
@@ -2139,6 +2175,7 @@ class Saml(pulumi.CustomResource):
             single_logout_certificate: Optional[pulumi.Input[_builtins.str]] = None,
             single_logout_issuer: Optional[pulumi.Input[_builtins.str]] = None,
             single_logout_url: Optional[pulumi.Input[_builtins.str]] = None,
+            skip_authentication_policy: Optional[pulumi.Input[_builtins.bool]] = None,
             sp_issuer: Optional[pulumi.Input[_builtins.str]] = None,
             sso_url: Optional[pulumi.Input[_builtins.str]] = None,
             status: Optional[pulumi.Input[_builtins.str]] = None,
@@ -2215,6 +2252,7 @@ class Saml(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] single_logout_certificate: x509 encoded certificate that the Service Provider uses to sign Single Logout requests. Note: should be provided without `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`, see [official documentation](https://developer.okta.com/docs/reference/api/apps/#service-provider-certificate).
         :param pulumi.Input[_builtins.str] single_logout_issuer: The issuer of the Service Provider that generates the Single Logout request
         :param pulumi.Input[_builtins.str] single_logout_url: The location where the logout response is sent
+        :param pulumi.Input[_builtins.bool] skip_authentication_policy: When set to true, the provider will not assign or read the authentication policy for this application. This can be useful when the caller lacks the permissions to read or manage policies, or to reduce API calls against the `/api/v1/apps` rate limit.
         :param pulumi.Input[_builtins.str] sp_issuer: SAML SP issuer ID
         :param pulumi.Input[_builtins.str] sso_url: Single Sign On URL
         :param pulumi.Input[_builtins.str] status: Status of application. By default, it is `ACTIVE`
@@ -2281,6 +2319,7 @@ class Saml(pulumi.CustomResource):
         __props__.__dict__["single_logout_certificate"] = single_logout_certificate
         __props__.__dict__["single_logout_issuer"] = single_logout_issuer
         __props__.__dict__["single_logout_url"] = single_logout_url
+        __props__.__dict__["skip_authentication_policy"] = skip_authentication_policy
         __props__.__dict__["sp_issuer"] = sp_issuer
         __props__.__dict__["sso_url"] = sso_url
         __props__.__dict__["status"] = status
@@ -2713,6 +2752,14 @@ class Saml(pulumi.CustomResource):
         The location where the logout response is sent
         """
         return pulumi.get(self, "single_logout_url")
+
+    @_builtins.property
+    @pulumi.getter(name="skipAuthenticationPolicy")
+    def skip_authentication_policy(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        When set to true, the provider will not assign or read the authentication policy for this application. This can be useful when the caller lacks the permissions to read or manage policies, or to reduce API calls against the `/api/v1/apps` rate limit.
+        """
+        return pulumi.get(self, "skip_authentication_policy")
 
     @_builtins.property
     @pulumi.getter(name="spIssuer")

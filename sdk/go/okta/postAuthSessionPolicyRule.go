@@ -18,21 +18,41 @@ import (
 //
 // ## Example Usage
 //
-// {{tffile "examples/resources/okta_post_auth_session_policy_rule/resource.tf"}}
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v6/go/okta"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := okta.GetPostAuthSessionPolicy(ctx, map[string]interface{}{}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = okta.NewPostAuthSessionPolicyRule(ctx, "example", &okta.PostAuthSessionPolicyRuleArgs{
+//				PolicyId:         pulumi.String(pulumi.String(example.Id)),
+//				Name:             pulumi.String("Session Protection Rule"),
+//				TerminateSession: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 //
 // ## Lifecycle
 //
 // - **Create**: Returns an error with the import command to use
 // - **Update**: Updates the rule configuration in Okta
 // - **Delete**: Removes the rule from Terraform state only (the rule remains in Okta)
-//
-// ## Import
-//
-// Before using this resource, you must import the existing rule:
-//
-// {{codefile "shell" "examples/resources/okta_post_auth_session_policy_rule/import.sh"}}
-//
-// When you run `pulumi up` without importing first, the error message will include the exact import command with the correct policy and rule IDs.
 type PostAuthSessionPolicyRule struct {
 	pulumi.CustomResourceState
 

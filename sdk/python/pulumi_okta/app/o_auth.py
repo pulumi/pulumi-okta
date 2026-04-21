@@ -33,6 +33,8 @@ class OAuthArgs:
                  auto_key_rotation: Optional[pulumi.Input[_builtins.bool]] = None,
                  auto_submit_toolbar: Optional[pulumi.Input[_builtins.bool]] = None,
                  client_basic_secret: Optional[pulumi.Input[_builtins.str]] = None,
+                 client_basic_secret_wo: Optional[pulumi.Input[_builtins.str]] = None,
+                 client_basic_secret_wo_version: Optional[pulumi.Input[_builtins.int]] = None,
                  client_id: Optional[pulumi.Input[_builtins.str]] = None,
                  client_uri: Optional[pulumi.Input[_builtins.str]] = None,
                  consent_method: Optional[pulumi.Input[_builtins.str]] = None,
@@ -52,6 +54,7 @@ class OAuthArgs:
                  login_uri: Optional[pulumi.Input[_builtins.str]] = None,
                  logo: Optional[pulumi.Input[_builtins.str]] = None,
                  logo_uri: Optional[pulumi.Input[_builtins.str]] = None,
+                 network: Optional[pulumi.Input['OAuthNetworkArgs']] = None,
                  omit_secret: Optional[pulumi.Input[_builtins.bool]] = None,
                  participate_slo: Optional[pulumi.Input[_builtins.bool]] = None,
                  pkce_required: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -63,6 +66,7 @@ class OAuthArgs:
                  refresh_token_leeway: Optional[pulumi.Input[_builtins.int]] = None,
                  refresh_token_rotation: Optional[pulumi.Input[_builtins.str]] = None,
                  response_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 skip_authentication_policy: Optional[pulumi.Input[_builtins.bool]] = None,
                  status: Optional[pulumi.Input[_builtins.str]] = None,
                  token_endpoint_auth_method: Optional[pulumi.Input[_builtins.str]] = None,
                  tos_uri: Optional[pulumi.Input[_builtins.str]] = None,
@@ -89,7 +93,10 @@ class OAuthArgs:
                			UI.
                			See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object"
         :param pulumi.Input[_builtins.bool] auto_submit_toolbar: Display auto submit toolbar
-        :param pulumi.Input[_builtins.str] client_basic_secret: The user provided OAuth client secret key value, this can be set when token*endpoint*auth*method is client*secret*basic. This does nothing when `omit*secret is set to true.
+        :param pulumi.Input[_builtins.str] client_basic_secret: The user provided OAuth client secret key value. When set, this secret will be stored in the Terraform state file. For Terraform 1.11+, consider using `client_basic_secret_wo` instead to avoid persisting secrets in state. Either `client_basic_secret` or `client_basic_secret_wo` can be specified, but not both.
+        :param pulumi.Input[_builtins.str] client_basic_secret_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+               The user provided write-only OAuth client secret key value for Terraform 1.11+. Unlike `client_basic_secret`, this secret will not be persisted in the Terraform state file, providing improved security. Only use this attribute with Terraform 1.11 or higher. Either `client_basic_secret` or `client_basic_secret_wo` can be specified, but not both.
+        :param pulumi.Input[_builtins.int] client_basic_secret_wo_version: Version number for the write-only client secret. Increment this value to trigger an update when changing `client_basic_secret_wo`.
         :param pulumi.Input[_builtins.str] client_id: OAuth client ID. If set during creation, app is created with this id.
         :param pulumi.Input[_builtins.str] client_uri: URI to a web page providing information about the client.
         :param pulumi.Input[_builtins.str] consent_method: *Early Access Property*. Indicates whether user consent is required or implicit. Valid values: REQUIRED, TRUSTED. Default value is TRUSTED. Note: Enable `API_ACCESS_MANAGEMENT`, `API_ACCESS_MANAGEMENT_CONSENT` feature flags in your org to use this property.
@@ -109,6 +116,7 @@ class OAuthArgs:
         :param pulumi.Input[_builtins.str] login_uri: URI that initiates login.
         :param pulumi.Input[_builtins.str] logo: Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
         :param pulumi.Input[_builtins.str] logo_uri: URI that references a logo for the client.
+        :param pulumi.Input['OAuthNetworkArgs'] network: Network restrictions for the application client. Only one `network` block may be defined.
         :param pulumi.Input[_builtins.bool] omit_secret: This tells the provider not manage the client*secret value in state. When this is false (the default), it will cause the auto-generated client*secret to be persisted in the client_secret attribute in state. This also means that every time an update to this app is run, this value is also set on the API. If this changes from false => true, the `client_secret` is dropped from state and the secret at the time of the apply is what remains. If this is ever changes from true => false your app will be recreated, due to the need to regenerate a secret we can store in state.
         :param pulumi.Input[_builtins.bool] participate_slo: *Early Access Property*. Allows the app to participate in front-channel Single Logout. Note: You can only enable participate*slo for web and browser application types. When set to true, frontchannel*logout_uri must also be provided. Enable `SINGLE_LOGOUT_SUPPORT` feature flag in your org to use this property.
         :param pulumi.Input[_builtins.bool] pkce_required: Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
@@ -120,6 +128,7 @@ class OAuthArgs:
         :param pulumi.Input[_builtins.int] refresh_token_leeway: *Early Access Property* Grace period for token rotation, required with grant types refresh_token
         :param pulumi.Input[_builtins.str] refresh_token_rotation: *Early Access Property* Refresh token rotation behavior, required with grant types refresh_token
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] response_types: List of OAuth 2.0 response type strings. Valid values are any combination of: `code`, `token`, and `id_token`.
+        :param pulumi.Input[_builtins.bool] skip_authentication_policy: When set to true, the provider will not assign or read the authentication policy for this application. This can be useful when the caller lacks the permissions to read or manage policies, or to reduce API calls against the `/api/v1/apps` rate limit.
         :param pulumi.Input[_builtins.str] status: Status of application. By default, it is `ACTIVE`
         :param pulumi.Input[_builtins.str] token_endpoint_auth_method: Requested authentication method for the token endpoint, valid values include:  'client*secret*basic', 'client*secret*post', 'client*secret*jwt', 'private*key*jwt', 'none', etc.
         :param pulumi.Input[_builtins.str] tos_uri: URI to web page providing client tos (terms of service).
@@ -151,6 +160,10 @@ class OAuthArgs:
             pulumi.set(__self__, "auto_submit_toolbar", auto_submit_toolbar)
         if client_basic_secret is not None:
             pulumi.set(__self__, "client_basic_secret", client_basic_secret)
+        if client_basic_secret_wo is not None:
+            pulumi.set(__self__, "client_basic_secret_wo", client_basic_secret_wo)
+        if client_basic_secret_wo_version is not None:
+            pulumi.set(__self__, "client_basic_secret_wo_version", client_basic_secret_wo_version)
         if client_id is not None:
             pulumi.set(__self__, "client_id", client_id)
         if client_uri is not None:
@@ -192,6 +205,8 @@ class OAuthArgs:
             pulumi.set(__self__, "logo", logo)
         if logo_uri is not None:
             pulumi.set(__self__, "logo_uri", logo_uri)
+        if network is not None:
+            pulumi.set(__self__, "network", network)
         if omit_secret is not None:
             pulumi.set(__self__, "omit_secret", omit_secret)
         if participate_slo is not None:
@@ -214,6 +229,8 @@ class OAuthArgs:
             pulumi.set(__self__, "refresh_token_rotation", refresh_token_rotation)
         if response_types is not None:
             pulumi.set(__self__, "response_types", response_types)
+        if skip_authentication_policy is not None:
+            pulumi.set(__self__, "skip_authentication_policy", skip_authentication_policy)
         if status is not None:
             pulumi.set(__self__, "status", status)
         if token_endpoint_auth_method is not None:
@@ -371,13 +388,38 @@ class OAuthArgs:
     @pulumi.getter(name="clientBasicSecret")
     def client_basic_secret(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The user provided OAuth client secret key value, this can be set when token*endpoint*auth*method is client*secret*basic. This does nothing when `omit*secret is set to true.
+        The user provided OAuth client secret key value. When set, this secret will be stored in the Terraform state file. For Terraform 1.11+, consider using `client_basic_secret_wo` instead to avoid persisting secrets in state. Either `client_basic_secret` or `client_basic_secret_wo` can be specified, but not both.
         """
         return pulumi.get(self, "client_basic_secret")
 
     @client_basic_secret.setter
     def client_basic_secret(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "client_basic_secret", value)
+
+    @_builtins.property
+    @pulumi.getter(name="clientBasicSecretWo")
+    def client_basic_secret_wo(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        The user provided write-only OAuth client secret key value for Terraform 1.11+. Unlike `client_basic_secret`, this secret will not be persisted in the Terraform state file, providing improved security. Only use this attribute with Terraform 1.11 or higher. Either `client_basic_secret` or `client_basic_secret_wo` can be specified, but not both.
+        """
+        return pulumi.get(self, "client_basic_secret_wo")
+
+    @client_basic_secret_wo.setter
+    def client_basic_secret_wo(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "client_basic_secret_wo", value)
+
+    @_builtins.property
+    @pulumi.getter(name="clientBasicSecretWoVersion")
+    def client_basic_secret_wo_version(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Version number for the write-only client secret. Increment this value to trigger an update when changing `client_basic_secret_wo`.
+        """
+        return pulumi.get(self, "client_basic_secret_wo_version")
+
+    @client_basic_secret_wo_version.setter
+    def client_basic_secret_wo_version(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "client_basic_secret_wo_version", value)
 
     @_builtins.property
     @pulumi.getter(name="clientId")
@@ -609,6 +651,18 @@ class OAuthArgs:
         pulumi.set(self, "logo_uri", value)
 
     @_builtins.property
+    @pulumi.getter
+    def network(self) -> Optional[pulumi.Input['OAuthNetworkArgs']]:
+        """
+        Network restrictions for the application client. Only one `network` block may be defined.
+        """
+        return pulumi.get(self, "network")
+
+    @network.setter
+    def network(self, value: Optional[pulumi.Input['OAuthNetworkArgs']]):
+        pulumi.set(self, "network", value)
+
+    @_builtins.property
     @pulumi.getter(name="omitSecret")
     def omit_secret(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
@@ -741,6 +795,18 @@ class OAuthArgs:
         pulumi.set(self, "response_types", value)
 
     @_builtins.property
+    @pulumi.getter(name="skipAuthenticationPolicy")
+    def skip_authentication_policy(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        When set to true, the provider will not assign or read the authentication policy for this application. This can be useful when the caller lacks the permissions to read or manage policies, or to reduce API calls against the `/api/v1/apps` rate limit.
+        """
+        return pulumi.get(self, "skip_authentication_policy")
+
+    @skip_authentication_policy.setter
+    def skip_authentication_policy(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "skip_authentication_policy", value)
+
+    @_builtins.property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -850,6 +916,8 @@ class _OAuthState:
                  auto_key_rotation: Optional[pulumi.Input[_builtins.bool]] = None,
                  auto_submit_toolbar: Optional[pulumi.Input[_builtins.bool]] = None,
                  client_basic_secret: Optional[pulumi.Input[_builtins.str]] = None,
+                 client_basic_secret_wo: Optional[pulumi.Input[_builtins.str]] = None,
+                 client_basic_secret_wo_version: Optional[pulumi.Input[_builtins.int]] = None,
                  client_id: Optional[pulumi.Input[_builtins.str]] = None,
                  client_secret: Optional[pulumi.Input[_builtins.str]] = None,
                  client_uri: Optional[pulumi.Input[_builtins.str]] = None,
@@ -873,6 +941,7 @@ class _OAuthState:
                  logo_uri: Optional[pulumi.Input[_builtins.str]] = None,
                  logo_url: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
+                 network: Optional[pulumi.Input['OAuthNetworkArgs']] = None,
                  omit_secret: Optional[pulumi.Input[_builtins.bool]] = None,
                  participate_slo: Optional[pulumi.Input[_builtins.bool]] = None,
                  pkce_required: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -885,6 +954,7 @@ class _OAuthState:
                  refresh_token_rotation: Optional[pulumi.Input[_builtins.str]] = None,
                  response_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  sign_on_mode: Optional[pulumi.Input[_builtins.str]] = None,
+                 skip_authentication_policy: Optional[pulumi.Input[_builtins.bool]] = None,
                  status: Optional[pulumi.Input[_builtins.str]] = None,
                  token_endpoint_auth_method: Optional[pulumi.Input[_builtins.str]] = None,
                  tos_uri: Optional[pulumi.Input[_builtins.str]] = None,
@@ -910,7 +980,10 @@ class _OAuthState:
                			UI.
                			See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object"
         :param pulumi.Input[_builtins.bool] auto_submit_toolbar: Display auto submit toolbar
-        :param pulumi.Input[_builtins.str] client_basic_secret: The user provided OAuth client secret key value, this can be set when token*endpoint*auth*method is client*secret*basic. This does nothing when `omit*secret is set to true.
+        :param pulumi.Input[_builtins.str] client_basic_secret: The user provided OAuth client secret key value. When set, this secret will be stored in the Terraform state file. For Terraform 1.11+, consider using `client_basic_secret_wo` instead to avoid persisting secrets in state. Either `client_basic_secret` or `client_basic_secret_wo` can be specified, but not both.
+        :param pulumi.Input[_builtins.str] client_basic_secret_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+               The user provided write-only OAuth client secret key value for Terraform 1.11+. Unlike `client_basic_secret`, this secret will not be persisted in the Terraform state file, providing improved security. Only use this attribute with Terraform 1.11 or higher. Either `client_basic_secret` or `client_basic_secret_wo` can be specified, but not both.
+        :param pulumi.Input[_builtins.int] client_basic_secret_wo_version: Version number for the write-only client secret. Increment this value to trigger an update when changing `client_basic_secret_wo`.
         :param pulumi.Input[_builtins.str] client_id: OAuth client ID. If set during creation, app is created with this id.
         :param pulumi.Input[_builtins.str] client_secret: OAuth client secret value, this is output only. This will be in plain text in your statefile unless you set omit_secret above.
         :param pulumi.Input[_builtins.str] client_uri: URI to a web page providing information about the client.
@@ -934,6 +1007,7 @@ class _OAuthState:
         :param pulumi.Input[_builtins.str] logo_uri: URI that references a logo for the client.
         :param pulumi.Input[_builtins.str] logo_url: URL of the application's logo
         :param pulumi.Input[_builtins.str] name: Name of the app.
+        :param pulumi.Input['OAuthNetworkArgs'] network: Network restrictions for the application client. Only one `network` block may be defined.
         :param pulumi.Input[_builtins.bool] omit_secret: This tells the provider not manage the client*secret value in state. When this is false (the default), it will cause the auto-generated client*secret to be persisted in the client_secret attribute in state. This also means that every time an update to this app is run, this value is also set on the API. If this changes from false => true, the `client_secret` is dropped from state and the secret at the time of the apply is what remains. If this is ever changes from true => false your app will be recreated, due to the need to regenerate a secret we can store in state.
         :param pulumi.Input[_builtins.bool] participate_slo: *Early Access Property*. Allows the app to participate in front-channel Single Logout. Note: You can only enable participate*slo for web and browser application types. When set to true, frontchannel*logout_uri must also be provided. Enable `SINGLE_LOGOUT_SUPPORT` feature flag in your org to use this property.
         :param pulumi.Input[_builtins.bool] pkce_required: Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
@@ -946,6 +1020,7 @@ class _OAuthState:
         :param pulumi.Input[_builtins.str] refresh_token_rotation: *Early Access Property* Refresh token rotation behavior, required with grant types refresh_token
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] response_types: List of OAuth 2.0 response type strings. Valid values are any combination of: `code`, `token`, and `id_token`.
         :param pulumi.Input[_builtins.str] sign_on_mode: Sign on mode of application.
+        :param pulumi.Input[_builtins.bool] skip_authentication_policy: When set to true, the provider will not assign or read the authentication policy for this application. This can be useful when the caller lacks the permissions to read or manage policies, or to reduce API calls against the `/api/v1/apps` rate limit.
         :param pulumi.Input[_builtins.str] status: Status of application. By default, it is `ACTIVE`
         :param pulumi.Input[_builtins.str] token_endpoint_auth_method: Requested authentication method for the token endpoint, valid values include:  'client*secret*basic', 'client*secret*post', 'client*secret*jwt', 'private*key*jwt', 'none', etc.
         :param pulumi.Input[_builtins.str] tos_uri: URI to web page providing client tos (terms of service).
@@ -976,6 +1051,10 @@ class _OAuthState:
             pulumi.set(__self__, "auto_submit_toolbar", auto_submit_toolbar)
         if client_basic_secret is not None:
             pulumi.set(__self__, "client_basic_secret", client_basic_secret)
+        if client_basic_secret_wo is not None:
+            pulumi.set(__self__, "client_basic_secret_wo", client_basic_secret_wo)
+        if client_basic_secret_wo_version is not None:
+            pulumi.set(__self__, "client_basic_secret_wo_version", client_basic_secret_wo_version)
         if client_id is not None:
             pulumi.set(__self__, "client_id", client_id)
         if client_secret is not None:
@@ -1025,6 +1104,8 @@ class _OAuthState:
             pulumi.set(__self__, "logo_url", logo_url)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if network is not None:
+            pulumi.set(__self__, "network", network)
         if omit_secret is not None:
             pulumi.set(__self__, "omit_secret", omit_secret)
         if participate_slo is not None:
@@ -1049,6 +1130,8 @@ class _OAuthState:
             pulumi.set(__self__, "response_types", response_types)
         if sign_on_mode is not None:
             pulumi.set(__self__, "sign_on_mode", sign_on_mode)
+        if skip_authentication_policy is not None:
+            pulumi.set(__self__, "skip_authentication_policy", skip_authentication_policy)
         if status is not None:
             pulumi.set(__self__, "status", status)
         if token_endpoint_auth_method is not None:
@@ -1184,13 +1267,38 @@ class _OAuthState:
     @pulumi.getter(name="clientBasicSecret")
     def client_basic_secret(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The user provided OAuth client secret key value, this can be set when token*endpoint*auth*method is client*secret*basic. This does nothing when `omit*secret is set to true.
+        The user provided OAuth client secret key value. When set, this secret will be stored in the Terraform state file. For Terraform 1.11+, consider using `client_basic_secret_wo` instead to avoid persisting secrets in state. Either `client_basic_secret` or `client_basic_secret_wo` can be specified, but not both.
         """
         return pulumi.get(self, "client_basic_secret")
 
     @client_basic_secret.setter
     def client_basic_secret(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "client_basic_secret", value)
+
+    @_builtins.property
+    @pulumi.getter(name="clientBasicSecretWo")
+    def client_basic_secret_wo(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        The user provided write-only OAuth client secret key value for Terraform 1.11+. Unlike `client_basic_secret`, this secret will not be persisted in the Terraform state file, providing improved security. Only use this attribute with Terraform 1.11 or higher. Either `client_basic_secret` or `client_basic_secret_wo` can be specified, but not both.
+        """
+        return pulumi.get(self, "client_basic_secret_wo")
+
+    @client_basic_secret_wo.setter
+    def client_basic_secret_wo(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "client_basic_secret_wo", value)
+
+    @_builtins.property
+    @pulumi.getter(name="clientBasicSecretWoVersion")
+    def client_basic_secret_wo_version(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Version number for the write-only client secret. Increment this value to trigger an update when changing `client_basic_secret_wo`.
+        """
+        return pulumi.get(self, "client_basic_secret_wo_version")
+
+    @client_basic_secret_wo_version.setter
+    def client_basic_secret_wo_version(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "client_basic_secret_wo_version", value)
 
     @_builtins.property
     @pulumi.getter(name="clientId")
@@ -1470,6 +1578,18 @@ class _OAuthState:
         pulumi.set(self, "name", value)
 
     @_builtins.property
+    @pulumi.getter
+    def network(self) -> Optional[pulumi.Input['OAuthNetworkArgs']]:
+        """
+        Network restrictions for the application client. Only one `network` block may be defined.
+        """
+        return pulumi.get(self, "network")
+
+    @network.setter
+    def network(self, value: Optional[pulumi.Input['OAuthNetworkArgs']]):
+        pulumi.set(self, "network", value)
+
+    @_builtins.property
     @pulumi.getter(name="omitSecret")
     def omit_secret(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
@@ -1614,6 +1734,18 @@ class _OAuthState:
         pulumi.set(self, "sign_on_mode", value)
 
     @_builtins.property
+    @pulumi.getter(name="skipAuthenticationPolicy")
+    def skip_authentication_policy(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        When set to true, the provider will not assign or read the authentication policy for this application. This can be useful when the caller lacks the permissions to read or manage policies, or to reduce API calls against the `/api/v1/apps` rate limit.
+        """
+        return pulumi.get(self, "skip_authentication_policy")
+
+    @skip_authentication_policy.setter
+    def skip_authentication_policy(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "skip_authentication_policy", value)
+
+    @_builtins.property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -1738,6 +1870,8 @@ class OAuth(pulumi.CustomResource):
                  auto_key_rotation: Optional[pulumi.Input[_builtins.bool]] = None,
                  auto_submit_toolbar: Optional[pulumi.Input[_builtins.bool]] = None,
                  client_basic_secret: Optional[pulumi.Input[_builtins.str]] = None,
+                 client_basic_secret_wo: Optional[pulumi.Input[_builtins.str]] = None,
+                 client_basic_secret_wo_version: Optional[pulumi.Input[_builtins.int]] = None,
                  client_id: Optional[pulumi.Input[_builtins.str]] = None,
                  client_uri: Optional[pulumi.Input[_builtins.str]] = None,
                  consent_method: Optional[pulumi.Input[_builtins.str]] = None,
@@ -1758,6 +1892,7 @@ class OAuth(pulumi.CustomResource):
                  login_uri: Optional[pulumi.Input[_builtins.str]] = None,
                  logo: Optional[pulumi.Input[_builtins.str]] = None,
                  logo_uri: Optional[pulumi.Input[_builtins.str]] = None,
+                 network: Optional[pulumi.Input[Union['OAuthNetworkArgs', 'OAuthNetworkArgsDict']]] = None,
                  omit_secret: Optional[pulumi.Input[_builtins.bool]] = None,
                  participate_slo: Optional[pulumi.Input[_builtins.bool]] = None,
                  pkce_required: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -1769,6 +1904,7 @@ class OAuth(pulumi.CustomResource):
                  refresh_token_leeway: Optional[pulumi.Input[_builtins.int]] = None,
                  refresh_token_rotation: Optional[pulumi.Input[_builtins.str]] = None,
                  response_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 skip_authentication_policy: Optional[pulumi.Input[_builtins.bool]] = None,
                  status: Optional[pulumi.Input[_builtins.str]] = None,
                  token_endpoint_auth_method: Optional[pulumi.Input[_builtins.str]] = None,
                  tos_uri: Optional[pulumi.Input[_builtins.str]] = None,
@@ -1872,7 +2008,10 @@ class OAuth(pulumi.CustomResource):
                			UI.
                			See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object"
         :param pulumi.Input[_builtins.bool] auto_submit_toolbar: Display auto submit toolbar
-        :param pulumi.Input[_builtins.str] client_basic_secret: The user provided OAuth client secret key value, this can be set when token*endpoint*auth*method is client*secret*basic. This does nothing when `omit*secret is set to true.
+        :param pulumi.Input[_builtins.str] client_basic_secret: The user provided OAuth client secret key value. When set, this secret will be stored in the Terraform state file. For Terraform 1.11+, consider using `client_basic_secret_wo` instead to avoid persisting secrets in state. Either `client_basic_secret` or `client_basic_secret_wo` can be specified, but not both.
+        :param pulumi.Input[_builtins.str] client_basic_secret_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+               The user provided write-only OAuth client secret key value for Terraform 1.11+. Unlike `client_basic_secret`, this secret will not be persisted in the Terraform state file, providing improved security. Only use this attribute with Terraform 1.11 or higher. Either `client_basic_secret` or `client_basic_secret_wo` can be specified, but not both.
+        :param pulumi.Input[_builtins.int] client_basic_secret_wo_version: Version number for the write-only client secret. Increment this value to trigger an update when changing `client_basic_secret_wo`.
         :param pulumi.Input[_builtins.str] client_id: OAuth client ID. If set during creation, app is created with this id.
         :param pulumi.Input[_builtins.str] client_uri: URI to a web page providing information about the client.
         :param pulumi.Input[_builtins.str] consent_method: *Early Access Property*. Indicates whether user consent is required or implicit. Valid values: REQUIRED, TRUSTED. Default value is TRUSTED. Note: Enable `API_ACCESS_MANAGEMENT`, `API_ACCESS_MANAGEMENT_CONSENT` feature flags in your org to use this property.
@@ -1893,6 +2032,7 @@ class OAuth(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] login_uri: URI that initiates login.
         :param pulumi.Input[_builtins.str] logo: Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
         :param pulumi.Input[_builtins.str] logo_uri: URI that references a logo for the client.
+        :param pulumi.Input[Union['OAuthNetworkArgs', 'OAuthNetworkArgsDict']] network: Network restrictions for the application client. Only one `network` block may be defined.
         :param pulumi.Input[_builtins.bool] omit_secret: This tells the provider not manage the client*secret value in state. When this is false (the default), it will cause the auto-generated client*secret to be persisted in the client_secret attribute in state. This also means that every time an update to this app is run, this value is also set on the API. If this changes from false => true, the `client_secret` is dropped from state and the secret at the time of the apply is what remains. If this is ever changes from true => false your app will be recreated, due to the need to regenerate a secret we can store in state.
         :param pulumi.Input[_builtins.bool] participate_slo: *Early Access Property*. Allows the app to participate in front-channel Single Logout. Note: You can only enable participate*slo for web and browser application types. When set to true, frontchannel*logout_uri must also be provided. Enable `SINGLE_LOGOUT_SUPPORT` feature flag in your org to use this property.
         :param pulumi.Input[_builtins.bool] pkce_required: Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
@@ -1904,6 +2044,7 @@ class OAuth(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] refresh_token_leeway: *Early Access Property* Grace period for token rotation, required with grant types refresh_token
         :param pulumi.Input[_builtins.str] refresh_token_rotation: *Early Access Property* Refresh token rotation behavior, required with grant types refresh_token
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] response_types: List of OAuth 2.0 response type strings. Valid values are any combination of: `code`, `token`, and `id_token`.
+        :param pulumi.Input[_builtins.bool] skip_authentication_policy: When set to true, the provider will not assign or read the authentication policy for this application. This can be useful when the caller lacks the permissions to read or manage policies, or to reduce API calls against the `/api/v1/apps` rate limit.
         :param pulumi.Input[_builtins.str] status: Status of application. By default, it is `ACTIVE`
         :param pulumi.Input[_builtins.str] token_endpoint_auth_method: Requested authentication method for the token endpoint, valid values include:  'client*secret*basic', 'client*secret*post', 'client*secret*jwt', 'private*key*jwt', 'none', etc.
         :param pulumi.Input[_builtins.str] tos_uri: URI to web page providing client tos (terms of service).
@@ -2023,6 +2164,8 @@ class OAuth(pulumi.CustomResource):
                  auto_key_rotation: Optional[pulumi.Input[_builtins.bool]] = None,
                  auto_submit_toolbar: Optional[pulumi.Input[_builtins.bool]] = None,
                  client_basic_secret: Optional[pulumi.Input[_builtins.str]] = None,
+                 client_basic_secret_wo: Optional[pulumi.Input[_builtins.str]] = None,
+                 client_basic_secret_wo_version: Optional[pulumi.Input[_builtins.int]] = None,
                  client_id: Optional[pulumi.Input[_builtins.str]] = None,
                  client_uri: Optional[pulumi.Input[_builtins.str]] = None,
                  consent_method: Optional[pulumi.Input[_builtins.str]] = None,
@@ -2043,6 +2186,7 @@ class OAuth(pulumi.CustomResource):
                  login_uri: Optional[pulumi.Input[_builtins.str]] = None,
                  logo: Optional[pulumi.Input[_builtins.str]] = None,
                  logo_uri: Optional[pulumi.Input[_builtins.str]] = None,
+                 network: Optional[pulumi.Input[Union['OAuthNetworkArgs', 'OAuthNetworkArgsDict']]] = None,
                  omit_secret: Optional[pulumi.Input[_builtins.bool]] = None,
                  participate_slo: Optional[pulumi.Input[_builtins.bool]] = None,
                  pkce_required: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -2054,6 +2198,7 @@ class OAuth(pulumi.CustomResource):
                  refresh_token_leeway: Optional[pulumi.Input[_builtins.int]] = None,
                  refresh_token_rotation: Optional[pulumi.Input[_builtins.str]] = None,
                  response_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 skip_authentication_policy: Optional[pulumi.Input[_builtins.bool]] = None,
                  status: Optional[pulumi.Input[_builtins.str]] = None,
                  token_endpoint_auth_method: Optional[pulumi.Input[_builtins.str]] = None,
                  tos_uri: Optional[pulumi.Input[_builtins.str]] = None,
@@ -2082,6 +2227,8 @@ class OAuth(pulumi.CustomResource):
             __props__.__dict__["auto_key_rotation"] = auto_key_rotation
             __props__.__dict__["auto_submit_toolbar"] = auto_submit_toolbar
             __props__.__dict__["client_basic_secret"] = None if client_basic_secret is None else pulumi.Output.secret(client_basic_secret)
+            __props__.__dict__["client_basic_secret_wo"] = None if client_basic_secret_wo is None else pulumi.Output.secret(client_basic_secret_wo)
+            __props__.__dict__["client_basic_secret_wo_version"] = client_basic_secret_wo_version
             __props__.__dict__["client_id"] = client_id
             __props__.__dict__["client_uri"] = client_uri
             __props__.__dict__["consent_method"] = consent_method
@@ -2104,6 +2251,7 @@ class OAuth(pulumi.CustomResource):
             __props__.__dict__["login_uri"] = login_uri
             __props__.__dict__["logo"] = logo
             __props__.__dict__["logo_uri"] = logo_uri
+            __props__.__dict__["network"] = network
             __props__.__dict__["omit_secret"] = omit_secret
             __props__.__dict__["participate_slo"] = participate_slo
             __props__.__dict__["pkce_required"] = pkce_required
@@ -2115,6 +2263,7 @@ class OAuth(pulumi.CustomResource):
             __props__.__dict__["refresh_token_leeway"] = refresh_token_leeway
             __props__.__dict__["refresh_token_rotation"] = refresh_token_rotation
             __props__.__dict__["response_types"] = response_types
+            __props__.__dict__["skip_authentication_policy"] = skip_authentication_policy
             __props__.__dict__["status"] = status
             __props__.__dict__["token_endpoint_auth_method"] = token_endpoint_auth_method
             __props__.__dict__["tos_uri"] = tos_uri
@@ -2130,7 +2279,7 @@ class OAuth(pulumi.CustomResource):
             __props__.__dict__["logo_url"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["sign_on_mode"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["clientBasicSecret", "clientSecret"])
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["clientBasicSecret", "clientBasicSecretWo", "clientSecret"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(OAuth, __self__).__init__(
             'okta:app/oAuth:OAuth',
@@ -2152,6 +2301,8 @@ class OAuth(pulumi.CustomResource):
             auto_key_rotation: Optional[pulumi.Input[_builtins.bool]] = None,
             auto_submit_toolbar: Optional[pulumi.Input[_builtins.bool]] = None,
             client_basic_secret: Optional[pulumi.Input[_builtins.str]] = None,
+            client_basic_secret_wo: Optional[pulumi.Input[_builtins.str]] = None,
+            client_basic_secret_wo_version: Optional[pulumi.Input[_builtins.int]] = None,
             client_id: Optional[pulumi.Input[_builtins.str]] = None,
             client_secret: Optional[pulumi.Input[_builtins.str]] = None,
             client_uri: Optional[pulumi.Input[_builtins.str]] = None,
@@ -2175,6 +2326,7 @@ class OAuth(pulumi.CustomResource):
             logo_uri: Optional[pulumi.Input[_builtins.str]] = None,
             logo_url: Optional[pulumi.Input[_builtins.str]] = None,
             name: Optional[pulumi.Input[_builtins.str]] = None,
+            network: Optional[pulumi.Input[Union['OAuthNetworkArgs', 'OAuthNetworkArgsDict']]] = None,
             omit_secret: Optional[pulumi.Input[_builtins.bool]] = None,
             participate_slo: Optional[pulumi.Input[_builtins.bool]] = None,
             pkce_required: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -2187,6 +2339,7 @@ class OAuth(pulumi.CustomResource):
             refresh_token_rotation: Optional[pulumi.Input[_builtins.str]] = None,
             response_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
             sign_on_mode: Optional[pulumi.Input[_builtins.str]] = None,
+            skip_authentication_policy: Optional[pulumi.Input[_builtins.bool]] = None,
             status: Optional[pulumi.Input[_builtins.str]] = None,
             token_endpoint_auth_method: Optional[pulumi.Input[_builtins.str]] = None,
             tos_uri: Optional[pulumi.Input[_builtins.str]] = None,
@@ -2216,7 +2369,10 @@ class OAuth(pulumi.CustomResource):
                			UI.
                			See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object"
         :param pulumi.Input[_builtins.bool] auto_submit_toolbar: Display auto submit toolbar
-        :param pulumi.Input[_builtins.str] client_basic_secret: The user provided OAuth client secret key value, this can be set when token*endpoint*auth*method is client*secret*basic. This does nothing when `omit*secret is set to true.
+        :param pulumi.Input[_builtins.str] client_basic_secret: The user provided OAuth client secret key value. When set, this secret will be stored in the Terraform state file. For Terraform 1.11+, consider using `client_basic_secret_wo` instead to avoid persisting secrets in state. Either `client_basic_secret` or `client_basic_secret_wo` can be specified, but not both.
+        :param pulumi.Input[_builtins.str] client_basic_secret_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+               The user provided write-only OAuth client secret key value for Terraform 1.11+. Unlike `client_basic_secret`, this secret will not be persisted in the Terraform state file, providing improved security. Only use this attribute with Terraform 1.11 or higher. Either `client_basic_secret` or `client_basic_secret_wo` can be specified, but not both.
+        :param pulumi.Input[_builtins.int] client_basic_secret_wo_version: Version number for the write-only client secret. Increment this value to trigger an update when changing `client_basic_secret_wo`.
         :param pulumi.Input[_builtins.str] client_id: OAuth client ID. If set during creation, app is created with this id.
         :param pulumi.Input[_builtins.str] client_secret: OAuth client secret value, this is output only. This will be in plain text in your statefile unless you set omit_secret above.
         :param pulumi.Input[_builtins.str] client_uri: URI to a web page providing information about the client.
@@ -2240,6 +2396,7 @@ class OAuth(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] logo_uri: URI that references a logo for the client.
         :param pulumi.Input[_builtins.str] logo_url: URL of the application's logo
         :param pulumi.Input[_builtins.str] name: Name of the app.
+        :param pulumi.Input[Union['OAuthNetworkArgs', 'OAuthNetworkArgsDict']] network: Network restrictions for the application client. Only one `network` block may be defined.
         :param pulumi.Input[_builtins.bool] omit_secret: This tells the provider not manage the client*secret value in state. When this is false (the default), it will cause the auto-generated client*secret to be persisted in the client_secret attribute in state. This also means that every time an update to this app is run, this value is also set on the API. If this changes from false => true, the `client_secret` is dropped from state and the secret at the time of the apply is what remains. If this is ever changes from true => false your app will be recreated, due to the need to regenerate a secret we can store in state.
         :param pulumi.Input[_builtins.bool] participate_slo: *Early Access Property*. Allows the app to participate in front-channel Single Logout. Note: You can only enable participate*slo for web and browser application types. When set to true, frontchannel*logout_uri must also be provided. Enable `SINGLE_LOGOUT_SUPPORT` feature flag in your org to use this property.
         :param pulumi.Input[_builtins.bool] pkce_required: Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
@@ -2252,6 +2409,7 @@ class OAuth(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] refresh_token_rotation: *Early Access Property* Refresh token rotation behavior, required with grant types refresh_token
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] response_types: List of OAuth 2.0 response type strings. Valid values are any combination of: `code`, `token`, and `id_token`.
         :param pulumi.Input[_builtins.str] sign_on_mode: Sign on mode of application.
+        :param pulumi.Input[_builtins.bool] skip_authentication_policy: When set to true, the provider will not assign or read the authentication policy for this application. This can be useful when the caller lacks the permissions to read or manage policies, or to reduce API calls against the `/api/v1/apps` rate limit.
         :param pulumi.Input[_builtins.str] status: Status of application. By default, it is `ACTIVE`
         :param pulumi.Input[_builtins.str] token_endpoint_auth_method: Requested authentication method for the token endpoint, valid values include:  'client*secret*basic', 'client*secret*post', 'client*secret*jwt', 'private*key*jwt', 'none', etc.
         :param pulumi.Input[_builtins.str] tos_uri: URI to web page providing client tos (terms of service).
@@ -2276,6 +2434,8 @@ class OAuth(pulumi.CustomResource):
         __props__.__dict__["auto_key_rotation"] = auto_key_rotation
         __props__.__dict__["auto_submit_toolbar"] = auto_submit_toolbar
         __props__.__dict__["client_basic_secret"] = client_basic_secret
+        __props__.__dict__["client_basic_secret_wo"] = client_basic_secret_wo
+        __props__.__dict__["client_basic_secret_wo_version"] = client_basic_secret_wo_version
         __props__.__dict__["client_id"] = client_id
         __props__.__dict__["client_secret"] = client_secret
         __props__.__dict__["client_uri"] = client_uri
@@ -2299,6 +2459,7 @@ class OAuth(pulumi.CustomResource):
         __props__.__dict__["logo_uri"] = logo_uri
         __props__.__dict__["logo_url"] = logo_url
         __props__.__dict__["name"] = name
+        __props__.__dict__["network"] = network
         __props__.__dict__["omit_secret"] = omit_secret
         __props__.__dict__["participate_slo"] = participate_slo
         __props__.__dict__["pkce_required"] = pkce_required
@@ -2311,6 +2472,7 @@ class OAuth(pulumi.CustomResource):
         __props__.__dict__["refresh_token_rotation"] = refresh_token_rotation
         __props__.__dict__["response_types"] = response_types
         __props__.__dict__["sign_on_mode"] = sign_on_mode
+        __props__.__dict__["skip_authentication_policy"] = skip_authentication_policy
         __props__.__dict__["status"] = status
         __props__.__dict__["token_endpoint_auth_method"] = token_endpoint_auth_method
         __props__.__dict__["tos_uri"] = tos_uri
@@ -2402,9 +2564,26 @@ class OAuth(pulumi.CustomResource):
     @pulumi.getter(name="clientBasicSecret")
     def client_basic_secret(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The user provided OAuth client secret key value, this can be set when token*endpoint*auth*method is client*secret*basic. This does nothing when `omit*secret is set to true.
+        The user provided OAuth client secret key value. When set, this secret will be stored in the Terraform state file. For Terraform 1.11+, consider using `client_basic_secret_wo` instead to avoid persisting secrets in state. Either `client_basic_secret` or `client_basic_secret_wo` can be specified, but not both.
         """
         return pulumi.get(self, "client_basic_secret")
+
+    @_builtins.property
+    @pulumi.getter(name="clientBasicSecretWo")
+    def client_basic_secret_wo(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        The user provided write-only OAuth client secret key value for Terraform 1.11+. Unlike `client_basic_secret`, this secret will not be persisted in the Terraform state file, providing improved security. Only use this attribute with Terraform 1.11 or higher. Either `client_basic_secret` or `client_basic_secret_wo` can be specified, but not both.
+        """
+        return pulumi.get(self, "client_basic_secret_wo")
+
+    @_builtins.property
+    @pulumi.getter(name="clientBasicSecretWoVersion")
+    def client_basic_secret_wo_version(self) -> pulumi.Output[Optional[_builtins.int]]:
+        """
+        Version number for the write-only client secret. Increment this value to trigger an update when changing `client_basic_secret_wo`.
+        """
+        return pulumi.get(self, "client_basic_secret_wo_version")
 
     @_builtins.property
     @pulumi.getter(name="clientId")
@@ -2592,6 +2771,14 @@ class OAuth(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @_builtins.property
+    @pulumi.getter
+    def network(self) -> pulumi.Output[Optional['outputs.OAuthNetwork']]:
+        """
+        Network restrictions for the application client. Only one `network` block may be defined.
+        """
+        return pulumi.get(self, "network")
+
+    @_builtins.property
     @pulumi.getter(name="omitSecret")
     def omit_secret(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
@@ -2686,6 +2873,14 @@ class OAuth(pulumi.CustomResource):
         Sign on mode of application.
         """
         return pulumi.get(self, "sign_on_mode")
+
+    @_builtins.property
+    @pulumi.getter(name="skipAuthenticationPolicy")
+    def skip_authentication_policy(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        When set to true, the provider will not assign or read the authentication policy for this application. This can be useful when the caller lacks the permissions to read or manage policies, or to reduce API calls against the `/api/v1/apps` rate limit.
+        """
+        return pulumi.get(self, "skip_authentication_policy")
 
     @_builtins.property
     @pulumi.getter

@@ -311,21 +311,22 @@ class PostAuthSessionPolicyRule(pulumi.CustomResource):
 
         ## Example Usage
 
-        {{tffile "examples/resources/okta_post_auth_session_policy_rule/resource.tf"}}
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        example = okta.get_post_auth_session_policy()
+        example_post_auth_session_policy_rule = okta.PostAuthSessionPolicyRule("example",
+            policy_id=example.id,
+            name="Session Protection Rule",
+            terminate_session=True)
+        ```
 
         ## Lifecycle
 
         - **Create**: Returns an error with the import command to use
         - **Update**: Updates the rule configuration in Okta
         - **Delete**: Removes the rule from Terraform state only (the rule remains in Okta)
-
-        ## Import
-
-        Before using this resource, you must import the existing rule:
-
-        {{codefile "shell" "examples/resources/okta_post_auth_session_policy_rule/import.sh"}}
-
-        When you run `pulumi up` without importing first, the error message will include the exact import command with the correct policy and rule IDs.
 
 
         :param str resource_name: The name of the resource.
@@ -352,21 +353,22 @@ class PostAuthSessionPolicyRule(pulumi.CustomResource):
 
         ## Example Usage
 
-        {{tffile "examples/resources/okta_post_auth_session_policy_rule/resource.tf"}}
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        example = okta.get_post_auth_session_policy()
+        example_post_auth_session_policy_rule = okta.PostAuthSessionPolicyRule("example",
+            policy_id=example.id,
+            name="Session Protection Rule",
+            terminate_session=True)
+        ```
 
         ## Lifecycle
 
         - **Create**: Returns an error with the import command to use
         - **Update**: Updates the rule configuration in Okta
         - **Delete**: Removes the rule from Terraform state only (the rule remains in Okta)
-
-        ## Import
-
-        Before using this resource, you must import the existing rule:
-
-        {{codefile "shell" "examples/resources/okta_post_auth_session_policy_rule/import.sh"}}
-
-        When you run `pulumi up` without importing first, the error message will include the exact import command with the correct policy and rule IDs.
 
 
         :param str resource_name: The name of the resource.

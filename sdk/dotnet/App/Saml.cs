@@ -347,6 +347,12 @@ namespace Pulumi.Okta.App
         public Output<string?> SingleLogoutUrl { get; private set; } = null!;
 
         /// <summary>
+        /// When set to true, the provider will not assign or read the authentication policy for this application. This can be useful when the caller lacks the permissions to read or manage policies, or to reduce API calls against the `/api/v1/apps` rate limit.
+        /// </summary>
+        [Output("skipAuthenticationPolicy")]
+        public Output<bool?> SkipAuthenticationPolicy { get; private set; } = null!;
+
+        /// <summary>
         /// SAML SP issuer ID
         /// </summary>
         [Output("spIssuer")]
@@ -696,6 +702,12 @@ namespace Pulumi.Okta.App
         /// </summary>
         [Input("singleLogoutUrl")]
         public Input<string>? SingleLogoutUrl { get; set; }
+
+        /// <summary>
+        /// When set to true, the provider will not assign or read the authentication policy for this application. This can be useful when the caller lacks the permissions to read or manage policies, or to reduce API calls against the `/api/v1/apps` rate limit.
+        /// </summary>
+        [Input("skipAuthenticationPolicy")]
+        public Input<bool>? SkipAuthenticationPolicy { get; set; }
 
         /// <summary>
         /// SAML SP issuer ID
@@ -1105,6 +1117,12 @@ namespace Pulumi.Okta.App
         /// </summary>
         [Input("singleLogoutUrl")]
         public Input<string>? SingleLogoutUrl { get; set; }
+
+        /// <summary>
+        /// When set to true, the provider will not assign or read the authentication policy for this application. This can be useful when the caller lacks the permissions to read or manage policies, or to reduce API calls against the `/api/v1/apps` rate limit.
+        /// </summary>
+        [Input("skipAuthenticationPolicy")]
+        public Input<bool>? SkipAuthenticationPolicy { get; set; }
 
         /// <summary>
         /// SAML SP issuer ID

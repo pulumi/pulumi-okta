@@ -18,6 +18,10 @@ namespace Pulumi.Okta.App.Outputs
         /// </summary>
         public readonly string? Access;
         /// <summary>
+        /// List of authentication method chain objects as JSON-encoded strings. Use with `type = "AUTH_METHOD_CHAIN"` only.
+        /// </summary>
+        public readonly ImmutableArray<string> Chains;
+        /// <summary>
         /// List of authenticator constraints as JSON-encoded strings.
         /// </summary>
         public readonly ImmutableArray<string> Constraints;
@@ -82,7 +86,7 @@ namespace Pulumi.Okta.App.Outputs
         /// </summary>
         public readonly int? Priority;
         /// <summary>
-        /// Re-authentication frequency in ISO 8601 duration format (e.g., PT2H for 2 hours).
+        /// Re-authentication frequency in ISO 8601 duration format (e.g., PT2H for 2 hours). When using authentication chains with reauthenticateIn, this value is computed by the API based on the chain configuration.
         /// </summary>
         public readonly string? ReAuthenticationFrequency;
         /// <summary>
@@ -121,6 +125,8 @@ namespace Pulumi.Okta.App.Outputs
         [OutputConstructor]
         private SignonPolicyRulesRule(
             string? access,
+
+            ImmutableArray<string> chains,
 
             ImmutableArray<string> constraints,
 
@@ -173,6 +179,7 @@ namespace Pulumi.Okta.App.Outputs
             ImmutableArray<string> usersIncludeds)
         {
             Access = access;
+            Chains = chains;
             Constraints = constraints;
             CustomExpression = customExpression;
             DeviceAssurancesIncludeds = deviceAssurancesIncludeds;
