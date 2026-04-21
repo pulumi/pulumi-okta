@@ -46,7 +46,7 @@ namespace Pulumi.Okta.Group
     ///     var owners = new Okta.Group.Owners("owners", new()
     ///     {
     ///         GroupId = grp.Id,
-    ///         Owners = new[]
+    ///         OwnerList = new[]
     ///         {
     ///             new Okta.Group.Inputs.OwnersOwnerArgs
     ///             {
@@ -83,7 +83,7 @@ namespace Pulumi.Okta.Group
         /// Desired owners for the group.
         /// </summary>
         [Output("owners")]
-        public Output<ImmutableArray<Outputs.OwnersOwner>> Owners { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.OwnersOwner>> OwnerList { get; private set; } = null!;
 
 
         /// <summary>
@@ -143,7 +143,7 @@ namespace Pulumi.Okta.Group
         /// <summary>
         /// Desired owners for the group.
         /// </summary>
-        public InputList<Inputs.OwnersOwnerArgs> Owners
+        public InputList<Inputs.OwnersOwnerArgs> OwnerList
         {
             get => _owners ?? (_owners = new InputList<Inputs.OwnersOwnerArgs>());
             set => _owners = value;
@@ -169,7 +169,7 @@ namespace Pulumi.Okta.Group
         /// <summary>
         /// Desired owners for the group.
         /// </summary>
-        public InputList<Inputs.OwnersOwnerGetArgs> Owners
+        public InputList<Inputs.OwnersOwnerGetArgs> OwnerList
         {
             get => _owners ?? (_owners = new InputList<Inputs.OwnersOwnerGetArgs>());
             set => _owners = value;
