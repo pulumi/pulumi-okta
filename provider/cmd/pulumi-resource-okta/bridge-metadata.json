@@ -122,6 +122,19 @@
                     "login_scopes": {
                         "maxItemsOne": false
                     },
+                    "network": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "exclude": {
+                                    "maxItemsOne": false
+                                },
+                                "include": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
                     "post_logout_redirect_uris": {
                         "maxItemsOne": false
                     },
@@ -255,6 +268,9 @@
                         "maxItemsOne": false,
                         "elem": {
                             "fields": {
+                                "chains": {
+                                    "maxItemsOne": false
+                                },
                                 "constraints": {
                                     "maxItemsOne": false
                                 },
@@ -644,6 +660,24 @@
                     }
                 }
             },
+            "okta_entity_risk_policy_rule": {
+                "current": "okta:index/entityRiskPolicyRule:EntityRiskPolicyRule",
+                "majorVersion": 6,
+                "fields": {
+                    "groups_excluded": {
+                        "maxItemsOne": false
+                    },
+                    "groups_included": {
+                        "maxItemsOne": false
+                    },
+                    "users_excluded": {
+                        "maxItemsOne": false
+                    },
+                    "users_included": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "okta_event_hook": {
                 "current": "okta:index/eventHook:EventHook",
                 "majorVersion": 6,
@@ -688,6 +722,15 @@
             "okta_group_owner": {
                 "current": "okta:group/owner:Owner",
                 "majorVersion": 6
+            },
+            "okta_group_owners": {
+                "current": "okta:group/owners:Owners",
+                "majorVersion": 6,
+                "fields": {
+                    "owner": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "okta_group_role": {
                 "current": "okta:group/role:Role",
@@ -1262,6 +1305,18 @@
                 "current": "okta:index/securityNotificationEmails:SecurityNotificationEmails",
                 "majorVersion": 6
             },
+            "okta_session_violation_policy_rule": {
+                "current": "okta:index/sessionViolationPolicyRule:SessionViolationPolicyRule",
+                "majorVersion": 6,
+                "fields": {
+                    "network_excludes": {
+                        "maxItemsOne": false
+                    },
+                    "network_includes": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "okta_template_sms": {
                 "current": "okta:index/templateSms:TemplateSms",
                 "majorVersion": 6,
@@ -1476,6 +1531,19 @@
                     },
                     "login_scopes": {
                         "maxItemsOne": false
+                    },
+                    "network": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "exclude": {
+                                    "maxItemsOne": false
+                                },
+                                "include": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
                     },
                     "post_logout_redirect_uris": {
                         "maxItemsOne": false
@@ -1895,6 +1963,10 @@
                     }
                 }
             },
+            "okta_entity_risk_policy": {
+                "current": "okta:index/getEntityRiskPolicy:getEntityRiskPolicy",
+                "majorVersion": 6
+            },
             "okta_everyone_group": {
                 "current": "okta:group/getEveryoneGroup:getEveryoneGroup",
                 "majorVersion": 6
@@ -2009,6 +2081,54 @@
                         "maxItemsOne": false
                     },
                     "proxies": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "okta_oauth_authorization_server": {
+                "current": "okta:index/getOauthAuthorizationServer:getOauthAuthorizationServer",
+                "majorVersion": 6,
+                "fields": {
+                    "backchannel_authentication_request_signing_alg_values_supported": {
+                        "maxItemsOne": false
+                    },
+                    "backchannel_token_delivery_modes_supported": {
+                        "maxItemsOne": false
+                    },
+                    "claims_supported": {
+                        "maxItemsOne": false
+                    },
+                    "code_challenge_methods_supported": {
+                        "maxItemsOne": false
+                    },
+                    "dpop_signing_alg_values_supported": {
+                        "maxItemsOne": false
+                    },
+                    "grant_types_supported": {
+                        "maxItemsOne": false
+                    },
+                    "introspection_endpoint_auth_methods_supported": {
+                        "maxItemsOne": false
+                    },
+                    "request_object_signing_alg_values_supported": {
+                        "maxItemsOne": false
+                    },
+                    "response_modes_supported": {
+                        "maxItemsOne": false
+                    },
+                    "response_types_supported": {
+                        "maxItemsOne": false
+                    },
+                    "revocation_endpoint_auth_methods_supported": {
+                        "maxItemsOne": false
+                    },
+                    "scopes_supported": {
+                        "maxItemsOne": false
+                    },
+                    "subject_types_supported": {
+                        "maxItemsOne": false
+                    },
+                    "token_endpoint_auth_methods_supported": {
                         "maxItemsOne": false
                     }
                 }
@@ -2174,6 +2294,10 @@
                 "current": "okta:index/getSecurityEventsProvider:getSecurityEventsProvider",
                 "majorVersion": 6
             },
+            "okta_session_violation_policy": {
+                "current": "okta:index/getSessionViolationPolicy:getSessionViolationPolicy",
+                "majorVersion": 6
+            },
             "okta_theme": {
                 "current": "okta:index/getTheme:getTheme",
                 "majorVersion": 6
@@ -2326,6 +2450,7 @@
             "okta:factor/factor:Factor": 0,
             "okta:group/group:Group": 0,
             "okta:group/owner:Owner": 1,
+            "okta:group/owners:Owners": 1,
             "okta:group/role:Role": 0,
             "okta:group/rule:Rule": 0,
             "okta:idp/oidc:Oidc": 0,
@@ -2369,6 +2494,7 @@
             "okta:index/endUserMyRequests:EndUserMyRequests": 1,
             "okta:index/entitlement:Entitlement": 1,
             "okta:index/entitlementBundle:EntitlementBundle": 1,
+            "okta:index/entityRiskPolicyRule:EntityRiskPolicyRule": 1,
             "okta:index/eventHook:EventHook": 0,
             "okta:index/eventHookVerification:EventHookVerification": 0,
             "okta:index/factorTotp:FactorTotp": 0,
@@ -2406,6 +2532,7 @@
             "okta:index/roleSubscription:RoleSubscription": 0,
             "okta:index/securityEventsProvider:SecurityEventsProvider": 1,
             "okta:index/securityNotificationEmails:SecurityNotificationEmails": 0,
+            "okta:index/sessionViolationPolicyRule:SessionViolationPolicyRule": 1,
             "okta:index/templateSms:TemplateSms": 0,
             "okta:index/theme:Theme": 0,
             "okta:index/threatInsightSettings:ThreatInsightSettings": 0,
@@ -2485,11 +2612,13 @@
             "okta:index/getEndUserMyRequests:getEndUserMyRequests": 1,
             "okta:index/getEntitlement:getEntitlement": 1,
             "okta:index/getEntitlementBundle:getEntitlementBundle": 1,
+            "okta:index/getEntityRiskPolicy:getEntityRiskPolicy": 1,
             "okta:index/getFeatures:getFeatures": 1,
             "okta:index/getGroups:getGroups": 0,
             "okta:index/getHookKey:getHookKey": 1,
             "okta:index/getLogStream:getLogStream": 1,
             "okta:index/getNetworkZone:getNetworkZone": 0,
+            "okta:index/getOauthAuthorizationServer:getOauthAuthorizationServer": 1,
             "okta:index/getOrgMetadata:getOrgMetadata": 1,
             "okta:index/getPostAuthSessionPolicy:getPostAuthSessionPolicy": 1,
             "okta:index/getPrincipalEntitlements:getPrincipalEntitlements": 1,
@@ -2509,6 +2638,7 @@
             "okta:index/getReview:getReview": 1,
             "okta:index/getRoleSubscription:getRoleSubscription": 0,
             "okta:index/getSecurityEventsProvider:getSecurityEventsProvider": 1,
+            "okta:index/getSessionViolationPolicy:getSessionViolationPolicy": 1,
             "okta:index/getTemplate:getTemplate": 0,
             "okta:index/getTemplates:getTemplates": 0,
             "okta:index/getTheme:getTheme": 0,

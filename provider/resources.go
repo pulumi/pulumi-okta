@@ -133,6 +133,14 @@ func Provider() tfbridge.ProviderInfo {
 
 			// Group Resources
 			"okta_group": {Tok: makeResource(groupMod, "Group")},
+			"okta_group_owners": {
+				Tok: makeResource(groupMod, "Owners"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"owner": {
+						CSharpName: "OwnerList",
+					},
+				},
+			},
 
 			// Inline Resources
 			"okta_inline_hook": {Tok: makeResource(inlineMod, "Hook")},

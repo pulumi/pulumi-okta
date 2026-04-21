@@ -84,6 +84,8 @@ type Bookmark struct {
 	RequestIntegration pulumi.BoolPtrOutput `pulumi:"requestIntegration"`
 	// Sign on mode of application.
 	SignOnMode pulumi.StringOutput `pulumi:"signOnMode"`
+	// When set to true, the provider will not assign or read the authentication policy for this application. This can be useful when the caller lacks the permissions to read or manage policies, or to reduce API calls against the `/api/v1/apps` rate limit.
+	SkipAuthenticationPolicy pulumi.BoolPtrOutput `pulumi:"skipAuthenticationPolicy"`
 	// Status of application. By default, it is `ACTIVE`
 	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// The URL of the bookmark.
@@ -158,6 +160,8 @@ type bookmarkState struct {
 	RequestIntegration *bool `pulumi:"requestIntegration"`
 	// Sign on mode of application.
 	SignOnMode *string `pulumi:"signOnMode"`
+	// When set to true, the provider will not assign or read the authentication policy for this application. This can be useful when the caller lacks the permissions to read or manage policies, or to reduce API calls against the `/api/v1/apps` rate limit.
+	SkipAuthenticationPolicy *bool `pulumi:"skipAuthenticationPolicy"`
 	// Status of application. By default, it is `ACTIVE`
 	Status *string `pulumi:"status"`
 	// The URL of the bookmark.
@@ -197,6 +201,8 @@ type BookmarkState struct {
 	RequestIntegration pulumi.BoolPtrInput
 	// Sign on mode of application.
 	SignOnMode pulumi.StringPtrInput
+	// When set to true, the provider will not assign or read the authentication policy for this application. This can be useful when the caller lacks the permissions to read or manage policies, or to reduce API calls against the `/api/v1/apps` rate limit.
+	SkipAuthenticationPolicy pulumi.BoolPtrInput
 	// Status of application. By default, it is `ACTIVE`
 	Status pulumi.StringPtrInput
 	// The URL of the bookmark.
@@ -234,6 +240,8 @@ type bookmarkArgs struct {
 	Logo *string `pulumi:"logo"`
 	// Would you like Okta to add an integration for this app?
 	RequestIntegration *bool `pulumi:"requestIntegration"`
+	// When set to true, the provider will not assign or read the authentication policy for this application. This can be useful when the caller lacks the permissions to read or manage policies, or to reduce API calls against the `/api/v1/apps` rate limit.
+	SkipAuthenticationPolicy *bool `pulumi:"skipAuthenticationPolicy"`
 	// Status of application. By default, it is `ACTIVE`
 	Status *string `pulumi:"status"`
 	// The URL of the bookmark.
@@ -268,6 +276,8 @@ type BookmarkArgs struct {
 	Logo pulumi.StringPtrInput
 	// Would you like Okta to add an integration for this app?
 	RequestIntegration pulumi.BoolPtrInput
+	// When set to true, the provider will not assign or read the authentication policy for this application. This can be useful when the caller lacks the permissions to read or manage policies, or to reduce API calls against the `/api/v1/apps` rate limit.
+	SkipAuthenticationPolicy pulumi.BoolPtrInput
 	// Status of application. By default, it is `ACTIVE`
 	Status pulumi.StringPtrInput
 	// The URL of the bookmark.
@@ -439,6 +449,11 @@ func (o BookmarkOutput) RequestIntegration() pulumi.BoolPtrOutput {
 // Sign on mode of application.
 func (o BookmarkOutput) SignOnMode() pulumi.StringOutput {
 	return o.ApplyT(func(v *Bookmark) pulumi.StringOutput { return v.SignOnMode }).(pulumi.StringOutput)
+}
+
+// When set to true, the provider will not assign or read the authentication policy for this application. This can be useful when the caller lacks the permissions to read or manage policies, or to reduce API calls against the `/api/v1/apps` rate limit.
+func (o BookmarkOutput) SkipAuthenticationPolicy() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Bookmark) pulumi.BoolPtrOutput { return v.SkipAuthenticationPolicy }).(pulumi.BoolPtrOutput)
 }
 
 // Status of application. By default, it is `ACTIVE`

@@ -190,6 +190,11 @@ export type EntitlementBundle = import("./entitlementBundle").EntitlementBundle;
 export const EntitlementBundle: typeof import("./entitlementBundle").EntitlementBundle = null as any;
 utilities.lazyLoad(exports, ["EntitlementBundle"], () => require("./entitlementBundle"));
 
+export { EntityRiskPolicyRuleArgs, EntityRiskPolicyRuleState } from "./entityRiskPolicyRule";
+export type EntityRiskPolicyRule = import("./entityRiskPolicyRule").EntityRiskPolicyRule;
+export const EntityRiskPolicyRule: typeof import("./entityRiskPolicyRule").EntityRiskPolicyRule = null as any;
+utilities.lazyLoad(exports, ["EntityRiskPolicyRule"], () => require("./entityRiskPolicyRule"));
+
 export { EventHookArgs, EventHookState } from "./eventHook";
 export type EventHook = import("./eventHook").EventHook;
 export const EventHook: typeof import("./eventHook").EventHook = null as any;
@@ -350,6 +355,11 @@ export const getEntitlementBundle: typeof import("./getEntitlementBundle").getEn
 export const getEntitlementBundleOutput: typeof import("./getEntitlementBundle").getEntitlementBundleOutput = null as any;
 utilities.lazyLoad(exports, ["getEntitlementBundle","getEntitlementBundleOutput"], () => require("./getEntitlementBundle"));
 
+export { GetEntityRiskPolicyResult } from "./getEntityRiskPolicy";
+export const getEntityRiskPolicy: typeof import("./getEntityRiskPolicy").getEntityRiskPolicy = null as any;
+export const getEntityRiskPolicyOutput: typeof import("./getEntityRiskPolicy").getEntityRiskPolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getEntityRiskPolicy","getEntityRiskPolicyOutput"], () => require("./getEntityRiskPolicy"));
+
 export { GetFeaturesArgs, GetFeaturesResult, GetFeaturesOutputArgs } from "./getFeatures";
 export const getFeatures: typeof import("./getFeatures").getFeatures = null as any;
 export const getFeaturesOutput: typeof import("./getFeatures").getFeaturesOutput = null as any;
@@ -374,6 +384,11 @@ export { GetNetworkZoneArgs, GetNetworkZoneResult, GetNetworkZoneOutputArgs } fr
 export const getNetworkZone: typeof import("./getNetworkZone").getNetworkZone = null as any;
 export const getNetworkZoneOutput: typeof import("./getNetworkZone").getNetworkZoneOutput = null as any;
 utilities.lazyLoad(exports, ["getNetworkZone","getNetworkZoneOutput"], () => require("./getNetworkZone"));
+
+export { GetOauthAuthorizationServerArgs, GetOauthAuthorizationServerResult, GetOauthAuthorizationServerOutputArgs } from "./getOauthAuthorizationServer";
+export const getOauthAuthorizationServer: typeof import("./getOauthAuthorizationServer").getOauthAuthorizationServer = null as any;
+export const getOauthAuthorizationServerOutput: typeof import("./getOauthAuthorizationServer").getOauthAuthorizationServerOutput = null as any;
+utilities.lazyLoad(exports, ["getOauthAuthorizationServer","getOauthAuthorizationServerOutput"], () => require("./getOauthAuthorizationServer"));
 
 export { GetOrgMetadataArgs, GetOrgMetadataResult, GetOrgMetadataOutputArgs } from "./getOrgMetadata";
 export const getOrgMetadata: typeof import("./getOrgMetadata").getOrgMetadata = null as any;
@@ -469,6 +484,11 @@ export { GetSecurityEventsProviderArgs, GetSecurityEventsProviderResult, GetSecu
 export const getSecurityEventsProvider: typeof import("./getSecurityEventsProvider").getSecurityEventsProvider = null as any;
 export const getSecurityEventsProviderOutput: typeof import("./getSecurityEventsProvider").getSecurityEventsProviderOutput = null as any;
 utilities.lazyLoad(exports, ["getSecurityEventsProvider","getSecurityEventsProviderOutput"], () => require("./getSecurityEventsProvider"));
+
+export { GetSessionViolationPolicyResult } from "./getSessionViolationPolicy";
+export const getSessionViolationPolicy: typeof import("./getSessionViolationPolicy").getSessionViolationPolicy = null as any;
+export const getSessionViolationPolicyOutput: typeof import("./getSessionViolationPolicy").getSessionViolationPolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getSessionViolationPolicy","getSessionViolationPolicyOutput"], () => require("./getSessionViolationPolicy"));
 
 export { GetTemplateArgs, GetTemplateResult, GetTemplateOutputArgs } from "./getTemplate";
 export const getTemplate: typeof import("./getTemplate").getTemplate = null as any;
@@ -673,6 +693,11 @@ export type SecurityNotificationEmails = import("./securityNotificationEmails").
 export const SecurityNotificationEmails: typeof import("./securityNotificationEmails").SecurityNotificationEmails = null as any;
 utilities.lazyLoad(exports, ["SecurityNotificationEmails"], () => require("./securityNotificationEmails"));
 
+export { SessionViolationPolicyRuleArgs, SessionViolationPolicyRuleState } from "./sessionViolationPolicyRule";
+export type SessionViolationPolicyRule = import("./sessionViolationPolicyRule").SessionViolationPolicyRule;
+export const SessionViolationPolicyRule: typeof import("./sessionViolationPolicyRule").SessionViolationPolicyRule = null as any;
+utilities.lazyLoad(exports, ["SessionViolationPolicyRule"], () => require("./sessionViolationPolicyRule"));
+
 export { TemplateSmsArgs, TemplateSmsState } from "./templateSms";
 export type TemplateSms = import("./templateSms").TemplateSms;
 export const TemplateSms: typeof import("./templateSms").TemplateSms = null as any;
@@ -833,6 +858,8 @@ const _module = {
                 return new Entitlement(name, <any>undefined, { urn })
             case "okta:index/entitlementBundle:EntitlementBundle":
                 return new EntitlementBundle(name, <any>undefined, { urn })
+            case "okta:index/entityRiskPolicyRule:EntityRiskPolicyRule":
+                return new EntityRiskPolicyRule(name, <any>undefined, { urn })
             case "okta:index/eventHook:EventHook":
                 return new EventHook(name, <any>undefined, { urn })
             case "okta:index/eventHookVerification:EventHookVerification":
@@ -907,6 +934,8 @@ const _module = {
                 return new SecurityEventsProvider(name, <any>undefined, { urn })
             case "okta:index/securityNotificationEmails:SecurityNotificationEmails":
                 return new SecurityNotificationEmails(name, <any>undefined, { urn })
+            case "okta:index/sessionViolationPolicyRule:SessionViolationPolicyRule":
+                return new SessionViolationPolicyRule(name, <any>undefined, { urn })
             case "okta:index/templateSms:TemplateSms":
                 return new TemplateSms(name, <any>undefined, { urn })
             case "okta:index/theme:Theme":
@@ -969,6 +998,7 @@ pulumi.runtime.registerResourceModule("okta", "index/emailTemplateSettings", _mo
 pulumi.runtime.registerResourceModule("okta", "index/endUserMyRequests", _module)
 pulumi.runtime.registerResourceModule("okta", "index/entitlement", _module)
 pulumi.runtime.registerResourceModule("okta", "index/entitlementBundle", _module)
+pulumi.runtime.registerResourceModule("okta", "index/entityRiskPolicyRule", _module)
 pulumi.runtime.registerResourceModule("okta", "index/eventHook", _module)
 pulumi.runtime.registerResourceModule("okta", "index/eventHookVerification", _module)
 pulumi.runtime.registerResourceModule("okta", "index/factorTotp", _module)
@@ -1006,6 +1036,7 @@ pulumi.runtime.registerResourceModule("okta", "index/review", _module)
 pulumi.runtime.registerResourceModule("okta", "index/roleSubscription", _module)
 pulumi.runtime.registerResourceModule("okta", "index/securityEventsProvider", _module)
 pulumi.runtime.registerResourceModule("okta", "index/securityNotificationEmails", _module)
+pulumi.runtime.registerResourceModule("okta", "index/sessionViolationPolicyRule", _module)
 pulumi.runtime.registerResourceModule("okta", "index/templateSms", _module)
 pulumi.runtime.registerResourceModule("okta", "index/theme", _module)
 pulumi.runtime.registerResourceModule("okta", "index/threatInsightSettings", _module)

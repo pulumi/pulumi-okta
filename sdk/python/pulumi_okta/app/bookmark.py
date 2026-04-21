@@ -33,6 +33,7 @@ class BookmarkArgs:
                  hide_web: Optional[pulumi.Input[_builtins.bool]] = None,
                  logo: Optional[pulumi.Input[_builtins.str]] = None,
                  request_integration: Optional[pulumi.Input[_builtins.bool]] = None,
+                 skip_authentication_policy: Optional[pulumi.Input[_builtins.bool]] = None,
                  status: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Bookmark resource.
@@ -51,6 +52,7 @@ class BookmarkArgs:
         :param pulumi.Input[_builtins.bool] hide_web: Do not display application icon to users
         :param pulumi.Input[_builtins.str] logo: Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
         :param pulumi.Input[_builtins.bool] request_integration: Would you like Okta to add an integration for this app?
+        :param pulumi.Input[_builtins.bool] skip_authentication_policy: When set to true, the provider will not assign or read the authentication policy for this application. This can be useful when the caller lacks the permissions to read or manage policies, or to reduce API calls against the `/api/v1/apps` rate limit.
         :param pulumi.Input[_builtins.str] status: Status of application. By default, it is `ACTIVE`
         """
         pulumi.set(__self__, "label", label)
@@ -79,6 +81,8 @@ class BookmarkArgs:
             pulumi.set(__self__, "logo", logo)
         if request_integration is not None:
             pulumi.set(__self__, "request_integration", request_integration)
+        if skip_authentication_policy is not None:
+            pulumi.set(__self__, "skip_authentication_policy", skip_authentication_policy)
         if status is not None:
             pulumi.set(__self__, "status", status)
 
@@ -251,6 +255,18 @@ class BookmarkArgs:
         pulumi.set(self, "request_integration", value)
 
     @_builtins.property
+    @pulumi.getter(name="skipAuthenticationPolicy")
+    def skip_authentication_policy(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        When set to true, the provider will not assign or read the authentication policy for this application. This can be useful when the caller lacks the permissions to read or manage policies, or to reduce API calls against the `/api/v1/apps` rate limit.
+        """
+        return pulumi.get(self, "skip_authentication_policy")
+
+    @skip_authentication_policy.setter
+    def skip_authentication_policy(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "skip_authentication_policy", value)
+
+    @_builtins.property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -282,6 +298,7 @@ class _BookmarkState:
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  request_integration: Optional[pulumi.Input[_builtins.bool]] = None,
                  sign_on_mode: Optional[pulumi.Input[_builtins.str]] = None,
+                 skip_authentication_policy: Optional[pulumi.Input[_builtins.bool]] = None,
                  status: Optional[pulumi.Input[_builtins.str]] = None,
                  url: Optional[pulumi.Input[_builtins.str]] = None):
         """
@@ -303,6 +320,7 @@ class _BookmarkState:
         :param pulumi.Input[_builtins.str] name: Name of the app.
         :param pulumi.Input[_builtins.bool] request_integration: Would you like Okta to add an integration for this app?
         :param pulumi.Input[_builtins.str] sign_on_mode: Sign on mode of application.
+        :param pulumi.Input[_builtins.bool] skip_authentication_policy: When set to true, the provider will not assign or read the authentication policy for this application. This can be useful when the caller lacks the permissions to read or manage policies, or to reduce API calls against the `/api/v1/apps` rate limit.
         :param pulumi.Input[_builtins.str] status: Status of application. By default, it is `ACTIVE`
         :param pulumi.Input[_builtins.str] url: The URL of the bookmark.
         """
@@ -338,6 +356,8 @@ class _BookmarkState:
             pulumi.set(__self__, "request_integration", request_integration)
         if sign_on_mode is not None:
             pulumi.set(__self__, "sign_on_mode", sign_on_mode)
+        if skip_authentication_policy is not None:
+            pulumi.set(__self__, "skip_authentication_policy", skip_authentication_policy)
         if status is not None:
             pulumi.set(__self__, "status", status)
         if url is not None:
@@ -536,6 +556,18 @@ class _BookmarkState:
         pulumi.set(self, "sign_on_mode", value)
 
     @_builtins.property
+    @pulumi.getter(name="skipAuthenticationPolicy")
+    def skip_authentication_policy(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        When set to true, the provider will not assign or read the authentication policy for this application. This can be useful when the caller lacks the permissions to read or manage policies, or to reduce API calls against the `/api/v1/apps` rate limit.
+        """
+        return pulumi.get(self, "skip_authentication_policy")
+
+    @skip_authentication_policy.setter
+    def skip_authentication_policy(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "skip_authentication_policy", value)
+
+    @_builtins.property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -579,6 +611,7 @@ class Bookmark(pulumi.CustomResource):
                  label: Optional[pulumi.Input[_builtins.str]] = None,
                  logo: Optional[pulumi.Input[_builtins.str]] = None,
                  request_integration: Optional[pulumi.Input[_builtins.bool]] = None,
+                 skip_authentication_policy: Optional[pulumi.Input[_builtins.bool]] = None,
                  status: Optional[pulumi.Input[_builtins.str]] = None,
                  url: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
@@ -621,6 +654,7 @@ class Bookmark(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] label: The Application's display name.
         :param pulumi.Input[_builtins.str] logo: Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
         :param pulumi.Input[_builtins.bool] request_integration: Would you like Okta to add an integration for this app?
+        :param pulumi.Input[_builtins.bool] skip_authentication_policy: When set to true, the provider will not assign or read the authentication policy for this application. This can be useful when the caller lacks the permissions to read or manage policies, or to reduce API calls against the `/api/v1/apps` rate limit.
         :param pulumi.Input[_builtins.str] status: Status of application. By default, it is `ACTIVE`
         :param pulumi.Input[_builtins.str] url: The URL of the bookmark.
         """
@@ -682,6 +716,7 @@ class Bookmark(pulumi.CustomResource):
                  label: Optional[pulumi.Input[_builtins.str]] = None,
                  logo: Optional[pulumi.Input[_builtins.str]] = None,
                  request_integration: Optional[pulumi.Input[_builtins.bool]] = None,
+                 skip_authentication_policy: Optional[pulumi.Input[_builtins.bool]] = None,
                  status: Optional[pulumi.Input[_builtins.str]] = None,
                  url: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
@@ -708,6 +743,7 @@ class Bookmark(pulumi.CustomResource):
             __props__.__dict__["label"] = label
             __props__.__dict__["logo"] = logo
             __props__.__dict__["request_integration"] = request_integration
+            __props__.__dict__["skip_authentication_policy"] = skip_authentication_policy
             __props__.__dict__["status"] = status
             if url is None and not opts.urn:
                 raise TypeError("Missing required property 'url'")
@@ -741,6 +777,7 @@ class Bookmark(pulumi.CustomResource):
             name: Optional[pulumi.Input[_builtins.str]] = None,
             request_integration: Optional[pulumi.Input[_builtins.bool]] = None,
             sign_on_mode: Optional[pulumi.Input[_builtins.str]] = None,
+            skip_authentication_policy: Optional[pulumi.Input[_builtins.bool]] = None,
             status: Optional[pulumi.Input[_builtins.str]] = None,
             url: Optional[pulumi.Input[_builtins.str]] = None) -> 'Bookmark':
         """
@@ -766,6 +803,7 @@ class Bookmark(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: Name of the app.
         :param pulumi.Input[_builtins.bool] request_integration: Would you like Okta to add an integration for this app?
         :param pulumi.Input[_builtins.str] sign_on_mode: Sign on mode of application.
+        :param pulumi.Input[_builtins.bool] skip_authentication_policy: When set to true, the provider will not assign or read the authentication policy for this application. This can be useful when the caller lacks the permissions to read or manage policies, or to reduce API calls against the `/api/v1/apps` rate limit.
         :param pulumi.Input[_builtins.str] status: Status of application. By default, it is `ACTIVE`
         :param pulumi.Input[_builtins.str] url: The URL of the bookmark.
         """
@@ -789,6 +827,7 @@ class Bookmark(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["request_integration"] = request_integration
         __props__.__dict__["sign_on_mode"] = sign_on_mode
+        __props__.__dict__["skip_authentication_policy"] = skip_authentication_policy
         __props__.__dict__["status"] = status
         __props__.__dict__["url"] = url
         return Bookmark(resource_name, opts=opts, __props__=__props__)
@@ -920,6 +959,14 @@ class Bookmark(pulumi.CustomResource):
         Sign on mode of application.
         """
         return pulumi.get(self, "sign_on_mode")
+
+    @_builtins.property
+    @pulumi.getter(name="skipAuthenticationPolicy")
+    def skip_authentication_policy(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        When set to true, the provider will not assign or read the authentication policy for this application. This can be useful when the caller lacks the permissions to read or manage policies, or to reduce API calls against the `/api/v1/apps` rate limit.
+        """
+        return pulumi.get(self, "skip_authentication_policy")
 
     @_builtins.property
     @pulumi.getter

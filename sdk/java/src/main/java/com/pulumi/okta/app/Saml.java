@@ -778,6 +778,20 @@ public class Saml extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.singleLogoutUrl);
     }
     /**
+     * When set to true, the provider will not assign or read the authentication policy for this application. This can be useful when the caller lacks the permissions to read or manage policies, or to reduce API calls against the `/api/v1/apps` rate limit.
+     * 
+     */
+    @Export(name="skipAuthenticationPolicy", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> skipAuthenticationPolicy;
+
+    /**
+     * @return When set to true, the provider will not assign or read the authentication policy for this application. This can be useful when the caller lacks the permissions to read or manage policies, or to reduce API calls against the `/api/v1/apps` rate limit.
+     * 
+     */
+    public Output<Optional<Boolean>> skipAuthenticationPolicy() {
+        return Codegen.optional(this.skipAuthenticationPolicy);
+    }
+    /**
      * SAML SP issuer ID
      * 
      */

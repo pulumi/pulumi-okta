@@ -265,6 +265,10 @@ export class Saml extends pulumi.CustomResource {
      */
     declare public readonly singleLogoutUrl: pulumi.Output<string | undefined>;
     /**
+     * When set to true, the provider will not assign or read the authentication policy for this application. This can be useful when the caller lacks the permissions to read or manage policies, or to reduce API calls against the `/api/v1/apps` rate limit.
+     */
+    declare public readonly skipAuthenticationPolicy: pulumi.Output<boolean | undefined>;
+    /**
      * SAML SP issuer ID
      */
     declare public readonly spIssuer: pulumi.Output<string | undefined>;
@@ -366,6 +370,7 @@ export class Saml extends pulumi.CustomResource {
             resourceInputs["singleLogoutCertificate"] = state?.singleLogoutCertificate;
             resourceInputs["singleLogoutIssuer"] = state?.singleLogoutIssuer;
             resourceInputs["singleLogoutUrl"] = state?.singleLogoutUrl;
+            resourceInputs["skipAuthenticationPolicy"] = state?.skipAuthenticationPolicy;
             resourceInputs["spIssuer"] = state?.spIssuer;
             resourceInputs["ssoUrl"] = state?.ssoUrl;
             resourceInputs["status"] = state?.status;
@@ -418,6 +423,7 @@ export class Saml extends pulumi.CustomResource {
             resourceInputs["singleLogoutCertificate"] = args?.singleLogoutCertificate;
             resourceInputs["singleLogoutIssuer"] = args?.singleLogoutIssuer;
             resourceInputs["singleLogoutUrl"] = args?.singleLogoutUrl;
+            resourceInputs["skipAuthenticationPolicy"] = args?.skipAuthenticationPolicy;
             resourceInputs["spIssuer"] = args?.spIssuer;
             resourceInputs["ssoUrl"] = args?.ssoUrl;
             resourceInputs["status"] = args?.status;
@@ -666,6 +672,10 @@ export interface SamlState {
      */
     singleLogoutUrl?: pulumi.Input<string>;
     /**
+     * When set to true, the provider will not assign or read the authentication policy for this application. This can be useful when the caller lacks the permissions to read or manage policies, or to reduce API calls against the `/api/v1/apps` rate limit.
+     */
+    skipAuthenticationPolicy?: pulumi.Input<boolean>;
+    /**
      * SAML SP issuer ID
      */
     spIssuer?: pulumi.Input<string>;
@@ -865,6 +875,10 @@ export interface SamlArgs {
      * The location where the logout response is sent
      */
     singleLogoutUrl?: pulumi.Input<string>;
+    /**
+     * When set to true, the provider will not assign or read the authentication policy for this application. This can be useful when the caller lacks the permissions to read or manage policies, or to reduce API calls against the `/api/v1/apps` rate limit.
+     */
+    skipAuthenticationPolicy?: pulumi.Input<boolean>;
     /**
      * SAML SP issuer ID
      */

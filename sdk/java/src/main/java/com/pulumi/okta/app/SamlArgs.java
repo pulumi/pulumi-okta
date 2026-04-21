@@ -602,6 +602,21 @@ public final class SamlArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * When set to true, the provider will not assign or read the authentication policy for this application. This can be useful when the caller lacks the permissions to read or manage policies, or to reduce API calls against the `/api/v1/apps` rate limit.
+     * 
+     */
+    @Import(name="skipAuthenticationPolicy")
+    private @Nullable Output<Boolean> skipAuthenticationPolicy;
+
+    /**
+     * @return When set to true, the provider will not assign or read the authentication policy for this application. This can be useful when the caller lacks the permissions to read or manage policies, or to reduce API calls against the `/api/v1/apps` rate limit.
+     * 
+     */
+    public Optional<Output<Boolean>> skipAuthenticationPolicy() {
+        return Optional.ofNullable(this.skipAuthenticationPolicy);
+    }
+
+    /**
      * SAML SP issuer ID
      * 
      */
@@ -777,6 +792,7 @@ public final class SamlArgs extends com.pulumi.resources.ResourceArgs {
         this.singleLogoutCertificate = $.singleLogoutCertificate;
         this.singleLogoutIssuer = $.singleLogoutIssuer;
         this.singleLogoutUrl = $.singleLogoutUrl;
+        this.skipAuthenticationPolicy = $.skipAuthenticationPolicy;
         this.spIssuer = $.spIssuer;
         this.ssoUrl = $.ssoUrl;
         this.status = $.status;
@@ -1632,6 +1648,27 @@ public final class SamlArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder singleLogoutUrl(String singleLogoutUrl) {
             return singleLogoutUrl(Output.of(singleLogoutUrl));
+        }
+
+        /**
+         * @param skipAuthenticationPolicy When set to true, the provider will not assign or read the authentication policy for this application. This can be useful when the caller lacks the permissions to read or manage policies, or to reduce API calls against the `/api/v1/apps` rate limit.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder skipAuthenticationPolicy(@Nullable Output<Boolean> skipAuthenticationPolicy) {
+            $.skipAuthenticationPolicy = skipAuthenticationPolicy;
+            return this;
+        }
+
+        /**
+         * @param skipAuthenticationPolicy When set to true, the provider will not assign or read the authentication policy for this application. This can be useful when the caller lacks the permissions to read or manage policies, or to reduce API calls against the `/api/v1/apps` rate limit.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder skipAuthenticationPolicy(Boolean skipAuthenticationPolicy) {
+            return skipAuthenticationPolicy(Output.of(skipAuthenticationPolicy));
         }
 
         /**

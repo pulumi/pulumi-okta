@@ -140,6 +140,12 @@ namespace Pulumi.Okta.App
         public Output<string> SignOnMode { get; private set; } = null!;
 
         /// <summary>
+        /// When set to true, the provider will not assign or read the authentication policy for this application. This can be useful when the caller lacks the permissions to read or manage policies, or to reduce API calls against the `/api/v1/apps` rate limit.
+        /// </summary>
+        [Output("skipAuthenticationPolicy")]
+        public Output<bool?> SkipAuthenticationPolicy { get; private set; } = null!;
+
+        /// <summary>
         /// Status of application. By default, it is `ACTIVE`
         /// </summary>
         [Output("status")]
@@ -276,6 +282,12 @@ namespace Pulumi.Okta.App
         public Input<bool>? RequestIntegration { get; set; }
 
         /// <summary>
+        /// When set to true, the provider will not assign or read the authentication policy for this application. This can be useful when the caller lacks the permissions to read or manage policies, or to reduce API calls against the `/api/v1/apps` rate limit.
+        /// </summary>
+        [Input("skipAuthenticationPolicy")]
+        public Input<bool>? SkipAuthenticationPolicy { get; set; }
+
+        /// <summary>
         /// Status of application. By default, it is `ACTIVE`
         /// </summary>
         [Input("status")]
@@ -390,6 +402,12 @@ namespace Pulumi.Okta.App
         /// </summary>
         [Input("signOnMode")]
         public Input<string>? SignOnMode { get; set; }
+
+        /// <summary>
+        /// When set to true, the provider will not assign or read the authentication policy for this application. This can be useful when the caller lacks the permissions to read or manage policies, or to reduce API calls against the `/api/v1/apps` rate limit.
+        /// </summary>
+        [Input("skipAuthenticationPolicy")]
+        public Input<bool>? SkipAuthenticationPolicy { get; set; }
 
         /// <summary>
         /// Status of application. By default, it is `ACTIVE`

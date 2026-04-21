@@ -136,8 +136,13 @@ type OAuth struct {
 	AutoKeyRotation pulumi.BoolPtrOutput `pulumi:"autoKeyRotation"`
 	// Display auto submit toolbar
 	AutoSubmitToolbar pulumi.BoolPtrOutput `pulumi:"autoSubmitToolbar"`
-	// The user provided OAuth client secret key value, this can be set when token*endpoint*auth*method is client*secret*basic. This does nothing when `omit*secret is set to true.
+	// The user provided OAuth client secret key value. When set, this secret will be stored in the Terraform state file. For Terraform 1.11+, consider using `clientBasicSecretWo` instead to avoid persisting secrets in state. Either `clientBasicSecret` or `clientBasicSecretWo` can be specified, but not both.
 	ClientBasicSecret pulumi.StringPtrOutput `pulumi:"clientBasicSecret"`
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	// The user provided write-only OAuth client secret key value for Terraform 1.11+. Unlike `clientBasicSecret`, this secret will not be persisted in the Terraform state file, providing improved security. Only use this attribute with Terraform 1.11 or higher. Either `clientBasicSecret` or `clientBasicSecretWo` can be specified, but not both.
+	ClientBasicSecretWo pulumi.StringPtrOutput `pulumi:"clientBasicSecretWo"`
+	// Version number for the write-only client secret. Increment this value to trigger an update when changing `clientBasicSecretWo`.
+	ClientBasicSecretWoVersion pulumi.IntPtrOutput `pulumi:"clientBasicSecretWoVersion"`
 	// OAuth client ID. If set during creation, app is created with this id.
 	ClientId pulumi.StringOutput `pulumi:"clientId"`
 	// OAuth client secret value, this is output only. This will be in plain text in your statefile unless you set omitSecret above.
@@ -186,6 +191,8 @@ type OAuth struct {
 	LogoUrl pulumi.StringOutput `pulumi:"logoUrl"`
 	// Name of the app.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Network restrictions for the application client. Only one `network` block may be defined.
+	Network OAuthNetworkPtrOutput `pulumi:"network"`
 	// This tells the provider not manage the client*secret value in state. When this is false (the default), it will cause the auto-generated client*secret to be persisted in the clientSecret attribute in state. This also means that every time an update to this app is run, this value is also set on the API. If this changes from false => true, the `clientSecret` is dropped from state and the secret at the time of the apply is what remains. If this is ever changes from true => false your app will be recreated, due to the need to regenerate a secret we can store in state.
 	OmitSecret pulumi.BoolPtrOutput `pulumi:"omitSecret"`
 	// *Early Access Property*. Allows the app to participate in front-channel Single Logout. Note: You can only enable participate*slo for web and browser application types. When set to true, frontchannel*logout_uri must also be provided. Enable `SINGLE_LOGOUT_SUPPORT` feature flag in your org to use this property.
@@ -210,6 +217,8 @@ type OAuth struct {
 	ResponseTypes pulumi.StringArrayOutput `pulumi:"responseTypes"`
 	// Sign on mode of application.
 	SignOnMode pulumi.StringOutput `pulumi:"signOnMode"`
+	// When set to true, the provider will not assign or read the authentication policy for this application. This can be useful when the caller lacks the permissions to read or manage policies, or to reduce API calls against the `/api/v1/apps` rate limit.
+	SkipAuthenticationPolicy pulumi.BoolPtrOutput `pulumi:"skipAuthenticationPolicy"`
 	// Status of application. By default, it is `ACTIVE`
 	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// Requested authentication method for the token endpoint, valid values include:  'client*secret*basic', 'client*secret*post', 'client*secret*jwt', 'private*key*jwt', 'none', etc.
@@ -246,8 +255,12 @@ func NewOAuth(ctx *pulumi.Context,
 	if args.ClientBasicSecret != nil {
 		args.ClientBasicSecret = pulumi.ToSecret(args.ClientBasicSecret).(pulumi.StringPtrInput)
 	}
+	if args.ClientBasicSecretWo != nil {
+		args.ClientBasicSecretWo = pulumi.ToSecret(args.ClientBasicSecretWo).(pulumi.StringPtrInput)
+	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"clientBasicSecret",
+		"clientBasicSecretWo",
 		"clientSecret",
 	})
 	opts = append(opts, secrets)
@@ -296,8 +309,13 @@ type oauthState struct {
 	AutoKeyRotation *bool `pulumi:"autoKeyRotation"`
 	// Display auto submit toolbar
 	AutoSubmitToolbar *bool `pulumi:"autoSubmitToolbar"`
-	// The user provided OAuth client secret key value, this can be set when token*endpoint*auth*method is client*secret*basic. This does nothing when `omit*secret is set to true.
+	// The user provided OAuth client secret key value. When set, this secret will be stored in the Terraform state file. For Terraform 1.11+, consider using `clientBasicSecretWo` instead to avoid persisting secrets in state. Either `clientBasicSecret` or `clientBasicSecretWo` can be specified, but not both.
 	ClientBasicSecret *string `pulumi:"clientBasicSecret"`
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	// The user provided write-only OAuth client secret key value for Terraform 1.11+. Unlike `clientBasicSecret`, this secret will not be persisted in the Terraform state file, providing improved security. Only use this attribute with Terraform 1.11 or higher. Either `clientBasicSecret` or `clientBasicSecretWo` can be specified, but not both.
+	ClientBasicSecretWo *string `pulumi:"clientBasicSecretWo"`
+	// Version number for the write-only client secret. Increment this value to trigger an update when changing `clientBasicSecretWo`.
+	ClientBasicSecretWoVersion *int `pulumi:"clientBasicSecretWoVersion"`
 	// OAuth client ID. If set during creation, app is created with this id.
 	ClientId *string `pulumi:"clientId"`
 	// OAuth client secret value, this is output only. This will be in plain text in your statefile unless you set omitSecret above.
@@ -346,6 +364,8 @@ type oauthState struct {
 	LogoUrl *string `pulumi:"logoUrl"`
 	// Name of the app.
 	Name *string `pulumi:"name"`
+	// Network restrictions for the application client. Only one `network` block may be defined.
+	Network *OAuthNetwork `pulumi:"network"`
 	// This tells the provider not manage the client*secret value in state. When this is false (the default), it will cause the auto-generated client*secret to be persisted in the clientSecret attribute in state. This also means that every time an update to this app is run, this value is also set on the API. If this changes from false => true, the `clientSecret` is dropped from state and the secret at the time of the apply is what remains. If this is ever changes from true => false your app will be recreated, due to the need to regenerate a secret we can store in state.
 	OmitSecret *bool `pulumi:"omitSecret"`
 	// *Early Access Property*. Allows the app to participate in front-channel Single Logout. Note: You can only enable participate*slo for web and browser application types. When set to true, frontchannel*logout_uri must also be provided. Enable `SINGLE_LOGOUT_SUPPORT` feature flag in your org to use this property.
@@ -370,6 +390,8 @@ type oauthState struct {
 	ResponseTypes []string `pulumi:"responseTypes"`
 	// Sign on mode of application.
 	SignOnMode *string `pulumi:"signOnMode"`
+	// When set to true, the provider will not assign or read the authentication policy for this application. This can be useful when the caller lacks the permissions to read or manage policies, or to reduce API calls against the `/api/v1/apps` rate limit.
+	SkipAuthenticationPolicy *bool `pulumi:"skipAuthenticationPolicy"`
 	// Status of application. By default, it is `ACTIVE`
 	Status *string `pulumi:"status"`
 	// Requested authentication method for the token endpoint, valid values include:  'client*secret*basic', 'client*secret*post', 'client*secret*jwt', 'private*key*jwt', 'none', etc.
@@ -413,8 +435,13 @@ type OAuthState struct {
 	AutoKeyRotation pulumi.BoolPtrInput
 	// Display auto submit toolbar
 	AutoSubmitToolbar pulumi.BoolPtrInput
-	// The user provided OAuth client secret key value, this can be set when token*endpoint*auth*method is client*secret*basic. This does nothing when `omit*secret is set to true.
+	// The user provided OAuth client secret key value. When set, this secret will be stored in the Terraform state file. For Terraform 1.11+, consider using `clientBasicSecretWo` instead to avoid persisting secrets in state. Either `clientBasicSecret` or `clientBasicSecretWo` can be specified, but not both.
 	ClientBasicSecret pulumi.StringPtrInput
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	// The user provided write-only OAuth client secret key value for Terraform 1.11+. Unlike `clientBasicSecret`, this secret will not be persisted in the Terraform state file, providing improved security. Only use this attribute with Terraform 1.11 or higher. Either `clientBasicSecret` or `clientBasicSecretWo` can be specified, but not both.
+	ClientBasicSecretWo pulumi.StringPtrInput
+	// Version number for the write-only client secret. Increment this value to trigger an update when changing `clientBasicSecretWo`.
+	ClientBasicSecretWoVersion pulumi.IntPtrInput
 	// OAuth client ID. If set during creation, app is created with this id.
 	ClientId pulumi.StringPtrInput
 	// OAuth client secret value, this is output only. This will be in plain text in your statefile unless you set omitSecret above.
@@ -463,6 +490,8 @@ type OAuthState struct {
 	LogoUrl pulumi.StringPtrInput
 	// Name of the app.
 	Name pulumi.StringPtrInput
+	// Network restrictions for the application client. Only one `network` block may be defined.
+	Network OAuthNetworkPtrInput
 	// This tells the provider not manage the client*secret value in state. When this is false (the default), it will cause the auto-generated client*secret to be persisted in the clientSecret attribute in state. This also means that every time an update to this app is run, this value is also set on the API. If this changes from false => true, the `clientSecret` is dropped from state and the secret at the time of the apply is what remains. If this is ever changes from true => false your app will be recreated, due to the need to regenerate a secret we can store in state.
 	OmitSecret pulumi.BoolPtrInput
 	// *Early Access Property*. Allows the app to participate in front-channel Single Logout. Note: You can only enable participate*slo for web and browser application types. When set to true, frontchannel*logout_uri must also be provided. Enable `SINGLE_LOGOUT_SUPPORT` feature flag in your org to use this property.
@@ -487,6 +516,8 @@ type OAuthState struct {
 	ResponseTypes pulumi.StringArrayInput
 	// Sign on mode of application.
 	SignOnMode pulumi.StringPtrInput
+	// When set to true, the provider will not assign or read the authentication policy for this application. This can be useful when the caller lacks the permissions to read or manage policies, or to reduce API calls against the `/api/v1/apps` rate limit.
+	SkipAuthenticationPolicy pulumi.BoolPtrInput
 	// Status of application. By default, it is `ACTIVE`
 	Status pulumi.StringPtrInput
 	// Requested authentication method for the token endpoint, valid values include:  'client*secret*basic', 'client*secret*post', 'client*secret*jwt', 'private*key*jwt', 'none', etc.
@@ -534,8 +565,13 @@ type oauthArgs struct {
 	AutoKeyRotation *bool `pulumi:"autoKeyRotation"`
 	// Display auto submit toolbar
 	AutoSubmitToolbar *bool `pulumi:"autoSubmitToolbar"`
-	// The user provided OAuth client secret key value, this can be set when token*endpoint*auth*method is client*secret*basic. This does nothing when `omit*secret is set to true.
+	// The user provided OAuth client secret key value. When set, this secret will be stored in the Terraform state file. For Terraform 1.11+, consider using `clientBasicSecretWo` instead to avoid persisting secrets in state. Either `clientBasicSecret` or `clientBasicSecretWo` can be specified, but not both.
 	ClientBasicSecret *string `pulumi:"clientBasicSecret"`
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	// The user provided write-only OAuth client secret key value for Terraform 1.11+. Unlike `clientBasicSecret`, this secret will not be persisted in the Terraform state file, providing improved security. Only use this attribute with Terraform 1.11 or higher. Either `clientBasicSecret` or `clientBasicSecretWo` can be specified, but not both.
+	ClientBasicSecretWo *string `pulumi:"clientBasicSecretWo"`
+	// Version number for the write-only client secret. Increment this value to trigger an update when changing `clientBasicSecretWo`.
+	ClientBasicSecretWoVersion *int `pulumi:"clientBasicSecretWoVersion"`
 	// OAuth client ID. If set during creation, app is created with this id.
 	ClientId *string `pulumi:"clientId"`
 	// URI to a web page providing information about the client.
@@ -578,6 +614,8 @@ type oauthArgs struct {
 	Logo *string `pulumi:"logo"`
 	// URI that references a logo for the client.
 	LogoUri *string `pulumi:"logoUri"`
+	// Network restrictions for the application client. Only one `network` block may be defined.
+	Network *OAuthNetwork `pulumi:"network"`
 	// This tells the provider not manage the client*secret value in state. When this is false (the default), it will cause the auto-generated client*secret to be persisted in the clientSecret attribute in state. This also means that every time an update to this app is run, this value is also set on the API. If this changes from false => true, the `clientSecret` is dropped from state and the secret at the time of the apply is what remains. If this is ever changes from true => false your app will be recreated, due to the need to regenerate a secret we can store in state.
 	OmitSecret *bool `pulumi:"omitSecret"`
 	// *Early Access Property*. Allows the app to participate in front-channel Single Logout. Note: You can only enable participate*slo for web and browser application types. When set to true, frontchannel*logout_uri must also be provided. Enable `SINGLE_LOGOUT_SUPPORT` feature flag in your org to use this property.
@@ -600,6 +638,8 @@ type oauthArgs struct {
 	RefreshTokenRotation *string `pulumi:"refreshTokenRotation"`
 	// List of OAuth 2.0 response type strings. Valid values are any combination of: `code`, `token`, and `idToken`.
 	ResponseTypes []string `pulumi:"responseTypes"`
+	// When set to true, the provider will not assign or read the authentication policy for this application. This can be useful when the caller lacks the permissions to read or manage policies, or to reduce API calls against the `/api/v1/apps` rate limit.
+	SkipAuthenticationPolicy *bool `pulumi:"skipAuthenticationPolicy"`
 	// Status of application. By default, it is `ACTIVE`
 	Status *string `pulumi:"status"`
 	// Requested authentication method for the token endpoint, valid values include:  'client*secret*basic', 'client*secret*post', 'client*secret*jwt', 'private*key*jwt', 'none', etc.
@@ -644,8 +684,13 @@ type OAuthArgs struct {
 	AutoKeyRotation pulumi.BoolPtrInput
 	// Display auto submit toolbar
 	AutoSubmitToolbar pulumi.BoolPtrInput
-	// The user provided OAuth client secret key value, this can be set when token*endpoint*auth*method is client*secret*basic. This does nothing when `omit*secret is set to true.
+	// The user provided OAuth client secret key value. When set, this secret will be stored in the Terraform state file. For Terraform 1.11+, consider using `clientBasicSecretWo` instead to avoid persisting secrets in state. Either `clientBasicSecret` or `clientBasicSecretWo` can be specified, but not both.
 	ClientBasicSecret pulumi.StringPtrInput
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	// The user provided write-only OAuth client secret key value for Terraform 1.11+. Unlike `clientBasicSecret`, this secret will not be persisted in the Terraform state file, providing improved security. Only use this attribute with Terraform 1.11 or higher. Either `clientBasicSecret` or `clientBasicSecretWo` can be specified, but not both.
+	ClientBasicSecretWo pulumi.StringPtrInput
+	// Version number for the write-only client secret. Increment this value to trigger an update when changing `clientBasicSecretWo`.
+	ClientBasicSecretWoVersion pulumi.IntPtrInput
 	// OAuth client ID. If set during creation, app is created with this id.
 	ClientId pulumi.StringPtrInput
 	// URI to a web page providing information about the client.
@@ -688,6 +733,8 @@ type OAuthArgs struct {
 	Logo pulumi.StringPtrInput
 	// URI that references a logo for the client.
 	LogoUri pulumi.StringPtrInput
+	// Network restrictions for the application client. Only one `network` block may be defined.
+	Network OAuthNetworkPtrInput
 	// This tells the provider not manage the client*secret value in state. When this is false (the default), it will cause the auto-generated client*secret to be persisted in the clientSecret attribute in state. This also means that every time an update to this app is run, this value is also set on the API. If this changes from false => true, the `clientSecret` is dropped from state and the secret at the time of the apply is what remains. If this is ever changes from true => false your app will be recreated, due to the need to regenerate a secret we can store in state.
 	OmitSecret pulumi.BoolPtrInput
 	// *Early Access Property*. Allows the app to participate in front-channel Single Logout. Note: You can only enable participate*slo for web and browser application types. When set to true, frontchannel*logout_uri must also be provided. Enable `SINGLE_LOGOUT_SUPPORT` feature flag in your org to use this property.
@@ -710,6 +757,8 @@ type OAuthArgs struct {
 	RefreshTokenRotation pulumi.StringPtrInput
 	// List of OAuth 2.0 response type strings. Valid values are any combination of: `code`, `token`, and `idToken`.
 	ResponseTypes pulumi.StringArrayInput
+	// When set to true, the provider will not assign or read the authentication policy for this application. This can be useful when the caller lacks the permissions to read or manage policies, or to reduce API calls against the `/api/v1/apps` rate limit.
+	SkipAuthenticationPolicy pulumi.BoolPtrInput
 	// Status of application. By default, it is `ACTIVE`
 	Status pulumi.StringPtrInput
 	// Requested authentication method for the token endpoint, valid values include:  'client*secret*basic', 'client*secret*post', 'client*secret*jwt', 'private*key*jwt', 'none', etc.
@@ -867,9 +916,20 @@ func (o OAuthOutput) AutoSubmitToolbar() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *OAuth) pulumi.BoolPtrOutput { return v.AutoSubmitToolbar }).(pulumi.BoolPtrOutput)
 }
 
-// The user provided OAuth client secret key value, this can be set when token*endpoint*auth*method is client*secret*basic. This does nothing when `omit*secret is set to true.
+// The user provided OAuth client secret key value. When set, this secret will be stored in the Terraform state file. For Terraform 1.11+, consider using `clientBasicSecretWo` instead to avoid persisting secrets in state. Either `clientBasicSecret` or `clientBasicSecretWo` can be specified, but not both.
 func (o OAuthOutput) ClientBasicSecret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OAuth) pulumi.StringPtrOutput { return v.ClientBasicSecret }).(pulumi.StringPtrOutput)
+}
+
+// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+// The user provided write-only OAuth client secret key value for Terraform 1.11+. Unlike `clientBasicSecret`, this secret will not be persisted in the Terraform state file, providing improved security. Only use this attribute with Terraform 1.11 or higher. Either `clientBasicSecret` or `clientBasicSecretWo` can be specified, but not both.
+func (o OAuthOutput) ClientBasicSecretWo() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OAuth) pulumi.StringPtrOutput { return v.ClientBasicSecretWo }).(pulumi.StringPtrOutput)
+}
+
+// Version number for the write-only client secret. Increment this value to trigger an update when changing `clientBasicSecretWo`.
+func (o OAuthOutput) ClientBasicSecretWoVersion() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *OAuth) pulumi.IntPtrOutput { return v.ClientBasicSecretWoVersion }).(pulumi.IntPtrOutput)
 }
 
 // OAuth client ID. If set during creation, app is created with this id.
@@ -989,6 +1049,11 @@ func (o OAuthOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *OAuth) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// Network restrictions for the application client. Only one `network` block may be defined.
+func (o OAuthOutput) Network() OAuthNetworkPtrOutput {
+	return o.ApplyT(func(v *OAuth) OAuthNetworkPtrOutput { return v.Network }).(OAuthNetworkPtrOutput)
+}
+
 // This tells the provider not manage the client*secret value in state. When this is false (the default), it will cause the auto-generated client*secret to be persisted in the clientSecret attribute in state. This also means that every time an update to this app is run, this value is also set on the API. If this changes from false => true, the `clientSecret` is dropped from state and the secret at the time of the apply is what remains. If this is ever changes from true => false your app will be recreated, due to the need to regenerate a secret we can store in state.
 func (o OAuthOutput) OmitSecret() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *OAuth) pulumi.BoolPtrOutput { return v.OmitSecret }).(pulumi.BoolPtrOutput)
@@ -1047,6 +1112,11 @@ func (o OAuthOutput) ResponseTypes() pulumi.StringArrayOutput {
 // Sign on mode of application.
 func (o OAuthOutput) SignOnMode() pulumi.StringOutput {
 	return o.ApplyT(func(v *OAuth) pulumi.StringOutput { return v.SignOnMode }).(pulumi.StringOutput)
+}
+
+// When set to true, the provider will not assign or read the authentication policy for this application. This can be useful when the caller lacks the permissions to read or manage policies, or to reduce API calls against the `/api/v1/apps` rate limit.
+func (o OAuthOutput) SkipAuthenticationPolicy() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *OAuth) pulumi.BoolPtrOutput { return v.SkipAuthenticationPolicy }).(pulumi.BoolPtrOutput)
 }
 
 // Status of application. By default, it is `ACTIVE`

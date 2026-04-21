@@ -10,6 +10,7 @@ import com.pulumi.okta.policy.inputs.RuleIdpDiscoveryAppIncludeArgs;
 import com.pulumi.okta.policy.inputs.RuleIdpDiscoveryIdpProviderArgs;
 import com.pulumi.okta.policy.inputs.RuleIdpDiscoveryPlatformIncludeArgs;
 import com.pulumi.okta.policy.inputs.RuleIdpDiscoveryUserIdentifierPatternArgs;
+import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -177,6 +178,66 @@ public final class RuleIdpDiscoveryArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
+     * The IdP property that the evaluated expression should match against when `selectionType` is `DYNAMIC`. Maps to `actions.idp.matchCriteria[0].propertyName` in the API. If not set, the API default is used and the value is stored in state.
+     * 
+     */
+    @Import(name="propertyName")
+    private @Nullable Output<String> propertyName;
+
+    /**
+     * @return The IdP property that the evaluated expression should match against when `selectionType` is `DYNAMIC`. Maps to `actions.idp.matchCriteria[0].propertyName` in the API. If not set, the API default is used and the value is stored in state.
+     * 
+     */
+    public Optional<Output<String>> propertyName() {
+        return Optional.ofNullable(this.propertyName);
+    }
+
+    /**
+     * An Okta Expression Language expression that is evaluated against the Login Context and used to dynamically select an IdP. Only applicable when `selectionType` is `DYNAMIC`. Maps to `actions.idp.matchCriteria[0].providerExpression` in the API. Example: `login.identifier.substringAfter(&#39;{@literal @}&#39;)`
+     * 
+     */
+    @Import(name="providerExpression")
+    private @Nullable Output<String> providerExpression;
+
+    /**
+     * @return An Okta Expression Language expression that is evaluated against the Login Context and used to dynamically select an IdP. Only applicable when `selectionType` is `DYNAMIC`. Maps to `actions.idp.matchCriteria[0].providerExpression` in the API. Example: `login.identifier.substringAfter(&#39;{@literal @}&#39;)`
+     * 
+     */
+    public Optional<Output<String>> providerExpression() {
+        return Optional.ofNullable(this.providerExpression);
+    }
+
+    /**
+     * Determines how the IdP is selected. One of: `SPECIFIC`, `DYNAMIC`. Default: `SPECIFIC`. When `DYNAMIC`, the IdP is selected based on the evaluated `providerExpression`.
+     * 
+     */
+    @Import(name="selectionType")
+    private @Nullable Output<String> selectionType;
+
+    /**
+     * @return Determines how the IdP is selected. One of: `SPECIFIC`, `DYNAMIC`. Default: `SPECIFIC`. When `DYNAMIC`, the IdP is selected based on the evaluated `providerExpression`.
+     * 
+     */
+    public Optional<Output<String>> selectionType() {
+        return Optional.ofNullable(this.selectionType);
+    }
+
+    /**
+     * Specifies whether to fall back to Okta if authentication with the matched IdP fails. Only applicable when `selectionType` is `DYNAMIC`. Default: `false`.
+     * 
+     */
+    @Import(name="shouldFallBackToOkta")
+    private @Nullable Output<Boolean> shouldFallBackToOkta;
+
+    /**
+     * @return Specifies whether to fall back to Okta if authentication with the matched IdP fails. Only applicable when `selectionType` is `DYNAMIC`. Default: `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> shouldFallBackToOkta() {
+        return Optional.ofNullable(this.shouldFallBackToOkta);
+    }
+
+    /**
      * Policy Rule Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
      * 
      */
@@ -253,6 +314,10 @@ public final class RuleIdpDiscoveryArgs extends com.pulumi.resources.ResourceArg
         this.platformIncludes = $.platformIncludes;
         this.policyId = $.policyId;
         this.priority = $.priority;
+        this.propertyName = $.propertyName;
+        this.providerExpression = $.providerExpression;
+        this.selectionType = $.selectionType;
+        this.shouldFallBackToOkta = $.shouldFallBackToOkta;
         this.status = $.status;
         this.userIdentifierAttribute = $.userIdentifierAttribute;
         this.userIdentifierPatterns = $.userIdentifierPatterns;
@@ -545,6 +610,90 @@ public final class RuleIdpDiscoveryArgs extends com.pulumi.resources.ResourceArg
          */
         public Builder priority(Integer priority) {
             return priority(Output.of(priority));
+        }
+
+        /**
+         * @param propertyName The IdP property that the evaluated expression should match against when `selectionType` is `DYNAMIC`. Maps to `actions.idp.matchCriteria[0].propertyName` in the API. If not set, the API default is used and the value is stored in state.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder propertyName(@Nullable Output<String> propertyName) {
+            $.propertyName = propertyName;
+            return this;
+        }
+
+        /**
+         * @param propertyName The IdP property that the evaluated expression should match against when `selectionType` is `DYNAMIC`. Maps to `actions.idp.matchCriteria[0].propertyName` in the API. If not set, the API default is used and the value is stored in state.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder propertyName(String propertyName) {
+            return propertyName(Output.of(propertyName));
+        }
+
+        /**
+         * @param providerExpression An Okta Expression Language expression that is evaluated against the Login Context and used to dynamically select an IdP. Only applicable when `selectionType` is `DYNAMIC`. Maps to `actions.idp.matchCriteria[0].providerExpression` in the API. Example: `login.identifier.substringAfter(&#39;{@literal @}&#39;)`
+         * 
+         * @return builder
+         * 
+         */
+        public Builder providerExpression(@Nullable Output<String> providerExpression) {
+            $.providerExpression = providerExpression;
+            return this;
+        }
+
+        /**
+         * @param providerExpression An Okta Expression Language expression that is evaluated against the Login Context and used to dynamically select an IdP. Only applicable when `selectionType` is `DYNAMIC`. Maps to `actions.idp.matchCriteria[0].providerExpression` in the API. Example: `login.identifier.substringAfter(&#39;{@literal @}&#39;)`
+         * 
+         * @return builder
+         * 
+         */
+        public Builder providerExpression(String providerExpression) {
+            return providerExpression(Output.of(providerExpression));
+        }
+
+        /**
+         * @param selectionType Determines how the IdP is selected. One of: `SPECIFIC`, `DYNAMIC`. Default: `SPECIFIC`. When `DYNAMIC`, the IdP is selected based on the evaluated `providerExpression`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder selectionType(@Nullable Output<String> selectionType) {
+            $.selectionType = selectionType;
+            return this;
+        }
+
+        /**
+         * @param selectionType Determines how the IdP is selected. One of: `SPECIFIC`, `DYNAMIC`. Default: `SPECIFIC`. When `DYNAMIC`, the IdP is selected based on the evaluated `providerExpression`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder selectionType(String selectionType) {
+            return selectionType(Output.of(selectionType));
+        }
+
+        /**
+         * @param shouldFallBackToOkta Specifies whether to fall back to Okta if authentication with the matched IdP fails. Only applicable when `selectionType` is `DYNAMIC`. Default: `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder shouldFallBackToOkta(@Nullable Output<Boolean> shouldFallBackToOkta) {
+            $.shouldFallBackToOkta = shouldFallBackToOkta;
+            return this;
+        }
+
+        /**
+         * @param shouldFallBackToOkta Specifies whether to fall back to Okta if authentication with the matched IdP fails. Only applicable when `selectionType` is `DYNAMIC`. Default: `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder shouldFallBackToOkta(Boolean shouldFallBackToOkta) {
+            return shouldFallBackToOkta(Output.of(shouldFallBackToOkta));
         }
 
         /**

@@ -141,6 +141,8 @@ type Saml struct {
 	SingleLogoutIssuer pulumi.StringPtrOutput `pulumi:"singleLogoutIssuer"`
 	// The location where the logout response is sent
 	SingleLogoutUrl pulumi.StringPtrOutput `pulumi:"singleLogoutUrl"`
+	// When set to true, the provider will not assign or read the authentication policy for this application. This can be useful when the caller lacks the permissions to read or manage policies, or to reduce API calls against the `/api/v1/apps` rate limit.
+	SkipAuthenticationPolicy pulumi.BoolPtrOutput `pulumi:"skipAuthenticationPolicy"`
 	// SAML SP issuer ID
 	SpIssuer pulumi.StringPtrOutput `pulumi:"spIssuer"`
 	// Single Sign On URL
@@ -306,6 +308,8 @@ type samlState struct {
 	SingleLogoutIssuer *string `pulumi:"singleLogoutIssuer"`
 	// The location where the logout response is sent
 	SingleLogoutUrl *string `pulumi:"singleLogoutUrl"`
+	// When set to true, the provider will not assign or read the authentication policy for this application. This can be useful when the caller lacks the permissions to read or manage policies, or to reduce API calls against the `/api/v1/apps` rate limit.
+	SkipAuthenticationPolicy *bool `pulumi:"skipAuthenticationPolicy"`
 	// SAML SP issuer ID
 	SpIssuer *string `pulumi:"spIssuer"`
 	// Single Sign On URL
@@ -439,6 +443,8 @@ type SamlState struct {
 	SingleLogoutIssuer pulumi.StringPtrInput
 	// The location where the logout response is sent
 	SingleLogoutUrl pulumi.StringPtrInput
+	// When set to true, the provider will not assign or read the authentication policy for this application. This can be useful when the caller lacks the permissions to read or manage policies, or to reduce API calls against the `/api/v1/apps` rate limit.
+	SkipAuthenticationPolicy pulumi.BoolPtrInput
 	// SAML SP issuer ID
 	SpIssuer pulumi.StringPtrInput
 	// Single Sign On URL
@@ -548,6 +554,8 @@ type samlArgs struct {
 	SingleLogoutIssuer *string `pulumi:"singleLogoutIssuer"`
 	// The location where the logout response is sent
 	SingleLogoutUrl *string `pulumi:"singleLogoutUrl"`
+	// When set to true, the provider will not assign or read the authentication policy for this application. This can be useful when the caller lacks the permissions to read or manage policies, or to reduce API calls against the `/api/v1/apps` rate limit.
+	SkipAuthenticationPolicy *bool `pulumi:"skipAuthenticationPolicy"`
 	// SAML SP issuer ID
 	SpIssuer *string `pulumi:"spIssuer"`
 	// Single Sign On URL
@@ -654,6 +662,8 @@ type SamlArgs struct {
 	SingleLogoutIssuer pulumi.StringPtrInput
 	// The location where the logout response is sent
 	SingleLogoutUrl pulumi.StringPtrInput
+	// When set to true, the provider will not assign or read the authentication policy for this application. This can be useful when the caller lacks the permissions to read or manage policies, or to reduce API calls against the `/api/v1/apps` rate limit.
+	SkipAuthenticationPolicy pulumi.BoolPtrInput
 	// SAML SP issuer ID
 	SpIssuer pulumi.StringPtrInput
 	// Single Sign On URL
@@ -1027,6 +1037,11 @@ func (o SamlOutput) SingleLogoutIssuer() pulumi.StringPtrOutput {
 // The location where the logout response is sent
 func (o SamlOutput) SingleLogoutUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Saml) pulumi.StringPtrOutput { return v.SingleLogoutUrl }).(pulumi.StringPtrOutput)
+}
+
+// When set to true, the provider will not assign or read the authentication policy for this application. This can be useful when the caller lacks the permissions to read or manage policies, or to reduce API calls against the `/api/v1/apps` rate limit.
+func (o SamlOutput) SkipAuthenticationPolicy() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Saml) pulumi.BoolPtrOutput { return v.SkipAuthenticationPolicy }).(pulumi.BoolPtrOutput)
 }
 
 // SAML SP issuer ID

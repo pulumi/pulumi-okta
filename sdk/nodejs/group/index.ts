@@ -30,6 +30,11 @@ export type Owner = import("./owner").Owner;
 export const Owner: typeof import("./owner").Owner = null as any;
 utilities.lazyLoad(exports, ["Owner"], () => require("./owner"));
 
+export { OwnersArgs, OwnersState } from "./owners";
+export type Owners = import("./owners").Owners;
+export const Owners: typeof import("./owners").Owners = null as any;
+utilities.lazyLoad(exports, ["Owners"], () => require("./owners"));
+
 export { RoleArgs, RoleState } from "./role";
 export type Role = import("./role").Role;
 export const Role: typeof import("./role").Role = null as any;
@@ -49,6 +54,8 @@ const _module = {
                 return new Group(name, <any>undefined, { urn })
             case "okta:group/owner:Owner":
                 return new Owner(name, <any>undefined, { urn })
+            case "okta:group/owners:Owners":
+                return new Owners(name, <any>undefined, { urn })
             case "okta:group/role:Role":
                 return new Role(name, <any>undefined, { urn })
             case "okta:group/rule:Rule":
@@ -60,5 +67,6 @@ const _module = {
 };
 pulumi.runtime.registerResourceModule("okta", "group/group", _module)
 pulumi.runtime.registerResourceModule("okta", "group/owner", _module)
+pulumi.runtime.registerResourceModule("okta", "group/owners", _module)
 pulumi.runtime.registerResourceModule("okta", "group/role", _module)
 pulumi.runtime.registerResourceModule("okta", "group/rule", _module)

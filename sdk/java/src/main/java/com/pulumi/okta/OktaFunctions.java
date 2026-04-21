@@ -73,6 +73,8 @@ import com.pulumi.okta.inputs.GetLogStreamArgs;
 import com.pulumi.okta.inputs.GetLogStreamPlainArgs;
 import com.pulumi.okta.inputs.GetNetworkZoneArgs;
 import com.pulumi.okta.inputs.GetNetworkZonePlainArgs;
+import com.pulumi.okta.inputs.GetOauthAuthorizationServerArgs;
+import com.pulumi.okta.inputs.GetOauthAuthorizationServerPlainArgs;
 import com.pulumi.okta.inputs.GetOrgMetadataArgs;
 import com.pulumi.okta.inputs.GetOrgMetadataPlainArgs;
 import com.pulumi.okta.inputs.GetPrincipalEntitlementsArgs;
@@ -147,11 +149,13 @@ import com.pulumi.okta.outputs.GetEmailSmtpServerResult;
 import com.pulumi.okta.outputs.GetEndUserMyRequestsResult;
 import com.pulumi.okta.outputs.GetEntitlementBundleResult;
 import com.pulumi.okta.outputs.GetEntitlementResult;
+import com.pulumi.okta.outputs.GetEntityRiskPolicyResult;
 import com.pulumi.okta.outputs.GetFeaturesResult;
 import com.pulumi.okta.outputs.GetGroupsResult;
 import com.pulumi.okta.outputs.GetHookKeyResult;
 import com.pulumi.okta.outputs.GetLogStreamResult;
 import com.pulumi.okta.outputs.GetNetworkZoneResult;
+import com.pulumi.okta.outputs.GetOauthAuthorizationServerResult;
 import com.pulumi.okta.outputs.GetOrgMetadataResult;
 import com.pulumi.okta.outputs.GetPostAuthSessionPolicyResult;
 import com.pulumi.okta.outputs.GetPrincipalEntitlementsResult;
@@ -171,6 +175,7 @@ import com.pulumi.okta.outputs.GetRequestV2Result;
 import com.pulumi.okta.outputs.GetReviewResult;
 import com.pulumi.okta.outputs.GetRoleSubscriptionResult;
 import com.pulumi.okta.outputs.GetSecurityEventsProviderResult;
+import com.pulumi.okta.outputs.GetSessionViolationPolicyResult;
 import com.pulumi.okta.outputs.GetTemplateResult;
 import com.pulumi.okta.outputs.GetTemplatesResult;
 import com.pulumi.okta.outputs.GetThemeResult;
@@ -5986,6 +5991,335 @@ public final class OktaFunctions {
         return Deployment.getInstance().invokeAsync("okta:index/getEntitlementBundle:getEntitlementBundle", TypeShape.of(GetEntitlementBundleResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Retrieves the Entity Risk Policy. This is a system policy that is automatically created when Identity Threat Protection (ITP) is enabled. There is exactly one Entity Risk Policy per organization.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.EntityRiskPolicyRule;
+     * import com.pulumi.okta.EntityRiskPolicyRuleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OktaFunctions.getEntityRiskPolicy(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *         // Use the policy ID to create rules
+     *         var exampleEntityRiskPolicyRule = new EntityRiskPolicyRule("exampleEntityRiskPolicyRule", EntityRiskPolicyRuleArgs.builder()
+     *             .policyId(example.id())
+     *             .name("High Risk Response")
+     *             .riskLevel("HIGH")
+     *             .terminateAllSessions(true)
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetEntityRiskPolicyResult> getEntityRiskPolicy() {
+        return getEntityRiskPolicy(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieves the Entity Risk Policy. This is a system policy that is automatically created when Identity Threat Protection (ITP) is enabled. There is exactly one Entity Risk Policy per organization.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.EntityRiskPolicyRule;
+     * import com.pulumi.okta.EntityRiskPolicyRuleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OktaFunctions.getEntityRiskPolicy(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *         // Use the policy ID to create rules
+     *         var exampleEntityRiskPolicyRule = new EntityRiskPolicyRule("exampleEntityRiskPolicyRule", EntityRiskPolicyRuleArgs.builder()
+     *             .policyId(example.id())
+     *             .name("High Risk Response")
+     *             .riskLevel("HIGH")
+     *             .terminateAllSessions(true)
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetEntityRiskPolicyResult> getEntityRiskPolicyPlain() {
+        return getEntityRiskPolicyPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieves the Entity Risk Policy. This is a system policy that is automatically created when Identity Threat Protection (ITP) is enabled. There is exactly one Entity Risk Policy per organization.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.EntityRiskPolicyRule;
+     * import com.pulumi.okta.EntityRiskPolicyRuleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OktaFunctions.getEntityRiskPolicy(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *         // Use the policy ID to create rules
+     *         var exampleEntityRiskPolicyRule = new EntityRiskPolicyRule("exampleEntityRiskPolicyRule", EntityRiskPolicyRuleArgs.builder()
+     *             .policyId(example.id())
+     *             .name("High Risk Response")
+     *             .riskLevel("HIGH")
+     *             .terminateAllSessions(true)
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetEntityRiskPolicyResult> getEntityRiskPolicy(InvokeArgs args) {
+        return getEntityRiskPolicy(args, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieves the Entity Risk Policy. This is a system policy that is automatically created when Identity Threat Protection (ITP) is enabled. There is exactly one Entity Risk Policy per organization.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.EntityRiskPolicyRule;
+     * import com.pulumi.okta.EntityRiskPolicyRuleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OktaFunctions.getEntityRiskPolicy(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *         // Use the policy ID to create rules
+     *         var exampleEntityRiskPolicyRule = new EntityRiskPolicyRule("exampleEntityRiskPolicyRule", EntityRiskPolicyRuleArgs.builder()
+     *             .policyId(example.id())
+     *             .name("High Risk Response")
+     *             .riskLevel("HIGH")
+     *             .terminateAllSessions(true)
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetEntityRiskPolicyResult> getEntityRiskPolicyPlain(InvokeArgs args) {
+        return getEntityRiskPolicyPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieves the Entity Risk Policy. This is a system policy that is automatically created when Identity Threat Protection (ITP) is enabled. There is exactly one Entity Risk Policy per organization.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.EntityRiskPolicyRule;
+     * import com.pulumi.okta.EntityRiskPolicyRuleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OktaFunctions.getEntityRiskPolicy(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *         // Use the policy ID to create rules
+     *         var exampleEntityRiskPolicyRule = new EntityRiskPolicyRule("exampleEntityRiskPolicyRule", EntityRiskPolicyRuleArgs.builder()
+     *             .policyId(example.id())
+     *             .name("High Risk Response")
+     *             .riskLevel("HIGH")
+     *             .terminateAllSessions(true)
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetEntityRiskPolicyResult> getEntityRiskPolicy(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("okta:index/getEntityRiskPolicy:getEntityRiskPolicy", TypeShape.of(GetEntityRiskPolicyResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieves the Entity Risk Policy. This is a system policy that is automatically created when Identity Threat Protection (ITP) is enabled. There is exactly one Entity Risk Policy per organization.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.EntityRiskPolicyRule;
+     * import com.pulumi.okta.EntityRiskPolicyRuleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OktaFunctions.getEntityRiskPolicy(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *         // Use the policy ID to create rules
+     *         var exampleEntityRiskPolicyRule = new EntityRiskPolicyRule("exampleEntityRiskPolicyRule", EntityRiskPolicyRuleArgs.builder()
+     *             .policyId(example.id())
+     *             .name("High Risk Response")
+     *             .riskLevel("HIGH")
+     *             .terminateAllSessions(true)
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetEntityRiskPolicyResult> getEntityRiskPolicy(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("okta:index/getEntityRiskPolicy:getEntityRiskPolicy", TypeShape.of(GetEntityRiskPolicyResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieves the Entity Risk Policy. This is a system policy that is automatically created when Identity Threat Protection (ITP) is enabled. There is exactly one Entity Risk Policy per organization.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.EntityRiskPolicyRule;
+     * import com.pulumi.okta.EntityRiskPolicyRuleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OktaFunctions.getEntityRiskPolicy(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *         // Use the policy ID to create rules
+     *         var exampleEntityRiskPolicyRule = new EntityRiskPolicyRule("exampleEntityRiskPolicyRule", EntityRiskPolicyRuleArgs.builder()
+     *             .policyId(example.id())
+     *             .name("High Risk Response")
+     *             .riskLevel("HIGH")
+     *             .terminateAllSessions(true)
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetEntityRiskPolicyResult> getEntityRiskPolicyPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("okta:index/getEntityRiskPolicy:getEntityRiskPolicy", TypeShape.of(GetEntityRiskPolicyResult.class), args, Utilities.withVersion(options));
+    }
+    /**
      * Get a list of features from Okta.
      * 
      * ## Example Usage
@@ -7079,6 +7413,27 @@ public final class OktaFunctions {
     public static CompletableFuture<GetNetworkZoneResult> getNetworkZonePlain(GetNetworkZonePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("okta:index/getNetworkZone:getNetworkZone", TypeShape.of(GetNetworkZoneResult.class), args, Utilities.withVersion(options));
     }
+    public static Output<GetOauthAuthorizationServerResult> getOauthAuthorizationServer() {
+        return getOauthAuthorizationServer(GetOauthAuthorizationServerArgs.Empty, InvokeOptions.Empty);
+    }
+    public static CompletableFuture<GetOauthAuthorizationServerResult> getOauthAuthorizationServerPlain() {
+        return getOauthAuthorizationServerPlain(GetOauthAuthorizationServerPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    public static Output<GetOauthAuthorizationServerResult> getOauthAuthorizationServer(GetOauthAuthorizationServerArgs args) {
+        return getOauthAuthorizationServer(args, InvokeOptions.Empty);
+    }
+    public static CompletableFuture<GetOauthAuthorizationServerResult> getOauthAuthorizationServerPlain(GetOauthAuthorizationServerPlainArgs args) {
+        return getOauthAuthorizationServerPlain(args, InvokeOptions.Empty);
+    }
+    public static Output<GetOauthAuthorizationServerResult> getOauthAuthorizationServer(GetOauthAuthorizationServerArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("okta:index/getOauthAuthorizationServer:getOauthAuthorizationServer", TypeShape.of(GetOauthAuthorizationServerResult.class), args, Utilities.withVersion(options));
+    }
+    public static Output<GetOauthAuthorizationServerResult> getOauthAuthorizationServer(GetOauthAuthorizationServerArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("okta:index/getOauthAuthorizationServer:getOauthAuthorizationServer", TypeShape.of(GetOauthAuthorizationServerResult.class), args, Utilities.withVersion(options));
+    }
+    public static CompletableFuture<GetOauthAuthorizationServerResult> getOauthAuthorizationServerPlain(GetOauthAuthorizationServerPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("okta:index/getOauthAuthorizationServer:getOauthAuthorizationServer", TypeShape.of(GetOauthAuthorizationServerResult.class), args, Utilities.withVersion(options));
+    }
     /**
      * Retrieves the well-known org metadata, which includes the id, configured custom domains, authentication pipeline, and various other org settings.
      * 
@@ -7133,7 +7488,33 @@ public final class OktaFunctions {
      * 
      * ## Example Usage
      * 
-     * {{tffile &#34;examples/data-sources/okta_post_auth_session_policy/data-source.tf&#34;}}
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OktaFunctions.getPostAuthSessionPolicy(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
      * 
      */
     public static Output<GetPostAuthSessionPolicyResult> getPostAuthSessionPolicy() {
@@ -7144,7 +7525,33 @@ public final class OktaFunctions {
      * 
      * ## Example Usage
      * 
-     * {{tffile &#34;examples/data-sources/okta_post_auth_session_policy/data-source.tf&#34;}}
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OktaFunctions.getPostAuthSessionPolicy(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
      * 
      */
     public static CompletableFuture<GetPostAuthSessionPolicyResult> getPostAuthSessionPolicyPlain() {
@@ -7155,7 +7562,33 @@ public final class OktaFunctions {
      * 
      * ## Example Usage
      * 
-     * {{tffile &#34;examples/data-sources/okta_post_auth_session_policy/data-source.tf&#34;}}
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OktaFunctions.getPostAuthSessionPolicy(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
      * 
      */
     public static Output<GetPostAuthSessionPolicyResult> getPostAuthSessionPolicy(InvokeArgs args) {
@@ -7166,7 +7599,33 @@ public final class OktaFunctions {
      * 
      * ## Example Usage
      * 
-     * {{tffile &#34;examples/data-sources/okta_post_auth_session_policy/data-source.tf&#34;}}
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OktaFunctions.getPostAuthSessionPolicy(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
      * 
      */
     public static CompletableFuture<GetPostAuthSessionPolicyResult> getPostAuthSessionPolicyPlain(InvokeArgs args) {
@@ -7177,7 +7636,33 @@ public final class OktaFunctions {
      * 
      * ## Example Usage
      * 
-     * {{tffile &#34;examples/data-sources/okta_post_auth_session_policy/data-source.tf&#34;}}
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OktaFunctions.getPostAuthSessionPolicy(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
      * 
      */
     public static Output<GetPostAuthSessionPolicyResult> getPostAuthSessionPolicy(InvokeArgs args, InvokeOptions options) {
@@ -7188,7 +7673,33 @@ public final class OktaFunctions {
      * 
      * ## Example Usage
      * 
-     * {{tffile &#34;examples/data-sources/okta_post_auth_session_policy/data-source.tf&#34;}}
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OktaFunctions.getPostAuthSessionPolicy(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
      * 
      */
     public static Output<GetPostAuthSessionPolicyResult> getPostAuthSessionPolicy(InvokeArgs args, InvokeOutputOptions options) {
@@ -7199,7 +7710,33 @@ public final class OktaFunctions {
      * 
      * ## Example Usage
      * 
-     * {{tffile &#34;examples/data-sources/okta_post_auth_session_policy/data-source.tf&#34;}}
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OktaFunctions.getPostAuthSessionPolicy(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
      * 
      */
     public static CompletableFuture<GetPostAuthSessionPolicyResult> getPostAuthSessionPolicyPlain(InvokeArgs args, InvokeOptions options) {
@@ -11334,6 +11871,265 @@ public final class OktaFunctions {
      */
     public static CompletableFuture<GetSecurityEventsProviderResult> getSecurityEventsProviderPlain(GetSecurityEventsProviderPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("okta:index/getSecurityEventsProvider:getSecurityEventsProvider", TypeShape.of(GetSecurityEventsProviderResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieves the Session Violation Detection Policy. This is a system policy that is automatically created when the Session Violation Detection feature is enabled. There is exactly one Session Violation Detection Policy per organization.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OktaFunctions.getSessionViolationPolicy(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetSessionViolationPolicyResult> getSessionViolationPolicy() {
+        return getSessionViolationPolicy(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieves the Session Violation Detection Policy. This is a system policy that is automatically created when the Session Violation Detection feature is enabled. There is exactly one Session Violation Detection Policy per organization.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OktaFunctions.getSessionViolationPolicy(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetSessionViolationPolicyResult> getSessionViolationPolicyPlain() {
+        return getSessionViolationPolicyPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieves the Session Violation Detection Policy. This is a system policy that is automatically created when the Session Violation Detection feature is enabled. There is exactly one Session Violation Detection Policy per organization.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OktaFunctions.getSessionViolationPolicy(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetSessionViolationPolicyResult> getSessionViolationPolicy(InvokeArgs args) {
+        return getSessionViolationPolicy(args, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieves the Session Violation Detection Policy. This is a system policy that is automatically created when the Session Violation Detection feature is enabled. There is exactly one Session Violation Detection Policy per organization.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OktaFunctions.getSessionViolationPolicy(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetSessionViolationPolicyResult> getSessionViolationPolicyPlain(InvokeArgs args) {
+        return getSessionViolationPolicyPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieves the Session Violation Detection Policy. This is a system policy that is automatically created when the Session Violation Detection feature is enabled. There is exactly one Session Violation Detection Policy per organization.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OktaFunctions.getSessionViolationPolicy(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetSessionViolationPolicyResult> getSessionViolationPolicy(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("okta:index/getSessionViolationPolicy:getSessionViolationPolicy", TypeShape.of(GetSessionViolationPolicyResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieves the Session Violation Detection Policy. This is a system policy that is automatically created when the Session Violation Detection feature is enabled. There is exactly one Session Violation Detection Policy per organization.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OktaFunctions.getSessionViolationPolicy(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetSessionViolationPolicyResult> getSessionViolationPolicy(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("okta:index/getSessionViolationPolicy:getSessionViolationPolicy", TypeShape.of(GetSessionViolationPolicyResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieves the Session Violation Detection Policy. This is a system policy that is automatically created when the Session Violation Detection feature is enabled. There is exactly one Session Violation Detection Policy per organization.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OktaFunctions.getSessionViolationPolicy(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetSessionViolationPolicyResult> getSessionViolationPolicyPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("okta:index/getSessionViolationPolicy:getSessionViolationPolicy", TypeShape.of(GetSessionViolationPolicyResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Get a single Email Template for a Brand belonging to an Okta organization.

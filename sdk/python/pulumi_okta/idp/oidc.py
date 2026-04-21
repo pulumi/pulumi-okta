@@ -22,7 +22,6 @@ class OidcArgs:
                  authorization_binding: pulumi.Input[_builtins.str],
                  authorization_url: pulumi.Input[_builtins.str],
                  client_id: pulumi.Input[_builtins.str],
-                 client_secret: pulumi.Input[_builtins.str],
                  issuer_url: pulumi.Input[_builtins.str],
                  jwks_binding: pulumi.Input[_builtins.str],
                  jwks_url: pulumi.Input[_builtins.str],
@@ -31,6 +30,9 @@ class OidcArgs:
                  token_url: pulumi.Input[_builtins.str],
                  account_link_action: Optional[pulumi.Input[_builtins.str]] = None,
                  account_link_group_includes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 client_secret: Optional[pulumi.Input[_builtins.str]] = None,
+                 client_secret_wo: Optional[pulumi.Input[_builtins.str]] = None,
+                 client_secret_wo_version: Optional[pulumi.Input[_builtins.int]] = None,
                  deprovisioned_action: Optional[pulumi.Input[_builtins.str]] = None,
                  filter: Optional[pulumi.Input[_builtins.str]] = None,
                  groups_action: Optional[pulumi.Input[_builtins.str]] = None,
@@ -62,7 +64,6 @@ class OidcArgs:
         :param pulumi.Input[_builtins.str] authorization_binding: The method of making an authorization request. It can be set to `HTTP-POST` or `HTTP-REDIRECT`.
         :param pulumi.Input[_builtins.str] authorization_url: IdP Authorization Server (AS) endpoint to request consent from the user and obtain an authorization code grant.
         :param pulumi.Input[_builtins.str] client_id: Unique identifier issued by AS for the Okta IdP instance.
-        :param pulumi.Input[_builtins.str] client_secret: Client secret issued by AS for the Okta IdP instance.
         :param pulumi.Input[_builtins.str] issuer_url: URI that identifies the issuer.
         :param pulumi.Input[_builtins.str] jwks_binding: The method of making a request for the OIDC JWKS. It can be set to `HTTP-POST` or `HTTP-REDIRECT`
         :param pulumi.Input[_builtins.str] jwks_url: Endpoint where the keys signer publishes its keys in a JWK Set.
@@ -71,6 +72,10 @@ class OidcArgs:
         :param pulumi.Input[_builtins.str] token_url: IdP Authorization Server (AS) endpoint to exchange the authorization code grant for an access token.
         :param pulumi.Input[_builtins.str] account_link_action: Specifies the account linking action for an IdP user. Default: `AUTO`
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] account_link_group_includes: Group memberships to determine link candidates.
+        :param pulumi.Input[_builtins.str] client_secret: Client secret issued by AS for the Okta IdP instance. When set, this secret will be stored in the Terraform state file. For Terraform 1.11+, consider using `client_secret_wo` instead to avoid persisting secrets in state. Either `client_secret` or `client_secret_wo` must be specified, but not both.
+        :param pulumi.Input[_builtins.str] client_secret_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+               Write-only client secret issued by AS for the Okta IdP instance for Terraform 1.11+. Unlike `client_secret`, this secret will not be persisted in the Terraform state file, providing improved security. Only use this attribute with Terraform 1.11 or higher. Either `client_secret` or `client_secret_wo` must be specified, but not both.
+        :param pulumi.Input[_builtins.int] client_secret_wo_version: Version number for the write-only client secret. Increment this value to trigger an update when changing `client_secret_wo`.
         :param pulumi.Input[_builtins.str] deprovisioned_action: Action for a previously deprovisioned IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`
         :param pulumi.Input[_builtins.str] filter: Optional regular expression pattern used to filter untrusted IdP usernames.
         :param pulumi.Input[_builtins.str] groups_action: Provisioning action for IdP user's group memberships. It can be `NONE`, `SYNC`, `APPEND`, or `ASSIGN`. Default: `NONE`
@@ -99,7 +104,6 @@ class OidcArgs:
         pulumi.set(__self__, "authorization_binding", authorization_binding)
         pulumi.set(__self__, "authorization_url", authorization_url)
         pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "client_secret", client_secret)
         pulumi.set(__self__, "issuer_url", issuer_url)
         pulumi.set(__self__, "jwks_binding", jwks_binding)
         pulumi.set(__self__, "jwks_url", jwks_url)
@@ -110,6 +114,12 @@ class OidcArgs:
             pulumi.set(__self__, "account_link_action", account_link_action)
         if account_link_group_includes is not None:
             pulumi.set(__self__, "account_link_group_includes", account_link_group_includes)
+        if client_secret is not None:
+            pulumi.set(__self__, "client_secret", client_secret)
+        if client_secret_wo is not None:
+            pulumi.set(__self__, "client_secret_wo", client_secret_wo)
+        if client_secret_wo_version is not None:
+            pulumi.set(__self__, "client_secret_wo_version", client_secret_wo_version)
         if deprovisioned_action is not None:
             pulumi.set(__self__, "deprovisioned_action", deprovisioned_action)
         if filter is not None:
@@ -196,18 +206,6 @@ class OidcArgs:
     @client_id.setter
     def client_id(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "client_id", value)
-
-    @_builtins.property
-    @pulumi.getter(name="clientSecret")
-    def client_secret(self) -> pulumi.Input[_builtins.str]:
-        """
-        Client secret issued by AS for the Okta IdP instance.
-        """
-        return pulumi.get(self, "client_secret")
-
-    @client_secret.setter
-    def client_secret(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "client_secret", value)
 
     @_builtins.property
     @pulumi.getter(name="issuerUrl")
@@ -304,6 +302,43 @@ class OidcArgs:
     @account_link_group_includes.setter
     def account_link_group_includes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "account_link_group_includes", value)
+
+    @_builtins.property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Client secret issued by AS for the Okta IdP instance. When set, this secret will be stored in the Terraform state file. For Terraform 1.11+, consider using `client_secret_wo` instead to avoid persisting secrets in state. Either `client_secret` or `client_secret_wo` must be specified, but not both.
+        """
+        return pulumi.get(self, "client_secret")
+
+    @client_secret.setter
+    def client_secret(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "client_secret", value)
+
+    @_builtins.property
+    @pulumi.getter(name="clientSecretWo")
+    def client_secret_wo(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        Write-only client secret issued by AS for the Okta IdP instance for Terraform 1.11+. Unlike `client_secret`, this secret will not be persisted in the Terraform state file, providing improved security. Only use this attribute with Terraform 1.11 or higher. Either `client_secret` or `client_secret_wo` must be specified, but not both.
+        """
+        return pulumi.get(self, "client_secret_wo")
+
+    @client_secret_wo.setter
+    def client_secret_wo(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "client_secret_wo", value)
+
+    @_builtins.property
+    @pulumi.getter(name="clientSecretWoVersion")
+    def client_secret_wo_version(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Version number for the write-only client secret. Increment this value to trigger an update when changing `client_secret_wo`.
+        """
+        return pulumi.get(self, "client_secret_wo_version")
+
+    @client_secret_wo_version.setter
+    def client_secret_wo_version(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "client_secret_wo_version", value)
 
     @_builtins.property
     @pulumi.getter(name="deprovisionedAction")
@@ -612,6 +647,8 @@ class _OidcState:
                  authorization_url: Optional[pulumi.Input[_builtins.str]] = None,
                  client_id: Optional[pulumi.Input[_builtins.str]] = None,
                  client_secret: Optional[pulumi.Input[_builtins.str]] = None,
+                 client_secret_wo: Optional[pulumi.Input[_builtins.str]] = None,
+                 client_secret_wo_version: Optional[pulumi.Input[_builtins.int]] = None,
                  deprovisioned_action: Optional[pulumi.Input[_builtins.str]] = None,
                  filter: Optional[pulumi.Input[_builtins.str]] = None,
                  groups_action: Optional[pulumi.Input[_builtins.str]] = None,
@@ -653,7 +690,10 @@ class _OidcState:
         :param pulumi.Input[_builtins.str] authorization_binding: The method of making an authorization request. It can be set to `HTTP-POST` or `HTTP-REDIRECT`.
         :param pulumi.Input[_builtins.str] authorization_url: IdP Authorization Server (AS) endpoint to request consent from the user and obtain an authorization code grant.
         :param pulumi.Input[_builtins.str] client_id: Unique identifier issued by AS for the Okta IdP instance.
-        :param pulumi.Input[_builtins.str] client_secret: Client secret issued by AS for the Okta IdP instance.
+        :param pulumi.Input[_builtins.str] client_secret: Client secret issued by AS for the Okta IdP instance. When set, this secret will be stored in the Terraform state file. For Terraform 1.11+, consider using `client_secret_wo` instead to avoid persisting secrets in state. Either `client_secret` or `client_secret_wo` must be specified, but not both.
+        :param pulumi.Input[_builtins.str] client_secret_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+               Write-only client secret issued by AS for the Okta IdP instance for Terraform 1.11+. Unlike `client_secret`, this secret will not be persisted in the Terraform state file, providing improved security. Only use this attribute with Terraform 1.11 or higher. Either `client_secret` or `client_secret_wo` must be specified, but not both.
+        :param pulumi.Input[_builtins.int] client_secret_wo_version: Version number for the write-only client secret. Increment this value to trigger an update when changing `client_secret_wo`.
         :param pulumi.Input[_builtins.str] deprovisioned_action: Action for a previously deprovisioned IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`
         :param pulumi.Input[_builtins.str] filter: Optional regular expression pattern used to filter untrusted IdP usernames.
         :param pulumi.Input[_builtins.str] groups_action: Provisioning action for IdP user's group memberships. It can be `NONE`, `SYNC`, `APPEND`, or `ASSIGN`. Default: `NONE`
@@ -699,6 +739,10 @@ class _OidcState:
             pulumi.set(__self__, "client_id", client_id)
         if client_secret is not None:
             pulumi.set(__self__, "client_secret", client_secret)
+        if client_secret_wo is not None:
+            pulumi.set(__self__, "client_secret_wo", client_secret_wo)
+        if client_secret_wo_version is not None:
+            pulumi.set(__self__, "client_secret_wo_version", client_secret_wo_version)
         if deprovisioned_action is not None:
             pulumi.set(__self__, "deprovisioned_action", deprovisioned_action)
         if filter is not None:
@@ -830,13 +874,38 @@ class _OidcState:
     @pulumi.getter(name="clientSecret")
     def client_secret(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Client secret issued by AS for the Okta IdP instance.
+        Client secret issued by AS for the Okta IdP instance. When set, this secret will be stored in the Terraform state file. For Terraform 1.11+, consider using `client_secret_wo` instead to avoid persisting secrets in state. Either `client_secret` or `client_secret_wo` must be specified, but not both.
         """
         return pulumi.get(self, "client_secret")
 
     @client_secret.setter
     def client_secret(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "client_secret", value)
+
+    @_builtins.property
+    @pulumi.getter(name="clientSecretWo")
+    def client_secret_wo(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        Write-only client secret issued by AS for the Okta IdP instance for Terraform 1.11+. Unlike `client_secret`, this secret will not be persisted in the Terraform state file, providing improved security. Only use this attribute with Terraform 1.11 or higher. Either `client_secret` or `client_secret_wo` must be specified, but not both.
+        """
+        return pulumi.get(self, "client_secret_wo")
+
+    @client_secret_wo.setter
+    def client_secret_wo(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "client_secret_wo", value)
+
+    @_builtins.property
+    @pulumi.getter(name="clientSecretWoVersion")
+    def client_secret_wo_version(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Version number for the write-only client secret. Increment this value to trigger an update when changing `client_secret_wo`.
+        """
+        return pulumi.get(self, "client_secret_wo_version")
+
+    @client_secret_wo_version.setter
+    def client_secret_wo_version(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "client_secret_wo_version", value)
 
     @_builtins.property
     @pulumi.getter(name="deprovisionedAction")
@@ -1244,6 +1313,8 @@ class Oidc(pulumi.CustomResource):
                  authorization_url: Optional[pulumi.Input[_builtins.str]] = None,
                  client_id: Optional[pulumi.Input[_builtins.str]] = None,
                  client_secret: Optional[pulumi.Input[_builtins.str]] = None,
+                 client_secret_wo: Optional[pulumi.Input[_builtins.str]] = None,
+                 client_secret_wo_version: Optional[pulumi.Input[_builtins.int]] = None,
                  deprovisioned_action: Optional[pulumi.Input[_builtins.str]] = None,
                  filter: Optional[pulumi.Input[_builtins.str]] = None,
                  groups_action: Optional[pulumi.Input[_builtins.str]] = None,
@@ -1316,7 +1387,10 @@ class Oidc(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] authorization_binding: The method of making an authorization request. It can be set to `HTTP-POST` or `HTTP-REDIRECT`.
         :param pulumi.Input[_builtins.str] authorization_url: IdP Authorization Server (AS) endpoint to request consent from the user and obtain an authorization code grant.
         :param pulumi.Input[_builtins.str] client_id: Unique identifier issued by AS for the Okta IdP instance.
-        :param pulumi.Input[_builtins.str] client_secret: Client secret issued by AS for the Okta IdP instance.
+        :param pulumi.Input[_builtins.str] client_secret: Client secret issued by AS for the Okta IdP instance. When set, this secret will be stored in the Terraform state file. For Terraform 1.11+, consider using `client_secret_wo` instead to avoid persisting secrets in state. Either `client_secret` or `client_secret_wo` must be specified, but not both.
+        :param pulumi.Input[_builtins.str] client_secret_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+               Write-only client secret issued by AS for the Okta IdP instance for Terraform 1.11+. Unlike `client_secret`, this secret will not be persisted in the Terraform state file, providing improved security. Only use this attribute with Terraform 1.11 or higher. Either `client_secret` or `client_secret_wo` must be specified, but not both.
+        :param pulumi.Input[_builtins.int] client_secret_wo_version: Version number for the write-only client secret. Increment this value to trigger an update when changing `client_secret_wo`.
         :param pulumi.Input[_builtins.str] deprovisioned_action: Action for a previously deprovisioned IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`
         :param pulumi.Input[_builtins.str] filter: Optional regular expression pattern used to filter untrusted IdP usernames.
         :param pulumi.Input[_builtins.str] groups_action: Provisioning action for IdP user's group memberships. It can be `NONE`, `SYNC`, `APPEND`, or `ASSIGN`. Default: `NONE`
@@ -1408,6 +1482,8 @@ class Oidc(pulumi.CustomResource):
                  authorization_url: Optional[pulumi.Input[_builtins.str]] = None,
                  client_id: Optional[pulumi.Input[_builtins.str]] = None,
                  client_secret: Optional[pulumi.Input[_builtins.str]] = None,
+                 client_secret_wo: Optional[pulumi.Input[_builtins.str]] = None,
+                 client_secret_wo_version: Optional[pulumi.Input[_builtins.int]] = None,
                  deprovisioned_action: Optional[pulumi.Input[_builtins.str]] = None,
                  filter: Optional[pulumi.Input[_builtins.str]] = None,
                  groups_action: Optional[pulumi.Input[_builtins.str]] = None,
@@ -1459,9 +1535,9 @@ class Oidc(pulumi.CustomResource):
             if client_id is None and not opts.urn:
                 raise TypeError("Missing required property 'client_id'")
             __props__.__dict__["client_id"] = client_id
-            if client_secret is None and not opts.urn:
-                raise TypeError("Missing required property 'client_secret'")
             __props__.__dict__["client_secret"] = None if client_secret is None else pulumi.Output.secret(client_secret)
+            __props__.__dict__["client_secret_wo"] = None if client_secret_wo is None else pulumi.Output.secret(client_secret_wo)
+            __props__.__dict__["client_secret_wo_version"] = client_secret_wo_version
             __props__.__dict__["deprovisioned_action"] = deprovisioned_action
             __props__.__dict__["filter"] = filter
             __props__.__dict__["groups_action"] = groups_action
@@ -1507,7 +1583,7 @@ class Oidc(pulumi.CustomResource):
             __props__.__dict__["username_template"] = username_template
             __props__.__dict__["type"] = None
             __props__.__dict__["user_type_id"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["clientSecret"])
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["clientSecret", "clientSecretWo"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Oidc, __self__).__init__(
             'okta:idp/oidc:Oidc',
@@ -1525,6 +1601,8 @@ class Oidc(pulumi.CustomResource):
             authorization_url: Optional[pulumi.Input[_builtins.str]] = None,
             client_id: Optional[pulumi.Input[_builtins.str]] = None,
             client_secret: Optional[pulumi.Input[_builtins.str]] = None,
+            client_secret_wo: Optional[pulumi.Input[_builtins.str]] = None,
+            client_secret_wo_version: Optional[pulumi.Input[_builtins.int]] = None,
             deprovisioned_action: Optional[pulumi.Input[_builtins.str]] = None,
             filter: Optional[pulumi.Input[_builtins.str]] = None,
             groups_action: Optional[pulumi.Input[_builtins.str]] = None,
@@ -1570,7 +1648,10 @@ class Oidc(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] authorization_binding: The method of making an authorization request. It can be set to `HTTP-POST` or `HTTP-REDIRECT`.
         :param pulumi.Input[_builtins.str] authorization_url: IdP Authorization Server (AS) endpoint to request consent from the user and obtain an authorization code grant.
         :param pulumi.Input[_builtins.str] client_id: Unique identifier issued by AS for the Okta IdP instance.
-        :param pulumi.Input[_builtins.str] client_secret: Client secret issued by AS for the Okta IdP instance.
+        :param pulumi.Input[_builtins.str] client_secret: Client secret issued by AS for the Okta IdP instance. When set, this secret will be stored in the Terraform state file. For Terraform 1.11+, consider using `client_secret_wo` instead to avoid persisting secrets in state. Either `client_secret` or `client_secret_wo` must be specified, but not both.
+        :param pulumi.Input[_builtins.str] client_secret_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+               Write-only client secret issued by AS for the Okta IdP instance for Terraform 1.11+. Unlike `client_secret`, this secret will not be persisted in the Terraform state file, providing improved security. Only use this attribute with Terraform 1.11 or higher. Either `client_secret` or `client_secret_wo` must be specified, but not both.
+        :param pulumi.Input[_builtins.int] client_secret_wo_version: Version number for the write-only client secret. Increment this value to trigger an update when changing `client_secret_wo`.
         :param pulumi.Input[_builtins.str] deprovisioned_action: Action for a previously deprovisioned IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`
         :param pulumi.Input[_builtins.str] filter: Optional regular expression pattern used to filter untrusted IdP usernames.
         :param pulumi.Input[_builtins.str] groups_action: Provisioning action for IdP user's group memberships. It can be `NONE`, `SYNC`, `APPEND`, or `ASSIGN`. Default: `NONE`
@@ -1614,6 +1695,8 @@ class Oidc(pulumi.CustomResource):
         __props__.__dict__["authorization_url"] = authorization_url
         __props__.__dict__["client_id"] = client_id
         __props__.__dict__["client_secret"] = client_secret
+        __props__.__dict__["client_secret_wo"] = client_secret_wo
+        __props__.__dict__["client_secret_wo_version"] = client_secret_wo_version
         __props__.__dict__["deprovisioned_action"] = deprovisioned_action
         __props__.__dict__["filter"] = filter
         __props__.__dict__["groups_action"] = groups_action
@@ -1691,11 +1774,28 @@ class Oidc(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="clientSecret")
-    def client_secret(self) -> pulumi.Output[_builtins.str]:
+    def client_secret(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Client secret issued by AS for the Okta IdP instance.
+        Client secret issued by AS for the Okta IdP instance. When set, this secret will be stored in the Terraform state file. For Terraform 1.11+, consider using `client_secret_wo` instead to avoid persisting secrets in state. Either `client_secret` or `client_secret_wo` must be specified, but not both.
         """
         return pulumi.get(self, "client_secret")
+
+    @_builtins.property
+    @pulumi.getter(name="clientSecretWo")
+    def client_secret_wo(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        Write-only client secret issued by AS for the Okta IdP instance for Terraform 1.11+. Unlike `client_secret`, this secret will not be persisted in the Terraform state file, providing improved security. Only use this attribute with Terraform 1.11 or higher. Either `client_secret` or `client_secret_wo` must be specified, but not both.
+        """
+        return pulumi.get(self, "client_secret_wo")
+
+    @_builtins.property
+    @pulumi.getter(name="clientSecretWoVersion")
+    def client_secret_wo_version(self) -> pulumi.Output[Optional[_builtins.int]]:
+        """
+        Version number for the write-only client secret. Increment this value to trigger an update when changing `client_secret_wo`.
+        """
+        return pulumi.get(self, "client_secret_wo_version")
 
     @_builtins.property
     @pulumi.getter(name="deprovisionedAction")

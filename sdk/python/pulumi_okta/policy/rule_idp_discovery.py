@@ -31,6 +31,10 @@ class RuleIdpDiscoveryArgs:
                  platform_includes: Optional[pulumi.Input[Sequence[pulumi.Input['RuleIdpDiscoveryPlatformIncludeArgs']]]] = None,
                  policy_id: Optional[pulumi.Input[_builtins.str]] = None,
                  priority: Optional[pulumi.Input[_builtins.int]] = None,
+                 property_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 provider_expression: Optional[pulumi.Input[_builtins.str]] = None,
+                 selection_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 should_fall_back_to_okta: Optional[pulumi.Input[_builtins.bool]] = None,
                  status: Optional[pulumi.Input[_builtins.str]] = None,
                  user_identifier_attribute: Optional[pulumi.Input[_builtins.str]] = None,
                  user_identifier_patterns: Optional[pulumi.Input[Sequence[pulumi.Input['RuleIdpDiscoveryUserIdentifierPatternArgs']]]] = None,
@@ -53,6 +57,10 @@ class RuleIdpDiscoveryArgs:
                - 'os_type' - (Optional) One of: 'ANY', 'IOS', 'WINDOWS', 'ANDROID', 'OTHER', 'OSX'
         :param pulumi.Input[_builtins.str] policy_id: Policy ID of the Rule
         :param pulumi.Input[_builtins.int] priority: Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
+        :param pulumi.Input[_builtins.str] property_name: The IdP property that the evaluated expression should match against when `selection_type` is `DYNAMIC`. Maps to `actions.idp.matchCriteria[0].propertyName` in the API. If not set, the API default is used and the value is stored in state.
+        :param pulumi.Input[_builtins.str] provider_expression: An Okta Expression Language expression that is evaluated against the Login Context and used to dynamically select an IdP. Only applicable when `selection_type` is `DYNAMIC`. Maps to `actions.idp.matchCriteria[0].providerExpression` in the API. Example: `login.identifier.substringAfter('@')`
+        :param pulumi.Input[_builtins.str] selection_type: Determines how the IdP is selected. One of: `SPECIFIC`, `DYNAMIC`. Default: `SPECIFIC`. When `DYNAMIC`, the IdP is selected based on the evaluated `provider_expression`.
+        :param pulumi.Input[_builtins.bool] should_fall_back_to_okta: Specifies whether to fall back to Okta if authentication with the matched IdP fails. Only applicable when `selection_type` is `DYNAMIC`. Default: `false`.
         :param pulumi.Input[_builtins.str] status: Policy Rule Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
         :param pulumi.Input[_builtins.str] user_identifier_attribute: Profile attribute matching can only have a single value that describes the type indicated in `user_identifier_type`. This is the attribute or identifier that the `user_identifier_patterns` are checked against.
         :param pulumi.Input[Sequence[pulumi.Input['RuleIdpDiscoveryUserIdentifierPatternArgs']]] user_identifier_patterns: Specifies a User Identifier pattern condition to match against. If 'match_type' of 'EXPRESSION' is used, only a *single* element can be set, otherwise multiple elements of matching patterns may be provided.
@@ -80,6 +88,14 @@ class RuleIdpDiscoveryArgs:
             pulumi.set(__self__, "policy_id", policy_id)
         if priority is not None:
             pulumi.set(__self__, "priority", priority)
+        if property_name is not None:
+            pulumi.set(__self__, "property_name", property_name)
+        if provider_expression is not None:
+            pulumi.set(__self__, "provider_expression", provider_expression)
+        if selection_type is not None:
+            pulumi.set(__self__, "selection_type", selection_type)
+        if should_fall_back_to_okta is not None:
+            pulumi.set(__self__, "should_fall_back_to_okta", should_fall_back_to_okta)
         if status is not None:
             pulumi.set(__self__, "status", status)
         if user_identifier_attribute is not None:
@@ -211,6 +227,54 @@ class RuleIdpDiscoveryArgs:
     @priority.setter
     def priority(self, value: Optional[pulumi.Input[_builtins.int]]):
         pulumi.set(self, "priority", value)
+
+    @_builtins.property
+    @pulumi.getter(name="propertyName")
+    def property_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The IdP property that the evaluated expression should match against when `selection_type` is `DYNAMIC`. Maps to `actions.idp.matchCriteria[0].propertyName` in the API. If not set, the API default is used and the value is stored in state.
+        """
+        return pulumi.get(self, "property_name")
+
+    @property_name.setter
+    def property_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "property_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="providerExpression")
+    def provider_expression(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        An Okta Expression Language expression that is evaluated against the Login Context and used to dynamically select an IdP. Only applicable when `selection_type` is `DYNAMIC`. Maps to `actions.idp.matchCriteria[0].providerExpression` in the API. Example: `login.identifier.substringAfter('@')`
+        """
+        return pulumi.get(self, "provider_expression")
+
+    @provider_expression.setter
+    def provider_expression(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "provider_expression", value)
+
+    @_builtins.property
+    @pulumi.getter(name="selectionType")
+    def selection_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Determines how the IdP is selected. One of: `SPECIFIC`, `DYNAMIC`. Default: `SPECIFIC`. When `DYNAMIC`, the IdP is selected based on the evaluated `provider_expression`.
+        """
+        return pulumi.get(self, "selection_type")
+
+    @selection_type.setter
+    def selection_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "selection_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="shouldFallBackToOkta")
+    def should_fall_back_to_okta(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Specifies whether to fall back to Okta if authentication with the matched IdP fails. Only applicable when `selection_type` is `DYNAMIC`. Default: `false`.
+        """
+        return pulumi.get(self, "should_fall_back_to_okta")
+
+    @should_fall_back_to_okta.setter
+    def should_fall_back_to_okta(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "should_fall_back_to_okta", value)
 
     @_builtins.property
     @pulumi.getter
@@ -276,6 +340,10 @@ class _RuleIdpDiscoveryState:
                  platform_includes: Optional[pulumi.Input[Sequence[pulumi.Input['RuleIdpDiscoveryPlatformIncludeArgs']]]] = None,
                  policy_id: Optional[pulumi.Input[_builtins.str]] = None,
                  priority: Optional[pulumi.Input[_builtins.int]] = None,
+                 property_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 provider_expression: Optional[pulumi.Input[_builtins.str]] = None,
+                 selection_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 should_fall_back_to_okta: Optional[pulumi.Input[_builtins.bool]] = None,
                  status: Optional[pulumi.Input[_builtins.str]] = None,
                  user_identifier_attribute: Optional[pulumi.Input[_builtins.str]] = None,
                  user_identifier_patterns: Optional[pulumi.Input[Sequence[pulumi.Input['RuleIdpDiscoveryUserIdentifierPatternArgs']]]] = None,
@@ -298,6 +366,10 @@ class _RuleIdpDiscoveryState:
                - 'os_type' - (Optional) One of: 'ANY', 'IOS', 'WINDOWS', 'ANDROID', 'OTHER', 'OSX'
         :param pulumi.Input[_builtins.str] policy_id: Policy ID of the Rule
         :param pulumi.Input[_builtins.int] priority: Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
+        :param pulumi.Input[_builtins.str] property_name: The IdP property that the evaluated expression should match against when `selection_type` is `DYNAMIC`. Maps to `actions.idp.matchCriteria[0].propertyName` in the API. If not set, the API default is used and the value is stored in state.
+        :param pulumi.Input[_builtins.str] provider_expression: An Okta Expression Language expression that is evaluated against the Login Context and used to dynamically select an IdP. Only applicable when `selection_type` is `DYNAMIC`. Maps to `actions.idp.matchCriteria[0].providerExpression` in the API. Example: `login.identifier.substringAfter('@')`
+        :param pulumi.Input[_builtins.str] selection_type: Determines how the IdP is selected. One of: `SPECIFIC`, `DYNAMIC`. Default: `SPECIFIC`. When `DYNAMIC`, the IdP is selected based on the evaluated `provider_expression`.
+        :param pulumi.Input[_builtins.bool] should_fall_back_to_okta: Specifies whether to fall back to Okta if authentication with the matched IdP fails. Only applicable when `selection_type` is `DYNAMIC`. Default: `false`.
         :param pulumi.Input[_builtins.str] status: Policy Rule Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
         :param pulumi.Input[_builtins.str] user_identifier_attribute: Profile attribute matching can only have a single value that describes the type indicated in `user_identifier_type`. This is the attribute or identifier that the `user_identifier_patterns` are checked against.
         :param pulumi.Input[Sequence[pulumi.Input['RuleIdpDiscoveryUserIdentifierPatternArgs']]] user_identifier_patterns: Specifies a User Identifier pattern condition to match against. If 'match_type' of 'EXPRESSION' is used, only a *single* element can be set, otherwise multiple elements of matching patterns may be provided.
@@ -325,6 +397,14 @@ class _RuleIdpDiscoveryState:
             pulumi.set(__self__, "policy_id", policy_id)
         if priority is not None:
             pulumi.set(__self__, "priority", priority)
+        if property_name is not None:
+            pulumi.set(__self__, "property_name", property_name)
+        if provider_expression is not None:
+            pulumi.set(__self__, "provider_expression", provider_expression)
+        if selection_type is not None:
+            pulumi.set(__self__, "selection_type", selection_type)
+        if should_fall_back_to_okta is not None:
+            pulumi.set(__self__, "should_fall_back_to_okta", should_fall_back_to_okta)
         if status is not None:
             pulumi.set(__self__, "status", status)
         if user_identifier_attribute is not None:
@@ -456,6 +536,54 @@ class _RuleIdpDiscoveryState:
     @priority.setter
     def priority(self, value: Optional[pulumi.Input[_builtins.int]]):
         pulumi.set(self, "priority", value)
+
+    @_builtins.property
+    @pulumi.getter(name="propertyName")
+    def property_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The IdP property that the evaluated expression should match against when `selection_type` is `DYNAMIC`. Maps to `actions.idp.matchCriteria[0].propertyName` in the API. If not set, the API default is used and the value is stored in state.
+        """
+        return pulumi.get(self, "property_name")
+
+    @property_name.setter
+    def property_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "property_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="providerExpression")
+    def provider_expression(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        An Okta Expression Language expression that is evaluated against the Login Context and used to dynamically select an IdP. Only applicable when `selection_type` is `DYNAMIC`. Maps to `actions.idp.matchCriteria[0].providerExpression` in the API. Example: `login.identifier.substringAfter('@')`
+        """
+        return pulumi.get(self, "provider_expression")
+
+    @provider_expression.setter
+    def provider_expression(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "provider_expression", value)
+
+    @_builtins.property
+    @pulumi.getter(name="selectionType")
+    def selection_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Determines how the IdP is selected. One of: `SPECIFIC`, `DYNAMIC`. Default: `SPECIFIC`. When `DYNAMIC`, the IdP is selected based on the evaluated `provider_expression`.
+        """
+        return pulumi.get(self, "selection_type")
+
+    @selection_type.setter
+    def selection_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "selection_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="shouldFallBackToOkta")
+    def should_fall_back_to_okta(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Specifies whether to fall back to Okta if authentication with the matched IdP fails. Only applicable when `selection_type` is `DYNAMIC`. Default: `false`.
+        """
+        return pulumi.get(self, "should_fall_back_to_okta")
+
+    @should_fall_back_to_okta.setter
+    def should_fall_back_to_okta(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "should_fall_back_to_okta", value)
 
     @_builtins.property
     @pulumi.getter
@@ -524,6 +652,10 @@ class RuleIdpDiscovery(pulumi.CustomResource):
                  platform_includes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RuleIdpDiscoveryPlatformIncludeArgs', 'RuleIdpDiscoveryPlatformIncludeArgsDict']]]]] = None,
                  policy_id: Optional[pulumi.Input[_builtins.str]] = None,
                  priority: Optional[pulumi.Input[_builtins.int]] = None,
+                 property_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 provider_expression: Optional[pulumi.Input[_builtins.str]] = None,
+                 selection_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 should_fall_back_to_okta: Optional[pulumi.Input[_builtins.bool]] = None,
                  status: Optional[pulumi.Input[_builtins.str]] = None,
                  user_identifier_attribute: Optional[pulumi.Input[_builtins.str]] = None,
                  user_identifier_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RuleIdpDiscoveryUserIdentifierPatternArgs', 'RuleIdpDiscoveryUserIdentifierPatternArgsDict']]]]] = None,
@@ -536,6 +668,67 @@ class RuleIdpDiscovery(pulumi.CustomResource):
         > If you receive the error 'You do not have permission to access the feature
         you are requesting' contact support and
         request feature flag 'ADVANCED_SSO' be applied to your org.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        ### All Okta orgs contain only one IdP Discovery Policy
+        idp_discovery_policy = okta.policy.get_policy(name="Idp Discovery Policy",
+            type="IDP_DISCOVERY")
+        # Example 1: Specific IdP routing - route to a named OIDC IdP
+        example = okta.policy.RuleIdpDiscovery("example",
+            policy_id=idp_discovery_policy.id,
+            name="example",
+            idp_providers=[{
+                "id": "<idp id>",
+                "type": "OIDC",
+            }],
+            network_connection="ANYWHERE",
+            priority=1,
+            status="ACTIVE",
+            user_identifier_type="ATTRIBUTE",
+            user_identifier_attribute="company",
+            app_excludes=[
+                {
+                    "id": "<app id>",
+                    "type": "APP",
+                },
+                {
+                    "name": "yahoo_mail",
+                    "type": "APP_TYPE",
+                },
+            ],
+            app_includes=[
+                {
+                    "id": "<app id>",
+                    "type": "APP",
+                },
+                {
+                    "name": "<app type name>",
+                    "type": "APP_TYPE",
+                },
+            ],
+            platform_includes=[{
+                "type": "MOBILE",
+                "os_type": "OSX",
+            }],
+            user_identifier_patterns=[{
+                "match_type": "EQUALS",
+                "value": "Articulate",
+            }])
+        # Example 2: Dynamic IdP routing - select IdP based on an expression
+        dynamic_example = okta.policy.RuleIdpDiscovery("dynamic_example",
+            policy_id=idp_discovery_policy.id,
+            name="dynamic-idp-routing",
+            network_connection="ANYWHERE",
+            priority=2,
+            status="ACTIVE",
+            selection_type="DYNAMIC",
+            provider_expression="login.identifier.substringAfter('@')")
+        ```
 
         ## Import
 
@@ -561,6 +754,10 @@ class RuleIdpDiscovery(pulumi.CustomResource):
                - 'os_type' - (Optional) One of: 'ANY', 'IOS', 'WINDOWS', 'ANDROID', 'OTHER', 'OSX'
         :param pulumi.Input[_builtins.str] policy_id: Policy ID of the Rule
         :param pulumi.Input[_builtins.int] priority: Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
+        :param pulumi.Input[_builtins.str] property_name: The IdP property that the evaluated expression should match against when `selection_type` is `DYNAMIC`. Maps to `actions.idp.matchCriteria[0].propertyName` in the API. If not set, the API default is used and the value is stored in state.
+        :param pulumi.Input[_builtins.str] provider_expression: An Okta Expression Language expression that is evaluated against the Login Context and used to dynamically select an IdP. Only applicable when `selection_type` is `DYNAMIC`. Maps to `actions.idp.matchCriteria[0].providerExpression` in the API. Example: `login.identifier.substringAfter('@')`
+        :param pulumi.Input[_builtins.str] selection_type: Determines how the IdP is selected. One of: `SPECIFIC`, `DYNAMIC`. Default: `SPECIFIC`. When `DYNAMIC`, the IdP is selected based on the evaluated `provider_expression`.
+        :param pulumi.Input[_builtins.bool] should_fall_back_to_okta: Specifies whether to fall back to Okta if authentication with the matched IdP fails. Only applicable when `selection_type` is `DYNAMIC`. Default: `false`.
         :param pulumi.Input[_builtins.str] status: Policy Rule Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
         :param pulumi.Input[_builtins.str] user_identifier_attribute: Profile attribute matching can only have a single value that describes the type indicated in `user_identifier_type`. This is the attribute or identifier that the `user_identifier_patterns` are checked against.
         :param pulumi.Input[Sequence[pulumi.Input[Union['RuleIdpDiscoveryUserIdentifierPatternArgs', 'RuleIdpDiscoveryUserIdentifierPatternArgsDict']]]] user_identifier_patterns: Specifies a User Identifier pattern condition to match against. If 'match_type' of 'EXPRESSION' is used, only a *single* element can be set, otherwise multiple elements of matching patterns may be provided.
@@ -581,6 +778,67 @@ class RuleIdpDiscovery(pulumi.CustomResource):
         > If you receive the error 'You do not have permission to access the feature
         you are requesting' contact support and
         request feature flag 'ADVANCED_SSO' be applied to your org.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        ### All Okta orgs contain only one IdP Discovery Policy
+        idp_discovery_policy = okta.policy.get_policy(name="Idp Discovery Policy",
+            type="IDP_DISCOVERY")
+        # Example 1: Specific IdP routing - route to a named OIDC IdP
+        example = okta.policy.RuleIdpDiscovery("example",
+            policy_id=idp_discovery_policy.id,
+            name="example",
+            idp_providers=[{
+                "id": "<idp id>",
+                "type": "OIDC",
+            }],
+            network_connection="ANYWHERE",
+            priority=1,
+            status="ACTIVE",
+            user_identifier_type="ATTRIBUTE",
+            user_identifier_attribute="company",
+            app_excludes=[
+                {
+                    "id": "<app id>",
+                    "type": "APP",
+                },
+                {
+                    "name": "yahoo_mail",
+                    "type": "APP_TYPE",
+                },
+            ],
+            app_includes=[
+                {
+                    "id": "<app id>",
+                    "type": "APP",
+                },
+                {
+                    "name": "<app type name>",
+                    "type": "APP_TYPE",
+                },
+            ],
+            platform_includes=[{
+                "type": "MOBILE",
+                "os_type": "OSX",
+            }],
+            user_identifier_patterns=[{
+                "match_type": "EQUALS",
+                "value": "Articulate",
+            }])
+        # Example 2: Dynamic IdP routing - select IdP based on an expression
+        dynamic_example = okta.policy.RuleIdpDiscovery("dynamic_example",
+            policy_id=idp_discovery_policy.id,
+            name="dynamic-idp-routing",
+            network_connection="ANYWHERE",
+            priority=2,
+            status="ACTIVE",
+            selection_type="DYNAMIC",
+            provider_expression="login.identifier.substringAfter('@')")
+        ```
 
         ## Import
 
@@ -614,6 +872,10 @@ class RuleIdpDiscovery(pulumi.CustomResource):
                  platform_includes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RuleIdpDiscoveryPlatformIncludeArgs', 'RuleIdpDiscoveryPlatformIncludeArgsDict']]]]] = None,
                  policy_id: Optional[pulumi.Input[_builtins.str]] = None,
                  priority: Optional[pulumi.Input[_builtins.int]] = None,
+                 property_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 provider_expression: Optional[pulumi.Input[_builtins.str]] = None,
+                 selection_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 should_fall_back_to_okta: Optional[pulumi.Input[_builtins.bool]] = None,
                  status: Optional[pulumi.Input[_builtins.str]] = None,
                  user_identifier_attribute: Optional[pulumi.Input[_builtins.str]] = None,
                  user_identifier_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RuleIdpDiscoveryUserIdentifierPatternArgs', 'RuleIdpDiscoveryUserIdentifierPatternArgsDict']]]]] = None,
@@ -637,6 +899,10 @@ class RuleIdpDiscovery(pulumi.CustomResource):
             __props__.__dict__["platform_includes"] = platform_includes
             __props__.__dict__["policy_id"] = policy_id
             __props__.__dict__["priority"] = priority
+            __props__.__dict__["property_name"] = property_name
+            __props__.__dict__["provider_expression"] = provider_expression
+            __props__.__dict__["selection_type"] = selection_type
+            __props__.__dict__["should_fall_back_to_okta"] = should_fall_back_to_okta
             __props__.__dict__["status"] = status
             __props__.__dict__["user_identifier_attribute"] = user_identifier_attribute
             __props__.__dict__["user_identifier_patterns"] = user_identifier_patterns
@@ -661,6 +927,10 @@ class RuleIdpDiscovery(pulumi.CustomResource):
             platform_includes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RuleIdpDiscoveryPlatformIncludeArgs', 'RuleIdpDiscoveryPlatformIncludeArgsDict']]]]] = None,
             policy_id: Optional[pulumi.Input[_builtins.str]] = None,
             priority: Optional[pulumi.Input[_builtins.int]] = None,
+            property_name: Optional[pulumi.Input[_builtins.str]] = None,
+            provider_expression: Optional[pulumi.Input[_builtins.str]] = None,
+            selection_type: Optional[pulumi.Input[_builtins.str]] = None,
+            should_fall_back_to_okta: Optional[pulumi.Input[_builtins.bool]] = None,
             status: Optional[pulumi.Input[_builtins.str]] = None,
             user_identifier_attribute: Optional[pulumi.Input[_builtins.str]] = None,
             user_identifier_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RuleIdpDiscoveryUserIdentifierPatternArgs', 'RuleIdpDiscoveryUserIdentifierPatternArgsDict']]]]] = None,
@@ -687,6 +957,10 @@ class RuleIdpDiscovery(pulumi.CustomResource):
                - 'os_type' - (Optional) One of: 'ANY', 'IOS', 'WINDOWS', 'ANDROID', 'OTHER', 'OSX'
         :param pulumi.Input[_builtins.str] policy_id: Policy ID of the Rule
         :param pulumi.Input[_builtins.int] priority: Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
+        :param pulumi.Input[_builtins.str] property_name: The IdP property that the evaluated expression should match against when `selection_type` is `DYNAMIC`. Maps to `actions.idp.matchCriteria[0].propertyName` in the API. If not set, the API default is used and the value is stored in state.
+        :param pulumi.Input[_builtins.str] provider_expression: An Okta Expression Language expression that is evaluated against the Login Context and used to dynamically select an IdP. Only applicable when `selection_type` is `DYNAMIC`. Maps to `actions.idp.matchCriteria[0].providerExpression` in the API. Example: `login.identifier.substringAfter('@')`
+        :param pulumi.Input[_builtins.str] selection_type: Determines how the IdP is selected. One of: `SPECIFIC`, `DYNAMIC`. Default: `SPECIFIC`. When `DYNAMIC`, the IdP is selected based on the evaluated `provider_expression`.
+        :param pulumi.Input[_builtins.bool] should_fall_back_to_okta: Specifies whether to fall back to Okta if authentication with the matched IdP fails. Only applicable when `selection_type` is `DYNAMIC`. Default: `false`.
         :param pulumi.Input[_builtins.str] status: Policy Rule Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
         :param pulumi.Input[_builtins.str] user_identifier_attribute: Profile attribute matching can only have a single value that describes the type indicated in `user_identifier_type`. This is the attribute or identifier that the `user_identifier_patterns` are checked against.
         :param pulumi.Input[Sequence[pulumi.Input[Union['RuleIdpDiscoveryUserIdentifierPatternArgs', 'RuleIdpDiscoveryUserIdentifierPatternArgsDict']]]] user_identifier_patterns: Specifies a User Identifier pattern condition to match against. If 'match_type' of 'EXPRESSION' is used, only a *single* element can be set, otherwise multiple elements of matching patterns may be provided.
@@ -708,6 +982,10 @@ class RuleIdpDiscovery(pulumi.CustomResource):
         __props__.__dict__["platform_includes"] = platform_includes
         __props__.__dict__["policy_id"] = policy_id
         __props__.__dict__["priority"] = priority
+        __props__.__dict__["property_name"] = property_name
+        __props__.__dict__["provider_expression"] = provider_expression
+        __props__.__dict__["selection_type"] = selection_type
+        __props__.__dict__["should_fall_back_to_okta"] = should_fall_back_to_okta
         __props__.__dict__["status"] = status
         __props__.__dict__["user_identifier_attribute"] = user_identifier_attribute
         __props__.__dict__["user_identifier_patterns"] = user_identifier_patterns
@@ -796,6 +1074,38 @@ class RuleIdpDiscovery(pulumi.CustomResource):
         Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
         """
         return pulumi.get(self, "priority")
+
+    @_builtins.property
+    @pulumi.getter(name="propertyName")
+    def property_name(self) -> pulumi.Output[_builtins.str]:
+        """
+        The IdP property that the evaluated expression should match against when `selection_type` is `DYNAMIC`. Maps to `actions.idp.matchCriteria[0].propertyName` in the API. If not set, the API default is used and the value is stored in state.
+        """
+        return pulumi.get(self, "property_name")
+
+    @_builtins.property
+    @pulumi.getter(name="providerExpression")
+    def provider_expression(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        An Okta Expression Language expression that is evaluated against the Login Context and used to dynamically select an IdP. Only applicable when `selection_type` is `DYNAMIC`. Maps to `actions.idp.matchCriteria[0].providerExpression` in the API. Example: `login.identifier.substringAfter('@')`
+        """
+        return pulumi.get(self, "provider_expression")
+
+    @_builtins.property
+    @pulumi.getter(name="selectionType")
+    def selection_type(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Determines how the IdP is selected. One of: `SPECIFIC`, `DYNAMIC`. Default: `SPECIFIC`. When `DYNAMIC`, the IdP is selected based on the evaluated `provider_expression`.
+        """
+        return pulumi.get(self, "selection_type")
+
+    @_builtins.property
+    @pulumi.getter(name="shouldFallBackToOkta")
+    def should_fall_back_to_okta(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Specifies whether to fall back to Okta if authentication with the matched IdP fails. Only applicable when `selection_type` is `DYNAMIC`. Default: `false`.
+        """
+        return pulumi.get(self, "should_fall_back_to_okta")
 
     @_builtins.property
     @pulumi.getter

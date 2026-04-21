@@ -95,6 +95,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Entitlement{}
 	case "okta:index/entitlementBundle:EntitlementBundle":
 		r = &EntitlementBundle{}
+	case "okta:index/entityRiskPolicyRule:EntityRiskPolicyRule":
+		r = &EntityRiskPolicyRule{}
 	case "okta:index/eventHook:EventHook":
 		r = &EventHook{}
 	case "okta:index/eventHookVerification:EventHookVerification":
@@ -169,6 +171,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &SecurityEventsProvider{}
 	case "okta:index/securityNotificationEmails:SecurityNotificationEmails":
 		r = &SecurityNotificationEmails{}
+	case "okta:index/sessionViolationPolicyRule:SessionViolationPolicyRule":
+		r = &SessionViolationPolicyRule{}
 	case "okta:index/templateSms:TemplateSms":
 		r = &TemplateSms{}
 	case "okta:index/theme:Theme":
@@ -407,6 +411,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"okta",
+		"index/entityRiskPolicyRule",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"okta",
 		"index/eventHook",
 		&module{version},
 	)
@@ -588,6 +597,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"okta",
 		"index/securityNotificationEmails",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"okta",
+		"index/sessionViolationPolicyRule",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

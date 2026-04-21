@@ -98,10 +98,23 @@ namespace Pulumi.Okta.Idp
         public Output<string?> ClientId { get; private set; } = null!;
 
         /// <summary>
-        /// Client secret issued by AS for the Okta IdP instance.
+        /// Client secret issued by AS for the Okta IdP instance. When set, this secret will be stored in the Terraform state file. For Terraform 1.11+, consider using `ClientSecretWo` instead to avoid persisting secrets in state. Either `ClientSecret` or `ClientSecretWo` can be specified, but not both.
         /// </summary>
         [Output("clientSecret")]
         public Output<string?> ClientSecret { get; private set; } = null!;
+
+        /// <summary>
+        /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        /// Write-only client secret issued by AS for the Okta IdP instance for Terraform 1.11+. Unlike `ClientSecret`, this secret will not be persisted in the Terraform state file, providing improved security. Only use this attribute with Terraform 1.11 or higher. Either `ClientSecret` or `ClientSecretWo` can be specified, but not both.
+        /// </summary>
+        [Output("clientSecretWo")]
+        public Output<string?> ClientSecretWo { get; private set; } = null!;
+
+        /// <summary>
+        /// Version number for the write-only client secret. Increment this value to trigger an update when changing `ClientSecretWo`.
+        /// </summary>
+        [Output("clientSecretWoVersion")]
+        public Output<int?> ClientSecretWoVersion { get; private set; } = null!;
 
         /// <summary>
         /// Action for a previously deprovisioned IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`
@@ -280,6 +293,7 @@ namespace Pulumi.Okta.Idp
                 {
                     "applePrivateKey",
                     "clientSecret",
+                    "clientSecretWo",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -360,7 +374,7 @@ namespace Pulumi.Okta.Idp
         private Input<string>? _clientSecret;
 
         /// <summary>
-        /// Client secret issued by AS for the Okta IdP instance.
+        /// Client secret issued by AS for the Okta IdP instance. When set, this secret will be stored in the Terraform state file. For Terraform 1.11+, consider using `ClientSecretWo` instead to avoid persisting secrets in state. Either `ClientSecret` or `ClientSecretWo` can be specified, but not both.
         /// </summary>
         public Input<string>? ClientSecret
         {
@@ -371,6 +385,29 @@ namespace Pulumi.Okta.Idp
                 _clientSecret = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
             }
         }
+
+        [Input("clientSecretWo")]
+        private Input<string>? _clientSecretWo;
+
+        /// <summary>
+        /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        /// Write-only client secret issued by AS for the Okta IdP instance for Terraform 1.11+. Unlike `ClientSecret`, this secret will not be persisted in the Terraform state file, providing improved security. Only use this attribute with Terraform 1.11 or higher. Either `ClientSecret` or `ClientSecretWo` can be specified, but not both.
+        /// </summary>
+        public Input<string>? ClientSecretWo
+        {
+            get => _clientSecretWo;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _clientSecretWo = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        /// <summary>
+        /// Version number for the write-only client secret. Increment this value to trigger an update when changing `ClientSecretWo`.
+        /// </summary>
+        [Input("clientSecretWoVersion")]
+        public Input<int>? ClientSecretWoVersion { get; set; }
 
         /// <summary>
         /// Action for a previously deprovisioned IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`
@@ -574,7 +611,7 @@ namespace Pulumi.Okta.Idp
         private Input<string>? _clientSecret;
 
         /// <summary>
-        /// Client secret issued by AS for the Okta IdP instance.
+        /// Client secret issued by AS for the Okta IdP instance. When set, this secret will be stored in the Terraform state file. For Terraform 1.11+, consider using `ClientSecretWo` instead to avoid persisting secrets in state. Either `ClientSecret` or `ClientSecretWo` can be specified, but not both.
         /// </summary>
         public Input<string>? ClientSecret
         {
@@ -585,6 +622,29 @@ namespace Pulumi.Okta.Idp
                 _clientSecret = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
             }
         }
+
+        [Input("clientSecretWo")]
+        private Input<string>? _clientSecretWo;
+
+        /// <summary>
+        /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        /// Write-only client secret issued by AS for the Okta IdP instance for Terraform 1.11+. Unlike `ClientSecret`, this secret will not be persisted in the Terraform state file, providing improved security. Only use this attribute with Terraform 1.11 or higher. Either `ClientSecret` or `ClientSecretWo` can be specified, but not both.
+        /// </summary>
+        public Input<string>? ClientSecretWo
+        {
+            get => _clientSecretWo;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _clientSecretWo = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        /// <summary>
+        /// Version number for the write-only client secret. Increment this value to trigger an update when changing `ClientSecretWo`.
+        /// </summary>
+        [Input("clientSecretWoVersion")]
+        public Input<int>? ClientSecretWoVersion { get; set; }
 
         /// <summary>
         /// Action for a previously deprovisioned IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`

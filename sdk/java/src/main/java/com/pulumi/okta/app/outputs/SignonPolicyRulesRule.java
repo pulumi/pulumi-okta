@@ -22,6 +22,11 @@ public final class SignonPolicyRulesRule {
      */
     private @Nullable String access;
     /**
+     * @return List of authentication method chain objects as JSON-encoded strings. Use with `type = &#34;AUTH_METHOD_CHAIN&#34;` only.
+     * 
+     */
+    private @Nullable List<String> chains;
+    /**
      * @return List of authenticator constraints as JSON-encoded strings.
      * 
      */
@@ -102,7 +107,7 @@ public final class SignonPolicyRulesRule {
      */
     private @Nullable Integer priority;
     /**
-     * @return Re-authentication frequency in ISO 8601 duration format (e.g., PT2H for 2 hours).
+     * @return Re-authentication frequency in ISO 8601 duration format (e.g., PT2H for 2 hours). When using authentication chains with reauthenticateIn, this value is computed by the API based on the chain configuration.
      * 
      */
     private @Nullable String reAuthenticationFrequency;
@@ -154,6 +159,13 @@ public final class SignonPolicyRulesRule {
      */
     public Optional<String> access() {
         return Optional.ofNullable(this.access);
+    }
+    /**
+     * @return List of authentication method chain objects as JSON-encoded strings. Use with `type = &#34;AUTH_METHOD_CHAIN&#34;` only.
+     * 
+     */
+    public List<String> chains() {
+        return this.chains == null ? List.of() : this.chains;
     }
     /**
      * @return List of authenticator constraints as JSON-encoded strings.
@@ -268,7 +280,7 @@ public final class SignonPolicyRulesRule {
         return Optional.ofNullable(this.priority);
     }
     /**
-     * @return Re-authentication frequency in ISO 8601 duration format (e.g., PT2H for 2 hours).
+     * @return Re-authentication frequency in ISO 8601 duration format (e.g., PT2H for 2 hours). When using authentication chains with reauthenticateIn, this value is computed by the API based on the chain configuration.
      * 
      */
     public Optional<String> reAuthenticationFrequency() {
@@ -341,6 +353,7 @@ public final class SignonPolicyRulesRule {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable String access;
+        private @Nullable List<String> chains;
         private @Nullable List<String> constraints;
         private @Nullable String customExpression;
         private @Nullable List<String> deviceAssurancesIncludeds;
@@ -370,6 +383,7 @@ public final class SignonPolicyRulesRule {
         public Builder(SignonPolicyRulesRule defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.access = defaults.access;
+    	      this.chains = defaults.chains;
     	      this.constraints = defaults.constraints;
     	      this.customExpression = defaults.customExpression;
     	      this.deviceAssurancesIncludeds = defaults.deviceAssurancesIncludeds;
@@ -402,6 +416,15 @@ public final class SignonPolicyRulesRule {
 
             this.access = access;
             return this;
+        }
+        @CustomType.Setter
+        public Builder chains(@Nullable List<String> chains) {
+
+            this.chains = chains;
+            return this;
+        }
+        public Builder chains(String... chains) {
+            return chains(List.of(chains));
         }
         @CustomType.Setter
         public Builder constraints(@Nullable List<String> constraints) {
@@ -591,6 +614,7 @@ public final class SignonPolicyRulesRule {
         public SignonPolicyRulesRule build() {
             final var _resultValue = new SignonPolicyRulesRule();
             _resultValue.access = access;
+            _resultValue.chains = chains;
             _resultValue.constraints = constraints;
             _resultValue.customExpression = customExpression;
             _resultValue.deviceAssurancesIncludeds = deviceAssurancesIncludeds;

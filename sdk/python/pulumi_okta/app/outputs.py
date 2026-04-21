@@ -35,6 +35,7 @@ __all__ = [
     'FeaturesCapabilitiesUpdateProfile',
     'OAuthGroupsClaim',
     'OAuthJwk',
+    'OAuthNetwork',
     'SamlAcsEndpointsIndex',
     'SamlAttributeStatement',
     'SamlKey',
@@ -55,6 +56,7 @@ __all__ = [
     'GetFeaturesCapabilitiesUpdateLifecycleDeactivateResult',
     'GetFeaturesCapabilitiesUpdatePasswordResult',
     'GetFeaturesCapabilitiesUpdateProfileResult',
+    'GetOauthNetworkResult',
     'GetSamlAttributeStatementResult',
 ]
 
@@ -1007,6 +1009,48 @@ class OAuthJwk(dict):
 
 
 @pulumi.output_type
+class OAuthNetwork(dict):
+    def __init__(__self__, *,
+                 connection: _builtins.str,
+                 excludes: Optional[Sequence[_builtins.str]] = None,
+                 includes: Optional[Sequence[_builtins.str]] = None):
+        """
+        :param _builtins.str connection: The network connection type. Can be `ANYWHERE` or `ZONE`.
+        :param Sequence[_builtins.str] excludes: The network zones to exclude. Only applicable when `connection` is `ZONE`. Accepts `ALL_IP_ZONES` or specific zone IDs. Defaults to no zones excluded if not specified.
+        :param Sequence[_builtins.str] includes: The network zones to include. Only applicable when `connection` is `ZONE`. Accepts `ALL_IP_ZONES` or specific zone IDs. Defaults to no zones included if not specified.
+        """
+        pulumi.set(__self__, "connection", connection)
+        if excludes is not None:
+            pulumi.set(__self__, "excludes", excludes)
+        if includes is not None:
+            pulumi.set(__self__, "includes", includes)
+
+    @_builtins.property
+    @pulumi.getter
+    def connection(self) -> _builtins.str:
+        """
+        The network connection type. Can be `ANYWHERE` or `ZONE`.
+        """
+        return pulumi.get(self, "connection")
+
+    @_builtins.property
+    @pulumi.getter
+    def excludes(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        The network zones to exclude. Only applicable when `connection` is `ZONE`. Accepts `ALL_IP_ZONES` or specific zone IDs. Defaults to no zones excluded if not specified.
+        """
+        return pulumi.get(self, "excludes")
+
+    @_builtins.property
+    @pulumi.getter
+    def includes(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        The network zones to include. Only applicable when `connection` is `ZONE`. Accepts `ALL_IP_ZONES` or specific zone IDs. Defaults to no zones included if not specified.
+        """
+        return pulumi.get(self, "includes")
+
+
+@pulumi.output_type
 class SamlAcsEndpointsIndex(dict):
     def __init__(__self__, *,
                  index: _builtins.int,
@@ -1322,6 +1366,7 @@ class SignonPolicyRulesRule(dict):
     def __init__(__self__, *,
                  name: _builtins.str,
                  access: Optional[_builtins.str] = None,
+                 chains: Optional[Sequence[_builtins.str]] = None,
                  constraints: Optional[Sequence[_builtins.str]] = None,
                  custom_expression: Optional[_builtins.str] = None,
                  device_assurances_includeds: Optional[Sequence[_builtins.str]] = None,
@@ -1349,6 +1394,7 @@ class SignonPolicyRulesRule(dict):
         """
         :param _builtins.str name: Policy Rule Name. Must be unique within the policy.
         :param _builtins.str access: Access decision: ALLOW or DENY.
+        :param Sequence[_builtins.str] chains: List of authentication method chain objects as JSON-encoded strings. Use with `type = "AUTH_METHOD_CHAIN"` only.
         :param Sequence[_builtins.str] constraints: List of authenticator constraints as JSON-encoded strings.
         :param _builtins.str custom_expression: Custom Okta Expression Language condition for advanced matching.
         :param Sequence[_builtins.str] device_assurances_includeds: Set of device assurance policy IDs to include.
@@ -1364,7 +1410,7 @@ class SignonPolicyRulesRule(dict):
         :param Sequence[_builtins.str] network_includes: List of network zone IDs to include.
         :param Sequence['SignonPolicyRulesRulePlatformIncludeArgs'] platform_includes: Platform conditions to include.
         :param _builtins.int priority: Priority of the rule. Lower numbers are evaluated first.
-        :param _builtins.str re_authentication_frequency: Re-authentication frequency in ISO 8601 duration format (e.g., PT2H for 2 hours).
+        :param _builtins.str re_authentication_frequency: Re-authentication frequency in ISO 8601 duration format (e.g., PT2H for 2 hours). When using authentication chains with reauthenticateIn, this value is computed by the API based on the chain configuration.
         :param _builtins.str risk_score: Risk score level to match: ANY, LOW, MEDIUM, or HIGH.
         :param _builtins.str status: Status of the rule: ACTIVE or INACTIVE.
         :param _builtins.bool system: Whether this is a system rule (e.g., Catch-all Rule). System rules cannot be modified.
@@ -1377,6 +1423,8 @@ class SignonPolicyRulesRule(dict):
         pulumi.set(__self__, "name", name)
         if access is not None:
             pulumi.set(__self__, "access", access)
+        if chains is not None:
+            pulumi.set(__self__, "chains", chains)
         if constraints is not None:
             pulumi.set(__self__, "constraints", constraints)
         if custom_expression is not None:
@@ -1441,6 +1489,14 @@ class SignonPolicyRulesRule(dict):
         Access decision: ALLOW or DENY.
         """
         return pulumi.get(self, "access")
+
+    @_builtins.property
+    @pulumi.getter
+    def chains(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        List of authentication method chain objects as JSON-encoded strings. Use with `type = "AUTH_METHOD_CHAIN"` only.
+        """
+        return pulumi.get(self, "chains")
 
     @_builtins.property
     @pulumi.getter
@@ -1566,7 +1622,7 @@ class SignonPolicyRulesRule(dict):
     @pulumi.getter(name="reAuthenticationFrequency")
     def re_authentication_frequency(self) -> Optional[_builtins.str]:
         """
-        Re-authentication frequency in ISO 8601 duration format (e.g., PT2H for 2 hours).
+        Re-authentication frequency in ISO 8601 duration format (e.g., PT2H for 2 hours). When using authentication chains with reauthenticateIn, this value is computed by the API based on the chain configuration.
         """
         return pulumi.get(self, "re_authentication_frequency")
 
@@ -2176,6 +2232,46 @@ class GetFeaturesCapabilitiesUpdateProfileResult(dict):
         (String) Status of the import schedule. Valid values are `ENABLED` or `DISABLED`.
         """
         return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class GetOauthNetworkResult(dict):
+    def __init__(__self__, *,
+                 connection: _builtins.str,
+                 excludes: Sequence[_builtins.str],
+                 includes: Sequence[_builtins.str]):
+        """
+        :param _builtins.str connection: The network connection type. Can be `ANYWHERE` or `ZONE`.
+        :param Sequence[_builtins.str] excludes: IP zones to exclude when `connection` is `ZONE`. Can be `ALL_IP_ZONES` or specific zone IDs.
+        :param Sequence[_builtins.str] includes: IP zones to include when `connection` is `ZONE`. Can be `ALL_IP_ZONES` or specific zone IDs.
+        """
+        pulumi.set(__self__, "connection", connection)
+        pulumi.set(__self__, "excludes", excludes)
+        pulumi.set(__self__, "includes", includes)
+
+    @_builtins.property
+    @pulumi.getter
+    def connection(self) -> _builtins.str:
+        """
+        The network connection type. Can be `ANYWHERE` or `ZONE`.
+        """
+        return pulumi.get(self, "connection")
+
+    @_builtins.property
+    @pulumi.getter
+    def excludes(self) -> Sequence[_builtins.str]:
+        """
+        IP zones to exclude when `connection` is `ZONE`. Can be `ALL_IP_ZONES` or specific zone IDs.
+        """
+        return pulumi.get(self, "excludes")
+
+    @_builtins.property
+    @pulumi.getter
+    def includes(self) -> Sequence[_builtins.str]:
+        """
+        IP zones to include when `connection` is `ZONE`. Can be `ALL_IP_ZONES` or specific zone IDs.
+        """
+        return pulumi.get(self, "includes")
 
 
 @pulumi.output_type

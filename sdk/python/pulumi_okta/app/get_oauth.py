@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetOauthResult',
@@ -26,7 +27,7 @@ class GetOauthResult:
     """
     A collection of values returned by getOauth.
     """
-    def __init__(__self__, active_only=None, auto_submit_toolbar=None, client_id=None, client_secret=None, client_uri=None, grant_types=None, hide_ios=None, hide_web=None, id=None, label=None, label_prefix=None, links=None, login_mode=None, login_scopes=None, login_uri=None, logo_uri=None, name=None, policy_uri=None, post_logout_redirect_uris=None, redirect_uris=None, response_types=None, skip_groups=None, skip_users=None, status=None, type=None, wildcard_redirect=None):
+    def __init__(__self__, active_only=None, auto_submit_toolbar=None, client_id=None, client_secret=None, client_uri=None, grant_types=None, hide_ios=None, hide_web=None, id=None, label=None, label_prefix=None, links=None, login_mode=None, login_scopes=None, login_uri=None, logo_uri=None, name=None, networks=None, policy_uri=None, post_logout_redirect_uris=None, redirect_uris=None, response_types=None, skip_groups=None, skip_users=None, status=None, type=None, wildcard_redirect=None):
         if active_only and not isinstance(active_only, bool):
             raise TypeError("Expected argument 'active_only' to be a bool")
         pulumi.set(__self__, "active_only", active_only)
@@ -78,6 +79,9 @@ class GetOauthResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if networks and not isinstance(networks, list):
+            raise TypeError("Expected argument 'networks' to be a list")
+        pulumi.set(__self__, "networks", networks)
         if policy_uri and not isinstance(policy_uri, str):
             raise TypeError("Expected argument 'policy_uri' to be a str")
         pulumi.set(__self__, "policy_uri", policy_uri)
@@ -250,6 +254,14 @@ class GetOauthResult:
         return pulumi.get(self, "name")
 
     @_builtins.property
+    @pulumi.getter
+    def networks(self) -> Sequence['outputs.GetOauthNetworkResult']:
+        """
+        Network restrictions for the application client.
+        """
+        return pulumi.get(self, "networks")
+
+    @_builtins.property
     @pulumi.getter(name="policyUri")
     def policy_uri(self) -> _builtins.str:
         """
@@ -347,6 +359,7 @@ class AwaitableGetOauthResult(GetOauthResult):
             login_uri=self.login_uri,
             logo_uri=self.logo_uri,
             name=self.name,
+            networks=self.networks,
             policy_uri=self.policy_uri,
             post_logout_redirect_uris=self.post_logout_redirect_uris,
             redirect_uris=self.redirect_uris,
@@ -420,6 +433,7 @@ def get_oauth(active_only: Optional[_builtins.bool] = None,
         login_uri=pulumi.get(__ret__, 'login_uri'),
         logo_uri=pulumi.get(__ret__, 'logo_uri'),
         name=pulumi.get(__ret__, 'name'),
+        networks=pulumi.get(__ret__, 'networks'),
         policy_uri=pulumi.get(__ret__, 'policy_uri'),
         post_logout_redirect_uris=pulumi.get(__ret__, 'post_logout_redirect_uris'),
         redirect_uris=pulumi.get(__ret__, 'redirect_uris'),
@@ -490,6 +504,7 @@ def get_oauth_output(active_only: Optional[pulumi.Input[Optional[_builtins.bool]
         login_uri=pulumi.get(__response__, 'login_uri'),
         logo_uri=pulumi.get(__response__, 'logo_uri'),
         name=pulumi.get(__response__, 'name'),
+        networks=pulumi.get(__response__, 'networks'),
         policy_uri=pulumi.get(__response__, 'policy_uri'),
         post_logout_redirect_uris=pulumi.get(__response__, 'post_logout_redirect_uris'),
         redirect_uris=pulumi.get(__response__, 'redirect_uris'),
