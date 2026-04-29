@@ -1067,13 +1067,45 @@
                 "current": "okta:policy/rulePassword:RulePassword",
                 "majorVersion": 6,
                 "fields": {
+                    "groups_excluded": {
+                        "maxItemsOne": false
+                    },
+                    "groups_included": {
+                        "maxItemsOne": false
+                    },
                     "network_excludes": {
                         "maxItemsOne": false
                     },
                     "network_includes": {
                         "maxItemsOne": false
                     },
+                    "password_reset_requirement": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "method_constraints": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "allowed_authenticators": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
+                                "primary_methods": {
+                                    "maxItemsOne": false
+                                },
+                                "step_up_methods": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
                     "users_excluded": {
+                        "maxItemsOne": false
+                    },
+                    "users_included": {
                         "maxItemsOne": false
                     }
                 }
@@ -2141,6 +2173,53 @@
                 "current": "okta:policy/getPolicy:getPolicy",
                 "majorVersion": 6
             },
+            "okta_policy_rule_password": {
+                "current": "okta:policy/getRulePassword:getRulePassword",
+                "majorVersion": 6,
+                "fields": {
+                    "groups_excluded": {
+                        "maxItemsOne": false
+                    },
+                    "groups_included": {
+                        "maxItemsOne": false
+                    },
+                    "network_excludes": {
+                        "maxItemsOne": false
+                    },
+                    "network_includes": {
+                        "maxItemsOne": false
+                    },
+                    "password_reset_requirement": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "method_constraints": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "allowed_authenticators": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
+                                "primary_methods": {
+                                    "maxItemsOne": false
+                                },
+                                "step_up_methods": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "users_excluded": {
+                        "maxItemsOne": false
+                    },
+                    "users_included": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "okta_post_auth_session_policy": {
                 "current": "okta:index/getPostAuthSessionPolicy:getPostAuthSessionPolicy",
                 "majorVersion": 6
@@ -2648,6 +2727,7 @@
             "okta:index/getUserSecurityQuestions:getUserSecurityQuestions": 0,
             "okta:policy/getDefaultPolicy:getDefaultPolicy": 0,
             "okta:policy/getPolicy:getPolicy": 0,
+            "okta:policy/getRulePassword:getRulePassword": 0,
             "okta:user/getRisk:getRisk": 1,
             "okta:user/getUser:getUser": 0,
             "okta:user/getUserProfileMappingSource:getUserProfileMappingSource": 0,

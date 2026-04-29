@@ -752,6 +752,308 @@ func (o RuleMfaAppIncludeArrayOutput) Index(i pulumi.IntInput) RuleMfaAppInclude
 	}).(RuleMfaAppIncludeOutput)
 }
 
+type RulePasswordPasswordResetRequirement struct {
+	// Constraints on the values specified in the `primaryMethods` set. Specifying a constraint limits methods to specific authenticator(s). Currently, Google OTP is the only accepted constraint. The `otp` method requires a constraint.
+	MethodConstraints []RulePasswordPasswordResetRequirementMethodConstraint `pulumi:"methodConstraints"`
+	// Authenticator methods allowed for the initial authentication step of password recovery. Method `otp` requires a constraint limiting it to a Google authenticator. Options: `otp`, `push`, `sms`, `email`, `voice`.
+	PrimaryMethods []string `pulumi:"primaryMethods"`
+	// Whether a secondary authenticator is required for password reset (`stepUp.required`). The following are three valid configurations: `required=false`, `required=true` with no methods to use any SSO authenticator, and `required=true` with `securityQuestion` as the method. Default: `false`.
+	StepUpEnabled *bool `pulumi:"stepUpEnabled"`
+	// Authenticator methods required for the secondary authentication step of password recovery. Specify only when `stepUpEnabled = true` and `securityQuestion` is permitted for the secondary authentication. Items value: `securityQuestion`.
+	StepUpMethods []string `pulumi:"stepUpMethods"`
+}
+
+// RulePasswordPasswordResetRequirementInput is an input type that accepts RulePasswordPasswordResetRequirementArgs and RulePasswordPasswordResetRequirementOutput values.
+// You can construct a concrete instance of `RulePasswordPasswordResetRequirementInput` via:
+//
+//	RulePasswordPasswordResetRequirementArgs{...}
+type RulePasswordPasswordResetRequirementInput interface {
+	pulumi.Input
+
+	ToRulePasswordPasswordResetRequirementOutput() RulePasswordPasswordResetRequirementOutput
+	ToRulePasswordPasswordResetRequirementOutputWithContext(context.Context) RulePasswordPasswordResetRequirementOutput
+}
+
+type RulePasswordPasswordResetRequirementArgs struct {
+	// Constraints on the values specified in the `primaryMethods` set. Specifying a constraint limits methods to specific authenticator(s). Currently, Google OTP is the only accepted constraint. The `otp` method requires a constraint.
+	MethodConstraints RulePasswordPasswordResetRequirementMethodConstraintArrayInput `pulumi:"methodConstraints"`
+	// Authenticator methods allowed for the initial authentication step of password recovery. Method `otp` requires a constraint limiting it to a Google authenticator. Options: `otp`, `push`, `sms`, `email`, `voice`.
+	PrimaryMethods pulumi.StringArrayInput `pulumi:"primaryMethods"`
+	// Whether a secondary authenticator is required for password reset (`stepUp.required`). The following are three valid configurations: `required=false`, `required=true` with no methods to use any SSO authenticator, and `required=true` with `securityQuestion` as the method. Default: `false`.
+	StepUpEnabled pulumi.BoolPtrInput `pulumi:"stepUpEnabled"`
+	// Authenticator methods required for the secondary authentication step of password recovery. Specify only when `stepUpEnabled = true` and `securityQuestion` is permitted for the secondary authentication. Items value: `securityQuestion`.
+	StepUpMethods pulumi.StringArrayInput `pulumi:"stepUpMethods"`
+}
+
+func (RulePasswordPasswordResetRequirementArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RulePasswordPasswordResetRequirement)(nil)).Elem()
+}
+
+func (i RulePasswordPasswordResetRequirementArgs) ToRulePasswordPasswordResetRequirementOutput() RulePasswordPasswordResetRequirementOutput {
+	return i.ToRulePasswordPasswordResetRequirementOutputWithContext(context.Background())
+}
+
+func (i RulePasswordPasswordResetRequirementArgs) ToRulePasswordPasswordResetRequirementOutputWithContext(ctx context.Context) RulePasswordPasswordResetRequirementOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RulePasswordPasswordResetRequirementOutput)
+}
+
+func (i RulePasswordPasswordResetRequirementArgs) ToRulePasswordPasswordResetRequirementPtrOutput() RulePasswordPasswordResetRequirementPtrOutput {
+	return i.ToRulePasswordPasswordResetRequirementPtrOutputWithContext(context.Background())
+}
+
+func (i RulePasswordPasswordResetRequirementArgs) ToRulePasswordPasswordResetRequirementPtrOutputWithContext(ctx context.Context) RulePasswordPasswordResetRequirementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RulePasswordPasswordResetRequirementOutput).ToRulePasswordPasswordResetRequirementPtrOutputWithContext(ctx)
+}
+
+// RulePasswordPasswordResetRequirementPtrInput is an input type that accepts RulePasswordPasswordResetRequirementArgs, RulePasswordPasswordResetRequirementPtr and RulePasswordPasswordResetRequirementPtrOutput values.
+// You can construct a concrete instance of `RulePasswordPasswordResetRequirementPtrInput` via:
+//
+//	        RulePasswordPasswordResetRequirementArgs{...}
+//
+//	or:
+//
+//	        nil
+type RulePasswordPasswordResetRequirementPtrInput interface {
+	pulumi.Input
+
+	ToRulePasswordPasswordResetRequirementPtrOutput() RulePasswordPasswordResetRequirementPtrOutput
+	ToRulePasswordPasswordResetRequirementPtrOutputWithContext(context.Context) RulePasswordPasswordResetRequirementPtrOutput
+}
+
+type rulePasswordPasswordResetRequirementPtrType RulePasswordPasswordResetRequirementArgs
+
+func RulePasswordPasswordResetRequirementPtr(v *RulePasswordPasswordResetRequirementArgs) RulePasswordPasswordResetRequirementPtrInput {
+	return (*rulePasswordPasswordResetRequirementPtrType)(v)
+}
+
+func (*rulePasswordPasswordResetRequirementPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RulePasswordPasswordResetRequirement)(nil)).Elem()
+}
+
+func (i *rulePasswordPasswordResetRequirementPtrType) ToRulePasswordPasswordResetRequirementPtrOutput() RulePasswordPasswordResetRequirementPtrOutput {
+	return i.ToRulePasswordPasswordResetRequirementPtrOutputWithContext(context.Background())
+}
+
+func (i *rulePasswordPasswordResetRequirementPtrType) ToRulePasswordPasswordResetRequirementPtrOutputWithContext(ctx context.Context) RulePasswordPasswordResetRequirementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RulePasswordPasswordResetRequirementPtrOutput)
+}
+
+type RulePasswordPasswordResetRequirementOutput struct{ *pulumi.OutputState }
+
+func (RulePasswordPasswordResetRequirementOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RulePasswordPasswordResetRequirement)(nil)).Elem()
+}
+
+func (o RulePasswordPasswordResetRequirementOutput) ToRulePasswordPasswordResetRequirementOutput() RulePasswordPasswordResetRequirementOutput {
+	return o
+}
+
+func (o RulePasswordPasswordResetRequirementOutput) ToRulePasswordPasswordResetRequirementOutputWithContext(ctx context.Context) RulePasswordPasswordResetRequirementOutput {
+	return o
+}
+
+func (o RulePasswordPasswordResetRequirementOutput) ToRulePasswordPasswordResetRequirementPtrOutput() RulePasswordPasswordResetRequirementPtrOutput {
+	return o.ToRulePasswordPasswordResetRequirementPtrOutputWithContext(context.Background())
+}
+
+func (o RulePasswordPasswordResetRequirementOutput) ToRulePasswordPasswordResetRequirementPtrOutputWithContext(ctx context.Context) RulePasswordPasswordResetRequirementPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RulePasswordPasswordResetRequirement) *RulePasswordPasswordResetRequirement {
+		return &v
+	}).(RulePasswordPasswordResetRequirementPtrOutput)
+}
+
+// Constraints on the values specified in the `primaryMethods` set. Specifying a constraint limits methods to specific authenticator(s). Currently, Google OTP is the only accepted constraint. The `otp` method requires a constraint.
+func (o RulePasswordPasswordResetRequirementOutput) MethodConstraints() RulePasswordPasswordResetRequirementMethodConstraintArrayOutput {
+	return o.ApplyT(func(v RulePasswordPasswordResetRequirement) []RulePasswordPasswordResetRequirementMethodConstraint {
+		return v.MethodConstraints
+	}).(RulePasswordPasswordResetRequirementMethodConstraintArrayOutput)
+}
+
+// Authenticator methods allowed for the initial authentication step of password recovery. Method `otp` requires a constraint limiting it to a Google authenticator. Options: `otp`, `push`, `sms`, `email`, `voice`.
+func (o RulePasswordPasswordResetRequirementOutput) PrimaryMethods() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RulePasswordPasswordResetRequirement) []string { return v.PrimaryMethods }).(pulumi.StringArrayOutput)
+}
+
+// Whether a secondary authenticator is required for password reset (`stepUp.required`). The following are three valid configurations: `required=false`, `required=true` with no methods to use any SSO authenticator, and `required=true` with `securityQuestion` as the method. Default: `false`.
+func (o RulePasswordPasswordResetRequirementOutput) StepUpEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RulePasswordPasswordResetRequirement) *bool { return v.StepUpEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Authenticator methods required for the secondary authentication step of password recovery. Specify only when `stepUpEnabled = true` and `securityQuestion` is permitted for the secondary authentication. Items value: `securityQuestion`.
+func (o RulePasswordPasswordResetRequirementOutput) StepUpMethods() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RulePasswordPasswordResetRequirement) []string { return v.StepUpMethods }).(pulumi.StringArrayOutput)
+}
+
+type RulePasswordPasswordResetRequirementPtrOutput struct{ *pulumi.OutputState }
+
+func (RulePasswordPasswordResetRequirementPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RulePasswordPasswordResetRequirement)(nil)).Elem()
+}
+
+func (o RulePasswordPasswordResetRequirementPtrOutput) ToRulePasswordPasswordResetRequirementPtrOutput() RulePasswordPasswordResetRequirementPtrOutput {
+	return o
+}
+
+func (o RulePasswordPasswordResetRequirementPtrOutput) ToRulePasswordPasswordResetRequirementPtrOutputWithContext(ctx context.Context) RulePasswordPasswordResetRequirementPtrOutput {
+	return o
+}
+
+func (o RulePasswordPasswordResetRequirementPtrOutput) Elem() RulePasswordPasswordResetRequirementOutput {
+	return o.ApplyT(func(v *RulePasswordPasswordResetRequirement) RulePasswordPasswordResetRequirement {
+		if v != nil {
+			return *v
+		}
+		var ret RulePasswordPasswordResetRequirement
+		return ret
+	}).(RulePasswordPasswordResetRequirementOutput)
+}
+
+// Constraints on the values specified in the `primaryMethods` set. Specifying a constraint limits methods to specific authenticator(s). Currently, Google OTP is the only accepted constraint. The `otp` method requires a constraint.
+func (o RulePasswordPasswordResetRequirementPtrOutput) MethodConstraints() RulePasswordPasswordResetRequirementMethodConstraintArrayOutput {
+	return o.ApplyT(func(v *RulePasswordPasswordResetRequirement) []RulePasswordPasswordResetRequirementMethodConstraint {
+		if v == nil {
+			return nil
+		}
+		return v.MethodConstraints
+	}).(RulePasswordPasswordResetRequirementMethodConstraintArrayOutput)
+}
+
+// Authenticator methods allowed for the initial authentication step of password recovery. Method `otp` requires a constraint limiting it to a Google authenticator. Options: `otp`, `push`, `sms`, `email`, `voice`.
+func (o RulePasswordPasswordResetRequirementPtrOutput) PrimaryMethods() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RulePasswordPasswordResetRequirement) []string {
+		if v == nil {
+			return nil
+		}
+		return v.PrimaryMethods
+	}).(pulumi.StringArrayOutput)
+}
+
+// Whether a secondary authenticator is required for password reset (`stepUp.required`). The following are three valid configurations: `required=false`, `required=true` with no methods to use any SSO authenticator, and `required=true` with `securityQuestion` as the method. Default: `false`.
+func (o RulePasswordPasswordResetRequirementPtrOutput) StepUpEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RulePasswordPasswordResetRequirement) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.StepUpEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Authenticator methods required for the secondary authentication step of password recovery. Specify only when `stepUpEnabled = true` and `securityQuestion` is permitted for the secondary authentication. Items value: `securityQuestion`.
+func (o RulePasswordPasswordResetRequirementPtrOutput) StepUpMethods() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RulePasswordPasswordResetRequirement) []string {
+		if v == nil {
+			return nil
+		}
+		return v.StepUpMethods
+	}).(pulumi.StringArrayOutput)
+}
+
+type RulePasswordPasswordResetRequirementMethodConstraint struct {
+	// Keys of the authenticators allowed for this method (e.g. `googleOtp`).
+	AllowedAuthenticators []string `pulumi:"allowedAuthenticators"`
+	// The method to constrain (e.g. `otp`).
+	Method string `pulumi:"method"`
+}
+
+// RulePasswordPasswordResetRequirementMethodConstraintInput is an input type that accepts RulePasswordPasswordResetRequirementMethodConstraintArgs and RulePasswordPasswordResetRequirementMethodConstraintOutput values.
+// You can construct a concrete instance of `RulePasswordPasswordResetRequirementMethodConstraintInput` via:
+//
+//	RulePasswordPasswordResetRequirementMethodConstraintArgs{...}
+type RulePasswordPasswordResetRequirementMethodConstraintInput interface {
+	pulumi.Input
+
+	ToRulePasswordPasswordResetRequirementMethodConstraintOutput() RulePasswordPasswordResetRequirementMethodConstraintOutput
+	ToRulePasswordPasswordResetRequirementMethodConstraintOutputWithContext(context.Context) RulePasswordPasswordResetRequirementMethodConstraintOutput
+}
+
+type RulePasswordPasswordResetRequirementMethodConstraintArgs struct {
+	// Keys of the authenticators allowed for this method (e.g. `googleOtp`).
+	AllowedAuthenticators pulumi.StringArrayInput `pulumi:"allowedAuthenticators"`
+	// The method to constrain (e.g. `otp`).
+	Method pulumi.StringInput `pulumi:"method"`
+}
+
+func (RulePasswordPasswordResetRequirementMethodConstraintArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RulePasswordPasswordResetRequirementMethodConstraint)(nil)).Elem()
+}
+
+func (i RulePasswordPasswordResetRequirementMethodConstraintArgs) ToRulePasswordPasswordResetRequirementMethodConstraintOutput() RulePasswordPasswordResetRequirementMethodConstraintOutput {
+	return i.ToRulePasswordPasswordResetRequirementMethodConstraintOutputWithContext(context.Background())
+}
+
+func (i RulePasswordPasswordResetRequirementMethodConstraintArgs) ToRulePasswordPasswordResetRequirementMethodConstraintOutputWithContext(ctx context.Context) RulePasswordPasswordResetRequirementMethodConstraintOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RulePasswordPasswordResetRequirementMethodConstraintOutput)
+}
+
+// RulePasswordPasswordResetRequirementMethodConstraintArrayInput is an input type that accepts RulePasswordPasswordResetRequirementMethodConstraintArray and RulePasswordPasswordResetRequirementMethodConstraintArrayOutput values.
+// You can construct a concrete instance of `RulePasswordPasswordResetRequirementMethodConstraintArrayInput` via:
+//
+//	RulePasswordPasswordResetRequirementMethodConstraintArray{ RulePasswordPasswordResetRequirementMethodConstraintArgs{...} }
+type RulePasswordPasswordResetRequirementMethodConstraintArrayInput interface {
+	pulumi.Input
+
+	ToRulePasswordPasswordResetRequirementMethodConstraintArrayOutput() RulePasswordPasswordResetRequirementMethodConstraintArrayOutput
+	ToRulePasswordPasswordResetRequirementMethodConstraintArrayOutputWithContext(context.Context) RulePasswordPasswordResetRequirementMethodConstraintArrayOutput
+}
+
+type RulePasswordPasswordResetRequirementMethodConstraintArray []RulePasswordPasswordResetRequirementMethodConstraintInput
+
+func (RulePasswordPasswordResetRequirementMethodConstraintArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RulePasswordPasswordResetRequirementMethodConstraint)(nil)).Elem()
+}
+
+func (i RulePasswordPasswordResetRequirementMethodConstraintArray) ToRulePasswordPasswordResetRequirementMethodConstraintArrayOutput() RulePasswordPasswordResetRequirementMethodConstraintArrayOutput {
+	return i.ToRulePasswordPasswordResetRequirementMethodConstraintArrayOutputWithContext(context.Background())
+}
+
+func (i RulePasswordPasswordResetRequirementMethodConstraintArray) ToRulePasswordPasswordResetRequirementMethodConstraintArrayOutputWithContext(ctx context.Context) RulePasswordPasswordResetRequirementMethodConstraintArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RulePasswordPasswordResetRequirementMethodConstraintArrayOutput)
+}
+
+type RulePasswordPasswordResetRequirementMethodConstraintOutput struct{ *pulumi.OutputState }
+
+func (RulePasswordPasswordResetRequirementMethodConstraintOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RulePasswordPasswordResetRequirementMethodConstraint)(nil)).Elem()
+}
+
+func (o RulePasswordPasswordResetRequirementMethodConstraintOutput) ToRulePasswordPasswordResetRequirementMethodConstraintOutput() RulePasswordPasswordResetRequirementMethodConstraintOutput {
+	return o
+}
+
+func (o RulePasswordPasswordResetRequirementMethodConstraintOutput) ToRulePasswordPasswordResetRequirementMethodConstraintOutputWithContext(ctx context.Context) RulePasswordPasswordResetRequirementMethodConstraintOutput {
+	return o
+}
+
+// Keys of the authenticators allowed for this method (e.g. `googleOtp`).
+func (o RulePasswordPasswordResetRequirementMethodConstraintOutput) AllowedAuthenticators() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RulePasswordPasswordResetRequirementMethodConstraint) []string { return v.AllowedAuthenticators }).(pulumi.StringArrayOutput)
+}
+
+// The method to constrain (e.g. `otp`).
+func (o RulePasswordPasswordResetRequirementMethodConstraintOutput) Method() pulumi.StringOutput {
+	return o.ApplyT(func(v RulePasswordPasswordResetRequirementMethodConstraint) string { return v.Method }).(pulumi.StringOutput)
+}
+
+type RulePasswordPasswordResetRequirementMethodConstraintArrayOutput struct{ *pulumi.OutputState }
+
+func (RulePasswordPasswordResetRequirementMethodConstraintArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RulePasswordPasswordResetRequirementMethodConstraint)(nil)).Elem()
+}
+
+func (o RulePasswordPasswordResetRequirementMethodConstraintArrayOutput) ToRulePasswordPasswordResetRequirementMethodConstraintArrayOutput() RulePasswordPasswordResetRequirementMethodConstraintArrayOutput {
+	return o
+}
+
+func (o RulePasswordPasswordResetRequirementMethodConstraintArrayOutput) ToRulePasswordPasswordResetRequirementMethodConstraintArrayOutputWithContext(ctx context.Context) RulePasswordPasswordResetRequirementMethodConstraintArrayOutput {
+	return o
+}
+
+func (o RulePasswordPasswordResetRequirementMethodConstraintArrayOutput) Index(i pulumi.IntInput) RulePasswordPasswordResetRequirementMethodConstraintOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RulePasswordPasswordResetRequirementMethodConstraint {
+		return vs[0].([]RulePasswordPasswordResetRequirementMethodConstraint)[vs[1].(int)]
+	}).(RulePasswordPasswordResetRequirementMethodConstraintOutput)
+}
+
 type RuleSignonFactorSequence struct {
 	// Type of a Factor
 	PrimaryCriteriaFactorType string `pulumi:"primaryCriteriaFactorType"`
@@ -972,6 +1274,240 @@ func (o RuleSignonFactorSequenceSecondaryCriteriaArrayOutput) Index(i pulumi.Int
 	}).(RuleSignonFactorSequenceSecondaryCriteriaOutput)
 }
 
+type GetRulePasswordPasswordResetRequirement struct {
+	// Constraints on the values specified in `primaryMethods`.
+	MethodConstraints []GetRulePasswordPasswordResetRequirementMethodConstraint `pulumi:"methodConstraints"`
+	// Authenticator methods allowed for the initial authentication step of password recovery.
+	PrimaryMethods []string `pulumi:"primaryMethods"`
+	// Whether a secondary authenticator is required for password reset.
+	StepUpEnabled bool `pulumi:"stepUpEnabled"`
+	// Authenticator methods required for the secondary authentication step of password recovery. Items value: `securityQuestion`.
+	StepUpMethods []string `pulumi:"stepUpMethods"`
+}
+
+// GetRulePasswordPasswordResetRequirementInput is an input type that accepts GetRulePasswordPasswordResetRequirementArgs and GetRulePasswordPasswordResetRequirementOutput values.
+// You can construct a concrete instance of `GetRulePasswordPasswordResetRequirementInput` via:
+//
+//	GetRulePasswordPasswordResetRequirementArgs{...}
+type GetRulePasswordPasswordResetRequirementInput interface {
+	pulumi.Input
+
+	ToGetRulePasswordPasswordResetRequirementOutput() GetRulePasswordPasswordResetRequirementOutput
+	ToGetRulePasswordPasswordResetRequirementOutputWithContext(context.Context) GetRulePasswordPasswordResetRequirementOutput
+}
+
+type GetRulePasswordPasswordResetRequirementArgs struct {
+	// Constraints on the values specified in `primaryMethods`.
+	MethodConstraints GetRulePasswordPasswordResetRequirementMethodConstraintArrayInput `pulumi:"methodConstraints"`
+	// Authenticator methods allowed for the initial authentication step of password recovery.
+	PrimaryMethods pulumi.StringArrayInput `pulumi:"primaryMethods"`
+	// Whether a secondary authenticator is required for password reset.
+	StepUpEnabled pulumi.BoolInput `pulumi:"stepUpEnabled"`
+	// Authenticator methods required for the secondary authentication step of password recovery. Items value: `securityQuestion`.
+	StepUpMethods pulumi.StringArrayInput `pulumi:"stepUpMethods"`
+}
+
+func (GetRulePasswordPasswordResetRequirementArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRulePasswordPasswordResetRequirement)(nil)).Elem()
+}
+
+func (i GetRulePasswordPasswordResetRequirementArgs) ToGetRulePasswordPasswordResetRequirementOutput() GetRulePasswordPasswordResetRequirementOutput {
+	return i.ToGetRulePasswordPasswordResetRequirementOutputWithContext(context.Background())
+}
+
+func (i GetRulePasswordPasswordResetRequirementArgs) ToGetRulePasswordPasswordResetRequirementOutputWithContext(ctx context.Context) GetRulePasswordPasswordResetRequirementOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRulePasswordPasswordResetRequirementOutput)
+}
+
+// GetRulePasswordPasswordResetRequirementArrayInput is an input type that accepts GetRulePasswordPasswordResetRequirementArray and GetRulePasswordPasswordResetRequirementArrayOutput values.
+// You can construct a concrete instance of `GetRulePasswordPasswordResetRequirementArrayInput` via:
+//
+//	GetRulePasswordPasswordResetRequirementArray{ GetRulePasswordPasswordResetRequirementArgs{...} }
+type GetRulePasswordPasswordResetRequirementArrayInput interface {
+	pulumi.Input
+
+	ToGetRulePasswordPasswordResetRequirementArrayOutput() GetRulePasswordPasswordResetRequirementArrayOutput
+	ToGetRulePasswordPasswordResetRequirementArrayOutputWithContext(context.Context) GetRulePasswordPasswordResetRequirementArrayOutput
+}
+
+type GetRulePasswordPasswordResetRequirementArray []GetRulePasswordPasswordResetRequirementInput
+
+func (GetRulePasswordPasswordResetRequirementArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRulePasswordPasswordResetRequirement)(nil)).Elem()
+}
+
+func (i GetRulePasswordPasswordResetRequirementArray) ToGetRulePasswordPasswordResetRequirementArrayOutput() GetRulePasswordPasswordResetRequirementArrayOutput {
+	return i.ToGetRulePasswordPasswordResetRequirementArrayOutputWithContext(context.Background())
+}
+
+func (i GetRulePasswordPasswordResetRequirementArray) ToGetRulePasswordPasswordResetRequirementArrayOutputWithContext(ctx context.Context) GetRulePasswordPasswordResetRequirementArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRulePasswordPasswordResetRequirementArrayOutput)
+}
+
+type GetRulePasswordPasswordResetRequirementOutput struct{ *pulumi.OutputState }
+
+func (GetRulePasswordPasswordResetRequirementOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRulePasswordPasswordResetRequirement)(nil)).Elem()
+}
+
+func (o GetRulePasswordPasswordResetRequirementOutput) ToGetRulePasswordPasswordResetRequirementOutput() GetRulePasswordPasswordResetRequirementOutput {
+	return o
+}
+
+func (o GetRulePasswordPasswordResetRequirementOutput) ToGetRulePasswordPasswordResetRequirementOutputWithContext(ctx context.Context) GetRulePasswordPasswordResetRequirementOutput {
+	return o
+}
+
+// Constraints on the values specified in `primaryMethods`.
+func (o GetRulePasswordPasswordResetRequirementOutput) MethodConstraints() GetRulePasswordPasswordResetRequirementMethodConstraintArrayOutput {
+	return o.ApplyT(func(v GetRulePasswordPasswordResetRequirement) []GetRulePasswordPasswordResetRequirementMethodConstraint {
+		return v.MethodConstraints
+	}).(GetRulePasswordPasswordResetRequirementMethodConstraintArrayOutput)
+}
+
+// Authenticator methods allowed for the initial authentication step of password recovery.
+func (o GetRulePasswordPasswordResetRequirementOutput) PrimaryMethods() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetRulePasswordPasswordResetRequirement) []string { return v.PrimaryMethods }).(pulumi.StringArrayOutput)
+}
+
+// Whether a secondary authenticator is required for password reset.
+func (o GetRulePasswordPasswordResetRequirementOutput) StepUpEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetRulePasswordPasswordResetRequirement) bool { return v.StepUpEnabled }).(pulumi.BoolOutput)
+}
+
+// Authenticator methods required for the secondary authentication step of password recovery. Items value: `securityQuestion`.
+func (o GetRulePasswordPasswordResetRequirementOutput) StepUpMethods() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetRulePasswordPasswordResetRequirement) []string { return v.StepUpMethods }).(pulumi.StringArrayOutput)
+}
+
+type GetRulePasswordPasswordResetRequirementArrayOutput struct{ *pulumi.OutputState }
+
+func (GetRulePasswordPasswordResetRequirementArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRulePasswordPasswordResetRequirement)(nil)).Elem()
+}
+
+func (o GetRulePasswordPasswordResetRequirementArrayOutput) ToGetRulePasswordPasswordResetRequirementArrayOutput() GetRulePasswordPasswordResetRequirementArrayOutput {
+	return o
+}
+
+func (o GetRulePasswordPasswordResetRequirementArrayOutput) ToGetRulePasswordPasswordResetRequirementArrayOutputWithContext(ctx context.Context) GetRulePasswordPasswordResetRequirementArrayOutput {
+	return o
+}
+
+func (o GetRulePasswordPasswordResetRequirementArrayOutput) Index(i pulumi.IntInput) GetRulePasswordPasswordResetRequirementOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRulePasswordPasswordResetRequirement {
+		return vs[0].([]GetRulePasswordPasswordResetRequirement)[vs[1].(int)]
+	}).(GetRulePasswordPasswordResetRequirementOutput)
+}
+
+type GetRulePasswordPasswordResetRequirementMethodConstraint struct {
+	// Keys of the authenticators allowed for this method (e.g. `googleOtp`).
+	AllowedAuthenticators []string `pulumi:"allowedAuthenticators"`
+	// The method to constrain (e.g. `otp`).
+	Method string `pulumi:"method"`
+}
+
+// GetRulePasswordPasswordResetRequirementMethodConstraintInput is an input type that accepts GetRulePasswordPasswordResetRequirementMethodConstraintArgs and GetRulePasswordPasswordResetRequirementMethodConstraintOutput values.
+// You can construct a concrete instance of `GetRulePasswordPasswordResetRequirementMethodConstraintInput` via:
+//
+//	GetRulePasswordPasswordResetRequirementMethodConstraintArgs{...}
+type GetRulePasswordPasswordResetRequirementMethodConstraintInput interface {
+	pulumi.Input
+
+	ToGetRulePasswordPasswordResetRequirementMethodConstraintOutput() GetRulePasswordPasswordResetRequirementMethodConstraintOutput
+	ToGetRulePasswordPasswordResetRequirementMethodConstraintOutputWithContext(context.Context) GetRulePasswordPasswordResetRequirementMethodConstraintOutput
+}
+
+type GetRulePasswordPasswordResetRequirementMethodConstraintArgs struct {
+	// Keys of the authenticators allowed for this method (e.g. `googleOtp`).
+	AllowedAuthenticators pulumi.StringArrayInput `pulumi:"allowedAuthenticators"`
+	// The method to constrain (e.g. `otp`).
+	Method pulumi.StringInput `pulumi:"method"`
+}
+
+func (GetRulePasswordPasswordResetRequirementMethodConstraintArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRulePasswordPasswordResetRequirementMethodConstraint)(nil)).Elem()
+}
+
+func (i GetRulePasswordPasswordResetRequirementMethodConstraintArgs) ToGetRulePasswordPasswordResetRequirementMethodConstraintOutput() GetRulePasswordPasswordResetRequirementMethodConstraintOutput {
+	return i.ToGetRulePasswordPasswordResetRequirementMethodConstraintOutputWithContext(context.Background())
+}
+
+func (i GetRulePasswordPasswordResetRequirementMethodConstraintArgs) ToGetRulePasswordPasswordResetRequirementMethodConstraintOutputWithContext(ctx context.Context) GetRulePasswordPasswordResetRequirementMethodConstraintOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRulePasswordPasswordResetRequirementMethodConstraintOutput)
+}
+
+// GetRulePasswordPasswordResetRequirementMethodConstraintArrayInput is an input type that accepts GetRulePasswordPasswordResetRequirementMethodConstraintArray and GetRulePasswordPasswordResetRequirementMethodConstraintArrayOutput values.
+// You can construct a concrete instance of `GetRulePasswordPasswordResetRequirementMethodConstraintArrayInput` via:
+//
+//	GetRulePasswordPasswordResetRequirementMethodConstraintArray{ GetRulePasswordPasswordResetRequirementMethodConstraintArgs{...} }
+type GetRulePasswordPasswordResetRequirementMethodConstraintArrayInput interface {
+	pulumi.Input
+
+	ToGetRulePasswordPasswordResetRequirementMethodConstraintArrayOutput() GetRulePasswordPasswordResetRequirementMethodConstraintArrayOutput
+	ToGetRulePasswordPasswordResetRequirementMethodConstraintArrayOutputWithContext(context.Context) GetRulePasswordPasswordResetRequirementMethodConstraintArrayOutput
+}
+
+type GetRulePasswordPasswordResetRequirementMethodConstraintArray []GetRulePasswordPasswordResetRequirementMethodConstraintInput
+
+func (GetRulePasswordPasswordResetRequirementMethodConstraintArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRulePasswordPasswordResetRequirementMethodConstraint)(nil)).Elem()
+}
+
+func (i GetRulePasswordPasswordResetRequirementMethodConstraintArray) ToGetRulePasswordPasswordResetRequirementMethodConstraintArrayOutput() GetRulePasswordPasswordResetRequirementMethodConstraintArrayOutput {
+	return i.ToGetRulePasswordPasswordResetRequirementMethodConstraintArrayOutputWithContext(context.Background())
+}
+
+func (i GetRulePasswordPasswordResetRequirementMethodConstraintArray) ToGetRulePasswordPasswordResetRequirementMethodConstraintArrayOutputWithContext(ctx context.Context) GetRulePasswordPasswordResetRequirementMethodConstraintArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRulePasswordPasswordResetRequirementMethodConstraintArrayOutput)
+}
+
+type GetRulePasswordPasswordResetRequirementMethodConstraintOutput struct{ *pulumi.OutputState }
+
+func (GetRulePasswordPasswordResetRequirementMethodConstraintOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRulePasswordPasswordResetRequirementMethodConstraint)(nil)).Elem()
+}
+
+func (o GetRulePasswordPasswordResetRequirementMethodConstraintOutput) ToGetRulePasswordPasswordResetRequirementMethodConstraintOutput() GetRulePasswordPasswordResetRequirementMethodConstraintOutput {
+	return o
+}
+
+func (o GetRulePasswordPasswordResetRequirementMethodConstraintOutput) ToGetRulePasswordPasswordResetRequirementMethodConstraintOutputWithContext(ctx context.Context) GetRulePasswordPasswordResetRequirementMethodConstraintOutput {
+	return o
+}
+
+// Keys of the authenticators allowed for this method (e.g. `googleOtp`).
+func (o GetRulePasswordPasswordResetRequirementMethodConstraintOutput) AllowedAuthenticators() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetRulePasswordPasswordResetRequirementMethodConstraint) []string {
+		return v.AllowedAuthenticators
+	}).(pulumi.StringArrayOutput)
+}
+
+// The method to constrain (e.g. `otp`).
+func (o GetRulePasswordPasswordResetRequirementMethodConstraintOutput) Method() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRulePasswordPasswordResetRequirementMethodConstraint) string { return v.Method }).(pulumi.StringOutput)
+}
+
+type GetRulePasswordPasswordResetRequirementMethodConstraintArrayOutput struct{ *pulumi.OutputState }
+
+func (GetRulePasswordPasswordResetRequirementMethodConstraintArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRulePasswordPasswordResetRequirementMethodConstraint)(nil)).Elem()
+}
+
+func (o GetRulePasswordPasswordResetRequirementMethodConstraintArrayOutput) ToGetRulePasswordPasswordResetRequirementMethodConstraintArrayOutput() GetRulePasswordPasswordResetRequirementMethodConstraintArrayOutput {
+	return o
+}
+
+func (o GetRulePasswordPasswordResetRequirementMethodConstraintArrayOutput) ToGetRulePasswordPasswordResetRequirementMethodConstraintArrayOutputWithContext(ctx context.Context) GetRulePasswordPasswordResetRequirementMethodConstraintArrayOutput {
+	return o
+}
+
+func (o GetRulePasswordPasswordResetRequirementMethodConstraintArrayOutput) Index(i pulumi.IntInput) GetRulePasswordPasswordResetRequirementMethodConstraintOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRulePasswordPasswordResetRequirementMethodConstraint {
+		return vs[0].([]GetRulePasswordPasswordResetRequirementMethodConstraint)[vs[1].(int)]
+	}).(GetRulePasswordPasswordResetRequirementMethodConstraintOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleIdpDiscoveryAppExcludeInput)(nil)).Elem(), RuleIdpDiscoveryAppExcludeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleIdpDiscoveryAppExcludeArrayInput)(nil)).Elem(), RuleIdpDiscoveryAppExcludeArray{})
@@ -987,10 +1523,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleMfaAppExcludeArrayInput)(nil)).Elem(), RuleMfaAppExcludeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleMfaAppIncludeInput)(nil)).Elem(), RuleMfaAppIncludeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleMfaAppIncludeArrayInput)(nil)).Elem(), RuleMfaAppIncludeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RulePasswordPasswordResetRequirementInput)(nil)).Elem(), RulePasswordPasswordResetRequirementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RulePasswordPasswordResetRequirementPtrInput)(nil)).Elem(), RulePasswordPasswordResetRequirementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RulePasswordPasswordResetRequirementMethodConstraintInput)(nil)).Elem(), RulePasswordPasswordResetRequirementMethodConstraintArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RulePasswordPasswordResetRequirementMethodConstraintArrayInput)(nil)).Elem(), RulePasswordPasswordResetRequirementMethodConstraintArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleSignonFactorSequenceInput)(nil)).Elem(), RuleSignonFactorSequenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleSignonFactorSequenceArrayInput)(nil)).Elem(), RuleSignonFactorSequenceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleSignonFactorSequenceSecondaryCriteriaInput)(nil)).Elem(), RuleSignonFactorSequenceSecondaryCriteriaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleSignonFactorSequenceSecondaryCriteriaArrayInput)(nil)).Elem(), RuleSignonFactorSequenceSecondaryCriteriaArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRulePasswordPasswordResetRequirementInput)(nil)).Elem(), GetRulePasswordPasswordResetRequirementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRulePasswordPasswordResetRequirementArrayInput)(nil)).Elem(), GetRulePasswordPasswordResetRequirementArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRulePasswordPasswordResetRequirementMethodConstraintInput)(nil)).Elem(), GetRulePasswordPasswordResetRequirementMethodConstraintArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRulePasswordPasswordResetRequirementMethodConstraintArrayInput)(nil)).Elem(), GetRulePasswordPasswordResetRequirementMethodConstraintArray{})
 	pulumi.RegisterOutputType(RuleIdpDiscoveryAppExcludeOutput{})
 	pulumi.RegisterOutputType(RuleIdpDiscoveryAppExcludeArrayOutput{})
 	pulumi.RegisterOutputType(RuleIdpDiscoveryAppIncludeOutput{})
@@ -1005,8 +1549,16 @@ func init() {
 	pulumi.RegisterOutputType(RuleMfaAppExcludeArrayOutput{})
 	pulumi.RegisterOutputType(RuleMfaAppIncludeOutput{})
 	pulumi.RegisterOutputType(RuleMfaAppIncludeArrayOutput{})
+	pulumi.RegisterOutputType(RulePasswordPasswordResetRequirementOutput{})
+	pulumi.RegisterOutputType(RulePasswordPasswordResetRequirementPtrOutput{})
+	pulumi.RegisterOutputType(RulePasswordPasswordResetRequirementMethodConstraintOutput{})
+	pulumi.RegisterOutputType(RulePasswordPasswordResetRequirementMethodConstraintArrayOutput{})
 	pulumi.RegisterOutputType(RuleSignonFactorSequenceOutput{})
 	pulumi.RegisterOutputType(RuleSignonFactorSequenceArrayOutput{})
 	pulumi.RegisterOutputType(RuleSignonFactorSequenceSecondaryCriteriaOutput{})
 	pulumi.RegisterOutputType(RuleSignonFactorSequenceSecondaryCriteriaArrayOutput{})
+	pulumi.RegisterOutputType(GetRulePasswordPasswordResetRequirementOutput{})
+	pulumi.RegisterOutputType(GetRulePasswordPasswordResetRequirementArrayOutput{})
+	pulumi.RegisterOutputType(GetRulePasswordPasswordResetRequirementMethodConstraintOutput{})
+	pulumi.RegisterOutputType(GetRulePasswordPasswordResetRequirementMethodConstraintArrayOutput{})
 }

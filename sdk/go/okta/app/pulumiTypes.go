@@ -4072,7 +4072,7 @@ func (o SignonPolicyRulesRuleArrayOutput) Index(i pulumi.IntInput) SignonPolicyR
 }
 
 type SignonPolicyRulesRulePlatformInclude struct {
-	// Custom OS expression for advanced matching.
+	// Custom OS expression for advanced matching. Required by the API when osType is OTHER (leave empty or omit to match any OTHER OS). The API normalizes empty and wildcard values to null on read; the provider preserves "" in state.
 	OsExpression *string `pulumi:"osExpression"`
 	// OS type: ANY, IOS, ANDROID, WINDOWS, OSX, MACOS, CHROMEOS, or OTHER.
 	OsType *string `pulumi:"osType"`
@@ -4092,7 +4092,7 @@ type SignonPolicyRulesRulePlatformIncludeInput interface {
 }
 
 type SignonPolicyRulesRulePlatformIncludeArgs struct {
-	// Custom OS expression for advanced matching.
+	// Custom OS expression for advanced matching. Required by the API when osType is OTHER (leave empty or omit to match any OTHER OS). The API normalizes empty and wildcard values to null on read; the provider preserves "" in state.
 	OsExpression pulumi.StringPtrInput `pulumi:"osExpression"`
 	// OS type: ANY, IOS, ANDROID, WINDOWS, OSX, MACOS, CHROMEOS, or OTHER.
 	OsType pulumi.StringPtrInput `pulumi:"osType"`
@@ -4151,7 +4151,7 @@ func (o SignonPolicyRulesRulePlatformIncludeOutput) ToSignonPolicyRulesRulePlatf
 	return o
 }
 
-// Custom OS expression for advanced matching.
+// Custom OS expression for advanced matching. Required by the API when osType is OTHER (leave empty or omit to match any OTHER OS). The API normalizes empty and wildcard values to null on read; the provider preserves "" in state.
 func (o SignonPolicyRulesRulePlatformIncludeOutput) OsExpression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SignonPolicyRulesRulePlatformInclude) *string { return v.OsExpression }).(pulumi.StringPtrOutput)
 }

@@ -29,6 +29,10 @@ __all__ = [
     'RuleMfaAppExcludeArgsDict',
     'RuleMfaAppIncludeArgs',
     'RuleMfaAppIncludeArgsDict',
+    'RulePasswordPasswordResetRequirementArgs',
+    'RulePasswordPasswordResetRequirementArgsDict',
+    'RulePasswordPasswordResetRequirementMethodConstraintArgs',
+    'RulePasswordPasswordResetRequirementMethodConstraintArgsDict',
     'RuleSignonFactorSequenceArgs',
     'RuleSignonFactorSequenceArgsDict',
     'RuleSignonFactorSequenceSecondaryCriteriaArgs',
@@ -350,6 +354,143 @@ class RuleMfaAppIncludeArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "name", value)
+
+
+class RulePasswordPasswordResetRequirementArgsDict(TypedDict):
+    method_constraints: NotRequired[pulumi.Input[Sequence[pulumi.Input['RulePasswordPasswordResetRequirementMethodConstraintArgsDict']]]]
+    """
+    Constraints on the values specified in the `primary_methods` set. Specifying a constraint limits methods to specific authenticator(s). Currently, Google OTP is the only accepted constraint. The `otp` method requires a constraint.
+    """
+    primary_methods: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Authenticator methods allowed for the initial authentication step of password recovery. Method `otp` requires a constraint limiting it to a Google authenticator. Options: `otp`, `push`, `sms`, `email`, `voice`.
+    """
+    step_up_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether a secondary authenticator is required for password reset (`stepUp.required`). The following are three valid configurations: `required=false`, `required=true` with no methods to use any SSO authenticator, and `required=true` with `security_question` as the method. Default: `false`.
+    """
+    step_up_methods: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Authenticator methods required for the secondary authentication step of password recovery. Specify only when `step_up_enabled = true` and `security_question` is permitted for the secondary authentication. Items value: `security_question`.
+    """
+
+@pulumi.input_type
+class RulePasswordPasswordResetRequirementArgs:
+    def __init__(__self__, *,
+                 method_constraints: Optional[pulumi.Input[Sequence[pulumi.Input['RulePasswordPasswordResetRequirementMethodConstraintArgs']]]] = None,
+                 primary_methods: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 step_up_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 step_up_methods: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['RulePasswordPasswordResetRequirementMethodConstraintArgs']]] method_constraints: Constraints on the values specified in the `primary_methods` set. Specifying a constraint limits methods to specific authenticator(s). Currently, Google OTP is the only accepted constraint. The `otp` method requires a constraint.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] primary_methods: Authenticator methods allowed for the initial authentication step of password recovery. Method `otp` requires a constraint limiting it to a Google authenticator. Options: `otp`, `push`, `sms`, `email`, `voice`.
+        :param pulumi.Input[_builtins.bool] step_up_enabled: Whether a secondary authenticator is required for password reset (`stepUp.required`). The following are three valid configurations: `required=false`, `required=true` with no methods to use any SSO authenticator, and `required=true` with `security_question` as the method. Default: `false`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] step_up_methods: Authenticator methods required for the secondary authentication step of password recovery. Specify only when `step_up_enabled = true` and `security_question` is permitted for the secondary authentication. Items value: `security_question`.
+        """
+        if method_constraints is not None:
+            pulumi.set(__self__, "method_constraints", method_constraints)
+        if primary_methods is not None:
+            pulumi.set(__self__, "primary_methods", primary_methods)
+        if step_up_enabled is not None:
+            pulumi.set(__self__, "step_up_enabled", step_up_enabled)
+        if step_up_methods is not None:
+            pulumi.set(__self__, "step_up_methods", step_up_methods)
+
+    @_builtins.property
+    @pulumi.getter(name="methodConstraints")
+    def method_constraints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RulePasswordPasswordResetRequirementMethodConstraintArgs']]]]:
+        """
+        Constraints on the values specified in the `primary_methods` set. Specifying a constraint limits methods to specific authenticator(s). Currently, Google OTP is the only accepted constraint. The `otp` method requires a constraint.
+        """
+        return pulumi.get(self, "method_constraints")
+
+    @method_constraints.setter
+    def method_constraints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RulePasswordPasswordResetRequirementMethodConstraintArgs']]]]):
+        pulumi.set(self, "method_constraints", value)
+
+    @_builtins.property
+    @pulumi.getter(name="primaryMethods")
+    def primary_methods(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Authenticator methods allowed for the initial authentication step of password recovery. Method `otp` requires a constraint limiting it to a Google authenticator. Options: `otp`, `push`, `sms`, `email`, `voice`.
+        """
+        return pulumi.get(self, "primary_methods")
+
+    @primary_methods.setter
+    def primary_methods(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "primary_methods", value)
+
+    @_builtins.property
+    @pulumi.getter(name="stepUpEnabled")
+    def step_up_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Whether a secondary authenticator is required for password reset (`stepUp.required`). The following are three valid configurations: `required=false`, `required=true` with no methods to use any SSO authenticator, and `required=true` with `security_question` as the method. Default: `false`.
+        """
+        return pulumi.get(self, "step_up_enabled")
+
+    @step_up_enabled.setter
+    def step_up_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "step_up_enabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="stepUpMethods")
+    def step_up_methods(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Authenticator methods required for the secondary authentication step of password recovery. Specify only when `step_up_enabled = true` and `security_question` is permitted for the secondary authentication. Items value: `security_question`.
+        """
+        return pulumi.get(self, "step_up_methods")
+
+    @step_up_methods.setter
+    def step_up_methods(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "step_up_methods", value)
+
+
+class RulePasswordPasswordResetRequirementMethodConstraintArgsDict(TypedDict):
+    method: pulumi.Input[_builtins.str]
+    """
+    The method to constrain (e.g. `otp`).
+    """
+    allowed_authenticators: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Keys of the authenticators allowed for this method (e.g. `google_otp`).
+    """
+
+@pulumi.input_type
+class RulePasswordPasswordResetRequirementMethodConstraintArgs:
+    def __init__(__self__, *,
+                 method: pulumi.Input[_builtins.str],
+                 allowed_authenticators: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[_builtins.str] method: The method to constrain (e.g. `otp`).
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_authenticators: Keys of the authenticators allowed for this method (e.g. `google_otp`).
+        """
+        pulumi.set(__self__, "method", method)
+        if allowed_authenticators is not None:
+            pulumi.set(__self__, "allowed_authenticators", allowed_authenticators)
+
+    @_builtins.property
+    @pulumi.getter
+    def method(self) -> pulumi.Input[_builtins.str]:
+        """
+        The method to constrain (e.g. `otp`).
+        """
+        return pulumi.get(self, "method")
+
+    @method.setter
+    def method(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "method", value)
+
+    @_builtins.property
+    @pulumi.getter(name="allowedAuthenticators")
+    def allowed_authenticators(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Keys of the authenticators allowed for this method (e.g. `google_otp`).
+        """
+        return pulumi.get(self, "allowed_authenticators")
+
+    @allowed_authenticators.setter
+    def allowed_authenticators(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "allowed_authenticators", value)
 
 
 class RuleSignonFactorSequenceArgsDict(TypedDict):

@@ -23,8 +23,12 @@ __all__ = [
     'RuleIdpDiscoveryUserIdentifierPattern',
     'RuleMfaAppExclude',
     'RuleMfaAppInclude',
+    'RulePasswordPasswordResetRequirement',
+    'RulePasswordPasswordResetRequirementMethodConstraint',
     'RuleSignonFactorSequence',
     'RuleSignonFactorSequenceSecondaryCriteria',
+    'GetRulePasswordPasswordResetRequirementResult',
+    'GetRulePasswordPasswordResetRequirementMethodConstraintResult',
 ]
 
 @pulumi.output_type
@@ -263,6 +267,131 @@ class RuleMfaAppInclude(dict):
 
 
 @pulumi.output_type
+class RulePasswordPasswordResetRequirement(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "methodConstraints":
+            suggest = "method_constraints"
+        elif key == "primaryMethods":
+            suggest = "primary_methods"
+        elif key == "stepUpEnabled":
+            suggest = "step_up_enabled"
+        elif key == "stepUpMethods":
+            suggest = "step_up_methods"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RulePasswordPasswordResetRequirement. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RulePasswordPasswordResetRequirement.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RulePasswordPasswordResetRequirement.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 method_constraints: Optional[Sequence['outputs.RulePasswordPasswordResetRequirementMethodConstraint']] = None,
+                 primary_methods: Optional[Sequence[_builtins.str]] = None,
+                 step_up_enabled: Optional[_builtins.bool] = None,
+                 step_up_methods: Optional[Sequence[_builtins.str]] = None):
+        """
+        :param Sequence['RulePasswordPasswordResetRequirementMethodConstraintArgs'] method_constraints: Constraints on the values specified in the `primary_methods` set. Specifying a constraint limits methods to specific authenticator(s). Currently, Google OTP is the only accepted constraint. The `otp` method requires a constraint.
+        :param Sequence[_builtins.str] primary_methods: Authenticator methods allowed for the initial authentication step of password recovery. Method `otp` requires a constraint limiting it to a Google authenticator. Options: `otp`, `push`, `sms`, `email`, `voice`.
+        :param _builtins.bool step_up_enabled: Whether a secondary authenticator is required for password reset (`stepUp.required`). The following are three valid configurations: `required=false`, `required=true` with no methods to use any SSO authenticator, and `required=true` with `security_question` as the method. Default: `false`.
+        :param Sequence[_builtins.str] step_up_methods: Authenticator methods required for the secondary authentication step of password recovery. Specify only when `step_up_enabled = true` and `security_question` is permitted for the secondary authentication. Items value: `security_question`.
+        """
+        if method_constraints is not None:
+            pulumi.set(__self__, "method_constraints", method_constraints)
+        if primary_methods is not None:
+            pulumi.set(__self__, "primary_methods", primary_methods)
+        if step_up_enabled is not None:
+            pulumi.set(__self__, "step_up_enabled", step_up_enabled)
+        if step_up_methods is not None:
+            pulumi.set(__self__, "step_up_methods", step_up_methods)
+
+    @_builtins.property
+    @pulumi.getter(name="methodConstraints")
+    def method_constraints(self) -> Optional[Sequence['outputs.RulePasswordPasswordResetRequirementMethodConstraint']]:
+        """
+        Constraints on the values specified in the `primary_methods` set. Specifying a constraint limits methods to specific authenticator(s). Currently, Google OTP is the only accepted constraint. The `otp` method requires a constraint.
+        """
+        return pulumi.get(self, "method_constraints")
+
+    @_builtins.property
+    @pulumi.getter(name="primaryMethods")
+    def primary_methods(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Authenticator methods allowed for the initial authentication step of password recovery. Method `otp` requires a constraint limiting it to a Google authenticator. Options: `otp`, `push`, `sms`, `email`, `voice`.
+        """
+        return pulumi.get(self, "primary_methods")
+
+    @_builtins.property
+    @pulumi.getter(name="stepUpEnabled")
+    def step_up_enabled(self) -> Optional[_builtins.bool]:
+        """
+        Whether a secondary authenticator is required for password reset (`stepUp.required`). The following are three valid configurations: `required=false`, `required=true` with no methods to use any SSO authenticator, and `required=true` with `security_question` as the method. Default: `false`.
+        """
+        return pulumi.get(self, "step_up_enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="stepUpMethods")
+    def step_up_methods(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Authenticator methods required for the secondary authentication step of password recovery. Specify only when `step_up_enabled = true` and `security_question` is permitted for the secondary authentication. Items value: `security_question`.
+        """
+        return pulumi.get(self, "step_up_methods")
+
+
+@pulumi.output_type
+class RulePasswordPasswordResetRequirementMethodConstraint(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowedAuthenticators":
+            suggest = "allowed_authenticators"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RulePasswordPasswordResetRequirementMethodConstraint. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RulePasswordPasswordResetRequirementMethodConstraint.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RulePasswordPasswordResetRequirementMethodConstraint.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 method: _builtins.str,
+                 allowed_authenticators: Optional[Sequence[_builtins.str]] = None):
+        """
+        :param _builtins.str method: The method to constrain (e.g. `otp`).
+        :param Sequence[_builtins.str] allowed_authenticators: Keys of the authenticators allowed for this method (e.g. `google_otp`).
+        """
+        pulumi.set(__self__, "method", method)
+        if allowed_authenticators is not None:
+            pulumi.set(__self__, "allowed_authenticators", allowed_authenticators)
+
+    @_builtins.property
+    @pulumi.getter
+    def method(self) -> _builtins.str:
+        """
+        The method to constrain (e.g. `otp`).
+        """
+        return pulumi.get(self, "method")
+
+    @_builtins.property
+    @pulumi.getter(name="allowedAuthenticators")
+    def allowed_authenticators(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Keys of the authenticators allowed for this method (e.g. `google_otp`).
+        """
+        return pulumi.get(self, "allowed_authenticators")
+
+
+@pulumi.output_type
 class RuleSignonFactorSequence(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -364,5 +493,85 @@ class RuleSignonFactorSequenceSecondaryCriteria(dict):
         Factor provider
         """
         return pulumi.get(self, "provider")
+
+
+@pulumi.output_type
+class GetRulePasswordPasswordResetRequirementResult(dict):
+    def __init__(__self__, *,
+                 method_constraints: Sequence['outputs.GetRulePasswordPasswordResetRequirementMethodConstraintResult'],
+                 primary_methods: Sequence[_builtins.str],
+                 step_up_enabled: _builtins.bool,
+                 step_up_methods: Sequence[_builtins.str]):
+        """
+        :param Sequence['GetRulePasswordPasswordResetRequirementMethodConstraintArgs'] method_constraints: Constraints on the values specified in `primary_methods`.
+        :param Sequence[_builtins.str] primary_methods: Authenticator methods allowed for the initial authentication step of password recovery.
+        :param _builtins.bool step_up_enabled: Whether a secondary authenticator is required for password reset.
+        :param Sequence[_builtins.str] step_up_methods: Authenticator methods required for the secondary authentication step of password recovery. Items value: `security_question`.
+        """
+        pulumi.set(__self__, "method_constraints", method_constraints)
+        pulumi.set(__self__, "primary_methods", primary_methods)
+        pulumi.set(__self__, "step_up_enabled", step_up_enabled)
+        pulumi.set(__self__, "step_up_methods", step_up_methods)
+
+    @_builtins.property
+    @pulumi.getter(name="methodConstraints")
+    def method_constraints(self) -> Sequence['outputs.GetRulePasswordPasswordResetRequirementMethodConstraintResult']:
+        """
+        Constraints on the values specified in `primary_methods`.
+        """
+        return pulumi.get(self, "method_constraints")
+
+    @_builtins.property
+    @pulumi.getter(name="primaryMethods")
+    def primary_methods(self) -> Sequence[_builtins.str]:
+        """
+        Authenticator methods allowed for the initial authentication step of password recovery.
+        """
+        return pulumi.get(self, "primary_methods")
+
+    @_builtins.property
+    @pulumi.getter(name="stepUpEnabled")
+    def step_up_enabled(self) -> _builtins.bool:
+        """
+        Whether a secondary authenticator is required for password reset.
+        """
+        return pulumi.get(self, "step_up_enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="stepUpMethods")
+    def step_up_methods(self) -> Sequence[_builtins.str]:
+        """
+        Authenticator methods required for the secondary authentication step of password recovery. Items value: `security_question`.
+        """
+        return pulumi.get(self, "step_up_methods")
+
+
+@pulumi.output_type
+class GetRulePasswordPasswordResetRequirementMethodConstraintResult(dict):
+    def __init__(__self__, *,
+                 allowed_authenticators: Sequence[_builtins.str],
+                 method: _builtins.str):
+        """
+        :param Sequence[_builtins.str] allowed_authenticators: Keys of the authenticators allowed for this method (e.g. `google_otp`).
+        :param _builtins.str method: The method to constrain (e.g. `otp`).
+        """
+        pulumi.set(__self__, "allowed_authenticators", allowed_authenticators)
+        pulumi.set(__self__, "method", method)
+
+    @_builtins.property
+    @pulumi.getter(name="allowedAuthenticators")
+    def allowed_authenticators(self) -> Sequence[_builtins.str]:
+        """
+        Keys of the authenticators allowed for this method (e.g. `google_otp`).
+        """
+        return pulumi.get(self, "allowed_authenticators")
+
+    @_builtins.property
+    @pulumi.getter
+    def method(self) -> _builtins.str:
+        """
+        The method to constrain (e.g. `otp`).
+        """
+        return pulumi.get(self, "method")
 
 

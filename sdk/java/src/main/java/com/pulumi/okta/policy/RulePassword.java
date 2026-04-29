@@ -10,6 +10,7 @@ import com.pulumi.core.internal.Codegen;
 import com.pulumi.okta.Utilities;
 import com.pulumi.okta.policy.RulePasswordArgs;
 import com.pulumi.okta.policy.inputs.RulePasswordState;
+import com.pulumi.okta.policy.outputs.RulePasswordPasswordResetRequirement;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -18,6 +19,98 @@ import javax.annotation.Nullable;
 
 /**
  * Creates a Password Policy Rule. This resource allows you to create and configure a Password Policy Rule.
+ * 
+ * ## Example Usage
+ * 
+ * ### AUTH_POLICY access control (delegates SSPR to authentication policy rules)
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.okta.policy.RulePassword;
+ * import com.pulumi.okta.policy.RulePasswordArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleAuthPolicy = new RulePassword("exampleAuthPolicy", RulePasswordArgs.builder()
+ *             .policyId("<policy_id>")
+ *             .name("example_auth_policy_rule")
+ *             .status("ACTIVE")
+ *             .passwordChange("ALLOW")
+ *             .passwordReset("ALLOW")
+ *             .passwordUnlock("DENY")
+ *             .passwordResetAccessControl("AUTH_POLICY")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ### LEGACY access control with primary methods and step-up
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.okta.policy.RulePassword;
+ * import com.pulumi.okta.policy.RulePasswordArgs;
+ * import com.pulumi.okta.policy.inputs.RulePasswordPasswordResetRequirementArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleLegacy = new RulePassword("exampleLegacy", RulePasswordArgs.builder()
+ *             .policyId("<policy_id>")
+ *             .name("example_legacy_rule")
+ *             .status("ACTIVE")
+ *             .passwordChange("ALLOW")
+ *             .passwordReset("ALLOW")
+ *             .passwordUnlock("DENY")
+ *             .passwordResetAccessControl("LEGACY")
+ *             .passwordResetRequirement(RulePasswordPasswordResetRequirementArgs.builder()
+ *                 .methodConstraints(RulePasswordPasswordResetRequirementMethodConstraintArgs.builder()
+ *                     .method("otp")
+ *                     .allowedAuthenticators("google_otp")
+ *                     .build())
+ *                 .primaryMethods(                
+ *                     "otp",
+ *                     "email")
+ *                 .stepUpEnabled(true)
+ *                 .stepUpMethods("security_question")
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
  * 
  * ## Import
  * 
@@ -28,6 +121,34 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="okta:policy/rulePassword:RulePassword")
 public class RulePassword extends com.pulumi.resources.CustomResource {
+    /**
+     * Set of Group IDs to exclude from this rule.
+     * 
+     */
+    @Export(name="groupsExcludeds", refs={List.class,String.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<String>> groupsExcludeds;
+
+    /**
+     * @return Set of Group IDs to exclude from this rule.
+     * 
+     */
+    public Output<Optional<List<String>>> groupsExcludeds() {
+        return Codegen.optional(this.groupsExcludeds);
+    }
+    /**
+     * Set of Group IDs to include in this rule.
+     * 
+     */
+    @Export(name="groupsIncludeds", refs={List.class,String.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<String>> groupsIncludeds;
+
+    /**
+     * @return Set of Group IDs to include in this rule.
+     * 
+     */
+    public Output<Optional<List<String>>> groupsIncludeds() {
+        return Codegen.optional(this.groupsIncludeds);
+    }
     /**
      * Policy Rule Name
      * 
@@ -43,14 +164,14 @@ public class RulePassword extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * Network selection mode: `ANYWHERE`, `ZONE`, `ON_NETWORK`, or `OFF_NETWORK`. Default: `ANYWHERE`
+     * Network selection mode: `ANYWHERE`, `ZONE`. Default: `ANYWHERE`
      * 
      */
     @Export(name="networkConnection", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> networkConnection;
 
     /**
-     * @return Network selection mode: `ANYWHERE`, `ZONE`, `ON_NETWORK`, or `OFF_NETWORK`. Default: `ANYWHERE`
+     * @return Network selection mode: `ANYWHERE`, `ZONE`. Default: `ANYWHERE`
      * 
      */
     public Output<Optional<String>> networkConnection() {
@@ -111,6 +232,34 @@ public class RulePassword extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> passwordReset() {
         return Codegen.optional(this.passwordReset);
+    }
+    /**
+     * Determines whether the Self-Service Password Reset (SSPR) access is governed by an authentication policy or legacy behavior. Options: `LEGACY`, `AUTH_POLICY`.
+     * 
+     */
+    @Export(name="passwordResetAccessControl", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> passwordResetAccessControl;
+
+    /**
+     * @return Determines whether the Self-Service Password Reset (SSPR) access is governed by an authentication policy or legacy behavior. Options: `LEGACY`, `AUTH_POLICY`.
+     * 
+     */
+    public Output<Optional<String>> passwordResetAccessControl() {
+        return Codegen.optional(this.passwordResetAccessControl);
+    }
+    /**
+     * Self-service password reset (SSPR) requirement settings. Use only when `passwordResetAccessControl = &#34;LEGACY&#34;`.
+     * 
+     */
+    @Export(name="passwordResetRequirement", refs={RulePasswordPasswordResetRequirement.class}, tree="[0]")
+    private Output</* @Nullable */ RulePasswordPasswordResetRequirement> passwordResetRequirement;
+
+    /**
+     * @return Self-service password reset (SSPR) requirement settings. Use only when `passwordResetAccessControl = &#34;LEGACY&#34;`.
+     * 
+     */
+    public Output<Optional<RulePasswordPasswordResetRequirement>> passwordResetRequirement() {
+        return Codegen.optional(this.passwordResetRequirement);
     }
     /**
      * Allow or deny a user to unlock. Default: `DENY`
@@ -181,6 +330,20 @@ public class RulePassword extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<List<String>>> usersExcludeds() {
         return Codegen.optional(this.usersExcludeds);
+    }
+    /**
+     * Set of User IDs to include in this rule.
+     * 
+     */
+    @Export(name="usersIncludeds", refs={List.class,String.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<String>> usersIncludeds;
+
+    /**
+     * @return Set of User IDs to include in this rule.
+     * 
+     */
+    public Output<Optional<List<String>>> usersIncludeds() {
+        return Codegen.optional(this.usersIncludeds);
     }
 
     /**

@@ -13,6 +13,90 @@ import (
 
 // Creates a Password Policy Rule. This resource allows you to create and configure a Password Policy Rule.
 //
+// ## Example Usage
+//
+// ### AUTH_POLICY access control (delegates SSPR to authentication policy rules)
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v6/go/okta/policy"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := policy.NewRulePassword(ctx, "example_auth_policy", &policy.RulePasswordArgs{
+//				PolicyId:                   pulumi.String("<policy_id>"),
+//				Name:                       pulumi.String("example_auth_policy_rule"),
+//				Status:                     pulumi.String("ACTIVE"),
+//				PasswordChange:             pulumi.String("ALLOW"),
+//				PasswordReset:              pulumi.String("ALLOW"),
+//				PasswordUnlock:             pulumi.String("DENY"),
+//				PasswordResetAccessControl: pulumi.String("AUTH_POLICY"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### LEGACY access control with primary methods and step-up
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v6/go/okta/policy"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := policy.NewRulePassword(ctx, "example_legacy", &policy.RulePasswordArgs{
+//				PolicyId:                   pulumi.String("<policy_id>"),
+//				Name:                       pulumi.String("example_legacy_rule"),
+//				Status:                     pulumi.String("ACTIVE"),
+//				PasswordChange:             pulumi.String("ALLOW"),
+//				PasswordReset:              pulumi.String("ALLOW"),
+//				PasswordUnlock:             pulumi.String("DENY"),
+//				PasswordResetAccessControl: pulumi.String("LEGACY"),
+//				PasswordResetRequirement: &policy.RulePasswordPasswordResetRequirementArgs{
+//					MethodConstraints: policy.RulePasswordPasswordResetRequirementMethodConstraintArray{
+//						&policy.RulePasswordPasswordResetRequirementMethodConstraintArgs{
+//							Method: pulumi.String("otp"),
+//							AllowedAuthenticators: pulumi.StringArray{
+//								pulumi.String("google_otp"),
+//							},
+//						},
+//					},
+//					PrimaryMethods: pulumi.StringArray{
+//						pulumi.String("otp"),
+//						pulumi.String("email"),
+//					},
+//					StepUpEnabled: pulumi.Bool(true),
+//					StepUpMethods: pulumi.StringArray{
+//						pulumi.String("security_question"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // ```sh
@@ -21,9 +105,13 @@ import (
 type RulePassword struct {
 	pulumi.CustomResourceState
 
+	// Set of Group IDs to exclude from this rule.
+	GroupsExcludeds pulumi.StringArrayOutput `pulumi:"groupsExcludeds"`
+	// Set of Group IDs to include in this rule.
+	GroupsIncludeds pulumi.StringArrayOutput `pulumi:"groupsIncludeds"`
 	// Policy Rule Name
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Network selection mode: `ANYWHERE`, `ZONE`, `ON_NETWORK`, or `OFF_NETWORK`. Default: `ANYWHERE`
+	// Network selection mode: `ANYWHERE`, `ZONE`. Default: `ANYWHERE`
 	NetworkConnection pulumi.StringPtrOutput `pulumi:"networkConnection"`
 	// Required if `networkConnection` = `ZONE`. Indicates the network zones to exclude.
 	NetworkExcludes pulumi.StringArrayOutput `pulumi:"networkExcludes"`
@@ -33,6 +121,10 @@ type RulePassword struct {
 	PasswordChange pulumi.StringPtrOutput `pulumi:"passwordChange"`
 	// Allow or deny a user to reset their password: `ALLOW` or `DENY`. Default: `ALLOW`
 	PasswordReset pulumi.StringPtrOutput `pulumi:"passwordReset"`
+	// Determines whether the Self-Service Password Reset (SSPR) access is governed by an authentication policy or legacy behavior. Options: `LEGACY`, `AUTH_POLICY`.
+	PasswordResetAccessControl pulumi.StringPtrOutput `pulumi:"passwordResetAccessControl"`
+	// Self-service password reset (SSPR) requirement settings. Use only when `passwordResetAccessControl = "LEGACY"`.
+	PasswordResetRequirement RulePasswordPasswordResetRequirementPtrOutput `pulumi:"passwordResetRequirement"`
 	// Allow or deny a user to unlock. Default: `DENY`
 	PasswordUnlock pulumi.StringPtrOutput `pulumi:"passwordUnlock"`
 	// Policy ID of the Rule
@@ -43,6 +135,8 @@ type RulePassword struct {
 	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// Set of User IDs to Exclude
 	UsersExcludeds pulumi.StringArrayOutput `pulumi:"usersExcludeds"`
+	// Set of User IDs to include in this rule.
+	UsersIncludeds pulumi.StringArrayOutput `pulumi:"usersIncludeds"`
 }
 
 // NewRulePassword registers a new resource with the given unique name, arguments, and options.
@@ -75,9 +169,13 @@ func GetRulePassword(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RulePassword resources.
 type rulePasswordState struct {
+	// Set of Group IDs to exclude from this rule.
+	GroupsExcludeds []string `pulumi:"groupsExcludeds"`
+	// Set of Group IDs to include in this rule.
+	GroupsIncludeds []string `pulumi:"groupsIncludeds"`
 	// Policy Rule Name
 	Name *string `pulumi:"name"`
-	// Network selection mode: `ANYWHERE`, `ZONE`, `ON_NETWORK`, or `OFF_NETWORK`. Default: `ANYWHERE`
+	// Network selection mode: `ANYWHERE`, `ZONE`. Default: `ANYWHERE`
 	NetworkConnection *string `pulumi:"networkConnection"`
 	// Required if `networkConnection` = `ZONE`. Indicates the network zones to exclude.
 	NetworkExcludes []string `pulumi:"networkExcludes"`
@@ -87,6 +185,10 @@ type rulePasswordState struct {
 	PasswordChange *string `pulumi:"passwordChange"`
 	// Allow or deny a user to reset their password: `ALLOW` or `DENY`. Default: `ALLOW`
 	PasswordReset *string `pulumi:"passwordReset"`
+	// Determines whether the Self-Service Password Reset (SSPR) access is governed by an authentication policy or legacy behavior. Options: `LEGACY`, `AUTH_POLICY`.
+	PasswordResetAccessControl *string `pulumi:"passwordResetAccessControl"`
+	// Self-service password reset (SSPR) requirement settings. Use only when `passwordResetAccessControl = "LEGACY"`.
+	PasswordResetRequirement *RulePasswordPasswordResetRequirement `pulumi:"passwordResetRequirement"`
 	// Allow or deny a user to unlock. Default: `DENY`
 	PasswordUnlock *string `pulumi:"passwordUnlock"`
 	// Policy ID of the Rule
@@ -97,12 +199,18 @@ type rulePasswordState struct {
 	Status *string `pulumi:"status"`
 	// Set of User IDs to Exclude
 	UsersExcludeds []string `pulumi:"usersExcludeds"`
+	// Set of User IDs to include in this rule.
+	UsersIncludeds []string `pulumi:"usersIncludeds"`
 }
 
 type RulePasswordState struct {
+	// Set of Group IDs to exclude from this rule.
+	GroupsExcludeds pulumi.StringArrayInput
+	// Set of Group IDs to include in this rule.
+	GroupsIncludeds pulumi.StringArrayInput
 	// Policy Rule Name
 	Name pulumi.StringPtrInput
-	// Network selection mode: `ANYWHERE`, `ZONE`, `ON_NETWORK`, or `OFF_NETWORK`. Default: `ANYWHERE`
+	// Network selection mode: `ANYWHERE`, `ZONE`. Default: `ANYWHERE`
 	NetworkConnection pulumi.StringPtrInput
 	// Required if `networkConnection` = `ZONE`. Indicates the network zones to exclude.
 	NetworkExcludes pulumi.StringArrayInput
@@ -112,6 +220,10 @@ type RulePasswordState struct {
 	PasswordChange pulumi.StringPtrInput
 	// Allow or deny a user to reset their password: `ALLOW` or `DENY`. Default: `ALLOW`
 	PasswordReset pulumi.StringPtrInput
+	// Determines whether the Self-Service Password Reset (SSPR) access is governed by an authentication policy or legacy behavior. Options: `LEGACY`, `AUTH_POLICY`.
+	PasswordResetAccessControl pulumi.StringPtrInput
+	// Self-service password reset (SSPR) requirement settings. Use only when `passwordResetAccessControl = "LEGACY"`.
+	PasswordResetRequirement RulePasswordPasswordResetRequirementPtrInput
 	// Allow or deny a user to unlock. Default: `DENY`
 	PasswordUnlock pulumi.StringPtrInput
 	// Policy ID of the Rule
@@ -122,6 +234,8 @@ type RulePasswordState struct {
 	Status pulumi.StringPtrInput
 	// Set of User IDs to Exclude
 	UsersExcludeds pulumi.StringArrayInput
+	// Set of User IDs to include in this rule.
+	UsersIncludeds pulumi.StringArrayInput
 }
 
 func (RulePasswordState) ElementType() reflect.Type {
@@ -129,9 +243,13 @@ func (RulePasswordState) ElementType() reflect.Type {
 }
 
 type rulePasswordArgs struct {
+	// Set of Group IDs to exclude from this rule.
+	GroupsExcludeds []string `pulumi:"groupsExcludeds"`
+	// Set of Group IDs to include in this rule.
+	GroupsIncludeds []string `pulumi:"groupsIncludeds"`
 	// Policy Rule Name
 	Name *string `pulumi:"name"`
-	// Network selection mode: `ANYWHERE`, `ZONE`, `ON_NETWORK`, or `OFF_NETWORK`. Default: `ANYWHERE`
+	// Network selection mode: `ANYWHERE`, `ZONE`. Default: `ANYWHERE`
 	NetworkConnection *string `pulumi:"networkConnection"`
 	// Required if `networkConnection` = `ZONE`. Indicates the network zones to exclude.
 	NetworkExcludes []string `pulumi:"networkExcludes"`
@@ -141,6 +259,10 @@ type rulePasswordArgs struct {
 	PasswordChange *string `pulumi:"passwordChange"`
 	// Allow or deny a user to reset their password: `ALLOW` or `DENY`. Default: `ALLOW`
 	PasswordReset *string `pulumi:"passwordReset"`
+	// Determines whether the Self-Service Password Reset (SSPR) access is governed by an authentication policy or legacy behavior. Options: `LEGACY`, `AUTH_POLICY`.
+	PasswordResetAccessControl *string `pulumi:"passwordResetAccessControl"`
+	// Self-service password reset (SSPR) requirement settings. Use only when `passwordResetAccessControl = "LEGACY"`.
+	PasswordResetRequirement *RulePasswordPasswordResetRequirement `pulumi:"passwordResetRequirement"`
 	// Allow or deny a user to unlock. Default: `DENY`
 	PasswordUnlock *string `pulumi:"passwordUnlock"`
 	// Policy ID of the Rule
@@ -151,13 +273,19 @@ type rulePasswordArgs struct {
 	Status *string `pulumi:"status"`
 	// Set of User IDs to Exclude
 	UsersExcludeds []string `pulumi:"usersExcludeds"`
+	// Set of User IDs to include in this rule.
+	UsersIncludeds []string `pulumi:"usersIncludeds"`
 }
 
 // The set of arguments for constructing a RulePassword resource.
 type RulePasswordArgs struct {
+	// Set of Group IDs to exclude from this rule.
+	GroupsExcludeds pulumi.StringArrayInput
+	// Set of Group IDs to include in this rule.
+	GroupsIncludeds pulumi.StringArrayInput
 	// Policy Rule Name
 	Name pulumi.StringPtrInput
-	// Network selection mode: `ANYWHERE`, `ZONE`, `ON_NETWORK`, or `OFF_NETWORK`. Default: `ANYWHERE`
+	// Network selection mode: `ANYWHERE`, `ZONE`. Default: `ANYWHERE`
 	NetworkConnection pulumi.StringPtrInput
 	// Required if `networkConnection` = `ZONE`. Indicates the network zones to exclude.
 	NetworkExcludes pulumi.StringArrayInput
@@ -167,6 +295,10 @@ type RulePasswordArgs struct {
 	PasswordChange pulumi.StringPtrInput
 	// Allow or deny a user to reset their password: `ALLOW` or `DENY`. Default: `ALLOW`
 	PasswordReset pulumi.StringPtrInput
+	// Determines whether the Self-Service Password Reset (SSPR) access is governed by an authentication policy or legacy behavior. Options: `LEGACY`, `AUTH_POLICY`.
+	PasswordResetAccessControl pulumi.StringPtrInput
+	// Self-service password reset (SSPR) requirement settings. Use only when `passwordResetAccessControl = "LEGACY"`.
+	PasswordResetRequirement RulePasswordPasswordResetRequirementPtrInput
 	// Allow or deny a user to unlock. Default: `DENY`
 	PasswordUnlock pulumi.StringPtrInput
 	// Policy ID of the Rule
@@ -177,6 +309,8 @@ type RulePasswordArgs struct {
 	Status pulumi.StringPtrInput
 	// Set of User IDs to Exclude
 	UsersExcludeds pulumi.StringArrayInput
+	// Set of User IDs to include in this rule.
+	UsersIncludeds pulumi.StringArrayInput
 }
 
 func (RulePasswordArgs) ElementType() reflect.Type {
@@ -266,12 +400,22 @@ func (o RulePasswordOutput) ToRulePasswordOutputWithContext(ctx context.Context)
 	return o
 }
 
+// Set of Group IDs to exclude from this rule.
+func (o RulePasswordOutput) GroupsExcludeds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RulePassword) pulumi.StringArrayOutput { return v.GroupsExcludeds }).(pulumi.StringArrayOutput)
+}
+
+// Set of Group IDs to include in this rule.
+func (o RulePasswordOutput) GroupsIncludeds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RulePassword) pulumi.StringArrayOutput { return v.GroupsIncludeds }).(pulumi.StringArrayOutput)
+}
+
 // Policy Rule Name
 func (o RulePasswordOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *RulePassword) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Network selection mode: `ANYWHERE`, `ZONE`, `ON_NETWORK`, or `OFF_NETWORK`. Default: `ANYWHERE`
+// Network selection mode: `ANYWHERE`, `ZONE`. Default: `ANYWHERE`
 func (o RulePasswordOutput) NetworkConnection() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RulePassword) pulumi.StringPtrOutput { return v.NetworkConnection }).(pulumi.StringPtrOutput)
 }
@@ -294,6 +438,16 @@ func (o RulePasswordOutput) PasswordChange() pulumi.StringPtrOutput {
 // Allow or deny a user to reset their password: `ALLOW` or `DENY`. Default: `ALLOW`
 func (o RulePasswordOutput) PasswordReset() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RulePassword) pulumi.StringPtrOutput { return v.PasswordReset }).(pulumi.StringPtrOutput)
+}
+
+// Determines whether the Self-Service Password Reset (SSPR) access is governed by an authentication policy or legacy behavior. Options: `LEGACY`, `AUTH_POLICY`.
+func (o RulePasswordOutput) PasswordResetAccessControl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RulePassword) pulumi.StringPtrOutput { return v.PasswordResetAccessControl }).(pulumi.StringPtrOutput)
+}
+
+// Self-service password reset (SSPR) requirement settings. Use only when `passwordResetAccessControl = "LEGACY"`.
+func (o RulePasswordOutput) PasswordResetRequirement() RulePasswordPasswordResetRequirementPtrOutput {
+	return o.ApplyT(func(v *RulePassword) RulePasswordPasswordResetRequirementPtrOutput { return v.PasswordResetRequirement }).(RulePasswordPasswordResetRequirementPtrOutput)
 }
 
 // Allow or deny a user to unlock. Default: `DENY`
@@ -319,6 +473,11 @@ func (o RulePasswordOutput) Status() pulumi.StringPtrOutput {
 // Set of User IDs to Exclude
 func (o RulePasswordOutput) UsersExcludeds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *RulePassword) pulumi.StringArrayOutput { return v.UsersExcludeds }).(pulumi.StringArrayOutput)
+}
+
+// Set of User IDs to include in this rule.
+func (o RulePasswordOutput) UsersIncludeds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RulePassword) pulumi.StringArrayOutput { return v.UsersIncludeds }).(pulumi.StringArrayOutput)
 }
 
 type RulePasswordArrayOutput struct{ *pulumi.OutputState }

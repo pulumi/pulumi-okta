@@ -40,6 +40,11 @@ export const getPolicy: typeof import("./getPolicy").getPolicy = null as any;
 export const getPolicyOutput: typeof import("./getPolicy").getPolicyOutput = null as any;
 utilities.lazyLoad(exports, ["getPolicy","getPolicyOutput"], () => require("./getPolicy"));
 
+export { GetRulePasswordArgs, GetRulePasswordResult, GetRulePasswordOutputArgs } from "./getRulePassword";
+export const getRulePassword: typeof import("./getRulePassword").getRulePassword = null as any;
+export const getRulePasswordOutput: typeof import("./getRulePassword").getRulePasswordOutput = null as any;
+utilities.lazyLoad(exports, ["getRulePassword","getRulePasswordOutput"], () => require("./getRulePassword"));
+
 export { MfaArgs, MfaState } from "./mfa";
 export type Mfa = import("./mfa").Mfa;
 export const Mfa: typeof import("./mfa").Mfa = null as any;

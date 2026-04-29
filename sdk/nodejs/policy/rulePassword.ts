@@ -2,10 +2,60 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
  * Creates a Password Policy Rule. This resource allows you to create and configure a Password Policy Rule.
+ *
+ * ## Example Usage
+ *
+ * ### AUTH_POLICY access control (delegates SSPR to authentication policy rules)
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const exampleAuthPolicy = new okta.policy.RulePassword("example_auth_policy", {
+ *     policyId: "<policy_id>",
+ *     name: "example_auth_policy_rule",
+ *     status: "ACTIVE",
+ *     passwordChange: "ALLOW",
+ *     passwordReset: "ALLOW",
+ *     passwordUnlock: "DENY",
+ *     passwordResetAccessControl: "AUTH_POLICY",
+ * });
+ * ```
+ *
+ * ### LEGACY access control with primary methods and step-up
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const exampleLegacy = new okta.policy.RulePassword("example_legacy", {
+ *     policyId: "<policy_id>",
+ *     name: "example_legacy_rule",
+ *     status: "ACTIVE",
+ *     passwordChange: "ALLOW",
+ *     passwordReset: "ALLOW",
+ *     passwordUnlock: "DENY",
+ *     passwordResetAccessControl: "LEGACY",
+ *     passwordResetRequirement: {
+ *         methodConstraints: [{
+ *             method: "otp",
+ *             allowedAuthenticators: ["google_otp"],
+ *         }],
+ *         primaryMethods: [
+ *             "otp",
+ *             "email",
+ *         ],
+ *         stepUpEnabled: true,
+ *         stepUpMethods: ["security_question"],
+ *     },
+ * });
+ * ```
  *
  * ## Import
  *
@@ -42,11 +92,19 @@ export class RulePassword extends pulumi.CustomResource {
     }
 
     /**
+     * Set of Group IDs to exclude from this rule.
+     */
+    declare public readonly groupsExcludeds: pulumi.Output<string[] | undefined>;
+    /**
+     * Set of Group IDs to include in this rule.
+     */
+    declare public readonly groupsIncludeds: pulumi.Output<string[] | undefined>;
+    /**
      * Policy Rule Name
      */
     declare public readonly name: pulumi.Output<string>;
     /**
-     * Network selection mode: `ANYWHERE`, `ZONE`, `ON_NETWORK`, or `OFF_NETWORK`. Default: `ANYWHERE`
+     * Network selection mode: `ANYWHERE`, `ZONE`. Default: `ANYWHERE`
      */
     declare public readonly networkConnection: pulumi.Output<string | undefined>;
     /**
@@ -65,6 +123,14 @@ export class RulePassword extends pulumi.CustomResource {
      * Allow or deny a user to reset their password: `ALLOW` or `DENY`. Default: `ALLOW`
      */
     declare public readonly passwordReset: pulumi.Output<string | undefined>;
+    /**
+     * Determines whether the Self-Service Password Reset (SSPR) access is governed by an authentication policy or legacy behavior. Options: `LEGACY`, `AUTH_POLICY`.
+     */
+    declare public readonly passwordResetAccessControl: pulumi.Output<string | undefined>;
+    /**
+     * Self-service password reset (SSPR) requirement settings. Use only when `passwordResetAccessControl = "LEGACY"`.
+     */
+    declare public readonly passwordResetRequirement: pulumi.Output<outputs.policy.RulePasswordPasswordResetRequirement | undefined>;
     /**
      * Allow or deny a user to unlock. Default: `DENY`
      */
@@ -85,6 +151,10 @@ export class RulePassword extends pulumi.CustomResource {
      * Set of User IDs to Exclude
      */
     declare public readonly usersExcludeds: pulumi.Output<string[] | undefined>;
+    /**
+     * Set of User IDs to include in this rule.
+     */
+    declare public readonly usersIncludeds: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a RulePassword resource with the given unique name, arguments, and options.
@@ -99,30 +169,40 @@ export class RulePassword extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RulePasswordState | undefined;
+            resourceInputs["groupsExcludeds"] = state?.groupsExcludeds;
+            resourceInputs["groupsIncludeds"] = state?.groupsIncludeds;
             resourceInputs["name"] = state?.name;
             resourceInputs["networkConnection"] = state?.networkConnection;
             resourceInputs["networkExcludes"] = state?.networkExcludes;
             resourceInputs["networkIncludes"] = state?.networkIncludes;
             resourceInputs["passwordChange"] = state?.passwordChange;
             resourceInputs["passwordReset"] = state?.passwordReset;
+            resourceInputs["passwordResetAccessControl"] = state?.passwordResetAccessControl;
+            resourceInputs["passwordResetRequirement"] = state?.passwordResetRequirement;
             resourceInputs["passwordUnlock"] = state?.passwordUnlock;
             resourceInputs["policyId"] = state?.policyId;
             resourceInputs["priority"] = state?.priority;
             resourceInputs["status"] = state?.status;
             resourceInputs["usersExcludeds"] = state?.usersExcludeds;
+            resourceInputs["usersIncludeds"] = state?.usersIncludeds;
         } else {
             const args = argsOrState as RulePasswordArgs | undefined;
+            resourceInputs["groupsExcludeds"] = args?.groupsExcludeds;
+            resourceInputs["groupsIncludeds"] = args?.groupsIncludeds;
             resourceInputs["name"] = args?.name;
             resourceInputs["networkConnection"] = args?.networkConnection;
             resourceInputs["networkExcludes"] = args?.networkExcludes;
             resourceInputs["networkIncludes"] = args?.networkIncludes;
             resourceInputs["passwordChange"] = args?.passwordChange;
             resourceInputs["passwordReset"] = args?.passwordReset;
+            resourceInputs["passwordResetAccessControl"] = args?.passwordResetAccessControl;
+            resourceInputs["passwordResetRequirement"] = args?.passwordResetRequirement;
             resourceInputs["passwordUnlock"] = args?.passwordUnlock;
             resourceInputs["policyId"] = args?.policyId;
             resourceInputs["priority"] = args?.priority;
             resourceInputs["status"] = args?.status;
             resourceInputs["usersExcludeds"] = args?.usersExcludeds;
+            resourceInputs["usersIncludeds"] = args?.usersIncludeds;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(RulePassword.__pulumiType, name, resourceInputs, opts);
@@ -134,11 +214,19 @@ export class RulePassword extends pulumi.CustomResource {
  */
 export interface RulePasswordState {
     /**
+     * Set of Group IDs to exclude from this rule.
+     */
+    groupsExcludeds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Set of Group IDs to include in this rule.
+     */
+    groupsIncludeds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
      * Policy Rule Name
      */
     name?: pulumi.Input<string>;
     /**
-     * Network selection mode: `ANYWHERE`, `ZONE`, `ON_NETWORK`, or `OFF_NETWORK`. Default: `ANYWHERE`
+     * Network selection mode: `ANYWHERE`, `ZONE`. Default: `ANYWHERE`
      */
     networkConnection?: pulumi.Input<string>;
     /**
@@ -157,6 +245,14 @@ export interface RulePasswordState {
      * Allow or deny a user to reset their password: `ALLOW` or `DENY`. Default: `ALLOW`
      */
     passwordReset?: pulumi.Input<string>;
+    /**
+     * Determines whether the Self-Service Password Reset (SSPR) access is governed by an authentication policy or legacy behavior. Options: `LEGACY`, `AUTH_POLICY`.
+     */
+    passwordResetAccessControl?: pulumi.Input<string>;
+    /**
+     * Self-service password reset (SSPR) requirement settings. Use only when `passwordResetAccessControl = "LEGACY"`.
+     */
+    passwordResetRequirement?: pulumi.Input<inputs.policy.RulePasswordPasswordResetRequirement>;
     /**
      * Allow or deny a user to unlock. Default: `DENY`
      */
@@ -177,6 +273,10 @@ export interface RulePasswordState {
      * Set of User IDs to Exclude
      */
     usersExcludeds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Set of User IDs to include in this rule.
+     */
+    usersIncludeds?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 /**
@@ -184,11 +284,19 @@ export interface RulePasswordState {
  */
 export interface RulePasswordArgs {
     /**
+     * Set of Group IDs to exclude from this rule.
+     */
+    groupsExcludeds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Set of Group IDs to include in this rule.
+     */
+    groupsIncludeds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
      * Policy Rule Name
      */
     name?: pulumi.Input<string>;
     /**
-     * Network selection mode: `ANYWHERE`, `ZONE`, `ON_NETWORK`, or `OFF_NETWORK`. Default: `ANYWHERE`
+     * Network selection mode: `ANYWHERE`, `ZONE`. Default: `ANYWHERE`
      */
     networkConnection?: pulumi.Input<string>;
     /**
@@ -207,6 +315,14 @@ export interface RulePasswordArgs {
      * Allow or deny a user to reset their password: `ALLOW` or `DENY`. Default: `ALLOW`
      */
     passwordReset?: pulumi.Input<string>;
+    /**
+     * Determines whether the Self-Service Password Reset (SSPR) access is governed by an authentication policy or legacy behavior. Options: `LEGACY`, `AUTH_POLICY`.
+     */
+    passwordResetAccessControl?: pulumi.Input<string>;
+    /**
+     * Self-service password reset (SSPR) requirement settings. Use only when `passwordResetAccessControl = "LEGACY"`.
+     */
+    passwordResetRequirement?: pulumi.Input<inputs.policy.RulePasswordPasswordResetRequirement>;
     /**
      * Allow or deny a user to unlock. Default: `DENY`
      */
@@ -227,4 +343,8 @@ export interface RulePasswordArgs {
      * Set of User IDs to Exclude
      */
     usersExcludeds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Set of User IDs to include in this rule.
+     */
+    usersIncludeds?: pulumi.Input<pulumi.Input<string>[]>;
 }

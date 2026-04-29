@@ -12,7 +12,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class SignonPolicyRulesRulePlatformInclude {
     /**
-     * @return Custom OS expression for advanced matching.
+     * @return Custom OS expression for advanced matching. Required by the API when osType is OTHER (leave empty or omit to match any OTHER OS). The API normalizes empty and wildcard values to null on read; the provider preserves &#34;&#34; in state.
      * 
      */
     private @Nullable String osExpression;
@@ -29,7 +29,7 @@ public final class SignonPolicyRulesRulePlatformInclude {
 
     private SignonPolicyRulesRulePlatformInclude() {}
     /**
-     * @return Custom OS expression for advanced matching.
+     * @return Custom OS expression for advanced matching. Required by the API when osType is OTHER (leave empty or omit to match any OTHER OS). The API normalizes empty and wildcard values to null on read; the provider preserves &#34;&#34; in state.
      * 
      */
     public Optional<String> osExpression() {

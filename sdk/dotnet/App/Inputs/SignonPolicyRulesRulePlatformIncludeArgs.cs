@@ -13,7 +13,7 @@ namespace Pulumi.Okta.App.Inputs
     public sealed class SignonPolicyRulesRulePlatformIncludeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Custom OS expression for advanced matching.
+        /// Custom OS expression for advanced matching. Required by the API when OsType is OTHER (leave empty or omit to match any OTHER OS). The API normalizes empty and wildcard values to null on read; the provider preserves "" in state.
         /// </summary>
         [Input("osExpression")]
         public Input<string>? OsExpression { get; set; }

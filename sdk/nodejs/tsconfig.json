@@ -198,6 +198,7 @@
         "policy/deviceAssuranceWindows.ts",
         "policy/getDefaultPolicy.ts",
         "policy/getPolicy.ts",
+        "policy/getRulePassword.ts",
         "policy/index.ts",
         "policy/mfa.ts",
         "policy/password.ts",

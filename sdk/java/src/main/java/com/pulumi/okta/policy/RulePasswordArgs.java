@@ -5,6 +5,7 @@ package com.pulumi.okta.policy;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.okta.policy.inputs.RulePasswordPasswordResetRequirementArgs;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -16,6 +17,36 @@ import javax.annotation.Nullable;
 public final class RulePasswordArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final RulePasswordArgs Empty = new RulePasswordArgs();
+
+    /**
+     * Set of Group IDs to exclude from this rule.
+     * 
+     */
+    @Import(name="groupsExcludeds")
+    private @Nullable Output<List<String>> groupsExcludeds;
+
+    /**
+     * @return Set of Group IDs to exclude from this rule.
+     * 
+     */
+    public Optional<Output<List<String>>> groupsExcludeds() {
+        return Optional.ofNullable(this.groupsExcludeds);
+    }
+
+    /**
+     * Set of Group IDs to include in this rule.
+     * 
+     */
+    @Import(name="groupsIncludeds")
+    private @Nullable Output<List<String>> groupsIncludeds;
+
+    /**
+     * @return Set of Group IDs to include in this rule.
+     * 
+     */
+    public Optional<Output<List<String>>> groupsIncludeds() {
+        return Optional.ofNullable(this.groupsIncludeds);
+    }
 
     /**
      * Policy Rule Name
@@ -33,14 +64,14 @@ public final class RulePasswordArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Network selection mode: `ANYWHERE`, `ZONE`, `ON_NETWORK`, or `OFF_NETWORK`. Default: `ANYWHERE`
+     * Network selection mode: `ANYWHERE`, `ZONE`. Default: `ANYWHERE`
      * 
      */
     @Import(name="networkConnection")
     private @Nullable Output<String> networkConnection;
 
     /**
-     * @return Network selection mode: `ANYWHERE`, `ZONE`, `ON_NETWORK`, or `OFF_NETWORK`. Default: `ANYWHERE`
+     * @return Network selection mode: `ANYWHERE`, `ZONE`. Default: `ANYWHERE`
      * 
      */
     public Optional<Output<String>> networkConnection() {
@@ -105,6 +136,36 @@ public final class RulePasswordArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> passwordReset() {
         return Optional.ofNullable(this.passwordReset);
+    }
+
+    /**
+     * Determines whether the Self-Service Password Reset (SSPR) access is governed by an authentication policy or legacy behavior. Options: `LEGACY`, `AUTH_POLICY`.
+     * 
+     */
+    @Import(name="passwordResetAccessControl")
+    private @Nullable Output<String> passwordResetAccessControl;
+
+    /**
+     * @return Determines whether the Self-Service Password Reset (SSPR) access is governed by an authentication policy or legacy behavior. Options: `LEGACY`, `AUTH_POLICY`.
+     * 
+     */
+    public Optional<Output<String>> passwordResetAccessControl() {
+        return Optional.ofNullable(this.passwordResetAccessControl);
+    }
+
+    /**
+     * Self-service password reset (SSPR) requirement settings. Use only when `passwordResetAccessControl = &#34;LEGACY&#34;`.
+     * 
+     */
+    @Import(name="passwordResetRequirement")
+    private @Nullable Output<RulePasswordPasswordResetRequirementArgs> passwordResetRequirement;
+
+    /**
+     * @return Self-service password reset (SSPR) requirement settings. Use only when `passwordResetAccessControl = &#34;LEGACY&#34;`.
+     * 
+     */
+    public Optional<Output<RulePasswordPasswordResetRequirementArgs>> passwordResetRequirement() {
+        return Optional.ofNullable(this.passwordResetRequirement);
     }
 
     /**
@@ -182,20 +243,40 @@ public final class RulePasswordArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.usersExcludeds);
     }
 
+    /**
+     * Set of User IDs to include in this rule.
+     * 
+     */
+    @Import(name="usersIncludeds")
+    private @Nullable Output<List<String>> usersIncludeds;
+
+    /**
+     * @return Set of User IDs to include in this rule.
+     * 
+     */
+    public Optional<Output<List<String>>> usersIncludeds() {
+        return Optional.ofNullable(this.usersIncludeds);
+    }
+
     private RulePasswordArgs() {}
 
     private RulePasswordArgs(RulePasswordArgs $) {
+        this.groupsExcludeds = $.groupsExcludeds;
+        this.groupsIncludeds = $.groupsIncludeds;
         this.name = $.name;
         this.networkConnection = $.networkConnection;
         this.networkExcludes = $.networkExcludes;
         this.networkIncludes = $.networkIncludes;
         this.passwordChange = $.passwordChange;
         this.passwordReset = $.passwordReset;
+        this.passwordResetAccessControl = $.passwordResetAccessControl;
+        this.passwordResetRequirement = $.passwordResetRequirement;
         this.passwordUnlock = $.passwordUnlock;
         this.policyId = $.policyId;
         this.priority = $.priority;
         this.status = $.status;
         this.usersExcludeds = $.usersExcludeds;
+        this.usersIncludeds = $.usersIncludeds;
     }
 
     public static Builder builder() {
@@ -214,6 +295,68 @@ public final class RulePasswordArgs extends com.pulumi.resources.ResourceArgs {
 
         public Builder(RulePasswordArgs defaults) {
             $ = new RulePasswordArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param groupsExcludeds Set of Group IDs to exclude from this rule.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder groupsExcludeds(@Nullable Output<List<String>> groupsExcludeds) {
+            $.groupsExcludeds = groupsExcludeds;
+            return this;
+        }
+
+        /**
+         * @param groupsExcludeds Set of Group IDs to exclude from this rule.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder groupsExcludeds(List<String> groupsExcludeds) {
+            return groupsExcludeds(Output.of(groupsExcludeds));
+        }
+
+        /**
+         * @param groupsExcludeds Set of Group IDs to exclude from this rule.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder groupsExcludeds(String... groupsExcludeds) {
+            return groupsExcludeds(List.of(groupsExcludeds));
+        }
+
+        /**
+         * @param groupsIncludeds Set of Group IDs to include in this rule.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder groupsIncludeds(@Nullable Output<List<String>> groupsIncludeds) {
+            $.groupsIncludeds = groupsIncludeds;
+            return this;
+        }
+
+        /**
+         * @param groupsIncludeds Set of Group IDs to include in this rule.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder groupsIncludeds(List<String> groupsIncludeds) {
+            return groupsIncludeds(Output.of(groupsIncludeds));
+        }
+
+        /**
+         * @param groupsIncludeds Set of Group IDs to include in this rule.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder groupsIncludeds(String... groupsIncludeds) {
+            return groupsIncludeds(List.of(groupsIncludeds));
         }
 
         /**
@@ -238,7 +381,7 @@ public final class RulePasswordArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkConnection Network selection mode: `ANYWHERE`, `ZONE`, `ON_NETWORK`, or `OFF_NETWORK`. Default: `ANYWHERE`
+         * @param networkConnection Network selection mode: `ANYWHERE`, `ZONE`. Default: `ANYWHERE`
          * 
          * @return builder
          * 
@@ -249,7 +392,7 @@ public final class RulePasswordArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkConnection Network selection mode: `ANYWHERE`, `ZONE`, `ON_NETWORK`, or `OFF_NETWORK`. Default: `ANYWHERE`
+         * @param networkConnection Network selection mode: `ANYWHERE`, `ZONE`. Default: `ANYWHERE`
          * 
          * @return builder
          * 
@@ -360,6 +503,48 @@ public final class RulePasswordArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder passwordReset(String passwordReset) {
             return passwordReset(Output.of(passwordReset));
+        }
+
+        /**
+         * @param passwordResetAccessControl Determines whether the Self-Service Password Reset (SSPR) access is governed by an authentication policy or legacy behavior. Options: `LEGACY`, `AUTH_POLICY`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder passwordResetAccessControl(@Nullable Output<String> passwordResetAccessControl) {
+            $.passwordResetAccessControl = passwordResetAccessControl;
+            return this;
+        }
+
+        /**
+         * @param passwordResetAccessControl Determines whether the Self-Service Password Reset (SSPR) access is governed by an authentication policy or legacy behavior. Options: `LEGACY`, `AUTH_POLICY`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder passwordResetAccessControl(String passwordResetAccessControl) {
+            return passwordResetAccessControl(Output.of(passwordResetAccessControl));
+        }
+
+        /**
+         * @param passwordResetRequirement Self-service password reset (SSPR) requirement settings. Use only when `passwordResetAccessControl = &#34;LEGACY&#34;`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder passwordResetRequirement(@Nullable Output<RulePasswordPasswordResetRequirementArgs> passwordResetRequirement) {
+            $.passwordResetRequirement = passwordResetRequirement;
+            return this;
+        }
+
+        /**
+         * @param passwordResetRequirement Self-service password reset (SSPR) requirement settings. Use only when `passwordResetAccessControl = &#34;LEGACY&#34;`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder passwordResetRequirement(RulePasswordPasswordResetRequirementArgs passwordResetRequirement) {
+            return passwordResetRequirement(Output.of(passwordResetRequirement));
         }
 
         /**
@@ -475,6 +660,37 @@ public final class RulePasswordArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder usersExcludeds(String... usersExcludeds) {
             return usersExcludeds(List.of(usersExcludeds));
+        }
+
+        /**
+         * @param usersIncludeds Set of User IDs to include in this rule.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder usersIncludeds(@Nullable Output<List<String>> usersIncludeds) {
+            $.usersIncludeds = usersIncludeds;
+            return this;
+        }
+
+        /**
+         * @param usersIncludeds Set of User IDs to include in this rule.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder usersIncludeds(List<String> usersIncludeds) {
+            return usersIncludeds(Output.of(usersIncludeds));
+        }
+
+        /**
+         * @param usersIncludeds Set of User IDs to include in this rule.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder usersIncludeds(String... usersIncludeds) {
+            return usersIncludeds(List.of(usersIncludeds));
         }
 
         public RulePasswordArgs build() {
