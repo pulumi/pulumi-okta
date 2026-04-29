@@ -42,7 +42,7 @@
             "respectSchemaVersion": true
         },
         "nodejs": {
-            "packageDescription": "A Pulumi package for creating and managing okta resources.. Based on terraform-provider-okta: version v6.9.0",
+            "packageDescription": "A Pulumi package for creating and managing okta resources.. Based on terraform-provider-okta: version v6.10.0",
             "readme": "\u003e This provider is a derived work of the [Terraform Provider](https://github.com/okta/terraform-provider-okta)\n\u003e distributed under [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/). If you encounter a bug or missing feature,\n\u003e first check the [`pulumi-okta` repo](https://github.com/pulumi/pulumi-okta/issues); however, if that doesn't turn up anything,\n\u003e please consult the source [`terraform-provider-okta` repo](https://github.com/okta/terraform-provider-okta/issues).",
             "devDependencies": {
                 "@types/mime": "^2.0.0",
@@ -774,7 +774,7 @@
             "properties": {
                 "osExpression": {
                     "type": "string",
-                    "description": "Custom OS expression for advanced matching.\n"
+                    "description": "Custom OS expression for advanced matching. Required by the API when\u003cspan pulumi-lang-nodejs=\" osType \" pulumi-lang-dotnet=\" OsType \" pulumi-lang-go=\" osType \" pulumi-lang-python=\" os_type \" pulumi-lang-yaml=\" osType \" pulumi-lang-java=\" osType \"\u003e osType \u003c/span\u003eis OTHER (leave empty or omit to match any OTHER OS). The API normalizes empty and wildcard values to null on read; the provider preserves \"\" in state.\n"
                 },
                 "osType": {
                     "type": "string",
@@ -785,7 +785,14 @@
                     "description": "Platform type: ANY, MOBILE, or DESKTOP.\n"
                 }
             },
-            "type": "object"
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "osExpression"
+                    ]
+                }
+            }
         },
         "okta:app/getConnectionProfile:getConnectionProfile": {
             "properties": {
@@ -6389,6 +6396,55 @@
                 "type"
             ]
         },
+        "okta:policy/RulePasswordPasswordResetRequirement:RulePasswordPasswordResetRequirement": {
+            "properties": {
+                "methodConstraints": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/okta:policy/RulePasswordPasswordResetRequirementMethodConstraint:RulePasswordPasswordResetRequirementMethodConstraint"
+                    },
+                    "description": "Constraints on the values specified in the \u003cspan pulumi-lang-nodejs=\"`primaryMethods`\" pulumi-lang-dotnet=\"`PrimaryMethods`\" pulumi-lang-go=\"`primaryMethods`\" pulumi-lang-python=\"`primary_methods`\" pulumi-lang-yaml=\"`primaryMethods`\" pulumi-lang-java=\"`primaryMethods`\"\u003e`primaryMethods`\u003c/span\u003e set. Specifying a constraint limits methods to specific authenticator(s). Currently, Google OTP is the only accepted constraint. The \u003cspan pulumi-lang-nodejs=\"`otp`\" pulumi-lang-dotnet=\"`Otp`\" pulumi-lang-go=\"`otp`\" pulumi-lang-python=\"`otp`\" pulumi-lang-yaml=\"`otp`\" pulumi-lang-java=\"`otp`\"\u003e`otp`\u003c/span\u003e method requires a constraint.\n"
+                },
+                "primaryMethods": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Authenticator methods allowed for the initial authentication step of password recovery. Method \u003cspan pulumi-lang-nodejs=\"`otp`\" pulumi-lang-dotnet=\"`Otp`\" pulumi-lang-go=\"`otp`\" pulumi-lang-python=\"`otp`\" pulumi-lang-yaml=\"`otp`\" pulumi-lang-java=\"`otp`\"\u003e`otp`\u003c/span\u003e requires a constraint limiting it to a Google authenticator. Options: \u003cspan pulumi-lang-nodejs=\"`otp`\" pulumi-lang-dotnet=\"`Otp`\" pulumi-lang-go=\"`otp`\" pulumi-lang-python=\"`otp`\" pulumi-lang-yaml=\"`otp`\" pulumi-lang-java=\"`otp`\"\u003e`otp`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`push`\" pulumi-lang-dotnet=\"`Push`\" pulumi-lang-go=\"`push`\" pulumi-lang-python=\"`push`\" pulumi-lang-yaml=\"`push`\" pulumi-lang-java=\"`push`\"\u003e`push`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`sms`\" pulumi-lang-dotnet=\"`Sms`\" pulumi-lang-go=\"`sms`\" pulumi-lang-python=\"`sms`\" pulumi-lang-yaml=\"`sms`\" pulumi-lang-java=\"`sms`\"\u003e`sms`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`email`\" pulumi-lang-dotnet=\"`Email`\" pulumi-lang-go=\"`email`\" pulumi-lang-python=\"`email`\" pulumi-lang-yaml=\"`email`\" pulumi-lang-java=\"`email`\"\u003e`email`\u003c/span\u003e, \u003cspan pulumi-lang-nodejs=\"`voice`\" pulumi-lang-dotnet=\"`Voice`\" pulumi-lang-go=\"`voice`\" pulumi-lang-python=\"`voice`\" pulumi-lang-yaml=\"`voice`\" pulumi-lang-java=\"`voice`\"\u003e`voice`\u003c/span\u003e.\n"
+                },
+                "stepUpEnabled": {
+                    "type": "boolean",
+                    "description": "Whether a secondary authenticator is required for password reset (`stepUp.required`). The following are three valid configurations: `required=false`, `required=true` with no methods to use any SSO authenticator, and `required=true` with \u003cspan pulumi-lang-nodejs=\"`securityQuestion`\" pulumi-lang-dotnet=\"`SecurityQuestion`\" pulumi-lang-go=\"`securityQuestion`\" pulumi-lang-python=\"`security_question`\" pulumi-lang-yaml=\"`securityQuestion`\" pulumi-lang-java=\"`securityQuestion`\"\u003e`securityQuestion`\u003c/span\u003e as the method. Default: \u003cspan pulumi-lang-nodejs=\"`false`\" pulumi-lang-dotnet=\"`False`\" pulumi-lang-go=\"`false`\" pulumi-lang-python=\"`false`\" pulumi-lang-yaml=\"`false`\" pulumi-lang-java=\"`false`\"\u003e`false`\u003c/span\u003e.\n"
+                },
+                "stepUpMethods": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Authenticator methods required for the secondary authentication step of password recovery. Specify only when \u003cspan pulumi-lang-nodejs=\"`stepUpEnabled \" pulumi-lang-dotnet=\"`StepUpEnabled \" pulumi-lang-go=\"`stepUpEnabled \" pulumi-lang-python=\"`step_up_enabled \" pulumi-lang-yaml=\"`stepUpEnabled \" pulumi-lang-java=\"`stepUpEnabled \"\u003e`stepUpEnabled \u003c/span\u003e= true` and \u003cspan pulumi-lang-nodejs=\"`securityQuestion`\" pulumi-lang-dotnet=\"`SecurityQuestion`\" pulumi-lang-go=\"`securityQuestion`\" pulumi-lang-python=\"`security_question`\" pulumi-lang-yaml=\"`securityQuestion`\" pulumi-lang-java=\"`securityQuestion`\"\u003e`securityQuestion`\u003c/span\u003e is permitted for the secondary authentication. Items value: \u003cspan pulumi-lang-nodejs=\"`securityQuestion`\" pulumi-lang-dotnet=\"`SecurityQuestion`\" pulumi-lang-go=\"`securityQuestion`\" pulumi-lang-python=\"`security_question`\" pulumi-lang-yaml=\"`securityQuestion`\" pulumi-lang-java=\"`securityQuestion`\"\u003e`securityQuestion`\u003c/span\u003e.\n"
+                }
+            },
+            "type": "object"
+        },
+        "okta:policy/RulePasswordPasswordResetRequirementMethodConstraint:RulePasswordPasswordResetRequirementMethodConstraint": {
+            "properties": {
+                "allowedAuthenticators": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Keys of the authenticators allowed for this method (e.g. \u003cspan pulumi-lang-nodejs=\"`googleOtp`\" pulumi-lang-dotnet=\"`GoogleOtp`\" pulumi-lang-go=\"`googleOtp`\" pulumi-lang-python=\"`google_otp`\" pulumi-lang-yaml=\"`googleOtp`\" pulumi-lang-java=\"`googleOtp`\"\u003e`googleOtp`\u003c/span\u003e).\n"
+                },
+                "method": {
+                    "type": "string",
+                    "description": "The method to constrain (e.g. \u003cspan pulumi-lang-nodejs=\"`otp`\" pulumi-lang-dotnet=\"`Otp`\" pulumi-lang-go=\"`otp`\" pulumi-lang-python=\"`otp`\" pulumi-lang-yaml=\"`otp`\" pulumi-lang-java=\"`otp`\"\u003e`otp`\u003c/span\u003e).\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "method"
+            ]
+        },
         "okta:policy/RuleSignonFactorSequence:RuleSignonFactorSequence": {
             "properties": {
                 "primaryCriteriaFactorType": {
@@ -6428,6 +6484,72 @@
                 "factorType",
                 "provider"
             ]
+        },
+        "okta:policy/getRulePasswordPasswordResetRequirement:getRulePasswordPasswordResetRequirement": {
+            "properties": {
+                "methodConstraints": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/okta:policy/getRulePasswordPasswordResetRequirementMethodConstraint:getRulePasswordPasswordResetRequirementMethodConstraint"
+                    },
+                    "description": "Constraints on the values specified in \u003cspan pulumi-lang-nodejs=\"`primaryMethods`\" pulumi-lang-dotnet=\"`PrimaryMethods`\" pulumi-lang-go=\"`primaryMethods`\" pulumi-lang-python=\"`primary_methods`\" pulumi-lang-yaml=\"`primaryMethods`\" pulumi-lang-java=\"`primaryMethods`\"\u003e`primaryMethods`\u003c/span\u003e.\n"
+                },
+                "primaryMethods": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Authenticator methods allowed for the initial authentication step of password recovery.\n"
+                },
+                "stepUpEnabled": {
+                    "type": "boolean",
+                    "description": "Whether a secondary authenticator is required for password reset.\n"
+                },
+                "stepUpMethods": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Authenticator methods required for the secondary authentication step of password recovery. Items value: \u003cspan pulumi-lang-nodejs=\"`securityQuestion`\" pulumi-lang-dotnet=\"`SecurityQuestion`\" pulumi-lang-go=\"`securityQuestion`\" pulumi-lang-python=\"`security_question`\" pulumi-lang-yaml=\"`securityQuestion`\" pulumi-lang-java=\"`securityQuestion`\"\u003e`securityQuestion`\u003c/span\u003e.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "methodConstraints",
+                "primaryMethods",
+                "stepUpEnabled",
+                "stepUpMethods"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "okta:policy/getRulePasswordPasswordResetRequirementMethodConstraint:getRulePasswordPasswordResetRequirementMethodConstraint": {
+            "properties": {
+                "allowedAuthenticators": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Keys of the authenticators allowed for this method (e.g. \u003cspan pulumi-lang-nodejs=\"`googleOtp`\" pulumi-lang-dotnet=\"`GoogleOtp`\" pulumi-lang-go=\"`googleOtp`\" pulumi-lang-python=\"`google_otp`\" pulumi-lang-yaml=\"`googleOtp`\" pulumi-lang-java=\"`googleOtp`\"\u003e`googleOtp`\u003c/span\u003e).\n"
+                },
+                "method": {
+                    "type": "string",
+                    "description": "The method to constrain (e.g. \u003cspan pulumi-lang-nodejs=\"`otp`\" pulumi-lang-dotnet=\"`Otp`\" pulumi-lang-go=\"`otp`\" pulumi-lang-python=\"`otp`\" pulumi-lang-yaml=\"`otp`\" pulumi-lang-java=\"`otp`\"\u003e`otp`\u003c/span\u003e).\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "allowedAuthenticators",
+                "method"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
         },
         "okta:profile/MappingMapping:MappingMapping": {
             "properties": {
@@ -27070,15 +27192,29 @@
             }
         },
         "okta:policy/rulePassword:RulePassword": {
-            "description": "Creates a Password Policy Rule. This resource allows you to create and configure a Password Policy Rule.\n\n## Import\n\n```sh\n$ pulumi import okta:policy/rulePassword:RulePassword example \u003cpolicy_id\u003e/\u003crule_id\u003e\n```\n\n",
+            "description": "Creates a Password Policy Rule. This resource allows you to create and configure a Password Policy Rule.\n\n## Example Usage\n\n### AUTH_POLICY access control (delegates SSPR to authentication policy rules)\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst exampleAuthPolicy = new okta.policy.RulePassword(\"example_auth_policy\", {\n    policyId: \"\u003cpolicy_id\u003e\",\n    name: \"example_auth_policy_rule\",\n    status: \"ACTIVE\",\n    passwordChange: \"ALLOW\",\n    passwordReset: \"ALLOW\",\n    passwordUnlock: \"DENY\",\n    passwordResetAccessControl: \"AUTH_POLICY\",\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample_auth_policy = okta.policy.RulePassword(\"example_auth_policy\",\n    policy_id=\"\u003cpolicy_id\u003e\",\n    name=\"example_auth_policy_rule\",\n    status=\"ACTIVE\",\n    password_change=\"ALLOW\",\n    password_reset=\"ALLOW\",\n    password_unlock=\"DENY\",\n    password_reset_access_control=\"AUTH_POLICY\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var exampleAuthPolicy = new Okta.Policy.RulePassword(\"example_auth_policy\", new()\n    {\n        PolicyId = \"\u003cpolicy_id\u003e\",\n        Name = \"example_auth_policy_rule\",\n        Status = \"ACTIVE\",\n        PasswordChange = \"ALLOW\",\n        PasswordReset = \"ALLOW\",\n        PasswordUnlock = \"DENY\",\n        PasswordResetAccessControl = \"AUTH_POLICY\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v6/go/okta/policy\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := policy.NewRulePassword(ctx, \"example_auth_policy\", \u0026policy.RulePasswordArgs{\n\t\t\tPolicyId:                   pulumi.String(\"\u003cpolicy_id\u003e\"),\n\t\t\tName:                       pulumi.String(\"example_auth_policy_rule\"),\n\t\t\tStatus:                     pulumi.String(\"ACTIVE\"),\n\t\t\tPasswordChange:             pulumi.String(\"ALLOW\"),\n\t\t\tPasswordReset:              pulumi.String(\"ALLOW\"),\n\t\t\tPasswordUnlock:             pulumi.String(\"DENY\"),\n\t\t\tPasswordResetAccessControl: pulumi.String(\"AUTH_POLICY\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.okta.policy.RulePassword;\nimport com.pulumi.okta.policy.RulePasswordArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var exampleAuthPolicy = new RulePassword(\"exampleAuthPolicy\", RulePasswordArgs.builder()\n            .policyId(\"\u003cpolicy_id\u003e\")\n            .name(\"example_auth_policy_rule\")\n            .status(\"ACTIVE\")\n            .passwordChange(\"ALLOW\")\n            .passwordReset(\"ALLOW\")\n            .passwordUnlock(\"DENY\")\n            .passwordResetAccessControl(\"AUTH_POLICY\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  exampleAuthPolicy:\n    type: okta:policy:RulePassword\n    name: example_auth_policy\n    properties:\n      policyId: \u003cpolicy_id\u003e\n      name: example_auth_policy_rule\n      status: ACTIVE\n      passwordChange: ALLOW\n      passwordReset: ALLOW\n      passwordUnlock: DENY\n      passwordResetAccessControl: AUTH_POLICY\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n### LEGACY access control with primary methods and step-up\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst exampleLegacy = new okta.policy.RulePassword(\"example_legacy\", {\n    policyId: \"\u003cpolicy_id\u003e\",\n    name: \"example_legacy_rule\",\n    status: \"ACTIVE\",\n    passwordChange: \"ALLOW\",\n    passwordReset: \"ALLOW\",\n    passwordUnlock: \"DENY\",\n    passwordResetAccessControl: \"LEGACY\",\n    passwordResetRequirement: {\n        methodConstraints: [{\n            method: \"otp\",\n            allowedAuthenticators: [\"google_otp\"],\n        }],\n        primaryMethods: [\n            \"otp\",\n            \"email\",\n        ],\n        stepUpEnabled: true,\n        stepUpMethods: [\"security_question\"],\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample_legacy = okta.policy.RulePassword(\"example_legacy\",\n    policy_id=\"\u003cpolicy_id\u003e\",\n    name=\"example_legacy_rule\",\n    status=\"ACTIVE\",\n    password_change=\"ALLOW\",\n    password_reset=\"ALLOW\",\n    password_unlock=\"DENY\",\n    password_reset_access_control=\"LEGACY\",\n    password_reset_requirement={\n        \"method_constraints\": [{\n            \"method\": \"otp\",\n            \"allowed_authenticators\": [\"google_otp\"],\n        }],\n        \"primary_methods\": [\n            \"otp\",\n            \"email\",\n        ],\n        \"step_up_enabled\": True,\n        \"step_up_methods\": [\"security_question\"],\n    })\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var exampleLegacy = new Okta.Policy.RulePassword(\"example_legacy\", new()\n    {\n        PolicyId = \"\u003cpolicy_id\u003e\",\n        Name = \"example_legacy_rule\",\n        Status = \"ACTIVE\",\n        PasswordChange = \"ALLOW\",\n        PasswordReset = \"ALLOW\",\n        PasswordUnlock = \"DENY\",\n        PasswordResetAccessControl = \"LEGACY\",\n        PasswordResetRequirement = new Okta.Policy.Inputs.RulePasswordPasswordResetRequirementArgs\n        {\n            MethodConstraints = new[]\n            {\n                new Okta.Policy.Inputs.RulePasswordPasswordResetRequirementMethodConstraintArgs\n                {\n                    Method = \"otp\",\n                    AllowedAuthenticators = new[]\n                    {\n                        \"google_otp\",\n                    },\n                },\n            },\n            PrimaryMethods = new[]\n            {\n                \"otp\",\n                \"email\",\n            },\n            StepUpEnabled = true,\n            StepUpMethods = new[]\n            {\n                \"security_question\",\n            },\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v6/go/okta/policy\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := policy.NewRulePassword(ctx, \"example_legacy\", \u0026policy.RulePasswordArgs{\n\t\t\tPolicyId:                   pulumi.String(\"\u003cpolicy_id\u003e\"),\n\t\t\tName:                       pulumi.String(\"example_legacy_rule\"),\n\t\t\tStatus:                     pulumi.String(\"ACTIVE\"),\n\t\t\tPasswordChange:             pulumi.String(\"ALLOW\"),\n\t\t\tPasswordReset:              pulumi.String(\"ALLOW\"),\n\t\t\tPasswordUnlock:             pulumi.String(\"DENY\"),\n\t\t\tPasswordResetAccessControl: pulumi.String(\"LEGACY\"),\n\t\t\tPasswordResetRequirement: \u0026policy.RulePasswordPasswordResetRequirementArgs{\n\t\t\t\tMethodConstraints: policy.RulePasswordPasswordResetRequirementMethodConstraintArray{\n\t\t\t\t\t\u0026policy.RulePasswordPasswordResetRequirementMethodConstraintArgs{\n\t\t\t\t\t\tMethod: pulumi.String(\"otp\"),\n\t\t\t\t\t\tAllowedAuthenticators: pulumi.StringArray{\n\t\t\t\t\t\t\tpulumi.String(\"google_otp\"),\n\t\t\t\t\t\t},\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t\tPrimaryMethods: pulumi.StringArray{\n\t\t\t\t\tpulumi.String(\"otp\"),\n\t\t\t\t\tpulumi.String(\"email\"),\n\t\t\t\t},\n\t\t\t\tStepUpEnabled: pulumi.Bool(true),\n\t\t\t\tStepUpMethods: pulumi.StringArray{\n\t\t\t\t\tpulumi.String(\"security_question\"),\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.okta.policy.RulePassword;\nimport com.pulumi.okta.policy.RulePasswordArgs;\nimport com.pulumi.okta.policy.inputs.RulePasswordPasswordResetRequirementArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var exampleLegacy = new RulePassword(\"exampleLegacy\", RulePasswordArgs.builder()\n            .policyId(\"\u003cpolicy_id\u003e\")\n            .name(\"example_legacy_rule\")\n            .status(\"ACTIVE\")\n            .passwordChange(\"ALLOW\")\n            .passwordReset(\"ALLOW\")\n            .passwordUnlock(\"DENY\")\n            .passwordResetAccessControl(\"LEGACY\")\n            .passwordResetRequirement(RulePasswordPasswordResetRequirementArgs.builder()\n                .methodConstraints(RulePasswordPasswordResetRequirementMethodConstraintArgs.builder()\n                    .method(\"otp\")\n                    .allowedAuthenticators(\"google_otp\")\n                    .build())\n                .primaryMethods(                \n                    \"otp\",\n                    \"email\")\n                .stepUpEnabled(true)\n                .stepUpMethods(\"security_question\")\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  exampleLegacy:\n    type: okta:policy:RulePassword\n    name: example_legacy\n    properties:\n      policyId: \u003cpolicy_id\u003e\n      name: example_legacy_rule\n      status: ACTIVE\n      passwordChange: ALLOW\n      passwordReset: ALLOW\n      passwordUnlock: DENY\n      passwordResetAccessControl: LEGACY\n      passwordResetRequirement:\n        methodConstraints:\n          - method: otp\n            allowedAuthenticators:\n              - google_otp\n        primaryMethods:\n          - otp\n          - email\n        stepUpEnabled: true\n        stepUpMethods:\n          - security_question\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n```sh\n$ pulumi import okta:policy/rulePassword:RulePassword example \u003cpolicy_id\u003e/\u003crule_id\u003e\n```\n\n",
             "properties": {
+                "groupsExcludeds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Set of Group IDs to exclude from this rule."
+                },
+                "groupsIncludeds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Set of Group IDs to include in this rule."
+                },
                 "name": {
                     "type": "string",
                     "description": "Policy Rule Name\n"
                 },
                 "networkConnection": {
                     "type": "string",
-                    "description": "Network selection mode: `ANYWHERE`, `ZONE`, `ON_NETWORK`, or `OFF_NETWORK`. Default: `ANYWHERE`\n"
+                    "description": "Network selection mode: `ANYWHERE`, `ZONE`. Default: `ANYWHERE`\n"
                 },
                 "networkExcludes": {
                     "type": "array",
@@ -27101,6 +27237,14 @@
                 "passwordReset": {
                     "type": "string",
                     "description": "Allow or deny a user to reset their password: `ALLOW` or `DENY`. Default: `ALLOW`\n"
+                },
+                "passwordResetAccessControl": {
+                    "type": "string",
+                    "description": "Determines whether the Self-Service Password Reset (SSPR) access is governed by an authentication policy or legacy behavior. Options: `LEGACY`, `AUTH_POLICY`.\n"
+                },
+                "passwordResetRequirement": {
+                    "$ref": "#/types/okta:policy/RulePasswordPasswordResetRequirement:RulePasswordPasswordResetRequirement",
+                    "description": "Self-service password reset (SSPR) requirement settings. Use only when \u003cspan pulumi-lang-nodejs=\"`passwordResetAccessControl \" pulumi-lang-dotnet=\"`PasswordResetAccessControl \" pulumi-lang-go=\"`passwordResetAccessControl \" pulumi-lang-python=\"`password_reset_access_control \" pulumi-lang-yaml=\"`passwordResetAccessControl \" pulumi-lang-java=\"`passwordResetAccessControl \"\u003e`passwordResetAccessControl \u003c/span\u003e= \"LEGACY\"`.\n"
                 },
                 "passwordUnlock": {
                     "type": "string",
@@ -27124,12 +27268,33 @@
                         "type": "string"
                     },
                     "description": "Set of User IDs to Exclude\n"
+                },
+                "usersIncludeds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Set of User IDs to include in this rule."
                 }
             },
             "required": [
                 "name"
             ],
             "inputProperties": {
+                "groupsExcludeds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Set of Group IDs to exclude from this rule."
+                },
+                "groupsIncludeds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Set of Group IDs to include in this rule."
+                },
                 "name": {
                     "type": "string",
                     "description": "Policy Rule Name\n",
@@ -27137,7 +27302,7 @@
                 },
                 "networkConnection": {
                     "type": "string",
-                    "description": "Network selection mode: `ANYWHERE`, `ZONE`, `ON_NETWORK`, or `OFF_NETWORK`. Default: `ANYWHERE`\n"
+                    "description": "Network selection mode: `ANYWHERE`, `ZONE`. Default: `ANYWHERE`\n"
                 },
                 "networkExcludes": {
                     "type": "array",
@@ -27160,6 +27325,14 @@
                 "passwordReset": {
                     "type": "string",
                     "description": "Allow or deny a user to reset their password: `ALLOW` or `DENY`. Default: `ALLOW`\n"
+                },
+                "passwordResetAccessControl": {
+                    "type": "string",
+                    "description": "Determines whether the Self-Service Password Reset (SSPR) access is governed by an authentication policy or legacy behavior. Options: `LEGACY`, `AUTH_POLICY`.\n"
+                },
+                "passwordResetRequirement": {
+                    "$ref": "#/types/okta:policy/RulePasswordPasswordResetRequirement:RulePasswordPasswordResetRequirement",
+                    "description": "Self-service password reset (SSPR) requirement settings. Use only when \u003cspan pulumi-lang-nodejs=\"`passwordResetAccessControl \" pulumi-lang-dotnet=\"`PasswordResetAccessControl \" pulumi-lang-go=\"`passwordResetAccessControl \" pulumi-lang-python=\"`password_reset_access_control \" pulumi-lang-yaml=\"`passwordResetAccessControl \" pulumi-lang-java=\"`passwordResetAccessControl \"\u003e`passwordResetAccessControl \u003c/span\u003e= \"LEGACY\"`.\n"
                 },
                 "passwordUnlock": {
                     "type": "string",
@@ -27184,11 +27357,32 @@
                         "type": "string"
                     },
                     "description": "Set of User IDs to Exclude\n"
+                },
+                "usersIncludeds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Set of User IDs to include in this rule."
                 }
             },
             "stateInputs": {
                 "description": "Input properties used for looking up and filtering RulePassword resources.\n",
                 "properties": {
+                    "groupsExcludeds": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Set of Group IDs to exclude from this rule."
+                    },
+                    "groupsIncludeds": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Set of Group IDs to include in this rule."
+                    },
                     "name": {
                         "type": "string",
                         "description": "Policy Rule Name\n",
@@ -27196,7 +27390,7 @@
                     },
                     "networkConnection": {
                         "type": "string",
-                        "description": "Network selection mode: `ANYWHERE`, `ZONE`, `ON_NETWORK`, or `OFF_NETWORK`. Default: `ANYWHERE`\n"
+                        "description": "Network selection mode: `ANYWHERE`, `ZONE`. Default: `ANYWHERE`\n"
                     },
                     "networkExcludes": {
                         "type": "array",
@@ -27219,6 +27413,14 @@
                     "passwordReset": {
                         "type": "string",
                         "description": "Allow or deny a user to reset their password: `ALLOW` or `DENY`. Default: `ALLOW`\n"
+                    },
+                    "passwordResetAccessControl": {
+                        "type": "string",
+                        "description": "Determines whether the Self-Service Password Reset (SSPR) access is governed by an authentication policy or legacy behavior. Options: `LEGACY`, `AUTH_POLICY`.\n"
+                    },
+                    "passwordResetRequirement": {
+                        "$ref": "#/types/okta:policy/RulePasswordPasswordResetRequirement:RulePasswordPasswordResetRequirement",
+                        "description": "Self-service password reset (SSPR) requirement settings. Use only when \u003cspan pulumi-lang-nodejs=\"`passwordResetAccessControl \" pulumi-lang-dotnet=\"`PasswordResetAccessControl \" pulumi-lang-go=\"`passwordResetAccessControl \" pulumi-lang-python=\"`password_reset_access_control \" pulumi-lang-yaml=\"`passwordResetAccessControl \" pulumi-lang-java=\"`passwordResetAccessControl \"\u003e`passwordResetAccessControl \u003c/span\u003e= \"LEGACY\"`.\n"
                     },
                     "passwordUnlock": {
                         "type": "string",
@@ -27243,6 +27445,13 @@
                             "type": "string"
                         },
                         "description": "Set of User IDs to Exclude\n"
+                    },
+                    "usersIncludeds": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Set of User IDs to include in this rule."
                     }
                 },
                 "type": "object"
@@ -34411,6 +34620,142 @@
                     "status",
                     "type",
                     "id"
+                ],
+                "type": "object"
+            }
+        },
+        "okta:policy/getRulePassword:getRulePassword": {
+            "description": "Get a Password Policy Rule from Okta.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst password = okta.policy.getDefaultPolicy({\n    type: \"PASSWORD\",\n});\nconst exampleRulePassword = new okta.policy.RulePassword(\"example\", {\n    policyId: password.then(password =\u003e password.id),\n    name: \"My Password Rule\",\n});\nconst example = pulumi.all([password, exampleRulePassword.id]).apply(([password, id]) =\u003e okta.policy.getRulePasswordOutput({\n    policyId: password.id,\n    id: id,\n}));\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\npassword = okta.policy.get_default_policy(type=\"PASSWORD\")\nexample_rule_password = okta.policy.RulePassword(\"example\",\n    policy_id=password.id,\n    name=\"My Password Rule\")\nexample = example_rule_password.id.apply(lambda id: okta.policy.get_rule_password(policy_id=password.id,\n    id=id))\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var password = Okta.Policy.GetDefaultPolicy.Invoke(new()\n    {\n        Type = \"PASSWORD\",\n    });\n\n    var exampleRulePassword = new Okta.Policy.RulePassword(\"example\", new()\n    {\n        PolicyId = password.Apply(getDefaultPolicyResult =\u003e getDefaultPolicyResult.Id),\n        Name = \"My Password Rule\",\n    });\n\n    var example = Okta.Policy.GetRulePassword.Invoke(new()\n    {\n        PolicyId = password.Apply(getDefaultPolicyResult =\u003e getDefaultPolicyResult.Id),\n        Id = exampleRulePassword.Id,\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v6/go/okta/policy\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tpassword, err := policy.GetDefaultPolicy(ctx, \u0026policy.GetDefaultPolicyArgs{\n\t\t\tType: \"PASSWORD\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\texampleRulePassword, err := policy.NewRulePassword(ctx, \"example\", \u0026policy.RulePasswordArgs{\n\t\t\tPolicyId: pulumi.String(pulumi.String(password.Id)),\n\t\t\tName:     pulumi.String(\"My Password Rule\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_ = exampleRulePassword.ID().ApplyT(func(id string) (policy.GetRulePasswordResult, error) {\n\t\t\treturn policy.GetRulePasswordResult(policy.LookupRulePassword(ctx, \u0026policy.LookupRulePasswordArgs{\n\t\t\t\tPolicyId: password.Id,\n\t\t\t\tId:       id,\n\t\t\t}, nil)), nil\n\t\t}).(policy.GetRulePasswordResultOutput)\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.okta.policy.PolicyFunctions;\nimport com.pulumi.okta.policy.inputs.GetDefaultPolicyArgs;\nimport com.pulumi.okta.policy.RulePassword;\nimport com.pulumi.okta.policy.RulePasswordArgs;\nimport com.pulumi.okta.policy.inputs.GetRulePasswordArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var password = PolicyFunctions.getDefaultPolicy(GetDefaultPolicyArgs.builder()\n            .type(\"PASSWORD\")\n            .build());\n\n        var exampleRulePassword = new RulePassword(\"exampleRulePassword\", RulePasswordArgs.builder()\n            .policyId(password.id())\n            .name(\"My Password Rule\")\n            .build());\n\n        final var example = exampleRulePassword.id().applyValue(_id -\u003e PolicyFunctions.getRulePassword(GetRulePasswordArgs.builder()\n            .policyId(password.id())\n            .id(_id)\n            .build()));\n\n    }\n}\n```\n```yaml\nresources:\n  exampleRulePassword:\n    type: okta:policy:RulePassword\n    name: example\n    properties:\n      policyId: ${password.id}\n      name: My Password Rule\nvariables:\n  password:\n    fn::invoke:\n      function: okta:policy:getDefaultPolicy\n      arguments:\n        type: PASSWORD\n  example:\n    fn::invoke:\n      function: okta:policy:getRulePassword\n      arguments:\n        policyId: ${password.id}\n        id: ${exampleRulePassword.id}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getRulePassword.\n",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "The ID of this resource.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Name of the rule.\n"
+                    },
+                    "policyId": {
+                        "type": "string",
+                        "description": "ID of the Policy owning this rule.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "id",
+                    "policyId"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getRulePassword.\n",
+                "properties": {
+                    "groupsExcludeds": {
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "groupsIncludeds": {
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "id": {
+                        "description": "The ID of this resource.\n",
+                        "type": "string"
+                    },
+                    "name": {
+                        "description": "Name of the rule.\n",
+                        "type": "string"
+                    },
+                    "networkConnection": {
+                        "description": "Network selection mode: `ANYWHERE`, `ZONE`.\n",
+                        "type": "string"
+                    },
+                    "networkExcludes": {
+                        "description": "Network zones to exclude (when \u003cspan pulumi-lang-nodejs=\"`networkConnection`\" pulumi-lang-dotnet=\"`NetworkConnection`\" pulumi-lang-go=\"`networkConnection`\" pulumi-lang-python=\"`network_connection`\" pulumi-lang-yaml=\"`networkConnection`\" pulumi-lang-java=\"`networkConnection`\"\u003e`networkConnection`\u003c/span\u003e = `ZONE`).\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "networkIncludes": {
+                        "description": "Network zones to include (when \u003cspan pulumi-lang-nodejs=\"`networkConnection`\" pulumi-lang-dotnet=\"`NetworkConnection`\" pulumi-lang-go=\"`networkConnection`\" pulumi-lang-python=\"`network_connection`\" pulumi-lang-yaml=\"`networkConnection`\" pulumi-lang-java=\"`networkConnection`\"\u003e`networkConnection`\u003c/span\u003e = `ZONE`).\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "passwordChange": {
+                        "description": "Whether a user is allowed to change their password: `ALLOW` or `DENY`.\n",
+                        "type": "string"
+                    },
+                    "passwordReset": {
+                        "description": "Whether a user is allowed to reset their password: `ALLOW` or `DENY`.\n",
+                        "type": "string"
+                    },
+                    "passwordResetAccessControl": {
+                        "description": "Whether SSPR access is governed by an authentication policy or legacy behavior. Options: `LEGACY`, `AUTH_POLICY`.\n",
+                        "type": "string"
+                    },
+                    "passwordResetRequirements": {
+                        "description": "Self-service password reset (SSPR) requirement settings.\n",
+                        "items": {
+                            "$ref": "#/types/okta:policy/getRulePasswordPasswordResetRequirement:getRulePasswordPasswordResetRequirement"
+                        },
+                        "type": "array"
+                    },
+                    "passwordUnlock": {
+                        "description": "Whether a user is allowed to unlock their account: `ALLOW` or `DENY`.\n",
+                        "type": "string"
+                    },
+                    "policyId": {
+                        "description": "ID of the Policy owning this rule.\n",
+                        "type": "string"
+                    },
+                    "priority": {
+                        "description": "Priority of the rule.\n",
+                        "type": "integer"
+                    },
+                    "status": {
+                        "description": "Status of the rule: `ACTIVE` or `INACTIVE`.\n",
+                        "type": "string"
+                    },
+                    "usersExcludeds": {
+                        "description": "User IDs excluded from this rule.\n",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "usersIncludeds": {
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "groupsExcludeds",
+                    "groupsIncludeds",
+                    "id",
+                    "name",
+                    "networkConnection",
+                    "networkExcludes",
+                    "networkIncludes",
+                    "passwordChange",
+                    "passwordReset",
+                    "passwordResetAccessControl",
+                    "passwordResetRequirements",
+                    "passwordUnlock",
+                    "policyId",
+                    "priority",
+                    "status",
+                    "usersExcludeds",
+                    "usersIncludeds"
                 ],
                 "type": "object"
             }
