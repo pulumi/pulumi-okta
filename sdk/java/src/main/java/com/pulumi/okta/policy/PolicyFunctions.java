@@ -13,8 +13,11 @@ import com.pulumi.okta.policy.inputs.GetDefaultPolicyArgs;
 import com.pulumi.okta.policy.inputs.GetDefaultPolicyPlainArgs;
 import com.pulumi.okta.policy.inputs.GetPolicyArgs;
 import com.pulumi.okta.policy.inputs.GetPolicyPlainArgs;
+import com.pulumi.okta.policy.inputs.GetRulePasswordArgs;
+import com.pulumi.okta.policy.inputs.GetRulePasswordPlainArgs;
 import com.pulumi.okta.policy.outputs.GetDefaultPolicyResult;
 import com.pulumi.okta.policy.outputs.GetPolicyResult;
+import com.pulumi.okta.policy.outputs.GetRulePasswordResult;
 import java.util.concurrent.CompletableFuture;
 
 public final class PolicyFunctions {
@@ -432,5 +435,270 @@ public final class PolicyFunctions {
      */
     public static CompletableFuture<GetPolicyResult> getPolicyPlain(GetPolicyPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("okta:policy/getPolicy:getPolicy", TypeShape.of(GetPolicyResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Get a Password Policy Rule from Okta.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.policy.PolicyFunctions;
+     * import com.pulumi.okta.policy.inputs.GetDefaultPolicyArgs;
+     * import com.pulumi.okta.policy.RulePassword;
+     * import com.pulumi.okta.policy.RulePasswordArgs;
+     * import com.pulumi.okta.policy.inputs.GetRulePasswordArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var password = PolicyFunctions.getDefaultPolicy(GetDefaultPolicyArgs.builder()
+     *             .type("PASSWORD")
+     *             .build());
+     * 
+     *         var exampleRulePassword = new RulePassword("exampleRulePassword", RulePasswordArgs.builder()
+     *             .policyId(password.id())
+     *             .name("My Password Rule")
+     *             .build());
+     * 
+     *         final var example = exampleRulePassword.id().applyValue(_id -> PolicyFunctions.getRulePassword(GetRulePasswordArgs.builder()
+     *             .policyId(password.id())
+     *             .id(_id)
+     *             .build()));
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetRulePasswordResult> getRulePassword(GetRulePasswordArgs args) {
+        return getRulePassword(args, InvokeOptions.Empty);
+    }
+    /**
+     * Get a Password Policy Rule from Okta.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.policy.PolicyFunctions;
+     * import com.pulumi.okta.policy.inputs.GetDefaultPolicyArgs;
+     * import com.pulumi.okta.policy.RulePassword;
+     * import com.pulumi.okta.policy.RulePasswordArgs;
+     * import com.pulumi.okta.policy.inputs.GetRulePasswordArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var password = PolicyFunctions.getDefaultPolicy(GetDefaultPolicyArgs.builder()
+     *             .type("PASSWORD")
+     *             .build());
+     * 
+     *         var exampleRulePassword = new RulePassword("exampleRulePassword", RulePasswordArgs.builder()
+     *             .policyId(password.id())
+     *             .name("My Password Rule")
+     *             .build());
+     * 
+     *         final var example = exampleRulePassword.id().applyValue(_id -> PolicyFunctions.getRulePassword(GetRulePasswordArgs.builder()
+     *             .policyId(password.id())
+     *             .id(_id)
+     *             .build()));
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetRulePasswordResult> getRulePasswordPlain(GetRulePasswordPlainArgs args) {
+        return getRulePasswordPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Get a Password Policy Rule from Okta.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.policy.PolicyFunctions;
+     * import com.pulumi.okta.policy.inputs.GetDefaultPolicyArgs;
+     * import com.pulumi.okta.policy.RulePassword;
+     * import com.pulumi.okta.policy.RulePasswordArgs;
+     * import com.pulumi.okta.policy.inputs.GetRulePasswordArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var password = PolicyFunctions.getDefaultPolicy(GetDefaultPolicyArgs.builder()
+     *             .type("PASSWORD")
+     *             .build());
+     * 
+     *         var exampleRulePassword = new RulePassword("exampleRulePassword", RulePasswordArgs.builder()
+     *             .policyId(password.id())
+     *             .name("My Password Rule")
+     *             .build());
+     * 
+     *         final var example = exampleRulePassword.id().applyValue(_id -> PolicyFunctions.getRulePassword(GetRulePasswordArgs.builder()
+     *             .policyId(password.id())
+     *             .id(_id)
+     *             .build()));
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetRulePasswordResult> getRulePassword(GetRulePasswordArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("okta:policy/getRulePassword:getRulePassword", TypeShape.of(GetRulePasswordResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Get a Password Policy Rule from Okta.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.policy.PolicyFunctions;
+     * import com.pulumi.okta.policy.inputs.GetDefaultPolicyArgs;
+     * import com.pulumi.okta.policy.RulePassword;
+     * import com.pulumi.okta.policy.RulePasswordArgs;
+     * import com.pulumi.okta.policy.inputs.GetRulePasswordArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var password = PolicyFunctions.getDefaultPolicy(GetDefaultPolicyArgs.builder()
+     *             .type("PASSWORD")
+     *             .build());
+     * 
+     *         var exampleRulePassword = new RulePassword("exampleRulePassword", RulePasswordArgs.builder()
+     *             .policyId(password.id())
+     *             .name("My Password Rule")
+     *             .build());
+     * 
+     *         final var example = exampleRulePassword.id().applyValue(_id -> PolicyFunctions.getRulePassword(GetRulePasswordArgs.builder()
+     *             .policyId(password.id())
+     *             .id(_id)
+     *             .build()));
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetRulePasswordResult> getRulePassword(GetRulePasswordArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("okta:policy/getRulePassword:getRulePassword", TypeShape.of(GetRulePasswordResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Get a Password Policy Rule from Okta.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.policy.PolicyFunctions;
+     * import com.pulumi.okta.policy.inputs.GetDefaultPolicyArgs;
+     * import com.pulumi.okta.policy.RulePassword;
+     * import com.pulumi.okta.policy.RulePasswordArgs;
+     * import com.pulumi.okta.policy.inputs.GetRulePasswordArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var password = PolicyFunctions.getDefaultPolicy(GetDefaultPolicyArgs.builder()
+     *             .type("PASSWORD")
+     *             .build());
+     * 
+     *         var exampleRulePassword = new RulePassword("exampleRulePassword", RulePasswordArgs.builder()
+     *             .policyId(password.id())
+     *             .name("My Password Rule")
+     *             .build());
+     * 
+     *         final var example = exampleRulePassword.id().applyValue(_id -> PolicyFunctions.getRulePassword(GetRulePasswordArgs.builder()
+     *             .policyId(password.id())
+     *             .id(_id)
+     *             .build()));
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetRulePasswordResult> getRulePasswordPlain(GetRulePasswordPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("okta:policy/getRulePassword:getRulePassword", TypeShape.of(GetRulePasswordResult.class), args, Utilities.withVersion(options));
     }
 }

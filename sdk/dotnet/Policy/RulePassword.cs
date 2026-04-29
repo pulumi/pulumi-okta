@@ -12,6 +12,80 @@ namespace Pulumi.Okta.Policy
     /// <summary>
     /// Creates a Password Policy Rule. This resource allows you to create and configure a Password Policy Rule.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ### AUTH_POLICY access control (delegates SSPR to authentication policy rules)
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Okta = Pulumi.Okta;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleAuthPolicy = new Okta.Policy.RulePassword("example_auth_policy", new()
+    ///     {
+    ///         PolicyId = "&lt;policy_id&gt;",
+    ///         Name = "example_auth_policy_rule",
+    ///         Status = "ACTIVE",
+    ///         PasswordChange = "ALLOW",
+    ///         PasswordReset = "ALLOW",
+    ///         PasswordUnlock = "DENY",
+    ///         PasswordResetAccessControl = "AUTH_POLICY",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### LEGACY access control with primary methods and step-up
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Okta = Pulumi.Okta;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleLegacy = new Okta.Policy.RulePassword("example_legacy", new()
+    ///     {
+    ///         PolicyId = "&lt;policy_id&gt;",
+    ///         Name = "example_legacy_rule",
+    ///         Status = "ACTIVE",
+    ///         PasswordChange = "ALLOW",
+    ///         PasswordReset = "ALLOW",
+    ///         PasswordUnlock = "DENY",
+    ///         PasswordResetAccessControl = "LEGACY",
+    ///         PasswordResetRequirement = new Okta.Policy.Inputs.RulePasswordPasswordResetRequirementArgs
+    ///         {
+    ///             MethodConstraints = new[]
+    ///             {
+    ///                 new Okta.Policy.Inputs.RulePasswordPasswordResetRequirementMethodConstraintArgs
+    ///                 {
+    ///                     Method = "otp",
+    ///                     AllowedAuthenticators = new[]
+    ///                     {
+    ///                         "google_otp",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             PrimaryMethods = new[]
+    ///             {
+    ///                 "otp",
+    ///                 "email",
+    ///             },
+    ///             StepUpEnabled = true,
+    ///             StepUpMethods = new[]
+    ///             {
+    ///                 "security_question",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// ```sh
@@ -22,13 +96,25 @@ namespace Pulumi.Okta.Policy
     public partial class RulePassword : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// Set of Group IDs to exclude from this rule.
+        /// </summary>
+        [Output("groupsExcludeds")]
+        public Output<ImmutableArray<string>> GroupsExcludeds { get; private set; } = null!;
+
+        /// <summary>
+        /// Set of Group IDs to include in this rule.
+        /// </summary>
+        [Output("groupsIncludeds")]
+        public Output<ImmutableArray<string>> GroupsIncludeds { get; private set; } = null!;
+
+        /// <summary>
         /// Policy Rule Name
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Network selection mode: `ANYWHERE`, `ZONE`, `ON_NETWORK`, or `OFF_NETWORK`. Default: `ANYWHERE`
+        /// Network selection mode: `ANYWHERE`, `ZONE`. Default: `ANYWHERE`
         /// </summary>
         [Output("networkConnection")]
         public Output<string?> NetworkConnection { get; private set; } = null!;
@@ -56,6 +142,18 @@ namespace Pulumi.Okta.Policy
         /// </summary>
         [Output("passwordReset")]
         public Output<string?> PasswordReset { get; private set; } = null!;
+
+        /// <summary>
+        /// Determines whether the Self-Service Password Reset (SSPR) access is governed by an authentication policy or legacy behavior. Options: `LEGACY`, `AUTH_POLICY`.
+        /// </summary>
+        [Output("passwordResetAccessControl")]
+        public Output<string?> PasswordResetAccessControl { get; private set; } = null!;
+
+        /// <summary>
+        /// Self-service password reset (SSPR) requirement settings. Use only when `PasswordResetAccessControl = "LEGACY"`.
+        /// </summary>
+        [Output("passwordResetRequirement")]
+        public Output<Outputs.RulePasswordPasswordResetRequirement?> PasswordResetRequirement { get; private set; } = null!;
 
         /// <summary>
         /// Allow or deny a user to unlock. Default: `DENY`
@@ -86,6 +184,12 @@ namespace Pulumi.Okta.Policy
         /// </summary>
         [Output("usersExcludeds")]
         public Output<ImmutableArray<string>> UsersExcludeds { get; private set; } = null!;
+
+        /// <summary>
+        /// Set of User IDs to include in this rule.
+        /// </summary>
+        [Output("usersIncludeds")]
+        public Output<ImmutableArray<string>> UsersIncludeds { get; private set; } = null!;
 
 
         /// <summary>
@@ -133,6 +237,30 @@ namespace Pulumi.Okta.Policy
 
     public sealed class RulePasswordArgs : global::Pulumi.ResourceArgs
     {
+        [Input("groupsExcludeds")]
+        private InputList<string>? _groupsExcludeds;
+
+        /// <summary>
+        /// Set of Group IDs to exclude from this rule.
+        /// </summary>
+        public InputList<string> GroupsExcludeds
+        {
+            get => _groupsExcludeds ?? (_groupsExcludeds = new InputList<string>());
+            set => _groupsExcludeds = value;
+        }
+
+        [Input("groupsIncludeds")]
+        private InputList<string>? _groupsIncludeds;
+
+        /// <summary>
+        /// Set of Group IDs to include in this rule.
+        /// </summary>
+        public InputList<string> GroupsIncludeds
+        {
+            get => _groupsIncludeds ?? (_groupsIncludeds = new InputList<string>());
+            set => _groupsIncludeds = value;
+        }
+
         /// <summary>
         /// Policy Rule Name
         /// </summary>
@@ -140,7 +268,7 @@ namespace Pulumi.Okta.Policy
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Network selection mode: `ANYWHERE`, `ZONE`, `ON_NETWORK`, or `OFF_NETWORK`. Default: `ANYWHERE`
+        /// Network selection mode: `ANYWHERE`, `ZONE`. Default: `ANYWHERE`
         /// </summary>
         [Input("networkConnection")]
         public Input<string>? NetworkConnection { get; set; }
@@ -182,6 +310,18 @@ namespace Pulumi.Okta.Policy
         public Input<string>? PasswordReset { get; set; }
 
         /// <summary>
+        /// Determines whether the Self-Service Password Reset (SSPR) access is governed by an authentication policy or legacy behavior. Options: `LEGACY`, `AUTH_POLICY`.
+        /// </summary>
+        [Input("passwordResetAccessControl")]
+        public Input<string>? PasswordResetAccessControl { get; set; }
+
+        /// <summary>
+        /// Self-service password reset (SSPR) requirement settings. Use only when `PasswordResetAccessControl = "LEGACY"`.
+        /// </summary>
+        [Input("passwordResetRequirement")]
+        public Input<Inputs.RulePasswordPasswordResetRequirementArgs>? PasswordResetRequirement { get; set; }
+
+        /// <summary>
         /// Allow or deny a user to unlock. Default: `DENY`
         /// </summary>
         [Input("passwordUnlock")]
@@ -215,6 +355,18 @@ namespace Pulumi.Okta.Policy
         {
             get => _usersExcludeds ?? (_usersExcludeds = new InputList<string>());
             set => _usersExcludeds = value;
+        }
+
+        [Input("usersIncludeds")]
+        private InputList<string>? _usersIncludeds;
+
+        /// <summary>
+        /// Set of User IDs to include in this rule.
+        /// </summary>
+        public InputList<string> UsersIncludeds
+        {
+            get => _usersIncludeds ?? (_usersIncludeds = new InputList<string>());
+            set => _usersIncludeds = value;
         }
 
         public RulePasswordArgs()
@@ -225,6 +377,30 @@ namespace Pulumi.Okta.Policy
 
     public sealed class RulePasswordState : global::Pulumi.ResourceArgs
     {
+        [Input("groupsExcludeds")]
+        private InputList<string>? _groupsExcludeds;
+
+        /// <summary>
+        /// Set of Group IDs to exclude from this rule.
+        /// </summary>
+        public InputList<string> GroupsExcludeds
+        {
+            get => _groupsExcludeds ?? (_groupsExcludeds = new InputList<string>());
+            set => _groupsExcludeds = value;
+        }
+
+        [Input("groupsIncludeds")]
+        private InputList<string>? _groupsIncludeds;
+
+        /// <summary>
+        /// Set of Group IDs to include in this rule.
+        /// </summary>
+        public InputList<string> GroupsIncludeds
+        {
+            get => _groupsIncludeds ?? (_groupsIncludeds = new InputList<string>());
+            set => _groupsIncludeds = value;
+        }
+
         /// <summary>
         /// Policy Rule Name
         /// </summary>
@@ -232,7 +408,7 @@ namespace Pulumi.Okta.Policy
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Network selection mode: `ANYWHERE`, `ZONE`, `ON_NETWORK`, or `OFF_NETWORK`. Default: `ANYWHERE`
+        /// Network selection mode: `ANYWHERE`, `ZONE`. Default: `ANYWHERE`
         /// </summary>
         [Input("networkConnection")]
         public Input<string>? NetworkConnection { get; set; }
@@ -274,6 +450,18 @@ namespace Pulumi.Okta.Policy
         public Input<string>? PasswordReset { get; set; }
 
         /// <summary>
+        /// Determines whether the Self-Service Password Reset (SSPR) access is governed by an authentication policy or legacy behavior. Options: `LEGACY`, `AUTH_POLICY`.
+        /// </summary>
+        [Input("passwordResetAccessControl")]
+        public Input<string>? PasswordResetAccessControl { get; set; }
+
+        /// <summary>
+        /// Self-service password reset (SSPR) requirement settings. Use only when `PasswordResetAccessControl = "LEGACY"`.
+        /// </summary>
+        [Input("passwordResetRequirement")]
+        public Input<Inputs.RulePasswordPasswordResetRequirementGetArgs>? PasswordResetRequirement { get; set; }
+
+        /// <summary>
         /// Allow or deny a user to unlock. Default: `DENY`
         /// </summary>
         [Input("passwordUnlock")]
@@ -307,6 +495,18 @@ namespace Pulumi.Okta.Policy
         {
             get => _usersExcludeds ?? (_usersExcludeds = new InputList<string>());
             set => _usersExcludeds = value;
+        }
+
+        [Input("usersIncludeds")]
+        private InputList<string>? _usersIncludeds;
+
+        /// <summary>
+        /// Set of User IDs to include in this rule.
+        /// </summary>
+        public InputList<string> UsersIncludeds
+        {
+            get => _usersIncludeds ?? (_usersIncludeds = new InputList<string>());
+            set => _usersIncludeds = value;
         }
 
         public RulePasswordState()

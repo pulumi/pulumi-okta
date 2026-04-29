@@ -16,14 +16,14 @@ public final class SignonPolicyRulesRulePlatformIncludeArgs extends com.pulumi.r
     public static final SignonPolicyRulesRulePlatformIncludeArgs Empty = new SignonPolicyRulesRulePlatformIncludeArgs();
 
     /**
-     * Custom OS expression for advanced matching.
+     * Custom OS expression for advanced matching. Required by the API when osType is OTHER (leave empty or omit to match any OTHER OS). The API normalizes empty and wildcard values to null on read; the provider preserves &#34;&#34; in state.
      * 
      */
     @Import(name="osExpression")
     private @Nullable Output<String> osExpression;
 
     /**
-     * @return Custom OS expression for advanced matching.
+     * @return Custom OS expression for advanced matching. Required by the API when osType is OTHER (leave empty or omit to match any OTHER OS). The API normalizes empty and wildcard values to null on read; the provider preserves &#34;&#34; in state.
      * 
      */
     public Optional<Output<String>> osExpression() {
@@ -87,7 +87,7 @@ public final class SignonPolicyRulesRulePlatformIncludeArgs extends com.pulumi.r
         }
 
         /**
-         * @param osExpression Custom OS expression for advanced matching.
+         * @param osExpression Custom OS expression for advanced matching. Required by the API when osType is OTHER (leave empty or omit to match any OTHER OS). The API normalizes empty and wildcard values to null on read; the provider preserves &#34;&#34; in state.
          * 
          * @return builder
          * 
@@ -98,7 +98,7 @@ public final class SignonPolicyRulesRulePlatformIncludeArgs extends com.pulumi.r
         }
 
         /**
-         * @param osExpression Custom OS expression for advanced matching.
+         * @param osExpression Custom OS expression for advanced matching. Required by the API when osType is OTHER (leave empty or omit to match any OTHER OS). The API normalizes empty and wildcard values to null on read; the provider preserves &#34;&#34; in state.
          * 
          * @return builder
          * 

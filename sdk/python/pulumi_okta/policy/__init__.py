@@ -13,6 +13,7 @@ from .device_assurance_macos import *
 from .device_assurance_windows import *
 from .get_default_policy import *
 from .get_policy import *
+from .get_rule_password import *
 from .mfa import *
 from .password import *
 from .rule_idp_discovery import *

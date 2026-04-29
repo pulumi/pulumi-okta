@@ -14,7 +14,7 @@ namespace Pulumi.Okta.App.Outputs
     public sealed class SignonPolicyRulesRulePlatformInclude
     {
         /// <summary>
-        /// Custom OS expression for advanced matching.
+        /// Custom OS expression for advanced matching. Required by the API when OsType is OTHER (leave empty or omit to match any OTHER OS). The API normalizes empty and wildcard values to null on read; the provider preserves "" in state.
         /// </summary>
         public readonly string? OsExpression;
         /// <summary>

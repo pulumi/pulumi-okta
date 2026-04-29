@@ -4242,7 +4242,7 @@ export namespace app {
 
     export interface SignonPolicyRulesRulePlatformInclude {
         /**
-         * Custom OS expression for advanced matching.
+         * Custom OS expression for advanced matching. Required by the API when osType is OTHER (leave empty or omit to match any OTHER OS). The API normalizes empty and wildcard values to null on read; the provider preserves "" in state.
          */
         osExpression?: pulumi.Input<string>;
         /**
@@ -4327,6 +4327,36 @@ export namespace policy {
         id?: pulumi.Input<string>;
         name?: pulumi.Input<string>;
         type: pulumi.Input<string>;
+    }
+
+    export interface RulePasswordPasswordResetRequirement {
+        /**
+         * Constraints on the values specified in the `primaryMethods` set. Specifying a constraint limits methods to specific authenticator(s). Currently, Google OTP is the only accepted constraint. The `otp` method requires a constraint.
+         */
+        methodConstraints?: pulumi.Input<pulumi.Input<inputs.policy.RulePasswordPasswordResetRequirementMethodConstraint>[]>;
+        /**
+         * Authenticator methods allowed for the initial authentication step of password recovery. Method `otp` requires a constraint limiting it to a Google authenticator. Options: `otp`, `push`, `sms`, `email`, `voice`.
+         */
+        primaryMethods?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Whether a secondary authenticator is required for password reset (`stepUp.required`). The following are three valid configurations: `required=false`, `required=true` with no methods to use any SSO authenticator, and `required=true` with `securityQuestion` as the method. Default: `false`.
+         */
+        stepUpEnabled?: pulumi.Input<boolean>;
+        /**
+         * Authenticator methods required for the secondary authentication step of password recovery. Specify only when `stepUpEnabled = true` and `securityQuestion` is permitted for the secondary authentication. Items value: `securityQuestion`.
+         */
+        stepUpMethods?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface RulePasswordPasswordResetRequirementMethodConstraint {
+        /**
+         * Keys of the authenticators allowed for this method (e.g. `googleOtp`).
+         */
+        allowedAuthenticators?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The method to constrain (e.g. `otp`).
+         */
+        method: pulumi.Input<string>;
     }
 
     export interface RuleSignonFactorSequence {

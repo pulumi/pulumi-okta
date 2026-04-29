@@ -2262,7 +2262,7 @@ class SignonPolicyRulesRuleArgs:
 class SignonPolicyRulesRulePlatformIncludeArgsDict(TypedDict):
     os_expression: NotRequired[pulumi.Input[_builtins.str]]
     """
-    Custom OS expression for advanced matching.
+    Custom OS expression for advanced matching. Required by the API when os_type is OTHER (leave empty or omit to match any OTHER OS). The API normalizes empty and wildcard values to null on read; the provider preserves "" in state.
     """
     os_type: NotRequired[pulumi.Input[_builtins.str]]
     """
@@ -2280,7 +2280,7 @@ class SignonPolicyRulesRulePlatformIncludeArgs:
                  os_type: Optional[pulumi.Input[_builtins.str]] = None,
                  type: Optional[pulumi.Input[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] os_expression: Custom OS expression for advanced matching.
+        :param pulumi.Input[_builtins.str] os_expression: Custom OS expression for advanced matching. Required by the API when os_type is OTHER (leave empty or omit to match any OTHER OS). The API normalizes empty and wildcard values to null on read; the provider preserves "" in state.
         :param pulumi.Input[_builtins.str] os_type: OS type: ANY, IOS, ANDROID, WINDOWS, OSX, MACOS, CHROMEOS, or OTHER.
         :param pulumi.Input[_builtins.str] type: Platform type: ANY, MOBILE, or DESKTOP.
         """
@@ -2295,7 +2295,7 @@ class SignonPolicyRulesRulePlatformIncludeArgs:
     @pulumi.getter(name="osExpression")
     def os_expression(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Custom OS expression for advanced matching.
+        Custom OS expression for advanced matching. Required by the API when os_type is OTHER (leave empty or omit to match any OTHER OS). The API normalizes empty and wildcard values to null on read; the provider preserves "" in state.
         """
         return pulumi.get(self, "os_expression")
 
