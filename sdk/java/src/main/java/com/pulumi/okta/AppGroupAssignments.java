@@ -39,8 +39,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.okta.AppGroupAssignmentsArgs;
  * import com.pulumi.okta.inputs.AppGroupAssignmentsGroupArgs;
  * import com.pulumi.codegen.internal.KeyedValue;
- * import java.util.List;
  * import java.util.ArrayList;
+ * import java.util.Arrays;
  * import java.util.Map;
  * import java.io.File;
  * import java.nio.file.Files;
@@ -52,7 +52,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         for (var i = 0; i < com.pulumi.std.StdFunctions(Map.of("input", List.of(        
+ *         for (var i = 0; i < com.pulumi.std.StdFunctions(Map.of("input", Arrays.asList(        
  *             "group-a",
  *             "group-b"))).result(); i++) {
  *             new AppGroupAssignments("this-" + i, AppGroupAssignmentsArgs.builder()
@@ -86,8 +86,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.okta.AppGroupAssignmentsArgs;
  * import com.pulumi.okta.inputs.AppGroupAssignmentsGroupArgs;
  * import static com.pulumi.codegen.internal.Serialization.*;
- * import java.util.List;
  * import java.util.ArrayList;
+ * import java.util.Arrays;
  * import java.util.Map;
  * import java.io.File;
  * import java.nio.file.Files;

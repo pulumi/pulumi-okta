@@ -40,8 +40,8 @@ public final class UserFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.user.UserFunctions;
      * import com.pulumi.okta.user.inputs.GetRiskArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -80,8 +80,8 @@ public final class UserFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.user.UserFunctions;
      * import com.pulumi.okta.user.inputs.GetRiskArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -120,8 +120,8 @@ public final class UserFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.user.UserFunctions;
      * import com.pulumi.okta.user.inputs.GetRiskArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -160,8 +160,8 @@ public final class UserFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.user.UserFunctions;
      * import com.pulumi.okta.user.inputs.GetRiskArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -200,8 +200,8 @@ public final class UserFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.user.UserFunctions;
      * import com.pulumi.okta.user.inputs.GetRiskArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -291,8 +291,8 @@ public final class UserFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.user.UserFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -331,8 +331,8 @@ public final class UserFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.user.UserFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -371,8 +371,8 @@ public final class UserFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.user.UserFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -411,8 +411,8 @@ public final class UserFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.user.UserFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -451,8 +451,8 @@ public final class UserFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.user.UserFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -491,8 +491,8 @@ public final class UserFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.user.UserFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -531,8 +531,8 @@ public final class UserFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.user.UserFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -569,8 +569,8 @@ public final class UserFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.user.UserFunctions;
      * import com.pulumi.okta.user.inputs.GetUserTypeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -609,8 +609,8 @@ public final class UserFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.user.UserFunctions;
      * import com.pulumi.okta.user.inputs.GetUserTypeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -649,8 +649,8 @@ public final class UserFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.user.UserFunctions;
      * import com.pulumi.okta.user.inputs.GetUserTypeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -689,8 +689,8 @@ public final class UserFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.user.UserFunctions;
      * import com.pulumi.okta.user.inputs.GetUserTypeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -729,8 +729,8 @@ public final class UserFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.user.UserFunctions;
      * import com.pulumi.okta.user.inputs.GetUserTypeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -769,8 +769,8 @@ public final class UserFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.user.UserFunctions;
      * import com.pulumi.okta.user.inputs.GetUserTypeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -809,8 +809,8 @@ public final class UserFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.user.UserFunctions;
      * import com.pulumi.okta.user.inputs.GetUserTypeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

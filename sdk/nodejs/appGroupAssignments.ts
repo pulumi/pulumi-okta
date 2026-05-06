@@ -51,7 +51,7 @@ import * as utilities from "./utilities";
  *             "group-a",
  *             "group-b",
  *         ],
- *     }).result).map(([k, v]) => ({key: k, value: v})).map(entry => ({
+ *     }).result).sort().map(([k, v]) => ({key: k, value: v})).map(entry => ({
  *         id: entry.value,
  *     })),
  *     appId: thisOktaAppBookmark.id,

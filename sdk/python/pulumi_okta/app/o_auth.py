@@ -1970,7 +1970,7 @@ class OAuth(pulumi.CustomResource):
         #
         jwks_from_key = jwks.from_key(key=rsa["privateKeyPem"],
             kid="my-kid")
-        jwks = std.jsondecode(input=jwks_from_key["jwks"])["result"]
+        jwks_1 = std.jsondecode(input=jwks_from_key["jwks"])["result"]
         # https://registry.terraform.io/providers/okta/okta/latest/docs/resources/app_oauth
         app = okta.app.OAuth("app",
             label="My OAuth App",
@@ -1979,10 +1979,10 @@ class OAuth(pulumi.CustomResource):
             grant_types=["client_credentials"],
             token_endpoint_auth_method="private_key_jwt",
             jwks=[{
-                "kty": jwks["kty"],
-                "kid": jwks["kid"],
-                "e": jwks["e"],
-                "n": jwks["n"],
+                "kty": jwks_1["kty"],
+                "kid": jwks_1["kid"],
+                "e": jwks_1["e"],
+                "n": jwks_1["n"],
             }])
         ```
 
@@ -2116,7 +2116,7 @@ class OAuth(pulumi.CustomResource):
         #
         jwks_from_key = jwks.from_key(key=rsa["privateKeyPem"],
             kid="my-kid")
-        jwks = std.jsondecode(input=jwks_from_key["jwks"])["result"]
+        jwks_1 = std.jsondecode(input=jwks_from_key["jwks"])["result"]
         # https://registry.terraform.io/providers/okta/okta/latest/docs/resources/app_oauth
         app = okta.app.OAuth("app",
             label="My OAuth App",
@@ -2125,10 +2125,10 @@ class OAuth(pulumi.CustomResource):
             grant_types=["client_credentials"],
             token_endpoint_auth_method="private_key_jwt",
             jwks=[{
-                "kty": jwks["kty"],
-                "kid": jwks["kid"],
-                "e": jwks["e"],
-                "n": jwks["n"],
+                "kty": jwks_1["kty"],
+                "kid": jwks_1["kid"],
+                "e": jwks_1["e"],
+                "n": jwks_1["n"],
             }])
         ```
 

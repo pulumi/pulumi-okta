@@ -41,8 +41,8 @@ public final class AuthFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.auth.AuthFunctions;
      * import com.pulumi.okta.auth.inputs.GetServerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -81,8 +81,8 @@ public final class AuthFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.auth.AuthFunctions;
      * import com.pulumi.okta.auth.inputs.GetServerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -121,8 +121,8 @@ public final class AuthFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.auth.AuthFunctions;
      * import com.pulumi.okta.auth.inputs.GetServerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -161,8 +161,8 @@ public final class AuthFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.auth.AuthFunctions;
      * import com.pulumi.okta.auth.inputs.GetServerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -201,8 +201,8 @@ public final class AuthFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.auth.AuthFunctions;
      * import com.pulumi.okta.auth.inputs.GetServerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -241,8 +241,8 @@ public final class AuthFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.auth.AuthFunctions;
      * import com.pulumi.okta.auth.inputs.GetServerClientsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -283,8 +283,8 @@ public final class AuthFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.auth.AuthFunctions;
      * import com.pulumi.okta.auth.inputs.GetServerClientsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -325,8 +325,8 @@ public final class AuthFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.auth.AuthFunctions;
      * import com.pulumi.okta.auth.inputs.GetServerClientsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -367,8 +367,8 @@ public final class AuthFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.auth.AuthFunctions;
      * import com.pulumi.okta.auth.inputs.GetServerClientsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -409,8 +409,8 @@ public final class AuthFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.auth.AuthFunctions;
      * import com.pulumi.okta.auth.inputs.GetServerClientsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -453,8 +453,8 @@ public final class AuthFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.auth.AuthFunctions;
      * import com.pulumi.okta.auth.inputs.GetServerKeysArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -502,8 +502,8 @@ public final class AuthFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.auth.AuthFunctions;
      * import com.pulumi.okta.auth.inputs.GetServerKeysArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -551,8 +551,8 @@ public final class AuthFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.auth.AuthFunctions;
      * import com.pulumi.okta.auth.inputs.GetServerKeysArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -600,8 +600,8 @@ public final class AuthFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.auth.AuthFunctions;
      * import com.pulumi.okta.auth.inputs.GetServerKeysArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -649,8 +649,8 @@ public final class AuthFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.auth.AuthFunctions;
      * import com.pulumi.okta.auth.inputs.GetServerKeysArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -696,8 +696,8 @@ public final class AuthFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.auth.AuthFunctions;
      * import com.pulumi.okta.auth.inputs.GetServerPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -737,8 +737,8 @@ public final class AuthFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.auth.AuthFunctions;
      * import com.pulumi.okta.auth.inputs.GetServerPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -778,8 +778,8 @@ public final class AuthFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.auth.AuthFunctions;
      * import com.pulumi.okta.auth.inputs.GetServerPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -819,8 +819,8 @@ public final class AuthFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.auth.AuthFunctions;
      * import com.pulumi.okta.auth.inputs.GetServerPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -860,8 +860,8 @@ public final class AuthFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.auth.AuthFunctions;
      * import com.pulumi.okta.auth.inputs.GetServerPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -901,8 +901,8 @@ public final class AuthFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.auth.AuthFunctions;
      * import com.pulumi.okta.auth.inputs.GetServerScopesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -941,8 +941,8 @@ public final class AuthFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.auth.AuthFunctions;
      * import com.pulumi.okta.auth.inputs.GetServerScopesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -981,8 +981,8 @@ public final class AuthFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.auth.AuthFunctions;
      * import com.pulumi.okta.auth.inputs.GetServerScopesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1021,8 +1021,8 @@ public final class AuthFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.auth.AuthFunctions;
      * import com.pulumi.okta.auth.inputs.GetServerScopesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1061,8 +1061,8 @@ public final class AuthFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.auth.AuthFunctions;
      * import com.pulumi.okta.auth.inputs.GetServerScopesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

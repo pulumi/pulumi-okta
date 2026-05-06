@@ -146,10 +146,10 @@ class AppGroupAssignments(pulumi.CustomResource):
         this = okta.AppGroupAssignments("this",
             groups=[{
                 "id": entry["value"],
-            } for entry in [{"key": k, "value": v} for k, v in std.toset(input=[
+            } for entry in [{"key": k, "value": v} for k, v in sorted(std.toset(input=[
                 "group-a",
                 "group-b",
-            ])["result"].items()]],
+            ])["result"].items())]],
             app_id=this_okta_app_bookmark["id"])
         ```
 
@@ -235,10 +235,10 @@ class AppGroupAssignments(pulumi.CustomResource):
         this = okta.AppGroupAssignments("this",
             groups=[{
                 "id": entry["value"],
-            } for entry in [{"key": k, "value": v} for k, v in std.toset(input=[
+            } for entry in [{"key": k, "value": v} for k, v in sorted(std.toset(input=[
                 "group-a",
                 "group-b",
-            ])["result"].items()]],
+            ])["result"].items())]],
             app_id=this_okta_app_bookmark["id"])
         ```
 

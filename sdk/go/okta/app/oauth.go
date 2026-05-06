@@ -74,7 +74,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			jwks := std.Jsondecode(ctx, map[string]interface{}{
+//			jwks2 := std.Jsondecode(ctx, map[string]interface{}{
 //				"input": jwksFromKey.Jwks,
 //			}, nil).Result
 //			// https://registry.terraform.io/providers/okta/okta/latest/docs/resources/app_oauth
@@ -90,10 +90,10 @@ import (
 //				TokenEndpointAuthMethod: pulumi.String("private_key_jwt"),
 //				Jwks: app.OAuthJwkArray{
 //					&app.OAuthJwkArgs{
-//						Kty: pulumi.Any(jwks.(map[string]interface{})["kty"]),
-//						Kid: pulumi.Any(jwks.(map[string]interface{})["kid"]),
-//						E:   pulumi.Any(jwks.(map[string]interface{})["e"]),
-//						N:   pulumi.Any(jwks.(map[string]interface{})["n"]),
+//						Kty: pulumi.Any(jwks2.(map[string]interface{})["kty"]),
+//						Kid: pulumi.Any(jwks2.(map[string]interface{})["kid"]),
+//						E:   pulumi.Any(jwks2.(map[string]interface{})["e"]),
+//						N:   pulumi.Any(jwks2.(map[string]interface{})["n"]),
 //					},
 //				},
 //			})

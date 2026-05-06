@@ -24,10 +24,10 @@ namespace Pulumi.Okta
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Okta.Index.GetEntityRiskPolicy.Invoke();
+        ///     var example = Okta.GetEntityRiskPolicy.Invoke();
         /// 
         ///     // Use the policy ID to create rules
-        ///     var exampleEntityRiskPolicyRule = new Okta.Index.EntityRiskPolicyRule("example", new()
+        ///     var exampleEntityRiskPolicyRule = new Okta.EntityRiskPolicyRule("example", new()
         ///     {
         ///         PolicyId = example.Apply(getEntityRiskPolicyResult =&gt; getEntityRiskPolicyResult.Id),
         ///         Name = "High Risk Response",
@@ -54,10 +54,10 @@ namespace Pulumi.Okta
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Okta.Index.GetEntityRiskPolicy.Invoke();
+        ///     var example = Okta.GetEntityRiskPolicy.Invoke();
         /// 
         ///     // Use the policy ID to create rules
-        ///     var exampleEntityRiskPolicyRule = new Okta.Index.EntityRiskPolicyRule("example", new()
+        ///     var exampleEntityRiskPolicyRule = new Okta.EntityRiskPolicyRule("example", new()
         ///     {
         ///         PolicyId = example.Apply(getEntityRiskPolicyResult =&gt; getEntityRiskPolicyResult.Id),
         ///         Name = "High Risk Response",
@@ -84,10 +84,10 @@ namespace Pulumi.Okta
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Okta.Index.GetEntityRiskPolicy.Invoke();
+        ///     var example = Okta.GetEntityRiskPolicy.Invoke();
         /// 
         ///     // Use the policy ID to create rules
-        ///     var exampleEntityRiskPolicyRule = new Okta.Index.EntityRiskPolicyRule("example", new()
+        ///     var exampleEntityRiskPolicyRule = new Okta.EntityRiskPolicyRule("example", new()
         ///     {
         ///         PolicyId = example.Apply(getEntityRiskPolicyResult =&gt; getEntityRiskPolicyResult.Id),
         ///         Name = "High Risk Response",

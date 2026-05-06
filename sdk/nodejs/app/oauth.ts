@@ -64,7 +64,7 @@ import * as utilities from "../utilities";
  *     key: rsa.privateKeyPem,
  *     kid: "my-kid",
  * });
- * const jwks = std.jsondecode({
+ * const jwks2 = std.jsondecode({
  *     input: jwksFromKey.jwks,
  * }).result;
  * // https://registry.terraform.io/providers/okta/okta/latest/docs/resources/app_oauth
@@ -75,10 +75,10 @@ import * as utilities from "../utilities";
  *     grantTypes: ["client_credentials"],
  *     tokenEndpointAuthMethod: "private_key_jwt",
  *     jwks: [{
- *         kty: jwks.kty,
- *         kid: jwks.kid,
- *         e: jwks.e,
- *         n: jwks.n,
+ *         kty: jwks2.kty,
+ *         kid: jwks2.kid,
+ *         e: jwks2.e,
+ *         n: jwks2.n,
  *     }],
  * });
  * ```

@@ -37,8 +37,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.std.StdFunctions;
  * import com.pulumi.okta.AdminRoleCustom;
  * import com.pulumi.okta.AdminRoleCustomArgs;
- * import java.util.List;
  * import java.util.ArrayList;
+ * import java.util.Arrays;
  * import java.util.Map;
  * import java.io.File;
  * import java.nio.file.Files;
@@ -66,7 +66,7 @@ import javax.annotation.Nullable;
  *             .description("testing, testing")
  *             .resources(StdFunctions.format(Map.ofEntries(
  *                 Map.entry("input", "%s/api/v1/users"),
- *                 Map.entry("args", "https://tien-oie-2023-26-26.oktapreview.com")
+ *                 Map.entry("args", Arrays.asList("https://tien-oie-2023-26-26.oktapreview.com"))
  *             )).result())
  *             .build());
  * 

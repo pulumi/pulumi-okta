@@ -36,13 +36,13 @@ namespace Pulumi.Okta.Group
     ///         Description = "testing",
     ///     });
     /// 
-    ///     var testResourceSet = new Okta.Index.ResourceSet("test", new()
+    ///     var testResourceSet = new Okta.ResourceSet("test", new()
     ///     {
     ///         Label = "test",
     ///         Description = "testing, testing",
     ///         Resources = new[]
     ///         {
-    ///             Std.Index.Format.Invoke(new()
+    ///             Std.Format.Invoke(new()
     ///             {
     ///                 Input = "%s/api/v1/users",
     ///                 Args = new[]
@@ -53,7 +53,7 @@ namespace Pulumi.Okta.Group
     ///         },
     ///     });
     /// 
-    ///     var testAdminRoleCustom = new Okta.Index.AdminRoleCustom("test", new()
+    ///     var testAdminRoleCustom = new Okta.AdminRoleCustom("test", new()
     ///     {
     ///         Label = "testt",
     ///         Description = "testing, testing",
