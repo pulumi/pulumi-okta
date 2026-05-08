@@ -21,17 +21,17 @@ __all__ = ['RuleMfaArgs', 'RuleMfa']
 @pulumi.input_type
 class RuleMfaArgs:
     def __init__(__self__, *,
-                 app_excludes: Optional[pulumi.Input[Sequence[pulumi.Input['RuleMfaAppExcludeArgs']]]] = None,
-                 app_includes: Optional[pulumi.Input[Sequence[pulumi.Input['RuleMfaAppIncludeArgs']]]] = None,
-                 enroll: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_connection: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 network_includes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 priority: Optional[pulumi.Input[_builtins.int]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 users_excludeds: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 app_excludes: pulumi.Input[Optional[Sequence[pulumi.Input['RuleMfaAppExcludeArgs']]]] = None,
+                 app_includes: pulumi.Input[Optional[Sequence[pulumi.Input['RuleMfaAppIncludeArgs']]]] = None,
+                 enroll: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_connection: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_excludes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 network_includes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 priority: pulumi.Input[Optional[_builtins.int]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 users_excludeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a RuleMfa resource.
 
@@ -78,7 +78,7 @@ class RuleMfaArgs:
 
     @_builtins.property
     @pulumi.getter(name="appExcludes")
-    def app_excludes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleMfaAppExcludeArgs']]]]:
+    def app_excludes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RuleMfaAppExcludeArgs']]]]:
         """
         Applications to exclude in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations.
         	- 'id' - (Optional) Use if 'type' is 'APP' to indicate the application id to include.
@@ -88,12 +88,12 @@ class RuleMfaArgs:
         return pulumi.get(self, "app_excludes")
 
     @app_excludes.setter
-    def app_excludes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RuleMfaAppExcludeArgs']]]]):
+    def app_excludes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RuleMfaAppExcludeArgs']]]]):
         pulumi.set(self, "app_excludes", value)
 
     @_builtins.property
     @pulumi.getter(name="appIncludes")
-    def app_includes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleMfaAppIncludeArgs']]]]:
+    def app_includes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RuleMfaAppIncludeArgs']]]]:
         """
         Applications to include in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations.
         	- 'id' - (Optional) Use if 'type' is 'APP' to indicate the application id to include.
@@ -103,132 +103,132 @@ class RuleMfaArgs:
         return pulumi.get(self, "app_includes")
 
     @app_includes.setter
-    def app_includes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RuleMfaAppIncludeArgs']]]]):
+    def app_includes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RuleMfaAppIncludeArgs']]]]):
         pulumi.set(self, "app_includes", value)
 
     @_builtins.property
     @pulumi.getter
-    def enroll(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def enroll(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         When a user should be prompted for MFA. It can be `CHALLENGE`, `LOGIN`, or `NEVER`.
         """
         return pulumi.get(self, "enroll")
 
     @enroll.setter
-    def enroll(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def enroll(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "enroll", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Policy Rule Name
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="networkConnection")
-    def network_connection(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def network_connection(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Network selection mode: `ANYWHERE`, `ZONE`, `ON_NETWORK`, or `OFF_NETWORK`. Default: `ANYWHERE`
         """
         return pulumi.get(self, "network_connection")
 
     @network_connection.setter
-    def network_connection(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def network_connection(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "network_connection", value)
 
     @_builtins.property
     @pulumi.getter(name="networkExcludes")
-    def network_excludes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def network_excludes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Required if `network_connection` = `ZONE`. Indicates the network zones to exclude.
         """
         return pulumi.get(self, "network_excludes")
 
     @network_excludes.setter
-    def network_excludes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def network_excludes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "network_excludes", value)
 
     @_builtins.property
     @pulumi.getter(name="networkIncludes")
-    def network_includes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def network_includes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Required if `network_connection` = `ZONE`. Indicates the network zones to include.
         """
         return pulumi.get(self, "network_includes")
 
     @network_includes.setter
-    def network_includes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def network_includes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "network_includes", value)
 
     @_builtins.property
     @pulumi.getter(name="policyId")
-    def policy_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def policy_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Policy ID of the Rule
         """
         return pulumi.get(self, "policy_id")
 
     @policy_id.setter
-    def policy_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def policy_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "policy_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def priority(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def priority(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
         """
         return pulumi.get(self, "priority")
 
     @priority.setter
-    def priority(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def priority(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "priority", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Policy Rule Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter(name="usersExcludeds")
-    def users_excludeds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def users_excludeds(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Set of User IDs to Exclude
         """
         return pulumi.get(self, "users_excludeds")
 
     @users_excludeds.setter
-    def users_excludeds(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def users_excludeds(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "users_excludeds", value)
 
 
 @pulumi.input_type
 class _RuleMfaState:
     def __init__(__self__, *,
-                 app_excludes: Optional[pulumi.Input[Sequence[pulumi.Input['RuleMfaAppExcludeArgs']]]] = None,
-                 app_includes: Optional[pulumi.Input[Sequence[pulumi.Input['RuleMfaAppIncludeArgs']]]] = None,
-                 enroll: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_connection: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 network_includes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 priority: Optional[pulumi.Input[_builtins.int]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 users_excludeds: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 app_excludes: pulumi.Input[Optional[Sequence[pulumi.Input['RuleMfaAppExcludeArgs']]]] = None,
+                 app_includes: pulumi.Input[Optional[Sequence[pulumi.Input['RuleMfaAppIncludeArgs']]]] = None,
+                 enroll: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_connection: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_excludes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 network_includes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 priority: pulumi.Input[Optional[_builtins.int]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 users_excludeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering RuleMfa resources.
 
@@ -275,7 +275,7 @@ class _RuleMfaState:
 
     @_builtins.property
     @pulumi.getter(name="appExcludes")
-    def app_excludes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleMfaAppExcludeArgs']]]]:
+    def app_excludes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RuleMfaAppExcludeArgs']]]]:
         """
         Applications to exclude in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations.
         	- 'id' - (Optional) Use if 'type' is 'APP' to indicate the application id to include.
@@ -285,12 +285,12 @@ class _RuleMfaState:
         return pulumi.get(self, "app_excludes")
 
     @app_excludes.setter
-    def app_excludes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RuleMfaAppExcludeArgs']]]]):
+    def app_excludes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RuleMfaAppExcludeArgs']]]]):
         pulumi.set(self, "app_excludes", value)
 
     @_builtins.property
     @pulumi.getter(name="appIncludes")
-    def app_includes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleMfaAppIncludeArgs']]]]:
+    def app_includes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RuleMfaAppIncludeArgs']]]]:
         """
         Applications to include in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations.
         	- 'id' - (Optional) Use if 'type' is 'APP' to indicate the application id to include.
@@ -300,115 +300,115 @@ class _RuleMfaState:
         return pulumi.get(self, "app_includes")
 
     @app_includes.setter
-    def app_includes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RuleMfaAppIncludeArgs']]]]):
+    def app_includes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RuleMfaAppIncludeArgs']]]]):
         pulumi.set(self, "app_includes", value)
 
     @_builtins.property
     @pulumi.getter
-    def enroll(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def enroll(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         When a user should be prompted for MFA. It can be `CHALLENGE`, `LOGIN`, or `NEVER`.
         """
         return pulumi.get(self, "enroll")
 
     @enroll.setter
-    def enroll(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def enroll(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "enroll", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Policy Rule Name
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="networkConnection")
-    def network_connection(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def network_connection(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Network selection mode: `ANYWHERE`, `ZONE`, `ON_NETWORK`, or `OFF_NETWORK`. Default: `ANYWHERE`
         """
         return pulumi.get(self, "network_connection")
 
     @network_connection.setter
-    def network_connection(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def network_connection(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "network_connection", value)
 
     @_builtins.property
     @pulumi.getter(name="networkExcludes")
-    def network_excludes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def network_excludes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Required if `network_connection` = `ZONE`. Indicates the network zones to exclude.
         """
         return pulumi.get(self, "network_excludes")
 
     @network_excludes.setter
-    def network_excludes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def network_excludes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "network_excludes", value)
 
     @_builtins.property
     @pulumi.getter(name="networkIncludes")
-    def network_includes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def network_includes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Required if `network_connection` = `ZONE`. Indicates the network zones to include.
         """
         return pulumi.get(self, "network_includes")
 
     @network_includes.setter
-    def network_includes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def network_includes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "network_includes", value)
 
     @_builtins.property
     @pulumi.getter(name="policyId")
-    def policy_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def policy_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Policy ID of the Rule
         """
         return pulumi.get(self, "policy_id")
 
     @policy_id.setter
-    def policy_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def policy_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "policy_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def priority(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def priority(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
         """
         return pulumi.get(self, "priority")
 
     @priority.setter
-    def priority(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def priority(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "priority", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Policy Rule Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter(name="usersExcludeds")
-    def users_excludeds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def users_excludeds(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Set of User IDs to Exclude
         """
         return pulumi.get(self, "users_excludeds")
 
     @users_excludeds.setter
-    def users_excludeds(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def users_excludeds(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "users_excludeds", value)
 
 
@@ -418,17 +418,17 @@ class RuleMfa(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 app_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RuleMfaAppExcludeArgs', 'RuleMfaAppExcludeArgsDict']]]]] = None,
-                 app_includes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RuleMfaAppIncludeArgs', 'RuleMfaAppIncludeArgsDict']]]]] = None,
-                 enroll: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_connection: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 network_includes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 priority: Optional[pulumi.Input[_builtins.int]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 users_excludeds: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 app_excludes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RuleMfaAppExcludeArgs', 'RuleMfaAppExcludeArgsDict']]]]] = None,
+                 app_includes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RuleMfaAppIncludeArgs', 'RuleMfaAppIncludeArgsDict']]]]] = None,
+                 enroll: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_connection: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_excludes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 network_includes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 priority: pulumi.Input[Optional[_builtins.int]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 users_excludeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Creates an MFA Policy Rule. This resource allows you to create and configure an MFA Policy Rule.
@@ -491,17 +491,17 @@ class RuleMfa(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 app_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RuleMfaAppExcludeArgs', 'RuleMfaAppExcludeArgsDict']]]]] = None,
-                 app_includes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RuleMfaAppIncludeArgs', 'RuleMfaAppIncludeArgsDict']]]]] = None,
-                 enroll: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_connection: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 network_includes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 priority: Optional[pulumi.Input[_builtins.int]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 users_excludeds: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 app_excludes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RuleMfaAppExcludeArgs', 'RuleMfaAppExcludeArgsDict']]]]] = None,
+                 app_includes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RuleMfaAppIncludeArgs', 'RuleMfaAppIncludeArgsDict']]]]] = None,
+                 enroll: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_connection: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_excludes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 network_includes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 priority: pulumi.Input[Optional[_builtins.int]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 users_excludeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -532,17 +532,17 @@ class RuleMfa(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            app_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RuleMfaAppExcludeArgs', 'RuleMfaAppExcludeArgsDict']]]]] = None,
-            app_includes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RuleMfaAppIncludeArgs', 'RuleMfaAppIncludeArgsDict']]]]] = None,
-            enroll: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            network_connection: Optional[pulumi.Input[_builtins.str]] = None,
-            network_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            network_includes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-            priority: Optional[pulumi.Input[_builtins.int]] = None,
-            status: Optional[pulumi.Input[_builtins.str]] = None,
-            users_excludeds: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'RuleMfa':
+            app_excludes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RuleMfaAppExcludeArgs', 'RuleMfaAppExcludeArgsDict']]]]] = None,
+            app_includes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RuleMfaAppIncludeArgs', 'RuleMfaAppIncludeArgsDict']]]]] = None,
+            enroll: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            network_connection: pulumi.Input[Optional[_builtins.str]] = None,
+            network_excludes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            network_includes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+            priority: pulumi.Input[Optional[_builtins.int]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            users_excludeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'RuleMfa':
         """
         Get an existing RuleMfa resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

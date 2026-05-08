@@ -37,8 +37,8 @@ public final class GroupFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.group.GroupFunctions;
      * import com.pulumi.okta.group.inputs.GetEveryoneGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -78,8 +78,8 @@ public final class GroupFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.group.GroupFunctions;
      * import com.pulumi.okta.group.inputs.GetEveryoneGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -119,8 +119,8 @@ public final class GroupFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.group.GroupFunctions;
      * import com.pulumi.okta.group.inputs.GetEveryoneGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -160,8 +160,8 @@ public final class GroupFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.group.GroupFunctions;
      * import com.pulumi.okta.group.inputs.GetEveryoneGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -201,8 +201,8 @@ public final class GroupFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.group.GroupFunctions;
      * import com.pulumi.okta.group.inputs.GetEveryoneGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -242,8 +242,8 @@ public final class GroupFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.group.GroupFunctions;
      * import com.pulumi.okta.group.inputs.GetEveryoneGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -283,8 +283,8 @@ public final class GroupFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.group.GroupFunctions;
      * import com.pulumi.okta.group.inputs.GetEveryoneGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -322,8 +322,8 @@ public final class GroupFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.group.GroupFunctions;
      * import com.pulumi.okta.group.inputs.GetGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -362,8 +362,8 @@ public final class GroupFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.group.GroupFunctions;
      * import com.pulumi.okta.group.inputs.GetGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -402,8 +402,8 @@ public final class GroupFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.group.GroupFunctions;
      * import com.pulumi.okta.group.inputs.GetGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -442,8 +442,8 @@ public final class GroupFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.group.GroupFunctions;
      * import com.pulumi.okta.group.inputs.GetGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -482,8 +482,8 @@ public final class GroupFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.group.GroupFunctions;
      * import com.pulumi.okta.group.inputs.GetGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -522,8 +522,8 @@ public final class GroupFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.group.GroupFunctions;
      * import com.pulumi.okta.group.inputs.GetGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -562,8 +562,8 @@ public final class GroupFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.group.GroupFunctions;
      * import com.pulumi.okta.group.inputs.GetGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -602,8 +602,8 @@ public final class GroupFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.group.GroupFunctions;
      * import com.pulumi.okta.group.inputs.GetRuleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -642,8 +642,8 @@ public final class GroupFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.group.GroupFunctions;
      * import com.pulumi.okta.group.inputs.GetRuleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -682,8 +682,8 @@ public final class GroupFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.group.GroupFunctions;
      * import com.pulumi.okta.group.inputs.GetRuleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -722,8 +722,8 @@ public final class GroupFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.group.GroupFunctions;
      * import com.pulumi.okta.group.inputs.GetRuleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -762,8 +762,8 @@ public final class GroupFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.group.GroupFunctions;
      * import com.pulumi.okta.group.inputs.GetRuleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -802,8 +802,8 @@ public final class GroupFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.group.GroupFunctions;
      * import com.pulumi.okta.group.inputs.GetRuleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -842,8 +842,8 @@ public final class GroupFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.group.GroupFunctions;
      * import com.pulumi.okta.group.inputs.GetRuleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

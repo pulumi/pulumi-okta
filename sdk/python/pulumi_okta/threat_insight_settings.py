@@ -20,7 +20,7 @@ __all__ = ['ThreatInsightSettingsArgs', 'ThreatInsightSettings']
 class ThreatInsightSettingsArgs:
     def __init__(__self__, *,
                  action: pulumi.Input[_builtins.str],
-                 network_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 network_excludes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ThreatInsightSettings resource.
 
@@ -45,22 +45,22 @@ class ThreatInsightSettingsArgs:
 
     @_builtins.property
     @pulumi.getter(name="networkExcludes")
-    def network_excludes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def network_excludes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Accepts a list of Network Zone IDs. Can only accept zones of `IP` type. IPs in the excluded Network Zones aren't logged or blocked by Okta ThreatInsight and proceed to Sign On rules evaluation. This ensures that traffic from known, trusted IPs isn't accidentally logged or blocked. The ordering of the network zone is not guarantee from the API sides
         """
         return pulumi.get(self, "network_excludes")
 
     @network_excludes.setter
-    def network_excludes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def network_excludes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "network_excludes", value)
 
 
 @pulumi.input_type
 class _ThreatInsightSettingsState:
     def __init__(__self__, *,
-                 action: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 action: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_excludes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering ThreatInsightSettings resources.
 
@@ -74,26 +74,26 @@ class _ThreatInsightSettingsState:
 
     @_builtins.property
     @pulumi.getter
-    def action(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def action(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies how Okta responds to authentication requests from suspicious IPs. Valid values are `none`, `audit`, or `block`. A value of `none` indicates that ThreatInsight is disabled. A value of `audit` indicates that Okta logs suspicious requests in the System Log. A value of `block` indicates that Okta logs suspicious requests in the System Log and blocks the requests.
         """
         return pulumi.get(self, "action")
 
     @action.setter
-    def action(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def action(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "action", value)
 
     @_builtins.property
     @pulumi.getter(name="networkExcludes")
-    def network_excludes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def network_excludes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Accepts a list of Network Zone IDs. Can only accept zones of `IP` type. IPs in the excluded Network Zones aren't logged or blocked by Okta ThreatInsight and proceed to Sign On rules evaluation. This ensures that traffic from known, trusted IPs isn't accidentally logged or blocked. The ordering of the network zone is not guarantee from the API sides
         """
         return pulumi.get(self, "network_excludes")
 
     @network_excludes.setter
-    def network_excludes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def network_excludes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "network_excludes", value)
 
 
@@ -103,8 +103,8 @@ class ThreatInsightSettings(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 action: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_excludes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Manages Okta Threat Insight Settings. This resource allows you to configure Threat Insight Settings.
@@ -196,8 +196,8 @@ class ThreatInsightSettings(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 action: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_excludes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -221,8 +221,8 @@ class ThreatInsightSettings(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            action: Optional[pulumi.Input[_builtins.str]] = None,
-            network_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'ThreatInsightSettings':
+            action: pulumi.Input[Optional[_builtins.str]] = None,
+            network_excludes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'ThreatInsightSettings':
         """
         Get an existing ThreatInsightSettings resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

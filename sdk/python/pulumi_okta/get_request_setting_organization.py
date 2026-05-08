@@ -109,7 +109,7 @@ def get_request_setting_organization(request_experiences: Optional[Sequence[Unio
         provisioning_status=pulumi.get(__ret__, 'provisioning_status'),
         request_experiences=pulumi.get(__ret__, 'request_experiences'),
         subprocessors_acknowledged=pulumi.get(__ret__, 'subprocessors_acknowledged'))
-def get_request_setting_organization_output(request_experiences: Optional[pulumi.Input[Optional[Sequence[Union['GetRequestSettingOrganizationRequestExperienceArgs', 'GetRequestSettingOrganizationRequestExperienceArgsDict']]]]] = None,
+def get_request_setting_organization_output(request_experiences: pulumi.Input[Optional[Optional[Sequence[Union['GetRequestSettingOrganizationRequestExperienceArgs', 'GetRequestSettingOrganizationRequestExperienceArgsDict']]]]] = None,
                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRequestSettingOrganizationResult]:
     """
     Retrieves the request settings for the org.

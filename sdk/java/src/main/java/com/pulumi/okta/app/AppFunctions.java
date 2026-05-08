@@ -50,8 +50,8 @@ public final class AppFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.app.AppFunctions;
      * import com.pulumi.okta.app.inputs.GetAppArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -90,8 +90,8 @@ public final class AppFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.app.AppFunctions;
      * import com.pulumi.okta.app.inputs.GetAppArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -130,8 +130,8 @@ public final class AppFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.app.AppFunctions;
      * import com.pulumi.okta.app.inputs.GetAppArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -170,8 +170,8 @@ public final class AppFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.app.AppFunctions;
      * import com.pulumi.okta.app.inputs.GetAppArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -210,8 +210,8 @@ public final class AppFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.app.AppFunctions;
      * import com.pulumi.okta.app.inputs.GetAppArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -250,8 +250,8 @@ public final class AppFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.app.AppFunctions;
      * import com.pulumi.okta.app.inputs.GetAppArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -290,8 +290,8 @@ public final class AppFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.app.AppFunctions;
      * import com.pulumi.okta.app.inputs.GetAppArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -332,8 +332,8 @@ public final class AppFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.app.AppFunctions;
      * import com.pulumi.okta.app.inputs.GetConnectionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -375,8 +375,8 @@ public final class AppFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.app.AppFunctions;
      * import com.pulumi.okta.app.inputs.GetConnectionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -418,8 +418,8 @@ public final class AppFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.app.AppFunctions;
      * import com.pulumi.okta.app.inputs.GetConnectionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -461,8 +461,8 @@ public final class AppFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.app.AppFunctions;
      * import com.pulumi.okta.app.inputs.GetConnectionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -504,8 +504,8 @@ public final class AppFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.app.AppFunctions;
      * import com.pulumi.okta.app.inputs.GetConnectionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -547,8 +547,8 @@ public final class AppFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.app.AppFunctions;
      * import com.pulumi.okta.app.inputs.GetFeaturesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -581,8 +581,8 @@ public final class AppFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.app.AppFunctions;
      * import com.pulumi.okta.app.inputs.GetFeaturesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -617,8 +617,8 @@ public final class AppFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.app.AppFunctions;
      * import com.pulumi.okta.app.inputs.GetFeaturesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -662,8 +662,8 @@ public final class AppFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.app.AppFunctions;
      * import com.pulumi.okta.app.inputs.GetFeaturesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -696,8 +696,8 @@ public final class AppFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.app.AppFunctions;
      * import com.pulumi.okta.app.inputs.GetFeaturesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -732,8 +732,8 @@ public final class AppFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.app.AppFunctions;
      * import com.pulumi.okta.app.inputs.GetFeaturesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -777,8 +777,8 @@ public final class AppFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.app.AppFunctions;
      * import com.pulumi.okta.app.inputs.GetFeaturesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -811,8 +811,8 @@ public final class AppFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.app.AppFunctions;
      * import com.pulumi.okta.app.inputs.GetFeaturesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -847,8 +847,8 @@ public final class AppFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.app.AppFunctions;
      * import com.pulumi.okta.app.inputs.GetFeaturesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -892,8 +892,8 @@ public final class AppFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.app.AppFunctions;
      * import com.pulumi.okta.app.inputs.GetFeaturesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -926,8 +926,8 @@ public final class AppFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.app.AppFunctions;
      * import com.pulumi.okta.app.inputs.GetFeaturesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -962,8 +962,8 @@ public final class AppFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.app.AppFunctions;
      * import com.pulumi.okta.app.inputs.GetFeaturesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1007,8 +1007,8 @@ public final class AppFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.app.AppFunctions;
      * import com.pulumi.okta.app.inputs.GetFeaturesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1041,8 +1041,8 @@ public final class AppFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.app.AppFunctions;
      * import com.pulumi.okta.app.inputs.GetFeaturesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1077,8 +1077,8 @@ public final class AppFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.app.AppFunctions;
      * import com.pulumi.okta.app.inputs.GetFeaturesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1122,8 +1122,8 @@ public final class AppFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.app.AppFunctions;
      * import com.pulumi.okta.app.inputs.GetFederatedClaimArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1161,8 +1161,8 @@ public final class AppFunctions {
      * import com.pulumi.okta.app.FederatedClaimArgs;
      * import com.pulumi.okta.app.AppFunctions;
      * import com.pulumi.okta.app.inputs.GetFederatedClaimArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1225,8 +1225,8 @@ public final class AppFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.app.AppFunctions;
      * import com.pulumi.okta.app.inputs.GetFederatedClaimArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1264,8 +1264,8 @@ public final class AppFunctions {
      * import com.pulumi.okta.app.FederatedClaimArgs;
      * import com.pulumi.okta.app.AppFunctions;
      * import com.pulumi.okta.app.inputs.GetFederatedClaimArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1328,8 +1328,8 @@ public final class AppFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.app.AppFunctions;
      * import com.pulumi.okta.app.inputs.GetFederatedClaimArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1367,8 +1367,8 @@ public final class AppFunctions {
      * import com.pulumi.okta.app.FederatedClaimArgs;
      * import com.pulumi.okta.app.AppFunctions;
      * import com.pulumi.okta.app.inputs.GetFederatedClaimArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1431,8 +1431,8 @@ public final class AppFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.app.AppFunctions;
      * import com.pulumi.okta.app.inputs.GetFederatedClaimArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1470,8 +1470,8 @@ public final class AppFunctions {
      * import com.pulumi.okta.app.FederatedClaimArgs;
      * import com.pulumi.okta.app.AppFunctions;
      * import com.pulumi.okta.app.inputs.GetFederatedClaimArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1534,8 +1534,8 @@ public final class AppFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.app.AppFunctions;
      * import com.pulumi.okta.app.inputs.GetFederatedClaimArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1573,8 +1573,8 @@ public final class AppFunctions {
      * import com.pulumi.okta.app.FederatedClaimArgs;
      * import com.pulumi.okta.app.AppFunctions;
      * import com.pulumi.okta.app.inputs.GetFederatedClaimArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1635,8 +1635,8 @@ public final class AppFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.app.AppFunctions;
      * import com.pulumi.okta.app.inputs.GetMetadataSamlArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1676,8 +1676,8 @@ public final class AppFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.app.AppFunctions;
      * import com.pulumi.okta.app.inputs.GetMetadataSamlArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1717,8 +1717,8 @@ public final class AppFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.app.AppFunctions;
      * import com.pulumi.okta.app.inputs.GetMetadataSamlArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1758,8 +1758,8 @@ public final class AppFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.app.AppFunctions;
      * import com.pulumi.okta.app.inputs.GetMetadataSamlArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1799,8 +1799,8 @@ public final class AppFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.app.AppFunctions;
      * import com.pulumi.okta.app.inputs.GetMetadataSamlArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1840,8 +1840,8 @@ public final class AppFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.app.AppFunctions;
      * import com.pulumi.okta.app.inputs.GetOauthArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1880,8 +1880,8 @@ public final class AppFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.app.AppFunctions;
      * import com.pulumi.okta.app.inputs.GetOauthArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1920,8 +1920,8 @@ public final class AppFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.app.AppFunctions;
      * import com.pulumi.okta.app.inputs.GetOauthArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1960,8 +1960,8 @@ public final class AppFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.app.AppFunctions;
      * import com.pulumi.okta.app.inputs.GetOauthArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2000,8 +2000,8 @@ public final class AppFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.app.AppFunctions;
      * import com.pulumi.okta.app.inputs.GetOauthArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2040,8 +2040,8 @@ public final class AppFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.app.AppFunctions;
      * import com.pulumi.okta.app.inputs.GetOauthArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2080,8 +2080,8 @@ public final class AppFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.app.AppFunctions;
      * import com.pulumi.okta.app.inputs.GetOauthArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2120,8 +2120,8 @@ public final class AppFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.app.AppFunctions;
      * import com.pulumi.okta.app.inputs.GetSamlArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2160,8 +2160,8 @@ public final class AppFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.app.AppFunctions;
      * import com.pulumi.okta.app.inputs.GetSamlArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2200,8 +2200,8 @@ public final class AppFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.app.AppFunctions;
      * import com.pulumi.okta.app.inputs.GetSamlArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2240,8 +2240,8 @@ public final class AppFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.app.AppFunctions;
      * import com.pulumi.okta.app.inputs.GetSamlArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2280,8 +2280,8 @@ public final class AppFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.app.AppFunctions;
      * import com.pulumi.okta.app.inputs.GetSamlArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2320,8 +2320,8 @@ public final class AppFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.app.AppFunctions;
      * import com.pulumi.okta.app.inputs.GetSamlArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2360,8 +2360,8 @@ public final class AppFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.app.AppFunctions;
      * import com.pulumi.okta.app.inputs.GetSamlArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2402,8 +2402,8 @@ public final class AppFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.app.AppFunctions;
      * import com.pulumi.okta.app.inputs.GetTokenArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2447,8 +2447,8 @@ public final class AppFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.app.AppFunctions;
      * import com.pulumi.okta.app.inputs.GetTokenArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2492,8 +2492,8 @@ public final class AppFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.app.AppFunctions;
      * import com.pulumi.okta.app.inputs.GetTokenArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2537,8 +2537,8 @@ public final class AppFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.app.AppFunctions;
      * import com.pulumi.okta.app.inputs.GetTokenArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2582,8 +2582,8 @@ public final class AppFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.app.AppFunctions;
      * import com.pulumi.okta.app.inputs.GetTokenArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

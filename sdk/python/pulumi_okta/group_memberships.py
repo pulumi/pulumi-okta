@@ -21,7 +21,7 @@ class GroupMembershipsArgs:
     def __init__(__self__, *,
                  group_id: pulumi.Input[_builtins.str],
                  users: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 track_all_users: Optional[pulumi.Input[_builtins.bool]] = None):
+                 track_all_users: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a GroupMemberships resource.
 
@@ -60,23 +60,23 @@ class GroupMembershipsArgs:
 
     @_builtins.property
     @pulumi.getter(name="trackAllUsers")
-    def track_all_users(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def track_all_users(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         The resource concerns itself with all users added/deleted to the group; even those managed outside of the resource.
         """
         return pulumi.get(self, "track_all_users")
 
     @track_all_users.setter
-    def track_all_users(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def track_all_users(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "track_all_users", value)
 
 
 @pulumi.input_type
 class _GroupMembershipsState:
     def __init__(__self__, *,
-                 group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 track_all_users: Optional[pulumi.Input[_builtins.bool]] = None,
-                 users: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 track_all_users: pulumi.Input[Optional[_builtins.bool]] = None,
+                 users: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering GroupMemberships resources.
 
@@ -93,38 +93,38 @@ class _GroupMembershipsState:
 
     @_builtins.property
     @pulumi.getter(name="groupId")
-    def group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of a Okta group.
         """
         return pulumi.get(self, "group_id")
 
     @group_id.setter
-    def group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "group_id", value)
 
     @_builtins.property
     @pulumi.getter(name="trackAllUsers")
-    def track_all_users(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def track_all_users(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         The resource concerns itself with all users added/deleted to the group; even those managed outside of the resource.
         """
         return pulumi.get(self, "track_all_users")
 
     @track_all_users.setter
-    def track_all_users(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def track_all_users(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "track_all_users", value)
 
     @_builtins.property
     @pulumi.getter
-    def users(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def users(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of Okta user IDs which the group should have membership managed for.
         """
         return pulumi.get(self, "users")
 
     @users.setter
-    def users(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def users(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "users", value)
 
 
@@ -134,9 +134,9 @@ class GroupMemberships(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 track_all_users: Optional[pulumi.Input[_builtins.bool]] = None,
-                 users: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 track_all_users: pulumi.Input[Optional[_builtins.bool]] = None,
+                 users: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Resource to manage a set of memberships for a specific group.
@@ -253,9 +253,9 @@ class GroupMemberships(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 track_all_users: Optional[pulumi.Input[_builtins.bool]] = None,
-                 users: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 track_all_users: pulumi.Input[Optional[_builtins.bool]] = None,
+                 users: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -282,9 +282,9 @@ class GroupMemberships(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            group_id: Optional[pulumi.Input[_builtins.str]] = None,
-            track_all_users: Optional[pulumi.Input[_builtins.bool]] = None,
-            users: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'GroupMemberships':
+            group_id: pulumi.Input[Optional[_builtins.str]] = None,
+            track_all_users: pulumi.Input[Optional[_builtins.bool]] = None,
+            users: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'GroupMemberships':
         """
         Get an existing GroupMemberships resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

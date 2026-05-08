@@ -139,8 +139,8 @@ def get_security_events_provider(id: Optional[_builtins.str] = None,
         settings=pulumi.get(__ret__, 'settings'),
         status=pulumi.get(__ret__, 'status'),
         type=pulumi.get(__ret__, 'type'))
-def get_security_events_provider_output(id: Optional[pulumi.Input[_builtins.str]] = None,
-                                        settings: Optional[pulumi.Input[Optional[Union['GetSecurityEventsProviderSettingsArgs', 'GetSecurityEventsProviderSettingsArgsDict']]]] = None,
+def get_security_events_provider_output(id: pulumi.Input[Optional[_builtins.str]] = None,
+                                        settings: pulumi.Input[Optional[Optional[Union['GetSecurityEventsProviderSettingsArgs', 'GetSecurityEventsProviderSettingsArgsDict']]]] = None,
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSecurityEventsProviderResult]:
     """
     Get information about a Security Events Provider instance for signal ingestion.

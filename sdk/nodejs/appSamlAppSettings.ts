@@ -116,11 +116,11 @@ export interface AppSamlAppSettingsState {
     /**
      * ID of the application.
      */
-    appId?: pulumi.Input<string>;
+    appId?: pulumi.Input<string | undefined>;
     /**
      * Application settings in JSON format
      */
-    settings?: pulumi.Input<string>;
+    settings?: pulumi.Input<string | undefined>;
 }
 
 /**

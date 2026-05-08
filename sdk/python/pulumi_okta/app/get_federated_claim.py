@@ -146,8 +146,8 @@ def get_federated_claim(app_id: Optional[_builtins.str] = None,
         expression=pulumi.get(__ret__, 'expression'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'))
-def get_federated_claim_output(app_id: Optional[pulumi.Input[_builtins.str]] = None,
-                               id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_federated_claim_output(app_id: pulumi.Input[Optional[_builtins.str]] = None,
+                               id: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFederatedClaimResult]:
     """
     Get a federated claim for an Okta application.

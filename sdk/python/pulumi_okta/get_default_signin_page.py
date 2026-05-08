@@ -129,9 +129,9 @@ def get_default_signin_page(brand_id: Optional[_builtins.str] = None,
         page_content=pulumi.get(__ret__, 'page_content'),
         widget_customizations=pulumi.get(__ret__, 'widget_customizations'),
         widget_version=pulumi.get(__ret__, 'widget_version'))
-def get_default_signin_page_output(brand_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                   content_security_policy_setting: Optional[pulumi.Input[Optional[Union['GetDefaultSigninPageContentSecurityPolicySettingArgs', 'GetDefaultSigninPageContentSecurityPolicySettingArgsDict']]]] = None,
-                                   widget_customizations: Optional[pulumi.Input[Optional[Union['GetDefaultSigninPageWidgetCustomizationsArgs', 'GetDefaultSigninPageWidgetCustomizationsArgsDict']]]] = None,
+def get_default_signin_page_output(brand_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                   content_security_policy_setting: pulumi.Input[Optional[Optional[Union['GetDefaultSigninPageContentSecurityPolicySettingArgs', 'GetDefaultSigninPageContentSecurityPolicySettingArgsDict']]]] = None,
+                                   widget_customizations: pulumi.Input[Optional[Optional[Union['GetDefaultSigninPageWidgetCustomizationsArgs', 'GetDefaultSigninPageWidgetCustomizationsArgsDict']]]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDefaultSigninPageResult]:
     """
     Retrieve the default signin page of a brand

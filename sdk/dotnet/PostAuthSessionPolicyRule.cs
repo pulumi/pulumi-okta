@@ -24,9 +24,9 @@ namespace Pulumi.Okta
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = Okta.Index.GetPostAuthSessionPolicy.Invoke();
+    ///     var example = Okta.GetPostAuthSessionPolicy.Invoke();
     /// 
-    ///     var examplePostAuthSessionPolicyRule = new Okta.Index.PostAuthSessionPolicyRule("example", new()
+    ///     var examplePostAuthSessionPolicyRule = new Okta.PostAuthSessionPolicyRule("example", new()
     ///     {
     ///         PolicyId = example.Apply(getPostAuthSessionPolicyResult =&gt; getPostAuthSessionPolicyResult.Id),
     ///         Name = "Session Protection Rule",

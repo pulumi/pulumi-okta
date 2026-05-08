@@ -173,15 +173,15 @@ export interface AdminRoleCustomAssignmentsState {
     /**
      * ID of the Custom Role
      */
-    customRoleId?: pulumi.Input<string>;
+    customRoleId?: pulumi.Input<string | undefined>;
     /**
      * The hrefs that point to User(s) and/or Group(s) that receive the Role
      */
-    members?: pulumi.Input<pulumi.Input<string>[]>;
+    members?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * ID of the target Resource Set
      */
-    resourceSetId?: pulumi.Input<string>;
+    resourceSetId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -195,7 +195,7 @@ export interface AdminRoleCustomAssignmentsArgs {
     /**
      * The hrefs that point to User(s) and/or Group(s) that receive the Role
      */
-    members?: pulumi.Input<pulumi.Input<string>[]>;
+    members?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * ID of the target Resource Set
      */

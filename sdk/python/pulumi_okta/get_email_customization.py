@@ -188,9 +188,9 @@ def get_email_customization(brand_id: Optional[_builtins.str] = None,
         links=pulumi.get(__ret__, 'links'),
         subject=pulumi.get(__ret__, 'subject'),
         template_name=pulumi.get(__ret__, 'template_name'))
-def get_email_customization_output(brand_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                   customization_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                   template_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_email_customization_output(brand_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                   customization_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                   template_name: pulumi.Input[Optional[_builtins.str]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEmailCustomizationResult]:
     """
     Get the email customization of an email template belonging to a brand in an Okta organization.

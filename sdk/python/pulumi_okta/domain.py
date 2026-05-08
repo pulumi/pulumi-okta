@@ -21,9 +21,9 @@ __all__ = ['DomainArgs', 'Domain']
 @pulumi.input_type
 class DomainArgs:
     def __init__(__self__, *,
-                 brand_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 certificate_source_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 brand_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 certificate_source_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Domain resource.
 
@@ -40,49 +40,49 @@ class DomainArgs:
 
     @_builtins.property
     @pulumi.getter(name="brandId")
-    def brand_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def brand_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Brand id of the domain
         """
         return pulumi.get(self, "brand_id")
 
     @brand_id.setter
-    def brand_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def brand_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "brand_id", value)
 
     @_builtins.property
     @pulumi.getter(name="certificateSourceType")
-    def certificate_source_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def certificate_source_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Certificate source type that indicates whether the certificate is provided by the user or Okta. Accepted values: `MANUAL`, `OKTA_MANAGED`. Warning: Use of OKTA_MANAGED requires a feature flag to be enabled. Default value = MANUAL
         """
         return pulumi.get(self, "certificate_source_type")
 
     @certificate_source_type.setter
-    def certificate_source_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def certificate_source_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "certificate_source_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Custom Domain name
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _DomainState:
     def __init__(__self__, *,
-                 brand_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 certificate_source_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 dns_records: Optional[pulumi.Input[Sequence[pulumi.Input['DomainDnsRecordArgs']]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 validation_status: Optional[pulumi.Input[_builtins.str]] = None):
+                 brand_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 certificate_source_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 dns_records: pulumi.Input[Optional[Sequence[pulumi.Input['DomainDnsRecordArgs']]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 validation_status: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Domain resources.
 
@@ -105,62 +105,62 @@ class _DomainState:
 
     @_builtins.property
     @pulumi.getter(name="brandId")
-    def brand_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def brand_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Brand id of the domain
         """
         return pulumi.get(self, "brand_id")
 
     @brand_id.setter
-    def brand_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def brand_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "brand_id", value)
 
     @_builtins.property
     @pulumi.getter(name="certificateSourceType")
-    def certificate_source_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def certificate_source_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Certificate source type that indicates whether the certificate is provided by the user or Okta. Accepted values: `MANUAL`, `OKTA_MANAGED`. Warning: Use of OKTA_MANAGED requires a feature flag to be enabled. Default value = MANUAL
         """
         return pulumi.get(self, "certificate_source_type")
 
     @certificate_source_type.setter
-    def certificate_source_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def certificate_source_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "certificate_source_type", value)
 
     @_builtins.property
     @pulumi.getter(name="dnsRecords")
-    def dns_records(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DomainDnsRecordArgs']]]]:
+    def dns_records(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DomainDnsRecordArgs']]]]:
         """
         TXT and CNAME records to be registered for the Domain
         """
         return pulumi.get(self, "dns_records")
 
     @dns_records.setter
-    def dns_records(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DomainDnsRecordArgs']]]]):
+    def dns_records(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DomainDnsRecordArgs']]]]):
         pulumi.set(self, "dns_records", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Custom Domain name
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="validationStatus")
-    def validation_status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def validation_status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Status of the domain
         """
         return pulumi.get(self, "validation_status")
 
     @validation_status.setter
-    def validation_status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def validation_status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "validation_status", value)
 
 
@@ -170,9 +170,9 @@ class Domain(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 brand_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 certificate_source_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 brand_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 certificate_source_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages custom domain for your organization.
@@ -239,9 +239,9 @@ class Domain(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 brand_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 certificate_source_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 brand_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 certificate_source_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -266,11 +266,11 @@ class Domain(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            brand_id: Optional[pulumi.Input[_builtins.str]] = None,
-            certificate_source_type: Optional[pulumi.Input[_builtins.str]] = None,
-            dns_records: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DomainDnsRecordArgs', 'DomainDnsRecordArgsDict']]]]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            validation_status: Optional[pulumi.Input[_builtins.str]] = None) -> 'Domain':
+            brand_id: pulumi.Input[Optional[_builtins.str]] = None,
+            certificate_source_type: pulumi.Input[Optional[_builtins.str]] = None,
+            dns_records: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DomainDnsRecordArgs', 'DomainDnsRecordArgsDict']]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            validation_status: pulumi.Input[Optional[_builtins.str]] = None) -> 'Domain':
         """
         Get an existing Domain resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

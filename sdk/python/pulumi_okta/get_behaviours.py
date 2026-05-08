@@ -97,7 +97,7 @@ def get_behaviours(q: Optional[_builtins.str] = None,
         behaviors=pulumi.get(__ret__, 'behaviors'),
         id=pulumi.get(__ret__, 'id'),
         q=pulumi.get(__ret__, 'q'))
-def get_behaviours_output(q: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_behaviours_output(q: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBehavioursResult]:
     """
     Get a behaviors by search criteria.

@@ -112,11 +112,11 @@ export class RateLimiting extends pulumi.CustomResource {
  * Input properties used for looking up and filtering RateLimiting resources.
  */
 export interface RateLimitingState {
-    defaultMode?: pulumi.Input<string>;
+    defaultMode?: pulumi.Input<string | undefined>;
     /**
      * A map of Per-Client Rate Limit Use Case to the applicable PerClientRateLimitMode.Overrides the defaultMode property for the specified use cases.
      */
-    useCaseModeOverrides?: pulumi.Input<inputs.RateLimitingUseCaseModeOverrides>;
+    useCaseModeOverrides?: pulumi.Input<inputs.RateLimitingUseCaseModeOverrides | undefined>;
 }
 
 /**
@@ -127,5 +127,5 @@ export interface RateLimitingArgs {
     /**
      * A map of Per-Client Rate Limit Use Case to the applicable PerClientRateLimitMode.Overrides the defaultMode property for the specified use cases.
      */
-    useCaseModeOverrides?: pulumi.Input<inputs.RateLimitingUseCaseModeOverrides>;
+    useCaseModeOverrides?: pulumi.Input<inputs.RateLimitingUseCaseModeOverrides | undefined>;
 }

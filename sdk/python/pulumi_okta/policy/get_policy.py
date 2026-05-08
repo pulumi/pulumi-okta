@@ -116,8 +116,8 @@ def get_policy(name: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         status=pulumi.get(__ret__, 'status'),
         type=pulumi.get(__ret__, 'type'))
-def get_policy_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                      type: Optional[pulumi.Input[_builtins.str]] = None,
+def get_policy_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                      type: pulumi.Input[Optional[_builtins.str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPolicyResult]:
     """
     Get a policy from Okta.

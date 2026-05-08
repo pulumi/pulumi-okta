@@ -21,9 +21,9 @@ class GroupAssignmentArgs:
     def __init__(__self__, *,
                  app_id: pulumi.Input[_builtins.str],
                  group_id: pulumi.Input[_builtins.str],
-                 priority: Optional[pulumi.Input[_builtins.int]] = None,
-                 profile: Optional[pulumi.Input[_builtins.str]] = None,
-                 retain_assignment: Optional[pulumi.Input[_builtins.bool]] = None):
+                 priority: pulumi.Input[Optional[_builtins.int]] = None,
+                 profile: pulumi.Input[Optional[_builtins.str]] = None,
+                 retain_assignment: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a GroupAssignment resource.
 
@@ -68,49 +68,49 @@ class GroupAssignmentArgs:
 
     @_builtins.property
     @pulumi.getter
-    def priority(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def priority(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Priority of group assignment.
         """
         return pulumi.get(self, "priority")
 
     @priority.setter
-    def priority(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def priority(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "priority", value)
 
     @_builtins.property
     @pulumi.getter
-    def profile(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def profile(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         JSON document containing [application profile](https://developer.okta.com/docs/reference/api/apps/#profile-object)
         """
         return pulumi.get(self, "profile")
 
     @profile.setter
-    def profile(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def profile(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "profile", value)
 
     @_builtins.property
     @pulumi.getter(name="retainAssignment")
-    def retain_assignment(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def retain_assignment(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Retain the group assignment on destroy. If set to true, the resource will be removed from state but not from the Okta app.
         """
         return pulumi.get(self, "retain_assignment")
 
     @retain_assignment.setter
-    def retain_assignment(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def retain_assignment(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "retain_assignment", value)
 
 
 @pulumi.input_type
 class _GroupAssignmentState:
     def __init__(__self__, *,
-                 app_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 priority: Optional[pulumi.Input[_builtins.int]] = None,
-                 profile: Optional[pulumi.Input[_builtins.str]] = None,
-                 retain_assignment: Optional[pulumi.Input[_builtins.bool]] = None):
+                 app_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 priority: pulumi.Input[Optional[_builtins.int]] = None,
+                 profile: pulumi.Input[Optional[_builtins.str]] = None,
+                 retain_assignment: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering GroupAssignment resources.
 
@@ -133,62 +133,62 @@ class _GroupAssignmentState:
 
     @_builtins.property
     @pulumi.getter(name="appId")
-    def app_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def app_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         App to associate group with
         """
         return pulumi.get(self, "app_id")
 
     @app_id.setter
-    def app_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def app_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "app_id", value)
 
     @_builtins.property
     @pulumi.getter(name="groupId")
-    def group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Group associated with the application
         """
         return pulumi.get(self, "group_id")
 
     @group_id.setter
-    def group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "group_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def priority(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def priority(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Priority of group assignment.
         """
         return pulumi.get(self, "priority")
 
     @priority.setter
-    def priority(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def priority(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "priority", value)
 
     @_builtins.property
     @pulumi.getter
-    def profile(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def profile(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         JSON document containing [application profile](https://developer.okta.com/docs/reference/api/apps/#profile-object)
         """
         return pulumi.get(self, "profile")
 
     @profile.setter
-    def profile(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def profile(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "profile", value)
 
     @_builtins.property
     @pulumi.getter(name="retainAssignment")
-    def retain_assignment(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def retain_assignment(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Retain the group assignment on destroy. If set to true, the resource will be removed from state but not from the Okta app.
         """
         return pulumi.get(self, "retain_assignment")
 
     @retain_assignment.setter
-    def retain_assignment(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def retain_assignment(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "retain_assignment", value)
 
 
@@ -198,11 +198,11 @@ class GroupAssignment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 app_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 priority: Optional[pulumi.Input[_builtins.int]] = None,
-                 profile: Optional[pulumi.Input[_builtins.str]] = None,
-                 retain_assignment: Optional[pulumi.Input[_builtins.bool]] = None,
+                 app_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 priority: pulumi.Input[Optional[_builtins.int]] = None,
+                 profile: pulumi.Input[Optional[_builtins.str]] = None,
+                 retain_assignment: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         Assigns a group to an application. This resource allows you to create an App Group assignment.
@@ -299,11 +299,11 @@ class GroupAssignment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 app_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 priority: Optional[pulumi.Input[_builtins.int]] = None,
-                 profile: Optional[pulumi.Input[_builtins.str]] = None,
-                 retain_assignment: Optional[pulumi.Input[_builtins.bool]] = None,
+                 app_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 priority: pulumi.Input[Optional[_builtins.int]] = None,
+                 profile: pulumi.Input[Optional[_builtins.str]] = None,
+                 retain_assignment: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -332,11 +332,11 @@ class GroupAssignment(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            app_id: Optional[pulumi.Input[_builtins.str]] = None,
-            group_id: Optional[pulumi.Input[_builtins.str]] = None,
-            priority: Optional[pulumi.Input[_builtins.int]] = None,
-            profile: Optional[pulumi.Input[_builtins.str]] = None,
-            retain_assignment: Optional[pulumi.Input[_builtins.bool]] = None) -> 'GroupAssignment':
+            app_id: pulumi.Input[Optional[_builtins.str]] = None,
+            group_id: pulumi.Input[Optional[_builtins.str]] = None,
+            priority: pulumi.Input[Optional[_builtins.int]] = None,
+            profile: pulumi.Input[Optional[_builtins.str]] = None,
+            retain_assignment: pulumi.Input[Optional[_builtins.bool]] = None) -> 'GroupAssignment':
         """
         Get an existing GroupAssignment resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

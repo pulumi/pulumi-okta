@@ -143,23 +143,23 @@ export interface SecurityEventsProviderState {
     /**
      * Whether or not the Security Events Provider is enabled. Valid values: `ACTIVE`, `INACTIVE`.
      */
-    isEnabled?: pulumi.Input<string>;
+    isEnabled?: pulumi.Input<string | undefined>;
     /**
      * The name of the Security Events Provider instance.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Information about the Security Events Provider for signal ingestion.
      */
-    settings?: pulumi.Input<inputs.SecurityEventsProviderSettings>;
+    settings?: pulumi.Input<inputs.SecurityEventsProviderSettings | undefined>;
     /**
      * Indicates whether the Security Events Provider is active or not.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * The application type of the Security Events Provider.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -173,11 +173,11 @@ export interface SecurityEventsProviderArgs {
     /**
      * The name of the Security Events Provider instance.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Information about the Security Events Provider for signal ingestion.
      */
-    settings?: pulumi.Input<inputs.SecurityEventsProviderSettings>;
+    settings?: pulumi.Input<inputs.SecurityEventsProviderSettings | undefined>;
     /**
      * The application type of the Security Events Provider.
      */

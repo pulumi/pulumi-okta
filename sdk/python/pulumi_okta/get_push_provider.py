@@ -145,8 +145,8 @@ def get_push_provider(configuration: Optional[Union['GetPushProviderConfiguratio
         last_updated_date=pulumi.get(__ret__, 'last_updated_date'),
         name=pulumi.get(__ret__, 'name'),
         provider_type=pulumi.get(__ret__, 'provider_type'))
-def get_push_provider_output(configuration: Optional[pulumi.Input[Optional[Union['GetPushProviderConfigurationArgs', 'GetPushProviderConfigurationArgsDict']]]] = None,
-                             id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_push_provider_output(configuration: pulumi.Input[Optional[Optional[Union['GetPushProviderConfigurationArgs', 'GetPushProviderConfigurationArgsDict']]]] = None,
+                             id: pulumi.Input[Optional[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPushProviderResult]:
     """
     Retrieves information about an Okta Push Provider configuration. This data source allows you to fetch details about existing push providers for Apple Push Notification Service (APNS) and Firebase Cloud Messaging (FCM).

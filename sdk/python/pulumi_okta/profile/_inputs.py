@@ -25,14 +25,14 @@ class MappingMappingArgsDict(TypedDict):
     """
     The mapping property key.
     """
-    push_status: NotRequired[pulumi.Input[_builtins.str]]
+    push_status: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class MappingMappingArgs:
     def __init__(__self__, *,
                  expression: pulumi.Input[_builtins.str],
                  id: pulumi.Input[_builtins.str],
-                 push_status: Optional[pulumi.Input[_builtins.str]] = None):
+                 push_status: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] id: The mapping property key.
         """
@@ -64,11 +64,11 @@ class MappingMappingArgs:
 
     @_builtins.property
     @pulumi.getter(name="pushStatus")
-    def push_status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def push_status(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "push_status")
 
     @push_status.setter
-    def push_status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def push_status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "push_status", value)
 
 

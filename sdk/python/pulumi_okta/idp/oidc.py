@@ -28,36 +28,36 @@ class OidcArgs:
                  scopes: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  token_binding: pulumi.Input[_builtins.str],
                  token_url: pulumi.Input[_builtins.str],
-                 account_link_action: Optional[pulumi.Input[_builtins.str]] = None,
-                 account_link_group_includes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 client_secret: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_secret_wo: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_secret_wo_version: Optional[pulumi.Input[_builtins.int]] = None,
-                 deprovisioned_action: Optional[pulumi.Input[_builtins.str]] = None,
-                 filter: Optional[pulumi.Input[_builtins.str]] = None,
-                 groups_action: Optional[pulumi.Input[_builtins.str]] = None,
-                 groups_assignments: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 groups_attribute: Optional[pulumi.Input[_builtins.str]] = None,
-                 groups_filters: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 issuer_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_clock_skew: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 participate_slo: Optional[pulumi.Input[_builtins.bool]] = None,
-                 pkce_required: Optional[pulumi.Input[_builtins.bool]] = None,
-                 profile_master: Optional[pulumi.Input[_builtins.bool]] = None,
-                 protocol_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 provisioning_action: Optional[pulumi.Input[_builtins.str]] = None,
-                 request_signature_algorithm: Optional[pulumi.Input[_builtins.str]] = None,
-                 request_signature_scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 slo_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 subject_match_attribute: Optional[pulumi.Input[_builtins.str]] = None,
-                 subject_match_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 suspended_action: Optional[pulumi.Input[_builtins.str]] = None,
-                 trust_claims: Optional[pulumi.Input[_builtins.bool]] = None,
-                 user_info_binding: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_info_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 username_template: Optional[pulumi.Input[_builtins.str]] = None):
+                 account_link_action: pulumi.Input[Optional[_builtins.str]] = None,
+                 account_link_group_includes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 client_secret: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_secret_wo: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_secret_wo_version: pulumi.Input[Optional[_builtins.int]] = None,
+                 deprovisioned_action: pulumi.Input[Optional[_builtins.str]] = None,
+                 filter: pulumi.Input[Optional[_builtins.str]] = None,
+                 groups_action: pulumi.Input[Optional[_builtins.str]] = None,
+                 groups_assignments: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 groups_attribute: pulumi.Input[Optional[_builtins.str]] = None,
+                 groups_filters: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 issuer_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_clock_skew: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 participate_slo: pulumi.Input[Optional[_builtins.bool]] = None,
+                 pkce_required: pulumi.Input[Optional[_builtins.bool]] = None,
+                 profile_master: pulumi.Input[Optional[_builtins.bool]] = None,
+                 protocol_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 provisioning_action: pulumi.Input[Optional[_builtins.str]] = None,
+                 request_signature_algorithm: pulumi.Input[Optional[_builtins.str]] = None,
+                 request_signature_scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 slo_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 subject_match_attribute: pulumi.Input[Optional[_builtins.str]] = None,
+                 subject_match_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 suspended_action: pulumi.Input[Optional[_builtins.str]] = None,
+                 trust_claims: pulumi.Input[Optional[_builtins.bool]] = None,
+                 user_info_binding: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_info_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 username_template: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Oidc resource.
 
@@ -281,43 +281,43 @@ class OidcArgs:
 
     @_builtins.property
     @pulumi.getter(name="accountLinkAction")
-    def account_link_action(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def account_link_action(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the account linking action for an IdP user. Default: `AUTO`
         """
         return pulumi.get(self, "account_link_action")
 
     @account_link_action.setter
-    def account_link_action(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def account_link_action(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "account_link_action", value)
 
     @_builtins.property
     @pulumi.getter(name="accountLinkGroupIncludes")
-    def account_link_group_includes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def account_link_group_includes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Group memberships to determine link candidates.
         """
         return pulumi.get(self, "account_link_group_includes")
 
     @account_link_group_includes.setter
-    def account_link_group_includes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def account_link_group_includes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "account_link_group_includes", value)
 
     @_builtins.property
     @pulumi.getter(name="clientSecret")
-    def client_secret(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_secret(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Client secret issued by AS for the Okta IdP instance. When set, this secret will be stored in the Terraform state file. For Terraform 1.11+, consider using `client_secret_wo` instead to avoid persisting secrets in state. Either `client_secret` or `client_secret_wo` must be specified, but not both.
         """
         return pulumi.get(self, "client_secret")
 
     @client_secret.setter
-    def client_secret(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_secret(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_secret", value)
 
     @_builtins.property
     @pulumi.getter(name="clientSecretWo")
-    def client_secret_wo(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_secret_wo(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
         Write-only client secret issued by AS for the Okta IdP instance for Terraform 1.11+. Unlike `client_secret`, this secret will not be persisted in the Terraform state file, providing improved security. Only use this attribute with Terraform 1.11 or higher. Either `client_secret` or `client_secret_wo` must be specified, but not both.
@@ -325,363 +325,363 @@ class OidcArgs:
         return pulumi.get(self, "client_secret_wo")
 
     @client_secret_wo.setter
-    def client_secret_wo(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_secret_wo(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_secret_wo", value)
 
     @_builtins.property
     @pulumi.getter(name="clientSecretWoVersion")
-    def client_secret_wo_version(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def client_secret_wo_version(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Version number for the write-only client secret. Increment this value to trigger an update when changing `client_secret_wo`.
         """
         return pulumi.get(self, "client_secret_wo_version")
 
     @client_secret_wo_version.setter
-    def client_secret_wo_version(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def client_secret_wo_version(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "client_secret_wo_version", value)
 
     @_builtins.property
     @pulumi.getter(name="deprovisionedAction")
-    def deprovisioned_action(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def deprovisioned_action(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Action for a previously deprovisioned IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`
         """
         return pulumi.get(self, "deprovisioned_action")
 
     @deprovisioned_action.setter
-    def deprovisioned_action(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def deprovisioned_action(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "deprovisioned_action", value)
 
     @_builtins.property
     @pulumi.getter
-    def filter(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def filter(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Optional regular expression pattern used to filter untrusted IdP usernames.
         """
         return pulumi.get(self, "filter")
 
     @filter.setter
-    def filter(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def filter(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "filter", value)
 
     @_builtins.property
     @pulumi.getter(name="groupsAction")
-    def groups_action(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def groups_action(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Provisioning action for IdP user's group memberships. It can be `NONE`, `SYNC`, `APPEND`, or `ASSIGN`. Default: `NONE`
         """
         return pulumi.get(self, "groups_action")
 
     @groups_action.setter
-    def groups_action(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def groups_action(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "groups_action", value)
 
     @_builtins.property
     @pulumi.getter(name="groupsAssignments")
-    def groups_assignments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def groups_assignments(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of Okta Group IDs to add an IdP user as a member with the `ASSIGN` `groups_action`.
         """
         return pulumi.get(self, "groups_assignments")
 
     @groups_assignments.setter
-    def groups_assignments(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def groups_assignments(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "groups_assignments", value)
 
     @_builtins.property
     @pulumi.getter(name="groupsAttribute")
-    def groups_attribute(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def groups_attribute(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         IdP user profile attribute name (case-insensitive) for an array value that contains group memberships.
         """
         return pulumi.get(self, "groups_attribute")
 
     @groups_attribute.setter
-    def groups_attribute(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def groups_attribute(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "groups_attribute", value)
 
     @_builtins.property
     @pulumi.getter(name="groupsFilters")
-    def groups_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def groups_filters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Whitelist of Okta Group identifiers that are allowed for the `APPEND` or `SYNC` `groups_action`.
         """
         return pulumi.get(self, "groups_filters")
 
     @groups_filters.setter
-    def groups_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def groups_filters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "groups_filters", value)
 
     @_builtins.property
     @pulumi.getter(name="issuerMode")
-    def issuer_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def issuer_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Indicates whether Okta uses the original Okta org domain URL, a custom domain URL, or dynamic. It can be `ORG_URL`, `CUSTOM_URL`, or `DYNAMIC`. Default: `ORG_URL`
         """
         return pulumi.get(self, "issuer_mode")
 
     @issuer_mode.setter
-    def issuer_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def issuer_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "issuer_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="maxClockSkew")
-    def max_clock_skew(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_clock_skew(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Maximum allowable clock-skew when processing messages from the IdP.
         """
         return pulumi.get(self, "max_clock_skew")
 
     @max_clock_skew.setter
-    def max_clock_skew(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_clock_skew(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_clock_skew", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the IdP
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="participateSlo")
-    def participate_slo(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def participate_slo(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Set to true to have Okta send a logout request to the upstream IdP when a user signs out of Okta or a downstream app.
         """
         return pulumi.get(self, "participate_slo")
 
     @participate_slo.setter
-    def participate_slo(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def participate_slo(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "participate_slo", value)
 
     @_builtins.property
     @pulumi.getter(name="pkceRequired")
-    def pkce_required(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def pkce_required(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: https://developer.okta.com/docs/reference/api/idps/#oauth-2-0-and-openid-connect-client-object
         """
         return pulumi.get(self, "pkce_required")
 
     @pkce_required.setter
-    def pkce_required(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def pkce_required(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "pkce_required", value)
 
     @_builtins.property
     @pulumi.getter(name="profileMaster")
-    def profile_master(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def profile_master(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Determines if the IdP should act as a source of truth for user profile attributes.
         """
         return pulumi.get(self, "profile_master")
 
     @profile_master.setter
-    def profile_master(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def profile_master(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "profile_master", value)
 
     @_builtins.property
     @pulumi.getter(name="protocolType")
-    def protocol_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def protocol_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of protocol to use. It can be `OIDC` or `OAUTH2`. Default: `OIDC`
         """
         return pulumi.get(self, "protocol_type")
 
     @protocol_type.setter
-    def protocol_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def protocol_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "protocol_type", value)
 
     @_builtins.property
     @pulumi.getter(name="provisioningAction")
-    def provisioning_action(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def provisioning_action(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Provisioning action for an IdP user during authentication. Default: `AUTO`
         """
         return pulumi.get(self, "provisioning_action")
 
     @provisioning_action.setter
-    def provisioning_action(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def provisioning_action(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "provisioning_action", value)
 
     @_builtins.property
     @pulumi.getter(name="requestSignatureAlgorithm")
-    def request_signature_algorithm(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def request_signature_algorithm(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The HMAC Signature Algorithm used when signing an authorization request. Defaults to `HS256`. It can be `HS256`, `HS384`, `HS512`, `SHA-256`. `RS256`, `RS384`, or `RS512`. NOTE: `SHA-256` an undocumented legacy value and not continue to be valid. See API docs https://developer.okta.com/docs/reference/api/idps/#oidc-request-signature-algorithm-object
         """
         return pulumi.get(self, "request_signature_algorithm")
 
     @request_signature_algorithm.setter
-    def request_signature_algorithm(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def request_signature_algorithm(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "request_signature_algorithm", value)
 
     @_builtins.property
     @pulumi.getter(name="requestSignatureScope")
-    def request_signature_scope(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def request_signature_scope(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether to digitally sign an AuthnRequest messages to the IdP. Defaults to `REQUEST`. It can be `REQUEST` or `NONE`.
         """
         return pulumi.get(self, "request_signature_scope")
 
     @request_signature_scope.setter
-    def request_signature_scope(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def request_signature_scope(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "request_signature_scope", value)
 
     @_builtins.property
     @pulumi.getter(name="sloUrl")
-    def slo_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def slo_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         OIDC IdP logout endpoint. Must be specified when `participate_slo` is set to true.
         """
         return pulumi.get(self, "slo_url")
 
     @slo_url.setter
-    def slo_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def slo_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "slo_url", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Default to `ACTIVE`
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter(name="subjectMatchAttribute")
-    def subject_match_attribute(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subject_match_attribute(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Okta user profile attribute for matching transformed IdP username. Only for matchType `CUSTOM_ATTRIBUTE`.
         """
         return pulumi.get(self, "subject_match_attribute")
 
     @subject_match_attribute.setter
-    def subject_match_attribute(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subject_match_attribute(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subject_match_attribute", value)
 
     @_builtins.property
     @pulumi.getter(name="subjectMatchType")
-    def subject_match_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subject_match_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `USERNAME`. It can be set to `USERNAME`, `EMAIL`, `USERNAME_OR_EMAIL` or `CUSTOM_ATTRIBUTE`.
         """
         return pulumi.get(self, "subject_match_type")
 
     @subject_match_type.setter
-    def subject_match_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subject_match_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subject_match_type", value)
 
     @_builtins.property
     @pulumi.getter(name="suspendedAction")
-    def suspended_action(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def suspended_action(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Action for a previously suspended IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`
         """
         return pulumi.get(self, "suspended_action")
 
     @suspended_action.setter
-    def suspended_action(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def suspended_action(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "suspended_action", value)
 
     @_builtins.property
     @pulumi.getter(name="trustClaims")
-    def trust_claims(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def trust_claims(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether to trust authentication claims from the IdP.
         """
         return pulumi.get(self, "trust_claims")
 
     @trust_claims.setter
-    def trust_claims(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def trust_claims(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "trust_claims", value)
 
     @_builtins.property
     @pulumi.getter(name="userInfoBinding")
-    def user_info_binding(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_info_binding(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "user_info_binding")
 
     @user_info_binding.setter
-    def user_info_binding(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_info_binding(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_info_binding", value)
 
     @_builtins.property
     @pulumi.getter(name="userInfoUrl")
-    def user_info_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_info_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Protected resource endpoint that returns claims about the authenticated user.
         """
         return pulumi.get(self, "user_info_url")
 
     @user_info_url.setter
-    def user_info_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_info_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_info_url", value)
 
     @_builtins.property
     @pulumi.getter(name="usernameTemplate")
-    def username_template(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def username_template(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Okta EL Expression to generate or transform a unique username for the IdP user. Default: `idpuser.email`
         """
         return pulumi.get(self, "username_template")
 
     @username_template.setter
-    def username_template(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def username_template(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "username_template", value)
 
 
 @pulumi.input_type
 class _OidcState:
     def __init__(__self__, *,
-                 account_link_action: Optional[pulumi.Input[_builtins.str]] = None,
-                 account_link_group_includes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 authorization_binding: Optional[pulumi.Input[_builtins.str]] = None,
-                 authorization_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_secret: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_secret_wo: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_secret_wo_version: Optional[pulumi.Input[_builtins.int]] = None,
-                 deprovisioned_action: Optional[pulumi.Input[_builtins.str]] = None,
-                 filter: Optional[pulumi.Input[_builtins.str]] = None,
-                 groups_action: Optional[pulumi.Input[_builtins.str]] = None,
-                 groups_assignments: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 groups_attribute: Optional[pulumi.Input[_builtins.str]] = None,
-                 groups_filters: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 issuer_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 issuer_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 jwks_binding: Optional[pulumi.Input[_builtins.str]] = None,
-                 jwks_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_clock_skew: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 participate_slo: Optional[pulumi.Input[_builtins.bool]] = None,
-                 pkce_required: Optional[pulumi.Input[_builtins.bool]] = None,
-                 profile_master: Optional[pulumi.Input[_builtins.bool]] = None,
-                 protocol_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 provisioning_action: Optional[pulumi.Input[_builtins.str]] = None,
-                 request_signature_algorithm: Optional[pulumi.Input[_builtins.str]] = None,
-                 request_signature_scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 scopes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 slo_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 subject_match_attribute: Optional[pulumi.Input[_builtins.str]] = None,
-                 subject_match_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 suspended_action: Optional[pulumi.Input[_builtins.str]] = None,
-                 token_binding: Optional[pulumi.Input[_builtins.str]] = None,
-                 token_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 trust_claims: Optional[pulumi.Input[_builtins.bool]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_info_binding: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_info_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_type_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 username_template: Optional[pulumi.Input[_builtins.str]] = None):
+                 account_link_action: pulumi.Input[Optional[_builtins.str]] = None,
+                 account_link_group_includes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 authorization_binding: pulumi.Input[Optional[_builtins.str]] = None,
+                 authorization_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_secret: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_secret_wo: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_secret_wo_version: pulumi.Input[Optional[_builtins.int]] = None,
+                 deprovisioned_action: pulumi.Input[Optional[_builtins.str]] = None,
+                 filter: pulumi.Input[Optional[_builtins.str]] = None,
+                 groups_action: pulumi.Input[Optional[_builtins.str]] = None,
+                 groups_assignments: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 groups_attribute: pulumi.Input[Optional[_builtins.str]] = None,
+                 groups_filters: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 issuer_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 issuer_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 jwks_binding: pulumi.Input[Optional[_builtins.str]] = None,
+                 jwks_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_clock_skew: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 participate_slo: pulumi.Input[Optional[_builtins.bool]] = None,
+                 pkce_required: pulumi.Input[Optional[_builtins.bool]] = None,
+                 profile_master: pulumi.Input[Optional[_builtins.bool]] = None,
+                 protocol_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 provisioning_action: pulumi.Input[Optional[_builtins.str]] = None,
+                 request_signature_algorithm: pulumi.Input[Optional[_builtins.str]] = None,
+                 request_signature_scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 slo_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 subject_match_attribute: pulumi.Input[Optional[_builtins.str]] = None,
+                 subject_match_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 suspended_action: pulumi.Input[Optional[_builtins.str]] = None,
+                 token_binding: pulumi.Input[Optional[_builtins.str]] = None,
+                 token_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 trust_claims: pulumi.Input[Optional[_builtins.bool]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_info_binding: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_info_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_type_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 username_template: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Oidc resources.
 
@@ -812,79 +812,79 @@ class _OidcState:
 
     @_builtins.property
     @pulumi.getter(name="accountLinkAction")
-    def account_link_action(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def account_link_action(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the account linking action for an IdP user. Default: `AUTO`
         """
         return pulumi.get(self, "account_link_action")
 
     @account_link_action.setter
-    def account_link_action(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def account_link_action(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "account_link_action", value)
 
     @_builtins.property
     @pulumi.getter(name="accountLinkGroupIncludes")
-    def account_link_group_includes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def account_link_group_includes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Group memberships to determine link candidates.
         """
         return pulumi.get(self, "account_link_group_includes")
 
     @account_link_group_includes.setter
-    def account_link_group_includes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def account_link_group_includes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "account_link_group_includes", value)
 
     @_builtins.property
     @pulumi.getter(name="authorizationBinding")
-    def authorization_binding(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def authorization_binding(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The method of making an authorization request. It can be set to `HTTP-POST` or `HTTP-REDIRECT`.
         """
         return pulumi.get(self, "authorization_binding")
 
     @authorization_binding.setter
-    def authorization_binding(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def authorization_binding(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "authorization_binding", value)
 
     @_builtins.property
     @pulumi.getter(name="authorizationUrl")
-    def authorization_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def authorization_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         IdP Authorization Server (AS) endpoint to request consent from the user and obtain an authorization code grant.
         """
         return pulumi.get(self, "authorization_url")
 
     @authorization_url.setter
-    def authorization_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def authorization_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "authorization_url", value)
 
     @_builtins.property
     @pulumi.getter(name="clientId")
-    def client_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Unique identifier issued by AS for the Okta IdP instance.
         """
         return pulumi.get(self, "client_id")
 
     @client_id.setter
-    def client_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_id", value)
 
     @_builtins.property
     @pulumi.getter(name="clientSecret")
-    def client_secret(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_secret(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Client secret issued by AS for the Okta IdP instance. When set, this secret will be stored in the Terraform state file. For Terraform 1.11+, consider using `client_secret_wo` instead to avoid persisting secrets in state. Either `client_secret` or `client_secret_wo` must be specified, but not both.
         """
         return pulumi.get(self, "client_secret")
 
     @client_secret.setter
-    def client_secret(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_secret(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_secret", value)
 
     @_builtins.property
     @pulumi.getter(name="clientSecretWo")
-    def client_secret_wo(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_secret_wo(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
         Write-only client secret issued by AS for the Okta IdP instance for Terraform 1.11+. Unlike `client_secret`, this secret will not be persisted in the Terraform state file, providing improved security. Only use this attribute with Terraform 1.11 or higher. Either `client_secret` or `client_secret_wo` must be specified, but not both.
@@ -892,412 +892,412 @@ class _OidcState:
         return pulumi.get(self, "client_secret_wo")
 
     @client_secret_wo.setter
-    def client_secret_wo(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_secret_wo(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_secret_wo", value)
 
     @_builtins.property
     @pulumi.getter(name="clientSecretWoVersion")
-    def client_secret_wo_version(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def client_secret_wo_version(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Version number for the write-only client secret. Increment this value to trigger an update when changing `client_secret_wo`.
         """
         return pulumi.get(self, "client_secret_wo_version")
 
     @client_secret_wo_version.setter
-    def client_secret_wo_version(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def client_secret_wo_version(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "client_secret_wo_version", value)
 
     @_builtins.property
     @pulumi.getter(name="deprovisionedAction")
-    def deprovisioned_action(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def deprovisioned_action(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Action for a previously deprovisioned IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`
         """
         return pulumi.get(self, "deprovisioned_action")
 
     @deprovisioned_action.setter
-    def deprovisioned_action(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def deprovisioned_action(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "deprovisioned_action", value)
 
     @_builtins.property
     @pulumi.getter
-    def filter(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def filter(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Optional regular expression pattern used to filter untrusted IdP usernames.
         """
         return pulumi.get(self, "filter")
 
     @filter.setter
-    def filter(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def filter(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "filter", value)
 
     @_builtins.property
     @pulumi.getter(name="groupsAction")
-    def groups_action(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def groups_action(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Provisioning action for IdP user's group memberships. It can be `NONE`, `SYNC`, `APPEND`, or `ASSIGN`. Default: `NONE`
         """
         return pulumi.get(self, "groups_action")
 
     @groups_action.setter
-    def groups_action(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def groups_action(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "groups_action", value)
 
     @_builtins.property
     @pulumi.getter(name="groupsAssignments")
-    def groups_assignments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def groups_assignments(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of Okta Group IDs to add an IdP user as a member with the `ASSIGN` `groups_action`.
         """
         return pulumi.get(self, "groups_assignments")
 
     @groups_assignments.setter
-    def groups_assignments(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def groups_assignments(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "groups_assignments", value)
 
     @_builtins.property
     @pulumi.getter(name="groupsAttribute")
-    def groups_attribute(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def groups_attribute(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         IdP user profile attribute name (case-insensitive) for an array value that contains group memberships.
         """
         return pulumi.get(self, "groups_attribute")
 
     @groups_attribute.setter
-    def groups_attribute(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def groups_attribute(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "groups_attribute", value)
 
     @_builtins.property
     @pulumi.getter(name="groupsFilters")
-    def groups_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def groups_filters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Whitelist of Okta Group identifiers that are allowed for the `APPEND` or `SYNC` `groups_action`.
         """
         return pulumi.get(self, "groups_filters")
 
     @groups_filters.setter
-    def groups_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def groups_filters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "groups_filters", value)
 
     @_builtins.property
     @pulumi.getter(name="issuerMode")
-    def issuer_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def issuer_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Indicates whether Okta uses the original Okta org domain URL, a custom domain URL, or dynamic. It can be `ORG_URL`, `CUSTOM_URL`, or `DYNAMIC`. Default: `ORG_URL`
         """
         return pulumi.get(self, "issuer_mode")
 
     @issuer_mode.setter
-    def issuer_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def issuer_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "issuer_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="issuerUrl")
-    def issuer_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def issuer_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         URI that identifies the issuer.
         """
         return pulumi.get(self, "issuer_url")
 
     @issuer_url.setter
-    def issuer_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def issuer_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "issuer_url", value)
 
     @_builtins.property
     @pulumi.getter(name="jwksBinding")
-    def jwks_binding(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def jwks_binding(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The method of making a request for the OIDC JWKS. It can be set to `HTTP-POST` or `HTTP-REDIRECT`
         """
         return pulumi.get(self, "jwks_binding")
 
     @jwks_binding.setter
-    def jwks_binding(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def jwks_binding(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "jwks_binding", value)
 
     @_builtins.property
     @pulumi.getter(name="jwksUrl")
-    def jwks_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def jwks_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Endpoint where the keys signer publishes its keys in a JWK Set.
         """
         return pulumi.get(self, "jwks_url")
 
     @jwks_url.setter
-    def jwks_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def jwks_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "jwks_url", value)
 
     @_builtins.property
     @pulumi.getter(name="maxClockSkew")
-    def max_clock_skew(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_clock_skew(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Maximum allowable clock-skew when processing messages from the IdP.
         """
         return pulumi.get(self, "max_clock_skew")
 
     @max_clock_skew.setter
-    def max_clock_skew(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_clock_skew(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_clock_skew", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the IdP
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="participateSlo")
-    def participate_slo(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def participate_slo(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Set to true to have Okta send a logout request to the upstream IdP when a user signs out of Okta or a downstream app.
         """
         return pulumi.get(self, "participate_slo")
 
     @participate_slo.setter
-    def participate_slo(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def participate_slo(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "participate_slo", value)
 
     @_builtins.property
     @pulumi.getter(name="pkceRequired")
-    def pkce_required(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def pkce_required(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: https://developer.okta.com/docs/reference/api/idps/#oauth-2-0-and-openid-connect-client-object
         """
         return pulumi.get(self, "pkce_required")
 
     @pkce_required.setter
-    def pkce_required(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def pkce_required(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "pkce_required", value)
 
     @_builtins.property
     @pulumi.getter(name="profileMaster")
-    def profile_master(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def profile_master(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Determines if the IdP should act as a source of truth for user profile attributes.
         """
         return pulumi.get(self, "profile_master")
 
     @profile_master.setter
-    def profile_master(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def profile_master(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "profile_master", value)
 
     @_builtins.property
     @pulumi.getter(name="protocolType")
-    def protocol_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def protocol_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of protocol to use. It can be `OIDC` or `OAUTH2`. Default: `OIDC`
         """
         return pulumi.get(self, "protocol_type")
 
     @protocol_type.setter
-    def protocol_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def protocol_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "protocol_type", value)
 
     @_builtins.property
     @pulumi.getter(name="provisioningAction")
-    def provisioning_action(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def provisioning_action(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Provisioning action for an IdP user during authentication. Default: `AUTO`
         """
         return pulumi.get(self, "provisioning_action")
 
     @provisioning_action.setter
-    def provisioning_action(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def provisioning_action(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "provisioning_action", value)
 
     @_builtins.property
     @pulumi.getter(name="requestSignatureAlgorithm")
-    def request_signature_algorithm(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def request_signature_algorithm(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The HMAC Signature Algorithm used when signing an authorization request. Defaults to `HS256`. It can be `HS256`, `HS384`, `HS512`, `SHA-256`. `RS256`, `RS384`, or `RS512`. NOTE: `SHA-256` an undocumented legacy value and not continue to be valid. See API docs https://developer.okta.com/docs/reference/api/idps/#oidc-request-signature-algorithm-object
         """
         return pulumi.get(self, "request_signature_algorithm")
 
     @request_signature_algorithm.setter
-    def request_signature_algorithm(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def request_signature_algorithm(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "request_signature_algorithm", value)
 
     @_builtins.property
     @pulumi.getter(name="requestSignatureScope")
-    def request_signature_scope(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def request_signature_scope(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether to digitally sign an AuthnRequest messages to the IdP. Defaults to `REQUEST`. It can be `REQUEST` or `NONE`.
         """
         return pulumi.get(self, "request_signature_scope")
 
     @request_signature_scope.setter
-    def request_signature_scope(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def request_signature_scope(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "request_signature_scope", value)
 
     @_builtins.property
     @pulumi.getter
-    def scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def scopes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The scopes of the IdP.
         """
         return pulumi.get(self, "scopes")
 
     @scopes.setter
-    def scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def scopes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "scopes", value)
 
     @_builtins.property
     @pulumi.getter(name="sloUrl")
-    def slo_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def slo_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         OIDC IdP logout endpoint. Must be specified when `participate_slo` is set to true.
         """
         return pulumi.get(self, "slo_url")
 
     @slo_url.setter
-    def slo_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def slo_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "slo_url", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Default to `ACTIVE`
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter(name="subjectMatchAttribute")
-    def subject_match_attribute(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subject_match_attribute(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Okta user profile attribute for matching transformed IdP username. Only for matchType `CUSTOM_ATTRIBUTE`.
         """
         return pulumi.get(self, "subject_match_attribute")
 
     @subject_match_attribute.setter
-    def subject_match_attribute(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subject_match_attribute(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subject_match_attribute", value)
 
     @_builtins.property
     @pulumi.getter(name="subjectMatchType")
-    def subject_match_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subject_match_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `USERNAME`. It can be set to `USERNAME`, `EMAIL`, `USERNAME_OR_EMAIL` or `CUSTOM_ATTRIBUTE`.
         """
         return pulumi.get(self, "subject_match_type")
 
     @subject_match_type.setter
-    def subject_match_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subject_match_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subject_match_type", value)
 
     @_builtins.property
     @pulumi.getter(name="suspendedAction")
-    def suspended_action(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def suspended_action(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Action for a previously suspended IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`
         """
         return pulumi.get(self, "suspended_action")
 
     @suspended_action.setter
-    def suspended_action(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def suspended_action(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "suspended_action", value)
 
     @_builtins.property
     @pulumi.getter(name="tokenBinding")
-    def token_binding(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def token_binding(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The method of making a token request. It can be set to `HTTP-POST` or `HTTP-REDIRECT`.
         """
         return pulumi.get(self, "token_binding")
 
     @token_binding.setter
-    def token_binding(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def token_binding(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "token_binding", value)
 
     @_builtins.property
     @pulumi.getter(name="tokenUrl")
-    def token_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def token_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         IdP Authorization Server (AS) endpoint to exchange the authorization code grant for an access token.
         """
         return pulumi.get(self, "token_url")
 
     @token_url.setter
-    def token_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def token_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "token_url", value)
 
     @_builtins.property
     @pulumi.getter(name="trustClaims")
-    def trust_claims(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def trust_claims(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether to trust authentication claims from the IdP.
         """
         return pulumi.get(self, "trust_claims")
 
     @trust_claims.setter
-    def trust_claims(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def trust_claims(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "trust_claims", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of OIDC IdP.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
     @_builtins.property
     @pulumi.getter(name="userInfoBinding")
-    def user_info_binding(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_info_binding(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "user_info_binding")
 
     @user_info_binding.setter
-    def user_info_binding(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_info_binding(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_info_binding", value)
 
     @_builtins.property
     @pulumi.getter(name="userInfoUrl")
-    def user_info_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_info_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Protected resource endpoint that returns claims about the authenticated user.
         """
         return pulumi.get(self, "user_info_url")
 
     @user_info_url.setter
-    def user_info_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_info_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_info_url", value)
 
     @_builtins.property
     @pulumi.getter(name="userTypeId")
-    def user_type_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_type_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User type ID. Can be used as `target_id` in the `profile.Mapping` resource.
         """
         return pulumi.get(self, "user_type_id")
 
     @user_type_id.setter
-    def user_type_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_type_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_type_id", value)
 
     @_builtins.property
     @pulumi.getter(name="usernameTemplate")
-    def username_template(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def username_template(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Okta EL Expression to generate or transform a unique username for the IdP user. Default: `idpuser.email`
         """
         return pulumi.get(self, "username_template")
 
     @username_template.setter
-    def username_template(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def username_template(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "username_template", value)
 
 
@@ -1307,45 +1307,45 @@ class Oidc(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_link_action: Optional[pulumi.Input[_builtins.str]] = None,
-                 account_link_group_includes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 authorization_binding: Optional[pulumi.Input[_builtins.str]] = None,
-                 authorization_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_secret: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_secret_wo: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_secret_wo_version: Optional[pulumi.Input[_builtins.int]] = None,
-                 deprovisioned_action: Optional[pulumi.Input[_builtins.str]] = None,
-                 filter: Optional[pulumi.Input[_builtins.str]] = None,
-                 groups_action: Optional[pulumi.Input[_builtins.str]] = None,
-                 groups_assignments: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 groups_attribute: Optional[pulumi.Input[_builtins.str]] = None,
-                 groups_filters: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 issuer_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 issuer_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 jwks_binding: Optional[pulumi.Input[_builtins.str]] = None,
-                 jwks_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_clock_skew: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 participate_slo: Optional[pulumi.Input[_builtins.bool]] = None,
-                 pkce_required: Optional[pulumi.Input[_builtins.bool]] = None,
-                 profile_master: Optional[pulumi.Input[_builtins.bool]] = None,
-                 protocol_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 provisioning_action: Optional[pulumi.Input[_builtins.str]] = None,
-                 request_signature_algorithm: Optional[pulumi.Input[_builtins.str]] = None,
-                 request_signature_scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 scopes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 slo_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 subject_match_attribute: Optional[pulumi.Input[_builtins.str]] = None,
-                 subject_match_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 suspended_action: Optional[pulumi.Input[_builtins.str]] = None,
-                 token_binding: Optional[pulumi.Input[_builtins.str]] = None,
-                 token_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 trust_claims: Optional[pulumi.Input[_builtins.bool]] = None,
-                 user_info_binding: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_info_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 username_template: Optional[pulumi.Input[_builtins.str]] = None,
+                 account_link_action: pulumi.Input[Optional[_builtins.str]] = None,
+                 account_link_group_includes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 authorization_binding: pulumi.Input[Optional[_builtins.str]] = None,
+                 authorization_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_secret: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_secret_wo: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_secret_wo_version: pulumi.Input[Optional[_builtins.int]] = None,
+                 deprovisioned_action: pulumi.Input[Optional[_builtins.str]] = None,
+                 filter: pulumi.Input[Optional[_builtins.str]] = None,
+                 groups_action: pulumi.Input[Optional[_builtins.str]] = None,
+                 groups_assignments: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 groups_attribute: pulumi.Input[Optional[_builtins.str]] = None,
+                 groups_filters: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 issuer_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 issuer_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 jwks_binding: pulumi.Input[Optional[_builtins.str]] = None,
+                 jwks_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_clock_skew: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 participate_slo: pulumi.Input[Optional[_builtins.bool]] = None,
+                 pkce_required: pulumi.Input[Optional[_builtins.bool]] = None,
+                 profile_master: pulumi.Input[Optional[_builtins.bool]] = None,
+                 protocol_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 provisioning_action: pulumi.Input[Optional[_builtins.str]] = None,
+                 request_signature_algorithm: pulumi.Input[Optional[_builtins.str]] = None,
+                 request_signature_scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 slo_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 subject_match_attribute: pulumi.Input[Optional[_builtins.str]] = None,
+                 subject_match_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 suspended_action: pulumi.Input[Optional[_builtins.str]] = None,
+                 token_binding: pulumi.Input[Optional[_builtins.str]] = None,
+                 token_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 trust_claims: pulumi.Input[Optional[_builtins.bool]] = None,
+                 user_info_binding: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_info_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 username_template: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Creates an OIDC Identity Provider. This resource allows you to create and configure an OIDC Identity Provider.
@@ -1476,45 +1476,45 @@ class Oidc(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_link_action: Optional[pulumi.Input[_builtins.str]] = None,
-                 account_link_group_includes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 authorization_binding: Optional[pulumi.Input[_builtins.str]] = None,
-                 authorization_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_secret: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_secret_wo: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_secret_wo_version: Optional[pulumi.Input[_builtins.int]] = None,
-                 deprovisioned_action: Optional[pulumi.Input[_builtins.str]] = None,
-                 filter: Optional[pulumi.Input[_builtins.str]] = None,
-                 groups_action: Optional[pulumi.Input[_builtins.str]] = None,
-                 groups_assignments: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 groups_attribute: Optional[pulumi.Input[_builtins.str]] = None,
-                 groups_filters: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 issuer_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 issuer_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 jwks_binding: Optional[pulumi.Input[_builtins.str]] = None,
-                 jwks_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_clock_skew: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 participate_slo: Optional[pulumi.Input[_builtins.bool]] = None,
-                 pkce_required: Optional[pulumi.Input[_builtins.bool]] = None,
-                 profile_master: Optional[pulumi.Input[_builtins.bool]] = None,
-                 protocol_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 provisioning_action: Optional[pulumi.Input[_builtins.str]] = None,
-                 request_signature_algorithm: Optional[pulumi.Input[_builtins.str]] = None,
-                 request_signature_scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 scopes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 slo_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 subject_match_attribute: Optional[pulumi.Input[_builtins.str]] = None,
-                 subject_match_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 suspended_action: Optional[pulumi.Input[_builtins.str]] = None,
-                 token_binding: Optional[pulumi.Input[_builtins.str]] = None,
-                 token_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 trust_claims: Optional[pulumi.Input[_builtins.bool]] = None,
-                 user_info_binding: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_info_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 username_template: Optional[pulumi.Input[_builtins.str]] = None,
+                 account_link_action: pulumi.Input[Optional[_builtins.str]] = None,
+                 account_link_group_includes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 authorization_binding: pulumi.Input[Optional[_builtins.str]] = None,
+                 authorization_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_secret: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_secret_wo: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_secret_wo_version: pulumi.Input[Optional[_builtins.int]] = None,
+                 deprovisioned_action: pulumi.Input[Optional[_builtins.str]] = None,
+                 filter: pulumi.Input[Optional[_builtins.str]] = None,
+                 groups_action: pulumi.Input[Optional[_builtins.str]] = None,
+                 groups_assignments: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 groups_attribute: pulumi.Input[Optional[_builtins.str]] = None,
+                 groups_filters: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 issuer_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 issuer_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 jwks_binding: pulumi.Input[Optional[_builtins.str]] = None,
+                 jwks_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_clock_skew: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 participate_slo: pulumi.Input[Optional[_builtins.bool]] = None,
+                 pkce_required: pulumi.Input[Optional[_builtins.bool]] = None,
+                 profile_master: pulumi.Input[Optional[_builtins.bool]] = None,
+                 protocol_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 provisioning_action: pulumi.Input[Optional[_builtins.str]] = None,
+                 request_signature_algorithm: pulumi.Input[Optional[_builtins.str]] = None,
+                 request_signature_scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 slo_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 subject_match_attribute: pulumi.Input[Optional[_builtins.str]] = None,
+                 subject_match_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 suspended_action: pulumi.Input[Optional[_builtins.str]] = None,
+                 token_binding: pulumi.Input[Optional[_builtins.str]] = None,
+                 token_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 trust_claims: pulumi.Input[Optional[_builtins.bool]] = None,
+                 user_info_binding: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_info_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 username_template: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1595,47 +1595,47 @@ class Oidc(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            account_link_action: Optional[pulumi.Input[_builtins.str]] = None,
-            account_link_group_includes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            authorization_binding: Optional[pulumi.Input[_builtins.str]] = None,
-            authorization_url: Optional[pulumi.Input[_builtins.str]] = None,
-            client_id: Optional[pulumi.Input[_builtins.str]] = None,
-            client_secret: Optional[pulumi.Input[_builtins.str]] = None,
-            client_secret_wo: Optional[pulumi.Input[_builtins.str]] = None,
-            client_secret_wo_version: Optional[pulumi.Input[_builtins.int]] = None,
-            deprovisioned_action: Optional[pulumi.Input[_builtins.str]] = None,
-            filter: Optional[pulumi.Input[_builtins.str]] = None,
-            groups_action: Optional[pulumi.Input[_builtins.str]] = None,
-            groups_assignments: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            groups_attribute: Optional[pulumi.Input[_builtins.str]] = None,
-            groups_filters: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            issuer_mode: Optional[pulumi.Input[_builtins.str]] = None,
-            issuer_url: Optional[pulumi.Input[_builtins.str]] = None,
-            jwks_binding: Optional[pulumi.Input[_builtins.str]] = None,
-            jwks_url: Optional[pulumi.Input[_builtins.str]] = None,
-            max_clock_skew: Optional[pulumi.Input[_builtins.int]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            participate_slo: Optional[pulumi.Input[_builtins.bool]] = None,
-            pkce_required: Optional[pulumi.Input[_builtins.bool]] = None,
-            profile_master: Optional[pulumi.Input[_builtins.bool]] = None,
-            protocol_type: Optional[pulumi.Input[_builtins.str]] = None,
-            provisioning_action: Optional[pulumi.Input[_builtins.str]] = None,
-            request_signature_algorithm: Optional[pulumi.Input[_builtins.str]] = None,
-            request_signature_scope: Optional[pulumi.Input[_builtins.str]] = None,
-            scopes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            slo_url: Optional[pulumi.Input[_builtins.str]] = None,
-            status: Optional[pulumi.Input[_builtins.str]] = None,
-            subject_match_attribute: Optional[pulumi.Input[_builtins.str]] = None,
-            subject_match_type: Optional[pulumi.Input[_builtins.str]] = None,
-            suspended_action: Optional[pulumi.Input[_builtins.str]] = None,
-            token_binding: Optional[pulumi.Input[_builtins.str]] = None,
-            token_url: Optional[pulumi.Input[_builtins.str]] = None,
-            trust_claims: Optional[pulumi.Input[_builtins.bool]] = None,
-            type: Optional[pulumi.Input[_builtins.str]] = None,
-            user_info_binding: Optional[pulumi.Input[_builtins.str]] = None,
-            user_info_url: Optional[pulumi.Input[_builtins.str]] = None,
-            user_type_id: Optional[pulumi.Input[_builtins.str]] = None,
-            username_template: Optional[pulumi.Input[_builtins.str]] = None) -> 'Oidc':
+            account_link_action: pulumi.Input[Optional[_builtins.str]] = None,
+            account_link_group_includes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            authorization_binding: pulumi.Input[Optional[_builtins.str]] = None,
+            authorization_url: pulumi.Input[Optional[_builtins.str]] = None,
+            client_id: pulumi.Input[Optional[_builtins.str]] = None,
+            client_secret: pulumi.Input[Optional[_builtins.str]] = None,
+            client_secret_wo: pulumi.Input[Optional[_builtins.str]] = None,
+            client_secret_wo_version: pulumi.Input[Optional[_builtins.int]] = None,
+            deprovisioned_action: pulumi.Input[Optional[_builtins.str]] = None,
+            filter: pulumi.Input[Optional[_builtins.str]] = None,
+            groups_action: pulumi.Input[Optional[_builtins.str]] = None,
+            groups_assignments: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            groups_attribute: pulumi.Input[Optional[_builtins.str]] = None,
+            groups_filters: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            issuer_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            issuer_url: pulumi.Input[Optional[_builtins.str]] = None,
+            jwks_binding: pulumi.Input[Optional[_builtins.str]] = None,
+            jwks_url: pulumi.Input[Optional[_builtins.str]] = None,
+            max_clock_skew: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            participate_slo: pulumi.Input[Optional[_builtins.bool]] = None,
+            pkce_required: pulumi.Input[Optional[_builtins.bool]] = None,
+            profile_master: pulumi.Input[Optional[_builtins.bool]] = None,
+            protocol_type: pulumi.Input[Optional[_builtins.str]] = None,
+            provisioning_action: pulumi.Input[Optional[_builtins.str]] = None,
+            request_signature_algorithm: pulumi.Input[Optional[_builtins.str]] = None,
+            request_signature_scope: pulumi.Input[Optional[_builtins.str]] = None,
+            scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            slo_url: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            subject_match_attribute: pulumi.Input[Optional[_builtins.str]] = None,
+            subject_match_type: pulumi.Input[Optional[_builtins.str]] = None,
+            suspended_action: pulumi.Input[Optional[_builtins.str]] = None,
+            token_binding: pulumi.Input[Optional[_builtins.str]] = None,
+            token_url: pulumi.Input[Optional[_builtins.str]] = None,
+            trust_claims: pulumi.Input[Optional[_builtins.bool]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None,
+            user_info_binding: pulumi.Input[Optional[_builtins.str]] = None,
+            user_info_url: pulumi.Input[Optional[_builtins.str]] = None,
+            user_type_id: pulumi.Input[Optional[_builtins.str]] = None,
+            username_template: pulumi.Input[Optional[_builtins.str]] = None) -> 'Oidc':
         """
         Get an existing Oidc resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

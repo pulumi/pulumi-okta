@@ -64,7 +64,7 @@ import * as utilities from "../utilities";
  *     key: rsa.privateKeyPem,
  *     kid: "my-kid",
  * });
- * const jwks = std.jsondecode({
+ * const jwks2 = std.jsondecode({
  *     input: jwksFromKey.jwks,
  * }).result;
  * // https://registry.terraform.io/providers/okta/okta/latest/docs/resources/app_oauth
@@ -75,10 +75,10 @@ import * as utilities from "../utilities";
  *     grantTypes: ["client_credentials"],
  *     tokenEndpointAuthMethod: "private_key_jwt",
  *     jwks: [{
- *         kty: jwks.kty,
- *         kid: jwks.kid,
- *         e: jwks.e,
- *         n: jwks.n,
+ *         kty: jwks2.kty,
+ *         kid: jwks2.kid,
+ *         e: jwks2.e,
+ *         n: jwks2.n,
  *     }],
  * });
  * ```
@@ -509,31 +509,31 @@ export interface OAuthState {
     /**
      * Custom error page URL
      */
-    accessibilityErrorRedirectUrl?: pulumi.Input<string>;
+    accessibilityErrorRedirectUrl?: pulumi.Input<string | undefined>;
     /**
      * Custom login page URL
      */
-    accessibilityLoginRedirectUrl?: pulumi.Input<string>;
+    accessibilityLoginRedirectUrl?: pulumi.Input<string | undefined>;
     /**
      * Enable self service. Default is `false`
      */
-    accessibilitySelfService?: pulumi.Input<boolean>;
+    accessibilitySelfService?: pulumi.Input<boolean | undefined>;
     /**
      * Application notes for admins.
      */
-    adminNote?: pulumi.Input<string>;
+    adminNote?: pulumi.Input<string | undefined>;
     /**
      * Displays specific appLinks for the app. The value for each application link should be boolean.
      */
-    appLinksJson?: pulumi.Input<string>;
+    appLinksJson?: pulumi.Input<string | undefined>;
     /**
      * Application settings in JSON format
      */
-    appSettingsJson?: pulumi.Input<string>;
+    appSettingsJson?: pulumi.Input<string | undefined>;
     /**
      * The ID of the associated app*signon*policy. If this property is removed from the application the default sign-on-policy will be associated with this application. From now on, there is no need to attach authenticationPolicy for applications of type `SERVICE` in the upcoming release.
      */
-    authenticationPolicy?: pulumi.Input<string>;
+    authenticationPolicy?: pulumi.Input<string | undefined>;
     /**
      * Requested key rotation mode. If
      * 			auto*key*rotation isn't specified, the client automatically opts in for Okta's
@@ -541,210 +541,210 @@ export interface OAuthState {
      * 			UI.
      * 			See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object"
      */
-    autoKeyRotation?: pulumi.Input<boolean>;
+    autoKeyRotation?: pulumi.Input<boolean | undefined>;
     /**
      * Display auto submit toolbar
      */
-    autoSubmitToolbar?: pulumi.Input<boolean>;
+    autoSubmitToolbar?: pulumi.Input<boolean | undefined>;
     /**
      * The user provided OAuth client secret key value. When set, this secret will be stored in the Terraform state file. For Terraform 1.11+, consider using `clientBasicSecretWo` instead to avoid persisting secrets in state. Either `clientBasicSecret` or `clientBasicSecretWo` can be specified, but not both.
      */
-    clientBasicSecret?: pulumi.Input<string>;
+    clientBasicSecret?: pulumi.Input<string | undefined>;
     /**
      * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
      * The user provided write-only OAuth client secret key value for Terraform 1.11+. Unlike `clientBasicSecret`, this secret will not be persisted in the Terraform state file, providing improved security. Only use this attribute with Terraform 1.11 or higher. Either `clientBasicSecret` or `clientBasicSecretWo` can be specified, but not both.
      */
-    clientBasicSecretWo?: pulumi.Input<string>;
+    clientBasicSecretWo?: pulumi.Input<string | undefined>;
     /**
      * Version number for the write-only client secret. Increment this value to trigger an update when changing `clientBasicSecretWo`.
      */
-    clientBasicSecretWoVersion?: pulumi.Input<number>;
+    clientBasicSecretWoVersion?: pulumi.Input<number | undefined>;
     /**
      * OAuth client ID. If set during creation, app is created with this id.
      */
-    clientId?: pulumi.Input<string>;
+    clientId?: pulumi.Input<string | undefined>;
     /**
      * OAuth client secret value, this is output only. This will be in plain text in your statefile unless you set omitSecret above.
      */
-    clientSecret?: pulumi.Input<string>;
+    clientSecret?: pulumi.Input<string | undefined>;
     /**
      * URI to a web page providing information about the client.
      */
-    clientUri?: pulumi.Input<string>;
+    clientUri?: pulumi.Input<string | undefined>;
     /**
      * *Early Access Property*. Indicates whether user consent is required or implicit. Valid values: REQUIRED, TRUSTED. Default value is TRUSTED. Note: Enable `API_ACCESS_MANAGEMENT`, `API_ACCESS_MANAGEMENT_CONSENT` feature flags in your org to use this property.
      */
-    consentMethod?: pulumi.Input<string>;
+    consentMethod?: pulumi.Input<string | undefined>;
     /**
      * Application notes for end users.
      */
-    enduserNote?: pulumi.Input<string>;
+    enduserNote?: pulumi.Input<string | undefined>;
     /**
      * *Early Access Property*. Determines whether Okta sends sid and iss in the logout request.
      */
-    frontchannelLogoutSessionRequired?: pulumi.Input<boolean>;
+    frontchannelLogoutSessionRequired?: pulumi.Input<boolean | undefined>;
     /**
      * *Early Access Property*. URL where Okta sends the logout request. Required when participateSlo is true.
      */
-    frontchannelLogoutUri?: pulumi.Input<string>;
+    frontchannelLogoutUri?: pulumi.Input<string | undefined>;
     /**
      * List of OAuth 2.0 grant types. Conditional validation params found here https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum requirements per app type.
      */
-    grantTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    grantTypes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Groups claim for an OpenID Connect client application (argument is ignored when API auth is done with OAuth 2.0 credentials, and is not supported when `preconfiguredApp` is set)
      *
      * @deprecated The groupsClaim field is deprecated and will be removed in a future version. Use Authorization Server Claims (okta_auth_server_claim) or app profile configuration instead.
      */
-    groupsClaim?: pulumi.Input<inputs.app.OAuthGroupsClaim>;
+    groupsClaim?: pulumi.Input<inputs.app.OAuthGroupsClaim | undefined>;
     /**
      * Do not display application icon on mobile app
      */
-    hideIos?: pulumi.Input<boolean>;
+    hideIos?: pulumi.Input<boolean | undefined>;
     /**
      * Do not display application icon to users
      */
-    hideWeb?: pulumi.Input<boolean>;
+    hideWeb?: pulumi.Input<boolean | undefined>;
     /**
      * *Early Access Property*. Enable Federation Broker Mode.
      */
-    implicitAssignment?: pulumi.Input<boolean>;
+    implicitAssignment?: pulumi.Input<boolean | undefined>;
     /**
      * *Early Access Property*. Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a custom domain URL as the issuer of ID token for this client.
      */
-    issuerMode?: pulumi.Input<string>;
+    issuerMode?: pulumi.Input<string | undefined>;
     /**
      * JSON Web Key Set (JWKS) for application. Note: Inline JWKS may have compatibility issues with v6 SDK. Consider using jwksUri instead.
      */
-    jwks?: pulumi.Input<pulumi.Input<inputs.app.OAuthJwk>[]>;
+    jwks?: pulumi.Input<pulumi.Input<inputs.app.OAuthJwk>[] | undefined>;
     /**
      * URL reference to JWKS
      */
-    jwksUri?: pulumi.Input<string>;
+    jwksUri?: pulumi.Input<string | undefined>;
     /**
      * The Application's display name.
      */
-    label?: pulumi.Input<string>;
+    label?: pulumi.Input<string | undefined>;
     /**
      * The type of Idp-Initiated login that the client supports, if any
      */
-    loginMode?: pulumi.Input<string>;
+    loginMode?: pulumi.Input<string | undefined>;
     /**
      * List of scopes to use for the request
      */
-    loginScopes?: pulumi.Input<pulumi.Input<string>[]>;
+    loginScopes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * URI that initiates login.
      */
-    loginUri?: pulumi.Input<string>;
+    loginUri?: pulumi.Input<string | undefined>;
     /**
      * Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
      */
-    logo?: pulumi.Input<string>;
+    logo?: pulumi.Input<string | undefined>;
     /**
      * URI that references a logo for the client.
      */
-    logoUri?: pulumi.Input<string>;
+    logoUri?: pulumi.Input<string | undefined>;
     /**
      * URL of the application's logo
      */
-    logoUrl?: pulumi.Input<string>;
+    logoUrl?: pulumi.Input<string | undefined>;
     /**
      * Name of the app.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Network restrictions for the application client. Only one `network` block may be defined.
      */
-    network?: pulumi.Input<inputs.app.OAuthNetwork>;
+    network?: pulumi.Input<inputs.app.OAuthNetwork | undefined>;
     /**
      * This tells the provider not manage the client*secret value in state. When this is false (the default), it will cause the auto-generated client*secret to be persisted in the clientSecret attribute in state. This also means that every time an update to this app is run, this value is also set on the API. If this changes from false => true, the `clientSecret` is dropped from state and the secret at the time of the apply is what remains. If this is ever changes from true => false your app will be recreated, due to the need to regenerate a secret we can store in state.
      */
-    omitSecret?: pulumi.Input<boolean>;
+    omitSecret?: pulumi.Input<boolean | undefined>;
     /**
      * *Early Access Property*. Allows the app to participate in front-channel Single Logout. Note: You can only enable participate*slo for web and browser application types. When set to true, frontchannel*logout_uri must also be provided. Enable `SINGLE_LOGOUT_SUPPORT` feature flag in your org to use this property.
      */
-    participateSlo?: pulumi.Input<boolean>;
+    participateSlo?: pulumi.Input<boolean | undefined>;
     /**
      * Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
      */
-    pkceRequired?: pulumi.Input<boolean>;
+    pkceRequired?: pulumi.Input<boolean | undefined>;
     /**
      * URI to web page providing client policy document.
      */
-    policyUri?: pulumi.Input<string>;
+    policyUri?: pulumi.Input<string | undefined>;
     /**
      * List of URIs for redirection after logout. Note: see okta*app*oauth*post*logout*redirect*uri for appending to this list in a decentralized way.
      */
-    postLogoutRedirectUris?: pulumi.Input<pulumi.Input<string>[]>;
+    postLogoutRedirectUris?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Tells Okta to use an existing application in their application catalog, as opposed to a custom application. Note: `groupsClaim` is not supported when using `preconfiguredApp`.
      */
-    preconfiguredApp?: pulumi.Input<string>;
+    preconfiguredApp?: pulumi.Input<string | undefined>;
     /**
      * Custom JSON that represents an OAuth application's profile
      */
-    profile?: pulumi.Input<string>;
+    profile?: pulumi.Input<string | undefined>;
     /**
      * List of URIs for use in the redirect-based flow. This is required for all application types except service. Note: see okta*app*oauth*redirect*uri for appending to this list in a decentralized way.
      */
-    redirectUris?: pulumi.Input<pulumi.Input<string>[]>;
+    redirectUris?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * *Early Access Property* Grace period for token rotation, required with grant types refresh_token
      */
-    refreshTokenLeeway?: pulumi.Input<number>;
+    refreshTokenLeeway?: pulumi.Input<number | undefined>;
     /**
      * *Early Access Property* Refresh token rotation behavior, required with grant types refresh_token
      */
-    refreshTokenRotation?: pulumi.Input<string>;
+    refreshTokenRotation?: pulumi.Input<string | undefined>;
     /**
      * List of OAuth 2.0 response type strings. Valid values are any combination of: `code`, `token`, and `idToken`.
      */
-    responseTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    responseTypes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Sign on mode of application.
      */
-    signOnMode?: pulumi.Input<string>;
+    signOnMode?: pulumi.Input<string | undefined>;
     /**
      * When set to true, the provider will not assign or read the authentication policy for this application. This can be useful when the caller lacks the permissions to read or manage policies, or to reduce API calls against the `/api/v1/apps` rate limit.
      */
-    skipAuthenticationPolicy?: pulumi.Input<boolean>;
+    skipAuthenticationPolicy?: pulumi.Input<boolean | undefined>;
     /**
      * Status of application. By default, it is `ACTIVE`
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * Requested authentication method for the token endpoint, valid values include:  'client*secret*basic', 'client*secret*post', 'client*secret*jwt', 'private*key*jwt', 'none', etc.
      */
-    tokenEndpointAuthMethod?: pulumi.Input<string>;
+    tokenEndpointAuthMethod?: pulumi.Input<string | undefined>;
     /**
      * URI to web page providing client tos (terms of service).
      */
-    tosUri?: pulumi.Input<string>;
+    tosUri?: pulumi.Input<string | undefined>;
     /**
      * The type of client application.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
     /**
      * Username template. Default: `${source.login}`
      */
-    userNameTemplate?: pulumi.Input<string>;
+    userNameTemplate?: pulumi.Input<string | undefined>;
     /**
      * Push username on update. Valid values: `PUSH` and `DONT_PUSH`
      */
-    userNameTemplatePushStatus?: pulumi.Input<string>;
+    userNameTemplatePushStatus?: pulumi.Input<string | undefined>;
     /**
      * Username template suffix
      */
-    userNameTemplateSuffix?: pulumi.Input<string>;
+    userNameTemplateSuffix?: pulumi.Input<string | undefined>;
     /**
      * Username template type. Default: `BUILT_IN`
      */
-    userNameTemplateType?: pulumi.Input<string>;
+    userNameTemplateType?: pulumi.Input<string | undefined>;
     /**
      * *Early Access Property*. Indicates if the client is allowed to use wildcard matching of redirect_uris.
      */
-    wildcardRedirect?: pulumi.Input<string>;
+    wildcardRedirect?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -754,31 +754,31 @@ export interface OAuthArgs {
     /**
      * Custom error page URL
      */
-    accessibilityErrorRedirectUrl?: pulumi.Input<string>;
+    accessibilityErrorRedirectUrl?: pulumi.Input<string | undefined>;
     /**
      * Custom login page URL
      */
-    accessibilityLoginRedirectUrl?: pulumi.Input<string>;
+    accessibilityLoginRedirectUrl?: pulumi.Input<string | undefined>;
     /**
      * Enable self service. Default is `false`
      */
-    accessibilitySelfService?: pulumi.Input<boolean>;
+    accessibilitySelfService?: pulumi.Input<boolean | undefined>;
     /**
      * Application notes for admins.
      */
-    adminNote?: pulumi.Input<string>;
+    adminNote?: pulumi.Input<string | undefined>;
     /**
      * Displays specific appLinks for the app. The value for each application link should be boolean.
      */
-    appLinksJson?: pulumi.Input<string>;
+    appLinksJson?: pulumi.Input<string | undefined>;
     /**
      * Application settings in JSON format
      */
-    appSettingsJson?: pulumi.Input<string>;
+    appSettingsJson?: pulumi.Input<string | undefined>;
     /**
      * The ID of the associated app*signon*policy. If this property is removed from the application the default sign-on-policy will be associated with this application. From now on, there is no need to attach authenticationPolicy for applications of type `SERVICE` in the upcoming release.
      */
-    authenticationPolicy?: pulumi.Input<string>;
+    authenticationPolicy?: pulumi.Input<string | undefined>;
     /**
      * Requested key rotation mode. If
      * 			auto*key*rotation isn't specified, the client automatically opts in for Okta's
@@ -786,82 +786,82 @@ export interface OAuthArgs {
      * 			UI.
      * 			See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object"
      */
-    autoKeyRotation?: pulumi.Input<boolean>;
+    autoKeyRotation?: pulumi.Input<boolean | undefined>;
     /**
      * Display auto submit toolbar
      */
-    autoSubmitToolbar?: pulumi.Input<boolean>;
+    autoSubmitToolbar?: pulumi.Input<boolean | undefined>;
     /**
      * The user provided OAuth client secret key value. When set, this secret will be stored in the Terraform state file. For Terraform 1.11+, consider using `clientBasicSecretWo` instead to avoid persisting secrets in state. Either `clientBasicSecret` or `clientBasicSecretWo` can be specified, but not both.
      */
-    clientBasicSecret?: pulumi.Input<string>;
+    clientBasicSecret?: pulumi.Input<string | undefined>;
     /**
      * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
      * The user provided write-only OAuth client secret key value for Terraform 1.11+. Unlike `clientBasicSecret`, this secret will not be persisted in the Terraform state file, providing improved security. Only use this attribute with Terraform 1.11 or higher. Either `clientBasicSecret` or `clientBasicSecretWo` can be specified, but not both.
      */
-    clientBasicSecretWo?: pulumi.Input<string>;
+    clientBasicSecretWo?: pulumi.Input<string | undefined>;
     /**
      * Version number for the write-only client secret. Increment this value to trigger an update when changing `clientBasicSecretWo`.
      */
-    clientBasicSecretWoVersion?: pulumi.Input<number>;
+    clientBasicSecretWoVersion?: pulumi.Input<number | undefined>;
     /**
      * OAuth client ID. If set during creation, app is created with this id.
      */
-    clientId?: pulumi.Input<string>;
+    clientId?: pulumi.Input<string | undefined>;
     /**
      * URI to a web page providing information about the client.
      */
-    clientUri?: pulumi.Input<string>;
+    clientUri?: pulumi.Input<string | undefined>;
     /**
      * *Early Access Property*. Indicates whether user consent is required or implicit. Valid values: REQUIRED, TRUSTED. Default value is TRUSTED. Note: Enable `API_ACCESS_MANAGEMENT`, `API_ACCESS_MANAGEMENT_CONSENT` feature flags in your org to use this property.
      */
-    consentMethod?: pulumi.Input<string>;
+    consentMethod?: pulumi.Input<string | undefined>;
     /**
      * Application notes for end users.
      */
-    enduserNote?: pulumi.Input<string>;
+    enduserNote?: pulumi.Input<string | undefined>;
     /**
      * *Early Access Property*. Determines whether Okta sends sid and iss in the logout request.
      */
-    frontchannelLogoutSessionRequired?: pulumi.Input<boolean>;
+    frontchannelLogoutSessionRequired?: pulumi.Input<boolean | undefined>;
     /**
      * *Early Access Property*. URL where Okta sends the logout request. Required when participateSlo is true.
      */
-    frontchannelLogoutUri?: pulumi.Input<string>;
+    frontchannelLogoutUri?: pulumi.Input<string | undefined>;
     /**
      * List of OAuth 2.0 grant types. Conditional validation params found here https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum requirements per app type.
      */
-    grantTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    grantTypes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Groups claim for an OpenID Connect client application (argument is ignored when API auth is done with OAuth 2.0 credentials, and is not supported when `preconfiguredApp` is set)
      *
      * @deprecated The groupsClaim field is deprecated and will be removed in a future version. Use Authorization Server Claims (okta_auth_server_claim) or app profile configuration instead.
      */
-    groupsClaim?: pulumi.Input<inputs.app.OAuthGroupsClaim>;
+    groupsClaim?: pulumi.Input<inputs.app.OAuthGroupsClaim | undefined>;
     /**
      * Do not display application icon on mobile app
      */
-    hideIos?: pulumi.Input<boolean>;
+    hideIos?: pulumi.Input<boolean | undefined>;
     /**
      * Do not display application icon to users
      */
-    hideWeb?: pulumi.Input<boolean>;
+    hideWeb?: pulumi.Input<boolean | undefined>;
     /**
      * *Early Access Property*. Enable Federation Broker Mode.
      */
-    implicitAssignment?: pulumi.Input<boolean>;
+    implicitAssignment?: pulumi.Input<boolean | undefined>;
     /**
      * *Early Access Property*. Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a custom domain URL as the issuer of ID token for this client.
      */
-    issuerMode?: pulumi.Input<string>;
+    issuerMode?: pulumi.Input<string | undefined>;
     /**
      * JSON Web Key Set (JWKS) for application. Note: Inline JWKS may have compatibility issues with v6 SDK. Consider using jwksUri instead.
      */
-    jwks?: pulumi.Input<pulumi.Input<inputs.app.OAuthJwk>[]>;
+    jwks?: pulumi.Input<pulumi.Input<inputs.app.OAuthJwk>[] | undefined>;
     /**
      * URL reference to JWKS
      */
-    jwksUri?: pulumi.Input<string>;
+    jwksUri?: pulumi.Input<string | undefined>;
     /**
      * The Application's display name.
      */
@@ -869,87 +869,87 @@ export interface OAuthArgs {
     /**
      * The type of Idp-Initiated login that the client supports, if any
      */
-    loginMode?: pulumi.Input<string>;
+    loginMode?: pulumi.Input<string | undefined>;
     /**
      * List of scopes to use for the request
      */
-    loginScopes?: pulumi.Input<pulumi.Input<string>[]>;
+    loginScopes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * URI that initiates login.
      */
-    loginUri?: pulumi.Input<string>;
+    loginUri?: pulumi.Input<string | undefined>;
     /**
      * Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
      */
-    logo?: pulumi.Input<string>;
+    logo?: pulumi.Input<string | undefined>;
     /**
      * URI that references a logo for the client.
      */
-    logoUri?: pulumi.Input<string>;
+    logoUri?: pulumi.Input<string | undefined>;
     /**
      * Network restrictions for the application client. Only one `network` block may be defined.
      */
-    network?: pulumi.Input<inputs.app.OAuthNetwork>;
+    network?: pulumi.Input<inputs.app.OAuthNetwork | undefined>;
     /**
      * This tells the provider not manage the client*secret value in state. When this is false (the default), it will cause the auto-generated client*secret to be persisted in the clientSecret attribute in state. This also means that every time an update to this app is run, this value is also set on the API. If this changes from false => true, the `clientSecret` is dropped from state and the secret at the time of the apply is what remains. If this is ever changes from true => false your app will be recreated, due to the need to regenerate a secret we can store in state.
      */
-    omitSecret?: pulumi.Input<boolean>;
+    omitSecret?: pulumi.Input<boolean | undefined>;
     /**
      * *Early Access Property*. Allows the app to participate in front-channel Single Logout. Note: You can only enable participate*slo for web and browser application types. When set to true, frontchannel*logout_uri must also be provided. Enable `SINGLE_LOGOUT_SUPPORT` feature flag in your org to use this property.
      */
-    participateSlo?: pulumi.Input<boolean>;
+    participateSlo?: pulumi.Input<boolean | undefined>;
     /**
      * Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
      */
-    pkceRequired?: pulumi.Input<boolean>;
+    pkceRequired?: pulumi.Input<boolean | undefined>;
     /**
      * URI to web page providing client policy document.
      */
-    policyUri?: pulumi.Input<string>;
+    policyUri?: pulumi.Input<string | undefined>;
     /**
      * List of URIs for redirection after logout. Note: see okta*app*oauth*post*logout*redirect*uri for appending to this list in a decentralized way.
      */
-    postLogoutRedirectUris?: pulumi.Input<pulumi.Input<string>[]>;
+    postLogoutRedirectUris?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Tells Okta to use an existing application in their application catalog, as opposed to a custom application. Note: `groupsClaim` is not supported when using `preconfiguredApp`.
      */
-    preconfiguredApp?: pulumi.Input<string>;
+    preconfiguredApp?: pulumi.Input<string | undefined>;
     /**
      * Custom JSON that represents an OAuth application's profile
      */
-    profile?: pulumi.Input<string>;
+    profile?: pulumi.Input<string | undefined>;
     /**
      * List of URIs for use in the redirect-based flow. This is required for all application types except service. Note: see okta*app*oauth*redirect*uri for appending to this list in a decentralized way.
      */
-    redirectUris?: pulumi.Input<pulumi.Input<string>[]>;
+    redirectUris?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * *Early Access Property* Grace period for token rotation, required with grant types refresh_token
      */
-    refreshTokenLeeway?: pulumi.Input<number>;
+    refreshTokenLeeway?: pulumi.Input<number | undefined>;
     /**
      * *Early Access Property* Refresh token rotation behavior, required with grant types refresh_token
      */
-    refreshTokenRotation?: pulumi.Input<string>;
+    refreshTokenRotation?: pulumi.Input<string | undefined>;
     /**
      * List of OAuth 2.0 response type strings. Valid values are any combination of: `code`, `token`, and `idToken`.
      */
-    responseTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    responseTypes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * When set to true, the provider will not assign or read the authentication policy for this application. This can be useful when the caller lacks the permissions to read or manage policies, or to reduce API calls against the `/api/v1/apps` rate limit.
      */
-    skipAuthenticationPolicy?: pulumi.Input<boolean>;
+    skipAuthenticationPolicy?: pulumi.Input<boolean | undefined>;
     /**
      * Status of application. By default, it is `ACTIVE`
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * Requested authentication method for the token endpoint, valid values include:  'client*secret*basic', 'client*secret*post', 'client*secret*jwt', 'private*key*jwt', 'none', etc.
      */
-    tokenEndpointAuthMethod?: pulumi.Input<string>;
+    tokenEndpointAuthMethod?: pulumi.Input<string | undefined>;
     /**
      * URI to web page providing client tos (terms of service).
      */
-    tosUri?: pulumi.Input<string>;
+    tosUri?: pulumi.Input<string | undefined>;
     /**
      * The type of client application.
      */
@@ -957,21 +957,21 @@ export interface OAuthArgs {
     /**
      * Username template. Default: `${source.login}`
      */
-    userNameTemplate?: pulumi.Input<string>;
+    userNameTemplate?: pulumi.Input<string | undefined>;
     /**
      * Push username on update. Valid values: `PUSH` and `DONT_PUSH`
      */
-    userNameTemplatePushStatus?: pulumi.Input<string>;
+    userNameTemplatePushStatus?: pulumi.Input<string | undefined>;
     /**
      * Username template suffix
      */
-    userNameTemplateSuffix?: pulumi.Input<string>;
+    userNameTemplateSuffix?: pulumi.Input<string | undefined>;
     /**
      * Username template type. Default: `BUILT_IN`
      */
-    userNameTemplateType?: pulumi.Input<string>;
+    userNameTemplateType?: pulumi.Input<string | undefined>;
     /**
      * *Early Access Property*. Indicates if the client is allowed to use wildcard matching of redirect_uris.
      */
-    wildcardRedirect?: pulumi.Input<string>;
+    wildcardRedirect?: pulumi.Input<string | undefined>;
 }

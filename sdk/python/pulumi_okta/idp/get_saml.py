@@ -255,8 +255,8 @@ def get_saml(id: Optional[_builtins.str] = None,
         subject_formats=pulumi.get(__ret__, 'subject_formats'),
         trust_claims=pulumi.get(__ret__, 'trust_claims'),
         type=pulumi.get(__ret__, 'type'))
-def get_saml_output(id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                    name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_saml_output(id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                    name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSamlResult]:
     """
     Get a SAML IdP from Okta.

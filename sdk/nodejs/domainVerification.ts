@@ -83,7 +83,7 @@ export interface DomainVerificationState {
     /**
      * Domain's ID
      */
-    domainId?: pulumi.Input<string>;
+    domainId?: pulumi.Input<string | undefined>;
 }
 
 /**

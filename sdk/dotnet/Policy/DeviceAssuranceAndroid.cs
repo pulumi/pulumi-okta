@@ -27,7 +27,7 @@ namespace Pulumi.Okta.Policy
     ///     {
     ///         Name = "example",
     ///         OsVersion = "12",
-    ///         DiskEncryptionTypes = Std.Index.Toset.Invoke(new()
+    ///         DiskEncryptionTypes = Std.Toset.Invoke(new()
     ///         {
     ///             Input = new[]
     ///             {
@@ -37,7 +37,7 @@ namespace Pulumi.Okta.Policy
     ///         }).Result,
     ///         Jailbreak = false,
     ///         SecureHardwarePresent = true,
-    ///         ScreenlockTypes = Std.Index.Toset.Invoke(new()
+    ///         ScreenlockTypes = Std.Toset.Invoke(new()
     ///         {
     ///             Input = new[]
     ///             {

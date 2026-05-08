@@ -24,8 +24,8 @@ class PreviewSigninPageArgs:
                  brand_id: pulumi.Input[_builtins.str],
                  page_content: pulumi.Input[_builtins.str],
                  widget_version: pulumi.Input[_builtins.str],
-                 content_security_policy_setting: Optional[pulumi.Input['PreviewSigninPageContentSecurityPolicySettingArgs']] = None,
-                 widget_customizations: Optional[pulumi.Input['PreviewSigninPageWidgetCustomizationsArgs']] = None):
+                 content_security_policy_setting: pulumi.Input[Optional['PreviewSigninPageContentSecurityPolicySettingArgs']] = None,
+                 widget_customizations: pulumi.Input[Optional['PreviewSigninPageWidgetCustomizationsArgs']] = None):
         """
         The set of arguments for constructing a PreviewSigninPage resource.
 
@@ -89,31 +89,31 @@ class PreviewSigninPageArgs:
 
     @_builtins.property
     @pulumi.getter(name="contentSecurityPolicySetting")
-    def content_security_policy_setting(self) -> Optional[pulumi.Input['PreviewSigninPageContentSecurityPolicySettingArgs']]:
+    def content_security_policy_setting(self) -> pulumi.Input[Optional['PreviewSigninPageContentSecurityPolicySettingArgs']]:
         return pulumi.get(self, "content_security_policy_setting")
 
     @content_security_policy_setting.setter
-    def content_security_policy_setting(self, value: Optional[pulumi.Input['PreviewSigninPageContentSecurityPolicySettingArgs']]):
+    def content_security_policy_setting(self, value: pulumi.Input[Optional['PreviewSigninPageContentSecurityPolicySettingArgs']]):
         pulumi.set(self, "content_security_policy_setting", value)
 
     @_builtins.property
     @pulumi.getter(name="widgetCustomizations")
-    def widget_customizations(self) -> Optional[pulumi.Input['PreviewSigninPageWidgetCustomizationsArgs']]:
+    def widget_customizations(self) -> pulumi.Input[Optional['PreviewSigninPageWidgetCustomizationsArgs']]:
         return pulumi.get(self, "widget_customizations")
 
     @widget_customizations.setter
-    def widget_customizations(self, value: Optional[pulumi.Input['PreviewSigninPageWidgetCustomizationsArgs']]):
+    def widget_customizations(self, value: pulumi.Input[Optional['PreviewSigninPageWidgetCustomizationsArgs']]):
         pulumi.set(self, "widget_customizations", value)
 
 
 @pulumi.input_type
 class _PreviewSigninPageState:
     def __init__(__self__, *,
-                 brand_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 content_security_policy_setting: Optional[pulumi.Input['PreviewSigninPageContentSecurityPolicySettingArgs']] = None,
-                 page_content: Optional[pulumi.Input[_builtins.str]] = None,
-                 widget_customizations: Optional[pulumi.Input['PreviewSigninPageWidgetCustomizationsArgs']] = None,
-                 widget_version: Optional[pulumi.Input[_builtins.str]] = None):
+                 brand_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 content_security_policy_setting: pulumi.Input[Optional['PreviewSigninPageContentSecurityPolicySettingArgs']] = None,
+                 page_content: pulumi.Input[Optional[_builtins.str]] = None,
+                 widget_customizations: pulumi.Input[Optional['PreviewSigninPageWidgetCustomizationsArgs']] = None,
+                 widget_version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering PreviewSigninPage resources.
 
@@ -139,49 +139,49 @@ class _PreviewSigninPageState:
 
     @_builtins.property
     @pulumi.getter(name="brandId")
-    def brand_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def brand_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         brand id of the preview signin page
         """
         return pulumi.get(self, "brand_id")
 
     @brand_id.setter
-    def brand_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def brand_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "brand_id", value)
 
     @_builtins.property
     @pulumi.getter(name="contentSecurityPolicySetting")
-    def content_security_policy_setting(self) -> Optional[pulumi.Input['PreviewSigninPageContentSecurityPolicySettingArgs']]:
+    def content_security_policy_setting(self) -> pulumi.Input[Optional['PreviewSigninPageContentSecurityPolicySettingArgs']]:
         return pulumi.get(self, "content_security_policy_setting")
 
     @content_security_policy_setting.setter
-    def content_security_policy_setting(self, value: Optional[pulumi.Input['PreviewSigninPageContentSecurityPolicySettingArgs']]):
+    def content_security_policy_setting(self, value: pulumi.Input[Optional['PreviewSigninPageContentSecurityPolicySettingArgs']]):
         pulumi.set(self, "content_security_policy_setting", value)
 
     @_builtins.property
     @pulumi.getter(name="pageContent")
-    def page_content(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def page_content(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         page content of the preview signin page
         """
         return pulumi.get(self, "page_content")
 
     @page_content.setter
-    def page_content(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def page_content(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "page_content", value)
 
     @_builtins.property
     @pulumi.getter(name="widgetCustomizations")
-    def widget_customizations(self) -> Optional[pulumi.Input['PreviewSigninPageWidgetCustomizationsArgs']]:
+    def widget_customizations(self) -> pulumi.Input[Optional['PreviewSigninPageWidgetCustomizationsArgs']]:
         return pulumi.get(self, "widget_customizations")
 
     @widget_customizations.setter
-    def widget_customizations(self, value: Optional[pulumi.Input['PreviewSigninPageWidgetCustomizationsArgs']]):
+    def widget_customizations(self, value: pulumi.Input[Optional['PreviewSigninPageWidgetCustomizationsArgs']]):
         pulumi.set(self, "widget_customizations", value)
 
     @_builtins.property
     @pulumi.getter(name="widgetVersion")
-    def widget_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def widget_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         widget version specified as a Semver. The following are currently supported
         		*, ^1, ^2, ^3, ^4, ^5, ^6, ^7, 1.6, 1.7, 1.8, 1.9, 1.10, 1.11, 1.12, 1.13, 2.1, 2.2, 2.3, 2.4,
@@ -193,7 +193,7 @@ class _PreviewSigninPageState:
         return pulumi.get(self, "widget_version")
 
     @widget_version.setter
-    def widget_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def widget_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "widget_version", value)
 
 
@@ -203,11 +203,11 @@ class PreviewSigninPage(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 brand_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 content_security_policy_setting: Optional[pulumi.Input[Union['PreviewSigninPageContentSecurityPolicySettingArgs', 'PreviewSigninPageContentSecurityPolicySettingArgsDict']]] = None,
-                 page_content: Optional[pulumi.Input[_builtins.str]] = None,
-                 widget_customizations: Optional[pulumi.Input[Union['PreviewSigninPageWidgetCustomizationsArgs', 'PreviewSigninPageWidgetCustomizationsArgsDict']]] = None,
-                 widget_version: Optional[pulumi.Input[_builtins.str]] = None,
+                 brand_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 content_security_policy_setting: pulumi.Input[Optional[Union['PreviewSigninPageContentSecurityPolicySettingArgs', 'PreviewSigninPageContentSecurityPolicySettingArgsDict']]] = None,
+                 page_content: pulumi.Input[Optional[_builtins.str]] = None,
+                 widget_customizations: pulumi.Input[Optional[Union['PreviewSigninPageWidgetCustomizationsArgs', 'PreviewSigninPageWidgetCustomizationsArgsDict']]] = None,
+                 widget_version: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manage the preview signin page of a brand
@@ -381,11 +381,11 @@ class PreviewSigninPage(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 brand_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 content_security_policy_setting: Optional[pulumi.Input[Union['PreviewSigninPageContentSecurityPolicySettingArgs', 'PreviewSigninPageContentSecurityPolicySettingArgsDict']]] = None,
-                 page_content: Optional[pulumi.Input[_builtins.str]] = None,
-                 widget_customizations: Optional[pulumi.Input[Union['PreviewSigninPageWidgetCustomizationsArgs', 'PreviewSigninPageWidgetCustomizationsArgsDict']]] = None,
-                 widget_version: Optional[pulumi.Input[_builtins.str]] = None,
+                 brand_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 content_security_policy_setting: pulumi.Input[Optional[Union['PreviewSigninPageContentSecurityPolicySettingArgs', 'PreviewSigninPageContentSecurityPolicySettingArgsDict']]] = None,
+                 page_content: pulumi.Input[Optional[_builtins.str]] = None,
+                 widget_customizations: pulumi.Input[Optional[Union['PreviewSigninPageWidgetCustomizationsArgs', 'PreviewSigninPageWidgetCustomizationsArgsDict']]] = None,
+                 widget_version: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -416,11 +416,11 @@ class PreviewSigninPage(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            brand_id: Optional[pulumi.Input[_builtins.str]] = None,
-            content_security_policy_setting: Optional[pulumi.Input[Union['PreviewSigninPageContentSecurityPolicySettingArgs', 'PreviewSigninPageContentSecurityPolicySettingArgsDict']]] = None,
-            page_content: Optional[pulumi.Input[_builtins.str]] = None,
-            widget_customizations: Optional[pulumi.Input[Union['PreviewSigninPageWidgetCustomizationsArgs', 'PreviewSigninPageWidgetCustomizationsArgsDict']]] = None,
-            widget_version: Optional[pulumi.Input[_builtins.str]] = None) -> 'PreviewSigninPage':
+            brand_id: pulumi.Input[Optional[_builtins.str]] = None,
+            content_security_policy_setting: pulumi.Input[Optional[Union['PreviewSigninPageContentSecurityPolicySettingArgs', 'PreviewSigninPageContentSecurityPolicySettingArgsDict']]] = None,
+            page_content: pulumi.Input[Optional[_builtins.str]] = None,
+            widget_customizations: pulumi.Input[Optional[Union['PreviewSigninPageWidgetCustomizationsArgs', 'PreviewSigninPageWidgetCustomizationsArgsDict']]] = None,
+            widget_version: pulumi.Input[Optional[_builtins.str]] = None) -> 'PreviewSigninPage':
         """
         Get an existing PreviewSigninPage resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

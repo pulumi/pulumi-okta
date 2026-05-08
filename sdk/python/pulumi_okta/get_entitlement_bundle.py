@@ -211,9 +211,9 @@ def get_entitlement_bundle(entitlements: Optional[Sequence[Union['GetEntitlement
         status=pulumi.get(__ret__, 'status'),
         target=pulumi.get(__ret__, 'target'),
         target_resource_orn=pulumi.get(__ret__, 'target_resource_orn'))
-def get_entitlement_bundle_output(entitlements: Optional[pulumi.Input[Optional[Sequence[Union['GetEntitlementBundleEntitlementArgs', 'GetEntitlementBundleEntitlementArgsDict']]]]] = None,
-                                  id: Optional[pulumi.Input[_builtins.str]] = None,
-                                  target: Optional[pulumi.Input[Optional[Union['GetEntitlementBundleTargetArgs', 'GetEntitlementBundleTargetArgsDict']]]] = None,
+def get_entitlement_bundle_output(entitlements: pulumi.Input[Optional[Optional[Sequence[Union['GetEntitlementBundleEntitlementArgs', 'GetEntitlementBundleEntitlementArgsDict']]]]] = None,
+                                  id: pulumi.Input[Optional[_builtins.str]] = None,
+                                  target: pulumi.Input[Optional[Optional[Union['GetEntitlementBundleTargetArgs', 'GetEntitlementBundleTargetArgsDict']]]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEntitlementBundleResult]:
     """
     Get the entitlement bundle for the given id.

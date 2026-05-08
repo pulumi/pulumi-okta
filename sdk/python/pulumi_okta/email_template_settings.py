@@ -73,9 +73,9 @@ class EmailTemplateSettingsArgs:
 @pulumi.input_type
 class _EmailTemplateSettingsState:
     def __init__(__self__, *,
-                 brand_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 recipients: Optional[pulumi.Input[_builtins.str]] = None,
-                 template_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 brand_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 recipients: pulumi.Input[Optional[_builtins.str]] = None,
+                 template_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering EmailTemplateSettings resources.
 
@@ -92,38 +92,38 @@ class _EmailTemplateSettingsState:
 
     @_builtins.property
     @pulumi.getter(name="brandId")
-    def brand_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def brand_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the brand.
         """
         return pulumi.get(self, "brand_id")
 
     @brand_id.setter
-    def brand_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def brand_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "brand_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def recipients(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def recipients(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The recipients the emails of this template will be sent to - Valid values: `ALL_USERS`, `ADMINS_ONLY`, `NO_USERS`
         """
         return pulumi.get(self, "recipients")
 
     @recipients.setter
-    def recipients(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def recipients(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "recipients", value)
 
     @_builtins.property
     @pulumi.getter(name="templateName")
-    def template_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def template_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Email template name - Example values: `AccountLockout`,`ADForgotPassword`,`ADForgotPasswordDenied`,`ADSelfServiceUnlock`,`ADUserActivation`,`AuthenticatorEnrolled`,`AuthenticatorReset`,`ChangeEmailConfirmation`,`EmailChallenge`,`EmailChangeConfirmation`,`EmailFactorVerification`,`ForgotPassword`,`ForgotPasswordDenied`,`IGAReviewerEndNotification`,`IGAReviewerNotification`,`IGAReviewerPendingNotification`,`IGAReviewerReassigned`,`LDAPForgotPassword`,`LDAPForgotPasswordDenied`,`LDAPSelfServiceUnlock`,`LDAPUserActivation`,`MyAccountChangeConfirmation`,`NewSignOnNotification`,`OktaVerifyActivation`,`PasswordChanged`,`PasswordResetByAdmin`,`PendingEmailChange`,`RegistrationActivation`,`RegistrationEmailVerification`,`SelfServiceUnlock`,`SelfServiceUnlockOnUnlockedAccount`,`UserActivation`
         """
         return pulumi.get(self, "template_name")
 
     @template_name.setter
-    def template_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def template_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "template_name", value)
 
 
@@ -133,9 +133,9 @@ class EmailTemplateSettings(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 brand_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 recipients: Optional[pulumi.Input[_builtins.str]] = None,
-                 template_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 brand_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 recipients: pulumi.Input[Optional[_builtins.str]] = None,
+                 template_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages email template settings
@@ -208,9 +208,9 @@ class EmailTemplateSettings(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 brand_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 recipients: Optional[pulumi.Input[_builtins.str]] = None,
-                 template_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 brand_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 recipients: pulumi.Input[Optional[_builtins.str]] = None,
+                 template_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -239,9 +239,9 @@ class EmailTemplateSettings(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            brand_id: Optional[pulumi.Input[_builtins.str]] = None,
-            recipients: Optional[pulumi.Input[_builtins.str]] = None,
-            template_name: Optional[pulumi.Input[_builtins.str]] = None) -> 'EmailTemplateSettings':
+            brand_id: pulumi.Input[Optional[_builtins.str]] = None,
+            recipients: pulumi.Input[Optional[_builtins.str]] = None,
+            template_name: pulumi.Input[Optional[_builtins.str]] = None) -> 'EmailTemplateSettings':
         """
         Get an existing EmailTemplateSettings resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -159,36 +159,36 @@ export interface MappingState {
      * > **WARNING:**: 'always*apply' is incompatible with OAuth 2.0 authentication and will be ignored when using that type of authentication.
      * > **WARNING:** 'always*apply' makes use of an internal/private Okta API endpoint that could change without notice rendering this resource inoperable.
      */
-    alwaysApply?: pulumi.Input<boolean>;
+    alwaysApply?: pulumi.Input<boolean | undefined>;
     /**
      * When turned on this flag will trigger the provider to delete mapping properties that are not defined in config. By default, we do not delete missing properties.
      */
-    deleteWhenAbsent?: pulumi.Input<boolean>;
-    mappings?: pulumi.Input<pulumi.Input<inputs.profile.MappingMapping>[]>;
+    deleteWhenAbsent?: pulumi.Input<boolean | undefined>;
+    mappings?: pulumi.Input<pulumi.Input<inputs.profile.MappingMapping>[] | undefined>;
     /**
      * The source id of the mapping to manage.
      */
-    sourceId?: pulumi.Input<string>;
+    sourceId?: pulumi.Input<string | undefined>;
     /**
      * Name of the mapping source.
      */
-    sourceName?: pulumi.Input<string>;
+    sourceName?: pulumi.Input<string | undefined>;
     /**
      * ID of the mapping source.
      */
-    sourceType?: pulumi.Input<string>;
+    sourceType?: pulumi.Input<string | undefined>;
     /**
      * The target id of the mapping to manage.
      */
-    targetId?: pulumi.Input<string>;
+    targetId?: pulumi.Input<string | undefined>;
     /**
      * Name of the mapping target.
      */
-    targetName?: pulumi.Input<string>;
+    targetName?: pulumi.Input<string | undefined>;
     /**
      * ID of the mapping target.
      */
-    targetType?: pulumi.Input<string>;
+    targetType?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -200,12 +200,12 @@ export interface MappingArgs {
      * > **WARNING:**: 'always*apply' is incompatible with OAuth 2.0 authentication and will be ignored when using that type of authentication.
      * > **WARNING:** 'always*apply' makes use of an internal/private Okta API endpoint that could change without notice rendering this resource inoperable.
      */
-    alwaysApply?: pulumi.Input<boolean>;
+    alwaysApply?: pulumi.Input<boolean | undefined>;
     /**
      * When turned on this flag will trigger the provider to delete mapping properties that are not defined in config. By default, we do not delete missing properties.
      */
-    deleteWhenAbsent?: pulumi.Input<boolean>;
-    mappings?: pulumi.Input<pulumi.Input<inputs.profile.MappingMapping>[]>;
+    deleteWhenAbsent?: pulumi.Input<boolean | undefined>;
+    mappings?: pulumi.Input<pulumi.Input<inputs.profile.MappingMapping>[] | undefined>;
     /**
      * The source id of the mapping to manage.
      */

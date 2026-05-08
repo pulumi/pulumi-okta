@@ -164,15 +164,15 @@ export interface FederatedClaimState {
     /**
      * The ID of the application to add the federated claim to.
      */
-    appId?: pulumi.Input<string>;
+    appId?: pulumi.Input<string | undefined>;
     /**
      * The Okta Expression Language expression to be evaluated at runtime. See [Okta Expression Language](https://developer.okta.com/docs/reference/okta-expression-language/) for more information.
      */
-    expression?: pulumi.Input<string>;
+    expression?: pulumi.Input<string | undefined>;
     /**
      * The name of the claim to be used in the produced token.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -190,5 +190,5 @@ export interface FederatedClaimArgs {
     /**
      * The name of the claim to be used in the produced token.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }

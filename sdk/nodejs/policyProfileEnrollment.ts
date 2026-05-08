@@ -97,11 +97,11 @@ export interface PolicyProfileEnrollmentState {
     /**
      * Name of the policy
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Status of the policy
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -111,9 +111,9 @@ export interface PolicyProfileEnrollmentArgs {
     /**
      * Name of the policy
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Status of the policy
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
 }

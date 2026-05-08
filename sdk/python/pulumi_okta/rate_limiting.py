@@ -22,7 +22,7 @@ __all__ = ['RateLimitingArgs', 'RateLimiting']
 class RateLimitingArgs:
     def __init__(__self__, *,
                  default_mode: pulumi.Input[_builtins.str],
-                 use_case_mode_overrides: Optional[pulumi.Input['RateLimitingUseCaseModeOverridesArgs']] = None):
+                 use_case_mode_overrides: pulumi.Input[Optional['RateLimitingUseCaseModeOverridesArgs']] = None):
         """
         The set of arguments for constructing a RateLimiting resource.
 
@@ -43,22 +43,22 @@ class RateLimitingArgs:
 
     @_builtins.property
     @pulumi.getter(name="useCaseModeOverrides")
-    def use_case_mode_overrides(self) -> Optional[pulumi.Input['RateLimitingUseCaseModeOverridesArgs']]:
+    def use_case_mode_overrides(self) -> pulumi.Input[Optional['RateLimitingUseCaseModeOverridesArgs']]:
         """
         A map of Per-Client Rate Limit Use Case to the applicable PerClientRateLimitMode.Overrides the defaultMode property for the specified use cases.
         """
         return pulumi.get(self, "use_case_mode_overrides")
 
     @use_case_mode_overrides.setter
-    def use_case_mode_overrides(self, value: Optional[pulumi.Input['RateLimitingUseCaseModeOverridesArgs']]):
+    def use_case_mode_overrides(self, value: pulumi.Input[Optional['RateLimitingUseCaseModeOverridesArgs']]):
         pulumi.set(self, "use_case_mode_overrides", value)
 
 
 @pulumi.input_type
 class _RateLimitingState:
     def __init__(__self__, *,
-                 default_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 use_case_mode_overrides: Optional[pulumi.Input['RateLimitingUseCaseModeOverridesArgs']] = None):
+                 default_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 use_case_mode_overrides: pulumi.Input[Optional['RateLimitingUseCaseModeOverridesArgs']] = None):
         """
         Input properties used for looking up and filtering RateLimiting resources.
 
@@ -71,23 +71,23 @@ class _RateLimitingState:
 
     @_builtins.property
     @pulumi.getter(name="defaultMode")
-    def default_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "default_mode")
 
     @default_mode.setter
-    def default_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="useCaseModeOverrides")
-    def use_case_mode_overrides(self) -> Optional[pulumi.Input['RateLimitingUseCaseModeOverridesArgs']]:
+    def use_case_mode_overrides(self) -> pulumi.Input[Optional['RateLimitingUseCaseModeOverridesArgs']]:
         """
         A map of Per-Client Rate Limit Use Case to the applicable PerClientRateLimitMode.Overrides the defaultMode property for the specified use cases.
         """
         return pulumi.get(self, "use_case_mode_overrides")
 
     @use_case_mode_overrides.setter
-    def use_case_mode_overrides(self, value: Optional[pulumi.Input['RateLimitingUseCaseModeOverridesArgs']]):
+    def use_case_mode_overrides(self, value: pulumi.Input[Optional['RateLimitingUseCaseModeOverridesArgs']]):
         pulumi.set(self, "use_case_mode_overrides", value)
 
 
@@ -97,8 +97,8 @@ class RateLimiting(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 default_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 use_case_mode_overrides: Optional[pulumi.Input[Union['RateLimitingUseCaseModeOverridesArgs', 'RateLimitingUseCaseModeOverridesArgsDict']]] = None,
+                 default_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 use_case_mode_overrides: pulumi.Input[Optional[Union['RateLimitingUseCaseModeOverridesArgs', 'RateLimitingUseCaseModeOverridesArgsDict']]] = None,
                  __props__=None):
         """
         Manages per-client rate limiting settings for your Okta organization.
@@ -205,8 +205,8 @@ class RateLimiting(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 default_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 use_case_mode_overrides: Optional[pulumi.Input[Union['RateLimitingUseCaseModeOverridesArgs', 'RateLimitingUseCaseModeOverridesArgsDict']]] = None,
+                 default_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 use_case_mode_overrides: pulumi.Input[Optional[Union['RateLimitingUseCaseModeOverridesArgs', 'RateLimitingUseCaseModeOverridesArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -230,8 +230,8 @@ class RateLimiting(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            default_mode: Optional[pulumi.Input[_builtins.str]] = None,
-            use_case_mode_overrides: Optional[pulumi.Input[Union['RateLimitingUseCaseModeOverridesArgs', 'RateLimitingUseCaseModeOverridesArgsDict']]] = None) -> 'RateLimiting':
+            default_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            use_case_mode_overrides: pulumi.Input[Optional[Union['RateLimitingUseCaseModeOverridesArgs', 'RateLimitingUseCaseModeOverridesArgsDict']]] = None) -> 'RateLimiting':
         """
         Get an existing RateLimiting resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

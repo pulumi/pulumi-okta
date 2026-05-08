@@ -167,9 +167,9 @@ def get_principal_entitlements(datas: Optional[Sequence[Union['GetPrincipalEntit
         id=pulumi.get(__ret__, 'id'),
         parent=pulumi.get(__ret__, 'parent'),
         target_principal=pulumi.get(__ret__, 'target_principal'))
-def get_principal_entitlements_output(datas: Optional[pulumi.Input[Optional[Sequence[Union['GetPrincipalEntitlementsDataArgs', 'GetPrincipalEntitlementsDataArgsDict']]]]] = None,
-                                      parent: Optional[pulumi.Input[Optional[Union['GetPrincipalEntitlementsParentArgs', 'GetPrincipalEntitlementsParentArgsDict']]]] = None,
-                                      target_principal: Optional[pulumi.Input[Optional[Union['GetPrincipalEntitlementsTargetPrincipalArgs', 'GetPrincipalEntitlementsTargetPrincipalArgsDict']]]] = None,
+def get_principal_entitlements_output(datas: pulumi.Input[Optional[Optional[Sequence[Union['GetPrincipalEntitlementsDataArgs', 'GetPrincipalEntitlementsDataArgsDict']]]]] = None,
+                                      parent: pulumi.Input[Optional[Optional[Union['GetPrincipalEntitlementsParentArgs', 'GetPrincipalEntitlementsParentArgsDict']]]] = None,
+                                      target_principal: pulumi.Input[Optional[Optional[Union['GetPrincipalEntitlementsTargetPrincipalArgs', 'GetPrincipalEntitlementsTargetPrincipalArgsDict']]]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrincipalEntitlementsResult]:
     """
     Get the entitlements for a user and resource after evaluating all grants.

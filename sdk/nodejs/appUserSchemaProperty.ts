@@ -252,91 +252,91 @@ export interface AppUserSchemaPropertyState {
     /**
      * The Application's ID the user custom schema property should be assigned to.
      */
-    appId?: pulumi.Input<string>;
+    appId?: pulumi.Input<string | undefined>;
     /**
      * Array of values that an array property's items can be set to.
      */
-    arrayEnums?: pulumi.Input<pulumi.Input<string>[]>;
+    arrayEnums?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Display name and value an enum array can be set to.
      * 	- 'const' - (Required) value mapping to member of 'enum'.
      * 	- 'title' - (Required) display name for the enum value.
      */
-    arrayOneOfs?: pulumi.Input<pulumi.Input<inputs.AppUserSchemaPropertyArrayOneOf>[]>;
+    arrayOneOfs?: pulumi.Input<pulumi.Input<inputs.AppUserSchemaPropertyArrayOneOf>[] | undefined>;
     /**
      * The type of the array elements if `type` is set to `array`
      */
-    arrayType?: pulumi.Input<string>;
+    arrayType?: pulumi.Input<string | undefined>;
     /**
      * The description of the user schema property.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Array of values a primitive property can be set to. See `arrayEnum` for arrays.
      */
-    enums?: pulumi.Input<pulumi.Input<string>[]>;
+    enums?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * External name of the user schema property.
      */
-    externalName?: pulumi.Input<string>;
+    externalName?: pulumi.Input<string | undefined>;
     /**
      * External namespace of the user schema property.
      */
-    externalNamespace?: pulumi.Input<string>;
+    externalNamespace?: pulumi.Input<string | undefined>;
     /**
      * Subschema unique string identifier
      */
-    index?: pulumi.Input<string>;
+    index?: pulumi.Input<string | undefined>;
     /**
      * Master priority for the user schema property. It can be set to `PROFILE_MASTER` or `OKTA`
      */
-    master?: pulumi.Input<string>;
+    master?: pulumi.Input<string | undefined>;
     /**
      * The maximum length of the user property value. Only applies to type `string`
      */
-    maxLength?: pulumi.Input<number>;
+    maxLength?: pulumi.Input<number | undefined>;
     /**
      * The minimum length of the user property value. Only applies to type `string`
      */
-    minLength?: pulumi.Input<number>;
+    minLength?: pulumi.Input<number | undefined>;
     /**
      * Array of maps containing a mapping for display name to enum value.
      * 	- 'const' - (Required) value mapping to member of 'enum'.
      * 	- 'title' - (Required) display name for the enum value.
      */
-    oneOfs?: pulumi.Input<pulumi.Input<inputs.AppUserSchemaPropertyOneOf>[]>;
+    oneOfs?: pulumi.Input<pulumi.Input<inputs.AppUserSchemaPropertyOneOf>[] | undefined>;
     /**
      * Access control permissions for the property. It can be set to `READ_WRITE`, `READ_ONLY`, `HIDE`. Default: `READ_ONLY`
      */
-    permissions?: pulumi.Input<string>;
+    permissions?: pulumi.Input<string | undefined>;
     /**
      * Whether the subschema is required
      */
-    required?: pulumi.Input<boolean>;
+    required?: pulumi.Input<boolean | undefined>;
     /**
      * determines whether an app user attribute can be set at the Personal `SELF` or Group `NONE` level. Default value is `NONE`.
      */
-    scope?: pulumi.Input<string>;
+    scope?: pulumi.Input<string | undefined>;
     /**
      * Subschema title (display name)
      */
-    title?: pulumi.Input<string>;
+    title?: pulumi.Input<string | undefined>;
     /**
      * The type of the schema property. It can be `string`, `boolean`, `number`, `integer`, `array`, or `object`
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
     /**
      * If `type` is set to `array`, used to set whether attribute value is determined by group priority `false`, or combine values across groups `true`. Can not be set to `true` if `scope` is set to `SELF`.
      */
-    union?: pulumi.Input<boolean>;
+    union?: pulumi.Input<boolean | undefined>;
     /**
      * Whether the property should be unique. It can be set to `UNIQUE_VALIDATED` or `NOT_UNIQUE`.
      */
-    unique?: pulumi.Input<string>;
+    unique?: pulumi.Input<string | undefined>;
     /**
      * User type ID. By default, it is `default`
      */
-    userType?: pulumi.Input<string>;
+    userType?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -350,33 +350,33 @@ export interface AppUserSchemaPropertyArgs {
     /**
      * Array of values that an array property's items can be set to.
      */
-    arrayEnums?: pulumi.Input<pulumi.Input<string>[]>;
+    arrayEnums?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Display name and value an enum array can be set to.
      * 	- 'const' - (Required) value mapping to member of 'enum'.
      * 	- 'title' - (Required) display name for the enum value.
      */
-    arrayOneOfs?: pulumi.Input<pulumi.Input<inputs.AppUserSchemaPropertyArrayOneOf>[]>;
+    arrayOneOfs?: pulumi.Input<pulumi.Input<inputs.AppUserSchemaPropertyArrayOneOf>[] | undefined>;
     /**
      * The type of the array elements if `type` is set to `array`
      */
-    arrayType?: pulumi.Input<string>;
+    arrayType?: pulumi.Input<string | undefined>;
     /**
      * The description of the user schema property.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Array of values a primitive property can be set to. See `arrayEnum` for arrays.
      */
-    enums?: pulumi.Input<pulumi.Input<string>[]>;
+    enums?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * External name of the user schema property.
      */
-    externalName?: pulumi.Input<string>;
+    externalName?: pulumi.Input<string | undefined>;
     /**
      * External namespace of the user schema property.
      */
-    externalNamespace?: pulumi.Input<string>;
+    externalNamespace?: pulumi.Input<string | undefined>;
     /**
      * Subschema unique string identifier
      */
@@ -384,33 +384,33 @@ export interface AppUserSchemaPropertyArgs {
     /**
      * Master priority for the user schema property. It can be set to `PROFILE_MASTER` or `OKTA`
      */
-    master?: pulumi.Input<string>;
+    master?: pulumi.Input<string | undefined>;
     /**
      * The maximum length of the user property value. Only applies to type `string`
      */
-    maxLength?: pulumi.Input<number>;
+    maxLength?: pulumi.Input<number | undefined>;
     /**
      * The minimum length of the user property value. Only applies to type `string`
      */
-    minLength?: pulumi.Input<number>;
+    minLength?: pulumi.Input<number | undefined>;
     /**
      * Array of maps containing a mapping for display name to enum value.
      * 	- 'const' - (Required) value mapping to member of 'enum'.
      * 	- 'title' - (Required) display name for the enum value.
      */
-    oneOfs?: pulumi.Input<pulumi.Input<inputs.AppUserSchemaPropertyOneOf>[]>;
+    oneOfs?: pulumi.Input<pulumi.Input<inputs.AppUserSchemaPropertyOneOf>[] | undefined>;
     /**
      * Access control permissions for the property. It can be set to `READ_WRITE`, `READ_ONLY`, `HIDE`. Default: `READ_ONLY`
      */
-    permissions?: pulumi.Input<string>;
+    permissions?: pulumi.Input<string | undefined>;
     /**
      * Whether the subschema is required
      */
-    required?: pulumi.Input<boolean>;
+    required?: pulumi.Input<boolean | undefined>;
     /**
      * determines whether an app user attribute can be set at the Personal `SELF` or Group `NONE` level. Default value is `NONE`.
      */
-    scope?: pulumi.Input<string>;
+    scope?: pulumi.Input<string | undefined>;
     /**
      * Subschema title (display name)
      */
@@ -422,13 +422,13 @@ export interface AppUserSchemaPropertyArgs {
     /**
      * If `type` is set to `array`, used to set whether attribute value is determined by group priority `false`, or combine values across groups `true`. Can not be set to `true` if `scope` is set to `SELF`.
      */
-    union?: pulumi.Input<boolean>;
+    union?: pulumi.Input<boolean | undefined>;
     /**
      * Whether the property should be unique. It can be set to `UNIQUE_VALIDATED` or `NOT_UNIQUE`.
      */
-    unique?: pulumi.Input<string>;
+    unique?: pulumi.Input<string | undefined>;
     /**
      * User type ID. By default, it is `default`
      */
-    userType?: pulumi.Input<string>;
+    userType?: pulumi.Input<string | undefined>;
 }

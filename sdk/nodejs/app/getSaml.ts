@@ -311,36 +311,36 @@ export interface GetSamlOutputArgs {
     /**
      * Search only ACTIVE applications.
      */
-    activeOnly?: pulumi.Input<boolean>;
+    activeOnly?: pulumi.Input<boolean | undefined>;
     /**
      * Id of application to retrieve, conflicts with label and label_prefix.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * The label of the app to retrieve, conflicts with labelPrefix and id. Label
      * 			uses the ?q=\n\n query parameter exposed by Okta's API. It should be noted that at this time
      * 			this searches both name and label. This is used to avoid paginating through all applications.
      */
-    label?: pulumi.Input<string>;
+    label?: pulumi.Input<string | undefined>;
     /**
      * Label prefix of the app to retrieve, conflicts with label and id. This will tell the
      * 			provider to do a starts with query as opposed to an equals query.
      */
-    labelPrefix?: pulumi.Input<string>;
+    labelPrefix?: pulumi.Input<string | undefined>;
     /**
      * Denotes whether the request is compressed or not.
      */
-    requestCompressed?: pulumi.Input<boolean>;
+    requestCompressed?: pulumi.Input<boolean | undefined>;
     /**
      * Ignore groups sync. This is a temporary solution until 'groups' field is supported in all the app-like resources
      *
      * @deprecated Because groups has been removed, this attribute is a no op and will be removed
      */
-    skipGroups?: pulumi.Input<boolean>;
+    skipGroups?: pulumi.Input<boolean | undefined>;
     /**
      * Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
      *
      * @deprecated Because users has been removed, this attribute is a no op and will be removed
      */
-    skipUsers?: pulumi.Input<boolean>;
+    skipUsers?: pulumi.Input<boolean | undefined>;
 }

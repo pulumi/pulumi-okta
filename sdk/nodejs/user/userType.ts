@@ -107,15 +107,15 @@ export interface UserTypeState {
     /**
      * Description of the User Type.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Display Name of the User Type.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * Name of the User Type.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -133,5 +133,5 @@ export interface UserTypeArgs {
     /**
      * Name of the User Type.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }

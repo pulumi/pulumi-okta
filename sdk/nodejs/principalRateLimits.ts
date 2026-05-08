@@ -127,43 +127,43 @@ export interface PrincipalRateLimitsState {
     /**
      * The Okta user ID of the user who created the principle rate limit entity.
      */
-    createdBy?: pulumi.Input<string>;
+    createdBy?: pulumi.Input<string | undefined>;
     /**
      * The date and time the principle rate limit entity was created.
      */
-    createdDate?: pulumi.Input<string>;
+    createdDate?: pulumi.Input<string | undefined>;
     /**
      * The default percentage of a given concurrency limit threshold that the owning principal can consume.
      */
-    defaultConcurrencyPercentage?: pulumi.Input<number>;
+    defaultConcurrencyPercentage?: pulumi.Input<number | undefined>;
     /**
      * The default percentage of a given rate limit threshold that the owning principal can consume.
      */
-    defaultPercentage?: pulumi.Input<number>;
+    defaultPercentage?: pulumi.Input<number | undefined>;
     /**
      * The unique identifier of the principle rate limit entity.
      */
-    idProperty?: pulumi.Input<string>;
+    idProperty?: pulumi.Input<string | undefined>;
     /**
      * The date and time the principle rate limit entity was last updated.
      */
-    lastUpdate?: pulumi.Input<string>;
+    lastUpdate?: pulumi.Input<string | undefined>;
     /**
      * The Okta user ID of the user who last updated the principle rate limit entity.
      */
-    lastUpdatedBy?: pulumi.Input<string>;
+    lastUpdatedBy?: pulumi.Input<string | undefined>;
     /**
      * The unique identifier of the Okta org.
      */
-    orgId?: pulumi.Input<string>;
+    orgId?: pulumi.Input<string | undefined>;
     /**
      * The unique identifier of the principal. This is the ID of the API token or OAuth 2.0 app.
      */
-    principalId?: pulumi.Input<string>;
+    principalId?: pulumi.Input<string | undefined>;
     /**
      * The type of principal, either an API token or an OAuth 2.0 app.
      */
-    principalType?: pulumi.Input<string>;
+    principalType?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -173,15 +173,15 @@ export interface PrincipalRateLimitsArgs {
     /**
      * The default percentage of a given concurrency limit threshold that the owning principal can consume.
      */
-    defaultConcurrencyPercentage?: pulumi.Input<number>;
+    defaultConcurrencyPercentage?: pulumi.Input<number | undefined>;
     /**
      * The default percentage of a given rate limit threshold that the owning principal can consume.
      */
-    defaultPercentage?: pulumi.Input<number>;
+    defaultPercentage?: pulumi.Input<number | undefined>;
     /**
      * The unique identifier of the principle rate limit entity.
      */
-    idProperty?: pulumi.Input<string>;
+    idProperty?: pulumi.Input<string | undefined>;
     /**
      * The unique identifier of the principal. This is the ID of the API token or OAuth 2.0 app.
      */

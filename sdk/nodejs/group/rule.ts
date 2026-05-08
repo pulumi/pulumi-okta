@@ -137,31 +137,31 @@ export interface RuleState {
     /**
      * The expression type to use to invoke the rule. The default is `urn:okta:expression:1.0`.
      */
-    expressionType?: pulumi.Input<string>;
+    expressionType?: pulumi.Input<string | undefined>;
     /**
      * The expression value.
      */
-    expressionValue?: pulumi.Input<string>;
+    expressionValue?: pulumi.Input<string | undefined>;
     /**
      * The list of group ids to assign the users to.
      */
-    groupAssignments?: pulumi.Input<pulumi.Input<string>[]>;
+    groupAssignments?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The name of the Group Rule (min character 1; max characters 50).
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Remove users added by this rule from the assigned group after deleting this resource. Default is `false`
      */
-    removeAssignedUsers?: pulumi.Input<boolean>;
+    removeAssignedUsers?: pulumi.Input<boolean | undefined>;
     /**
      * Default to `ACTIVE`
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * The list of user IDs that would be excluded when rules are processed
      */
-    usersExcludeds?: pulumi.Input<pulumi.Input<string>[]>;
+    usersExcludeds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 /**
@@ -171,7 +171,7 @@ export interface RuleArgs {
     /**
      * The expression type to use to invoke the rule. The default is `urn:okta:expression:1.0`.
      */
-    expressionType?: pulumi.Input<string>;
+    expressionType?: pulumi.Input<string | undefined>;
     /**
      * The expression value.
      */
@@ -183,17 +183,17 @@ export interface RuleArgs {
     /**
      * The name of the Group Rule (min character 1; max characters 50).
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Remove users added by this rule from the assigned group after deleting this resource. Default is `false`
      */
-    removeAssignedUsers?: pulumi.Input<boolean>;
+    removeAssignedUsers?: pulumi.Input<boolean | undefined>;
     /**
      * Default to `ACTIVE`
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * The list of user IDs that would be excluded when rules are processed
      */
-    usersExcludeds?: pulumi.Input<pulumi.Input<string>[]>;
+    usersExcludeds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

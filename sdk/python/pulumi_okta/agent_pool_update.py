@@ -22,17 +22,17 @@ __all__ = ['AgentPoolUpdateArgs', 'AgentPoolUpdate']
 class AgentPoolUpdateArgs:
     def __init__(__self__, *,
                  pool_id: pulumi.Input[_builtins.str],
-                 agent_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 agents: Optional[pulumi.Input[Sequence[pulumi.Input['AgentPoolUpdateAgentArgs']]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 notify_admins: Optional[pulumi.Input[_builtins.bool]] = None,
-                 notify_on_completion: Optional[pulumi.Input[_builtins.bool]] = None,
-                 reason: Optional[pulumi.Input[_builtins.str]] = None,
-                 schedule: Optional[pulumi.Input['AgentPoolUpdateScheduleArgs']] = None,
-                 sort_order: Optional[pulumi.Input[_builtins.int]] = None,
-                 target_version: Optional[pulumi.Input[_builtins.str]] = None):
+                 agent_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 agents: pulumi.Input[Optional[Sequence[pulumi.Input['AgentPoolUpdateAgentArgs']]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 notify_admins: pulumi.Input[Optional[_builtins.bool]] = None,
+                 notify_on_completion: pulumi.Input[Optional[_builtins.bool]] = None,
+                 reason: pulumi.Input[Optional[_builtins.str]] = None,
+                 schedule: pulumi.Input[Optional['AgentPoolUpdateScheduleArgs']] = None,
+                 sort_order: pulumi.Input[Optional[_builtins.int]] = None,
+                 target_version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a AgentPoolUpdate resource.
 
@@ -87,153 +87,153 @@ class AgentPoolUpdateArgs:
 
     @_builtins.property
     @pulumi.getter(name="agentType")
-    def agent_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def agent_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Agent types that are being monitored (e.g., AD, IWA, LDAP, MFA, OPP, RUM, Radius).
         """
         return pulumi.get(self, "agent_type")
 
     @agent_type.setter
-    def agent_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def agent_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "agent_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def agents(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AgentPoolUpdateAgentArgs']]]]:
+    def agents(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AgentPoolUpdateAgentArgs']]]]:
         """
         The agents associated with the agent pool update.
         """
         return pulumi.get(self, "agents")
 
     @agents.setter
-    def agents(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AgentPoolUpdateAgentArgs']]]]):
+    def agents(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AgentPoolUpdateAgentArgs']]]]):
         pulumi.set(self, "agents", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the agent pool update.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether auto-update is enabled for the agent pool.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the agent pool update.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="notifyAdmins")
-    def notify_admins(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def notify_admins(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to notify admins about the update.
         """
         return pulumi.get(self, "notify_admins")
 
     @notify_admins.setter
-    def notify_admins(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def notify_admins(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "notify_admins", value)
 
     @_builtins.property
     @pulumi.getter(name="notifyOnCompletion")
-    def notify_on_completion(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def notify_on_completion(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to send notifications when the update completes.
         """
         return pulumi.get(self, "notify_on_completion")
 
     @notify_on_completion.setter
-    def notify_on_completion(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def notify_on_completion(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "notify_on_completion", value)
 
     @_builtins.property
     @pulumi.getter
-    def reason(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def reason(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Reason for the update.
         """
         return pulumi.get(self, "reason")
 
     @reason.setter
-    def reason(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def reason(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "reason", value)
 
     @_builtins.property
     @pulumi.getter
-    def schedule(self) -> Optional[pulumi.Input['AgentPoolUpdateScheduleArgs']]:
+    def schedule(self) -> pulumi.Input[Optional['AgentPoolUpdateScheduleArgs']]:
         """
         The schedule configuration for the agent pool update.
         """
         return pulumi.get(self, "schedule")
 
     @schedule.setter
-    def schedule(self, value: Optional[pulumi.Input['AgentPoolUpdateScheduleArgs']]):
+    def schedule(self, value: pulumi.Input[Optional['AgentPoolUpdateScheduleArgs']]):
         pulumi.set(self, "schedule", value)
 
     @_builtins.property
     @pulumi.getter(name="sortOrder")
-    def sort_order(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def sort_order(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the sort order.
         """
         return pulumi.get(self, "sort_order")
 
     @sort_order.setter
-    def sort_order(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def sort_order(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "sort_order", value)
 
     @_builtins.property
     @pulumi.getter(name="targetVersion")
-    def target_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The agent version to update to.
         """
         return pulumi.get(self, "target_version")
 
     @target_version.setter
-    def target_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_version", value)
 
 
 @pulumi.input_type
 class _AgentPoolUpdateState:
     def __init__(__self__, *,
-                 agent_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 agents: Optional[pulumi.Input[Sequence[pulumi.Input['AgentPoolUpdateAgentArgs']]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 notify_admins: Optional[pulumi.Input[_builtins.bool]] = None,
-                 notify_on_completion: Optional[pulumi.Input[_builtins.bool]] = None,
-                 pool_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 reason: Optional[pulumi.Input[_builtins.str]] = None,
-                 schedule: Optional[pulumi.Input['AgentPoolUpdateScheduleArgs']] = None,
-                 sort_order: Optional[pulumi.Input[_builtins.int]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_version: Optional[pulumi.Input[_builtins.str]] = None):
+                 agent_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 agents: pulumi.Input[Optional[Sequence[pulumi.Input['AgentPoolUpdateAgentArgs']]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 notify_admins: pulumi.Input[Optional[_builtins.bool]] = None,
+                 notify_on_completion: pulumi.Input[Optional[_builtins.bool]] = None,
+                 pool_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 reason: pulumi.Input[Optional[_builtins.str]] = None,
+                 schedule: pulumi.Input[Optional['AgentPoolUpdateScheduleArgs']] = None,
+                 sort_order: pulumi.Input[Optional[_builtins.int]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AgentPoolUpdate resources.
 
@@ -280,158 +280,158 @@ class _AgentPoolUpdateState:
 
     @_builtins.property
     @pulumi.getter(name="agentType")
-    def agent_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def agent_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Agent types that are being monitored (e.g., AD, IWA, LDAP, MFA, OPP, RUM, Radius).
         """
         return pulumi.get(self, "agent_type")
 
     @agent_type.setter
-    def agent_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def agent_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "agent_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def agents(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AgentPoolUpdateAgentArgs']]]]:
+    def agents(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AgentPoolUpdateAgentArgs']]]]:
         """
         The agents associated with the agent pool update.
         """
         return pulumi.get(self, "agents")
 
     @agents.setter
-    def agents(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AgentPoolUpdateAgentArgs']]]]):
+    def agents(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AgentPoolUpdateAgentArgs']]]]):
         pulumi.set(self, "agents", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the agent pool update.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether auto-update is enabled for the agent pool.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the agent pool update.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="notifyAdmins")
-    def notify_admins(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def notify_admins(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to notify admins about the update.
         """
         return pulumi.get(self, "notify_admins")
 
     @notify_admins.setter
-    def notify_admins(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def notify_admins(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "notify_admins", value)
 
     @_builtins.property
     @pulumi.getter(name="notifyOnCompletion")
-    def notify_on_completion(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def notify_on_completion(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to send notifications when the update completes.
         """
         return pulumi.get(self, "notify_on_completion")
 
     @notify_on_completion.setter
-    def notify_on_completion(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def notify_on_completion(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "notify_on_completion", value)
 
     @_builtins.property
     @pulumi.getter(name="poolId")
-    def pool_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def pool_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The unique identifier of the agent pool to update.
         """
         return pulumi.get(self, "pool_id")
 
     @pool_id.setter
-    def pool_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def pool_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "pool_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def reason(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def reason(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Reason for the update.
         """
         return pulumi.get(self, "reason")
 
     @reason.setter
-    def reason(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def reason(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "reason", value)
 
     @_builtins.property
     @pulumi.getter
-    def schedule(self) -> Optional[pulumi.Input['AgentPoolUpdateScheduleArgs']]:
+    def schedule(self) -> pulumi.Input[Optional['AgentPoolUpdateScheduleArgs']]:
         """
         The schedule configuration for the agent pool update.
         """
         return pulumi.get(self, "schedule")
 
     @schedule.setter
-    def schedule(self, value: Optional[pulumi.Input['AgentPoolUpdateScheduleArgs']]):
+    def schedule(self, value: pulumi.Input[Optional['AgentPoolUpdateScheduleArgs']]):
         pulumi.set(self, "schedule", value)
 
     @_builtins.property
     @pulumi.getter(name="sortOrder")
-    def sort_order(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def sort_order(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the sort order.
         """
         return pulumi.get(self, "sort_order")
 
     @sort_order.setter
-    def sort_order(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def sort_order(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "sort_order", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The status of the agent pool update (e.g., Scheduled, InProgress, Completed, Failed).
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter(name="targetVersion")
-    def target_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The agent version to update to.
         """
         return pulumi.get(self, "target_version")
 
     @target_version.setter
-    def target_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_version", value)
 
 
@@ -441,18 +441,18 @@ class AgentPoolUpdate(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 agent_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 agents: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AgentPoolUpdateAgentArgs', 'AgentPoolUpdateAgentArgsDict']]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 notify_admins: Optional[pulumi.Input[_builtins.bool]] = None,
-                 notify_on_completion: Optional[pulumi.Input[_builtins.bool]] = None,
-                 pool_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 reason: Optional[pulumi.Input[_builtins.str]] = None,
-                 schedule: Optional[pulumi.Input[Union['AgentPoolUpdateScheduleArgs', 'AgentPoolUpdateScheduleArgsDict']]] = None,
-                 sort_order: Optional[pulumi.Input[_builtins.int]] = None,
-                 target_version: Optional[pulumi.Input[_builtins.str]] = None,
+                 agent_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 agents: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentPoolUpdateAgentArgs', 'AgentPoolUpdateAgentArgsDict']]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 notify_admins: pulumi.Input[Optional[_builtins.bool]] = None,
+                 notify_on_completion: pulumi.Input[Optional[_builtins.bool]] = None,
+                 pool_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 reason: pulumi.Input[Optional[_builtins.str]] = None,
+                 schedule: pulumi.Input[Optional[Union['AgentPoolUpdateScheduleArgs', 'AgentPoolUpdateScheduleArgsDict']]] = None,
+                 sort_order: pulumi.Input[Optional[_builtins.int]] = None,
+                 target_version: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages an Okta Agent Pool Update. Agent pool updates allow you to schedule and manage updates for agent pools.
@@ -556,18 +556,18 @@ class AgentPoolUpdate(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 agent_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 agents: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AgentPoolUpdateAgentArgs', 'AgentPoolUpdateAgentArgsDict']]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 notify_admins: Optional[pulumi.Input[_builtins.bool]] = None,
-                 notify_on_completion: Optional[pulumi.Input[_builtins.bool]] = None,
-                 pool_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 reason: Optional[pulumi.Input[_builtins.str]] = None,
-                 schedule: Optional[pulumi.Input[Union['AgentPoolUpdateScheduleArgs', 'AgentPoolUpdateScheduleArgsDict']]] = None,
-                 sort_order: Optional[pulumi.Input[_builtins.int]] = None,
-                 target_version: Optional[pulumi.Input[_builtins.str]] = None,
+                 agent_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 agents: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentPoolUpdateAgentArgs', 'AgentPoolUpdateAgentArgsDict']]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 notify_admins: pulumi.Input[Optional[_builtins.bool]] = None,
+                 notify_on_completion: pulumi.Input[Optional[_builtins.bool]] = None,
+                 pool_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 reason: pulumi.Input[Optional[_builtins.str]] = None,
+                 schedule: pulumi.Input[Optional[Union['AgentPoolUpdateScheduleArgs', 'AgentPoolUpdateScheduleArgsDict']]] = None,
+                 sort_order: pulumi.Input[Optional[_builtins.int]] = None,
+                 target_version: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -602,19 +602,19 @@ class AgentPoolUpdate(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            agent_type: Optional[pulumi.Input[_builtins.str]] = None,
-            agents: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AgentPoolUpdateAgentArgs', 'AgentPoolUpdateAgentArgsDict']]]]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            notify_admins: Optional[pulumi.Input[_builtins.bool]] = None,
-            notify_on_completion: Optional[pulumi.Input[_builtins.bool]] = None,
-            pool_id: Optional[pulumi.Input[_builtins.str]] = None,
-            reason: Optional[pulumi.Input[_builtins.str]] = None,
-            schedule: Optional[pulumi.Input[Union['AgentPoolUpdateScheduleArgs', 'AgentPoolUpdateScheduleArgsDict']]] = None,
-            sort_order: Optional[pulumi.Input[_builtins.int]] = None,
-            status: Optional[pulumi.Input[_builtins.str]] = None,
-            target_version: Optional[pulumi.Input[_builtins.str]] = None) -> 'AgentPoolUpdate':
+            agent_type: pulumi.Input[Optional[_builtins.str]] = None,
+            agents: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentPoolUpdateAgentArgs', 'AgentPoolUpdateAgentArgsDict']]]]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            notify_admins: pulumi.Input[Optional[_builtins.bool]] = None,
+            notify_on_completion: pulumi.Input[Optional[_builtins.bool]] = None,
+            pool_id: pulumi.Input[Optional[_builtins.str]] = None,
+            reason: pulumi.Input[Optional[_builtins.str]] = None,
+            schedule: pulumi.Input[Optional[Union['AgentPoolUpdateScheduleArgs', 'AgentPoolUpdateScheduleArgsDict']]] = None,
+            sort_order: pulumi.Input[Optional[_builtins.int]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            target_version: pulumi.Input[Optional[_builtins.str]] = None) -> 'AgentPoolUpdate':
         """
         Get an existing AgentPoolUpdate resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

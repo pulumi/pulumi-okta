@@ -38,8 +38,8 @@ public final class IdpFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.idp.IdpFunctions;
      * import com.pulumi.okta.idp.inputs.GetMetadataSamlArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -78,8 +78,8 @@ public final class IdpFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.idp.IdpFunctions;
      * import com.pulumi.okta.idp.inputs.GetMetadataSamlArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -118,8 +118,8 @@ public final class IdpFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.idp.IdpFunctions;
      * import com.pulumi.okta.idp.inputs.GetMetadataSamlArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -158,8 +158,8 @@ public final class IdpFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.idp.IdpFunctions;
      * import com.pulumi.okta.idp.inputs.GetMetadataSamlArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -198,8 +198,8 @@ public final class IdpFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.idp.IdpFunctions;
      * import com.pulumi.okta.idp.inputs.GetMetadataSamlArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -238,8 +238,8 @@ public final class IdpFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.idp.IdpFunctions;
      * import com.pulumi.okta.idp.inputs.GetMetadataSamlArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -278,8 +278,8 @@ public final class IdpFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.idp.IdpFunctions;
      * import com.pulumi.okta.idp.inputs.GetMetadataSamlArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -318,8 +318,8 @@ public final class IdpFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.idp.IdpFunctions;
      * import com.pulumi.okta.idp.inputs.GetOidcArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -358,8 +358,8 @@ public final class IdpFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.idp.IdpFunctions;
      * import com.pulumi.okta.idp.inputs.GetOidcArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -398,8 +398,8 @@ public final class IdpFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.idp.IdpFunctions;
      * import com.pulumi.okta.idp.inputs.GetOidcArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -438,8 +438,8 @@ public final class IdpFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.idp.IdpFunctions;
      * import com.pulumi.okta.idp.inputs.GetOidcArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -478,8 +478,8 @@ public final class IdpFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.idp.IdpFunctions;
      * import com.pulumi.okta.idp.inputs.GetOidcArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -518,8 +518,8 @@ public final class IdpFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.idp.IdpFunctions;
      * import com.pulumi.okta.idp.inputs.GetOidcArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -558,8 +558,8 @@ public final class IdpFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.idp.IdpFunctions;
      * import com.pulumi.okta.idp.inputs.GetOidcArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -598,8 +598,8 @@ public final class IdpFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.idp.IdpFunctions;
      * import com.pulumi.okta.idp.inputs.GetSamlArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -638,8 +638,8 @@ public final class IdpFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.idp.IdpFunctions;
      * import com.pulumi.okta.idp.inputs.GetSamlArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -678,8 +678,8 @@ public final class IdpFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.idp.IdpFunctions;
      * import com.pulumi.okta.idp.inputs.GetSamlArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -718,8 +718,8 @@ public final class IdpFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.idp.IdpFunctions;
      * import com.pulumi.okta.idp.inputs.GetSamlArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -758,8 +758,8 @@ public final class IdpFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.idp.IdpFunctions;
      * import com.pulumi.okta.idp.inputs.GetSamlArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -798,8 +798,8 @@ public final class IdpFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.idp.IdpFunctions;
      * import com.pulumi.okta.idp.inputs.GetSamlArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -838,8 +838,8 @@ public final class IdpFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.idp.IdpFunctions;
      * import com.pulumi.okta.idp.inputs.GetSamlArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -878,8 +878,8 @@ public final class IdpFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.idp.IdpFunctions;
      * import com.pulumi.okta.idp.inputs.GetSocialArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -918,8 +918,8 @@ public final class IdpFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.idp.IdpFunctions;
      * import com.pulumi.okta.idp.inputs.GetSocialArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -958,8 +958,8 @@ public final class IdpFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.idp.IdpFunctions;
      * import com.pulumi.okta.idp.inputs.GetSocialArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -998,8 +998,8 @@ public final class IdpFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.idp.IdpFunctions;
      * import com.pulumi.okta.idp.inputs.GetSocialArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1038,8 +1038,8 @@ public final class IdpFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.idp.IdpFunctions;
      * import com.pulumi.okta.idp.inputs.GetSocialArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1078,8 +1078,8 @@ public final class IdpFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.idp.IdpFunctions;
      * import com.pulumi.okta.idp.inputs.GetSocialArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1118,8 +1118,8 @@ public final class IdpFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.idp.IdpFunctions;
      * import com.pulumi.okta.idp.inputs.GetSocialArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

@@ -21,22 +21,22 @@ __all__ = ['RulePasswordArgs', 'RulePassword']
 @pulumi.input_type
 class RulePasswordArgs:
     def __init__(__self__, *,
-                 groups_excludeds: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 groups_includeds: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_connection: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 network_includes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 password_change: Optional[pulumi.Input[_builtins.str]] = None,
-                 password_reset: Optional[pulumi.Input[_builtins.str]] = None,
-                 password_reset_access_control: Optional[pulumi.Input[_builtins.str]] = None,
-                 password_reset_requirement: Optional[pulumi.Input['RulePasswordPasswordResetRequirementArgs']] = None,
-                 password_unlock: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 priority: Optional[pulumi.Input[_builtins.int]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 users_excludeds: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 users_includeds: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 groups_excludeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 groups_includeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_connection: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_excludes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 network_includes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 password_change: pulumi.Input[Optional[_builtins.str]] = None,
+                 password_reset: pulumi.Input[Optional[_builtins.str]] = None,
+                 password_reset_access_control: pulumi.Input[Optional[_builtins.str]] = None,
+                 password_reset_requirement: pulumi.Input[Optional['RulePasswordPasswordResetRequirementArgs']] = None,
+                 password_unlock: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 priority: pulumi.Input[Optional[_builtins.int]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 users_excludeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 users_includeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a RulePassword resource.
 
@@ -92,216 +92,216 @@ class RulePasswordArgs:
 
     @_builtins.property
     @pulumi.getter(name="groupsExcludeds")
-    def groups_excludeds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def groups_excludeds(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Set of Group IDs to exclude from this rule.
         """
         return pulumi.get(self, "groups_excludeds")
 
     @groups_excludeds.setter
-    def groups_excludeds(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def groups_excludeds(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "groups_excludeds", value)
 
     @_builtins.property
     @pulumi.getter(name="groupsIncludeds")
-    def groups_includeds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def groups_includeds(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Set of Group IDs to include in this rule.
         """
         return pulumi.get(self, "groups_includeds")
 
     @groups_includeds.setter
-    def groups_includeds(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def groups_includeds(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "groups_includeds", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Policy Rule Name
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="networkConnection")
-    def network_connection(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def network_connection(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Network selection mode: `ANYWHERE`, `ZONE`. Default: `ANYWHERE`
         """
         return pulumi.get(self, "network_connection")
 
     @network_connection.setter
-    def network_connection(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def network_connection(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "network_connection", value)
 
     @_builtins.property
     @pulumi.getter(name="networkExcludes")
-    def network_excludes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def network_excludes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Required if `network_connection` = `ZONE`. Indicates the network zones to exclude.
         """
         return pulumi.get(self, "network_excludes")
 
     @network_excludes.setter
-    def network_excludes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def network_excludes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "network_excludes", value)
 
     @_builtins.property
     @pulumi.getter(name="networkIncludes")
-    def network_includes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def network_includes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Required if `network_connection` = `ZONE`. Indicates the network zones to include.
         """
         return pulumi.get(self, "network_includes")
 
     @network_includes.setter
-    def network_includes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def network_includes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "network_includes", value)
 
     @_builtins.property
     @pulumi.getter(name="passwordChange")
-    def password_change(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def password_change(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Allow or deny a user to change their password: `ALLOW` or `DENY`. Default: `ALLOW`
         """
         return pulumi.get(self, "password_change")
 
     @password_change.setter
-    def password_change(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def password_change(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "password_change", value)
 
     @_builtins.property
     @pulumi.getter(name="passwordReset")
-    def password_reset(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def password_reset(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Allow or deny a user to reset their password: `ALLOW` or `DENY`. Default: `ALLOW`
         """
         return pulumi.get(self, "password_reset")
 
     @password_reset.setter
-    def password_reset(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def password_reset(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "password_reset", value)
 
     @_builtins.property
     @pulumi.getter(name="passwordResetAccessControl")
-    def password_reset_access_control(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def password_reset_access_control(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Determines whether the Self-Service Password Reset (SSPR) access is governed by an authentication policy or legacy behavior. Options: `LEGACY`, `AUTH_POLICY`.
         """
         return pulumi.get(self, "password_reset_access_control")
 
     @password_reset_access_control.setter
-    def password_reset_access_control(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def password_reset_access_control(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "password_reset_access_control", value)
 
     @_builtins.property
     @pulumi.getter(name="passwordResetRequirement")
-    def password_reset_requirement(self) -> Optional[pulumi.Input['RulePasswordPasswordResetRequirementArgs']]:
+    def password_reset_requirement(self) -> pulumi.Input[Optional['RulePasswordPasswordResetRequirementArgs']]:
         """
         Self-service password reset (SSPR) requirement settings. Use only when `password_reset_access_control = "LEGACY"`.
         """
         return pulumi.get(self, "password_reset_requirement")
 
     @password_reset_requirement.setter
-    def password_reset_requirement(self, value: Optional[pulumi.Input['RulePasswordPasswordResetRequirementArgs']]):
+    def password_reset_requirement(self, value: pulumi.Input[Optional['RulePasswordPasswordResetRequirementArgs']]):
         pulumi.set(self, "password_reset_requirement", value)
 
     @_builtins.property
     @pulumi.getter(name="passwordUnlock")
-    def password_unlock(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def password_unlock(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Allow or deny a user to unlock. Default: `DENY`
         """
         return pulumi.get(self, "password_unlock")
 
     @password_unlock.setter
-    def password_unlock(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def password_unlock(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "password_unlock", value)
 
     @_builtins.property
     @pulumi.getter(name="policyId")
-    def policy_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def policy_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Policy ID of the Rule
         """
         return pulumi.get(self, "policy_id")
 
     @policy_id.setter
-    def policy_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def policy_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "policy_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def priority(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def priority(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
         """
         return pulumi.get(self, "priority")
 
     @priority.setter
-    def priority(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def priority(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "priority", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Policy Rule Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter(name="usersExcludeds")
-    def users_excludeds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def users_excludeds(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Set of User IDs to Exclude
         """
         return pulumi.get(self, "users_excludeds")
 
     @users_excludeds.setter
-    def users_excludeds(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def users_excludeds(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "users_excludeds", value)
 
     @_builtins.property
     @pulumi.getter(name="usersIncludeds")
-    def users_includeds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def users_includeds(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Set of User IDs to include in this rule.
         """
         return pulumi.get(self, "users_includeds")
 
     @users_includeds.setter
-    def users_includeds(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def users_includeds(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "users_includeds", value)
 
 
 @pulumi.input_type
 class _RulePasswordState:
     def __init__(__self__, *,
-                 groups_excludeds: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 groups_includeds: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_connection: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 network_includes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 password_change: Optional[pulumi.Input[_builtins.str]] = None,
-                 password_reset: Optional[pulumi.Input[_builtins.str]] = None,
-                 password_reset_access_control: Optional[pulumi.Input[_builtins.str]] = None,
-                 password_reset_requirement: Optional[pulumi.Input['RulePasswordPasswordResetRequirementArgs']] = None,
-                 password_unlock: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 priority: Optional[pulumi.Input[_builtins.int]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 users_excludeds: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 users_includeds: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 groups_excludeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 groups_includeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_connection: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_excludes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 network_includes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 password_change: pulumi.Input[Optional[_builtins.str]] = None,
+                 password_reset: pulumi.Input[Optional[_builtins.str]] = None,
+                 password_reset_access_control: pulumi.Input[Optional[_builtins.str]] = None,
+                 password_reset_requirement: pulumi.Input[Optional['RulePasswordPasswordResetRequirementArgs']] = None,
+                 password_unlock: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 priority: pulumi.Input[Optional[_builtins.int]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 users_excludeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 users_includeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering RulePassword resources.
 
@@ -357,194 +357,194 @@ class _RulePasswordState:
 
     @_builtins.property
     @pulumi.getter(name="groupsExcludeds")
-    def groups_excludeds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def groups_excludeds(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Set of Group IDs to exclude from this rule.
         """
         return pulumi.get(self, "groups_excludeds")
 
     @groups_excludeds.setter
-    def groups_excludeds(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def groups_excludeds(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "groups_excludeds", value)
 
     @_builtins.property
     @pulumi.getter(name="groupsIncludeds")
-    def groups_includeds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def groups_includeds(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Set of Group IDs to include in this rule.
         """
         return pulumi.get(self, "groups_includeds")
 
     @groups_includeds.setter
-    def groups_includeds(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def groups_includeds(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "groups_includeds", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Policy Rule Name
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="networkConnection")
-    def network_connection(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def network_connection(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Network selection mode: `ANYWHERE`, `ZONE`. Default: `ANYWHERE`
         """
         return pulumi.get(self, "network_connection")
 
     @network_connection.setter
-    def network_connection(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def network_connection(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "network_connection", value)
 
     @_builtins.property
     @pulumi.getter(name="networkExcludes")
-    def network_excludes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def network_excludes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Required if `network_connection` = `ZONE`. Indicates the network zones to exclude.
         """
         return pulumi.get(self, "network_excludes")
 
     @network_excludes.setter
-    def network_excludes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def network_excludes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "network_excludes", value)
 
     @_builtins.property
     @pulumi.getter(name="networkIncludes")
-    def network_includes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def network_includes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Required if `network_connection` = `ZONE`. Indicates the network zones to include.
         """
         return pulumi.get(self, "network_includes")
 
     @network_includes.setter
-    def network_includes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def network_includes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "network_includes", value)
 
     @_builtins.property
     @pulumi.getter(name="passwordChange")
-    def password_change(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def password_change(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Allow or deny a user to change their password: `ALLOW` or `DENY`. Default: `ALLOW`
         """
         return pulumi.get(self, "password_change")
 
     @password_change.setter
-    def password_change(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def password_change(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "password_change", value)
 
     @_builtins.property
     @pulumi.getter(name="passwordReset")
-    def password_reset(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def password_reset(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Allow or deny a user to reset their password: `ALLOW` or `DENY`. Default: `ALLOW`
         """
         return pulumi.get(self, "password_reset")
 
     @password_reset.setter
-    def password_reset(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def password_reset(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "password_reset", value)
 
     @_builtins.property
     @pulumi.getter(name="passwordResetAccessControl")
-    def password_reset_access_control(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def password_reset_access_control(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Determines whether the Self-Service Password Reset (SSPR) access is governed by an authentication policy or legacy behavior. Options: `LEGACY`, `AUTH_POLICY`.
         """
         return pulumi.get(self, "password_reset_access_control")
 
     @password_reset_access_control.setter
-    def password_reset_access_control(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def password_reset_access_control(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "password_reset_access_control", value)
 
     @_builtins.property
     @pulumi.getter(name="passwordResetRequirement")
-    def password_reset_requirement(self) -> Optional[pulumi.Input['RulePasswordPasswordResetRequirementArgs']]:
+    def password_reset_requirement(self) -> pulumi.Input[Optional['RulePasswordPasswordResetRequirementArgs']]:
         """
         Self-service password reset (SSPR) requirement settings. Use only when `password_reset_access_control = "LEGACY"`.
         """
         return pulumi.get(self, "password_reset_requirement")
 
     @password_reset_requirement.setter
-    def password_reset_requirement(self, value: Optional[pulumi.Input['RulePasswordPasswordResetRequirementArgs']]):
+    def password_reset_requirement(self, value: pulumi.Input[Optional['RulePasswordPasswordResetRequirementArgs']]):
         pulumi.set(self, "password_reset_requirement", value)
 
     @_builtins.property
     @pulumi.getter(name="passwordUnlock")
-    def password_unlock(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def password_unlock(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Allow or deny a user to unlock. Default: `DENY`
         """
         return pulumi.get(self, "password_unlock")
 
     @password_unlock.setter
-    def password_unlock(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def password_unlock(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "password_unlock", value)
 
     @_builtins.property
     @pulumi.getter(name="policyId")
-    def policy_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def policy_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Policy ID of the Rule
         """
         return pulumi.get(self, "policy_id")
 
     @policy_id.setter
-    def policy_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def policy_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "policy_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def priority(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def priority(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
         """
         return pulumi.get(self, "priority")
 
     @priority.setter
-    def priority(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def priority(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "priority", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Policy Rule Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter(name="usersExcludeds")
-    def users_excludeds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def users_excludeds(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Set of User IDs to Exclude
         """
         return pulumi.get(self, "users_excludeds")
 
     @users_excludeds.setter
-    def users_excludeds(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def users_excludeds(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "users_excludeds", value)
 
     @_builtins.property
     @pulumi.getter(name="usersIncludeds")
-    def users_includeds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def users_includeds(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Set of User IDs to include in this rule.
         """
         return pulumi.get(self, "users_includeds")
 
     @users_includeds.setter
-    def users_includeds(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def users_includeds(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "users_includeds", value)
 
 
@@ -554,22 +554,22 @@ class RulePassword(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 groups_excludeds: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 groups_includeds: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_connection: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 network_includes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 password_change: Optional[pulumi.Input[_builtins.str]] = None,
-                 password_reset: Optional[pulumi.Input[_builtins.str]] = None,
-                 password_reset_access_control: Optional[pulumi.Input[_builtins.str]] = None,
-                 password_reset_requirement: Optional[pulumi.Input[Union['RulePasswordPasswordResetRequirementArgs', 'RulePasswordPasswordResetRequirementArgsDict']]] = None,
-                 password_unlock: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 priority: Optional[pulumi.Input[_builtins.int]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 users_excludeds: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 users_includeds: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 groups_excludeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 groups_includeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_connection: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_excludes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 network_includes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 password_change: pulumi.Input[Optional[_builtins.str]] = None,
+                 password_reset: pulumi.Input[Optional[_builtins.str]] = None,
+                 password_reset_access_control: pulumi.Input[Optional[_builtins.str]] = None,
+                 password_reset_requirement: pulumi.Input[Optional[Union['RulePasswordPasswordResetRequirementArgs', 'RulePasswordPasswordResetRequirementArgsDict']]] = None,
+                 password_unlock: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 priority: pulumi.Input[Optional[_builtins.int]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 users_excludeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 users_includeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Creates a Password Policy Rule. This resource allows you to create and configure a Password Policy Rule.
@@ -723,22 +723,22 @@ class RulePassword(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 groups_excludeds: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 groups_includeds: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_connection: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 network_includes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 password_change: Optional[pulumi.Input[_builtins.str]] = None,
-                 password_reset: Optional[pulumi.Input[_builtins.str]] = None,
-                 password_reset_access_control: Optional[pulumi.Input[_builtins.str]] = None,
-                 password_reset_requirement: Optional[pulumi.Input[Union['RulePasswordPasswordResetRequirementArgs', 'RulePasswordPasswordResetRequirementArgsDict']]] = None,
-                 password_unlock: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 priority: Optional[pulumi.Input[_builtins.int]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 users_excludeds: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 users_includeds: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 groups_excludeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 groups_includeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_connection: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_excludes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 network_includes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 password_change: pulumi.Input[Optional[_builtins.str]] = None,
+                 password_reset: pulumi.Input[Optional[_builtins.str]] = None,
+                 password_reset_access_control: pulumi.Input[Optional[_builtins.str]] = None,
+                 password_reset_requirement: pulumi.Input[Optional[Union['RulePasswordPasswordResetRequirementArgs', 'RulePasswordPasswordResetRequirementArgsDict']]] = None,
+                 password_unlock: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 priority: pulumi.Input[Optional[_builtins.int]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 users_excludeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 users_includeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -774,22 +774,22 @@ class RulePassword(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            groups_excludeds: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            groups_includeds: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            network_connection: Optional[pulumi.Input[_builtins.str]] = None,
-            network_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            network_includes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            password_change: Optional[pulumi.Input[_builtins.str]] = None,
-            password_reset: Optional[pulumi.Input[_builtins.str]] = None,
-            password_reset_access_control: Optional[pulumi.Input[_builtins.str]] = None,
-            password_reset_requirement: Optional[pulumi.Input[Union['RulePasswordPasswordResetRequirementArgs', 'RulePasswordPasswordResetRequirementArgsDict']]] = None,
-            password_unlock: Optional[pulumi.Input[_builtins.str]] = None,
-            policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-            priority: Optional[pulumi.Input[_builtins.int]] = None,
-            status: Optional[pulumi.Input[_builtins.str]] = None,
-            users_excludeds: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            users_includeds: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'RulePassword':
+            groups_excludeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            groups_includeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            network_connection: pulumi.Input[Optional[_builtins.str]] = None,
+            network_excludes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            network_includes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            password_change: pulumi.Input[Optional[_builtins.str]] = None,
+            password_reset: pulumi.Input[Optional[_builtins.str]] = None,
+            password_reset_access_control: pulumi.Input[Optional[_builtins.str]] = None,
+            password_reset_requirement: pulumi.Input[Optional[Union['RulePasswordPasswordResetRequirementArgs', 'RulePasswordPasswordResetRequirementArgsDict']]] = None,
+            password_unlock: pulumi.Input[Optional[_builtins.str]] = None,
+            policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+            priority: pulumi.Input[Optional[_builtins.int]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            users_excludeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            users_includeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'RulePassword':
         """
         Get an existing RulePassword resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

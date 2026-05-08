@@ -98,7 +98,7 @@ def get_push_groups(app_id: Optional[_builtins.str] = None,
         app_id=pulumi.get(__ret__, 'app_id'),
         id=pulumi.get(__ret__, 'id'),
         mappings=pulumi.get(__ret__, 'mappings'))
-def get_push_groups_output(app_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_push_groups_output(app_id: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPushGroupsResult]:
     """
     Gets a list of Push Group mappings for an Application in Okta.

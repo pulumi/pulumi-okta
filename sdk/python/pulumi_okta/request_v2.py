@@ -21,9 +21,9 @@ __all__ = ['RequestV2Args', 'RequestV2']
 @pulumi.input_type
 class RequestV2Args:
     def __init__(__self__, *,
-                 requested: Optional[pulumi.Input['RequestV2RequestedArgs']] = None,
-                 requested_for: Optional[pulumi.Input['RequestV2RequestedForArgs']] = None,
-                 requester_field_values: Optional[pulumi.Input[Sequence[pulumi.Input['RequestV2RequesterFieldValueArgs']]]] = None):
+                 requested: pulumi.Input[Optional['RequestV2RequestedArgs']] = None,
+                 requested_for: pulumi.Input[Optional['RequestV2RequestedForArgs']] = None,
+                 requester_field_values: pulumi.Input[Optional[Sequence[pulumi.Input['RequestV2RequesterFieldValueArgs']]]] = None):
         """
         The set of arguments for constructing a RequestV2 resource.
 
@@ -40,59 +40,59 @@ class RequestV2Args:
 
     @_builtins.property
     @pulumi.getter
-    def requested(self) -> Optional[pulumi.Input['RequestV2RequestedArgs']]:
+    def requested(self) -> pulumi.Input[Optional['RequestV2RequestedArgs']]:
         """
         A representation of a resource that can be requested for access.
         """
         return pulumi.get(self, "requested")
 
     @requested.setter
-    def requested(self, value: Optional[pulumi.Input['RequestV2RequestedArgs']]):
+    def requested(self, value: pulumi.Input[Optional['RequestV2RequestedArgs']]):
         pulumi.set(self, "requested", value)
 
     @_builtins.property
     @pulumi.getter(name="requestedFor")
-    def requested_for(self) -> Optional[pulumi.Input['RequestV2RequestedForArgs']]:
+    def requested_for(self) -> pulumi.Input[Optional['RequestV2RequestedForArgs']]:
         """
         A representation of a principal.
         """
         return pulumi.get(self, "requested_for")
 
     @requested_for.setter
-    def requested_for(self, value: Optional[pulumi.Input['RequestV2RequestedForArgs']]):
+    def requested_for(self, value: pulumi.Input[Optional['RequestV2RequestedForArgs']]):
         pulumi.set(self, "requested_for", value)
 
     @_builtins.property
     @pulumi.getter(name="requesterFieldValues")
-    def requester_field_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RequestV2RequesterFieldValueArgs']]]]:
+    def requester_field_values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RequestV2RequesterFieldValueArgs']]]]:
         """
         The requester input fields required by the approval system.
         """
         return pulumi.get(self, "requester_field_values")
 
     @requester_field_values.setter
-    def requester_field_values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RequestV2RequesterFieldValueArgs']]]]):
+    def requester_field_values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RequestV2RequesterFieldValueArgs']]]]):
         pulumi.set(self, "requester_field_values", value)
 
 
 @pulumi.input_type
 class _RequestV2State:
     def __init__(__self__, *,
-                 access_duration: Optional[pulumi.Input[_builtins.str]] = None,
-                 created: Optional[pulumi.Input[_builtins.str]] = None,
-                 created_by: Optional[pulumi.Input[_builtins.str]] = None,
-                 grant_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 granted: Optional[pulumi.Input[_builtins.str]] = None,
-                 last_updated: Optional[pulumi.Input[_builtins.str]] = None,
-                 last_updated_by: Optional[pulumi.Input[_builtins.str]] = None,
-                 requested: Optional[pulumi.Input['RequestV2RequestedArgs']] = None,
-                 requested_for: Optional[pulumi.Input['RequestV2RequestedForArgs']] = None,
-                 requester_field_values: Optional[pulumi.Input[Sequence[pulumi.Input['RequestV2RequesterFieldValueArgs']]]] = None,
-                 resolved: Optional[pulumi.Input[_builtins.str]] = None,
-                 revocation_scheduled: Optional[pulumi.Input[_builtins.str]] = None,
-                 revocation_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 revoked: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None):
+                 access_duration: pulumi.Input[Optional[_builtins.str]] = None,
+                 created: pulumi.Input[Optional[_builtins.str]] = None,
+                 created_by: pulumi.Input[Optional[_builtins.str]] = None,
+                 grant_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 granted: pulumi.Input[Optional[_builtins.str]] = None,
+                 last_updated: pulumi.Input[Optional[_builtins.str]] = None,
+                 last_updated_by: pulumi.Input[Optional[_builtins.str]] = None,
+                 requested: pulumi.Input[Optional['RequestV2RequestedArgs']] = None,
+                 requested_for: pulumi.Input[Optional['RequestV2RequestedForArgs']] = None,
+                 requester_field_values: pulumi.Input[Optional[Sequence[pulumi.Input['RequestV2RequesterFieldValueArgs']]]] = None,
+                 resolved: pulumi.Input[Optional[_builtins.str]] = None,
+                 revocation_scheduled: pulumi.Input[Optional[_builtins.str]] = None,
+                 revocation_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 revoked: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering RequestV2 resources.
 
@@ -145,182 +145,182 @@ class _RequestV2State:
 
     @_builtins.property
     @pulumi.getter(name="accessDuration")
-    def access_duration(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def access_duration(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         How long the requester retains access after their request is approved and fulfilled.
         """
         return pulumi.get(self, "access_duration")
 
     @access_duration.setter
-    def access_duration(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def access_duration(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "access_duration", value)
 
     @_builtins.property
     @pulumi.getter
-    def created(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def created(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The date and time when the request condition was created.
         """
         return pulumi.get(self, "created")
 
     @created.setter
-    def created(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def created(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "created", value)
 
     @_builtins.property
     @pulumi.getter(name="createdBy")
-    def created_by(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def created_by(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The id of the user who created the request condition.
         """
         return pulumi.get(self, "created_by")
 
     @created_by.setter
-    def created_by(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def created_by(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "created_by", value)
 
     @_builtins.property
     @pulumi.getter(name="grantStatus")
-    def grant_status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def grant_status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The status of the granted access request.
         """
         return pulumi.get(self, "grant_status")
 
     @grant_status.setter
-    def grant_status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def grant_status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "grant_status", value)
 
     @_builtins.property
     @pulumi.getter
-    def granted(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def granted(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The date the approved access was granted. Only set if request . Status is APPROVED.
         """
         return pulumi.get(self, "granted")
 
     @granted.setter
-    def granted(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def granted(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "granted", value)
 
     @_builtins.property
     @pulumi.getter(name="lastUpdated")
-    def last_updated(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def last_updated(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The date and time when the request condition was last updated.
         """
         return pulumi.get(self, "last_updated")
 
     @last_updated.setter
-    def last_updated(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def last_updated(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "last_updated", value)
 
     @_builtins.property
     @pulumi.getter(name="lastUpdatedBy")
-    def last_updated_by(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def last_updated_by(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The id of the user who last updated the request condition.
         """
         return pulumi.get(self, "last_updated_by")
 
     @last_updated_by.setter
-    def last_updated_by(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def last_updated_by(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "last_updated_by", value)
 
     @_builtins.property
     @pulumi.getter
-    def requested(self) -> Optional[pulumi.Input['RequestV2RequestedArgs']]:
+    def requested(self) -> pulumi.Input[Optional['RequestV2RequestedArgs']]:
         """
         A representation of a resource that can be requested for access.
         """
         return pulumi.get(self, "requested")
 
     @requested.setter
-    def requested(self, value: Optional[pulumi.Input['RequestV2RequestedArgs']]):
+    def requested(self, value: pulumi.Input[Optional['RequestV2RequestedArgs']]):
         pulumi.set(self, "requested", value)
 
     @_builtins.property
     @pulumi.getter(name="requestedFor")
-    def requested_for(self) -> Optional[pulumi.Input['RequestV2RequestedForArgs']]:
+    def requested_for(self) -> pulumi.Input[Optional['RequestV2RequestedForArgs']]:
         """
         A representation of a principal.
         """
         return pulumi.get(self, "requested_for")
 
     @requested_for.setter
-    def requested_for(self, value: Optional[pulumi.Input['RequestV2RequestedForArgs']]):
+    def requested_for(self, value: pulumi.Input[Optional['RequestV2RequestedForArgs']]):
         pulumi.set(self, "requested_for", value)
 
     @_builtins.property
     @pulumi.getter(name="requesterFieldValues")
-    def requester_field_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RequestV2RequesterFieldValueArgs']]]]:
+    def requester_field_values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RequestV2RequesterFieldValueArgs']]]]:
         """
         The requester input fields required by the approval system.
         """
         return pulumi.get(self, "requester_field_values")
 
     @requester_field_values.setter
-    def requester_field_values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RequestV2RequesterFieldValueArgs']]]]):
+    def requester_field_values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RequestV2RequesterFieldValueArgs']]]]):
         pulumi.set(self, "requester_field_values", value)
 
     @_builtins.property
     @pulumi.getter
-    def resolved(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resolved(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The date the request was resolved.
         """
         return pulumi.get(self, "resolved")
 
     @resolved.setter
-    def resolved(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resolved(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resolved", value)
 
     @_builtins.property
     @pulumi.getter(name="revocationScheduled")
-    def revocation_scheduled(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def revocation_scheduled(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The date the request was scheduled for revocation.
         """
         return pulumi.get(self, "revocation_scheduled")
 
     @revocation_scheduled.setter
-    def revocation_scheduled(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def revocation_scheduled(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "revocation_scheduled", value)
 
     @_builtins.property
     @pulumi.getter(name="revocationStatus")
-    def revocation_status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def revocation_status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The revocation status of the request.
         """
         return pulumi.get(self, "revocation_status")
 
     @revocation_status.setter
-    def revocation_status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def revocation_status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "revocation_status", value)
 
     @_builtins.property
     @pulumi.getter
-    def revoked(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def revoked(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The date the granted access was revoked.
         """
         return pulumi.get(self, "revoked")
 
     @revoked.setter
-    def revoked(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def revoked(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "revoked", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The status of the request.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
 
@@ -330,9 +330,9 @@ class RequestV2(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 requested: Optional[pulumi.Input[Union['RequestV2RequestedArgs', 'RequestV2RequestedArgsDict']]] = None,
-                 requested_for: Optional[pulumi.Input[Union['RequestV2RequestedForArgs', 'RequestV2RequestedForArgsDict']]] = None,
-                 requester_field_values: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RequestV2RequesterFieldValueArgs', 'RequestV2RequesterFieldValueArgsDict']]]]] = None,
+                 requested: pulumi.Input[Optional[Union['RequestV2RequestedArgs', 'RequestV2RequestedArgsDict']]] = None,
+                 requested_for: pulumi.Input[Optional[Union['RequestV2RequestedForArgs', 'RequestV2RequestedForArgsDict']]] = None,
+                 requester_field_values: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RequestV2RequesterFieldValueArgs', 'RequestV2RequesterFieldValueArgsDict']]]]] = None,
                  __props__=None):
         """
         Manage the access request process. This resource allows you to create and read an Okta [request](https://developer.okta.com/docs/api/iga/openapi/governance.requests.admin.v2/tag/Requests/#tag/Requests).
@@ -415,9 +415,9 @@ class RequestV2(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 requested: Optional[pulumi.Input[Union['RequestV2RequestedArgs', 'RequestV2RequestedArgsDict']]] = None,
-                 requested_for: Optional[pulumi.Input[Union['RequestV2RequestedForArgs', 'RequestV2RequestedForArgsDict']]] = None,
-                 requester_field_values: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RequestV2RequesterFieldValueArgs', 'RequestV2RequesterFieldValueArgsDict']]]]] = None,
+                 requested: pulumi.Input[Optional[Union['RequestV2RequestedArgs', 'RequestV2RequestedArgsDict']]] = None,
+                 requested_for: pulumi.Input[Optional[Union['RequestV2RequestedForArgs', 'RequestV2RequestedForArgsDict']]] = None,
+                 requester_field_values: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RequestV2RequesterFieldValueArgs', 'RequestV2RequesterFieldValueArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -452,21 +452,21 @@ class RequestV2(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            access_duration: Optional[pulumi.Input[_builtins.str]] = None,
-            created: Optional[pulumi.Input[_builtins.str]] = None,
-            created_by: Optional[pulumi.Input[_builtins.str]] = None,
-            grant_status: Optional[pulumi.Input[_builtins.str]] = None,
-            granted: Optional[pulumi.Input[_builtins.str]] = None,
-            last_updated: Optional[pulumi.Input[_builtins.str]] = None,
-            last_updated_by: Optional[pulumi.Input[_builtins.str]] = None,
-            requested: Optional[pulumi.Input[Union['RequestV2RequestedArgs', 'RequestV2RequestedArgsDict']]] = None,
-            requested_for: Optional[pulumi.Input[Union['RequestV2RequestedForArgs', 'RequestV2RequestedForArgsDict']]] = None,
-            requester_field_values: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RequestV2RequesterFieldValueArgs', 'RequestV2RequesterFieldValueArgsDict']]]]] = None,
-            resolved: Optional[pulumi.Input[_builtins.str]] = None,
-            revocation_scheduled: Optional[pulumi.Input[_builtins.str]] = None,
-            revocation_status: Optional[pulumi.Input[_builtins.str]] = None,
-            revoked: Optional[pulumi.Input[_builtins.str]] = None,
-            status: Optional[pulumi.Input[_builtins.str]] = None) -> 'RequestV2':
+            access_duration: pulumi.Input[Optional[_builtins.str]] = None,
+            created: pulumi.Input[Optional[_builtins.str]] = None,
+            created_by: pulumi.Input[Optional[_builtins.str]] = None,
+            grant_status: pulumi.Input[Optional[_builtins.str]] = None,
+            granted: pulumi.Input[Optional[_builtins.str]] = None,
+            last_updated: pulumi.Input[Optional[_builtins.str]] = None,
+            last_updated_by: pulumi.Input[Optional[_builtins.str]] = None,
+            requested: pulumi.Input[Optional[Union['RequestV2RequestedArgs', 'RequestV2RequestedArgsDict']]] = None,
+            requested_for: pulumi.Input[Optional[Union['RequestV2RequestedForArgs', 'RequestV2RequestedForArgsDict']]] = None,
+            requester_field_values: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RequestV2RequesterFieldValueArgs', 'RequestV2RequesterFieldValueArgsDict']]]]] = None,
+            resolved: pulumi.Input[Optional[_builtins.str]] = None,
+            revocation_scheduled: pulumi.Input[Optional[_builtins.str]] = None,
+            revocation_status: pulumi.Input[Optional[_builtins.str]] = None,
+            revoked: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None) -> 'RequestV2':
         """
         Get an existing RequestV2 resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

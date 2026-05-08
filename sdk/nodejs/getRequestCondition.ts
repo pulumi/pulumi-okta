@@ -119,12 +119,12 @@ export function getRequestConditionOutput(args: GetRequestConditionOutputArgs, o
  * A collection of arguments for invoking getRequestCondition.
  */
 export interface GetRequestConditionOutputArgs {
-    accessScopeSettings?: pulumi.Input<inputs.GetRequestConditionAccessScopeSettingsArgs>;
+    accessScopeSettings?: pulumi.Input<inputs.GetRequestConditionAccessScopeSettingsArgs | undefined>;
     /**
      * Request condition id.
      */
     id: pulumi.Input<string>;
-    requesterSettings?: pulumi.Input<inputs.GetRequestConditionRequesterSettingsArgs>;
+    requesterSettings?: pulumi.Input<inputs.GetRequestConditionRequesterSettingsArgs | undefined>;
     /**
      * The id of the resource in Okta ID format.
      */

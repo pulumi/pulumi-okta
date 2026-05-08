@@ -260,8 +260,8 @@ def get_theme(brand_id: Optional[_builtins.str] = None,
         secondary_color_hex=pulumi.get(__ret__, 'secondary_color_hex'),
         sign_in_page_touch_point_variant=pulumi.get(__ret__, 'sign_in_page_touch_point_variant'),
         theme_id=pulumi.get(__ret__, 'theme_id'))
-def get_theme_output(brand_id: Optional[pulumi.Input[_builtins.str]] = None,
-                     theme_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_theme_output(brand_id: pulumi.Input[Optional[_builtins.str]] = None,
+                     theme_id: pulumi.Input[Optional[_builtins.str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetThemeResult]:
     """
     Get a single Theme of a Brand of an Okta Organization.

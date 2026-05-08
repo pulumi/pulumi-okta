@@ -104,5 +104,5 @@ export interface GetApiTokenOutputArgs {
     /**
      * The network configuration of the API token.
      */
-    network?: pulumi.Input<inputs.GetApiTokenNetworkArgs>;
+    network?: pulumi.Input<inputs.GetApiTokenNetworkArgs | undefined>;
 }

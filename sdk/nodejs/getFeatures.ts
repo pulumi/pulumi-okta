@@ -94,9 +94,9 @@ export interface GetFeaturesOutputArgs {
     /**
      * Searches for features whose label or name property matches this value exactly. Case sensitive
      */
-    label?: pulumi.Input<string>;
+    label?: pulumi.Input<string | undefined>;
     /**
      * Searches for features whose label or name property substring match this value. Case sensitive
      */
-    substring?: pulumi.Input<string>;
+    substring?: pulumi.Input<string | undefined>;
 }

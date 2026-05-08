@@ -134,27 +134,27 @@ export interface ServerPolicyState {
     /**
      * The ID of the Auth Server.
      */
-    authServerId?: pulumi.Input<string>;
+    authServerId?: pulumi.Input<string | undefined>;
     /**
      * The clients to whitelist the policy for. `[ALL_CLIENTS]` is a special value that can be used to whitelist all clients, otherwise it is a list of client ids.
      */
-    clientWhitelists?: pulumi.Input<pulumi.Input<string>[]>;
+    clientWhitelists?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The description of the Auth Server Policy.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name of the Auth Server Policy.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Priority of the auth server policy
      */
-    priority?: pulumi.Input<number>;
+    priority?: pulumi.Input<number | undefined>;
     /**
      * Default to `ACTIVE`
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -176,7 +176,7 @@ export interface ServerPolicyArgs {
     /**
      * The name of the Auth Server Policy.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Priority of the auth server policy
      */
@@ -184,5 +184,5 @@ export interface ServerPolicyArgs {
     /**
      * Default to `ACTIVE`
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
 }

@@ -202,12 +202,12 @@ export interface GetEndUserMyRequestsOutputArgs {
      * The ID of the request to retrieve.
      */
     id: pulumi.Input<string>;
-    requested?: pulumi.Input<inputs.GetEndUserMyRequestsRequestedArgs>;
-    requestedBy?: pulumi.Input<inputs.GetEndUserMyRequestsRequestedByArgs>;
-    requestedFor?: pulumi.Input<inputs.GetEndUserMyRequestsRequestedForArgs>;
+    requested?: pulumi.Input<inputs.GetEndUserMyRequestsRequestedArgs | undefined>;
+    requestedBy?: pulumi.Input<inputs.GetEndUserMyRequestsRequestedByArgs | undefined>;
+    requestedFor?: pulumi.Input<inputs.GetEndUserMyRequestsRequestedForArgs | undefined>;
     /**
      * The requester input fields and their values from the request.
      */
-    requesterFieldValues?: pulumi.Input<pulumi.Input<inputs.GetEndUserMyRequestsRequesterFieldValueArgs>[]>;
-    riskAssessment?: pulumi.Input<inputs.GetEndUserMyRequestsRiskAssessmentArgs>;
+    requesterFieldValues?: pulumi.Input<pulumi.Input<inputs.GetEndUserMyRequestsRequesterFieldValueArgs>[] | undefined>;
+    riskAssessment?: pulumi.Input<inputs.GetEndUserMyRequestsRiskAssessmentArgs | undefined>;
 }

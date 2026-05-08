@@ -136,7 +136,7 @@ def get_hook_key(id: Optional[_builtins.str] = None,
         key_id=pulumi.get(__ret__, 'key_id'),
         last_updated=pulumi.get(__ret__, 'last_updated'),
         name=pulumi.get(__ret__, 'name'))
-def get_hook_key_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_hook_key_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetHookKeyResult]:
     """
     Use Key Management to create and manage JSON Web Keys (JWKS) that support OAuth 2.0 client authentication. The key is composed of a public and private key pair. The private key signs the JSON Web Token (JWT) and the public key validates it on the client side.

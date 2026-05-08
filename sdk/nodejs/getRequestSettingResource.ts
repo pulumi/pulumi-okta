@@ -110,21 +110,21 @@ export interface GetRequestSettingResourceOutputArgs {
     /**
      * Risk settings for the resource.
      */
-    requestOnBehalfOfSettings?: pulumi.Input<inputs.GetRequestSettingResourceRequestOnBehalfOfSettingsArgs>;
+    requestOnBehalfOfSettings?: pulumi.Input<inputs.GetRequestSettingResourceRequestOnBehalfOfSettingsArgs | undefined>;
     /**
      * Risk settings for the resource.
      */
-    riskSettings?: pulumi.Input<inputs.GetRequestSettingResourceRiskSettingsArgs>;
+    riskSettings?: pulumi.Input<inputs.GetRequestSettingResourceRiskSettingsArgs | undefined>;
     /**
      * Specifies if and for whom a requester may request the resource for.
      */
-    validAccessDurationSettings?: pulumi.Input<inputs.GetRequestSettingResourceValidAccessDurationSettingsArgs>;
+    validAccessDurationSettings?: pulumi.Input<inputs.GetRequestSettingResourceValidAccessDurationSettingsArgs | undefined>;
     /**
      * Risk settings for the resource.
      */
-    validAccessScopeSettings?: pulumi.Input<pulumi.Input<inputs.GetRequestSettingResourceValidAccessScopeSettingArgs>[]>;
+    validAccessScopeSettings?: pulumi.Input<pulumi.Input<inputs.GetRequestSettingResourceValidAccessScopeSettingArgs>[] | undefined>;
     /**
      * Risk settings for the resource.
      */
-    validRequesterSettings?: pulumi.Input<pulumi.Input<inputs.GetRequestSettingResourceValidRequesterSettingArgs>[]>;
+    validRequesterSettings?: pulumi.Input<pulumi.Input<inputs.GetRequestSettingResourceValidRequesterSettingArgs>[] | undefined>;
 }

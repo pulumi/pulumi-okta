@@ -23,18 +23,18 @@ class ServerPolicyRuleArgs:
                  grant_type_whitelists: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  policy_id: pulumi.Input[_builtins.str],
                  priority: pulumi.Input[_builtins.int],
-                 access_token_lifetime_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 group_blacklists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 group_whitelists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 inline_hook_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 refresh_token_lifetime_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 refresh_token_window_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 scope_whitelists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_blacklists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 user_whitelists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 access_token_lifetime_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 group_blacklists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 group_whitelists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 inline_hook_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 refresh_token_lifetime_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 refresh_token_window_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 scope_whitelists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_blacklists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 user_whitelists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ServerPolicyRule resource.
 
@@ -134,169 +134,169 @@ class ServerPolicyRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="accessTokenLifetimeMinutes")
-    def access_token_lifetime_minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def access_token_lifetime_minutes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Lifetime of access token. Can be set to a value between 5 and 1440 minutes. Default is `60`.
         """
         return pulumi.get(self, "access_token_lifetime_minutes")
 
     @access_token_lifetime_minutes.setter
-    def access_token_lifetime_minutes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def access_token_lifetime_minutes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "access_token_lifetime_minutes", value)
 
     @_builtins.property
     @pulumi.getter(name="groupBlacklists")
-    def group_blacklists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def group_blacklists(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a set of Groups whose Users are to be excluded.
         """
         return pulumi.get(self, "group_blacklists")
 
     @group_blacklists.setter
-    def group_blacklists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def group_blacklists(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "group_blacklists", value)
 
     @_builtins.property
     @pulumi.getter(name="groupWhitelists")
-    def group_whitelists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def group_whitelists(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a set of Groups whose Users are to be included. Can be set to Group ID or to the following: `EVERYONE`.
         """
         return pulumi.get(self, "group_whitelists")
 
     @group_whitelists.setter
-    def group_whitelists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def group_whitelists(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "group_whitelists", value)
 
     @_builtins.property
     @pulumi.getter(name="inlineHookId")
-    def inline_hook_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def inline_hook_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the inline token to trigger.
         """
         return pulumi.get(self, "inline_hook_id")
 
     @inline_hook_id.setter
-    def inline_hook_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def inline_hook_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "inline_hook_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Auth server policy rule name
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="refreshTokenLifetimeMinutes")
-    def refresh_token_lifetime_minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def refresh_token_lifetime_minutes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Lifetime of refresh token.
         """
         return pulumi.get(self, "refresh_token_lifetime_minutes")
 
     @refresh_token_lifetime_minutes.setter
-    def refresh_token_lifetime_minutes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def refresh_token_lifetime_minutes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "refresh_token_lifetime_minutes", value)
 
     @_builtins.property
     @pulumi.getter(name="refreshTokenWindowMinutes")
-    def refresh_token_window_minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def refresh_token_window_minutes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes. Default is `10080` (7 days).`refresh_token_window_minutes` must be between `access_token_lifetime_minutes` and `refresh_token_lifetime_minutes`.
         """
         return pulumi.get(self, "refresh_token_window_minutes")
 
     @refresh_token_window_minutes.setter
-    def refresh_token_window_minutes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def refresh_token_window_minutes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "refresh_token_window_minutes", value)
 
     @_builtins.property
     @pulumi.getter(name="scopeWhitelists")
-    def scope_whitelists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def scope_whitelists(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Scopes allowed for this policy rule. They can be whitelisted by name or all can be whitelisted with `*`
         """
         return pulumi.get(self, "scope_whitelists")
 
     @scope_whitelists.setter
-    def scope_whitelists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def scope_whitelists(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "scope_whitelists", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Default to `ACTIVE`
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Auth server policy rule type, unlikely this will be anything other then the default
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
     @_builtins.property
     @pulumi.getter(name="userBlacklists")
-    def user_blacklists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def user_blacklists(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a set of Users to be excluded.
         """
         return pulumi.get(self, "user_blacklists")
 
     @user_blacklists.setter
-    def user_blacklists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def user_blacklists(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "user_blacklists", value)
 
     @_builtins.property
     @pulumi.getter(name="userWhitelists")
-    def user_whitelists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def user_whitelists(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a set of Users to be included.
         """
         return pulumi.get(self, "user_whitelists")
 
     @user_whitelists.setter
-    def user_whitelists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def user_whitelists(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "user_whitelists", value)
 
 
 @pulumi.input_type
 class _ServerPolicyRuleState:
     def __init__(__self__, *,
-                 access_token_lifetime_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 auth_server_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 grant_type_whitelists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 group_blacklists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 group_whitelists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 inline_hook_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 priority: Optional[pulumi.Input[_builtins.int]] = None,
-                 refresh_token_lifetime_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 refresh_token_window_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 scope_whitelists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 system: Optional[pulumi.Input[_builtins.bool]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_blacklists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 user_whitelists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 access_token_lifetime_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 auth_server_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 grant_type_whitelists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 group_blacklists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 group_whitelists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 inline_hook_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 priority: pulumi.Input[Optional[_builtins.int]] = None,
+                 refresh_token_lifetime_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 refresh_token_window_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 scope_whitelists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 system: pulumi.Input[Optional[_builtins.bool]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_blacklists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 user_whitelists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering ServerPolicyRule resources.
 
@@ -355,206 +355,206 @@ class _ServerPolicyRuleState:
 
     @_builtins.property
     @pulumi.getter(name="accessTokenLifetimeMinutes")
-    def access_token_lifetime_minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def access_token_lifetime_minutes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Lifetime of access token. Can be set to a value between 5 and 1440 minutes. Default is `60`.
         """
         return pulumi.get(self, "access_token_lifetime_minutes")
 
     @access_token_lifetime_minutes.setter
-    def access_token_lifetime_minutes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def access_token_lifetime_minutes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "access_token_lifetime_minutes", value)
 
     @_builtins.property
     @pulumi.getter(name="authServerId")
-    def auth_server_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def auth_server_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Auth server ID
         """
         return pulumi.get(self, "auth_server_id")
 
     @auth_server_id.setter
-    def auth_server_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def auth_server_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "auth_server_id", value)
 
     @_builtins.property
     @pulumi.getter(name="grantTypeWhitelists")
-    def grant_type_whitelists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def grant_type_whitelists(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Accepted grant type values, `authorization_code`, `implicit`, `password`, `client_credentials`, `urn:ietf:params:oauth:grant-type:saml2-bearer` (*Early Access Property*), `urn:ietf:params:oauth:grant-type:token-exchange` (*Early Access Property*),`urn:ietf:params:oauth:grant-type:device_code` (*Early Access Property*), `interaction_code` (*OIE only*). For `implicit` value either `user_whitelist` or `group_whitelist` should be set.
         """
         return pulumi.get(self, "grant_type_whitelists")
 
     @grant_type_whitelists.setter
-    def grant_type_whitelists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def grant_type_whitelists(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "grant_type_whitelists", value)
 
     @_builtins.property
     @pulumi.getter(name="groupBlacklists")
-    def group_blacklists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def group_blacklists(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a set of Groups whose Users are to be excluded.
         """
         return pulumi.get(self, "group_blacklists")
 
     @group_blacklists.setter
-    def group_blacklists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def group_blacklists(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "group_blacklists", value)
 
     @_builtins.property
     @pulumi.getter(name="groupWhitelists")
-    def group_whitelists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def group_whitelists(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a set of Groups whose Users are to be included. Can be set to Group ID or to the following: `EVERYONE`.
         """
         return pulumi.get(self, "group_whitelists")
 
     @group_whitelists.setter
-    def group_whitelists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def group_whitelists(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "group_whitelists", value)
 
     @_builtins.property
     @pulumi.getter(name="inlineHookId")
-    def inline_hook_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def inline_hook_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the inline token to trigger.
         """
         return pulumi.get(self, "inline_hook_id")
 
     @inline_hook_id.setter
-    def inline_hook_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def inline_hook_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "inline_hook_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Auth server policy rule name
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="policyId")
-    def policy_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def policy_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Auth server policy ID
         """
         return pulumi.get(self, "policy_id")
 
     @policy_id.setter
-    def policy_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def policy_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "policy_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def priority(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def priority(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Priority of the auth server policy rule
         """
         return pulumi.get(self, "priority")
 
     @priority.setter
-    def priority(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def priority(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "priority", value)
 
     @_builtins.property
     @pulumi.getter(name="refreshTokenLifetimeMinutes")
-    def refresh_token_lifetime_minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def refresh_token_lifetime_minutes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Lifetime of refresh token.
         """
         return pulumi.get(self, "refresh_token_lifetime_minutes")
 
     @refresh_token_lifetime_minutes.setter
-    def refresh_token_lifetime_minutes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def refresh_token_lifetime_minutes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "refresh_token_lifetime_minutes", value)
 
     @_builtins.property
     @pulumi.getter(name="refreshTokenWindowMinutes")
-    def refresh_token_window_minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def refresh_token_window_minutes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes. Default is `10080` (7 days).`refresh_token_window_minutes` must be between `access_token_lifetime_minutes` and `refresh_token_lifetime_minutes`.
         """
         return pulumi.get(self, "refresh_token_window_minutes")
 
     @refresh_token_window_minutes.setter
-    def refresh_token_window_minutes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def refresh_token_window_minutes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "refresh_token_window_minutes", value)
 
     @_builtins.property
     @pulumi.getter(name="scopeWhitelists")
-    def scope_whitelists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def scope_whitelists(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Scopes allowed for this policy rule. They can be whitelisted by name or all can be whitelisted with `*`
         """
         return pulumi.get(self, "scope_whitelists")
 
     @scope_whitelists.setter
-    def scope_whitelists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def scope_whitelists(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "scope_whitelists", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Default to `ACTIVE`
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter
-    def system(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def system(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         The rule is the system (default) rule for its associated policy
         """
         return pulumi.get(self, "system")
 
     @system.setter
-    def system(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def system(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "system", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Auth server policy rule type, unlikely this will be anything other then the default
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
     @_builtins.property
     @pulumi.getter(name="userBlacklists")
-    def user_blacklists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def user_blacklists(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a set of Users to be excluded.
         """
         return pulumi.get(self, "user_blacklists")
 
     @user_blacklists.setter
-    def user_blacklists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def user_blacklists(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "user_blacklists", value)
 
     @_builtins.property
     @pulumi.getter(name="userWhitelists")
-    def user_whitelists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def user_whitelists(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies a set of Users to be included.
         """
         return pulumi.get(self, "user_whitelists")
 
     @user_whitelists.setter
-    def user_whitelists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def user_whitelists(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "user_whitelists", value)
 
 
@@ -564,22 +564,22 @@ class ServerPolicyRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_token_lifetime_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 auth_server_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 grant_type_whitelists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 group_blacklists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 group_whitelists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 inline_hook_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 priority: Optional[pulumi.Input[_builtins.int]] = None,
-                 refresh_token_lifetime_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 refresh_token_window_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 scope_whitelists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_blacklists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 user_whitelists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 access_token_lifetime_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 auth_server_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 grant_type_whitelists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 group_blacklists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 group_whitelists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 inline_hook_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 priority: pulumi.Input[Optional[_builtins.int]] = None,
+                 refresh_token_lifetime_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 refresh_token_window_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 scope_whitelists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_blacklists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 user_whitelists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Creates an Authorization Server Policy Rule.
@@ -685,22 +685,22 @@ class ServerPolicyRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_token_lifetime_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 auth_server_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 grant_type_whitelists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 group_blacklists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 group_whitelists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 inline_hook_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 priority: Optional[pulumi.Input[_builtins.int]] = None,
-                 refresh_token_lifetime_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 refresh_token_window_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 scope_whitelists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_blacklists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 user_whitelists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 access_token_lifetime_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 auth_server_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 grant_type_whitelists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 group_blacklists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 group_whitelists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 inline_hook_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 priority: pulumi.Input[Optional[_builtins.int]] = None,
+                 refresh_token_lifetime_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 refresh_token_window_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 scope_whitelists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_blacklists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 user_whitelists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -747,23 +747,23 @@ class ServerPolicyRule(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            access_token_lifetime_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-            auth_server_id: Optional[pulumi.Input[_builtins.str]] = None,
-            grant_type_whitelists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            group_blacklists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            group_whitelists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            inline_hook_id: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-            priority: Optional[pulumi.Input[_builtins.int]] = None,
-            refresh_token_lifetime_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-            refresh_token_window_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-            scope_whitelists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            status: Optional[pulumi.Input[_builtins.str]] = None,
-            system: Optional[pulumi.Input[_builtins.bool]] = None,
-            type: Optional[pulumi.Input[_builtins.str]] = None,
-            user_blacklists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            user_whitelists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'ServerPolicyRule':
+            access_token_lifetime_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+            auth_server_id: pulumi.Input[Optional[_builtins.str]] = None,
+            grant_type_whitelists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            group_blacklists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            group_whitelists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            inline_hook_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+            priority: pulumi.Input[Optional[_builtins.int]] = None,
+            refresh_token_lifetime_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+            refresh_token_window_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+            scope_whitelists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            system: pulumi.Input[Optional[_builtins.bool]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None,
+            user_blacklists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            user_whitelists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'ServerPolicyRule':
         """
         Get an existing ServerPolicyRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

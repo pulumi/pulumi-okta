@@ -111,23 +111,23 @@ export interface DomainState {
     /**
      * Brand id of the domain
      */
-    brandId?: pulumi.Input<string>;
+    brandId?: pulumi.Input<string | undefined>;
     /**
      * Certificate source type that indicates whether the certificate is provided by the user or Okta. Accepted values: `MANUAL`, `OKTA_MANAGED`. Warning: Use of OKTA_MANAGED requires a feature flag to be enabled. Default value = MANUAL
      */
-    certificateSourceType?: pulumi.Input<string>;
+    certificateSourceType?: pulumi.Input<string | undefined>;
     /**
      * TXT and CNAME records to be registered for the Domain
      */
-    dnsRecords?: pulumi.Input<pulumi.Input<inputs.DomainDnsRecord>[]>;
+    dnsRecords?: pulumi.Input<pulumi.Input<inputs.DomainDnsRecord>[] | undefined>;
     /**
      * Custom Domain name
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Status of the domain
      */
-    validationStatus?: pulumi.Input<string>;
+    validationStatus?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -137,13 +137,13 @@ export interface DomainArgs {
     /**
      * Brand id of the domain
      */
-    brandId?: pulumi.Input<string>;
+    brandId?: pulumi.Input<string | undefined>;
     /**
      * Certificate source type that indicates whether the certificate is provided by the user or Okta. Accepted values: `MANUAL`, `OKTA_MANAGED`. Warning: Use of OKTA_MANAGED requires a feature flag to be enabled. Default value = MANUAL
      */
-    certificateSourceType?: pulumi.Input<string>;
+    certificateSourceType?: pulumi.Input<string | undefined>;
     /**
      * Custom Domain name
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }

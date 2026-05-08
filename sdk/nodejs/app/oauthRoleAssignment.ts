@@ -114,27 +114,27 @@ export interface OauthRoleAssignmentState {
     /**
      * Client ID for the role to be assigned to
      */
-    clientId?: pulumi.Input<string>;
+    clientId?: pulumi.Input<string | undefined>;
     /**
      * Label of the role assignment
      */
-    label?: pulumi.Input<string>;
+    label?: pulumi.Input<string | undefined>;
     /**
      * Resource set for the custom role to assign, must be the ID of the created resource set.
      */
-    resourceSet?: pulumi.Input<string>;
+    resourceSet?: pulumi.Input<string | undefined>;
     /**
      * Custom Role ID
      */
-    role?: pulumi.Input<string>;
+    role?: pulumi.Input<string | undefined>;
     /**
      * Status of the role assignment
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * Role type to assign. This can be one of the standard Okta roles, such as `HELP_DESK_ADMIN`, or `CUSTOM`. Using custom requires the `resourceSet` and `role` attributes to be set.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -148,11 +148,11 @@ export interface OauthRoleAssignmentArgs {
     /**
      * Resource set for the custom role to assign, must be the ID of the created resource set.
      */
-    resourceSet?: pulumi.Input<string>;
+    resourceSet?: pulumi.Input<string | undefined>;
     /**
      * Custom Role ID
      */
-    role?: pulumi.Input<string>;
+    role?: pulumi.Input<string | undefined>;
     /**
      * Role type to assign. This can be one of the standard Okta roles, such as `HELP_DESK_ADMIN`, or `CUSTOM`. Using custom requires the `resourceSet` and `role` attributes to be set.
      */

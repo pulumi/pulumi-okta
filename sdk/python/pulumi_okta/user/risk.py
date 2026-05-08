@@ -58,8 +58,8 @@ class RiskArgs:
 @pulumi.input_type
 class _RiskState:
     def __init__(__self__, *,
-                 risk_level: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 risk_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Risk resources.
 
@@ -73,26 +73,26 @@ class _RiskState:
 
     @_builtins.property
     @pulumi.getter(name="riskLevel")
-    def risk_level(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def risk_level(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Risk level of the user. Valid values: `HIGH`, `LOW`.
         """
         return pulumi.get(self, "risk_level")
 
     @risk_level.setter
-    def risk_level(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def risk_level(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "risk_level", value)
 
     @_builtins.property
     @pulumi.getter(name="userId")
-    def user_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of the user.
         """
         return pulumi.get(self, "user_id")
 
     @user_id.setter
-    def user_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_id", value)
 
 
@@ -102,8 +102,8 @@ class Risk(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 risk_level: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 risk_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a user's risk level in Okta. This resource allows you to set and manage the risk level for a specific user.
@@ -173,8 +173,8 @@ class Risk(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 risk_level: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 risk_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -200,8 +200,8 @@ class Risk(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            risk_level: Optional[pulumi.Input[_builtins.str]] = None,
-            user_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'Risk':
+            risk_level: pulumi.Input[Optional[_builtins.str]] = None,
+            user_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'Risk':
         """
         Get an existing Risk resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

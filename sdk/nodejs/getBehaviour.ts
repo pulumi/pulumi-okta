@@ -78,9 +78,9 @@ export interface GetBehaviourOutputArgs {
     /**
      * Behavior ID.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * Behavior name.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }

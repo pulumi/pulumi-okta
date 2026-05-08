@@ -77,5 +77,5 @@ export interface GetTrustedOriginsOutputArgs {
     /**
      * Filter criteria. Filter value will be URL-encoded by the provider
      */
-    filter?: pulumi.Input<string>;
+    filter?: pulumi.Input<string | undefined>;
 }

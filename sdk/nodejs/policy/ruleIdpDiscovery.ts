@@ -255,80 +255,80 @@ export interface RuleIdpDiscoveryState {
     /**
      * Applications to exclude in discovery. See `appInclude` for details.
      */
-    appExcludes?: pulumi.Input<pulumi.Input<inputs.policy.RuleIdpDiscoveryAppExclude>[]>;
+    appExcludes?: pulumi.Input<pulumi.Input<inputs.policy.RuleIdpDiscoveryAppExclude>[] | undefined>;
     /**
      * Applications to include in discovery rule.
      * - 'id' - (Optional) Use if 'type' is 'APP' to indicate the application id to include.
      * - 'name' - (Optional) Use if the 'type' is 'APP_TYPE' to indicate the type of application(s) to include in instances where an entire group (i.e. 'yahoo_mail') of applications should be included.
      * - 'type' - (Required) One of: 'APP', 'APP_TYPE'
      */
-    appIncludes?: pulumi.Input<pulumi.Input<inputs.policy.RuleIdpDiscoveryAppInclude>[]>;
-    idpProviders?: pulumi.Input<pulumi.Input<inputs.policy.RuleIdpDiscoveryIdpProvider>[]>;
+    appIncludes?: pulumi.Input<pulumi.Input<inputs.policy.RuleIdpDiscoveryAppInclude>[] | undefined>;
+    idpProviders?: pulumi.Input<pulumi.Input<inputs.policy.RuleIdpDiscoveryIdpProvider>[] | undefined>;
     /**
      * Policy Rule Name
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Network selection mode: `ANYWHERE`, `ZONE`, `ON_NETWORK`, or `OFF_NETWORK`. Default: `ANYWHERE`
      */
-    networkConnection?: pulumi.Input<string>;
+    networkConnection?: pulumi.Input<string | undefined>;
     /**
      * Required if `networkConnection` = `ZONE`. Indicates the network zones to exclude.
      */
-    networkExcludes?: pulumi.Input<pulumi.Input<string>[]>;
+    networkExcludes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Required if `networkConnection` = `ZONE`. Indicates the network zones to include.
      */
-    networkIncludes?: pulumi.Input<pulumi.Input<string>[]>;
+    networkIncludes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Platform to include in discovery rule.
      * - 'type' - (Optional) One of: 'ANY', 'MOBILE', 'DESKTOP'
      * - 'os_expression - (Optional) Only available when using osType = 'OTHER'
      * - 'os_type' - (Optional) One of: 'ANY', 'IOS', 'WINDOWS', 'ANDROID', 'OTHER', 'OSX'
      */
-    platformIncludes?: pulumi.Input<pulumi.Input<inputs.policy.RuleIdpDiscoveryPlatformInclude>[]>;
+    platformIncludes?: pulumi.Input<pulumi.Input<inputs.policy.RuleIdpDiscoveryPlatformInclude>[] | undefined>;
     /**
      * Policy ID of the Rule
      */
-    policyId?: pulumi.Input<string>;
+    policyId?: pulumi.Input<string | undefined>;
     /**
      * Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
      */
-    priority?: pulumi.Input<number>;
+    priority?: pulumi.Input<number | undefined>;
     /**
      * The IdP property that the evaluated expression should match against when `selectionType` is `DYNAMIC`. Maps to `actions.idp.matchCriteria[0].propertyName` in the API. If not set, the API default is used and the value is stored in state.
      */
-    propertyName?: pulumi.Input<string>;
+    propertyName?: pulumi.Input<string | undefined>;
     /**
      * An Okta Expression Language expression that is evaluated against the Login Context and used to dynamically select an IdP. Only applicable when `selectionType` is `DYNAMIC`. Maps to `actions.idp.matchCriteria[0].providerExpression` in the API. Example: `login.identifier.substringAfter('@')`
      */
-    providerExpression?: pulumi.Input<string>;
+    providerExpression?: pulumi.Input<string | undefined>;
     /**
      * Determines how the IdP is selected. One of: `SPECIFIC`, `DYNAMIC`. Default: `SPECIFIC`. When `DYNAMIC`, the IdP is selected based on the evaluated `providerExpression`.
      */
-    selectionType?: pulumi.Input<string>;
+    selectionType?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether to fall back to Okta if authentication with the matched IdP fails. Only applicable when `selectionType` is `DYNAMIC`. Default: `false`.
      */
-    shouldFallBackToOkta?: pulumi.Input<boolean>;
+    shouldFallBackToOkta?: pulumi.Input<boolean | undefined>;
     /**
      * Policy Rule Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * Profile attribute matching can only have a single value that describes the type indicated in `userIdentifierType`. This is the attribute or identifier that the `userIdentifierPatterns` are checked against.
      */
-    userIdentifierAttribute?: pulumi.Input<string>;
+    userIdentifierAttribute?: pulumi.Input<string | undefined>;
     /**
      * Specifies a User Identifier pattern condition to match against. If 'match_type' of 'EXPRESSION' is used, only a *single* element can be set, otherwise multiple elements of matching patterns may be provided.
      * - 'match_type' - (Optional) The kind of pattern. For regex, use 'EXPRESSION'. For simple string matches, use one of the following: 'SUFFIX', 'EQUALS', 'STARTS_WITH', 'CONTAINS'
      * - 'value' - (Optional) The regex or simple match string to match against.
      */
-    userIdentifierPatterns?: pulumi.Input<pulumi.Input<inputs.policy.RuleIdpDiscoveryUserIdentifierPattern>[]>;
+    userIdentifierPatterns?: pulumi.Input<pulumi.Input<inputs.policy.RuleIdpDiscoveryUserIdentifierPattern>[] | undefined>;
     /**
      * One of: `IDENTIFIER`, `ATTRIBUTE`
      */
-    userIdentifierType?: pulumi.Input<string>;
+    userIdentifierType?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -338,78 +338,78 @@ export interface RuleIdpDiscoveryArgs {
     /**
      * Applications to exclude in discovery. See `appInclude` for details.
      */
-    appExcludes?: pulumi.Input<pulumi.Input<inputs.policy.RuleIdpDiscoveryAppExclude>[]>;
+    appExcludes?: pulumi.Input<pulumi.Input<inputs.policy.RuleIdpDiscoveryAppExclude>[] | undefined>;
     /**
      * Applications to include in discovery rule.
      * - 'id' - (Optional) Use if 'type' is 'APP' to indicate the application id to include.
      * - 'name' - (Optional) Use if the 'type' is 'APP_TYPE' to indicate the type of application(s) to include in instances where an entire group (i.e. 'yahoo_mail') of applications should be included.
      * - 'type' - (Required) One of: 'APP', 'APP_TYPE'
      */
-    appIncludes?: pulumi.Input<pulumi.Input<inputs.policy.RuleIdpDiscoveryAppInclude>[]>;
-    idpProviders?: pulumi.Input<pulumi.Input<inputs.policy.RuleIdpDiscoveryIdpProvider>[]>;
+    appIncludes?: pulumi.Input<pulumi.Input<inputs.policy.RuleIdpDiscoveryAppInclude>[] | undefined>;
+    idpProviders?: pulumi.Input<pulumi.Input<inputs.policy.RuleIdpDiscoveryIdpProvider>[] | undefined>;
     /**
      * Policy Rule Name
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Network selection mode: `ANYWHERE`, `ZONE`, `ON_NETWORK`, or `OFF_NETWORK`. Default: `ANYWHERE`
      */
-    networkConnection?: pulumi.Input<string>;
+    networkConnection?: pulumi.Input<string | undefined>;
     /**
      * Required if `networkConnection` = `ZONE`. Indicates the network zones to exclude.
      */
-    networkExcludes?: pulumi.Input<pulumi.Input<string>[]>;
+    networkExcludes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Required if `networkConnection` = `ZONE`. Indicates the network zones to include.
      */
-    networkIncludes?: pulumi.Input<pulumi.Input<string>[]>;
+    networkIncludes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Platform to include in discovery rule.
      * - 'type' - (Optional) One of: 'ANY', 'MOBILE', 'DESKTOP'
      * - 'os_expression - (Optional) Only available when using osType = 'OTHER'
      * - 'os_type' - (Optional) One of: 'ANY', 'IOS', 'WINDOWS', 'ANDROID', 'OTHER', 'OSX'
      */
-    platformIncludes?: pulumi.Input<pulumi.Input<inputs.policy.RuleIdpDiscoveryPlatformInclude>[]>;
+    platformIncludes?: pulumi.Input<pulumi.Input<inputs.policy.RuleIdpDiscoveryPlatformInclude>[] | undefined>;
     /**
      * Policy ID of the Rule
      */
-    policyId?: pulumi.Input<string>;
+    policyId?: pulumi.Input<string | undefined>;
     /**
      * Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
      */
-    priority?: pulumi.Input<number>;
+    priority?: pulumi.Input<number | undefined>;
     /**
      * The IdP property that the evaluated expression should match against when `selectionType` is `DYNAMIC`. Maps to `actions.idp.matchCriteria[0].propertyName` in the API. If not set, the API default is used and the value is stored in state.
      */
-    propertyName?: pulumi.Input<string>;
+    propertyName?: pulumi.Input<string | undefined>;
     /**
      * An Okta Expression Language expression that is evaluated against the Login Context and used to dynamically select an IdP. Only applicable when `selectionType` is `DYNAMIC`. Maps to `actions.idp.matchCriteria[0].providerExpression` in the API. Example: `login.identifier.substringAfter('@')`
      */
-    providerExpression?: pulumi.Input<string>;
+    providerExpression?: pulumi.Input<string | undefined>;
     /**
      * Determines how the IdP is selected. One of: `SPECIFIC`, `DYNAMIC`. Default: `SPECIFIC`. When `DYNAMIC`, the IdP is selected based on the evaluated `providerExpression`.
      */
-    selectionType?: pulumi.Input<string>;
+    selectionType?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether to fall back to Okta if authentication with the matched IdP fails. Only applicable when `selectionType` is `DYNAMIC`. Default: `false`.
      */
-    shouldFallBackToOkta?: pulumi.Input<boolean>;
+    shouldFallBackToOkta?: pulumi.Input<boolean | undefined>;
     /**
      * Policy Rule Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * Profile attribute matching can only have a single value that describes the type indicated in `userIdentifierType`. This is the attribute or identifier that the `userIdentifierPatterns` are checked against.
      */
-    userIdentifierAttribute?: pulumi.Input<string>;
+    userIdentifierAttribute?: pulumi.Input<string | undefined>;
     /**
      * Specifies a User Identifier pattern condition to match against. If 'match_type' of 'EXPRESSION' is used, only a *single* element can be set, otherwise multiple elements of matching patterns may be provided.
      * - 'match_type' - (Optional) The kind of pattern. For regex, use 'EXPRESSION'. For simple string matches, use one of the following: 'SUFFIX', 'EQUALS', 'STARTS_WITH', 'CONTAINS'
      * - 'value' - (Optional) The regex or simple match string to match against.
      */
-    userIdentifierPatterns?: pulumi.Input<pulumi.Input<inputs.policy.RuleIdpDiscoveryUserIdentifierPattern>[]>;
+    userIdentifierPatterns?: pulumi.Input<pulumi.Input<inputs.policy.RuleIdpDiscoveryUserIdentifierPattern>[] | undefined>;
     /**
      * One of: `IDENTIFIER`, `ATTRIBUTE`
      */
-    userIdentifierType?: pulumi.Input<string>;
+    userIdentifierType?: pulumi.Input<string | undefined>;
 }

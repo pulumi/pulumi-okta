@@ -215,83 +215,83 @@ export interface DeviceAssuranceChromeosState {
     /**
      * Created by
      */
-    createdBy?: pulumi.Input<string>;
+    createdBy?: pulumi.Input<string | undefined>;
     /**
      * Created date
      */
-    createdDate?: pulumi.Input<string>;
+    createdDate?: pulumi.Input<string | undefined>;
     /**
      * Last update
      */
-    lastUpdate?: pulumi.Input<string>;
+    lastUpdate?: pulumi.Input<string | undefined>;
     /**
      * Last updated by
      */
-    lastUpdatedBy?: pulumi.Input<string>;
+    lastUpdatedBy?: pulumi.Input<string | undefined>;
     /**
      * Name of the device assurance policy.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Policy device assurance platform
      */
-    platform?: pulumi.Input<string>;
+    platform?: pulumi.Input<string | undefined>;
     /**
      * Third party signal provider allow screen lock
      */
-    tpspAllowScreenLock?: pulumi.Input<boolean>;
+    tpspAllowScreenLock?: pulumi.Input<boolean | undefined>;
     /**
      * Third party signal provider minimum browser version
      */
-    tpspBrowserVersion?: pulumi.Input<string>;
+    tpspBrowserVersion?: pulumi.Input<string | undefined>;
     /**
      * Third party signal provider builtin dns client enabled
      */
-    tpspBuiltinDnsClientEnabled?: pulumi.Input<boolean>;
+    tpspBuiltinDnsClientEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Third party signal provider chrome remote desktop app blocked
      */
-    tpspChromeRemoteDesktopAppBlocked?: pulumi.Input<boolean>;
+    tpspChromeRemoteDesktopAppBlocked?: pulumi.Input<boolean | undefined>;
     /**
      * Third party signal provider device enrollment domain
      */
-    tpspDeviceEnrollmentDomain?: pulumi.Input<string>;
+    tpspDeviceEnrollmentDomain?: pulumi.Input<string | undefined>;
     /**
      * Third party signal provider disk encrypted
      */
-    tpspDiskEncrypted?: pulumi.Input<boolean>;
+    tpspDiskEncrypted?: pulumi.Input<boolean | undefined>;
     /**
      * Third party signal provider key trust level
      */
-    tpspKeyTrustLevel?: pulumi.Input<string>;
+    tpspKeyTrustLevel?: pulumi.Input<string | undefined>;
     /**
      * Third party signal provider os firewall
      */
-    tpspOsFirewall?: pulumi.Input<boolean>;
+    tpspOsFirewall?: pulumi.Input<boolean | undefined>;
     /**
      * Third party signal provider minimum os version
      */
-    tpspOsVersion?: pulumi.Input<string>;
+    tpspOsVersion?: pulumi.Input<string | undefined>;
     /**
      * Third party signal provider password protection warning trigger
      */
-    tpspPasswordProctectionWarningTrigger?: pulumi.Input<string>;
+    tpspPasswordProctectionWarningTrigger?: pulumi.Input<string | undefined>;
     /**
      * Third party signal provider realtime url check mode
      */
-    tpspRealtimeUrlCheckMode?: pulumi.Input<boolean>;
+    tpspRealtimeUrlCheckMode?: pulumi.Input<boolean | undefined>;
     /**
      * Third party signal provider safe browsing protection level
      */
-    tpspSafeBrowsingProtectionLevel?: pulumi.Input<string>;
+    tpspSafeBrowsingProtectionLevel?: pulumi.Input<string | undefined>;
     /**
      * Third party signal provider screen lock secure
      */
-    tpspScreenLockSecured?: pulumi.Input<boolean>;
+    tpspScreenLockSecured?: pulumi.Input<boolean | undefined>;
     /**
      * Third party signal provider site isolation enabled
      */
-    tpspSiteIsolationEnabled?: pulumi.Input<boolean>;
+    tpspSiteIsolationEnabled?: pulumi.Input<boolean | undefined>;
 }
 
 /**
@@ -301,61 +301,61 @@ export interface DeviceAssuranceChromeosArgs {
     /**
      * Name of the device assurance policy.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Third party signal provider allow screen lock
      */
-    tpspAllowScreenLock?: pulumi.Input<boolean>;
+    tpspAllowScreenLock?: pulumi.Input<boolean | undefined>;
     /**
      * Third party signal provider minimum browser version
      */
-    tpspBrowserVersion?: pulumi.Input<string>;
+    tpspBrowserVersion?: pulumi.Input<string | undefined>;
     /**
      * Third party signal provider builtin dns client enabled
      */
-    tpspBuiltinDnsClientEnabled?: pulumi.Input<boolean>;
+    tpspBuiltinDnsClientEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Third party signal provider chrome remote desktop app blocked
      */
-    tpspChromeRemoteDesktopAppBlocked?: pulumi.Input<boolean>;
+    tpspChromeRemoteDesktopAppBlocked?: pulumi.Input<boolean | undefined>;
     /**
      * Third party signal provider device enrollment domain
      */
-    tpspDeviceEnrollmentDomain?: pulumi.Input<string>;
+    tpspDeviceEnrollmentDomain?: pulumi.Input<string | undefined>;
     /**
      * Third party signal provider disk encrypted
      */
-    tpspDiskEncrypted?: pulumi.Input<boolean>;
+    tpspDiskEncrypted?: pulumi.Input<boolean | undefined>;
     /**
      * Third party signal provider key trust level
      */
-    tpspKeyTrustLevel?: pulumi.Input<string>;
+    tpspKeyTrustLevel?: pulumi.Input<string | undefined>;
     /**
      * Third party signal provider os firewall
      */
-    tpspOsFirewall?: pulumi.Input<boolean>;
+    tpspOsFirewall?: pulumi.Input<boolean | undefined>;
     /**
      * Third party signal provider minimum os version
      */
-    tpspOsVersion?: pulumi.Input<string>;
+    tpspOsVersion?: pulumi.Input<string | undefined>;
     /**
      * Third party signal provider password protection warning trigger
      */
-    tpspPasswordProctectionWarningTrigger?: pulumi.Input<string>;
+    tpspPasswordProctectionWarningTrigger?: pulumi.Input<string | undefined>;
     /**
      * Third party signal provider realtime url check mode
      */
-    tpspRealtimeUrlCheckMode?: pulumi.Input<boolean>;
+    tpspRealtimeUrlCheckMode?: pulumi.Input<boolean | undefined>;
     /**
      * Third party signal provider safe browsing protection level
      */
-    tpspSafeBrowsingProtectionLevel?: pulumi.Input<string>;
+    tpspSafeBrowsingProtectionLevel?: pulumi.Input<string | undefined>;
     /**
      * Third party signal provider screen lock secure
      */
-    tpspScreenLockSecured?: pulumi.Input<boolean>;
+    tpspScreenLockSecured?: pulumi.Input<boolean | undefined>;
     /**
      * Third party signal provider site isolation enabled
      */
-    tpspSiteIsolationEnabled?: pulumi.Input<boolean>;
+    tpspSiteIsolationEnabled?: pulumi.Input<boolean | undefined>;
 }

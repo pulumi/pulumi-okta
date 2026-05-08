@@ -28,7 +28,7 @@ namespace Pulumi.Okta.Policy
     ///         Name = "example",
     ///         OsVersion = "12.4.5",
     ///         Jailbreak = false,
-    ///         ScreenlockTypes = Std.Index.Toset.Invoke(new()
+    ///         ScreenlockTypes = Std.Toset.Invoke(new()
     ///         {
     ///             Input = new[]
     ///             {

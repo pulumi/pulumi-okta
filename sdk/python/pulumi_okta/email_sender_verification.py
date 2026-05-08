@@ -43,7 +43,7 @@ class EmailSenderVerificationArgs:
 @pulumi.input_type
 class _EmailSenderVerificationState:
     def __init__(__self__, *,
-                 sender_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 sender_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering EmailSenderVerification resources.
 
@@ -54,14 +54,14 @@ class _EmailSenderVerificationState:
 
     @_builtins.property
     @pulumi.getter(name="senderId")
-    def sender_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sender_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Email sender ID
         """
         return pulumi.get(self, "sender_id")
 
     @sender_id.setter
-    def sender_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sender_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sender_id", value)
 
 
@@ -71,7 +71,7 @@ class EmailSenderVerification(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 sender_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 sender_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Verifies the email sender. The resource won't be created if the email sender could not be verified.
@@ -136,7 +136,7 @@ class EmailSenderVerification(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 sender_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 sender_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -159,7 +159,7 @@ class EmailSenderVerification(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            sender_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'EmailSenderVerification':
+            sender_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'EmailSenderVerification':
         """
         Get an existing EmailSenderVerification resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

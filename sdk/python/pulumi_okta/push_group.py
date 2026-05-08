@@ -23,11 +23,11 @@ class PushGroupArgs:
     def __init__(__self__, *,
                  app_id: pulumi.Input[_builtins.str],
                  source_group_id: pulumi.Input[_builtins.str],
-                 app_config: Optional[pulumi.Input['PushGroupAppConfigArgs']] = None,
-                 delete_target_group_on_destroy: Optional[pulumi.Input[_builtins.bool]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_group_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 app_config: pulumi.Input[Optional['PushGroupAppConfigArgs']] = None,
+                 delete_target_group_on_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_group_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a PushGroup resource.
 
@@ -78,75 +78,75 @@ class PushGroupArgs:
 
     @_builtins.property
     @pulumi.getter(name="appConfig")
-    def app_config(self) -> Optional[pulumi.Input['PushGroupAppConfigArgs']]:
+    def app_config(self) -> pulumi.Input[Optional['PushGroupAppConfigArgs']]:
         """
         Additional app configuration for group push mappings. Currently only required for Active Directory.
         """
         return pulumi.get(self, "app_config")
 
     @app_config.setter
-    def app_config(self, value: Optional[pulumi.Input['PushGroupAppConfigArgs']]):
+    def app_config(self, value: pulumi.Input[Optional['PushGroupAppConfigArgs']]):
         pulumi.set(self, "app_config", value)
 
     @_builtins.property
     @pulumi.getter(name="deleteTargetGroupOnDestroy")
-    def delete_target_group_on_destroy(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def delete_target_group_on_destroy(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to delete the target group when the push group mapping is destroyed. Default is true.
         """
         return pulumi.get(self, "delete_target_group_on_destroy")
 
     @delete_target_group_on_destroy.setter
-    def delete_target_group_on_destroy(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def delete_target_group_on_destroy(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "delete_target_group_on_destroy", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The status of the push group mapping. Valid values: `ACTIVE` and `INACTIVE`
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter(name="targetGroupId")
-    def target_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the target group.
         """
         return pulumi.get(self, "target_group_id")
 
     @target_group_id.setter
-    def target_group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_group_id", value)
 
     @_builtins.property
     @pulumi.getter(name="targetGroupName")
-    def target_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the target group for the group push mapping. This is used when creating a new downstream group. If the group already exists, it links to the existing group. If not specified, the name of the source group will be used as the name of the target group. Setting a target group name only works if you have unchecked 'Rename app groups to match group name in Okta' in the push groups settings UI.
         """
         return pulumi.get(self, "target_group_name")
 
     @target_group_name.setter
-    def target_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_group_name", value)
 
 
 @pulumi.input_type
 class _PushGroupState:
     def __init__(__self__, *,
-                 app_config: Optional[pulumi.Input['PushGroupAppConfigArgs']] = None,
-                 app_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 delete_target_group_on_destroy: Optional[pulumi.Input[_builtins.bool]] = None,
-                 source_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_group_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 app_config: pulumi.Input[Optional['PushGroupAppConfigArgs']] = None,
+                 app_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 delete_target_group_on_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
+                 source_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_group_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering PushGroup resources.
 
@@ -175,86 +175,86 @@ class _PushGroupState:
 
     @_builtins.property
     @pulumi.getter(name="appConfig")
-    def app_config(self) -> Optional[pulumi.Input['PushGroupAppConfigArgs']]:
+    def app_config(self) -> pulumi.Input[Optional['PushGroupAppConfigArgs']]:
         """
         Additional app configuration for group push mappings. Currently only required for Active Directory.
         """
         return pulumi.get(self, "app_config")
 
     @app_config.setter
-    def app_config(self, value: Optional[pulumi.Input['PushGroupAppConfigArgs']]):
+    def app_config(self, value: pulumi.Input[Optional['PushGroupAppConfigArgs']]):
         pulumi.set(self, "app_config", value)
 
     @_builtins.property
     @pulumi.getter(name="appId")
-    def app_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def app_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Okta Application.
         """
         return pulumi.get(self, "app_id")
 
     @app_id.setter
-    def app_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def app_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "app_id", value)
 
     @_builtins.property
     @pulumi.getter(name="deleteTargetGroupOnDestroy")
-    def delete_target_group_on_destroy(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def delete_target_group_on_destroy(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to delete the target group when the push group mapping is destroyed. Default is true.
         """
         return pulumi.get(self, "delete_target_group_on_destroy")
 
     @delete_target_group_on_destroy.setter
-    def delete_target_group_on_destroy(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def delete_target_group_on_destroy(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "delete_target_group_on_destroy", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceGroupId")
-    def source_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the source group in Okta.
         """
         return pulumi.get(self, "source_group_id")
 
     @source_group_id.setter
-    def source_group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_group_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The status of the push group mapping. Valid values: `ACTIVE` and `INACTIVE`
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter(name="targetGroupId")
-    def target_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the target group.
         """
         return pulumi.get(self, "target_group_id")
 
     @target_group_id.setter
-    def target_group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_group_id", value)
 
     @_builtins.property
     @pulumi.getter(name="targetGroupName")
-    def target_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the target group for the group push mapping. This is used when creating a new downstream group. If the group already exists, it links to the existing group. If not specified, the name of the source group will be used as the name of the target group. Setting a target group name only works if you have unchecked 'Rename app groups to match group name in Okta' in the push groups settings UI.
         """
         return pulumi.get(self, "target_group_name")
 
     @target_group_name.setter
-    def target_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_group_name", value)
 
 
@@ -264,13 +264,13 @@ class PushGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 app_config: Optional[pulumi.Input[Union['PushGroupAppConfigArgs', 'PushGroupAppConfigArgsDict']]] = None,
-                 app_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 delete_target_group_on_destroy: Optional[pulumi.Input[_builtins.bool]] = None,
-                 source_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 app_config: pulumi.Input[Optional[Union['PushGroupAppConfigArgs', 'PushGroupAppConfigArgsDict']]] = None,
+                 app_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 delete_target_group_on_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
+                 source_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Creates a Push Group assignment for an Application in Okta.
@@ -389,13 +389,13 @@ class PushGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 app_config: Optional[pulumi.Input[Union['PushGroupAppConfigArgs', 'PushGroupAppConfigArgsDict']]] = None,
-                 app_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 delete_target_group_on_destroy: Optional[pulumi.Input[_builtins.bool]] = None,
-                 source_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 app_config: pulumi.Input[Optional[Union['PushGroupAppConfigArgs', 'PushGroupAppConfigArgsDict']]] = None,
+                 app_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 delete_target_group_on_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
+                 source_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -426,13 +426,13 @@ class PushGroup(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            app_config: Optional[pulumi.Input[Union['PushGroupAppConfigArgs', 'PushGroupAppConfigArgsDict']]] = None,
-            app_id: Optional[pulumi.Input[_builtins.str]] = None,
-            delete_target_group_on_destroy: Optional[pulumi.Input[_builtins.bool]] = None,
-            source_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-            status: Optional[pulumi.Input[_builtins.str]] = None,
-            target_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-            target_group_name: Optional[pulumi.Input[_builtins.str]] = None) -> 'PushGroup':
+            app_config: pulumi.Input[Optional[Union['PushGroupAppConfigArgs', 'PushGroupAppConfigArgsDict']]] = None,
+            app_id: pulumi.Input[Optional[_builtins.str]] = None,
+            delete_target_group_on_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
+            source_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            target_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+            target_group_name: pulumi.Input[Optional[_builtins.str]] = None) -> 'PushGroup':
         """
         Get an existing PushGroup resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -147,21 +147,21 @@ export interface GetNetworkZoneOutputArgs {
     /**
      * Array of locations ISO-3166-1(2) excluded. Format code: countryCode OR countryCode-regionCode. Use with type `DYNAMIC_V2`
      */
-    dynamicLocationsExcludes?: pulumi.Input<pulumi.Input<string>[]>;
+    dynamicLocationsExcludes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * ID of the network zone to retrieve, conflicts with `name`.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * List of ip service excluded. Use with type `DYNAMIC_V2`
      */
-    ipServiceCategoriesExcludes?: pulumi.Input<pulumi.Input<string>[]>;
+    ipServiceCategoriesExcludes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * List of ip service included. Use with type `DYNAMIC_V2`
      */
-    ipServiceCategoriesIncludes?: pulumi.Input<pulumi.Input<string>[]>;
+    ipServiceCategoriesIncludes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Name of the network zone to retrieve, conflicts with `id`.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }

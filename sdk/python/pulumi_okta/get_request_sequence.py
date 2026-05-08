@@ -142,8 +142,8 @@ def get_request_sequence(id: Optional[_builtins.str] = None,
         link=pulumi.get(__ret__, 'link'),
         name=pulumi.get(__ret__, 'name'),
         resource_id=pulumi.get(__ret__, 'resource_id'))
-def get_request_sequence_output(id: Optional[pulumi.Input[_builtins.str]] = None,
-                                resource_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_request_sequence_output(id: pulumi.Input[Optional[_builtins.str]] = None,
+                                resource_id: pulumi.Input[Optional[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRequestSequenceResult]:
     """
     Retrieves a access request sequence referenced by the specified resource.

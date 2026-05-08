@@ -279,119 +279,119 @@ export interface AppSharedCredentialsState {
     /**
      * Custom error page URL
      */
-    accessibilityErrorRedirectUrl?: pulumi.Input<string>;
+    accessibilityErrorRedirectUrl?: pulumi.Input<string | undefined>;
     /**
      * Custom login page URL
      */
-    accessibilityLoginRedirectUrl?: pulumi.Input<string>;
+    accessibilityLoginRedirectUrl?: pulumi.Input<string | undefined>;
     /**
      * Enable self service. Default is `false`
      */
-    accessibilitySelfService?: pulumi.Input<boolean>;
+    accessibilitySelfService?: pulumi.Input<boolean | undefined>;
     /**
      * Application notes for admins.
      */
-    adminNote?: pulumi.Input<string>;
+    adminNote?: pulumi.Input<string | undefined>;
     /**
      * Displays specific appLinks for the app. The value for each application link should be boolean.
      */
-    appLinksJson?: pulumi.Input<string>;
+    appLinksJson?: pulumi.Input<string | undefined>;
     /**
      * Display auto submit toolbar
      */
-    autoSubmitToolbar?: pulumi.Input<boolean>;
+    autoSubmitToolbar?: pulumi.Input<boolean | undefined>;
     /**
      * Login button field
      */
-    buttonField?: pulumi.Input<string>;
+    buttonField?: pulumi.Input<string | undefined>;
     /**
      * CSS selector for the checkbox
      */
-    checkbox?: pulumi.Input<string>;
+    checkbox?: pulumi.Input<string | undefined>;
     /**
      * Application notes for end users.
      */
-    enduserNote?: pulumi.Input<string>;
+    enduserNote?: pulumi.Input<string | undefined>;
     /**
      * Do not display application icon on mobile app
      */
-    hideIos?: pulumi.Input<boolean>;
+    hideIos?: pulumi.Input<boolean | undefined>;
     /**
      * Do not display application icon to users
      */
-    hideWeb?: pulumi.Input<boolean>;
+    hideWeb?: pulumi.Input<boolean | undefined>;
     /**
      * The Application's display name.
      */
-    label?: pulumi.Input<string>;
+    label?: pulumi.Input<string | undefined>;
     /**
      * Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
      */
-    logo?: pulumi.Input<string>;
+    logo?: pulumi.Input<string | undefined>;
     /**
      * URL of the application's logo
      */
-    logoUrl?: pulumi.Input<string>;
+    logoUrl?: pulumi.Input<string | undefined>;
     /**
      * Name of the app.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Login password field
      */
-    passwordField?: pulumi.Input<string>;
+    passwordField?: pulumi.Input<string | undefined>;
     /**
      * Name of application from the Okta Integration Network, if not included a custom app will be created.
      */
-    preconfiguredApp?: pulumi.Input<string>;
+    preconfiguredApp?: pulumi.Input<string | undefined>;
     /**
      * Secondary URL of the sign-in page for this app
      */
-    redirectUrl?: pulumi.Input<string>;
+    redirectUrl?: pulumi.Input<string | undefined>;
     /**
      * Shared password, required for certain schemes.
      */
-    sharedPassword?: pulumi.Input<string>;
+    sharedPassword?: pulumi.Input<string | undefined>;
     /**
      * Shared username, required for certain schemes.
      */
-    sharedUsername?: pulumi.Input<string>;
+    sharedUsername?: pulumi.Input<string | undefined>;
     /**
      * Sign on mode of application.
      */
-    signOnMode?: pulumi.Input<string>;
+    signOnMode?: pulumi.Input<string | undefined>;
     /**
      * Status of application. By default, it is `ACTIVE`
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * The URL of the sign-in page for this app.
      */
-    url?: pulumi.Input<string>;
+    url?: pulumi.Input<string | undefined>;
     /**
      * A regular expression that further restricts url to the specified regular expression.
      */
-    urlRegex?: pulumi.Input<string>;
+    urlRegex?: pulumi.Input<string | undefined>;
     /**
      * Username template. Default: `${source.login}`
      */
-    userNameTemplate?: pulumi.Input<string>;
+    userNameTemplate?: pulumi.Input<string | undefined>;
     /**
      * Push username on update. Valid values: `PUSH` and `DONT_PUSH`
      */
-    userNameTemplatePushStatus?: pulumi.Input<string>;
+    userNameTemplatePushStatus?: pulumi.Input<string | undefined>;
     /**
      * Username template suffix
      */
-    userNameTemplateSuffix?: pulumi.Input<string>;
+    userNameTemplateSuffix?: pulumi.Input<string | undefined>;
     /**
      * Username template type. Default: `BUILT_IN`
      */
-    userNameTemplateType?: pulumi.Input<string>;
+    userNameTemplateType?: pulumi.Input<string | undefined>;
     /**
      * Login username field
      */
-    usernameField?: pulumi.Input<string>;
+    usernameField?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -401,47 +401,47 @@ export interface AppSharedCredentialsArgs {
     /**
      * Custom error page URL
      */
-    accessibilityErrorRedirectUrl?: pulumi.Input<string>;
+    accessibilityErrorRedirectUrl?: pulumi.Input<string | undefined>;
     /**
      * Custom login page URL
      */
-    accessibilityLoginRedirectUrl?: pulumi.Input<string>;
+    accessibilityLoginRedirectUrl?: pulumi.Input<string | undefined>;
     /**
      * Enable self service. Default is `false`
      */
-    accessibilitySelfService?: pulumi.Input<boolean>;
+    accessibilitySelfService?: pulumi.Input<boolean | undefined>;
     /**
      * Application notes for admins.
      */
-    adminNote?: pulumi.Input<string>;
+    adminNote?: pulumi.Input<string | undefined>;
     /**
      * Displays specific appLinks for the app. The value for each application link should be boolean.
      */
-    appLinksJson?: pulumi.Input<string>;
+    appLinksJson?: pulumi.Input<string | undefined>;
     /**
      * Display auto submit toolbar
      */
-    autoSubmitToolbar?: pulumi.Input<boolean>;
+    autoSubmitToolbar?: pulumi.Input<boolean | undefined>;
     /**
      * Login button field
      */
-    buttonField?: pulumi.Input<string>;
+    buttonField?: pulumi.Input<string | undefined>;
     /**
      * CSS selector for the checkbox
      */
-    checkbox?: pulumi.Input<string>;
+    checkbox?: pulumi.Input<string | undefined>;
     /**
      * Application notes for end users.
      */
-    enduserNote?: pulumi.Input<string>;
+    enduserNote?: pulumi.Input<string | undefined>;
     /**
      * Do not display application icon on mobile app
      */
-    hideIos?: pulumi.Input<boolean>;
+    hideIos?: pulumi.Input<boolean | undefined>;
     /**
      * Do not display application icon to users
      */
-    hideWeb?: pulumi.Input<boolean>;
+    hideWeb?: pulumi.Input<boolean | undefined>;
     /**
      * The Application's display name.
      */
@@ -449,57 +449,57 @@ export interface AppSharedCredentialsArgs {
     /**
      * Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
      */
-    logo?: pulumi.Input<string>;
+    logo?: pulumi.Input<string | undefined>;
     /**
      * Login password field
      */
-    passwordField?: pulumi.Input<string>;
+    passwordField?: pulumi.Input<string | undefined>;
     /**
      * Name of application from the Okta Integration Network, if not included a custom app will be created.
      */
-    preconfiguredApp?: pulumi.Input<string>;
+    preconfiguredApp?: pulumi.Input<string | undefined>;
     /**
      * Secondary URL of the sign-in page for this app
      */
-    redirectUrl?: pulumi.Input<string>;
+    redirectUrl?: pulumi.Input<string | undefined>;
     /**
      * Shared password, required for certain schemes.
      */
-    sharedPassword?: pulumi.Input<string>;
+    sharedPassword?: pulumi.Input<string | undefined>;
     /**
      * Shared username, required for certain schemes.
      */
-    sharedUsername?: pulumi.Input<string>;
+    sharedUsername?: pulumi.Input<string | undefined>;
     /**
      * Status of application. By default, it is `ACTIVE`
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * The URL of the sign-in page for this app.
      */
-    url?: pulumi.Input<string>;
+    url?: pulumi.Input<string | undefined>;
     /**
      * A regular expression that further restricts url to the specified regular expression.
      */
-    urlRegex?: pulumi.Input<string>;
+    urlRegex?: pulumi.Input<string | undefined>;
     /**
      * Username template. Default: `${source.login}`
      */
-    userNameTemplate?: pulumi.Input<string>;
+    userNameTemplate?: pulumi.Input<string | undefined>;
     /**
      * Push username on update. Valid values: `PUSH` and `DONT_PUSH`
      */
-    userNameTemplatePushStatus?: pulumi.Input<string>;
+    userNameTemplatePushStatus?: pulumi.Input<string | undefined>;
     /**
      * Username template suffix
      */
-    userNameTemplateSuffix?: pulumi.Input<string>;
+    userNameTemplateSuffix?: pulumi.Input<string | undefined>;
     /**
      * Username template type. Default: `BUILT_IN`
      */
-    userNameTemplateType?: pulumi.Input<string>;
+    userNameTemplateType?: pulumi.Input<string | undefined>;
     /**
      * Login username field
      */
-    usernameField?: pulumi.Input<string>;
+    usernameField?: pulumi.Input<string | undefined>;
 }

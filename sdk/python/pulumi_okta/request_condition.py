@@ -23,13 +23,13 @@ class RequestConditionArgs:
     def __init__(__self__, *,
                  approval_sequence_id: pulumi.Input[_builtins.str],
                  resource_id: pulumi.Input[_builtins.str],
-                 access_duration_settings: Optional[pulumi.Input['RequestConditionAccessDurationSettingsArgs']] = None,
-                 access_scope_settings: Optional[pulumi.Input['RequestConditionAccessScopeSettingsArgs']] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 priority: Optional[pulumi.Input[_builtins.int]] = None,
-                 requester_settings: Optional[pulumi.Input['RequestConditionRequesterSettingsArgs']] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None):
+                 access_duration_settings: pulumi.Input[Optional['RequestConditionAccessDurationSettingsArgs']] = None,
+                 access_scope_settings: pulumi.Input[Optional['RequestConditionAccessScopeSettingsArgs']] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 priority: pulumi.Input[Optional[_builtins.int]] = None,
+                 requester_settings: pulumi.Input[Optional['RequestConditionRequesterSettingsArgs']] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a RequestCondition resource.
 
@@ -84,99 +84,99 @@ class RequestConditionArgs:
 
     @_builtins.property
     @pulumi.getter(name="accessDurationSettings")
-    def access_duration_settings(self) -> Optional[pulumi.Input['RequestConditionAccessDurationSettingsArgs']]:
+    def access_duration_settings(self) -> pulumi.Input[Optional['RequestConditionAccessDurationSettingsArgs']]:
         """
         The access duration settings for the request condition
         """
         return pulumi.get(self, "access_duration_settings")
 
     @access_duration_settings.setter
-    def access_duration_settings(self, value: Optional[pulumi.Input['RequestConditionAccessDurationSettingsArgs']]):
+    def access_duration_settings(self, value: pulumi.Input[Optional['RequestConditionAccessDurationSettingsArgs']]):
         pulumi.set(self, "access_duration_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="accessScopeSettings")
-    def access_scope_settings(self) -> Optional[pulumi.Input['RequestConditionAccessScopeSettingsArgs']]:
+    def access_scope_settings(self) -> pulumi.Input[Optional['RequestConditionAccessScopeSettingsArgs']]:
         return pulumi.get(self, "access_scope_settings")
 
     @access_scope_settings.setter
-    def access_scope_settings(self, value: Optional[pulumi.Input['RequestConditionAccessScopeSettingsArgs']]):
+    def access_scope_settings(self, value: pulumi.Input[Optional['RequestConditionAccessScopeSettingsArgs']]):
         pulumi.set(self, "access_scope_settings", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the request condition.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the request condition.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def priority(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def priority(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The priority of the request condition. Lower numbers indicate higher priority.
         """
         return pulumi.get(self, "priority")
 
     @priority.setter
-    def priority(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def priority(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "priority", value)
 
     @_builtins.property
     @pulumi.getter(name="requesterSettings")
-    def requester_settings(self) -> Optional[pulumi.Input['RequestConditionRequesterSettingsArgs']]:
+    def requester_settings(self) -> pulumi.Input[Optional['RequestConditionRequesterSettingsArgs']]:
         return pulumi.get(self, "requester_settings")
 
     @requester_settings.setter
-    def requester_settings(self, value: Optional[pulumi.Input['RequestConditionRequesterSettingsArgs']]):
+    def requester_settings(self, value: pulumi.Input[Optional['RequestConditionRequesterSettingsArgs']]):
         pulumi.set(self, "requester_settings", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Status of the condition. Valid values: `ACTIVE`, `INACTIVE`. Default is `INACTIVE`. Note: `DELETED` and `INVALID` statuses are system-managed and cannot be set directly.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
 
 @pulumi.input_type
 class _RequestConditionState:
     def __init__(__self__, *,
-                 access_duration_settings: Optional[pulumi.Input['RequestConditionAccessDurationSettingsArgs']] = None,
-                 access_scope_settings: Optional[pulumi.Input['RequestConditionAccessScopeSettingsArgs']] = None,
-                 approval_sequence_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 created: Optional[pulumi.Input[_builtins.str]] = None,
-                 created_by: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 last_updated: Optional[pulumi.Input[_builtins.str]] = None,
-                 last_updated_by: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 priority: Optional[pulumi.Input[_builtins.int]] = None,
-                 requester_settings: Optional[pulumi.Input['RequestConditionRequesterSettingsArgs']] = None,
-                 resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None):
+                 access_duration_settings: pulumi.Input[Optional['RequestConditionAccessDurationSettingsArgs']] = None,
+                 access_scope_settings: pulumi.Input[Optional['RequestConditionAccessScopeSettingsArgs']] = None,
+                 approval_sequence_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 created: pulumi.Input[Optional[_builtins.str]] = None,
+                 created_by: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 last_updated: pulumi.Input[Optional[_builtins.str]] = None,
+                 last_updated_by: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 priority: pulumi.Input[Optional[_builtins.int]] = None,
+                 requester_settings: pulumi.Input[Optional['RequestConditionRequesterSettingsArgs']] = None,
+                 resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering RequestCondition resources.
 
@@ -221,152 +221,152 @@ class _RequestConditionState:
 
     @_builtins.property
     @pulumi.getter(name="accessDurationSettings")
-    def access_duration_settings(self) -> Optional[pulumi.Input['RequestConditionAccessDurationSettingsArgs']]:
+    def access_duration_settings(self) -> pulumi.Input[Optional['RequestConditionAccessDurationSettingsArgs']]:
         """
         The access duration settings for the request condition
         """
         return pulumi.get(self, "access_duration_settings")
 
     @access_duration_settings.setter
-    def access_duration_settings(self, value: Optional[pulumi.Input['RequestConditionAccessDurationSettingsArgs']]):
+    def access_duration_settings(self, value: pulumi.Input[Optional['RequestConditionAccessDurationSettingsArgs']]):
         pulumi.set(self, "access_duration_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="accessScopeSettings")
-    def access_scope_settings(self) -> Optional[pulumi.Input['RequestConditionAccessScopeSettingsArgs']]:
+    def access_scope_settings(self) -> pulumi.Input[Optional['RequestConditionAccessScopeSettingsArgs']]:
         return pulumi.get(self, "access_scope_settings")
 
     @access_scope_settings.setter
-    def access_scope_settings(self, value: Optional[pulumi.Input['RequestConditionAccessScopeSettingsArgs']]):
+    def access_scope_settings(self, value: pulumi.Input[Optional['RequestConditionAccessScopeSettingsArgs']]):
         pulumi.set(self, "access_scope_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="approvalSequenceId")
-    def approval_sequence_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def approval_sequence_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the approval sequence.
         """
         return pulumi.get(self, "approval_sequence_id")
 
     @approval_sequence_id.setter
-    def approval_sequence_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def approval_sequence_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "approval_sequence_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def created(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def created(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The date and time when the request condition was created.
         """
         return pulumi.get(self, "created")
 
     @created.setter
-    def created(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def created(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "created", value)
 
     @_builtins.property
     @pulumi.getter(name="createdBy")
-    def created_by(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def created_by(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The id of the user who created the request condition.
         """
         return pulumi.get(self, "created_by")
 
     @created_by.setter
-    def created_by(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def created_by(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "created_by", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the request condition.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="lastUpdated")
-    def last_updated(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def last_updated(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The date and time when the request condition was last updated.
         """
         return pulumi.get(self, "last_updated")
 
     @last_updated.setter
-    def last_updated(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def last_updated(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "last_updated", value)
 
     @_builtins.property
     @pulumi.getter(name="lastUpdatedBy")
-    def last_updated_by(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def last_updated_by(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The id of the user who last updated the request condition.
         """
         return pulumi.get(self, "last_updated_by")
 
     @last_updated_by.setter
-    def last_updated_by(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def last_updated_by(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "last_updated_by", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the request condition.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def priority(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def priority(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The priority of the request condition. Lower numbers indicate higher priority.
         """
         return pulumi.get(self, "priority")
 
     @priority.setter
-    def priority(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def priority(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "priority", value)
 
     @_builtins.property
     @pulumi.getter(name="requesterSettings")
-    def requester_settings(self) -> Optional[pulumi.Input['RequestConditionRequesterSettingsArgs']]:
+    def requester_settings(self) -> pulumi.Input[Optional['RequestConditionRequesterSettingsArgs']]:
         return pulumi.get(self, "requester_settings")
 
     @requester_settings.setter
-    def requester_settings(self, value: Optional[pulumi.Input['RequestConditionRequesterSettingsArgs']]):
+    def requester_settings(self, value: pulumi.Input[Optional['RequestConditionRequesterSettingsArgs']]):
         pulumi.set(self, "requester_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceId")
-    def resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The id of the resource in Okta ID format.
         """
         return pulumi.get(self, "resource_id")
 
     @resource_id.setter
-    def resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Status of the condition. Valid values: `ACTIVE`, `INACTIVE`. Default is `INACTIVE`. Note: `DELETED` and `INVALID` statuses are system-managed and cannot be set directly.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
 
@@ -376,15 +376,15 @@ class RequestCondition(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_duration_settings: Optional[pulumi.Input[Union['RequestConditionAccessDurationSettingsArgs', 'RequestConditionAccessDurationSettingsArgsDict']]] = None,
-                 access_scope_settings: Optional[pulumi.Input[Union['RequestConditionAccessScopeSettingsArgs', 'RequestConditionAccessScopeSettingsArgsDict']]] = None,
-                 approval_sequence_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 priority: Optional[pulumi.Input[_builtins.int]] = None,
-                 requester_settings: Optional[pulumi.Input[Union['RequestConditionRequesterSettingsArgs', 'RequestConditionRequesterSettingsArgsDict']]] = None,
-                 resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
+                 access_duration_settings: pulumi.Input[Optional[Union['RequestConditionAccessDurationSettingsArgs', 'RequestConditionAccessDurationSettingsArgsDict']]] = None,
+                 access_scope_settings: pulumi.Input[Optional[Union['RequestConditionAccessScopeSettingsArgs', 'RequestConditionAccessScopeSettingsArgsDict']]] = None,
+                 approval_sequence_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 priority: pulumi.Input[Optional[_builtins.int]] = None,
+                 requester_settings: pulumi.Input[Optional[Union['RequestConditionRequesterSettingsArgs', 'RequestConditionRequesterSettingsArgsDict']]] = None,
+                 resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages request conditions. This resource allows you to create and configure an Okta [request-condition](https://developer.okta.com/docs/api/iga/openapi/governance.requests.admin.v2/tag/Request-Conditions/#tag/Request-Conditions).
@@ -515,15 +515,15 @@ class RequestCondition(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_duration_settings: Optional[pulumi.Input[Union['RequestConditionAccessDurationSettingsArgs', 'RequestConditionAccessDurationSettingsArgsDict']]] = None,
-                 access_scope_settings: Optional[pulumi.Input[Union['RequestConditionAccessScopeSettingsArgs', 'RequestConditionAccessScopeSettingsArgsDict']]] = None,
-                 approval_sequence_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 priority: Optional[pulumi.Input[_builtins.int]] = None,
-                 requester_settings: Optional[pulumi.Input[Union['RequestConditionRequesterSettingsArgs', 'RequestConditionRequesterSettingsArgsDict']]] = None,
-                 resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
+                 access_duration_settings: pulumi.Input[Optional[Union['RequestConditionAccessDurationSettingsArgs', 'RequestConditionAccessDurationSettingsArgsDict']]] = None,
+                 access_scope_settings: pulumi.Input[Optional[Union['RequestConditionAccessScopeSettingsArgs', 'RequestConditionAccessScopeSettingsArgsDict']]] = None,
+                 approval_sequence_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 priority: pulumi.Input[Optional[_builtins.int]] = None,
+                 requester_settings: pulumi.Input[Optional[Union['RequestConditionRequesterSettingsArgs', 'RequestConditionRequesterSettingsArgsDict']]] = None,
+                 resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -560,19 +560,19 @@ class RequestCondition(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            access_duration_settings: Optional[pulumi.Input[Union['RequestConditionAccessDurationSettingsArgs', 'RequestConditionAccessDurationSettingsArgsDict']]] = None,
-            access_scope_settings: Optional[pulumi.Input[Union['RequestConditionAccessScopeSettingsArgs', 'RequestConditionAccessScopeSettingsArgsDict']]] = None,
-            approval_sequence_id: Optional[pulumi.Input[_builtins.str]] = None,
-            created: Optional[pulumi.Input[_builtins.str]] = None,
-            created_by: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            last_updated: Optional[pulumi.Input[_builtins.str]] = None,
-            last_updated_by: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            priority: Optional[pulumi.Input[_builtins.int]] = None,
-            requester_settings: Optional[pulumi.Input[Union['RequestConditionRequesterSettingsArgs', 'RequestConditionRequesterSettingsArgsDict']]] = None,
-            resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-            status: Optional[pulumi.Input[_builtins.str]] = None) -> 'RequestCondition':
+            access_duration_settings: pulumi.Input[Optional[Union['RequestConditionAccessDurationSettingsArgs', 'RequestConditionAccessDurationSettingsArgsDict']]] = None,
+            access_scope_settings: pulumi.Input[Optional[Union['RequestConditionAccessScopeSettingsArgs', 'RequestConditionAccessScopeSettingsArgsDict']]] = None,
+            approval_sequence_id: pulumi.Input[Optional[_builtins.str]] = None,
+            created: pulumi.Input[Optional[_builtins.str]] = None,
+            created_by: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            last_updated: pulumi.Input[Optional[_builtins.str]] = None,
+            last_updated_by: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            priority: pulumi.Input[Optional[_builtins.int]] = None,
+            requester_settings: pulumi.Input[Optional[Union['RequestConditionRequesterSettingsArgs', 'RequestConditionRequesterSettingsArgsDict']]] = None,
+            resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None) -> 'RequestCondition':
         """
         Get an existing RequestCondition resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

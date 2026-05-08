@@ -121,19 +121,19 @@ export interface CaptchaState {
     /**
      * Name of the CAPTCHA
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Secret key issued from the CAPTCHA vendor to perform server-side validation for a CAPTCHA token
      */
-    secretKey?: pulumi.Input<string>;
+    secretKey?: pulumi.Input<string | undefined>;
     /**
      * Site key issued from the CAPTCHA vendor to render a CAPTCHA on a page
      */
-    siteKey?: pulumi.Input<string>;
+    siteKey?: pulumi.Input<string | undefined>;
     /**
      * Type of the captcha. Valid values: `HCAPTCHA`, `RECAPTCHA_V2`
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -143,7 +143,7 @@ export interface CaptchaArgs {
     /**
      * Name of the CAPTCHA
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Secret key issued from the CAPTCHA vendor to perform server-side validation for a CAPTCHA token
      */

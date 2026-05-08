@@ -100,15 +100,15 @@ export interface RealmState {
     /**
      * Indicates whether the realm is the default realm.
      */
-    isDefault?: pulumi.Input<boolean>;
+    isDefault?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the Okta Realm.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The realm type. Valid values: `PARTNER` and `DEFAULT`
      */
-    realmType?: pulumi.Input<string>;
+    realmType?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -118,9 +118,9 @@ export interface RealmArgs {
     /**
      * The name of the Okta Realm.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The realm type. Valid values: `PARTNER` and `DEFAULT`
      */
-    realmType?: pulumi.Input<string>;
+    realmType?: pulumi.Input<string | undefined>;
 }

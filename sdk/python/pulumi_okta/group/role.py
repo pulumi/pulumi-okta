@@ -21,11 +21,11 @@ class RoleArgs:
     def __init__(__self__, *,
                  group_id: pulumi.Input[_builtins.str],
                  role_type: pulumi.Input[_builtins.str],
-                 disable_notifications: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_set_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_app_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 target_group_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 disable_notifications: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_set_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_app_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 target_group_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Role resource.
 
@@ -102,75 +102,75 @@ class RoleArgs:
 
     @_builtins.property
     @pulumi.getter(name="disableNotifications")
-    def disable_notifications(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def disable_notifications(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When this setting is enabled, the admins won't receive any of the default Okta administrator emails. These admins also won't have access to contact Okta Support and open support cases on behalf of your org.
         """
         return pulumi.get(self, "disable_notifications")
 
     @disable_notifications.setter
-    def disable_notifications(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def disable_notifications(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "disable_notifications", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceSetId")
-    def resource_set_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_set_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource Set ID. Required for role_type = `CUSTOM`
         """
         return pulumi.get(self, "resource_set_id")
 
     @resource_set_id.setter
-    def resource_set_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_set_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_set_id", value)
 
     @_builtins.property
     @pulumi.getter(name="roleId")
-    def role_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def role_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Role ID. Required for role_type = `CUSTOM`
         """
         return pulumi.get(self, "role_id")
 
     @role_id.setter
-    def role_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def role_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "role_id", value)
 
     @_builtins.property
     @pulumi.getter(name="targetAppLists")
-    def target_app_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def target_app_lists(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of app names (name represents set of app instances, like 'salesforce' or 'facebook'), or a combination of app name and app instance ID (like 'facebook.0oapsqQ6dv19pqyEo0g3') you would like as the targets of the admin role. - Only supported when used with the role type `APP_ADMIN`.
         """
         return pulumi.get(self, "target_app_lists")
 
     @target_app_lists.setter
-    def target_app_lists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def target_app_lists(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "target_app_lists", value)
 
     @_builtins.property
     @pulumi.getter(name="targetGroupLists")
-    def target_group_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def target_group_lists(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of group IDs you would like as the targets of the admin role. - Only supported when used with the role types: `GROUP_MEMBERSHIP_ADMIN`, `HELP_DESK_ADMIN`, or `USER_ADMIN`.
         """
         return pulumi.get(self, "target_group_lists")
 
     @target_group_lists.setter
-    def target_group_lists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def target_group_lists(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "target_group_lists", value)
 
 
 @pulumi.input_type
 class _RoleState:
     def __init__(__self__, *,
-                 disable_notifications: Optional[pulumi.Input[_builtins.bool]] = None,
-                 group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_set_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_app_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 target_group_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 disable_notifications: pulumi.Input[Optional[_builtins.bool]] = None,
+                 group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_set_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_app_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 target_group_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Role resources.
 
@@ -212,55 +212,55 @@ class _RoleState:
 
     @_builtins.property
     @pulumi.getter(name="disableNotifications")
-    def disable_notifications(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def disable_notifications(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When this setting is enabled, the admins won't receive any of the default Okta administrator emails. These admins also won't have access to contact Okta Support and open support cases on behalf of your org.
         """
         return pulumi.get(self, "disable_notifications")
 
     @disable_notifications.setter
-    def disable_notifications(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def disable_notifications(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "disable_notifications", value)
 
     @_builtins.property
     @pulumi.getter(name="groupId")
-    def group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of group to attach admin roles to
         """
         return pulumi.get(self, "group_id")
 
     @group_id.setter
-    def group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "group_id", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceSetId")
-    def resource_set_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_set_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource Set ID. Required for role_type = `CUSTOM`
         """
         return pulumi.get(self, "resource_set_id")
 
     @resource_set_id.setter
-    def resource_set_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_set_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_set_id", value)
 
     @_builtins.property
     @pulumi.getter(name="roleId")
-    def role_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def role_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Role ID. Required for role_type = `CUSTOM`
         """
         return pulumi.get(self, "role_id")
 
     @role_id.setter
-    def role_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def role_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "role_id", value)
 
     @_builtins.property
     @pulumi.getter(name="roleType")
-    def role_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def role_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Admin role assigned to the group. It can be any one of the following values:
         	"API_ADMIN",
@@ -280,31 +280,31 @@ class _RoleState:
         return pulumi.get(self, "role_type")
 
     @role_type.setter
-    def role_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def role_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "role_type", value)
 
     @_builtins.property
     @pulumi.getter(name="targetAppLists")
-    def target_app_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def target_app_lists(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of app names (name represents set of app instances, like 'salesforce' or 'facebook'), or a combination of app name and app instance ID (like 'facebook.0oapsqQ6dv19pqyEo0g3') you would like as the targets of the admin role. - Only supported when used with the role type `APP_ADMIN`.
         """
         return pulumi.get(self, "target_app_lists")
 
     @target_app_lists.setter
-    def target_app_lists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def target_app_lists(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "target_app_lists", value)
 
     @_builtins.property
     @pulumi.getter(name="targetGroupLists")
-    def target_group_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def target_group_lists(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of group IDs you would like as the targets of the admin role. - Only supported when used with the role types: `GROUP_MEMBERSHIP_ADMIN`, `HELP_DESK_ADMIN`, or `USER_ADMIN`.
         """
         return pulumi.get(self, "target_group_lists")
 
     @target_group_lists.setter
-    def target_group_lists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def target_group_lists(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "target_group_lists", value)
 
 
@@ -314,13 +314,13 @@ class Role(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 disable_notifications: Optional[pulumi.Input[_builtins.bool]] = None,
-                 group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_set_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_app_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 target_group_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 disable_notifications: pulumi.Input[Optional[_builtins.bool]] = None,
+                 group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_set_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_app_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 target_group_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Assigns Admin roles to Okta Groups. This resource allows you to assign Okta administrator roles to Okta Groups. This resource provides a one-to-one interface between the Okta group and the admin role.
@@ -454,13 +454,13 @@ class Role(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 disable_notifications: Optional[pulumi.Input[_builtins.bool]] = None,
-                 group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_set_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_app_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 target_group_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 disable_notifications: pulumi.Input[Optional[_builtins.bool]] = None,
+                 group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_set_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_app_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 target_group_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -491,13 +491,13 @@ class Role(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            disable_notifications: Optional[pulumi.Input[_builtins.bool]] = None,
-            group_id: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_set_id: Optional[pulumi.Input[_builtins.str]] = None,
-            role_id: Optional[pulumi.Input[_builtins.str]] = None,
-            role_type: Optional[pulumi.Input[_builtins.str]] = None,
-            target_app_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            target_group_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'Role':
+            disable_notifications: pulumi.Input[Optional[_builtins.bool]] = None,
+            group_id: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_set_id: pulumi.Input[Optional[_builtins.str]] = None,
+            role_id: pulumi.Input[Optional[_builtins.str]] = None,
+            role_type: pulumi.Input[Optional[_builtins.str]] = None,
+            target_app_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            target_group_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'Role':
         """
         Get an existing Role resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -184,9 +184,9 @@ def get_auth_server_claim(auth_server_id: Optional[_builtins.str] = None,
         status=pulumi.get(__ret__, 'status'),
         value=pulumi.get(__ret__, 'value'),
         value_type=pulumi.get(__ret__, 'value_type'))
-def get_auth_server_claim_output(auth_server_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                 id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                 name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_auth_server_claim_output(auth_server_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                 id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                 name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAuthServerClaimResult]:
     """
     Get authorization server claim from Okta.

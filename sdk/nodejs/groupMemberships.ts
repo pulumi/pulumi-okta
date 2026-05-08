@@ -130,15 +130,15 @@ export interface GroupMembershipsState {
     /**
      * ID of a Okta group.
      */
-    groupId?: pulumi.Input<string>;
+    groupId?: pulumi.Input<string | undefined>;
     /**
      * The resource concerns itself with all users added/deleted to the group; even those managed outside of the resource.
      */
-    trackAllUsers?: pulumi.Input<boolean>;
+    trackAllUsers?: pulumi.Input<boolean | undefined>;
     /**
      * The list of Okta user IDs which the group should have membership managed for.
      */
-    users?: pulumi.Input<pulumi.Input<string>[]>;
+    users?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 /**
@@ -152,7 +152,7 @@ export interface GroupMembershipsArgs {
     /**
      * The resource concerns itself with all users added/deleted to the group; even those managed outside of the resource.
      */
-    trackAllUsers?: pulumi.Input<boolean>;
+    trackAllUsers?: pulumi.Input<boolean | undefined>;
     /**
      * The list of Okta user IDs which the group should have membership managed for.
      */

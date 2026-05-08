@@ -189,71 +189,71 @@ export interface OrgConfigurationState {
     /**
      * Primary address of org
      */
-    address1?: pulumi.Input<string>;
+    address1?: pulumi.Input<string | undefined>;
     /**
      * Secondary address of org
      */
-    address2?: pulumi.Input<string>;
+    address2?: pulumi.Input<string | undefined>;
     /**
      * User ID representing the billing contact
      */
-    billingContactUser?: pulumi.Input<string>;
+    billingContactUser?: pulumi.Input<string | undefined>;
     /**
      * City of org
      */
-    city?: pulumi.Input<string>;
+    city?: pulumi.Input<string | undefined>;
     /**
      * Name of org
      */
-    companyName?: pulumi.Input<string>;
+    companyName?: pulumi.Input<string | undefined>;
     /**
      * Country of org
      */
-    country?: pulumi.Input<string>;
+    country?: pulumi.Input<string | undefined>;
     /**
      * Support link of org
      */
-    endUserSupportHelpUrl?: pulumi.Input<string>;
+    endUserSupportHelpUrl?: pulumi.Input<string | undefined>;
     /**
      * Expiration of org
      */
-    expiresAt?: pulumi.Input<string>;
+    expiresAt?: pulumi.Input<string | undefined>;
     /**
      * Logo of org. The file must be in PNG, JPG, or GIF format and less than 1 MB in size. For best results use landscape orientation, a transparent background, and a minimum size of 420px by 120px to prevent upscaling.
      */
-    logo?: pulumi.Input<string>;
+    logo?: pulumi.Input<string | undefined>;
     /**
      * Indicates whether the org's users receive Okta Communication emails
      */
-    optOutCommunicationEmails?: pulumi.Input<boolean>;
+    optOutCommunicationEmails?: pulumi.Input<boolean | undefined>;
     /**
      * Support help phone of org
      */
-    phoneNumber?: pulumi.Input<string>;
+    phoneNumber?: pulumi.Input<string | undefined>;
     /**
      * Postal code of org
      */
-    postalCode?: pulumi.Input<string>;
+    postalCode?: pulumi.Input<string | undefined>;
     /**
      * State of org
      */
-    state?: pulumi.Input<string>;
+    state?: pulumi.Input<string | undefined>;
     /**
      * Subdomain of org
      */
-    subdomain?: pulumi.Input<string>;
+    subdomain?: pulumi.Input<string | undefined>;
     /**
      * Support help phone of org
      */
-    supportPhoneNumber?: pulumi.Input<string>;
+    supportPhoneNumber?: pulumi.Input<string | undefined>;
     /**
      * User ID representing the technical contact
      */
-    technicalContactUser?: pulumi.Input<string>;
+    technicalContactUser?: pulumi.Input<string | undefined>;
     /**
      * The org's website
      */
-    website?: pulumi.Input<string>;
+    website?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -263,19 +263,19 @@ export interface OrgConfigurationArgs {
     /**
      * Primary address of org
      */
-    address1?: pulumi.Input<string>;
+    address1?: pulumi.Input<string | undefined>;
     /**
      * Secondary address of org
      */
-    address2?: pulumi.Input<string>;
+    address2?: pulumi.Input<string | undefined>;
     /**
      * User ID representing the billing contact
      */
-    billingContactUser?: pulumi.Input<string>;
+    billingContactUser?: pulumi.Input<string | undefined>;
     /**
      * City of org
      */
-    city?: pulumi.Input<string>;
+    city?: pulumi.Input<string | undefined>;
     /**
      * Name of org
      */
@@ -283,41 +283,41 @@ export interface OrgConfigurationArgs {
     /**
      * Country of org
      */
-    country?: pulumi.Input<string>;
+    country?: pulumi.Input<string | undefined>;
     /**
      * Support link of org
      */
-    endUserSupportHelpUrl?: pulumi.Input<string>;
+    endUserSupportHelpUrl?: pulumi.Input<string | undefined>;
     /**
      * Logo of org. The file must be in PNG, JPG, or GIF format and less than 1 MB in size. For best results use landscape orientation, a transparent background, and a minimum size of 420px by 120px to prevent upscaling.
      */
-    logo?: pulumi.Input<string>;
+    logo?: pulumi.Input<string | undefined>;
     /**
      * Indicates whether the org's users receive Okta Communication emails
      */
-    optOutCommunicationEmails?: pulumi.Input<boolean>;
+    optOutCommunicationEmails?: pulumi.Input<boolean | undefined>;
     /**
      * Support help phone of org
      */
-    phoneNumber?: pulumi.Input<string>;
+    phoneNumber?: pulumi.Input<string | undefined>;
     /**
      * Postal code of org
      */
-    postalCode?: pulumi.Input<string>;
+    postalCode?: pulumi.Input<string | undefined>;
     /**
      * State of org
      */
-    state?: pulumi.Input<string>;
+    state?: pulumi.Input<string | undefined>;
     /**
      * Support help phone of org
      */
-    supportPhoneNumber?: pulumi.Input<string>;
+    supportPhoneNumber?: pulumi.Input<string | undefined>;
     /**
      * User ID representing the technical contact
      */
-    technicalContactUser?: pulumi.Input<string>;
+    technicalContactUser?: pulumi.Input<string | undefined>;
     /**
      * The org's website
      */
-    website?: pulumi.Input<string>;
+    website?: pulumi.Input<string | undefined>;
 }

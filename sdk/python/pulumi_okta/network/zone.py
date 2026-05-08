@@ -20,18 +20,18 @@ __all__ = ['ZoneArgs', 'Zone']
 class ZoneArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
-                 asns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 dynamic_locations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 dynamic_locations_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 dynamic_proxy_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 gateways: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 ip_service_categories_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 ip_service_categories_includes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 proxies: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 set_usage_as_exempt_list: Optional[pulumi.Input[_builtins.bool]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 usage: Optional[pulumi.Input[_builtins.str]] = None):
+                 asns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 dynamic_locations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 dynamic_locations_excludes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 dynamic_proxy_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 gateways: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 ip_service_categories_excludes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 ip_service_categories_includes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 proxies: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 set_usage_as_exempt_list: pulumi.Input[Optional[_builtins.bool]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 usage: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Zone resource.
 
@@ -89,166 +89,166 @@ class ZoneArgs:
 
     @_builtins.property
     @pulumi.getter
-    def asns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def asns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of asns included. Format of each array value: a string representation of an ASN numeric value. Use with type `DYNAMIC` or `DYNAMIC_V2`
         """
         return pulumi.get(self, "asns")
 
     @asns.setter
-    def asns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def asns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "asns", value)
 
     @_builtins.property
     @pulumi.getter(name="dynamicLocations")
-    def dynamic_locations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def dynamic_locations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Array of locations ISO-3166-1(2) included. Format code: countryCode OR countryCode-regionCode. Use with type `DYNAMIC` or `DYNAMIC_V2`
         """
         return pulumi.get(self, "dynamic_locations")
 
     @dynamic_locations.setter
-    def dynamic_locations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def dynamic_locations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "dynamic_locations", value)
 
     @_builtins.property
     @pulumi.getter(name="dynamicLocationsExcludes")
-    def dynamic_locations_excludes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def dynamic_locations_excludes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Array of locations ISO-3166-1(2) excluded. Format code: countryCode OR countryCode-regionCode. Use with type `DYNAMIC_V2`
         """
         return pulumi.get(self, "dynamic_locations_excludes")
 
     @dynamic_locations_excludes.setter
-    def dynamic_locations_excludes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def dynamic_locations_excludes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "dynamic_locations_excludes", value)
 
     @_builtins.property
     @pulumi.getter(name="dynamicProxyType")
-    def dynamic_proxy_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dynamic_proxy_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of proxy being controlled by this dynamic network zone - can be one of `Any`, `TorAnonymizer` or `NotTorAnonymizer`. Use with type `DYNAMIC`
         """
         return pulumi.get(self, "dynamic_proxy_type")
 
     @dynamic_proxy_type.setter
-    def dynamic_proxy_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dynamic_proxy_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dynamic_proxy_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def gateways(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def gateways(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples. Use with type `IP`
         """
         return pulumi.get(self, "gateways")
 
     @gateways.setter
-    def gateways(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def gateways(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "gateways", value)
 
     @_builtins.property
     @pulumi.getter(name="ipServiceCategoriesExcludes")
-    def ip_service_categories_excludes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def ip_service_categories_excludes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of ip service excluded. Use with type `DYNAMIC_V2`
         """
         return pulumi.get(self, "ip_service_categories_excludes")
 
     @ip_service_categories_excludes.setter
-    def ip_service_categories_excludes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def ip_service_categories_excludes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "ip_service_categories_excludes", value)
 
     @_builtins.property
     @pulumi.getter(name="ipServiceCategoriesIncludes")
-    def ip_service_categories_includes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def ip_service_categories_includes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of ip service included. Use with type `DYNAMIC_V2`
         """
         return pulumi.get(self, "ip_service_categories_includes")
 
     @ip_service_categories_includes.setter
-    def ip_service_categories_includes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def ip_service_categories_includes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "ip_service_categories_includes", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the Network Zone Resource
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def proxies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def proxies(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples. Can not be set if `usage` is set to `BLOCKLIST`. Use with type `IP`
         """
         return pulumi.get(self, "proxies")
 
     @proxies.setter
-    def proxies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def proxies(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "proxies", value)
 
     @_builtins.property
     @pulumi.getter(name="setUsageAsExemptList")
-    def set_usage_as_exempt_list(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def set_usage_as_exempt_list(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Set this parameter to true in your request when you update the `DefaultExemptIpZone` to allow IPs through the blocklist.
         """
         return pulumi.get(self, "set_usage_as_exempt_list")
 
     @set_usage_as_exempt_list.setter
-    def set_usage_as_exempt_list(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def set_usage_as_exempt_list(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "set_usage_as_exempt_list", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Network Status - can either be `ACTIVE` or `INACTIVE` only
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter
-    def usage(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def usage(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Usage of the Network Zone - can be either `POLICY` or `BLOCKLIST`. By default, it is `POLICY`
         """
         return pulumi.get(self, "usage")
 
     @usage.setter
-    def usage(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def usage(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "usage", value)
 
 
 @pulumi.input_type
 class _ZoneState:
     def __init__(__self__, *,
-                 asns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 dynamic_locations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 dynamic_locations_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 dynamic_proxy_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 gateways: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 ip_service_categories_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 ip_service_categories_includes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 proxies: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 set_usage_as_exempt_list: Optional[pulumi.Input[_builtins.bool]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 system: Optional[pulumi.Input[_builtins.bool]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 usage: Optional[pulumi.Input[_builtins.str]] = None):
+                 asns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 dynamic_locations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 dynamic_locations_excludes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 dynamic_proxy_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 gateways: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 ip_service_categories_excludes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 ip_service_categories_includes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 proxies: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 set_usage_as_exempt_list: pulumi.Input[Optional[_builtins.bool]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 system: pulumi.Input[Optional[_builtins.bool]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 usage: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Zone resources.
 
@@ -298,170 +298,170 @@ class _ZoneState:
 
     @_builtins.property
     @pulumi.getter
-    def asns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def asns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of asns included. Format of each array value: a string representation of an ASN numeric value. Use with type `DYNAMIC` or `DYNAMIC_V2`
         """
         return pulumi.get(self, "asns")
 
     @asns.setter
-    def asns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def asns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "asns", value)
 
     @_builtins.property
     @pulumi.getter(name="dynamicLocations")
-    def dynamic_locations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def dynamic_locations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Array of locations ISO-3166-1(2) included. Format code: countryCode OR countryCode-regionCode. Use with type `DYNAMIC` or `DYNAMIC_V2`
         """
         return pulumi.get(self, "dynamic_locations")
 
     @dynamic_locations.setter
-    def dynamic_locations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def dynamic_locations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "dynamic_locations", value)
 
     @_builtins.property
     @pulumi.getter(name="dynamicLocationsExcludes")
-    def dynamic_locations_excludes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def dynamic_locations_excludes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Array of locations ISO-3166-1(2) excluded. Format code: countryCode OR countryCode-regionCode. Use with type `DYNAMIC_V2`
         """
         return pulumi.get(self, "dynamic_locations_excludes")
 
     @dynamic_locations_excludes.setter
-    def dynamic_locations_excludes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def dynamic_locations_excludes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "dynamic_locations_excludes", value)
 
     @_builtins.property
     @pulumi.getter(name="dynamicProxyType")
-    def dynamic_proxy_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dynamic_proxy_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of proxy being controlled by this dynamic network zone - can be one of `Any`, `TorAnonymizer` or `NotTorAnonymizer`. Use with type `DYNAMIC`
         """
         return pulumi.get(self, "dynamic_proxy_type")
 
     @dynamic_proxy_type.setter
-    def dynamic_proxy_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dynamic_proxy_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dynamic_proxy_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def gateways(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def gateways(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples. Use with type `IP`
         """
         return pulumi.get(self, "gateways")
 
     @gateways.setter
-    def gateways(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def gateways(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "gateways", value)
 
     @_builtins.property
     @pulumi.getter(name="ipServiceCategoriesExcludes")
-    def ip_service_categories_excludes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def ip_service_categories_excludes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of ip service excluded. Use with type `DYNAMIC_V2`
         """
         return pulumi.get(self, "ip_service_categories_excludes")
 
     @ip_service_categories_excludes.setter
-    def ip_service_categories_excludes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def ip_service_categories_excludes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "ip_service_categories_excludes", value)
 
     @_builtins.property
     @pulumi.getter(name="ipServiceCategoriesIncludes")
-    def ip_service_categories_includes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def ip_service_categories_includes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of ip service included. Use with type `DYNAMIC_V2`
         """
         return pulumi.get(self, "ip_service_categories_includes")
 
     @ip_service_categories_includes.setter
-    def ip_service_categories_includes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def ip_service_categories_includes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "ip_service_categories_includes", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the Network Zone Resource
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def proxies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def proxies(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Array of values in CIDR/range form depending on the way it's been declared (i.e. CIDR will contain /suffix). Please check API docs for examples. Can not be set if `usage` is set to `BLOCKLIST`. Use with type `IP`
         """
         return pulumi.get(self, "proxies")
 
     @proxies.setter
-    def proxies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def proxies(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "proxies", value)
 
     @_builtins.property
     @pulumi.getter(name="setUsageAsExemptList")
-    def set_usage_as_exempt_list(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def set_usage_as_exempt_list(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Set this parameter to true in your request when you update the `DefaultExemptIpZone` to allow IPs through the blocklist.
         """
         return pulumi.get(self, "set_usage_as_exempt_list")
 
     @set_usage_as_exempt_list.setter
-    def set_usage_as_exempt_list(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def set_usage_as_exempt_list(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "set_usage_as_exempt_list", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Network Status - can either be `ACTIVE` or `INACTIVE` only
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter
-    def system(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def system(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates a system Network Zone
         """
         return pulumi.get(self, "system")
 
     @system.setter
-    def system(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def system(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "system", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of the Network Zone - can be `IP`, `DYNAMIC` or `DYNAMIC_V2` only
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
     @_builtins.property
     @pulumi.getter
-    def usage(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def usage(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Usage of the Network Zone - can be either `POLICY` or `BLOCKLIST`. By default, it is `POLICY`
         """
         return pulumi.get(self, "usage")
 
     @usage.setter
-    def usage(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def usage(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "usage", value)
 
 
@@ -471,19 +471,19 @@ class Zone(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 asns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 dynamic_locations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 dynamic_locations_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 dynamic_proxy_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 gateways: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 ip_service_categories_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 ip_service_categories_includes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 proxies: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 set_usage_as_exempt_list: Optional[pulumi.Input[_builtins.bool]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 usage: Optional[pulumi.Input[_builtins.str]] = None,
+                 asns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 dynamic_locations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 dynamic_locations_excludes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 dynamic_proxy_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 gateways: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 ip_service_categories_excludes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 ip_service_categories_includes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 proxies: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 set_usage_as_exempt_list: pulumi.Input[Optional[_builtins.bool]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 usage: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Creates an Okta Network Zone. This resource allows you to create and configure an Okta Network Zone.
@@ -542,19 +542,19 @@ class Zone(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 asns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 dynamic_locations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 dynamic_locations_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 dynamic_proxy_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 gateways: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 ip_service_categories_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 ip_service_categories_includes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 proxies: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 set_usage_as_exempt_list: Optional[pulumi.Input[_builtins.bool]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 usage: Optional[pulumi.Input[_builtins.str]] = None,
+                 asns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 dynamic_locations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 dynamic_locations_excludes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 dynamic_proxy_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 gateways: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 ip_service_categories_excludes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 ip_service_categories_includes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 proxies: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 set_usage_as_exempt_list: pulumi.Input[Optional[_builtins.bool]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 usage: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -590,20 +590,20 @@ class Zone(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            asns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            dynamic_locations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            dynamic_locations_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            dynamic_proxy_type: Optional[pulumi.Input[_builtins.str]] = None,
-            gateways: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            ip_service_categories_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            ip_service_categories_includes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            proxies: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            set_usage_as_exempt_list: Optional[pulumi.Input[_builtins.bool]] = None,
-            status: Optional[pulumi.Input[_builtins.str]] = None,
-            system: Optional[pulumi.Input[_builtins.bool]] = None,
-            type: Optional[pulumi.Input[_builtins.str]] = None,
-            usage: Optional[pulumi.Input[_builtins.str]] = None) -> 'Zone':
+            asns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            dynamic_locations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            dynamic_locations_excludes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            dynamic_proxy_type: pulumi.Input[Optional[_builtins.str]] = None,
+            gateways: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            ip_service_categories_excludes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            ip_service_categories_includes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            proxies: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            set_usage_as_exempt_list: pulumi.Input[Optional[_builtins.bool]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            system: pulumi.Input[Optional[_builtins.bool]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None,
+            usage: pulumi.Input[Optional[_builtins.str]] = None) -> 'Zone':
         """
         Get an existing Zone resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

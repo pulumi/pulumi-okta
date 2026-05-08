@@ -29,13 +29,13 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			user, err := user.GetUserProfileMappingSource(ctx, map[string]interface{}{}, nil)
+//			user2, err := user.GetUserProfileMappingSource(ctx, map[string]interface{}{}, nil)
 //			if err != nil {
 //				return err
 //			}
 //			_, err = profile.NewMapping(ctx, "example", &profile.MappingArgs{
 //				SourceId:         pulumi.String("<source id>"),
-//				TargetId:         pulumi.String(pulumi.String(user.Id)),
+//				TargetId:         pulumi.String(pulumi.String(user2.Id)),
 //				DeleteWhenAbsent: pulumi.Bool(true),
 //				Mappings: profile.MappingMappingArray{
 //					&profile.MappingMappingArgs{

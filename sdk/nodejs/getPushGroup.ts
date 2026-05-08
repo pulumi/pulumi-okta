@@ -114,9 +114,9 @@ export interface GetPushGroupOutputArgs {
     /**
      * Push Group ID
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * The ID of the source group in Okta.
      */
-    sourceGroupId?: pulumi.Input<string>;
+    sourceGroupId?: pulumi.Input<string | undefined>;
 }

@@ -19,12 +19,12 @@ __all__ = ['FactorTotpArgs', 'FactorTotp']
 @pulumi.input_type
 class FactorTotpArgs:
     def __init__(__self__, *,
-                 clock_drift_interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 hmac_algorithm: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 otp_length: Optional[pulumi.Input[_builtins.int]] = None,
-                 shared_secret_encoding: Optional[pulumi.Input[_builtins.str]] = None,
-                 time_step: Optional[pulumi.Input[_builtins.int]] = None):
+                 clock_drift_interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 hmac_algorithm: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 otp_length: pulumi.Input[Optional[_builtins.int]] = None,
+                 shared_secret_encoding: pulumi.Input[Optional[_builtins.str]] = None,
+                 time_step: pulumi.Input[Optional[_builtins.int]] = None):
         """
         The set of arguments for constructing a FactorTotp resource.
 
@@ -50,86 +50,86 @@ class FactorTotpArgs:
 
     @_builtins.property
     @pulumi.getter(name="clockDriftInterval")
-    def clock_drift_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def clock_drift_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Clock drift interval. This setting allows you to build in tolerance for any drift between the token's current time and the server's current time. Valid values: `3`, `5`, `10`. Default is `3`.
         """
         return pulumi.get(self, "clock_drift_interval")
 
     @clock_drift_interval.setter
-    def clock_drift_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def clock_drift_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "clock_drift_interval", value)
 
     @_builtins.property
     @pulumi.getter(name="hmacAlgorithm")
-    def hmac_algorithm(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def hmac_algorithm(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         HMAC Algorithm. Valid values: `HMacSHA1`, `HMacSHA256`, `HMacSHA512`. Default is `HMacSHA512`.
         """
         return pulumi.get(self, "hmac_algorithm")
 
     @hmac_algorithm.setter
-    def hmac_algorithm(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def hmac_algorithm(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "hmac_algorithm", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The TOTP name.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="otpLength")
-    def otp_length(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def otp_length(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Length of the password. Default is `6`.
         """
         return pulumi.get(self, "otp_length")
 
     @otp_length.setter
-    def otp_length(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def otp_length(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "otp_length", value)
 
     @_builtins.property
     @pulumi.getter(name="sharedSecretEncoding")
-    def shared_secret_encoding(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def shared_secret_encoding(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Shared secret encoding. Valid values: `base32`, `base64`, `hexadecimal`. Default is `base32`.
         """
         return pulumi.get(self, "shared_secret_encoding")
 
     @shared_secret_encoding.setter
-    def shared_secret_encoding(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def shared_secret_encoding(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "shared_secret_encoding", value)
 
     @_builtins.property
     @pulumi.getter(name="timeStep")
-    def time_step(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def time_step(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Time step in seconds. Valid values: `15`, `30`, `60`. Default is `15`.
         """
         return pulumi.get(self, "time_step")
 
     @time_step.setter
-    def time_step(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def time_step(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "time_step", value)
 
 
 @pulumi.input_type
 class _FactorTotpState:
     def __init__(__self__, *,
-                 clock_drift_interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 hmac_algorithm: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 otp_length: Optional[pulumi.Input[_builtins.int]] = None,
-                 shared_secret_encoding: Optional[pulumi.Input[_builtins.str]] = None,
-                 time_step: Optional[pulumi.Input[_builtins.int]] = None):
+                 clock_drift_interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 hmac_algorithm: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 otp_length: pulumi.Input[Optional[_builtins.int]] = None,
+                 shared_secret_encoding: pulumi.Input[Optional[_builtins.str]] = None,
+                 time_step: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering FactorTotp resources.
 
@@ -155,74 +155,74 @@ class _FactorTotpState:
 
     @_builtins.property
     @pulumi.getter(name="clockDriftInterval")
-    def clock_drift_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def clock_drift_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Clock drift interval. This setting allows you to build in tolerance for any drift between the token's current time and the server's current time. Valid values: `3`, `5`, `10`. Default is `3`.
         """
         return pulumi.get(self, "clock_drift_interval")
 
     @clock_drift_interval.setter
-    def clock_drift_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def clock_drift_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "clock_drift_interval", value)
 
     @_builtins.property
     @pulumi.getter(name="hmacAlgorithm")
-    def hmac_algorithm(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def hmac_algorithm(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         HMAC Algorithm. Valid values: `HMacSHA1`, `HMacSHA256`, `HMacSHA512`. Default is `HMacSHA512`.
         """
         return pulumi.get(self, "hmac_algorithm")
 
     @hmac_algorithm.setter
-    def hmac_algorithm(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def hmac_algorithm(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "hmac_algorithm", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The TOTP name.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="otpLength")
-    def otp_length(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def otp_length(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Length of the password. Default is `6`.
         """
         return pulumi.get(self, "otp_length")
 
     @otp_length.setter
-    def otp_length(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def otp_length(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "otp_length", value)
 
     @_builtins.property
     @pulumi.getter(name="sharedSecretEncoding")
-    def shared_secret_encoding(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def shared_secret_encoding(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Shared secret encoding. Valid values: `base32`, `base64`, `hexadecimal`. Default is `base32`.
         """
         return pulumi.get(self, "shared_secret_encoding")
 
     @shared_secret_encoding.setter
-    def shared_secret_encoding(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def shared_secret_encoding(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "shared_secret_encoding", value)
 
     @_builtins.property
     @pulumi.getter(name="timeStep")
-    def time_step(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def time_step(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Time step in seconds. Valid values: `15`, `30`, `60`. Default is `15`.
         """
         return pulumi.get(self, "time_step")
 
     @time_step.setter
-    def time_step(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def time_step(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "time_step", value)
 
 
@@ -232,12 +232,12 @@ class FactorTotp(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 clock_drift_interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 hmac_algorithm: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 otp_length: Optional[pulumi.Input[_builtins.int]] = None,
-                 shared_secret_encoding: Optional[pulumi.Input[_builtins.str]] = None,
-                 time_step: Optional[pulumi.Input[_builtins.int]] = None,
+                 clock_drift_interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 hmac_algorithm: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 otp_length: pulumi.Input[Optional[_builtins.int]] = None,
+                 shared_secret_encoding: pulumi.Input[Optional[_builtins.str]] = None,
+                 time_step: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         """
         Allows you to manage the time-based one-time password (TOTP) factors. A time-based one-time password (TOTP) is a
@@ -325,12 +325,12 @@ class FactorTotp(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 clock_drift_interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 hmac_algorithm: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 otp_length: Optional[pulumi.Input[_builtins.int]] = None,
-                 shared_secret_encoding: Optional[pulumi.Input[_builtins.str]] = None,
-                 time_step: Optional[pulumi.Input[_builtins.int]] = None,
+                 clock_drift_interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 hmac_algorithm: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 otp_length: pulumi.Input[Optional[_builtins.int]] = None,
+                 shared_secret_encoding: pulumi.Input[Optional[_builtins.str]] = None,
+                 time_step: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -356,12 +356,12 @@ class FactorTotp(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            clock_drift_interval: Optional[pulumi.Input[_builtins.int]] = None,
-            hmac_algorithm: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            otp_length: Optional[pulumi.Input[_builtins.int]] = None,
-            shared_secret_encoding: Optional[pulumi.Input[_builtins.str]] = None,
-            time_step: Optional[pulumi.Input[_builtins.int]] = None) -> 'FactorTotp':
+            clock_drift_interval: pulumi.Input[Optional[_builtins.int]] = None,
+            hmac_algorithm: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            otp_length: pulumi.Input[Optional[_builtins.int]] = None,
+            shared_secret_encoding: pulumi.Input[Optional[_builtins.str]] = None,
+            time_step: pulumi.Input[Optional[_builtins.int]] = None) -> 'FactorTotp':
         """
         Get an existing FactorTotp resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

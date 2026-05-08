@@ -19,12 +19,12 @@ __all__ = ['AuthServerDefaultArgs', 'AuthServerDefault']
 @pulumi.input_type
 class AuthServerDefaultArgs:
     def __init__(__self__, *,
-                 audiences: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 credentials_rotation_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 issuer_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None):
+                 audiences: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 credentials_rotation_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 issuer_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a AuthServerDefault resource.
 
@@ -50,90 +50,90 @@ class AuthServerDefaultArgs:
 
     @_builtins.property
     @pulumi.getter
-    def audiences(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def audiences(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The recipients that the tokens are intended for. This becomes the `aud` claim in an access token. Currently Okta only supports a single value here.
         """
         return pulumi.get(self, "audiences")
 
     @audiences.setter
-    def audiences(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def audiences(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "audiences", value)
 
     @_builtins.property
     @pulumi.getter(name="credentialsRotationMode")
-    def credentials_rotation_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def credentials_rotation_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The key rotation mode for the authorization server. Can be `AUTO` or `MANUAL`. Default: `MANUAL`.Credential rotation mode, in many cases you cannot set this to MANUAL, the API will ignore the value and you will get a perpetual diff. This should rarely be used.
         """
         return pulumi.get(self, "credentials_rotation_mode")
 
     @credentials_rotation_mode.setter
-    def credentials_rotation_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def credentials_rotation_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "credentials_rotation_mode", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the authorization server.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="issuerMode")
-    def issuer_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def issuer_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         *Early Access Property*. Allows you to use a custom issuer URL. It can be set to `CUSTOM_URL`, `ORG_URL`, or `DYNAMIC`. Default: `ORG_URL`
         """
         return pulumi.get(self, "issuer_mode")
 
     @issuer_mode.setter
-    def issuer_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def issuer_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "issuer_mode", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the authorization server. Not necessary but left for backwards capacity with legacy implementation.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Default to `ACTIVE`
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
 
 @pulumi.input_type
 class _AuthServerDefaultState:
     def __init__(__self__, *,
-                 audiences: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 credentials_last_rotated: Optional[pulumi.Input[_builtins.str]] = None,
-                 credentials_next_rotation: Optional[pulumi.Input[_builtins.str]] = None,
-                 credentials_rotation_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 issuer: Optional[pulumi.Input[_builtins.str]] = None,
-                 issuer_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 kid: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None):
+                 audiences: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 credentials_last_rotated: pulumi.Input[Optional[_builtins.str]] = None,
+                 credentials_next_rotation: pulumi.Input[Optional[_builtins.str]] = None,
+                 credentials_rotation_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 issuer: pulumi.Input[Optional[_builtins.str]] = None,
+                 issuer_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 kid: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AuthServerDefault resources.
 
@@ -171,122 +171,122 @@ class _AuthServerDefaultState:
 
     @_builtins.property
     @pulumi.getter
-    def audiences(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def audiences(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The recipients that the tokens are intended for. This becomes the `aud` claim in an access token. Currently Okta only supports a single value here.
         """
         return pulumi.get(self, "audiences")
 
     @audiences.setter
-    def audiences(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def audiences(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "audiences", value)
 
     @_builtins.property
     @pulumi.getter(name="credentialsLastRotated")
-    def credentials_last_rotated(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def credentials_last_rotated(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The timestamp when the authorization server started to use the `kid` for signing tokens.
         """
         return pulumi.get(self, "credentials_last_rotated")
 
     @credentials_last_rotated.setter
-    def credentials_last_rotated(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def credentials_last_rotated(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "credentials_last_rotated", value)
 
     @_builtins.property
     @pulumi.getter(name="credentialsNextRotation")
-    def credentials_next_rotation(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def credentials_next_rotation(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The timestamp when the authorization server changes the key for signing tokens. Only returned when `credentials_rotation_mode` is `AUTO`.
         """
         return pulumi.get(self, "credentials_next_rotation")
 
     @credentials_next_rotation.setter
-    def credentials_next_rotation(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def credentials_next_rotation(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "credentials_next_rotation", value)
 
     @_builtins.property
     @pulumi.getter(name="credentialsRotationMode")
-    def credentials_rotation_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def credentials_rotation_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The key rotation mode for the authorization server. Can be `AUTO` or `MANUAL`. Default: `MANUAL`.Credential rotation mode, in many cases you cannot set this to MANUAL, the API will ignore the value and you will get a perpetual diff. This should rarely be used.
         """
         return pulumi.get(self, "credentials_rotation_mode")
 
     @credentials_rotation_mode.setter
-    def credentials_rotation_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def credentials_rotation_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "credentials_rotation_mode", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the authorization server.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def issuer(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def issuer(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The complete URL for a Custom Authorization Server. This becomes the `iss` claim in an access token.
         """
         return pulumi.get(self, "issuer")
 
     @issuer.setter
-    def issuer(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def issuer(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "issuer", value)
 
     @_builtins.property
     @pulumi.getter(name="issuerMode")
-    def issuer_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def issuer_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         *Early Access Property*. Allows you to use a custom issuer URL. It can be set to `CUSTOM_URL`, `ORG_URL`, or `DYNAMIC`. Default: `ORG_URL`
         """
         return pulumi.get(self, "issuer_mode")
 
     @issuer_mode.setter
-    def issuer_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def issuer_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "issuer_mode", value)
 
     @_builtins.property
     @pulumi.getter
-    def kid(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kid(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the JSON Web Key used for signing tokens issued by the authorization server.
         """
         return pulumi.get(self, "kid")
 
     @kid.setter
-    def kid(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kid(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kid", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the authorization server. Not necessary but left for backwards capacity with legacy implementation.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Default to `ACTIVE`
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
 
@@ -296,12 +296,12 @@ class AuthServerDefault(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 audiences: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 credentials_rotation_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 issuer_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
+                 audiences: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 credentials_rotation_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 issuer_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Configures Default Authorization Server. This resource allows you to configure Default Authorization Server.
@@ -375,12 +375,12 @@ class AuthServerDefault(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 audiences: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 credentials_rotation_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 issuer_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
+                 audiences: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 credentials_rotation_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 issuer_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -410,16 +410,16 @@ class AuthServerDefault(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            audiences: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            credentials_last_rotated: Optional[pulumi.Input[_builtins.str]] = None,
-            credentials_next_rotation: Optional[pulumi.Input[_builtins.str]] = None,
-            credentials_rotation_mode: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            issuer: Optional[pulumi.Input[_builtins.str]] = None,
-            issuer_mode: Optional[pulumi.Input[_builtins.str]] = None,
-            kid: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            status: Optional[pulumi.Input[_builtins.str]] = None) -> 'AuthServerDefault':
+            audiences: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            credentials_last_rotated: pulumi.Input[Optional[_builtins.str]] = None,
+            credentials_next_rotation: pulumi.Input[Optional[_builtins.str]] = None,
+            credentials_rotation_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            issuer: pulumi.Input[Optional[_builtins.str]] = None,
+            issuer_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            kid: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None) -> 'AuthServerDefault':
         """
         Get an existing AuthServerDefault resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

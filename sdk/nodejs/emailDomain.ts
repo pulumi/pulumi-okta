@@ -136,27 +136,27 @@ export interface EmailDomainState {
     /**
      * Brand id of the email domain.
      */
-    brandId?: pulumi.Input<string>;
+    brandId?: pulumi.Input<string | undefined>;
     /**
      * Display name of the email domain.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * TXT and cname records to be registered for the email Domain
      */
-    dnsValidationRecords?: pulumi.Input<pulumi.Input<inputs.EmailDomainDnsValidationRecord>[]>;
+    dnsValidationRecords?: pulumi.Input<pulumi.Input<inputs.EmailDomainDnsValidationRecord>[] | undefined>;
     /**
      * Mail domain to send from.
      */
-    domain?: pulumi.Input<string>;
+    domain?: pulumi.Input<string | undefined>;
     /**
      * User name of the email domain.
      */
-    userName?: pulumi.Input<string>;
+    userName?: pulumi.Input<string | undefined>;
     /**
      * Status of the email domain. Values: NOT*STARTED, IN*PROGRESS, VERIFIED, COMPLETED
      */
-    validationStatus?: pulumi.Input<string>;
+    validationStatus?: pulumi.Input<string | undefined>;
 }
 
 /**

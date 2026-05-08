@@ -228,10 +228,10 @@ def get_agent_pool_update(agents: Optional[Sequence[Union['GetAgentPoolUpdateAge
         sort_order=pulumi.get(__ret__, 'sort_order'),
         status=pulumi.get(__ret__, 'status'),
         target_version=pulumi.get(__ret__, 'target_version'))
-def get_agent_pool_update_output(agents: Optional[pulumi.Input[Optional[Sequence[Union['GetAgentPoolUpdateAgentArgs', 'GetAgentPoolUpdateAgentArgsDict']]]]] = None,
-                                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                                 pool_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                 schedule: Optional[pulumi.Input[Optional[Union['GetAgentPoolUpdateScheduleArgs', 'GetAgentPoolUpdateScheduleArgsDict']]]] = None,
+def get_agent_pool_update_output(agents: pulumi.Input[Optional[Optional[Sequence[Union['GetAgentPoolUpdateAgentArgs', 'GetAgentPoolUpdateAgentArgsDict']]]]] = None,
+                                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                                 pool_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                 schedule: pulumi.Input[Optional[Optional[Union['GetAgentPoolUpdateScheduleArgs', 'GetAgentPoolUpdateScheduleArgsDict']]]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAgentPoolUpdateResult]:
     """
     Retrieves an Okta Agent Pool Update. Agent pool updates allow you to schedule and manage updates for agent pools.

@@ -43,7 +43,7 @@ class EmailDomainVerificationArgs:
 @pulumi.input_type
 class _EmailDomainVerificationState:
     def __init__(__self__, *,
-                 email_domain_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 email_domain_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering EmailDomainVerification resources.
 
@@ -54,14 +54,14 @@ class _EmailDomainVerificationState:
 
     @_builtins.property
     @pulumi.getter(name="emailDomainId")
-    def email_domain_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def email_domain_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Email domain ID
         """
         return pulumi.get(self, "email_domain_id")
 
     @email_domain_id.setter
-    def email_domain_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def email_domain_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "email_domain_id", value)
 
 
@@ -71,7 +71,7 @@ class EmailDomainVerification(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 email_domain_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 email_domain_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Verifies the email domain. The resource won't be created if the email domain could not be verified.
@@ -134,7 +134,7 @@ class EmailDomainVerification(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 email_domain_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 email_domain_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -157,7 +157,7 @@ class EmailDomainVerification(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            email_domain_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'EmailDomainVerification':
+            email_domain_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'EmailDomainVerification':
         """
         Get an existing EmailDomainVerification resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -180,63 +180,63 @@ export interface RequestV2State {
     /**
      * How long the requester retains access after their request is approved and fulfilled.
      */
-    accessDuration?: pulumi.Input<string>;
+    accessDuration?: pulumi.Input<string | undefined>;
     /**
      * The date and time when the request condition was created.
      */
-    created?: pulumi.Input<string>;
+    created?: pulumi.Input<string | undefined>;
     /**
      * The id of the user who created the request condition.
      */
-    createdBy?: pulumi.Input<string>;
+    createdBy?: pulumi.Input<string | undefined>;
     /**
      * The status of the granted access request.
      */
-    grantStatus?: pulumi.Input<string>;
+    grantStatus?: pulumi.Input<string | undefined>;
     /**
      * The date the approved access was granted. Only set if request . Status is APPROVED.
      */
-    granted?: pulumi.Input<string>;
+    granted?: pulumi.Input<string | undefined>;
     /**
      * The date and time when the request condition was last updated.
      */
-    lastUpdated?: pulumi.Input<string>;
+    lastUpdated?: pulumi.Input<string | undefined>;
     /**
      * The id of the user who last updated the request condition.
      */
-    lastUpdatedBy?: pulumi.Input<string>;
+    lastUpdatedBy?: pulumi.Input<string | undefined>;
     /**
      * A representation of a resource that can be requested for access.
      */
-    requested?: pulumi.Input<inputs.RequestV2Requested>;
+    requested?: pulumi.Input<inputs.RequestV2Requested | undefined>;
     /**
      * A representation of a principal.
      */
-    requestedFor?: pulumi.Input<inputs.RequestV2RequestedFor>;
+    requestedFor?: pulumi.Input<inputs.RequestV2RequestedFor | undefined>;
     /**
      * The requester input fields required by the approval system.
      */
-    requesterFieldValues?: pulumi.Input<pulumi.Input<inputs.RequestV2RequesterFieldValue>[]>;
+    requesterFieldValues?: pulumi.Input<pulumi.Input<inputs.RequestV2RequesterFieldValue>[] | undefined>;
     /**
      * The date the request was resolved.
      */
-    resolved?: pulumi.Input<string>;
+    resolved?: pulumi.Input<string | undefined>;
     /**
      * The date the request was scheduled for revocation.
      */
-    revocationScheduled?: pulumi.Input<string>;
+    revocationScheduled?: pulumi.Input<string | undefined>;
     /**
      * The revocation status of the request.
      */
-    revocationStatus?: pulumi.Input<string>;
+    revocationStatus?: pulumi.Input<string | undefined>;
     /**
      * The date the granted access was revoked.
      */
-    revoked?: pulumi.Input<string>;
+    revoked?: pulumi.Input<string | undefined>;
     /**
      * The status of the request.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -246,13 +246,13 @@ export interface RequestV2Args {
     /**
      * A representation of a resource that can be requested for access.
      */
-    requested?: pulumi.Input<inputs.RequestV2Requested>;
+    requested?: pulumi.Input<inputs.RequestV2Requested | undefined>;
     /**
      * A representation of a principal.
      */
-    requestedFor?: pulumi.Input<inputs.RequestV2RequestedFor>;
+    requestedFor?: pulumi.Input<inputs.RequestV2RequestedFor | undefined>;
     /**
      * The requester input fields required by the approval system.
      */
-    requesterFieldValues?: pulumi.Input<pulumi.Input<inputs.RequestV2RequesterFieldValue>[]>;
+    requesterFieldValues?: pulumi.Input<pulumi.Input<inputs.RequestV2RequesterFieldValue>[] | undefined>;
 }

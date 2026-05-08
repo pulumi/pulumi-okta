@@ -124,15 +124,15 @@ export interface ApiServiceIntegrationState {
     /**
      * The list of Okta management scopes granted to the API Service Integration instance.
      */
-    grantedScopes?: pulumi.Input<pulumi.Input<inputs.ApiServiceIntegrationGrantedScope>[]>;
+    grantedScopes?: pulumi.Input<pulumi.Input<inputs.ApiServiceIntegrationGrantedScope>[] | undefined>;
     /**
      * The name of the API service integration that corresponds with the type property.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The type of the API service integration. This string is an underscore-concatenated, lowercased API service integration name.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -142,7 +142,7 @@ export interface ApiServiceIntegrationArgs {
     /**
      * The list of Okta management scopes granted to the API Service Integration instance.
      */
-    grantedScopes?: pulumi.Input<pulumi.Input<inputs.ApiServiceIntegrationGrantedScope>[]>;
+    grantedScopes?: pulumi.Input<pulumi.Input<inputs.ApiServiceIntegrationGrantedScope>[] | undefined>;
     /**
      * The type of the API service integration. This string is an underscore-concatenated, lowercased API service integration name.
      */

@@ -181,8 +181,8 @@ def get_metadata_saml(app_id: Optional[_builtins.str] = None,
         key_id=pulumi.get(__ret__, 'key_id'),
         metadata=pulumi.get(__ret__, 'metadata'),
         want_authn_requests_signed=pulumi.get(__ret__, 'want_authn_requests_signed'))
-def get_metadata_saml_output(app_id: Optional[pulumi.Input[_builtins.str]] = None,
-                             key_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_metadata_saml_output(app_id: pulumi.Input[Optional[_builtins.str]] = None,
+                             key_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMetadataSamlResult]:
     """
     Get a SAML application's metadata from Okta.

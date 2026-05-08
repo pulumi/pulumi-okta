@@ -117,27 +117,27 @@ export interface EntitlementBundleState {
     /**
      * The description of an entitlement property.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * List of entitlements in the bundle
      */
-    entitlements?: pulumi.Input<pulumi.Input<inputs.EntitlementBundleEntitlement>[]>;
+    entitlements?: pulumi.Input<pulumi.Input<inputs.EntitlementBundleEntitlement>[] | undefined>;
     /**
      * The display name for an entitlement bundle.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The status of the entitlement bundle.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * Representation of a resource
      */
-    target?: pulumi.Input<inputs.EntitlementBundleTarget>;
+    target?: pulumi.Input<inputs.EntitlementBundleTarget | undefined>;
     /**
      * The ORN of the target resource. Required when updating the entitlement bundle.
      */
-    targetResourceOrn?: pulumi.Input<string>;
+    targetResourceOrn?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -147,25 +147,25 @@ export interface EntitlementBundleArgs {
     /**
      * The description of an entitlement property.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * List of entitlements in the bundle
      */
-    entitlements?: pulumi.Input<pulumi.Input<inputs.EntitlementBundleEntitlement>[]>;
+    entitlements?: pulumi.Input<pulumi.Input<inputs.EntitlementBundleEntitlement>[] | undefined>;
     /**
      * The display name for an entitlement bundle.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The status of the entitlement bundle.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * Representation of a resource
      */
-    target?: pulumi.Input<inputs.EntitlementBundleTarget>;
+    target?: pulumi.Input<inputs.EntitlementBundleTarget | undefined>;
     /**
      * The ORN of the target resource. Required when updating the entitlement bundle.
      */
-    targetResourceOrn?: pulumi.Input<string>;
+    targetResourceOrn?: pulumi.Input<string | undefined>;
 }

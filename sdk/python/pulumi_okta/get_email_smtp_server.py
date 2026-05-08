@@ -144,7 +144,7 @@ def get_email_smtp_server(id: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         port=pulumi.get(__ret__, 'port'),
         username=pulumi.get(__ret__, 'username'))
-def get_email_smtp_server_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_email_smtp_server_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEmailSmtpServerResult]:
     """
     Get existing SMTP email server configuration.

@@ -147,7 +147,7 @@ export interface RoleSubscriptionState {
      * 	- 'RATELIMIT_NOTIFICATION' - Rate limit warning and violation.
      * 	- 'AGENT_AUTO_UPDATE_NOTIFICATION' - Agent auto-update notifications: AD Agent.
      */
-    notificationType?: pulumi.Input<string>;
+    notificationType?: pulumi.Input<string | undefined>;
     /**
      * Type of the role. Valid values:
      * 	'API_ADMIN',
@@ -163,11 +163,11 @@ export interface RoleSubscriptionState {
      * 	'USER_ADMIN'
      * 	. See [API docs](https://developer.okta.com/docs/reference/api/admin-notifications/#role-types).
      */
-    roleType?: pulumi.Input<string>;
+    roleType?: pulumi.Input<string | undefined>;
     /**
      * Subscription status. Valid values: `subscribed`, `unsubscribed`.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -209,5 +209,5 @@ export interface RoleSubscriptionArgs {
     /**
      * Subscription status. Valid values: `subscribed`, `unsubscribed`.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
 }

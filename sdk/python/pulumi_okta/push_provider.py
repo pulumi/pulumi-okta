@@ -22,8 +22,8 @@ __all__ = ['PushProviderArgs', 'PushProvider']
 class PushProviderArgs:
     def __init__(__self__, *,
                  provider_type: pulumi.Input[_builtins.str],
-                 configuration: Optional[pulumi.Input['PushProviderConfigurationArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 configuration: pulumi.Input[Optional['PushProviderConfigurationArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a PushProvider resource.
 
@@ -51,36 +51,36 @@ class PushProviderArgs:
 
     @_builtins.property
     @pulumi.getter
-    def configuration(self) -> Optional[pulumi.Input['PushProviderConfigurationArgs']]:
+    def configuration(self) -> pulumi.Input[Optional['PushProviderConfigurationArgs']]:
         """
         Configuration block for the push provider. The configuration structure depends on the provider type.
         """
         return pulumi.get(self, "configuration")
 
     @configuration.setter
-    def configuration(self, value: Optional[pulumi.Input['PushProviderConfigurationArgs']]):
+    def configuration(self, value: pulumi.Input[Optional['PushProviderConfigurationArgs']]):
         pulumi.set(self, "configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The display name of the push provider.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _PushProviderState:
     def __init__(__self__, *,
-                 configuration: Optional[pulumi.Input['PushProviderConfigurationArgs']] = None,
-                 last_updated_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 provider_type: Optional[pulumi.Input[_builtins.str]] = None):
+                 configuration: pulumi.Input[Optional['PushProviderConfigurationArgs']] = None,
+                 last_updated_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 provider_type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering PushProvider resources.
 
@@ -100,50 +100,50 @@ class _PushProviderState:
 
     @_builtins.property
     @pulumi.getter
-    def configuration(self) -> Optional[pulumi.Input['PushProviderConfigurationArgs']]:
+    def configuration(self) -> pulumi.Input[Optional['PushProviderConfigurationArgs']]:
         """
         Configuration block for the push provider. The configuration structure depends on the provider type.
         """
         return pulumi.get(self, "configuration")
 
     @configuration.setter
-    def configuration(self, value: Optional[pulumi.Input['PushProviderConfigurationArgs']]):
+    def configuration(self, value: pulumi.Input[Optional['PushProviderConfigurationArgs']]):
         pulumi.set(self, "configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="lastUpdatedDate")
-    def last_updated_date(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def last_updated_date(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Timestamp when the push provider was last modified. (Computed)
         """
         return pulumi.get(self, "last_updated_date")
 
     @last_updated_date.setter
-    def last_updated_date(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def last_updated_date(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "last_updated_date", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The display name of the push provider.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="providerType")
-    def provider_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def provider_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of push provider. Valid values are `APNS` (Apple Push Notification Service) or `FCM` (Firebase Cloud Messaging).
         """
         return pulumi.get(self, "provider_type")
 
     @provider_type.setter
-    def provider_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def provider_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "provider_type", value)
 
 
@@ -153,9 +153,9 @@ class PushProvider(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration: Optional[pulumi.Input[Union['PushProviderConfigurationArgs', 'PushProviderConfigurationArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 provider_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 configuration: pulumi.Input[Optional[Union['PushProviderConfigurationArgs', 'PushProviderConfigurationArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 provider_type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages Okta Push Providers that provide a centralized integration platform to fetch and manage push provider configurations. Okta administrators can use these APIs to provide their push provider credentials, for example from APNs and FCM, so that Okta can send push notifications to their own custom app authenticator applications.
@@ -318,9 +318,9 @@ class PushProvider(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration: Optional[pulumi.Input[Union['PushProviderConfigurationArgs', 'PushProviderConfigurationArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 provider_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 configuration: pulumi.Input[Optional[Union['PushProviderConfigurationArgs', 'PushProviderConfigurationArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 provider_type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -346,10 +346,10 @@ class PushProvider(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            configuration: Optional[pulumi.Input[Union['PushProviderConfigurationArgs', 'PushProviderConfigurationArgsDict']]] = None,
-            last_updated_date: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            provider_type: Optional[pulumi.Input[_builtins.str]] = None) -> 'PushProvider':
+            configuration: pulumi.Input[Optional[Union['PushProviderConfigurationArgs', 'PushProviderConfigurationArgsDict']]] = None,
+            last_updated_date: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            provider_type: pulumi.Input[Optional[_builtins.str]] = None) -> 'PushProvider':
         """
         Get an existing PushProvider resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

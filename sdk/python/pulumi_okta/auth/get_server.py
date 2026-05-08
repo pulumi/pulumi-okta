@@ -203,7 +203,7 @@ def get_server(name: Optional[_builtins.str] = None,
         kid=pulumi.get(__ret__, 'kid'),
         name=pulumi.get(__ret__, 'name'),
         status=pulumi.get(__ret__, 'status'))
-def get_server_output(name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_server_output(name: pulumi.Input[Optional[_builtins.str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServerResult]:
     """
     Get an auth server from Okta.

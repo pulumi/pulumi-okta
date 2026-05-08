@@ -21,30 +21,30 @@ __all__ = ['RuleSignonArgs', 'RuleSignon']
 @pulumi.input_type
 class RuleSignonArgs:
     def __init__(__self__, *,
-                 access: Optional[pulumi.Input[_builtins.str]] = None,
-                 authtype: Optional[pulumi.Input[_builtins.str]] = None,
-                 behaviors: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 factor_sequences: Optional[pulumi.Input[Sequence[pulumi.Input['RuleSignonFactorSequenceArgs']]]] = None,
-                 identity_provider: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity_provider_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 mfa_lifetime: Optional[pulumi.Input[_builtins.int]] = None,
-                 mfa_prompt: Optional[pulumi.Input[_builtins.str]] = None,
-                 mfa_remember_device: Optional[pulumi.Input[_builtins.bool]] = None,
-                 mfa_required: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_connection: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 network_includes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_factor: Optional[pulumi.Input[_builtins.str]] = None,
-                 priority: Optional[pulumi.Input[_builtins.int]] = None,
-                 risc_level: Optional[pulumi.Input[_builtins.str]] = None,
-                 risk_level: Optional[pulumi.Input[_builtins.str]] = None,
-                 session_idle: Optional[pulumi.Input[_builtins.int]] = None,
-                 session_lifetime: Optional[pulumi.Input[_builtins.int]] = None,
-                 session_persistent: Optional[pulumi.Input[_builtins.bool]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 users_excludeds: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 access: pulumi.Input[Optional[_builtins.str]] = None,
+                 authtype: pulumi.Input[Optional[_builtins.str]] = None,
+                 behaviors: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 factor_sequences: pulumi.Input[Optional[Sequence[pulumi.Input['RuleSignonFactorSequenceArgs']]]] = None,
+                 identity_provider: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity_provider_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 mfa_lifetime: pulumi.Input[Optional[_builtins.int]] = None,
+                 mfa_prompt: pulumi.Input[Optional[_builtins.str]] = None,
+                 mfa_remember_device: pulumi.Input[Optional[_builtins.bool]] = None,
+                 mfa_required: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_connection: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_excludes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 network_includes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_factor: pulumi.Input[Optional[_builtins.str]] = None,
+                 priority: pulumi.Input[Optional[_builtins.int]] = None,
+                 risc_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 risk_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 session_idle: pulumi.Input[Optional[_builtins.int]] = None,
+                 session_lifetime: pulumi.Input[Optional[_builtins.int]] = None,
+                 session_persistent: pulumi.Input[Optional[_builtins.bool]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 users_excludeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a RuleSignon resource.
 
@@ -132,43 +132,43 @@ class RuleSignonArgs:
 
     @_builtins.property
     @pulumi.getter
-    def access(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def access(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Allow or deny access based on the rule conditions: `ALLOW`, `DENY` or `CHALLENGE`. Default: `ALLOW`
         """
         return pulumi.get(self, "access")
 
     @access.setter
-    def access(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def access(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "access", value)
 
     @_builtins.property
     @pulumi.getter
-    def authtype(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def authtype(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Authentication entrypoint: `ANY`, `RADIUS` or `LDAP_INTERFACE`. Default: `ANY`
         """
         return pulumi.get(self, "authtype")
 
     @authtype.setter
-    def authtype(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def authtype(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "authtype", value)
 
     @_builtins.property
     @pulumi.getter
-    def behaviors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def behaviors(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of behavior IDs
         """
         return pulumi.get(self, "behaviors")
 
     @behaviors.setter
-    def behaviors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def behaviors(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "behaviors", value)
 
     @_builtins.property
     @pulumi.getter(name="factorSequences")
-    def factor_sequences(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleSignonFactorSequenceArgs']]]]:
+    def factor_sequences(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RuleSignonFactorSequenceArgs']]]]:
         """
         Auth factor sequences. Should be set if 'access = "CHALLENGE"'.
         	- 'primary_criteria_provider' - (Required) Primary provider of the auth section.
@@ -180,278 +180,278 @@ class RuleSignonArgs:
         return pulumi.get(self, "factor_sequences")
 
     @factor_sequences.setter
-    def factor_sequences(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RuleSignonFactorSequenceArgs']]]]):
+    def factor_sequences(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RuleSignonFactorSequenceArgs']]]]):
         pulumi.set(self, "factor_sequences", value)
 
     @_builtins.property
     @pulumi.getter(name="identityProvider")
-    def identity_provider(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def identity_provider(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Apply rule based on the IdP used: `ANY`, `OKTA` or `SPECIFIC_IDP`. Default: `ANY`. > **WARNING**: Use of `identity_provider` requires a feature flag to be enabled.
         """
         return pulumi.get(self, "identity_provider")
 
     @identity_provider.setter
-    def identity_provider(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def identity_provider(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "identity_provider", value)
 
     @_builtins.property
     @pulumi.getter(name="identityProviderIds")
-    def identity_provider_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def identity_provider_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         When identity_provider is `SPECIFIC_IDP` then this is the list of IdP IDs to apply the rule on
         """
         return pulumi.get(self, "identity_provider_ids")
 
     @identity_provider_ids.setter
-    def identity_provider_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def identity_provider_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "identity_provider_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="mfaLifetime")
-    def mfa_lifetime(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def mfa_lifetime(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Elapsed time before the next MFA challenge
         """
         return pulumi.get(self, "mfa_lifetime")
 
     @mfa_lifetime.setter
-    def mfa_lifetime(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def mfa_lifetime(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "mfa_lifetime", value)
 
     @_builtins.property
     @pulumi.getter(name="mfaPrompt")
-    def mfa_prompt(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def mfa_prompt(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Prompt for MFA based on the device used, a factor session lifetime, or every sign-on attempt: `DEVICE`, `SESSION` or`ALWAYS`.
         """
         return pulumi.get(self, "mfa_prompt")
 
     @mfa_prompt.setter
-    def mfa_prompt(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def mfa_prompt(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "mfa_prompt", value)
 
     @_builtins.property
     @pulumi.getter(name="mfaRememberDevice")
-    def mfa_remember_device(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def mfa_remember_device(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Remember MFA device. Default: `false`
         """
         return pulumi.get(self, "mfa_remember_device")
 
     @mfa_remember_device.setter
-    def mfa_remember_device(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def mfa_remember_device(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "mfa_remember_device", value)
 
     @_builtins.property
     @pulumi.getter(name="mfaRequired")
-    def mfa_required(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def mfa_required(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Require MFA. Default: `false`
         """
         return pulumi.get(self, "mfa_required")
 
     @mfa_required.setter
-    def mfa_required(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def mfa_required(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "mfa_required", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Policy Rule Name
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="networkConnection")
-    def network_connection(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def network_connection(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Network selection mode: `ANYWHERE`, `ZONE`, `ON_NETWORK`, or `OFF_NETWORK`. Default: `ANYWHERE`
         """
         return pulumi.get(self, "network_connection")
 
     @network_connection.setter
-    def network_connection(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def network_connection(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "network_connection", value)
 
     @_builtins.property
     @pulumi.getter(name="networkExcludes")
-    def network_excludes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def network_excludes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Required if `network_connection` = `ZONE`. Indicates the network zones to exclude.
         """
         return pulumi.get(self, "network_excludes")
 
     @network_excludes.setter
-    def network_excludes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def network_excludes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "network_excludes", value)
 
     @_builtins.property
     @pulumi.getter(name="networkIncludes")
-    def network_includes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def network_includes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Required if `network_connection` = `ZONE`. Indicates the network zones to include.
         """
         return pulumi.get(self, "network_includes")
 
     @network_includes.setter
-    def network_includes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def network_includes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "network_includes", value)
 
     @_builtins.property
     @pulumi.getter(name="policyId")
-    def policy_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def policy_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Policy ID of the Rule
         """
         return pulumi.get(self, "policy_id")
 
     @policy_id.setter
-    def policy_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def policy_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "policy_id", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryFactor")
-    def primary_factor(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def primary_factor(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Rule's primary factor. **WARNING** Ony works as a part of the Identity Engine. Valid values: `PASSWORD_IDP_ANY_FACTOR`, `PASSWORD_IDP`.
         """
         return pulumi.get(self, "primary_factor")
 
     @primary_factor.setter
-    def primary_factor(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def primary_factor(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "primary_factor", value)
 
     @_builtins.property
     @pulumi.getter
-    def priority(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def priority(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
         """
         return pulumi.get(self, "priority")
 
     @priority.setter
-    def priority(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def priority(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "priority", value)
 
     @_builtins.property
     @pulumi.getter(name="riscLevel")
     @_utilities.deprecated("""Attribute typo, switch to risk_level instead. Default: `ANY`""")
-    def risc_level(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def risc_level(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Risc level: ANY, LOW, MEDIUM or HIGH. Default: `ANY`
         """
         return pulumi.get(self, "risc_level")
 
     @risc_level.setter
-    def risc_level(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def risc_level(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "risc_level", value)
 
     @_builtins.property
     @pulumi.getter(name="riskLevel")
-    def risk_level(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def risk_level(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Risk level: ANY, LOW, MEDIUM or HIGH. Default: `ANY`
         """
         return pulumi.get(self, "risk_level")
 
     @risk_level.setter
-    def risk_level(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def risk_level(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "risk_level", value)
 
     @_builtins.property
     @pulumi.getter(name="sessionIdle")
-    def session_idle(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def session_idle(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Max minutes a session can be idle. Default: `120`
         """
         return pulumi.get(self, "session_idle")
 
     @session_idle.setter
-    def session_idle(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def session_idle(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "session_idle", value)
 
     @_builtins.property
     @pulumi.getter(name="sessionLifetime")
-    def session_lifetime(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def session_lifetime(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Max minutes a session is active: Disable = 0. Default: `120`
         """
         return pulumi.get(self, "session_lifetime")
 
     @session_lifetime.setter
-    def session_lifetime(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def session_lifetime(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "session_lifetime", value)
 
     @_builtins.property
     @pulumi.getter(name="sessionPersistent")
-    def session_persistent(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def session_persistent(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether session cookies will last across browser sessions. Okta Administrators can never have persistent session cookies. Default: `false`
         """
         return pulumi.get(self, "session_persistent")
 
     @session_persistent.setter
-    def session_persistent(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def session_persistent(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "session_persistent", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Policy Rule Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter(name="usersExcludeds")
-    def users_excludeds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def users_excludeds(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Set of User IDs to Exclude
         """
         return pulumi.get(self, "users_excludeds")
 
     @users_excludeds.setter
-    def users_excludeds(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def users_excludeds(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "users_excludeds", value)
 
 
 @pulumi.input_type
 class _RuleSignonState:
     def __init__(__self__, *,
-                 access: Optional[pulumi.Input[_builtins.str]] = None,
-                 authtype: Optional[pulumi.Input[_builtins.str]] = None,
-                 behaviors: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 factor_sequences: Optional[pulumi.Input[Sequence[pulumi.Input['RuleSignonFactorSequenceArgs']]]] = None,
-                 identity_provider: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity_provider_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 mfa_lifetime: Optional[pulumi.Input[_builtins.int]] = None,
-                 mfa_prompt: Optional[pulumi.Input[_builtins.str]] = None,
-                 mfa_remember_device: Optional[pulumi.Input[_builtins.bool]] = None,
-                 mfa_required: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_connection: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 network_includes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_factor: Optional[pulumi.Input[_builtins.str]] = None,
-                 priority: Optional[pulumi.Input[_builtins.int]] = None,
-                 risc_level: Optional[pulumi.Input[_builtins.str]] = None,
-                 risk_level: Optional[pulumi.Input[_builtins.str]] = None,
-                 session_idle: Optional[pulumi.Input[_builtins.int]] = None,
-                 session_lifetime: Optional[pulumi.Input[_builtins.int]] = None,
-                 session_persistent: Optional[pulumi.Input[_builtins.bool]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 users_excludeds: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 access: pulumi.Input[Optional[_builtins.str]] = None,
+                 authtype: pulumi.Input[Optional[_builtins.str]] = None,
+                 behaviors: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 factor_sequences: pulumi.Input[Optional[Sequence[pulumi.Input['RuleSignonFactorSequenceArgs']]]] = None,
+                 identity_provider: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity_provider_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 mfa_lifetime: pulumi.Input[Optional[_builtins.int]] = None,
+                 mfa_prompt: pulumi.Input[Optional[_builtins.str]] = None,
+                 mfa_remember_device: pulumi.Input[Optional[_builtins.bool]] = None,
+                 mfa_required: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_connection: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_excludes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 network_includes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_factor: pulumi.Input[Optional[_builtins.str]] = None,
+                 priority: pulumi.Input[Optional[_builtins.int]] = None,
+                 risc_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 risk_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 session_idle: pulumi.Input[Optional[_builtins.int]] = None,
+                 session_lifetime: pulumi.Input[Optional[_builtins.int]] = None,
+                 session_persistent: pulumi.Input[Optional[_builtins.bool]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 users_excludeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering RuleSignon resources.
 
@@ -539,43 +539,43 @@ class _RuleSignonState:
 
     @_builtins.property
     @pulumi.getter
-    def access(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def access(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Allow or deny access based on the rule conditions: `ALLOW`, `DENY` or `CHALLENGE`. Default: `ALLOW`
         """
         return pulumi.get(self, "access")
 
     @access.setter
-    def access(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def access(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "access", value)
 
     @_builtins.property
     @pulumi.getter
-    def authtype(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def authtype(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Authentication entrypoint: `ANY`, `RADIUS` or `LDAP_INTERFACE`. Default: `ANY`
         """
         return pulumi.get(self, "authtype")
 
     @authtype.setter
-    def authtype(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def authtype(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "authtype", value)
 
     @_builtins.property
     @pulumi.getter
-    def behaviors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def behaviors(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of behavior IDs
         """
         return pulumi.get(self, "behaviors")
 
     @behaviors.setter
-    def behaviors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def behaviors(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "behaviors", value)
 
     @_builtins.property
     @pulumi.getter(name="factorSequences")
-    def factor_sequences(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleSignonFactorSequenceArgs']]]]:
+    def factor_sequences(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RuleSignonFactorSequenceArgs']]]]:
         """
         Auth factor sequences. Should be set if 'access = "CHALLENGE"'.
         	- 'primary_criteria_provider' - (Required) Primary provider of the auth section.
@@ -587,248 +587,248 @@ class _RuleSignonState:
         return pulumi.get(self, "factor_sequences")
 
     @factor_sequences.setter
-    def factor_sequences(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RuleSignonFactorSequenceArgs']]]]):
+    def factor_sequences(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RuleSignonFactorSequenceArgs']]]]):
         pulumi.set(self, "factor_sequences", value)
 
     @_builtins.property
     @pulumi.getter(name="identityProvider")
-    def identity_provider(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def identity_provider(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Apply rule based on the IdP used: `ANY`, `OKTA` or `SPECIFIC_IDP`. Default: `ANY`. > **WARNING**: Use of `identity_provider` requires a feature flag to be enabled.
         """
         return pulumi.get(self, "identity_provider")
 
     @identity_provider.setter
-    def identity_provider(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def identity_provider(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "identity_provider", value)
 
     @_builtins.property
     @pulumi.getter(name="identityProviderIds")
-    def identity_provider_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def identity_provider_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         When identity_provider is `SPECIFIC_IDP` then this is the list of IdP IDs to apply the rule on
         """
         return pulumi.get(self, "identity_provider_ids")
 
     @identity_provider_ids.setter
-    def identity_provider_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def identity_provider_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "identity_provider_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="mfaLifetime")
-    def mfa_lifetime(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def mfa_lifetime(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Elapsed time before the next MFA challenge
         """
         return pulumi.get(self, "mfa_lifetime")
 
     @mfa_lifetime.setter
-    def mfa_lifetime(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def mfa_lifetime(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "mfa_lifetime", value)
 
     @_builtins.property
     @pulumi.getter(name="mfaPrompt")
-    def mfa_prompt(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def mfa_prompt(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Prompt for MFA based on the device used, a factor session lifetime, or every sign-on attempt: `DEVICE`, `SESSION` or`ALWAYS`.
         """
         return pulumi.get(self, "mfa_prompt")
 
     @mfa_prompt.setter
-    def mfa_prompt(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def mfa_prompt(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "mfa_prompt", value)
 
     @_builtins.property
     @pulumi.getter(name="mfaRememberDevice")
-    def mfa_remember_device(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def mfa_remember_device(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Remember MFA device. Default: `false`
         """
         return pulumi.get(self, "mfa_remember_device")
 
     @mfa_remember_device.setter
-    def mfa_remember_device(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def mfa_remember_device(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "mfa_remember_device", value)
 
     @_builtins.property
     @pulumi.getter(name="mfaRequired")
-    def mfa_required(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def mfa_required(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Require MFA. Default: `false`
         """
         return pulumi.get(self, "mfa_required")
 
     @mfa_required.setter
-    def mfa_required(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def mfa_required(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "mfa_required", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Policy Rule Name
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="networkConnection")
-    def network_connection(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def network_connection(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Network selection mode: `ANYWHERE`, `ZONE`, `ON_NETWORK`, or `OFF_NETWORK`. Default: `ANYWHERE`
         """
         return pulumi.get(self, "network_connection")
 
     @network_connection.setter
-    def network_connection(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def network_connection(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "network_connection", value)
 
     @_builtins.property
     @pulumi.getter(name="networkExcludes")
-    def network_excludes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def network_excludes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Required if `network_connection` = `ZONE`. Indicates the network zones to exclude.
         """
         return pulumi.get(self, "network_excludes")
 
     @network_excludes.setter
-    def network_excludes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def network_excludes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "network_excludes", value)
 
     @_builtins.property
     @pulumi.getter(name="networkIncludes")
-    def network_includes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def network_includes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Required if `network_connection` = `ZONE`. Indicates the network zones to include.
         """
         return pulumi.get(self, "network_includes")
 
     @network_includes.setter
-    def network_includes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def network_includes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "network_includes", value)
 
     @_builtins.property
     @pulumi.getter(name="policyId")
-    def policy_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def policy_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Policy ID of the Rule
         """
         return pulumi.get(self, "policy_id")
 
     @policy_id.setter
-    def policy_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def policy_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "policy_id", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryFactor")
-    def primary_factor(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def primary_factor(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Rule's primary factor. **WARNING** Ony works as a part of the Identity Engine. Valid values: `PASSWORD_IDP_ANY_FACTOR`, `PASSWORD_IDP`.
         """
         return pulumi.get(self, "primary_factor")
 
     @primary_factor.setter
-    def primary_factor(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def primary_factor(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "primary_factor", value)
 
     @_builtins.property
     @pulumi.getter
-    def priority(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def priority(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
         """
         return pulumi.get(self, "priority")
 
     @priority.setter
-    def priority(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def priority(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "priority", value)
 
     @_builtins.property
     @pulumi.getter(name="riscLevel")
     @_utilities.deprecated("""Attribute typo, switch to risk_level instead. Default: `ANY`""")
-    def risc_level(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def risc_level(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Risc level: ANY, LOW, MEDIUM or HIGH. Default: `ANY`
         """
         return pulumi.get(self, "risc_level")
 
     @risc_level.setter
-    def risc_level(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def risc_level(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "risc_level", value)
 
     @_builtins.property
     @pulumi.getter(name="riskLevel")
-    def risk_level(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def risk_level(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Risk level: ANY, LOW, MEDIUM or HIGH. Default: `ANY`
         """
         return pulumi.get(self, "risk_level")
 
     @risk_level.setter
-    def risk_level(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def risk_level(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "risk_level", value)
 
     @_builtins.property
     @pulumi.getter(name="sessionIdle")
-    def session_idle(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def session_idle(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Max minutes a session can be idle. Default: `120`
         """
         return pulumi.get(self, "session_idle")
 
     @session_idle.setter
-    def session_idle(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def session_idle(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "session_idle", value)
 
     @_builtins.property
     @pulumi.getter(name="sessionLifetime")
-    def session_lifetime(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def session_lifetime(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Max minutes a session is active: Disable = 0. Default: `120`
         """
         return pulumi.get(self, "session_lifetime")
 
     @session_lifetime.setter
-    def session_lifetime(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def session_lifetime(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "session_lifetime", value)
 
     @_builtins.property
     @pulumi.getter(name="sessionPersistent")
-    def session_persistent(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def session_persistent(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether session cookies will last across browser sessions. Okta Administrators can never have persistent session cookies. Default: `false`
         """
         return pulumi.get(self, "session_persistent")
 
     @session_persistent.setter
-    def session_persistent(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def session_persistent(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "session_persistent", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Policy Rule Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter(name="usersExcludeds")
-    def users_excludeds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def users_excludeds(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Set of User IDs to Exclude
         """
         return pulumi.get(self, "users_excludeds")
 
     @users_excludeds.setter
-    def users_excludeds(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def users_excludeds(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "users_excludeds", value)
 
 
@@ -838,30 +838,30 @@ class RuleSignon(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access: Optional[pulumi.Input[_builtins.str]] = None,
-                 authtype: Optional[pulumi.Input[_builtins.str]] = None,
-                 behaviors: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 factor_sequences: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RuleSignonFactorSequenceArgs', 'RuleSignonFactorSequenceArgsDict']]]]] = None,
-                 identity_provider: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity_provider_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 mfa_lifetime: Optional[pulumi.Input[_builtins.int]] = None,
-                 mfa_prompt: Optional[pulumi.Input[_builtins.str]] = None,
-                 mfa_remember_device: Optional[pulumi.Input[_builtins.bool]] = None,
-                 mfa_required: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_connection: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 network_includes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_factor: Optional[pulumi.Input[_builtins.str]] = None,
-                 priority: Optional[pulumi.Input[_builtins.int]] = None,
-                 risc_level: Optional[pulumi.Input[_builtins.str]] = None,
-                 risk_level: Optional[pulumi.Input[_builtins.str]] = None,
-                 session_idle: Optional[pulumi.Input[_builtins.int]] = None,
-                 session_lifetime: Optional[pulumi.Input[_builtins.int]] = None,
-                 session_persistent: Optional[pulumi.Input[_builtins.bool]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 users_excludeds: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 access: pulumi.Input[Optional[_builtins.str]] = None,
+                 authtype: pulumi.Input[Optional[_builtins.str]] = None,
+                 behaviors: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 factor_sequences: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RuleSignonFactorSequenceArgs', 'RuleSignonFactorSequenceArgsDict']]]]] = None,
+                 identity_provider: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity_provider_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 mfa_lifetime: pulumi.Input[Optional[_builtins.int]] = None,
+                 mfa_prompt: pulumi.Input[Optional[_builtins.str]] = None,
+                 mfa_remember_device: pulumi.Input[Optional[_builtins.bool]] = None,
+                 mfa_required: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_connection: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_excludes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 network_includes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_factor: pulumi.Input[Optional[_builtins.str]] = None,
+                 priority: pulumi.Input[Optional[_builtins.int]] = None,
+                 risc_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 risk_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 session_idle: pulumi.Input[Optional[_builtins.int]] = None,
+                 session_lifetime: pulumi.Input[Optional[_builtins.int]] = None,
+                 session_persistent: pulumi.Input[Optional[_builtins.bool]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 users_excludeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Creates a Sign On Policy Rule. In case `Invalid condition type specified: riskScore.` error is thrown, set `risc_level` to an empty string, since this feature is not enabled.
@@ -1092,30 +1092,30 @@ class RuleSignon(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access: Optional[pulumi.Input[_builtins.str]] = None,
-                 authtype: Optional[pulumi.Input[_builtins.str]] = None,
-                 behaviors: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 factor_sequences: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RuleSignonFactorSequenceArgs', 'RuleSignonFactorSequenceArgsDict']]]]] = None,
-                 identity_provider: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity_provider_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 mfa_lifetime: Optional[pulumi.Input[_builtins.int]] = None,
-                 mfa_prompt: Optional[pulumi.Input[_builtins.str]] = None,
-                 mfa_remember_device: Optional[pulumi.Input[_builtins.bool]] = None,
-                 mfa_required: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_connection: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 network_includes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_factor: Optional[pulumi.Input[_builtins.str]] = None,
-                 priority: Optional[pulumi.Input[_builtins.int]] = None,
-                 risc_level: Optional[pulumi.Input[_builtins.str]] = None,
-                 risk_level: Optional[pulumi.Input[_builtins.str]] = None,
-                 session_idle: Optional[pulumi.Input[_builtins.int]] = None,
-                 session_lifetime: Optional[pulumi.Input[_builtins.int]] = None,
-                 session_persistent: Optional[pulumi.Input[_builtins.bool]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 users_excludeds: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 access: pulumi.Input[Optional[_builtins.str]] = None,
+                 authtype: pulumi.Input[Optional[_builtins.str]] = None,
+                 behaviors: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 factor_sequences: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RuleSignonFactorSequenceArgs', 'RuleSignonFactorSequenceArgsDict']]]]] = None,
+                 identity_provider: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity_provider_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 mfa_lifetime: pulumi.Input[Optional[_builtins.int]] = None,
+                 mfa_prompt: pulumi.Input[Optional[_builtins.str]] = None,
+                 mfa_remember_device: pulumi.Input[Optional[_builtins.bool]] = None,
+                 mfa_required: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_connection: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_excludes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 network_includes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_factor: pulumi.Input[Optional[_builtins.str]] = None,
+                 priority: pulumi.Input[Optional[_builtins.int]] = None,
+                 risc_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 risk_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 session_idle: pulumi.Input[Optional[_builtins.int]] = None,
+                 session_lifetime: pulumi.Input[Optional[_builtins.int]] = None,
+                 session_persistent: pulumi.Input[Optional[_builtins.bool]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 users_excludeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1159,30 +1159,30 @@ class RuleSignon(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            access: Optional[pulumi.Input[_builtins.str]] = None,
-            authtype: Optional[pulumi.Input[_builtins.str]] = None,
-            behaviors: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            factor_sequences: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RuleSignonFactorSequenceArgs', 'RuleSignonFactorSequenceArgsDict']]]]] = None,
-            identity_provider: Optional[pulumi.Input[_builtins.str]] = None,
-            identity_provider_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            mfa_lifetime: Optional[pulumi.Input[_builtins.int]] = None,
-            mfa_prompt: Optional[pulumi.Input[_builtins.str]] = None,
-            mfa_remember_device: Optional[pulumi.Input[_builtins.bool]] = None,
-            mfa_required: Optional[pulumi.Input[_builtins.bool]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            network_connection: Optional[pulumi.Input[_builtins.str]] = None,
-            network_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            network_includes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-            primary_factor: Optional[pulumi.Input[_builtins.str]] = None,
-            priority: Optional[pulumi.Input[_builtins.int]] = None,
-            risc_level: Optional[pulumi.Input[_builtins.str]] = None,
-            risk_level: Optional[pulumi.Input[_builtins.str]] = None,
-            session_idle: Optional[pulumi.Input[_builtins.int]] = None,
-            session_lifetime: Optional[pulumi.Input[_builtins.int]] = None,
-            session_persistent: Optional[pulumi.Input[_builtins.bool]] = None,
-            status: Optional[pulumi.Input[_builtins.str]] = None,
-            users_excludeds: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'RuleSignon':
+            access: pulumi.Input[Optional[_builtins.str]] = None,
+            authtype: pulumi.Input[Optional[_builtins.str]] = None,
+            behaviors: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            factor_sequences: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RuleSignonFactorSequenceArgs', 'RuleSignonFactorSequenceArgsDict']]]]] = None,
+            identity_provider: pulumi.Input[Optional[_builtins.str]] = None,
+            identity_provider_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            mfa_lifetime: pulumi.Input[Optional[_builtins.int]] = None,
+            mfa_prompt: pulumi.Input[Optional[_builtins.str]] = None,
+            mfa_remember_device: pulumi.Input[Optional[_builtins.bool]] = None,
+            mfa_required: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            network_connection: pulumi.Input[Optional[_builtins.str]] = None,
+            network_excludes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            network_includes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+            primary_factor: pulumi.Input[Optional[_builtins.str]] = None,
+            priority: pulumi.Input[Optional[_builtins.int]] = None,
+            risc_level: pulumi.Input[Optional[_builtins.str]] = None,
+            risk_level: pulumi.Input[Optional[_builtins.str]] = None,
+            session_idle: pulumi.Input[Optional[_builtins.int]] = None,
+            session_lifetime: pulumi.Input[Optional[_builtins.int]] = None,
+            session_persistent: pulumi.Input[Optional[_builtins.bool]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            users_excludeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'RuleSignon':
         """
         Get an existing RuleSignon resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

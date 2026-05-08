@@ -139,27 +139,27 @@ export interface ApiTokenState {
     /**
      * The name of the API token client.
      */
-    clientName?: pulumi.Input<string>;
+    clientName?: pulumi.Input<string | undefined>;
     /**
      * The date and time the API token was created.
      */
-    created?: pulumi.Input<string>;
+    created?: pulumi.Input<string | undefined>;
     /**
      * The ID of the API token.
      */
-    idProperty?: pulumi.Input<string>;
+    idProperty?: pulumi.Input<string | undefined>;
     /**
      * The name of the API token.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The Network Condition of the API Token.
      */
-    network?: pulumi.Input<inputs.ApiTokenNetwork>;
+    network?: pulumi.Input<inputs.ApiTokenNetwork | undefined>;
     /**
      * The userId of the user who created the API Token.
      */
-    userId?: pulumi.Input<string>;
+    userId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -169,11 +169,11 @@ export interface ApiTokenArgs {
     /**
      * The name of the API token client.
      */
-    clientName?: pulumi.Input<string>;
+    clientName?: pulumi.Input<string | undefined>;
     /**
      * The date and time the API token was created.
      */
-    created?: pulumi.Input<string>;
+    created?: pulumi.Input<string | undefined>;
     /**
      * The ID of the API token.
      */
@@ -181,13 +181,13 @@ export interface ApiTokenArgs {
     /**
      * The name of the API token.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The Network Condition of the API Token.
      */
-    network?: pulumi.Input<inputs.ApiTokenNetwork>;
+    network?: pulumi.Input<inputs.ApiTokenNetwork | undefined>;
     /**
      * The userId of the user who created the API Token.
      */
-    userId?: pulumi.Input<string>;
+    userId?: pulumi.Input<string | undefined>;
 }

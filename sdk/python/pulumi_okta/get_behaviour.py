@@ -121,8 +121,8 @@ def get_behaviour(id: Optional[_builtins.str] = None,
         settings=pulumi.get(__ret__, 'settings'),
         status=pulumi.get(__ret__, 'status'),
         type=pulumi.get(__ret__, 'type'))
-def get_behaviour_output(id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                         name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_behaviour_output(id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                         name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBehaviourResult]:
     """
     Get a behavior by name or ID.

@@ -155,53 +155,53 @@ export interface BrandState {
     /**
      * Is a required input flag with when changing custom*privacy*url, shouldn't be considered as a readable property
      */
-    agreeToCustomPrivacyPolicy?: pulumi.Input<boolean>;
+    agreeToCustomPrivacyPolicy?: pulumi.Input<boolean | undefined>;
     /**
      * Brand ID - Note: Okta API for brands only reads and updates therefore the okta*brand resource needs to act as a quasi data source. Do this by setting brand*id. `DEPRECATED`: Okta has fully support brand creation, this attribute is a no op and will be removed
      *
      * @deprecated Okta has fully support brand creation, this attribute is a no op and will be removed
      */
-    brandId?: pulumi.Input<string>;
+    brandId?: pulumi.Input<string | undefined>;
     /**
      * Custom privacy policy URL
      */
-    customPrivacyPolicyUrl?: pulumi.Input<string>;
+    customPrivacyPolicyUrl?: pulumi.Input<string | undefined>;
     /**
      * Default app app instance id
      */
-    defaultAppAppInstanceId?: pulumi.Input<string>;
+    defaultAppAppInstanceId?: pulumi.Input<string | undefined>;
     /**
      * Default app app link name
      */
-    defaultAppAppLinkName?: pulumi.Input<string>;
+    defaultAppAppLinkName?: pulumi.Input<string | undefined>;
     /**
      * Default app classic application uri
      */
-    defaultAppClassicApplicationUri?: pulumi.Input<string>;
+    defaultAppClassicApplicationUri?: pulumi.Input<string | undefined>;
     /**
      * Email Domain ID tied to this brand
      */
-    emailDomainId?: pulumi.Input<string>;
+    emailDomainId?: pulumi.Input<string | undefined>;
     /**
      * Is this the default brand
      */
-    isDefault?: pulumi.Input<boolean>;
+    isDefault?: pulumi.Input<boolean | undefined>;
     /**
      * Link relations for this object - JSON HAL - Discoverable resources related to the brand
      */
-    links?: pulumi.Input<string>;
+    links?: pulumi.Input<string | undefined>;
     /**
      * The language specified as an IETF BCP 47 language tag
      */
-    locale?: pulumi.Input<string>;
+    locale?: pulumi.Input<string | undefined>;
     /**
      * Name of the brand
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Removes "Powered by Okta" from the Okta-hosted sign-in page and "© 2021 Okta, Inc." from the Okta End-User Dashboard
      */
-    removePoweredByOkta?: pulumi.Input<boolean>;
+    removePoweredByOkta?: pulumi.Input<boolean | undefined>;
 }
 
 /**
@@ -211,39 +211,39 @@ export interface BrandArgs {
     /**
      * Is a required input flag with when changing custom*privacy*url, shouldn't be considered as a readable property
      */
-    agreeToCustomPrivacyPolicy?: pulumi.Input<boolean>;
+    agreeToCustomPrivacyPolicy?: pulumi.Input<boolean | undefined>;
     /**
      * Brand ID - Note: Okta API for brands only reads and updates therefore the okta*brand resource needs to act as a quasi data source. Do this by setting brand*id. `DEPRECATED`: Okta has fully support brand creation, this attribute is a no op and will be removed
      *
      * @deprecated Okta has fully support brand creation, this attribute is a no op and will be removed
      */
-    brandId?: pulumi.Input<string>;
+    brandId?: pulumi.Input<string | undefined>;
     /**
      * Custom privacy policy URL
      */
-    customPrivacyPolicyUrl?: pulumi.Input<string>;
+    customPrivacyPolicyUrl?: pulumi.Input<string | undefined>;
     /**
      * Default app app instance id
      */
-    defaultAppAppInstanceId?: pulumi.Input<string>;
+    defaultAppAppInstanceId?: pulumi.Input<string | undefined>;
     /**
      * Default app app link name
      */
-    defaultAppAppLinkName?: pulumi.Input<string>;
+    defaultAppAppLinkName?: pulumi.Input<string | undefined>;
     /**
      * Default app classic application uri
      */
-    defaultAppClassicApplicationUri?: pulumi.Input<string>;
+    defaultAppClassicApplicationUri?: pulumi.Input<string | undefined>;
     /**
      * The language specified as an IETF BCP 47 language tag
      */
-    locale?: pulumi.Input<string>;
+    locale?: pulumi.Input<string | undefined>;
     /**
      * Name of the brand
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Removes "Powered by Okta" from the Okta-hosted sign-in page and "© 2021 Okta, Inc." from the Okta End-User Dashboard
      */
-    removePoweredByOkta?: pulumi.Input<boolean>;
+    removePoweredByOkta?: pulumi.Input<boolean | undefined>;
 }

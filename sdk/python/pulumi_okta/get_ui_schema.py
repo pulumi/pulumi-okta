@@ -117,8 +117,8 @@ def get_ui_schema(id: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         last_updated=pulumi.get(__ret__, 'last_updated'),
         ui_schema=pulumi.get(__ret__, 'ui_schema'))
-def get_ui_schema_output(id: Optional[pulumi.Input[_builtins.str]] = None,
-                         ui_schema: Optional[pulumi.Input[Optional[Union['GetUiSchemaUiSchemaArgs', 'GetUiSchemaUiSchemaArgsDict']]]] = None,
+def get_ui_schema_output(id: pulumi.Input[Optional[_builtins.str]] = None,
+                         ui_schema: pulumi.Input[Optional[Optional[Union['GetUiSchemaUiSchemaArgs', 'GetUiSchemaUiSchemaArgsDict']]]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUiSchemaResult]:
     """
     Use this data source to retrieve information about an Okta UI Schema.

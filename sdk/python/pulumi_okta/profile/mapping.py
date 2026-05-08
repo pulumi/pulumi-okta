@@ -23,9 +23,9 @@ class MappingArgs:
     def __init__(__self__, *,
                  source_id: pulumi.Input[_builtins.str],
                  target_id: pulumi.Input[_builtins.str],
-                 always_apply: Optional[pulumi.Input[_builtins.bool]] = None,
-                 delete_when_absent: Optional[pulumi.Input[_builtins.bool]] = None,
-                 mappings: Optional[pulumi.Input[Sequence[pulumi.Input['MappingMappingArgs']]]] = None):
+                 always_apply: pulumi.Input[Optional[_builtins.bool]] = None,
+                 delete_when_absent: pulumi.Input[Optional[_builtins.bool]] = None,
+                 mappings: pulumi.Input[Optional[Sequence[pulumi.Input['MappingMappingArgs']]]] = None):
         """
         The set of arguments for constructing a Mapping resource.
 
@@ -71,7 +71,7 @@ class MappingArgs:
 
     @_builtins.property
     @pulumi.getter(name="alwaysApply")
-    def always_apply(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def always_apply(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether apply the changes to all users with this profile after updating or creating the these mappings.
         > **WARNING:**: 'always*apply' is incompatible with OAuth 2.0 authentication and will be ignored when using that type of authentication.
@@ -80,43 +80,43 @@ class MappingArgs:
         return pulumi.get(self, "always_apply")
 
     @always_apply.setter
-    def always_apply(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def always_apply(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "always_apply", value)
 
     @_builtins.property
     @pulumi.getter(name="deleteWhenAbsent")
-    def delete_when_absent(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def delete_when_absent(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When turned on this flag will trigger the provider to delete mapping properties that are not defined in config. By default, we do not delete missing properties.
         """
         return pulumi.get(self, "delete_when_absent")
 
     @delete_when_absent.setter
-    def delete_when_absent(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def delete_when_absent(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "delete_when_absent", value)
 
     @_builtins.property
     @pulumi.getter
-    def mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MappingMappingArgs']]]]:
+    def mappings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['MappingMappingArgs']]]]:
         return pulumi.get(self, "mappings")
 
     @mappings.setter
-    def mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MappingMappingArgs']]]]):
+    def mappings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['MappingMappingArgs']]]]):
         pulumi.set(self, "mappings", value)
 
 
 @pulumi.input_type
 class _MappingState:
     def __init__(__self__, *,
-                 always_apply: Optional[pulumi.Input[_builtins.bool]] = None,
-                 delete_when_absent: Optional[pulumi.Input[_builtins.bool]] = None,
-                 mappings: Optional[pulumi.Input[Sequence[pulumi.Input['MappingMappingArgs']]]] = None,
-                 source_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_type: Optional[pulumi.Input[_builtins.str]] = None):
+                 always_apply: pulumi.Input[Optional[_builtins.bool]] = None,
+                 delete_when_absent: pulumi.Input[Optional[_builtins.bool]] = None,
+                 mappings: pulumi.Input[Optional[Sequence[pulumi.Input['MappingMappingArgs']]]] = None,
+                 source_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Mapping resources.
 
@@ -152,7 +152,7 @@ class _MappingState:
 
     @_builtins.property
     @pulumi.getter(name="alwaysApply")
-    def always_apply(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def always_apply(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether apply the changes to all users with this profile after updating or creating the these mappings.
         > **WARNING:**: 'always*apply' is incompatible with OAuth 2.0 authentication and will be ignored when using that type of authentication.
@@ -161,100 +161,100 @@ class _MappingState:
         return pulumi.get(self, "always_apply")
 
     @always_apply.setter
-    def always_apply(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def always_apply(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "always_apply", value)
 
     @_builtins.property
     @pulumi.getter(name="deleteWhenAbsent")
-    def delete_when_absent(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def delete_when_absent(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When turned on this flag will trigger the provider to delete mapping properties that are not defined in config. By default, we do not delete missing properties.
         """
         return pulumi.get(self, "delete_when_absent")
 
     @delete_when_absent.setter
-    def delete_when_absent(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def delete_when_absent(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "delete_when_absent", value)
 
     @_builtins.property
     @pulumi.getter
-    def mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MappingMappingArgs']]]]:
+    def mappings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['MappingMappingArgs']]]]:
         return pulumi.get(self, "mappings")
 
     @mappings.setter
-    def mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MappingMappingArgs']]]]):
+    def mappings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['MappingMappingArgs']]]]):
         pulumi.set(self, "mappings", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceId")
-    def source_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The source id of the mapping to manage.
         """
         return pulumi.get(self, "source_id")
 
     @source_id.setter
-    def source_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_id", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceName")
-    def source_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the mapping source.
         """
         return pulumi.get(self, "source_name")
 
     @source_name.setter
-    def source_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_name", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceType")
-    def source_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of the mapping source.
         """
         return pulumi.get(self, "source_type")
 
     @source_type.setter
-    def source_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_type", value)
 
     @_builtins.property
     @pulumi.getter(name="targetId")
-    def target_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The target id of the mapping to manage.
         """
         return pulumi.get(self, "target_id")
 
     @target_id.setter
-    def target_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_id", value)
 
     @_builtins.property
     @pulumi.getter(name="targetName")
-    def target_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the mapping target.
         """
         return pulumi.get(self, "target_name")
 
     @target_name.setter
-    def target_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_name", value)
 
     @_builtins.property
     @pulumi.getter(name="targetType")
-    def target_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of the mapping target.
         """
         return pulumi.get(self, "target_type")
 
     @target_type.setter
-    def target_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_type", value)
 
 
@@ -264,11 +264,11 @@ class Mapping(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 always_apply: Optional[pulumi.Input[_builtins.bool]] = None,
-                 delete_when_absent: Optional[pulumi.Input[_builtins.bool]] = None,
-                 mappings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MappingMappingArgs', 'MappingMappingArgsDict']]]]] = None,
-                 source_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 always_apply: pulumi.Input[Optional[_builtins.bool]] = None,
+                 delete_when_absent: pulumi.Input[Optional[_builtins.bool]] = None,
+                 mappings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MappingMappingArgs', 'MappingMappingArgsDict']]]]] = None,
+                 source_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a profile mapping. This resource allows you to manage a profile mapping by source and target IDs. > **NOTE:** If using this resource with OAuth2 scopes, this resource requires `okta.profileMappings.manage` scope.
@@ -370,11 +370,11 @@ class Mapping(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 always_apply: Optional[pulumi.Input[_builtins.bool]] = None,
-                 delete_when_absent: Optional[pulumi.Input[_builtins.bool]] = None,
-                 mappings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MappingMappingArgs', 'MappingMappingArgsDict']]]]] = None,
-                 source_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 always_apply: pulumi.Input[Optional[_builtins.bool]] = None,
+                 delete_when_absent: pulumi.Input[Optional[_builtins.bool]] = None,
+                 mappings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MappingMappingArgs', 'MappingMappingArgsDict']]]]] = None,
+                 source_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -407,15 +407,15 @@ class Mapping(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            always_apply: Optional[pulumi.Input[_builtins.bool]] = None,
-            delete_when_absent: Optional[pulumi.Input[_builtins.bool]] = None,
-            mappings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MappingMappingArgs', 'MappingMappingArgsDict']]]]] = None,
-            source_id: Optional[pulumi.Input[_builtins.str]] = None,
-            source_name: Optional[pulumi.Input[_builtins.str]] = None,
-            source_type: Optional[pulumi.Input[_builtins.str]] = None,
-            target_id: Optional[pulumi.Input[_builtins.str]] = None,
-            target_name: Optional[pulumi.Input[_builtins.str]] = None,
-            target_type: Optional[pulumi.Input[_builtins.str]] = None) -> 'Mapping':
+            always_apply: pulumi.Input[Optional[_builtins.bool]] = None,
+            delete_when_absent: pulumi.Input[Optional[_builtins.bool]] = None,
+            mappings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MappingMappingArgs', 'MappingMappingArgsDict']]]]] = None,
+            source_id: pulumi.Input[Optional[_builtins.str]] = None,
+            source_name: pulumi.Input[Optional[_builtins.str]] = None,
+            source_type: pulumi.Input[Optional[_builtins.str]] = None,
+            target_id: pulumi.Input[Optional[_builtins.str]] = None,
+            target_name: pulumi.Input[Optional[_builtins.str]] = None,
+            target_type: pulumi.Input[Optional[_builtins.str]] = None) -> 'Mapping':
         """
         Get an existing Mapping resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

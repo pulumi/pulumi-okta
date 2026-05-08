@@ -303,135 +303,135 @@ export interface SamlState {
     /**
      * Specifies the account linking action for an IdP user. Default: `AUTO`
      */
-    accountLinkAction?: pulumi.Input<string>;
+    accountLinkAction?: pulumi.Input<string | undefined>;
     /**
      * Group memberships to determine link candidates.
      */
-    accountLinkGroupIncludes?: pulumi.Input<pulumi.Input<string>[]>;
-    acsBinding?: pulumi.Input<string>;
+    accountLinkGroupIncludes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    acsBinding?: pulumi.Input<string | undefined>;
     /**
      * The type of ACS. It can be `INSTANCE` or `ORG`. Default: `INSTANCE`
      */
-    acsType?: pulumi.Input<string>;
-    audience?: pulumi.Input<string>;
+    acsType?: pulumi.Input<string | undefined>;
+    audience?: pulumi.Input<string | undefined>;
     /**
      * Action for a previously deprovisioned IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`
      */
-    deprovisionedAction?: pulumi.Input<string>;
+    deprovisionedAction?: pulumi.Input<string | undefined>;
     /**
      * Provisioning action for IdP user's group memberships. It can be `NONE`, `SYNC`, `APPEND`, or `ASSIGN`. Default: `NONE`
      */
-    groupsAction?: pulumi.Input<string>;
+    groupsAction?: pulumi.Input<string | undefined>;
     /**
      * List of Okta Group IDs to add an IdP user as a member with the `ASSIGN` `groupsAction`.
      */
-    groupsAssignments?: pulumi.Input<pulumi.Input<string>[]>;
+    groupsAssignments?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * IdP user profile attribute name (case-insensitive) for an array value that contains group memberships.
      */
-    groupsAttribute?: pulumi.Input<string>;
+    groupsAttribute?: pulumi.Input<string | undefined>;
     /**
      * Whitelist of Okta Group identifiers that are allowed for the `APPEND` or `SYNC` `groupsAction`.
      */
-    groupsFilters?: pulumi.Input<pulumi.Input<string>[]>;
+    groupsFilters?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Determines if the IdP should persist account linking when the incoming assertion NameID format is urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
      */
-    honorPersistentNameId?: pulumi.Input<boolean>;
+    honorPersistentNameId?: pulumi.Input<boolean | undefined>;
     /**
      * URI that identifies the issuer.
      */
-    issuer?: pulumi.Input<string>;
+    issuer?: pulumi.Input<string | undefined>;
     /**
      * Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL
      */
-    issuerMode?: pulumi.Input<string>;
+    issuerMode?: pulumi.Input<string | undefined>;
     /**
      * The ID of the signing key.
      */
-    kid?: pulumi.Input<string>;
+    kid?: pulumi.Input<string | undefined>;
     /**
      * Maximum allowable clock-skew when processing messages from the IdP.
      */
-    maxClockSkew?: pulumi.Input<number>;
+    maxClockSkew?: pulumi.Input<number | undefined>;
     /**
      * Name of the IdP
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name identifier format to use. By default `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified`.
      */
-    nameFormat?: pulumi.Input<string>;
+    nameFormat?: pulumi.Input<string | undefined>;
     /**
      * Determines if the IdP should act as a source of truth for user profile attributes.
      */
-    profileMaster?: pulumi.Input<boolean>;
+    profileMaster?: pulumi.Input<boolean | undefined>;
     /**
      * Provisioning action for an IdP user during authentication. Default: `AUTO`
      */
-    provisioningAction?: pulumi.Input<string>;
+    provisioningAction?: pulumi.Input<string | undefined>;
     /**
      * The XML digital Signature Algorithm used when signing an `AuthnRequest` message. It can be `SHA-256` or `SHA-1`. Default: `SHA-256`
      */
-    requestSignatureAlgorithm?: pulumi.Input<string>;
+    requestSignatureAlgorithm?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether to digitally sign an AuthnRequest messages to the IdP. It can be `REQUEST` or `NONE`. Default: `REQUEST`
      */
-    requestSignatureScope?: pulumi.Input<string>;
+    requestSignatureScope?: pulumi.Input<string | undefined>;
     /**
      * The minimum XML digital signature algorithm allowed when verifying a `SAMLResponse` message or Assertion element. It can be `SHA-256` or `SHA-1`. Default: `SHA-256`
      */
-    responseSignatureAlgorithm?: pulumi.Input<string>;
+    responseSignatureAlgorithm?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether to verify a `SAMLResponse` message or Assertion element XML digital signature. It can be `RESPONSE`, `ASSERTION`, or `ANY`. Default: `ANY`
      */
-    responseSignatureScope?: pulumi.Input<string>;
+    responseSignatureScope?: pulumi.Input<string | undefined>;
     /**
      * The method of making an SSO request. It can be set to `HTTP-POST` or `HTTP-REDIRECT`. Default: `HTTP-POST`
      */
-    ssoBinding?: pulumi.Input<string>;
+    ssoBinding?: pulumi.Input<string | undefined>;
     /**
      * URI reference indicating the address to which the AuthnRequest message is sent.
      */
-    ssoDestination?: pulumi.Input<string>;
+    ssoDestination?: pulumi.Input<string | undefined>;
     /**
      * URL of binding-specific endpoint to send an AuthnRequest message to IdP.
      */
-    ssoUrl?: pulumi.Input<string>;
+    ssoUrl?: pulumi.Input<string | undefined>;
     /**
      * Default to `ACTIVE`
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * Optional regular expression pattern used to filter untrusted IdP usernames.
      */
-    subjectFilter?: pulumi.Input<string>;
+    subjectFilter?: pulumi.Input<string | undefined>;
     /**
      * The name format.
      */
-    subjectFormats?: pulumi.Input<pulumi.Input<string>[]>;
+    subjectFormats?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Okta user profile attribute for matching transformed IdP username. Only for matchType `CUSTOM_ATTRIBUTE`.
      */
-    subjectMatchAttribute?: pulumi.Input<string>;
+    subjectMatchAttribute?: pulumi.Input<string | undefined>;
     /**
      * Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `USERNAME`. It can be set to `USERNAME`, `EMAIL`, `USERNAME_OR_EMAIL` or `CUSTOM_ATTRIBUTE`.
      */
-    subjectMatchType?: pulumi.Input<string>;
+    subjectMatchType?: pulumi.Input<string | undefined>;
     /**
      * Action for a previously suspended IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`
      */
-    suspendedAction?: pulumi.Input<string>;
+    suspendedAction?: pulumi.Input<string | undefined>;
     /**
      * Indicates whether to trust authentication claims from the IdP.
      */
-    trustClaims?: pulumi.Input<boolean>;
-    type?: pulumi.Input<string>;
-    userTypeId?: pulumi.Input<string>;
+    trustClaims?: pulumi.Input<boolean | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    userTypeId?: pulumi.Input<string | undefined>;
     /**
      * Okta EL Expression to generate or transform a unique username for the IdP user. Default: `idpuser.email`
      */
-    usernameTemplate?: pulumi.Input<string>;
+    usernameTemplate?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -441,39 +441,39 @@ export interface SamlArgs {
     /**
      * Specifies the account linking action for an IdP user. Default: `AUTO`
      */
-    accountLinkAction?: pulumi.Input<string>;
+    accountLinkAction?: pulumi.Input<string | undefined>;
     /**
      * Group memberships to determine link candidates.
      */
-    accountLinkGroupIncludes?: pulumi.Input<pulumi.Input<string>[]>;
+    accountLinkGroupIncludes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The type of ACS. It can be `INSTANCE` or `ORG`. Default: `INSTANCE`
      */
-    acsType?: pulumi.Input<string>;
+    acsType?: pulumi.Input<string | undefined>;
     /**
      * Action for a previously deprovisioned IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`
      */
-    deprovisionedAction?: pulumi.Input<string>;
+    deprovisionedAction?: pulumi.Input<string | undefined>;
     /**
      * Provisioning action for IdP user's group memberships. It can be `NONE`, `SYNC`, `APPEND`, or `ASSIGN`. Default: `NONE`
      */
-    groupsAction?: pulumi.Input<string>;
+    groupsAction?: pulumi.Input<string | undefined>;
     /**
      * List of Okta Group IDs to add an IdP user as a member with the `ASSIGN` `groupsAction`.
      */
-    groupsAssignments?: pulumi.Input<pulumi.Input<string>[]>;
+    groupsAssignments?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * IdP user profile attribute name (case-insensitive) for an array value that contains group memberships.
      */
-    groupsAttribute?: pulumi.Input<string>;
+    groupsAttribute?: pulumi.Input<string | undefined>;
     /**
      * Whitelist of Okta Group identifiers that are allowed for the `APPEND` or `SYNC` `groupsAction`.
      */
-    groupsFilters?: pulumi.Input<pulumi.Input<string>[]>;
+    groupsFilters?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Determines if the IdP should persist account linking when the incoming assertion NameID format is urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
      */
-    honorPersistentNameId?: pulumi.Input<boolean>;
+    honorPersistentNameId?: pulumi.Input<boolean | undefined>;
     /**
      * URI that identifies the issuer.
      */
@@ -481,7 +481,7 @@ export interface SamlArgs {
     /**
      * Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL
      */
-    issuerMode?: pulumi.Input<string>;
+    issuerMode?: pulumi.Input<string | undefined>;
     /**
      * The ID of the signing key.
      */
@@ -489,47 +489,47 @@ export interface SamlArgs {
     /**
      * Maximum allowable clock-skew when processing messages from the IdP.
      */
-    maxClockSkew?: pulumi.Input<number>;
+    maxClockSkew?: pulumi.Input<number | undefined>;
     /**
      * Name of the IdP
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name identifier format to use. By default `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified`.
      */
-    nameFormat?: pulumi.Input<string>;
+    nameFormat?: pulumi.Input<string | undefined>;
     /**
      * Determines if the IdP should act as a source of truth for user profile attributes.
      */
-    profileMaster?: pulumi.Input<boolean>;
+    profileMaster?: pulumi.Input<boolean | undefined>;
     /**
      * Provisioning action for an IdP user during authentication. Default: `AUTO`
      */
-    provisioningAction?: pulumi.Input<string>;
+    provisioningAction?: pulumi.Input<string | undefined>;
     /**
      * The XML digital Signature Algorithm used when signing an `AuthnRequest` message. It can be `SHA-256` or `SHA-1`. Default: `SHA-256`
      */
-    requestSignatureAlgorithm?: pulumi.Input<string>;
+    requestSignatureAlgorithm?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether to digitally sign an AuthnRequest messages to the IdP. It can be `REQUEST` or `NONE`. Default: `REQUEST`
      */
-    requestSignatureScope?: pulumi.Input<string>;
+    requestSignatureScope?: pulumi.Input<string | undefined>;
     /**
      * The minimum XML digital signature algorithm allowed when verifying a `SAMLResponse` message or Assertion element. It can be `SHA-256` or `SHA-1`. Default: `SHA-256`
      */
-    responseSignatureAlgorithm?: pulumi.Input<string>;
+    responseSignatureAlgorithm?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether to verify a `SAMLResponse` message or Assertion element XML digital signature. It can be `RESPONSE`, `ASSERTION`, or `ANY`. Default: `ANY`
      */
-    responseSignatureScope?: pulumi.Input<string>;
+    responseSignatureScope?: pulumi.Input<string | undefined>;
     /**
      * The method of making an SSO request. It can be set to `HTTP-POST` or `HTTP-REDIRECT`. Default: `HTTP-POST`
      */
-    ssoBinding?: pulumi.Input<string>;
+    ssoBinding?: pulumi.Input<string | undefined>;
     /**
      * URI reference indicating the address to which the AuthnRequest message is sent.
      */
-    ssoDestination?: pulumi.Input<string>;
+    ssoDestination?: pulumi.Input<string | undefined>;
     /**
      * URL of binding-specific endpoint to send an AuthnRequest message to IdP.
      */
@@ -537,33 +537,33 @@ export interface SamlArgs {
     /**
      * Default to `ACTIVE`
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * Optional regular expression pattern used to filter untrusted IdP usernames.
      */
-    subjectFilter?: pulumi.Input<string>;
+    subjectFilter?: pulumi.Input<string | undefined>;
     /**
      * The name format.
      */
-    subjectFormats?: pulumi.Input<pulumi.Input<string>[]>;
+    subjectFormats?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Okta user profile attribute for matching transformed IdP username. Only for matchType `CUSTOM_ATTRIBUTE`.
      */
-    subjectMatchAttribute?: pulumi.Input<string>;
+    subjectMatchAttribute?: pulumi.Input<string | undefined>;
     /**
      * Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `USERNAME`. It can be set to `USERNAME`, `EMAIL`, `USERNAME_OR_EMAIL` or `CUSTOM_ATTRIBUTE`.
      */
-    subjectMatchType?: pulumi.Input<string>;
+    subjectMatchType?: pulumi.Input<string | undefined>;
     /**
      * Action for a previously suspended IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`
      */
-    suspendedAction?: pulumi.Input<string>;
+    suspendedAction?: pulumi.Input<string | undefined>;
     /**
      * Indicates whether to trust authentication claims from the IdP.
      */
-    trustClaims?: pulumi.Input<boolean>;
+    trustClaims?: pulumi.Input<boolean | undefined>;
     /**
      * Okta EL Expression to generate or transform a unique username for the IdP user. Default: `idpuser.email`
      */
-    usernameTemplate?: pulumi.Input<string>;
+    usernameTemplate?: pulumi.Input<string | undefined>;
 }

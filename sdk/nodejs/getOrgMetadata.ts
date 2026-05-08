@@ -72,9 +72,9 @@ export interface GetOrgMetadataOutputArgs {
     /**
      * The URIs for the org's configured domains.
      */
-    domains?: pulumi.Input<inputs.GetOrgMetadataDomainsArgs>;
+    domains?: pulumi.Input<inputs.GetOrgMetadataDomainsArgs | undefined>;
     /**
      * The wellknown org settings (safe for public consumption).
      */
-    settings?: pulumi.Input<inputs.GetOrgMetadataSettingsArgs>;
+    settings?: pulumi.Input<inputs.GetOrgMetadataSettingsArgs | undefined>;
 }

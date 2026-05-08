@@ -58,12 +58,12 @@ class RequestSequenceArgs:
 @pulumi.input_type
 class _RequestSequenceState:
     def __init__(__self__, *,
-                 compatible_resource_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 id_property: Optional[pulumi.Input[_builtins.str]] = None,
-                 link: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 compatible_resource_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 id_property: pulumi.Input[Optional[_builtins.str]] = None,
+                 link: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering RequestSequence resources.
 
@@ -89,74 +89,74 @@ class _RequestSequenceState:
 
     @_builtins.property
     @pulumi.getter(name="compatibleResourceTypes")
-    def compatible_resource_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def compatible_resource_types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Enum: `APP`, `GROUP`.
         """
         return pulumi.get(self, "compatible_resource_types")
 
     @compatible_resource_types.setter
-    def compatible_resource_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def compatible_resource_types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "compatible_resource_types", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the request condition.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="idProperty")
-    def id_property(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id_property(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The id of the sequence.Must be of 24 characters length.
         """
         return pulumi.get(self, "id_property")
 
     @id_property.setter
-    def id_property(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id_property(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id_property", value)
 
     @_builtins.property
     @pulumi.getter
-    def link(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def link(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Link to edit the request sequence.
         """
         return pulumi.get(self, "link")
 
     @link.setter
-    def link(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def link(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "link", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The access duration settings for the request condition
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceId")
-    def resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The id of the resource in Okta ID format.
         """
         return pulumi.get(self, "resource_id")
 
     @resource_id.setter
-    def resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_id", value)
 
 
@@ -166,8 +166,8 @@ class RequestSequence(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 id_property: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 id_property: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages request sequence. This resource allows you to read and delete an Okta [request-sequence](https://developer.okta.com/docs/api/iga/openapi/governance.requests.admin.v2/tag/Request-Sequences/#tag/Request-Sequences).
@@ -237,8 +237,8 @@ class RequestSequence(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 id_property: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 id_property: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -268,12 +268,12 @@ class RequestSequence(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            compatible_resource_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            id_property: Optional[pulumi.Input[_builtins.str]] = None,
-            link: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'RequestSequence':
+            compatible_resource_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            id_property: pulumi.Input[Optional[_builtins.str]] = None,
+            link: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'RequestSequence':
         """
         Get an existing RequestSequence resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -111,11 +111,11 @@ export interface OAuthRedirectUriState {
     /**
      * OAuth application ID.
      */
-    appId?: pulumi.Input<string>;
+    appId?: pulumi.Input<string | undefined>;
     /**
      * Redirect URI to append to Okta OIDC application.
      */
-    uri?: pulumi.Input<string>;
+    uri?: pulumi.Input<string | undefined>;
 }
 
 /**

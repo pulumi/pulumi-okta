@@ -122,11 +122,11 @@ export interface AccessPolicyAssignmentState {
     /**
      * The application ID; this value is immutable and can not be updated.
      */
-    appId?: pulumi.Input<string>;
+    appId?: pulumi.Input<string | undefined>;
     /**
      * The access policy ID.
      */
-    policyId?: pulumi.Input<string>;
+    policyId?: pulumi.Input<string | undefined>;
 }
 
 /**

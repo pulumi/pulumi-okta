@@ -187,7 +187,7 @@ def get_principal_rate_limits(id: Optional[_builtins.str] = None,
         org_id=pulumi.get(__ret__, 'org_id'),
         principal_id=pulumi.get(__ret__, 'principal_id'),
         principal_type=pulumi.get(__ret__, 'principal_type'))
-def get_principal_rate_limits_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_principal_rate_limits_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrincipalRateLimitsResult]:
     """
     Get the entitlements for a user and resource after evaluating all grants.

@@ -190,7 +190,7 @@ def get_metadata_saml(idp_id: Optional[_builtins.str] = None,
         idp_id=pulumi.get(__ret__, 'idp_id'),
         metadata=pulumi.get(__ret__, 'metadata'),
         signing_certificate=pulumi.get(__ret__, 'signing_certificate'))
-def get_metadata_saml_output(idp_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_metadata_saml_output(idp_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMetadataSamlResult]:
     """
     Get SAML IdP metadata from Okta.

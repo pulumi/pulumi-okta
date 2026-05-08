@@ -22,53 +22,53 @@ __all__ = ['SamlArgs', 'Saml']
 class SamlArgs:
     def __init__(__self__, *,
                  label: pulumi.Input[_builtins.str],
-                 accessibility_error_redirect_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 accessibility_login_redirect_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 accessibility_self_service: Optional[pulumi.Input[_builtins.bool]] = None,
-                 acs_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 acs_endpoints_indices: Optional[pulumi.Input[Sequence[pulumi.Input['SamlAcsEndpointsIndexArgs']]]] = None,
-                 admin_note: Optional[pulumi.Input[_builtins.str]] = None,
-                 app_links_json: Optional[pulumi.Input[_builtins.str]] = None,
-                 app_settings_json: Optional[pulumi.Input[_builtins.str]] = None,
-                 assertion_signed: Optional[pulumi.Input[_builtins.bool]] = None,
-                 attribute_statements: Optional[pulumi.Input[Sequence[pulumi.Input['SamlAttributeStatementArgs']]]] = None,
-                 audience: Optional[pulumi.Input[_builtins.str]] = None,
-                 authentication_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 authn_context_class_ref: Optional[pulumi.Input[_builtins.str]] = None,
-                 auto_submit_toolbar: Optional[pulumi.Input[_builtins.bool]] = None,
-                 default_relay_state: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination: Optional[pulumi.Input[_builtins.str]] = None,
-                 digest_algorithm: Optional[pulumi.Input[_builtins.str]] = None,
-                 enduser_note: Optional[pulumi.Input[_builtins.str]] = None,
-                 hide_ios: Optional[pulumi.Input[_builtins.bool]] = None,
-                 hide_web: Optional[pulumi.Input[_builtins.bool]] = None,
-                 honor_force_authn: Optional[pulumi.Input[_builtins.bool]] = None,
-                 idp_issuer: Optional[pulumi.Input[_builtins.str]] = None,
-                 implicit_assignment: Optional[pulumi.Input[_builtins.bool]] = None,
-                 inline_hook_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_years_valid: Optional[pulumi.Input[_builtins.int]] = None,
-                 logo: Optional[pulumi.Input[_builtins.str]] = None,
-                 preconfigured_app: Optional[pulumi.Input[_builtins.str]] = None,
-                 recipient: Optional[pulumi.Input[_builtins.str]] = None,
-                 request_compressed: Optional[pulumi.Input[_builtins.bool]] = None,
-                 response_signed: Optional[pulumi.Input[_builtins.bool]] = None,
-                 saml_signed_request_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 saml_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 signature_algorithm: Optional[pulumi.Input[_builtins.str]] = None,
-                 single_logout_certificate: Optional[pulumi.Input[_builtins.str]] = None,
-                 single_logout_issuer: Optional[pulumi.Input[_builtins.str]] = None,
-                 single_logout_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 skip_authentication_policy: Optional[pulumi.Input[_builtins.bool]] = None,
-                 sp_issuer: Optional[pulumi.Input[_builtins.str]] = None,
-                 sso_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 subject_name_id_format: Optional[pulumi.Input[_builtins.str]] = None,
-                 subject_name_id_template: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_name_template: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_name_template_push_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_name_template_suffix: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_name_template_type: Optional[pulumi.Input[_builtins.str]] = None):
+                 accessibility_error_redirect_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 accessibility_login_redirect_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 accessibility_self_service: pulumi.Input[Optional[_builtins.bool]] = None,
+                 acs_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 acs_endpoints_indices: pulumi.Input[Optional[Sequence[pulumi.Input['SamlAcsEndpointsIndexArgs']]]] = None,
+                 admin_note: pulumi.Input[Optional[_builtins.str]] = None,
+                 app_links_json: pulumi.Input[Optional[_builtins.str]] = None,
+                 app_settings_json: pulumi.Input[Optional[_builtins.str]] = None,
+                 assertion_signed: pulumi.Input[Optional[_builtins.bool]] = None,
+                 attribute_statements: pulumi.Input[Optional[Sequence[pulumi.Input['SamlAttributeStatementArgs']]]] = None,
+                 audience: pulumi.Input[Optional[_builtins.str]] = None,
+                 authentication_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 authn_context_class_ref: pulumi.Input[Optional[_builtins.str]] = None,
+                 auto_submit_toolbar: pulumi.Input[Optional[_builtins.bool]] = None,
+                 default_relay_state: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination: pulumi.Input[Optional[_builtins.str]] = None,
+                 digest_algorithm: pulumi.Input[Optional[_builtins.str]] = None,
+                 enduser_note: pulumi.Input[Optional[_builtins.str]] = None,
+                 hide_ios: pulumi.Input[Optional[_builtins.bool]] = None,
+                 hide_web: pulumi.Input[Optional[_builtins.bool]] = None,
+                 honor_force_authn: pulumi.Input[Optional[_builtins.bool]] = None,
+                 idp_issuer: pulumi.Input[Optional[_builtins.str]] = None,
+                 implicit_assignment: pulumi.Input[Optional[_builtins.bool]] = None,
+                 inline_hook_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_years_valid: pulumi.Input[Optional[_builtins.int]] = None,
+                 logo: pulumi.Input[Optional[_builtins.str]] = None,
+                 preconfigured_app: pulumi.Input[Optional[_builtins.str]] = None,
+                 recipient: pulumi.Input[Optional[_builtins.str]] = None,
+                 request_compressed: pulumi.Input[Optional[_builtins.bool]] = None,
+                 response_signed: pulumi.Input[Optional[_builtins.bool]] = None,
+                 saml_signed_request_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 saml_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 signature_algorithm: pulumi.Input[Optional[_builtins.str]] = None,
+                 single_logout_certificate: pulumi.Input[Optional[_builtins.str]] = None,
+                 single_logout_issuer: pulumi.Input[Optional[_builtins.str]] = None,
+                 single_logout_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 skip_authentication_policy: pulumi.Input[Optional[_builtins.bool]] = None,
+                 sp_issuer: pulumi.Input[Optional[_builtins.str]] = None,
+                 sso_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 subject_name_id_format: pulumi.Input[Optional[_builtins.str]] = None,
+                 subject_name_id_template: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_name_template: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_name_template_push_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_name_template_suffix: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_name_template_type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Saml resource.
 
@@ -239,328 +239,328 @@ class SamlArgs:
 
     @_builtins.property
     @pulumi.getter(name="accessibilityErrorRedirectUrl")
-    def accessibility_error_redirect_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def accessibility_error_redirect_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Custom error page URL
         """
         return pulumi.get(self, "accessibility_error_redirect_url")
 
     @accessibility_error_redirect_url.setter
-    def accessibility_error_redirect_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def accessibility_error_redirect_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "accessibility_error_redirect_url", value)
 
     @_builtins.property
     @pulumi.getter(name="accessibilityLoginRedirectUrl")
-    def accessibility_login_redirect_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def accessibility_login_redirect_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Custom login page URL
         """
         return pulumi.get(self, "accessibility_login_redirect_url")
 
     @accessibility_login_redirect_url.setter
-    def accessibility_login_redirect_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def accessibility_login_redirect_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "accessibility_login_redirect_url", value)
 
     @_builtins.property
     @pulumi.getter(name="accessibilitySelfService")
-    def accessibility_self_service(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def accessibility_self_service(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable self service. Default is `false`
         """
         return pulumi.get(self, "accessibility_self_service")
 
     @accessibility_self_service.setter
-    def accessibility_self_service(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def accessibility_self_service(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "accessibility_self_service", value)
 
     @_builtins.property
     @pulumi.getter(name="acsEndpoints")
-    def acs_endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def acs_endpoints(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         An array of ACS endpoints. You can configure a maximum of 100 endpoints.
         """
         return pulumi.get(self, "acs_endpoints")
 
     @acs_endpoints.setter
-    def acs_endpoints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def acs_endpoints(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "acs_endpoints", value)
 
     @_builtins.property
     @pulumi.getter(name="acsEndpointsIndices")
-    def acs_endpoints_indices(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SamlAcsEndpointsIndexArgs']]]]:
+    def acs_endpoints_indices(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SamlAcsEndpointsIndexArgs']]]]:
         """
         ACS endpoints along with custom index as a set of maps called `acs_endpoints_indices` in JSON format.
         """
         return pulumi.get(self, "acs_endpoints_indices")
 
     @acs_endpoints_indices.setter
-    def acs_endpoints_indices(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SamlAcsEndpointsIndexArgs']]]]):
+    def acs_endpoints_indices(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SamlAcsEndpointsIndexArgs']]]]):
         pulumi.set(self, "acs_endpoints_indices", value)
 
     @_builtins.property
     @pulumi.getter(name="adminNote")
-    def admin_note(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def admin_note(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Application notes for admins.
         """
         return pulumi.get(self, "admin_note")
 
     @admin_note.setter
-    def admin_note(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def admin_note(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "admin_note", value)
 
     @_builtins.property
     @pulumi.getter(name="appLinksJson")
-    def app_links_json(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def app_links_json(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Displays specific appLinks for the app. The value for each application link should be boolean.
         """
         return pulumi.get(self, "app_links_json")
 
     @app_links_json.setter
-    def app_links_json(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def app_links_json(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "app_links_json", value)
 
     @_builtins.property
     @pulumi.getter(name="appSettingsJson")
-    def app_settings_json(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def app_settings_json(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Application settings in JSON format
         """
         return pulumi.get(self, "app_settings_json")
 
     @app_settings_json.setter
-    def app_settings_json(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def app_settings_json(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "app_settings_json", value)
 
     @_builtins.property
     @pulumi.getter(name="assertionSigned")
-    def assertion_signed(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def assertion_signed(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Determines whether the SAML assertion is digitally signed
         """
         return pulumi.get(self, "assertion_signed")
 
     @assertion_signed.setter
-    def assertion_signed(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def assertion_signed(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "assertion_signed", value)
 
     @_builtins.property
     @pulumi.getter(name="attributeStatements")
-    def attribute_statements(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SamlAttributeStatementArgs']]]]:
+    def attribute_statements(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SamlAttributeStatementArgs']]]]:
         return pulumi.get(self, "attribute_statements")
 
     @attribute_statements.setter
-    def attribute_statements(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SamlAttributeStatementArgs']]]]):
+    def attribute_statements(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SamlAttributeStatementArgs']]]]):
         pulumi.set(self, "attribute_statements", value)
 
     @_builtins.property
     @pulumi.getter
-    def audience(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def audience(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Audience Restriction
         """
         return pulumi.get(self, "audience")
 
     @audience.setter
-    def audience(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def audience(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "audience", value)
 
     @_builtins.property
     @pulumi.getter(name="authenticationPolicy")
-    def authentication_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def authentication_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the associated `app_signon_policy`. If this property is removed from the application the `default` sign-on-policy will be associated with this application.y
         """
         return pulumi.get(self, "authentication_policy")
 
     @authentication_policy.setter
-    def authentication_policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def authentication_policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "authentication_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="authnContextClassRef")
-    def authn_context_class_ref(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def authn_context_class_ref(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifies the SAML authentication context class for the assertion’s authentication statement
         """
         return pulumi.get(self, "authn_context_class_ref")
 
     @authn_context_class_ref.setter
-    def authn_context_class_ref(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def authn_context_class_ref(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "authn_context_class_ref", value)
 
     @_builtins.property
     @pulumi.getter(name="autoSubmitToolbar")
-    def auto_submit_toolbar(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def auto_submit_toolbar(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Display auto submit toolbar. Default is: `false`
         """
         return pulumi.get(self, "auto_submit_toolbar")
 
     @auto_submit_toolbar.setter
-    def auto_submit_toolbar(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def auto_submit_toolbar(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "auto_submit_toolbar", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultRelayState")
-    def default_relay_state(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_relay_state(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifies a specific application resource in an IDP initiated SSO scenario.
         """
         return pulumi.get(self, "default_relay_state")
 
     @default_relay_state.setter
-    def default_relay_state(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_relay_state(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_relay_state", value)
 
     @_builtins.property
     @pulumi.getter
-    def destination(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def destination(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifies the location where the SAML response is intended to be sent inside of the SAML assertion
         """
         return pulumi.get(self, "destination")
 
     @destination.setter
-    def destination(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def destination(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "destination", value)
 
     @_builtins.property
     @pulumi.getter(name="digestAlgorithm")
-    def digest_algorithm(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def digest_algorithm(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Determines the digest algorithm used to digitally sign the SAML assertion and response
         """
         return pulumi.get(self, "digest_algorithm")
 
     @digest_algorithm.setter
-    def digest_algorithm(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def digest_algorithm(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "digest_algorithm", value)
 
     @_builtins.property
     @pulumi.getter(name="enduserNote")
-    def enduser_note(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def enduser_note(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Application notes for end users.
         """
         return pulumi.get(self, "enduser_note")
 
     @enduser_note.setter
-    def enduser_note(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def enduser_note(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "enduser_note", value)
 
     @_builtins.property
     @pulumi.getter(name="hideIos")
-    def hide_ios(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def hide_ios(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Do not display application icon on mobile app
         """
         return pulumi.get(self, "hide_ios")
 
     @hide_ios.setter
-    def hide_ios(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def hide_ios(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "hide_ios", value)
 
     @_builtins.property
     @pulumi.getter(name="hideWeb")
-    def hide_web(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def hide_web(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Do not display application icon to users
         """
         return pulumi.get(self, "hide_web")
 
     @hide_web.setter
-    def hide_web(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def hide_web(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "hide_web", value)
 
     @_builtins.property
     @pulumi.getter(name="honorForceAuthn")
-    def honor_force_authn(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def honor_force_authn(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Prompt user to re-authenticate if SP asks for it. Default is: `false`
         """
         return pulumi.get(self, "honor_force_authn")
 
     @honor_force_authn.setter
-    def honor_force_authn(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def honor_force_authn(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "honor_force_authn", value)
 
     @_builtins.property
     @pulumi.getter(name="idpIssuer")
-    def idp_issuer(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def idp_issuer(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         SAML issuer ID
         """
         return pulumi.get(self, "idp_issuer")
 
     @idp_issuer.setter
-    def idp_issuer(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def idp_issuer(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "idp_issuer", value)
 
     @_builtins.property
     @pulumi.getter(name="implicitAssignment")
-    def implicit_assignment(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def implicit_assignment(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         *Early Access Property*. Enable Federation Broker Mode.
         """
         return pulumi.get(self, "implicit_assignment")
 
     @implicit_assignment.setter
-    def implicit_assignment(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def implicit_assignment(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "implicit_assignment", value)
 
     @_builtins.property
     @pulumi.getter(name="inlineHookId")
-    def inline_hook_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def inline_hook_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Saml Inline Hook setting
         """
         return pulumi.get(self, "inline_hook_id")
 
     @inline_hook_id.setter
-    def inline_hook_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def inline_hook_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "inline_hook_id", value)
 
     @_builtins.property
     @pulumi.getter(name="keyName")
-    def key_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Certificate name. This modulates the rotation of keys. New name == new key. Required to be set with `key_years_valid`
         """
         return pulumi.get(self, "key_name")
 
     @key_name.setter
-    def key_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_name", value)
 
     @_builtins.property
     @pulumi.getter(name="keyYearsValid")
-    def key_years_valid(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def key_years_valid(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Number of years the certificate is valid (2 - 10 years).
         """
         return pulumi.get(self, "key_years_valid")
 
     @key_years_valid.setter
-    def key_years_valid(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def key_years_valid(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "key_years_valid", value)
 
     @_builtins.property
     @pulumi.getter
-    def logo(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def logo(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
         """
         return pulumi.get(self, "logo")
 
     @logo.setter
-    def logo(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def logo(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "logo", value)
 
     @_builtins.property
     @pulumi.getter(name="preconfiguredApp")
-    def preconfigured_app(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def preconfigured_app(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of application from the Okta Integration Network. For instance 'slack'. If not included a custom app will be created.  If not provided the following arguments are required:
         'sso*url'
@@ -576,303 +576,303 @@ class SamlArgs:
         return pulumi.get(self, "preconfigured_app")
 
     @preconfigured_app.setter
-    def preconfigured_app(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def preconfigured_app(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "preconfigured_app", value)
 
     @_builtins.property
     @pulumi.getter
-    def recipient(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def recipient(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The location where the app may present the SAML assertion
         """
         return pulumi.get(self, "recipient")
 
     @recipient.setter
-    def recipient(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def recipient(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "recipient", value)
 
     @_builtins.property
     @pulumi.getter(name="requestCompressed")
-    def request_compressed(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def request_compressed(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Denotes whether the request is compressed or not.
         """
         return pulumi.get(self, "request_compressed")
 
     @request_compressed.setter
-    def request_compressed(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def request_compressed(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "request_compressed", value)
 
     @_builtins.property
     @pulumi.getter(name="responseSigned")
-    def response_signed(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def response_signed(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Determines whether the SAML auth response message is digitally signed
         """
         return pulumi.get(self, "response_signed")
 
     @response_signed.setter
-    def response_signed(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def response_signed(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "response_signed", value)
 
     @_builtins.property
     @pulumi.getter(name="samlSignedRequestEnabled")
-    def saml_signed_request_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def saml_signed_request_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         SAML Signed Request enabled
         """
         return pulumi.get(self, "saml_signed_request_enabled")
 
     @saml_signed_request_enabled.setter
-    def saml_signed_request_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def saml_signed_request_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "saml_signed_request_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="samlVersion")
-    def saml_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def saml_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         SAML version for the app's sign-on mode. Valid values are: `2.0` or `1.1`. Default is `2.0`
         """
         return pulumi.get(self, "saml_version")
 
     @saml_version.setter
-    def saml_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def saml_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "saml_version", value)
 
     @_builtins.property
     @pulumi.getter(name="signatureAlgorithm")
-    def signature_algorithm(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def signature_algorithm(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Signature algorithm used to digitally sign the assertion and response
         """
         return pulumi.get(self, "signature_algorithm")
 
     @signature_algorithm.setter
-    def signature_algorithm(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def signature_algorithm(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "signature_algorithm", value)
 
     @_builtins.property
     @pulumi.getter(name="singleLogoutCertificate")
-    def single_logout_certificate(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def single_logout_certificate(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         x509 encoded certificate that the Service Provider uses to sign Single Logout requests. Note: should be provided without `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`, see [official documentation](https://developer.okta.com/docs/reference/api/apps/#service-provider-certificate).
         """
         return pulumi.get(self, "single_logout_certificate")
 
     @single_logout_certificate.setter
-    def single_logout_certificate(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def single_logout_certificate(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "single_logout_certificate", value)
 
     @_builtins.property
     @pulumi.getter(name="singleLogoutIssuer")
-    def single_logout_issuer(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def single_logout_issuer(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The issuer of the Service Provider that generates the Single Logout request
         """
         return pulumi.get(self, "single_logout_issuer")
 
     @single_logout_issuer.setter
-    def single_logout_issuer(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def single_logout_issuer(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "single_logout_issuer", value)
 
     @_builtins.property
     @pulumi.getter(name="singleLogoutUrl")
-    def single_logout_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def single_logout_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The location where the logout response is sent
         """
         return pulumi.get(self, "single_logout_url")
 
     @single_logout_url.setter
-    def single_logout_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def single_logout_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "single_logout_url", value)
 
     @_builtins.property
     @pulumi.getter(name="skipAuthenticationPolicy")
-    def skip_authentication_policy(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def skip_authentication_policy(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When set to true, the provider will not assign or read the authentication policy for this application. This can be useful when the caller lacks the permissions to read or manage policies, or to reduce API calls against the `/api/v1/apps` rate limit.
         """
         return pulumi.get(self, "skip_authentication_policy")
 
     @skip_authentication_policy.setter
-    def skip_authentication_policy(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def skip_authentication_policy(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "skip_authentication_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="spIssuer")
-    def sp_issuer(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sp_issuer(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         SAML SP issuer ID
         """
         return pulumi.get(self, "sp_issuer")
 
     @sp_issuer.setter
-    def sp_issuer(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sp_issuer(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sp_issuer", value)
 
     @_builtins.property
     @pulumi.getter(name="ssoUrl")
-    def sso_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sso_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Single Sign On URL
         """
         return pulumi.get(self, "sso_url")
 
     @sso_url.setter
-    def sso_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sso_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sso_url", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Status of application. By default, it is `ACTIVE`
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter(name="subjectNameIdFormat")
-    def subject_name_id_format(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subject_name_id_format(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifies the SAML processing rules.
         """
         return pulumi.get(self, "subject_name_id_format")
 
     @subject_name_id_format.setter
-    def subject_name_id_format(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subject_name_id_format(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subject_name_id_format", value)
 
     @_builtins.property
     @pulumi.getter(name="subjectNameIdTemplate")
-    def subject_name_id_template(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subject_name_id_template(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Template for app user's username when a user is assigned to the app
         """
         return pulumi.get(self, "subject_name_id_template")
 
     @subject_name_id_template.setter
-    def subject_name_id_template(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subject_name_id_template(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subject_name_id_template", value)
 
     @_builtins.property
     @pulumi.getter(name="userNameTemplate")
-    def user_name_template(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_name_template(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Username template. Default: `${source.login}`
         """
         return pulumi.get(self, "user_name_template")
 
     @user_name_template.setter
-    def user_name_template(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_name_template(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_name_template", value)
 
     @_builtins.property
     @pulumi.getter(name="userNameTemplatePushStatus")
-    def user_name_template_push_status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_name_template_push_status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Push username on update. Valid values: `PUSH` and `DONT_PUSH`
         """
         return pulumi.get(self, "user_name_template_push_status")
 
     @user_name_template_push_status.setter
-    def user_name_template_push_status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_name_template_push_status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_name_template_push_status", value)
 
     @_builtins.property
     @pulumi.getter(name="userNameTemplateSuffix")
-    def user_name_template_suffix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_name_template_suffix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Username template suffix
         """
         return pulumi.get(self, "user_name_template_suffix")
 
     @user_name_template_suffix.setter
-    def user_name_template_suffix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_name_template_suffix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_name_template_suffix", value)
 
     @_builtins.property
     @pulumi.getter(name="userNameTemplateType")
-    def user_name_template_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_name_template_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Username template type. Default: `BUILT_IN`
         """
         return pulumi.get(self, "user_name_template_type")
 
     @user_name_template_type.setter
-    def user_name_template_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_name_template_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_name_template_type", value)
 
 
 @pulumi.input_type
 class _SamlState:
     def __init__(__self__, *,
-                 accessibility_error_redirect_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 accessibility_login_redirect_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 accessibility_self_service: Optional[pulumi.Input[_builtins.bool]] = None,
-                 acs_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 acs_endpoints_indices: Optional[pulumi.Input[Sequence[pulumi.Input['SamlAcsEndpointsIndexArgs']]]] = None,
-                 admin_note: Optional[pulumi.Input[_builtins.str]] = None,
-                 app_links_json: Optional[pulumi.Input[_builtins.str]] = None,
-                 app_settings_json: Optional[pulumi.Input[_builtins.str]] = None,
-                 assertion_signed: Optional[pulumi.Input[_builtins.bool]] = None,
-                 attribute_statements: Optional[pulumi.Input[Sequence[pulumi.Input['SamlAttributeStatementArgs']]]] = None,
-                 audience: Optional[pulumi.Input[_builtins.str]] = None,
-                 authentication_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 authn_context_class_ref: Optional[pulumi.Input[_builtins.str]] = None,
-                 auto_submit_toolbar: Optional[pulumi.Input[_builtins.bool]] = None,
-                 certificate: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_relay_state: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination: Optional[pulumi.Input[_builtins.str]] = None,
-                 digest_algorithm: Optional[pulumi.Input[_builtins.str]] = None,
-                 embed_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 enduser_note: Optional[pulumi.Input[_builtins.str]] = None,
-                 entity_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 entity_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 features: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 hide_ios: Optional[pulumi.Input[_builtins.bool]] = None,
-                 hide_web: Optional[pulumi.Input[_builtins.bool]] = None,
-                 honor_force_authn: Optional[pulumi.Input[_builtins.bool]] = None,
-                 http_post_binding: Optional[pulumi.Input[_builtins.str]] = None,
-                 http_redirect_binding: Optional[pulumi.Input[_builtins.str]] = None,
-                 idp_issuer: Optional[pulumi.Input[_builtins.str]] = None,
-                 implicit_assignment: Optional[pulumi.Input[_builtins.bool]] = None,
-                 inline_hook_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_years_valid: Optional[pulumi.Input[_builtins.int]] = None,
-                 keys: Optional[pulumi.Input[Sequence[pulumi.Input['SamlKeyArgs']]]] = None,
-                 label: Optional[pulumi.Input[_builtins.str]] = None,
-                 logo: Optional[pulumi.Input[_builtins.str]] = None,
-                 logo_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 metadata: Optional[pulumi.Input[_builtins.str]] = None,
-                 metadata_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 preconfigured_app: Optional[pulumi.Input[_builtins.str]] = None,
-                 recipient: Optional[pulumi.Input[_builtins.str]] = None,
-                 request_compressed: Optional[pulumi.Input[_builtins.bool]] = None,
-                 response_signed: Optional[pulumi.Input[_builtins.bool]] = None,
-                 saml_signed_request_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 saml_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 sign_on_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 signature_algorithm: Optional[pulumi.Input[_builtins.str]] = None,
-                 single_logout_certificate: Optional[pulumi.Input[_builtins.str]] = None,
-                 single_logout_issuer: Optional[pulumi.Input[_builtins.str]] = None,
-                 single_logout_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 skip_authentication_policy: Optional[pulumi.Input[_builtins.bool]] = None,
-                 sp_issuer: Optional[pulumi.Input[_builtins.str]] = None,
-                 sso_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 subject_name_id_format: Optional[pulumi.Input[_builtins.str]] = None,
-                 subject_name_id_template: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_name_template: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_name_template_push_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_name_template_suffix: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_name_template_type: Optional[pulumi.Input[_builtins.str]] = None):
+                 accessibility_error_redirect_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 accessibility_login_redirect_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 accessibility_self_service: pulumi.Input[Optional[_builtins.bool]] = None,
+                 acs_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 acs_endpoints_indices: pulumi.Input[Optional[Sequence[pulumi.Input['SamlAcsEndpointsIndexArgs']]]] = None,
+                 admin_note: pulumi.Input[Optional[_builtins.str]] = None,
+                 app_links_json: pulumi.Input[Optional[_builtins.str]] = None,
+                 app_settings_json: pulumi.Input[Optional[_builtins.str]] = None,
+                 assertion_signed: pulumi.Input[Optional[_builtins.bool]] = None,
+                 attribute_statements: pulumi.Input[Optional[Sequence[pulumi.Input['SamlAttributeStatementArgs']]]] = None,
+                 audience: pulumi.Input[Optional[_builtins.str]] = None,
+                 authentication_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 authn_context_class_ref: pulumi.Input[Optional[_builtins.str]] = None,
+                 auto_submit_toolbar: pulumi.Input[Optional[_builtins.bool]] = None,
+                 certificate: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_relay_state: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination: pulumi.Input[Optional[_builtins.str]] = None,
+                 digest_algorithm: pulumi.Input[Optional[_builtins.str]] = None,
+                 embed_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 enduser_note: pulumi.Input[Optional[_builtins.str]] = None,
+                 entity_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 entity_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 features: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 hide_ios: pulumi.Input[Optional[_builtins.bool]] = None,
+                 hide_web: pulumi.Input[Optional[_builtins.bool]] = None,
+                 honor_force_authn: pulumi.Input[Optional[_builtins.bool]] = None,
+                 http_post_binding: pulumi.Input[Optional[_builtins.str]] = None,
+                 http_redirect_binding: pulumi.Input[Optional[_builtins.str]] = None,
+                 idp_issuer: pulumi.Input[Optional[_builtins.str]] = None,
+                 implicit_assignment: pulumi.Input[Optional[_builtins.bool]] = None,
+                 inline_hook_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_years_valid: pulumi.Input[Optional[_builtins.int]] = None,
+                 keys: pulumi.Input[Optional[Sequence[pulumi.Input['SamlKeyArgs']]]] = None,
+                 label: pulumi.Input[Optional[_builtins.str]] = None,
+                 logo: pulumi.Input[Optional[_builtins.str]] = None,
+                 logo_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 metadata: pulumi.Input[Optional[_builtins.str]] = None,
+                 metadata_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 preconfigured_app: pulumi.Input[Optional[_builtins.str]] = None,
+                 recipient: pulumi.Input[Optional[_builtins.str]] = None,
+                 request_compressed: pulumi.Input[Optional[_builtins.bool]] = None,
+                 response_signed: pulumi.Input[Optional[_builtins.bool]] = None,
+                 saml_signed_request_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 saml_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 sign_on_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 signature_algorithm: pulumi.Input[Optional[_builtins.str]] = None,
+                 single_logout_certificate: pulumi.Input[Optional[_builtins.str]] = None,
+                 single_logout_issuer: pulumi.Input[Optional[_builtins.str]] = None,
+                 single_logout_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 skip_authentication_policy: pulumi.Input[Optional[_builtins.bool]] = None,
+                 sp_issuer: pulumi.Input[Optional[_builtins.str]] = None,
+                 sso_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 subject_name_id_format: pulumi.Input[Optional[_builtins.str]] = None,
+                 subject_name_id_template: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_name_template: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_name_template_push_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_name_template_suffix: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_name_template_type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Saml resources.
 
@@ -1074,496 +1074,496 @@ class _SamlState:
 
     @_builtins.property
     @pulumi.getter(name="accessibilityErrorRedirectUrl")
-    def accessibility_error_redirect_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def accessibility_error_redirect_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Custom error page URL
         """
         return pulumi.get(self, "accessibility_error_redirect_url")
 
     @accessibility_error_redirect_url.setter
-    def accessibility_error_redirect_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def accessibility_error_redirect_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "accessibility_error_redirect_url", value)
 
     @_builtins.property
     @pulumi.getter(name="accessibilityLoginRedirectUrl")
-    def accessibility_login_redirect_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def accessibility_login_redirect_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Custom login page URL
         """
         return pulumi.get(self, "accessibility_login_redirect_url")
 
     @accessibility_login_redirect_url.setter
-    def accessibility_login_redirect_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def accessibility_login_redirect_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "accessibility_login_redirect_url", value)
 
     @_builtins.property
     @pulumi.getter(name="accessibilitySelfService")
-    def accessibility_self_service(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def accessibility_self_service(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable self service. Default is `false`
         """
         return pulumi.get(self, "accessibility_self_service")
 
     @accessibility_self_service.setter
-    def accessibility_self_service(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def accessibility_self_service(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "accessibility_self_service", value)
 
     @_builtins.property
     @pulumi.getter(name="acsEndpoints")
-    def acs_endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def acs_endpoints(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         An array of ACS endpoints. You can configure a maximum of 100 endpoints.
         """
         return pulumi.get(self, "acs_endpoints")
 
     @acs_endpoints.setter
-    def acs_endpoints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def acs_endpoints(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "acs_endpoints", value)
 
     @_builtins.property
     @pulumi.getter(name="acsEndpointsIndices")
-    def acs_endpoints_indices(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SamlAcsEndpointsIndexArgs']]]]:
+    def acs_endpoints_indices(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SamlAcsEndpointsIndexArgs']]]]:
         """
         ACS endpoints along with custom index as a set of maps called `acs_endpoints_indices` in JSON format.
         """
         return pulumi.get(self, "acs_endpoints_indices")
 
     @acs_endpoints_indices.setter
-    def acs_endpoints_indices(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SamlAcsEndpointsIndexArgs']]]]):
+    def acs_endpoints_indices(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SamlAcsEndpointsIndexArgs']]]]):
         pulumi.set(self, "acs_endpoints_indices", value)
 
     @_builtins.property
     @pulumi.getter(name="adminNote")
-    def admin_note(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def admin_note(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Application notes for admins.
         """
         return pulumi.get(self, "admin_note")
 
     @admin_note.setter
-    def admin_note(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def admin_note(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "admin_note", value)
 
     @_builtins.property
     @pulumi.getter(name="appLinksJson")
-    def app_links_json(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def app_links_json(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Displays specific appLinks for the app. The value for each application link should be boolean.
         """
         return pulumi.get(self, "app_links_json")
 
     @app_links_json.setter
-    def app_links_json(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def app_links_json(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "app_links_json", value)
 
     @_builtins.property
     @pulumi.getter(name="appSettingsJson")
-    def app_settings_json(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def app_settings_json(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Application settings in JSON format
         """
         return pulumi.get(self, "app_settings_json")
 
     @app_settings_json.setter
-    def app_settings_json(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def app_settings_json(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "app_settings_json", value)
 
     @_builtins.property
     @pulumi.getter(name="assertionSigned")
-    def assertion_signed(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def assertion_signed(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Determines whether the SAML assertion is digitally signed
         """
         return pulumi.get(self, "assertion_signed")
 
     @assertion_signed.setter
-    def assertion_signed(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def assertion_signed(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "assertion_signed", value)
 
     @_builtins.property
     @pulumi.getter(name="attributeStatements")
-    def attribute_statements(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SamlAttributeStatementArgs']]]]:
+    def attribute_statements(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SamlAttributeStatementArgs']]]]:
         return pulumi.get(self, "attribute_statements")
 
     @attribute_statements.setter
-    def attribute_statements(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SamlAttributeStatementArgs']]]]):
+    def attribute_statements(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SamlAttributeStatementArgs']]]]):
         pulumi.set(self, "attribute_statements", value)
 
     @_builtins.property
     @pulumi.getter
-    def audience(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def audience(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Audience Restriction
         """
         return pulumi.get(self, "audience")
 
     @audience.setter
-    def audience(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def audience(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "audience", value)
 
     @_builtins.property
     @pulumi.getter(name="authenticationPolicy")
-    def authentication_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def authentication_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the associated `app_signon_policy`. If this property is removed from the application the `default` sign-on-policy will be associated with this application.y
         """
         return pulumi.get(self, "authentication_policy")
 
     @authentication_policy.setter
-    def authentication_policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def authentication_policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "authentication_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="authnContextClassRef")
-    def authn_context_class_ref(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def authn_context_class_ref(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifies the SAML authentication context class for the assertion’s authentication statement
         """
         return pulumi.get(self, "authn_context_class_ref")
 
     @authn_context_class_ref.setter
-    def authn_context_class_ref(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def authn_context_class_ref(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "authn_context_class_ref", value)
 
     @_builtins.property
     @pulumi.getter(name="autoSubmitToolbar")
-    def auto_submit_toolbar(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def auto_submit_toolbar(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Display auto submit toolbar. Default is: `false`
         """
         return pulumi.get(self, "auto_submit_toolbar")
 
     @auto_submit_toolbar.setter
-    def auto_submit_toolbar(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def auto_submit_toolbar(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "auto_submit_toolbar", value)
 
     @_builtins.property
     @pulumi.getter
-    def certificate(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def certificate(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         cert from SAML XML metadata payload
         """
         return pulumi.get(self, "certificate")
 
     @certificate.setter
-    def certificate(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def certificate(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "certificate", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultRelayState")
-    def default_relay_state(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_relay_state(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifies a specific application resource in an IDP initiated SSO scenario.
         """
         return pulumi.get(self, "default_relay_state")
 
     @default_relay_state.setter
-    def default_relay_state(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_relay_state(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_relay_state", value)
 
     @_builtins.property
     @pulumi.getter
-    def destination(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def destination(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifies the location where the SAML response is intended to be sent inside of the SAML assertion
         """
         return pulumi.get(self, "destination")
 
     @destination.setter
-    def destination(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def destination(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "destination", value)
 
     @_builtins.property
     @pulumi.getter(name="digestAlgorithm")
-    def digest_algorithm(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def digest_algorithm(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Determines the digest algorithm used to digitally sign the SAML assertion and response
         """
         return pulumi.get(self, "digest_algorithm")
 
     @digest_algorithm.setter
-    def digest_algorithm(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def digest_algorithm(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "digest_algorithm", value)
 
     @_builtins.property
     @pulumi.getter(name="embedUrl")
-    def embed_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def embed_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The url that can be used to embed this application in other portals.
         """
         return pulumi.get(self, "embed_url")
 
     @embed_url.setter
-    def embed_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def embed_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "embed_url", value)
 
     @_builtins.property
     @pulumi.getter(name="enduserNote")
-    def enduser_note(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def enduser_note(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Application notes for end users.
         """
         return pulumi.get(self, "enduser_note")
 
     @enduser_note.setter
-    def enduser_note(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def enduser_note(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "enduser_note", value)
 
     @_builtins.property
     @pulumi.getter(name="entityKey")
-    def entity_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def entity_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Entity ID, the ID portion of the entity_url
         """
         return pulumi.get(self, "entity_key")
 
     @entity_key.setter
-    def entity_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def entity_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "entity_key", value)
 
     @_builtins.property
     @pulumi.getter(name="entityUrl")
-    def entity_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def entity_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Entity URL for instance http://www.okta.com/exk1fcia6d6EMsf331d8
         """
         return pulumi.get(self, "entity_url")
 
     @entity_url.setter
-    def entity_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def entity_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "entity_url", value)
 
     @_builtins.property
     @pulumi.getter
-    def features(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def features(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         features to enable
         """
         return pulumi.get(self, "features")
 
     @features.setter
-    def features(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def features(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "features", value)
 
     @_builtins.property
     @pulumi.getter(name="hideIos")
-    def hide_ios(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def hide_ios(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Do not display application icon on mobile app
         """
         return pulumi.get(self, "hide_ios")
 
     @hide_ios.setter
-    def hide_ios(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def hide_ios(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "hide_ios", value)
 
     @_builtins.property
     @pulumi.getter(name="hideWeb")
-    def hide_web(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def hide_web(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Do not display application icon to users
         """
         return pulumi.get(self, "hide_web")
 
     @hide_web.setter
-    def hide_web(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def hide_web(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "hide_web", value)
 
     @_builtins.property
     @pulumi.getter(name="honorForceAuthn")
-    def honor_force_authn(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def honor_force_authn(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Prompt user to re-authenticate if SP asks for it. Default is: `false`
         """
         return pulumi.get(self, "honor_force_authn")
 
     @honor_force_authn.setter
-    def honor_force_authn(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def honor_force_authn(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "honor_force_authn", value)
 
     @_builtins.property
     @pulumi.getter(name="httpPostBinding")
-    def http_post_binding(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def http_post_binding(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Post location from the SAML metadata.
         """
         return pulumi.get(self, "http_post_binding")
 
     @http_post_binding.setter
-    def http_post_binding(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def http_post_binding(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "http_post_binding", value)
 
     @_builtins.property
     @pulumi.getter(name="httpRedirectBinding")
-    def http_redirect_binding(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def http_redirect_binding(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect location from the SAML metadata.
         """
         return pulumi.get(self, "http_redirect_binding")
 
     @http_redirect_binding.setter
-    def http_redirect_binding(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def http_redirect_binding(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "http_redirect_binding", value)
 
     @_builtins.property
     @pulumi.getter(name="idpIssuer")
-    def idp_issuer(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def idp_issuer(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         SAML issuer ID
         """
         return pulumi.get(self, "idp_issuer")
 
     @idp_issuer.setter
-    def idp_issuer(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def idp_issuer(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "idp_issuer", value)
 
     @_builtins.property
     @pulumi.getter(name="implicitAssignment")
-    def implicit_assignment(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def implicit_assignment(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         *Early Access Property*. Enable Federation Broker Mode.
         """
         return pulumi.get(self, "implicit_assignment")
 
     @implicit_assignment.setter
-    def implicit_assignment(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def implicit_assignment(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "implicit_assignment", value)
 
     @_builtins.property
     @pulumi.getter(name="inlineHookId")
-    def inline_hook_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def inline_hook_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Saml Inline Hook setting
         """
         return pulumi.get(self, "inline_hook_id")
 
     @inline_hook_id.setter
-    def inline_hook_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def inline_hook_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "inline_hook_id", value)
 
     @_builtins.property
     @pulumi.getter(name="keyId")
-    def key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Certificate ID
         """
         return pulumi.get(self, "key_id")
 
     @key_id.setter
-    def key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_id", value)
 
     @_builtins.property
     @pulumi.getter(name="keyName")
-    def key_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Certificate name. This modulates the rotation of keys. New name == new key. Required to be set with `key_years_valid`
         """
         return pulumi.get(self, "key_name")
 
     @key_name.setter
-    def key_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_name", value)
 
     @_builtins.property
     @pulumi.getter(name="keyYearsValid")
-    def key_years_valid(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def key_years_valid(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Number of years the certificate is valid (2 - 10 years).
         """
         return pulumi.get(self, "key_years_valid")
 
     @key_years_valid.setter
-    def key_years_valid(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def key_years_valid(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "key_years_valid", value)
 
     @_builtins.property
     @pulumi.getter
-    def keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SamlKeyArgs']]]]:
+    def keys(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SamlKeyArgs']]]]:
         """
         Application keys
         """
         return pulumi.get(self, "keys")
 
     @keys.setter
-    def keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SamlKeyArgs']]]]):
+    def keys(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SamlKeyArgs']]]]):
         pulumi.set(self, "keys", value)
 
     @_builtins.property
     @pulumi.getter
-    def label(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def label(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Application's display name.
         """
         return pulumi.get(self, "label")
 
     @label.setter
-    def label(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def label(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "label", value)
 
     @_builtins.property
     @pulumi.getter
-    def logo(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def logo(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
         """
         return pulumi.get(self, "logo")
 
     @logo.setter
-    def logo(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def logo(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "logo", value)
 
     @_builtins.property
     @pulumi.getter(name="logoUrl")
-    def logo_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def logo_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         URL of the application's logo
         """
         return pulumi.get(self, "logo_url")
 
     @logo_url.setter
-    def logo_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def logo_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "logo_url", value)
 
     @_builtins.property
     @pulumi.getter
-    def metadata(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def metadata(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         SAML xml metadata payload
         """
         return pulumi.get(self, "metadata")
 
     @metadata.setter
-    def metadata(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def metadata(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "metadata", value)
 
     @_builtins.property
     @pulumi.getter(name="metadataUrl")
-    def metadata_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def metadata_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         SAML xml metadata URL
         """
         return pulumi.get(self, "metadata_url")
 
     @metadata_url.setter
-    def metadata_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def metadata_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "metadata_url", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the app.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="preconfiguredApp")
-    def preconfigured_app(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def preconfigured_app(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of application from the Okta Integration Network. For instance 'slack'. If not included a custom app will be created.  If not provided the following arguments are required:
         'sso*url'
@@ -1579,247 +1579,247 @@ class _SamlState:
         return pulumi.get(self, "preconfigured_app")
 
     @preconfigured_app.setter
-    def preconfigured_app(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def preconfigured_app(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "preconfigured_app", value)
 
     @_builtins.property
     @pulumi.getter
-    def recipient(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def recipient(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The location where the app may present the SAML assertion
         """
         return pulumi.get(self, "recipient")
 
     @recipient.setter
-    def recipient(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def recipient(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "recipient", value)
 
     @_builtins.property
     @pulumi.getter(name="requestCompressed")
-    def request_compressed(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def request_compressed(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Denotes whether the request is compressed or not.
         """
         return pulumi.get(self, "request_compressed")
 
     @request_compressed.setter
-    def request_compressed(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def request_compressed(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "request_compressed", value)
 
     @_builtins.property
     @pulumi.getter(name="responseSigned")
-    def response_signed(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def response_signed(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Determines whether the SAML auth response message is digitally signed
         """
         return pulumi.get(self, "response_signed")
 
     @response_signed.setter
-    def response_signed(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def response_signed(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "response_signed", value)
 
     @_builtins.property
     @pulumi.getter(name="samlSignedRequestEnabled")
-    def saml_signed_request_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def saml_signed_request_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         SAML Signed Request enabled
         """
         return pulumi.get(self, "saml_signed_request_enabled")
 
     @saml_signed_request_enabled.setter
-    def saml_signed_request_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def saml_signed_request_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "saml_signed_request_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="samlVersion")
-    def saml_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def saml_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         SAML version for the app's sign-on mode. Valid values are: `2.0` or `1.1`. Default is `2.0`
         """
         return pulumi.get(self, "saml_version")
 
     @saml_version.setter
-    def saml_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def saml_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "saml_version", value)
 
     @_builtins.property
     @pulumi.getter(name="signOnMode")
-    def sign_on_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sign_on_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Sign on mode of application.
         """
         return pulumi.get(self, "sign_on_mode")
 
     @sign_on_mode.setter
-    def sign_on_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sign_on_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sign_on_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="signatureAlgorithm")
-    def signature_algorithm(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def signature_algorithm(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Signature algorithm used to digitally sign the assertion and response
         """
         return pulumi.get(self, "signature_algorithm")
 
     @signature_algorithm.setter
-    def signature_algorithm(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def signature_algorithm(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "signature_algorithm", value)
 
     @_builtins.property
     @pulumi.getter(name="singleLogoutCertificate")
-    def single_logout_certificate(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def single_logout_certificate(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         x509 encoded certificate that the Service Provider uses to sign Single Logout requests. Note: should be provided without `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`, see [official documentation](https://developer.okta.com/docs/reference/api/apps/#service-provider-certificate).
         """
         return pulumi.get(self, "single_logout_certificate")
 
     @single_logout_certificate.setter
-    def single_logout_certificate(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def single_logout_certificate(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "single_logout_certificate", value)
 
     @_builtins.property
     @pulumi.getter(name="singleLogoutIssuer")
-    def single_logout_issuer(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def single_logout_issuer(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The issuer of the Service Provider that generates the Single Logout request
         """
         return pulumi.get(self, "single_logout_issuer")
 
     @single_logout_issuer.setter
-    def single_logout_issuer(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def single_logout_issuer(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "single_logout_issuer", value)
 
     @_builtins.property
     @pulumi.getter(name="singleLogoutUrl")
-    def single_logout_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def single_logout_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The location where the logout response is sent
         """
         return pulumi.get(self, "single_logout_url")
 
     @single_logout_url.setter
-    def single_logout_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def single_logout_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "single_logout_url", value)
 
     @_builtins.property
     @pulumi.getter(name="skipAuthenticationPolicy")
-    def skip_authentication_policy(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def skip_authentication_policy(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When set to true, the provider will not assign or read the authentication policy for this application. This can be useful when the caller lacks the permissions to read or manage policies, or to reduce API calls against the `/api/v1/apps` rate limit.
         """
         return pulumi.get(self, "skip_authentication_policy")
 
     @skip_authentication_policy.setter
-    def skip_authentication_policy(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def skip_authentication_policy(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "skip_authentication_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="spIssuer")
-    def sp_issuer(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sp_issuer(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         SAML SP issuer ID
         """
         return pulumi.get(self, "sp_issuer")
 
     @sp_issuer.setter
-    def sp_issuer(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sp_issuer(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sp_issuer", value)
 
     @_builtins.property
     @pulumi.getter(name="ssoUrl")
-    def sso_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sso_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Single Sign On URL
         """
         return pulumi.get(self, "sso_url")
 
     @sso_url.setter
-    def sso_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sso_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sso_url", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Status of application. By default, it is `ACTIVE`
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter(name="subjectNameIdFormat")
-    def subject_name_id_format(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subject_name_id_format(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifies the SAML processing rules.
         """
         return pulumi.get(self, "subject_name_id_format")
 
     @subject_name_id_format.setter
-    def subject_name_id_format(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subject_name_id_format(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subject_name_id_format", value)
 
     @_builtins.property
     @pulumi.getter(name="subjectNameIdTemplate")
-    def subject_name_id_template(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subject_name_id_template(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Template for app user's username when a user is assigned to the app
         """
         return pulumi.get(self, "subject_name_id_template")
 
     @subject_name_id_template.setter
-    def subject_name_id_template(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subject_name_id_template(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subject_name_id_template", value)
 
     @_builtins.property
     @pulumi.getter(name="userNameTemplate")
-    def user_name_template(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_name_template(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Username template. Default: `${source.login}`
         """
         return pulumi.get(self, "user_name_template")
 
     @user_name_template.setter
-    def user_name_template(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_name_template(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_name_template", value)
 
     @_builtins.property
     @pulumi.getter(name="userNameTemplatePushStatus")
-    def user_name_template_push_status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_name_template_push_status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Push username on update. Valid values: `PUSH` and `DONT_PUSH`
         """
         return pulumi.get(self, "user_name_template_push_status")
 
     @user_name_template_push_status.setter
-    def user_name_template_push_status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_name_template_push_status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_name_template_push_status", value)
 
     @_builtins.property
     @pulumi.getter(name="userNameTemplateSuffix")
-    def user_name_template_suffix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_name_template_suffix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Username template suffix
         """
         return pulumi.get(self, "user_name_template_suffix")
 
     @user_name_template_suffix.setter
-    def user_name_template_suffix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_name_template_suffix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_name_template_suffix", value)
 
     @_builtins.property
     @pulumi.getter(name="userNameTemplateType")
-    def user_name_template_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_name_template_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Username template type. Default: `BUILT_IN`
         """
         return pulumi.get(self, "user_name_template_type")
 
     @user_name_template_type.setter
-    def user_name_template_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_name_template_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_name_template_type", value)
 
 
@@ -1829,54 +1829,54 @@ class Saml(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 accessibility_error_redirect_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 accessibility_login_redirect_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 accessibility_self_service: Optional[pulumi.Input[_builtins.bool]] = None,
-                 acs_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 acs_endpoints_indices: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SamlAcsEndpointsIndexArgs', 'SamlAcsEndpointsIndexArgsDict']]]]] = None,
-                 admin_note: Optional[pulumi.Input[_builtins.str]] = None,
-                 app_links_json: Optional[pulumi.Input[_builtins.str]] = None,
-                 app_settings_json: Optional[pulumi.Input[_builtins.str]] = None,
-                 assertion_signed: Optional[pulumi.Input[_builtins.bool]] = None,
-                 attribute_statements: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SamlAttributeStatementArgs', 'SamlAttributeStatementArgsDict']]]]] = None,
-                 audience: Optional[pulumi.Input[_builtins.str]] = None,
-                 authentication_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 authn_context_class_ref: Optional[pulumi.Input[_builtins.str]] = None,
-                 auto_submit_toolbar: Optional[pulumi.Input[_builtins.bool]] = None,
-                 default_relay_state: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination: Optional[pulumi.Input[_builtins.str]] = None,
-                 digest_algorithm: Optional[pulumi.Input[_builtins.str]] = None,
-                 enduser_note: Optional[pulumi.Input[_builtins.str]] = None,
-                 hide_ios: Optional[pulumi.Input[_builtins.bool]] = None,
-                 hide_web: Optional[pulumi.Input[_builtins.bool]] = None,
-                 honor_force_authn: Optional[pulumi.Input[_builtins.bool]] = None,
-                 idp_issuer: Optional[pulumi.Input[_builtins.str]] = None,
-                 implicit_assignment: Optional[pulumi.Input[_builtins.bool]] = None,
-                 inline_hook_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_years_valid: Optional[pulumi.Input[_builtins.int]] = None,
-                 label: Optional[pulumi.Input[_builtins.str]] = None,
-                 logo: Optional[pulumi.Input[_builtins.str]] = None,
-                 preconfigured_app: Optional[pulumi.Input[_builtins.str]] = None,
-                 recipient: Optional[pulumi.Input[_builtins.str]] = None,
-                 request_compressed: Optional[pulumi.Input[_builtins.bool]] = None,
-                 response_signed: Optional[pulumi.Input[_builtins.bool]] = None,
-                 saml_signed_request_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 saml_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 signature_algorithm: Optional[pulumi.Input[_builtins.str]] = None,
-                 single_logout_certificate: Optional[pulumi.Input[_builtins.str]] = None,
-                 single_logout_issuer: Optional[pulumi.Input[_builtins.str]] = None,
-                 single_logout_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 skip_authentication_policy: Optional[pulumi.Input[_builtins.bool]] = None,
-                 sp_issuer: Optional[pulumi.Input[_builtins.str]] = None,
-                 sso_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 subject_name_id_format: Optional[pulumi.Input[_builtins.str]] = None,
-                 subject_name_id_template: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_name_template: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_name_template_push_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_name_template_suffix: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_name_template_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 accessibility_error_redirect_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 accessibility_login_redirect_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 accessibility_self_service: pulumi.Input[Optional[_builtins.bool]] = None,
+                 acs_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 acs_endpoints_indices: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SamlAcsEndpointsIndexArgs', 'SamlAcsEndpointsIndexArgsDict']]]]] = None,
+                 admin_note: pulumi.Input[Optional[_builtins.str]] = None,
+                 app_links_json: pulumi.Input[Optional[_builtins.str]] = None,
+                 app_settings_json: pulumi.Input[Optional[_builtins.str]] = None,
+                 assertion_signed: pulumi.Input[Optional[_builtins.bool]] = None,
+                 attribute_statements: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SamlAttributeStatementArgs', 'SamlAttributeStatementArgsDict']]]]] = None,
+                 audience: pulumi.Input[Optional[_builtins.str]] = None,
+                 authentication_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 authn_context_class_ref: pulumi.Input[Optional[_builtins.str]] = None,
+                 auto_submit_toolbar: pulumi.Input[Optional[_builtins.bool]] = None,
+                 default_relay_state: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination: pulumi.Input[Optional[_builtins.str]] = None,
+                 digest_algorithm: pulumi.Input[Optional[_builtins.str]] = None,
+                 enduser_note: pulumi.Input[Optional[_builtins.str]] = None,
+                 hide_ios: pulumi.Input[Optional[_builtins.bool]] = None,
+                 hide_web: pulumi.Input[Optional[_builtins.bool]] = None,
+                 honor_force_authn: pulumi.Input[Optional[_builtins.bool]] = None,
+                 idp_issuer: pulumi.Input[Optional[_builtins.str]] = None,
+                 implicit_assignment: pulumi.Input[Optional[_builtins.bool]] = None,
+                 inline_hook_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_years_valid: pulumi.Input[Optional[_builtins.int]] = None,
+                 label: pulumi.Input[Optional[_builtins.str]] = None,
+                 logo: pulumi.Input[Optional[_builtins.str]] = None,
+                 preconfigured_app: pulumi.Input[Optional[_builtins.str]] = None,
+                 recipient: pulumi.Input[Optional[_builtins.str]] = None,
+                 request_compressed: pulumi.Input[Optional[_builtins.bool]] = None,
+                 response_signed: pulumi.Input[Optional[_builtins.bool]] = None,
+                 saml_signed_request_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 saml_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 signature_algorithm: pulumi.Input[Optional[_builtins.str]] = None,
+                 single_logout_certificate: pulumi.Input[Optional[_builtins.str]] = None,
+                 single_logout_issuer: pulumi.Input[Optional[_builtins.str]] = None,
+                 single_logout_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 skip_authentication_policy: pulumi.Input[Optional[_builtins.bool]] = None,
+                 sp_issuer: pulumi.Input[Optional[_builtins.str]] = None,
+                 sso_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 subject_name_id_format: pulumi.Input[Optional[_builtins.str]] = None,
+                 subject_name_id_template: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_name_template: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_name_template_push_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_name_template_suffix: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_name_template_type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         This resource allows you to create and configure a SAML Application.
@@ -1992,54 +1992,54 @@ class Saml(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 accessibility_error_redirect_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 accessibility_login_redirect_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 accessibility_self_service: Optional[pulumi.Input[_builtins.bool]] = None,
-                 acs_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 acs_endpoints_indices: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SamlAcsEndpointsIndexArgs', 'SamlAcsEndpointsIndexArgsDict']]]]] = None,
-                 admin_note: Optional[pulumi.Input[_builtins.str]] = None,
-                 app_links_json: Optional[pulumi.Input[_builtins.str]] = None,
-                 app_settings_json: Optional[pulumi.Input[_builtins.str]] = None,
-                 assertion_signed: Optional[pulumi.Input[_builtins.bool]] = None,
-                 attribute_statements: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SamlAttributeStatementArgs', 'SamlAttributeStatementArgsDict']]]]] = None,
-                 audience: Optional[pulumi.Input[_builtins.str]] = None,
-                 authentication_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 authn_context_class_ref: Optional[pulumi.Input[_builtins.str]] = None,
-                 auto_submit_toolbar: Optional[pulumi.Input[_builtins.bool]] = None,
-                 default_relay_state: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination: Optional[pulumi.Input[_builtins.str]] = None,
-                 digest_algorithm: Optional[pulumi.Input[_builtins.str]] = None,
-                 enduser_note: Optional[pulumi.Input[_builtins.str]] = None,
-                 hide_ios: Optional[pulumi.Input[_builtins.bool]] = None,
-                 hide_web: Optional[pulumi.Input[_builtins.bool]] = None,
-                 honor_force_authn: Optional[pulumi.Input[_builtins.bool]] = None,
-                 idp_issuer: Optional[pulumi.Input[_builtins.str]] = None,
-                 implicit_assignment: Optional[pulumi.Input[_builtins.bool]] = None,
-                 inline_hook_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_years_valid: Optional[pulumi.Input[_builtins.int]] = None,
-                 label: Optional[pulumi.Input[_builtins.str]] = None,
-                 logo: Optional[pulumi.Input[_builtins.str]] = None,
-                 preconfigured_app: Optional[pulumi.Input[_builtins.str]] = None,
-                 recipient: Optional[pulumi.Input[_builtins.str]] = None,
-                 request_compressed: Optional[pulumi.Input[_builtins.bool]] = None,
-                 response_signed: Optional[pulumi.Input[_builtins.bool]] = None,
-                 saml_signed_request_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 saml_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 signature_algorithm: Optional[pulumi.Input[_builtins.str]] = None,
-                 single_logout_certificate: Optional[pulumi.Input[_builtins.str]] = None,
-                 single_logout_issuer: Optional[pulumi.Input[_builtins.str]] = None,
-                 single_logout_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 skip_authentication_policy: Optional[pulumi.Input[_builtins.bool]] = None,
-                 sp_issuer: Optional[pulumi.Input[_builtins.str]] = None,
-                 sso_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 subject_name_id_format: Optional[pulumi.Input[_builtins.str]] = None,
-                 subject_name_id_template: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_name_template: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_name_template_push_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_name_template_suffix: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_name_template_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 accessibility_error_redirect_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 accessibility_login_redirect_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 accessibility_self_service: pulumi.Input[Optional[_builtins.bool]] = None,
+                 acs_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 acs_endpoints_indices: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SamlAcsEndpointsIndexArgs', 'SamlAcsEndpointsIndexArgsDict']]]]] = None,
+                 admin_note: pulumi.Input[Optional[_builtins.str]] = None,
+                 app_links_json: pulumi.Input[Optional[_builtins.str]] = None,
+                 app_settings_json: pulumi.Input[Optional[_builtins.str]] = None,
+                 assertion_signed: pulumi.Input[Optional[_builtins.bool]] = None,
+                 attribute_statements: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SamlAttributeStatementArgs', 'SamlAttributeStatementArgsDict']]]]] = None,
+                 audience: pulumi.Input[Optional[_builtins.str]] = None,
+                 authentication_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 authn_context_class_ref: pulumi.Input[Optional[_builtins.str]] = None,
+                 auto_submit_toolbar: pulumi.Input[Optional[_builtins.bool]] = None,
+                 default_relay_state: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination: pulumi.Input[Optional[_builtins.str]] = None,
+                 digest_algorithm: pulumi.Input[Optional[_builtins.str]] = None,
+                 enduser_note: pulumi.Input[Optional[_builtins.str]] = None,
+                 hide_ios: pulumi.Input[Optional[_builtins.bool]] = None,
+                 hide_web: pulumi.Input[Optional[_builtins.bool]] = None,
+                 honor_force_authn: pulumi.Input[Optional[_builtins.bool]] = None,
+                 idp_issuer: pulumi.Input[Optional[_builtins.str]] = None,
+                 implicit_assignment: pulumi.Input[Optional[_builtins.bool]] = None,
+                 inline_hook_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_years_valid: pulumi.Input[Optional[_builtins.int]] = None,
+                 label: pulumi.Input[Optional[_builtins.str]] = None,
+                 logo: pulumi.Input[Optional[_builtins.str]] = None,
+                 preconfigured_app: pulumi.Input[Optional[_builtins.str]] = None,
+                 recipient: pulumi.Input[Optional[_builtins.str]] = None,
+                 request_compressed: pulumi.Input[Optional[_builtins.bool]] = None,
+                 response_signed: pulumi.Input[Optional[_builtins.bool]] = None,
+                 saml_signed_request_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 saml_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 signature_algorithm: pulumi.Input[Optional[_builtins.str]] = None,
+                 single_logout_certificate: pulumi.Input[Optional[_builtins.str]] = None,
+                 single_logout_issuer: pulumi.Input[Optional[_builtins.str]] = None,
+                 single_logout_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 skip_authentication_policy: pulumi.Input[Optional[_builtins.bool]] = None,
+                 sp_issuer: pulumi.Input[Optional[_builtins.str]] = None,
+                 sso_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 subject_name_id_format: pulumi.Input[Optional[_builtins.str]] = None,
+                 subject_name_id_template: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_name_template: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_name_template_push_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_name_template_suffix: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_name_template_type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -2123,68 +2123,68 @@ class Saml(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            accessibility_error_redirect_url: Optional[pulumi.Input[_builtins.str]] = None,
-            accessibility_login_redirect_url: Optional[pulumi.Input[_builtins.str]] = None,
-            accessibility_self_service: Optional[pulumi.Input[_builtins.bool]] = None,
-            acs_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            acs_endpoints_indices: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SamlAcsEndpointsIndexArgs', 'SamlAcsEndpointsIndexArgsDict']]]]] = None,
-            admin_note: Optional[pulumi.Input[_builtins.str]] = None,
-            app_links_json: Optional[pulumi.Input[_builtins.str]] = None,
-            app_settings_json: Optional[pulumi.Input[_builtins.str]] = None,
-            assertion_signed: Optional[pulumi.Input[_builtins.bool]] = None,
-            attribute_statements: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SamlAttributeStatementArgs', 'SamlAttributeStatementArgsDict']]]]] = None,
-            audience: Optional[pulumi.Input[_builtins.str]] = None,
-            authentication_policy: Optional[pulumi.Input[_builtins.str]] = None,
-            authn_context_class_ref: Optional[pulumi.Input[_builtins.str]] = None,
-            auto_submit_toolbar: Optional[pulumi.Input[_builtins.bool]] = None,
-            certificate: Optional[pulumi.Input[_builtins.str]] = None,
-            default_relay_state: Optional[pulumi.Input[_builtins.str]] = None,
-            destination: Optional[pulumi.Input[_builtins.str]] = None,
-            digest_algorithm: Optional[pulumi.Input[_builtins.str]] = None,
-            embed_url: Optional[pulumi.Input[_builtins.str]] = None,
-            enduser_note: Optional[pulumi.Input[_builtins.str]] = None,
-            entity_key: Optional[pulumi.Input[_builtins.str]] = None,
-            entity_url: Optional[pulumi.Input[_builtins.str]] = None,
-            features: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            hide_ios: Optional[pulumi.Input[_builtins.bool]] = None,
-            hide_web: Optional[pulumi.Input[_builtins.bool]] = None,
-            honor_force_authn: Optional[pulumi.Input[_builtins.bool]] = None,
-            http_post_binding: Optional[pulumi.Input[_builtins.str]] = None,
-            http_redirect_binding: Optional[pulumi.Input[_builtins.str]] = None,
-            idp_issuer: Optional[pulumi.Input[_builtins.str]] = None,
-            implicit_assignment: Optional[pulumi.Input[_builtins.bool]] = None,
-            inline_hook_id: Optional[pulumi.Input[_builtins.str]] = None,
-            key_id: Optional[pulumi.Input[_builtins.str]] = None,
-            key_name: Optional[pulumi.Input[_builtins.str]] = None,
-            key_years_valid: Optional[pulumi.Input[_builtins.int]] = None,
-            keys: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SamlKeyArgs', 'SamlKeyArgsDict']]]]] = None,
-            label: Optional[pulumi.Input[_builtins.str]] = None,
-            logo: Optional[pulumi.Input[_builtins.str]] = None,
-            logo_url: Optional[pulumi.Input[_builtins.str]] = None,
-            metadata: Optional[pulumi.Input[_builtins.str]] = None,
-            metadata_url: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            preconfigured_app: Optional[pulumi.Input[_builtins.str]] = None,
-            recipient: Optional[pulumi.Input[_builtins.str]] = None,
-            request_compressed: Optional[pulumi.Input[_builtins.bool]] = None,
-            response_signed: Optional[pulumi.Input[_builtins.bool]] = None,
-            saml_signed_request_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            saml_version: Optional[pulumi.Input[_builtins.str]] = None,
-            sign_on_mode: Optional[pulumi.Input[_builtins.str]] = None,
-            signature_algorithm: Optional[pulumi.Input[_builtins.str]] = None,
-            single_logout_certificate: Optional[pulumi.Input[_builtins.str]] = None,
-            single_logout_issuer: Optional[pulumi.Input[_builtins.str]] = None,
-            single_logout_url: Optional[pulumi.Input[_builtins.str]] = None,
-            skip_authentication_policy: Optional[pulumi.Input[_builtins.bool]] = None,
-            sp_issuer: Optional[pulumi.Input[_builtins.str]] = None,
-            sso_url: Optional[pulumi.Input[_builtins.str]] = None,
-            status: Optional[pulumi.Input[_builtins.str]] = None,
-            subject_name_id_format: Optional[pulumi.Input[_builtins.str]] = None,
-            subject_name_id_template: Optional[pulumi.Input[_builtins.str]] = None,
-            user_name_template: Optional[pulumi.Input[_builtins.str]] = None,
-            user_name_template_push_status: Optional[pulumi.Input[_builtins.str]] = None,
-            user_name_template_suffix: Optional[pulumi.Input[_builtins.str]] = None,
-            user_name_template_type: Optional[pulumi.Input[_builtins.str]] = None) -> 'Saml':
+            accessibility_error_redirect_url: pulumi.Input[Optional[_builtins.str]] = None,
+            accessibility_login_redirect_url: pulumi.Input[Optional[_builtins.str]] = None,
+            accessibility_self_service: pulumi.Input[Optional[_builtins.bool]] = None,
+            acs_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            acs_endpoints_indices: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SamlAcsEndpointsIndexArgs', 'SamlAcsEndpointsIndexArgsDict']]]]] = None,
+            admin_note: pulumi.Input[Optional[_builtins.str]] = None,
+            app_links_json: pulumi.Input[Optional[_builtins.str]] = None,
+            app_settings_json: pulumi.Input[Optional[_builtins.str]] = None,
+            assertion_signed: pulumi.Input[Optional[_builtins.bool]] = None,
+            attribute_statements: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SamlAttributeStatementArgs', 'SamlAttributeStatementArgsDict']]]]] = None,
+            audience: pulumi.Input[Optional[_builtins.str]] = None,
+            authentication_policy: pulumi.Input[Optional[_builtins.str]] = None,
+            authn_context_class_ref: pulumi.Input[Optional[_builtins.str]] = None,
+            auto_submit_toolbar: pulumi.Input[Optional[_builtins.bool]] = None,
+            certificate: pulumi.Input[Optional[_builtins.str]] = None,
+            default_relay_state: pulumi.Input[Optional[_builtins.str]] = None,
+            destination: pulumi.Input[Optional[_builtins.str]] = None,
+            digest_algorithm: pulumi.Input[Optional[_builtins.str]] = None,
+            embed_url: pulumi.Input[Optional[_builtins.str]] = None,
+            enduser_note: pulumi.Input[Optional[_builtins.str]] = None,
+            entity_key: pulumi.Input[Optional[_builtins.str]] = None,
+            entity_url: pulumi.Input[Optional[_builtins.str]] = None,
+            features: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            hide_ios: pulumi.Input[Optional[_builtins.bool]] = None,
+            hide_web: pulumi.Input[Optional[_builtins.bool]] = None,
+            honor_force_authn: pulumi.Input[Optional[_builtins.bool]] = None,
+            http_post_binding: pulumi.Input[Optional[_builtins.str]] = None,
+            http_redirect_binding: pulumi.Input[Optional[_builtins.str]] = None,
+            idp_issuer: pulumi.Input[Optional[_builtins.str]] = None,
+            implicit_assignment: pulumi.Input[Optional[_builtins.bool]] = None,
+            inline_hook_id: pulumi.Input[Optional[_builtins.str]] = None,
+            key_id: pulumi.Input[Optional[_builtins.str]] = None,
+            key_name: pulumi.Input[Optional[_builtins.str]] = None,
+            key_years_valid: pulumi.Input[Optional[_builtins.int]] = None,
+            keys: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SamlKeyArgs', 'SamlKeyArgsDict']]]]] = None,
+            label: pulumi.Input[Optional[_builtins.str]] = None,
+            logo: pulumi.Input[Optional[_builtins.str]] = None,
+            logo_url: pulumi.Input[Optional[_builtins.str]] = None,
+            metadata: pulumi.Input[Optional[_builtins.str]] = None,
+            metadata_url: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            preconfigured_app: pulumi.Input[Optional[_builtins.str]] = None,
+            recipient: pulumi.Input[Optional[_builtins.str]] = None,
+            request_compressed: pulumi.Input[Optional[_builtins.bool]] = None,
+            response_signed: pulumi.Input[Optional[_builtins.bool]] = None,
+            saml_signed_request_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            saml_version: pulumi.Input[Optional[_builtins.str]] = None,
+            sign_on_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            signature_algorithm: pulumi.Input[Optional[_builtins.str]] = None,
+            single_logout_certificate: pulumi.Input[Optional[_builtins.str]] = None,
+            single_logout_issuer: pulumi.Input[Optional[_builtins.str]] = None,
+            single_logout_url: pulumi.Input[Optional[_builtins.str]] = None,
+            skip_authentication_policy: pulumi.Input[Optional[_builtins.bool]] = None,
+            sp_issuer: pulumi.Input[Optional[_builtins.str]] = None,
+            sso_url: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            subject_name_id_format: pulumi.Input[Optional[_builtins.str]] = None,
+            subject_name_id_template: pulumi.Input[Optional[_builtins.str]] = None,
+            user_name_template: pulumi.Input[Optional[_builtins.str]] = None,
+            user_name_template_push_status: pulumi.Input[Optional[_builtins.str]] = None,
+            user_name_template_suffix: pulumi.Input[Optional[_builtins.str]] = None,
+            user_name_template_type: pulumi.Input[Optional[_builtins.str]] = None) -> 'Saml':
         """
         Get an existing Saml resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

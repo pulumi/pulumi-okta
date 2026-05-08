@@ -37,8 +37,8 @@ public final class PolicyFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.policy.PolicyFunctions;
      * import com.pulumi.okta.policy.inputs.GetDefaultPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -79,8 +79,8 @@ public final class PolicyFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.policy.PolicyFunctions;
      * import com.pulumi.okta.policy.inputs.GetDefaultPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -121,8 +121,8 @@ public final class PolicyFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.policy.PolicyFunctions;
      * import com.pulumi.okta.policy.inputs.GetDefaultPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -163,8 +163,8 @@ public final class PolicyFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.policy.PolicyFunctions;
      * import com.pulumi.okta.policy.inputs.GetDefaultPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -205,8 +205,8 @@ public final class PolicyFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.policy.PolicyFunctions;
      * import com.pulumi.okta.policy.inputs.GetDefaultPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -245,8 +245,8 @@ public final class PolicyFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.policy.PolicyFunctions;
      * import com.pulumi.okta.policy.inputs.GetPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -286,8 +286,8 @@ public final class PolicyFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.policy.PolicyFunctions;
      * import com.pulumi.okta.policy.inputs.GetPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -327,8 +327,8 @@ public final class PolicyFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.policy.PolicyFunctions;
      * import com.pulumi.okta.policy.inputs.GetPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -368,8 +368,8 @@ public final class PolicyFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.policy.PolicyFunctions;
      * import com.pulumi.okta.policy.inputs.GetPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -409,8 +409,8 @@ public final class PolicyFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.policy.PolicyFunctions;
      * import com.pulumi.okta.policy.inputs.GetPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -453,8 +453,8 @@ public final class PolicyFunctions {
      * import com.pulumi.okta.policy.RulePassword;
      * import com.pulumi.okta.policy.RulePasswordArgs;
      * import com.pulumi.okta.policy.inputs.GetRulePasswordArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -506,8 +506,8 @@ public final class PolicyFunctions {
      * import com.pulumi.okta.policy.RulePassword;
      * import com.pulumi.okta.policy.RulePasswordArgs;
      * import com.pulumi.okta.policy.inputs.GetRulePasswordArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -559,8 +559,8 @@ public final class PolicyFunctions {
      * import com.pulumi.okta.policy.RulePassword;
      * import com.pulumi.okta.policy.RulePasswordArgs;
      * import com.pulumi.okta.policy.inputs.GetRulePasswordArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -612,8 +612,8 @@ public final class PolicyFunctions {
      * import com.pulumi.okta.policy.RulePassword;
      * import com.pulumi.okta.policy.RulePasswordArgs;
      * import com.pulumi.okta.policy.inputs.GetRulePasswordArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -665,8 +665,8 @@ public final class PolicyFunctions {
      * import com.pulumi.okta.policy.RulePassword;
      * import com.pulumi.okta.policy.RulePasswordArgs;
      * import com.pulumi.okta.policy.inputs.GetRulePasswordArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

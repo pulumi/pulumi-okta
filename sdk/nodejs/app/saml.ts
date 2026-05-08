@@ -460,164 +460,164 @@ export interface SamlState {
     /**
      * Custom error page URL
      */
-    accessibilityErrorRedirectUrl?: pulumi.Input<string>;
+    accessibilityErrorRedirectUrl?: pulumi.Input<string | undefined>;
     /**
      * Custom login page URL
      */
-    accessibilityLoginRedirectUrl?: pulumi.Input<string>;
+    accessibilityLoginRedirectUrl?: pulumi.Input<string | undefined>;
     /**
      * Enable self service. Default is `false`
      */
-    accessibilitySelfService?: pulumi.Input<boolean>;
+    accessibilitySelfService?: pulumi.Input<boolean | undefined>;
     /**
      * An array of ACS endpoints. You can configure a maximum of 100 endpoints.
      */
-    acsEndpoints?: pulumi.Input<pulumi.Input<string>[]>;
+    acsEndpoints?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * ACS endpoints along with custom index as a set of maps called `acsEndpointsIndices` in JSON format.
      */
-    acsEndpointsIndices?: pulumi.Input<pulumi.Input<inputs.app.SamlAcsEndpointsIndex>[]>;
+    acsEndpointsIndices?: pulumi.Input<pulumi.Input<inputs.app.SamlAcsEndpointsIndex>[] | undefined>;
     /**
      * Application notes for admins.
      */
-    adminNote?: pulumi.Input<string>;
+    adminNote?: pulumi.Input<string | undefined>;
     /**
      * Displays specific appLinks for the app. The value for each application link should be boolean.
      */
-    appLinksJson?: pulumi.Input<string>;
+    appLinksJson?: pulumi.Input<string | undefined>;
     /**
      * Application settings in JSON format
      */
-    appSettingsJson?: pulumi.Input<string>;
+    appSettingsJson?: pulumi.Input<string | undefined>;
     /**
      * Determines whether the SAML assertion is digitally signed
      */
-    assertionSigned?: pulumi.Input<boolean>;
-    attributeStatements?: pulumi.Input<pulumi.Input<inputs.app.SamlAttributeStatement>[]>;
+    assertionSigned?: pulumi.Input<boolean | undefined>;
+    attributeStatements?: pulumi.Input<pulumi.Input<inputs.app.SamlAttributeStatement>[] | undefined>;
     /**
      * Audience Restriction
      */
-    audience?: pulumi.Input<string>;
+    audience?: pulumi.Input<string | undefined>;
     /**
      * The ID of the associated `appSignonPolicy`. If this property is removed from the application the `default` sign-on-policy will be associated with this application.y
      */
-    authenticationPolicy?: pulumi.Input<string>;
+    authenticationPolicy?: pulumi.Input<string | undefined>;
     /**
      * Identifies the SAML authentication context class for the assertion’s authentication statement
      */
-    authnContextClassRef?: pulumi.Input<string>;
+    authnContextClassRef?: pulumi.Input<string | undefined>;
     /**
      * Display auto submit toolbar. Default is: `false`
      */
-    autoSubmitToolbar?: pulumi.Input<boolean>;
+    autoSubmitToolbar?: pulumi.Input<boolean | undefined>;
     /**
      * cert from SAML XML metadata payload
      */
-    certificate?: pulumi.Input<string>;
+    certificate?: pulumi.Input<string | undefined>;
     /**
      * Identifies a specific application resource in an IDP initiated SSO scenario.
      */
-    defaultRelayState?: pulumi.Input<string>;
+    defaultRelayState?: pulumi.Input<string | undefined>;
     /**
      * Identifies the location where the SAML response is intended to be sent inside of the SAML assertion
      */
-    destination?: pulumi.Input<string>;
+    destination?: pulumi.Input<string | undefined>;
     /**
      * Determines the digest algorithm used to digitally sign the SAML assertion and response
      */
-    digestAlgorithm?: pulumi.Input<string>;
+    digestAlgorithm?: pulumi.Input<string | undefined>;
     /**
      * The url that can be used to embed this application in other portals.
      */
-    embedUrl?: pulumi.Input<string>;
+    embedUrl?: pulumi.Input<string | undefined>;
     /**
      * Application notes for end users.
      */
-    enduserNote?: pulumi.Input<string>;
+    enduserNote?: pulumi.Input<string | undefined>;
     /**
      * Entity ID, the ID portion of the entity_url
      */
-    entityKey?: pulumi.Input<string>;
+    entityKey?: pulumi.Input<string | undefined>;
     /**
      * Entity URL for instance http://www.okta.com/exk1fcia6d6EMsf331d8
      */
-    entityUrl?: pulumi.Input<string>;
+    entityUrl?: pulumi.Input<string | undefined>;
     /**
      * features to enable
      */
-    features?: pulumi.Input<pulumi.Input<string>[]>;
+    features?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Do not display application icon on mobile app
      */
-    hideIos?: pulumi.Input<boolean>;
+    hideIos?: pulumi.Input<boolean | undefined>;
     /**
      * Do not display application icon to users
      */
-    hideWeb?: pulumi.Input<boolean>;
+    hideWeb?: pulumi.Input<boolean | undefined>;
     /**
      * Prompt user to re-authenticate if SP asks for it. Default is: `false`
      */
-    honorForceAuthn?: pulumi.Input<boolean>;
+    honorForceAuthn?: pulumi.Input<boolean | undefined>;
     /**
      * urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Post location from the SAML metadata.
      */
-    httpPostBinding?: pulumi.Input<string>;
+    httpPostBinding?: pulumi.Input<string | undefined>;
     /**
      * urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect location from the SAML metadata.
      */
-    httpRedirectBinding?: pulumi.Input<string>;
+    httpRedirectBinding?: pulumi.Input<string | undefined>;
     /**
      * SAML issuer ID
      */
-    idpIssuer?: pulumi.Input<string>;
+    idpIssuer?: pulumi.Input<string | undefined>;
     /**
      * *Early Access Property*. Enable Federation Broker Mode.
      */
-    implicitAssignment?: pulumi.Input<boolean>;
+    implicitAssignment?: pulumi.Input<boolean | undefined>;
     /**
      * Saml Inline Hook setting
      */
-    inlineHookId?: pulumi.Input<string>;
+    inlineHookId?: pulumi.Input<string | undefined>;
     /**
      * Certificate ID
      */
-    keyId?: pulumi.Input<string>;
+    keyId?: pulumi.Input<string | undefined>;
     /**
      * Certificate name. This modulates the rotation of keys. New name == new key. Required to be set with `keyYearsValid`
      */
-    keyName?: pulumi.Input<string>;
+    keyName?: pulumi.Input<string | undefined>;
     /**
      * Number of years the certificate is valid (2 - 10 years).
      */
-    keyYearsValid?: pulumi.Input<number>;
+    keyYearsValid?: pulumi.Input<number | undefined>;
     /**
      * Application keys
      */
-    keys?: pulumi.Input<pulumi.Input<inputs.app.SamlKey>[]>;
+    keys?: pulumi.Input<pulumi.Input<inputs.app.SamlKey>[] | undefined>;
     /**
      * The Application's display name.
      */
-    label?: pulumi.Input<string>;
+    label?: pulumi.Input<string | undefined>;
     /**
      * Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
      */
-    logo?: pulumi.Input<string>;
+    logo?: pulumi.Input<string | undefined>;
     /**
      * URL of the application's logo
      */
-    logoUrl?: pulumi.Input<string>;
+    logoUrl?: pulumi.Input<string | undefined>;
     /**
      * SAML xml metadata payload
      */
-    metadata?: pulumi.Input<string>;
+    metadata?: pulumi.Input<string | undefined>;
     /**
      * SAML xml metadata URL
      */
-    metadataUrl?: pulumi.Input<string>;
+    metadataUrl?: pulumi.Input<string | undefined>;
     /**
      * Name of the app.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Name of application from the Okta Integration Network. For instance 'slack'. If not included a custom app will be created.  If not provided the following arguments are required:
      * 'sso*url'
@@ -630,87 +630,87 @@ export interface SamlState {
      * 'digest*algorithm'
      * 'authn*context*class*ref'
      */
-    preconfiguredApp?: pulumi.Input<string>;
+    preconfiguredApp?: pulumi.Input<string | undefined>;
     /**
      * The location where the app may present the SAML assertion
      */
-    recipient?: pulumi.Input<string>;
+    recipient?: pulumi.Input<string | undefined>;
     /**
      * Denotes whether the request is compressed or not.
      */
-    requestCompressed?: pulumi.Input<boolean>;
+    requestCompressed?: pulumi.Input<boolean | undefined>;
     /**
      * Determines whether the SAML auth response message is digitally signed
      */
-    responseSigned?: pulumi.Input<boolean>;
+    responseSigned?: pulumi.Input<boolean | undefined>;
     /**
      * SAML Signed Request enabled
      */
-    samlSignedRequestEnabled?: pulumi.Input<boolean>;
+    samlSignedRequestEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * SAML version for the app's sign-on mode. Valid values are: `2.0` or `1.1`. Default is `2.0`
      */
-    samlVersion?: pulumi.Input<string>;
+    samlVersion?: pulumi.Input<string | undefined>;
     /**
      * Sign on mode of application.
      */
-    signOnMode?: pulumi.Input<string>;
+    signOnMode?: pulumi.Input<string | undefined>;
     /**
      * Signature algorithm used to digitally sign the assertion and response
      */
-    signatureAlgorithm?: pulumi.Input<string>;
+    signatureAlgorithm?: pulumi.Input<string | undefined>;
     /**
      * x509 encoded certificate that the Service Provider uses to sign Single Logout requests. Note: should be provided without `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`, see [official documentation](https://developer.okta.com/docs/reference/api/apps/#service-provider-certificate).
      */
-    singleLogoutCertificate?: pulumi.Input<string>;
+    singleLogoutCertificate?: pulumi.Input<string | undefined>;
     /**
      * The issuer of the Service Provider that generates the Single Logout request
      */
-    singleLogoutIssuer?: pulumi.Input<string>;
+    singleLogoutIssuer?: pulumi.Input<string | undefined>;
     /**
      * The location where the logout response is sent
      */
-    singleLogoutUrl?: pulumi.Input<string>;
+    singleLogoutUrl?: pulumi.Input<string | undefined>;
     /**
      * When set to true, the provider will not assign or read the authentication policy for this application. This can be useful when the caller lacks the permissions to read or manage policies, or to reduce API calls against the `/api/v1/apps` rate limit.
      */
-    skipAuthenticationPolicy?: pulumi.Input<boolean>;
+    skipAuthenticationPolicy?: pulumi.Input<boolean | undefined>;
     /**
      * SAML SP issuer ID
      */
-    spIssuer?: pulumi.Input<string>;
+    spIssuer?: pulumi.Input<string | undefined>;
     /**
      * Single Sign On URL
      */
-    ssoUrl?: pulumi.Input<string>;
+    ssoUrl?: pulumi.Input<string | undefined>;
     /**
      * Status of application. By default, it is `ACTIVE`
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * Identifies the SAML processing rules.
      */
-    subjectNameIdFormat?: pulumi.Input<string>;
+    subjectNameIdFormat?: pulumi.Input<string | undefined>;
     /**
      * Template for app user's username when a user is assigned to the app
      */
-    subjectNameIdTemplate?: pulumi.Input<string>;
+    subjectNameIdTemplate?: pulumi.Input<string | undefined>;
     /**
      * Username template. Default: `${source.login}`
      */
-    userNameTemplate?: pulumi.Input<string>;
+    userNameTemplate?: pulumi.Input<string | undefined>;
     /**
      * Push username on update. Valid values: `PUSH` and `DONT_PUSH`
      */
-    userNameTemplatePushStatus?: pulumi.Input<string>;
+    userNameTemplatePushStatus?: pulumi.Input<string | undefined>;
     /**
      * Username template suffix
      */
-    userNameTemplateSuffix?: pulumi.Input<string>;
+    userNameTemplateSuffix?: pulumi.Input<string | undefined>;
     /**
      * Username template type. Default: `BUILT_IN`
      */
-    userNameTemplateType?: pulumi.Input<string>;
+    userNameTemplateType?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -720,104 +720,104 @@ export interface SamlArgs {
     /**
      * Custom error page URL
      */
-    accessibilityErrorRedirectUrl?: pulumi.Input<string>;
+    accessibilityErrorRedirectUrl?: pulumi.Input<string | undefined>;
     /**
      * Custom login page URL
      */
-    accessibilityLoginRedirectUrl?: pulumi.Input<string>;
+    accessibilityLoginRedirectUrl?: pulumi.Input<string | undefined>;
     /**
      * Enable self service. Default is `false`
      */
-    accessibilitySelfService?: pulumi.Input<boolean>;
+    accessibilitySelfService?: pulumi.Input<boolean | undefined>;
     /**
      * An array of ACS endpoints. You can configure a maximum of 100 endpoints.
      */
-    acsEndpoints?: pulumi.Input<pulumi.Input<string>[]>;
+    acsEndpoints?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * ACS endpoints along with custom index as a set of maps called `acsEndpointsIndices` in JSON format.
      */
-    acsEndpointsIndices?: pulumi.Input<pulumi.Input<inputs.app.SamlAcsEndpointsIndex>[]>;
+    acsEndpointsIndices?: pulumi.Input<pulumi.Input<inputs.app.SamlAcsEndpointsIndex>[] | undefined>;
     /**
      * Application notes for admins.
      */
-    adminNote?: pulumi.Input<string>;
+    adminNote?: pulumi.Input<string | undefined>;
     /**
      * Displays specific appLinks for the app. The value for each application link should be boolean.
      */
-    appLinksJson?: pulumi.Input<string>;
+    appLinksJson?: pulumi.Input<string | undefined>;
     /**
      * Application settings in JSON format
      */
-    appSettingsJson?: pulumi.Input<string>;
+    appSettingsJson?: pulumi.Input<string | undefined>;
     /**
      * Determines whether the SAML assertion is digitally signed
      */
-    assertionSigned?: pulumi.Input<boolean>;
-    attributeStatements?: pulumi.Input<pulumi.Input<inputs.app.SamlAttributeStatement>[]>;
+    assertionSigned?: pulumi.Input<boolean | undefined>;
+    attributeStatements?: pulumi.Input<pulumi.Input<inputs.app.SamlAttributeStatement>[] | undefined>;
     /**
      * Audience Restriction
      */
-    audience?: pulumi.Input<string>;
+    audience?: pulumi.Input<string | undefined>;
     /**
      * The ID of the associated `appSignonPolicy`. If this property is removed from the application the `default` sign-on-policy will be associated with this application.y
      */
-    authenticationPolicy?: pulumi.Input<string>;
+    authenticationPolicy?: pulumi.Input<string | undefined>;
     /**
      * Identifies the SAML authentication context class for the assertion’s authentication statement
      */
-    authnContextClassRef?: pulumi.Input<string>;
+    authnContextClassRef?: pulumi.Input<string | undefined>;
     /**
      * Display auto submit toolbar. Default is: `false`
      */
-    autoSubmitToolbar?: pulumi.Input<boolean>;
+    autoSubmitToolbar?: pulumi.Input<boolean | undefined>;
     /**
      * Identifies a specific application resource in an IDP initiated SSO scenario.
      */
-    defaultRelayState?: pulumi.Input<string>;
+    defaultRelayState?: pulumi.Input<string | undefined>;
     /**
      * Identifies the location where the SAML response is intended to be sent inside of the SAML assertion
      */
-    destination?: pulumi.Input<string>;
+    destination?: pulumi.Input<string | undefined>;
     /**
      * Determines the digest algorithm used to digitally sign the SAML assertion and response
      */
-    digestAlgorithm?: pulumi.Input<string>;
+    digestAlgorithm?: pulumi.Input<string | undefined>;
     /**
      * Application notes for end users.
      */
-    enduserNote?: pulumi.Input<string>;
+    enduserNote?: pulumi.Input<string | undefined>;
     /**
      * Do not display application icon on mobile app
      */
-    hideIos?: pulumi.Input<boolean>;
+    hideIos?: pulumi.Input<boolean | undefined>;
     /**
      * Do not display application icon to users
      */
-    hideWeb?: pulumi.Input<boolean>;
+    hideWeb?: pulumi.Input<boolean | undefined>;
     /**
      * Prompt user to re-authenticate if SP asks for it. Default is: `false`
      */
-    honorForceAuthn?: pulumi.Input<boolean>;
+    honorForceAuthn?: pulumi.Input<boolean | undefined>;
     /**
      * SAML issuer ID
      */
-    idpIssuer?: pulumi.Input<string>;
+    idpIssuer?: pulumi.Input<string | undefined>;
     /**
      * *Early Access Property*. Enable Federation Broker Mode.
      */
-    implicitAssignment?: pulumi.Input<boolean>;
+    implicitAssignment?: pulumi.Input<boolean | undefined>;
     /**
      * Saml Inline Hook setting
      */
-    inlineHookId?: pulumi.Input<string>;
+    inlineHookId?: pulumi.Input<string | undefined>;
     /**
      * Certificate name. This modulates the rotation of keys. New name == new key. Required to be set with `keyYearsValid`
      */
-    keyName?: pulumi.Input<string>;
+    keyName?: pulumi.Input<string | undefined>;
     /**
      * Number of years the certificate is valid (2 - 10 years).
      */
-    keyYearsValid?: pulumi.Input<number>;
+    keyYearsValid?: pulumi.Input<number | undefined>;
     /**
      * The Application's display name.
      */
@@ -825,7 +825,7 @@ export interface SamlArgs {
     /**
      * Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
      */
-    logo?: pulumi.Input<string>;
+    logo?: pulumi.Input<string | undefined>;
     /**
      * Name of application from the Okta Integration Network. For instance 'slack'. If not included a custom app will be created.  If not provided the following arguments are required:
      * 'sso*url'
@@ -838,81 +838,81 @@ export interface SamlArgs {
      * 'digest*algorithm'
      * 'authn*context*class*ref'
      */
-    preconfiguredApp?: pulumi.Input<string>;
+    preconfiguredApp?: pulumi.Input<string | undefined>;
     /**
      * The location where the app may present the SAML assertion
      */
-    recipient?: pulumi.Input<string>;
+    recipient?: pulumi.Input<string | undefined>;
     /**
      * Denotes whether the request is compressed or not.
      */
-    requestCompressed?: pulumi.Input<boolean>;
+    requestCompressed?: pulumi.Input<boolean | undefined>;
     /**
      * Determines whether the SAML auth response message is digitally signed
      */
-    responseSigned?: pulumi.Input<boolean>;
+    responseSigned?: pulumi.Input<boolean | undefined>;
     /**
      * SAML Signed Request enabled
      */
-    samlSignedRequestEnabled?: pulumi.Input<boolean>;
+    samlSignedRequestEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * SAML version for the app's sign-on mode. Valid values are: `2.0` or `1.1`. Default is `2.0`
      */
-    samlVersion?: pulumi.Input<string>;
+    samlVersion?: pulumi.Input<string | undefined>;
     /**
      * Signature algorithm used to digitally sign the assertion and response
      */
-    signatureAlgorithm?: pulumi.Input<string>;
+    signatureAlgorithm?: pulumi.Input<string | undefined>;
     /**
      * x509 encoded certificate that the Service Provider uses to sign Single Logout requests. Note: should be provided without `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`, see [official documentation](https://developer.okta.com/docs/reference/api/apps/#service-provider-certificate).
      */
-    singleLogoutCertificate?: pulumi.Input<string>;
+    singleLogoutCertificate?: pulumi.Input<string | undefined>;
     /**
      * The issuer of the Service Provider that generates the Single Logout request
      */
-    singleLogoutIssuer?: pulumi.Input<string>;
+    singleLogoutIssuer?: pulumi.Input<string | undefined>;
     /**
      * The location where the logout response is sent
      */
-    singleLogoutUrl?: pulumi.Input<string>;
+    singleLogoutUrl?: pulumi.Input<string | undefined>;
     /**
      * When set to true, the provider will not assign or read the authentication policy for this application. This can be useful when the caller lacks the permissions to read or manage policies, or to reduce API calls against the `/api/v1/apps` rate limit.
      */
-    skipAuthenticationPolicy?: pulumi.Input<boolean>;
+    skipAuthenticationPolicy?: pulumi.Input<boolean | undefined>;
     /**
      * SAML SP issuer ID
      */
-    spIssuer?: pulumi.Input<string>;
+    spIssuer?: pulumi.Input<string | undefined>;
     /**
      * Single Sign On URL
      */
-    ssoUrl?: pulumi.Input<string>;
+    ssoUrl?: pulumi.Input<string | undefined>;
     /**
      * Status of application. By default, it is `ACTIVE`
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * Identifies the SAML processing rules.
      */
-    subjectNameIdFormat?: pulumi.Input<string>;
+    subjectNameIdFormat?: pulumi.Input<string | undefined>;
     /**
      * Template for app user's username when a user is assigned to the app
      */
-    subjectNameIdTemplate?: pulumi.Input<string>;
+    subjectNameIdTemplate?: pulumi.Input<string | undefined>;
     /**
      * Username template. Default: `${source.login}`
      */
-    userNameTemplate?: pulumi.Input<string>;
+    userNameTemplate?: pulumi.Input<string | undefined>;
     /**
      * Push username on update. Valid values: `PUSH` and `DONT_PUSH`
      */
-    userNameTemplatePushStatus?: pulumi.Input<string>;
+    userNameTemplatePushStatus?: pulumi.Input<string | undefined>;
     /**
      * Username template suffix
      */
-    userNameTemplateSuffix?: pulumi.Input<string>;
+    userNameTemplateSuffix?: pulumi.Input<string | undefined>;
     /**
      * Username template type. Default: `BUILT_IN`
      */
-    userNameTemplateType?: pulumi.Input<string>;
+    userNameTemplateType?: pulumi.Input<string | undefined>;
 }

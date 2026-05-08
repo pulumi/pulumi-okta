@@ -139,23 +139,23 @@ export interface UserFactorQuestionState {
     /**
      * Security question answer. Note here that answer won't be set during the resource import.
      */
-    answer?: pulumi.Input<string>;
+    answer?: pulumi.Input<string | undefined>;
     /**
      * Security question unique key.
      */
-    key?: pulumi.Input<string>;
+    key?: pulumi.Input<string | undefined>;
     /**
      * The status of the security question factor.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * Display text for security question.
      */
-    text?: pulumi.Input<string>;
+    text?: pulumi.Input<string | undefined>;
     /**
      * ID of the user. Resource will be recreated when `userId` changes.
      */
-    userId?: pulumi.Input<string>;
+    userId?: pulumi.Input<string | undefined>;
 }
 
 /**

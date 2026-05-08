@@ -125,23 +125,23 @@ export interface AdminRoleTargetsState {
     /**
      * List of app names (name represents set of app instances) or a combination of app name and app instance ID (like 'salesforce' or 'facebook.0oapsqQ6dv19pqyEo0g3')
      */
-    apps?: pulumi.Input<pulumi.Input<string>[]>;
+    apps?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * List of group IDs. Conflicts with apps
      */
-    groups?: pulumi.Input<pulumi.Input<string>[]>;
+    groups?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * ID of a role
      */
-    roleId?: pulumi.Input<string>;
+    roleId?: pulumi.Input<string | undefined>;
     /**
      * Type of the role that is assigned to the user and supports optional targets. See [API Docs](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#standard-roles)
      */
-    roleType?: pulumi.Input<string>;
+    roleType?: pulumi.Input<string | undefined>;
     /**
      * User associated with the role
      */
-    userId?: pulumi.Input<string>;
+    userId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -151,11 +151,11 @@ export interface AdminRoleTargetsArgs {
     /**
      * List of app names (name represents set of app instances) or a combination of app name and app instance ID (like 'salesforce' or 'facebook.0oapsqQ6dv19pqyEo0g3')
      */
-    apps?: pulumi.Input<pulumi.Input<string>[]>;
+    apps?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * List of group IDs. Conflicts with apps
      */
-    groups?: pulumi.Input<pulumi.Input<string>[]>;
+    groups?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Type of the role that is assigned to the user and supports optional targets. See [API Docs](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#standard-roles)
      */

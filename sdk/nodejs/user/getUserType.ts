@@ -92,9 +92,9 @@ export interface GetUserTypeOutputArgs {
     /**
      * ID of the user type to retrieve, conflicts with `name`.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * Name of user type to retrieve, conflicts with `id`.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }

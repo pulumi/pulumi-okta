@@ -114,23 +114,23 @@ export interface SignonState {
     /**
      * Policy Description
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * List of Group IDs to Include
      */
-    groupsIncludeds?: pulumi.Input<pulumi.Input<string>[]>;
+    groupsIncludeds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Policy Name
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
      */
-    priority?: pulumi.Input<number>;
+    priority?: pulumi.Input<number | undefined>;
     /**
      * Policy Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -140,21 +140,21 @@ export interface SignonArgs {
     /**
      * Policy Description
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * List of Group IDs to Include
      */
-    groupsIncludeds?: pulumi.Input<pulumi.Input<string>[]>;
+    groupsIncludeds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Policy Name
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
      */
-    priority?: pulumi.Input<number>;
+    priority?: pulumi.Input<number | undefined>;
     /**
      * Policy Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
 }

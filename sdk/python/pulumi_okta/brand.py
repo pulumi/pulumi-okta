@@ -19,15 +19,15 @@ __all__ = ['BrandArgs', 'Brand']
 @pulumi.input_type
 class BrandArgs:
     def __init__(__self__, *,
-                 agree_to_custom_privacy_policy: Optional[pulumi.Input[_builtins.bool]] = None,
-                 brand_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_privacy_policy_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_app_app_instance_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_app_app_link_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_app_classic_application_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 locale: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 remove_powered_by_okta: Optional[pulumi.Input[_builtins.bool]] = None):
+                 agree_to_custom_privacy_policy: pulumi.Input[Optional[_builtins.bool]] = None,
+                 brand_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_privacy_policy_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_app_app_instance_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_app_app_link_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_app_classic_application_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 locale: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 remove_powered_by_okta: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a Brand resource.
 
@@ -65,129 +65,129 @@ class BrandArgs:
 
     @_builtins.property
     @pulumi.getter(name="agreeToCustomPrivacyPolicy")
-    def agree_to_custom_privacy_policy(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def agree_to_custom_privacy_policy(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is a required input flag with when changing custom*privacy*url, shouldn't be considered as a readable property
         """
         return pulumi.get(self, "agree_to_custom_privacy_policy")
 
     @agree_to_custom_privacy_policy.setter
-    def agree_to_custom_privacy_policy(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def agree_to_custom_privacy_policy(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "agree_to_custom_privacy_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="brandId")
     @_utilities.deprecated("""Okta has fully support brand creation, this attribute is a no op and will be removed""")
-    def brand_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def brand_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Brand ID - Note: Okta API for brands only reads and updates therefore the okta*brand resource needs to act as a quasi data source. Do this by setting brand*id. `DEPRECATED`: Okta has fully support brand creation, this attribute is a no op and will be removed
         """
         return pulumi.get(self, "brand_id")
 
     @brand_id.setter
-    def brand_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def brand_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "brand_id", value)
 
     @_builtins.property
     @pulumi.getter(name="customPrivacyPolicyUrl")
-    def custom_privacy_policy_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def custom_privacy_policy_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Custom privacy policy URL
         """
         return pulumi.get(self, "custom_privacy_policy_url")
 
     @custom_privacy_policy_url.setter
-    def custom_privacy_policy_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def custom_privacy_policy_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "custom_privacy_policy_url", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultAppAppInstanceId")
-    def default_app_app_instance_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_app_app_instance_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Default app app instance id
         """
         return pulumi.get(self, "default_app_app_instance_id")
 
     @default_app_app_instance_id.setter
-    def default_app_app_instance_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_app_app_instance_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_app_app_instance_id", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultAppAppLinkName")
-    def default_app_app_link_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_app_app_link_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Default app app link name
         """
         return pulumi.get(self, "default_app_app_link_name")
 
     @default_app_app_link_name.setter
-    def default_app_app_link_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_app_app_link_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_app_app_link_name", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultAppClassicApplicationUri")
-    def default_app_classic_application_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_app_classic_application_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Default app classic application uri
         """
         return pulumi.get(self, "default_app_classic_application_uri")
 
     @default_app_classic_application_uri.setter
-    def default_app_classic_application_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_app_classic_application_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_app_classic_application_uri", value)
 
     @_builtins.property
     @pulumi.getter
-    def locale(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def locale(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The language specified as an IETF BCP 47 language tag
         """
         return pulumi.get(self, "locale")
 
     @locale.setter
-    def locale(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def locale(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "locale", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the brand
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="removePoweredByOkta")
-    def remove_powered_by_okta(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def remove_powered_by_okta(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Removes "Powered by Okta" from the Okta-hosted sign-in page and "© 2021 Okta, Inc." from the Okta End-User Dashboard
         """
         return pulumi.get(self, "remove_powered_by_okta")
 
     @remove_powered_by_okta.setter
-    def remove_powered_by_okta(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def remove_powered_by_okta(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "remove_powered_by_okta", value)
 
 
 @pulumi.input_type
 class _BrandState:
     def __init__(__self__, *,
-                 agree_to_custom_privacy_policy: Optional[pulumi.Input[_builtins.bool]] = None,
-                 brand_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_privacy_policy_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_app_app_instance_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_app_app_link_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_app_classic_application_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 email_domain_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_default: Optional[pulumi.Input[_builtins.bool]] = None,
-                 links: Optional[pulumi.Input[_builtins.str]] = None,
-                 locale: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 remove_powered_by_okta: Optional[pulumi.Input[_builtins.bool]] = None):
+                 agree_to_custom_privacy_policy: pulumi.Input[Optional[_builtins.bool]] = None,
+                 brand_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_privacy_policy_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_app_app_instance_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_app_app_link_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_app_classic_application_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 email_domain_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_default: pulumi.Input[Optional[_builtins.bool]] = None,
+                 links: pulumi.Input[Optional[_builtins.str]] = None,
+                 locale: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 remove_powered_by_okta: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering Brand resources.
 
@@ -234,147 +234,147 @@ class _BrandState:
 
     @_builtins.property
     @pulumi.getter(name="agreeToCustomPrivacyPolicy")
-    def agree_to_custom_privacy_policy(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def agree_to_custom_privacy_policy(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is a required input flag with when changing custom*privacy*url, shouldn't be considered as a readable property
         """
         return pulumi.get(self, "agree_to_custom_privacy_policy")
 
     @agree_to_custom_privacy_policy.setter
-    def agree_to_custom_privacy_policy(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def agree_to_custom_privacy_policy(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "agree_to_custom_privacy_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="brandId")
     @_utilities.deprecated("""Okta has fully support brand creation, this attribute is a no op and will be removed""")
-    def brand_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def brand_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Brand ID - Note: Okta API for brands only reads and updates therefore the okta*brand resource needs to act as a quasi data source. Do this by setting brand*id. `DEPRECATED`: Okta has fully support brand creation, this attribute is a no op and will be removed
         """
         return pulumi.get(self, "brand_id")
 
     @brand_id.setter
-    def brand_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def brand_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "brand_id", value)
 
     @_builtins.property
     @pulumi.getter(name="customPrivacyPolicyUrl")
-    def custom_privacy_policy_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def custom_privacy_policy_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Custom privacy policy URL
         """
         return pulumi.get(self, "custom_privacy_policy_url")
 
     @custom_privacy_policy_url.setter
-    def custom_privacy_policy_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def custom_privacy_policy_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "custom_privacy_policy_url", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultAppAppInstanceId")
-    def default_app_app_instance_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_app_app_instance_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Default app app instance id
         """
         return pulumi.get(self, "default_app_app_instance_id")
 
     @default_app_app_instance_id.setter
-    def default_app_app_instance_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_app_app_instance_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_app_app_instance_id", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultAppAppLinkName")
-    def default_app_app_link_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_app_app_link_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Default app app link name
         """
         return pulumi.get(self, "default_app_app_link_name")
 
     @default_app_app_link_name.setter
-    def default_app_app_link_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_app_app_link_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_app_app_link_name", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultAppClassicApplicationUri")
-    def default_app_classic_application_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_app_classic_application_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Default app classic application uri
         """
         return pulumi.get(self, "default_app_classic_application_uri")
 
     @default_app_classic_application_uri.setter
-    def default_app_classic_application_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_app_classic_application_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_app_classic_application_uri", value)
 
     @_builtins.property
     @pulumi.getter(name="emailDomainId")
-    def email_domain_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def email_domain_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Email Domain ID tied to this brand
         """
         return pulumi.get(self, "email_domain_id")
 
     @email_domain_id.setter
-    def email_domain_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def email_domain_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "email_domain_id", value)
 
     @_builtins.property
     @pulumi.getter(name="isDefault")
-    def is_default(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_default(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is this the default brand
         """
         return pulumi.get(self, "is_default")
 
     @is_default.setter
-    def is_default(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_default(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_default", value)
 
     @_builtins.property
     @pulumi.getter
-    def links(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def links(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Link relations for this object - JSON HAL - Discoverable resources related to the brand
         """
         return pulumi.get(self, "links")
 
     @links.setter
-    def links(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def links(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "links", value)
 
     @_builtins.property
     @pulumi.getter
-    def locale(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def locale(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The language specified as an IETF BCP 47 language tag
         """
         return pulumi.get(self, "locale")
 
     @locale.setter
-    def locale(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def locale(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "locale", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the brand
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="removePoweredByOkta")
-    def remove_powered_by_okta(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def remove_powered_by_okta(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Removes "Powered by Okta" from the Okta-hosted sign-in page and "© 2021 Okta, Inc." from the Okta End-User Dashboard
         """
         return pulumi.get(self, "remove_powered_by_okta")
 
     @remove_powered_by_okta.setter
-    def remove_powered_by_okta(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def remove_powered_by_okta(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "remove_powered_by_okta", value)
 
 
@@ -384,15 +384,15 @@ class Brand(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 agree_to_custom_privacy_policy: Optional[pulumi.Input[_builtins.bool]] = None,
-                 brand_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_privacy_policy_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_app_app_instance_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_app_app_link_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_app_classic_application_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 locale: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 remove_powered_by_okta: Optional[pulumi.Input[_builtins.bool]] = None,
+                 agree_to_custom_privacy_policy: pulumi.Input[Optional[_builtins.bool]] = None,
+                 brand_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_privacy_policy_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_app_app_instance_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_app_app_link_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_app_classic_application_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 locale: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 remove_powered_by_okta: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         Manages brand. This resource allows you to create and configure an Okta [Brand](https://developer.okta.com/docs/reference/api/brands/#brand-object).
@@ -469,15 +469,15 @@ class Brand(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 agree_to_custom_privacy_policy: Optional[pulumi.Input[_builtins.bool]] = None,
-                 brand_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_privacy_policy_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_app_app_instance_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_app_app_link_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_app_classic_application_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 locale: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 remove_powered_by_okta: Optional[pulumi.Input[_builtins.bool]] = None,
+                 agree_to_custom_privacy_policy: pulumi.Input[Optional[_builtins.bool]] = None,
+                 brand_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_privacy_policy_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_app_app_instance_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_app_app_link_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_app_classic_application_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 locale: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 remove_powered_by_okta: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -509,18 +509,18 @@ class Brand(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            agree_to_custom_privacy_policy: Optional[pulumi.Input[_builtins.bool]] = None,
-            brand_id: Optional[pulumi.Input[_builtins.str]] = None,
-            custom_privacy_policy_url: Optional[pulumi.Input[_builtins.str]] = None,
-            default_app_app_instance_id: Optional[pulumi.Input[_builtins.str]] = None,
-            default_app_app_link_name: Optional[pulumi.Input[_builtins.str]] = None,
-            default_app_classic_application_uri: Optional[pulumi.Input[_builtins.str]] = None,
-            email_domain_id: Optional[pulumi.Input[_builtins.str]] = None,
-            is_default: Optional[pulumi.Input[_builtins.bool]] = None,
-            links: Optional[pulumi.Input[_builtins.str]] = None,
-            locale: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            remove_powered_by_okta: Optional[pulumi.Input[_builtins.bool]] = None) -> 'Brand':
+            agree_to_custom_privacy_policy: pulumi.Input[Optional[_builtins.bool]] = None,
+            brand_id: pulumi.Input[Optional[_builtins.str]] = None,
+            custom_privacy_policy_url: pulumi.Input[Optional[_builtins.str]] = None,
+            default_app_app_instance_id: pulumi.Input[Optional[_builtins.str]] = None,
+            default_app_app_link_name: pulumi.Input[Optional[_builtins.str]] = None,
+            default_app_classic_application_uri: pulumi.Input[Optional[_builtins.str]] = None,
+            email_domain_id: pulumi.Input[Optional[_builtins.str]] = None,
+            is_default: pulumi.Input[Optional[_builtins.bool]] = None,
+            links: pulumi.Input[Optional[_builtins.str]] = None,
+            locale: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            remove_powered_by_okta: pulumi.Input[Optional[_builtins.bool]] = None) -> 'Brand':
         """
         Get an existing Brand resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -20,12 +20,12 @@ __all__ = ['BehaviourArgs', 'Behaviour']
 class BehaviourArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
-                 location_granularity_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 number_of_authentications: Optional[pulumi.Input[_builtins.int]] = None,
-                 radius_from_location: Optional[pulumi.Input[_builtins.int]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 velocity: Optional[pulumi.Input[_builtins.int]] = None):
+                 location_granularity_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 number_of_authentications: pulumi.Input[Optional[_builtins.int]] = None,
+                 radius_from_location: pulumi.Input[Optional[_builtins.int]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 velocity: pulumi.Input[Optional[_builtins.int]] = None):
         """
         The set of arguments for constructing a Behaviour resource.
 
@@ -65,87 +65,87 @@ class BehaviourArgs:
 
     @_builtins.property
     @pulumi.getter(name="locationGranularityType")
-    def location_granularity_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location_granularity_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Determines the method and level of detail used to evaluate the behavior. Required for `ANOMALOUS_LOCATION` behavior type. Can be set to `LAT_LONG`, `CITY`, `COUNTRY` or `SUBDIVISION`.
         """
         return pulumi.get(self, "location_granularity_type")
 
     @location_granularity_type.setter
-    def location_granularity_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location_granularity_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location_granularity_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the behavior
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="numberOfAuthentications")
-    def number_of_authentications(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def number_of_authentications(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of recent authentications used to evaluate the behavior. Required for `ANOMALOUS_LOCATION`, `ANOMALOUS_DEVICE` and `ANOMALOUS_IP` behavior types.
         """
         return pulumi.get(self, "number_of_authentications")
 
     @number_of_authentications.setter
-    def number_of_authentications(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def number_of_authentications(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "number_of_authentications", value)
 
     @_builtins.property
     @pulumi.getter(name="radiusFromLocation")
-    def radius_from_location(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def radius_from_location(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Radius from location (in kilometers). Should be at least 5. Required when `location_granularity_type` is set to `LAT_LONG`.
         """
         return pulumi.get(self, "radius_from_location")
 
     @radius_from_location.setter
-    def radius_from_location(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def radius_from_location(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "radius_from_location", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Behavior status: ACTIVE or INACTIVE. Default: `ACTIVE`
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter
-    def velocity(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def velocity(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Velocity (in kilometers per hour). Should be at least 1. Required for `VELOCITY` behavior
         """
         return pulumi.get(self, "velocity")
 
     @velocity.setter
-    def velocity(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def velocity(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "velocity", value)
 
 
 @pulumi.input_type
 class _BehaviourState:
     def __init__(__self__, *,
-                 location_granularity_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 number_of_authentications: Optional[pulumi.Input[_builtins.int]] = None,
-                 radius_from_location: Optional[pulumi.Input[_builtins.int]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 velocity: Optional[pulumi.Input[_builtins.int]] = None):
+                 location_granularity_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 number_of_authentications: pulumi.Input[Optional[_builtins.int]] = None,
+                 radius_from_location: pulumi.Input[Optional[_builtins.int]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 velocity: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering Behaviour resources.
 
@@ -174,86 +174,86 @@ class _BehaviourState:
 
     @_builtins.property
     @pulumi.getter(name="locationGranularityType")
-    def location_granularity_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location_granularity_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Determines the method and level of detail used to evaluate the behavior. Required for `ANOMALOUS_LOCATION` behavior type. Can be set to `LAT_LONG`, `CITY`, `COUNTRY` or `SUBDIVISION`.
         """
         return pulumi.get(self, "location_granularity_type")
 
     @location_granularity_type.setter
-    def location_granularity_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location_granularity_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location_granularity_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the behavior
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="numberOfAuthentications")
-    def number_of_authentications(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def number_of_authentications(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of recent authentications used to evaluate the behavior. Required for `ANOMALOUS_LOCATION`, `ANOMALOUS_DEVICE` and `ANOMALOUS_IP` behavior types.
         """
         return pulumi.get(self, "number_of_authentications")
 
     @number_of_authentications.setter
-    def number_of_authentications(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def number_of_authentications(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "number_of_authentications", value)
 
     @_builtins.property
     @pulumi.getter(name="radiusFromLocation")
-    def radius_from_location(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def radius_from_location(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Radius from location (in kilometers). Should be at least 5. Required when `location_granularity_type` is set to `LAT_LONG`.
         """
         return pulumi.get(self, "radius_from_location")
 
     @radius_from_location.setter
-    def radius_from_location(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def radius_from_location(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "radius_from_location", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Behavior status: ACTIVE or INACTIVE. Default: `ACTIVE`
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of the behavior. Can be set to `ANOMALOUS_LOCATION`, `ANOMALOUS_DEVICE`, `ANOMALOUS_IP` or `VELOCITY`. Resource will be recreated when the type changes.e
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
     @_builtins.property
     @pulumi.getter
-    def velocity(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def velocity(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Velocity (in kilometers per hour). Should be at least 1. Required for `VELOCITY` behavior
         """
         return pulumi.get(self, "velocity")
 
     @velocity.setter
-    def velocity(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def velocity(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "velocity", value)
 
 
@@ -263,13 +263,13 @@ class Behaviour(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 location_granularity_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 number_of_authentications: Optional[pulumi.Input[_builtins.int]] = None,
-                 radius_from_location: Optional[pulumi.Input[_builtins.int]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 velocity: Optional[pulumi.Input[_builtins.int]] = None,
+                 location_granularity_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 number_of_authentications: pulumi.Input[Optional[_builtins.int]] = None,
+                 radius_from_location: pulumi.Input[Optional[_builtins.int]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 velocity: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         """
         This resource allows you to create and configure a behavior.
@@ -384,13 +384,13 @@ class Behaviour(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 location_granularity_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 number_of_authentications: Optional[pulumi.Input[_builtins.int]] = None,
-                 radius_from_location: Optional[pulumi.Input[_builtins.int]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 velocity: Optional[pulumi.Input[_builtins.int]] = None,
+                 location_granularity_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 number_of_authentications: pulumi.Input[Optional[_builtins.int]] = None,
+                 radius_from_location: pulumi.Input[Optional[_builtins.int]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 velocity: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -419,13 +419,13 @@ class Behaviour(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            location_granularity_type: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            number_of_authentications: Optional[pulumi.Input[_builtins.int]] = None,
-            radius_from_location: Optional[pulumi.Input[_builtins.int]] = None,
-            status: Optional[pulumi.Input[_builtins.str]] = None,
-            type: Optional[pulumi.Input[_builtins.str]] = None,
-            velocity: Optional[pulumi.Input[_builtins.int]] = None) -> 'Behaviour':
+            location_granularity_type: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            number_of_authentications: pulumi.Input[Optional[_builtins.int]] = None,
+            radius_from_location: pulumi.Input[Optional[_builtins.int]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None,
+            velocity: pulumi.Input[Optional[_builtins.int]] = None) -> 'Behaviour':
         """
         Get an existing Behaviour resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

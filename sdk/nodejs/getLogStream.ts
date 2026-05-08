@@ -76,10 +76,10 @@ export interface GetLogStreamOutputArgs {
     /**
      * ID of the log stream to retrieve, conflicts with `name`.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * Unique name for the Log Stream object, conflicts with `id`.
      */
-    name?: pulumi.Input<string>;
-    settings?: pulumi.Input<inputs.GetLogStreamSettingsArgs>;
+    name?: pulumi.Input<string | undefined>;
+    settings?: pulumi.Input<inputs.GetLogStreamSettingsArgs | undefined>;
 }

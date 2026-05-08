@@ -189,8 +189,8 @@ def get_server_keys(auth_server_id: Optional[_builtins.str] = None,
         n=pulumi.get(__ret__, 'n'),
         status=pulumi.get(__ret__, 'status'),
         use=pulumi.get(__ret__, 'use'))
-def get_server_keys_output(auth_server_id: Optional[pulumi.Input[_builtins.str]] = None,
-                           key_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_server_keys_output(auth_server_id: pulumi.Input[Optional[_builtins.str]] = None,
+                           key_id: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServerKeysResult]:
     """
     Get a specific authorization server credential key from Okta. Authorization server keys are JSON Web Keys (JWK) used for signing tokens issued by the authorization server.

@@ -142,8 +142,8 @@ def get_server_policy(auth_server_id: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         priority=pulumi.get(__ret__, 'priority'))
-def get_server_policy_output(auth_server_id: Optional[pulumi.Input[_builtins.str]] = None,
-                             name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_server_policy_output(auth_server_id: pulumi.Input[Optional[_builtins.str]] = None,
+                             name: pulumi.Input[Optional[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServerPolicyResult]:
     """
     Get an authorization server policy from Okta.

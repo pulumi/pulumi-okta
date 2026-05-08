@@ -201,8 +201,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetAdminRoleCustomArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -241,8 +241,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetAdminRoleCustomArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -281,8 +281,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetAdminRoleCustomArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -321,8 +321,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetAdminRoleCustomArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -361,8 +361,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetAdminRoleCustomArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -401,8 +401,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetAgentPoolUpdateArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -442,8 +442,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetAgentPoolUpdateArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -483,8 +483,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetAgentPoolUpdateArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -524,8 +524,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetAgentPoolUpdateArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -565,8 +565,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetAgentPoolUpdateArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -606,8 +606,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetApiServiceIntegrationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -659,8 +659,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetApiServiceIntegrationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -712,8 +712,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetApiServiceIntegrationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -765,8 +765,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetApiServiceIntegrationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -818,8 +818,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetApiServiceIntegrationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -871,8 +871,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetApiTokenArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -911,8 +911,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetApiTokenArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -951,8 +951,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetApiTokenArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -991,8 +991,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetApiTokenArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1031,8 +1031,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetApiTokenArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1071,8 +1071,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetAppGroupAssignmentsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1111,8 +1111,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetAppGroupAssignmentsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1151,8 +1151,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetAppGroupAssignmentsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1191,8 +1191,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetAppGroupAssignmentsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1231,8 +1231,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetAppGroupAssignmentsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1279,8 +1279,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetAppSignonPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1327,8 +1327,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetAppSignonPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1375,8 +1375,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetAppSignonPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1423,8 +1423,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetAppSignonPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1471,8 +1471,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetAppSignonPolicyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1511,8 +1511,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetAppUserAssignmentsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1551,8 +1551,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetAppUserAssignmentsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1591,8 +1591,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetAppUserAssignmentsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1631,8 +1631,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetAppUserAssignmentsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1671,8 +1671,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetAppUserAssignmentsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1732,8 +1732,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetAuthServerClaimArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1773,8 +1773,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetAuthServerClaimArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1814,8 +1814,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetAuthServerClaimArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1855,8 +1855,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetAuthServerClaimArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1896,8 +1896,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetAuthServerClaimArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1937,8 +1937,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetAuthServerClaimsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -1977,8 +1977,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetAuthServerClaimsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2017,8 +2017,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetAuthServerClaimsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2057,8 +2057,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetAuthServerClaimsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2097,8 +2097,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetAuthServerClaimsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2141,8 +2141,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetAuthenticatorArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2189,8 +2189,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetAuthenticatorArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2237,8 +2237,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetAuthenticatorArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2285,8 +2285,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetAuthenticatorArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2333,8 +2333,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetAuthenticatorArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2381,8 +2381,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetAuthenticatorArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2429,8 +2429,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetAuthenticatorArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2536,8 +2536,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetBehavioursArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2576,8 +2576,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetBehavioursArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2616,8 +2616,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetBehavioursArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2656,8 +2656,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetBehavioursArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2696,8 +2696,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetBehavioursArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2736,8 +2736,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetBehavioursArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2776,8 +2776,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetBehavioursArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2816,8 +2816,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetBrandArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2862,8 +2862,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetBrandArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2908,8 +2908,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetBrandArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -2954,8 +2954,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetBrandArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3000,8 +3000,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetBrandArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3045,8 +3045,8 @@ public final class OktaFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3082,8 +3082,8 @@ public final class OktaFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3119,8 +3119,8 @@ public final class OktaFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3156,8 +3156,8 @@ public final class OktaFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3193,8 +3193,8 @@ public final class OktaFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3230,8 +3230,8 @@ public final class OktaFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3267,8 +3267,8 @@ public final class OktaFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3305,8 +3305,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetCampaignArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3345,8 +3345,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetCampaignArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3385,8 +3385,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetCampaignArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3425,8 +3425,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetCampaignArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3465,8 +3465,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetCampaignArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3505,8 +3505,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetCampaignArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3545,8 +3545,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetCampaignArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3585,8 +3585,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetCatalogEntryUserAccessRequestFieldsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3624,8 +3624,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetCatalogEntryUserAccessRequestFieldsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3663,8 +3663,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetCatalogEntryUserAccessRequestFieldsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3702,8 +3702,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetCatalogEntryUserAccessRequestFieldsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3741,8 +3741,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetCatalogEntryUserAccessRequestFieldsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3780,8 +3780,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetCatalogEntryUserAccessRequestFieldsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3819,8 +3819,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetCatalogEntryUserAccessRequestFieldsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3858,8 +3858,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetCatalogEntryUserAccessRequestFieldsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3897,8 +3897,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetCatalogEntryUserAccessRequestFieldsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -3936,8 +3936,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetCatalogEntryUserAccessRequestFieldsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4010,8 +4010,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetDeviceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4050,8 +4050,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetDeviceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4090,8 +4090,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetDeviceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4130,8 +4130,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetDeviceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4170,8 +4170,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetDeviceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4261,8 +4261,8 @@ public final class OktaFunctions {
      * import com.pulumi.okta.DomainArgs;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetDomainArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4311,8 +4311,8 @@ public final class OktaFunctions {
      * import com.pulumi.okta.DomainArgs;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetDomainArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4361,8 +4361,8 @@ public final class OktaFunctions {
      * import com.pulumi.okta.DomainArgs;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetDomainArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4411,8 +4411,8 @@ public final class OktaFunctions {
      * import com.pulumi.okta.DomainArgs;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetDomainArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4461,8 +4461,8 @@ public final class OktaFunctions {
      * import com.pulumi.okta.DomainArgs;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetDomainArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4510,8 +4510,8 @@ public final class OktaFunctions {
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetEmailCustomizationsArgs;
      * import com.pulumi.okta.inputs.GetEmailCustomizationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4560,8 +4560,8 @@ public final class OktaFunctions {
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetEmailCustomizationsArgs;
      * import com.pulumi.okta.inputs.GetEmailCustomizationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4610,8 +4610,8 @@ public final class OktaFunctions {
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetEmailCustomizationsArgs;
      * import com.pulumi.okta.inputs.GetEmailCustomizationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4660,8 +4660,8 @@ public final class OktaFunctions {
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetEmailCustomizationsArgs;
      * import com.pulumi.okta.inputs.GetEmailCustomizationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4710,8 +4710,8 @@ public final class OktaFunctions {
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetEmailCustomizationsArgs;
      * import com.pulumi.okta.inputs.GetEmailCustomizationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4759,8 +4759,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetEmailCustomizationsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4802,8 +4802,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetEmailCustomizationsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4845,8 +4845,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetEmailCustomizationsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4888,8 +4888,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetEmailCustomizationsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4931,8 +4931,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetEmailCustomizationsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -4976,8 +4976,8 @@ public final class OktaFunctions {
      * import com.pulumi.okta.EmailSmtpServerArgs;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetEmailSmtpServerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5026,8 +5026,8 @@ public final class OktaFunctions {
      * import com.pulumi.okta.EmailSmtpServerArgs;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetEmailSmtpServerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5076,8 +5076,8 @@ public final class OktaFunctions {
      * import com.pulumi.okta.EmailSmtpServerArgs;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetEmailSmtpServerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5126,8 +5126,8 @@ public final class OktaFunctions {
      * import com.pulumi.okta.EmailSmtpServerArgs;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetEmailSmtpServerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5176,8 +5176,8 @@ public final class OktaFunctions {
      * import com.pulumi.okta.EmailSmtpServerArgs;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetEmailSmtpServerArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5228,8 +5228,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetEndUserMyRequestsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5304,8 +5304,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetEndUserMyRequestsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5380,8 +5380,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetEndUserMyRequestsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5456,8 +5456,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetEndUserMyRequestsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5532,8 +5532,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetEndUserMyRequestsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5604,8 +5604,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetEntitlementArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5644,8 +5644,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetEntitlementArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5684,8 +5684,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetEntitlementArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5724,8 +5724,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetEntitlementArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5764,8 +5764,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetEntitlementArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5804,8 +5804,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetEntitlementBundleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5844,8 +5844,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetEntitlementBundleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5884,8 +5884,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetEntitlementBundleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5924,8 +5924,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetEntitlementBundleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -5964,8 +5964,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetEntitlementBundleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6005,8 +6005,8 @@ public final class OktaFunctions {
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.EntityRiskPolicyRule;
      * import com.pulumi.okta.EntityRiskPolicyRuleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6052,8 +6052,8 @@ public final class OktaFunctions {
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.EntityRiskPolicyRule;
      * import com.pulumi.okta.EntityRiskPolicyRuleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6099,8 +6099,8 @@ public final class OktaFunctions {
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.EntityRiskPolicyRule;
      * import com.pulumi.okta.EntityRiskPolicyRuleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6146,8 +6146,8 @@ public final class OktaFunctions {
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.EntityRiskPolicyRule;
      * import com.pulumi.okta.EntityRiskPolicyRuleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6193,8 +6193,8 @@ public final class OktaFunctions {
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.EntityRiskPolicyRule;
      * import com.pulumi.okta.EntityRiskPolicyRuleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6240,8 +6240,8 @@ public final class OktaFunctions {
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.EntityRiskPolicyRule;
      * import com.pulumi.okta.EntityRiskPolicyRuleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6287,8 +6287,8 @@ public final class OktaFunctions {
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.EntityRiskPolicyRule;
      * import com.pulumi.okta.EntityRiskPolicyRuleArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6333,8 +6333,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetFeaturesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6373,8 +6373,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetFeaturesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6413,8 +6413,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetFeaturesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6453,8 +6453,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetFeaturesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6493,8 +6493,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetFeaturesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6533,8 +6533,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetFeaturesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6573,8 +6573,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetFeaturesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6613,8 +6613,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetGroupsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6653,8 +6653,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetGroupsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6693,8 +6693,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetGroupsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6733,8 +6733,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetGroupsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6773,8 +6773,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetGroupsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6813,8 +6813,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetGroupsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6853,8 +6853,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetGroupsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6893,8 +6893,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetHookKeyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6934,8 +6934,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetHookKeyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -6975,8 +6975,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetHookKeyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7016,8 +7016,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetHookKeyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7057,8 +7057,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetHookKeyArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7147,8 +7147,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetNetworkZoneArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7187,8 +7187,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetNetworkZoneArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7227,8 +7227,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetNetworkZoneArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7267,8 +7267,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetNetworkZoneArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7307,8 +7307,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetNetworkZoneArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7347,8 +7347,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetNetworkZoneArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7387,8 +7387,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetNetworkZoneArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7496,8 +7496,8 @@ public final class OktaFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7533,8 +7533,8 @@ public final class OktaFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7570,8 +7570,8 @@ public final class OktaFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7607,8 +7607,8 @@ public final class OktaFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7644,8 +7644,8 @@ public final class OktaFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7681,8 +7681,8 @@ public final class OktaFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7718,8 +7718,8 @@ public final class OktaFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7758,8 +7758,8 @@ public final class OktaFunctions {
      * import com.pulumi.okta.inputs.GetPrincipalEntitlementsArgs;
      * import com.pulumi.okta.inputs.GetPrincipalEntitlementsParentArgs;
      * import com.pulumi.okta.inputs.GetPrincipalEntitlementsTargetPrincipalArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7847,8 +7847,8 @@ public final class OktaFunctions {
      * import com.pulumi.okta.inputs.GetPrincipalEntitlementsArgs;
      * import com.pulumi.okta.inputs.GetPrincipalEntitlementsParentArgs;
      * import com.pulumi.okta.inputs.GetPrincipalEntitlementsTargetPrincipalArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -7936,8 +7936,8 @@ public final class OktaFunctions {
      * import com.pulumi.okta.inputs.GetPrincipalEntitlementsArgs;
      * import com.pulumi.okta.inputs.GetPrincipalEntitlementsParentArgs;
      * import com.pulumi.okta.inputs.GetPrincipalEntitlementsTargetPrincipalArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8025,8 +8025,8 @@ public final class OktaFunctions {
      * import com.pulumi.okta.inputs.GetPrincipalEntitlementsArgs;
      * import com.pulumi.okta.inputs.GetPrincipalEntitlementsParentArgs;
      * import com.pulumi.okta.inputs.GetPrincipalEntitlementsTargetPrincipalArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8114,8 +8114,8 @@ public final class OktaFunctions {
      * import com.pulumi.okta.inputs.GetPrincipalEntitlementsArgs;
      * import com.pulumi.okta.inputs.GetPrincipalEntitlementsParentArgs;
      * import com.pulumi.okta.inputs.GetPrincipalEntitlementsTargetPrincipalArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8203,8 +8203,8 @@ public final class OktaFunctions {
      * import com.pulumi.okta.inputs.GetPrincipalEntitlementsArgs;
      * import com.pulumi.okta.inputs.GetPrincipalEntitlementsParentArgs;
      * import com.pulumi.okta.inputs.GetPrincipalEntitlementsTargetPrincipalArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8292,8 +8292,8 @@ public final class OktaFunctions {
      * import com.pulumi.okta.inputs.GetPrincipalEntitlementsArgs;
      * import com.pulumi.okta.inputs.GetPrincipalEntitlementsParentArgs;
      * import com.pulumi.okta.inputs.GetPrincipalEntitlementsTargetPrincipalArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8379,8 +8379,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetPrincipalRateLimitsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8419,8 +8419,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetPrincipalRateLimitsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8459,8 +8459,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetPrincipalRateLimitsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8499,8 +8499,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetPrincipalRateLimitsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8539,8 +8539,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetPrincipalRateLimitsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8579,8 +8579,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetPushGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8625,8 +8625,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetPushGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8671,8 +8671,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetPushGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8717,8 +8717,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetPushGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8763,8 +8763,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetPushGroupArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8809,8 +8809,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetPushGroupsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8850,8 +8850,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetPushGroupsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8891,8 +8891,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetPushGroupsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8932,8 +8932,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetPushGroupsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -8973,8 +8973,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetPushGroupsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9016,8 +9016,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetPushProviderArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9051,8 +9051,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetPushProviderArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9095,8 +9095,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetPushProviderArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9130,8 +9130,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetPushProviderArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9174,8 +9174,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetPushProviderArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9209,8 +9209,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetPushProviderArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9253,8 +9253,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetPushProviderArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9288,8 +9288,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetPushProviderArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9332,8 +9332,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetPushProviderArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9367,8 +9367,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetPushProviderArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9408,8 +9408,8 @@ public final class OktaFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9445,8 +9445,8 @@ public final class OktaFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9482,8 +9482,8 @@ public final class OktaFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9519,8 +9519,8 @@ public final class OktaFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9556,8 +9556,8 @@ public final class OktaFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9593,8 +9593,8 @@ public final class OktaFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9630,8 +9630,8 @@ public final class OktaFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9667,8 +9667,8 @@ public final class OktaFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9704,8 +9704,8 @@ public final class OktaFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9741,8 +9741,8 @@ public final class OktaFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9778,8 +9778,8 @@ public final class OktaFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9815,8 +9815,8 @@ public final class OktaFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9852,8 +9852,8 @@ public final class OktaFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9889,8 +9889,8 @@ public final class OktaFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9927,8 +9927,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetRealmArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -9971,8 +9971,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetRealmArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10015,8 +10015,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetRealmArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10059,8 +10059,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetRealmArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10103,8 +10103,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetRealmArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10147,8 +10147,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetRealmArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10191,8 +10191,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetRealmArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10298,8 +10298,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetRequestConditionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10339,8 +10339,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetRequestConditionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10380,8 +10380,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetRequestConditionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10421,8 +10421,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetRequestConditionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10462,8 +10462,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetRequestConditionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10503,8 +10503,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetRequestSequenceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10544,8 +10544,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetRequestSequenceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10585,8 +10585,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetRequestSequenceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10626,8 +10626,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetRequestSequenceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10667,8 +10667,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetRequestSequenceArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10708,8 +10708,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetRequestSettingOrganizationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10747,8 +10747,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetRequestSettingOrganizationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10786,8 +10786,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetRequestSettingOrganizationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10825,8 +10825,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetRequestSettingOrganizationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10864,8 +10864,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetRequestSettingOrganizationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10903,8 +10903,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetRequestSettingOrganizationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -10942,8 +10942,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetRequestSettingOrganizationArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11026,8 +11026,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetRequestV2Args;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11066,8 +11066,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetRequestV2Args;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11106,8 +11106,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetRequestV2Args;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11146,8 +11146,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetRequestV2Args;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11186,8 +11186,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetRequestV2Args;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11226,8 +11226,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetReviewArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11277,8 +11277,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetReviewArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11328,8 +11328,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetReviewArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11379,8 +11379,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetReviewArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11430,8 +11430,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetReviewArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11481,8 +11481,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetRoleSubscriptionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11522,8 +11522,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetRoleSubscriptionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11563,8 +11563,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetRoleSubscriptionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11604,8 +11604,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetRoleSubscriptionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11645,8 +11645,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetRoleSubscriptionArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11686,8 +11686,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetSecurityEventsProviderArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11726,8 +11726,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetSecurityEventsProviderArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11766,8 +11766,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetSecurityEventsProviderArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11806,8 +11806,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetSecurityEventsProviderArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11846,8 +11846,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetSecurityEventsProviderArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11885,8 +11885,8 @@ public final class OktaFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11922,8 +11922,8 @@ public final class OktaFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11959,8 +11959,8 @@ public final class OktaFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -11996,8 +11996,8 @@ public final class OktaFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12033,8 +12033,8 @@ public final class OktaFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12070,8 +12070,8 @@ public final class OktaFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12107,8 +12107,8 @@ public final class OktaFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12145,8 +12145,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetTemplateArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12188,8 +12188,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetTemplateArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12231,8 +12231,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetTemplateArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12274,8 +12274,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetTemplateArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12317,8 +12317,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetTemplateArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12360,8 +12360,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetTemplatesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12402,8 +12402,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetTemplatesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12444,8 +12444,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetTemplatesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12486,8 +12486,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetTemplatesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12528,8 +12528,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetTemplatesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12570,8 +12570,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetThemeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12613,8 +12613,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetThemeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12656,8 +12656,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetThemeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12699,8 +12699,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetThemeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12742,8 +12742,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetThemeArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12785,8 +12785,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetThemesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12827,8 +12827,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetThemesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12869,8 +12869,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetThemesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12911,8 +12911,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetThemesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12953,8 +12953,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetThemesArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -12995,8 +12995,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetTrustedOriginsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -13034,8 +13034,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetTrustedOriginsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -13073,8 +13073,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetTrustedOriginsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -13112,8 +13112,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetTrustedOriginsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -13151,8 +13151,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetTrustedOriginsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -13190,8 +13190,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetTrustedOriginsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -13229,8 +13229,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetTrustedOriginsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -13268,8 +13268,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetUiSchemaArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -13308,8 +13308,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetUiSchemaArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -13348,8 +13348,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetUiSchemaArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -13388,8 +13388,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetUiSchemaArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -13428,8 +13428,8 @@ public final class OktaFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetUiSchemaArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -13468,8 +13468,8 @@ public final class OktaFunctions {
      * import com.pulumi.okta.user.UserArgs;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetUserSecurityQuestionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -13515,8 +13515,8 @@ public final class OktaFunctions {
      * import com.pulumi.okta.user.UserArgs;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetUserSecurityQuestionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -13562,8 +13562,8 @@ public final class OktaFunctions {
      * import com.pulumi.okta.user.UserArgs;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetUserSecurityQuestionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -13609,8 +13609,8 @@ public final class OktaFunctions {
      * import com.pulumi.okta.user.UserArgs;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetUserSecurityQuestionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;
@@ -13656,8 +13656,8 @@ public final class OktaFunctions {
      * import com.pulumi.okta.user.UserArgs;
      * import com.pulumi.okta.OktaFunctions;
      * import com.pulumi.okta.inputs.GetUserSecurityQuestionsArgs;
-     * import java.util.List;
      * import java.util.ArrayList;
+     * import java.util.Arrays;
      * import java.util.Map;
      * import java.io.File;
      * import java.nio.file.Files;

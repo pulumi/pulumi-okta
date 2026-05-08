@@ -165,11 +165,11 @@ export interface AdminRoleCustomState {
     /**
      * A human-readable description of the new Role
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name given to the new Role
      */
-    label?: pulumi.Input<string>;
+    label?: pulumi.Input<string | undefined>;
     /**
      * The permissions that the new Role grants. At least one
      * 			permission must be specified when creating custom role. Valid values: "okta.users.manage",
@@ -229,7 +229,7 @@ export interface AdminRoleCustomState {
      * 			"okta.iam.read",
      * 			"okta.support.cases.manage".,
      */
-    permissions?: pulumi.Input<pulumi.Input<string>[]>;
+    permissions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 /**
@@ -303,5 +303,5 @@ export interface AdminRoleCustomArgs {
      * 			"okta.iam.read",
      * 			"okta.support.cases.manage".,
      */
-    permissions?: pulumi.Input<pulumi.Input<string>[]>;
+    permissions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

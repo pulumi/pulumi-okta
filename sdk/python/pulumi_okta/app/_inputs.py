@@ -102,19 +102,19 @@ class ConnectionProfileArgsDict(TypedDict):
     """
     Authentication scheme. Valid values are TOKEN or OAUTH2.
     """
-    client_id: NotRequired[pulumi.Input[_builtins.str]]
+    client_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     OAuth2 client ID (required for OAUTH2 auth scheme).
     """
-    settings: NotRequired[pulumi.Input['ConnectionProfileSettingsArgsDict']]
+    settings: NotRequired[pulumi.Input[Optional['ConnectionProfileSettingsArgs']]]
     """
     Additional settings for OAuth2 authentication.
     """
-    signing: NotRequired[pulumi.Input['ConnectionProfileSigningArgsDict']]
+    signing: NotRequired[pulumi.Input[Optional['ConnectionProfileSigningArgs']]]
     """
     Signing configuration.
     """
-    token: NotRequired[pulumi.Input[_builtins.str]]
+    token: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Authentication token (required for TOKEN auth scheme).
     """
@@ -123,10 +123,10 @@ class ConnectionProfileArgsDict(TypedDict):
 class ConnectionProfileArgs:
     def __init__(__self__, *,
                  auth_scheme: pulumi.Input[_builtins.str],
-                 client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 settings: Optional[pulumi.Input['ConnectionProfileSettingsArgs']] = None,
-                 signing: Optional[pulumi.Input['ConnectionProfileSigningArgs']] = None,
-                 token: Optional[pulumi.Input[_builtins.str]] = None):
+                 client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 settings: pulumi.Input[Optional['ConnectionProfileSettingsArgs']] = None,
+                 signing: pulumi.Input[Optional['ConnectionProfileSigningArgs']] = None,
+                 token: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] auth_scheme: Authentication scheme. Valid values are TOKEN or OAUTH2.
         :param pulumi.Input[_builtins.str] client_id: OAuth2 client ID (required for OAUTH2 auth scheme).
@@ -158,59 +158,59 @@ class ConnectionProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="clientId")
-    def client_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         OAuth2 client ID (required for OAUTH2 auth scheme).
         """
         return pulumi.get(self, "client_id")
 
     @client_id.setter
-    def client_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def settings(self) -> Optional[pulumi.Input['ConnectionProfileSettingsArgs']]:
+    def settings(self) -> pulumi.Input[Optional['ConnectionProfileSettingsArgs']]:
         """
         Additional settings for OAuth2 authentication.
         """
         return pulumi.get(self, "settings")
 
     @settings.setter
-    def settings(self, value: Optional[pulumi.Input['ConnectionProfileSettingsArgs']]):
+    def settings(self, value: pulumi.Input[Optional['ConnectionProfileSettingsArgs']]):
         pulumi.set(self, "settings", value)
 
     @_builtins.property
     @pulumi.getter
-    def signing(self) -> Optional[pulumi.Input['ConnectionProfileSigningArgs']]:
+    def signing(self) -> pulumi.Input[Optional['ConnectionProfileSigningArgs']]:
         """
         Signing configuration.
         """
         return pulumi.get(self, "signing")
 
     @signing.setter
-    def signing(self, value: Optional[pulumi.Input['ConnectionProfileSigningArgs']]):
+    def signing(self, value: pulumi.Input[Optional['ConnectionProfileSigningArgs']]):
         pulumi.set(self, "signing", value)
 
     @_builtins.property
     @pulumi.getter
-    def token(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def token(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Authentication token (required for TOKEN auth scheme).
         """
         return pulumi.get(self, "token")
 
     @token.setter
-    def token(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def token(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "token", value)
 
 
 class ConnectionProfileSettingsArgsDict(TypedDict):
-    admin_password: NotRequired[pulumi.Input[_builtins.str]]
+    admin_password: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Admin password for OAuth2.
     """
-    admin_username: NotRequired[pulumi.Input[_builtins.str]]
+    admin_username: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Admin username for OAuth2.
     """
@@ -218,8 +218,8 @@ class ConnectionProfileSettingsArgsDict(TypedDict):
 @pulumi.input_type
 class ConnectionProfileSettingsArgs:
     def __init__(__self__, *,
-                 admin_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 admin_username: Optional[pulumi.Input[_builtins.str]] = None):
+                 admin_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 admin_username: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] admin_password: Admin password for OAuth2.
         :param pulumi.Input[_builtins.str] admin_username: Admin username for OAuth2.
@@ -231,31 +231,31 @@ class ConnectionProfileSettingsArgs:
 
     @_builtins.property
     @pulumi.getter(name="adminPassword")
-    def admin_password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def admin_password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Admin password for OAuth2.
         """
         return pulumi.get(self, "admin_password")
 
     @admin_password.setter
-    def admin_password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def admin_password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "admin_password", value)
 
     @_builtins.property
     @pulumi.getter(name="adminUsername")
-    def admin_username(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def admin_username(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Admin username for OAuth2.
         """
         return pulumi.get(self, "admin_username")
 
     @admin_username.setter
-    def admin_username(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def admin_username(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "admin_username", value)
 
 
 class ConnectionProfileSigningArgsDict(TypedDict):
-    rotation_mode: NotRequired[pulumi.Input[_builtins.str]]
+    rotation_mode: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Token rotation mode.
     """
@@ -263,7 +263,7 @@ class ConnectionProfileSigningArgsDict(TypedDict):
 @pulumi.input_type
 class ConnectionProfileSigningArgs:
     def __init__(__self__, *,
-                 rotation_mode: Optional[pulumi.Input[_builtins.str]] = None):
+                 rotation_mode: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] rotation_mode: Token rotation mode.
         """
@@ -272,31 +272,31 @@ class ConnectionProfileSigningArgs:
 
     @_builtins.property
     @pulumi.getter(name="rotationMode")
-    def rotation_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rotation_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Token rotation mode.
         """
         return pulumi.get(self, "rotation_mode")
 
     @rotation_mode.setter
-    def rotation_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rotation_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rotation_mode", value)
 
 
 class FeaturesCapabilitiesArgsDict(TypedDict):
-    create: NotRequired[pulumi.Input['FeaturesCapabilitiesCreateArgsDict']]
+    create: NotRequired[pulumi.Input[Optional['FeaturesCapabilitiesCreateArgs']]]
     """
     (Optional) Block for create lifecycle settings:
     """
-    import_rules: NotRequired[pulumi.Input['FeaturesCapabilitiesImportRulesArgsDict']]
+    import_rules: NotRequired[pulumi.Input[Optional['FeaturesCapabilitiesImportRulesArgs']]]
     """
     (Optional) Block for import rules configuration:
     """
-    import_settings: NotRequired[pulumi.Input['FeaturesCapabilitiesImportSettingsArgsDict']]
+    import_settings: NotRequired[pulumi.Input[Optional['FeaturesCapabilitiesImportSettingsArgs']]]
     """
     (Optional) Block for import settings configuration:
     """
-    update: NotRequired[pulumi.Input['FeaturesCapabilitiesUpdateArgsDict']]
+    update: NotRequired[pulumi.Input[Optional['FeaturesCapabilitiesUpdateArgs']]]
     """
     (Optional) Block for update settings:
     """
@@ -304,10 +304,10 @@ class FeaturesCapabilitiesArgsDict(TypedDict):
 @pulumi.input_type
 class FeaturesCapabilitiesArgs:
     def __init__(__self__, *,
-                 create: Optional[pulumi.Input['FeaturesCapabilitiesCreateArgs']] = None,
-                 import_rules: Optional[pulumi.Input['FeaturesCapabilitiesImportRulesArgs']] = None,
-                 import_settings: Optional[pulumi.Input['FeaturesCapabilitiesImportSettingsArgs']] = None,
-                 update: Optional[pulumi.Input['FeaturesCapabilitiesUpdateArgs']] = None):
+                 create: pulumi.Input[Optional['FeaturesCapabilitiesCreateArgs']] = None,
+                 import_rules: pulumi.Input[Optional['FeaturesCapabilitiesImportRulesArgs']] = None,
+                 import_settings: pulumi.Input[Optional['FeaturesCapabilitiesImportSettingsArgs']] = None,
+                 update: pulumi.Input[Optional['FeaturesCapabilitiesUpdateArgs']] = None):
         """
         :param pulumi.Input['FeaturesCapabilitiesCreateArgs'] create: (Optional) Block for create lifecycle settings:
         :param pulumi.Input['FeaturesCapabilitiesImportRulesArgs'] import_rules: (Optional) Block for import rules configuration:
@@ -325,55 +325,55 @@ class FeaturesCapabilitiesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def create(self) -> Optional[pulumi.Input['FeaturesCapabilitiesCreateArgs']]:
+    def create(self) -> pulumi.Input[Optional['FeaturesCapabilitiesCreateArgs']]:
         """
         (Optional) Block for create lifecycle settings:
         """
         return pulumi.get(self, "create")
 
     @create.setter
-    def create(self, value: Optional[pulumi.Input['FeaturesCapabilitiesCreateArgs']]):
+    def create(self, value: pulumi.Input[Optional['FeaturesCapabilitiesCreateArgs']]):
         pulumi.set(self, "create", value)
 
     @_builtins.property
     @pulumi.getter(name="importRules")
-    def import_rules(self) -> Optional[pulumi.Input['FeaturesCapabilitiesImportRulesArgs']]:
+    def import_rules(self) -> pulumi.Input[Optional['FeaturesCapabilitiesImportRulesArgs']]:
         """
         (Optional) Block for import rules configuration:
         """
         return pulumi.get(self, "import_rules")
 
     @import_rules.setter
-    def import_rules(self, value: Optional[pulumi.Input['FeaturesCapabilitiesImportRulesArgs']]):
+    def import_rules(self, value: pulumi.Input[Optional['FeaturesCapabilitiesImportRulesArgs']]):
         pulumi.set(self, "import_rules", value)
 
     @_builtins.property
     @pulumi.getter(name="importSettings")
-    def import_settings(self) -> Optional[pulumi.Input['FeaturesCapabilitiesImportSettingsArgs']]:
+    def import_settings(self) -> pulumi.Input[Optional['FeaturesCapabilitiesImportSettingsArgs']]:
         """
         (Optional) Block for import settings configuration:
         """
         return pulumi.get(self, "import_settings")
 
     @import_settings.setter
-    def import_settings(self, value: Optional[pulumi.Input['FeaturesCapabilitiesImportSettingsArgs']]):
+    def import_settings(self, value: pulumi.Input[Optional['FeaturesCapabilitiesImportSettingsArgs']]):
         pulumi.set(self, "import_settings", value)
 
     @_builtins.property
     @pulumi.getter
-    def update(self) -> Optional[pulumi.Input['FeaturesCapabilitiesUpdateArgs']]:
+    def update(self) -> pulumi.Input[Optional['FeaturesCapabilitiesUpdateArgs']]:
         """
         (Optional) Block for update settings:
         """
         return pulumi.get(self, "update")
 
     @update.setter
-    def update(self, value: Optional[pulumi.Input['FeaturesCapabilitiesUpdateArgs']]):
+    def update(self, value: pulumi.Input[Optional['FeaturesCapabilitiesUpdateArgs']]):
         pulumi.set(self, "update", value)
 
 
 class FeaturesCapabilitiesCreateArgsDict(TypedDict):
-    lifecycle_create: NotRequired[pulumi.Input['FeaturesCapabilitiesCreateLifecycleCreateArgsDict']]
+    lifecycle_create: NotRequired[pulumi.Input[Optional['FeaturesCapabilitiesCreateLifecycleCreateArgs']]]
     """
     (Optional) Block for create lifecycle configuration:
     """
@@ -381,7 +381,7 @@ class FeaturesCapabilitiesCreateArgsDict(TypedDict):
 @pulumi.input_type
 class FeaturesCapabilitiesCreateArgs:
     def __init__(__self__, *,
-                 lifecycle_create: Optional[pulumi.Input['FeaturesCapabilitiesCreateLifecycleCreateArgs']] = None):
+                 lifecycle_create: pulumi.Input[Optional['FeaturesCapabilitiesCreateLifecycleCreateArgs']] = None):
         """
         :param pulumi.Input['FeaturesCapabilitiesCreateLifecycleCreateArgs'] lifecycle_create: (Optional) Block for create lifecycle configuration:
         """
@@ -390,19 +390,19 @@ class FeaturesCapabilitiesCreateArgs:
 
     @_builtins.property
     @pulumi.getter(name="lifecycleCreate")
-    def lifecycle_create(self) -> Optional[pulumi.Input['FeaturesCapabilitiesCreateLifecycleCreateArgs']]:
+    def lifecycle_create(self) -> pulumi.Input[Optional['FeaturesCapabilitiesCreateLifecycleCreateArgs']]:
         """
         (Optional) Block for create lifecycle configuration:
         """
         return pulumi.get(self, "lifecycle_create")
 
     @lifecycle_create.setter
-    def lifecycle_create(self, value: Optional[pulumi.Input['FeaturesCapabilitiesCreateLifecycleCreateArgs']]):
+    def lifecycle_create(self, value: pulumi.Input[Optional['FeaturesCapabilitiesCreateLifecycleCreateArgs']]):
         pulumi.set(self, "lifecycle_create", value)
 
 
 class FeaturesCapabilitiesCreateLifecycleCreateArgsDict(TypedDict):
-    status: NotRequired[pulumi.Input[_builtins.str]]
+    status: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The status of the feature. Valid values are `ENABLED` or `DISABLED`.
     """
@@ -410,7 +410,7 @@ class FeaturesCapabilitiesCreateLifecycleCreateArgsDict(TypedDict):
 @pulumi.input_type
 class FeaturesCapabilitiesCreateLifecycleCreateArgs:
     def __init__(__self__, *,
-                 status: Optional[pulumi.Input[_builtins.str]] = None):
+                 status: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] status: The status of the feature. Valid values are `ENABLED` or `DISABLED`.
         """
@@ -419,19 +419,19 @@ class FeaturesCapabilitiesCreateLifecycleCreateArgs:
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The status of the feature. Valid values are `ENABLED` or `DISABLED`.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
 
 class FeaturesCapabilitiesImportRulesArgsDict(TypedDict):
-    user_create_and_match: NotRequired[pulumi.Input['FeaturesCapabilitiesImportRulesUserCreateAndMatchArgsDict']]
+    user_create_and_match: NotRequired[pulumi.Input[Optional['FeaturesCapabilitiesImportRulesUserCreateAndMatchArgs']]]
     """
     (Optional) Block for user matching and creation rules:
     """
@@ -439,7 +439,7 @@ class FeaturesCapabilitiesImportRulesArgsDict(TypedDict):
 @pulumi.input_type
 class FeaturesCapabilitiesImportRulesArgs:
     def __init__(__self__, *,
-                 user_create_and_match: Optional[pulumi.Input['FeaturesCapabilitiesImportRulesUserCreateAndMatchArgs']] = None):
+                 user_create_and_match: pulumi.Input[Optional['FeaturesCapabilitiesImportRulesUserCreateAndMatchArgs']] = None):
         """
         :param pulumi.Input['FeaturesCapabilitiesImportRulesUserCreateAndMatchArgs'] user_create_and_match: (Optional) Block for user matching and creation rules:
         """
@@ -448,39 +448,39 @@ class FeaturesCapabilitiesImportRulesArgs:
 
     @_builtins.property
     @pulumi.getter(name="userCreateAndMatch")
-    def user_create_and_match(self) -> Optional[pulumi.Input['FeaturesCapabilitiesImportRulesUserCreateAndMatchArgs']]:
+    def user_create_and_match(self) -> pulumi.Input[Optional['FeaturesCapabilitiesImportRulesUserCreateAndMatchArgs']]:
         """
         (Optional) Block for user matching and creation rules:
         """
         return pulumi.get(self, "user_create_and_match")
 
     @user_create_and_match.setter
-    def user_create_and_match(self, value: Optional[pulumi.Input['FeaturesCapabilitiesImportRulesUserCreateAndMatchArgs']]):
+    def user_create_and_match(self, value: pulumi.Input[Optional['FeaturesCapabilitiesImportRulesUserCreateAndMatchArgs']]):
         pulumi.set(self, "user_create_and_match", value)
 
 
 class FeaturesCapabilitiesImportRulesUserCreateAndMatchArgsDict(TypedDict):
-    allow_partial_match: NotRequired[pulumi.Input[_builtins.bool]]
+    allow_partial_match: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     (Optional) Whether to allow partial matching based on first and last names.
     """
-    auto_activate_new_users: NotRequired[pulumi.Input[_builtins.bool]]
+    auto_activate_new_users: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     (Optional) Whether imported new users are automatically activated.
     """
-    autoconfirm_exact_match: NotRequired[pulumi.Input[_builtins.bool]]
+    autoconfirm_exact_match: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     (Optional) Whether exact-matched users are automatically confirmed.
     """
-    autoconfirm_new_users: NotRequired[pulumi.Input[_builtins.bool]]
+    autoconfirm_new_users: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     (Optional) Whether imported new users are automatically confirmed.
     """
-    autoconfirm_partial_match: NotRequired[pulumi.Input[_builtins.bool]]
+    autoconfirm_partial_match: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     (Optional) Whether partially matched users are automatically confirmed.
     """
-    exact_match_criteria: NotRequired[pulumi.Input[_builtins.str]]
+    exact_match_criteria: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     (Optional) Attribute used for exact matching (e.g., `USERNAME`, `EMAIL`).
     """
@@ -488,12 +488,12 @@ class FeaturesCapabilitiesImportRulesUserCreateAndMatchArgsDict(TypedDict):
 @pulumi.input_type
 class FeaturesCapabilitiesImportRulesUserCreateAndMatchArgs:
     def __init__(__self__, *,
-                 allow_partial_match: Optional[pulumi.Input[_builtins.bool]] = None,
-                 auto_activate_new_users: Optional[pulumi.Input[_builtins.bool]] = None,
-                 autoconfirm_exact_match: Optional[pulumi.Input[_builtins.bool]] = None,
-                 autoconfirm_new_users: Optional[pulumi.Input[_builtins.bool]] = None,
-                 autoconfirm_partial_match: Optional[pulumi.Input[_builtins.bool]] = None,
-                 exact_match_criteria: Optional[pulumi.Input[_builtins.str]] = None):
+                 allow_partial_match: pulumi.Input[Optional[_builtins.bool]] = None,
+                 auto_activate_new_users: pulumi.Input[Optional[_builtins.bool]] = None,
+                 autoconfirm_exact_match: pulumi.Input[Optional[_builtins.bool]] = None,
+                 autoconfirm_new_users: pulumi.Input[Optional[_builtins.bool]] = None,
+                 autoconfirm_partial_match: pulumi.Input[Optional[_builtins.bool]] = None,
+                 exact_match_criteria: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.bool] allow_partial_match: (Optional) Whether to allow partial matching based on first and last names.
         :param pulumi.Input[_builtins.bool] auto_activate_new_users: (Optional) Whether imported new users are automatically activated.
@@ -517,83 +517,83 @@ class FeaturesCapabilitiesImportRulesUserCreateAndMatchArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowPartialMatch")
-    def allow_partial_match(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def allow_partial_match(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         (Optional) Whether to allow partial matching based on first and last names.
         """
         return pulumi.get(self, "allow_partial_match")
 
     @allow_partial_match.setter
-    def allow_partial_match(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def allow_partial_match(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "allow_partial_match", value)
 
     @_builtins.property
     @pulumi.getter(name="autoActivateNewUsers")
-    def auto_activate_new_users(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def auto_activate_new_users(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         (Optional) Whether imported new users are automatically activated.
         """
         return pulumi.get(self, "auto_activate_new_users")
 
     @auto_activate_new_users.setter
-    def auto_activate_new_users(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def auto_activate_new_users(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "auto_activate_new_users", value)
 
     @_builtins.property
     @pulumi.getter(name="autoconfirmExactMatch")
-    def autoconfirm_exact_match(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def autoconfirm_exact_match(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         (Optional) Whether exact-matched users are automatically confirmed.
         """
         return pulumi.get(self, "autoconfirm_exact_match")
 
     @autoconfirm_exact_match.setter
-    def autoconfirm_exact_match(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def autoconfirm_exact_match(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "autoconfirm_exact_match", value)
 
     @_builtins.property
     @pulumi.getter(name="autoconfirmNewUsers")
-    def autoconfirm_new_users(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def autoconfirm_new_users(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         (Optional) Whether imported new users are automatically confirmed.
         """
         return pulumi.get(self, "autoconfirm_new_users")
 
     @autoconfirm_new_users.setter
-    def autoconfirm_new_users(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def autoconfirm_new_users(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "autoconfirm_new_users", value)
 
     @_builtins.property
     @pulumi.getter(name="autoconfirmPartialMatch")
-    def autoconfirm_partial_match(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def autoconfirm_partial_match(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         (Optional) Whether partially matched users are automatically confirmed.
         """
         return pulumi.get(self, "autoconfirm_partial_match")
 
     @autoconfirm_partial_match.setter
-    def autoconfirm_partial_match(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def autoconfirm_partial_match(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "autoconfirm_partial_match", value)
 
     @_builtins.property
     @pulumi.getter(name="exactMatchCriteria")
-    def exact_match_criteria(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def exact_match_criteria(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Optional) Attribute used for exact matching (e.g., `USERNAME`, `EMAIL`).
         """
         return pulumi.get(self, "exact_match_criteria")
 
     @exact_match_criteria.setter
-    def exact_match_criteria(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def exact_match_criteria(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "exact_match_criteria", value)
 
 
 class FeaturesCapabilitiesImportSettingsArgsDict(TypedDict):
-    schedule: NotRequired[pulumi.Input['FeaturesCapabilitiesImportSettingsScheduleArgsDict']]
+    schedule: NotRequired[pulumi.Input[Optional['FeaturesCapabilitiesImportSettingsScheduleArgs']]]
     """
     (Optional) Block for import schedule configuration:
     """
-    username: NotRequired[pulumi.Input['FeaturesCapabilitiesImportSettingsUsernameArgsDict']]
+    username: NotRequired[pulumi.Input[Optional['FeaturesCapabilitiesImportSettingsUsernameArgs']]]
     """
     (Optional) Block for username configuration:
     """
@@ -601,8 +601,8 @@ class FeaturesCapabilitiesImportSettingsArgsDict(TypedDict):
 @pulumi.input_type
 class FeaturesCapabilitiesImportSettingsArgs:
     def __init__(__self__, *,
-                 schedule: Optional[pulumi.Input['FeaturesCapabilitiesImportSettingsScheduleArgs']] = None,
-                 username: Optional[pulumi.Input['FeaturesCapabilitiesImportSettingsUsernameArgs']] = None):
+                 schedule: pulumi.Input[Optional['FeaturesCapabilitiesImportSettingsScheduleArgs']] = None,
+                 username: pulumi.Input[Optional['FeaturesCapabilitiesImportSettingsUsernameArgs']] = None):
         """
         :param pulumi.Input['FeaturesCapabilitiesImportSettingsScheduleArgs'] schedule: (Optional) Block for import schedule configuration:
         :param pulumi.Input['FeaturesCapabilitiesImportSettingsUsernameArgs'] username: (Optional) Block for username configuration:
@@ -614,39 +614,39 @@ class FeaturesCapabilitiesImportSettingsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def schedule(self) -> Optional[pulumi.Input['FeaturesCapabilitiesImportSettingsScheduleArgs']]:
+    def schedule(self) -> pulumi.Input[Optional['FeaturesCapabilitiesImportSettingsScheduleArgs']]:
         """
         (Optional) Block for import schedule configuration:
         """
         return pulumi.get(self, "schedule")
 
     @schedule.setter
-    def schedule(self, value: Optional[pulumi.Input['FeaturesCapabilitiesImportSettingsScheduleArgs']]):
+    def schedule(self, value: pulumi.Input[Optional['FeaturesCapabilitiesImportSettingsScheduleArgs']]):
         pulumi.set(self, "schedule", value)
 
     @_builtins.property
     @pulumi.getter
-    def username(self) -> Optional[pulumi.Input['FeaturesCapabilitiesImportSettingsUsernameArgs']]:
+    def username(self) -> pulumi.Input[Optional['FeaturesCapabilitiesImportSettingsUsernameArgs']]:
         """
         (Optional) Block for username configuration:
         """
         return pulumi.get(self, "username")
 
     @username.setter
-    def username(self, value: Optional[pulumi.Input['FeaturesCapabilitiesImportSettingsUsernameArgs']]):
+    def username(self, value: pulumi.Input[Optional['FeaturesCapabilitiesImportSettingsUsernameArgs']]):
         pulumi.set(self, "username", value)
 
 
 class FeaturesCapabilitiesImportSettingsScheduleArgsDict(TypedDict):
-    full_import: NotRequired[pulumi.Input['FeaturesCapabilitiesImportSettingsScheduleFullImportArgsDict']]
+    full_import: NotRequired[pulumi.Input[Optional['FeaturesCapabilitiesImportSettingsScheduleFullImportArgs']]]
     """
     (Optional) Block for full import schedule:
     """
-    incremental_import: NotRequired[pulumi.Input['FeaturesCapabilitiesImportSettingsScheduleIncrementalImportArgsDict']]
+    incremental_import: NotRequired[pulumi.Input[Optional['FeaturesCapabilitiesImportSettingsScheduleIncrementalImportArgs']]]
     """
     (Optional) Block for incremental import schedule:
     """
-    status: NotRequired[pulumi.Input[_builtins.str]]
+    status: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The status of the feature. Valid values are `ENABLED` or `DISABLED`.
     """
@@ -654,9 +654,9 @@ class FeaturesCapabilitiesImportSettingsScheduleArgsDict(TypedDict):
 @pulumi.input_type
 class FeaturesCapabilitiesImportSettingsScheduleArgs:
     def __init__(__self__, *,
-                 full_import: Optional[pulumi.Input['FeaturesCapabilitiesImportSettingsScheduleFullImportArgs']] = None,
-                 incremental_import: Optional[pulumi.Input['FeaturesCapabilitiesImportSettingsScheduleIncrementalImportArgs']] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None):
+                 full_import: pulumi.Input[Optional['FeaturesCapabilitiesImportSettingsScheduleFullImportArgs']] = None,
+                 incremental_import: pulumi.Input[Optional['FeaturesCapabilitiesImportSettingsScheduleIncrementalImportArgs']] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input['FeaturesCapabilitiesImportSettingsScheduleFullImportArgs'] full_import: (Optional) Block for full import schedule:
         :param pulumi.Input['FeaturesCapabilitiesImportSettingsScheduleIncrementalImportArgs'] incremental_import: (Optional) Block for incremental import schedule:
@@ -671,47 +671,47 @@ class FeaturesCapabilitiesImportSettingsScheduleArgs:
 
     @_builtins.property
     @pulumi.getter(name="fullImport")
-    def full_import(self) -> Optional[pulumi.Input['FeaturesCapabilitiesImportSettingsScheduleFullImportArgs']]:
+    def full_import(self) -> pulumi.Input[Optional['FeaturesCapabilitiesImportSettingsScheduleFullImportArgs']]:
         """
         (Optional) Block for full import schedule:
         """
         return pulumi.get(self, "full_import")
 
     @full_import.setter
-    def full_import(self, value: Optional[pulumi.Input['FeaturesCapabilitiesImportSettingsScheduleFullImportArgs']]):
+    def full_import(self, value: pulumi.Input[Optional['FeaturesCapabilitiesImportSettingsScheduleFullImportArgs']]):
         pulumi.set(self, "full_import", value)
 
     @_builtins.property
     @pulumi.getter(name="incrementalImport")
-    def incremental_import(self) -> Optional[pulumi.Input['FeaturesCapabilitiesImportSettingsScheduleIncrementalImportArgs']]:
+    def incremental_import(self) -> pulumi.Input[Optional['FeaturesCapabilitiesImportSettingsScheduleIncrementalImportArgs']]:
         """
         (Optional) Block for incremental import schedule:
         """
         return pulumi.get(self, "incremental_import")
 
     @incremental_import.setter
-    def incremental_import(self, value: Optional[pulumi.Input['FeaturesCapabilitiesImportSettingsScheduleIncrementalImportArgs']]):
+    def incremental_import(self, value: pulumi.Input[Optional['FeaturesCapabilitiesImportSettingsScheduleIncrementalImportArgs']]):
         pulumi.set(self, "incremental_import", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The status of the feature. Valid values are `ENABLED` or `DISABLED`.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
 
 class FeaturesCapabilitiesImportSettingsScheduleFullImportArgsDict(TypedDict):
-    expression: NotRequired[pulumi.Input[_builtins.str]]
+    expression: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     (Optional) UNIX cron expression for incremental import schedule.
     """
-    timezone: NotRequired[pulumi.Input[_builtins.str]]
+    timezone: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     (Optional) IANA timezone name for the schedule.
     """
@@ -719,8 +719,8 @@ class FeaturesCapabilitiesImportSettingsScheduleFullImportArgsDict(TypedDict):
 @pulumi.input_type
 class FeaturesCapabilitiesImportSettingsScheduleFullImportArgs:
     def __init__(__self__, *,
-                 expression: Optional[pulumi.Input[_builtins.str]] = None,
-                 timezone: Optional[pulumi.Input[_builtins.str]] = None):
+                 expression: pulumi.Input[Optional[_builtins.str]] = None,
+                 timezone: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] expression: (Optional) UNIX cron expression for incremental import schedule.
         :param pulumi.Input[_builtins.str] timezone: (Optional) IANA timezone name for the schedule.
@@ -732,35 +732,35 @@ class FeaturesCapabilitiesImportSettingsScheduleFullImportArgs:
 
     @_builtins.property
     @pulumi.getter
-    def expression(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def expression(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Optional) UNIX cron expression for incremental import schedule.
         """
         return pulumi.get(self, "expression")
 
     @expression.setter
-    def expression(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def expression(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "expression", value)
 
     @_builtins.property
     @pulumi.getter
-    def timezone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def timezone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Optional) IANA timezone name for the schedule.
         """
         return pulumi.get(self, "timezone")
 
     @timezone.setter
-    def timezone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def timezone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "timezone", value)
 
 
 class FeaturesCapabilitiesImportSettingsScheduleIncrementalImportArgsDict(TypedDict):
-    expression: NotRequired[pulumi.Input[_builtins.str]]
+    expression: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     (Optional) UNIX cron expression for incremental import schedule.
     """
-    timezone: NotRequired[pulumi.Input[_builtins.str]]
+    timezone: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     (Optional) IANA timezone name for the schedule.
     """
@@ -768,8 +768,8 @@ class FeaturesCapabilitiesImportSettingsScheduleIncrementalImportArgsDict(TypedD
 @pulumi.input_type
 class FeaturesCapabilitiesImportSettingsScheduleIncrementalImportArgs:
     def __init__(__self__, *,
-                 expression: Optional[pulumi.Input[_builtins.str]] = None,
-                 timezone: Optional[pulumi.Input[_builtins.str]] = None):
+                 expression: pulumi.Input[Optional[_builtins.str]] = None,
+                 timezone: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] expression: (Optional) UNIX cron expression for incremental import schedule.
         :param pulumi.Input[_builtins.str] timezone: (Optional) IANA timezone name for the schedule.
@@ -781,35 +781,35 @@ class FeaturesCapabilitiesImportSettingsScheduleIncrementalImportArgs:
 
     @_builtins.property
     @pulumi.getter
-    def expression(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def expression(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Optional) UNIX cron expression for incremental import schedule.
         """
         return pulumi.get(self, "expression")
 
     @expression.setter
-    def expression(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def expression(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "expression", value)
 
     @_builtins.property
     @pulumi.getter
-    def timezone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def timezone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Optional) IANA timezone name for the schedule.
         """
         return pulumi.get(self, "timezone")
 
     @timezone.setter
-    def timezone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def timezone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "timezone", value)
 
 
 class FeaturesCapabilitiesImportSettingsUsernameArgsDict(TypedDict):
-    username_expression: NotRequired[pulumi.Input[_builtins.str]]
+    username_expression: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     (Optional) Okta Expression Language statement for custom username format.
     """
-    username_format: NotRequired[pulumi.Input[_builtins.str]]
+    username_format: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     (Optional) Format for usernames (e.g., `EMAIL`, `CUSTOM`).
     """
@@ -817,8 +817,8 @@ class FeaturesCapabilitiesImportSettingsUsernameArgsDict(TypedDict):
 @pulumi.input_type
 class FeaturesCapabilitiesImportSettingsUsernameArgs:
     def __init__(__self__, *,
-                 username_expression: Optional[pulumi.Input[_builtins.str]] = None,
-                 username_format: Optional[pulumi.Input[_builtins.str]] = None):
+                 username_expression: pulumi.Input[Optional[_builtins.str]] = None,
+                 username_format: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] username_expression: (Optional) Okta Expression Language statement for custom username format.
         :param pulumi.Input[_builtins.str] username_format: (Optional) Format for usernames (e.g., `EMAIL`, `CUSTOM`).
@@ -830,39 +830,39 @@ class FeaturesCapabilitiesImportSettingsUsernameArgs:
 
     @_builtins.property
     @pulumi.getter(name="usernameExpression")
-    def username_expression(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def username_expression(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Optional) Okta Expression Language statement for custom username format.
         """
         return pulumi.get(self, "username_expression")
 
     @username_expression.setter
-    def username_expression(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def username_expression(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "username_expression", value)
 
     @_builtins.property
     @pulumi.getter(name="usernameFormat")
-    def username_format(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def username_format(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Optional) Format for usernames (e.g., `EMAIL`, `CUSTOM`).
         """
         return pulumi.get(self, "username_format")
 
     @username_format.setter
-    def username_format(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def username_format(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "username_format", value)
 
 
 class FeaturesCapabilitiesUpdateArgsDict(TypedDict):
-    lifecycle_deactivate: NotRequired[pulumi.Input['FeaturesCapabilitiesUpdateLifecycleDeactivateArgsDict']]
+    lifecycle_deactivate: NotRequired[pulumi.Input[Optional['FeaturesCapabilitiesUpdateLifecycleDeactivateArgs']]]
     """
     (Optional) Block for deactivation lifecycle configuration:
     """
-    password: NotRequired[pulumi.Input['FeaturesCapabilitiesUpdatePasswordArgsDict']]
+    password: NotRequired[pulumi.Input[Optional['FeaturesCapabilitiesUpdatePasswordArgs']]]
     """
     (Optional) Block for password synchronization settings:
     """
-    profile: NotRequired[pulumi.Input['FeaturesCapabilitiesUpdateProfileArgsDict']]
+    profile: NotRequired[pulumi.Input[Optional['FeaturesCapabilitiesUpdateProfileArgs']]]
     """
     (Optional) Block for profile update settings:
     """
@@ -870,9 +870,9 @@ class FeaturesCapabilitiesUpdateArgsDict(TypedDict):
 @pulumi.input_type
 class FeaturesCapabilitiesUpdateArgs:
     def __init__(__self__, *,
-                 lifecycle_deactivate: Optional[pulumi.Input['FeaturesCapabilitiesUpdateLifecycleDeactivateArgs']] = None,
-                 password: Optional[pulumi.Input['FeaturesCapabilitiesUpdatePasswordArgs']] = None,
-                 profile: Optional[pulumi.Input['FeaturesCapabilitiesUpdateProfileArgs']] = None):
+                 lifecycle_deactivate: pulumi.Input[Optional['FeaturesCapabilitiesUpdateLifecycleDeactivateArgs']] = None,
+                 password: pulumi.Input[Optional['FeaturesCapabilitiesUpdatePasswordArgs']] = None,
+                 profile: pulumi.Input[Optional['FeaturesCapabilitiesUpdateProfileArgs']] = None):
         """
         :param pulumi.Input['FeaturesCapabilitiesUpdateLifecycleDeactivateArgs'] lifecycle_deactivate: (Optional) Block for deactivation lifecycle configuration:
         :param pulumi.Input['FeaturesCapabilitiesUpdatePasswordArgs'] password: (Optional) Block for password synchronization settings:
@@ -887,43 +887,43 @@ class FeaturesCapabilitiesUpdateArgs:
 
     @_builtins.property
     @pulumi.getter(name="lifecycleDeactivate")
-    def lifecycle_deactivate(self) -> Optional[pulumi.Input['FeaturesCapabilitiesUpdateLifecycleDeactivateArgs']]:
+    def lifecycle_deactivate(self) -> pulumi.Input[Optional['FeaturesCapabilitiesUpdateLifecycleDeactivateArgs']]:
         """
         (Optional) Block for deactivation lifecycle configuration:
         """
         return pulumi.get(self, "lifecycle_deactivate")
 
     @lifecycle_deactivate.setter
-    def lifecycle_deactivate(self, value: Optional[pulumi.Input['FeaturesCapabilitiesUpdateLifecycleDeactivateArgs']]):
+    def lifecycle_deactivate(self, value: pulumi.Input[Optional['FeaturesCapabilitiesUpdateLifecycleDeactivateArgs']]):
         pulumi.set(self, "lifecycle_deactivate", value)
 
     @_builtins.property
     @pulumi.getter
-    def password(self) -> Optional[pulumi.Input['FeaturesCapabilitiesUpdatePasswordArgs']]:
+    def password(self) -> pulumi.Input[Optional['FeaturesCapabilitiesUpdatePasswordArgs']]:
         """
         (Optional) Block for password synchronization settings:
         """
         return pulumi.get(self, "password")
 
     @password.setter
-    def password(self, value: Optional[pulumi.Input['FeaturesCapabilitiesUpdatePasswordArgs']]):
+    def password(self, value: pulumi.Input[Optional['FeaturesCapabilitiesUpdatePasswordArgs']]):
         pulumi.set(self, "password", value)
 
     @_builtins.property
     @pulumi.getter
-    def profile(self) -> Optional[pulumi.Input['FeaturesCapabilitiesUpdateProfileArgs']]:
+    def profile(self) -> pulumi.Input[Optional['FeaturesCapabilitiesUpdateProfileArgs']]:
         """
         (Optional) Block for profile update settings:
         """
         return pulumi.get(self, "profile")
 
     @profile.setter
-    def profile(self, value: Optional[pulumi.Input['FeaturesCapabilitiesUpdateProfileArgs']]):
+    def profile(self, value: pulumi.Input[Optional['FeaturesCapabilitiesUpdateProfileArgs']]):
         pulumi.set(self, "profile", value)
 
 
 class FeaturesCapabilitiesUpdateLifecycleDeactivateArgsDict(TypedDict):
-    status: NotRequired[pulumi.Input[_builtins.str]]
+    status: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The status of the feature. Valid values are `ENABLED` or `DISABLED`.
     """
@@ -931,7 +931,7 @@ class FeaturesCapabilitiesUpdateLifecycleDeactivateArgsDict(TypedDict):
 @pulumi.input_type
 class FeaturesCapabilitiesUpdateLifecycleDeactivateArgs:
     def __init__(__self__, *,
-                 status: Optional[pulumi.Input[_builtins.str]] = None):
+                 status: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] status: The status of the feature. Valid values are `ENABLED` or `DISABLED`.
         """
@@ -940,27 +940,27 @@ class FeaturesCapabilitiesUpdateLifecycleDeactivateArgs:
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The status of the feature. Valid values are `ENABLED` or `DISABLED`.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
 
 class FeaturesCapabilitiesUpdatePasswordArgsDict(TypedDict):
-    change: NotRequired[pulumi.Input[_builtins.str]]
+    change: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     (Optional) Determines password change behavior. Valid values are `CHANGE` or `KEEP_EXISTING`.
     """
-    seed: NotRequired[pulumi.Input[_builtins.str]]
+    seed: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     (Optional) Determines password source. Valid values are `OKTA` or `RANDOM`.
     """
-    status: NotRequired[pulumi.Input[_builtins.str]]
+    status: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The status of the feature. Valid values are `ENABLED` or `DISABLED`.
     """
@@ -968,9 +968,9 @@ class FeaturesCapabilitiesUpdatePasswordArgsDict(TypedDict):
 @pulumi.input_type
 class FeaturesCapabilitiesUpdatePasswordArgs:
     def __init__(__self__, *,
-                 change: Optional[pulumi.Input[_builtins.str]] = None,
-                 seed: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None):
+                 change: pulumi.Input[Optional[_builtins.str]] = None,
+                 seed: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] change: (Optional) Determines password change behavior. Valid values are `CHANGE` or `KEEP_EXISTING`.
         :param pulumi.Input[_builtins.str] seed: (Optional) Determines password source. Valid values are `OKTA` or `RANDOM`.
@@ -985,43 +985,43 @@ class FeaturesCapabilitiesUpdatePasswordArgs:
 
     @_builtins.property
     @pulumi.getter
-    def change(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def change(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Optional) Determines password change behavior. Valid values are `CHANGE` or `KEEP_EXISTING`.
         """
         return pulumi.get(self, "change")
 
     @change.setter
-    def change(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def change(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "change", value)
 
     @_builtins.property
     @pulumi.getter
-    def seed(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def seed(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Optional) Determines password source. Valid values are `OKTA` or `RANDOM`.
         """
         return pulumi.get(self, "seed")
 
     @seed.setter
-    def seed(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def seed(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "seed", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The status of the feature. Valid values are `ENABLED` or `DISABLED`.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
 
 class FeaturesCapabilitiesUpdateProfileArgsDict(TypedDict):
-    status: NotRequired[pulumi.Input[_builtins.str]]
+    status: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The status of the feature. Valid values are `ENABLED` or `DISABLED`.
     """
@@ -1029,7 +1029,7 @@ class FeaturesCapabilitiesUpdateProfileArgsDict(TypedDict):
 @pulumi.input_type
 class FeaturesCapabilitiesUpdateProfileArgs:
     def __init__(__self__, *,
-                 status: Optional[pulumi.Input[_builtins.str]] = None):
+                 status: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] status: The status of the feature. Valid values are `ENABLED` or `DISABLED`.
         """
@@ -1038,14 +1038,14 @@ class FeaturesCapabilitiesUpdateProfileArgs:
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The status of the feature. Valid values are `ENABLED` or `DISABLED`.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
 
@@ -1062,11 +1062,11 @@ class OAuthGroupsClaimArgsDict(TypedDict):
     """
     Value of the claim. Can be an Okta Expression Language statement that evaluates at the time the token is minted.
     """
-    filter_type: NotRequired[pulumi.Input[_builtins.str]]
+    filter_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Groups claim filter. Can only be set if type is FILTER.
     """
-    issuer_mode: NotRequired[pulumi.Input[_builtins.str]]
+    issuer_mode: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Issuer mode inherited from OAuth App
     """
@@ -1077,8 +1077,8 @@ class OAuthGroupsClaimArgs:
                  name: pulumi.Input[_builtins.str],
                  type: pulumi.Input[_builtins.str],
                  value: pulumi.Input[_builtins.str],
-                 filter_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 issuer_mode: Optional[pulumi.Input[_builtins.str]] = None):
+                 filter_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 issuer_mode: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: Name of the claim that will be used in the token.
         :param pulumi.Input[_builtins.str] type: Groups claim type.
@@ -1132,26 +1132,26 @@ class OAuthGroupsClaimArgs:
 
     @_builtins.property
     @pulumi.getter(name="filterType")
-    def filter_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def filter_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Groups claim filter. Can only be set if type is FILTER.
         """
         return pulumi.get(self, "filter_type")
 
     @filter_type.setter
-    def filter_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def filter_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "filter_type", value)
 
     @_builtins.property
     @pulumi.getter(name="issuerMode")
-    def issuer_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def issuer_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Issuer mode inherited from OAuth App
         """
         return pulumi.get(self, "issuer_mode")
 
     @issuer_mode.setter
-    def issuer_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def issuer_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "issuer_mode", value)
 
 
@@ -1164,19 +1164,19 @@ class OAuthJwkArgsDict(TypedDict):
     """
     Key type
     """
-    e: NotRequired[pulumi.Input[_builtins.str]]
+    e: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     RSA Exponent
     """
-    n: NotRequired[pulumi.Input[_builtins.str]]
+    n: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     RSA Modulus
     """
-    x: NotRequired[pulumi.Input[_builtins.str]]
+    x: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     X coordinate of the elliptic curve point
     """
-    y: NotRequired[pulumi.Input[_builtins.str]]
+    y: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Y coordinate of the elliptic curve point
     """
@@ -1186,10 +1186,10 @@ class OAuthJwkArgs:
     def __init__(__self__, *,
                  kid: pulumi.Input[_builtins.str],
                  kty: pulumi.Input[_builtins.str],
-                 e: Optional[pulumi.Input[_builtins.str]] = None,
-                 n: Optional[pulumi.Input[_builtins.str]] = None,
-                 x: Optional[pulumi.Input[_builtins.str]] = None,
-                 y: Optional[pulumi.Input[_builtins.str]] = None):
+                 e: pulumi.Input[Optional[_builtins.str]] = None,
+                 n: pulumi.Input[Optional[_builtins.str]] = None,
+                 x: pulumi.Input[Optional[_builtins.str]] = None,
+                 y: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] kid: Key ID
         :param pulumi.Input[_builtins.str] kty: Key type
@@ -1235,50 +1235,50 @@ class OAuthJwkArgs:
 
     @_builtins.property
     @pulumi.getter
-    def e(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def e(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         RSA Exponent
         """
         return pulumi.get(self, "e")
 
     @e.setter
-    def e(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def e(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "e", value)
 
     @_builtins.property
     @pulumi.getter
-    def n(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def n(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         RSA Modulus
         """
         return pulumi.get(self, "n")
 
     @n.setter
-    def n(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def n(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "n", value)
 
     @_builtins.property
     @pulumi.getter
-    def x(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def x(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         X coordinate of the elliptic curve point
         """
         return pulumi.get(self, "x")
 
     @x.setter
-    def x(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def x(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "x", value)
 
     @_builtins.property
     @pulumi.getter
-    def y(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def y(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Y coordinate of the elliptic curve point
         """
         return pulumi.get(self, "y")
 
     @y.setter
-    def y(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def y(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "y", value)
 
 
@@ -1287,11 +1287,11 @@ class OAuthNetworkArgsDict(TypedDict):
     """
     The network connection type. Can be `ANYWHERE` or `ZONE`.
     """
-    excludes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    excludes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The network zones to exclude. Only applicable when `connection` is `ZONE`. Accepts `ALL_IP_ZONES` or specific zone IDs. Defaults to no zones excluded if not specified.
     """
-    includes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    includes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The network zones to include. Only applicable when `connection` is `ZONE`. Accepts `ALL_IP_ZONES` or specific zone IDs. Defaults to no zones included if not specified.
     """
@@ -1300,8 +1300,8 @@ class OAuthNetworkArgsDict(TypedDict):
 class OAuthNetworkArgs:
     def __init__(__self__, *,
                  connection: pulumi.Input[_builtins.str],
-                 excludes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 includes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 excludes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 includes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] connection: The network connection type. Can be `ANYWHERE` or `ZONE`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] excludes: The network zones to exclude. Only applicable when `connection` is `ZONE`. Accepts `ALL_IP_ZONES` or specific zone IDs. Defaults to no zones excluded if not specified.
@@ -1327,26 +1327,26 @@ class OAuthNetworkArgs:
 
     @_builtins.property
     @pulumi.getter
-    def excludes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def excludes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The network zones to exclude. Only applicable when `connection` is `ZONE`. Accepts `ALL_IP_ZONES` or specific zone IDs. Defaults to no zones excluded if not specified.
         """
         return pulumi.get(self, "excludes")
 
     @excludes.setter
-    def excludes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def excludes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "excludes", value)
 
     @_builtins.property
     @pulumi.getter
-    def includes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def includes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The network zones to include. Only applicable when `connection` is `ZONE`. Accepts `ALL_IP_ZONES` or specific zone IDs. Defaults to no zones included if not specified.
         """
         return pulumi.get(self, "includes")
 
     @includes.setter
-    def includes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def includes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "includes", value)
 
 
@@ -1386,33 +1386,33 @@ class SamlAttributeStatementArgsDict(TypedDict):
     """
     The reference name of the attribute statement
     """
-    filter_type: NotRequired[pulumi.Input[_builtins.str]]
+    filter_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Type of group attribute filter. Valid values are: `STARTS_WITH`, `EQUALS`, `CONTAINS`, or `REGEX`
     """
-    filter_value: NotRequired[pulumi.Input[_builtins.str]]
+    filter_value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Filter value to use
     """
-    namespace: NotRequired[pulumi.Input[_builtins.str]]
+    namespace: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The attribute namespace. It can be set to `urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified`, `urn:oasis:names:tc:SAML:2.0:attrname-format:uri`, or `urn:oasis:names:tc:SAML:2.0:attrname-format:basic`
     """
-    type: NotRequired[pulumi.Input[_builtins.str]]
+    type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The type of attribute statements object
     """
-    values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
 
 @pulumi.input_type
 class SamlAttributeStatementArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 filter_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 filter_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 namespace: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 filter_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 filter_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 namespace: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The reference name of the attribute statement
         :param pulumi.Input[_builtins.str] filter_type: Type of group attribute filter. Valid values are: `STARTS_WITH`, `EQUALS`, `CONTAINS`, or `REGEX`
@@ -1446,100 +1446,100 @@ class SamlAttributeStatementArgs:
 
     @_builtins.property
     @pulumi.getter(name="filterType")
-    def filter_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def filter_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of group attribute filter. Valid values are: `STARTS_WITH`, `EQUALS`, `CONTAINS`, or `REGEX`
         """
         return pulumi.get(self, "filter_type")
 
     @filter_type.setter
-    def filter_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def filter_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "filter_type", value)
 
     @_builtins.property
     @pulumi.getter(name="filterValue")
-    def filter_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def filter_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Filter value to use
         """
         return pulumi.get(self, "filter_value")
 
     @filter_value.setter
-    def filter_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def filter_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "filter_value", value)
 
     @_builtins.property
     @pulumi.getter
-    def namespace(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def namespace(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The attribute namespace. It can be set to `urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified`, `urn:oasis:names:tc:SAML:2.0:attrname-format:uri`, or `urn:oasis:names:tc:SAML:2.0:attrname-format:basic`
         """
         return pulumi.get(self, "namespace")
 
     @namespace.setter
-    def namespace(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def namespace(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "namespace", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of attribute statements object
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
     @_builtins.property
     @pulumi.getter
-    def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "values")
 
     @values.setter
-    def values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "values", value)
 
 
 class SamlKeyArgsDict(TypedDict):
-    created: NotRequired[pulumi.Input[_builtins.str]]
+    created: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Created date
     """
-    e: NotRequired[pulumi.Input[_builtins.str]]
+    e: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     RSA exponent
     """
-    expires_at: NotRequired[pulumi.Input[_builtins.str]]
+    expires_at: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Expiration date
     """
-    kid: NotRequired[pulumi.Input[_builtins.str]]
+    kid: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Key ID
     """
-    kty: NotRequired[pulumi.Input[_builtins.str]]
+    kty: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Key type. Identifies the cryptographic algorithm family used with the key.
     """
-    last_updated: NotRequired[pulumi.Input[_builtins.str]]
+    last_updated: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Last updated date
     """
-    n: NotRequired[pulumi.Input[_builtins.str]]
+    n: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     RSA modulus
     """
-    use: NotRequired[pulumi.Input[_builtins.str]]
+    use: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Intended use of the public key.
     """
-    x5cs: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    x5cs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     X.509 Certificate Chain
     """
-    x5t_s256: NotRequired[pulumi.Input[_builtins.str]]
+    x5t_s256: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     X.509 certificate SHA-256 thumbprint
     """
@@ -1547,16 +1547,16 @@ class SamlKeyArgsDict(TypedDict):
 @pulumi.input_type
 class SamlKeyArgs:
     def __init__(__self__, *,
-                 created: Optional[pulumi.Input[_builtins.str]] = None,
-                 e: Optional[pulumi.Input[_builtins.str]] = None,
-                 expires_at: Optional[pulumi.Input[_builtins.str]] = None,
-                 kid: Optional[pulumi.Input[_builtins.str]] = None,
-                 kty: Optional[pulumi.Input[_builtins.str]] = None,
-                 last_updated: Optional[pulumi.Input[_builtins.str]] = None,
-                 n: Optional[pulumi.Input[_builtins.str]] = None,
-                 use: Optional[pulumi.Input[_builtins.str]] = None,
-                 x5cs: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 x5t_s256: Optional[pulumi.Input[_builtins.str]] = None):
+                 created: pulumi.Input[Optional[_builtins.str]] = None,
+                 e: pulumi.Input[Optional[_builtins.str]] = None,
+                 expires_at: pulumi.Input[Optional[_builtins.str]] = None,
+                 kid: pulumi.Input[Optional[_builtins.str]] = None,
+                 kty: pulumi.Input[Optional[_builtins.str]] = None,
+                 last_updated: pulumi.Input[Optional[_builtins.str]] = None,
+                 n: pulumi.Input[Optional[_builtins.str]] = None,
+                 use: pulumi.Input[Optional[_builtins.str]] = None,
+                 x5cs: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 x5t_s256: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] created: Created date
         :param pulumi.Input[_builtins.str] e: RSA exponent
@@ -1592,122 +1592,122 @@ class SamlKeyArgs:
 
     @_builtins.property
     @pulumi.getter
-    def created(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def created(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Created date
         """
         return pulumi.get(self, "created")
 
     @created.setter
-    def created(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def created(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "created", value)
 
     @_builtins.property
     @pulumi.getter
-    def e(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def e(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         RSA exponent
         """
         return pulumi.get(self, "e")
 
     @e.setter
-    def e(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def e(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "e", value)
 
     @_builtins.property
     @pulumi.getter(name="expiresAt")
-    def expires_at(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def expires_at(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Expiration date
         """
         return pulumi.get(self, "expires_at")
 
     @expires_at.setter
-    def expires_at(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def expires_at(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "expires_at", value)
 
     @_builtins.property
     @pulumi.getter
-    def kid(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kid(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Key ID
         """
         return pulumi.get(self, "kid")
 
     @kid.setter
-    def kid(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kid(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kid", value)
 
     @_builtins.property
     @pulumi.getter
-    def kty(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kty(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Key type. Identifies the cryptographic algorithm family used with the key.
         """
         return pulumi.get(self, "kty")
 
     @kty.setter
-    def kty(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kty(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kty", value)
 
     @_builtins.property
     @pulumi.getter(name="lastUpdated")
-    def last_updated(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def last_updated(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Last updated date
         """
         return pulumi.get(self, "last_updated")
 
     @last_updated.setter
-    def last_updated(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def last_updated(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "last_updated", value)
 
     @_builtins.property
     @pulumi.getter
-    def n(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def n(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         RSA modulus
         """
         return pulumi.get(self, "n")
 
     @n.setter
-    def n(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def n(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "n", value)
 
     @_builtins.property
     @pulumi.getter
-    def use(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def use(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Intended use of the public key.
         """
         return pulumi.get(self, "use")
 
     @use.setter
-    def use(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def use(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "use", value)
 
     @_builtins.property
     @pulumi.getter
-    def x5cs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def x5cs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         X.509 Certificate Chain
         """
         return pulumi.get(self, "x5cs")
 
     @x5cs.setter
-    def x5cs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def x5cs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "x5cs", value)
 
     @_builtins.property
     @pulumi.getter(name="x5tS256")
-    def x5t_s256(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def x5t_s256(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         X.509 certificate SHA-256 thumbprint
         """
         return pulumi.get(self, "x5t_s256")
 
     @x5t_s256.setter
-    def x5t_s256(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def x5t_s256(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "x5t_s256", value)
 
 
@@ -1716,107 +1716,107 @@ class SignonPolicyRulesRuleArgsDict(TypedDict):
     """
     Policy Rule Name. Must be unique within the policy.
     """
-    access: NotRequired[pulumi.Input[_builtins.str]]
+    access: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Access decision: ALLOW or DENY.
     """
-    chains: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    chains: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of authentication method chain objects as JSON-encoded strings. Use with `type = "AUTH_METHOD_CHAIN"` only.
     """
-    constraints: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    constraints: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of authenticator constraints as JSON-encoded strings.
     """
-    custom_expression: NotRequired[pulumi.Input[_builtins.str]]
+    custom_expression: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Custom Okta Expression Language condition for advanced matching.
     """
-    device_assurances_includeds: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    device_assurances_includeds: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Set of device assurance policy IDs to include.
     """
-    device_is_managed: NotRequired[pulumi.Input[_builtins.bool]]
+    device_is_managed: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Require device to be managed by a device management system.
     """
-    device_is_registered: NotRequired[pulumi.Input[_builtins.bool]]
+    device_is_registered: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Require device to be registered with Okta Verify.
     """
-    factor_mode: NotRequired[pulumi.Input[_builtins.str]]
+    factor_mode: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Number of factors required: 1FA or 2FA.
     """
-    groups_excludeds: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    groups_excludeds: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Set of group IDs to exclude from this rule.
     """
-    groups_includeds: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    groups_includeds: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Set of group IDs to include in this rule.
     """
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     (String) - The ID of this resource (same as `policy_id`).
     """
-    inactivity_period: NotRequired[pulumi.Input[_builtins.str]]
+    inactivity_period: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Inactivity period before re-authentication in ISO 8601 duration format.
     """
-    network_connection: NotRequired[pulumi.Input[_builtins.str]]
+    network_connection: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Network selection mode: ANYWHERE, ZONE, ON_NETWORK, or OFF_NETWORK.
     """
-    network_excludes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    network_excludes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of network zone IDs to exclude.
     """
-    network_includes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    network_includes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of network zone IDs to include.
     """
-    platform_includes: NotRequired[pulumi.Input[Sequence[pulumi.Input['SignonPolicyRulesRulePlatformIncludeArgsDict']]]]
+    platform_includes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SignonPolicyRulesRulePlatformIncludeArgs']]]]]
     """
     Platform conditions to include.
     """
-    priority: NotRequired[pulumi.Input[_builtins.int]]
+    priority: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Priority of the rule. Lower numbers are evaluated first.
     """
-    re_authentication_frequency: NotRequired[pulumi.Input[_builtins.str]]
+    re_authentication_frequency: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Re-authentication frequency in ISO 8601 duration format (e.g., PT2H for 2 hours). When using authentication chains with reauthenticateIn, this value is computed by the API based on the chain configuration.
     """
-    risk_score: NotRequired[pulumi.Input[_builtins.str]]
+    risk_score: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Risk score level to match: ANY, LOW, MEDIUM, or HIGH.
     """
-    status: NotRequired[pulumi.Input[_builtins.str]]
+    status: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Status of the rule: ACTIVE or INACTIVE.
     """
-    system: NotRequired[pulumi.Input[_builtins.bool]]
+    system: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether this is a system rule (e.g., Catch-all Rule). System rules cannot be modified.
     """
-    type: NotRequired[pulumi.Input[_builtins.str]]
+    type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Verification method type.
     """
-    user_types_excludeds: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    user_types_excludeds: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Set of user type IDs to exclude.
     """
-    user_types_includeds: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    user_types_includeds: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Set of user type IDs to include.
     """
-    users_excludeds: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    users_excludeds: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Set of user IDs to exclude from this rule.
     """
-    users_includeds: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    users_includeds: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Set of user IDs to include in this rule.
     """
@@ -1825,32 +1825,32 @@ class SignonPolicyRulesRuleArgsDict(TypedDict):
 class SignonPolicyRulesRuleArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 access: Optional[pulumi.Input[_builtins.str]] = None,
-                 chains: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 constraints: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 custom_expression: Optional[pulumi.Input[_builtins.str]] = None,
-                 device_assurances_includeds: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 device_is_managed: Optional[pulumi.Input[_builtins.bool]] = None,
-                 device_is_registered: Optional[pulumi.Input[_builtins.bool]] = None,
-                 factor_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 groups_excludeds: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 groups_includeds: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 inactivity_period: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_connection: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 network_includes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 platform_includes: Optional[pulumi.Input[Sequence[pulumi.Input['SignonPolicyRulesRulePlatformIncludeArgs']]]] = None,
-                 priority: Optional[pulumi.Input[_builtins.int]] = None,
-                 re_authentication_frequency: Optional[pulumi.Input[_builtins.str]] = None,
-                 risk_score: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 system: Optional[pulumi.Input[_builtins.bool]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_types_excludeds: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 user_types_includeds: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 users_excludeds: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 users_includeds: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 access: pulumi.Input[Optional[_builtins.str]] = None,
+                 chains: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 constraints: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 custom_expression: pulumi.Input[Optional[_builtins.str]] = None,
+                 device_assurances_includeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 device_is_managed: pulumi.Input[Optional[_builtins.bool]] = None,
+                 device_is_registered: pulumi.Input[Optional[_builtins.bool]] = None,
+                 factor_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 groups_excludeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 groups_includeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 inactivity_period: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_connection: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_excludes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 network_includes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 platform_includes: pulumi.Input[Optional[Sequence[pulumi.Input['SignonPolicyRulesRulePlatformIncludeArgs']]]] = None,
+                 priority: pulumi.Input[Optional[_builtins.int]] = None,
+                 re_authentication_frequency: pulumi.Input[Optional[_builtins.str]] = None,
+                 risk_score: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 system: pulumi.Input[Optional[_builtins.bool]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_types_excludeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 user_types_includeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 users_excludeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 users_includeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] name: Policy Rule Name. Must be unique within the policy.
         :param pulumi.Input[_builtins.str] access: Access decision: ALLOW or DENY.
@@ -1948,327 +1948,327 @@ class SignonPolicyRulesRuleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def access(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def access(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Access decision: ALLOW or DENY.
         """
         return pulumi.get(self, "access")
 
     @access.setter
-    def access(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def access(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "access", value)
 
     @_builtins.property
     @pulumi.getter
-    def chains(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def chains(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of authentication method chain objects as JSON-encoded strings. Use with `type = "AUTH_METHOD_CHAIN"` only.
         """
         return pulumi.get(self, "chains")
 
     @chains.setter
-    def chains(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def chains(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "chains", value)
 
     @_builtins.property
     @pulumi.getter
-    def constraints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def constraints(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of authenticator constraints as JSON-encoded strings.
         """
         return pulumi.get(self, "constraints")
 
     @constraints.setter
-    def constraints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def constraints(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "constraints", value)
 
     @_builtins.property
     @pulumi.getter(name="customExpression")
-    def custom_expression(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def custom_expression(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Custom Okta Expression Language condition for advanced matching.
         """
         return pulumi.get(self, "custom_expression")
 
     @custom_expression.setter
-    def custom_expression(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def custom_expression(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "custom_expression", value)
 
     @_builtins.property
     @pulumi.getter(name="deviceAssurancesIncludeds")
-    def device_assurances_includeds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def device_assurances_includeds(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Set of device assurance policy IDs to include.
         """
         return pulumi.get(self, "device_assurances_includeds")
 
     @device_assurances_includeds.setter
-    def device_assurances_includeds(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def device_assurances_includeds(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "device_assurances_includeds", value)
 
     @_builtins.property
     @pulumi.getter(name="deviceIsManaged")
-    def device_is_managed(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def device_is_managed(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Require device to be managed by a device management system.
         """
         return pulumi.get(self, "device_is_managed")
 
     @device_is_managed.setter
-    def device_is_managed(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def device_is_managed(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "device_is_managed", value)
 
     @_builtins.property
     @pulumi.getter(name="deviceIsRegistered")
-    def device_is_registered(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def device_is_registered(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Require device to be registered with Okta Verify.
         """
         return pulumi.get(self, "device_is_registered")
 
     @device_is_registered.setter
-    def device_is_registered(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def device_is_registered(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "device_is_registered", value)
 
     @_builtins.property
     @pulumi.getter(name="factorMode")
-    def factor_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def factor_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Number of factors required: 1FA or 2FA.
         """
         return pulumi.get(self, "factor_mode")
 
     @factor_mode.setter
-    def factor_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def factor_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "factor_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="groupsExcludeds")
-    def groups_excludeds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def groups_excludeds(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Set of group IDs to exclude from this rule.
         """
         return pulumi.get(self, "groups_excludeds")
 
     @groups_excludeds.setter
-    def groups_excludeds(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def groups_excludeds(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "groups_excludeds", value)
 
     @_builtins.property
     @pulumi.getter(name="groupsIncludeds")
-    def groups_includeds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def groups_includeds(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Set of group IDs to include in this rule.
         """
         return pulumi.get(self, "groups_includeds")
 
     @groups_includeds.setter
-    def groups_includeds(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def groups_includeds(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "groups_includeds", value)
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (String) - The ID of this resource (same as `policy_id`).
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter(name="inactivityPeriod")
-    def inactivity_period(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def inactivity_period(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Inactivity period before re-authentication in ISO 8601 duration format.
         """
         return pulumi.get(self, "inactivity_period")
 
     @inactivity_period.setter
-    def inactivity_period(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def inactivity_period(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "inactivity_period", value)
 
     @_builtins.property
     @pulumi.getter(name="networkConnection")
-    def network_connection(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def network_connection(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Network selection mode: ANYWHERE, ZONE, ON_NETWORK, or OFF_NETWORK.
         """
         return pulumi.get(self, "network_connection")
 
     @network_connection.setter
-    def network_connection(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def network_connection(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "network_connection", value)
 
     @_builtins.property
     @pulumi.getter(name="networkExcludes")
-    def network_excludes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def network_excludes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of network zone IDs to exclude.
         """
         return pulumi.get(self, "network_excludes")
 
     @network_excludes.setter
-    def network_excludes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def network_excludes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "network_excludes", value)
 
     @_builtins.property
     @pulumi.getter(name="networkIncludes")
-    def network_includes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def network_includes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of network zone IDs to include.
         """
         return pulumi.get(self, "network_includes")
 
     @network_includes.setter
-    def network_includes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def network_includes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "network_includes", value)
 
     @_builtins.property
     @pulumi.getter(name="platformIncludes")
-    def platform_includes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SignonPolicyRulesRulePlatformIncludeArgs']]]]:
+    def platform_includes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SignonPolicyRulesRulePlatformIncludeArgs']]]]:
         """
         Platform conditions to include.
         """
         return pulumi.get(self, "platform_includes")
 
     @platform_includes.setter
-    def platform_includes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SignonPolicyRulesRulePlatformIncludeArgs']]]]):
+    def platform_includes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SignonPolicyRulesRulePlatformIncludeArgs']]]]):
         pulumi.set(self, "platform_includes", value)
 
     @_builtins.property
     @pulumi.getter
-    def priority(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def priority(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Priority of the rule. Lower numbers are evaluated first.
         """
         return pulumi.get(self, "priority")
 
     @priority.setter
-    def priority(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def priority(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "priority", value)
 
     @_builtins.property
     @pulumi.getter(name="reAuthenticationFrequency")
-    def re_authentication_frequency(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def re_authentication_frequency(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Re-authentication frequency in ISO 8601 duration format (e.g., PT2H for 2 hours). When using authentication chains with reauthenticateIn, this value is computed by the API based on the chain configuration.
         """
         return pulumi.get(self, "re_authentication_frequency")
 
     @re_authentication_frequency.setter
-    def re_authentication_frequency(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def re_authentication_frequency(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "re_authentication_frequency", value)
 
     @_builtins.property
     @pulumi.getter(name="riskScore")
-    def risk_score(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def risk_score(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Risk score level to match: ANY, LOW, MEDIUM, or HIGH.
         """
         return pulumi.get(self, "risk_score")
 
     @risk_score.setter
-    def risk_score(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def risk_score(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "risk_score", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Status of the rule: ACTIVE or INACTIVE.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter
-    def system(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def system(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether this is a system rule (e.g., Catch-all Rule). System rules cannot be modified.
         """
         return pulumi.get(self, "system")
 
     @system.setter
-    def system(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def system(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "system", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Verification method type.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
     @_builtins.property
     @pulumi.getter(name="userTypesExcludeds")
-    def user_types_excludeds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def user_types_excludeds(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Set of user type IDs to exclude.
         """
         return pulumi.get(self, "user_types_excludeds")
 
     @user_types_excludeds.setter
-    def user_types_excludeds(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def user_types_excludeds(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "user_types_excludeds", value)
 
     @_builtins.property
     @pulumi.getter(name="userTypesIncludeds")
-    def user_types_includeds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def user_types_includeds(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Set of user type IDs to include.
         """
         return pulumi.get(self, "user_types_includeds")
 
     @user_types_includeds.setter
-    def user_types_includeds(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def user_types_includeds(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "user_types_includeds", value)
 
     @_builtins.property
     @pulumi.getter(name="usersExcludeds")
-    def users_excludeds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def users_excludeds(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Set of user IDs to exclude from this rule.
         """
         return pulumi.get(self, "users_excludeds")
 
     @users_excludeds.setter
-    def users_excludeds(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def users_excludeds(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "users_excludeds", value)
 
     @_builtins.property
     @pulumi.getter(name="usersIncludeds")
-    def users_includeds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def users_includeds(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Set of user IDs to include in this rule.
         """
         return pulumi.get(self, "users_includeds")
 
     @users_includeds.setter
-    def users_includeds(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def users_includeds(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "users_includeds", value)
 
 
 class SignonPolicyRulesRulePlatformIncludeArgsDict(TypedDict):
-    os_expression: NotRequired[pulumi.Input[_builtins.str]]
+    os_expression: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Custom OS expression for advanced matching. Required by the API when os_type is OTHER (leave empty or omit to match any OTHER OS). The API normalizes empty and wildcard values to null on read; the provider preserves "" in state.
     """
-    os_type: NotRequired[pulumi.Input[_builtins.str]]
+    os_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     OS type: ANY, IOS, ANDROID, WINDOWS, OSX, MACOS, CHROMEOS, or OTHER.
     """
-    type: NotRequired[pulumi.Input[_builtins.str]]
+    type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Platform type: ANY, MOBILE, or DESKTOP.
     """
@@ -2276,9 +2276,9 @@ class SignonPolicyRulesRulePlatformIncludeArgsDict(TypedDict):
 @pulumi.input_type
 class SignonPolicyRulesRulePlatformIncludeArgs:
     def __init__(__self__, *,
-                 os_expression: Optional[pulumi.Input[_builtins.str]] = None,
-                 os_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None):
+                 os_expression: pulumi.Input[Optional[_builtins.str]] = None,
+                 os_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] os_expression: Custom OS expression for advanced matching. Required by the API when os_type is OTHER (leave empty or omit to match any OTHER OS). The API normalizes empty and wildcard values to null on read; the provider preserves "" in state.
         :param pulumi.Input[_builtins.str] os_type: OS type: ANY, IOS, ANDROID, WINDOWS, OSX, MACOS, CHROMEOS, or OTHER.
@@ -2293,38 +2293,38 @@ class SignonPolicyRulesRulePlatformIncludeArgs:
 
     @_builtins.property
     @pulumi.getter(name="osExpression")
-    def os_expression(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def os_expression(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Custom OS expression for advanced matching. Required by the API when os_type is OTHER (leave empty or omit to match any OTHER OS). The API normalizes empty and wildcard values to null on read; the provider preserves "" in state.
         """
         return pulumi.get(self, "os_expression")
 
     @os_expression.setter
-    def os_expression(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def os_expression(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "os_expression", value)
 
     @_builtins.property
     @pulumi.getter(name="osType")
-    def os_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def os_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         OS type: ANY, IOS, ANDROID, WINDOWS, OSX, MACOS, CHROMEOS, or OTHER.
         """
         return pulumi.get(self, "os_type")
 
     @os_type.setter
-    def os_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def os_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "os_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Platform type: ANY, MOBILE, or DESKTOP.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
 

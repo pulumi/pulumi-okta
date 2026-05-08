@@ -205,79 +205,79 @@ export interface BookmarkState {
     /**
      * Custom error page URL
      */
-    accessibilityErrorRedirectUrl?: pulumi.Input<string>;
+    accessibilityErrorRedirectUrl?: pulumi.Input<string | undefined>;
     /**
      * Custom login page URL
      */
-    accessibilityLoginRedirectUrl?: pulumi.Input<string>;
+    accessibilityLoginRedirectUrl?: pulumi.Input<string | undefined>;
     /**
      * Enable self service. Default is `false`
      */
-    accessibilitySelfService?: pulumi.Input<boolean>;
+    accessibilitySelfService?: pulumi.Input<boolean | undefined>;
     /**
      * Application notes for admins.
      */
-    adminNote?: pulumi.Input<string>;
+    adminNote?: pulumi.Input<string | undefined>;
     /**
      * Displays specific appLinks for the app. The value for each application link should be boolean.
      */
-    appLinksJson?: pulumi.Input<string>;
+    appLinksJson?: pulumi.Input<string | undefined>;
     /**
      * The ID of the associated app*signon*policy. If this property is removed from the application the default sign-on-policy will be associated with this application.
      */
-    authenticationPolicy?: pulumi.Input<string>;
+    authenticationPolicy?: pulumi.Input<string | undefined>;
     /**
      * Display auto submit toolbar
      */
-    autoSubmitToolbar?: pulumi.Input<boolean>;
+    autoSubmitToolbar?: pulumi.Input<boolean | undefined>;
     /**
      * Application notes for end users.
      */
-    enduserNote?: pulumi.Input<string>;
+    enduserNote?: pulumi.Input<string | undefined>;
     /**
      * Do not display application icon on mobile app
      */
-    hideIos?: pulumi.Input<boolean>;
+    hideIos?: pulumi.Input<boolean | undefined>;
     /**
      * Do not display application icon to users
      */
-    hideWeb?: pulumi.Input<boolean>;
+    hideWeb?: pulumi.Input<boolean | undefined>;
     /**
      * The Application's display name.
      */
-    label?: pulumi.Input<string>;
+    label?: pulumi.Input<string | undefined>;
     /**
      * Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
      */
-    logo?: pulumi.Input<string>;
+    logo?: pulumi.Input<string | undefined>;
     /**
      * URL of the application's logo
      */
-    logoUrl?: pulumi.Input<string>;
+    logoUrl?: pulumi.Input<string | undefined>;
     /**
      * Name of the app.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Would you like Okta to add an integration for this app?
      */
-    requestIntegration?: pulumi.Input<boolean>;
+    requestIntegration?: pulumi.Input<boolean | undefined>;
     /**
      * Sign on mode of application.
      */
-    signOnMode?: pulumi.Input<string>;
+    signOnMode?: pulumi.Input<string | undefined>;
     /**
      * When set to true, the provider will not assign or read the authentication policy for this application. This can be useful when the caller lacks the permissions to read or manage policies, or to reduce API calls against the `/api/v1/apps` rate limit.
      */
-    skipAuthenticationPolicy?: pulumi.Input<boolean>;
+    skipAuthenticationPolicy?: pulumi.Input<boolean | undefined>;
     /**
      * Status of application. By default, it is `ACTIVE`
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * The URL of the bookmark.
      */
-    url?: pulumi.Input<string>;
+    url?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -287,43 +287,43 @@ export interface BookmarkArgs {
     /**
      * Custom error page URL
      */
-    accessibilityErrorRedirectUrl?: pulumi.Input<string>;
+    accessibilityErrorRedirectUrl?: pulumi.Input<string | undefined>;
     /**
      * Custom login page URL
      */
-    accessibilityLoginRedirectUrl?: pulumi.Input<string>;
+    accessibilityLoginRedirectUrl?: pulumi.Input<string | undefined>;
     /**
      * Enable self service. Default is `false`
      */
-    accessibilitySelfService?: pulumi.Input<boolean>;
+    accessibilitySelfService?: pulumi.Input<boolean | undefined>;
     /**
      * Application notes for admins.
      */
-    adminNote?: pulumi.Input<string>;
+    adminNote?: pulumi.Input<string | undefined>;
     /**
      * Displays specific appLinks for the app. The value for each application link should be boolean.
      */
-    appLinksJson?: pulumi.Input<string>;
+    appLinksJson?: pulumi.Input<string | undefined>;
     /**
      * The ID of the associated app*signon*policy. If this property is removed from the application the default sign-on-policy will be associated with this application.
      */
-    authenticationPolicy?: pulumi.Input<string>;
+    authenticationPolicy?: pulumi.Input<string | undefined>;
     /**
      * Display auto submit toolbar
      */
-    autoSubmitToolbar?: pulumi.Input<boolean>;
+    autoSubmitToolbar?: pulumi.Input<boolean | undefined>;
     /**
      * Application notes for end users.
      */
-    enduserNote?: pulumi.Input<string>;
+    enduserNote?: pulumi.Input<string | undefined>;
     /**
      * Do not display application icon on mobile app
      */
-    hideIos?: pulumi.Input<boolean>;
+    hideIos?: pulumi.Input<boolean | undefined>;
     /**
      * Do not display application icon to users
      */
-    hideWeb?: pulumi.Input<boolean>;
+    hideWeb?: pulumi.Input<boolean | undefined>;
     /**
      * The Application's display name.
      */
@@ -331,19 +331,19 @@ export interface BookmarkArgs {
     /**
      * Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
      */
-    logo?: pulumi.Input<string>;
+    logo?: pulumi.Input<string | undefined>;
     /**
      * Would you like Okta to add an integration for this app?
      */
-    requestIntegration?: pulumi.Input<boolean>;
+    requestIntegration?: pulumi.Input<boolean | undefined>;
     /**
      * When set to true, the provider will not assign or read the authentication policy for this application. This can be useful when the caller lacks the permissions to read or manage policies, or to reduce API calls against the `/api/v1/apps` rate limit.
      */
-    skipAuthenticationPolicy?: pulumi.Input<boolean>;
+    skipAuthenticationPolicy?: pulumi.Input<boolean | undefined>;
     /**
      * Status of application. By default, it is `ACTIVE`
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * The URL of the bookmark.
      */

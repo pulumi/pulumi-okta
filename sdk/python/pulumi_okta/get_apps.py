@@ -171,12 +171,12 @@ def get_apps(active_only: Optional[_builtins.bool] = None,
         label_prefix=pulumi.get(__ret__, 'label_prefix'),
         q=pulumi.get(__ret__, 'q'),
         use_optimization=pulumi.get(__ret__, 'use_optimization'))
-def get_apps_output(active_only: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
-                    include_non_deleted: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
-                    label: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                    label_prefix: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                    q: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                    use_optimization: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
+def get_apps_output(active_only: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
+                    include_non_deleted: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
+                    label: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                    label_prefix: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                    q: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                    use_optimization: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAppsResult]:
     """
     Use this data source to access information about an existing resource.

@@ -22,8 +22,8 @@ __all__ = ['FeatureArgs', 'Feature']
 class FeatureArgs:
     def __init__(__self__, *,
                  feature_id: pulumi.Input[_builtins.str],
-                 life_cycle: Optional[pulumi.Input[_builtins.str]] = None,
-                 mode: Optional[pulumi.Input[_builtins.bool]] = None):
+                 life_cycle: pulumi.Input[Optional[_builtins.str]] = None,
+                 mode: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a Feature resource.
 
@@ -51,40 +51,40 @@ class FeatureArgs:
 
     @_builtins.property
     @pulumi.getter(name="lifeCycle")
-    def life_cycle(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def life_cycle(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Whether to `ENABLE` or `DISABLE` the feature
         """
         return pulumi.get(self, "life_cycle")
 
     @life_cycle.setter
-    def life_cycle(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def life_cycle(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "life_cycle", value)
 
     @_builtins.property
     @pulumi.getter
-    def mode(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def mode(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates if you want to force enable or disable a feature. Value is `true` meaning force
         """
         return pulumi.get(self, "mode")
 
     @mode.setter
-    def mode(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def mode(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "mode", value)
 
 
 @pulumi.input_type
 class _FeatureState:
     def __init__(__self__, *,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 feature_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 life_cycle: Optional[pulumi.Input[_builtins.str]] = None,
-                 mode: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 stage: Optional[pulumi.Input['FeatureStageArgs']] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 feature_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 life_cycle: pulumi.Input[Optional[_builtins.str]] = None,
+                 mode: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 stage: pulumi.Input[Optional['FeatureStageArgs']] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Feature resources.
 
@@ -116,98 +116,98 @@ class _FeatureState:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the feature.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="featureId")
-    def feature_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def feature_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Okta API for feature only reads and updates therefore the okta*feature resource needs to act as a quasi data source. Do this by setting feature*id
         """
         return pulumi.get(self, "feature_id")
 
     @feature_id.setter
-    def feature_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def feature_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "feature_id", value)
 
     @_builtins.property
     @pulumi.getter(name="lifeCycle")
-    def life_cycle(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def life_cycle(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Whether to `ENABLE` or `DISABLE` the feature
         """
         return pulumi.get(self, "life_cycle")
 
     @life_cycle.setter
-    def life_cycle(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def life_cycle(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "life_cycle", value)
 
     @_builtins.property
     @pulumi.getter
-    def mode(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def mode(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates if you want to force enable or disable a feature. Value is `true` meaning force
         """
         return pulumi.get(self, "mode")
 
     @mode.setter
-    def mode(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def mode(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "mode", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the feature.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def stage(self) -> Optional[pulumi.Input['FeatureStageArgs']]:
+    def stage(self) -> pulumi.Input[Optional['FeatureStageArgs']]:
         """
         Current release cycle stage of a feature.
         """
         return pulumi.get(self, "stage")
 
     @stage.setter
-    def stage(self, value: Optional[pulumi.Input['FeatureStageArgs']]):
+    def stage(self, value: pulumi.Input[Optional['FeatureStageArgs']]):
         pulumi.set(self, "stage", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The feature status.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of feature.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
 
@@ -217,9 +217,9 @@ class Feature(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 feature_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 life_cycle: Optional[pulumi.Input[_builtins.str]] = None,
-                 mode: Optional[pulumi.Input[_builtins.bool]] = None,
+                 feature_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 life_cycle: pulumi.Input[Optional[_builtins.str]] = None,
+                 mode: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         Manages brand. This resource allows you to toggle an Okta Feature.
@@ -288,9 +288,9 @@ class Feature(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 feature_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 life_cycle: Optional[pulumi.Input[_builtins.str]] = None,
-                 mode: Optional[pulumi.Input[_builtins.bool]] = None,
+                 feature_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 life_cycle: pulumi.Input[Optional[_builtins.str]] = None,
+                 mode: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -320,14 +320,14 @@ class Feature(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            feature_id: Optional[pulumi.Input[_builtins.str]] = None,
-            life_cycle: Optional[pulumi.Input[_builtins.str]] = None,
-            mode: Optional[pulumi.Input[_builtins.bool]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            stage: Optional[pulumi.Input[Union['FeatureStageArgs', 'FeatureStageArgsDict']]] = None,
-            status: Optional[pulumi.Input[_builtins.str]] = None,
-            type: Optional[pulumi.Input[_builtins.str]] = None) -> 'Feature':
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            feature_id: pulumi.Input[Optional[_builtins.str]] = None,
+            life_cycle: pulumi.Input[Optional[_builtins.str]] = None,
+            mode: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            stage: pulumi.Input[Optional[Union['FeatureStageArgs', 'FeatureStageArgsDict']]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None) -> 'Feature':
         """
         Get an existing Feature resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

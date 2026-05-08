@@ -126,7 +126,7 @@ export interface GetEntitlementBundleOutputArgs {
     /**
      * List of entitlements in the bundle
      */
-    entitlements?: pulumi.Input<pulumi.Input<inputs.GetEntitlementBundleEntitlementArgs>[]>;
+    entitlements?: pulumi.Input<pulumi.Input<inputs.GetEntitlementBundleEntitlementArgs>[] | undefined>;
     /**
      * The ID of this resource.
      */
@@ -134,5 +134,5 @@ export interface GetEntitlementBundleOutputArgs {
     /**
      * Representation of a resource
      */
-    target?: pulumi.Input<inputs.GetEntitlementBundleTargetArgs>;
+    target?: pulumi.Input<inputs.GetEntitlementBundleTargetArgs | undefined>;
 }

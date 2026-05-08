@@ -169,18 +169,18 @@ export function getReviewOutput(args: GetReviewOutputArgs, opts?: pulumi.InvokeO
  * A collection of arguments for invoking getReview.
  */
 export interface GetReviewOutputArgs {
-    allReviewerLevels?: pulumi.Input<pulumi.Input<inputs.GetReviewAllReviewerLevelArgs>[]>;
-    entitlementBundle?: pulumi.Input<inputs.GetReviewEntitlementBundleArgs>;
-    entitlementValue?: pulumi.Input<inputs.GetReviewEntitlementValueArgs>;
+    allReviewerLevels?: pulumi.Input<pulumi.Input<inputs.GetReviewAllReviewerLevelArgs>[] | undefined>;
+    entitlementBundle?: pulumi.Input<inputs.GetReviewEntitlementBundleArgs | undefined>;
+    entitlementValue?: pulumi.Input<inputs.GetReviewEntitlementValueArgs | undefined>;
     /**
      * The ID of  review.
      */
     id: pulumi.Input<string>;
-    links?: pulumi.Input<inputs.GetReviewLinksArgs>;
-    note?: pulumi.Input<inputs.GetReviewNoteArgs>;
+    links?: pulumi.Input<inputs.GetReviewLinksArgs | undefined>;
+    note?: pulumi.Input<inputs.GetReviewNoteArgs | undefined>;
     /**
      * A limited set of properties from the user profile who created the review.
      */
-    principalProfile?: pulumi.Input<inputs.GetReviewPrincipalProfileArgs>;
-    reviewerProfile?: pulumi.Input<inputs.GetReviewReviewerProfileArgs>;
+    principalProfile?: pulumi.Input<inputs.GetReviewPrincipalProfileArgs | undefined>;
+    reviewerProfile?: pulumi.Input<inputs.GetReviewReviewerProfileArgs | undefined>;
 }

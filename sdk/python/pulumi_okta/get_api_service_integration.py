@@ -144,8 +144,8 @@ def get_api_service_integration(granted_scopes: Optional[Sequence[Union['GetApiS
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         type=pulumi.get(__ret__, 'type'))
-def get_api_service_integration_output(granted_scopes: Optional[pulumi.Input[Optional[Sequence[Union['GetApiServiceIntegrationGrantedScopeArgs', 'GetApiServiceIntegrationGrantedScopeArgsDict']]]]] = None,
-                                       id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_api_service_integration_output(granted_scopes: pulumi.Input[Optional[Optional[Sequence[Union['GetApiServiceIntegrationGrantedScopeArgs', 'GetApiServiceIntegrationGrantedScopeArgsDict']]]]] = None,
+                                       id: pulumi.Input[Optional[_builtins.str]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApiServiceIntegrationResult]:
     """
     Retrieves an API Service Integration instance by id

@@ -148,12 +148,12 @@ def get_request_setting_resource(id: Optional[_builtins.str] = None,
         valid_access_duration_settings=pulumi.get(__ret__, 'valid_access_duration_settings'),
         valid_access_scope_settings=pulumi.get(__ret__, 'valid_access_scope_settings'),
         valid_requester_settings=pulumi.get(__ret__, 'valid_requester_settings'))
-def get_request_setting_resource_output(id: Optional[pulumi.Input[_builtins.str]] = None,
-                                        request_on_behalf_of_settings: Optional[pulumi.Input[Optional[Union['GetRequestSettingResourceRequestOnBehalfOfSettingsArgs', 'GetRequestSettingResourceRequestOnBehalfOfSettingsArgsDict']]]] = None,
-                                        risk_settings: Optional[pulumi.Input[Optional[Union['GetRequestSettingResourceRiskSettingsArgs', 'GetRequestSettingResourceRiskSettingsArgsDict']]]] = None,
-                                        valid_access_duration_settings: Optional[pulumi.Input[Optional[Union['GetRequestSettingResourceValidAccessDurationSettingsArgs', 'GetRequestSettingResourceValidAccessDurationSettingsArgsDict']]]] = None,
-                                        valid_access_scope_settings: Optional[pulumi.Input[Optional[Sequence[Union['GetRequestSettingResourceValidAccessScopeSettingArgs', 'GetRequestSettingResourceValidAccessScopeSettingArgsDict']]]]] = None,
-                                        valid_requester_settings: Optional[pulumi.Input[Optional[Sequence[Union['GetRequestSettingResourceValidRequesterSettingArgs', 'GetRequestSettingResourceValidRequesterSettingArgsDict']]]]] = None,
+def get_request_setting_resource_output(id: pulumi.Input[Optional[_builtins.str]] = None,
+                                        request_on_behalf_of_settings: pulumi.Input[Optional[Optional[Union['GetRequestSettingResourceRequestOnBehalfOfSettingsArgs', 'GetRequestSettingResourceRequestOnBehalfOfSettingsArgsDict']]]] = None,
+                                        risk_settings: pulumi.Input[Optional[Optional[Union['GetRequestSettingResourceRiskSettingsArgs', 'GetRequestSettingResourceRiskSettingsArgsDict']]]] = None,
+                                        valid_access_duration_settings: pulumi.Input[Optional[Optional[Union['GetRequestSettingResourceValidAccessDurationSettingsArgs', 'GetRequestSettingResourceValidAccessDurationSettingsArgsDict']]]] = None,
+                                        valid_access_scope_settings: pulumi.Input[Optional[Optional[Sequence[Union['GetRequestSettingResourceValidAccessScopeSettingArgs', 'GetRequestSettingResourceValidAccessScopeSettingArgsDict']]]]] = None,
+                                        valid_requester_settings: pulumi.Input[Optional[Optional[Sequence[Union['GetRequestSettingResourceValidRequesterSettingArgs', 'GetRequestSettingResourceValidRequesterSettingArgsDict']]]]] = None,
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRequestSettingResourceResult]:
     """
     Retrieves the request settings for a resource.

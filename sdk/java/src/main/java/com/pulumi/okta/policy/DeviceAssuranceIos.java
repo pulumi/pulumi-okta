@@ -31,8 +31,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.okta.policy.DeviceAssuranceIos;
  * import com.pulumi.okta.policy.DeviceAssuranceIosArgs;
  * import com.pulumi.std.StdFunctions;
- * import java.util.List;
  * import java.util.ArrayList;
+ * import java.util.Arrays;
  * import java.util.Map;
  * import java.io.File;
  * import java.nio.file.Files;
@@ -48,7 +48,7 @@ import javax.annotation.Nullable;
  *             .name("example")
  *             .osVersion("12.4.5")
  *             .jailbreak(false)
- *             .screenlockTypes(StdFunctions.toset(Map.of("input", "BIOMETRIC")).result())
+ *             .screenlockTypes(StdFunctions.toset(Map.of("input", Arrays.asList("BIOMETRIC"))).result())
  *             .build());
  * 
  *     }

@@ -108,19 +108,19 @@ export interface ResourceSetState {
     /**
      * A description of the Resource Set
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Unique name given to the Resource Set
      */
-    label?: pulumi.Input<string>;
+    label?: pulumi.Input<string | undefined>;
     /**
      * The endpoints that reference the resources to be included in the new Resource Set. At least one endpoint must be specified when creating resource set.
      */
-    resources?: pulumi.Input<pulumi.Input<string>[]>;
+    resources?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The orn(Okta Resource Name) of the resources to be included in the new Resource Set. At least one orn must be specified when creating resource set.
      */
-    resourcesOrns?: pulumi.Input<pulumi.Input<string>[]>;
+    resourcesOrns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 /**
@@ -138,9 +138,9 @@ export interface ResourceSetArgs {
     /**
      * The endpoints that reference the resources to be included in the new Resource Set. At least one endpoint must be specified when creating resource set.
      */
-    resources?: pulumi.Input<pulumi.Input<string>[]>;
+    resources?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The orn(Okta Resource Name) of the resources to be included in the new Resource Set. At least one orn must be specified when creating resource set.
      */
-    resourcesOrns?: pulumi.Input<pulumi.Input<string>[]>;
+    resourcesOrns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

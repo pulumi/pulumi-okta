@@ -163,13 +163,13 @@ export interface GetOidcOutputArgs {
     /**
      * Id of idp.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * Name of the idp.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * OIDC IdP logout endpoint.
      */
-    sloUrl?: pulumi.Input<string>;
+    sloUrl?: pulumi.Input<string | undefined>;
 }

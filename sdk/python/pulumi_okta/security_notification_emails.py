@@ -19,11 +19,11 @@ __all__ = ['SecurityNotificationEmailsArgs', 'SecurityNotificationEmails']
 @pulumi.input_type
 class SecurityNotificationEmailsArgs:
     def __init__(__self__, *,
-                 report_suspicious_activity_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 send_email_for_factor_enrollment_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 send_email_for_factor_reset_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 send_email_for_new_device_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 send_email_for_password_changed_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 report_suspicious_activity_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 send_email_for_factor_enrollment_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 send_email_for_factor_reset_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 send_email_for_new_device_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 send_email_for_password_changed_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a SecurityNotificationEmails resource.
 
@@ -46,73 +46,73 @@ class SecurityNotificationEmailsArgs:
 
     @_builtins.property
     @pulumi.getter(name="reportSuspiciousActivityEnabled")
-    def report_suspicious_activity_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def report_suspicious_activity_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Notifies end users about suspicious or unrecognized activity from their account. Default is `true`.
         """
         return pulumi.get(self, "report_suspicious_activity_enabled")
 
     @report_suspicious_activity_enabled.setter
-    def report_suspicious_activity_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def report_suspicious_activity_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "report_suspicious_activity_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="sendEmailForFactorEnrollmentEnabled")
-    def send_email_for_factor_enrollment_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def send_email_for_factor_enrollment_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Notifies end users of any activity on their account related to MFA factor enrollment. Default is `true`.
         """
         return pulumi.get(self, "send_email_for_factor_enrollment_enabled")
 
     @send_email_for_factor_enrollment_enabled.setter
-    def send_email_for_factor_enrollment_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def send_email_for_factor_enrollment_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "send_email_for_factor_enrollment_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="sendEmailForFactorResetEnabled")
-    def send_email_for_factor_reset_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def send_email_for_factor_reset_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Notifies end users that one or more factors have been reset for their account. Default is `true`.
         """
         return pulumi.get(self, "send_email_for_factor_reset_enabled")
 
     @send_email_for_factor_reset_enabled.setter
-    def send_email_for_factor_reset_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def send_email_for_factor_reset_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "send_email_for_factor_reset_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="sendEmailForNewDeviceEnabled")
-    def send_email_for_new_device_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def send_email_for_new_device_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Notifies end users about new sign-on activity. Default is `true`.
         """
         return pulumi.get(self, "send_email_for_new_device_enabled")
 
     @send_email_for_new_device_enabled.setter
-    def send_email_for_new_device_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def send_email_for_new_device_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "send_email_for_new_device_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="sendEmailForPasswordChangedEnabled")
-    def send_email_for_password_changed_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def send_email_for_password_changed_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Notifies end users that the password for their account has changed. Default is `true`.
         """
         return pulumi.get(self, "send_email_for_password_changed_enabled")
 
     @send_email_for_password_changed_enabled.setter
-    def send_email_for_password_changed_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def send_email_for_password_changed_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "send_email_for_password_changed_enabled", value)
 
 
 @pulumi.input_type
 class _SecurityNotificationEmailsState:
     def __init__(__self__, *,
-                 report_suspicious_activity_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 send_email_for_factor_enrollment_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 send_email_for_factor_reset_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 send_email_for_new_device_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 send_email_for_password_changed_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 report_suspicious_activity_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 send_email_for_factor_enrollment_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 send_email_for_factor_reset_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 send_email_for_new_device_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 send_email_for_password_changed_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering SecurityNotificationEmails resources.
 
@@ -135,62 +135,62 @@ class _SecurityNotificationEmailsState:
 
     @_builtins.property
     @pulumi.getter(name="reportSuspiciousActivityEnabled")
-    def report_suspicious_activity_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def report_suspicious_activity_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Notifies end users about suspicious or unrecognized activity from their account. Default is `true`.
         """
         return pulumi.get(self, "report_suspicious_activity_enabled")
 
     @report_suspicious_activity_enabled.setter
-    def report_suspicious_activity_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def report_suspicious_activity_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "report_suspicious_activity_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="sendEmailForFactorEnrollmentEnabled")
-    def send_email_for_factor_enrollment_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def send_email_for_factor_enrollment_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Notifies end users of any activity on their account related to MFA factor enrollment. Default is `true`.
         """
         return pulumi.get(self, "send_email_for_factor_enrollment_enabled")
 
     @send_email_for_factor_enrollment_enabled.setter
-    def send_email_for_factor_enrollment_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def send_email_for_factor_enrollment_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "send_email_for_factor_enrollment_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="sendEmailForFactorResetEnabled")
-    def send_email_for_factor_reset_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def send_email_for_factor_reset_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Notifies end users that one or more factors have been reset for their account. Default is `true`.
         """
         return pulumi.get(self, "send_email_for_factor_reset_enabled")
 
     @send_email_for_factor_reset_enabled.setter
-    def send_email_for_factor_reset_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def send_email_for_factor_reset_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "send_email_for_factor_reset_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="sendEmailForNewDeviceEnabled")
-    def send_email_for_new_device_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def send_email_for_new_device_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Notifies end users about new sign-on activity. Default is `true`.
         """
         return pulumi.get(self, "send_email_for_new_device_enabled")
 
     @send_email_for_new_device_enabled.setter
-    def send_email_for_new_device_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def send_email_for_new_device_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "send_email_for_new_device_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="sendEmailForPasswordChangedEnabled")
-    def send_email_for_password_changed_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def send_email_for_password_changed_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Notifies end users that the password for their account has changed. Default is `true`.
         """
         return pulumi.get(self, "send_email_for_password_changed_enabled")
 
     @send_email_for_password_changed_enabled.setter
-    def send_email_for_password_changed_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def send_email_for_password_changed_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "send_email_for_password_changed_enabled", value)
 
 
@@ -200,11 +200,11 @@ class SecurityNotificationEmails(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 report_suspicious_activity_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 send_email_for_factor_enrollment_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 send_email_for_factor_reset_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 send_email_for_new_device_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 send_email_for_password_changed_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 report_suspicious_activity_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 send_email_for_factor_enrollment_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 send_email_for_factor_reset_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 send_email_for_new_device_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 send_email_for_password_changed_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         Manages Security Notification Emails
@@ -289,11 +289,11 @@ class SecurityNotificationEmails(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 report_suspicious_activity_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 send_email_for_factor_enrollment_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 send_email_for_factor_reset_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 send_email_for_new_device_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 send_email_for_password_changed_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 report_suspicious_activity_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 send_email_for_factor_enrollment_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 send_email_for_factor_reset_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 send_email_for_new_device_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 send_email_for_password_changed_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -318,11 +318,11 @@ class SecurityNotificationEmails(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            report_suspicious_activity_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            send_email_for_factor_enrollment_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            send_email_for_factor_reset_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            send_email_for_new_device_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            send_email_for_password_changed_enabled: Optional[pulumi.Input[_builtins.bool]] = None) -> 'SecurityNotificationEmails':
+            report_suspicious_activity_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            send_email_for_factor_enrollment_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            send_email_for_factor_reset_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            send_email_for_new_device_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            send_email_for_password_changed_enabled: pulumi.Input[Optional[_builtins.bool]] = None) -> 'SecurityNotificationEmails':
         """
         Get an existing SecurityNotificationEmails resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

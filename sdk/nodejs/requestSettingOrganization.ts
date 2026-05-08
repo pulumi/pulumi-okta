@@ -104,11 +104,11 @@ export interface RequestSettingOrganizationState {
     /**
      * Request condition id.
      */
-    idProperty?: pulumi.Input<string>;
+    idProperty?: pulumi.Input<string | undefined>;
     /**
      * Whether a customer has acknowledged Access Requests subprocessors.
      */
-    subprocessorsAcknowledged?: pulumi.Input<boolean>;
+    subprocessorsAcknowledged?: pulumi.Input<boolean | undefined>;
 }
 
 /**
@@ -122,5 +122,5 @@ export interface RequestSettingOrganizationArgs {
     /**
      * Whether a customer has acknowledged Access Requests subprocessors.
      */
-    subprocessorsAcknowledged?: pulumi.Input<boolean>;
+    subprocessorsAcknowledged?: pulumi.Input<boolean | undefined>;
 }

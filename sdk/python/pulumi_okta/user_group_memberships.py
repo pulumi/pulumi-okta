@@ -58,8 +58,8 @@ class UserGroupMembershipsArgs:
 @pulumi.input_type
 class _UserGroupMembershipsState:
     def __init__(__self__, *,
-                 groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 user_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 user_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering UserGroupMemberships resources.
 
@@ -73,26 +73,26 @@ class _UserGroupMembershipsState:
 
     @_builtins.property
     @pulumi.getter
-    def groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of Okta group IDs which the user should have membership managed for.
         """
         return pulumi.get(self, "groups")
 
     @groups.setter
-    def groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "groups", value)
 
     @_builtins.property
     @pulumi.getter(name="userId")
-    def user_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of a Okta User
         """
         return pulumi.get(self, "user_id")
 
     @user_id.setter
-    def user_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_id", value)
 
 
@@ -102,8 +102,8 @@ class UserGroupMemberships(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 user_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 user_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource to manage a set of group memberships for a specific user. This resource allows you to bulk manage groups for a single user, independent of the user schema itself. This allows you to manage group membership in terraform without overriding other automatic membership operations performed by group rules and other non-managed actions.
@@ -177,8 +177,8 @@ class UserGroupMemberships(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 user_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 user_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -204,8 +204,8 @@ class UserGroupMemberships(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            user_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'UserGroupMemberships':
+            groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            user_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'UserGroupMemberships':
         """
         Get an existing UserGroupMemberships resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

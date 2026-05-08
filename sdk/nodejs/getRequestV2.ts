@@ -128,13 +128,13 @@ export interface GetRequestV2OutputArgs {
     /**
      * A representation of a resource that can be requested for access.
      */
-    requested?: pulumi.Input<inputs.GetRequestV2RequestedArgs>;
+    requested?: pulumi.Input<inputs.GetRequestV2RequestedArgs | undefined>;
     /**
      * A representation of a principal.
      */
-    requestedBy?: pulumi.Input<inputs.GetRequestV2RequestedByArgs>;
+    requestedBy?: pulumi.Input<inputs.GetRequestV2RequestedByArgs | undefined>;
     /**
      * A representation of a principal.
      */
-    requestedFor?: pulumi.Input<inputs.GetRequestV2RequestedForArgs>;
+    requestedFor?: pulumi.Input<inputs.GetRequestV2RequestedForArgs | undefined>;
 }

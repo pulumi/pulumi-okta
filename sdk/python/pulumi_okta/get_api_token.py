@@ -143,8 +143,8 @@ def get_api_token(id: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         network=pulumi.get(__ret__, 'network'),
         user_id=pulumi.get(__ret__, 'user_id'))
-def get_api_token_output(id: Optional[pulumi.Input[_builtins.str]] = None,
-                         network: Optional[pulumi.Input[Optional[Union['GetApiTokenNetworkArgs', 'GetApiTokenNetworkArgsDict']]]] = None,
+def get_api_token_output(id: pulumi.Input[Optional[_builtins.str]] = None,
+                         network: pulumi.Input[Optional[Optional[Union['GetApiTokenNetworkArgs', 'GetApiTokenNetworkArgsDict']]]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApiTokenResult]:
     """
     Use this data source to retrieve information about an Okta API token.

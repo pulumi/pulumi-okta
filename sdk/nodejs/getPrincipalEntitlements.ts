@@ -194,13 +194,13 @@ export interface GetPrincipalEntitlementsOutputArgs {
     /**
      * Principal entitlements list.
      */
-    datas?: pulumi.Input<pulumi.Input<inputs.GetPrincipalEntitlementsDataArgs>[]>;
+    datas?: pulumi.Input<pulumi.Input<inputs.GetPrincipalEntitlementsDataArgs>[] | undefined>;
     /**
      * Representation of a resource.
      */
-    parent?: pulumi.Input<inputs.GetPrincipalEntitlementsParentArgs>;
+    parent?: pulumi.Input<inputs.GetPrincipalEntitlementsParentArgs | undefined>;
     /**
      * Representation of a principal.
      */
-    targetPrincipal?: pulumi.Input<inputs.GetPrincipalEntitlementsTargetPrincipalArgs>;
+    targetPrincipal?: pulumi.Input<inputs.GetPrincipalEntitlementsTargetPrincipalArgs | undefined>;
 }

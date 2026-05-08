@@ -290,123 +290,123 @@ export interface ThreeFieldState {
     /**
      * Custom error page URL
      */
-    accessibilityErrorRedirectUrl?: pulumi.Input<string>;
+    accessibilityErrorRedirectUrl?: pulumi.Input<string | undefined>;
     /**
      * Custom login page URL
      */
-    accessibilityLoginRedirectUrl?: pulumi.Input<string>;
+    accessibilityLoginRedirectUrl?: pulumi.Input<string | undefined>;
     /**
      * Enable self service. Default is `false`
      */
-    accessibilitySelfService?: pulumi.Input<boolean>;
+    accessibilitySelfService?: pulumi.Input<boolean | undefined>;
     /**
      * Application notes for admins.
      */
-    adminNote?: pulumi.Input<string>;
+    adminNote?: pulumi.Input<string | undefined>;
     /**
      * Displays specific appLinks for the app. The value for each application link should be boolean.
      */
-    appLinksJson?: pulumi.Input<string>;
+    appLinksJson?: pulumi.Input<string | undefined>;
     /**
      * Display auto submit toolbar
      */
-    autoSubmitToolbar?: pulumi.Input<boolean>;
+    autoSubmitToolbar?: pulumi.Input<boolean | undefined>;
     /**
      * Login button field CSS selector
      */
-    buttonSelector?: pulumi.Input<string>;
+    buttonSelector?: pulumi.Input<string | undefined>;
     /**
      * Application credentials scheme. One of: `EDIT_USERNAME_AND_PASSWORD`, `ADMIN_SETS_CREDENTIALS`, `EDIT_PASSWORD_ONLY`, `EXTERNAL_PASSWORD_SYNC`, or `SHARED_USERNAME_AND_PASSWORD`
      */
-    credentialsScheme?: pulumi.Input<string>;
+    credentialsScheme?: pulumi.Input<string | undefined>;
     /**
      * Application notes for end users.
      */
-    enduserNote?: pulumi.Input<string>;
+    enduserNote?: pulumi.Input<string | undefined>;
     /**
      * Extra field CSS selector
      */
-    extraFieldSelector?: pulumi.Input<string>;
+    extraFieldSelector?: pulumi.Input<string | undefined>;
     /**
      * Value for extra form field
      */
-    extraFieldValue?: pulumi.Input<string>;
+    extraFieldValue?: pulumi.Input<string | undefined>;
     /**
      * Do not display application icon on mobile app
      */
-    hideIos?: pulumi.Input<boolean>;
+    hideIos?: pulumi.Input<boolean | undefined>;
     /**
      * Do not display application icon to users
      */
-    hideWeb?: pulumi.Input<boolean>;
+    hideWeb?: pulumi.Input<boolean | undefined>;
     /**
      * The Application's display name.
      */
-    label?: pulumi.Input<string>;
+    label?: pulumi.Input<string | undefined>;
     /**
      * Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
      */
-    logo?: pulumi.Input<string>;
+    logo?: pulumi.Input<string | undefined>;
     /**
      * URL of the application's logo
      */
-    logoUrl?: pulumi.Input<string>;
+    logoUrl?: pulumi.Input<string | undefined>;
     /**
      * Name of the app.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Login password field CSS selector
      */
-    passwordSelector?: pulumi.Input<string>;
+    passwordSelector?: pulumi.Input<string | undefined>;
     /**
      * Allow user to reveal password. It can not be set to `true` if `credentialsScheme` is `ADMIN_SETS_CREDENTIALS`, `SHARED_USERNAME_AND_PASSWORD` or `EXTERNAL_PASSWORD_SYNC`.
      */
-    revealPassword?: pulumi.Input<boolean>;
+    revealPassword?: pulumi.Input<boolean | undefined>;
     /**
      * Shared password, required for certain schemes.
      */
-    sharedPassword?: pulumi.Input<string>;
+    sharedPassword?: pulumi.Input<string | undefined>;
     /**
      * Shared username, required for certain schemes.
      */
-    sharedUsername?: pulumi.Input<string>;
+    sharedUsername?: pulumi.Input<string | undefined>;
     /**
      * Sign on mode of application.
      */
-    signOnMode?: pulumi.Input<string>;
+    signOnMode?: pulumi.Input<string | undefined>;
     /**
      * Status of application. By default, it is `ACTIVE`
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * Login URL
      */
-    url?: pulumi.Input<string>;
+    url?: pulumi.Input<string | undefined>;
     /**
      * A regex that further restricts URL to the specified regex
      */
-    urlRegex?: pulumi.Input<string>;
+    urlRegex?: pulumi.Input<string | undefined>;
     /**
      * Username template. Default: `${source.login}`
      */
-    userNameTemplate?: pulumi.Input<string>;
+    userNameTemplate?: pulumi.Input<string | undefined>;
     /**
      * Push username on update. Valid values: `PUSH` and `DONT_PUSH`
      */
-    userNameTemplatePushStatus?: pulumi.Input<string>;
+    userNameTemplatePushStatus?: pulumi.Input<string | undefined>;
     /**
      * Username template suffix
      */
-    userNameTemplateSuffix?: pulumi.Input<string>;
+    userNameTemplateSuffix?: pulumi.Input<string | undefined>;
     /**
      * Username template type. Default: `BUILT_IN`
      */
-    userNameTemplateType?: pulumi.Input<string>;
+    userNameTemplateType?: pulumi.Input<string | undefined>;
     /**
      * Login username field CSS selector
      */
-    usernameSelector?: pulumi.Input<string>;
+    usernameSelector?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -416,27 +416,27 @@ export interface ThreeFieldArgs {
     /**
      * Custom error page URL
      */
-    accessibilityErrorRedirectUrl?: pulumi.Input<string>;
+    accessibilityErrorRedirectUrl?: pulumi.Input<string | undefined>;
     /**
      * Custom login page URL
      */
-    accessibilityLoginRedirectUrl?: pulumi.Input<string>;
+    accessibilityLoginRedirectUrl?: pulumi.Input<string | undefined>;
     /**
      * Enable self service. Default is `false`
      */
-    accessibilitySelfService?: pulumi.Input<boolean>;
+    accessibilitySelfService?: pulumi.Input<boolean | undefined>;
     /**
      * Application notes for admins.
      */
-    adminNote?: pulumi.Input<string>;
+    adminNote?: pulumi.Input<string | undefined>;
     /**
      * Displays specific appLinks for the app. The value for each application link should be boolean.
      */
-    appLinksJson?: pulumi.Input<string>;
+    appLinksJson?: pulumi.Input<string | undefined>;
     /**
      * Display auto submit toolbar
      */
-    autoSubmitToolbar?: pulumi.Input<boolean>;
+    autoSubmitToolbar?: pulumi.Input<boolean | undefined>;
     /**
      * Login button field CSS selector
      */
@@ -444,11 +444,11 @@ export interface ThreeFieldArgs {
     /**
      * Application credentials scheme. One of: `EDIT_USERNAME_AND_PASSWORD`, `ADMIN_SETS_CREDENTIALS`, `EDIT_PASSWORD_ONLY`, `EXTERNAL_PASSWORD_SYNC`, or `SHARED_USERNAME_AND_PASSWORD`
      */
-    credentialsScheme?: pulumi.Input<string>;
+    credentialsScheme?: pulumi.Input<string | undefined>;
     /**
      * Application notes for end users.
      */
-    enduserNote?: pulumi.Input<string>;
+    enduserNote?: pulumi.Input<string | undefined>;
     /**
      * Extra field CSS selector
      */
@@ -460,11 +460,11 @@ export interface ThreeFieldArgs {
     /**
      * Do not display application icon on mobile app
      */
-    hideIos?: pulumi.Input<boolean>;
+    hideIos?: pulumi.Input<boolean | undefined>;
     /**
      * Do not display application icon to users
      */
-    hideWeb?: pulumi.Input<boolean>;
+    hideWeb?: pulumi.Input<boolean | undefined>;
     /**
      * The Application's display name.
      */
@@ -472,7 +472,7 @@ export interface ThreeFieldArgs {
     /**
      * Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
      */
-    logo?: pulumi.Input<string>;
+    logo?: pulumi.Input<string | undefined>;
     /**
      * Login password field CSS selector
      */
@@ -480,19 +480,19 @@ export interface ThreeFieldArgs {
     /**
      * Allow user to reveal password. It can not be set to `true` if `credentialsScheme` is `ADMIN_SETS_CREDENTIALS`, `SHARED_USERNAME_AND_PASSWORD` or `EXTERNAL_PASSWORD_SYNC`.
      */
-    revealPassword?: pulumi.Input<boolean>;
+    revealPassword?: pulumi.Input<boolean | undefined>;
     /**
      * Shared password, required for certain schemes.
      */
-    sharedPassword?: pulumi.Input<string>;
+    sharedPassword?: pulumi.Input<string | undefined>;
     /**
      * Shared username, required for certain schemes.
      */
-    sharedUsername?: pulumi.Input<string>;
+    sharedUsername?: pulumi.Input<string | undefined>;
     /**
      * Status of application. By default, it is `ACTIVE`
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * Login URL
      */
@@ -500,23 +500,23 @@ export interface ThreeFieldArgs {
     /**
      * A regex that further restricts URL to the specified regex
      */
-    urlRegex?: pulumi.Input<string>;
+    urlRegex?: pulumi.Input<string | undefined>;
     /**
      * Username template. Default: `${source.login}`
      */
-    userNameTemplate?: pulumi.Input<string>;
+    userNameTemplate?: pulumi.Input<string | undefined>;
     /**
      * Push username on update. Valid values: `PUSH` and `DONT_PUSH`
      */
-    userNameTemplatePushStatus?: pulumi.Input<string>;
+    userNameTemplatePushStatus?: pulumi.Input<string | undefined>;
     /**
      * Username template suffix
      */
-    userNameTemplateSuffix?: pulumi.Input<string>;
+    userNameTemplateSuffix?: pulumi.Input<string | undefined>;
     /**
      * Username template type. Default: `BUILT_IN`
      */
-    userNameTemplateType?: pulumi.Input<string>;
+    userNameTemplateType?: pulumi.Input<string | undefined>;
     /**
      * Login username field CSS selector
      */

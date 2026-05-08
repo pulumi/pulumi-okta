@@ -20,13 +20,13 @@ __all__ = ['ServerScopeArgs', 'ServerScope']
 class ServerScopeArgs:
     def __init__(__self__, *,
                  auth_server_id: pulumi.Input[_builtins.str],
-                 consent: Optional[pulumi.Input[_builtins.str]] = None,
-                 default: Optional[pulumi.Input[_builtins.bool]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 metadata_publish: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 optional: Optional[pulumi.Input[_builtins.bool]] = None):
+                 consent: pulumi.Input[Optional[_builtins.str]] = None,
+                 default: pulumi.Input[Optional[_builtins.bool]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 metadata_publish: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 optional: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a ServerScope resource.
 
@@ -69,101 +69,101 @@ class ServerScopeArgs:
 
     @_builtins.property
     @pulumi.getter
-    def consent(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def consent(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Indicates whether a consent dialog is needed for the scope. It can be set to `REQUIRED` or `IMPLICIT`. Default: `IMPLICIT`
         """
         return pulumi.get(self, "consent")
 
     @consent.setter
-    def consent(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def consent(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "consent", value)
 
     @_builtins.property
     @pulumi.getter
-    def default(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def default(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A default scope will be returned in an access token when the client omits the scope parameter in a token request, provided this scope is allowed as part of the access policy rule.
         """
         return pulumi.get(self, "default")
 
     @default.setter
-    def default(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def default(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "default", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the Auth Server Scope.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the end user displayed in a consent dialog box
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter(name="metadataPublish")
-    def metadata_publish(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def metadata_publish(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Whether to publish metadata or not. It can be set to `ALL_CLIENTS` or `NO_CLIENTS`. Default: `ALL_CLIENTS`
         """
         return pulumi.get(self, "metadata_publish")
 
     @metadata_publish.setter
-    def metadata_publish(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def metadata_publish(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "metadata_publish", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Auth server scope name
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def optional(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def optional(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the scope optional
         """
         return pulumi.get(self, "optional")
 
     @optional.setter
-    def optional(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def optional(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "optional", value)
 
 
 @pulumi.input_type
 class _ServerScopeState:
     def __init__(__self__, *,
-                 auth_server_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 consent: Optional[pulumi.Input[_builtins.str]] = None,
-                 default: Optional[pulumi.Input[_builtins.bool]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 metadata_publish: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 optional: Optional[pulumi.Input[_builtins.bool]] = None,
-                 system: Optional[pulumi.Input[_builtins.bool]] = None):
+                 auth_server_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 consent: pulumi.Input[Optional[_builtins.str]] = None,
+                 default: pulumi.Input[Optional[_builtins.bool]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 metadata_publish: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 optional: pulumi.Input[Optional[_builtins.bool]] = None,
+                 system: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering ServerScope resources.
 
@@ -198,110 +198,110 @@ class _ServerScopeState:
 
     @_builtins.property
     @pulumi.getter(name="authServerId")
-    def auth_server_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def auth_server_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Auth server ID
         """
         return pulumi.get(self, "auth_server_id")
 
     @auth_server_id.setter
-    def auth_server_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def auth_server_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "auth_server_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def consent(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def consent(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Indicates whether a consent dialog is needed for the scope. It can be set to `REQUIRED` or `IMPLICIT`. Default: `IMPLICIT`
         """
         return pulumi.get(self, "consent")
 
     @consent.setter
-    def consent(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def consent(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "consent", value)
 
     @_builtins.property
     @pulumi.getter
-    def default(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def default(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A default scope will be returned in an access token when the client omits the scope parameter in a token request, provided this scope is allowed as part of the access policy rule.
         """
         return pulumi.get(self, "default")
 
     @default.setter
-    def default(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def default(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "default", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the Auth Server Scope.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the end user displayed in a consent dialog box
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter(name="metadataPublish")
-    def metadata_publish(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def metadata_publish(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Whether to publish metadata or not. It can be set to `ALL_CLIENTS` or `NO_CLIENTS`. Default: `ALL_CLIENTS`
         """
         return pulumi.get(self, "metadata_publish")
 
     @metadata_publish.setter
-    def metadata_publish(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def metadata_publish(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "metadata_publish", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Auth server scope name
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def optional(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def optional(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the scope optional
         """
         return pulumi.get(self, "optional")
 
     @optional.setter
-    def optional(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def optional(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "optional", value)
 
     @_builtins.property
     @pulumi.getter
-    def system(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def system(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether Okta created the Scope
         """
         return pulumi.get(self, "system")
 
     @system.setter
-    def system(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def system(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "system", value)
 
 
@@ -311,14 +311,14 @@ class ServerScope(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auth_server_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 consent: Optional[pulumi.Input[_builtins.str]] = None,
-                 default: Optional[pulumi.Input[_builtins.bool]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 metadata_publish: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 optional: Optional[pulumi.Input[_builtins.bool]] = None,
+                 auth_server_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 consent: pulumi.Input[Optional[_builtins.str]] = None,
+                 default: pulumi.Input[Optional[_builtins.bool]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 metadata_publish: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 optional: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         Creates an Authorization Server Scope. This resource allows you to create and configure an Authorization Server Scope.
@@ -398,14 +398,14 @@ class ServerScope(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auth_server_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 consent: Optional[pulumi.Input[_builtins.str]] = None,
-                 default: Optional[pulumi.Input[_builtins.bool]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 metadata_publish: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 optional: Optional[pulumi.Input[_builtins.bool]] = None,
+                 auth_server_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 consent: pulumi.Input[Optional[_builtins.str]] = None,
+                 default: pulumi.Input[Optional[_builtins.bool]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 metadata_publish: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 optional: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -436,15 +436,15 @@ class ServerScope(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            auth_server_id: Optional[pulumi.Input[_builtins.str]] = None,
-            consent: Optional[pulumi.Input[_builtins.str]] = None,
-            default: Optional[pulumi.Input[_builtins.bool]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            display_name: Optional[pulumi.Input[_builtins.str]] = None,
-            metadata_publish: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            optional: Optional[pulumi.Input[_builtins.bool]] = None,
-            system: Optional[pulumi.Input[_builtins.bool]] = None) -> 'ServerScope':
+            auth_server_id: pulumi.Input[Optional[_builtins.str]] = None,
+            consent: pulumi.Input[Optional[_builtins.str]] = None,
+            default: pulumi.Input[Optional[_builtins.bool]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            metadata_publish: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            optional: pulumi.Input[Optional[_builtins.bool]] = None,
+            system: pulumi.Input[Optional[_builtins.bool]] = None) -> 'ServerScope':
         """
         Get an existing ServerScope resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

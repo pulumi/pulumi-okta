@@ -116,8 +116,8 @@ def get_role_subscription(notification_type: Optional[_builtins.str] = None,
         notification_type=pulumi.get(__ret__, 'notification_type'),
         role_type=pulumi.get(__ret__, 'role_type'),
         status=pulumi.get(__ret__, 'status'))
-def get_role_subscription_output(notification_type: Optional[pulumi.Input[_builtins.str]] = None,
-                                 role_type: Optional[pulumi.Input[_builtins.str]] = None,
+def get_role_subscription_output(notification_type: pulumi.Input[Optional[_builtins.str]] = None,
+                                 role_type: pulumi.Input[Optional[_builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRoleSubscriptionResult]:
     """
     Get subscriptions of a Role with a specific type

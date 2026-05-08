@@ -67,5 +67,5 @@ export function getRequestSettingOrganizationOutput(args?: GetRequestSettingOrga
  * A collection of arguments for invoking getRequestSettingOrganization.
  */
 export interface GetRequestSettingOrganizationOutputArgs {
-    requestExperiences?: pulumi.Input<pulumi.Input<inputs.GetRequestSettingOrganizationRequestExperienceArgs>[]>;
+    requestExperiences?: pulumi.Input<pulumi.Input<inputs.GetRequestSettingOrganizationRequestExperienceArgs>[] | undefined>;
 }

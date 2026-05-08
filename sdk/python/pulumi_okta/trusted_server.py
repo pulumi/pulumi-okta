@@ -58,8 +58,8 @@ class TrustedServerArgs:
 @pulumi.input_type
 class _TrustedServerState:
     def __init__(__self__, *,
-                 auth_server_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 trusteds: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 auth_server_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 trusteds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering TrustedServer resources.
 
@@ -73,26 +73,26 @@ class _TrustedServerState:
 
     @_builtins.property
     @pulumi.getter(name="authServerId")
-    def auth_server_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def auth_server_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Authorization server ID
         """
         return pulumi.get(self, "auth_server_id")
 
     @auth_server_id.setter
-    def auth_server_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def auth_server_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "auth_server_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def trusteds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def trusteds(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of the authorization server IDs user want to trust
         """
         return pulumi.get(self, "trusteds")
 
     @trusteds.setter
-    def trusteds(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def trusteds(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "trusteds", value)
 
 
@@ -102,8 +102,8 @@ class TrustedServer(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auth_server_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 trusteds: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 auth_server_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 trusteds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Associated (Trusted) authorization servers allow you to designate a trusted authorization server that you associate with another authorization server.
@@ -197,8 +197,8 @@ class TrustedServer(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auth_server_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 trusteds: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 auth_server_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 trusteds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -224,8 +224,8 @@ class TrustedServer(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            auth_server_id: Optional[pulumi.Input[_builtins.str]] = None,
-            trusteds: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'TrustedServer':
+            auth_server_id: pulumi.Input[Optional[_builtins.str]] = None,
+            trusteds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'TrustedServer':
         """
         Get an existing TrustedServer resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

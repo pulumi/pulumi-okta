@@ -259,11 +259,11 @@ export interface SignonPolicyRulesState {
     /**
      * ID of the policy to manage rules for.
      */
-    policyId?: pulumi.Input<string>;
+    policyId?: pulumi.Input<string | undefined>;
     /**
      * List of policy rules. Rules are processed in priority order (lowest number = highest priority).
      */
-    rules?: pulumi.Input<pulumi.Input<inputs.app.SignonPolicyRulesRule>[]>;
+    rules?: pulumi.Input<pulumi.Input<inputs.app.SignonPolicyRulesRule>[] | undefined>;
 }
 
 /**
@@ -277,5 +277,5 @@ export interface SignonPolicyRulesArgs {
     /**
      * List of policy rules. Rules are processed in priority order (lowest number = highest priority).
      */
-    rules?: pulumi.Input<pulumi.Input<inputs.app.SignonPolicyRulesRule>[]>;
+    rules?: pulumi.Input<pulumi.Input<inputs.app.SignonPolicyRulesRule>[] | undefined>;
 }

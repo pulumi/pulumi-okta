@@ -22,35 +22,35 @@ class SamlArgs:
                  issuer: pulumi.Input[_builtins.str],
                  kid: pulumi.Input[_builtins.str],
                  sso_url: pulumi.Input[_builtins.str],
-                 account_link_action: Optional[pulumi.Input[_builtins.str]] = None,
-                 account_link_group_includes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 acs_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 deprovisioned_action: Optional[pulumi.Input[_builtins.str]] = None,
-                 groups_action: Optional[pulumi.Input[_builtins.str]] = None,
-                 groups_assignments: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 groups_attribute: Optional[pulumi.Input[_builtins.str]] = None,
-                 groups_filters: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 honor_persistent_name_id: Optional[pulumi.Input[_builtins.bool]] = None,
-                 issuer_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_clock_skew: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name_format: Optional[pulumi.Input[_builtins.str]] = None,
-                 profile_master: Optional[pulumi.Input[_builtins.bool]] = None,
-                 provisioning_action: Optional[pulumi.Input[_builtins.str]] = None,
-                 request_signature_algorithm: Optional[pulumi.Input[_builtins.str]] = None,
-                 request_signature_scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 response_signature_algorithm: Optional[pulumi.Input[_builtins.str]] = None,
-                 response_signature_scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 sso_binding: Optional[pulumi.Input[_builtins.str]] = None,
-                 sso_destination: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 subject_filter: Optional[pulumi.Input[_builtins.str]] = None,
-                 subject_formats: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 subject_match_attribute: Optional[pulumi.Input[_builtins.str]] = None,
-                 subject_match_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 suspended_action: Optional[pulumi.Input[_builtins.str]] = None,
-                 trust_claims: Optional[pulumi.Input[_builtins.bool]] = None,
-                 username_template: Optional[pulumi.Input[_builtins.str]] = None):
+                 account_link_action: pulumi.Input[Optional[_builtins.str]] = None,
+                 account_link_group_includes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 acs_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 deprovisioned_action: pulumi.Input[Optional[_builtins.str]] = None,
+                 groups_action: pulumi.Input[Optional[_builtins.str]] = None,
+                 groups_assignments: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 groups_attribute: pulumi.Input[Optional[_builtins.str]] = None,
+                 groups_filters: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 honor_persistent_name_id: pulumi.Input[Optional[_builtins.bool]] = None,
+                 issuer_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_clock_skew: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name_format: pulumi.Input[Optional[_builtins.str]] = None,
+                 profile_master: pulumi.Input[Optional[_builtins.bool]] = None,
+                 provisioning_action: pulumi.Input[Optional[_builtins.str]] = None,
+                 request_signature_algorithm: pulumi.Input[Optional[_builtins.str]] = None,
+                 request_signature_scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 response_signature_algorithm: pulumi.Input[Optional[_builtins.str]] = None,
+                 response_signature_scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 sso_binding: pulumi.Input[Optional[_builtins.str]] = None,
+                 sso_destination: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 subject_filter: pulumi.Input[Optional[_builtins.str]] = None,
+                 subject_formats: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 subject_match_attribute: pulumi.Input[Optional[_builtins.str]] = None,
+                 subject_match_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 suspended_action: pulumi.Input[Optional[_builtins.str]] = None,
+                 trust_claims: pulumi.Input[Optional[_builtins.bool]] = None,
+                 username_template: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Saml resource.
 
@@ -187,392 +187,392 @@ class SamlArgs:
 
     @_builtins.property
     @pulumi.getter(name="accountLinkAction")
-    def account_link_action(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def account_link_action(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the account linking action for an IdP user. Default: `AUTO`
         """
         return pulumi.get(self, "account_link_action")
 
     @account_link_action.setter
-    def account_link_action(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def account_link_action(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "account_link_action", value)
 
     @_builtins.property
     @pulumi.getter(name="accountLinkGroupIncludes")
-    def account_link_group_includes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def account_link_group_includes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Group memberships to determine link candidates.
         """
         return pulumi.get(self, "account_link_group_includes")
 
     @account_link_group_includes.setter
-    def account_link_group_includes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def account_link_group_includes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "account_link_group_includes", value)
 
     @_builtins.property
     @pulumi.getter(name="acsType")
-    def acs_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def acs_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of ACS. It can be `INSTANCE` or `ORG`. Default: `INSTANCE`
         """
         return pulumi.get(self, "acs_type")
 
     @acs_type.setter
-    def acs_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def acs_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "acs_type", value)
 
     @_builtins.property
     @pulumi.getter(name="deprovisionedAction")
-    def deprovisioned_action(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def deprovisioned_action(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Action for a previously deprovisioned IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`
         """
         return pulumi.get(self, "deprovisioned_action")
 
     @deprovisioned_action.setter
-    def deprovisioned_action(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def deprovisioned_action(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "deprovisioned_action", value)
 
     @_builtins.property
     @pulumi.getter(name="groupsAction")
-    def groups_action(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def groups_action(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Provisioning action for IdP user's group memberships. It can be `NONE`, `SYNC`, `APPEND`, or `ASSIGN`. Default: `NONE`
         """
         return pulumi.get(self, "groups_action")
 
     @groups_action.setter
-    def groups_action(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def groups_action(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "groups_action", value)
 
     @_builtins.property
     @pulumi.getter(name="groupsAssignments")
-    def groups_assignments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def groups_assignments(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of Okta Group IDs to add an IdP user as a member with the `ASSIGN` `groups_action`.
         """
         return pulumi.get(self, "groups_assignments")
 
     @groups_assignments.setter
-    def groups_assignments(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def groups_assignments(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "groups_assignments", value)
 
     @_builtins.property
     @pulumi.getter(name="groupsAttribute")
-    def groups_attribute(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def groups_attribute(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         IdP user profile attribute name (case-insensitive) for an array value that contains group memberships.
         """
         return pulumi.get(self, "groups_attribute")
 
     @groups_attribute.setter
-    def groups_attribute(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def groups_attribute(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "groups_attribute", value)
 
     @_builtins.property
     @pulumi.getter(name="groupsFilters")
-    def groups_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def groups_filters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Whitelist of Okta Group identifiers that are allowed for the `APPEND` or `SYNC` `groups_action`.
         """
         return pulumi.get(self, "groups_filters")
 
     @groups_filters.setter
-    def groups_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def groups_filters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "groups_filters", value)
 
     @_builtins.property
     @pulumi.getter(name="honorPersistentNameId")
-    def honor_persistent_name_id(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def honor_persistent_name_id(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Determines if the IdP should persist account linking when the incoming assertion NameID format is urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
         """
         return pulumi.get(self, "honor_persistent_name_id")
 
     @honor_persistent_name_id.setter
-    def honor_persistent_name_id(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def honor_persistent_name_id(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "honor_persistent_name_id", value)
 
     @_builtins.property
     @pulumi.getter(name="issuerMode")
-    def issuer_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def issuer_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL
         """
         return pulumi.get(self, "issuer_mode")
 
     @issuer_mode.setter
-    def issuer_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def issuer_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "issuer_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="maxClockSkew")
-    def max_clock_skew(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_clock_skew(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Maximum allowable clock-skew when processing messages from the IdP.
         """
         return pulumi.get(self, "max_clock_skew")
 
     @max_clock_skew.setter
-    def max_clock_skew(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_clock_skew(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_clock_skew", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the IdP
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="nameFormat")
-    def name_format(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name_format(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name identifier format to use. By default `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified`.
         """
         return pulumi.get(self, "name_format")
 
     @name_format.setter
-    def name_format(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name_format(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name_format", value)
 
     @_builtins.property
     @pulumi.getter(name="profileMaster")
-    def profile_master(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def profile_master(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Determines if the IdP should act as a source of truth for user profile attributes.
         """
         return pulumi.get(self, "profile_master")
 
     @profile_master.setter
-    def profile_master(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def profile_master(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "profile_master", value)
 
     @_builtins.property
     @pulumi.getter(name="provisioningAction")
-    def provisioning_action(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def provisioning_action(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Provisioning action for an IdP user during authentication. Default: `AUTO`
         """
         return pulumi.get(self, "provisioning_action")
 
     @provisioning_action.setter
-    def provisioning_action(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def provisioning_action(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "provisioning_action", value)
 
     @_builtins.property
     @pulumi.getter(name="requestSignatureAlgorithm")
-    def request_signature_algorithm(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def request_signature_algorithm(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The XML digital Signature Algorithm used when signing an `AuthnRequest` message. It can be `SHA-256` or `SHA-1`. Default: `SHA-256`
         """
         return pulumi.get(self, "request_signature_algorithm")
 
     @request_signature_algorithm.setter
-    def request_signature_algorithm(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def request_signature_algorithm(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "request_signature_algorithm", value)
 
     @_builtins.property
     @pulumi.getter(name="requestSignatureScope")
-    def request_signature_scope(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def request_signature_scope(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether to digitally sign an AuthnRequest messages to the IdP. It can be `REQUEST` or `NONE`. Default: `REQUEST`
         """
         return pulumi.get(self, "request_signature_scope")
 
     @request_signature_scope.setter
-    def request_signature_scope(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def request_signature_scope(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "request_signature_scope", value)
 
     @_builtins.property
     @pulumi.getter(name="responseSignatureAlgorithm")
-    def response_signature_algorithm(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def response_signature_algorithm(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The minimum XML digital signature algorithm allowed when verifying a `SAMLResponse` message or Assertion element. It can be `SHA-256` or `SHA-1`. Default: `SHA-256`
         """
         return pulumi.get(self, "response_signature_algorithm")
 
     @response_signature_algorithm.setter
-    def response_signature_algorithm(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def response_signature_algorithm(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "response_signature_algorithm", value)
 
     @_builtins.property
     @pulumi.getter(name="responseSignatureScope")
-    def response_signature_scope(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def response_signature_scope(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether to verify a `SAMLResponse` message or Assertion element XML digital signature. It can be `RESPONSE`, `ASSERTION`, or `ANY`. Default: `ANY`
         """
         return pulumi.get(self, "response_signature_scope")
 
     @response_signature_scope.setter
-    def response_signature_scope(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def response_signature_scope(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "response_signature_scope", value)
 
     @_builtins.property
     @pulumi.getter(name="ssoBinding")
-    def sso_binding(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sso_binding(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The method of making an SSO request. It can be set to `HTTP-POST` or `HTTP-REDIRECT`. Default: `HTTP-POST`
         """
         return pulumi.get(self, "sso_binding")
 
     @sso_binding.setter
-    def sso_binding(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sso_binding(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sso_binding", value)
 
     @_builtins.property
     @pulumi.getter(name="ssoDestination")
-    def sso_destination(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sso_destination(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         URI reference indicating the address to which the AuthnRequest message is sent.
         """
         return pulumi.get(self, "sso_destination")
 
     @sso_destination.setter
-    def sso_destination(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sso_destination(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sso_destination", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Default to `ACTIVE`
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter(name="subjectFilter")
-    def subject_filter(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subject_filter(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Optional regular expression pattern used to filter untrusted IdP usernames.
         """
         return pulumi.get(self, "subject_filter")
 
     @subject_filter.setter
-    def subject_filter(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subject_filter(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subject_filter", value)
 
     @_builtins.property
     @pulumi.getter(name="subjectFormats")
-    def subject_formats(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def subject_formats(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The name format.
         """
         return pulumi.get(self, "subject_formats")
 
     @subject_formats.setter
-    def subject_formats(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def subject_formats(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "subject_formats", value)
 
     @_builtins.property
     @pulumi.getter(name="subjectMatchAttribute")
-    def subject_match_attribute(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subject_match_attribute(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Okta user profile attribute for matching transformed IdP username. Only for matchType `CUSTOM_ATTRIBUTE`.
         """
         return pulumi.get(self, "subject_match_attribute")
 
     @subject_match_attribute.setter
-    def subject_match_attribute(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subject_match_attribute(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subject_match_attribute", value)
 
     @_builtins.property
     @pulumi.getter(name="subjectMatchType")
-    def subject_match_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subject_match_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `USERNAME`. It can be set to `USERNAME`, `EMAIL`, `USERNAME_OR_EMAIL` or `CUSTOM_ATTRIBUTE`.
         """
         return pulumi.get(self, "subject_match_type")
 
     @subject_match_type.setter
-    def subject_match_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subject_match_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subject_match_type", value)
 
     @_builtins.property
     @pulumi.getter(name="suspendedAction")
-    def suspended_action(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def suspended_action(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Action for a previously suspended IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`
         """
         return pulumi.get(self, "suspended_action")
 
     @suspended_action.setter
-    def suspended_action(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def suspended_action(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "suspended_action", value)
 
     @_builtins.property
     @pulumi.getter(name="trustClaims")
-    def trust_claims(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def trust_claims(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether to trust authentication claims from the IdP.
         """
         return pulumi.get(self, "trust_claims")
 
     @trust_claims.setter
-    def trust_claims(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def trust_claims(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "trust_claims", value)
 
     @_builtins.property
     @pulumi.getter(name="usernameTemplate")
-    def username_template(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def username_template(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Okta EL Expression to generate or transform a unique username for the IdP user. Default: `idpuser.email`
         """
         return pulumi.get(self, "username_template")
 
     @username_template.setter
-    def username_template(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def username_template(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "username_template", value)
 
 
 @pulumi.input_type
 class _SamlState:
     def __init__(__self__, *,
-                 account_link_action: Optional[pulumi.Input[_builtins.str]] = None,
-                 account_link_group_includes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 acs_binding: Optional[pulumi.Input[_builtins.str]] = None,
-                 acs_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 audience: Optional[pulumi.Input[_builtins.str]] = None,
-                 deprovisioned_action: Optional[pulumi.Input[_builtins.str]] = None,
-                 groups_action: Optional[pulumi.Input[_builtins.str]] = None,
-                 groups_assignments: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 groups_attribute: Optional[pulumi.Input[_builtins.str]] = None,
-                 groups_filters: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 honor_persistent_name_id: Optional[pulumi.Input[_builtins.bool]] = None,
-                 issuer: Optional[pulumi.Input[_builtins.str]] = None,
-                 issuer_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 kid: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_clock_skew: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name_format: Optional[pulumi.Input[_builtins.str]] = None,
-                 profile_master: Optional[pulumi.Input[_builtins.bool]] = None,
-                 provisioning_action: Optional[pulumi.Input[_builtins.str]] = None,
-                 request_signature_algorithm: Optional[pulumi.Input[_builtins.str]] = None,
-                 request_signature_scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 response_signature_algorithm: Optional[pulumi.Input[_builtins.str]] = None,
-                 response_signature_scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 sso_binding: Optional[pulumi.Input[_builtins.str]] = None,
-                 sso_destination: Optional[pulumi.Input[_builtins.str]] = None,
-                 sso_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 subject_filter: Optional[pulumi.Input[_builtins.str]] = None,
-                 subject_formats: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 subject_match_attribute: Optional[pulumi.Input[_builtins.str]] = None,
-                 subject_match_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 suspended_action: Optional[pulumi.Input[_builtins.str]] = None,
-                 trust_claims: Optional[pulumi.Input[_builtins.bool]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_type_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 username_template: Optional[pulumi.Input[_builtins.str]] = None):
+                 account_link_action: pulumi.Input[Optional[_builtins.str]] = None,
+                 account_link_group_includes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 acs_binding: pulumi.Input[Optional[_builtins.str]] = None,
+                 acs_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 audience: pulumi.Input[Optional[_builtins.str]] = None,
+                 deprovisioned_action: pulumi.Input[Optional[_builtins.str]] = None,
+                 groups_action: pulumi.Input[Optional[_builtins.str]] = None,
+                 groups_assignments: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 groups_attribute: pulumi.Input[Optional[_builtins.str]] = None,
+                 groups_filters: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 honor_persistent_name_id: pulumi.Input[Optional[_builtins.bool]] = None,
+                 issuer: pulumi.Input[Optional[_builtins.str]] = None,
+                 issuer_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 kid: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_clock_skew: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name_format: pulumi.Input[Optional[_builtins.str]] = None,
+                 profile_master: pulumi.Input[Optional[_builtins.bool]] = None,
+                 provisioning_action: pulumi.Input[Optional[_builtins.str]] = None,
+                 request_signature_algorithm: pulumi.Input[Optional[_builtins.str]] = None,
+                 request_signature_scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 response_signature_algorithm: pulumi.Input[Optional[_builtins.str]] = None,
+                 response_signature_scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 sso_binding: pulumi.Input[Optional[_builtins.str]] = None,
+                 sso_destination: pulumi.Input[Optional[_builtins.str]] = None,
+                 sso_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 subject_filter: pulumi.Input[Optional[_builtins.str]] = None,
+                 subject_formats: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 subject_match_attribute: pulumi.Input[Optional[_builtins.str]] = None,
+                 subject_match_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 suspended_action: pulumi.Input[Optional[_builtins.str]] = None,
+                 trust_claims: pulumi.Input[Optional[_builtins.bool]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_type_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 username_template: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Saml resources.
 
@@ -684,422 +684,422 @@ class _SamlState:
 
     @_builtins.property
     @pulumi.getter(name="accountLinkAction")
-    def account_link_action(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def account_link_action(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the account linking action for an IdP user. Default: `AUTO`
         """
         return pulumi.get(self, "account_link_action")
 
     @account_link_action.setter
-    def account_link_action(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def account_link_action(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "account_link_action", value)
 
     @_builtins.property
     @pulumi.getter(name="accountLinkGroupIncludes")
-    def account_link_group_includes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def account_link_group_includes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Group memberships to determine link candidates.
         """
         return pulumi.get(self, "account_link_group_includes")
 
     @account_link_group_includes.setter
-    def account_link_group_includes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def account_link_group_includes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "account_link_group_includes", value)
 
     @_builtins.property
     @pulumi.getter(name="acsBinding")
-    def acs_binding(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def acs_binding(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "acs_binding")
 
     @acs_binding.setter
-    def acs_binding(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def acs_binding(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "acs_binding", value)
 
     @_builtins.property
     @pulumi.getter(name="acsType")
-    def acs_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def acs_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of ACS. It can be `INSTANCE` or `ORG`. Default: `INSTANCE`
         """
         return pulumi.get(self, "acs_type")
 
     @acs_type.setter
-    def acs_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def acs_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "acs_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def audience(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def audience(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "audience")
 
     @audience.setter
-    def audience(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def audience(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "audience", value)
 
     @_builtins.property
     @pulumi.getter(name="deprovisionedAction")
-    def deprovisioned_action(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def deprovisioned_action(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Action for a previously deprovisioned IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`
         """
         return pulumi.get(self, "deprovisioned_action")
 
     @deprovisioned_action.setter
-    def deprovisioned_action(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def deprovisioned_action(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "deprovisioned_action", value)
 
     @_builtins.property
     @pulumi.getter(name="groupsAction")
-    def groups_action(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def groups_action(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Provisioning action for IdP user's group memberships. It can be `NONE`, `SYNC`, `APPEND`, or `ASSIGN`. Default: `NONE`
         """
         return pulumi.get(self, "groups_action")
 
     @groups_action.setter
-    def groups_action(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def groups_action(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "groups_action", value)
 
     @_builtins.property
     @pulumi.getter(name="groupsAssignments")
-    def groups_assignments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def groups_assignments(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of Okta Group IDs to add an IdP user as a member with the `ASSIGN` `groups_action`.
         """
         return pulumi.get(self, "groups_assignments")
 
     @groups_assignments.setter
-    def groups_assignments(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def groups_assignments(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "groups_assignments", value)
 
     @_builtins.property
     @pulumi.getter(name="groupsAttribute")
-    def groups_attribute(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def groups_attribute(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         IdP user profile attribute name (case-insensitive) for an array value that contains group memberships.
         """
         return pulumi.get(self, "groups_attribute")
 
     @groups_attribute.setter
-    def groups_attribute(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def groups_attribute(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "groups_attribute", value)
 
     @_builtins.property
     @pulumi.getter(name="groupsFilters")
-    def groups_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def groups_filters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Whitelist of Okta Group identifiers that are allowed for the `APPEND` or `SYNC` `groups_action`.
         """
         return pulumi.get(self, "groups_filters")
 
     @groups_filters.setter
-    def groups_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def groups_filters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "groups_filters", value)
 
     @_builtins.property
     @pulumi.getter(name="honorPersistentNameId")
-    def honor_persistent_name_id(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def honor_persistent_name_id(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Determines if the IdP should persist account linking when the incoming assertion NameID format is urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
         """
         return pulumi.get(self, "honor_persistent_name_id")
 
     @honor_persistent_name_id.setter
-    def honor_persistent_name_id(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def honor_persistent_name_id(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "honor_persistent_name_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def issuer(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def issuer(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         URI that identifies the issuer.
         """
         return pulumi.get(self, "issuer")
 
     @issuer.setter
-    def issuer(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def issuer(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "issuer", value)
 
     @_builtins.property
     @pulumi.getter(name="issuerMode")
-    def issuer_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def issuer_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL
         """
         return pulumi.get(self, "issuer_mode")
 
     @issuer_mode.setter
-    def issuer_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def issuer_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "issuer_mode", value)
 
     @_builtins.property
     @pulumi.getter
-    def kid(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kid(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the signing key.
         """
         return pulumi.get(self, "kid")
 
     @kid.setter
-    def kid(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kid(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kid", value)
 
     @_builtins.property
     @pulumi.getter(name="maxClockSkew")
-    def max_clock_skew(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_clock_skew(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Maximum allowable clock-skew when processing messages from the IdP.
         """
         return pulumi.get(self, "max_clock_skew")
 
     @max_clock_skew.setter
-    def max_clock_skew(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_clock_skew(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_clock_skew", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the IdP
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="nameFormat")
-    def name_format(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name_format(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name identifier format to use. By default `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified`.
         """
         return pulumi.get(self, "name_format")
 
     @name_format.setter
-    def name_format(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name_format(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name_format", value)
 
     @_builtins.property
     @pulumi.getter(name="profileMaster")
-    def profile_master(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def profile_master(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Determines if the IdP should act as a source of truth for user profile attributes.
         """
         return pulumi.get(self, "profile_master")
 
     @profile_master.setter
-    def profile_master(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def profile_master(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "profile_master", value)
 
     @_builtins.property
     @pulumi.getter(name="provisioningAction")
-    def provisioning_action(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def provisioning_action(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Provisioning action for an IdP user during authentication. Default: `AUTO`
         """
         return pulumi.get(self, "provisioning_action")
 
     @provisioning_action.setter
-    def provisioning_action(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def provisioning_action(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "provisioning_action", value)
 
     @_builtins.property
     @pulumi.getter(name="requestSignatureAlgorithm")
-    def request_signature_algorithm(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def request_signature_algorithm(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The XML digital Signature Algorithm used when signing an `AuthnRequest` message. It can be `SHA-256` or `SHA-1`. Default: `SHA-256`
         """
         return pulumi.get(self, "request_signature_algorithm")
 
     @request_signature_algorithm.setter
-    def request_signature_algorithm(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def request_signature_algorithm(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "request_signature_algorithm", value)
 
     @_builtins.property
     @pulumi.getter(name="requestSignatureScope")
-    def request_signature_scope(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def request_signature_scope(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether to digitally sign an AuthnRequest messages to the IdP. It can be `REQUEST` or `NONE`. Default: `REQUEST`
         """
         return pulumi.get(self, "request_signature_scope")
 
     @request_signature_scope.setter
-    def request_signature_scope(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def request_signature_scope(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "request_signature_scope", value)
 
     @_builtins.property
     @pulumi.getter(name="responseSignatureAlgorithm")
-    def response_signature_algorithm(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def response_signature_algorithm(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The minimum XML digital signature algorithm allowed when verifying a `SAMLResponse` message or Assertion element. It can be `SHA-256` or `SHA-1`. Default: `SHA-256`
         """
         return pulumi.get(self, "response_signature_algorithm")
 
     @response_signature_algorithm.setter
-    def response_signature_algorithm(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def response_signature_algorithm(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "response_signature_algorithm", value)
 
     @_builtins.property
     @pulumi.getter(name="responseSignatureScope")
-    def response_signature_scope(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def response_signature_scope(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether to verify a `SAMLResponse` message or Assertion element XML digital signature. It can be `RESPONSE`, `ASSERTION`, or `ANY`. Default: `ANY`
         """
         return pulumi.get(self, "response_signature_scope")
 
     @response_signature_scope.setter
-    def response_signature_scope(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def response_signature_scope(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "response_signature_scope", value)
 
     @_builtins.property
     @pulumi.getter(name="ssoBinding")
-    def sso_binding(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sso_binding(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The method of making an SSO request. It can be set to `HTTP-POST` or `HTTP-REDIRECT`. Default: `HTTP-POST`
         """
         return pulumi.get(self, "sso_binding")
 
     @sso_binding.setter
-    def sso_binding(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sso_binding(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sso_binding", value)
 
     @_builtins.property
     @pulumi.getter(name="ssoDestination")
-    def sso_destination(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sso_destination(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         URI reference indicating the address to which the AuthnRequest message is sent.
         """
         return pulumi.get(self, "sso_destination")
 
     @sso_destination.setter
-    def sso_destination(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sso_destination(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sso_destination", value)
 
     @_builtins.property
     @pulumi.getter(name="ssoUrl")
-    def sso_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sso_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         URL of binding-specific endpoint to send an AuthnRequest message to IdP.
         """
         return pulumi.get(self, "sso_url")
 
     @sso_url.setter
-    def sso_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sso_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sso_url", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Default to `ACTIVE`
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter(name="subjectFilter")
-    def subject_filter(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subject_filter(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Optional regular expression pattern used to filter untrusted IdP usernames.
         """
         return pulumi.get(self, "subject_filter")
 
     @subject_filter.setter
-    def subject_filter(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subject_filter(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subject_filter", value)
 
     @_builtins.property
     @pulumi.getter(name="subjectFormats")
-    def subject_formats(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def subject_formats(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The name format.
         """
         return pulumi.get(self, "subject_formats")
 
     @subject_formats.setter
-    def subject_formats(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def subject_formats(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "subject_formats", value)
 
     @_builtins.property
     @pulumi.getter(name="subjectMatchAttribute")
-    def subject_match_attribute(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subject_match_attribute(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Okta user profile attribute for matching transformed IdP username. Only for matchType `CUSTOM_ATTRIBUTE`.
         """
         return pulumi.get(self, "subject_match_attribute")
 
     @subject_match_attribute.setter
-    def subject_match_attribute(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subject_match_attribute(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subject_match_attribute", value)
 
     @_builtins.property
     @pulumi.getter(name="subjectMatchType")
-    def subject_match_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subject_match_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `USERNAME`. It can be set to `USERNAME`, `EMAIL`, `USERNAME_OR_EMAIL` or `CUSTOM_ATTRIBUTE`.
         """
         return pulumi.get(self, "subject_match_type")
 
     @subject_match_type.setter
-    def subject_match_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subject_match_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subject_match_type", value)
 
     @_builtins.property
     @pulumi.getter(name="suspendedAction")
-    def suspended_action(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def suspended_action(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Action for a previously suspended IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`
         """
         return pulumi.get(self, "suspended_action")
 
     @suspended_action.setter
-    def suspended_action(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def suspended_action(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "suspended_action", value)
 
     @_builtins.property
     @pulumi.getter(name="trustClaims")
-    def trust_claims(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def trust_claims(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether to trust authentication claims from the IdP.
         """
         return pulumi.get(self, "trust_claims")
 
     @trust_claims.setter
-    def trust_claims(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def trust_claims(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "trust_claims", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
     @_builtins.property
     @pulumi.getter(name="userTypeId")
-    def user_type_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_type_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "user_type_id")
 
     @user_type_id.setter
-    def user_type_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_type_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_type_id", value)
 
     @_builtins.property
     @pulumi.getter(name="usernameTemplate")
-    def username_template(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def username_template(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Okta EL Expression to generate or transform a unique username for the IdP user. Default: `idpuser.email`
         """
         return pulumi.get(self, "username_template")
 
     @username_template.setter
-    def username_template(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def username_template(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "username_template", value)
 
 
@@ -1109,38 +1109,38 @@ class Saml(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_link_action: Optional[pulumi.Input[_builtins.str]] = None,
-                 account_link_group_includes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 acs_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 deprovisioned_action: Optional[pulumi.Input[_builtins.str]] = None,
-                 groups_action: Optional[pulumi.Input[_builtins.str]] = None,
-                 groups_assignments: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 groups_attribute: Optional[pulumi.Input[_builtins.str]] = None,
-                 groups_filters: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 honor_persistent_name_id: Optional[pulumi.Input[_builtins.bool]] = None,
-                 issuer: Optional[pulumi.Input[_builtins.str]] = None,
-                 issuer_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 kid: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_clock_skew: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name_format: Optional[pulumi.Input[_builtins.str]] = None,
-                 profile_master: Optional[pulumi.Input[_builtins.bool]] = None,
-                 provisioning_action: Optional[pulumi.Input[_builtins.str]] = None,
-                 request_signature_algorithm: Optional[pulumi.Input[_builtins.str]] = None,
-                 request_signature_scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 response_signature_algorithm: Optional[pulumi.Input[_builtins.str]] = None,
-                 response_signature_scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 sso_binding: Optional[pulumi.Input[_builtins.str]] = None,
-                 sso_destination: Optional[pulumi.Input[_builtins.str]] = None,
-                 sso_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 subject_filter: Optional[pulumi.Input[_builtins.str]] = None,
-                 subject_formats: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 subject_match_attribute: Optional[pulumi.Input[_builtins.str]] = None,
-                 subject_match_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 suspended_action: Optional[pulumi.Input[_builtins.str]] = None,
-                 trust_claims: Optional[pulumi.Input[_builtins.bool]] = None,
-                 username_template: Optional[pulumi.Input[_builtins.str]] = None,
+                 account_link_action: pulumi.Input[Optional[_builtins.str]] = None,
+                 account_link_group_includes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 acs_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 deprovisioned_action: pulumi.Input[Optional[_builtins.str]] = None,
+                 groups_action: pulumi.Input[Optional[_builtins.str]] = None,
+                 groups_assignments: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 groups_attribute: pulumi.Input[Optional[_builtins.str]] = None,
+                 groups_filters: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 honor_persistent_name_id: pulumi.Input[Optional[_builtins.bool]] = None,
+                 issuer: pulumi.Input[Optional[_builtins.str]] = None,
+                 issuer_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 kid: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_clock_skew: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name_format: pulumi.Input[Optional[_builtins.str]] = None,
+                 profile_master: pulumi.Input[Optional[_builtins.bool]] = None,
+                 provisioning_action: pulumi.Input[Optional[_builtins.str]] = None,
+                 request_signature_algorithm: pulumi.Input[Optional[_builtins.str]] = None,
+                 request_signature_scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 response_signature_algorithm: pulumi.Input[Optional[_builtins.str]] = None,
+                 response_signature_scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 sso_binding: pulumi.Input[Optional[_builtins.str]] = None,
+                 sso_destination: pulumi.Input[Optional[_builtins.str]] = None,
+                 sso_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 subject_filter: pulumi.Input[Optional[_builtins.str]] = None,
+                 subject_formats: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 subject_match_attribute: pulumi.Input[Optional[_builtins.str]] = None,
+                 subject_match_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 suspended_action: pulumi.Input[Optional[_builtins.str]] = None,
+                 trust_claims: pulumi.Input[Optional[_builtins.bool]] = None,
+                 username_template: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Creates a SAML Identity Provider. This resource allows you to create and configure a SAML Identity Provider.
@@ -1256,38 +1256,38 @@ class Saml(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_link_action: Optional[pulumi.Input[_builtins.str]] = None,
-                 account_link_group_includes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 acs_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 deprovisioned_action: Optional[pulumi.Input[_builtins.str]] = None,
-                 groups_action: Optional[pulumi.Input[_builtins.str]] = None,
-                 groups_assignments: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 groups_attribute: Optional[pulumi.Input[_builtins.str]] = None,
-                 groups_filters: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 honor_persistent_name_id: Optional[pulumi.Input[_builtins.bool]] = None,
-                 issuer: Optional[pulumi.Input[_builtins.str]] = None,
-                 issuer_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 kid: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_clock_skew: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name_format: Optional[pulumi.Input[_builtins.str]] = None,
-                 profile_master: Optional[pulumi.Input[_builtins.bool]] = None,
-                 provisioning_action: Optional[pulumi.Input[_builtins.str]] = None,
-                 request_signature_algorithm: Optional[pulumi.Input[_builtins.str]] = None,
-                 request_signature_scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 response_signature_algorithm: Optional[pulumi.Input[_builtins.str]] = None,
-                 response_signature_scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 sso_binding: Optional[pulumi.Input[_builtins.str]] = None,
-                 sso_destination: Optional[pulumi.Input[_builtins.str]] = None,
-                 sso_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 subject_filter: Optional[pulumi.Input[_builtins.str]] = None,
-                 subject_formats: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 subject_match_attribute: Optional[pulumi.Input[_builtins.str]] = None,
-                 subject_match_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 suspended_action: Optional[pulumi.Input[_builtins.str]] = None,
-                 trust_claims: Optional[pulumi.Input[_builtins.bool]] = None,
-                 username_template: Optional[pulumi.Input[_builtins.str]] = None,
+                 account_link_action: pulumi.Input[Optional[_builtins.str]] = None,
+                 account_link_group_includes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 acs_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 deprovisioned_action: pulumi.Input[Optional[_builtins.str]] = None,
+                 groups_action: pulumi.Input[Optional[_builtins.str]] = None,
+                 groups_assignments: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 groups_attribute: pulumi.Input[Optional[_builtins.str]] = None,
+                 groups_filters: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 honor_persistent_name_id: pulumi.Input[Optional[_builtins.bool]] = None,
+                 issuer: pulumi.Input[Optional[_builtins.str]] = None,
+                 issuer_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 kid: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_clock_skew: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name_format: pulumi.Input[Optional[_builtins.str]] = None,
+                 profile_master: pulumi.Input[Optional[_builtins.bool]] = None,
+                 provisioning_action: pulumi.Input[Optional[_builtins.str]] = None,
+                 request_signature_algorithm: pulumi.Input[Optional[_builtins.str]] = None,
+                 request_signature_scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 response_signature_algorithm: pulumi.Input[Optional[_builtins.str]] = None,
+                 response_signature_scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 sso_binding: pulumi.Input[Optional[_builtins.str]] = None,
+                 sso_destination: pulumi.Input[Optional[_builtins.str]] = None,
+                 sso_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 subject_filter: pulumi.Input[Optional[_builtins.str]] = None,
+                 subject_formats: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 subject_match_attribute: pulumi.Input[Optional[_builtins.str]] = None,
+                 subject_match_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 suspended_action: pulumi.Input[Optional[_builtins.str]] = None,
+                 trust_claims: pulumi.Input[Optional[_builtins.bool]] = None,
+                 username_template: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1349,42 +1349,42 @@ class Saml(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            account_link_action: Optional[pulumi.Input[_builtins.str]] = None,
-            account_link_group_includes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            acs_binding: Optional[pulumi.Input[_builtins.str]] = None,
-            acs_type: Optional[pulumi.Input[_builtins.str]] = None,
-            audience: Optional[pulumi.Input[_builtins.str]] = None,
-            deprovisioned_action: Optional[pulumi.Input[_builtins.str]] = None,
-            groups_action: Optional[pulumi.Input[_builtins.str]] = None,
-            groups_assignments: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            groups_attribute: Optional[pulumi.Input[_builtins.str]] = None,
-            groups_filters: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            honor_persistent_name_id: Optional[pulumi.Input[_builtins.bool]] = None,
-            issuer: Optional[pulumi.Input[_builtins.str]] = None,
-            issuer_mode: Optional[pulumi.Input[_builtins.str]] = None,
-            kid: Optional[pulumi.Input[_builtins.str]] = None,
-            max_clock_skew: Optional[pulumi.Input[_builtins.int]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            name_format: Optional[pulumi.Input[_builtins.str]] = None,
-            profile_master: Optional[pulumi.Input[_builtins.bool]] = None,
-            provisioning_action: Optional[pulumi.Input[_builtins.str]] = None,
-            request_signature_algorithm: Optional[pulumi.Input[_builtins.str]] = None,
-            request_signature_scope: Optional[pulumi.Input[_builtins.str]] = None,
-            response_signature_algorithm: Optional[pulumi.Input[_builtins.str]] = None,
-            response_signature_scope: Optional[pulumi.Input[_builtins.str]] = None,
-            sso_binding: Optional[pulumi.Input[_builtins.str]] = None,
-            sso_destination: Optional[pulumi.Input[_builtins.str]] = None,
-            sso_url: Optional[pulumi.Input[_builtins.str]] = None,
-            status: Optional[pulumi.Input[_builtins.str]] = None,
-            subject_filter: Optional[pulumi.Input[_builtins.str]] = None,
-            subject_formats: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            subject_match_attribute: Optional[pulumi.Input[_builtins.str]] = None,
-            subject_match_type: Optional[pulumi.Input[_builtins.str]] = None,
-            suspended_action: Optional[pulumi.Input[_builtins.str]] = None,
-            trust_claims: Optional[pulumi.Input[_builtins.bool]] = None,
-            type: Optional[pulumi.Input[_builtins.str]] = None,
-            user_type_id: Optional[pulumi.Input[_builtins.str]] = None,
-            username_template: Optional[pulumi.Input[_builtins.str]] = None) -> 'Saml':
+            account_link_action: pulumi.Input[Optional[_builtins.str]] = None,
+            account_link_group_includes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            acs_binding: pulumi.Input[Optional[_builtins.str]] = None,
+            acs_type: pulumi.Input[Optional[_builtins.str]] = None,
+            audience: pulumi.Input[Optional[_builtins.str]] = None,
+            deprovisioned_action: pulumi.Input[Optional[_builtins.str]] = None,
+            groups_action: pulumi.Input[Optional[_builtins.str]] = None,
+            groups_assignments: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            groups_attribute: pulumi.Input[Optional[_builtins.str]] = None,
+            groups_filters: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            honor_persistent_name_id: pulumi.Input[Optional[_builtins.bool]] = None,
+            issuer: pulumi.Input[Optional[_builtins.str]] = None,
+            issuer_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            kid: pulumi.Input[Optional[_builtins.str]] = None,
+            max_clock_skew: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            name_format: pulumi.Input[Optional[_builtins.str]] = None,
+            profile_master: pulumi.Input[Optional[_builtins.bool]] = None,
+            provisioning_action: pulumi.Input[Optional[_builtins.str]] = None,
+            request_signature_algorithm: pulumi.Input[Optional[_builtins.str]] = None,
+            request_signature_scope: pulumi.Input[Optional[_builtins.str]] = None,
+            response_signature_algorithm: pulumi.Input[Optional[_builtins.str]] = None,
+            response_signature_scope: pulumi.Input[Optional[_builtins.str]] = None,
+            sso_binding: pulumi.Input[Optional[_builtins.str]] = None,
+            sso_destination: pulumi.Input[Optional[_builtins.str]] = None,
+            sso_url: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            subject_filter: pulumi.Input[Optional[_builtins.str]] = None,
+            subject_formats: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            subject_match_attribute: pulumi.Input[Optional[_builtins.str]] = None,
+            subject_match_type: pulumi.Input[Optional[_builtins.str]] = None,
+            suspended_action: pulumi.Input[Optional[_builtins.str]] = None,
+            trust_claims: pulumi.Input[Optional[_builtins.bool]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None,
+            user_type_id: pulumi.Input[Optional[_builtins.str]] = None,
+            username_template: pulumi.Input[Optional[_builtins.str]] = None) -> 'Saml':
         """
         Get an existing Saml resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

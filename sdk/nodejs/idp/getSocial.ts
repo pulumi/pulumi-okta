@@ -184,9 +184,9 @@ export interface GetSocialOutputArgs {
     /**
      * The id of the social idp to retrieve, conflicts with `name`.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * The name of the social idp to retrieve, conflicts with `id`.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }

@@ -23,58 +23,58 @@ class OAuthArgs:
     def __init__(__self__, *,
                  label: pulumi.Input[_builtins.str],
                  type: pulumi.Input[_builtins.str],
-                 accessibility_error_redirect_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 accessibility_login_redirect_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 accessibility_self_service: Optional[pulumi.Input[_builtins.bool]] = None,
-                 admin_note: Optional[pulumi.Input[_builtins.str]] = None,
-                 app_links_json: Optional[pulumi.Input[_builtins.str]] = None,
-                 app_settings_json: Optional[pulumi.Input[_builtins.str]] = None,
-                 authentication_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 auto_key_rotation: Optional[pulumi.Input[_builtins.bool]] = None,
-                 auto_submit_toolbar: Optional[pulumi.Input[_builtins.bool]] = None,
-                 client_basic_secret: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_basic_secret_wo: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_basic_secret_wo_version: Optional[pulumi.Input[_builtins.int]] = None,
-                 client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 consent_method: Optional[pulumi.Input[_builtins.str]] = None,
-                 enduser_note: Optional[pulumi.Input[_builtins.str]] = None,
-                 frontchannel_logout_session_required: Optional[pulumi.Input[_builtins.bool]] = None,
-                 frontchannel_logout_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 grant_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 groups_claim: Optional[pulumi.Input['OAuthGroupsClaimArgs']] = None,
-                 hide_ios: Optional[pulumi.Input[_builtins.bool]] = None,
-                 hide_web: Optional[pulumi.Input[_builtins.bool]] = None,
-                 implicit_assignment: Optional[pulumi.Input[_builtins.bool]] = None,
-                 issuer_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 jwks: Optional[pulumi.Input[Sequence[pulumi.Input['OAuthJwkArgs']]]] = None,
-                 jwks_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 login_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 login_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 login_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 logo: Optional[pulumi.Input[_builtins.str]] = None,
-                 logo_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 network: Optional[pulumi.Input['OAuthNetworkArgs']] = None,
-                 omit_secret: Optional[pulumi.Input[_builtins.bool]] = None,
-                 participate_slo: Optional[pulumi.Input[_builtins.bool]] = None,
-                 pkce_required: Optional[pulumi.Input[_builtins.bool]] = None,
-                 policy_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 post_logout_redirect_uris: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 preconfigured_app: Optional[pulumi.Input[_builtins.str]] = None,
-                 profile: Optional[pulumi.Input[_builtins.str]] = None,
-                 redirect_uris: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 refresh_token_leeway: Optional[pulumi.Input[_builtins.int]] = None,
-                 refresh_token_rotation: Optional[pulumi.Input[_builtins.str]] = None,
-                 response_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 skip_authentication_policy: Optional[pulumi.Input[_builtins.bool]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 token_endpoint_auth_method: Optional[pulumi.Input[_builtins.str]] = None,
-                 tos_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_name_template: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_name_template_push_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_name_template_suffix: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_name_template_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 wildcard_redirect: Optional[pulumi.Input[_builtins.str]] = None):
+                 accessibility_error_redirect_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 accessibility_login_redirect_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 accessibility_self_service: pulumi.Input[Optional[_builtins.bool]] = None,
+                 admin_note: pulumi.Input[Optional[_builtins.str]] = None,
+                 app_links_json: pulumi.Input[Optional[_builtins.str]] = None,
+                 app_settings_json: pulumi.Input[Optional[_builtins.str]] = None,
+                 authentication_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 auto_key_rotation: pulumi.Input[Optional[_builtins.bool]] = None,
+                 auto_submit_toolbar: pulumi.Input[Optional[_builtins.bool]] = None,
+                 client_basic_secret: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_basic_secret_wo: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_basic_secret_wo_version: pulumi.Input[Optional[_builtins.int]] = None,
+                 client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 consent_method: pulumi.Input[Optional[_builtins.str]] = None,
+                 enduser_note: pulumi.Input[Optional[_builtins.str]] = None,
+                 frontchannel_logout_session_required: pulumi.Input[Optional[_builtins.bool]] = None,
+                 frontchannel_logout_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 grant_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 groups_claim: pulumi.Input[Optional['OAuthGroupsClaimArgs']] = None,
+                 hide_ios: pulumi.Input[Optional[_builtins.bool]] = None,
+                 hide_web: pulumi.Input[Optional[_builtins.bool]] = None,
+                 implicit_assignment: pulumi.Input[Optional[_builtins.bool]] = None,
+                 issuer_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 jwks: pulumi.Input[Optional[Sequence[pulumi.Input['OAuthJwkArgs']]]] = None,
+                 jwks_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 login_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 login_scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 login_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 logo: pulumi.Input[Optional[_builtins.str]] = None,
+                 logo_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 network: pulumi.Input[Optional['OAuthNetworkArgs']] = None,
+                 omit_secret: pulumi.Input[Optional[_builtins.bool]] = None,
+                 participate_slo: pulumi.Input[Optional[_builtins.bool]] = None,
+                 pkce_required: pulumi.Input[Optional[_builtins.bool]] = None,
+                 policy_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 post_logout_redirect_uris: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 preconfigured_app: pulumi.Input[Optional[_builtins.str]] = None,
+                 profile: pulumi.Input[Optional[_builtins.str]] = None,
+                 redirect_uris: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 refresh_token_leeway: pulumi.Input[Optional[_builtins.int]] = None,
+                 refresh_token_rotation: pulumi.Input[Optional[_builtins.str]] = None,
+                 response_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 skip_authentication_policy: pulumi.Input[Optional[_builtins.bool]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 token_endpoint_auth_method: pulumi.Input[Optional[_builtins.str]] = None,
+                 tos_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_name_template: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_name_template_push_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_name_template_suffix: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_name_template_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 wildcard_redirect: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a OAuth resource.
 
@@ -274,91 +274,91 @@ class OAuthArgs:
 
     @_builtins.property
     @pulumi.getter(name="accessibilityErrorRedirectUrl")
-    def accessibility_error_redirect_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def accessibility_error_redirect_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Custom error page URL
         """
         return pulumi.get(self, "accessibility_error_redirect_url")
 
     @accessibility_error_redirect_url.setter
-    def accessibility_error_redirect_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def accessibility_error_redirect_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "accessibility_error_redirect_url", value)
 
     @_builtins.property
     @pulumi.getter(name="accessibilityLoginRedirectUrl")
-    def accessibility_login_redirect_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def accessibility_login_redirect_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Custom login page URL
         """
         return pulumi.get(self, "accessibility_login_redirect_url")
 
     @accessibility_login_redirect_url.setter
-    def accessibility_login_redirect_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def accessibility_login_redirect_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "accessibility_login_redirect_url", value)
 
     @_builtins.property
     @pulumi.getter(name="accessibilitySelfService")
-    def accessibility_self_service(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def accessibility_self_service(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable self service. Default is `false`
         """
         return pulumi.get(self, "accessibility_self_service")
 
     @accessibility_self_service.setter
-    def accessibility_self_service(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def accessibility_self_service(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "accessibility_self_service", value)
 
     @_builtins.property
     @pulumi.getter(name="adminNote")
-    def admin_note(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def admin_note(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Application notes for admins.
         """
         return pulumi.get(self, "admin_note")
 
     @admin_note.setter
-    def admin_note(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def admin_note(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "admin_note", value)
 
     @_builtins.property
     @pulumi.getter(name="appLinksJson")
-    def app_links_json(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def app_links_json(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Displays specific appLinks for the app. The value for each application link should be boolean.
         """
         return pulumi.get(self, "app_links_json")
 
     @app_links_json.setter
-    def app_links_json(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def app_links_json(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "app_links_json", value)
 
     @_builtins.property
     @pulumi.getter(name="appSettingsJson")
-    def app_settings_json(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def app_settings_json(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Application settings in JSON format
         """
         return pulumi.get(self, "app_settings_json")
 
     @app_settings_json.setter
-    def app_settings_json(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def app_settings_json(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "app_settings_json", value)
 
     @_builtins.property
     @pulumi.getter(name="authenticationPolicy")
-    def authentication_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def authentication_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the associated app*signon*policy. If this property is removed from the application the default sign-on-policy will be associated with this application. From now on, there is no need to attach authentication_policy for applications of type `SERVICE` in the upcoming release.
         """
         return pulumi.get(self, "authentication_policy")
 
     @authentication_policy.setter
-    def authentication_policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def authentication_policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "authentication_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="autoKeyRotation")
-    def auto_key_rotation(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def auto_key_rotation(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Requested key rotation mode. If
         			auto*key*rotation isn't specified, the client automatically opts in for Okta's
@@ -369,36 +369,36 @@ class OAuthArgs:
         return pulumi.get(self, "auto_key_rotation")
 
     @auto_key_rotation.setter
-    def auto_key_rotation(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def auto_key_rotation(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "auto_key_rotation", value)
 
     @_builtins.property
     @pulumi.getter(name="autoSubmitToolbar")
-    def auto_submit_toolbar(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def auto_submit_toolbar(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Display auto submit toolbar
         """
         return pulumi.get(self, "auto_submit_toolbar")
 
     @auto_submit_toolbar.setter
-    def auto_submit_toolbar(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def auto_submit_toolbar(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "auto_submit_toolbar", value)
 
     @_builtins.property
     @pulumi.getter(name="clientBasicSecret")
-    def client_basic_secret(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_basic_secret(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The user provided OAuth client secret key value. When set, this secret will be stored in the Terraform state file. For Terraform 1.11+, consider using `client_basic_secret_wo` instead to avoid persisting secrets in state. Either `client_basic_secret` or `client_basic_secret_wo` can be specified, but not both.
         """
         return pulumi.get(self, "client_basic_secret")
 
     @client_basic_secret.setter
-    def client_basic_secret(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_basic_secret(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_basic_secret", value)
 
     @_builtins.property
     @pulumi.getter(name="clientBasicSecretWo")
-    def client_basic_secret_wo(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_basic_secret_wo(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
         The user provided write-only OAuth client secret key value for Terraform 1.11+. Unlike `client_basic_secret`, this secret will not be persisted in the Terraform state file, providing improved security. Only use this attribute with Terraform 1.11 or higher. Either `client_basic_secret` or `client_basic_secret_wo` can be specified, but not both.
@@ -406,564 +406,564 @@ class OAuthArgs:
         return pulumi.get(self, "client_basic_secret_wo")
 
     @client_basic_secret_wo.setter
-    def client_basic_secret_wo(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_basic_secret_wo(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_basic_secret_wo", value)
 
     @_builtins.property
     @pulumi.getter(name="clientBasicSecretWoVersion")
-    def client_basic_secret_wo_version(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def client_basic_secret_wo_version(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Version number for the write-only client secret. Increment this value to trigger an update when changing `client_basic_secret_wo`.
         """
         return pulumi.get(self, "client_basic_secret_wo_version")
 
     @client_basic_secret_wo_version.setter
-    def client_basic_secret_wo_version(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def client_basic_secret_wo_version(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "client_basic_secret_wo_version", value)
 
     @_builtins.property
     @pulumi.getter(name="clientId")
-    def client_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         OAuth client ID. If set during creation, app is created with this id.
         """
         return pulumi.get(self, "client_id")
 
     @client_id.setter
-    def client_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_id", value)
 
     @_builtins.property
     @pulumi.getter(name="clientUri")
-    def client_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         URI to a web page providing information about the client.
         """
         return pulumi.get(self, "client_uri")
 
     @client_uri.setter
-    def client_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_uri", value)
 
     @_builtins.property
     @pulumi.getter(name="consentMethod")
-    def consent_method(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def consent_method(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         *Early Access Property*. Indicates whether user consent is required or implicit. Valid values: REQUIRED, TRUSTED. Default value is TRUSTED. Note: Enable `API_ACCESS_MANAGEMENT`, `API_ACCESS_MANAGEMENT_CONSENT` feature flags in your org to use this property.
         """
         return pulumi.get(self, "consent_method")
 
     @consent_method.setter
-    def consent_method(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def consent_method(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "consent_method", value)
 
     @_builtins.property
     @pulumi.getter(name="enduserNote")
-    def enduser_note(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def enduser_note(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Application notes for end users.
         """
         return pulumi.get(self, "enduser_note")
 
     @enduser_note.setter
-    def enduser_note(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def enduser_note(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "enduser_note", value)
 
     @_builtins.property
     @pulumi.getter(name="frontchannelLogoutSessionRequired")
-    def frontchannel_logout_session_required(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def frontchannel_logout_session_required(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         *Early Access Property*. Determines whether Okta sends sid and iss in the logout request.
         """
         return pulumi.get(self, "frontchannel_logout_session_required")
 
     @frontchannel_logout_session_required.setter
-    def frontchannel_logout_session_required(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def frontchannel_logout_session_required(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "frontchannel_logout_session_required", value)
 
     @_builtins.property
     @pulumi.getter(name="frontchannelLogoutUri")
-    def frontchannel_logout_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def frontchannel_logout_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         *Early Access Property*. URL where Okta sends the logout request. Required when participate_slo is true.
         """
         return pulumi.get(self, "frontchannel_logout_uri")
 
     @frontchannel_logout_uri.setter
-    def frontchannel_logout_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def frontchannel_logout_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "frontchannel_logout_uri", value)
 
     @_builtins.property
     @pulumi.getter(name="grantTypes")
-    def grant_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def grant_types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of OAuth 2.0 grant types. Conditional validation params found here https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum requirements per app type.
         """
         return pulumi.get(self, "grant_types")
 
     @grant_types.setter
-    def grant_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def grant_types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "grant_types", value)
 
     @_builtins.property
     @pulumi.getter(name="groupsClaim")
     @_utilities.deprecated("""The groups_claim field is deprecated and will be removed in a future version. Use Authorization Server Claims (okta_auth_server_claim) or app profile configuration instead.""")
-    def groups_claim(self) -> Optional[pulumi.Input['OAuthGroupsClaimArgs']]:
+    def groups_claim(self) -> pulumi.Input[Optional['OAuthGroupsClaimArgs']]:
         """
         Groups claim for an OpenID Connect client application (argument is ignored when API auth is done with OAuth 2.0 credentials, and is not supported when `preconfigured_app` is set)
         """
         return pulumi.get(self, "groups_claim")
 
     @groups_claim.setter
-    def groups_claim(self, value: Optional[pulumi.Input['OAuthGroupsClaimArgs']]):
+    def groups_claim(self, value: pulumi.Input[Optional['OAuthGroupsClaimArgs']]):
         pulumi.set(self, "groups_claim", value)
 
     @_builtins.property
     @pulumi.getter(name="hideIos")
-    def hide_ios(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def hide_ios(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Do not display application icon on mobile app
         """
         return pulumi.get(self, "hide_ios")
 
     @hide_ios.setter
-    def hide_ios(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def hide_ios(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "hide_ios", value)
 
     @_builtins.property
     @pulumi.getter(name="hideWeb")
-    def hide_web(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def hide_web(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Do not display application icon to users
         """
         return pulumi.get(self, "hide_web")
 
     @hide_web.setter
-    def hide_web(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def hide_web(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "hide_web", value)
 
     @_builtins.property
     @pulumi.getter(name="implicitAssignment")
-    def implicit_assignment(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def implicit_assignment(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         *Early Access Property*. Enable Federation Broker Mode.
         """
         return pulumi.get(self, "implicit_assignment")
 
     @implicit_assignment.setter
-    def implicit_assignment(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def implicit_assignment(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "implicit_assignment", value)
 
     @_builtins.property
     @pulumi.getter(name="issuerMode")
-    def issuer_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def issuer_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         *Early Access Property*. Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a custom domain URL as the issuer of ID token for this client.
         """
         return pulumi.get(self, "issuer_mode")
 
     @issuer_mode.setter
-    def issuer_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def issuer_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "issuer_mode", value)
 
     @_builtins.property
     @pulumi.getter
-    def jwks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OAuthJwkArgs']]]]:
+    def jwks(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['OAuthJwkArgs']]]]:
         """
         JSON Web Key Set (JWKS) for application. Note: Inline JWKS may have compatibility issues with v6 SDK. Consider using jwks_uri instead.
         """
         return pulumi.get(self, "jwks")
 
     @jwks.setter
-    def jwks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OAuthJwkArgs']]]]):
+    def jwks(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['OAuthJwkArgs']]]]):
         pulumi.set(self, "jwks", value)
 
     @_builtins.property
     @pulumi.getter(name="jwksUri")
-    def jwks_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def jwks_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         URL reference to JWKS
         """
         return pulumi.get(self, "jwks_uri")
 
     @jwks_uri.setter
-    def jwks_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def jwks_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "jwks_uri", value)
 
     @_builtins.property
     @pulumi.getter(name="loginMode")
-    def login_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def login_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of Idp-Initiated login that the client supports, if any
         """
         return pulumi.get(self, "login_mode")
 
     @login_mode.setter
-    def login_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def login_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "login_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="loginScopes")
-    def login_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def login_scopes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of scopes to use for the request
         """
         return pulumi.get(self, "login_scopes")
 
     @login_scopes.setter
-    def login_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def login_scopes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "login_scopes", value)
 
     @_builtins.property
     @pulumi.getter(name="loginUri")
-    def login_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def login_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         URI that initiates login.
         """
         return pulumi.get(self, "login_uri")
 
     @login_uri.setter
-    def login_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def login_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "login_uri", value)
 
     @_builtins.property
     @pulumi.getter
-    def logo(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def logo(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
         """
         return pulumi.get(self, "logo")
 
     @logo.setter
-    def logo(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def logo(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "logo", value)
 
     @_builtins.property
     @pulumi.getter(name="logoUri")
-    def logo_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def logo_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         URI that references a logo for the client.
         """
         return pulumi.get(self, "logo_uri")
 
     @logo_uri.setter
-    def logo_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def logo_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "logo_uri", value)
 
     @_builtins.property
     @pulumi.getter
-    def network(self) -> Optional[pulumi.Input['OAuthNetworkArgs']]:
+    def network(self) -> pulumi.Input[Optional['OAuthNetworkArgs']]:
         """
         Network restrictions for the application client. Only one `network` block may be defined.
         """
         return pulumi.get(self, "network")
 
     @network.setter
-    def network(self, value: Optional[pulumi.Input['OAuthNetworkArgs']]):
+    def network(self, value: pulumi.Input[Optional['OAuthNetworkArgs']]):
         pulumi.set(self, "network", value)
 
     @_builtins.property
     @pulumi.getter(name="omitSecret")
-    def omit_secret(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def omit_secret(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         This tells the provider not manage the client*secret value in state. When this is false (the default), it will cause the auto-generated client*secret to be persisted in the client_secret attribute in state. This also means that every time an update to this app is run, this value is also set on the API. If this changes from false => true, the `client_secret` is dropped from state and the secret at the time of the apply is what remains. If this is ever changes from true => false your app will be recreated, due to the need to regenerate a secret we can store in state.
         """
         return pulumi.get(self, "omit_secret")
 
     @omit_secret.setter
-    def omit_secret(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def omit_secret(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "omit_secret", value)
 
     @_builtins.property
     @pulumi.getter(name="participateSlo")
-    def participate_slo(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def participate_slo(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         *Early Access Property*. Allows the app to participate in front-channel Single Logout. Note: You can only enable participate*slo for web and browser application types. When set to true, frontchannel*logout_uri must also be provided. Enable `SINGLE_LOGOUT_SUPPORT` feature flag in your org to use this property.
         """
         return pulumi.get(self, "participate_slo")
 
     @participate_slo.setter
-    def participate_slo(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def participate_slo(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "participate_slo", value)
 
     @_builtins.property
     @pulumi.getter(name="pkceRequired")
-    def pkce_required(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def pkce_required(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
         """
         return pulumi.get(self, "pkce_required")
 
     @pkce_required.setter
-    def pkce_required(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def pkce_required(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "pkce_required", value)
 
     @_builtins.property
     @pulumi.getter(name="policyUri")
-    def policy_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def policy_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         URI to web page providing client policy document.
         """
         return pulumi.get(self, "policy_uri")
 
     @policy_uri.setter
-    def policy_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def policy_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "policy_uri", value)
 
     @_builtins.property
     @pulumi.getter(name="postLogoutRedirectUris")
-    def post_logout_redirect_uris(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def post_logout_redirect_uris(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of URIs for redirection after logout. Note: see okta*app*oauth*post*logout*redirect*uri for appending to this list in a decentralized way.
         """
         return pulumi.get(self, "post_logout_redirect_uris")
 
     @post_logout_redirect_uris.setter
-    def post_logout_redirect_uris(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def post_logout_redirect_uris(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "post_logout_redirect_uris", value)
 
     @_builtins.property
     @pulumi.getter(name="preconfiguredApp")
-    def preconfigured_app(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def preconfigured_app(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Tells Okta to use an existing application in their application catalog, as opposed to a custom application. Note: `groups_claim` is not supported when using `preconfigured_app`.
         """
         return pulumi.get(self, "preconfigured_app")
 
     @preconfigured_app.setter
-    def preconfigured_app(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def preconfigured_app(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "preconfigured_app", value)
 
     @_builtins.property
     @pulumi.getter
-    def profile(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def profile(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Custom JSON that represents an OAuth application's profile
         """
         return pulumi.get(self, "profile")
 
     @profile.setter
-    def profile(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def profile(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "profile", value)
 
     @_builtins.property
     @pulumi.getter(name="redirectUris")
-    def redirect_uris(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def redirect_uris(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of URIs for use in the redirect-based flow. This is required for all application types except service. Note: see okta*app*oauth*redirect*uri for appending to this list in a decentralized way.
         """
         return pulumi.get(self, "redirect_uris")
 
     @redirect_uris.setter
-    def redirect_uris(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def redirect_uris(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "redirect_uris", value)
 
     @_builtins.property
     @pulumi.getter(name="refreshTokenLeeway")
-    def refresh_token_leeway(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def refresh_token_leeway(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         *Early Access Property* Grace period for token rotation, required with grant types refresh_token
         """
         return pulumi.get(self, "refresh_token_leeway")
 
     @refresh_token_leeway.setter
-    def refresh_token_leeway(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def refresh_token_leeway(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "refresh_token_leeway", value)
 
     @_builtins.property
     @pulumi.getter(name="refreshTokenRotation")
-    def refresh_token_rotation(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def refresh_token_rotation(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         *Early Access Property* Refresh token rotation behavior, required with grant types refresh_token
         """
         return pulumi.get(self, "refresh_token_rotation")
 
     @refresh_token_rotation.setter
-    def refresh_token_rotation(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def refresh_token_rotation(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "refresh_token_rotation", value)
 
     @_builtins.property
     @pulumi.getter(name="responseTypes")
-    def response_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def response_types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of OAuth 2.0 response type strings. Valid values are any combination of: `code`, `token`, and `id_token`.
         """
         return pulumi.get(self, "response_types")
 
     @response_types.setter
-    def response_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def response_types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "response_types", value)
 
     @_builtins.property
     @pulumi.getter(name="skipAuthenticationPolicy")
-    def skip_authentication_policy(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def skip_authentication_policy(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When set to true, the provider will not assign or read the authentication policy for this application. This can be useful when the caller lacks the permissions to read or manage policies, or to reduce API calls against the `/api/v1/apps` rate limit.
         """
         return pulumi.get(self, "skip_authentication_policy")
 
     @skip_authentication_policy.setter
-    def skip_authentication_policy(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def skip_authentication_policy(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "skip_authentication_policy", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Status of application. By default, it is `ACTIVE`
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter(name="tokenEndpointAuthMethod")
-    def token_endpoint_auth_method(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def token_endpoint_auth_method(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Requested authentication method for the token endpoint, valid values include:  'client*secret*basic', 'client*secret*post', 'client*secret*jwt', 'private*key*jwt', 'none', etc.
         """
         return pulumi.get(self, "token_endpoint_auth_method")
 
     @token_endpoint_auth_method.setter
-    def token_endpoint_auth_method(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def token_endpoint_auth_method(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "token_endpoint_auth_method", value)
 
     @_builtins.property
     @pulumi.getter(name="tosUri")
-    def tos_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tos_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         URI to web page providing client tos (terms of service).
         """
         return pulumi.get(self, "tos_uri")
 
     @tos_uri.setter
-    def tos_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tos_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tos_uri", value)
 
     @_builtins.property
     @pulumi.getter(name="userNameTemplate")
-    def user_name_template(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_name_template(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Username template. Default: `${source.login}`
         """
         return pulumi.get(self, "user_name_template")
 
     @user_name_template.setter
-    def user_name_template(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_name_template(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_name_template", value)
 
     @_builtins.property
     @pulumi.getter(name="userNameTemplatePushStatus")
-    def user_name_template_push_status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_name_template_push_status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Push username on update. Valid values: `PUSH` and `DONT_PUSH`
         """
         return pulumi.get(self, "user_name_template_push_status")
 
     @user_name_template_push_status.setter
-    def user_name_template_push_status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_name_template_push_status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_name_template_push_status", value)
 
     @_builtins.property
     @pulumi.getter(name="userNameTemplateSuffix")
-    def user_name_template_suffix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_name_template_suffix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Username template suffix
         """
         return pulumi.get(self, "user_name_template_suffix")
 
     @user_name_template_suffix.setter
-    def user_name_template_suffix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_name_template_suffix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_name_template_suffix", value)
 
     @_builtins.property
     @pulumi.getter(name="userNameTemplateType")
-    def user_name_template_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_name_template_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Username template type. Default: `BUILT_IN`
         """
         return pulumi.get(self, "user_name_template_type")
 
     @user_name_template_type.setter
-    def user_name_template_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_name_template_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_name_template_type", value)
 
     @_builtins.property
     @pulumi.getter(name="wildcardRedirect")
-    def wildcard_redirect(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def wildcard_redirect(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         *Early Access Property*. Indicates if the client is allowed to use wildcard matching of redirect_uris.
         """
         return pulumi.get(self, "wildcard_redirect")
 
     @wildcard_redirect.setter
-    def wildcard_redirect(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def wildcard_redirect(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "wildcard_redirect", value)
 
 
 @pulumi.input_type
 class _OAuthState:
     def __init__(__self__, *,
-                 accessibility_error_redirect_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 accessibility_login_redirect_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 accessibility_self_service: Optional[pulumi.Input[_builtins.bool]] = None,
-                 admin_note: Optional[pulumi.Input[_builtins.str]] = None,
-                 app_links_json: Optional[pulumi.Input[_builtins.str]] = None,
-                 app_settings_json: Optional[pulumi.Input[_builtins.str]] = None,
-                 authentication_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 auto_key_rotation: Optional[pulumi.Input[_builtins.bool]] = None,
-                 auto_submit_toolbar: Optional[pulumi.Input[_builtins.bool]] = None,
-                 client_basic_secret: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_basic_secret_wo: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_basic_secret_wo_version: Optional[pulumi.Input[_builtins.int]] = None,
-                 client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_secret: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 consent_method: Optional[pulumi.Input[_builtins.str]] = None,
-                 enduser_note: Optional[pulumi.Input[_builtins.str]] = None,
-                 frontchannel_logout_session_required: Optional[pulumi.Input[_builtins.bool]] = None,
-                 frontchannel_logout_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 grant_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 groups_claim: Optional[pulumi.Input['OAuthGroupsClaimArgs']] = None,
-                 hide_ios: Optional[pulumi.Input[_builtins.bool]] = None,
-                 hide_web: Optional[pulumi.Input[_builtins.bool]] = None,
-                 implicit_assignment: Optional[pulumi.Input[_builtins.bool]] = None,
-                 issuer_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 jwks: Optional[pulumi.Input[Sequence[pulumi.Input['OAuthJwkArgs']]]] = None,
-                 jwks_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 label: Optional[pulumi.Input[_builtins.str]] = None,
-                 login_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 login_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 login_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 logo: Optional[pulumi.Input[_builtins.str]] = None,
-                 logo_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 logo_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network: Optional[pulumi.Input['OAuthNetworkArgs']] = None,
-                 omit_secret: Optional[pulumi.Input[_builtins.bool]] = None,
-                 participate_slo: Optional[pulumi.Input[_builtins.bool]] = None,
-                 pkce_required: Optional[pulumi.Input[_builtins.bool]] = None,
-                 policy_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 post_logout_redirect_uris: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 preconfigured_app: Optional[pulumi.Input[_builtins.str]] = None,
-                 profile: Optional[pulumi.Input[_builtins.str]] = None,
-                 redirect_uris: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 refresh_token_leeway: Optional[pulumi.Input[_builtins.int]] = None,
-                 refresh_token_rotation: Optional[pulumi.Input[_builtins.str]] = None,
-                 response_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 sign_on_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 skip_authentication_policy: Optional[pulumi.Input[_builtins.bool]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 token_endpoint_auth_method: Optional[pulumi.Input[_builtins.str]] = None,
-                 tos_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_name_template: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_name_template_push_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_name_template_suffix: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_name_template_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 wildcard_redirect: Optional[pulumi.Input[_builtins.str]] = None):
+                 accessibility_error_redirect_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 accessibility_login_redirect_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 accessibility_self_service: pulumi.Input[Optional[_builtins.bool]] = None,
+                 admin_note: pulumi.Input[Optional[_builtins.str]] = None,
+                 app_links_json: pulumi.Input[Optional[_builtins.str]] = None,
+                 app_settings_json: pulumi.Input[Optional[_builtins.str]] = None,
+                 authentication_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 auto_key_rotation: pulumi.Input[Optional[_builtins.bool]] = None,
+                 auto_submit_toolbar: pulumi.Input[Optional[_builtins.bool]] = None,
+                 client_basic_secret: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_basic_secret_wo: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_basic_secret_wo_version: pulumi.Input[Optional[_builtins.int]] = None,
+                 client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_secret: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 consent_method: pulumi.Input[Optional[_builtins.str]] = None,
+                 enduser_note: pulumi.Input[Optional[_builtins.str]] = None,
+                 frontchannel_logout_session_required: pulumi.Input[Optional[_builtins.bool]] = None,
+                 frontchannel_logout_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 grant_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 groups_claim: pulumi.Input[Optional['OAuthGroupsClaimArgs']] = None,
+                 hide_ios: pulumi.Input[Optional[_builtins.bool]] = None,
+                 hide_web: pulumi.Input[Optional[_builtins.bool]] = None,
+                 implicit_assignment: pulumi.Input[Optional[_builtins.bool]] = None,
+                 issuer_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 jwks: pulumi.Input[Optional[Sequence[pulumi.Input['OAuthJwkArgs']]]] = None,
+                 jwks_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 label: pulumi.Input[Optional[_builtins.str]] = None,
+                 login_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 login_scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 login_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 logo: pulumi.Input[Optional[_builtins.str]] = None,
+                 logo_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 logo_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network: pulumi.Input[Optional['OAuthNetworkArgs']] = None,
+                 omit_secret: pulumi.Input[Optional[_builtins.bool]] = None,
+                 participate_slo: pulumi.Input[Optional[_builtins.bool]] = None,
+                 pkce_required: pulumi.Input[Optional[_builtins.bool]] = None,
+                 policy_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 post_logout_redirect_uris: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 preconfigured_app: pulumi.Input[Optional[_builtins.str]] = None,
+                 profile: pulumi.Input[Optional[_builtins.str]] = None,
+                 redirect_uris: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 refresh_token_leeway: pulumi.Input[Optional[_builtins.int]] = None,
+                 refresh_token_rotation: pulumi.Input[Optional[_builtins.str]] = None,
+                 response_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 sign_on_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 skip_authentication_policy: pulumi.Input[Optional[_builtins.bool]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 token_endpoint_auth_method: pulumi.Input[Optional[_builtins.str]] = None,
+                 tos_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_name_template: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_name_template_push_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_name_template_suffix: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_name_template_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 wildcard_redirect: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering OAuth resources.
 
@@ -1153,91 +1153,91 @@ class _OAuthState:
 
     @_builtins.property
     @pulumi.getter(name="accessibilityErrorRedirectUrl")
-    def accessibility_error_redirect_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def accessibility_error_redirect_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Custom error page URL
         """
         return pulumi.get(self, "accessibility_error_redirect_url")
 
     @accessibility_error_redirect_url.setter
-    def accessibility_error_redirect_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def accessibility_error_redirect_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "accessibility_error_redirect_url", value)
 
     @_builtins.property
     @pulumi.getter(name="accessibilityLoginRedirectUrl")
-    def accessibility_login_redirect_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def accessibility_login_redirect_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Custom login page URL
         """
         return pulumi.get(self, "accessibility_login_redirect_url")
 
     @accessibility_login_redirect_url.setter
-    def accessibility_login_redirect_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def accessibility_login_redirect_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "accessibility_login_redirect_url", value)
 
     @_builtins.property
     @pulumi.getter(name="accessibilitySelfService")
-    def accessibility_self_service(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def accessibility_self_service(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable self service. Default is `false`
         """
         return pulumi.get(self, "accessibility_self_service")
 
     @accessibility_self_service.setter
-    def accessibility_self_service(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def accessibility_self_service(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "accessibility_self_service", value)
 
     @_builtins.property
     @pulumi.getter(name="adminNote")
-    def admin_note(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def admin_note(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Application notes for admins.
         """
         return pulumi.get(self, "admin_note")
 
     @admin_note.setter
-    def admin_note(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def admin_note(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "admin_note", value)
 
     @_builtins.property
     @pulumi.getter(name="appLinksJson")
-    def app_links_json(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def app_links_json(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Displays specific appLinks for the app. The value for each application link should be boolean.
         """
         return pulumi.get(self, "app_links_json")
 
     @app_links_json.setter
-    def app_links_json(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def app_links_json(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "app_links_json", value)
 
     @_builtins.property
     @pulumi.getter(name="appSettingsJson")
-    def app_settings_json(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def app_settings_json(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Application settings in JSON format
         """
         return pulumi.get(self, "app_settings_json")
 
     @app_settings_json.setter
-    def app_settings_json(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def app_settings_json(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "app_settings_json", value)
 
     @_builtins.property
     @pulumi.getter(name="authenticationPolicy")
-    def authentication_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def authentication_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the associated app*signon*policy. If this property is removed from the application the default sign-on-policy will be associated with this application. From now on, there is no need to attach authentication_policy for applications of type `SERVICE` in the upcoming release.
         """
         return pulumi.get(self, "authentication_policy")
 
     @authentication_policy.setter
-    def authentication_policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def authentication_policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "authentication_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="autoKeyRotation")
-    def auto_key_rotation(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def auto_key_rotation(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Requested key rotation mode. If
         			auto*key*rotation isn't specified, the client automatically opts in for Okta's
@@ -1248,36 +1248,36 @@ class _OAuthState:
         return pulumi.get(self, "auto_key_rotation")
 
     @auto_key_rotation.setter
-    def auto_key_rotation(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def auto_key_rotation(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "auto_key_rotation", value)
 
     @_builtins.property
     @pulumi.getter(name="autoSubmitToolbar")
-    def auto_submit_toolbar(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def auto_submit_toolbar(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Display auto submit toolbar
         """
         return pulumi.get(self, "auto_submit_toolbar")
 
     @auto_submit_toolbar.setter
-    def auto_submit_toolbar(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def auto_submit_toolbar(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "auto_submit_toolbar", value)
 
     @_builtins.property
     @pulumi.getter(name="clientBasicSecret")
-    def client_basic_secret(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_basic_secret(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The user provided OAuth client secret key value. When set, this secret will be stored in the Terraform state file. For Terraform 1.11+, consider using `client_basic_secret_wo` instead to avoid persisting secrets in state. Either `client_basic_secret` or `client_basic_secret_wo` can be specified, but not both.
         """
         return pulumi.get(self, "client_basic_secret")
 
     @client_basic_secret.setter
-    def client_basic_secret(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_basic_secret(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_basic_secret", value)
 
     @_builtins.property
     @pulumi.getter(name="clientBasicSecretWo")
-    def client_basic_secret_wo(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_basic_secret_wo(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
         The user provided write-only OAuth client secret key value for Terraform 1.11+. Unlike `client_basic_secret`, this secret will not be persisted in the Terraform state file, providing improved security. Only use this attribute with Terraform 1.11 or higher. Either `client_basic_secret` or `client_basic_secret_wo` can be specified, but not both.
@@ -1285,572 +1285,572 @@ class _OAuthState:
         return pulumi.get(self, "client_basic_secret_wo")
 
     @client_basic_secret_wo.setter
-    def client_basic_secret_wo(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_basic_secret_wo(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_basic_secret_wo", value)
 
     @_builtins.property
     @pulumi.getter(name="clientBasicSecretWoVersion")
-    def client_basic_secret_wo_version(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def client_basic_secret_wo_version(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Version number for the write-only client secret. Increment this value to trigger an update when changing `client_basic_secret_wo`.
         """
         return pulumi.get(self, "client_basic_secret_wo_version")
 
     @client_basic_secret_wo_version.setter
-    def client_basic_secret_wo_version(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def client_basic_secret_wo_version(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "client_basic_secret_wo_version", value)
 
     @_builtins.property
     @pulumi.getter(name="clientId")
-    def client_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         OAuth client ID. If set during creation, app is created with this id.
         """
         return pulumi.get(self, "client_id")
 
     @client_id.setter
-    def client_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_id", value)
 
     @_builtins.property
     @pulumi.getter(name="clientSecret")
-    def client_secret(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_secret(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         OAuth client secret value, this is output only. This will be in plain text in your statefile unless you set omit_secret above.
         """
         return pulumi.get(self, "client_secret")
 
     @client_secret.setter
-    def client_secret(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_secret(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_secret", value)
 
     @_builtins.property
     @pulumi.getter(name="clientUri")
-    def client_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         URI to a web page providing information about the client.
         """
         return pulumi.get(self, "client_uri")
 
     @client_uri.setter
-    def client_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_uri", value)
 
     @_builtins.property
     @pulumi.getter(name="consentMethod")
-    def consent_method(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def consent_method(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         *Early Access Property*. Indicates whether user consent is required or implicit. Valid values: REQUIRED, TRUSTED. Default value is TRUSTED. Note: Enable `API_ACCESS_MANAGEMENT`, `API_ACCESS_MANAGEMENT_CONSENT` feature flags in your org to use this property.
         """
         return pulumi.get(self, "consent_method")
 
     @consent_method.setter
-    def consent_method(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def consent_method(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "consent_method", value)
 
     @_builtins.property
     @pulumi.getter(name="enduserNote")
-    def enduser_note(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def enduser_note(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Application notes for end users.
         """
         return pulumi.get(self, "enduser_note")
 
     @enduser_note.setter
-    def enduser_note(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def enduser_note(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "enduser_note", value)
 
     @_builtins.property
     @pulumi.getter(name="frontchannelLogoutSessionRequired")
-    def frontchannel_logout_session_required(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def frontchannel_logout_session_required(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         *Early Access Property*. Determines whether Okta sends sid and iss in the logout request.
         """
         return pulumi.get(self, "frontchannel_logout_session_required")
 
     @frontchannel_logout_session_required.setter
-    def frontchannel_logout_session_required(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def frontchannel_logout_session_required(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "frontchannel_logout_session_required", value)
 
     @_builtins.property
     @pulumi.getter(name="frontchannelLogoutUri")
-    def frontchannel_logout_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def frontchannel_logout_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         *Early Access Property*. URL where Okta sends the logout request. Required when participate_slo is true.
         """
         return pulumi.get(self, "frontchannel_logout_uri")
 
     @frontchannel_logout_uri.setter
-    def frontchannel_logout_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def frontchannel_logout_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "frontchannel_logout_uri", value)
 
     @_builtins.property
     @pulumi.getter(name="grantTypes")
-    def grant_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def grant_types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of OAuth 2.0 grant types. Conditional validation params found here https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum requirements per app type.
         """
         return pulumi.get(self, "grant_types")
 
     @grant_types.setter
-    def grant_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def grant_types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "grant_types", value)
 
     @_builtins.property
     @pulumi.getter(name="groupsClaim")
     @_utilities.deprecated("""The groups_claim field is deprecated and will be removed in a future version. Use Authorization Server Claims (okta_auth_server_claim) or app profile configuration instead.""")
-    def groups_claim(self) -> Optional[pulumi.Input['OAuthGroupsClaimArgs']]:
+    def groups_claim(self) -> pulumi.Input[Optional['OAuthGroupsClaimArgs']]:
         """
         Groups claim for an OpenID Connect client application (argument is ignored when API auth is done with OAuth 2.0 credentials, and is not supported when `preconfigured_app` is set)
         """
         return pulumi.get(self, "groups_claim")
 
     @groups_claim.setter
-    def groups_claim(self, value: Optional[pulumi.Input['OAuthGroupsClaimArgs']]):
+    def groups_claim(self, value: pulumi.Input[Optional['OAuthGroupsClaimArgs']]):
         pulumi.set(self, "groups_claim", value)
 
     @_builtins.property
     @pulumi.getter(name="hideIos")
-    def hide_ios(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def hide_ios(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Do not display application icon on mobile app
         """
         return pulumi.get(self, "hide_ios")
 
     @hide_ios.setter
-    def hide_ios(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def hide_ios(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "hide_ios", value)
 
     @_builtins.property
     @pulumi.getter(name="hideWeb")
-    def hide_web(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def hide_web(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Do not display application icon to users
         """
         return pulumi.get(self, "hide_web")
 
     @hide_web.setter
-    def hide_web(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def hide_web(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "hide_web", value)
 
     @_builtins.property
     @pulumi.getter(name="implicitAssignment")
-    def implicit_assignment(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def implicit_assignment(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         *Early Access Property*. Enable Federation Broker Mode.
         """
         return pulumi.get(self, "implicit_assignment")
 
     @implicit_assignment.setter
-    def implicit_assignment(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def implicit_assignment(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "implicit_assignment", value)
 
     @_builtins.property
     @pulumi.getter(name="issuerMode")
-    def issuer_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def issuer_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         *Early Access Property*. Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a custom domain URL as the issuer of ID token for this client.
         """
         return pulumi.get(self, "issuer_mode")
 
     @issuer_mode.setter
-    def issuer_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def issuer_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "issuer_mode", value)
 
     @_builtins.property
     @pulumi.getter
-    def jwks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OAuthJwkArgs']]]]:
+    def jwks(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['OAuthJwkArgs']]]]:
         """
         JSON Web Key Set (JWKS) for application. Note: Inline JWKS may have compatibility issues with v6 SDK. Consider using jwks_uri instead.
         """
         return pulumi.get(self, "jwks")
 
     @jwks.setter
-    def jwks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OAuthJwkArgs']]]]):
+    def jwks(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['OAuthJwkArgs']]]]):
         pulumi.set(self, "jwks", value)
 
     @_builtins.property
     @pulumi.getter(name="jwksUri")
-    def jwks_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def jwks_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         URL reference to JWKS
         """
         return pulumi.get(self, "jwks_uri")
 
     @jwks_uri.setter
-    def jwks_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def jwks_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "jwks_uri", value)
 
     @_builtins.property
     @pulumi.getter
-    def label(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def label(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Application's display name.
         """
         return pulumi.get(self, "label")
 
     @label.setter
-    def label(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def label(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "label", value)
 
     @_builtins.property
     @pulumi.getter(name="loginMode")
-    def login_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def login_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of Idp-Initiated login that the client supports, if any
         """
         return pulumi.get(self, "login_mode")
 
     @login_mode.setter
-    def login_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def login_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "login_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="loginScopes")
-    def login_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def login_scopes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of scopes to use for the request
         """
         return pulumi.get(self, "login_scopes")
 
     @login_scopes.setter
-    def login_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def login_scopes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "login_scopes", value)
 
     @_builtins.property
     @pulumi.getter(name="loginUri")
-    def login_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def login_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         URI that initiates login.
         """
         return pulumi.get(self, "login_uri")
 
     @login_uri.setter
-    def login_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def login_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "login_uri", value)
 
     @_builtins.property
     @pulumi.getter
-    def logo(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def logo(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
         """
         return pulumi.get(self, "logo")
 
     @logo.setter
-    def logo(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def logo(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "logo", value)
 
     @_builtins.property
     @pulumi.getter(name="logoUri")
-    def logo_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def logo_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         URI that references a logo for the client.
         """
         return pulumi.get(self, "logo_uri")
 
     @logo_uri.setter
-    def logo_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def logo_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "logo_uri", value)
 
     @_builtins.property
     @pulumi.getter(name="logoUrl")
-    def logo_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def logo_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         URL of the application's logo
         """
         return pulumi.get(self, "logo_url")
 
     @logo_url.setter
-    def logo_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def logo_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "logo_url", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the app.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def network(self) -> Optional[pulumi.Input['OAuthNetworkArgs']]:
+    def network(self) -> pulumi.Input[Optional['OAuthNetworkArgs']]:
         """
         Network restrictions for the application client. Only one `network` block may be defined.
         """
         return pulumi.get(self, "network")
 
     @network.setter
-    def network(self, value: Optional[pulumi.Input['OAuthNetworkArgs']]):
+    def network(self, value: pulumi.Input[Optional['OAuthNetworkArgs']]):
         pulumi.set(self, "network", value)
 
     @_builtins.property
     @pulumi.getter(name="omitSecret")
-    def omit_secret(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def omit_secret(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         This tells the provider not manage the client*secret value in state. When this is false (the default), it will cause the auto-generated client*secret to be persisted in the client_secret attribute in state. This also means that every time an update to this app is run, this value is also set on the API. If this changes from false => true, the `client_secret` is dropped from state and the secret at the time of the apply is what remains. If this is ever changes from true => false your app will be recreated, due to the need to regenerate a secret we can store in state.
         """
         return pulumi.get(self, "omit_secret")
 
     @omit_secret.setter
-    def omit_secret(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def omit_secret(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "omit_secret", value)
 
     @_builtins.property
     @pulumi.getter(name="participateSlo")
-    def participate_slo(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def participate_slo(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         *Early Access Property*. Allows the app to participate in front-channel Single Logout. Note: You can only enable participate*slo for web and browser application types. When set to true, frontchannel*logout_uri must also be provided. Enable `SINGLE_LOGOUT_SUPPORT` feature flag in your org to use this property.
         """
         return pulumi.get(self, "participate_slo")
 
     @participate_slo.setter
-    def participate_slo(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def participate_slo(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "participate_slo", value)
 
     @_builtins.property
     @pulumi.getter(name="pkceRequired")
-    def pkce_required(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def pkce_required(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
         """
         return pulumi.get(self, "pkce_required")
 
     @pkce_required.setter
-    def pkce_required(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def pkce_required(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "pkce_required", value)
 
     @_builtins.property
     @pulumi.getter(name="policyUri")
-    def policy_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def policy_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         URI to web page providing client policy document.
         """
         return pulumi.get(self, "policy_uri")
 
     @policy_uri.setter
-    def policy_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def policy_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "policy_uri", value)
 
     @_builtins.property
     @pulumi.getter(name="postLogoutRedirectUris")
-    def post_logout_redirect_uris(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def post_logout_redirect_uris(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of URIs for redirection after logout. Note: see okta*app*oauth*post*logout*redirect*uri for appending to this list in a decentralized way.
         """
         return pulumi.get(self, "post_logout_redirect_uris")
 
     @post_logout_redirect_uris.setter
-    def post_logout_redirect_uris(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def post_logout_redirect_uris(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "post_logout_redirect_uris", value)
 
     @_builtins.property
     @pulumi.getter(name="preconfiguredApp")
-    def preconfigured_app(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def preconfigured_app(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Tells Okta to use an existing application in their application catalog, as opposed to a custom application. Note: `groups_claim` is not supported when using `preconfigured_app`.
         """
         return pulumi.get(self, "preconfigured_app")
 
     @preconfigured_app.setter
-    def preconfigured_app(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def preconfigured_app(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "preconfigured_app", value)
 
     @_builtins.property
     @pulumi.getter
-    def profile(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def profile(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Custom JSON that represents an OAuth application's profile
         """
         return pulumi.get(self, "profile")
 
     @profile.setter
-    def profile(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def profile(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "profile", value)
 
     @_builtins.property
     @pulumi.getter(name="redirectUris")
-    def redirect_uris(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def redirect_uris(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of URIs for use in the redirect-based flow. This is required for all application types except service. Note: see okta*app*oauth*redirect*uri for appending to this list in a decentralized way.
         """
         return pulumi.get(self, "redirect_uris")
 
     @redirect_uris.setter
-    def redirect_uris(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def redirect_uris(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "redirect_uris", value)
 
     @_builtins.property
     @pulumi.getter(name="refreshTokenLeeway")
-    def refresh_token_leeway(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def refresh_token_leeway(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         *Early Access Property* Grace period for token rotation, required with grant types refresh_token
         """
         return pulumi.get(self, "refresh_token_leeway")
 
     @refresh_token_leeway.setter
-    def refresh_token_leeway(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def refresh_token_leeway(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "refresh_token_leeway", value)
 
     @_builtins.property
     @pulumi.getter(name="refreshTokenRotation")
-    def refresh_token_rotation(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def refresh_token_rotation(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         *Early Access Property* Refresh token rotation behavior, required with grant types refresh_token
         """
         return pulumi.get(self, "refresh_token_rotation")
 
     @refresh_token_rotation.setter
-    def refresh_token_rotation(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def refresh_token_rotation(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "refresh_token_rotation", value)
 
     @_builtins.property
     @pulumi.getter(name="responseTypes")
-    def response_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def response_types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of OAuth 2.0 response type strings. Valid values are any combination of: `code`, `token`, and `id_token`.
         """
         return pulumi.get(self, "response_types")
 
     @response_types.setter
-    def response_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def response_types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "response_types", value)
 
     @_builtins.property
     @pulumi.getter(name="signOnMode")
-    def sign_on_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sign_on_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Sign on mode of application.
         """
         return pulumi.get(self, "sign_on_mode")
 
     @sign_on_mode.setter
-    def sign_on_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sign_on_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sign_on_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="skipAuthenticationPolicy")
-    def skip_authentication_policy(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def skip_authentication_policy(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When set to true, the provider will not assign or read the authentication policy for this application. This can be useful when the caller lacks the permissions to read or manage policies, or to reduce API calls against the `/api/v1/apps` rate limit.
         """
         return pulumi.get(self, "skip_authentication_policy")
 
     @skip_authentication_policy.setter
-    def skip_authentication_policy(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def skip_authentication_policy(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "skip_authentication_policy", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Status of application. By default, it is `ACTIVE`
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter(name="tokenEndpointAuthMethod")
-    def token_endpoint_auth_method(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def token_endpoint_auth_method(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Requested authentication method for the token endpoint, valid values include:  'client*secret*basic', 'client*secret*post', 'client*secret*jwt', 'private*key*jwt', 'none', etc.
         """
         return pulumi.get(self, "token_endpoint_auth_method")
 
     @token_endpoint_auth_method.setter
-    def token_endpoint_auth_method(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def token_endpoint_auth_method(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "token_endpoint_auth_method", value)
 
     @_builtins.property
     @pulumi.getter(name="tosUri")
-    def tos_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tos_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         URI to web page providing client tos (terms of service).
         """
         return pulumi.get(self, "tos_uri")
 
     @tos_uri.setter
-    def tos_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tos_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tos_uri", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of client application.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
     @_builtins.property
     @pulumi.getter(name="userNameTemplate")
-    def user_name_template(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_name_template(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Username template. Default: `${source.login}`
         """
         return pulumi.get(self, "user_name_template")
 
     @user_name_template.setter
-    def user_name_template(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_name_template(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_name_template", value)
 
     @_builtins.property
     @pulumi.getter(name="userNameTemplatePushStatus")
-    def user_name_template_push_status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_name_template_push_status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Push username on update. Valid values: `PUSH` and `DONT_PUSH`
         """
         return pulumi.get(self, "user_name_template_push_status")
 
     @user_name_template_push_status.setter
-    def user_name_template_push_status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_name_template_push_status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_name_template_push_status", value)
 
     @_builtins.property
     @pulumi.getter(name="userNameTemplateSuffix")
-    def user_name_template_suffix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_name_template_suffix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Username template suffix
         """
         return pulumi.get(self, "user_name_template_suffix")
 
     @user_name_template_suffix.setter
-    def user_name_template_suffix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_name_template_suffix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_name_template_suffix", value)
 
     @_builtins.property
     @pulumi.getter(name="userNameTemplateType")
-    def user_name_template_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_name_template_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Username template type. Default: `BUILT_IN`
         """
         return pulumi.get(self, "user_name_template_type")
 
     @user_name_template_type.setter
-    def user_name_template_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_name_template_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_name_template_type", value)
 
     @_builtins.property
     @pulumi.getter(name="wildcardRedirect")
-    def wildcard_redirect(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def wildcard_redirect(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         *Early Access Property*. Indicates if the client is allowed to use wildcard matching of redirect_uris.
         """
         return pulumi.get(self, "wildcard_redirect")
 
     @wildcard_redirect.setter
-    def wildcard_redirect(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def wildcard_redirect(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "wildcard_redirect", value)
 
 
@@ -1860,60 +1860,60 @@ class OAuth(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 accessibility_error_redirect_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 accessibility_login_redirect_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 accessibility_self_service: Optional[pulumi.Input[_builtins.bool]] = None,
-                 admin_note: Optional[pulumi.Input[_builtins.str]] = None,
-                 app_links_json: Optional[pulumi.Input[_builtins.str]] = None,
-                 app_settings_json: Optional[pulumi.Input[_builtins.str]] = None,
-                 authentication_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 auto_key_rotation: Optional[pulumi.Input[_builtins.bool]] = None,
-                 auto_submit_toolbar: Optional[pulumi.Input[_builtins.bool]] = None,
-                 client_basic_secret: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_basic_secret_wo: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_basic_secret_wo_version: Optional[pulumi.Input[_builtins.int]] = None,
-                 client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 consent_method: Optional[pulumi.Input[_builtins.str]] = None,
-                 enduser_note: Optional[pulumi.Input[_builtins.str]] = None,
-                 frontchannel_logout_session_required: Optional[pulumi.Input[_builtins.bool]] = None,
-                 frontchannel_logout_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 grant_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 groups_claim: Optional[pulumi.Input[Union['OAuthGroupsClaimArgs', 'OAuthGroupsClaimArgsDict']]] = None,
-                 hide_ios: Optional[pulumi.Input[_builtins.bool]] = None,
-                 hide_web: Optional[pulumi.Input[_builtins.bool]] = None,
-                 implicit_assignment: Optional[pulumi.Input[_builtins.bool]] = None,
-                 issuer_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 jwks: Optional[pulumi.Input[Sequence[pulumi.Input[Union['OAuthJwkArgs', 'OAuthJwkArgsDict']]]]] = None,
-                 jwks_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 label: Optional[pulumi.Input[_builtins.str]] = None,
-                 login_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 login_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 login_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 logo: Optional[pulumi.Input[_builtins.str]] = None,
-                 logo_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 network: Optional[pulumi.Input[Union['OAuthNetworkArgs', 'OAuthNetworkArgsDict']]] = None,
-                 omit_secret: Optional[pulumi.Input[_builtins.bool]] = None,
-                 participate_slo: Optional[pulumi.Input[_builtins.bool]] = None,
-                 pkce_required: Optional[pulumi.Input[_builtins.bool]] = None,
-                 policy_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 post_logout_redirect_uris: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 preconfigured_app: Optional[pulumi.Input[_builtins.str]] = None,
-                 profile: Optional[pulumi.Input[_builtins.str]] = None,
-                 redirect_uris: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 refresh_token_leeway: Optional[pulumi.Input[_builtins.int]] = None,
-                 refresh_token_rotation: Optional[pulumi.Input[_builtins.str]] = None,
-                 response_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 skip_authentication_policy: Optional[pulumi.Input[_builtins.bool]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 token_endpoint_auth_method: Optional[pulumi.Input[_builtins.str]] = None,
-                 tos_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_name_template: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_name_template_push_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_name_template_suffix: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_name_template_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 wildcard_redirect: Optional[pulumi.Input[_builtins.str]] = None,
+                 accessibility_error_redirect_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 accessibility_login_redirect_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 accessibility_self_service: pulumi.Input[Optional[_builtins.bool]] = None,
+                 admin_note: pulumi.Input[Optional[_builtins.str]] = None,
+                 app_links_json: pulumi.Input[Optional[_builtins.str]] = None,
+                 app_settings_json: pulumi.Input[Optional[_builtins.str]] = None,
+                 authentication_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 auto_key_rotation: pulumi.Input[Optional[_builtins.bool]] = None,
+                 auto_submit_toolbar: pulumi.Input[Optional[_builtins.bool]] = None,
+                 client_basic_secret: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_basic_secret_wo: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_basic_secret_wo_version: pulumi.Input[Optional[_builtins.int]] = None,
+                 client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 consent_method: pulumi.Input[Optional[_builtins.str]] = None,
+                 enduser_note: pulumi.Input[Optional[_builtins.str]] = None,
+                 frontchannel_logout_session_required: pulumi.Input[Optional[_builtins.bool]] = None,
+                 frontchannel_logout_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 grant_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 groups_claim: pulumi.Input[Optional[Union['OAuthGroupsClaimArgs', 'OAuthGroupsClaimArgsDict']]] = None,
+                 hide_ios: pulumi.Input[Optional[_builtins.bool]] = None,
+                 hide_web: pulumi.Input[Optional[_builtins.bool]] = None,
+                 implicit_assignment: pulumi.Input[Optional[_builtins.bool]] = None,
+                 issuer_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 jwks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OAuthJwkArgs', 'OAuthJwkArgsDict']]]]] = None,
+                 jwks_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 label: pulumi.Input[Optional[_builtins.str]] = None,
+                 login_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 login_scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 login_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 logo: pulumi.Input[Optional[_builtins.str]] = None,
+                 logo_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 network: pulumi.Input[Optional[Union['OAuthNetworkArgs', 'OAuthNetworkArgsDict']]] = None,
+                 omit_secret: pulumi.Input[Optional[_builtins.bool]] = None,
+                 participate_slo: pulumi.Input[Optional[_builtins.bool]] = None,
+                 pkce_required: pulumi.Input[Optional[_builtins.bool]] = None,
+                 policy_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 post_logout_redirect_uris: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 preconfigured_app: pulumi.Input[Optional[_builtins.str]] = None,
+                 profile: pulumi.Input[Optional[_builtins.str]] = None,
+                 redirect_uris: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 refresh_token_leeway: pulumi.Input[Optional[_builtins.int]] = None,
+                 refresh_token_rotation: pulumi.Input[Optional[_builtins.str]] = None,
+                 response_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 skip_authentication_policy: pulumi.Input[Optional[_builtins.bool]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 token_endpoint_auth_method: pulumi.Input[Optional[_builtins.str]] = None,
+                 tos_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_name_template: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_name_template_push_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_name_template_suffix: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_name_template_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 wildcard_redirect: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         This resource allows you to create and configure an OIDC Application.
@@ -1970,7 +1970,7 @@ class OAuth(pulumi.CustomResource):
         #
         jwks_from_key = jwks.from_key(key=rsa["privateKeyPem"],
             kid="my-kid")
-        jwks = std.jsondecode(input=jwks_from_key["jwks"])["result"]
+        jwks_1 = std.jsondecode(input=jwks_from_key["jwks"])["result"]
         # https://registry.terraform.io/providers/okta/okta/latest/docs/resources/app_oauth
         app = okta.app.OAuth("app",
             label="My OAuth App",
@@ -1979,10 +1979,10 @@ class OAuth(pulumi.CustomResource):
             grant_types=["client_credentials"],
             token_endpoint_auth_method="private_key_jwt",
             jwks=[{
-                "kty": jwks["kty"],
-                "kid": jwks["kid"],
-                "e": jwks["e"],
-                "n": jwks["n"],
+                "kty": jwks_1["kty"],
+                "kid": jwks_1["kid"],
+                "e": jwks_1["e"],
+                "n": jwks_1["n"],
             }])
         ```
 
@@ -2116,7 +2116,7 @@ class OAuth(pulumi.CustomResource):
         #
         jwks_from_key = jwks.from_key(key=rsa["privateKeyPem"],
             kid="my-kid")
-        jwks = std.jsondecode(input=jwks_from_key["jwks"])["result"]
+        jwks_1 = std.jsondecode(input=jwks_from_key["jwks"])["result"]
         # https://registry.terraform.io/providers/okta/okta/latest/docs/resources/app_oauth
         app = okta.app.OAuth("app",
             label="My OAuth App",
@@ -2125,10 +2125,10 @@ class OAuth(pulumi.CustomResource):
             grant_types=["client_credentials"],
             token_endpoint_auth_method="private_key_jwt",
             jwks=[{
-                "kty": jwks["kty"],
-                "kid": jwks["kid"],
-                "e": jwks["e"],
-                "n": jwks["n"],
+                "kty": jwks_1["kty"],
+                "kid": jwks_1["kid"],
+                "e": jwks_1["e"],
+                "n": jwks_1["n"],
             }])
         ```
 
@@ -2154,60 +2154,60 @@ class OAuth(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 accessibility_error_redirect_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 accessibility_login_redirect_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 accessibility_self_service: Optional[pulumi.Input[_builtins.bool]] = None,
-                 admin_note: Optional[pulumi.Input[_builtins.str]] = None,
-                 app_links_json: Optional[pulumi.Input[_builtins.str]] = None,
-                 app_settings_json: Optional[pulumi.Input[_builtins.str]] = None,
-                 authentication_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 auto_key_rotation: Optional[pulumi.Input[_builtins.bool]] = None,
-                 auto_submit_toolbar: Optional[pulumi.Input[_builtins.bool]] = None,
-                 client_basic_secret: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_basic_secret_wo: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_basic_secret_wo_version: Optional[pulumi.Input[_builtins.int]] = None,
-                 client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 consent_method: Optional[pulumi.Input[_builtins.str]] = None,
-                 enduser_note: Optional[pulumi.Input[_builtins.str]] = None,
-                 frontchannel_logout_session_required: Optional[pulumi.Input[_builtins.bool]] = None,
-                 frontchannel_logout_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 grant_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 groups_claim: Optional[pulumi.Input[Union['OAuthGroupsClaimArgs', 'OAuthGroupsClaimArgsDict']]] = None,
-                 hide_ios: Optional[pulumi.Input[_builtins.bool]] = None,
-                 hide_web: Optional[pulumi.Input[_builtins.bool]] = None,
-                 implicit_assignment: Optional[pulumi.Input[_builtins.bool]] = None,
-                 issuer_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 jwks: Optional[pulumi.Input[Sequence[pulumi.Input[Union['OAuthJwkArgs', 'OAuthJwkArgsDict']]]]] = None,
-                 jwks_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 label: Optional[pulumi.Input[_builtins.str]] = None,
-                 login_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 login_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 login_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 logo: Optional[pulumi.Input[_builtins.str]] = None,
-                 logo_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 network: Optional[pulumi.Input[Union['OAuthNetworkArgs', 'OAuthNetworkArgsDict']]] = None,
-                 omit_secret: Optional[pulumi.Input[_builtins.bool]] = None,
-                 participate_slo: Optional[pulumi.Input[_builtins.bool]] = None,
-                 pkce_required: Optional[pulumi.Input[_builtins.bool]] = None,
-                 policy_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 post_logout_redirect_uris: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 preconfigured_app: Optional[pulumi.Input[_builtins.str]] = None,
-                 profile: Optional[pulumi.Input[_builtins.str]] = None,
-                 redirect_uris: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 refresh_token_leeway: Optional[pulumi.Input[_builtins.int]] = None,
-                 refresh_token_rotation: Optional[pulumi.Input[_builtins.str]] = None,
-                 response_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 skip_authentication_policy: Optional[pulumi.Input[_builtins.bool]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 token_endpoint_auth_method: Optional[pulumi.Input[_builtins.str]] = None,
-                 tos_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_name_template: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_name_template_push_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_name_template_suffix: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_name_template_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 wildcard_redirect: Optional[pulumi.Input[_builtins.str]] = None,
+                 accessibility_error_redirect_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 accessibility_login_redirect_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 accessibility_self_service: pulumi.Input[Optional[_builtins.bool]] = None,
+                 admin_note: pulumi.Input[Optional[_builtins.str]] = None,
+                 app_links_json: pulumi.Input[Optional[_builtins.str]] = None,
+                 app_settings_json: pulumi.Input[Optional[_builtins.str]] = None,
+                 authentication_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 auto_key_rotation: pulumi.Input[Optional[_builtins.bool]] = None,
+                 auto_submit_toolbar: pulumi.Input[Optional[_builtins.bool]] = None,
+                 client_basic_secret: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_basic_secret_wo: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_basic_secret_wo_version: pulumi.Input[Optional[_builtins.int]] = None,
+                 client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 consent_method: pulumi.Input[Optional[_builtins.str]] = None,
+                 enduser_note: pulumi.Input[Optional[_builtins.str]] = None,
+                 frontchannel_logout_session_required: pulumi.Input[Optional[_builtins.bool]] = None,
+                 frontchannel_logout_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 grant_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 groups_claim: pulumi.Input[Optional[Union['OAuthGroupsClaimArgs', 'OAuthGroupsClaimArgsDict']]] = None,
+                 hide_ios: pulumi.Input[Optional[_builtins.bool]] = None,
+                 hide_web: pulumi.Input[Optional[_builtins.bool]] = None,
+                 implicit_assignment: pulumi.Input[Optional[_builtins.bool]] = None,
+                 issuer_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 jwks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OAuthJwkArgs', 'OAuthJwkArgsDict']]]]] = None,
+                 jwks_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 label: pulumi.Input[Optional[_builtins.str]] = None,
+                 login_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 login_scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 login_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 logo: pulumi.Input[Optional[_builtins.str]] = None,
+                 logo_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 network: pulumi.Input[Optional[Union['OAuthNetworkArgs', 'OAuthNetworkArgsDict']]] = None,
+                 omit_secret: pulumi.Input[Optional[_builtins.bool]] = None,
+                 participate_slo: pulumi.Input[Optional[_builtins.bool]] = None,
+                 pkce_required: pulumi.Input[Optional[_builtins.bool]] = None,
+                 policy_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 post_logout_redirect_uris: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 preconfigured_app: pulumi.Input[Optional[_builtins.str]] = None,
+                 profile: pulumi.Input[Optional[_builtins.str]] = None,
+                 redirect_uris: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 refresh_token_leeway: pulumi.Input[Optional[_builtins.int]] = None,
+                 refresh_token_rotation: pulumi.Input[Optional[_builtins.str]] = None,
+                 response_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 skip_authentication_policy: pulumi.Input[Optional[_builtins.bool]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 token_endpoint_auth_method: pulumi.Input[Optional[_builtins.str]] = None,
+                 tos_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_name_template: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_name_template_push_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_name_template_suffix: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_name_template_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 wildcard_redirect: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -2291,64 +2291,64 @@ class OAuth(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            accessibility_error_redirect_url: Optional[pulumi.Input[_builtins.str]] = None,
-            accessibility_login_redirect_url: Optional[pulumi.Input[_builtins.str]] = None,
-            accessibility_self_service: Optional[pulumi.Input[_builtins.bool]] = None,
-            admin_note: Optional[pulumi.Input[_builtins.str]] = None,
-            app_links_json: Optional[pulumi.Input[_builtins.str]] = None,
-            app_settings_json: Optional[pulumi.Input[_builtins.str]] = None,
-            authentication_policy: Optional[pulumi.Input[_builtins.str]] = None,
-            auto_key_rotation: Optional[pulumi.Input[_builtins.bool]] = None,
-            auto_submit_toolbar: Optional[pulumi.Input[_builtins.bool]] = None,
-            client_basic_secret: Optional[pulumi.Input[_builtins.str]] = None,
-            client_basic_secret_wo: Optional[pulumi.Input[_builtins.str]] = None,
-            client_basic_secret_wo_version: Optional[pulumi.Input[_builtins.int]] = None,
-            client_id: Optional[pulumi.Input[_builtins.str]] = None,
-            client_secret: Optional[pulumi.Input[_builtins.str]] = None,
-            client_uri: Optional[pulumi.Input[_builtins.str]] = None,
-            consent_method: Optional[pulumi.Input[_builtins.str]] = None,
-            enduser_note: Optional[pulumi.Input[_builtins.str]] = None,
-            frontchannel_logout_session_required: Optional[pulumi.Input[_builtins.bool]] = None,
-            frontchannel_logout_uri: Optional[pulumi.Input[_builtins.str]] = None,
-            grant_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            groups_claim: Optional[pulumi.Input[Union['OAuthGroupsClaimArgs', 'OAuthGroupsClaimArgsDict']]] = None,
-            hide_ios: Optional[pulumi.Input[_builtins.bool]] = None,
-            hide_web: Optional[pulumi.Input[_builtins.bool]] = None,
-            implicit_assignment: Optional[pulumi.Input[_builtins.bool]] = None,
-            issuer_mode: Optional[pulumi.Input[_builtins.str]] = None,
-            jwks: Optional[pulumi.Input[Sequence[pulumi.Input[Union['OAuthJwkArgs', 'OAuthJwkArgsDict']]]]] = None,
-            jwks_uri: Optional[pulumi.Input[_builtins.str]] = None,
-            label: Optional[pulumi.Input[_builtins.str]] = None,
-            login_mode: Optional[pulumi.Input[_builtins.str]] = None,
-            login_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            login_uri: Optional[pulumi.Input[_builtins.str]] = None,
-            logo: Optional[pulumi.Input[_builtins.str]] = None,
-            logo_uri: Optional[pulumi.Input[_builtins.str]] = None,
-            logo_url: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            network: Optional[pulumi.Input[Union['OAuthNetworkArgs', 'OAuthNetworkArgsDict']]] = None,
-            omit_secret: Optional[pulumi.Input[_builtins.bool]] = None,
-            participate_slo: Optional[pulumi.Input[_builtins.bool]] = None,
-            pkce_required: Optional[pulumi.Input[_builtins.bool]] = None,
-            policy_uri: Optional[pulumi.Input[_builtins.str]] = None,
-            post_logout_redirect_uris: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            preconfigured_app: Optional[pulumi.Input[_builtins.str]] = None,
-            profile: Optional[pulumi.Input[_builtins.str]] = None,
-            redirect_uris: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            refresh_token_leeway: Optional[pulumi.Input[_builtins.int]] = None,
-            refresh_token_rotation: Optional[pulumi.Input[_builtins.str]] = None,
-            response_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            sign_on_mode: Optional[pulumi.Input[_builtins.str]] = None,
-            skip_authentication_policy: Optional[pulumi.Input[_builtins.bool]] = None,
-            status: Optional[pulumi.Input[_builtins.str]] = None,
-            token_endpoint_auth_method: Optional[pulumi.Input[_builtins.str]] = None,
-            tos_uri: Optional[pulumi.Input[_builtins.str]] = None,
-            type: Optional[pulumi.Input[_builtins.str]] = None,
-            user_name_template: Optional[pulumi.Input[_builtins.str]] = None,
-            user_name_template_push_status: Optional[pulumi.Input[_builtins.str]] = None,
-            user_name_template_suffix: Optional[pulumi.Input[_builtins.str]] = None,
-            user_name_template_type: Optional[pulumi.Input[_builtins.str]] = None,
-            wildcard_redirect: Optional[pulumi.Input[_builtins.str]] = None) -> 'OAuth':
+            accessibility_error_redirect_url: pulumi.Input[Optional[_builtins.str]] = None,
+            accessibility_login_redirect_url: pulumi.Input[Optional[_builtins.str]] = None,
+            accessibility_self_service: pulumi.Input[Optional[_builtins.bool]] = None,
+            admin_note: pulumi.Input[Optional[_builtins.str]] = None,
+            app_links_json: pulumi.Input[Optional[_builtins.str]] = None,
+            app_settings_json: pulumi.Input[Optional[_builtins.str]] = None,
+            authentication_policy: pulumi.Input[Optional[_builtins.str]] = None,
+            auto_key_rotation: pulumi.Input[Optional[_builtins.bool]] = None,
+            auto_submit_toolbar: pulumi.Input[Optional[_builtins.bool]] = None,
+            client_basic_secret: pulumi.Input[Optional[_builtins.str]] = None,
+            client_basic_secret_wo: pulumi.Input[Optional[_builtins.str]] = None,
+            client_basic_secret_wo_version: pulumi.Input[Optional[_builtins.int]] = None,
+            client_id: pulumi.Input[Optional[_builtins.str]] = None,
+            client_secret: pulumi.Input[Optional[_builtins.str]] = None,
+            client_uri: pulumi.Input[Optional[_builtins.str]] = None,
+            consent_method: pulumi.Input[Optional[_builtins.str]] = None,
+            enduser_note: pulumi.Input[Optional[_builtins.str]] = None,
+            frontchannel_logout_session_required: pulumi.Input[Optional[_builtins.bool]] = None,
+            frontchannel_logout_uri: pulumi.Input[Optional[_builtins.str]] = None,
+            grant_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            groups_claim: pulumi.Input[Optional[Union['OAuthGroupsClaimArgs', 'OAuthGroupsClaimArgsDict']]] = None,
+            hide_ios: pulumi.Input[Optional[_builtins.bool]] = None,
+            hide_web: pulumi.Input[Optional[_builtins.bool]] = None,
+            implicit_assignment: pulumi.Input[Optional[_builtins.bool]] = None,
+            issuer_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            jwks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OAuthJwkArgs', 'OAuthJwkArgsDict']]]]] = None,
+            jwks_uri: pulumi.Input[Optional[_builtins.str]] = None,
+            label: pulumi.Input[Optional[_builtins.str]] = None,
+            login_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            login_scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            login_uri: pulumi.Input[Optional[_builtins.str]] = None,
+            logo: pulumi.Input[Optional[_builtins.str]] = None,
+            logo_uri: pulumi.Input[Optional[_builtins.str]] = None,
+            logo_url: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            network: pulumi.Input[Optional[Union['OAuthNetworkArgs', 'OAuthNetworkArgsDict']]] = None,
+            omit_secret: pulumi.Input[Optional[_builtins.bool]] = None,
+            participate_slo: pulumi.Input[Optional[_builtins.bool]] = None,
+            pkce_required: pulumi.Input[Optional[_builtins.bool]] = None,
+            policy_uri: pulumi.Input[Optional[_builtins.str]] = None,
+            post_logout_redirect_uris: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            preconfigured_app: pulumi.Input[Optional[_builtins.str]] = None,
+            profile: pulumi.Input[Optional[_builtins.str]] = None,
+            redirect_uris: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            refresh_token_leeway: pulumi.Input[Optional[_builtins.int]] = None,
+            refresh_token_rotation: pulumi.Input[Optional[_builtins.str]] = None,
+            response_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            sign_on_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            skip_authentication_policy: pulumi.Input[Optional[_builtins.bool]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            token_endpoint_auth_method: pulumi.Input[Optional[_builtins.str]] = None,
+            tos_uri: pulumi.Input[Optional[_builtins.str]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None,
+            user_name_template: pulumi.Input[Optional[_builtins.str]] = None,
+            user_name_template_push_status: pulumi.Input[Optional[_builtins.str]] = None,
+            user_name_template_suffix: pulumi.Input[Optional[_builtins.str]] = None,
+            user_name_template_type: pulumi.Input[Optional[_builtins.str]] = None,
+            wildcard_redirect: pulumi.Input[Optional[_builtins.str]] = None) -> 'OAuth':
         """
         Get an existing OAuth resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

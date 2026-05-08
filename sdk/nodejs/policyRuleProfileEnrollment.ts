@@ -209,54 +209,54 @@ export interface PolicyRuleProfileEnrollmentState {
     /**
      * Allow or deny access based on the rule conditions. Valid values are: `ALLOW`, `DENY`. Default: `ALLOW`.
      */
-    access?: pulumi.Input<string>;
+    access?: pulumi.Input<string | undefined>;
     /**
      * Indicates whether email verification should occur before access is granted. Default: `true`.
      */
-    emailVerification?: pulumi.Input<boolean>;
+    emailVerification?: pulumi.Input<boolean | undefined>;
     /**
      * Enrolls authenticator types
      */
-    enrollAuthenticatorTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    enrollAuthenticatorTypes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * ID of a Registration Inline Hook
      */
-    inlineHookId?: pulumi.Input<string>;
+    inlineHookId?: pulumi.Input<string | undefined>;
     /**
      * Name of the rule
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * ID of the policy
      */
-    policyId?: pulumi.Input<string>;
+    policyId?: pulumi.Input<string | undefined>;
     /**
      * A list of attributes to prompt the user during registration or progressive profiling. Where defined on the User schema, these attributes are persisted in the User profile. Non-schema attributes may also be added, which aren't persisted to the User's profile, but are included in requests to the registration inline hook. A maximum of 10 Profile properties is supported.
      * 	- 'label' - (Required) A display-friendly label for this property
      * 	- 'name' - (Required) The name of a User Profile property
      * 	- 'required' - (Required) Indicates if this property is required for enrollment. Default is 'false'.
      */
-    profileAttributes?: pulumi.Input<pulumi.Input<inputs.PolicyRuleProfileEnrollmentProfileAttribute>[]>;
+    profileAttributes?: pulumi.Input<pulumi.Input<inputs.PolicyRuleProfileEnrollmentProfileAttribute>[] | undefined>;
     /**
      * Enabled or disabled progressive profiling action rule conditions: `ENABLED` or `DISABLED`. Default: `DISABLED`
      */
-    progressiveProfilingAction?: pulumi.Input<string>;
+    progressiveProfilingAction?: pulumi.Input<string | undefined>;
     /**
      * Status of the rule
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * The ID of a Group that this User should be added to
      */
-    targetGroupId?: pulumi.Input<string>;
+    targetGroupId?: pulumi.Input<string | undefined>;
     /**
      * Value created by the backend. If present all policy updates must include this attribute/value.
      */
-    uiSchemaId?: pulumi.Input<string>;
+    uiSchemaId?: pulumi.Input<string | undefined>;
     /**
      * Which action should be taken if this User is new. Valid values are: `DENY`, `REGISTER`
      */
-    unknownUserAction?: pulumi.Input<string>;
+    unknownUserAction?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -266,19 +266,19 @@ export interface PolicyRuleProfileEnrollmentArgs {
     /**
      * Allow or deny access based on the rule conditions. Valid values are: `ALLOW`, `DENY`. Default: `ALLOW`.
      */
-    access?: pulumi.Input<string>;
+    access?: pulumi.Input<string | undefined>;
     /**
      * Indicates whether email verification should occur before access is granted. Default: `true`.
      */
-    emailVerification?: pulumi.Input<boolean>;
+    emailVerification?: pulumi.Input<boolean | undefined>;
     /**
      * Enrolls authenticator types
      */
-    enrollAuthenticatorTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    enrollAuthenticatorTypes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * ID of a Registration Inline Hook
      */
-    inlineHookId?: pulumi.Input<string>;
+    inlineHookId?: pulumi.Input<string | undefined>;
     /**
      * ID of the policy
      */
@@ -289,19 +289,19 @@ export interface PolicyRuleProfileEnrollmentArgs {
      * 	- 'name' - (Required) The name of a User Profile property
      * 	- 'required' - (Required) Indicates if this property is required for enrollment. Default is 'false'.
      */
-    profileAttributes?: pulumi.Input<pulumi.Input<inputs.PolicyRuleProfileEnrollmentProfileAttribute>[]>;
+    profileAttributes?: pulumi.Input<pulumi.Input<inputs.PolicyRuleProfileEnrollmentProfileAttribute>[] | undefined>;
     /**
      * Enabled or disabled progressive profiling action rule conditions: `ENABLED` or `DISABLED`. Default: `DISABLED`
      */
-    progressiveProfilingAction?: pulumi.Input<string>;
+    progressiveProfilingAction?: pulumi.Input<string | undefined>;
     /**
      * The ID of a Group that this User should be added to
      */
-    targetGroupId?: pulumi.Input<string>;
+    targetGroupId?: pulumi.Input<string | undefined>;
     /**
      * Value created by the backend. If present all policy updates must include this attribute/value.
      */
-    uiSchemaId?: pulumi.Input<string>;
+    uiSchemaId?: pulumi.Input<string | undefined>;
     /**
      * Which action should be taken if this User is new. Valid values are: `DENY`, `REGISTER`
      */

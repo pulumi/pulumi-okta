@@ -293,123 +293,123 @@ export interface DeviceAssuranceWindowsState {
     /**
      * Created by
      */
-    createdBy?: pulumi.Input<string>;
+    createdBy?: pulumi.Input<string | undefined>;
     /**
      * Created date
      */
-    createdDate?: pulumi.Input<string>;
+    createdDate?: pulumi.Input<string | undefined>;
     /**
      * List of disk encryption type, can be `ALL_INTERNAL_VOLUMES`
      */
-    diskEncryptionTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    diskEncryptionTypes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Last update
      */
-    lastUpdate?: pulumi.Input<string>;
+    lastUpdate?: pulumi.Input<string | undefined>;
     /**
      * Last updated by
      */
-    lastUpdatedBy?: pulumi.Input<string>;
+    lastUpdatedBy?: pulumi.Input<string | undefined>;
     /**
      * Name of the device assurance policy.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Minimum os version of the device in the device assurance policy.
      */
-    osVersion?: pulumi.Input<string>;
+    osVersion?: pulumi.Input<string | undefined>;
     /**
      * Policy device assurance platform
      */
-    platform?: pulumi.Input<string>;
+    platform?: pulumi.Input<string | undefined>;
     /**
      * List of screenlock type, can be `BIOMETRIC` or `BIOMETRIC, PASSCODE`
      */
-    screenlockTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    screenlockTypes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Is the device secure with hardware in the device assurance policy.
      */
-    secureHardwarePresent?: pulumi.Input<boolean>;
+    secureHardwarePresent?: pulumi.Input<boolean | undefined>;
     /**
      * Check to include third party signal provider
      */
-    thirdPartySignalProviders?: pulumi.Input<boolean>;
+    thirdPartySignalProviders?: pulumi.Input<boolean | undefined>;
     /**
      * Third party signal provider minimum browser version
      */
-    tpspBrowserVersion?: pulumi.Input<string>;
+    tpspBrowserVersion?: pulumi.Input<string | undefined>;
     /**
      * Third party signal provider builtin dns client enable
      */
-    tpspBuiltinDnsClientEnabled?: pulumi.Input<boolean>;
+    tpspBuiltinDnsClientEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Third party signal provider chrome remote desktop app blocked
      */
-    tpspChromeRemoteDesktopAppBlocked?: pulumi.Input<boolean>;
+    tpspChromeRemoteDesktopAppBlocked?: pulumi.Input<boolean | undefined>;
     /**
      * Third party signal provider crowdstrike agent id
      */
-    tpspCrowdStrikeAgentId?: pulumi.Input<string>;
+    tpspCrowdStrikeAgentId?: pulumi.Input<string | undefined>;
     /**
      * Third party signal provider crowdstrike user id
      */
-    tpspCrowdStrikeCustomerId?: pulumi.Input<string>;
+    tpspCrowdStrikeCustomerId?: pulumi.Input<string | undefined>;
     /**
      * Third party signal provider device enrollment domain
      */
-    tpspDeviceEnrollmentDomain?: pulumi.Input<string>;
+    tpspDeviceEnrollmentDomain?: pulumi.Input<string | undefined>;
     /**
      * Third party signal provider disk encrypted
      */
-    tpspDiskEncrypted?: pulumi.Input<boolean>;
+    tpspDiskEncrypted?: pulumi.Input<boolean | undefined>;
     /**
      * Third party signal provider key trust level
      */
-    tpspKeyTrustLevel?: pulumi.Input<string>;
+    tpspKeyTrustLevel?: pulumi.Input<string | undefined>;
     /**
      * Third party signal provider os firewall
      */
-    tpspOsFirewall?: pulumi.Input<boolean>;
+    tpspOsFirewall?: pulumi.Input<boolean | undefined>;
     /**
      * Third party signal provider minimum os version
      */
-    tpspOsVersion?: pulumi.Input<string>;
+    tpspOsVersion?: pulumi.Input<string | undefined>;
     /**
      * Third party signal provider password protection warning trigger
      */
-    tpspPasswordProctectionWarningTrigger?: pulumi.Input<string>;
+    tpspPasswordProctectionWarningTrigger?: pulumi.Input<string | undefined>;
     /**
      * Third party signal provider realtime url check mode
      */
-    tpspRealtimeUrlCheckMode?: pulumi.Input<boolean>;
+    tpspRealtimeUrlCheckMode?: pulumi.Input<boolean | undefined>;
     /**
      * Third party signal provider safe browsing protection level
      */
-    tpspSafeBrowsingProtectionLevel?: pulumi.Input<string>;
+    tpspSafeBrowsingProtectionLevel?: pulumi.Input<string | undefined>;
     /**
      * Third party signal provider screen lock secure
      */
-    tpspScreenLockSecured?: pulumi.Input<boolean>;
+    tpspScreenLockSecured?: pulumi.Input<boolean | undefined>;
     /**
      * Third party signal provider secure boot enabled
      */
-    tpspSecureBootEnabled?: pulumi.Input<boolean>;
+    tpspSecureBootEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Third party signal provider site isolation enabled
      */
-    tpspSiteIsolationEnabled?: pulumi.Input<boolean>;
+    tpspSiteIsolationEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Third party signal provider third party blocking enabled
      */
-    tpspThirdPartyBlockingEnabled?: pulumi.Input<boolean>;
+    tpspThirdPartyBlockingEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Third party signal provider windows machine domain
      */
-    tpspWindowsMachineDomain?: pulumi.Input<string>;
+    tpspWindowsMachineDomain?: pulumi.Input<string | undefined>;
     /**
      * Third party signal provider windows user domain
      */
-    tpspWindowsUserDomain?: pulumi.Input<string>;
+    tpspWindowsUserDomain?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -419,101 +419,101 @@ export interface DeviceAssuranceWindowsArgs {
     /**
      * List of disk encryption type, can be `ALL_INTERNAL_VOLUMES`
      */
-    diskEncryptionTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    diskEncryptionTypes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Name of the device assurance policy.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Minimum os version of the device in the device assurance policy.
      */
-    osVersion?: pulumi.Input<string>;
+    osVersion?: pulumi.Input<string | undefined>;
     /**
      * List of screenlock type, can be `BIOMETRIC` or `BIOMETRIC, PASSCODE`
      */
-    screenlockTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    screenlockTypes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Is the device secure with hardware in the device assurance policy.
      */
-    secureHardwarePresent?: pulumi.Input<boolean>;
+    secureHardwarePresent?: pulumi.Input<boolean | undefined>;
     /**
      * Check to include third party signal provider
      */
-    thirdPartySignalProviders?: pulumi.Input<boolean>;
+    thirdPartySignalProviders?: pulumi.Input<boolean | undefined>;
     /**
      * Third party signal provider minimum browser version
      */
-    tpspBrowserVersion?: pulumi.Input<string>;
+    tpspBrowserVersion?: pulumi.Input<string | undefined>;
     /**
      * Third party signal provider builtin dns client enable
      */
-    tpspBuiltinDnsClientEnabled?: pulumi.Input<boolean>;
+    tpspBuiltinDnsClientEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Third party signal provider chrome remote desktop app blocked
      */
-    tpspChromeRemoteDesktopAppBlocked?: pulumi.Input<boolean>;
+    tpspChromeRemoteDesktopAppBlocked?: pulumi.Input<boolean | undefined>;
     /**
      * Third party signal provider crowdstrike agent id
      */
-    tpspCrowdStrikeAgentId?: pulumi.Input<string>;
+    tpspCrowdStrikeAgentId?: pulumi.Input<string | undefined>;
     /**
      * Third party signal provider crowdstrike user id
      */
-    tpspCrowdStrikeCustomerId?: pulumi.Input<string>;
+    tpspCrowdStrikeCustomerId?: pulumi.Input<string | undefined>;
     /**
      * Third party signal provider device enrollment domain
      */
-    tpspDeviceEnrollmentDomain?: pulumi.Input<string>;
+    tpspDeviceEnrollmentDomain?: pulumi.Input<string | undefined>;
     /**
      * Third party signal provider disk encrypted
      */
-    tpspDiskEncrypted?: pulumi.Input<boolean>;
+    tpspDiskEncrypted?: pulumi.Input<boolean | undefined>;
     /**
      * Third party signal provider key trust level
      */
-    tpspKeyTrustLevel?: pulumi.Input<string>;
+    tpspKeyTrustLevel?: pulumi.Input<string | undefined>;
     /**
      * Third party signal provider os firewall
      */
-    tpspOsFirewall?: pulumi.Input<boolean>;
+    tpspOsFirewall?: pulumi.Input<boolean | undefined>;
     /**
      * Third party signal provider minimum os version
      */
-    tpspOsVersion?: pulumi.Input<string>;
+    tpspOsVersion?: pulumi.Input<string | undefined>;
     /**
      * Third party signal provider password protection warning trigger
      */
-    tpspPasswordProctectionWarningTrigger?: pulumi.Input<string>;
+    tpspPasswordProctectionWarningTrigger?: pulumi.Input<string | undefined>;
     /**
      * Third party signal provider realtime url check mode
      */
-    tpspRealtimeUrlCheckMode?: pulumi.Input<boolean>;
+    tpspRealtimeUrlCheckMode?: pulumi.Input<boolean | undefined>;
     /**
      * Third party signal provider safe browsing protection level
      */
-    tpspSafeBrowsingProtectionLevel?: pulumi.Input<string>;
+    tpspSafeBrowsingProtectionLevel?: pulumi.Input<string | undefined>;
     /**
      * Third party signal provider screen lock secure
      */
-    tpspScreenLockSecured?: pulumi.Input<boolean>;
+    tpspScreenLockSecured?: pulumi.Input<boolean | undefined>;
     /**
      * Third party signal provider secure boot enabled
      */
-    tpspSecureBootEnabled?: pulumi.Input<boolean>;
+    tpspSecureBootEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Third party signal provider site isolation enabled
      */
-    tpspSiteIsolationEnabled?: pulumi.Input<boolean>;
+    tpspSiteIsolationEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Third party signal provider third party blocking enabled
      */
-    tpspThirdPartyBlockingEnabled?: pulumi.Input<boolean>;
+    tpspThirdPartyBlockingEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Third party signal provider windows machine domain
      */
-    tpspWindowsMachineDomain?: pulumi.Input<string>;
+    tpspWindowsMachineDomain?: pulumi.Input<string | undefined>;
     /**
      * Third party signal provider windows user domain
      */
-    tpspWindowsUserDomain?: pulumi.Input<string>;
+    tpspWindowsUserDomain?: pulumi.Input<string | undefined>;
 }

@@ -122,21 +122,21 @@ export interface GetGroupOutputArgs {
     /**
      * Force delay of the group read by N seconds. Useful when eventual consistency of group information needs to be allowed for; for instance, when group rules are known to have been applied.
      */
-    delayReadSeconds?: pulumi.Input<string>;
+    delayReadSeconds?: pulumi.Input<string | undefined>;
     /**
      * ID of group.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * Fetch group users, having default off cuts down on API calls.
      */
-    includeUsers?: pulumi.Input<boolean>;
+    includeUsers?: pulumi.Input<boolean | undefined>;
     /**
      * Name of group.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Type of the group. When specified in the terraform resource, will act as a filter when searching for the group
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }

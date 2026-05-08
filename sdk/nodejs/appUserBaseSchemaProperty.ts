@@ -151,39 +151,39 @@ export interface AppUserBaseSchemaPropertyState {
     /**
      * The Application's ID the user schema property should be assigned to.
      */
-    appId?: pulumi.Input<string>;
+    appId?: pulumi.Input<string | undefined>;
     /**
      * Subschema unique string identifier
      */
-    index?: pulumi.Input<string>;
+    index?: pulumi.Input<string | undefined>;
     /**
      * Master priority for the user schema property. It can be set to `PROFILE_MASTER` or `OKTA`. Default: `PROFILE_MASTER`
      */
-    master?: pulumi.Input<string>;
+    master?: pulumi.Input<string | undefined>;
     /**
      * The validation pattern to use for the subschema. Must be in form of '.+', or '[\n\n]+' if present.'
      */
-    pattern?: pulumi.Input<string>;
+    pattern?: pulumi.Input<string | undefined>;
     /**
      * Access control permissions for the property. It can be set to `READ_WRITE`, `READ_ONLY`, `HIDE`. Default: `READ_ONLY`
      */
-    permissions?: pulumi.Input<string>;
+    permissions?: pulumi.Input<string | undefined>;
     /**
      * Whether the subschema is required
      */
-    required?: pulumi.Input<boolean>;
+    required?: pulumi.Input<boolean | undefined>;
     /**
      * Subschema title (display name)
      */
-    title?: pulumi.Input<string>;
+    title?: pulumi.Input<string | undefined>;
     /**
      * The type of the schema property. It can be `string`, `boolean`, `number`, `integer`, `array`, or `object`
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
     /**
      * User type ID. By default, it is `default`
      */
-    userType?: pulumi.Input<string>;
+    userType?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -201,19 +201,19 @@ export interface AppUserBaseSchemaPropertyArgs {
     /**
      * Master priority for the user schema property. It can be set to `PROFILE_MASTER` or `OKTA`. Default: `PROFILE_MASTER`
      */
-    master?: pulumi.Input<string>;
+    master?: pulumi.Input<string | undefined>;
     /**
      * The validation pattern to use for the subschema. Must be in form of '.+', or '[\n\n]+' if present.'
      */
-    pattern?: pulumi.Input<string>;
+    pattern?: pulumi.Input<string | undefined>;
     /**
      * Access control permissions for the property. It can be set to `READ_WRITE`, `READ_ONLY`, `HIDE`. Default: `READ_ONLY`
      */
-    permissions?: pulumi.Input<string>;
+    permissions?: pulumi.Input<string | undefined>;
     /**
      * Whether the subschema is required
      */
-    required?: pulumi.Input<boolean>;
+    required?: pulumi.Input<boolean | undefined>;
     /**
      * Subschema title (display name)
      */
@@ -225,5 +225,5 @@ export interface AppUserBaseSchemaPropertyArgs {
     /**
      * User type ID. By default, it is `default`
      */
-    userType?: pulumi.Input<string>;
+    userType?: pulumi.Input<string | undefined>;
 }

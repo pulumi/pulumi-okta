@@ -118,12 +118,12 @@ class LinkDefinitionArgs:
 @pulumi.input_type
 class _LinkDefinitionState:
     def __init__(__self__, *,
-                 associated_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 associated_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 associated_title: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_title: Optional[pulumi.Input[_builtins.str]] = None):
+                 associated_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 associated_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 associated_title: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_title: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering LinkDefinition resources.
 
@@ -149,74 +149,74 @@ class _LinkDefinitionState:
 
     @_builtins.property
     @pulumi.getter(name="associatedDescription")
-    def associated_description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def associated_description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the associated relationship.
         """
         return pulumi.get(self, "associated_description")
 
     @associated_description.setter
-    def associated_description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def associated_description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "associated_description", value)
 
     @_builtins.property
     @pulumi.getter(name="associatedName")
-    def associated_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def associated_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         API name of the associated link.
         """
         return pulumi.get(self, "associated_name")
 
     @associated_name.setter
-    def associated_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def associated_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "associated_name", value)
 
     @_builtins.property
     @pulumi.getter(name="associatedTitle")
-    def associated_title(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def associated_title(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Display name of the associated link.
         """
         return pulumi.get(self, "associated_title")
 
     @associated_title.setter
-    def associated_title(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def associated_title(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "associated_title", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryDescription")
-    def primary_description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def primary_description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the primary relationship.
         """
         return pulumi.get(self, "primary_description")
 
     @primary_description.setter
-    def primary_description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def primary_description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "primary_description", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryName")
-    def primary_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def primary_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         API name of the primary link.
         """
         return pulumi.get(self, "primary_name")
 
     @primary_name.setter
-    def primary_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def primary_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "primary_name", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryTitle")
-    def primary_title(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def primary_title(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Display name of the primary link.
         """
         return pulumi.get(self, "primary_title")
 
     @primary_title.setter
-    def primary_title(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def primary_title(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "primary_title", value)
 
 
@@ -226,12 +226,12 @@ class LinkDefinition(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 associated_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 associated_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 associated_title: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_title: Optional[pulumi.Input[_builtins.str]] = None,
+                 associated_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 associated_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 associated_title: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_title: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages the creation and removal of the link definitions.
@@ -321,12 +321,12 @@ class LinkDefinition(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 associated_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 associated_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 associated_title: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_title: Optional[pulumi.Input[_builtins.str]] = None,
+                 associated_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 associated_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 associated_title: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_title: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -364,12 +364,12 @@ class LinkDefinition(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            associated_description: Optional[pulumi.Input[_builtins.str]] = None,
-            associated_name: Optional[pulumi.Input[_builtins.str]] = None,
-            associated_title: Optional[pulumi.Input[_builtins.str]] = None,
-            primary_description: Optional[pulumi.Input[_builtins.str]] = None,
-            primary_name: Optional[pulumi.Input[_builtins.str]] = None,
-            primary_title: Optional[pulumi.Input[_builtins.str]] = None) -> 'LinkDefinition':
+            associated_description: pulumi.Input[Optional[_builtins.str]] = None,
+            associated_name: pulumi.Input[Optional[_builtins.str]] = None,
+            associated_title: pulumi.Input[Optional[_builtins.str]] = None,
+            primary_description: pulumi.Input[Optional[_builtins.str]] = None,
+            primary_name: pulumi.Input[Optional[_builtins.str]] = None,
+            primary_title: pulumi.Input[Optional[_builtins.str]] = None) -> 'LinkDefinition':
         """
         Get an existing LinkDefinition resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

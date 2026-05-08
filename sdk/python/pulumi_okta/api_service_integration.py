@@ -22,7 +22,7 @@ __all__ = ['ApiServiceIntegrationArgs', 'ApiServiceIntegration']
 class ApiServiceIntegrationArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
-                 granted_scopes: Optional[pulumi.Input[Sequence[pulumi.Input['ApiServiceIntegrationGrantedScopeArgs']]]] = None):
+                 granted_scopes: pulumi.Input[Optional[Sequence[pulumi.Input['ApiServiceIntegrationGrantedScopeArgs']]]] = None):
         """
         The set of arguments for constructing a ApiServiceIntegration resource.
 
@@ -47,23 +47,23 @@ class ApiServiceIntegrationArgs:
 
     @_builtins.property
     @pulumi.getter(name="grantedScopes")
-    def granted_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApiServiceIntegrationGrantedScopeArgs']]]]:
+    def granted_scopes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ApiServiceIntegrationGrantedScopeArgs']]]]:
         """
         The list of Okta management scopes granted to the API Service Integration instance.
         """
         return pulumi.get(self, "granted_scopes")
 
     @granted_scopes.setter
-    def granted_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApiServiceIntegrationGrantedScopeArgs']]]]):
+    def granted_scopes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ApiServiceIntegrationGrantedScopeArgs']]]]):
         pulumi.set(self, "granted_scopes", value)
 
 
 @pulumi.input_type
 class _ApiServiceIntegrationState:
     def __init__(__self__, *,
-                 granted_scopes: Optional[pulumi.Input[Sequence[pulumi.Input['ApiServiceIntegrationGrantedScopeArgs']]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None):
+                 granted_scopes: pulumi.Input[Optional[Sequence[pulumi.Input['ApiServiceIntegrationGrantedScopeArgs']]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ApiServiceIntegration resources.
 
@@ -80,38 +80,38 @@ class _ApiServiceIntegrationState:
 
     @_builtins.property
     @pulumi.getter(name="grantedScopes")
-    def granted_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApiServiceIntegrationGrantedScopeArgs']]]]:
+    def granted_scopes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ApiServiceIntegrationGrantedScopeArgs']]]]:
         """
         The list of Okta management scopes granted to the API Service Integration instance.
         """
         return pulumi.get(self, "granted_scopes")
 
     @granted_scopes.setter
-    def granted_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApiServiceIntegrationGrantedScopeArgs']]]]):
+    def granted_scopes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ApiServiceIntegrationGrantedScopeArgs']]]]):
         pulumi.set(self, "granted_scopes", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the API service integration that corresponds with the type property.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of the API service integration. This string is an underscore-concatenated, lowercased API service integration name.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
 
@@ -121,8 +121,8 @@ class ApiServiceIntegration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 granted_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApiServiceIntegrationGrantedScopeArgs', 'ApiServiceIntegrationGrantedScopeArgsDict']]]]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
+                 granted_scopes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApiServiceIntegrationGrantedScopeArgs', 'ApiServiceIntegrationGrantedScopeArgsDict']]]]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         ## ---
@@ -230,8 +230,8 @@ class ApiServiceIntegration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 granted_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApiServiceIntegrationGrantedScopeArgs', 'ApiServiceIntegrationGrantedScopeArgsDict']]]]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
+                 granted_scopes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApiServiceIntegrationGrantedScopeArgs', 'ApiServiceIntegrationGrantedScopeArgsDict']]]]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -256,9 +256,9 @@ class ApiServiceIntegration(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            granted_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApiServiceIntegrationGrantedScopeArgs', 'ApiServiceIntegrationGrantedScopeArgsDict']]]]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            type: Optional[pulumi.Input[_builtins.str]] = None) -> 'ApiServiceIntegration':
+            granted_scopes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApiServiceIntegrationGrantedScopeArgs', 'ApiServiceIntegrationGrantedScopeArgsDict']]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None) -> 'ApiServiceIntegration':
         """
         Get an existing ApiServiceIntegration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

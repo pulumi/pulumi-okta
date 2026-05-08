@@ -216,67 +216,67 @@ export interface RulePasswordState {
     /**
      * Set of Group IDs to exclude from this rule.
      */
-    groupsExcludeds?: pulumi.Input<pulumi.Input<string>[]>;
+    groupsExcludeds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Set of Group IDs to include in this rule.
      */
-    groupsIncludeds?: pulumi.Input<pulumi.Input<string>[]>;
+    groupsIncludeds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Policy Rule Name
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Network selection mode: `ANYWHERE`, `ZONE`. Default: `ANYWHERE`
      */
-    networkConnection?: pulumi.Input<string>;
+    networkConnection?: pulumi.Input<string | undefined>;
     /**
      * Required if `networkConnection` = `ZONE`. Indicates the network zones to exclude.
      */
-    networkExcludes?: pulumi.Input<pulumi.Input<string>[]>;
+    networkExcludes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Required if `networkConnection` = `ZONE`. Indicates the network zones to include.
      */
-    networkIncludes?: pulumi.Input<pulumi.Input<string>[]>;
+    networkIncludes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Allow or deny a user to change their password: `ALLOW` or `DENY`. Default: `ALLOW`
      */
-    passwordChange?: pulumi.Input<string>;
+    passwordChange?: pulumi.Input<string | undefined>;
     /**
      * Allow or deny a user to reset their password: `ALLOW` or `DENY`. Default: `ALLOW`
      */
-    passwordReset?: pulumi.Input<string>;
+    passwordReset?: pulumi.Input<string | undefined>;
     /**
      * Determines whether the Self-Service Password Reset (SSPR) access is governed by an authentication policy or legacy behavior. Options: `LEGACY`, `AUTH_POLICY`.
      */
-    passwordResetAccessControl?: pulumi.Input<string>;
+    passwordResetAccessControl?: pulumi.Input<string | undefined>;
     /**
      * Self-service password reset (SSPR) requirement settings. Use only when `passwordResetAccessControl = "LEGACY"`.
      */
-    passwordResetRequirement?: pulumi.Input<inputs.policy.RulePasswordPasswordResetRequirement>;
+    passwordResetRequirement?: pulumi.Input<inputs.policy.RulePasswordPasswordResetRequirement | undefined>;
     /**
      * Allow or deny a user to unlock. Default: `DENY`
      */
-    passwordUnlock?: pulumi.Input<string>;
+    passwordUnlock?: pulumi.Input<string | undefined>;
     /**
      * Policy ID of the Rule
      */
-    policyId?: pulumi.Input<string>;
+    policyId?: pulumi.Input<string | undefined>;
     /**
      * Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
      */
-    priority?: pulumi.Input<number>;
+    priority?: pulumi.Input<number | undefined>;
     /**
      * Policy Rule Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * Set of User IDs to Exclude
      */
-    usersExcludeds?: pulumi.Input<pulumi.Input<string>[]>;
+    usersExcludeds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Set of User IDs to include in this rule.
      */
-    usersIncludeds?: pulumi.Input<pulumi.Input<string>[]>;
+    usersIncludeds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 /**
@@ -286,65 +286,65 @@ export interface RulePasswordArgs {
     /**
      * Set of Group IDs to exclude from this rule.
      */
-    groupsExcludeds?: pulumi.Input<pulumi.Input<string>[]>;
+    groupsExcludeds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Set of Group IDs to include in this rule.
      */
-    groupsIncludeds?: pulumi.Input<pulumi.Input<string>[]>;
+    groupsIncludeds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Policy Rule Name
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Network selection mode: `ANYWHERE`, `ZONE`. Default: `ANYWHERE`
      */
-    networkConnection?: pulumi.Input<string>;
+    networkConnection?: pulumi.Input<string | undefined>;
     /**
      * Required if `networkConnection` = `ZONE`. Indicates the network zones to exclude.
      */
-    networkExcludes?: pulumi.Input<pulumi.Input<string>[]>;
+    networkExcludes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Required if `networkConnection` = `ZONE`. Indicates the network zones to include.
      */
-    networkIncludes?: pulumi.Input<pulumi.Input<string>[]>;
+    networkIncludes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Allow or deny a user to change their password: `ALLOW` or `DENY`. Default: `ALLOW`
      */
-    passwordChange?: pulumi.Input<string>;
+    passwordChange?: pulumi.Input<string | undefined>;
     /**
      * Allow or deny a user to reset their password: `ALLOW` or `DENY`. Default: `ALLOW`
      */
-    passwordReset?: pulumi.Input<string>;
+    passwordReset?: pulumi.Input<string | undefined>;
     /**
      * Determines whether the Self-Service Password Reset (SSPR) access is governed by an authentication policy or legacy behavior. Options: `LEGACY`, `AUTH_POLICY`.
      */
-    passwordResetAccessControl?: pulumi.Input<string>;
+    passwordResetAccessControl?: pulumi.Input<string | undefined>;
     /**
      * Self-service password reset (SSPR) requirement settings. Use only when `passwordResetAccessControl = "LEGACY"`.
      */
-    passwordResetRequirement?: pulumi.Input<inputs.policy.RulePasswordPasswordResetRequirement>;
+    passwordResetRequirement?: pulumi.Input<inputs.policy.RulePasswordPasswordResetRequirement | undefined>;
     /**
      * Allow or deny a user to unlock. Default: `DENY`
      */
-    passwordUnlock?: pulumi.Input<string>;
+    passwordUnlock?: pulumi.Input<string | undefined>;
     /**
      * Policy ID of the Rule
      */
-    policyId?: pulumi.Input<string>;
+    policyId?: pulumi.Input<string | undefined>;
     /**
      * Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
      */
-    priority?: pulumi.Input<number>;
+    priority?: pulumi.Input<number | undefined>;
     /**
      * Policy Rule Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * Set of User IDs to Exclude
      */
-    usersExcludeds?: pulumi.Input<pulumi.Input<string>[]>;
+    usersExcludeds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Set of User IDs to include in this rule.
      */
-    usersIncludeds?: pulumi.Input<pulumi.Input<string>[]>;
+    usersIncludeds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

@@ -90,12 +90,12 @@ class EmailDomainArgs:
 @pulumi.input_type
 class _EmailDomainState:
     def __init__(__self__, *,
-                 brand_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 dns_validation_records: Optional[pulumi.Input[Sequence[pulumi.Input['EmailDomainDnsValidationRecordArgs']]]] = None,
-                 domain: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 validation_status: Optional[pulumi.Input[_builtins.str]] = None):
+                 brand_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 dns_validation_records: pulumi.Input[Optional[Sequence[pulumi.Input['EmailDomainDnsValidationRecordArgs']]]] = None,
+                 domain: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 validation_status: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering EmailDomain resources.
 
@@ -121,74 +121,74 @@ class _EmailDomainState:
 
     @_builtins.property
     @pulumi.getter(name="brandId")
-    def brand_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def brand_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Brand id of the email domain.
         """
         return pulumi.get(self, "brand_id")
 
     @brand_id.setter
-    def brand_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def brand_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "brand_id", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Display name of the email domain.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter(name="dnsValidationRecords")
-    def dns_validation_records(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EmailDomainDnsValidationRecordArgs']]]]:
+    def dns_validation_records(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EmailDomainDnsValidationRecordArgs']]]]:
         """
         TXT and cname records to be registered for the email Domain
         """
         return pulumi.get(self, "dns_validation_records")
 
     @dns_validation_records.setter
-    def dns_validation_records(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EmailDomainDnsValidationRecordArgs']]]]):
+    def dns_validation_records(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EmailDomainDnsValidationRecordArgs']]]]):
         pulumi.set(self, "dns_validation_records", value)
 
     @_builtins.property
     @pulumi.getter
-    def domain(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def domain(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Mail domain to send from.
         """
         return pulumi.get(self, "domain")
 
     @domain.setter
-    def domain(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def domain(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "domain", value)
 
     @_builtins.property
     @pulumi.getter(name="userName")
-    def user_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User name of the email domain.
         """
         return pulumi.get(self, "user_name")
 
     @user_name.setter
-    def user_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_name", value)
 
     @_builtins.property
     @pulumi.getter(name="validationStatus")
-    def validation_status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def validation_status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Status of the email domain. Values: NOT*STARTED, IN*PROGRESS, VERIFIED, COMPLETED
         """
         return pulumi.get(self, "validation_status")
 
     @validation_status.setter
-    def validation_status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def validation_status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "validation_status", value)
 
 
@@ -198,10 +198,10 @@ class EmailDomain(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 brand_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 brand_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Creates email domain. This resource allows you to create and configure an email domain.
@@ -281,10 +281,10 @@ class EmailDomain(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 brand_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 brand_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -318,12 +318,12 @@ class EmailDomain(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            brand_id: Optional[pulumi.Input[_builtins.str]] = None,
-            display_name: Optional[pulumi.Input[_builtins.str]] = None,
-            dns_validation_records: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EmailDomainDnsValidationRecordArgs', 'EmailDomainDnsValidationRecordArgsDict']]]]] = None,
-            domain: Optional[pulumi.Input[_builtins.str]] = None,
-            user_name: Optional[pulumi.Input[_builtins.str]] = None,
-            validation_status: Optional[pulumi.Input[_builtins.str]] = None) -> 'EmailDomain':
+            brand_id: pulumi.Input[Optional[_builtins.str]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            dns_validation_records: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EmailDomainDnsValidationRecordArgs', 'EmailDomainDnsValidationRecordArgsDict']]]]] = None,
+            domain: pulumi.Input[Optional[_builtins.str]] = None,
+            user_name: pulumi.Input[Optional[_builtins.str]] = None,
+            validation_status: pulumi.Input[Optional[_builtins.str]] = None) -> 'EmailDomain':
         """
         Get an existing EmailDomain resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

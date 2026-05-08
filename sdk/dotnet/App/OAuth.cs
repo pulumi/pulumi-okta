@@ -51,7 +51,7 @@ namespace Pulumi.Okta.App
     ///     // to be satisfied with its security.
     ///     // https://github.com/hashicorp/terraform-provider-tls
     ///     //
-    ///     var rsa = new Tls.Index.PrivateKey("rsa", new()
+    ///     var rsa = new Tls.PrivateKey("rsa", new()
     ///     {
     ///         Algorithm = "RSA",
     ///         RsaBits = 4096,
@@ -69,13 +69,13 @@ namespace Pulumi.Okta.App
     ///     // https://registry.terraform.io/providers/iwarapter/jwks/latest/docs/data-sources/from_key
     ///     // https://github.com/iwarapter/terraform-provider-jwks
     ///     //
-    ///     var jwksFromKey = Jwks.Index.FromKey.Invoke(new()
+    ///     var jwksFromKey = Jwks.FromKey.Invoke(new()
     ///     {
     ///         Key = rsa.PrivateKeyPem,
     ///         Kid = "my-kid",
     ///     });
     /// 
-    ///     var jwks = Std.Index.Jsondecode.Invoke(new()
+    ///     var jwks = Std.Jsondecode.Invoke(new()
     ///     {
     ///         Input = jwksFromKey.Jwks,
     ///     }).Result;

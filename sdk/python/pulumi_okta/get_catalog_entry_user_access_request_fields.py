@@ -113,9 +113,9 @@ def get_catalog_entry_user_access_request_fields(datas: Optional[Sequence[Union[
         entry_id=pulumi.get(__ret__, 'entry_id'),
         id=pulumi.get(__ret__, 'id'),
         user_id=pulumi.get(__ret__, 'user_id'))
-def get_catalog_entry_user_access_request_fields_output(datas: Optional[pulumi.Input[Optional[Sequence[Union['GetCatalogEntryUserAccessRequestFieldsDataArgs', 'GetCatalogEntryUserAccessRequestFieldsDataArgsDict']]]]] = None,
-                                                        entry_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                                        user_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_catalog_entry_user_access_request_fields_output(datas: pulumi.Input[Optional[Optional[Sequence[Union['GetCatalogEntryUserAccessRequestFieldsDataArgs', 'GetCatalogEntryUserAccessRequestFieldsDataArgsDict']]]]] = None,
+                                                        entry_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                                        user_id: pulumi.Input[Optional[_builtins.str]] = None,
                                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCatalogEntryUserAccessRequestFieldsResult]:
     """
     Get the request fields for catalog entry.

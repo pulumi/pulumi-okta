@@ -118,23 +118,23 @@ export interface SecurityNotificationEmailsState {
     /**
      * Notifies end users about suspicious or unrecognized activity from their account. Default is `true`.
      */
-    reportSuspiciousActivityEnabled?: pulumi.Input<boolean>;
+    reportSuspiciousActivityEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Notifies end users of any activity on their account related to MFA factor enrollment. Default is `true`.
      */
-    sendEmailForFactorEnrollmentEnabled?: pulumi.Input<boolean>;
+    sendEmailForFactorEnrollmentEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Notifies end users that one or more factors have been reset for their account. Default is `true`.
      */
-    sendEmailForFactorResetEnabled?: pulumi.Input<boolean>;
+    sendEmailForFactorResetEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Notifies end users about new sign-on activity. Default is `true`.
      */
-    sendEmailForNewDeviceEnabled?: pulumi.Input<boolean>;
+    sendEmailForNewDeviceEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Notifies end users that the password for their account has changed. Default is `true`.
      */
-    sendEmailForPasswordChangedEnabled?: pulumi.Input<boolean>;
+    sendEmailForPasswordChangedEnabled?: pulumi.Input<boolean | undefined>;
 }
 
 /**
@@ -144,21 +144,21 @@ export interface SecurityNotificationEmailsArgs {
     /**
      * Notifies end users about suspicious or unrecognized activity from their account. Default is `true`.
      */
-    reportSuspiciousActivityEnabled?: pulumi.Input<boolean>;
+    reportSuspiciousActivityEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Notifies end users of any activity on their account related to MFA factor enrollment. Default is `true`.
      */
-    sendEmailForFactorEnrollmentEnabled?: pulumi.Input<boolean>;
+    sendEmailForFactorEnrollmentEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Notifies end users that one or more factors have been reset for their account. Default is `true`.
      */
-    sendEmailForFactorResetEnabled?: pulumi.Input<boolean>;
+    sendEmailForFactorResetEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Notifies end users about new sign-on activity. Default is `true`.
      */
-    sendEmailForNewDeviceEnabled?: pulumi.Input<boolean>;
+    sendEmailForNewDeviceEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Notifies end users that the password for their account has changed. Default is `true`.
      */
-    sendEmailForPasswordChangedEnabled?: pulumi.Input<boolean>;
+    sendEmailForPasswordChangedEnabled?: pulumi.Input<boolean | undefined>;
 }

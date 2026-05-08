@@ -82,7 +82,7 @@ export function getCatalogEntryUserAccessRequestFieldsOutput(args: GetCatalogEnt
  * A collection of arguments for invoking getCatalogEntryUserAccessRequestFields.
  */
 export interface GetCatalogEntryUserAccessRequestFieldsOutputArgs {
-    datas?: pulumi.Input<pulumi.Input<inputs.GetCatalogEntryUserAccessRequestFieldsDataArgs>[]>;
+    datas?: pulumi.Input<pulumi.Input<inputs.GetCatalogEntryUserAccessRequestFieldsDataArgs>[] | undefined>;
     /**
      * TThe ID of the catalog entry.
      */

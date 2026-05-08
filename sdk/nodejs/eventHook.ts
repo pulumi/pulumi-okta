@@ -145,27 +145,27 @@ export interface EventHookState {
      * 	- 'uri' - (Required) The URI the hook will hit.
      * 	- 'type' - (Optional) The type of hook to trigger. Currently, the only supported type is 'HTTP'.
      */
-    auth?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    auth?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Details of the endpoint the event hook will hit.
      */
-    channel?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    channel?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The events that will be delivered to this hook. [See here for a list of supported events](https://developer.okta.com/docs/reference/api/event-types/?q=event-hook-eligible).
      */
-    events?: pulumi.Input<pulumi.Input<string>[]>;
+    events?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Map of headers to send along in event hook request.
      */
-    headers?: pulumi.Input<pulumi.Input<inputs.EventHookHeader>[]>;
+    headers?: pulumi.Input<pulumi.Input<inputs.EventHookHeader>[] | undefined>;
     /**
      * The event hook display name.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Default to `ACTIVE`
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -178,7 +178,7 @@ export interface EventHookArgs {
      * 	- 'uri' - (Required) The URI the hook will hit.
      * 	- 'type' - (Optional) The type of hook to trigger. Currently, the only supported type is 'HTTP'.
      */
-    auth?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    auth?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Details of the endpoint the event hook will hit.
      */
@@ -190,13 +190,13 @@ export interface EventHookArgs {
     /**
      * Map of headers to send along in event hook request.
      */
-    headers?: pulumi.Input<pulumi.Input<inputs.EventHookHeader>[]>;
+    headers?: pulumi.Input<pulumi.Input<inputs.EventHookHeader>[] | undefined>;
     /**
      * The event hook display name.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Default to `ACTIVE`
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
 }

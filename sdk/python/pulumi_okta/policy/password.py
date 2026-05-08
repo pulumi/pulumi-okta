@@ -19,36 +19,36 @@ __all__ = ['PasswordArgs', 'Password']
 @pulumi.input_type
 class PasswordArgs:
     def __init__(__self__, *,
-                 auth_provider: Optional[pulumi.Input[_builtins.str]] = None,
-                 call_recovery: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 email_recovery: Optional[pulumi.Input[_builtins.str]] = None,
-                 groups_includeds: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 password_auto_unlock_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 password_dictionary_lookup: Optional[pulumi.Input[_builtins.bool]] = None,
-                 password_exclude_first_name: Optional[pulumi.Input[_builtins.bool]] = None,
-                 password_exclude_last_name: Optional[pulumi.Input[_builtins.bool]] = None,
-                 password_exclude_username: Optional[pulumi.Input[_builtins.bool]] = None,
-                 password_expire_warn_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 password_history_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 password_lockout_notification_channels: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 password_max_age_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 password_max_lockout_attempts: Optional[pulumi.Input[_builtins.int]] = None,
-                 password_min_age_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 password_min_length: Optional[pulumi.Input[_builtins.int]] = None,
-                 password_min_lowercase: Optional[pulumi.Input[_builtins.int]] = None,
-                 password_min_number: Optional[pulumi.Input[_builtins.int]] = None,
-                 password_min_symbol: Optional[pulumi.Input[_builtins.int]] = None,
-                 password_min_uppercase: Optional[pulumi.Input[_builtins.int]] = None,
-                 password_show_lockout_failures: Optional[pulumi.Input[_builtins.bool]] = None,
-                 priority: Optional[pulumi.Input[_builtins.int]] = None,
-                 question_min_length: Optional[pulumi.Input[_builtins.int]] = None,
-                 question_recovery: Optional[pulumi.Input[_builtins.str]] = None,
-                 recovery_email_token: Optional[pulumi.Input[_builtins.int]] = None,
-                 skip_unlock: Optional[pulumi.Input[_builtins.bool]] = None,
-                 sms_recovery: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None):
+                 auth_provider: pulumi.Input[Optional[_builtins.str]] = None,
+                 call_recovery: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 email_recovery: pulumi.Input[Optional[_builtins.str]] = None,
+                 groups_includeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 password_auto_unlock_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 password_dictionary_lookup: pulumi.Input[Optional[_builtins.bool]] = None,
+                 password_exclude_first_name: pulumi.Input[Optional[_builtins.bool]] = None,
+                 password_exclude_last_name: pulumi.Input[Optional[_builtins.bool]] = None,
+                 password_exclude_username: pulumi.Input[Optional[_builtins.bool]] = None,
+                 password_expire_warn_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 password_history_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 password_lockout_notification_channels: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 password_max_age_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 password_max_lockout_attempts: pulumi.Input[Optional[_builtins.int]] = None,
+                 password_min_age_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 password_min_length: pulumi.Input[Optional[_builtins.int]] = None,
+                 password_min_lowercase: pulumi.Input[Optional[_builtins.int]] = None,
+                 password_min_number: pulumi.Input[Optional[_builtins.int]] = None,
+                 password_min_symbol: pulumi.Input[Optional[_builtins.int]] = None,
+                 password_min_uppercase: pulumi.Input[Optional[_builtins.int]] = None,
+                 password_show_lockout_failures: pulumi.Input[Optional[_builtins.bool]] = None,
+                 priority: pulumi.Input[Optional[_builtins.int]] = None,
+                 question_min_length: pulumi.Input[Optional[_builtins.int]] = None,
+                 question_recovery: pulumi.Input[Optional[_builtins.str]] = None,
+                 recovery_email_token: pulumi.Input[Optional[_builtins.int]] = None,
+                 skip_unlock: pulumi.Input[Optional[_builtins.bool]] = None,
+                 sms_recovery: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Password resource.
 
@@ -146,398 +146,398 @@ class PasswordArgs:
 
     @_builtins.property
     @pulumi.getter(name="authProvider")
-    def auth_provider(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def auth_provider(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Authentication Provider: `OKTA`, `ACTIVE_DIRECTORY` or `LDAP`. Default: `OKTA`
         """
         return pulumi.get(self, "auth_provider")
 
     @auth_provider.setter
-    def auth_provider(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def auth_provider(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "auth_provider", value)
 
     @_builtins.property
     @pulumi.getter(name="callRecovery")
-    def call_recovery(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def call_recovery(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Enable or disable voice call recovery: `ACTIVE` or `INACTIVE`. Default: `INACTIVE`
         """
         return pulumi.get(self, "call_recovery")
 
     @call_recovery.setter
-    def call_recovery(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def call_recovery(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "call_recovery", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Policy Description
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="emailRecovery")
-    def email_recovery(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def email_recovery(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Enable or disable email password recovery: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
         """
         return pulumi.get(self, "email_recovery")
 
     @email_recovery.setter
-    def email_recovery(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def email_recovery(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "email_recovery", value)
 
     @_builtins.property
     @pulumi.getter(name="groupsIncludeds")
-    def groups_includeds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def groups_includeds(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of Group IDs to Include
         """
         return pulumi.get(self, "groups_includeds")
 
     @groups_includeds.setter
-    def groups_includeds(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def groups_includeds(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "groups_includeds", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Policy Name
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="passwordAutoUnlockMinutes")
-    def password_auto_unlock_minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def password_auto_unlock_minutes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Number of minutes before a locked account is unlocked: 0 = no limit. Default: `0`
         """
         return pulumi.get(self, "password_auto_unlock_minutes")
 
     @password_auto_unlock_minutes.setter
-    def password_auto_unlock_minutes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def password_auto_unlock_minutes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "password_auto_unlock_minutes", value)
 
     @_builtins.property
     @pulumi.getter(name="passwordDictionaryLookup")
-    def password_dictionary_lookup(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def password_dictionary_lookup(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Check Passwords Against Common Password Dictionary. Default: `false`
         """
         return pulumi.get(self, "password_dictionary_lookup")
 
     @password_dictionary_lookup.setter
-    def password_dictionary_lookup(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def password_dictionary_lookup(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "password_dictionary_lookup", value)
 
     @_builtins.property
     @pulumi.getter(name="passwordExcludeFirstName")
-    def password_exclude_first_name(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def password_exclude_first_name(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         User firstName attribute must be excluded from the password
         """
         return pulumi.get(self, "password_exclude_first_name")
 
     @password_exclude_first_name.setter
-    def password_exclude_first_name(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def password_exclude_first_name(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "password_exclude_first_name", value)
 
     @_builtins.property
     @pulumi.getter(name="passwordExcludeLastName")
-    def password_exclude_last_name(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def password_exclude_last_name(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         User lastName attribute must be excluded from the password
         """
         return pulumi.get(self, "password_exclude_last_name")
 
     @password_exclude_last_name.setter
-    def password_exclude_last_name(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def password_exclude_last_name(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "password_exclude_last_name", value)
 
     @_builtins.property
     @pulumi.getter(name="passwordExcludeUsername")
-    def password_exclude_username(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def password_exclude_username(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If the user name must be excluded from the password. Default: `true`
         """
         return pulumi.get(self, "password_exclude_username")
 
     @password_exclude_username.setter
-    def password_exclude_username(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def password_exclude_username(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "password_exclude_username", value)
 
     @_builtins.property
     @pulumi.getter(name="passwordExpireWarnDays")
-    def password_expire_warn_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def password_expire_warn_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Length in days a user will be warned before password expiry: 0 = no warning. Default: `0`
         """
         return pulumi.get(self, "password_expire_warn_days")
 
     @password_expire_warn_days.setter
-    def password_expire_warn_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def password_expire_warn_days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "password_expire_warn_days", value)
 
     @_builtins.property
     @pulumi.getter(name="passwordHistoryCount")
-    def password_history_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def password_history_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Number of distinct passwords that must be created before they can be reused: 0 = none. Default: `0`
         """
         return pulumi.get(self, "password_history_count")
 
     @password_history_count.setter
-    def password_history_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def password_history_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "password_history_count", value)
 
     @_builtins.property
     @pulumi.getter(name="passwordLockoutNotificationChannels")
-    def password_lockout_notification_channels(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def password_lockout_notification_channels(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Notification channels to use to notify a user when their account has been locked.
         """
         return pulumi.get(self, "password_lockout_notification_channels")
 
     @password_lockout_notification_channels.setter
-    def password_lockout_notification_channels(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def password_lockout_notification_channels(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "password_lockout_notification_channels", value)
 
     @_builtins.property
     @pulumi.getter(name="passwordMaxAgeDays")
-    def password_max_age_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def password_max_age_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Length in days a password is valid before expiry: 0 = no limit. Default: `0`
         """
         return pulumi.get(self, "password_max_age_days")
 
     @password_max_age_days.setter
-    def password_max_age_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def password_max_age_days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "password_max_age_days", value)
 
     @_builtins.property
     @pulumi.getter(name="passwordMaxLockoutAttempts")
-    def password_max_lockout_attempts(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def password_max_lockout_attempts(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Number of unsuccessful login attempts allowed before lockout: 0 = no limit. Default: `10`
         """
         return pulumi.get(self, "password_max_lockout_attempts")
 
     @password_max_lockout_attempts.setter
-    def password_max_lockout_attempts(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def password_max_lockout_attempts(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "password_max_lockout_attempts", value)
 
     @_builtins.property
     @pulumi.getter(name="passwordMinAgeMinutes")
-    def password_min_age_minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def password_min_age_minutes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Minimum time interval in minutes between password changes: 0 = no limit. Default: `0`
         """
         return pulumi.get(self, "password_min_age_minutes")
 
     @password_min_age_minutes.setter
-    def password_min_age_minutes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def password_min_age_minutes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "password_min_age_minutes", value)
 
     @_builtins.property
     @pulumi.getter(name="passwordMinLength")
-    def password_min_length(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def password_min_length(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Minimum password length. Default: `8`
         """
         return pulumi.get(self, "password_min_length")
 
     @password_min_length.setter
-    def password_min_length(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def password_min_length(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "password_min_length", value)
 
     @_builtins.property
     @pulumi.getter(name="passwordMinLowercase")
-    def password_min_lowercase(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def password_min_lowercase(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         If a password must contain at least one lower case letter: 0 = no, 1 = yes. Default: `1`
         """
         return pulumi.get(self, "password_min_lowercase")
 
     @password_min_lowercase.setter
-    def password_min_lowercase(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def password_min_lowercase(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "password_min_lowercase", value)
 
     @_builtins.property
     @pulumi.getter(name="passwordMinNumber")
-    def password_min_number(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def password_min_number(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         If a password must contain at least one number: 0 = no, 1 = yes. Default: `1`
         """
         return pulumi.get(self, "password_min_number")
 
     @password_min_number.setter
-    def password_min_number(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def password_min_number(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "password_min_number", value)
 
     @_builtins.property
     @pulumi.getter(name="passwordMinSymbol")
-    def password_min_symbol(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def password_min_symbol(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         If a password must contain at least one symbol (!@#$%^&*): 0 = no, 1 = yes. Default: `0`
         """
         return pulumi.get(self, "password_min_symbol")
 
     @password_min_symbol.setter
-    def password_min_symbol(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def password_min_symbol(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "password_min_symbol", value)
 
     @_builtins.property
     @pulumi.getter(name="passwordMinUppercase")
-    def password_min_uppercase(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def password_min_uppercase(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         If a password must contain at least one upper case letter: 0 = no, 1 = yes. Default: `1`
         """
         return pulumi.get(self, "password_min_uppercase")
 
     @password_min_uppercase.setter
-    def password_min_uppercase(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def password_min_uppercase(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "password_min_uppercase", value)
 
     @_builtins.property
     @pulumi.getter(name="passwordShowLockoutFailures")
-    def password_show_lockout_failures(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def password_show_lockout_failures(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If a user should be informed when their account is locked. Default: `false`
         """
         return pulumi.get(self, "password_show_lockout_failures")
 
     @password_show_lockout_failures.setter
-    def password_show_lockout_failures(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def password_show_lockout_failures(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "password_show_lockout_failures", value)
 
     @_builtins.property
     @pulumi.getter
-    def priority(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def priority(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
         """
         return pulumi.get(self, "priority")
 
     @priority.setter
-    def priority(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def priority(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "priority", value)
 
     @_builtins.property
     @pulumi.getter(name="questionMinLength")
-    def question_min_length(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def question_min_length(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Min length of the password recovery question answer. Default: `4`
         """
         return pulumi.get(self, "question_min_length")
 
     @question_min_length.setter
-    def question_min_length(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def question_min_length(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "question_min_length", value)
 
     @_builtins.property
     @pulumi.getter(name="questionRecovery")
-    def question_recovery(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def question_recovery(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Enable or disable security question password recovery: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
         """
         return pulumi.get(self, "question_recovery")
 
     @question_recovery.setter
-    def question_recovery(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def question_recovery(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "question_recovery", value)
 
     @_builtins.property
     @pulumi.getter(name="recoveryEmailToken")
-    def recovery_email_token(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def recovery_email_token(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Lifetime in minutes of the recovery email token. Default: `60`
         """
         return pulumi.get(self, "recovery_email_token")
 
     @recovery_email_token.setter
-    def recovery_email_token(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def recovery_email_token(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "recovery_email_token", value)
 
     @_builtins.property
     @pulumi.getter(name="skipUnlock")
-    def skip_unlock(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def skip_unlock(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When an Active Directory user is locked out of Okta, the Okta unlock operation should also attempt to unlock the user's Windows account. Default: `false`
         """
         return pulumi.get(self, "skip_unlock")
 
     @skip_unlock.setter
-    def skip_unlock(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def skip_unlock(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "skip_unlock", value)
 
     @_builtins.property
     @pulumi.getter(name="smsRecovery")
-    def sms_recovery(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sms_recovery(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Enable or disable SMS password recovery: `ACTIVE` or `INACTIVE`. Default: `INACTIVE`
         """
         return pulumi.get(self, "sms_recovery")
 
     @sms_recovery.setter
-    def sms_recovery(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sms_recovery(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sms_recovery", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Policy Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
 
 @pulumi.input_type
 class _PasswordState:
     def __init__(__self__, *,
-                 auth_provider: Optional[pulumi.Input[_builtins.str]] = None,
-                 call_recovery: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 email_recovery: Optional[pulumi.Input[_builtins.str]] = None,
-                 groups_includeds: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 password_auto_unlock_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 password_dictionary_lookup: Optional[pulumi.Input[_builtins.bool]] = None,
-                 password_exclude_first_name: Optional[pulumi.Input[_builtins.bool]] = None,
-                 password_exclude_last_name: Optional[pulumi.Input[_builtins.bool]] = None,
-                 password_exclude_username: Optional[pulumi.Input[_builtins.bool]] = None,
-                 password_expire_warn_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 password_history_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 password_lockout_notification_channels: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 password_max_age_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 password_max_lockout_attempts: Optional[pulumi.Input[_builtins.int]] = None,
-                 password_min_age_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 password_min_length: Optional[pulumi.Input[_builtins.int]] = None,
-                 password_min_lowercase: Optional[pulumi.Input[_builtins.int]] = None,
-                 password_min_number: Optional[pulumi.Input[_builtins.int]] = None,
-                 password_min_symbol: Optional[pulumi.Input[_builtins.int]] = None,
-                 password_min_uppercase: Optional[pulumi.Input[_builtins.int]] = None,
-                 password_show_lockout_failures: Optional[pulumi.Input[_builtins.bool]] = None,
-                 priority: Optional[pulumi.Input[_builtins.int]] = None,
-                 question_min_length: Optional[pulumi.Input[_builtins.int]] = None,
-                 question_recovery: Optional[pulumi.Input[_builtins.str]] = None,
-                 recovery_email_token: Optional[pulumi.Input[_builtins.int]] = None,
-                 skip_unlock: Optional[pulumi.Input[_builtins.bool]] = None,
-                 sms_recovery: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None):
+                 auth_provider: pulumi.Input[Optional[_builtins.str]] = None,
+                 call_recovery: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 email_recovery: pulumi.Input[Optional[_builtins.str]] = None,
+                 groups_includeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 password_auto_unlock_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 password_dictionary_lookup: pulumi.Input[Optional[_builtins.bool]] = None,
+                 password_exclude_first_name: pulumi.Input[Optional[_builtins.bool]] = None,
+                 password_exclude_last_name: pulumi.Input[Optional[_builtins.bool]] = None,
+                 password_exclude_username: pulumi.Input[Optional[_builtins.bool]] = None,
+                 password_expire_warn_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 password_history_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 password_lockout_notification_channels: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 password_max_age_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 password_max_lockout_attempts: pulumi.Input[Optional[_builtins.int]] = None,
+                 password_min_age_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 password_min_length: pulumi.Input[Optional[_builtins.int]] = None,
+                 password_min_lowercase: pulumi.Input[Optional[_builtins.int]] = None,
+                 password_min_number: pulumi.Input[Optional[_builtins.int]] = None,
+                 password_min_symbol: pulumi.Input[Optional[_builtins.int]] = None,
+                 password_min_uppercase: pulumi.Input[Optional[_builtins.int]] = None,
+                 password_show_lockout_failures: pulumi.Input[Optional[_builtins.bool]] = None,
+                 priority: pulumi.Input[Optional[_builtins.int]] = None,
+                 question_min_length: pulumi.Input[Optional[_builtins.int]] = None,
+                 question_recovery: pulumi.Input[Optional[_builtins.str]] = None,
+                 recovery_email_token: pulumi.Input[Optional[_builtins.int]] = None,
+                 skip_unlock: pulumi.Input[Optional[_builtins.bool]] = None,
+                 sms_recovery: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Password resources.
 
@@ -635,362 +635,362 @@ class _PasswordState:
 
     @_builtins.property
     @pulumi.getter(name="authProvider")
-    def auth_provider(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def auth_provider(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Authentication Provider: `OKTA`, `ACTIVE_DIRECTORY` or `LDAP`. Default: `OKTA`
         """
         return pulumi.get(self, "auth_provider")
 
     @auth_provider.setter
-    def auth_provider(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def auth_provider(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "auth_provider", value)
 
     @_builtins.property
     @pulumi.getter(name="callRecovery")
-    def call_recovery(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def call_recovery(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Enable or disable voice call recovery: `ACTIVE` or `INACTIVE`. Default: `INACTIVE`
         """
         return pulumi.get(self, "call_recovery")
 
     @call_recovery.setter
-    def call_recovery(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def call_recovery(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "call_recovery", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Policy Description
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="emailRecovery")
-    def email_recovery(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def email_recovery(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Enable or disable email password recovery: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
         """
         return pulumi.get(self, "email_recovery")
 
     @email_recovery.setter
-    def email_recovery(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def email_recovery(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "email_recovery", value)
 
     @_builtins.property
     @pulumi.getter(name="groupsIncludeds")
-    def groups_includeds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def groups_includeds(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of Group IDs to Include
         """
         return pulumi.get(self, "groups_includeds")
 
     @groups_includeds.setter
-    def groups_includeds(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def groups_includeds(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "groups_includeds", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Policy Name
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="passwordAutoUnlockMinutes")
-    def password_auto_unlock_minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def password_auto_unlock_minutes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Number of minutes before a locked account is unlocked: 0 = no limit. Default: `0`
         """
         return pulumi.get(self, "password_auto_unlock_minutes")
 
     @password_auto_unlock_minutes.setter
-    def password_auto_unlock_minutes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def password_auto_unlock_minutes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "password_auto_unlock_minutes", value)
 
     @_builtins.property
     @pulumi.getter(name="passwordDictionaryLookup")
-    def password_dictionary_lookup(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def password_dictionary_lookup(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Check Passwords Against Common Password Dictionary. Default: `false`
         """
         return pulumi.get(self, "password_dictionary_lookup")
 
     @password_dictionary_lookup.setter
-    def password_dictionary_lookup(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def password_dictionary_lookup(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "password_dictionary_lookup", value)
 
     @_builtins.property
     @pulumi.getter(name="passwordExcludeFirstName")
-    def password_exclude_first_name(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def password_exclude_first_name(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         User firstName attribute must be excluded from the password
         """
         return pulumi.get(self, "password_exclude_first_name")
 
     @password_exclude_first_name.setter
-    def password_exclude_first_name(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def password_exclude_first_name(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "password_exclude_first_name", value)
 
     @_builtins.property
     @pulumi.getter(name="passwordExcludeLastName")
-    def password_exclude_last_name(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def password_exclude_last_name(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         User lastName attribute must be excluded from the password
         """
         return pulumi.get(self, "password_exclude_last_name")
 
     @password_exclude_last_name.setter
-    def password_exclude_last_name(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def password_exclude_last_name(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "password_exclude_last_name", value)
 
     @_builtins.property
     @pulumi.getter(name="passwordExcludeUsername")
-    def password_exclude_username(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def password_exclude_username(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If the user name must be excluded from the password. Default: `true`
         """
         return pulumi.get(self, "password_exclude_username")
 
     @password_exclude_username.setter
-    def password_exclude_username(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def password_exclude_username(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "password_exclude_username", value)
 
     @_builtins.property
     @pulumi.getter(name="passwordExpireWarnDays")
-    def password_expire_warn_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def password_expire_warn_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Length in days a user will be warned before password expiry: 0 = no warning. Default: `0`
         """
         return pulumi.get(self, "password_expire_warn_days")
 
     @password_expire_warn_days.setter
-    def password_expire_warn_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def password_expire_warn_days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "password_expire_warn_days", value)
 
     @_builtins.property
     @pulumi.getter(name="passwordHistoryCount")
-    def password_history_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def password_history_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Number of distinct passwords that must be created before they can be reused: 0 = none. Default: `0`
         """
         return pulumi.get(self, "password_history_count")
 
     @password_history_count.setter
-    def password_history_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def password_history_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "password_history_count", value)
 
     @_builtins.property
     @pulumi.getter(name="passwordLockoutNotificationChannels")
-    def password_lockout_notification_channels(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def password_lockout_notification_channels(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Notification channels to use to notify a user when their account has been locked.
         """
         return pulumi.get(self, "password_lockout_notification_channels")
 
     @password_lockout_notification_channels.setter
-    def password_lockout_notification_channels(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def password_lockout_notification_channels(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "password_lockout_notification_channels", value)
 
     @_builtins.property
     @pulumi.getter(name="passwordMaxAgeDays")
-    def password_max_age_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def password_max_age_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Length in days a password is valid before expiry: 0 = no limit. Default: `0`
         """
         return pulumi.get(self, "password_max_age_days")
 
     @password_max_age_days.setter
-    def password_max_age_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def password_max_age_days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "password_max_age_days", value)
 
     @_builtins.property
     @pulumi.getter(name="passwordMaxLockoutAttempts")
-    def password_max_lockout_attempts(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def password_max_lockout_attempts(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Number of unsuccessful login attempts allowed before lockout: 0 = no limit. Default: `10`
         """
         return pulumi.get(self, "password_max_lockout_attempts")
 
     @password_max_lockout_attempts.setter
-    def password_max_lockout_attempts(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def password_max_lockout_attempts(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "password_max_lockout_attempts", value)
 
     @_builtins.property
     @pulumi.getter(name="passwordMinAgeMinutes")
-    def password_min_age_minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def password_min_age_minutes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Minimum time interval in minutes between password changes: 0 = no limit. Default: `0`
         """
         return pulumi.get(self, "password_min_age_minutes")
 
     @password_min_age_minutes.setter
-    def password_min_age_minutes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def password_min_age_minutes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "password_min_age_minutes", value)
 
     @_builtins.property
     @pulumi.getter(name="passwordMinLength")
-    def password_min_length(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def password_min_length(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Minimum password length. Default: `8`
         """
         return pulumi.get(self, "password_min_length")
 
     @password_min_length.setter
-    def password_min_length(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def password_min_length(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "password_min_length", value)
 
     @_builtins.property
     @pulumi.getter(name="passwordMinLowercase")
-    def password_min_lowercase(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def password_min_lowercase(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         If a password must contain at least one lower case letter: 0 = no, 1 = yes. Default: `1`
         """
         return pulumi.get(self, "password_min_lowercase")
 
     @password_min_lowercase.setter
-    def password_min_lowercase(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def password_min_lowercase(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "password_min_lowercase", value)
 
     @_builtins.property
     @pulumi.getter(name="passwordMinNumber")
-    def password_min_number(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def password_min_number(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         If a password must contain at least one number: 0 = no, 1 = yes. Default: `1`
         """
         return pulumi.get(self, "password_min_number")
 
     @password_min_number.setter
-    def password_min_number(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def password_min_number(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "password_min_number", value)
 
     @_builtins.property
     @pulumi.getter(name="passwordMinSymbol")
-    def password_min_symbol(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def password_min_symbol(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         If a password must contain at least one symbol (!@#$%^&*): 0 = no, 1 = yes. Default: `0`
         """
         return pulumi.get(self, "password_min_symbol")
 
     @password_min_symbol.setter
-    def password_min_symbol(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def password_min_symbol(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "password_min_symbol", value)
 
     @_builtins.property
     @pulumi.getter(name="passwordMinUppercase")
-    def password_min_uppercase(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def password_min_uppercase(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         If a password must contain at least one upper case letter: 0 = no, 1 = yes. Default: `1`
         """
         return pulumi.get(self, "password_min_uppercase")
 
     @password_min_uppercase.setter
-    def password_min_uppercase(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def password_min_uppercase(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "password_min_uppercase", value)
 
     @_builtins.property
     @pulumi.getter(name="passwordShowLockoutFailures")
-    def password_show_lockout_failures(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def password_show_lockout_failures(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If a user should be informed when their account is locked. Default: `false`
         """
         return pulumi.get(self, "password_show_lockout_failures")
 
     @password_show_lockout_failures.setter
-    def password_show_lockout_failures(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def password_show_lockout_failures(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "password_show_lockout_failures", value)
 
     @_builtins.property
     @pulumi.getter
-    def priority(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def priority(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
         """
         return pulumi.get(self, "priority")
 
     @priority.setter
-    def priority(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def priority(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "priority", value)
 
     @_builtins.property
     @pulumi.getter(name="questionMinLength")
-    def question_min_length(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def question_min_length(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Min length of the password recovery question answer. Default: `4`
         """
         return pulumi.get(self, "question_min_length")
 
     @question_min_length.setter
-    def question_min_length(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def question_min_length(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "question_min_length", value)
 
     @_builtins.property
     @pulumi.getter(name="questionRecovery")
-    def question_recovery(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def question_recovery(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Enable or disable security question password recovery: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
         """
         return pulumi.get(self, "question_recovery")
 
     @question_recovery.setter
-    def question_recovery(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def question_recovery(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "question_recovery", value)
 
     @_builtins.property
     @pulumi.getter(name="recoveryEmailToken")
-    def recovery_email_token(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def recovery_email_token(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Lifetime in minutes of the recovery email token. Default: `60`
         """
         return pulumi.get(self, "recovery_email_token")
 
     @recovery_email_token.setter
-    def recovery_email_token(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def recovery_email_token(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "recovery_email_token", value)
 
     @_builtins.property
     @pulumi.getter(name="skipUnlock")
-    def skip_unlock(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def skip_unlock(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When an Active Directory user is locked out of Okta, the Okta unlock operation should also attempt to unlock the user's Windows account. Default: `false`
         """
         return pulumi.get(self, "skip_unlock")
 
     @skip_unlock.setter
-    def skip_unlock(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def skip_unlock(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "skip_unlock", value)
 
     @_builtins.property
     @pulumi.getter(name="smsRecovery")
-    def sms_recovery(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sms_recovery(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Enable or disable SMS password recovery: `ACTIVE` or `INACTIVE`. Default: `INACTIVE`
         """
         return pulumi.get(self, "sms_recovery")
 
     @sms_recovery.setter
-    def sms_recovery(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sms_recovery(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sms_recovery", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Policy Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
 
@@ -1000,36 +1000,36 @@ class Password(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auth_provider: Optional[pulumi.Input[_builtins.str]] = None,
-                 call_recovery: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 email_recovery: Optional[pulumi.Input[_builtins.str]] = None,
-                 groups_includeds: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 password_auto_unlock_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 password_dictionary_lookup: Optional[pulumi.Input[_builtins.bool]] = None,
-                 password_exclude_first_name: Optional[pulumi.Input[_builtins.bool]] = None,
-                 password_exclude_last_name: Optional[pulumi.Input[_builtins.bool]] = None,
-                 password_exclude_username: Optional[pulumi.Input[_builtins.bool]] = None,
-                 password_expire_warn_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 password_history_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 password_lockout_notification_channels: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 password_max_age_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 password_max_lockout_attempts: Optional[pulumi.Input[_builtins.int]] = None,
-                 password_min_age_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 password_min_length: Optional[pulumi.Input[_builtins.int]] = None,
-                 password_min_lowercase: Optional[pulumi.Input[_builtins.int]] = None,
-                 password_min_number: Optional[pulumi.Input[_builtins.int]] = None,
-                 password_min_symbol: Optional[pulumi.Input[_builtins.int]] = None,
-                 password_min_uppercase: Optional[pulumi.Input[_builtins.int]] = None,
-                 password_show_lockout_failures: Optional[pulumi.Input[_builtins.bool]] = None,
-                 priority: Optional[pulumi.Input[_builtins.int]] = None,
-                 question_min_length: Optional[pulumi.Input[_builtins.int]] = None,
-                 question_recovery: Optional[pulumi.Input[_builtins.str]] = None,
-                 recovery_email_token: Optional[pulumi.Input[_builtins.int]] = None,
-                 skip_unlock: Optional[pulumi.Input[_builtins.bool]] = None,
-                 sms_recovery: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
+                 auth_provider: pulumi.Input[Optional[_builtins.str]] = None,
+                 call_recovery: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 email_recovery: pulumi.Input[Optional[_builtins.str]] = None,
+                 groups_includeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 password_auto_unlock_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 password_dictionary_lookup: pulumi.Input[Optional[_builtins.bool]] = None,
+                 password_exclude_first_name: pulumi.Input[Optional[_builtins.bool]] = None,
+                 password_exclude_last_name: pulumi.Input[Optional[_builtins.bool]] = None,
+                 password_exclude_username: pulumi.Input[Optional[_builtins.bool]] = None,
+                 password_expire_warn_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 password_history_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 password_lockout_notification_channels: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 password_max_age_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 password_max_lockout_attempts: pulumi.Input[Optional[_builtins.int]] = None,
+                 password_min_age_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 password_min_length: pulumi.Input[Optional[_builtins.int]] = None,
+                 password_min_lowercase: pulumi.Input[Optional[_builtins.int]] = None,
+                 password_min_number: pulumi.Input[Optional[_builtins.int]] = None,
+                 password_min_symbol: pulumi.Input[Optional[_builtins.int]] = None,
+                 password_min_uppercase: pulumi.Input[Optional[_builtins.int]] = None,
+                 password_show_lockout_failures: pulumi.Input[Optional[_builtins.bool]] = None,
+                 priority: pulumi.Input[Optional[_builtins.int]] = None,
+                 question_min_length: pulumi.Input[Optional[_builtins.int]] = None,
+                 question_recovery: pulumi.Input[Optional[_builtins.str]] = None,
+                 recovery_email_token: pulumi.Input[Optional[_builtins.int]] = None,
+                 skip_unlock: pulumi.Input[Optional[_builtins.bool]] = None,
+                 sms_recovery: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Creates a Password Policy. This resource allows you to create and configure a Password Policy.
@@ -1133,36 +1133,36 @@ class Password(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auth_provider: Optional[pulumi.Input[_builtins.str]] = None,
-                 call_recovery: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 email_recovery: Optional[pulumi.Input[_builtins.str]] = None,
-                 groups_includeds: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 password_auto_unlock_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 password_dictionary_lookup: Optional[pulumi.Input[_builtins.bool]] = None,
-                 password_exclude_first_name: Optional[pulumi.Input[_builtins.bool]] = None,
-                 password_exclude_last_name: Optional[pulumi.Input[_builtins.bool]] = None,
-                 password_exclude_username: Optional[pulumi.Input[_builtins.bool]] = None,
-                 password_expire_warn_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 password_history_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 password_lockout_notification_channels: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 password_max_age_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 password_max_lockout_attempts: Optional[pulumi.Input[_builtins.int]] = None,
-                 password_min_age_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 password_min_length: Optional[pulumi.Input[_builtins.int]] = None,
-                 password_min_lowercase: Optional[pulumi.Input[_builtins.int]] = None,
-                 password_min_number: Optional[pulumi.Input[_builtins.int]] = None,
-                 password_min_symbol: Optional[pulumi.Input[_builtins.int]] = None,
-                 password_min_uppercase: Optional[pulumi.Input[_builtins.int]] = None,
-                 password_show_lockout_failures: Optional[pulumi.Input[_builtins.bool]] = None,
-                 priority: Optional[pulumi.Input[_builtins.int]] = None,
-                 question_min_length: Optional[pulumi.Input[_builtins.int]] = None,
-                 question_recovery: Optional[pulumi.Input[_builtins.str]] = None,
-                 recovery_email_token: Optional[pulumi.Input[_builtins.int]] = None,
-                 skip_unlock: Optional[pulumi.Input[_builtins.bool]] = None,
-                 sms_recovery: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
+                 auth_provider: pulumi.Input[Optional[_builtins.str]] = None,
+                 call_recovery: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 email_recovery: pulumi.Input[Optional[_builtins.str]] = None,
+                 groups_includeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 password_auto_unlock_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 password_dictionary_lookup: pulumi.Input[Optional[_builtins.bool]] = None,
+                 password_exclude_first_name: pulumi.Input[Optional[_builtins.bool]] = None,
+                 password_exclude_last_name: pulumi.Input[Optional[_builtins.bool]] = None,
+                 password_exclude_username: pulumi.Input[Optional[_builtins.bool]] = None,
+                 password_expire_warn_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 password_history_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 password_lockout_notification_channels: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 password_max_age_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 password_max_lockout_attempts: pulumi.Input[Optional[_builtins.int]] = None,
+                 password_min_age_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 password_min_length: pulumi.Input[Optional[_builtins.int]] = None,
+                 password_min_lowercase: pulumi.Input[Optional[_builtins.int]] = None,
+                 password_min_number: pulumi.Input[Optional[_builtins.int]] = None,
+                 password_min_symbol: pulumi.Input[Optional[_builtins.int]] = None,
+                 password_min_uppercase: pulumi.Input[Optional[_builtins.int]] = None,
+                 password_show_lockout_failures: pulumi.Input[Optional[_builtins.bool]] = None,
+                 priority: pulumi.Input[Optional[_builtins.int]] = None,
+                 question_min_length: pulumi.Input[Optional[_builtins.int]] = None,
+                 question_recovery: pulumi.Input[Optional[_builtins.str]] = None,
+                 recovery_email_token: pulumi.Input[Optional[_builtins.int]] = None,
+                 skip_unlock: pulumi.Input[Optional[_builtins.bool]] = None,
+                 sms_recovery: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1212,36 +1212,36 @@ class Password(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            auth_provider: Optional[pulumi.Input[_builtins.str]] = None,
-            call_recovery: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            email_recovery: Optional[pulumi.Input[_builtins.str]] = None,
-            groups_includeds: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            password_auto_unlock_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-            password_dictionary_lookup: Optional[pulumi.Input[_builtins.bool]] = None,
-            password_exclude_first_name: Optional[pulumi.Input[_builtins.bool]] = None,
-            password_exclude_last_name: Optional[pulumi.Input[_builtins.bool]] = None,
-            password_exclude_username: Optional[pulumi.Input[_builtins.bool]] = None,
-            password_expire_warn_days: Optional[pulumi.Input[_builtins.int]] = None,
-            password_history_count: Optional[pulumi.Input[_builtins.int]] = None,
-            password_lockout_notification_channels: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            password_max_age_days: Optional[pulumi.Input[_builtins.int]] = None,
-            password_max_lockout_attempts: Optional[pulumi.Input[_builtins.int]] = None,
-            password_min_age_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-            password_min_length: Optional[pulumi.Input[_builtins.int]] = None,
-            password_min_lowercase: Optional[pulumi.Input[_builtins.int]] = None,
-            password_min_number: Optional[pulumi.Input[_builtins.int]] = None,
-            password_min_symbol: Optional[pulumi.Input[_builtins.int]] = None,
-            password_min_uppercase: Optional[pulumi.Input[_builtins.int]] = None,
-            password_show_lockout_failures: Optional[pulumi.Input[_builtins.bool]] = None,
-            priority: Optional[pulumi.Input[_builtins.int]] = None,
-            question_min_length: Optional[pulumi.Input[_builtins.int]] = None,
-            question_recovery: Optional[pulumi.Input[_builtins.str]] = None,
-            recovery_email_token: Optional[pulumi.Input[_builtins.int]] = None,
-            skip_unlock: Optional[pulumi.Input[_builtins.bool]] = None,
-            sms_recovery: Optional[pulumi.Input[_builtins.str]] = None,
-            status: Optional[pulumi.Input[_builtins.str]] = None) -> 'Password':
+            auth_provider: pulumi.Input[Optional[_builtins.str]] = None,
+            call_recovery: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            email_recovery: pulumi.Input[Optional[_builtins.str]] = None,
+            groups_includeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            password_auto_unlock_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+            password_dictionary_lookup: pulumi.Input[Optional[_builtins.bool]] = None,
+            password_exclude_first_name: pulumi.Input[Optional[_builtins.bool]] = None,
+            password_exclude_last_name: pulumi.Input[Optional[_builtins.bool]] = None,
+            password_exclude_username: pulumi.Input[Optional[_builtins.bool]] = None,
+            password_expire_warn_days: pulumi.Input[Optional[_builtins.int]] = None,
+            password_history_count: pulumi.Input[Optional[_builtins.int]] = None,
+            password_lockout_notification_channels: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            password_max_age_days: pulumi.Input[Optional[_builtins.int]] = None,
+            password_max_lockout_attempts: pulumi.Input[Optional[_builtins.int]] = None,
+            password_min_age_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+            password_min_length: pulumi.Input[Optional[_builtins.int]] = None,
+            password_min_lowercase: pulumi.Input[Optional[_builtins.int]] = None,
+            password_min_number: pulumi.Input[Optional[_builtins.int]] = None,
+            password_min_symbol: pulumi.Input[Optional[_builtins.int]] = None,
+            password_min_uppercase: pulumi.Input[Optional[_builtins.int]] = None,
+            password_show_lockout_failures: pulumi.Input[Optional[_builtins.bool]] = None,
+            priority: pulumi.Input[Optional[_builtins.int]] = None,
+            question_min_length: pulumi.Input[Optional[_builtins.int]] = None,
+            question_recovery: pulumi.Input[Optional[_builtins.str]] = None,
+            recovery_email_token: pulumi.Input[Optional[_builtins.int]] = None,
+            skip_unlock: pulumi.Input[Optional[_builtins.bool]] = None,
+            sms_recovery: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None) -> 'Password':
         """
         Get an existing Password resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

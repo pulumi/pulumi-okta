@@ -9,34 +9,34 @@ export interface AgentPoolUpdateAgent {
     /**
      * The unique identifier of the agent.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * Pool ID.
      */
-    poolId?: pulumi.Input<string>;
+    poolId?: pulumi.Input<string | undefined>;
 }
 
 export interface AgentPoolUpdateSchedule {
     /**
      * The schedule of the update in cron format.
      */
-    cron?: pulumi.Input<string>;
+    cron?: pulumi.Input<string | undefined>;
     /**
      * Delay in days.
      */
-    delay?: pulumi.Input<number>;
+    delay?: pulumi.Input<number | undefined>;
     /**
      * Duration in minutes.
      */
-    duration?: pulumi.Input<number>;
+    duration?: pulumi.Input<number | undefined>;
     /**
      * Timestamp when the update finished (only for a successful or failed update, not for a cancelled update). Null is returned if the job hasn't finished once yet.
      */
-    lastUpdated?: pulumi.Input<string>;
+    lastUpdated?: pulumi.Input<string | undefined>;
     /**
      * Timezone of where the scheduled job takes place.
      */
-    timezone?: pulumi.Input<string>;
+    timezone?: pulumi.Input<string | undefined>;
 }
 
 export interface ApiServiceIntegrationGrantedScope {
@@ -50,15 +50,15 @@ export interface ApiTokenNetwork {
     /**
      * The connection type of the Network Condition.
      */
-    connection?: pulumi.Input<string>;
+    connection?: pulumi.Input<string | undefined>;
     /**
      * The IP address the excluded zone.
      */
-    excludes?: pulumi.Input<pulumi.Input<string>[]>;
+    excludes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The IP address the included zone.
      */
-    includes?: pulumi.Input<pulumi.Input<string>[]>;
+    includes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 export interface AppGroupAssignmentsGroup {
@@ -69,7 +69,7 @@ export interface AppGroupAssignmentsGroup {
     /**
      * Priority of group assignment
      */
-    priority?: pulumi.Input<number>;
+    priority?: pulumi.Input<number | undefined>;
     /**
      * JSON document containing [application profile](https://developer.okta.com/docs/reference/api/apps/#profile-object)
      */
@@ -80,9 +80,9 @@ export interface AppSignonPolicyRulePlatformInclude {
     /**
      * Only available with OTHER OS type
      */
-    osExpression?: pulumi.Input<string>;
-    osType?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
+    osExpression?: pulumi.Input<string | undefined>;
+    osType?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 export interface AppUserSchemaPropertyArrayOneOf {
@@ -131,27 +131,27 @@ export interface CampaignNotificationSettings {
     /**
      * Specifies times (in seconds) to send reminders to reviewers before the campaign closes. Max 3 values. Example: [86400, 172800, 604800]
      */
-    remindersReviewerBeforeCampaignCloseInSecs?: pulumi.Input<pulumi.Input<number>[]>;
+    remindersReviewerBeforeCampaignCloseInSecs?: pulumi.Input<pulumi.Input<number>[] | undefined>;
 }
 
 export interface CampaignPrincipalScopeSettings {
     /**
      * An array of Okta user IDs excluded from access certification or the campaign. This field is optional. A maximum of 50 users can be specified in the array.
      */
-    excludedUserIds?: pulumi.Input<pulumi.Input<string>[]>;
+    excludedUserIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * An array of Okta group IDs included from access certification or the campaign. userIds, groupIds or userScopeExpression is required if campaign type is USER. A maximum of 5 groups can be specified in the array.
      */
-    groupIds?: pulumi.Input<pulumi.Input<string>[]>;
+    groupIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * If set to true, only active Okta users are included in the campaign.
      */
-    includeOnlyActiveUsers?: pulumi.Input<boolean>;
+    includeOnlyActiveUsers?: pulumi.Input<boolean | undefined>;
     /**
      * If set to true, only includes users that have at least one SOD conflict that was caused due to entitlement(s) within Campaign scope.
      */
-    onlyIncludeUsersWithSodConflicts?: pulumi.Input<boolean>;
-    predefinedInactiveUsersScopes?: pulumi.Input<pulumi.Input<inputs.CampaignPrincipalScopeSettingsPredefinedInactiveUsersScope>[]>;
+    onlyIncludeUsersWithSodConflicts?: pulumi.Input<boolean | undefined>;
+    predefinedInactiveUsersScopes?: pulumi.Input<pulumi.Input<inputs.CampaignPrincipalScopeSettingsPredefinedInactiveUsersScope>[] | undefined>;
     /**
      * Specifies the type for principal_scope_settings.
      */
@@ -159,18 +159,18 @@ export interface CampaignPrincipalScopeSettings {
     /**
      * An array of Okta user IDs included from access certification or the campaign. userIds, groupIds or userScopeExpression is required if campaign type is USER. A maximum of 100 users can be specified in the array.
      */
-    userIds?: pulumi.Input<pulumi.Input<string>[]>;
+    userIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The Okta expression language user expression on the resourceSettings to include users in the campaign.
      */
-    userScopeExpression?: pulumi.Input<string>;
+    userScopeExpression?: pulumi.Input<string | undefined>;
 }
 
 export interface CampaignPrincipalScopeSettingsPredefinedInactiveUsersScope {
     /**
      * The duration the users have not used single sign on (SSO) to access their account within the specific time frame. Minimum 30 days and maximum 365 days are supported.
      */
-    inactiveDays?: pulumi.Input<number>;
+    inactiveDays?: pulumi.Input<number | undefined>;
 }
 
 export interface CampaignRemediationSettings {
@@ -182,7 +182,7 @@ export interface CampaignRemediationSettings {
      * Specifies the action if the reviewer revokes access. NO_ACTION indicates the user retains the same access. DENY indicates the user will have their access revoked as long as they are not assigned to a group through Group Rules.
      */
     accessRevoked: pulumi.Input<string>;
-    autoRemediationSettings?: pulumi.Input<inputs.CampaignRemediationSettingsAutoRemediationSettings>;
+    autoRemediationSettings?: pulumi.Input<inputs.CampaignRemediationSettingsAutoRemediationSettings | undefined>;
     /**
      * Specifies the action if the reviewer doesn't respond to the request or if the campaign is closed before an action is taken.
      */
@@ -193,50 +193,50 @@ export interface CampaignRemediationSettingsAutoRemediationSettings {
     /**
      * If true, all indirect assignments will be included in the campaign. If false, only direct assignments will be included.
      */
-    includeAllIndirectAssignments?: pulumi.Input<boolean>;
-    includeOnlies?: pulumi.Input<pulumi.Input<inputs.CampaignRemediationSettingsAutoRemediationSettingsIncludeOnly>[]>;
+    includeAllIndirectAssignments?: pulumi.Input<boolean | undefined>;
+    includeOnlies?: pulumi.Input<pulumi.Input<inputs.CampaignRemediationSettingsAutoRemediationSettingsIncludeOnly>[] | undefined>;
 }
 
 export interface CampaignRemediationSettingsAutoRemediationSettingsIncludeOnly {
     /**
      * The ID of the resource to include in the campaign.
      */
-    resourceId?: pulumi.Input<string>;
+    resourceId?: pulumi.Input<string | undefined>;
     /**
      * The type of the resource to include in the campaign. Valid values are 'APPLICATION', 'GROUP', 'ENTITLEMENT', 'ENTITLEMENT_BUNDLE'.
      */
-    resourceType?: pulumi.Input<string>;
+    resourceType?: pulumi.Input<string | undefined>;
 }
 
 export interface CampaignResourceSettings {
     /**
      * An array of resources that are excluded from the review.
      */
-    excludedResources?: pulumi.Input<pulumi.Input<inputs.CampaignResourceSettingsExcludedResource>[]>;
+    excludedResources?: pulumi.Input<pulumi.Input<inputs.CampaignResourceSettingsExcludedResource>[] | undefined>;
     /**
      * Include admin roles.
      */
-    includeAdminRoles?: pulumi.Input<boolean>;
+    includeAdminRoles?: pulumi.Input<boolean | undefined>;
     /**
      * Include entitlements for this application. This property is only applicable if resourceType = APPLICATION and Entitlement Management is enabled.
      */
-    includeEntitlements?: pulumi.Input<boolean>;
+    includeEntitlements?: pulumi.Input<boolean | undefined>;
     /**
      * Only include individually assigned apps. This is only applicable if campaign type is USER.
      */
-    individuallyAssignedAppsOnly?: pulumi.Input<boolean>;
+    individuallyAssignedAppsOnly?: pulumi.Input<boolean | undefined>;
     /**
      * Only include individually assigned groups. This is only applicable if campaign type is USER.
      */
-    individuallyAssignedGroupsOnly?: pulumi.Input<boolean>;
+    individuallyAssignedGroupsOnly?: pulumi.Input<boolean | undefined>;
     /**
      * Only include out-of-policy entitlements. Only applicable if resourceType = APPLICATION and Entitlement Management is enabled.
      */
-    onlyIncludeOutOfPolicyEntitlements?: pulumi.Input<boolean>;
+    onlyIncludeOutOfPolicyEntitlements?: pulumi.Input<boolean | undefined>;
     /**
      * Represents a resource that will be part of Access certifications. If the app is enabled for Access Certifications, it's possible to review entitlements and entitlement bundles.
      */
-    targetResources?: pulumi.Input<pulumi.Input<inputs.CampaignResourceSettingsTargetResource>[]>;
+    targetResources?: pulumi.Input<pulumi.Input<inputs.CampaignResourceSettingsTargetResource>[] | undefined>;
     /**
      * The type of Okta resource.
      */
@@ -247,26 +247,26 @@ export interface CampaignResourceSettingsExcludedResource {
     /**
      * The ID of the resource to exclude in the campaign.
      */
-    resourceId?: pulumi.Input<string>;
+    resourceId?: pulumi.Input<string | undefined>;
     /**
      * The type of resource to exclude in the campaign.
      */
-    resourceType?: pulumi.Input<string>;
+    resourceType?: pulumi.Input<string | undefined>;
 }
 
 export interface CampaignResourceSettingsTargetResource {
     /**
      * An array of entitlement bundles for this application.
      */
-    entitlementBundles?: pulumi.Input<pulumi.Input<inputs.CampaignResourceSettingsTargetResourceEntitlementBundle>[]>;
+    entitlementBundles?: pulumi.Input<pulumi.Input<inputs.CampaignResourceSettingsTargetResourceEntitlementBundle>[] | undefined>;
     /**
      * An array of entitlements associated with resourceId that should be chosen as target when creating reviews
      */
-    entitlements?: pulumi.Input<pulumi.Input<inputs.CampaignResourceSettingsTargetResourceEntitlement>[]>;
+    entitlements?: pulumi.Input<pulumi.Input<inputs.CampaignResourceSettingsTargetResourceEntitlement>[] | undefined>;
     /**
      * Include all entitlements and entitlement bundles for this application. Only applicable if the resourcetype = APPLICATION and Entitlement Management is enabled.
      */
-    includeAllEntitlementsAndBundles?: pulumi.Input<boolean>;
+    includeAllEntitlementsAndBundles?: pulumi.Input<boolean | undefined>;
     /**
      * The resource ID that is being reviewed.
      */
@@ -285,8 +285,8 @@ export interface CampaignResourceSettingsTargetResourceEntitlement {
     /**
      * Whether to include all entitlement values. If false we must provide the values property.
      */
-    includeAllValues?: pulumi.Input<boolean>;
-    values?: pulumi.Input<pulumi.Input<inputs.CampaignResourceSettingsTargetResourceEntitlementValue>[]>;
+    includeAllValues?: pulumi.Input<boolean | undefined>;
+    values?: pulumi.Input<pulumi.Input<inputs.CampaignResourceSettingsTargetResourceEntitlementValue>[] | undefined>;
 }
 
 export interface CampaignResourceSettingsTargetResourceEntitlementBundle {
@@ -307,36 +307,36 @@ export interface CampaignReviewerSettings {
     /**
      * When approving or revoking review items, bulk actions are disabled if true.
      */
-    bulkDecisionDisabled?: pulumi.Input<boolean>;
+    bulkDecisionDisabled?: pulumi.Input<boolean | undefined>;
     /**
      * The ID of the fallback reviewer. Required when the type=`REVIEWER_EXPRESSION` or type=`RESOURCE_OWNER`
      */
-    fallbackReviewerId?: pulumi.Input<string>;
+    fallbackReviewerId?: pulumi.Input<string | undefined>;
     /**
      * When approving or revoking review items, a justification is required if true.
      */
-    justificationRequired?: pulumi.Input<boolean>;
+    justificationRequired?: pulumi.Input<boolean | undefined>;
     /**
      * Reassignment is disabled for reviewers if true.
      */
-    reassignmentDisabled?: pulumi.Input<boolean>;
+    reassignmentDisabled?: pulumi.Input<boolean | undefined>;
     /**
      * The ID of the reviewer group to which the reviewer is assigned.
      */
-    reviewerGroupId?: pulumi.Input<string>;
-    reviewerId?: pulumi.Input<string>;
+    reviewerGroupId?: pulumi.Input<string | undefined>;
+    reviewerId?: pulumi.Input<string | undefined>;
     /**
      * Definition of reviewer level for a given campaign. Each reviewer level defines the kind of reviewer who is going to review.
      */
-    reviewerLevels?: pulumi.Input<pulumi.Input<inputs.CampaignReviewerSettingsReviewerLevel>[]>;
+    reviewerLevels?: pulumi.Input<pulumi.Input<inputs.CampaignReviewerSettingsReviewerLevel>[] | undefined>;
     /**
      * This property is required when type=`USER`
      */
-    reviewerScopeExpression?: pulumi.Input<string>;
+    reviewerScopeExpression?: pulumi.Input<string | undefined>;
     /**
      * This property is required to be true for resource-centric campaigns when the Okta Admin Console is one of the resources.
      */
-    selfReviewDisabled?: pulumi.Input<boolean>;
+    selfReviewDisabled?: pulumi.Input<boolean | undefined>;
     /**
      * Identifies the kind of reviewer for Access Certification.
      */
@@ -347,27 +347,27 @@ export interface CampaignReviewerSettingsReviewerLevel {
     /**
      * Required when the type=`REVIEWER_EXPRESSION` or type=`RESOURCE_OWNER`
      */
-    fallbackReviewerId?: pulumi.Input<string>;
+    fallbackReviewerId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the reviewer group to which the reviewer is assigned.This property is required when type=`GROUP`
      */
-    reviewerGroupId?: pulumi.Input<string>;
+    reviewerGroupId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the reviewer to which the reviewer is assigned.This property is required when type=`USER`.
      */
-    reviewerId?: pulumi.Input<string>;
+    reviewerId?: pulumi.Input<string | undefined>;
     /**
      * This property is required when type=`REVIEWER_EXPRESSION`
      */
-    reviewerScopeExpression?: pulumi.Input<string>;
+    reviewerScopeExpression?: pulumi.Input<string | undefined>;
     /**
      * This property is used to prevent self review.
      */
-    selfReviewDisabled?: pulumi.Input<boolean>;
+    selfReviewDisabled?: pulumi.Input<boolean | undefined>;
     /**
      * The rules for which the reviews can move to that level.
      */
-    startReviews?: pulumi.Input<pulumi.Input<inputs.CampaignReviewerSettingsReviewerLevelStartReview>[]>;
+    startReviews?: pulumi.Input<pulumi.Input<inputs.CampaignReviewerSettingsReviewerLevelStartReview>[] | undefined>;
     /**
      * Identifies the kind of reviewer.
      */
@@ -378,11 +378,11 @@ export interface CampaignReviewerSettingsReviewerLevelStartReview {
     /**
      * The day of the campaign when the review starts. 0 means the first day of the campaign.
      */
-    onDay?: pulumi.Input<number>;
+    onDay?: pulumi.Input<number | undefined>;
     /**
      * The condition for which, the lower level reviews will move to that level for further review.
      */
-    when?: pulumi.Input<string>;
+    when?: pulumi.Input<string | undefined>;
 }
 
 export interface CampaignScheduleSettings {
@@ -390,8 +390,8 @@ export interface CampaignScheduleSettings {
      * The duration (in days) that the campaign is active.
      */
     durationInDays: pulumi.Input<number>;
-    endDate?: pulumi.Input<string>;
-    recurrences?: pulumi.Input<pulumi.Input<inputs.CampaignScheduleSettingsRecurrence>[]>;
+    endDate?: pulumi.Input<string | undefined>;
+    recurrences?: pulumi.Input<pulumi.Input<inputs.CampaignScheduleSettingsRecurrence>[] | undefined>;
     /**
      * The date on which the campaign is supposed to start. Accepts date in ISO 8601 format.
      */
@@ -410,7 +410,7 @@ export interface CampaignScheduleSettingsRecurrence {
     /**
      * Specifies when the recurring schedule can have an end.
      */
-    ends?: pulumi.Input<string>;
+    ends?: pulumi.Input<string | undefined>;
     /**
      * Recurrence interval specified according to ISO8061 notation for durations.
      */
@@ -418,39 +418,39 @@ export interface CampaignScheduleSettingsRecurrence {
     /**
      * Specifies when the recurring schedule can have an end.
      */
-    repeatOnType?: pulumi.Input<string>;
+    repeatOnType?: pulumi.Input<string | undefined>;
 }
 
 export interface CustomizedSigninPageContentSecurityPolicySetting {
     /**
      * enforced or report_only
      */
-    mode?: pulumi.Input<string>;
-    reportUri?: pulumi.Input<string>;
-    srcLists?: pulumi.Input<pulumi.Input<string>[]>;
+    mode?: pulumi.Input<string | undefined>;
+    reportUri?: pulumi.Input<string | undefined>;
+    srcLists?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 export interface CustomizedSigninPageWidgetCustomizations {
-    authenticatorPageCustomLinkLabel?: pulumi.Input<string>;
-    authenticatorPageCustomLinkUrl?: pulumi.Input<string>;
-    classicRecoveryFlowEmailOrUsernameLabel?: pulumi.Input<string>;
-    customLink1Label?: pulumi.Input<string>;
-    customLink1Url?: pulumi.Input<string>;
-    customLink2Label?: pulumi.Input<string>;
-    customLink2Url?: pulumi.Input<string>;
-    forgotPasswordLabel?: pulumi.Input<string>;
-    forgotPasswordUrl?: pulumi.Input<string>;
-    helpLabel?: pulumi.Input<string>;
-    helpUrl?: pulumi.Input<string>;
-    passwordInfoTip?: pulumi.Input<string>;
-    passwordLabel?: pulumi.Input<string>;
-    showPasswordVisibilityToggle?: pulumi.Input<boolean>;
-    showUserIdentifier?: pulumi.Input<boolean>;
-    signInLabel?: pulumi.Input<string>;
-    unlockAccountLabel?: pulumi.Input<string>;
-    unlockAccountUrl?: pulumi.Input<string>;
-    usernameInfoTip?: pulumi.Input<string>;
-    usernameLabel?: pulumi.Input<string>;
+    authenticatorPageCustomLinkLabel?: pulumi.Input<string | undefined>;
+    authenticatorPageCustomLinkUrl?: pulumi.Input<string | undefined>;
+    classicRecoveryFlowEmailOrUsernameLabel?: pulumi.Input<string | undefined>;
+    customLink1Label?: pulumi.Input<string | undefined>;
+    customLink1Url?: pulumi.Input<string | undefined>;
+    customLink2Label?: pulumi.Input<string | undefined>;
+    customLink2Url?: pulumi.Input<string | undefined>;
+    forgotPasswordLabel?: pulumi.Input<string | undefined>;
+    forgotPasswordUrl?: pulumi.Input<string | undefined>;
+    helpLabel?: pulumi.Input<string | undefined>;
+    helpUrl?: pulumi.Input<string | undefined>;
+    passwordInfoTip?: pulumi.Input<string | undefined>;
+    passwordLabel?: pulumi.Input<string | undefined>;
+    showPasswordVisibilityToggle?: pulumi.Input<boolean | undefined>;
+    showUserIdentifier?: pulumi.Input<boolean | undefined>;
+    signInLabel?: pulumi.Input<string | undefined>;
+    unlockAccountLabel?: pulumi.Input<string | undefined>;
+    unlockAccountUrl?: pulumi.Input<string | undefined>;
+    usernameInfoTip?: pulumi.Input<string | undefined>;
+    usernameLabel?: pulumi.Input<string | undefined>;
     widgetGeneration: pulumi.Input<string>;
 }
 
@@ -458,19 +458,19 @@ export interface DomainDnsRecord {
     /**
      * TXT record expiration
      */
-    expiration?: pulumi.Input<string>;
+    expiration?: pulumi.Input<string | undefined>;
     /**
      * DNS record name
      */
-    fqdn?: pulumi.Input<string>;
+    fqdn?: pulumi.Input<string | undefined>;
     /**
      * Record type can be TXT or CNAME
      */
-    recordType?: pulumi.Input<string>;
+    recordType?: pulumi.Input<string | undefined>;
     /**
      * DNS verification value
      */
-    values?: pulumi.Input<pulumi.Input<string>[]>;
+    values?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 export interface EmailDomainDnsValidationRecord {
@@ -479,34 +479,34 @@ export interface EmailDomainDnsValidationRecord {
      *
      * @deprecated This field has been removed in the newest go sdk version and has become noop
      */
-    expiration?: pulumi.Input<string>;
+    expiration?: pulumi.Input<string | undefined>;
     /**
      * DNS record name
      */
-    fqdn?: pulumi.Input<string>;
+    fqdn?: pulumi.Input<string | undefined>;
     /**
      * Record type can be TXT or cname
      */
-    recordType?: pulumi.Input<string>;
+    recordType?: pulumi.Input<string | undefined>;
     /**
      * DNS record value
      */
-    value?: pulumi.Input<string>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface EmailSenderDnsRecord {
     /**
      * DNS record name
      */
-    fqdn?: pulumi.Input<string>;
+    fqdn?: pulumi.Input<string | undefined>;
     /**
      * Record type can be TXT or CNAME
      */
-    recordType?: pulumi.Input<string>;
+    recordType?: pulumi.Input<string | undefined>;
     /**
      * DNS verification value
      */
-    value?: pulumi.Input<string>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface EndUserMyRequestsRequesterFieldValue {
@@ -517,19 +517,19 @@ export interface EndUserMyRequestsRequesterFieldValue {
     /**
      * A human-readable description of requesterField. It's used for display purposes and is optional.
      */
-    label?: pulumi.Input<string>;
+    label?: pulumi.Input<string | undefined>;
     /**
      * Type of value for the requester field. Valid values: `DURATION`, `ISO_DATE`, `MULTISELECT`, `OKTA_USER_ID`, `SELECT`, `TEXT`.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
     /**
      * The value of requesterField, which depends on the type of the field. Used for single-value fields.
      */
-    value?: pulumi.Input<string>;
+    value?: pulumi.Input<string | undefined>;
     /**
      * The values of requesterField with the type MULTISELECT. If the field type is MULTISELECT, this property is required instead of `value`.
      */
-    values?: pulumi.Input<pulumi.Input<string>[]>;
+    values?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 export interface EntitlementBundleEntitlement {
@@ -537,7 +537,7 @@ export interface EntitlementBundleEntitlement {
      * The ID of the entitlement.
      */
     id: pulumi.Input<string>;
-    values?: pulumi.Input<pulumi.Input<inputs.EntitlementBundleEntitlementValue>[]>;
+    values?: pulumi.Input<pulumi.Input<inputs.EntitlementBundleEntitlementValue>[] | undefined>;
 }
 
 export interface EntitlementBundleEntitlementValue {
@@ -573,24 +573,24 @@ export interface EntitlementValue {
     /**
      * The description of an entitlement value.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The value of an entitlement property value.
      */
-    externalValue?: pulumi.Input<string>;
+    externalValue?: pulumi.Input<string | undefined>;
     /**
      * Collection of entitlement values.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * The display name for an entitlement value.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }
 
 export interface EventHookHeader {
-    key?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
+    key?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface FeatureStage {
@@ -649,47 +649,47 @@ export interface GetAgentPoolUpdateAgentArgs {
     /**
      * The unique identifier of the agent.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * Determines if an agent is hidden from the Admin Console.
      */
-    isHidden?: pulumi.Input<boolean>;
+    isHidden?: pulumi.Input<boolean | undefined>;
     /**
      * Determines if the agent is on the latest generally available version.
      */
-    isLatestGaedVersion?: pulumi.Input<boolean>;
+    isLatestGaedVersion?: pulumi.Input<boolean | undefined>;
     /**
      * Timestamp when the agent last connected to Okta.
      */
-    lastConnection?: pulumi.Input<number>;
+    lastConnection?: pulumi.Input<number | undefined>;
     /**
      * The name of the agent.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Operational status of a given agent (e.g., DEGRADED, DISRUPTED, INACTIVE, OPERATIONAL).
      */
-    operationalStatus?: pulumi.Input<string>;
+    operationalStatus?: pulumi.Input<string | undefined>;
     /**
      * Pool ID.
      */
-    poolId?: pulumi.Input<string>;
+    poolId?: pulumi.Input<string | undefined>;
     /**
      * Agent types that are being monitored.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
     /**
      * Status message of the agent.
      */
-    updateMessage?: pulumi.Input<string>;
+    updateMessage?: pulumi.Input<string | undefined>;
     /**
      * Status for one agent regarding the status to auto-update that agent.
      */
-    updateStatus?: pulumi.Input<string>;
+    updateStatus?: pulumi.Input<string | undefined>;
     /**
      * Agent version number.
      */
-    version?: pulumi.Input<string>;
+    version?: pulumi.Input<string | undefined>;
 }
 
 export interface GetAgentPoolUpdateSchedule {
@@ -719,23 +719,23 @@ export interface GetAgentPoolUpdateScheduleArgs {
     /**
      * The schedule of the update in cron format.
      */
-    cron?: pulumi.Input<string>;
+    cron?: pulumi.Input<string | undefined>;
     /**
      * Delay in days.
      */
-    delay?: pulumi.Input<number>;
+    delay?: pulumi.Input<number | undefined>;
     /**
      * Duration in minutes.
      */
-    duration?: pulumi.Input<number>;
+    duration?: pulumi.Input<number | undefined>;
     /**
      * Timestamp when the update finished.
      */
-    lastUpdated?: pulumi.Input<string>;
+    lastUpdated?: pulumi.Input<string | undefined>;
     /**
      * Timezone of where the scheduled job takes place.
      */
-    timezone?: pulumi.Input<string>;
+    timezone?: pulumi.Input<string | undefined>;
 }
 
 export interface GetApiServiceIntegrationGrantedScope {
@@ -749,7 +749,7 @@ export interface GetApiServiceIntegrationGrantedScopeArgs {
     /**
      * The scope of the API service integration granted.
      */
-    scope?: pulumi.Input<string>;
+    scope?: pulumi.Input<string | undefined>;
 }
 
 export interface GetApiTokenNetwork {
@@ -771,15 +771,15 @@ export interface GetApiTokenNetworkArgs {
     /**
      * The connection type of the Network Condition.
      */
-    connection?: pulumi.Input<string>;
+    connection?: pulumi.Input<string | undefined>;
     /**
      * The IP address the excluded zone.
      */
-    excludes?: pulumi.Input<pulumi.Input<string>[]>;
+    excludes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The IP address the included zone.
      */
-    includes?: pulumi.Input<pulumi.Input<string>[]>;
+    includes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 export interface GetCampaignNotificationSettings {
@@ -792,12 +792,12 @@ export interface GetCampaignNotificationSettings {
 }
 
 export interface GetCampaignNotificationSettingsArgs {
-    notifyReviewPeriodEnd?: pulumi.Input<boolean>;
-    notifyReviewerAtCampaignEnd?: pulumi.Input<boolean>;
-    notifyReviewerDuringMidpointOfReview?: pulumi.Input<boolean>;
-    notifyReviewerWhenOverdue?: pulumi.Input<boolean>;
-    notifyReviewerWhenReviewAssigned?: pulumi.Input<boolean>;
-    remindersReviewerBeforeCampaignCloseInSecs?: pulumi.Input<pulumi.Input<number>[]>;
+    notifyReviewPeriodEnd?: pulumi.Input<boolean | undefined>;
+    notifyReviewerAtCampaignEnd?: pulumi.Input<boolean | undefined>;
+    notifyReviewerDuringMidpointOfReview?: pulumi.Input<boolean | undefined>;
+    notifyReviewerWhenOverdue?: pulumi.Input<boolean | undefined>;
+    notifyReviewerWhenReviewAssigned?: pulumi.Input<boolean | undefined>;
+    remindersReviewerBeforeCampaignCloseInSecs?: pulumi.Input<pulumi.Input<number>[] | undefined>;
 }
 
 export interface GetCampaignPrincipalScopeSettings {
@@ -812,14 +812,14 @@ export interface GetCampaignPrincipalScopeSettings {
 }
 
 export interface GetCampaignPrincipalScopeSettingsArgs {
-    excludedUserIds?: pulumi.Input<pulumi.Input<string>[]>;
-    groupIds?: pulumi.Input<pulumi.Input<string>[]>;
-    includeOnlyActiveUsers?: pulumi.Input<boolean>;
-    onlyIncludeUsersWithSodConflicts?: pulumi.Input<boolean>;
-    predefinedInactiveUsersScopes?: pulumi.Input<pulumi.Input<inputs.GetCampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeArgs>[]>;
-    type?: pulumi.Input<string>;
-    userIds?: pulumi.Input<pulumi.Input<string>[]>;
-    userScopeExpression?: pulumi.Input<string>;
+    excludedUserIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    groupIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    includeOnlyActiveUsers?: pulumi.Input<boolean | undefined>;
+    onlyIncludeUsersWithSodConflicts?: pulumi.Input<boolean | undefined>;
+    predefinedInactiveUsersScopes?: pulumi.Input<pulumi.Input<inputs.GetCampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeArgs>[] | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    userIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    userScopeExpression?: pulumi.Input<string | undefined>;
 }
 
 export interface GetCampaignPrincipalScopeSettingsPredefinedInactiveUsersScope {
@@ -827,7 +827,7 @@ export interface GetCampaignPrincipalScopeSettingsPredefinedInactiveUsersScope {
 }
 
 export interface GetCampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeArgs {
-    inactiveDays?: pulumi.Input<number>;
+    inactiveDays?: pulumi.Input<number | undefined>;
 }
 
 export interface GetCampaignRemediationSettings {
@@ -850,16 +850,16 @@ export interface GetCampaignRemediationSettingsArgs {
     /**
      * Specifies the action by default if the reviewer approves access. NO_ACTION indicates there is no remediation action and the user retains access.
      */
-    accessApproved?: pulumi.Input<string>;
+    accessApproved?: pulumi.Input<string | undefined>;
     /**
      * Specifies the action if the reviewer revokes access. NO_ACTION indicates the user retains the same access. DENY indicates the user will have their access revoked as long as they are not assigned to a group through Group Rules.
      */
-    accessRevoked?: pulumi.Input<string>;
-    autoRemediationSettings?: pulumi.Input<inputs.GetCampaignRemediationSettingsAutoRemediationSettingsArgs>;
+    accessRevoked?: pulumi.Input<string | undefined>;
+    autoRemediationSettings?: pulumi.Input<inputs.GetCampaignRemediationSettingsAutoRemediationSettingsArgs | undefined>;
     /**
      * Specifies the action if the reviewer doesn't respond to the request.
      */
-    noResponse?: pulumi.Input<string>;
+    noResponse?: pulumi.Input<string | undefined>;
 }
 
 export interface GetCampaignRemediationSettingsAutoRemediationSettings {
@@ -877,11 +877,11 @@ export interface GetCampaignRemediationSettingsAutoRemediationSettingsArgs {
     /**
      * When a group is selected to be automatically remediated.
      */
-    includeAllIndirectAssignments?: pulumi.Input<boolean>;
+    includeAllIndirectAssignments?: pulumi.Input<boolean | undefined>;
     /**
      * An array of resources to be automatically remediated.
      */
-    includeOnlies?: pulumi.Input<pulumi.Input<inputs.GetCampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyArgs>[]>;
+    includeOnlies?: pulumi.Input<pulumi.Input<inputs.GetCampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyArgs>[] | undefined>;
 }
 
 export interface GetCampaignRemediationSettingsAutoRemediationSettingsIncludeOnly {
@@ -945,35 +945,35 @@ export interface GetCampaignResourceSettingsArgs {
     /**
      * An array of resources that are excluded from the review.
      */
-    excludedResources?: pulumi.Input<pulumi.Input<inputs.GetCampaignResourceSettingsExcludedResourceArgs>[]>;
+    excludedResources?: pulumi.Input<pulumi.Input<inputs.GetCampaignResourceSettingsExcludedResourceArgs>[] | undefined>;
     /**
      * Include admin roles.
      */
-    includeAdminRoles?: pulumi.Input<boolean>;
+    includeAdminRoles?: pulumi.Input<boolean | undefined>;
     /**
      * Include entitlements for this application.
      */
-    includeEntitlements?: pulumi.Input<boolean>;
+    includeEntitlements?: pulumi.Input<boolean | undefined>;
     /**
      * Only include individually assigned groups.
      */
-    individuallyAssignedAppsOnly?: pulumi.Input<boolean>;
+    individuallyAssignedAppsOnly?: pulumi.Input<boolean | undefined>;
     /**
      * Only include individually assigned groups.
      */
-    individuallyAssignedGroupsOnly?: pulumi.Input<boolean>;
+    individuallyAssignedGroupsOnly?: pulumi.Input<boolean | undefined>;
     /**
      * Only include out-of-policy entitlements.
      */
-    onlyIncludeOutOfPolicyEntitlements?: pulumi.Input<boolean>;
+    onlyIncludeOutOfPolicyEntitlements?: pulumi.Input<boolean | undefined>;
     /**
      * Represents a resource that will be part of Access certifications.
      */
-    targetResources?: pulumi.Input<pulumi.Input<inputs.GetCampaignResourceSettingsTargetResourceArgs>[]>;
+    targetResources?: pulumi.Input<pulumi.Input<inputs.GetCampaignResourceSettingsTargetResourceArgs>[] | undefined>;
     /**
      * The type of Okta resource.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 export interface GetCampaignResourceSettingsExcludedResource {
@@ -991,11 +991,11 @@ export interface GetCampaignResourceSettingsExcludedResourceArgs {
     /**
      * Okta specific resource ID.
      */
-    resourceId?: pulumi.Input<string>;
+    resourceId?: pulumi.Input<string | undefined>;
     /**
      * The type of Okta resource.
      */
-    resourceType?: pulumi.Input<string>;
+    resourceType?: pulumi.Input<string | undefined>;
 }
 
 export interface GetCampaignResourceSettingsTargetResource {
@@ -1022,12 +1022,12 @@ export interface GetCampaignResourceSettingsTargetResourceArgs {
     /**
      * An array of entitlement bundles associated with resourceId that should be chosen as target when creating reviews.
      */
-    entitlementBundles?: pulumi.Input<pulumi.Input<inputs.GetCampaignResourceSettingsTargetResourceEntitlementBundleArgs>[]>;
-    entitlements?: pulumi.Input<pulumi.Input<inputs.GetCampaignResourceSettingsTargetResourceEntitlementArgs>[]>;
+    entitlementBundles?: pulumi.Input<pulumi.Input<inputs.GetCampaignResourceSettingsTargetResourceEntitlementBundleArgs>[] | undefined>;
+    entitlements?: pulumi.Input<pulumi.Input<inputs.GetCampaignResourceSettingsTargetResourceEntitlementArgs>[] | undefined>;
     /**
      * Include all entitlements and entitlement bundles for this application.
      */
-    includeAllEntitlementsAndBundles?: pulumi.Input<boolean>;
+    includeAllEntitlementsAndBundles?: pulumi.Input<boolean | undefined>;
     /**
      * The resource ID that is being reviewed.
      */
@@ -1035,7 +1035,7 @@ export interface GetCampaignResourceSettingsTargetResourceArgs {
     /**
      * The type of Okta resource.
      */
-    resourceType?: pulumi.Input<string>;
+    resourceType?: pulumi.Input<string | undefined>;
 }
 
 export interface GetCampaignResourceSettingsTargetResourceEntitlement {
@@ -1061,11 +1061,11 @@ export interface GetCampaignResourceSettingsTargetResourceEntitlementArgs {
     /**
      * Whether to include all values for this entitlement.
      */
-    includeAllValues?: pulumi.Input<boolean>;
+    includeAllValues?: pulumi.Input<boolean | undefined>;
     /**
      * Entitlement value ids
      */
-    values?: pulumi.Input<pulumi.Input<inputs.GetCampaignResourceSettingsTargetResourceEntitlementValueArgs>[]>;
+    values?: pulumi.Input<pulumi.Input<inputs.GetCampaignResourceSettingsTargetResourceEntitlementValueArgs>[] | undefined>;
 }
 
 export interface GetCampaignResourceSettingsTargetResourceEntitlementBundle {
@@ -1110,16 +1110,16 @@ export interface GetCampaignReviewerSettings {
 }
 
 export interface GetCampaignReviewerSettingsArgs {
-    bulkDecisionDisabled?: pulumi.Input<boolean>;
-    fallbackReviewerId?: pulumi.Input<string>;
-    justificationRequired?: pulumi.Input<boolean>;
-    reassignmentDisabled?: pulumi.Input<boolean>;
-    reviewerGroupId?: pulumi.Input<string>;
-    reviewerId?: pulumi.Input<string>;
-    reviewerLevels?: pulumi.Input<pulumi.Input<inputs.GetCampaignReviewerSettingsReviewerLevelArgs>[]>;
-    reviewerScopeExpression?: pulumi.Input<string>;
-    selfReviewDisabled?: pulumi.Input<boolean>;
-    type?: pulumi.Input<string>;
+    bulkDecisionDisabled?: pulumi.Input<boolean | undefined>;
+    fallbackReviewerId?: pulumi.Input<string | undefined>;
+    justificationRequired?: pulumi.Input<boolean | undefined>;
+    reassignmentDisabled?: pulumi.Input<boolean | undefined>;
+    reviewerGroupId?: pulumi.Input<string | undefined>;
+    reviewerId?: pulumi.Input<string | undefined>;
+    reviewerLevels?: pulumi.Input<pulumi.Input<inputs.GetCampaignReviewerSettingsReviewerLevelArgs>[] | undefined>;
+    reviewerScopeExpression?: pulumi.Input<string | undefined>;
+    selfReviewDisabled?: pulumi.Input<boolean | undefined>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 export interface GetCampaignReviewerSettingsReviewerLevel {
@@ -1133,13 +1133,13 @@ export interface GetCampaignReviewerSettingsReviewerLevel {
 }
 
 export interface GetCampaignReviewerSettingsReviewerLevelArgs {
-    fallbackReviewerId?: pulumi.Input<string>;
-    reviewerGroupId?: pulumi.Input<string>;
-    reviewerId?: pulumi.Input<string>;
-    reviewerScopeExpression?: pulumi.Input<string>;
-    selfReviewDisabled?: pulumi.Input<boolean>;
-    startReviews?: pulumi.Input<pulumi.Input<inputs.GetCampaignReviewerSettingsReviewerLevelStartReviewArgs>[]>;
-    type?: pulumi.Input<string>;
+    fallbackReviewerId?: pulumi.Input<string | undefined>;
+    reviewerGroupId?: pulumi.Input<string | undefined>;
+    reviewerId?: pulumi.Input<string | undefined>;
+    reviewerScopeExpression?: pulumi.Input<string | undefined>;
+    selfReviewDisabled?: pulumi.Input<boolean | undefined>;
+    startReviews?: pulumi.Input<pulumi.Input<inputs.GetCampaignReviewerSettingsReviewerLevelStartReviewArgs>[] | undefined>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 export interface GetCampaignReviewerSettingsReviewerLevelStartReview {
@@ -1148,8 +1148,8 @@ export interface GetCampaignReviewerSettingsReviewerLevelStartReview {
 }
 
 export interface GetCampaignReviewerSettingsReviewerLevelStartReviewArgs {
-    onDay?: pulumi.Input<number>;
-    when?: pulumi.Input<string>;
+    onDay?: pulumi.Input<number | undefined>;
+    when?: pulumi.Input<string | undefined>;
 }
 
 export interface GetCampaignScheduleSettings {
@@ -1162,12 +1162,12 @@ export interface GetCampaignScheduleSettings {
 }
 
 export interface GetCampaignScheduleSettingsArgs {
-    durationInDays?: pulumi.Input<number>;
-    endDate?: pulumi.Input<string>;
-    recurrences?: pulumi.Input<pulumi.Input<inputs.GetCampaignScheduleSettingsRecurrenceArgs>[]>;
-    startDate?: pulumi.Input<string>;
-    timeZone?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
+    durationInDays?: pulumi.Input<number | undefined>;
+    endDate?: pulumi.Input<string | undefined>;
+    recurrences?: pulumi.Input<pulumi.Input<inputs.GetCampaignScheduleSettingsRecurrenceArgs>[] | undefined>;
+    startDate?: pulumi.Input<string | undefined>;
+    timeZone?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 export interface GetCampaignScheduleSettingsRecurrence {
@@ -1177,9 +1177,9 @@ export interface GetCampaignScheduleSettingsRecurrence {
 }
 
 export interface GetCampaignScheduleSettingsRecurrenceArgs {
-    ends?: pulumi.Input<string>;
-    interval?: pulumi.Input<string>;
-    repeatOnType?: pulumi.Input<string>;
+    ends?: pulumi.Input<string | undefined>;
+    interval?: pulumi.Input<string | undefined>;
+    repeatOnType?: pulumi.Input<string | undefined>;
 }
 
 export interface GetCatalogEntryDefaultCounts {
@@ -1193,7 +1193,7 @@ export interface GetCatalogEntryDefaultCountsArgs {
     /**
      * Collection resource counts.
      */
-    resourceCounts?: pulumi.Input<inputs.GetCatalogEntryDefaultCountsResourceCountsArgs>;
+    resourceCounts?: pulumi.Input<inputs.GetCatalogEntryDefaultCountsResourceCountsArgs | undefined>;
 }
 
 export interface GetCatalogEntryDefaultCountsResourceCounts {
@@ -1207,7 +1207,7 @@ export interface GetCatalogEntryDefaultCountsResourceCountsArgs {
     /**
      * Number of app resources in a collection.
      */
-    applications?: pulumi.Input<number>;
+    applications?: pulumi.Input<number | undefined>;
 }
 
 export interface GetCatalogEntryDefaultLinks {
@@ -1221,7 +1221,7 @@ export interface GetCatalogEntryDefaultLinksArgs {
     /**
      * A link to the catalog entry itself.
      */
-    self?: pulumi.Input<inputs.GetCatalogEntryDefaultLinksSelfArgs>;
+    self?: pulumi.Input<inputs.GetCatalogEntryDefaultLinksSelfArgs | undefined>;
 }
 
 export interface GetCatalogEntryDefaultLinksSelf {
@@ -1235,7 +1235,7 @@ export interface GetCatalogEntryDefaultLinksSelfArgs {
     /**
      * Contains the absolute API URL for retrieving this catalog entry resource.
      */
-    href?: pulumi.Input<string>;
+    href?: pulumi.Input<string | undefined>;
 }
 
 export interface GetCatalogEntryUserAccessRequestFieldsData {
@@ -1274,32 +1274,32 @@ export interface GetCatalogEntryUserAccessRequestFieldsDataArgs {
     /**
      * Valid choices when type is SELECT or MULTISELECT.
      */
-    choices?: pulumi.Input<pulumi.Input<inputs.GetCatalogEntryUserAccessRequestFieldsDataChoiceArgs>[]>;
-    id?: pulumi.Input<string>;
+    choices?: pulumi.Input<pulumi.Input<inputs.GetCatalogEntryUserAccessRequestFieldsDataChoiceArgs>[] | undefined>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * Label of the requester field.
      */
-    label?: pulumi.Input<string>;
+    label?: pulumi.Input<string | undefined>;
     /**
      * The maximum value allowed for this field. Only applies to DURATION fields.
      */
-    maximumValue?: pulumi.Input<string>;
+    maximumValue?: pulumi.Input<string | undefined>;
     /**
      * Indicates this field is immutable.
      */
-    readOnly?: pulumi.Input<boolean>;
+    readOnly?: pulumi.Input<boolean | undefined>;
     /**
      * Indicates whether a value to this field is required to advance the request.
      */
-    required?: pulumi.Input<boolean>;
+    required?: pulumi.Input<boolean | undefined>;
     /**
      * Type of value for the requester field.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
     /**
      * An admin configured value for this field. Only applies to DURATION fields.
      */
-    value?: pulumi.Input<string>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface GetCatalogEntryUserAccessRequestFieldsDataChoice {
@@ -1313,7 +1313,7 @@ export interface GetCatalogEntryUserAccessRequestFieldsDataChoiceArgs {
     /**
      * Valid choice.
      */
-    choice?: pulumi.Input<string>;
+    choice?: pulumi.Input<string | undefined>;
 }
 
 export interface GetDefaultSigninPageContentSecurityPolicySetting {
@@ -1329,9 +1329,9 @@ export interface GetDefaultSigninPageContentSecurityPolicySettingArgs {
     /**
      * enforced or report_only
      */
-    mode?: pulumi.Input<string>;
-    reportUri?: pulumi.Input<string>;
-    srcLists?: pulumi.Input<pulumi.Input<string>[]>;
+    mode?: pulumi.Input<string | undefined>;
+    reportUri?: pulumi.Input<string | undefined>;
+    srcLists?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 export interface GetDefaultSigninPageWidgetCustomizations {
@@ -1359,27 +1359,27 @@ export interface GetDefaultSigninPageWidgetCustomizations {
 }
 
 export interface GetDefaultSigninPageWidgetCustomizationsArgs {
-    authenticatorPageCustomLinkLabel?: pulumi.Input<string>;
-    authenticatorPageCustomLinkUrl?: pulumi.Input<string>;
-    classicRecoveryFlowEmailOrUsernameLabel?: pulumi.Input<string>;
-    customLink1Label?: pulumi.Input<string>;
-    customLink1Url?: pulumi.Input<string>;
-    customLink2Label?: pulumi.Input<string>;
-    customLink2Url?: pulumi.Input<string>;
-    forgotPasswordLabel?: pulumi.Input<string>;
-    forgotPasswordUrl?: pulumi.Input<string>;
-    helpLabel?: pulumi.Input<string>;
-    helpUrl?: pulumi.Input<string>;
-    passwordInfoTip?: pulumi.Input<string>;
-    passwordLabel?: pulumi.Input<string>;
-    showPasswordVisibilityToggle?: pulumi.Input<boolean>;
-    showUserIdentifier?: pulumi.Input<boolean>;
-    signInLabel?: pulumi.Input<string>;
-    unlockAccountLabel?: pulumi.Input<string>;
-    unlockAccountUrl?: pulumi.Input<string>;
-    usernameInfoTip?: pulumi.Input<string>;
-    usernameLabel?: pulumi.Input<string>;
-    widgetGeneration?: pulumi.Input<string>;
+    authenticatorPageCustomLinkLabel?: pulumi.Input<string | undefined>;
+    authenticatorPageCustomLinkUrl?: pulumi.Input<string | undefined>;
+    classicRecoveryFlowEmailOrUsernameLabel?: pulumi.Input<string | undefined>;
+    customLink1Label?: pulumi.Input<string | undefined>;
+    customLink1Url?: pulumi.Input<string | undefined>;
+    customLink2Label?: pulumi.Input<string | undefined>;
+    customLink2Url?: pulumi.Input<string | undefined>;
+    forgotPasswordLabel?: pulumi.Input<string | undefined>;
+    forgotPasswordUrl?: pulumi.Input<string | undefined>;
+    helpLabel?: pulumi.Input<string | undefined>;
+    helpUrl?: pulumi.Input<string | undefined>;
+    passwordInfoTip?: pulumi.Input<string | undefined>;
+    passwordLabel?: pulumi.Input<string | undefined>;
+    showPasswordVisibilityToggle?: pulumi.Input<boolean | undefined>;
+    showUserIdentifier?: pulumi.Input<boolean | undefined>;
+    signInLabel?: pulumi.Input<string | undefined>;
+    unlockAccountLabel?: pulumi.Input<string | undefined>;
+    unlockAccountUrl?: pulumi.Input<string | undefined>;
+    usernameInfoTip?: pulumi.Input<string | undefined>;
+    usernameLabel?: pulumi.Input<string | undefined>;
+    widgetGeneration?: pulumi.Input<string | undefined>;
 }
 
 export interface GetDeviceAssurancePolicyThirdPartySignalProvider {
@@ -1519,63 +1519,63 @@ export interface GetDeviceProfileArgs {
     /**
      * The disk encryption type of the device.
      */
-    diskEncryptionType?: pulumi.Input<string>;
+    diskEncryptionType?: pulumi.Input<string | undefined>;
     /**
      * The display name of the device.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * The International Mobile Equipment Identity (IMEI) of the device.
      */
-    imei?: pulumi.Input<string>;
+    imei?: pulumi.Input<string | undefined>;
     /**
      * Indicates if the device is jailbroken or rooted. Only applicable to IOS and ANDROID platforms.
      */
-    integrityJailBreak?: pulumi.Input<boolean>;
+    integrityJailBreak?: pulumi.Input<boolean | undefined>;
     /**
      * The manufacturer of the device.
      */
-    manufacturer?: pulumi.Input<string>;
+    manufacturer?: pulumi.Input<string | undefined>;
     /**
      * The Mobile Equipment Identifier (MEID) of the device.
      */
-    meid?: pulumi.Input<string>;
+    meid?: pulumi.Input<string | undefined>;
     /**
      * The model of the device.
      */
-    model?: pulumi.Input<string>;
+    model?: pulumi.Input<string | undefined>;
     /**
      * The OS version of the device.
      */
-    osVersion?: pulumi.Input<string>;
+    osVersion?: pulumi.Input<string | undefined>;
     /**
      * The platform of the device.
      */
-    platform?: pulumi.Input<string>;
+    platform?: pulumi.Input<string | undefined>;
     /**
      * Indicates if the device is registered at Okta.
      */
-    registered?: pulumi.Input<boolean>;
+    registered?: pulumi.Input<boolean | undefined>;
     /**
      * Indicates if secure hardware is present on the device.
      */
-    secureHardwarePresent?: pulumi.Input<boolean>;
+    secureHardwarePresent?: pulumi.Input<boolean | undefined>;
     /**
      * The serial number of the device.
      */
-    serialNumber?: pulumi.Input<string>;
+    serialNumber?: pulumi.Input<string | undefined>;
     /**
      * The Security Identifier (SID) of the device.
      */
-    sid?: pulumi.Input<string>;
+    sid?: pulumi.Input<string | undefined>;
     /**
      * Windows Trusted Platform Module hash value.
      */
-    tpmPublicKeyHash?: pulumi.Input<string>;
+    tpmPublicKeyHash?: pulumi.Input<string | undefined>;
     /**
      * MacOS Unique device identifier of the device.
      */
-    udid?: pulumi.Input<string>;
+    udid?: pulumi.Input<string | undefined>;
 }
 
 export interface GetDeviceResourceDisplayName {
@@ -1593,11 +1593,11 @@ export interface GetDeviceResourceDisplayNameArgs {
     /**
      * Indicates if the resource display name is sensitive.
      */
-    sensitive?: pulumi.Input<boolean>;
+    sensitive?: pulumi.Input<boolean | undefined>;
     /**
      * The value of the resource display name.
      */
-    value?: pulumi.Input<string>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface GetEndUserMyRequestsRequested {
@@ -1627,23 +1627,23 @@ export interface GetEndUserMyRequestsRequestedArgs {
     /**
      * ID of the access scope
      */
-    accessScopeId?: pulumi.Input<string>;
+    accessScopeId?: pulumi.Input<string | undefined>;
     /**
      * The access scope type
      */
-    accessScopeType?: pulumi.Input<string>;
+    accessScopeType?: pulumi.Input<string | undefined>;
     /**
      * The ID of the catalog entry for which the request was made.
      */
-    entryId?: pulumi.Input<string>;
+    entryId?: pulumi.Input<string | undefined>;
     /**
      * The requested resource ID
      */
-    resourceId?: pulumi.Input<string>;
+    resourceId?: pulumi.Input<string | undefined>;
     /**
      * The requested resource type.
      */
-    resourceType?: pulumi.Input<string>;
+    resourceType?: pulumi.Input<string | undefined>;
 }
 
 export interface GetEndUserMyRequestsRequestedBy {
@@ -1661,11 +1661,11 @@ export interface GetEndUserMyRequestsRequestedByArgs {
     /**
      * The Okta user id
      */
-    externalId?: pulumi.Input<string>;
+    externalId?: pulumi.Input<string | undefined>;
     /**
      * The type of principal
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 export interface GetEndUserMyRequestsRequestedFor {
@@ -1683,11 +1683,11 @@ export interface GetEndUserMyRequestsRequestedForArgs {
     /**
      * The Okta user id
      */
-    externalId?: pulumi.Input<string>;
+    externalId?: pulumi.Input<string | undefined>;
     /**
      * The type of principal
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 export interface GetEndUserMyRequestsRequesterFieldValue {
@@ -1721,19 +1721,19 @@ export interface GetEndUserMyRequestsRequesterFieldValueArgs {
     /**
      * A human-readable description of the requester field.
      */
-    label?: pulumi.Input<string>;
+    label?: pulumi.Input<string | undefined>;
     /**
      * Type of value for the requester field. Valid values: `DURATION`, `ISO_DATE`, `MULTISELECT`, `OKTA_USER_ID`, `SELECT`, `TEXT`.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
     /**
      * The value of the requester field (for single-value fields).
      */
-    value?: pulumi.Input<string>;
+    value?: pulumi.Input<string | undefined>;
     /**
      * The values of the requester field (for MULTISELECT type fields).
      */
-    values?: pulumi.Input<pulumi.Input<string>[]>;
+    values?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 export interface GetEndUserMyRequestsRiskAssessment {
@@ -1751,11 +1751,11 @@ export interface GetEndUserMyRequestsRiskAssessmentArgs {
     /**
      * Whether request submission is allowed or restricted in the risk settings.
      */
-    requestSubmissionType?: pulumi.Input<string>;
+    requestSubmissionType?: pulumi.Input<string | undefined>;
     /**
      * An array of resources that are excluded from the review.
      */
-    riskRules?: pulumi.Input<pulumi.Input<inputs.GetEndUserMyRequestsRiskAssessmentRiskRuleArgs>[]>;
+    riskRules?: pulumi.Input<pulumi.Input<inputs.GetEndUserMyRequestsRiskAssessmentRiskRuleArgs>[] | undefined>;
 }
 
 export interface GetEndUserMyRequestsRiskAssessmentRiskRule {
@@ -1777,15 +1777,15 @@ export interface GetEndUserMyRequestsRiskAssessmentRiskRuleArgs {
     /**
      * The human readable description.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name of a resource rule causing a conflict.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Human readable name of the resource.
      */
-    resourceName?: pulumi.Input<string>;
+    resourceName?: pulumi.Input<string | undefined>;
 }
 
 export interface GetEntitlementBundleEntitlement {
@@ -1824,32 +1824,32 @@ export interface GetEntitlementBundleEntitlementArgs {
     /**
      * The data type of the entitlement property.
      */
-    dataType?: pulumi.Input<string>;
+    dataType?: pulumi.Input<string | undefined>;
     /**
      * The description of an entitlement property.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The value of an entitlement property.
      */
-    externalValue?: pulumi.Input<string>;
+    externalValue?: pulumi.Input<string | undefined>;
     /**
      * The ID of this resource.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * The property that determines if the entitlement property can hold multiple values.
      */
-    multiValue?: pulumi.Input<boolean>;
+    multiValue?: pulumi.Input<boolean | undefined>;
     /**
      * The display name for an entitlement bundle.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The property that determines if the entitlement property is a required attribute.
      */
-    required?: pulumi.Input<boolean>;
-    values?: pulumi.Input<pulumi.Input<inputs.GetEntitlementBundleEntitlementValueArgs>[]>;
+    required?: pulumi.Input<boolean | undefined>;
+    values?: pulumi.Input<pulumi.Input<inputs.GetEntitlementBundleEntitlementValueArgs>[] | undefined>;
 }
 
 export interface GetEntitlementBundleEntitlementValue {
@@ -1879,23 +1879,23 @@ export interface GetEntitlementBundleEntitlementValueArgs {
     /**
      * The description of an entitlement property.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The read-only id of an entitlement property value in the downstream application.
      */
-    externalId?: pulumi.Input<string>;
+    externalId?: pulumi.Input<string | undefined>;
     /**
      * The value of an entitlement property value.
      */
-    externalValue?: pulumi.Input<string>;
+    externalValue?: pulumi.Input<string | undefined>;
     /**
      * The ID of this resource.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * The display name for an entitlement bundle.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }
 
 export interface GetEntitlementBundleTarget {
@@ -1913,11 +1913,11 @@ export interface GetEntitlementBundleTargetArgs {
     /**
      * The Okta app.id of the resource.
      */
-    externalId?: pulumi.Input<string>;
+    externalId?: pulumi.Input<string | undefined>;
     /**
      * The type of the resource.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 export interface GetEntitlementParent {
@@ -1935,11 +1935,11 @@ export interface GetEntitlementParentArgs {
     /**
      * The Okta app.id of the resource.
      */
-    externalId?: pulumi.Input<string>;
+    externalId?: pulumi.Input<string | undefined>;
     /**
      * The type of resource.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 export interface GetEntitlementValue {
@@ -1969,23 +1969,23 @@ export interface GetEntitlementValueArgs {
     /**
      * The description of an entitlement value.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The id of the entitlement value.
      */
-    externalId?: pulumi.Input<string>;
+    externalId?: pulumi.Input<string | undefined>;
     /**
      * The value of an entitlement property value.
      */
-    externalValue?: pulumi.Input<string>;
+    externalValue?: pulumi.Input<string | undefined>;
     /**
      * The ID of this resource.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * The name of the entitlement value.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }
 
 export interface GetLogStreamSettings {
@@ -2019,27 +2019,27 @@ export interface GetLogStreamSettingsArgs {
     /**
      * AWS account ID. Required only for 'aws_eventbridge' type
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * Edition of the Splunk Cloud instance. Could be one of: 'aws', 'aws*govcloud', 'gcp'. Required only for 'splunk*cloud_logstreaming' type
      */
-    edition?: pulumi.Input<string>;
+    edition?: pulumi.Input<string | undefined>;
     /**
      * An alphanumeric name (no spaces) to identify this event source in AWS EventBridge. Required only for 'aws_eventbridge' type
      */
-    eventSourceName?: pulumi.Input<string>;
+    eventSourceName?: pulumi.Input<string | undefined>;
     /**
      * The domain name for Splunk Cloud instance. Don't include http or https in the string. For example: 'acme.splunkcloud.com'. Required only for 'splunk*cloud*logstreaming' type
      */
-    host?: pulumi.Input<string>;
+    host?: pulumi.Input<string | undefined>;
     /**
      * The destination AWS region where event source is located. Required only for 'aws_eventbridge' type
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The HEC token for your Splunk Cloud HTTP Event Collector. Required only for 'splunk*cloud*logstreaming' type
      */
-    token?: pulumi.Input<string>;
+    token?: pulumi.Input<string | undefined>;
 }
 
 export interface GetOrgMetadataDomains {
@@ -2057,11 +2057,11 @@ export interface GetOrgMetadataDomainsArgs {
     /**
      * Custom Domain Org URI
      */
-    alternate?: pulumi.Input<string>;
+    alternate?: pulumi.Input<string | undefined>;
     /**
      * Standard Org URI
      */
-    organization?: pulumi.Input<string>;
+    organization?: pulumi.Input<string | undefined>;
 }
 
 export interface GetOrgMetadataSettings {
@@ -2074,12 +2074,12 @@ export interface GetOrgMetadataSettings {
 }
 
 export interface GetOrgMetadataSettingsArgs {
-    analyticsCollectionEnabled?: pulumi.Input<boolean>;
-    bugReportingEnabled?: pulumi.Input<boolean>;
+    analyticsCollectionEnabled?: pulumi.Input<boolean | undefined>;
+    bugReportingEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Whether the legacy Okta Mobile application is enabled for the org
      */
-    omEnabled?: pulumi.Input<boolean>;
+    omEnabled?: pulumi.Input<boolean | undefined>;
 }
 
 export interface GetPrincipalEntitlementsData {
@@ -2137,51 +2137,51 @@ export interface GetPrincipalEntitlementsDataArgs {
     /**
      * The data type of the entitlement property.
      */
-    dataType?: pulumi.Input<string>;
+    dataType?: pulumi.Input<string | undefined>;
     /**
      * The description of an entitlement property.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The value of an entitlement property.
      */
-    externalValue?: pulumi.Input<string>;
+    externalValue?: pulumi.Input<string | undefined>;
     /**
      * The Okta Principal Entitlement object does not include a native ID field, so this value is generated to uniquely represent the entitlement in Terraform state.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * The property that determines if the entitlement property can hold multiple values.
      */
-    multiValue?: pulumi.Input<boolean>;
+    multiValue?: pulumi.Input<boolean | undefined>;
     /**
      * The display name for an entitlement property.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Representation of a resource.
      */
-    parent?: pulumi.Input<inputs.GetPrincipalEntitlementsDataParentArgs>;
+    parent?: pulumi.Input<inputs.GetPrincipalEntitlementsDataParentArgs | undefined>;
     /**
      * The Okta app instance, in ORN format.
      */
-    parentResourceOrn?: pulumi.Input<string>;
+    parentResourceOrn?: pulumi.Input<string | undefined>;
     /**
      * The property that determines if the entitlement property is a required attribute
      */
-    required?: pulumi.Input<boolean>;
+    required?: pulumi.Input<boolean | undefined>;
     /**
      * Representation of a principal.
      */
-    targetPrincipal?: pulumi.Input<inputs.GetPrincipalEntitlementsDataTargetPrincipalArgs>;
+    targetPrincipal?: pulumi.Input<inputs.GetPrincipalEntitlementsDataTargetPrincipalArgs | undefined>;
     /**
      * The Okta user id in ORN format.
      */
-    targetPrincipalOrn?: pulumi.Input<string>;
+    targetPrincipalOrn?: pulumi.Input<string | undefined>;
     /**
      * Collection of entitlement values.
      */
-    values?: pulumi.Input<pulumi.Input<inputs.GetPrincipalEntitlementsDataValueArgs>[]>;
+    values?: pulumi.Input<pulumi.Input<inputs.GetPrincipalEntitlementsDataValueArgs>[] | undefined>;
 }
 
 export interface GetPrincipalEntitlementsDataParent {
@@ -2199,11 +2199,11 @@ export interface GetPrincipalEntitlementsDataParentArgs {
     /**
      * The Okta id of the resource.
      */
-    externalId?: pulumi.Input<string>;
+    externalId?: pulumi.Input<string | undefined>;
     /**
      * The type of the resource.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 export interface GetPrincipalEntitlementsDataTargetPrincipal {
@@ -2221,11 +2221,11 @@ export interface GetPrincipalEntitlementsDataTargetPrincipalArgs {
     /**
      * The Okta user id.
      */
-    externalId?: pulumi.Input<string>;
+    externalId?: pulumi.Input<string | undefined>;
     /**
      * The type of principal.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 export interface GetPrincipalEntitlementsDataValue {
@@ -2251,19 +2251,19 @@ export interface GetPrincipalEntitlementsDataValueArgs {
     /**
      * The description of an entitlement property.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The value of an entitlement property value.
      */
-    externalValue?: pulumi.Input<string>;
+    externalValue?: pulumi.Input<string | undefined>;
     /**
      * The Okta Principal Entitlement object does not include a native ID field, so this value is generated to uniquely represent the entitlement in Terraform state.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * The name of an entitlement value.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }
 
 export interface GetPrincipalEntitlementsParent {
@@ -2292,8 +2292,8 @@ export interface GetPushProviderConfiguration {
 }
 
 export interface GetPushProviderConfigurationArgs {
-    apnsConfiguration?: pulumi.Input<inputs.GetPushProviderConfigurationApnsConfigurationArgs>;
-    fcmConfiguration?: pulumi.Input<inputs.GetPushProviderConfigurationFcmConfigurationArgs>;
+    apnsConfiguration?: pulumi.Input<inputs.GetPushProviderConfigurationApnsConfigurationArgs | undefined>;
+    fcmConfiguration?: pulumi.Input<inputs.GetPushProviderConfigurationFcmConfigurationArgs | undefined>;
 }
 
 export interface GetPushProviderConfigurationApnsConfiguration {
@@ -2315,15 +2315,15 @@ export interface GetPushProviderConfigurationApnsConfigurationArgs {
     /**
      * File name for Admin Console display.
      */
-    fileName?: pulumi.Input<string>;
+    fileName?: pulumi.Input<string | undefined>;
     /**
      * 10-character Key ID obtained from the Apple developer account. Required for APNS provider type.
      */
-    keyId?: pulumi.Input<string>;
+    keyId?: pulumi.Input<string | undefined>;
     /**
      * 10-character Team ID used to develop the iOS app. Required for APNS provider type.
      */
-    teamId?: pulumi.Input<string>;
+    teamId?: pulumi.Input<string | undefined>;
 }
 
 export interface GetPushProviderConfigurationFcmConfiguration {
@@ -2337,7 +2337,7 @@ export interface GetPushProviderConfigurationFcmConfigurationArgs {
     /**
      * JSON containing the private service account key and service account details. Required for FCM provider type.
      */
-    serviceAccountJson?: pulumi.Input<inputs.GetPushProviderConfigurationFcmConfigurationServiceAccountJsonArgs>;
+    serviceAccountJson?: pulumi.Input<inputs.GetPushProviderConfigurationFcmConfigurationServiceAccountJsonArgs | undefined>;
 }
 
 export interface GetPushProviderConfigurationFcmConfigurationServiceAccountJson {
@@ -2355,11 +2355,11 @@ export interface GetPushProviderConfigurationFcmConfigurationServiceAccountJsonA
     /**
      * File name for Admin Console display.
      */
-    fileName?: pulumi.Input<string>;
+    fileName?: pulumi.Input<string | undefined>;
     /**
      * The project ID.
      */
-    projectId?: pulumi.Input<string>;
+    projectId?: pulumi.Input<string | undefined>;
 }
 
 export interface GetRequestConditionAccessScopeSettings {
@@ -2374,8 +2374,8 @@ export interface GetRequestConditionAccessScopeSettingsArgs {
     /**
      * Block list of groups/entitlement bundles ids.
      */
-    ids?: pulumi.Input<pulumi.Input<inputs.GetRequestConditionAccessScopeSettingsIdArgs>[]>;
-    type?: pulumi.Input<string>;
+    ids?: pulumi.Input<pulumi.Input<inputs.GetRequestConditionAccessScopeSettingsIdArgs>[] | undefined>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 export interface GetRequestConditionAccessScopeSettingsId {
@@ -2389,7 +2389,7 @@ export interface GetRequestConditionAccessScopeSettingsIdArgs {
     /**
      * Request condition id.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
 }
 
 export interface GetRequestConditionRequesterSettings {
@@ -2404,8 +2404,8 @@ export interface GetRequestConditionRequesterSettingsArgs {
     /**
      * Block list of teams/groups ids.
      */
-    ids?: pulumi.Input<pulumi.Input<inputs.GetRequestConditionRequesterSettingsIdArgs>[]>;
-    type?: pulumi.Input<string>;
+    ids?: pulumi.Input<pulumi.Input<inputs.GetRequestConditionRequesterSettingsIdArgs>[] | undefined>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 export interface GetRequestConditionRequesterSettingsId {
@@ -2419,7 +2419,7 @@ export interface GetRequestConditionRequesterSettingsIdArgs {
     /**
      * Request condition id.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
 }
 
 export interface GetRequestSettingOrganizationRequestExperience {
@@ -2427,7 +2427,7 @@ export interface GetRequestSettingOrganizationRequestExperience {
 }
 
 export interface GetRequestSettingOrganizationRequestExperienceArgs {
-    experienceType?: pulumi.Input<string>;
+    experienceType?: pulumi.Input<string | undefined>;
 }
 
 export interface GetRequestSettingResourceRequestOnBehalfOfSettings {
@@ -2436,8 +2436,8 @@ export interface GetRequestSettingResourceRequestOnBehalfOfSettings {
 }
 
 export interface GetRequestSettingResourceRequestOnBehalfOfSettingsArgs {
-    allowed?: pulumi.Input<boolean>;
-    onlyFors?: pulumi.Input<pulumi.Input<inputs.GetRequestSettingResourceRequestOnBehalfOfSettingsOnlyForArgs>[]>;
+    allowed?: pulumi.Input<boolean | undefined>;
+    onlyFors?: pulumi.Input<pulumi.Input<inputs.GetRequestSettingResourceRequestOnBehalfOfSettingsOnlyForArgs>[] | undefined>;
 }
 
 export interface GetRequestSettingResourceRequestOnBehalfOfSettingsOnlyFor {
@@ -2445,7 +2445,7 @@ export interface GetRequestSettingResourceRequestOnBehalfOfSettingsOnlyFor {
 }
 
 export interface GetRequestSettingResourceRequestOnBehalfOfSettingsOnlyForArgs {
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 export interface GetRequestSettingResourceRiskSettings {
@@ -2459,7 +2459,7 @@ export interface GetRequestSettingResourceRiskSettingsArgs {
     /**
      * Default risk settings that are valid for an access request when a risk has been detected for the resource and requesting user.
      */
-    defaultSetting?: pulumi.Input<inputs.GetRequestSettingResourceRiskSettingsDefaultSettingArgs>;
+    defaultSetting?: pulumi.Input<inputs.GetRequestSettingResourceRiskSettingsDefaultSettingArgs | undefined>;
 }
 
 export interface GetRequestSettingResourceRiskSettingsDefaultSetting {
@@ -2470,10 +2470,10 @@ export interface GetRequestSettingResourceRiskSettingsDefaultSetting {
 }
 
 export interface GetRequestSettingResourceRiskSettingsDefaultSettingArgs {
-    accessDurationSettings?: pulumi.Input<inputs.GetRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsArgs>;
-    approvalSequenceId?: pulumi.Input<string>;
-    errors?: pulumi.Input<pulumi.Input<string>[]>;
-    requestSubmissionType?: pulumi.Input<string>;
+    accessDurationSettings?: pulumi.Input<inputs.GetRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsArgs | undefined>;
+    approvalSequenceId?: pulumi.Input<string | undefined>;
+    errors?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    requestSubmissionType?: pulumi.Input<string | undefined>;
 }
 
 export interface GetRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettings {
@@ -2482,8 +2482,8 @@ export interface GetRequestSettingResourceRiskSettingsDefaultSettingAccessDurati
 }
 
 export interface GetRequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsArgs {
-    duration?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
+    duration?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 export interface GetRequestSettingResourceValidAccessDurationSettings {
@@ -2513,23 +2513,23 @@ export interface GetRequestSettingResourceValidAccessDurationSettingsArgs {
     /**
      * The maximum value allowed for a request condition or risk setting.
      */
-    maximumDays?: pulumi.Input<number>;
+    maximumDays?: pulumi.Input<number | undefined>;
     /**
      * The maximum value allowed for a request condition or risk setting.
      */
-    maximumHours?: pulumi.Input<number>;
+    maximumHours?: pulumi.Input<number | undefined>;
     /**
      * The maximum value allowed for a request condition or risk setting.
      */
-    maximumWeeks?: pulumi.Input<number>;
+    maximumWeeks?: pulumi.Input<number | undefined>;
     /**
      * Whether accessDurationSetting must be included in the request conditions or risk settings for the specified resource.
      */
-    required?: pulumi.Input<boolean>;
+    required?: pulumi.Input<boolean | undefined>;
     /**
      * Access duration settings that are eligible to be added to a request condition or risk settings for the specified resource.
      */
-    supportedTypes?: pulumi.Input<pulumi.Input<inputs.GetRequestSettingResourceValidAccessDurationSettingsSupportedTypeArgs>[]>;
+    supportedTypes?: pulumi.Input<pulumi.Input<inputs.GetRequestSettingResourceValidAccessDurationSettingsSupportedTypeArgs>[] | undefined>;
 }
 
 export interface GetRequestSettingResourceValidAccessDurationSettingsSupportedType {
@@ -2537,7 +2537,7 @@ export interface GetRequestSettingResourceValidAccessDurationSettingsSupportedTy
 }
 
 export interface GetRequestSettingResourceValidAccessDurationSettingsSupportedTypeArgs {
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 export interface GetRequestSettingResourceValidAccessScopeSetting {
@@ -2545,7 +2545,7 @@ export interface GetRequestSettingResourceValidAccessScopeSetting {
 }
 
 export interface GetRequestSettingResourceValidAccessScopeSettingArgs {
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 export interface GetRequestSettingResourceValidRequesterSetting {
@@ -2553,7 +2553,7 @@ export interface GetRequestSettingResourceValidRequesterSetting {
 }
 
 export interface GetRequestSettingResourceValidRequesterSettingArgs {
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 export interface GetRequestV2Requested {
@@ -2587,27 +2587,27 @@ export interface GetRequestV2RequestedArgs {
     /**
      * The ID of the access scope associated with the resource.
      */
-    accessScopeId?: pulumi.Input<string>;
+    accessScopeId?: pulumi.Input<string | undefined>;
     /**
      * The access scope type.
      */
-    accessScopeType?: pulumi.Input<string>;
+    accessScopeType?: pulumi.Input<string | undefined>;
     /**
      * The ID of the resource catalog entry.
      */
-    entryId?: pulumi.Input<string>;
+    entryId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the requested resource.
      */
-    resourceId?: pulumi.Input<string>;
+    resourceId?: pulumi.Input<string | undefined>;
     /**
      * The requested resource type.
      */
-    resourceType?: pulumi.Input<string>;
+    resourceType?: pulumi.Input<string | undefined>;
     /**
      * The type of the resource.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 export interface GetRequestV2RequestedBy {
@@ -2625,11 +2625,11 @@ export interface GetRequestV2RequestedByArgs {
     /**
      * The Okta user id.
      */
-    externalId?: pulumi.Input<string>;
+    externalId?: pulumi.Input<string | undefined>;
     /**
      * The type of principal.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 export interface GetRequestV2RequestedFor {
@@ -2647,11 +2647,11 @@ export interface GetRequestV2RequestedForArgs {
     /**
      * The ID of the Okta user.
      */
-    externalId?: pulumi.Input<string>;
+    externalId?: pulumi.Input<string | undefined>;
     /**
      * The type of principal.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 export interface GetReviewAllReviewerLevel {
@@ -2692,34 +2692,34 @@ export interface GetReviewAllReviewerLevelArgs {
     /**
      * The ISO 8601 formatted date and time when the resource was created.
      */
-    created?: pulumi.Input<string>;
+    created?: pulumi.Input<string | undefined>;
     /**
      * The id of user who created the resource.
      */
-    createdBy?: pulumi.Input<string>;
+    createdBy?: pulumi.Input<string | undefined>;
     /**
      * The decision taken by the reviewer. Will be `UNASSIGNED` if no decision is made.
      */
-    decision?: pulumi.Input<string>;
+    decision?: pulumi.Input<string | undefined>;
     /**
      * The ID of  review.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * The ISO 8601 formatted date and time when the object was last updated.
      */
-    lastUpdated?: pulumi.Input<string>;
+    lastUpdated?: pulumi.Input<string | undefined>;
     /**
      * The id of user who last updated the object.
      */
-    lastUpdatedBy?: pulumi.Input<string>;
-    reviewerGroupProfile?: pulumi.Input<inputs.GetReviewAllReviewerLevelReviewerGroupProfileArgs>;
-    reviewerLevel?: pulumi.Input<string>;
-    reviewerProfile?: pulumi.Input<inputs.GetReviewAllReviewerLevelReviewerProfileArgs>;
+    lastUpdatedBy?: pulumi.Input<string | undefined>;
+    reviewerGroupProfile?: pulumi.Input<inputs.GetReviewAllReviewerLevelReviewerGroupProfileArgs | undefined>;
+    reviewerLevel?: pulumi.Input<string | undefined>;
+    reviewerProfile?: pulumi.Input<inputs.GetReviewAllReviewerLevelReviewerProfileArgs | undefined>;
     /**
      * The type of reviewer to which the review is assigned.
      */
-    reviewerType?: pulumi.Input<string>;
+    reviewerType?: pulumi.Input<string | undefined>;
 }
 
 export interface GetReviewAllReviewerLevelReviewerGroupProfile {
@@ -2730,10 +2730,10 @@ export interface GetReviewAllReviewerLevelReviewerGroupProfile {
 }
 
 export interface GetReviewAllReviewerLevelReviewerGroupProfileArgs {
-    globalName?: pulumi.Input<string>;
-    groupId?: pulumi.Input<string>;
-    groupType?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
+    globalName?: pulumi.Input<string | undefined>;
+    groupId?: pulumi.Input<string | undefined>;
+    groupType?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
 }
 
 export interface GetReviewAllReviewerLevelReviewerProfile {
@@ -2748,14 +2748,14 @@ export interface GetReviewAllReviewerLevelReviewerProfile {
 }
 
 export interface GetReviewAllReviewerLevelReviewerProfileArgs {
-    email?: pulumi.Input<string>;
-    firstName?: pulumi.Input<string>;
+    email?: pulumi.Input<string | undefined>;
+    firstName?: pulumi.Input<string | undefined>;
     /**
      * The ID of  review.
      */
-    id?: pulumi.Input<string>;
-    lastName?: pulumi.Input<string>;
-    status?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
+    lastName?: pulumi.Input<string | undefined>;
+    status?: pulumi.Input<string | undefined>;
 }
 
 export interface GetReviewEntitlementBundle {
@@ -2770,8 +2770,8 @@ export interface GetReviewEntitlementBundleArgs {
     /**
      * The ID of  review.
      */
-    id?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
 }
 
 export interface GetReviewEntitlementValue {
@@ -2786,8 +2786,8 @@ export interface GetReviewEntitlementValueArgs {
     /**
      * The ID of  review.
      */
-    id?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
 }
 
 export interface GetReviewLinks {
@@ -2796,8 +2796,8 @@ export interface GetReviewLinks {
 }
 
 export interface GetReviewLinksArgs {
-    reassignReviewHref?: pulumi.Input<string>;
-    selfHref?: pulumi.Input<string>;
+    reassignReviewHref?: pulumi.Input<string | undefined>;
+    selfHref?: pulumi.Input<string | undefined>;
 }
 
 export interface GetReviewNote {
@@ -2812,8 +2812,8 @@ export interface GetReviewNoteArgs {
     /**
      * The ID of  review.
      */
-    id?: pulumi.Input<string>;
-    note?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
+    note?: pulumi.Input<string | undefined>;
 }
 
 export interface GetReviewPrincipalProfile {
@@ -2829,15 +2829,15 @@ export interface GetReviewPrincipalProfile {
 }
 
 export interface GetReviewPrincipalProfileArgs {
-    email?: pulumi.Input<string>;
-    firstName?: pulumi.Input<string>;
+    email?: pulumi.Input<string | undefined>;
+    firstName?: pulumi.Input<string | undefined>;
     /**
      * The ID of  review.
      */
-    id?: pulumi.Input<string>;
-    lastName?: pulumi.Input<string>;
-    login?: pulumi.Input<string>;
-    status?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
+    lastName?: pulumi.Input<string | undefined>;
+    login?: pulumi.Input<string | undefined>;
+    status?: pulumi.Input<string | undefined>;
 }
 
 export interface GetReviewReviewerProfile {
@@ -2853,15 +2853,15 @@ export interface GetReviewReviewerProfile {
 }
 
 export interface GetReviewReviewerProfileArgs {
-    email?: pulumi.Input<string>;
-    firstName?: pulumi.Input<string>;
+    email?: pulumi.Input<string | undefined>;
+    firstName?: pulumi.Input<string | undefined>;
     /**
      * The ID of  review.
      */
-    id?: pulumi.Input<string>;
-    lastName?: pulumi.Input<string>;
-    login?: pulumi.Input<string>;
-    status?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
+    lastName?: pulumi.Input<string | undefined>;
+    login?: pulumi.Input<string | undefined>;
+    status?: pulumi.Input<string | undefined>;
 }
 
 export interface GetSecurityEventsProviderSettings {
@@ -2883,15 +2883,15 @@ export interface GetSecurityEventsProviderSettingsArgs {
     /**
      * Issuer URL.
      */
-    issuer?: pulumi.Input<string>;
+    issuer?: pulumi.Input<string | undefined>;
     /**
      * The public URL where the JWKS public key is uploaded.
      */
-    jwksUrl?: pulumi.Input<string>;
+    jwksUrl?: pulumi.Input<string | undefined>;
     /**
      * The published well-known URL of the Security Events Provider (the SSF transmitter).
      */
-    wellKnownUrl?: pulumi.Input<string>;
+    wellKnownUrl?: pulumi.Input<string | undefined>;
 }
 
 export interface GetUiSchemaUiSchema {
@@ -2914,16 +2914,16 @@ export interface GetUiSchemaUiSchemaArgs {
     /**
      * Specifies the button label for the Submit button at the bottom of the enrollment form.
      */
-    buttonLabel?: pulumi.Input<string>;
-    elements?: pulumi.Input<pulumi.Input<inputs.GetUiSchemaUiSchemaElementArgs>[]>;
+    buttonLabel?: pulumi.Input<string | undefined>;
+    elements?: pulumi.Input<pulumi.Input<inputs.GetUiSchemaUiSchemaElementArgs>[] | undefined>;
     /**
      * Specifies the label at the top of the enrollment form under the logo.
      */
-    label?: pulumi.Input<string>;
+    label?: pulumi.Input<string | undefined>;
     /**
      * Specifies the type of layout.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 export interface GetUiSchemaUiSchemaElement {
@@ -2949,19 +2949,19 @@ export interface GetUiSchemaUiSchemaElementArgs {
     /**
      * Label name for the UI element.
      */
-    label?: pulumi.Input<string>;
+    label?: pulumi.Input<string | undefined>;
     /**
      * UI Schema element options object.
      */
-    options?: pulumi.Input<inputs.GetUiSchemaUiSchemaElementOptionsArgs>;
+    options?: pulumi.Input<inputs.GetUiSchemaUiSchemaElementOptionsArgs | undefined>;
     /**
      * Specifies the property bound to the input field. It must follow the format #/properties/PROPERTY_NAME where PROPERTY_NAME is a variable name for an attribute in profile editor.
      */
-    scope?: pulumi.Input<string>;
+    scope?: pulumi.Input<string | undefined>;
     /**
      * Specifies the relationship between this input element and scope. The Control value specifies that this input controls the value represented by scope.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 export interface GetUiSchemaUiSchemaElementOptions {
@@ -2975,7 +2975,7 @@ export interface GetUiSchemaUiSchemaElementOptionsArgs {
     /**
      * Specifies how the input appears.
      */
-    format?: pulumi.Input<string>;
+    format?: pulumi.Input<string | undefined>;
 }
 
 export interface GroupSchemaPropertyArrayOneOf {
@@ -2990,7 +2990,7 @@ export interface GroupSchemaPropertyArrayOneOf {
 }
 
 export interface GroupSchemaPropertyMasterOverridePriority {
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
     value: pulumi.Input<string>;
 }
 
@@ -3009,27 +3009,27 @@ export interface LogStreamSettings {
     /**
      * AWS account ID. Required only for 'aws_eventbridge' type
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * Edition of the Splunk Cloud instance. Could be one of: 'aws', 'aws*govcloud', 'gcp'. Required only for 'splunk*cloud_logstreaming' type
      */
-    edition?: pulumi.Input<string>;
+    edition?: pulumi.Input<string | undefined>;
     /**
      * An alphanumeric name (no spaces) to identify this event source in AWS EventBridge. Required only for 'aws_eventbridge' type
      */
-    eventSourceName?: pulumi.Input<string>;
+    eventSourceName?: pulumi.Input<string | undefined>;
     /**
      * The domain name for Splunk Cloud instance. Don't include http or https in the string. For example: 'acme.splunkcloud.com'. Required only for 'splunk*cloud*logstreaming' type
      */
-    host?: pulumi.Input<string>;
+    host?: pulumi.Input<string | undefined>;
     /**
      * The destination AWS region where event source is located. Required only for 'aws_eventbridge' type
      */
-    region?: pulumi.Input<string>;
+    region?: pulumi.Input<string | undefined>;
     /**
      * The HEC token for your Splunk Cloud HTTP Event Collector. Required only for 'splunk*cloud*logstreaming' type
      */
-    token?: pulumi.Input<string>;
+    token?: pulumi.Input<string | undefined>;
 }
 
 export interface PolicyRuleProfileEnrollmentProfileAttribute {
@@ -3044,39 +3044,39 @@ export interface PolicyRuleProfileEnrollmentProfileAttribute {
     /**
      * Indicates if this property is required for enrollment
      */
-    required?: pulumi.Input<boolean>;
+    required?: pulumi.Input<boolean | undefined>;
 }
 
 export interface PreviewSigninPageContentSecurityPolicySetting {
     /**
      * enforced or report_only
      */
-    mode?: pulumi.Input<string>;
-    reportUri?: pulumi.Input<string>;
-    srcLists?: pulumi.Input<pulumi.Input<string>[]>;
+    mode?: pulumi.Input<string | undefined>;
+    reportUri?: pulumi.Input<string | undefined>;
+    srcLists?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 export interface PreviewSigninPageWidgetCustomizations {
-    authenticatorPageCustomLinkLabel?: pulumi.Input<string>;
-    authenticatorPageCustomLinkUrl?: pulumi.Input<string>;
-    classicRecoveryFlowEmailOrUsernameLabel?: pulumi.Input<string>;
-    customLink1Label?: pulumi.Input<string>;
-    customLink1Url?: pulumi.Input<string>;
-    customLink2Label?: pulumi.Input<string>;
-    customLink2Url?: pulumi.Input<string>;
-    forgotPasswordLabel?: pulumi.Input<string>;
-    forgotPasswordUrl?: pulumi.Input<string>;
-    helpLabel?: pulumi.Input<string>;
-    helpUrl?: pulumi.Input<string>;
-    passwordInfoTip?: pulumi.Input<string>;
-    passwordLabel?: pulumi.Input<string>;
-    showPasswordVisibilityToggle?: pulumi.Input<boolean>;
-    showUserIdentifier?: pulumi.Input<boolean>;
-    signInLabel?: pulumi.Input<string>;
-    unlockAccountLabel?: pulumi.Input<string>;
-    unlockAccountUrl?: pulumi.Input<string>;
-    usernameInfoTip?: pulumi.Input<string>;
-    usernameLabel?: pulumi.Input<string>;
+    authenticatorPageCustomLinkLabel?: pulumi.Input<string | undefined>;
+    authenticatorPageCustomLinkUrl?: pulumi.Input<string | undefined>;
+    classicRecoveryFlowEmailOrUsernameLabel?: pulumi.Input<string | undefined>;
+    customLink1Label?: pulumi.Input<string | undefined>;
+    customLink1Url?: pulumi.Input<string | undefined>;
+    customLink2Label?: pulumi.Input<string | undefined>;
+    customLink2Url?: pulumi.Input<string | undefined>;
+    forgotPasswordLabel?: pulumi.Input<string | undefined>;
+    forgotPasswordUrl?: pulumi.Input<string | undefined>;
+    helpLabel?: pulumi.Input<string | undefined>;
+    helpUrl?: pulumi.Input<string | undefined>;
+    passwordInfoTip?: pulumi.Input<string | undefined>;
+    passwordLabel?: pulumi.Input<string | undefined>;
+    showPasswordVisibilityToggle?: pulumi.Input<boolean | undefined>;
+    showUserIdentifier?: pulumi.Input<boolean | undefined>;
+    signInLabel?: pulumi.Input<string | undefined>;
+    unlockAccountLabel?: pulumi.Input<string | undefined>;
+    unlockAccountUrl?: pulumi.Input<string | undefined>;
+    usernameInfoTip?: pulumi.Input<string | undefined>;
+    usernameLabel?: pulumi.Input<string | undefined>;
     widgetGeneration: pulumi.Input<string>;
 }
 
@@ -3088,111 +3088,111 @@ export interface PushGroupAppConfig {
 }
 
 export interface PushProviderConfiguration {
-    apnsConfiguration?: pulumi.Input<inputs.PushProviderConfigurationApnsConfiguration>;
-    fcmConfiguration?: pulumi.Input<inputs.PushProviderConfigurationFcmConfiguration>;
+    apnsConfiguration?: pulumi.Input<inputs.PushProviderConfigurationApnsConfiguration | undefined>;
+    fcmConfiguration?: pulumi.Input<inputs.PushProviderConfigurationFcmConfiguration | undefined>;
 }
 
 export interface PushProviderConfigurationApnsConfiguration {
     /**
      * File name for Admin Console display.
      */
-    fileName?: pulumi.Input<string>;
+    fileName?: pulumi.Input<string | undefined>;
     /**
      * 10-character Key ID obtained from the Apple developer account. Required for APNS provider type.
      */
-    keyId?: pulumi.Input<string>;
+    keyId?: pulumi.Input<string | undefined>;
     /**
      * 10-character Team ID used to develop the iOS app. Required for APNS provider type.
      */
-    teamId?: pulumi.Input<string>;
+    teamId?: pulumi.Input<string | undefined>;
     /**
      * APNs private authentication token signing key. Required for APNS provider type.
      */
-    tokenSigningKey?: pulumi.Input<string>;
+    tokenSigningKey?: pulumi.Input<string | undefined>;
 }
 
 export interface PushProviderConfigurationFcmConfiguration {
     /**
      * JSON containing the private service account key and service account details. Required for FCM provider type.
      */
-    serviceAccountJson?: pulumi.Input<inputs.PushProviderConfigurationFcmConfigurationServiceAccountJson>;
+    serviceAccountJson?: pulumi.Input<inputs.PushProviderConfigurationFcmConfigurationServiceAccountJson | undefined>;
 }
 
 export interface PushProviderConfigurationFcmConfigurationServiceAccountJson {
     /**
      * The auth provider x509 cert URL.
      */
-    authProviderX509CertUrl?: pulumi.Input<string>;
+    authProviderX509CertUrl?: pulumi.Input<string | undefined>;
     /**
      * The auth URI.
      */
-    authUri?: pulumi.Input<string>;
+    authUri?: pulumi.Input<string | undefined>;
     /**
      * The client email.
      */
-    clientEmail?: pulumi.Input<string>;
+    clientEmail?: pulumi.Input<string | undefined>;
     /**
      * The client ID.
      */
-    clientId?: pulumi.Input<string>;
+    clientId?: pulumi.Input<string | undefined>;
     /**
      * The client x509 cert URL.
      */
-    clientX509CertUrl?: pulumi.Input<string>;
+    clientX509CertUrl?: pulumi.Input<string | undefined>;
     /**
      * File name for Admin Console display.
      */
-    fileName?: pulumi.Input<string>;
+    fileName?: pulumi.Input<string | undefined>;
     /**
      * The private key.
      */
-    privateKey?: pulumi.Input<string>;
+    privateKey?: pulumi.Input<string | undefined>;
     /**
      * The private key ID.
      */
-    privateKeyId?: pulumi.Input<string>;
+    privateKeyId?: pulumi.Input<string | undefined>;
     /**
      * The project ID.
      */
-    projectId?: pulumi.Input<string>;
+    projectId?: pulumi.Input<string | undefined>;
     /**
      * The token URI.
      */
-    tokenUri?: pulumi.Input<string>;
+    tokenUri?: pulumi.Input<string | undefined>;
     /**
      * The type of the service account.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 export interface RateLimitingUseCaseModeOverrides {
     /**
      * Rate limit mode for the Okta hosted login page. Valid values: `ENFORCE`, `DISABLE`, `PREVIEW`.
      */
-    loginPage?: pulumi.Input<string>;
+    loginPage?: pulumi.Input<string | undefined>;
     /**
      * Rate limit mode for OAuth2 authorization requests. Valid values: `ENFORCE`, `DISABLE`, `PREVIEW`.
      */
-    oauth2Authorize?: pulumi.Input<string>;
+    oauth2Authorize?: pulumi.Input<string | undefined>;
     /**
      * Rate limit mode for OIE app intent. Valid values: `ENFORCE`, `DISABLE`, `PREVIEW`.
      */
-    oieAppIntent?: pulumi.Input<string>;
+    oieAppIntent?: pulumi.Input<string | undefined>;
 }
 
 export interface RequestConditionAccessDurationSettings {
     /**
      * The duration set by the admin for access durations. Use ISO8061 notation for duration values.
      */
-    duration?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
+    duration?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 export interface RequestConditionAccessScopeSettings {
     /**
      * Block list of groups/entitlement bundles ids.
      */
-    ids?: pulumi.Input<pulumi.Input<inputs.RequestConditionAccessScopeSettingsId>[]>;
+    ids?: pulumi.Input<pulumi.Input<inputs.RequestConditionAccessScopeSettingsId>[] | undefined>;
     type: pulumi.Input<string>;
 }
 
@@ -3200,14 +3200,14 @@ export interface RequestConditionAccessScopeSettingsId {
     /**
      * Request condition id.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
 }
 
 export interface RequestConditionRequesterSettings {
     /**
      * Block list of teams/groups ids.
      */
-    ids?: pulumi.Input<pulumi.Input<inputs.RequestConditionRequesterSettingsId>[]>;
+    ids?: pulumi.Input<pulumi.Input<inputs.RequestConditionRequesterSettingsId>[] | undefined>;
     type: pulumi.Input<string>;
 }
 
@@ -3215,67 +3215,67 @@ export interface RequestConditionRequesterSettingsId {
     /**
      * Request condition id.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
 }
 
 export interface RequestSettingResourceRequestOnBehalfOfSettings {
     /**
      * Indicates that users who can request this resource could also request for another requester of the same resource. This property can only be true.
      */
-    allowed?: pulumi.Input<boolean>;
+    allowed?: pulumi.Input<boolean | undefined>;
     /**
      * Which requesters the resource requester can request on behalf of. Enum: `DIRECT_REPORT`.
      */
-    onlyFors?: pulumi.Input<pulumi.Input<inputs.RequestSettingResourceRequestOnBehalfOfSettingsOnlyFor>[]>;
+    onlyFors?: pulumi.Input<pulumi.Input<inputs.RequestSettingResourceRequestOnBehalfOfSettingsOnlyFor>[] | undefined>;
 }
 
 export interface RequestSettingResourceRequestOnBehalfOfSettingsOnlyFor {
     /**
      * Which requesters the resource requester can request on behalf of. If onlyFor is not specified then any requester may request a resource on the behalf of any other user
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 export interface RequestSettingResourceRiskSettings {
     /**
      * Default risk settings that are valid for an access request when a risk has been detected for the resource and requesting user.
      */
-    defaultSetting?: pulumi.Input<inputs.RequestSettingResourceRiskSettingsDefaultSetting>;
+    defaultSetting?: pulumi.Input<inputs.RequestSettingResourceRiskSettingsDefaultSetting | undefined>;
 }
 
 export interface RequestSettingResourceRiskSettingsDefaultSetting {
     /**
      * Settings that control who may specify the access duration allowed by this request condition or risk settings, as well as what duration may be requested.
      */
-    accessDurationSettings?: pulumi.Input<inputs.RequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettings>;
+    accessDurationSettings?: pulumi.Input<inputs.RequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettings | undefined>;
     /**
      * The ID of the approval sequence.
      */
-    approvalSequenceId?: pulumi.Input<string>;
-    errors?: pulumi.Input<pulumi.Input<string>[]>;
-    requestSubmissionType?: pulumi.Input<string>;
+    approvalSequenceId?: pulumi.Input<string | undefined>;
+    errors?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    requestSubmissionType?: pulumi.Input<string | undefined>;
 }
 
 export interface RequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettings {
     /**
      * The duration set by the admin for access durations. Use ISO8061 notation for duration values.
      */
-    duration?: pulumi.Input<string>;
+    duration?: pulumi.Input<string | undefined>;
     /**
      * Enum: `ADMIN_FIXED_DURATION`, `REQUESTER_SPECIFIED_DURATION`.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 export interface RequestV2Requested {
     /**
      * The ID of the access scope associated with the resource.
      */
-    accessScopeId?: pulumi.Input<string>;
+    accessScopeId?: pulumi.Input<string | undefined>;
     /**
      * The access scope type.
      */
-    accessScopeType?: pulumi.Input<string>;
+    accessScopeType?: pulumi.Input<string | undefined>;
     /**
      * The ID of the resource catalog entry.
      */
@@ -3283,11 +3283,11 @@ export interface RequestV2Requested {
     /**
      * The ID of the requested resource.
      */
-    resourceId?: pulumi.Input<string>;
+    resourceId?: pulumi.Input<string | undefined>;
     /**
      * The requested resource type.
      */
-    resourceType?: pulumi.Input<string>;
+    resourceType?: pulumi.Input<string | undefined>;
     /**
      * The type of the resource.
      */
@@ -3309,42 +3309,42 @@ export interface RequestV2RequesterFieldValue {
     /**
      * Request condition id.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * A human-readable description of requester field.
      */
-    label?: pulumi.Input<string>;
+    label?: pulumi.Input<string | undefined>;
     /**
      * Type of value for the requester field.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
     /**
      * The value of requester field, which depends on the type of the field.
      */
-    value?: pulumi.Input<string>;
+    value?: pulumi.Input<string | undefined>;
     /**
      * The values of requester field with the type MULTISELECT. If the field type is MULTISELECT, this property is required.
      */
-    values?: pulumi.Input<pulumi.Input<inputs.RequestV2RequesterFieldValueValue>[]>;
+    values?: pulumi.Input<pulumi.Input<inputs.RequestV2RequesterFieldValueValue>[] | undefined>;
 }
 
 export interface RequestV2RequesterFieldValueValue {
-    value?: pulumi.Input<string>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface SecurityEventsProviderSettings {
     /**
      * Issuer URL. Maximum length: 700 characters. To be used along with `jwksUrl`.
      */
-    issuer?: pulumi.Input<string>;
+    issuer?: pulumi.Input<string | undefined>;
     /**
      * The public URL where the JWKS public key is uploaded. Maximum length: 1000 characters. To be used along with `issuer`.
      */
-    jwksUrl?: pulumi.Input<string>;
+    jwksUrl?: pulumi.Input<string | undefined>;
     /**
      * The published well-known URL of the Security Events Provider (the SSF transmitter). Maximum length: 1000 characters.
      */
-    wellKnownUrl?: pulumi.Input<string>;
+    wellKnownUrl?: pulumi.Input<string | undefined>;
 }
 
 export interface TemplateSmsTranslation {
@@ -3362,27 +3362,27 @@ export interface UiSchemaUiSchema {
     /**
      * Specifies the button label for the Submit button at the bottom of the enrollment form.
      */
-    buttonLabel?: pulumi.Input<string>;
-    elements?: pulumi.Input<pulumi.Input<inputs.UiSchemaUiSchemaElement>[]>;
+    buttonLabel?: pulumi.Input<string | undefined>;
+    elements?: pulumi.Input<pulumi.Input<inputs.UiSchemaUiSchemaElement>[] | undefined>;
     /**
      * Specifies the label at the top of the enrollment form under the logo.
      */
-    label?: pulumi.Input<string>;
+    label?: pulumi.Input<string | undefined>;
     /**
      * Specifies the type of layout.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 export interface UiSchemaUiSchemaElement {
     /**
      * Label name for the UI element.
      */
-    label?: pulumi.Input<string>;
+    label?: pulumi.Input<string | undefined>;
     /**
      * UI Schema element options object.
      */
-    options?: pulumi.Input<inputs.UiSchemaUiSchemaElementOptions>;
+    options?: pulumi.Input<inputs.UiSchemaUiSchemaElementOptions | undefined>;
     /**
      * Specifies the property bound to the input field. It must follow the format #/properties/PROPERTY_NAME where PROPERTY_NAME is a variable name for an attribute in profile editor.
      */
@@ -3390,14 +3390,14 @@ export interface UiSchemaUiSchemaElement {
     /**
      * Specifies the relationship between this input element and scope. The Control value specifies that this input controls the value represented by scope.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 export interface UiSchemaUiSchemaElementOptions {
     /**
      * Specifies how the input appears.
      */
-    format?: pulumi.Input<string>;
+    format?: pulumi.Input<string | undefined>;
 }
 
 export interface UserSchemaPropertyArrayOneOf {
@@ -3412,7 +3412,7 @@ export interface UserSchemaPropertyArrayOneOf {
 }
 
 export interface UserSchemaPropertyMasterOverridePriority {
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
     value: pulumi.Input<string>;
 }
 
@@ -3435,207 +3435,207 @@ export namespace app {
         /**
          * OAuth2 client ID (required for OAUTH2 auth scheme).
          */
-        clientId?: pulumi.Input<string>;
+        clientId?: pulumi.Input<string | undefined>;
         /**
          * Additional settings for OAuth2 authentication.
          */
-        settings?: pulumi.Input<inputs.app.ConnectionProfileSettings>;
+        settings?: pulumi.Input<inputs.app.ConnectionProfileSettings | undefined>;
         /**
          * Signing configuration.
          */
-        signing?: pulumi.Input<inputs.app.ConnectionProfileSigning>;
+        signing?: pulumi.Input<inputs.app.ConnectionProfileSigning | undefined>;
         /**
          * Authentication token (required for TOKEN auth scheme).
          */
-        token?: pulumi.Input<string>;
+        token?: pulumi.Input<string | undefined>;
     }
 
     export interface ConnectionProfileSettings {
         /**
          * Admin password for OAuth2.
          */
-        adminPassword?: pulumi.Input<string>;
+        adminPassword?: pulumi.Input<string | undefined>;
         /**
          * Admin username for OAuth2.
          */
-        adminUsername?: pulumi.Input<string>;
+        adminUsername?: pulumi.Input<string | undefined>;
     }
 
     export interface ConnectionProfileSigning {
         /**
          * Token rotation mode.
          */
-        rotationMode?: pulumi.Input<string>;
+        rotationMode?: pulumi.Input<string | undefined>;
     }
 
     export interface FeaturesCapabilities {
         /**
          * (Optional) Block for create lifecycle settings:
          */
-        create?: pulumi.Input<inputs.app.FeaturesCapabilitiesCreate>;
+        create?: pulumi.Input<inputs.app.FeaturesCapabilitiesCreate | undefined>;
         /**
          * (Optional) Block for import rules configuration:
          */
-        importRules?: pulumi.Input<inputs.app.FeaturesCapabilitiesImportRules>;
+        importRules?: pulumi.Input<inputs.app.FeaturesCapabilitiesImportRules | undefined>;
         /**
          * (Optional) Block for import settings configuration:
          */
-        importSettings?: pulumi.Input<inputs.app.FeaturesCapabilitiesImportSettings>;
+        importSettings?: pulumi.Input<inputs.app.FeaturesCapabilitiesImportSettings | undefined>;
         /**
          * (Optional) Block for update settings:
          */
-        update?: pulumi.Input<inputs.app.FeaturesCapabilitiesUpdate>;
+        update?: pulumi.Input<inputs.app.FeaturesCapabilitiesUpdate | undefined>;
     }
 
     export interface FeaturesCapabilitiesCreate {
         /**
          * (Optional) Block for create lifecycle configuration:
          */
-        lifecycleCreate?: pulumi.Input<inputs.app.FeaturesCapabilitiesCreateLifecycleCreate>;
+        lifecycleCreate?: pulumi.Input<inputs.app.FeaturesCapabilitiesCreateLifecycleCreate | undefined>;
     }
 
     export interface FeaturesCapabilitiesCreateLifecycleCreate {
         /**
          * The status of the feature. Valid values are `ENABLED` or `DISABLED`.
          */
-        status?: pulumi.Input<string>;
+        status?: pulumi.Input<string | undefined>;
     }
 
     export interface FeaturesCapabilitiesImportRules {
         /**
          * (Optional) Block for user matching and creation rules:
          */
-        userCreateAndMatch?: pulumi.Input<inputs.app.FeaturesCapabilitiesImportRulesUserCreateAndMatch>;
+        userCreateAndMatch?: pulumi.Input<inputs.app.FeaturesCapabilitiesImportRulesUserCreateAndMatch | undefined>;
     }
 
     export interface FeaturesCapabilitiesImportRulesUserCreateAndMatch {
         /**
          * (Optional) Whether to allow partial matching based on first and last names.
          */
-        allowPartialMatch?: pulumi.Input<boolean>;
+        allowPartialMatch?: pulumi.Input<boolean | undefined>;
         /**
          * (Optional) Whether imported new users are automatically activated.
          */
-        autoActivateNewUsers?: pulumi.Input<boolean>;
+        autoActivateNewUsers?: pulumi.Input<boolean | undefined>;
         /**
          * (Optional) Whether exact-matched users are automatically confirmed.
          */
-        autoconfirmExactMatch?: pulumi.Input<boolean>;
+        autoconfirmExactMatch?: pulumi.Input<boolean | undefined>;
         /**
          * (Optional) Whether imported new users are automatically confirmed.
          */
-        autoconfirmNewUsers?: pulumi.Input<boolean>;
+        autoconfirmNewUsers?: pulumi.Input<boolean | undefined>;
         /**
          * (Optional) Whether partially matched users are automatically confirmed.
          */
-        autoconfirmPartialMatch?: pulumi.Input<boolean>;
+        autoconfirmPartialMatch?: pulumi.Input<boolean | undefined>;
         /**
          * (Optional) Attribute used for exact matching (e.g., `USERNAME`, `EMAIL`).
          */
-        exactMatchCriteria?: pulumi.Input<string>;
+        exactMatchCriteria?: pulumi.Input<string | undefined>;
     }
 
     export interface FeaturesCapabilitiesImportSettings {
         /**
          * (Optional) Block for import schedule configuration:
          */
-        schedule?: pulumi.Input<inputs.app.FeaturesCapabilitiesImportSettingsSchedule>;
+        schedule?: pulumi.Input<inputs.app.FeaturesCapabilitiesImportSettingsSchedule | undefined>;
         /**
          * (Optional) Block for username configuration:
          */
-        username?: pulumi.Input<inputs.app.FeaturesCapabilitiesImportSettingsUsername>;
+        username?: pulumi.Input<inputs.app.FeaturesCapabilitiesImportSettingsUsername | undefined>;
     }
 
     export interface FeaturesCapabilitiesImportSettingsSchedule {
         /**
          * (Optional) Block for full import schedule:
          */
-        fullImport?: pulumi.Input<inputs.app.FeaturesCapabilitiesImportSettingsScheduleFullImport>;
+        fullImport?: pulumi.Input<inputs.app.FeaturesCapabilitiesImportSettingsScheduleFullImport | undefined>;
         /**
          * (Optional) Block for incremental import schedule:
          */
-        incrementalImport?: pulumi.Input<inputs.app.FeaturesCapabilitiesImportSettingsScheduleIncrementalImport>;
+        incrementalImport?: pulumi.Input<inputs.app.FeaturesCapabilitiesImportSettingsScheduleIncrementalImport | undefined>;
         /**
          * The status of the feature. Valid values are `ENABLED` or `DISABLED`.
          */
-        status?: pulumi.Input<string>;
+        status?: pulumi.Input<string | undefined>;
     }
 
     export interface FeaturesCapabilitiesImportSettingsScheduleFullImport {
         /**
          * (Optional) UNIX cron expression for incremental import schedule.
          */
-        expression?: pulumi.Input<string>;
+        expression?: pulumi.Input<string | undefined>;
         /**
          * (Optional) IANA timezone name for the schedule.
          */
-        timezone?: pulumi.Input<string>;
+        timezone?: pulumi.Input<string | undefined>;
     }
 
     export interface FeaturesCapabilitiesImportSettingsScheduleIncrementalImport {
         /**
          * (Optional) UNIX cron expression for incremental import schedule.
          */
-        expression?: pulumi.Input<string>;
+        expression?: pulumi.Input<string | undefined>;
         /**
          * (Optional) IANA timezone name for the schedule.
          */
-        timezone?: pulumi.Input<string>;
+        timezone?: pulumi.Input<string | undefined>;
     }
 
     export interface FeaturesCapabilitiesImportSettingsUsername {
         /**
          * (Optional) Okta Expression Language statement for custom username format.
          */
-        usernameExpression?: pulumi.Input<string>;
+        usernameExpression?: pulumi.Input<string | undefined>;
         /**
          * (Optional) Format for usernames (e.g., `EMAIL`, `CUSTOM`).
          */
-        usernameFormat?: pulumi.Input<string>;
+        usernameFormat?: pulumi.Input<string | undefined>;
     }
 
     export interface FeaturesCapabilitiesUpdate {
         /**
          * (Optional) Block for deactivation lifecycle configuration:
          */
-        lifecycleDeactivate?: pulumi.Input<inputs.app.FeaturesCapabilitiesUpdateLifecycleDeactivate>;
+        lifecycleDeactivate?: pulumi.Input<inputs.app.FeaturesCapabilitiesUpdateLifecycleDeactivate | undefined>;
         /**
          * (Optional) Block for password synchronization settings:
          */
-        password?: pulumi.Input<inputs.app.FeaturesCapabilitiesUpdatePassword>;
+        password?: pulumi.Input<inputs.app.FeaturesCapabilitiesUpdatePassword | undefined>;
         /**
          * (Optional) Block for profile update settings:
          */
-        profile?: pulumi.Input<inputs.app.FeaturesCapabilitiesUpdateProfile>;
+        profile?: pulumi.Input<inputs.app.FeaturesCapabilitiesUpdateProfile | undefined>;
     }
 
     export interface FeaturesCapabilitiesUpdateLifecycleDeactivate {
         /**
          * The status of the feature. Valid values are `ENABLED` or `DISABLED`.
          */
-        status?: pulumi.Input<string>;
+        status?: pulumi.Input<string | undefined>;
     }
 
     export interface FeaturesCapabilitiesUpdatePassword {
         /**
          * (Optional) Determines password change behavior. Valid values are `CHANGE` or `KEEP_EXISTING`.
          */
-        change?: pulumi.Input<string>;
+        change?: pulumi.Input<string | undefined>;
         /**
          * (Optional) Determines password source. Valid values are `OKTA` or `RANDOM`.
          */
-        seed?: pulumi.Input<string>;
+        seed?: pulumi.Input<string | undefined>;
         /**
          * The status of the feature. Valid values are `ENABLED` or `DISABLED`.
          */
-        status?: pulumi.Input<string>;
+        status?: pulumi.Input<string | undefined>;
     }
 
     export interface FeaturesCapabilitiesUpdateProfile {
         /**
          * The status of the feature. Valid values are `ENABLED` or `DISABLED`.
          */
-        status?: pulumi.Input<string>;
+        status?: pulumi.Input<string | undefined>;
     }
 
     export interface GetConnectionProfile {
@@ -3649,7 +3649,7 @@ export namespace app {
         /**
          * Defines the method of authentication.
          */
-        authScheme?: pulumi.Input<string>;
+        authScheme?: pulumi.Input<string | undefined>;
     }
 
     export interface GetFeaturesCapabilities {
@@ -3675,19 +3675,19 @@ export namespace app {
         /**
          * Block for create lifecycle settings:
          */
-        create?: pulumi.Input<inputs.app.GetFeaturesCapabilitiesCreateArgs>;
+        create?: pulumi.Input<inputs.app.GetFeaturesCapabilitiesCreateArgs | undefined>;
         /**
          * Block for import rules configuration:
          */
-        importRules?: pulumi.Input<inputs.app.GetFeaturesCapabilitiesImportRulesArgs>;
+        importRules?: pulumi.Input<inputs.app.GetFeaturesCapabilitiesImportRulesArgs | undefined>;
         /**
          * Block for import settings configuration:
          */
-        importSettings?: pulumi.Input<inputs.app.GetFeaturesCapabilitiesImportSettingsArgs>;
+        importSettings?: pulumi.Input<inputs.app.GetFeaturesCapabilitiesImportSettingsArgs | undefined>;
         /**
          * Block for update settings:
          */
-        update?: pulumi.Input<inputs.app.GetFeaturesCapabilitiesUpdateArgs>;
+        update?: pulumi.Input<inputs.app.GetFeaturesCapabilitiesUpdateArgs | undefined>;
     }
 
     export interface GetFeaturesCapabilitiesCreate {
@@ -3701,7 +3701,7 @@ export namespace app {
         /**
          * Block for create lifecycle configuration:
          */
-        lifecycleCreate?: pulumi.Input<inputs.app.GetFeaturesCapabilitiesCreateLifecycleCreateArgs>;
+        lifecycleCreate?: pulumi.Input<inputs.app.GetFeaturesCapabilitiesCreateLifecycleCreateArgs | undefined>;
     }
 
     export interface GetFeaturesCapabilitiesCreateLifecycleCreate {
@@ -3715,7 +3715,7 @@ export namespace app {
         /**
          * (String) Status of the import schedule. Valid values are `ENABLED` or `DISABLED`.
          */
-        status?: pulumi.Input<string>;
+        status?: pulumi.Input<string | undefined>;
     }
 
     export interface GetFeaturesCapabilitiesImportRules {
@@ -3729,7 +3729,7 @@ export namespace app {
         /**
          * Block for user matching and creation rules:
          */
-        userCreateAndMatch?: pulumi.Input<inputs.app.GetFeaturesCapabilitiesImportRulesUserCreateAndMatchArgs>;
+        userCreateAndMatch?: pulumi.Input<inputs.app.GetFeaturesCapabilitiesImportRulesUserCreateAndMatchArgs | undefined>;
     }
 
     export interface GetFeaturesCapabilitiesImportRulesUserCreateAndMatch {
@@ -3763,27 +3763,27 @@ export namespace app {
         /**
          * (Boolean) Whether to allow partial matching based on first and last names.
          */
-        allowPartialMatch?: pulumi.Input<boolean>;
+        allowPartialMatch?: pulumi.Input<boolean | undefined>;
         /**
          * (Boolean) Whether imported new users are automatically activated.
          */
-        autoActivateNewUsers?: pulumi.Input<boolean>;
+        autoActivateNewUsers?: pulumi.Input<boolean | undefined>;
         /**
          * (Boolean) Whether exact-matched users are automatically confirmed.
          */
-        autoconfirmExactMatch?: pulumi.Input<boolean>;
+        autoconfirmExactMatch?: pulumi.Input<boolean | undefined>;
         /**
          * (Boolean) Whether imported new users are automatically confirmed.
          */
-        autoconfirmNewUsers?: pulumi.Input<boolean>;
+        autoconfirmNewUsers?: pulumi.Input<boolean | undefined>;
         /**
          * (Boolean) Whether partially matched users are automatically confirmed.
          */
-        autoconfirmPartialMatch?: pulumi.Input<boolean>;
+        autoconfirmPartialMatch?: pulumi.Input<boolean | undefined>;
         /**
          * (String) Attribute used for exact matching (e.g., `USERNAME`, `EMAIL`).
          */
-        exactMatchCriteria?: pulumi.Input<string>;
+        exactMatchCriteria?: pulumi.Input<string | undefined>;
     }
 
     export interface GetFeaturesCapabilitiesImportSettings {
@@ -3801,11 +3801,11 @@ export namespace app {
         /**
          * Block for import schedule configuration:
          */
-        schedule?: pulumi.Input<inputs.app.GetFeaturesCapabilitiesImportSettingsScheduleArgs>;
+        schedule?: pulumi.Input<inputs.app.GetFeaturesCapabilitiesImportSettingsScheduleArgs | undefined>;
         /**
          * Block for username configuration:
          */
-        username?: pulumi.Input<inputs.app.GetFeaturesCapabilitiesImportSettingsUsernameArgs>;
+        username?: pulumi.Input<inputs.app.GetFeaturesCapabilitiesImportSettingsUsernameArgs | undefined>;
     }
 
     export interface GetFeaturesCapabilitiesImportSettingsSchedule {
@@ -3827,15 +3827,15 @@ export namespace app {
         /**
          * Block for full import schedule:
          */
-        fullImport?: pulumi.Input<inputs.app.GetFeaturesCapabilitiesImportSettingsScheduleFullImportArgs>;
+        fullImport?: pulumi.Input<inputs.app.GetFeaturesCapabilitiesImportSettingsScheduleFullImportArgs | undefined>;
         /**
          * Block for incremental import schedule:
          */
-        incrementalImport?: pulumi.Input<inputs.app.GetFeaturesCapabilitiesImportSettingsScheduleIncrementalImportArgs>;
+        incrementalImport?: pulumi.Input<inputs.app.GetFeaturesCapabilitiesImportSettingsScheduleIncrementalImportArgs | undefined>;
         /**
          * (String) Status of the import schedule. Valid values are `ENABLED` or `DISABLED`.
          */
-        status?: pulumi.Input<string>;
+        status?: pulumi.Input<string | undefined>;
     }
 
     export interface GetFeaturesCapabilitiesImportSettingsScheduleFullImport {
@@ -3853,11 +3853,11 @@ export namespace app {
         /**
          * (String) UNIX cron expression for incremental import schedule.
          */
-        expression?: pulumi.Input<string>;
+        expression?: pulumi.Input<string | undefined>;
         /**
          * (String) IANA timezone name for the schedule.
          */
-        timezone?: pulumi.Input<string>;
+        timezone?: pulumi.Input<string | undefined>;
     }
 
     export interface GetFeaturesCapabilitiesImportSettingsScheduleIncrementalImport {
@@ -3875,11 +3875,11 @@ export namespace app {
         /**
          * (String) UNIX cron expression for incremental import schedule.
          */
-        expression?: pulumi.Input<string>;
+        expression?: pulumi.Input<string | undefined>;
         /**
          * (String) IANA timezone name for the schedule.
          */
-        timezone?: pulumi.Input<string>;
+        timezone?: pulumi.Input<string | undefined>;
     }
 
     export interface GetFeaturesCapabilitiesImportSettingsUsername {
@@ -3897,11 +3897,11 @@ export namespace app {
         /**
          * (String) Okta Expression Language statement for custom username format.
          */
-        usernameExpression?: pulumi.Input<string>;
+        usernameExpression?: pulumi.Input<string | undefined>;
         /**
          * (String) Format for usernames (e.g., `EMAIL`, `CUSTOM`).
          */
-        usernameFormat?: pulumi.Input<string>;
+        usernameFormat?: pulumi.Input<string | undefined>;
     }
 
     export interface GetFeaturesCapabilitiesUpdate {
@@ -3923,15 +3923,15 @@ export namespace app {
         /**
          * Block for deactivation lifecycle configuration:
          */
-        lifecycleDeactivate?: pulumi.Input<inputs.app.GetFeaturesCapabilitiesUpdateLifecycleDeactivateArgs>;
+        lifecycleDeactivate?: pulumi.Input<inputs.app.GetFeaturesCapabilitiesUpdateLifecycleDeactivateArgs | undefined>;
         /**
          * Block for password synchronization settings:
          */
-        password?: pulumi.Input<inputs.app.GetFeaturesCapabilitiesUpdatePasswordArgs>;
+        password?: pulumi.Input<inputs.app.GetFeaturesCapabilitiesUpdatePasswordArgs | undefined>;
         /**
          * Block for profile update settings:
          */
-        profile?: pulumi.Input<inputs.app.GetFeaturesCapabilitiesUpdateProfileArgs>;
+        profile?: pulumi.Input<inputs.app.GetFeaturesCapabilitiesUpdateProfileArgs | undefined>;
     }
 
     export interface GetFeaturesCapabilitiesUpdateLifecycleDeactivate {
@@ -3945,7 +3945,7 @@ export namespace app {
         /**
          * (String) Status of the import schedule. Valid values are `ENABLED` or `DISABLED`.
          */
-        status?: pulumi.Input<string>;
+        status?: pulumi.Input<string | undefined>;
     }
 
     export interface GetFeaturesCapabilitiesUpdatePassword {
@@ -3967,15 +3967,15 @@ export namespace app {
         /**
          * (String) Determines password change behavior. Valid values are `CHANGE` or `KEEP_EXISTING`.
          */
-        change?: pulumi.Input<string>;
+        change?: pulumi.Input<string | undefined>;
         /**
          * (String) Determines password source. Valid values are `OKTA` or `RANDOM`.
          */
-        seed?: pulumi.Input<string>;
+        seed?: pulumi.Input<string | undefined>;
         /**
          * (String) Status of the import schedule. Valid values are `ENABLED` or `DISABLED`.
          */
-        status?: pulumi.Input<string>;
+        status?: pulumi.Input<string | undefined>;
     }
 
     export interface GetFeaturesCapabilitiesUpdateProfile {
@@ -3989,18 +3989,18 @@ export namespace app {
         /**
          * (String) Status of the import schedule. Valid values are `ENABLED` or `DISABLED`.
          */
-        status?: pulumi.Input<string>;
+        status?: pulumi.Input<string | undefined>;
     }
 
     export interface OAuthGroupsClaim {
         /**
          * Groups claim filter. Can only be set if type is FILTER.
          */
-        filterType?: pulumi.Input<string>;
+        filterType?: pulumi.Input<string | undefined>;
         /**
          * Issuer mode inherited from OAuth App
          */
-        issuerMode?: pulumi.Input<string>;
+        issuerMode?: pulumi.Input<string | undefined>;
         /**
          * Name of the claim that will be used in the token.
          */
@@ -4019,7 +4019,7 @@ export namespace app {
         /**
          * RSA Exponent
          */
-        e?: pulumi.Input<string>;
+        e?: pulumi.Input<string | undefined>;
         /**
          * Key ID
          */
@@ -4031,15 +4031,15 @@ export namespace app {
         /**
          * RSA Modulus
          */
-        n?: pulumi.Input<string>;
+        n?: pulumi.Input<string | undefined>;
         /**
          * X coordinate of the elliptic curve point
          */
-        x?: pulumi.Input<string>;
+        x?: pulumi.Input<string | undefined>;
         /**
          * Y coordinate of the elliptic curve point
          */
-        y?: pulumi.Input<string>;
+        y?: pulumi.Input<string | undefined>;
     }
 
     export interface OAuthNetwork {
@@ -4050,11 +4050,11 @@ export namespace app {
         /**
          * The network zones to exclude. Only applicable when `connection` is `ZONE`. Accepts `ALL_IP_ZONES` or specific zone IDs. Defaults to no zones excluded if not specified.
          */
-        excludes?: pulumi.Input<pulumi.Input<string>[]>;
+        excludes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
          * The network zones to include. Only applicable when `connection` is `ZONE`. Accepts `ALL_IP_ZONES` or specific zone IDs. Defaults to no zones included if not specified.
          */
-        includes?: pulumi.Input<pulumi.Input<string>[]>;
+        includes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     }
 
     export interface SamlAcsEndpointsIndex {
@@ -4066,11 +4066,11 @@ export namespace app {
         /**
          * Type of group attribute filter. Valid values are: `STARTS_WITH`, `EQUALS`, `CONTAINS`, or `REGEX`
          */
-        filterType?: pulumi.Input<string>;
+        filterType?: pulumi.Input<string | undefined>;
         /**
          * Filter value to use
          */
-        filterValue?: pulumi.Input<string>;
+        filterValue?: pulumi.Input<string | undefined>;
         /**
          * The reference name of the attribute statement
          */
@@ -4078,106 +4078,106 @@ export namespace app {
         /**
          * The attribute namespace. It can be set to `urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified`, `urn:oasis:names:tc:SAML:2.0:attrname-format:uri`, or `urn:oasis:names:tc:SAML:2.0:attrname-format:basic`
          */
-        namespace?: pulumi.Input<string>;
+        namespace?: pulumi.Input<string | undefined>;
         /**
          * The type of attribute statements object
          */
-        type?: pulumi.Input<string>;
-        values?: pulumi.Input<pulumi.Input<string>[]>;
+        type?: pulumi.Input<string | undefined>;
+        values?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     }
 
     export interface SamlKey {
         /**
          * Created date
          */
-        created?: pulumi.Input<string>;
+        created?: pulumi.Input<string | undefined>;
         /**
          * RSA exponent
          */
-        e?: pulumi.Input<string>;
+        e?: pulumi.Input<string | undefined>;
         /**
          * Expiration date
          */
-        expiresAt?: pulumi.Input<string>;
+        expiresAt?: pulumi.Input<string | undefined>;
         /**
          * Key ID
          */
-        kid?: pulumi.Input<string>;
+        kid?: pulumi.Input<string | undefined>;
         /**
          * Key type. Identifies the cryptographic algorithm family used with the key.
          */
-        kty?: pulumi.Input<string>;
+        kty?: pulumi.Input<string | undefined>;
         /**
          * Last updated date
          */
-        lastUpdated?: pulumi.Input<string>;
+        lastUpdated?: pulumi.Input<string | undefined>;
         /**
          * RSA modulus
          */
-        n?: pulumi.Input<string>;
+        n?: pulumi.Input<string | undefined>;
         /**
          * Intended use of the public key.
          */
-        use?: pulumi.Input<string>;
+        use?: pulumi.Input<string | undefined>;
         /**
          * X.509 Certificate Chain
          */
-        x5cs?: pulumi.Input<pulumi.Input<string>[]>;
+        x5cs?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
          * X.509 certificate SHA-256 thumbprint
          */
-        x5tS256?: pulumi.Input<string>;
+        x5tS256?: pulumi.Input<string | undefined>;
     }
 
     export interface SignonPolicyRulesRule {
         /**
          * Access decision: ALLOW or DENY.
          */
-        access?: pulumi.Input<string>;
+        access?: pulumi.Input<string | undefined>;
         /**
          * List of authentication method chain objects as JSON-encoded strings. Use with `type = "AUTH_METHOD_CHAIN"` only.
          */
-        chains?: pulumi.Input<pulumi.Input<string>[]>;
+        chains?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
          * List of authenticator constraints as JSON-encoded strings.
          */
-        constraints?: pulumi.Input<pulumi.Input<string>[]>;
+        constraints?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
          * Custom Okta Expression Language condition for advanced matching.
          */
-        customExpression?: pulumi.Input<string>;
+        customExpression?: pulumi.Input<string | undefined>;
         /**
          * Set of device assurance policy IDs to include.
          */
-        deviceAssurancesIncludeds?: pulumi.Input<pulumi.Input<string>[]>;
+        deviceAssurancesIncludeds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
          * Require device to be managed by a device management system.
          */
-        deviceIsManaged?: pulumi.Input<boolean>;
+        deviceIsManaged?: pulumi.Input<boolean | undefined>;
         /**
          * Require device to be registered with Okta Verify.
          */
-        deviceIsRegistered?: pulumi.Input<boolean>;
+        deviceIsRegistered?: pulumi.Input<boolean | undefined>;
         /**
          * Number of factors required: 1FA or 2FA.
          */
-        factorMode?: pulumi.Input<string>;
+        factorMode?: pulumi.Input<string | undefined>;
         /**
          * Set of group IDs to exclude from this rule.
          */
-        groupsExcludeds?: pulumi.Input<pulumi.Input<string>[]>;
+        groupsExcludeds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
          * Set of group IDs to include in this rule.
          */
-        groupsIncludeds?: pulumi.Input<pulumi.Input<string>[]>;
+        groupsIncludeds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
          * (String) - The ID of this resource (same as `policyId`).
          */
-        id?: pulumi.Input<string>;
+        id?: pulumi.Input<string | undefined>;
         /**
          * Inactivity period before re-authentication in ISO 8601 duration format.
          */
-        inactivityPeriod?: pulumi.Input<string>;
+        inactivityPeriod?: pulumi.Input<string | undefined>;
         /**
          * Policy Rule Name. Must be unique within the policy.
          */
@@ -4185,74 +4185,74 @@ export namespace app {
         /**
          * Network selection mode: ANYWHERE, ZONE, ON_NETWORK, or OFF_NETWORK.
          */
-        networkConnection?: pulumi.Input<string>;
+        networkConnection?: pulumi.Input<string | undefined>;
         /**
          * List of network zone IDs to exclude.
          */
-        networkExcludes?: pulumi.Input<pulumi.Input<string>[]>;
+        networkExcludes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
          * List of network zone IDs to include.
          */
-        networkIncludes?: pulumi.Input<pulumi.Input<string>[]>;
+        networkIncludes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
          * Platform conditions to include.
          */
-        platformIncludes?: pulumi.Input<pulumi.Input<inputs.app.SignonPolicyRulesRulePlatformInclude>[]>;
+        platformIncludes?: pulumi.Input<pulumi.Input<inputs.app.SignonPolicyRulesRulePlatformInclude>[] | undefined>;
         /**
          * Priority of the rule. Lower numbers are evaluated first.
          */
-        priority?: pulumi.Input<number>;
+        priority?: pulumi.Input<number | undefined>;
         /**
          * Re-authentication frequency in ISO 8601 duration format (e.g., PT2H for 2 hours). When using authentication chains with reauthenticateIn, this value is computed by the API based on the chain configuration.
          */
-        reAuthenticationFrequency?: pulumi.Input<string>;
+        reAuthenticationFrequency?: pulumi.Input<string | undefined>;
         /**
          * Risk score level to match: ANY, LOW, MEDIUM, or HIGH.
          */
-        riskScore?: pulumi.Input<string>;
+        riskScore?: pulumi.Input<string | undefined>;
         /**
          * Status of the rule: ACTIVE or INACTIVE.
          */
-        status?: pulumi.Input<string>;
+        status?: pulumi.Input<string | undefined>;
         /**
          * Whether this is a system rule (e.g., Catch-all Rule). System rules cannot be modified.
          */
-        system?: pulumi.Input<boolean>;
+        system?: pulumi.Input<boolean | undefined>;
         /**
          * Verification method type.
          */
-        type?: pulumi.Input<string>;
+        type?: pulumi.Input<string | undefined>;
         /**
          * Set of user type IDs to exclude.
          */
-        userTypesExcludeds?: pulumi.Input<pulumi.Input<string>[]>;
+        userTypesExcludeds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
          * Set of user type IDs to include.
          */
-        userTypesIncludeds?: pulumi.Input<pulumi.Input<string>[]>;
+        userTypesIncludeds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
          * Set of user IDs to exclude from this rule.
          */
-        usersExcludeds?: pulumi.Input<pulumi.Input<string>[]>;
+        usersExcludeds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
          * Set of user IDs to include in this rule.
          */
-        usersIncludeds?: pulumi.Input<pulumi.Input<string>[]>;
+        usersIncludeds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     }
 
     export interface SignonPolicyRulesRulePlatformInclude {
         /**
          * Custom OS expression for advanced matching. Required by the API when osType is OTHER (leave empty or omit to match any OTHER OS). The API normalizes empty and wildcard values to null on read; the provider preserves "" in state.
          */
-        osExpression?: pulumi.Input<string>;
+        osExpression?: pulumi.Input<string | undefined>;
         /**
          * OS type: ANY, IOS, ANDROID, WINDOWS, OSX, MACOS, CHROMEOS, or OTHER.
          */
-        osType?: pulumi.Input<string>;
+        osType?: pulumi.Input<string | undefined>;
         /**
          * Platform type: ANY, MOBILE, or DESKTOP.
          */
-        type?: pulumi.Input<string>;
+        type?: pulumi.Input<string | undefined>;
     }
 }
 
@@ -4274,21 +4274,21 @@ export namespace group {
 
 export namespace inline {
     export interface HookHeader {
-        key?: pulumi.Input<string>;
-        value?: pulumi.Input<string>;
+        key?: pulumi.Input<string | undefined>;
+        value?: pulumi.Input<string | undefined>;
     }
 }
 
 export namespace policy {
     export interface RuleIdpDiscoveryAppExclude {
-        id?: pulumi.Input<string>;
-        name?: pulumi.Input<string>;
+        id?: pulumi.Input<string | undefined>;
+        name?: pulumi.Input<string | undefined>;
         type: pulumi.Input<string>;
     }
 
     export interface RuleIdpDiscoveryAppInclude {
-        id?: pulumi.Input<string>;
-        name?: pulumi.Input<string>;
+        id?: pulumi.Input<string | undefined>;
+        name?: pulumi.Input<string | undefined>;
         type: pulumi.Input<string>;
     }
 
@@ -4296,36 +4296,36 @@ export namespace policy {
         /**
          * The identifier for the Idp the rule should route to if all conditions are met.
          */
-        id?: pulumi.Input<string>;
+        id?: pulumi.Input<string | undefined>;
         /**
          * Type of IdP. One of: `AMAZON`, `APPLE`, `DISCORD`, `FACEBOOK`, `GITHUB`, `GITLAB`, `GOOGLE`, `IDV_CLEAR`, `IDV_INCODE`, `IDV_PERSONA`, `LINKEDIN`, `LOGINGOV`, `LOGINGOV_SANDBOX`, `MICROSOFT`, `OIDC`, `PAYPAL`, `PAYPAL_SANDBOX`, `SALESFORCE`, `SAML2`, `SPOTIFY`, `X509`, `XERO`, `YAHOO`, `YAHOOJP`, Default: `OKTA`
          */
-        type?: pulumi.Input<string>;
+        type?: pulumi.Input<string | undefined>;
     }
 
     export interface RuleIdpDiscoveryPlatformInclude {
         /**
          * Only available with OTHER OS type
          */
-        osExpression?: pulumi.Input<string>;
-        osType?: pulumi.Input<string>;
-        type?: pulumi.Input<string>;
+        osExpression?: pulumi.Input<string | undefined>;
+        osType?: pulumi.Input<string | undefined>;
+        type?: pulumi.Input<string | undefined>;
     }
 
     export interface RuleIdpDiscoveryUserIdentifierPattern {
-        matchType?: pulumi.Input<string>;
-        value?: pulumi.Input<string>;
+        matchType?: pulumi.Input<string | undefined>;
+        value?: pulumi.Input<string | undefined>;
     }
 
     export interface RuleMfaAppExclude {
-        id?: pulumi.Input<string>;
-        name?: pulumi.Input<string>;
+        id?: pulumi.Input<string | undefined>;
+        name?: pulumi.Input<string | undefined>;
         type: pulumi.Input<string>;
     }
 
     export interface RuleMfaAppInclude {
-        id?: pulumi.Input<string>;
-        name?: pulumi.Input<string>;
+        id?: pulumi.Input<string | undefined>;
+        name?: pulumi.Input<string | undefined>;
         type: pulumi.Input<string>;
     }
 
@@ -4333,26 +4333,26 @@ export namespace policy {
         /**
          * Constraints on the values specified in the `primaryMethods` set. Specifying a constraint limits methods to specific authenticator(s). Currently, Google OTP is the only accepted constraint. The `otp` method requires a constraint.
          */
-        methodConstraints?: pulumi.Input<pulumi.Input<inputs.policy.RulePasswordPasswordResetRequirementMethodConstraint>[]>;
+        methodConstraints?: pulumi.Input<pulumi.Input<inputs.policy.RulePasswordPasswordResetRequirementMethodConstraint>[] | undefined>;
         /**
          * Authenticator methods allowed for the initial authentication step of password recovery. Method `otp` requires a constraint limiting it to a Google authenticator. Options: `otp`, `push`, `sms`, `email`, `voice`.
          */
-        primaryMethods?: pulumi.Input<pulumi.Input<string>[]>;
+        primaryMethods?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
          * Whether a secondary authenticator is required for password reset (`stepUp.required`). The following are three valid configurations: `required=false`, `required=true` with no methods to use any SSO authenticator, and `required=true` with `securityQuestion` as the method. Default: `false`.
          */
-        stepUpEnabled?: pulumi.Input<boolean>;
+        stepUpEnabled?: pulumi.Input<boolean | undefined>;
         /**
          * Authenticator methods required for the secondary authentication step of password recovery. Specify only when `stepUpEnabled = true` and `securityQuestion` is permitted for the secondary authentication. Items value: `securityQuestion`.
          */
-        stepUpMethods?: pulumi.Input<pulumi.Input<string>[]>;
+        stepUpMethods?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     }
 
     export interface RulePasswordPasswordResetRequirementMethodConstraint {
         /**
          * Keys of the authenticators allowed for this method (e.g. `googleOtp`).
          */
-        allowedAuthenticators?: pulumi.Input<pulumi.Input<string>[]>;
+        allowedAuthenticators?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
          * The method to constrain (e.g. `otp`).
          */
@@ -4368,7 +4368,7 @@ export namespace policy {
          * Factor provider
          */
         primaryCriteriaProvider: pulumi.Input<string>;
-        secondaryCriterias?: pulumi.Input<pulumi.Input<inputs.policy.RuleSignonFactorSequenceSecondaryCriteria>[]>;
+        secondaryCriterias?: pulumi.Input<pulumi.Input<inputs.policy.RuleSignonFactorSequenceSecondaryCriteria>[] | undefined>;
     }
 
     export interface RuleSignonFactorSequenceSecondaryCriteria {
@@ -4390,7 +4390,7 @@ export namespace profile {
          * The mapping property key.
          */
         id: pulumi.Input<string>;
-        pushStatus?: pulumi.Input<string>;
+        pushStatus?: pulumi.Input<string | undefined>;
     }
 }
 
@@ -4409,16 +4409,16 @@ export namespace user {
     }
 
     export interface GetUserSearchArgs {
-        comparison?: pulumi.Input<string>;
+        comparison?: pulumi.Input<string | undefined>;
         /**
          * A raw search expression string. This requires the search feature be on. Please see Okta documentation on their filter API for users. https://developer.okta.com/docs/api/resources/users#list-users-with-search
          */
-        expression?: pulumi.Input<string>;
+        expression?: pulumi.Input<string | undefined>;
         /**
          * Property name to search for. This requires the search feature be on. Please see Okta documentation on their filter API for users. https://developer.okta.com/docs/api/resources/users#list-users-with-search
          */
-        name?: pulumi.Input<string>;
-        value?: pulumi.Input<string>;
+        name?: pulumi.Input<string | undefined>;
+        value?: pulumi.Input<string | undefined>;
     }
 
     export interface GetUsersSearch {
@@ -4435,16 +4435,16 @@ export namespace user {
     }
 
     export interface GetUsersSearchArgs {
-        comparison?: pulumi.Input<string>;
+        comparison?: pulumi.Input<string | undefined>;
         /**
          * A raw search expression string. This requires the search feature be on. Please see Okta documentation on their filter API for users. https://developer.okta.com/docs/api/resources/users#list-users-with-search
          */
-        expression?: pulumi.Input<string>;
+        expression?: pulumi.Input<string | undefined>;
         /**
          * Property name to search for. This requires the search feature be on. Please see Okta documentation on their filter API for users. https://developer.okta.com/docs/api/resources/users#list-users-with-search
          */
-        name?: pulumi.Input<string>;
-        value?: pulumi.Input<string>;
+        name?: pulumi.Input<string | undefined>;
+        value?: pulumi.Input<string | undefined>;
     }
 
     export interface UserPasswordHash {
@@ -4455,11 +4455,11 @@ export namespace user {
         /**
          * Only required for salted hashes
          */
-        salt?: pulumi.Input<string>;
+        salt?: pulumi.Input<string | undefined>;
         /**
          * Specifies whether salt was pre- or postfixed to the password before hashing
          */
-        saltOrder?: pulumi.Input<string>;
+        saltOrder?: pulumi.Input<string | undefined>;
         /**
          * For SHA-512, SHA-256, SHA-1, MD5, This is the actual base64-encoded hash of the password (and salt, if used). This is the Base64 encoded value of the SHA-512/SHA-256/SHA-1/MD5 digest that was computed by either pre-fixing or post-fixing the salt to the password, depending on the saltOrder. If a salt was not used in the source system, then this should just be the the Base64 encoded value of the password's SHA-512/SHA-256/SHA-1/MD5 digest. For BCRYPT, This is the actual radix64-encoded hashed password.
          */
@@ -4467,7 +4467,7 @@ export namespace user {
         /**
          * Governs the strength of the hash and the time required to compute it. Only required for BCRYPT algorithm
          */
-        workFactor?: pulumi.Input<number>;
+        workFactor?: pulumi.Input<number | undefined>;
     }
 
     export interface UserType {

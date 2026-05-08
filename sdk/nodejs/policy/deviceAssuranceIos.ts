@@ -141,39 +141,39 @@ export interface DeviceAssuranceIosState {
     /**
      * Created by of the device assurance polic
      */
-    createdBy?: pulumi.Input<string>;
+    createdBy?: pulumi.Input<string | undefined>;
     /**
      * Created date of the device assurance polic
      */
-    createdDate?: pulumi.Input<string>;
+    createdDate?: pulumi.Input<string | undefined>;
     /**
      * Is the device jailbroken in the device assurance policy.
      */
-    jailbreak?: pulumi.Input<boolean>;
+    jailbreak?: pulumi.Input<boolean | undefined>;
     /**
      * Last update of the device assurance polic
      */
-    lastUpdate?: pulumi.Input<string>;
+    lastUpdate?: pulumi.Input<string | undefined>;
     /**
      * Last updated by of the device assurance polic
      */
-    lastUpdatedBy?: pulumi.Input<string>;
+    lastUpdatedBy?: pulumi.Input<string | undefined>;
     /**
      * Name of the device assurance policy.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Minimum os version of the device in the device assurance policy.
      */
-    osVersion?: pulumi.Input<string>;
+    osVersion?: pulumi.Input<string | undefined>;
     /**
      * Policy device assurance platform
      */
-    platform?: pulumi.Input<string>;
+    platform?: pulumi.Input<string | undefined>;
     /**
      * List of screenlock type, can be `BIOMETRIC` or `BIOMETRIC, PASSCODE`
      */
-    screenlockTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    screenlockTypes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 /**
@@ -183,17 +183,17 @@ export interface DeviceAssuranceIosArgs {
     /**
      * Is the device jailbroken in the device assurance policy.
      */
-    jailbreak?: pulumi.Input<boolean>;
+    jailbreak?: pulumi.Input<boolean | undefined>;
     /**
      * Name of the device assurance policy.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Minimum os version of the device in the device assurance policy.
      */
-    osVersion?: pulumi.Input<string>;
+    osVersion?: pulumi.Input<string | undefined>;
     /**
      * List of screenlock type, can be `BIOMETRIC` or `BIOMETRIC, PASSCODE`
      */
-    screenlockTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    screenlockTypes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

@@ -86,7 +86,7 @@ def get_app_group_assignments(id: Optional[_builtins.str] = None,
     return AwaitableGetAppGroupAssignmentsResult(
         groups=pulumi.get(__ret__, 'groups'),
         id=pulumi.get(__ret__, 'id'))
-def get_app_group_assignments_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_app_group_assignments_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAppGroupAssignmentsResult]:
     """
     Get a set of groups assigned to an Okta application.

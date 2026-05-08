@@ -118,15 +118,15 @@ export interface TemplateSmsState {
     /**
      * SMS default template
      */
-    template?: pulumi.Input<string>;
+    template?: pulumi.Input<string | undefined>;
     /**
      * Set of translations for a particular template.
      */
-    translations?: pulumi.Input<pulumi.Input<inputs.TemplateSmsTranslation>[]>;
+    translations?: pulumi.Input<pulumi.Input<inputs.TemplateSmsTranslation>[] | undefined>;
     /**
      * SMS template type
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -140,7 +140,7 @@ export interface TemplateSmsArgs {
     /**
      * Set of translations for a particular template.
      */
-    translations?: pulumi.Input<pulumi.Input<inputs.TemplateSmsTranslation>[]>;
+    translations?: pulumi.Input<pulumi.Input<inputs.TemplateSmsTranslation>[] | undefined>;
     /**
      * SMS template type
      */

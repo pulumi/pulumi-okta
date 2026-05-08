@@ -113,19 +113,19 @@ export interface OriginState {
     /**
      * Whether the Trusted Origin is active or not - can only be issued post-creation. By default, it is `true`.
      */
-    active?: pulumi.Input<boolean>;
+    active?: pulumi.Input<boolean | undefined>;
     /**
      * Unique name for this trusted origin
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Unique origin URL for this trusted origin
      */
-    origin?: pulumi.Input<string>;
+    origin?: pulumi.Input<string | undefined>;
     /**
      * Scopes of the Trusted Origin - can either be `CORS` and/or `REDIRECT`
      */
-    scopes?: pulumi.Input<pulumi.Input<string>[]>;
+    scopes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 /**
@@ -135,11 +135,11 @@ export interface OriginArgs {
     /**
      * Whether the Trusted Origin is active or not - can only be issued post-creation. By default, it is `true`.
      */
-    active?: pulumi.Input<boolean>;
+    active?: pulumi.Input<boolean | undefined>;
     /**
      * Unique name for this trusted origin
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Unique origin URL for this trusted origin
      */

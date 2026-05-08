@@ -112,7 +112,7 @@ def get_risk(user_id: Optional[_builtins.str] = None,
         reason=pulumi.get(__ret__, 'reason'),
         risk_level=pulumi.get(__ret__, 'risk_level'),
         user_id=pulumi.get(__ret__, 'user_id'))
-def get_risk_output(user_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_risk_output(user_id: pulumi.Input[Optional[_builtins.str]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRiskResult]:
     """
     Gets a user's risk level in Okta.

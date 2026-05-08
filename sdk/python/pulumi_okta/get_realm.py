@@ -119,9 +119,9 @@ def get_realm(id: Optional[_builtins.str] = None,
         is_default=pulumi.get(__ret__, 'is_default'),
         name=pulumi.get(__ret__, 'name'),
         realm_type=pulumi.get(__ret__, 'realm_type'))
-def get_realm_output(id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                     name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                     realm_type: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_realm_output(id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                     name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                     realm_type: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRealmResult]:
     """
     Get a realm from Okta.

@@ -93,7 +93,7 @@ export interface UiSchemaState {
     /**
      * Properties of the UI schema.
      */
-    uiSchema?: pulumi.Input<inputs.UiSchemaUiSchema>;
+    uiSchema?: pulumi.Input<inputs.UiSchemaUiSchema | undefined>;
 }
 
 /**
@@ -103,5 +103,5 @@ export interface UiSchemaArgs {
     /**
      * Properties of the UI schema.
      */
-    uiSchema?: pulumi.Input<inputs.UiSchemaUiSchema>;
+    uiSchema?: pulumi.Input<inputs.UiSchemaUiSchema | undefined>;
 }

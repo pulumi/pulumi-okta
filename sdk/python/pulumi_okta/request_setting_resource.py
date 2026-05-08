@@ -22,8 +22,8 @@ __all__ = ['RequestSettingResourceArgs', 'RequestSettingResource']
 class RequestSettingResourceArgs:
     def __init__(__self__, *,
                  id_property: pulumi.Input[_builtins.str],
-                 request_on_behalf_of_settings: Optional[pulumi.Input['RequestSettingResourceRequestOnBehalfOfSettingsArgs']] = None,
-                 risk_settings: Optional[pulumi.Input['RequestSettingResourceRiskSettingsArgs']] = None):
+                 request_on_behalf_of_settings: pulumi.Input[Optional['RequestSettingResourceRequestOnBehalfOfSettingsArgs']] = None,
+                 risk_settings: pulumi.Input[Optional['RequestSettingResourceRiskSettingsArgs']] = None):
         """
         The set of arguments for constructing a RequestSettingResource resource.
 
@@ -51,35 +51,35 @@ class RequestSettingResourceArgs:
 
     @_builtins.property
     @pulumi.getter(name="requestOnBehalfOfSettings")
-    def request_on_behalf_of_settings(self) -> Optional[pulumi.Input['RequestSettingResourceRequestOnBehalfOfSettingsArgs']]:
+    def request_on_behalf_of_settings(self) -> pulumi.Input[Optional['RequestSettingResourceRequestOnBehalfOfSettingsArgs']]:
         """
         Specifies if and for whom a requester may request the resource for.
         """
         return pulumi.get(self, "request_on_behalf_of_settings")
 
     @request_on_behalf_of_settings.setter
-    def request_on_behalf_of_settings(self, value: Optional[pulumi.Input['RequestSettingResourceRequestOnBehalfOfSettingsArgs']]):
+    def request_on_behalf_of_settings(self, value: pulumi.Input[Optional['RequestSettingResourceRequestOnBehalfOfSettingsArgs']]):
         pulumi.set(self, "request_on_behalf_of_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="riskSettings")
-    def risk_settings(self) -> Optional[pulumi.Input['RequestSettingResourceRiskSettingsArgs']]:
+    def risk_settings(self) -> pulumi.Input[Optional['RequestSettingResourceRiskSettingsArgs']]:
         """
         Risk settings for the resource.
         """
         return pulumi.get(self, "risk_settings")
 
     @risk_settings.setter
-    def risk_settings(self, value: Optional[pulumi.Input['RequestSettingResourceRiskSettingsArgs']]):
+    def risk_settings(self, value: pulumi.Input[Optional['RequestSettingResourceRiskSettingsArgs']]):
         pulumi.set(self, "risk_settings", value)
 
 
 @pulumi.input_type
 class _RequestSettingResourceState:
     def __init__(__self__, *,
-                 id_property: Optional[pulumi.Input[_builtins.str]] = None,
-                 request_on_behalf_of_settings: Optional[pulumi.Input['RequestSettingResourceRequestOnBehalfOfSettingsArgs']] = None,
-                 risk_settings: Optional[pulumi.Input['RequestSettingResourceRiskSettingsArgs']] = None):
+                 id_property: pulumi.Input[Optional[_builtins.str]] = None,
+                 request_on_behalf_of_settings: pulumi.Input[Optional['RequestSettingResourceRequestOnBehalfOfSettingsArgs']] = None,
+                 risk_settings: pulumi.Input[Optional['RequestSettingResourceRiskSettingsArgs']] = None):
         """
         Input properties used for looking up and filtering RequestSettingResource resources.
 
@@ -96,38 +96,38 @@ class _RequestSettingResourceState:
 
     @_builtins.property
     @pulumi.getter(name="idProperty")
-    def id_property(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id_property(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The id of the resource in Okta ID format.
         """
         return pulumi.get(self, "id_property")
 
     @id_property.setter
-    def id_property(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id_property(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id_property", value)
 
     @_builtins.property
     @pulumi.getter(name="requestOnBehalfOfSettings")
-    def request_on_behalf_of_settings(self) -> Optional[pulumi.Input['RequestSettingResourceRequestOnBehalfOfSettingsArgs']]:
+    def request_on_behalf_of_settings(self) -> pulumi.Input[Optional['RequestSettingResourceRequestOnBehalfOfSettingsArgs']]:
         """
         Specifies if and for whom a requester may request the resource for.
         """
         return pulumi.get(self, "request_on_behalf_of_settings")
 
     @request_on_behalf_of_settings.setter
-    def request_on_behalf_of_settings(self, value: Optional[pulumi.Input['RequestSettingResourceRequestOnBehalfOfSettingsArgs']]):
+    def request_on_behalf_of_settings(self, value: pulumi.Input[Optional['RequestSettingResourceRequestOnBehalfOfSettingsArgs']]):
         pulumi.set(self, "request_on_behalf_of_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="riskSettings")
-    def risk_settings(self) -> Optional[pulumi.Input['RequestSettingResourceRiskSettingsArgs']]:
+    def risk_settings(self) -> pulumi.Input[Optional['RequestSettingResourceRiskSettingsArgs']]:
         """
         Risk settings for the resource.
         """
         return pulumi.get(self, "risk_settings")
 
     @risk_settings.setter
-    def risk_settings(self, value: Optional[pulumi.Input['RequestSettingResourceRiskSettingsArgs']]):
+    def risk_settings(self, value: pulumi.Input[Optional['RequestSettingResourceRiskSettingsArgs']]):
         pulumi.set(self, "risk_settings", value)
 
 
@@ -137,9 +137,9 @@ class RequestSettingResource(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 id_property: Optional[pulumi.Input[_builtins.str]] = None,
-                 request_on_behalf_of_settings: Optional[pulumi.Input[Union['RequestSettingResourceRequestOnBehalfOfSettingsArgs', 'RequestSettingResourceRequestOnBehalfOfSettingsArgsDict']]] = None,
-                 risk_settings: Optional[pulumi.Input[Union['RequestSettingResourceRiskSettingsArgs', 'RequestSettingResourceRiskSettingsArgsDict']]] = None,
+                 id_property: pulumi.Input[Optional[_builtins.str]] = None,
+                 request_on_behalf_of_settings: pulumi.Input[Optional[Union['RequestSettingResourceRequestOnBehalfOfSettingsArgs', 'RequestSettingResourceRequestOnBehalfOfSettingsArgsDict']]] = None,
+                 risk_settings: pulumi.Input[Optional[Union['RequestSettingResourceRiskSettingsArgs', 'RequestSettingResourceRiskSettingsArgsDict']]] = None,
                  __props__=None):
         """
         Manages request settings. This resource allows you to read and configure an Okta [request-setting](https://developer.okta.com/docs/api/iga/openapi/governance.requests.admin.v2/tag/Request-Settings/#tag/Request-Settings/operation/getRequestSettingsV2).
@@ -226,9 +226,9 @@ class RequestSettingResource(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 id_property: Optional[pulumi.Input[_builtins.str]] = None,
-                 request_on_behalf_of_settings: Optional[pulumi.Input[Union['RequestSettingResourceRequestOnBehalfOfSettingsArgs', 'RequestSettingResourceRequestOnBehalfOfSettingsArgsDict']]] = None,
-                 risk_settings: Optional[pulumi.Input[Union['RequestSettingResourceRiskSettingsArgs', 'RequestSettingResourceRiskSettingsArgsDict']]] = None,
+                 id_property: pulumi.Input[Optional[_builtins.str]] = None,
+                 request_on_behalf_of_settings: pulumi.Input[Optional[Union['RequestSettingResourceRequestOnBehalfOfSettingsArgs', 'RequestSettingResourceRequestOnBehalfOfSettingsArgsDict']]] = None,
+                 risk_settings: pulumi.Input[Optional[Union['RequestSettingResourceRiskSettingsArgs', 'RequestSettingResourceRiskSettingsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -253,9 +253,9 @@ class RequestSettingResource(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            id_property: Optional[pulumi.Input[_builtins.str]] = None,
-            request_on_behalf_of_settings: Optional[pulumi.Input[Union['RequestSettingResourceRequestOnBehalfOfSettingsArgs', 'RequestSettingResourceRequestOnBehalfOfSettingsArgsDict']]] = None,
-            risk_settings: Optional[pulumi.Input[Union['RequestSettingResourceRiskSettingsArgs', 'RequestSettingResourceRiskSettingsArgsDict']]] = None) -> 'RequestSettingResource':
+            id_property: pulumi.Input[Optional[_builtins.str]] = None,
+            request_on_behalf_of_settings: pulumi.Input[Optional[Union['RequestSettingResourceRequestOnBehalfOfSettingsArgs', 'RequestSettingResourceRequestOnBehalfOfSettingsArgsDict']]] = None,
+            risk_settings: pulumi.Input[Optional[Union['RequestSettingResourceRiskSettingsArgs', 'RequestSettingResourceRiskSettingsArgsDict']]] = None) -> 'RequestSettingResource':
         """
         Get an existing RequestSettingResource resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

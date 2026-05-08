@@ -172,12 +172,12 @@ def get_users(compound_search_operator: Optional[_builtins.str] = None,
         include_roles=pulumi.get(__ret__, 'include_roles'),
         searches=pulumi.get(__ret__, 'searches'),
         users=pulumi.get(__ret__, 'users'))
-def get_users_output(compound_search_operator: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                     delay_read_seconds: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                     group_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                     include_groups: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
-                     include_roles: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
-                     searches: Optional[pulumi.Input[Optional[Sequence[Union['GetUsersSearchArgs', 'GetUsersSearchArgsDict']]]]] = None,
+def get_users_output(compound_search_operator: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                     delay_read_seconds: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                     group_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                     include_groups: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
+                     include_roles: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
+                     searches: pulumi.Input[Optional[Optional[Sequence[Union['GetUsersSearchArgs', 'GetUsersSearchArgsDict']]]]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUsersResult]:
     """
     Get a list of users from Okta.

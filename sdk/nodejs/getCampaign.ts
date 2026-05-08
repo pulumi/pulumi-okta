@@ -112,16 +112,16 @@ export function getCampaignOutput(args?: GetCampaignOutputArgs, opts?: pulumi.In
  * A collection of arguments for invoking getCampaign.
  */
 export interface GetCampaignOutputArgs {
-    campaignType?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
+    campaignType?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The ID of this resource.
      */
-    id?: pulumi.Input<string>;
-    notificationSettings?: pulumi.Input<inputs.GetCampaignNotificationSettingsArgs>;
-    principalScopeSettings?: pulumi.Input<inputs.GetCampaignPrincipalScopeSettingsArgs>;
-    remediationSettings?: pulumi.Input<inputs.GetCampaignRemediationSettingsArgs>;
-    resourceSettings?: pulumi.Input<inputs.GetCampaignResourceSettingsArgs>;
-    reviewerSettings?: pulumi.Input<inputs.GetCampaignReviewerSettingsArgs>;
-    scheduleSettings?: pulumi.Input<inputs.GetCampaignScheduleSettingsArgs>;
+    id?: pulumi.Input<string | undefined>;
+    notificationSettings?: pulumi.Input<inputs.GetCampaignNotificationSettingsArgs | undefined>;
+    principalScopeSettings?: pulumi.Input<inputs.GetCampaignPrincipalScopeSettingsArgs | undefined>;
+    remediationSettings?: pulumi.Input<inputs.GetCampaignRemediationSettingsArgs | undefined>;
+    resourceSettings?: pulumi.Input<inputs.GetCampaignResourceSettingsArgs | undefined>;
+    reviewerSettings?: pulumi.Input<inputs.GetCampaignReviewerSettingsArgs | undefined>;
+    scheduleSettings?: pulumi.Input<inputs.GetCampaignScheduleSettingsArgs | undefined>;
 }

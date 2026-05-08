@@ -96,16 +96,16 @@ export interface LogStreamState {
     /**
      * Unique name for the Log Stream object
      */
-    name?: pulumi.Input<string>;
-    settings?: pulumi.Input<inputs.LogStreamSettings>;
+    name?: pulumi.Input<string | undefined>;
+    settings?: pulumi.Input<inputs.LogStreamSettings | undefined>;
     /**
      * Stream status
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * Streaming provider used - 'aws*eventbridge' or 'splunk*cloud_logstreaming'
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -115,12 +115,12 @@ export interface LogStreamArgs {
     /**
      * Unique name for the Log Stream object
      */
-    name?: pulumi.Input<string>;
-    settings?: pulumi.Input<inputs.LogStreamSettings>;
+    name?: pulumi.Input<string | undefined>;
+    settings?: pulumi.Input<inputs.LogStreamSettings | undefined>;
     /**
      * Stream status
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * Streaming provider used - 'aws*eventbridge' or 'splunk*cloud_logstreaming'
      */

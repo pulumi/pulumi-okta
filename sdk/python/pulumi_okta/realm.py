@@ -19,8 +19,8 @@ __all__ = ['RealmArgs', 'Realm']
 @pulumi.input_type
 class RealmArgs:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 realm_type: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 realm_type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Realm resource.
 
@@ -34,35 +34,35 @@ class RealmArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Okta Realm.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="realmType")
-    def realm_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def realm_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The realm type. Valid values: `PARTNER` and `DEFAULT`
         """
         return pulumi.get(self, "realm_type")
 
     @realm_type.setter
-    def realm_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def realm_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "realm_type", value)
 
 
 @pulumi.input_type
 class _RealmState:
     def __init__(__self__, *,
-                 is_default: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 realm_type: Optional[pulumi.Input[_builtins.str]] = None):
+                 is_default: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 realm_type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Realm resources.
 
@@ -79,38 +79,38 @@ class _RealmState:
 
     @_builtins.property
     @pulumi.getter(name="isDefault")
-    def is_default(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_default(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether the realm is the default realm.
         """
         return pulumi.get(self, "is_default")
 
     @is_default.setter
-    def is_default(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_default(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_default", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Okta Realm.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="realmType")
-    def realm_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def realm_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The realm type. Valid values: `PARTNER` and `DEFAULT`
         """
         return pulumi.get(self, "realm_type")
 
     @realm_type.setter
-    def realm_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def realm_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "realm_type", value)
 
 
@@ -120,8 +120,8 @@ class Realm(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 realm_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 realm_type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Creates an Okta Realm. This resource allows you to create and configure an Okta Realm.
@@ -191,8 +191,8 @@ class Realm(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 realm_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 realm_type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -215,9 +215,9 @@ class Realm(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            is_default: Optional[pulumi.Input[_builtins.bool]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            realm_type: Optional[pulumi.Input[_builtins.str]] = None) -> 'Realm':
+            is_default: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            realm_type: pulumi.Input[Optional[_builtins.str]] = None) -> 'Realm':
         """
         Get an existing Realm resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
